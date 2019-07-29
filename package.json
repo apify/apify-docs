@@ -1,0 +1,23 @@
+{
+  "name": "apify-docs",
+  "version": "0.0.1",
+  "description": "This is a home of Apify documentation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apifytech/apify-docs.git"
+  },
+  "keywords": [
+    "documentation",
+    "apify"
+  ],
+  "author": "Marek Trunkát",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/apifytech/apify-docs/issues"
+  },
+  "homepage": "https://github.com/apifytech/apify-docs#readme"
+}
