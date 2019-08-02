@@ -4,7 +4,10 @@
   "description": "This is a home of Apify documentation.",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "build": "node ./src/build.js",
+    "test": "npm run test",
+    "lint": "./node_modules/.bin/eslint .",
+    "lint:fix": "./node_modules/.bin/eslint . --ext .js,.jsx --fix"
   },
   "repository": {
     "type": "git",
@@ -19,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/apifytech/apify-docs/issues"
   },
-  "homepage": "https://github.com/apifytech/apify-docs#readme"
+  "homepage": "https://github.com/apifytech/apify-docs#readme",
+  "dependencies": {
+    "@apify/eslint-config": "0.0.2",
+    "apify-shared": "^0.1.55",
+    "eslint": "^6.1.0",
+    "fs-extra": "^8.1.0",
+    "markdown-yaml-metadata-parser": "^2.0.1",
+    "underscore": "^1.9.1"
+  }
 }
