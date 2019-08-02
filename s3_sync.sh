@@ -10,6 +10,4 @@ if [ "$GIT_BRANCH" != "master" ]; then
     GIT_BRANCH='develop'
 fi
 
-ls -l -a
-
 aws s3 sync --delete --acl public-read build s3://apify-docs/$GIT_BRANCH
