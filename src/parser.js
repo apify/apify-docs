@@ -24,7 +24,7 @@ const readAndParsePage = async (fullPath, shortPath) => {
         content,
         contentHash: crypto.createHash('sha256').update(content).digest('base64'),
         menuTitle: metadata.title,
-        path: shortPath.replace('/index.md', '').replace('.md', ''),
+        path: shortPath.replace('/index.md', '').replace('.md', '').replace(/_/g, '-'),
         sourceUrl: `https://apify-docs.s3.amazonaws.com/master/pages/${shortPath}`,
     }, metadata);
 };
