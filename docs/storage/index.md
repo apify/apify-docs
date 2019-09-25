@@ -1,6 +1,5 @@
 ---
 title: Storage
-path: storage
 ---
 
 # Storage

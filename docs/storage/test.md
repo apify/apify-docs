@@ -1,6 +1,5 @@
 ---
 title: Test
-path: storage/test
 ---
 
 # Test
