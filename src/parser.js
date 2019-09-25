@@ -11,20 +11,21 @@ const readdirPromised = util.promisify(fs.readdir);
 const lstatPromised = util.promisify(fs.lstat);
 const readFilePromised = util.promisify(fs.readFile);
 
-const readAndParsePage = async (pagePath) => {
-    const rawPage = (await readFilePromised(pagePath)).toString();
+const readAndParsePage = async (fullPath, shortPath) => {
+    const rawPage = (await readFilePromised(fullPath)).toString();
     const { content, metadata } = metadataParser(rawPage);
 
     // Check that there are no invalid keys.
     const invalidKeys = _.without(Object.keys(metadata), ...ALLOWED_METADATA_KEYS);
     if (invalidKeys.length) throw new Error(`Invalid metadata keys found: ${invalidKeys.join(', ')}, allowed keys: ${ALLOWED_METADATA_KEYS.join(', ')}`); // eslint-disable-line
-    if (!metadata.title) throw new Error(`Value metadata.title is missing in ${pagePath}`);
-    if (!metadata.path) throw new Error(`Value metadata.path is missing in ${pagePath}`);
+    if (!metadata.title) throw new Error(`Value metadata.title is missing in ${fullPath}`);
 
     return Object.assign({
         content,
         contentHash: crypto.createHash('sha256').update(content).digest('base64'),
         menuTitle: metadata.title,
+        path: shortPath.replace('/index.md', '').replace('.md', ''),
+        sourceUrl: `https://apify-docs.s3.amazonaws.com/master/pages/${shortPath}`,
     }, metadata);
 };
 
@@ -57,9 +58,9 @@ const traverseAllFiles = async (currentPath = null) => {
     const filePromises = filePaths.map(async (filePath) => {
         const isPage = filePath.split('.').pop() === PAGE_EXT;
         if (isPage) {
-            pages[filePath] = await readAndParsePage(path.join(DOCS_PATH, filePath));
+            pages[filePath] = await readAndParsePage(path.join(DOCS_PATH, filePath), filePath);
         } else {
-            assets[filePath] = filePath;
+            assets[filePath] = `https://apify-docs.s3.amazonaws.com/master/assets/${filePath}`;
         }
     });
 

@@ -1,6 +1,5 @@
 ---
 title: Test
-path: something/else
 ---
 
 test
