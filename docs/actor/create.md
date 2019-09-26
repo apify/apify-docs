@@ -1,7 +1,7 @@
 ---
-title: Publish actor
+title: Create actor
 ---
 
-# Publish actor
+# Create actor
 
-Lorem impsum dolor
+How to create actor

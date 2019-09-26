@@ -1,7 +1,7 @@
 ---
-title: Request queue
+title: Publish actor
 ---
 
-# Request queue
+# Publish actor
 
-Blaah blaah blaah
+Lorem impsum dolor
