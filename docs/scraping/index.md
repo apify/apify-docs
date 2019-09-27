@@ -1,5 +1,5 @@
 ---
-title: Scraping with Apify
+title: Scraping
 ---
 
 # [](./scraping)Scraping with Apify
