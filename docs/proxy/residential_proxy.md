@@ -6,9 +6,9 @@ title: Residential proxy
 
 Sometimes datacenter proxy servers are not a viable option for certain solutions and for these cases Apify Proxy includes an option to use Residential Proxy. This proxy solution allows the user access to a much larger pool of proxy servers than with datacenter proxy servers and therefore it is usually a better option for situations where a large number of proxy servers is required.
 
-On the Apify platform, users can use Residential Proxy after they are given access to it by the [](/contact)Apify Support Team. **Pricing is based on data traffic**, which is measured for each connection made through the proxy and displayed on the platform's dashboard.
+On the Apify platform, users can use Residential Proxy after they are given access to it by the Apify Support Team. **Pricing is based on data traffic**, which is measured for each connection made through the proxy and displayed on the platform's dashboard.
 
-Please [contact us](/contact) if you want to use Apify Residential Proxy or if you need more information.
+Please [contact us](https://apify.com/contact) if you want to use Apify Residential Proxy or if you need more information.
 
 ### [](#residential-proxy--username-params)Username parameters
 
@@ -39,14 +39,14 @@ And here is how it would look if you need a random proxy from the US
 
 ### [](#residential-proxy--session-persistence)Session persistence
 
-When using Apify Proxy with `session` parameter set in the username (see [Username parameters](#residential-proxy--username-params)) a single IP is assigned to the session ID provided after the first request is made. This IP is persisted for one minute and its expiration is refreshed with each request. If the proxy server becomes unresponsive or the session expires a new IP is selected for the next request.
+When using Apify Proxy with `session` parameter set in the username (see [Username parameters]({{@link proxy/residential_proxy.md##residential-proxy--username-params}})) a single IP is assigned to the session ID provided after the first request is made. This IP is persisted for one minute and its expiration is refreshed with each request. If the proxy server becomes unresponsive or the session expires a new IP is selected for the next request.
 
 
 ### [](#residential-proxy--nodejs-examples)NodeJS Examples
 
-The following sections contain several examples of how to use Apify Proxy in NodeJS (used as the default language in [actors](./actor)).
+The following sections contain several examples of how to use Apify Proxy in NodeJS (used as the default language in [actors]({{@link actor/index.md}})).
 
-#### Usage in [PuppeteerCrawler](/docs/sdk/apify-runtime-js/latest#PuppeteerCrawler)
+#### Usage in [PuppeteerCrawler](https://apify.com/docs/sdk/apify-runtime-js/latest#PuppeteerCrawler)
 
 Use a single session with IP from the US for the whole PuppeteerCrawler run (for as long as the session lasts)
 
@@ -106,7 +106,7 @@ Create a new session with IP from GB for each browser launched during the Crawle
         await crawler.run();
     });
 
-#### Usage in [Apify.launchPuppeteer()](/docs/sdk/apify-runtime-js/latest#module-Apify-launchPuppeteer)
+#### Usage in [Apify.launchPuppeteer()](https://apify.com/docs/sdk/apify-runtime-js/latest#module-Apify-launchPuppeteer)
 
 Use a single IP from Germany for all requests done in the launched browser
 

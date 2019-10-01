@@ -19,7 +19,7 @@ Click **Quick run** to build and run your actor. After the run is finished you s
 
 Congratulations, you have successfully created and run your first actor!
 
-Let's try something little more complicated. We will change the actor to accept input and generate output (see [Input and output](#input-output) for more details):
+Let's try something little more complicated. We will change the actor to accept input and generate output (see [Input and output]({{@link actor/run.md#input-output}}) for more details):
 
     const Apify = require('apify');
 
@@ -54,4 +54,4 @@ For more complicated actors, you'll probably prefer to host the source code on G
 4.  Paste the Git repo link to **Git URL**, save changes and build your actor.
 5.  That's it, now you can develop your actor locally on your computer and run it in the Apify cloud!
 
-For more information, go to the [Git repository](#source-git-repo) section.
+For more information, go to the [Git repository]({{@link actor/source_code.md#source-git-repo}}) section.
