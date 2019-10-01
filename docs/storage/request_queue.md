@@ -42,4 +42,4 @@ If queue is opened then you can use it:
 
 #### [](#queue-api-client)API and Javascript client
 
-The request queue provides a [HTTP API](/docs/api/v2#/reference/request-queues) to manage queues and to add/retrieve requests. If you are developing a Node.js application, then you can also use the [Apify JavaScript client](/docs/api/apify-client-js/latest#ApifyClient-requestQueues).
+The request queue provides a [HTTP API](https://apify.com/docs/api/v2#/reference/request-queues) to manage queues and to add/retrieve requests. If you are developing a Node.js application, then you can also use the [Apify JavaScript client](https://apify.com/docs/api/apify-client-js/latest#ApifyClient-requestQueues).
