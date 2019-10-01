@@ -34,4 +34,4 @@ If you want to use something other than the default key-value store, e.g. some s
 
 #### [](#key-value-store-api-client)API and JavaScript client
 
-The key-value store also provides a [HTTP API](/docs/api/v2#/reference/key-value-stores) to manage key-value stores and their records. If you are developing a Node.js application then you can also use the [Apify JavaScript client](/docs/api/apify-client-js/latest#ApifyClient-keyValueStores).
+The key-value store also provides a [HTTP API](https://apify.com/docs/api/v2#/reference/key-value-stores) to manage key-value stores and their records. If you are developing a Node.js application then you can also use the [Apify JavaScript client](https://apify.com/docs/api/apify-client-js/latest#ApifyClient-keyValueStores).
