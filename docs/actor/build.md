@@ -4,7 +4,7 @@ title: Build
 
 ## [](#build)Build
 
-Before the actor can be run, it first needs to be built. The build effectively creates a snapshot of a specific version of the actor's settings such as the [Source code]({{@link actor/source_code.md}}) and [Environment variables]({{@link actor/run.md#run-env-vars}}), and creates a Docker image that contains everything the actor needs for its run, including necessary NPM packages, web browsers, etc.
+Before the actor can be run, it first needs to be built. The build effectively creates a snapshot of a specific version of the actor's settings such as the [Source code]({{@link actor/source_code.md}}) and [Environment variables]({{@link actor/run.md}}#run-env-vars), and creates a Docker image that contains everything the actor needs for its run, including necessary NPM packages, web browsers, etc.
 
 Each build is assigned a unique build number of the form `MAJOR.MINOR.BUILD` (e.g. `1.2.345`), where `MAJOR.MINOR` corresponds to the actor version number (see [Versions](#versions)) and `BUILD` is an automatically-incremented number starting at `1`.
 
