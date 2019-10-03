@@ -29,13 +29,13 @@ Before we start, let's do a quick recap of the data we chose to scrape:
 5.  **Last run date**- When the actor was last run.
 6.  **Number of runs** - How many times the actor was run.
 
-![data to scrape](https://apifyusercontent.com/7274765d35b9a7c781e5bcc705a3dbdcf3c308ec/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f7363726170696e672d70726163746963652e6a7067 "Overview of data to be scraped.")
+![data to scrape](../img/scraping-practice.jpg "Overview of data to be scraped.")
 
 We've already scraped number 1 and 2 in the [Getting started with Apify scrapers](https://apify.com/docs/scraping/tutorial/introduction) tutorial, so let's get to the next one on the list: Title
 
 ### [](#title)Title
 
-![actor title](https://apifyusercontent.com/5274e02a1c45ed96a7d8c0147ac6e3d99f883ed0/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f7469746c652e6a7067 "Finding actor title in DevTools.")
+![actor title](../img/title.jpg "Finding actor title in DevTools.")
 
 By using the element selector tool, we find out that the title is there under an `<h1>` tag, as titles should be. Maybe surprisingly, we find that there are actually two `<h1>` tags on the detail page. This should get us thinking. Is there any parent element that includes our `<h1>` tag, but not the other ones? Yes, there is! There is a `<header>` element that we can use to select only the heading we're interested in.
 
@@ -52,7 +52,7 @@ To get the title we just need to find it using a `header h1` selector, which sel
 
 Getting the actor's description is a little more involved, but still pretty straightforward. We can't just simply search for a `<p>` tag, because there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the actor description is nested within the `<header>` element too, same as the title. Sadly, we're still left with two `<p>` tags. To finally select only the description, we choose the `<p>` tag that has a `class` that starts with `Text__Paragraph`.
 
-![actor description selector](https://apifyusercontent.com/28dee1e51c6ac3e8ec67f0eb953b4a71c775f217/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f6465736372697074696f6e2e6a7067 "Finding actor description in DevTools.")
+![actor description selector](../img/description.jpg "Finding actor description in DevTools.")
 
     return {
         title: $('header h1').text(),
@@ -63,7 +63,7 @@ Getting the actor's description is a little more involved, but still pretty stra
 
 The DevTools tell us that the `lastRunDate` can be found in the second of the two `<time>` elements in the page.
 
-![actor last run date selector](https://apifyusercontent.com/6fe3f03692a7dc3acc35be74b3b8baacb98d7ac3/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f6c6173742d72756e2d646174652e6a7067 "Finding actor last run date in DevTools.")
+![actor last run date selector](../img/last-run-date.jpg "Finding actor last run date in DevTools.")
 
     return {
         title: $('header h1').text(),
@@ -221,7 +221,7 @@ Before we can wait for the button, we need to know its unique selector. A quick 
 
 > Don't forget to confirm our assumption in the DevTools finder tool (CTRL/CMD + F).
 
-![waiting for the button](https://apifyusercontent.com/fbf97b35b4cb63cb5438c84dfc255a3b765ed176/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f77616974696e672d666f722d7468652d627574746f6e2e6a7067 "Finding show more button in DevTools.")
+![waiting for the button](../img/waiting-for-the-button.jpg "Finding show more button in DevTools.")
 
 Now that we know what to wait for, we just plug it into the `waitFor()` function.
 
@@ -323,7 +323,7 @@ We've got the general algorithm ready, so all that's left is to integrate it int
 
 That's it! You can now remove the **Max pages per run** limit, **Save & Run** your task and watch the scraper paginate through all the actors and then scrape all of their data. After it succeeds, open the Dataset again and see the clean items. You should have a table of all the actor's details in front of you. If you do, great job! You've successfully scraped the Apify Store. And if not, no worries, just go through the code examples again, it's probably just some typo.
 
-![final results](https://apifyusercontent.com/7efc451548c50f3495439b673b9298d9d8ec4f1b/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f706c756767696e672d69742d696e746f2d7468652d7061676566756e6374696f6e2e6a7067 "Final results.")
+![final results](../img/plugging-it-into-the-pagefunction.jpg "Final results.")
 
 ## [](#downloading-the-scraped-data)Downloading the scraped data
 
