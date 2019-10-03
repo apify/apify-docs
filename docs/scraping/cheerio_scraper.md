@@ -29,13 +29,13 @@ Before we start, let's do a quick recap of the data we chose to scrape:
 5.  **Last run date**- When the actor was last run.
 6.  **Number of runs** - How many times the actor was run.
 
-![data to scrape](https://apifyusercontent.com/7274765d35b9a7c781e5bcc705a3dbdcf3c308ec/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f7363726170696e672d70726163746963652e6a7067 "Overview of data to be scraped.")
+![data to scrape](../img/scraping-practice.jpg "Overview of data to be scraped.")
 
 We've already scraped number 1 and 2 in the [Getting started with Apify scrapers](https://apify.com/docs/scraping/tutorial/introduction) tutorial, so let's get to the next one on the list: Title
 
 ### [](#title)Title
 
-![actor title](https://apifyusercontent.com/5274e02a1c45ed96a7d8c0147ac6e3d99f883ed0/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f7469746c652e6a7067 "Finding actor title in DevTools.")
+![actor title](../img/title.jpg "Finding actor title in DevTools.")
 
 By using the element selector tool, we find out that the title is there under an `<h1>` tag, as titles should be. Maybe surprisingly, we find that there are actually two `<h1>` tags on the detail page. This should get us thinking. Is there any parent element that includes our `<h1>` tag, but not the other ones? Yes, there is! There is a `<header>` element that we can use to select only the heading we're interested in.
 
@@ -52,7 +52,7 @@ To get the title we just need to find it using a `header h1` selector, which sel
 
 Getting the actor's description is a little more involved, but still pretty straightforward. We can't just simply search for a `<p>` tag, because there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the actor description is nested within the `<header>` element too, same as the title. Sadly, we're still left with two `<p>` tags. To finally select only the description, we choose the `<p>` tag that has a `class` that starts with `Text__Paragraph`.
 
-![actor description selector](https://apifyusercontent.com/28dee1e51c6ac3e8ec67f0eb953b4a71c775f217/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f6465736372697074696f6e2e6a7067 "Finding actor description in DevTools.")
+![actor description selector](../img/description.jpg "Finding actor description in DevTools.")
 
     return {
         title: $('header h1').text(),
@@ -63,7 +63,7 @@ Getting the actor's description is a little more involved, but still pretty stra
 
 The DevTools tell us that the `lastRunDate` can be found in the second of the two `<time>` elements in the page.
 
-![actor last run date selector](https://apifyusercontent.com/6fe3f03692a7dc3acc35be74b3b8baacb98d7ac3/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f6c6173742d72756e2d646174652e6a7067 "Finding actor last run date in DevTools.")
+![actor last run date selector](../img/last-run-date.jpg "Finding actor last run date in DevTools.")
 
     return {
         title: $('header h1').text(),
@@ -190,7 +190,7 @@ While with `apify/web-scraper` and `apify/puppeteer-scraper`, we could get away 
 
 We want to know what happens when we click the **Show more** button, so we open the DevTools Network tab and clear it. Then we click the Show more button and wait for incoming requests to appear in the list.
 
-![inspect-network](https://apifyusercontent.com/2b51728bb8363c8ac71d8bab191c938fa3a5ddc9/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f696e73706563742d6e6574776f726b2e6a7067 "Inspecting network in DevTools.")
+![inspect-network](../img/inspect-network.jpg "Inspecting network in DevTools.")
 
 Now, this is interesting. It seems that we've only received two images after clicking the button and no additional data. This means that the data about actors must already be available in the page and the Show more button only displays it. This is good news.
 
@@ -198,7 +198,7 @@ Now, this is interesting. It seems that we've only received two images after cli
 
 Now that we know the information we seek is already in the page, we just need to find it. The first actor in the store is `apify/web-scraper` so let's try using the search tool in the Elements tab to find some reference to it. The first few hits do not provide any interesting information, but in the end, we find our goldmine. There is a `<script>` tag, with the ID `__NEXT_DATA__` that seems to hold a lot of information about `apify/web-scraper`. In DevTools, you can right click an element and click **Store as global variable** to make this element available in the Console.
 
-![find-data](https://apifyusercontent.com/7b5b800b5544349cd486c3cca2c61240a043e38e/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f66696e642d646174612e6a7067 "Finding the hidden actor data.")
+![find-data](../img/find-data.jpg "Finding the hidden actor data.")
 
 A `temp1` variable is now added to your console. We're mostly interested in its contents and we can get that using the `temp1.textContent` property. You can see that it's a rather large JSON string. How do we know? The `type` attribute of the `<script>` element says `application/json`. But working with a string would be very cumbersome, so we need to parse it.
 
@@ -206,7 +206,7 @@ A `temp1` variable is now added to your console. We're mostly interested in its 
 
 After entering the above command into the console, we can inspect the `data` variable and see that all the information we need is there, in the `data.props.pageProps.items` array. Great!
 
-![inspect-data](https://apifyusercontent.com/e121274d88789fc535f4389ad1e36e61155fec23/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f696e73706563742d646174612e6a7067 "Inspecting the hidden actor data.")
+![inspect-data](../img/inspect-data.jpg "Inspecting the hidden actor data.")
 
 > It's obvious that all the information we set to scrape is available in this one data object, so you might already be wondering, can I just make one request to the store to get this JSON and then parse it out and be done with it in a single request? Yes you can! And that's the power of clever page analysis.
 

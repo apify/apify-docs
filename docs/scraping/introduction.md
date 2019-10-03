@@ -20,7 +20,7 @@ Depending on how you arrived at this tutorial, you may already have your first t
 
 > This tutorial covers the use of **Web**, **Cheerio** and **Puppeteer** scrapers, but a lot of the information here can be used with all actors.
 
-![actor-selection](https://apifyusercontent.com/8dbaeafb7e45277d68a2011447cc28d21e5be3cc/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f6163746f722d73656c656374696f6e2e6a7067 "Selecting the best actor")
+![actor-selection](../img/actor-selection.jpg "Selecting the best actor")
 
 ### [](#running-a-task)Running a task
 
@@ -40,7 +40,7 @@ After clicking **Save & Run**, the window will change to the run detail. Here, y
 
 Now that the run has `SUCCEEDED`, click on the rightmost card labeled **Clean items** to see the results of the scrape. This takes you to the DATASET tab, where you can display or download the results in various formats. For now, just click the blue **Preview data** button. Voila, the scraped data.
 
-![run detail](https://apifyusercontent.com/44d8fb566bd35bec26dc9725cfa168795338acff/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f7468652d72756e2d64657461696c2e6a7067 "Viewing results in the run detail.")
+![run detail](../img/the-run-detail.jpg "Viewing results in the run detail.")
 
 Good job! We've run our first task and got some results. Let's learn how to change the default configuration to scrape something more interesting than just the page's `<title>`.
 
@@ -107,7 +107,7 @@ We also need to somehow distinguish the Start URL from all the other URLs that t
       "label": "START"
     }
 
-![start url input](https://apifyusercontent.com/90c552bd3267b500260d27eba7c1b5792b10c370/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f7468652d73746172742d75726c2e6a7067 "Adding new Start URL.")
+![start url input](../img/the-start-url.jpg "Adding new Start URL.")
 
 ### [](#crawling-the-website-with-pseudo-urls)Crawling the website with Pseudo URLs
 
@@ -141,7 +141,7 @@ Let's use the above Pseudo URL in our task. We should also add a label as we did
       "label": "DETAIL"
     }
 
-![pseudo url input](https://apifyusercontent.com/8d4802058a4f68753345a4097b292a82d38dab83/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f6d616b696e672d612d70736575646f2d75726c2e6a7067 "Adding new Pseudo URL.")
+![pseudo url input](../img/making-a-pseudo-url.jpg "Adding new Pseudo URL.")
 
 ### [](#filtering-with-a-link-selector)Filtering with a link selector
 
@@ -175,7 +175,7 @@ The DevTools window will pop up, and display a lot of, perhaps unfamiliar, infor
 
 You'll see that the Element tab jumps to the first `<title>` element of the current page and that the title is `Store`. It's always good practice to do your research using the DevTools before writing the `pageFunction` and running your task.
 
-![devtools](https://apifyusercontent.com/b6ba4c89bd65705450f1fee33c37198186b175fc/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6170696679746563682f6163746f722d736372617065722f6d61737465722f646f63732f6275696c642f2e2e2f696d672f7573696e672d646576746f6f6c732e6a7067 "Finding title element in DevTools.")
+![devtools](../img/using-devtools.jpg "Finding title element in DevTools.")
 
 > For the sake of brevity, we won't go into the details of using the DevTools in this tutorial. If you're just starting out with DevTools, this [Google tutorial](https://developers.google.com/web/tools/chrome-devtools/) is a good place to begin.
 
