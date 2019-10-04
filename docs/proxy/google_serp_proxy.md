@@ -15,7 +15,7 @@ Currently supported google search services are:
 
 **Important:** Only HTTP requests are allowed, and the Google hostname needs to start with `www.` subdomain.
 
-**Pricing is based on the number of requests made**. Please [contact us](/contact) if you want to use Google SERP Proxy or if you need more information.
+**Pricing is based on the number of requests made**. Please [contact us](https://apify.com/contact) if you want to use Google SERP Proxy or if you need more information.
 
 ### [](#google-serp--username-params)Username parameters
 
@@ -42,9 +42,9 @@ See [full list of available domain names](https://ipfs.io/ipfs/QmXoypizjW3WknFiJ
 
 ### [](#google-serp--nodejs-examples)NodeJS Examples
 
-The following sections contain several examples of how to use Google SERP proxy in [actors](./actor).
+The following sections contain several examples of how to use Google SERP proxy in [actors]({{@link actor/index.md}}).
 
-#### Usage in [PuppeteerCrawler](/docs/sdk/apify-runtime-js/latest#PuppeteerCrawler)
+#### Usage in [PuppeteerCrawler](https://apify.com/docs/sdk/apify-runtime-js/latest#PuppeteerCrawler)
 
 Get a list of results from the US for keyword `wikipedia` and parse them through cheerio
 
@@ -145,7 +145,7 @@ Get a list of shopping results from the Czech Republic for keyword `Apple iPhone
         await crawler.run();
     });
 
-#### Usage in [Apify.launchPuppeteer()](/docs/sdk/apify-runtime-js/latest#module-Apify-launchPuppeteer)
+#### Usage in [Apify.launchPuppeteer()](https://apify.com/docs/sdk/apify-runtime-js/latest#module-Apify-launchPuppeteer)
 
 Get a list of results from the US for keyword `wikipedia` and parse them through cheerio
 

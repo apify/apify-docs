@@ -21,11 +21,11 @@ The following table describes the run settings:
 
 The owner of the actor can specify default values for all the above settings in the **Default run configuration** section in the app. If the actor caller does not specify a particular setting, the default value is used.
 
-The actor can also be invoked using the Apify API by sending a HTTP POST request to the [Run actor](/docs/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, such as:
+The actor can also be invoked using the Apify API by sending a HTTP POST request to the [Run actor](https://apify.com/docs/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, such as:
 
     https://api.apify.com/v2/acts/apify~hello-world/runs?token=<YOUR_API_TOKEN>
 
-The actor's input and its content type can be passed as a payload of the POST request and additional options can be specified using URL query parameters. For more details, see the [Run actor](/docs/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
+The actor's input and its content type can be passed as a payload of the POST request and additional options can be specified using URL query parameters. For more details, see the [Run actor](https://apify.com/docs/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
 
 Actors can also be invoked programmatically from other actors using the [`call()`](https://sdk.apify.com/docs/api/apify#module_Apify.call) function provided by the [`apify`](https://sdk.apify.com/) NPM package. For example:
 
@@ -34,19 +34,19 @@ Actors can also be invoked programmatically from other actors using the [`call()
 
 The newly started actor runs under the same user account as the initial actor and therefore all resources consumed are charged to the same user account. This allows more complex actors to be built using simpler actors built and owned by other users.
 
-Internally, the `call()` function takes the user's API token from the `APIFY_TOKEN` environment variable, then it invokes the [Run actor](/docs/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get record](/docs/api/v2/#/reference/key-value-stores/record/get-record) API endpoint.
+Internally, the `call()` function takes the user's API token from the `APIFY_TOKEN` environment variable, then it invokes the [Run actor](https://apify.com/docs/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get record](https://apify.com/docs/api/v2/#/reference/key-value-stores/record/get-record) API endpoint.
 
 ### [](#input-output)Input and output
 
 As demonstrated in the hello world example above, actors can accept input and generate output. Both input and output are stored in a key-value store that is created when the actor is started, under the `INPUT` and `OUTPUT` keys, respectively. Note that the actor can store other values under arbitrary keys, for example crawling results or screenshots of web pages.
 
-The key-value store associated with the actor run can be conveniently accessed using the [`getValue()`](https://sdk.apify.com/docs/api/apify#module_Apify.getValue) and [`setValue()`](https://sdk.apify.com/docs/api/apify#module_Apify.setValue) functions provided by the `apify` NPM package. Internally, these functions read the ID of the key-value store from the `APIFY_DEFAULT_KEY_VALUE_STORE_ID` environment variable and then access the store using the Apify API. For more details about the key-value stores, go to the [Storage](#storage) section.
+The key-value store associated with the actor run can be conveniently accessed using the [`getValue()`](https://sdk.apify.com/docs/api/apify#module_Apify.getValue) and [`setValue()`](https://sdk.apify.com/docs/api/apify#module_Apify.setValue) functions provided by the `apify` NPM package. Internally, these functions read the ID of the key-value store from the `APIFY_DEFAULT_KEY_VALUE_STORE_ID` environment variable and then access the store using the Apify API. For more details about the key-value stores, go to the [Storage]({{@link storage/index.md}}) section.
 
-The input can be passed to the actor either manually in the Console or using a POST payload when running the actor using API. See [Run](#run) section for details.
+The input can be passed to the actor either manually in the Console or using a POST payload when running the actor using API. See [Run]({{@link actor/run.md}}) section for details.
 
 ### [](#run-env-vars)Environment variables
 
-Aside from [custom environment variables](#source-env-vars), the actor's process has several environment variables set to provide it with context:
+Aside from [custom environment variables]({{@link actor/source_code.md#source-env-vars}}), the actor's process has several environment variables set to provide it with context:
 
 |||
 |--- |--- |
@@ -66,8 +66,8 @@ Aside from [custom environment variables](#source-env-vars), the actor's process
 |`APIFY_TIMEOUT_AT`|Date when the actor will time out.|
 |`APIFY_TOKEN`|The API token of the user who started the actor.|
 |`APIFY_USER_ID`|ID of the user who started the actor. Note that it might be different than the owner of the actor.|
-|`APIFY_CONTAINER_PORT`|TCP port on which the actor can start a HTTP server to receive messages from the outside world. See [Container web server](#container-web-server) section for more details.|
-|`APIFY_CONTAINER_URL`|A unique public URL under which the actor run web server is accessible from the outside world. See [Container web server](#container-web-server) section for more details.|
+|`APIFY_CONTAINER_PORT`|TCP port on which the actor can start a HTTP server to receive messages from the outside world. See [Container web server]({{@link actor/run.md#container-web-server}}) section for more details.|
+|`APIFY_CONTAINER_URL`|A unique public URL under which the actor run web server is accessible from the outside world. See [Container web server]({{@link actor/run.md#container-web-server}}) section for more details.|
 
 
 Dates are always in the UTC timezone and are represented in simplified extended ISO format ([ISO 8601 _open_in_new_](https://en.wikipedia.org/wiki/ISO_8601)), e.g. `2017-10-13T14:23:37.281Z`
@@ -78,7 +78,7 @@ To access environment variables in Node.js, use the `process.env` object, for ex
 
 ### [](#resource-limits)Resource limits
 
-Actors run inside a Docker container whose resources are limited. When invoking the actor, the caller has to specify the amount of memory allocated for the actor. Additionally, each user has a certain total limit of memory for running actors. The sum of memory allocated for all running actors and builds needs to fit into this limit, otherwise the user cannot start a new actor. For more details, see [Limits](#limits).
+Actors run inside a Docker container whose resources are limited. When invoking the actor, the caller has to specify the amount of memory allocated for the actor. Additionally, each user has a certain total limit of memory for running actors. The sum of memory allocated for all running actors and builds needs to fit into this limit, otherwise the user cannot start a new actor. For more details, see [Limits]({{@link actor/limits.md}}).
 
 The share of CPU is computed automatically from the memory as follows: for each 4096 MB of memory, the actor gets 1 full CPU core. For other amounts of memory the number of CPU cores is computed fractionally. For example, an actor with 1024 MB of memory will have a 1/4 share of a CPU core.
 
@@ -114,17 +114,17 @@ The whole process of resurrection looks as follows:
 *   Updated duration will include the time when actor was not running. This does not affect compute units consumption.
 *   Timeout will be counted from the point when this actor run was resurrected.
 
-Resurrection can be peformed in Apify app using the **resurrect** button or via API using the [resurrect run](/docs/api/v2#/reference/actors/resurrect-run) API endpoint.
+Resurrection can be peformed in Apify app using the **resurrect** button or via API using the [resurrect run](https://apify.com/docs/api/v2#/reference/actors/resurrect-run) API endpoint.
 
 ### [](#container-web-server)Container web server
 
 Each actor run is assigned a unique hard-to-guess URL (e.g. `http://kmdo7wpzlshygi.runs.apify.net`), which enables HTTP access to an optional web server running inside the actor run's Docker container. The URL is available in the following places:
 
 *   In the web application, on the actor run details page as the **Container URL** field.
-*   In the API as the `containerUrl` property of the [Run object](./api/v2#/reference/actor/run-object/get-run).
+*   In the API as the `containerUrl` property of the [Run object](https://apify.com/api/v2#/reference/actor/run-object/get-run).
 *   In the actor run's container as the `APIFY_CONTAINER_URL` environment variable.
 
-The web server running inside the container must listen at the port defined by the `APIFY_CONTAINER_PORT` environment variable (typically 4321). If you want to use another port, simply define the `APIFY_CONTAINER_PORT` environment variable with the desired port number in your actor version configuration - see [Custom environment variable](#source-env-vars) for details.
+The web server running inside the container must listen at the port defined by the `APIFY_CONTAINER_PORT` environment variable (typically 4321). If you want to use another port, simply define the `APIFY_CONTAINER_PORT` environment variable with the desired port number in your actor version configuration - see [Custom environment variable]({{@link actor/source_code.md#source-env-vars}}) for details.
 
 The following example demonstrates how to start a simple web server in your actor:
 
@@ -147,4 +147,4 @@ The following example demonstrates how to start a simple web server in your acto
 
 ### [](#data-retention)Data retention
 
-Actor run gets deleted along with its default storages (key-value store, dataset, request queue) after a data retention period which is based on [subscription plan](/pricing) of a user.
+Actor run gets deleted along with its default storages (key-value store, dataset, request queue) after a data retention period which is based on [subscription plan](https://apify.com/pricing) of a user.

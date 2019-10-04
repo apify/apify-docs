@@ -51,4 +51,4 @@ Data without hidden fields are called "clean" and can be downloaded at Apify app
 
 #### [](#dataset-api-client)API and JavaScript client
 
-The dataset provides a [HTTP API](/docs/api/v2#/reference/datasets) to manage datasets and to add/retrieve their data. If you are developing a Node.js application, then you can also use the [Apify JavaScript client](/docs/api/apify-client-js/latest#ApifyClient-datasets).
+The dataset provides a [HTTP API](https://apify.com/docs/api/v2#/reference/datasets) to manage datasets and to add/retrieve their data. If you are developing a Node.js application, then you can also use the [Apify JavaScript client](https://apify.com/docs/api/apify-client-js/latest#ApifyClient-datasets).
