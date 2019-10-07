@@ -61,7 +61,7 @@ Sometimes having a full Git repository or a hosted Zip file might be overly comp
 
 Then set the **Source Type** to **GitHub Gist** and paste the Gist URL as follows:
 
-![GitHub Gist settings](/img/docs/actor/gist-settings.png)
+![GitHub Gist settings]({{@asset actor/images/gist-settings.png}})
 
 Note that the example actor is available in the Apify Store as [apify/example-github-gist](https://apify.com/apify/example-github-gist).
 
