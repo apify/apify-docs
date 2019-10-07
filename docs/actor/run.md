@@ -6,7 +6,7 @@ title: Run
 
 The actor can be invoked in a number of ways. One option is to start the actor manually in **Console** in the app:
 
-![Apify actor run console](/img/docs/actor/run-console.png)
+![Apify actor run console]({{@asset actor/images/run-console.png}})
 
 The following table describes the run settings:
 
