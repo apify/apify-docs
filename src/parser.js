@@ -82,7 +82,9 @@ const replacePaths = (index) => {
         const linkMatches = pageDef.content.match(/\{\{@link\s[^}]+\}\}/g);
         if (linkMatches) {
             linkMatches.forEach((linkMatch) => {
-                const linkedPage = linkMatch.substr(8, linkMatch.length - 10);
+                const linkedPage = linkMatch
+                    .substr(8, linkMatch.length - 10)
+                    .split('#')[0];
                 const linkedPageDef = index.pages[linkedPage];
                 if (!linkedPageDef) throw new Error(`Page ${pagePath} contains invalid link ${linkMatch}!`);
                 pageDef.content = pageDef.content.replace(linkMatch, `/${linkedPageDef.path}`);
