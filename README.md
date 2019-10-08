@@ -5,5 +5,5 @@
 ## Structure
 
 TODO:
-- README.md
-- throw unused assets!
+- Finish README.md
+- Parser to throw on unused asset file!
