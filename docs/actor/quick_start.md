@@ -13,7 +13,7 @@ Go to the [Actor](https://my.apify.com/actors) section in the app, create a new 
        console.log('Hello world from Actor!');
     });
 
-Click **Quick run** to build and run your actor. After the run is finished you should see something like:
+Click **Run** to build and run your actor. After the run is finished you should see something like:
 
 ![Apify actor run log]({{@asset actor/images/run-log.png}})
 
