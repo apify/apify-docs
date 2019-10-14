@@ -70,7 +70,7 @@ If you do not want to specify both `groups` and `session` parameters and therefo
 
 ### [](#datacenter-proxy--session-persistence)Session persistence
 
-When using Apify Proxy with `session` parameter set in the username (see [Username parameters]({{@link proxy/datacenter_proxy.md#datacenter-proxy--username-params}})) a single IP is assigned to the session ID provided after the first request is made. This IP/session_id combination is persited, and its expiration is set to 24 hours later. Each additional request extends the expiration back to 24 hours, so if you use the session at least once a day it will never expire, with two possible exceptions:
+When using Apify Proxy with `session` parameter set in the username (see [Username parameters]({{@link proxy/datacenter_proxy/index.md#datacenter-proxy--username-params}})) a single IP is assigned to the session ID provided after the first request is made. This IP/session_id combination is persited, and its expiration is set to 24 hours later. Each additional request extends the expiration back to 24 hours, so if you use the session at least once a day it will never expire, with two possible exceptions:
 
 *   Proxy server stops responding and is marked as dead during a health check
 *   If the Proxy Server is part of a Proxy Group that is refreshed monthly and is rotated out.
