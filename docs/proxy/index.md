@@ -1,5 +1,6 @@
 ---
 title: Proxy
+description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
 ---
 
 # [](./proxy)Proxy

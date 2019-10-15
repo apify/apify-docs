@@ -1,5 +1,6 @@
 ---
 title: Publishing
+description: Documentation of Apify actors - a serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
 ---
 
 ## [](#publishing)Publishing

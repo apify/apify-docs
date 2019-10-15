@@ -1,5 +1,6 @@
 ---
 title: Configure
+description: Documentation of Apify tasks - Documentation of Apify Task - a way to set up configuration of your Apify Actor for simplified usage.
 ---
 
 ## [](#configure-task)Configuring the task

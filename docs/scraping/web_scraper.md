@@ -1,5 +1,6 @@
 ---
 title: Web Scraper
+description: Step by step tutorial that will help you create a page function for Web Scraper.
 ---
 
 # [](#scraping-with-web-scraper)Scraping with Web Scraper

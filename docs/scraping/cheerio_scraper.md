@@ -1,5 +1,6 @@
 ---
 title: Cheerio Scraper
+description: Step by step tutorial that will help you create a page function for Cheerio Scraper.
 ---
 
 # [](#scraping-with-cheerio-scraper)Scraping with Cheerio Scraper
