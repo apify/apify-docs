@@ -1,5 +1,6 @@
 ---
 title: Datacenter proxy
+description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
 ---
 
 ## [](#datacenter-proxy)Datacenter proxy servers

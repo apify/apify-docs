@@ -1,5 +1,6 @@
 ---
 title: Connection settings
+description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
 ---
 
 ### [](#connection-settings)Connection settings

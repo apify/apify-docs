@@ -1,5 +1,6 @@
 ---
 title: Puppeteer Scraper
+description: Step by step tutorial that will help you create a page function for Puppeteer Scraper.
 ---
 
 # [](#scraping-with-puppeteer-scraper)Scraping with Puppeteer Scraper

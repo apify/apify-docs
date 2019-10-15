@@ -1,5 +1,6 @@
 ---
 title: Introduction
+description: Documentation of the Apify platform, which includes detailed description of Crawler, Actor, Storage, SDK and API.
 ---
 
 # Apify documentation
