@@ -9,3 +9,7 @@ Webhooks provide an easy and reliable way to configure the Apify platform to car
 To define a webhook one needs to select an **event** that triggers the webhook, from the available system events and provide an **action** to be executed after the event occurs. When the event occurs, the system executes the action.
 
 **Currently, the only available action is to send an HTTP POST request to a URL specified in the webhook.**
+
+*   [**Actions**]({{@link webhooks/actions.md}}) - TODO
+*   [**Events**]({{@link webhooks/events.md}}) - TODO
+*   [**Ad hoc webhooks**]({{@link webhooks/ad_hoc_webhooks.md}}) - TODO

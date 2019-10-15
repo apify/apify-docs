@@ -1,5 +1,5 @@
 ---
-title: Documentation
+title: Introduction
 ---
 
 # Apify documentation
