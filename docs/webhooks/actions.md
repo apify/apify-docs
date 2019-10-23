@@ -1,5 +1,6 @@
 ---
 title: Actions
+description: Documentation of Apify&#x27;s webhooks system that enables integration of multiple actors or external systems.
 ---
 
 ## [](./webhooks#actions)Actions

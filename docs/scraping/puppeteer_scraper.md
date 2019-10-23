@@ -1,5 +1,6 @@
 ---
 title: Puppeteer Scraper
+description: Step by step tutorial that will help you create a page function for Puppeteer Scraper.
 ---
 
 # [](#scraping-with-puppeteer-scraper)Scraping with Puppeteer Scraper
@@ -35,13 +36,13 @@ Before we start, let's do a quick recap of the data we chose to scrape:
 5.  **Last run date**- When the actor was last run.
 6.  **Number of runs** - How many times the actor was run.
 
-![data to scrape](../img/scraping-practice.jpg "Overview of data to be scraped.")
+![data to scrape]({{@asset scraping/images/scraping-practice.jpg}} "Overview of data to be scraped.")
 
 We've already scraped number 1 and 2 in the [Getting started with Apify scrapers](https://apify.com/docs/scraping/tutorial/introduction) tutorial, so let's get to the next one on the list: Title
 
 ### [](#title)Title
 
-![actor title](../img/title.jpg "Finding actor title in DevTools.")
+![actor title]({{@asset scraping/images/title.jpg}} "Finding actor title in DevTools.")
 
 By using the element selector tool, we find out that the title is there under an `<h1>` tag, as titles should be. Maybe surprisingly, we find that there are actually two `<h1>` tags on the detail page. This should get us thinking. Is there any parent element that includes our `<h1>` tag, but not the other ones? Yes, there is! There is a `<header>` element that we can use to select only the heading we're interested in.
 
@@ -62,7 +63,7 @@ The [`page.$eval`](https://pptr.dev/#?product=Puppeteer&show=api-elementhandleev
 
 Getting the actor's description is a little more involved, but still pretty straightforward. We can't just simply search for a `<p>` tag, because there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the actor description is nested within the `<header>` element too, same as the title. Sadly, we're still left with two `<p>` tags. To finally select only the description, we choose the `<p>` tag that has a `class` that starts with `Text__Paragraph`.
 
-![actor description selector](../img/description.jpg "Finding actor description in DevTools.")
+![actor description selector]({{@asset scraping/images/description.jpg}} "Finding actor description in DevTools.")
     const title = await page.$eval('header h1', (el => el.textContent));
     const description = await page.$eval('header p[class^=Text__Paragraph]', (el => el.textContent));
 
@@ -75,7 +76,7 @@ Getting the actor's description is a little more involved, but still pretty stra
 
 The DevTools tell us that the `lastRunDate` can be found in the second of the two `<time>` elements in the page.
 
-![actor last run date selector](../img/last-run-date.jpg "Finding actor last run date in DevTools.")
+![actor last run date selector]({{@asset scraping/images/last-run-date.jpg}} "Finding actor last run date in DevTools.")
 
     const title = await page.$eval('header h1', (el => el.textContent));
     const description = await page.$eval('header p[class^=Text__Paragraph]', (el => el.textContent));
@@ -238,7 +239,7 @@ Before we can wait for the button, we need to know its unique selector. A quick 
 
 > Don't forget to confirm our assumption in the DevTools finder tool (CTRL/CMD + F).
 
-![waiting for the button](../img/waiting-for-the-button.jpg "Finding show more button in DevTools.")
+![waiting for the button]({{@asset scraping/images/waiting-for-the-button.jpg}} "Finding show more button in DevTools.")
 
 Now that we know what to wait for, we just plug it into the `waitFor()` function.
 
@@ -341,7 +342,7 @@ We've got the general algorithm ready, so all that's left is to integrate it int
 
 That's it! You can now remove the **Max pages per run** limit, **Save & Run** your task and watch the scraper paginate through all the actors and then scrape all of their data. After it succeeds, open the Dataset again and see the clean items. You should have a table of all the actor's details in front of you. If you do, great job! You've successfully scraped the Apify Store. And if not, no worries, just go through the code examples again, it's probably just some typo.
 
-![final results](../img/plugging-it-into-the-pagefunction.jpg "Final results.")
+![final results]({{@asset scraping/images/plugging-it-into-the-pagefunction.jpg}} "Final results.")
 
 ## [](#downloading-the-scraped-data)Downloading the scraped data
 
