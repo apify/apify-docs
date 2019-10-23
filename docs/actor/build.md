@@ -20,13 +20,13 @@ To set a tag for builds of a specific actor version, set the **Build tag** prope
 
 Apify provides the following Docker images that can be used as a base for user actors:
 
-*   **Node.js 10 on Alpine Linux** ([apify/actor-node-basic _open_in_new_](https://hub.docker.com/r/apify/actor-node-basic/))  
+*   **Node.js 10 on Alpine Linux** ([apify/actor-node-basic _open_in_new_](https://hub.docker.com/r/apify/actor-node-basic/))
     Slim and efficient image, contains only the most elementary tools. Note that neither Puppeteer nor Selenium Webdriver is available in this image.
-*   **Node.js 10 + Chrome on Debian** ([apify/actor-node-chrome _open_in_new_](https://hub.docker.com/r/apify/actor-node-chrome/))  
+*   **Node.js 10 + Chrome on Debian** ([apify/actor-node-chrome _open_in_new_](https://hub.docker.com/r/apify/actor-node-chrome/))
     Larger image with a bundled both Chromium and Google Chrome browsers, [puppeteer](https://www.npmjs.com/package/puppeteer) and [selenium-webdriver](https://www.npmjs.com/package/selenium-webdriver) NPM packages. With this image, you can use both [`Apify.launchPuppeteer()`](https://sdk.apify.com/docs/api/apify#module_Apify.launchPuppeteer) and [`Apify.launchWebDriver()`](https://sdk.apify.com/docs/api/apify#module_Apify.launchWebDriver) functions. Note that Chrome requires quite a lot of resources, therefore the actor should run with at least 1024 MB of memory.
-*   **Node.js 10 + Chrome + Xvfb on Debian** ([apify/actor-node-chrome-xvfb _open_in_new_](https://hub.docker.com/r/apify/actor-node-chrome-xvfb/))  
+*   **Node.js 10 + Chrome + Xvfb on Debian** ([apify/actor-node-chrome-xvfb _open_in_new_](https://hub.docker.com/r/apify/actor-node-chrome-xvfb/))
     This image extends `apify/actor-node-chrome` with X virtual framebuffer ([Xvfb](https://www.x.org/archive/X11R7.6/doc/man/man1/Xvfb.1.xhtml)) in order to support non-headless browsing. Note that with this image the [`Apify.launchPuppeteer()`](https://sdk.apify.com/docs/api/apify#module_Apify.launchPuppeteer) and [`Apify.launchWebDriver()`](https://sdk.apify.com/docs/api/apify#module_Apify.launchWebDriver) functions open non-headless Chrome by default.
-*   **[DEPRECATED] Node.js 10 + Puppeteer on Debian** ([apify/actor-node-puppeteer _open_in_new_](https://hub.docker.com/r/apify/actor-node-puppeteer/))  
+*   **[DEPRECATED] Node.js 10 + Puppeteer on Debian** ([apify/actor-node-puppeteer _open_in_new_](https://hub.docker.com/r/apify/actor-node-puppeteer/))
     This image is deprecated and will be removed in the future. Use the `apify/actor-node-chrome` image instead.
 
 All images come in two versions: the `latest` tag corresponds to the stable version and `beta` to images where we test new features. Use the beta version at your own risk.
@@ -35,7 +35,7 @@ Note that all Apify Docker images are pre-cached on Apify servers in order to sp
 
 ### [](#build-cache)Cache
 
-By default, the build process pulls latest copies of all necessary Docker images and builds each new layer of Docker image from scratch. To speed up the build process, the user can invoke the build using the **Quick run** option in the **Source** tab, or by passing the `useCache` parameter in the API. See API reference for more details.
+By default, the build process pulls latest copies of all necessary Docker images and builds each new layer of Docker image from scratch. To speedup the builds triggered via API you can add `useCache=1` parameter. See API reference for more details.
 
 ### [](#build-lifecycle)Lifecycle
 

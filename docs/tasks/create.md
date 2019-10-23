@@ -12,4 +12,4 @@ When you click the "Create Task" button, a new task will be created with the inp
 
 ### Create a Task for a public actor
 
-Tasks can also be set up for actors made by someone else. Just [search the store](https://apify.com/store) to find an actor you want to use, try it out, and if you like it, you can create a task from it with a single click of a button - the same as for your actor.
+Tasks can also be set up for actors made by someone else. Just [search the store](https://apify.com/store) to find an actor you want to use and click the try button to create a task from it.
