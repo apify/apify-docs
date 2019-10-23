@@ -1,5 +1,6 @@
 ---
 title: Introduction
+description: Step by step tutorial that will help you get started with all Apify Scrapers.
 ---
 
 # [](#getting-started-with-apify-scrapers)Getting started with Apify scrapers
@@ -20,7 +21,7 @@ Depending on how you arrived at this tutorial, you may already have your first t
 
 > This tutorial covers the use of **Web**, **Cheerio** and **Puppeteer** scrapers, but a lot of the information here can be used with all actors.
 
-![actor-selection](../img/actor-selection.jpg "Selecting the best actor")
+![actor-selection]({{@asset scraping/images/actor-selection.jpg}} "Selecting the best actor")
 
 ### [](#running-a-task)Running a task
 
@@ -40,7 +41,7 @@ After clicking **Save & Run**, the window will change to the run detail. Here, y
 
 Now that the run has `SUCCEEDED`, click on the rightmost card labeled **Clean items** to see the results of the scrape. This takes you to the DATASET tab, where you can display or download the results in various formats. For now, just click the blue **Preview data** button. Voila, the scraped data.
 
-![run detail](../img/the-run-detail.jpg "Viewing results in the run detail.")
+![run detail]({{@asset scraping/images/the-run-detail.jpg}} "Viewing results in the run detail.")
 
 Good job! We've run our first task and got some results. Let's learn how to change the default configuration to scrape something more interesting than just the page's `<title>`.
 
@@ -107,7 +108,7 @@ We also need to somehow distinguish the Start URL from all the other URLs that t
       "label": "START"
     }
 
-![start url input](../img/the-start-url.jpg "Adding new Start URL.")
+![start url input]({{@asset scraping/images/the-start-url.jpg}} "Adding new Start URL.")
 
 ### [](#crawling-the-website-with-pseudo-urls)Crawling the website with Pseudo URLs
 
@@ -141,7 +142,7 @@ Let's use the above Pseudo URL in our task. We should also add a label as we did
       "label": "DETAIL"
     }
 
-![pseudo url input](../img/making-a-pseudo-url.jpg "Adding new Pseudo URL.")
+![pseudo url input]({{@asset scraping/images/making-a-pseudo-url.jpg}} "Adding new Pseudo URL.")
 
 ### [](#filtering-with-a-link-selector)Filtering with a link selector
 
@@ -175,7 +176,7 @@ The DevTools window will pop up, and display a lot of, perhaps unfamiliar, infor
 
 You'll see that the Element tab jumps to the first `<title>` element of the current page and that the title is `Store`. It's always good practice to do your research using the DevTools before writing the `pageFunction` and running your task.
 
-![devtools](../img/using-devtools.jpg "Finding title element in DevTools.")
+![devtools]({{@asset scraping/images/using-devtools.jpg}} "Finding title element in DevTools.")
 
 > For the sake of brevity, we won't go into the details of using the DevTools in this tutorial. If you're just starting out with DevTools, this [Google tutorial](https://developers.google.com/web/tools/chrome-devtools/) is a good place to begin.
 

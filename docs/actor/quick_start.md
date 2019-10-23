@@ -1,7 +1,7 @@
 ---
 title: Quick start
+description: Documentation of Apify actors - a serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
 ---
-
 
 ## Quick start
 
@@ -15,7 +15,7 @@ Go to the [Actor](https://my.apify.com/actors) section in the app, create a new 
 
 Click **▷ Run** to build and run your actor. After the run is finished you should see something like:
 
-![Apify actor run log](/img/docs/actor/run-log.png)
+![Apify actor run log]({{@asset actor/images/run-log.png}})
 
 Congratulations, you have successfully created and run your first actor!
 
@@ -40,7 +40,7 @@ Save your actor by clicking **Save** and then rebuild it by clicking **Build**. 
 
 Then set **Content type** to `application/json; charset=utf-8` and click **Run**. You will see something like:
 
-![Apify actor run log](/img/docs/actor/run-log-2.png)
+![Apify actor run log]({{@asset actor/images/run-log-2.png}})
 
 Excellent, you have just created your first actor to accept input and store output! Now you can start adding some magic.
 

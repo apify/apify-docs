@@ -1,5 +1,6 @@
 ---
 title: Request queue
+description: Documentation of Apify&#x27;s simple key-value store that enables storage of Actor inputs and results.
 ---
 
 ### [](#queue)Request queue

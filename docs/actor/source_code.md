@@ -1,5 +1,6 @@
 ---
 title: Source code
+description: Documentation of Apify actors - a serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
 ---
 
 ## [](#source)Source code
@@ -115,7 +116,7 @@ For example, for repositories on GitHub it can be done using the following steps
 
 Then go to your GitHub repository, click **Settings**, select **Webhooks** tab and click **Add webhook**. Paste the API URL to the **Payload URL** as follows:
 
-![GitHub integration](/img/docs/actor/github-integration.png)
+![GitHub integration]({{@asset actor/images/github-integration.png}})
 
 And that's it! Now your actor should automatically rebuild on every push to the GitHub repository.
 
@@ -123,7 +124,7 @@ And that's it! Now your actor should automatically rebuild on every push to the 
 
 The actor owner can specify custom environment variables that are set to the actor's process during the run. Sensitive environment variables such as passwords or API tokens can be protected by setting the **Secret** option. With this option enabled, the value of the environment variable is encrypted and it will not be visible in the app or APIs, and the value is redacted from actor logs to avoid the accidental leakage of sensitive data.
 
-![Custom environment variables](/img/docs/actor/source-env-vars.png)
+![Custom environment variables]({{@asset actor/images/source-env-vars.png}})
 
 Note that the custom environment variables are fixed during the build of the actor and cannot be changed later. See the [Build]({{@link actor/build.md#build}}) section for details.
 

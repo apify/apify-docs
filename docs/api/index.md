@@ -1,5 +1,6 @@
 ---
 title: API
+description: Documentation of Apify REST API that enables integration with external applications and systems.
 ---
 
 # [](./api)API
