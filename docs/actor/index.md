@@ -9,10 +9,10 @@ Actors run on the Apify serverless computing platform and enable the execution o
 
 A single isolated actor consists of source code and various settings. You can think of an actor as a cloud app or service.
 
-*   [**Quick Start**]({{@link actor/quick_start.md}}) - TODO
-*   [**Run**]({{@link actor/run.md}}) - TODO
-*   [**Examples**]({{@link actor/examples.md}}) - TODO
-*   [**Build**]({{@link actor/build.md}}) - TODO
-*   [**Source code**]({{@link actor/source_code.md}}) - TODO
-*   [**Limits**]({{@link actor/limits.md}}) - TODO
-*   [**Publishing**]({{@link actor/publishing.md}}) - TODO
+*   [**Quick Start**]({{@link actor/quick_start.md}})
+*   [**Run**]({{@link actor/run.md}})
+*   [**Examples**]({{@link actor/examples.md}})
+*   [**Build**]({{@link actor/build.md}})
+*   [**Source code**]({{@link actor/source_code.md}})
+*   [**Limits**]({{@link actor/limits.md}})
+*   [**Publishing**]({{@link actor/publishing.md}})

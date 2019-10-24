@@ -11,7 +11,7 @@ This document provides detailed documentation for the Apify web scraping and aut
 *   [**Help center**](https://help.apify.com/) - examples, tutorials and various tips & tricks
 *   [**Stack Overflow**](https://stackoverflow.com/questions/tagged/apify) - community questions
 
-Anything missing? Please let us know at [support@apify.com](mailto:support@apify.com)</section>
+Anything missing? Please let us know at [support@apify.com](mailto:support@apify.com)
 
 ## [](#toc)Table of contents
 

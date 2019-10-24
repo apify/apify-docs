@@ -9,6 +9,6 @@ Actor Tasks help you prepare the configuration of an actor to perform a specific
 
 Tasks can also be set up for actors made by someone else. Just [search the store](https://apify.com/store) to find an actor you want to use, try it out, and if you like it, you can create a task from it with a single click of a button.
 
-*   [**Run**]({{@link tasks/run.md}}) - TODO
-*   [**Create**]({{@link tasks/create.md}}) - TODO
-*   [**Configure**]({{@link tasks/configure.md}}) - TODO
+*   [**Run**]({{@link tasks/run.md}})
+*   [**Create**]({{@link tasks/create.md}})
+*   [**Configure**]({{@link tasks/configure.md}})
