@@ -8,12 +8,12 @@ description: Documentation of Apify actors - a serverless computing jobs that en
 Go to the [Actor](https://my.apify.com/actors) section in the app, create a new actor and go to **Source** tab. Paste the following Node.js code into the **Source code** editor:
 
     const Apify = require('apify');
-    
+
     Apify.main(async () => {
        console.log('Hello world from Actor!');
     });
 
-Click **Run** to build and run your actor. After the run is finished you should see something like:
+Click **▷ Run** to build and run your actor. After the run is finished you should see something like:
 
 ![Apify actor run log]({{@asset actor/images/run-log.png}})
 
