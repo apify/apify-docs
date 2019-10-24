@@ -1,6 +1,7 @@
 ---
 title: Residential proxy
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
+menuWeight: 7.4
 ---
 
 ## [](#residential-proxy)Residential proxy
