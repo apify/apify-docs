@@ -1,6 +1,7 @@
 ---
 title: Google SERP proxy
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
+menuWeight: 7.5
 ---
 
 ## [](#google-serp)Google SERP proxy

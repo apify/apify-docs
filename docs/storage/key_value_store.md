@@ -1,6 +1,7 @@
 ---
 title: Key-value store
 description: Documentation of Apify&#x27;s simple key-value store that enables storage of Actor inputs and results.
+menuWeight: 6.1
 ---
 
 ### [](#key-value-store)Key-value store

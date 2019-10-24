@@ -1,6 +1,7 @@
 ---
 title: Create
 description: Documentation of Apify tasks - Documentation of Apify Task - a way to set up configuration of your Apify Actor for simplified usage.
+menuWeight: 4.1
 ---
 
 ### [](#create-task-public-actor-your-actor)Create a Task for your actor
