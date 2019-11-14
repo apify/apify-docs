@@ -4,7 +4,7 @@ description: Documentation of Apify&#x27;s webhooks system that enables integrat
 menuWeight: 8.3
 ---
 
-## [](./webhooks#adhoc)Ad hoc webhooks
+# [](./webhooks#adhoc)Ad hoc webhooks
 
 An ad hoc webhook is a one-time webhook created for a certain actor run when starting the run using Apify [API](https://apify.com/docs/api/v2). It's triggered at most once when the given run transitions into the selected state. Ad hoc webhooks can be defined using a URL parameter `webhooks` added to the API endpoint that starts an actor or actor task:
 
@@ -24,7 +24,7 @@ where `AD_HOC_WEBHOOKS` is a base64 encoded stringified JSON array of webhook de
         },
     ]
 
-### Creating an ad hoc webhook dynamically
+## Creating an ad hoc webhook dynamically
 
 You can also create a webhook dynamically from a code of your actor using `Apify.addWebhook()` function:
 

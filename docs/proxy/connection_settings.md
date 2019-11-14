@@ -4,7 +4,7 @@ description: Documentation of Apify Proxy that enables anonymization of access t
 menuWeight: 7.1
 ---
 
-### [](#connection-settings)Connection settings
+# [](#connection-settings)Connection settings
 
 The following table shows HTTP proxy connection settings for the Apify Proxy.
 

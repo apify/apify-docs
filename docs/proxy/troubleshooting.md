@@ -4,7 +4,7 @@ description: Documentation of Apify Proxy that enables anonymization of access t
 menuWeight: 7.6
 ---
 
-## [](#troubleshooting)Troubleshooting
+# [](#troubleshooting)Troubleshooting
 
 To view the status of the connection to Apify Proxy, open the following URL in the browser that uses the proxy:
 

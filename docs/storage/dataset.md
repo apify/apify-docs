@@ -4,11 +4,11 @@ description: Documentation of Apify's simple key-value store that enables storag
 menuWeight: 6.2
 ---
 
-### [](#dataset)Dataset
+# [](#dataset)Dataset
 
 The dataset is storage that enables the saving and retrieval of sequential data objects - typically the results of some long-running operation such as scraping or data extraction. The dataset is immutable - i.e. data can only be added and cannot be changed.
 
-#### [](#dataset-basic)Basic usage
+## [](#dataset-basic)Basic usage
 
 Each actor run is assigned its own dataset, created when the first item is stored to it. The ID of this dataset is available under `run.defaultDatasetId`.
 
@@ -33,7 +33,7 @@ If you want to use something other than the default dataset, e.g. some dataset t
 
     await dataset.pushData({ foo: 'bar' });
 
-#### [](#dataset-hidden-fields)Hidden fields
+## [](#dataset-hidden-fields)Hidden fields
 
 Hidden fields are fields starting with the `#` character. These fields might be easily omitted when downloading the data from a dataset and therefore provides a convenient way to store debug information that should not appear in the final dataset. Here is an example of a dataset record containing hidden fields with an HTTP response and error:
 
@@ -51,6 +51,6 @@ Hidden fields are fields starting with the `#` character. These fields might be 
 
 Data without hidden fields are called "clean" and can be downloaded at Apify app using the "clean items" link or via API using a URL parameter `clean=true`.
 
-#### [](#dataset-api-client)API and JavaScript client
+## [](#dataset-api-client)API and JavaScript client
 
 The dataset provides a [HTTP API](https://apify.com/docs/api/v2#/reference/datasets) to manage datasets and to add/retrieve their data. If you are developing a Node.js application, then you can also use the [Apify JavaScript client](https://apify.com/docs/api/apify-client-js/latest#ApifyClient-datasets).
