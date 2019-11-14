@@ -4,7 +4,7 @@ description: Documentation of Apify tasks - Documentation of Apify Task - a way 
 menuWeight: 4.2
 ---
 
-## [](#configure-task)Configuring the task
+# [](#configure-task)Configuring the task
 
 Once you create the task, you can configure its name and set up options and input for the actor. If you leave the options configuration empty, or partially empty, when you run the task, the missing options configuration will be prefilled with values from the actor's configuration.
 

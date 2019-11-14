@@ -3,11 +3,11 @@ title: NodeJS Examples
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
 ---
 
-### [](#google-serp--nodejs-examples)NodeJS Examples
+# [](#google-serp--nodejs-examples)NodeJS Examples
 
 The following sections contain several examples of how to use Google SERP proxy in [actors]({{@link actor/index.md}}).
 
-#### Usage in [PuppeteerCrawler](https://apify.com/docs/sdk/apify-runtime-js/latest#PuppeteerCrawler)
+## Usage in [PuppeteerCrawler](https://apify.com/docs/sdk/apify-runtime-js/latest#PuppeteerCrawler)
 
 Get a list of results from the US for keyword `wikipedia` and parse them through cheerio
 
@@ -108,7 +108,7 @@ Get a list of shopping results from the Czech Republic for keyword `Apple iPhone
         await crawler.run();
     });
 
-#### Usage in [Apify.launchPuppeteer()](https://apify.com/docs/sdk/apify-runtime-js/latest#module-Apify-launchPuppeteer)
+## Usage in [Apify.launchPuppeteer()](https://apify.com/docs/sdk/apify-runtime-js/latest#module-Apify-launchPuppeteer)
 
 Get a list of results from the US for keyword `wikipedia` and parse them through cheerio
 
@@ -189,7 +189,7 @@ Get a list of shopping results from the Czech Republic for keyword `Apple iPhone
         }
     });
 
-#### Usage with [request-promise](https://www.npmjs.com/package/request-promise) and [cheerio](https://www.npmjs.com/package/cheerio) NPM packages
+## Usage with [request-promise](https://www.npmjs.com/package/request-promise) and [cheerio](https://www.npmjs.com/package/cheerio) NPM packages
 
 Get a list of results from the US for keyword `wikipedia` and parse them through cheerio
 

@@ -4,7 +4,7 @@ description: Documentation of Apify Proxy that enables anonymization of access t
 menuWeight: 7.5
 ---
 
-## [](#google-serp)Google SERP proxy
+# [](#google-serp)Google SERP proxy
 
 If you need to get search results from Google Search or other google search powered services from multiple countries with an option to dynamically switch between countries then you can use Google SERP proxy.
 
@@ -19,7 +19,7 @@ Currently supported google search services are:
 
 **Pricing is based on the number of requests made**. Please [contact us](https://apify.com/contact) if you want to use Google SERP Proxy or if you need more information.
 
-### [](#google-serp--username-params)Username parameters
+## [](#google-serp--username-params)Username parameters
 
 HTTP proxy username is used to pass various parameters for the proxy connection.
 
@@ -29,7 +29,7 @@ In the case of Google SERP proxy, the username should always look like this
 
 Unlike datacenter or residential proxies, there is no session parameter.
 
-### [](#google-serp--country)Country selection
+## [](#google-serp--country)Country selection
 
 A correct google domain needs to be used to get results for the desired country code.  
 For example:

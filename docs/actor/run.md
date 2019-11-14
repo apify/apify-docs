@@ -4,7 +4,7 @@ description: Documentation of Apify actors - a serverless computing jobs that en
 menuWeight: 3.4
 ---
 
-## [](#run)Run
+# [](#run)Run
 
 The actor can be invoked in a number of ways. One option is to start the actor manually in **Console** in the app:
 
@@ -38,7 +38,7 @@ The newly started actor runs under the same user account as the initial actor an
 
 Internally, the `call()` function takes the user's API token from the `APIFY_TOKEN` environment variable, then it invokes the [Run actor](https://apify.com/docs/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get record](https://apify.com/docs/api/v2/#/reference/key-value-stores/record/get-record) API endpoint.
 
-### [](#input-output)Input and output
+## [](#input-output)Input and output
 
 As demonstrated in the hello world example above, actors can accept input and generate output. Both input and output are stored in a key-value store that is created when the actor is started, under the `INPUT` and `OUTPUT` keys, respectively. Note that the actor can store other values under arbitrary keys, for example crawling results or screenshots of web pages.
 
@@ -46,7 +46,7 @@ The key-value store associated with the actor run can be conveniently accessed u
 
 The input can be passed to the actor either manually in the Console or using a POST payload when running the actor using API. See [Run]({{@link actor/run.md}}) section for details.
 
-### [](#run-env-vars)Environment variables
+## [](#run-env-vars)Environment variables
 
 Aside from [custom environment variables]({{@link actor/source_code.md#source-env-vars}}), the actor's process has several environment variables set to provide it with context:
 
@@ -78,7 +78,7 @@ To access environment variables in Node.js, use the `process.env` object, for ex
 
     console.log(process.env.APIFY_USER_ID);
 
-### [](#resource-limits)Resource limits
+## [](#resource-limits)Resource limits
 
 Actors run inside a Docker container whose resources are limited. When invoking the actor, the caller has to specify the amount of memory allocated for the actor. Additionally, each user has a certain total limit of memory for running actors. The sum of memory allocated for all running actors and builds needs to fit into this limit, otherwise the user cannot start a new actor. For more details, see [Limits]({{@link actor/limits.md}}).
 
@@ -86,11 +86,11 @@ The share of CPU is computed automatically from the memory as follows: for each 
 
 The actor has hard disk space limited by twice the amount of memory. For example, an actor with 1024 MB of memory will have 2048 MB of disk available.
 
-### [](#state-persistence)State persistence
+## [](#state-persistence)State persistence
 
 Unlike traditional serverless platforms, actors have no limits on the duration of an actor run. However, that means that an actor might need to be restarted from time to time, e.g. when the server it's running on is to be shutdown. Actors need to account for this possibility. For short-running actors, the chance of a restart is quite low and the cost of repeated runs is low, so restarts can be ignored. However, for long-running actors a restart might be very costly and therefore such actors should periodically persist their state, possibly to the key-value store associated with the actor run. On start, actors should first check whether there is some state stored and if so they should continue where they left off.
 
-### [](#run-lifecycle)Lifecycle
+## [](#run-lifecycle)Lifecycle
 
 Each run starts with the initial status `READY` and goes through one or more transitional statuses to one of the terminal statuses.
 
@@ -105,7 +105,7 @@ Each run starts with the initial status `READY` and goes through one or more tra
 |`ABORTING`|transitional|Being aborted by user|
 |`ABORTED`|terminal|Aborted by user|
 
-### [](#run-resurrect)Resurrection of finished run
+## [](#run-resurrect)Resurrection of finished run
 
 Any actor run in terminal state, i.e. run with status `FINISHED`, `FAILED`, `ABORTED` and `TIMED-OUT`, might be resurrected back to a `RUNNING` state. This is helpful in many cases, for example when the timeout for actor run was too low or any a case of an unexpected error.
 
@@ -118,7 +118,7 @@ The whole process of resurrection looks as follows:
 
 Resurrection can be peformed in Apify app using the **resurrect** button or via API using the [resurrect run](https://apify.com/docs/api/v2#/reference/actors/resurrect-run) API endpoint.
 
-### [](#container-web-server)Container web server
+## [](#container-web-server)Container web server
 
 Each actor run is assigned a unique hard-to-guess URL (e.g. `http://kmdo7wpzlshygi.runs.apify.net`), which enables HTTP access to an optional web server running inside the actor run's Docker container. The URL is available in the following places:
 
@@ -147,6 +147,6 @@ The following example demonstrates how to start a simple web server in your acto
         await Apify.utils.sleep(60 * 60 * 1000);
     });
 
-### [](#data-retention)Data retention
+## [](#data-retention)Data retention
 
 Actor run gets deleted along with its default storages (key-value store, dataset, request queue) after a data retention period which is based on [subscription plan](https://apify.com/pricing) of a user.

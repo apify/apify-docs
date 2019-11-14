@@ -4,11 +4,11 @@ description: Documentation of Apify Proxy that enables anonymization of access t
 menuWeight: 7.3
 ---
 
-## [](#datacenter-proxy)Datacenter proxy servers
+# [](#datacenter-proxy)Datacenter proxy servers
 
 Apify Proxy provides access to Apify's pool of datacenter IP addresses to [actors](./actor) or any other application that support HTTP proxies. The proxy enables intelligent rotation of IP addresses during web scraping to avoid being blocked by target websites.
 
-### [](#datacenter-proxy--overview)Overview
+## [](#datacenter-proxy--overview)Overview
 
 Datacenter proxy automatically rotates IP addresses. For each HTTP or HTTPS request, the proxy takes the list of all IP addresses available to the user and selects the one that has been used the longest time ago for the specific hostname. This behavior minimizes the chance of the proxy being blocked.
 
@@ -16,7 +16,7 @@ Note that by default each proxied HTTP request is potentially sent via a differe
 
 Prices for dedicated proxy servers are mainly based on the number of proxy servers, their type, and location. Please [contact us](/contact) for more information.
 
-### [](#datacenter-proxy--features)Features
+## [](#datacenter-proxy--features)Features
 
 *   Periodic health checks of proxies in the pool to ensure requests are not forwarded via dead proxies.
 *   Intelligent rotation of IP addresses to ensure target hosts are accessed via proxies that have accessed them the longest time ago, to reduce the chance of blocking.
@@ -27,7 +27,7 @@ Prices for dedicated proxy servers are mainly based on the number of proxy serve
 *   Measures statistics of traffic for specific users and hostnames.
 *   Allows selection of proxy servers by country.
 
-### [](#datacenter-proxy--shared)Shared proxy groups
+## [](#datacenter-proxy--shared)Shared proxy groups
 
 Each user has access to a selected number of proxy servers from a shared pool of Apify Proxy servers. These proxy servers are spread into groups (called Proxy Groups) on the Apify platform where each group shares a common feature (location, provider, speed and so on).
 
@@ -37,7 +37,7 @@ For a full list of plans and number of allocated proxy servers for each plan, pl
 
 Please [contact us](/contact) if you need more proxy servers then the allocated numbers, or you wish to use the proxy by itself without access to other features of the Apify platform.
 
-### [](#datacenter-proxy--dedicated)Dedicated proxy groups
+## [](#datacenter-proxy--dedicated)Dedicated proxy groups
 
 Apify Proxy allows for the creation of special dedicated proxy groups. These are assigned to a single user and only the user can use them.
 
@@ -47,7 +47,7 @@ Also, if you do not have your own pool, the [](/contact)Apify customer support t
 
 Please [contact us](/contact) for more details or if you have any questions.
 
-### [](#datacenter-proxy--username-params)Username parameters
+## [](#datacenter-proxy--username-params)Username parameters
 
 HTTP proxy username is used to pass various parameters for the proxy connection. For example, the username can look as follows:
 
@@ -70,7 +70,7 @@ If you do not want to specify both `groups` and `session` parameters and therefo
 
     auto
 
-### [](#datacenter-proxy--session-persistence)Session persistence
+## [](#datacenter-proxy--session-persistence)Session persistence
 
 When using Apify Proxy with `session` parameter set in the username (see [Username parameters]({{@link proxy/datacenter_proxy/index.md#datacenter-proxy--username-params}})) a single IP is assigned to the session ID provided after the first request is made. This IP/session_id combination is persited, and its expiration is set to 24 hours later. Each additional request extends the expiration back to 24 hours, so if you use the session at least once a day it will never expire, with two possible exceptions:
 

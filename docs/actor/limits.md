@@ -4,7 +4,7 @@ description: Documentation of Apify actors - a serverless computing jobs that en
 menuWeight: 3.7
 ---
 
-## [](#limits)Limits
+# [](#limits)Limits
 
 This section describes various resource limits of the Apify platform. Do you need to increase any of them? Please [contact us](https://apify.com/contact).
 

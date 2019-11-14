@@ -3,11 +3,11 @@ title: NodeJS Examples
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
 ---
 
-### [](#datacenter-proxy--nodejs-examples)NodeJS Examples
+# [](#datacenter-proxy--nodejs-examples)NodeJS Examples
 
 The following sections contain several examples of how to use Apify Proxy in NodeJS (used as the default language in [actors]({{@link actor/index.md}})).
 
-#### Usage in [PuppeteerCrawler](/docs/sdk/apify-runtime-js/latest#PuppeteerCrawler)
+## Usage in [PuppeteerCrawler](/docs/sdk/apify-runtime-js/latest#PuppeteerCrawler)
 
 Use default functionality of Apify Proxy (randomly choose a proxy server from all available)
 
@@ -116,7 +116,7 @@ Get a new IP selected from `SHADER` proxy group for each browser opened during t
         await crawler.run();
     });
 
-#### Usage in [Apify.launchPuppeteer()](/docs/sdk/apify-runtime-js/latest#module-Apify-launchPuppeteer)
+## Usage in [Apify.launchPuppeteer()](/docs/sdk/apify-runtime-js/latest#module-Apify-launchPuppeteer)
 
 Use one IP chosen from `SHADER` and `BUYPROXIES94952` proxy groups for the browser instance
 
@@ -139,7 +139,7 @@ Use one IP chosen from `SHADER` and `BUYPROXIES94952` proxy groups for the brows
         console.log(html);
     });
 
-#### Usage with [request](https://www.npmjs.com/package/request) and [request-promise](https://www.npmjs.com/package/request-promise) NPM packages
+## Usage with [request](https://www.npmjs.com/package/request) and [request-promise](https://www.npmjs.com/package/request-promise) NPM packages
 
 Use one randomly selected IP from all available proxy servers.
 

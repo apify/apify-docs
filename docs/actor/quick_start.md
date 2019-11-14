@@ -4,7 +4,7 @@ description: Documentation of Apify actors - a serverless computing jobs that en
 menuWeight: 3.1
 ---
 
-## Quick start
+# Quick start
 
 Go to the [Actor](https://my.apify.com/actors) section in the app, create a new actor and go to **Source** tab. Paste the following Node.js code into the **Source code** editor:
 

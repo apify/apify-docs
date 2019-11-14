@@ -4,7 +4,7 @@ description: Documentation of Apify actors - a serverless computing jobs that en
 menuWeight: 3.5
 ---
 
-## [](#publishing)Publishing
+# [](#publishing)Publishing
 
 Actors can be private or public. Private actors can only be accessed and started by their owner, while public actor are shown in the [store](https://apify.com/store) and can be run by anyone. Each public actor has a globally unique identifier that consists of the owner's username and the actor name, e.g. [apify/hello-world](https://apify.com/apify/hello-world).
 
