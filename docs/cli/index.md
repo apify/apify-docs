@@ -4,8 +4,6 @@ description: Apify command line interface (CLI) helps you to create, develop, ru
 menuWeight: 11
 ---
 
-# [](./SDK)SDK
-
 # [](#apify-command-line-client--apify-cli-)Apify command-line client (apify-cli)
 
 [![npm version](https://badge.fury.io/js/apify-cli.svg)](http://badge.fury.io/js/apify-cli) [![Build Status](https://travis-ci.org/apifytech/apify-cli.svg?branch=master)](https://travis-ci.org/apifytech/apify-cli?branch=master)
