@@ -7,7 +7,9 @@
     "build": "node ./src/build.js",
     "test": "npm run test",
     "lint": "./node_modules/.bin/eslint .",
-    "lint:fix": "./node_modules/.bin/eslint . --ext .js,.jsx --fix"
+    "lint:fix": "./node_modules/.bin/eslint . --ext .js,.jsx --fix",
+    "algolia-index": "BASE_URL='http://localhost:3002/docs-dev' node ./src/indexer.js",
+    "algolia-index-prod": "BASE_URL='https://docs.apify.com' UPDATE_INDEX=true node ./src/indexer.js"
   },
   "repository": {
     "type": "git",
@@ -25,10 +27,12 @@
   "homepage": "https://github.com/apifytech/apify-docs#readme",
   "dependencies": {
     "@apify/eslint-config": "0.0.2",
+    "algoliasearch": "^3.35.1",
     "apify-shared": "^0.1.55",
     "eslint": "^6.1.0",
     "fs-extra": "^8.1.0",
     "markdown-yaml-metadata-parser": "^2.0.1",
+    "marked": "^0.7.0",
     "underscore": "^1.9.1"
   }
 }
