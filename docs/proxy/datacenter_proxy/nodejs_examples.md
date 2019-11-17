@@ -5,7 +5,7 @@ description: Documentation of Apify Proxy that enables anonymization of access t
 
 # [](#datacenter-proxy--nodejs-examples)NodeJS Examples
 
-The following sections contain several examples of how to use Apify Proxy in NodeJS (used as the default language in [actors]({{@link actor/index.md}})).
+The following sections contain several examples of how to use Apify Proxy in NodeJS (used as the default language in [actors]({{@link actor.md}})).
 
 ## Usage in [PuppeteerCrawler](/docs/sdk/apify-runtime-js/latest#PuppeteerCrawler)
 

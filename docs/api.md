@@ -24,7 +24,7 @@ The `apify-client` NPM package provides a JavaScript client for Apify API. This 
 
 ### [](#reference)API reference
 
-The latest version of the API used to manage [Apify actors]({{@link actor/index.md}}) and associated resources. The API enables you to manage:
+The latest version of the API used to manage [Apify actors]({{@link actor.md}}) and associated resources. The API enables you to manage:
 
 *   List actors and actor tasks, view and update their settings
 *   Run and stop actors and actor tasks

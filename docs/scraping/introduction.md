@@ -12,7 +12,7 @@ Welcome to the getting started tutorial to walk you through creating your first 
 
 It doesn't matter whether you arrived here from `apify/web-scraper`, `apify/puppeteer-scraper` or `apify/cheerio-scraper`. All of them are **actors** and for now, let's just think of **actor** as an application that you can use with your own configuration. `apify/web-scraper` is therefore an application called `web-scraper`, built by `apify`, that you can configure to scrape any webpage. We call these configurations **tasks**.
 
-> If you need help choosing the right scraper, see this [great knowledge base article](https://kb.apify.com/tutorials-getting-started/choosing-the-right-scraper). And if you just want to learn more about actors in general, you can read our [actors page](https://apify.com/actors) or [browse the documentation]({{@link actor/index.md}}).
+> If you need help choosing the right scraper, see this [great knowledge base article](https://kb.apify.com/tutorials-getting-started/choosing-the-right-scraper). And if you just want to learn more about actors in general, you can read our [actors page](https://apify.com/actors) or [browse the documentation]({{@link actor.md}}).
 
 You can create 10 different **tasks** for 10 different websites, with very different options, but there will always be just one **actor**, the `apify/*-scraper` you chose. This is the essence of tasks. They are nothing but **saved configurations** of the actor that you can run easily and repeatedly.
 
@@ -68,7 +68,7 @@ Since tasks are just configurations for actors, this tab shows you all the infor
 
 ### [](#webhooks)WEBHOOKS
 
-Webhooks are a feature that help keep you aware of what's happening with your tasks. You can set them up to inform you when a task starts, finishes, fails and so on, or you can even use them to run more tasks, depending on the outcome of the original one. You can find the [documentation on webhooks here]({{@link webhooks/index.md}}).
+Webhooks are a feature that help keep you aware of what's happening with your tasks. You can set them up to inform you when a task starts, finishes, fails and so on, or you can even use them to run more tasks, depending on the outcome of the original one. You can find the [documentation on webhooks here]({{@link webhooks.md}}).
 
 ### [](#runs)RUNS
 
