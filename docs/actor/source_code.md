@@ -83,7 +83,7 @@ Internally, Apify uses Docker to build and run actors. To control the build of t
     RUN npm install --quiet --only=prod --no-optional \
      && npm list
 
-For more information about Dockerfile syntax and commands, see the [Dockerfile reference _open_in_new_](https://docs.docker.com/engine/reference/builder/).
+For more information about Dockerfile syntax and commands, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
 Note that `apify/actor-node-basic` is a base Docker image provided by Apify. There are other base images with other features available. However, you can use arbitrary Docker images as the base for your actors, although using the Apify images has some performance advantages. See [Base images]({{@link actor/build.md#base-images}}) for details.
 
@@ -137,7 +137,7 @@ The actor runtime sets additional environment variables for the actor process du
 
 ## [](#versioning)Versioning
 
-In order to enable active development, the actor can have multiple versions of the source code and associated settings, such as the **Base image** and **Environment**. Each version is denoted by a version number of the form `MAJOR.MINOR`; the version numbers should adhere to the [Semantic Versioning _open_in_new_](http://semver.org/) logic.
+In order to enable active development, the actor can have multiple versions of the source code and associated settings, such as the **Base image** and **Environment**. Each version is denoted by a version number of the form `MAJOR.MINOR`; the version numbers should adhere to the [Semantic Versioning](http://semver.org/) logic.
 
 For example, the actor can have a production version `1.1`, a beta version `1.2` that contains new features but is still backwards compatible, and a development version `2.0` that contains breaking changes.
 

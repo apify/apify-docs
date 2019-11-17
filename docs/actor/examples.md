@@ -58,7 +58,7 @@ The code above uses the [`launchPuppeteer()`](https://sdk.apify.com/docs/api/api
 
 ## [](#examples-dockerfile)Custom Dockerfile
 
-This example demonstrates how to create an actor written in PHP using a custom Dockerfile. For more information, see the [Custom Dockerfile]({{@link actor/source_code.md#custom-dockerfile}}) section. The Dockerfile is based on the [`php:7.0-cli` _open_in_new_](https://hub.docker.com/_/php/) Docker image that contains everything needed to run PHP in a terminal.
+This example demonstrates how to create an actor written in PHP using a custom Dockerfile. For more information, see the [Custom Dockerfile]({{@link actor/source_code.md#custom-dockerfile}}) section. The Dockerfile is based on the [`php:7.0-cli`](https://hub.docker.com/_/php/) Docker image that contains everything needed to run PHP in a terminal.
 
 `Dockerfile` contains only two commands. The first copies source code into the container and the second executes `main.php`.
 
