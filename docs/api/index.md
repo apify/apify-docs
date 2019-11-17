@@ -19,8 +19,8 @@ For JavaScript / Node.js applications, the easiest way to access the Apify API i
 The `apify-client` NPM package provides a JavaScript client for Apify API. This package greatly simplifies the development of apps that depend on the Apify platform.
 
 *   [Documentation for latest version](https://apify.com/docs/api/apify-client-js/latest)
-*   [Package page on NPM _open_in_new_](https://www.npmjs.com/package/apify-client)
-*   [Source code on GitHub _open_in_new_](https://github.com/apifytech/apify-client-js)
+*   [Package page on NPM](https://www.npmjs.com/package/apify-client)
+*   [Source code on GitHub](https://github.com/apifytech/apify-client-js)
 
 ### [](#reference)API reference
 

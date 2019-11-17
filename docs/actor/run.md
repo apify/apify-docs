@@ -72,7 +72,7 @@ Aside from [custom environment variables]({{@link actor/source_code.md#source-en
 |`APIFY_CONTAINER_URL`|A unique public URL under which the actor run web server is accessible from the outside world. See [Container web server]({{@link actor/run.md#container-web-server}}) section for more details.|
 
 
-Dates are always in the UTC timezone and are represented in simplified extended ISO format ([ISO 8601 _open_in_new_](https://en.wikipedia.org/wiki/ISO_8601)), e.g. `2017-10-13T14:23:37.281Z`
+Dates are always in the UTC timezone and are represented in simplified extended ISO format ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)), e.g. `2017-10-13T14:23:37.281Z`
 
 To access environment variables in Node.js, use the `process.env` object, for example:
 
