@@ -1,5 +1,3 @@
-# [](./)Actor input schema
-
 ---
 title: Actor input schema
 description: Documentation of Apify Actor input schema.
