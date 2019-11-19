@@ -1,5 +1,5 @@
 ---
-title: Actor input schema
+title: input schema
 description: Documentation of Apify Actor input schema.
 menuWeight: 3.5
 ---
