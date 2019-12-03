@@ -1,6 +1,6 @@
 ---
 title: Events
-description: Documentation of Apify&#x27;s webhooks system that enables integration of multiple actors or external systems.
+description: Documentation of Apify webhooks system that enables integration of multiple actors or external systems.
 menuWeight: 8.1
 ---
 
@@ -12,7 +12,7 @@ An event is represented by a **type** and related **data**. The type is a `strin
 
 ## [](./webhooks#events-actor-run)Actor run
 
-Actor run events are triggered when an actor run gets created or transitions into a new state. Webhook can be defined for all runs of an [actor]({{@link actor/index.md}}) at its detail page or for a specific [actor task]({{@link tasks/index.md}}) at its detail page. In that case, the webhook is invoked only for runs started for that task.
+Actor run events are triggered when an actor run gets created or transitions into a new state. Webhook can be defined for all runs of an [actor]({{@link actor.md}}) at its detail page or for a specific [actor task]({{@link tasks.md}}) at its detail page. In that case, the webhook is invoked only for runs started for that task.
 
 ### Event types:
 

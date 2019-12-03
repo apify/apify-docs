@@ -1,6 +1,6 @@
 ---
 title: Webhooks
-description: Documentation of Apify&#x27;s webhooks system that enables integration of multiple actors or external systems.
+description: Documentation of Apify webhooks system that enables integration of multiple actors or external systems.
 menuWeight: 8
 ---
 
