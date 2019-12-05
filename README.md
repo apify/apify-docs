@@ -1,6 +1,6 @@
 # Apify documentation
 
-[![Build Status](https://travis-ci.org/apifytech/apify-docs.svg?branch=master)](https://travis-ci.org/apifytech/apify-docs)
+[![Build Status](https://travis-ci.com/apifytech/apify-docs.svg?branch=master)](https://travis-ci.org/apifytech/apify-docs)
 
 ## Intro
 
