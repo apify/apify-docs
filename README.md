@@ -6,7 +6,13 @@
 
 This project is a home of Apify documentation that you can find running at [docs.apify.com](https://docs.apify.com/). Documentation is written in a [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) format and all of its source files are located in a [/docs](https://github.com/apifytech/apify-docs/tree/master/docs) directory.
 
+## Deployment
+
 On each commit to the master branch of this repository, a new version of Apify documentation gets built and deployed to [docs.apify.com](https://docs.apify.com/).
+
+On commit to any other branch a develop version of docs gets updated. This version can be viewed using a `?version=develop` parameter, i.e. at [https://docs.apify.com?version=develop](https://docs.apify.com?version=develop).
+
+Keep in mind that there might be about 2 minute delay before updated documentation gets online (1 minute Travis build + 1 minute update interval of docs website).
 
 ## Implementation
 
