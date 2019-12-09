@@ -14,7 +14,7 @@ Note that you can find API endpoints related to specific sections of the app in 
 
 For JavaScript / Node.js applications, the easiest way to access the Apify API is using the [`apify-client`](https://apify.com/docs/api/apify-client-js/latest) NPM package.
 
-### [](#js-client)JavaScript API client
+## [](#js-client)JavaScript API client
 
 The `apify-client` NPM package provides a JavaScript client for Apify API. This package greatly simplifies the development of apps that depend on the Apify platform.
 
@@ -22,7 +22,7 @@ The `apify-client` NPM package provides a JavaScript client for Apify API. This 
 *   [Package page on NPM](https://www.npmjs.com/package/apify-client)
 *   [Source code on GitHub](https://github.com/apifytech/apify-client-js)
 
-### [](#reference)API reference
+## [](#reference)API reference
 
 The latest version of the API used to manage [Apify actors]({{@link actor.md}}) and associated resources. The API enables you to manage:
 
