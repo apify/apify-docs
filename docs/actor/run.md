@@ -48,7 +48,7 @@ The input can be passed to the actor either manually in the Console or using a P
 
 ## [](#run-env-vars)Environment variables
 
-Aside from [custom environment variables]({{@link actor/source_code.md#source-env-vars}}), the actor's process has several environment variables set to provide it with context:
+Aside from [custom environment variables]({{@link actor/source_code.md#custom-environment-variables}}), the actor's process has several environment variables set to provide it with context:
 
 |||
 |--- |--- |
@@ -126,7 +126,7 @@ Each actor run is assigned a unique hard-to-guess URL (e.g. `http://kmdo7wpzlshy
 *   In the API as the `containerUrl` property of the [Run object](https://apify.com/api/v2#/reference/actor/run-object/get-run).
 *   In the actor run's container as the `APIFY_CONTAINER_URL` environment variable.
 
-The web server running inside the container must listen at the port defined by the `APIFY_CONTAINER_PORT` environment variable (typically 4321). If you want to use another port, simply define the `APIFY_CONTAINER_PORT` environment variable with the desired port number in your actor version configuration - see [Custom environment variable]({{@link actor/source_code.md#source-env-vars}}) for details.
+The web server running inside the container must listen at the port defined by the `APIFY_CONTAINER_PORT` environment variable (typically 4321). If you want to use another port, simply define the `APIFY_CONTAINER_PORT` environment variable with the desired port number in your actor version configuration - see [Custom environment variable]({{@link actor/source_code.md#custom-environment-variables}}) for details.
 
 The following example demonstrates how to start a simple web server in your actor:
 

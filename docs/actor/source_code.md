@@ -121,7 +121,7 @@ Then go to your GitHub repository, click **Settings**, select **Webhooks** tab a
 
 And that's it! Now your actor should automatically rebuild on every push to the GitHub repository.
 
-## [](#source-env-vars)Custom environment variables
+## [](#custom-environment-variables)Custom environment variables
 
 The actor owner can specify custom environment variables that are set to the actor's process during the run. Sensitive environment variables such as passwords or API tokens can be protected by setting the **Secret** option. With this option enabled, the value of the environment variable is encrypted and it will not be visible in the app or APIs, and the value is redacted from actor logs to avoid the accidental leakage of sensitive data.
 
