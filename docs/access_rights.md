@@ -12,7 +12,7 @@ By default, each system resource (actor, key-value store, run, ...) created by t
 
 User can easily and securely share own resources - actors, tasks, key-value stores, datasets and requests queues with other users using a granular permission system. This enables a user to for example grant permissions to his colleague to run your actor but not allowing him to modify it. It's also possible to grant permission to update the actor and build a new version. Storages (key-value stores, request queues and datasets) are sharable the same way with for example just read permission or a combination of both read and write permissions.
 
-To share actor, task, key-value store, request queue or dataset open its settings tab and at the very bottom you find an access rights section. You can add collaborator using his user ID, email or username and once collaborator is added you can configure his permissions.
+To be able to grant access rights to another user you must set up your username in [account settings](https://my.apify.com/account#/profile). To share actor, task, key-value store, request queue or dataset open its settings tab and at the very bottom you find an access rights section. You can add collaborator using his user ID, email or username and once collaborator is added you can configure his permissions.
 
 ![Access rights configuration]({{@asset images/access-rights.jpg}})
 
