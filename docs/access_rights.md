@@ -4,7 +4,7 @@ description: Documentation of access rights and publication at Apify platform.
 menuWeight: 9
 ---
 
-# [](./acess_rights)Access rights
+# [](./access_rights)Access rights
 
 By default, each system resource (actor, key-value store, run, ...) created by the user is only available to its owner. There are two ways a user can grant access to their resources - either by using an access rights system or by publishing their own actor in [Apify Store](https://apify.com/store).
 
