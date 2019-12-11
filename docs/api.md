@@ -1,7 +1,7 @@
 ---
 title: API
 description: Documentation of Apify REST API that enables integration with external applications and systems.
-menuWeight: 11
+menuWeight: 10
 ---
 
 # [](./api)API
