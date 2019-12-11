@@ -1,7 +1,7 @@
 ---
 title: Access rights
 description: Documentation of access rights and publication at Apify platform.
-menuWeight: 10
+menuWeight: 9
 ---
 
 # [](./acess_rights)Access rights
