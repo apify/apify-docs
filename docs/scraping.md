@@ -37,3 +37,4 @@ Puppeteer Scraper is the most powerful scraper tool in our arsenal (aside from d
 Puppeteer is a Node.js library, so knowledge of Node.js and its paradigms is expected when working with the Puppeteer Scraper.
 
 [Visit the Puppeteer Scraper tutorial to get started!]({{@link scraping/puppeteer_scraper.md}})
+

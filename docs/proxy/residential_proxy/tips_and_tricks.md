@@ -28,3 +28,4 @@ Just remember that sessions are not persistent, so from time to time, you will h
 ## Connections can be interrupted
 
 For this problem there is no easy solution, so either do not use the Residential proxy for larger requests or if you have no choice, expect that interruptions might happen and write your solution with this situation in mind.
+

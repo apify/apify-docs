@@ -35,3 +35,4 @@ Additionally, you can use the following shortcut expressions:
 `@hourly` (`0 * * * *`)
 
 You can find more information and examples of cron expressions on [crontab.guru](http://crontab.guru/).
+

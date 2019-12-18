@@ -70,3 +70,4 @@ Two requests with the different IPs both from the US.
     echo "\nShould have different clientIp than\n";
     echo $response2;
     ?>
+

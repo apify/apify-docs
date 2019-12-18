@@ -40,3 +40,4 @@ Get HTML of shopping results from the Czech Republic for query `Apple iPhone XS 
     curl_close($curl);
     echo $response;
     ?>
+
