@@ -20,16 +20,41 @@ HTTP proxy username is used to pass various parameters for the proxy connection.
 
 The following table describes the available parameters:
 
-|`groups`|
-|--- |
-|Required to be set to **RESIDENTIAL**|
-|If specified, all proxied requests with the same session identifier are routed through the same IP address. For example `session-rand123456`.  
-**This parameter is optional**, by default, each proxied request is assigned a randomly picked least used IP address.  
-**The session string can only contain numbers (0-9), letters (a-z or A-Z), dot (.), underscore (_), a tilde (~) and the maximum length is 50 characters!**|
-|If specified, all proxied requests will use IP addresses that geolocated to the specified country. For example `country-GB` for IP's from Great Britain.  
-**This parameter is optional**, by default, each proxied request is assigned an IP address from a random country.  
-**The country code needs to be a two letter ISO country code - see the [full list of available country codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)**|
-
+<table>
+    <tr>
+        <th><code>groups</code></th>
+        <td>
+            If specified, all proxied requests will use proxy servers from selected proxy groups.
+            For example <code>groups-SHADER+BUYPROXIES94952</code>.
+            <br /><strong>This parameter is optional</strong>,
+            by default, the proxy uses all available proxy servers from all groups the user has access to.
+        </td>
+    </tr>
+    <tr>
+        <th><code>session</code></th>
+        <td>
+            If specified, all proxied requests with the same session identifier are routed through
+            the same IP address.
+            For example <code>session-rand123456</code>.
+            <br /><strong>This parameter is optional</strong>, by default, each proxied request
+            is assigned a randomly picked least used IP address.
+            <br /><strong>The session string can only contain numbers (0-9), letters (a-z or A-Z),
+            dot (.), underscore (_), a tilde (~) and the maximum length is 50 characters!</strong>
+        </td>
+    </tr>
+    <tr>
+        <th><code>country</code></th>
+        <td>
+            If specified, all proxied requests will use proxy servers from a selected country. Please be aware that
+            if there are no proxy servers from the specified country the connection will fail.
+            For example <code>groups-SHADER,country-US</code>.
+            <br /><strong>This parameter is optional</strong>,
+            by default, the proxy uses all available proxy servers from all countries.
+            <strong>The country code needs to be a two letter ISO country code - see the
+            <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">full list of available country codes</a></strong>|
+        </td>
+    </tr>
+</table>
 
 This is how the username would look for the most complex variation: Session set and IP selected from the United States
 
