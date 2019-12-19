@@ -10,7 +10,7 @@ An event is represented by a **type** and related **data**. The type is a `strin
 
 **Currently, webhooks are only available for actor run events, with new types in the pipeline.**
 
-## [](./webhooks#events-actor-run)Actor run
+## [](#actor-run)Actor run
 
 Actor run events are triggered when an actor run gets created or transitions into a new state. Webhook can be defined for all runs of an [actor]({{@link actor.md}}) at its detail page or for a specific [actor task]({{@link tasks.md}}) at its detail page. In that case, the webhook is invoked only for runs started for that task.
 
@@ -29,3 +29,4 @@ Actor run events are triggered when an actor run gets created or transitions int
         "actorTaskId": "If task was used, its ID.",
         "actorRunId": "Id of the triggering actor run.",
     }
+

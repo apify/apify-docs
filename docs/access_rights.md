@@ -23,3 +23,4 @@ Another way to share what you have made is to publish your actor in [Apify Store
 To publish the actor, open it in [Apify app](https://my.apify.com), go to the "Publication" tab and follow the instructions:
 
 ![Access rights configuration]({{@asset images/publication.png}})
+

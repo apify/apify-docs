@@ -17,3 +17,4 @@ If the proxy connection works well, the web page should look something like this
 To test that your requests are proxied and rotate the IP addresses correctly, you can open the following API endpoint via the proxy. It shows information about the client IP address:
 
 [https://api.apify.com/v2/browser-info/](https://api.apify.com/v2/browser-info/)
+

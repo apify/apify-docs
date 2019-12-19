@@ -19,7 +19,7 @@ Currently supported google search services are:
 
 **Pricing is based on the number of requests made**. Please [contact us](https://apify.com/contact) if you want to use Google SERP Proxy or if you need more information.
 
-## [](#google-serp--username-params)Username parameters
+## [](#username-parameters)Username parameters
 
 HTTP proxy username is used to pass various parameters for the proxy connection.
 
@@ -29,7 +29,7 @@ In the case of Google SERP proxy, the username should always look like this
 
 Unlike datacenter or residential proxies, there is no session parameter.
 
-## [](#google-serp--country)Country selection
+## [](#country-selection)Country selection
 
 A correct google domain needs to be used to get results for the desired country code.  
 For example:
@@ -41,4 +41,5 @@ Shopping results from Great Britain: `http://www.google.co.uk/seach?tbm=shop&q=<
 Search results from Germany: `http://www.google.de/search?q=<query>`
 
 See [full list of available domain names](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/List_of_Google_domains.html) for specific countries. When used, always remember to prepend the domain name with `www.` prefix.
+
 

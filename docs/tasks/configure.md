@@ -15,3 +15,4 @@ A Task's input configuration works like an actor's, you can either set up raw in
 ![Apify task raw input]({{@asset tasks/images/raw-input.png}})*Raw input UI*
 
 ![Apify task visual input]({{@asset tasks/images/visual-input.png}})*Visual input UI*
+

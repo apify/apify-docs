@@ -17,3 +17,4 @@ This section describes various resource limits of the Apify platform. Do you nee
 |Run maximum memory|32768 MB|
 |Maximum combined memory of all running jobs (free accounts)|8192 MB|
 |Maximum combined memory of all running jobs (paid accounts)|65536 MB|
+
