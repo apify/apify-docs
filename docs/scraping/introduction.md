@@ -153,7 +153,7 @@ What's the connection to Pseudo URLs? Well, first, all the URLs found in the ele
 
 To scrape all the actors in store, we should use the Link selector to further filter the links that our Pseudo URL matches. For example, we're not interested in the following URL:
 
-    https://apify.com/docs/actor
+    https://docs.apify.com/actor
 
 Even though it matches our Pseudo URL, it's not a link to an actor, but a link to documenation. To prevent links like those from being visited, we should specify a Link selector that filters them out. For now, let us just tell you that the Link selector you're looking for is:
 
@@ -165,7 +165,7 @@ Save it as your Link selector. If you're wondering how we figured this out, just
 
 We've added some configuration, so it's time to test it. Just run the task, keeping the **Max pages per run** set to `10` and **Page function** the same. You should see in the log that the scraper first visits the Start URL and then several of the actor details, matching the Pseudo URL.
 
-### [](#the--code-pagefunction--code-)The `pageFunction`
+### [](#the-`pagefunction`)The `pageFunction`
 
 The Page function is a JavaScript function that gets executed for each page the scraper visits. To figure out how to create the `pageFunction`, you must first inspect the page's structure to get an idea of its inner workings. The best tools for that are Developer Tools in browsers, DevTools.
 
@@ -294,3 +294,4 @@ There are differences in the code we use in the `pageFunction` though. Often sub
 *   [Continue to Web Scraper tutorial]({{@link scraping/web_scraper.md}})
 *   [Continue to Cheerio Scraper tutorial]({{@link scraping/cheerio_scraper.md}})
 *   [Continue to Puppeteer Scraper tutorial]({{@link scraping/puppeteer_scraper.md}})
+

@@ -6,11 +6,11 @@ menuWeight: 2.2
 
 # [](#scraping-with-web-scraper)Scraping with Web Scraper
 
-This scraping tutorial will go into the nitty gritty details of extracting data from `https://apify.com/store` using the `apify/web-scraper`. If you arrived here from the [Getting started with Apify scrapers](https://apify.com/docs/scraping/tutorial/introduction), tutorial, great! You are ready to continue where we left off. If you haven't seen the Getting started yet, check it out, it will help you learn about Apify and scraping in general and set you up for this tutorial, because this one builds on topics and code examples discussed there.
+This scraping tutorial will go into the nitty gritty details of extracting data from `https://apify.com/store` using the `apify/web-scraper`. If you arrived here from the [Getting started with Apify scrapers](https://docs.apify.com/scraping/tutorial/introduction), tutorial, great! You are ready to continue where we left off. If you haven't seen the Getting started yet, check it out, it will help you learn about Apify and scraping in general and set you up for this tutorial, because this one builds on topics and code examples discussed there.
 
 ## [](#getting-to-know-our-tools)Getting to know our tools
 
-In the [Getting started with Apify scrapers](https://apify.com/docs/scraping/tutorial/introduction) tutorial, we've confirmed that the scraper works as expected, so now it's time to add more data to the results.
+In the [Getting started with Apify scrapers](https://docs.apify.com/scraping/tutorial/introduction) tutorial, we've confirmed that the scraper works as expected, so now it's time to add more data to the results.
 
 To do that, we'll be using the [`jQuery` library](https://jquery.com/), because it provides some nice tools and a lot of people familiar with JavaScript already know how to use it.
 
@@ -33,7 +33,7 @@ Before we start, let's do a quick recap of the data we chose to scrape:
 
 ![data to scrape]({{@asset scraping/images/scraping-practice.jpg}} "Overview of data to be scraped.")
 
-We've already scraped number 1 and 2 in the [Getting started with Apify scrapers](https://apify.com/docs/scraping/tutorial/introduction) tutorial, so let's get to the next one on the list: Title
+We've already scraped number 1 and 2 in the [Getting started with Apify scrapers](https://docs.apify.com/scraping/tutorial/introduction) tutorial, so let's get to the next one on the list: Title
 
 ### [](#title)Title
 
@@ -269,7 +269,7 @@ We want to run this until the `waitFor()` function throws, so that's why we use 
 
 You might be wondering what's up with the `timeoutMillis`. Well, for the first page load, we want to wait longer, so that all the page's JavaScript has had a chance to execute, but for the other iterations, the JavaScript is already loaded and we're just waiting for the page to re-render so waiting for `2` seconds is enough to confirm that the button is not there. We don't want to stall the scraper for `20` seconds just to make sure that there's no button.
 
-### [](#plugging-it-into-the--code-pagefunction--code-)Plugging it into the `pageFunction`
+### [](#plugging-it-into-the-`pagefunction`)Plugging it into the `pageFunction`
 
 We've got the general algorithm ready, so all that's left is to integrate it into our earlier `pageFunction`. Remember the `// Do some stuff later` comment? Let's replace it. And don't forget to destructure the `waitFor()` function on the first line.
 
@@ -339,7 +339,7 @@ There are two types of data available for download. Items and Clean items. The I
 
 Clean items, on the other hand, include only the data you returned from the `pageFunction`. If you're only interested in the data you scraped, this format is what you will be using most of the time.
 
-## [](#bonus--making-your-code-neater)Bonus: Making your code neater
+## [](#bonus:-making-your-code-neater)Bonus: Making your code neater
 
 You may have noticed that the `pageFunction` gets quite bulky. To make better sense of your code and have an easier time maintaining or extending your task, feel free to define other functions inside the `pageFunction` that encapsulate all the different logic. You can, for example, define a function for each of the different pages:
 
@@ -404,3 +404,4 @@ You may have noticed that the `pageFunction` gets quite bulky. To make better se
 Thank you for reading this whole tutorial! Really! It's important to us that our users have the best information available to them so that they can use Apify easily and effectively. We're glad that you made it all the way here and congratulations on creating your first scraping task. We hope that you liked the tutorial and if there's anything you'd like to ask, [do it on Stack Overflow](https://stackoverflow.com/questions/tagged/apify)!
 
 Finally, `apify/web-scraper` is just an actor and writing your own actors is a breeze with the [Apify SDK](https://sdk.apify.com). It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking. Perhaps some other time, when you're in the mood for yet another tutorial, visit the [Getting Started](https://sdk.apify.com/docs/guides/gettingstarted). We think you'd like it!
+

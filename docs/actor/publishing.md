@@ -13,3 +13,4 @@ To publish your actor, go to **Settings → Permissions** on the actor detail pa
 The short actor description shown in the store is taken from **Settings → Description**. Additionally, if the actor's source code is hosted in a [Git repository]({{@link actor/source_code.md#source-git-repo}}), [Zip file]({{@link actor/source_code.md#source-tarball}}) or [GitHub Gist]({{@link actor/source_code.md#source-github-gist}}), you can add a long description in [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) language to the `README.md` or `README` files in the root of the source code directory. To see an example of how this looks, go to [apify/web-scraper](https://apify.com/apify/web-scraper).
 
 **IMPORTANT:** Note that if your actor is public and used by other people, its usage is not charged towards your account. The user running the actor is always the one who pays for the computational resources consumed by an actor's execution.
+

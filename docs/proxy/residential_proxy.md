@@ -12,7 +12,7 @@ On the Apify platform, users can use Residential Proxy after they are given acce
 
 Please [contact us](https://apify.com/contact) if you want to use Apify Residential Proxy or if you need more information.
 
-## [](#residential-proxy--username-params)Username parameters
+## [](#username-parameters)Username parameters
 
 HTTP proxy username is used to pass various parameters for the proxy connection. For example, the simplest way to use residential proxy is with the username below:
 
@@ -39,6 +39,7 @@ And here is how it would look if you need a random proxy from the US
 
     groups-RESIDENTIAL,country-US
 
-## [](#residential-proxy--session-persistence)Session persistence
+## [](#session-persistence)Session persistence
 
 When using Apify Proxy with `session` parameter set in the username (see [Username parameters]({{@link proxy/residential_proxy.md#residential-proxy--username-params}})) a single IP is assigned to the session ID provided after the first request is made. This IP is persisted for one minute and its expiration is refreshed with each request. If the proxy server becomes unresponsive or the session expires a new IP is selected for the next request.
+

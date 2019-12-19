@@ -7,7 +7,7 @@ description: Documentation of Apify Proxy that enables anonymization of access t
 
 The following sections contain several examples of how to use Google SERP proxy in [actors]({{@link actor.md}}).
 
-## Usage in [PuppeteerCrawler](https://apify.com/docs/sdk/apify-runtime-js/latest#PuppeteerCrawler)
+## Usage in [PuppeteerCrawler](https://docs.apify.com/sdk/apify-runtime-js/latest#PuppeteerCrawler)
 
 Get a list of results from the US for keyword `wikipedia` and parse them through cheerio
 
@@ -108,7 +108,7 @@ Get a list of shopping results from the Czech Republic for keyword `Apple iPhone
         await crawler.run();
     });
 
-## Usage in [Apify.launchPuppeteer()](https://apify.com/docs/sdk/apify-runtime-js/latest#module-Apify-launchPuppeteer)
+## Usage in [Apify.launchPuppeteer()](https://docs.apify.com/sdk/apify-runtime-js/latest#module-Apify-launchPuppeteer)
 
 Get a list of results from the US for keyword `wikipedia` and parse them through cheerio
 
@@ -243,3 +243,4 @@ Get a list of shopping results from the Czech Republic for query `Apple iPhone X
     }
 
     main();
+

@@ -23,11 +23,11 @@ The following table describes the run settings:
 
 The owner of the actor can specify default values for all the above settings in the **Default run configuration** section in the app. If the actor caller does not specify a particular setting, the default value is used.
 
-The actor can also be invoked using the Apify API by sending a HTTP POST request to the [Run actor](https://apify.com/docs/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, such as:
+The actor can also be invoked using the Apify API by sending a HTTP POST request to the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, such as:
 
     https://api.apify.com/v2/acts/apify~hello-world/runs?token=<YOUR_API_TOKEN>
 
-The actor's input and its content type can be passed as a payload of the POST request and additional options can be specified using URL query parameters. For more details, see the [Run actor](https://apify.com/docs/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
+The actor's input and its content type can be passed as a payload of the POST request and additional options can be specified using URL query parameters. For more details, see the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
 
 Actors can also be invoked programmatically from other actors using the [`call()`](https://sdk.apify.com/docs/api/apify#module_Apify.call) function provided by the [`apify`](https://sdk.apify.com/) NPM package. For example:
 
@@ -36,9 +36,9 @@ Actors can also be invoked programmatically from other actors using the [`call()
 
 The newly started actor runs under the same user account as the initial actor and therefore all resources consumed are charged to the same user account. This allows more complex actors to be built using simpler actors built and owned by other users.
 
-Internally, the `call()` function takes the user's API token from the `APIFY_TOKEN` environment variable, then it invokes the [Run actor](https://apify.com/docs/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get record](https://apify.com/docs/api/v2/#/reference/key-value-stores/record/get-record) API endpoint.
+Internally, the `call()` function takes the user's API token from the `APIFY_TOKEN` environment variable, then it invokes the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get record](https://docs.apify.com/api/v2/#/reference/key-value-stores/record/get-record) API endpoint.
 
-## [](#input-output)Input and output
+## [](#input-and-output)Input and output
 
 As demonstrated in the hello world example above, actors can accept input and generate output. Both input and output are stored in a key-value store that is created when the actor is started, under the `INPUT` and `OUTPUT` keys, respectively. Note that the actor can store other values under arbitrary keys, for example crawling results or screenshots of web pages.
 
@@ -46,7 +46,7 @@ The key-value store associated with the actor run can be conveniently accessed u
 
 The input can be passed to the actor either manually in the Console or using a POST payload when running the actor using API. See [Run]({{@link actor/run.md}}) section for details.
 
-## [](#run-env-vars)Environment variables
+## [](#environment-variables)Environment variables
 
 Aside from [custom environment variables]({{@link actor/source_code.md#custom-environment-variables}}), the actor's process has several environment variables set to provide it with context:
 
@@ -90,7 +90,7 @@ The actor has hard disk space limited by twice the amount of memory. For example
 
 Unlike traditional serverless platforms, actors have no limits on the duration of an actor run. However, that means that an actor might need to be restarted from time to time, e.g. when the server it's running on is to be shutdown. Actors need to account for this possibility. For short-running actors, the chance of a restart is quite low and the cost of repeated runs is low, so restarts can be ignored. However, for long-running actors a restart might be very costly and therefore such actors should periodically persist their state, possibly to the key-value store associated with the actor run. On start, actors should first check whether there is some state stored and if so they should continue where they left off.
 
-## [](#run-lifecycle)Lifecycle
+## [](#lifecycle)Lifecycle
 
 Each run starts with the initial status `READY` and goes through one or more transitional statuses to one of the terminal statuses.
 
@@ -105,7 +105,7 @@ Each run starts with the initial status `READY` and goes through one or more tra
 |`ABORTING`|transitional|Being aborted by user|
 |`ABORTED`|terminal|Aborted by user|
 
-## [](#run-resurrect)Resurrection of finished run
+## [](#resurrection-of-finished-run)Resurrection of finished run
 
 Any actor run in terminal state, i.e. run with status `FINISHED`, `FAILED`, `ABORTED` and `TIMED-OUT`, might be resurrected back to a `RUNNING` state. This is helpful in many cases, for example when the timeout for actor run was too low or any a case of an unexpected error.
 
@@ -116,7 +116,7 @@ The whole process of resurrection looks as follows:
 *   Updated duration will include the time when actor was not running. This does not affect compute units consumption.
 *   Timeout will be counted from the point when this actor run was resurrected.
 
-Resurrection can be peformed in Apify app using the **resurrect** button or via API using the [resurrect run](https://apify.com/docs/api/v2#/reference/actors/resurrect-run) API endpoint.
+Resurrection can be peformed in Apify app using the **resurrect** button or via API using the [resurrect run](https://docs.apify.com/api/v2#/reference/actors/resurrect-run) API endpoint.
 
 ## [](#container-web-server)Container web server
 
@@ -150,3 +150,4 @@ The following example demonstrates how to start a simple web server in your acto
 ## [](#data-retention)Data retention
 
 Actor run gets deleted along with its default storages (key-value store, dataset, request queue) after a data retention period which is based on [subscription plan](https://apify.com/pricing) of a user.
+

@@ -12,7 +12,7 @@ Each build is assigned a unique build number of the form `MAJOR.MINOR.BUILD` (e.
 
 By default, the build has a timeout of 300 seconds and consumes 1024 MB of memory from the user's memory limit. See the [Resource limits]({{@link actor/run.md#resource-limits}}) section for more details.
 
-## [](#build-tags)Tags
+## [](#tags)Tags
 
 When running the actor, the caller needs to specify which actor build should actually be used. To simplify this process, the builds can be associated with a tag such `latest` or `beta`, which can be used instead of the version number when running the actor. The tags are unique - only one build can be associated with a specific tag.
 
@@ -35,11 +35,11 @@ All images come in two versions: the `latest` tag corresponds to the stable vers
 
 Note that all Apify Docker images are pre-cached on Apify servers in order to speed-up the actor builds and runs. The source code used to generate the images is available in the [apify-actor-docker](https://github.com/apifytech/apify-actor-docker) GitHub repository.
 
-## [](#build-cache)Cache
+## [](#cache)Cache
 
 By default, the build process pulls latest copies of all necessary Docker images and builds each new layer of Docker image from scratch. To speedup the builds triggered via API you can add `useCache=1` parameter. See API reference for more details.
 
-## [](#build-lifecycle)Lifecycle
+## [](#lifecycle)Lifecycle
 
 Each build starts with the initial status `READY` and goes through one or more transitional statuses to one of the terminal statuses.
 
@@ -53,3 +53,4 @@ Each build starts with the initial status `READY` and goes through one or more t
 |`TIMED-OUT`|terminal|Timed out|
 |`ABORTING`|transitional|Being aborted by user|
 |`ABORTED`|terminal|Aborted by user|
+

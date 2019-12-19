@@ -14,7 +14,7 @@ This document provides detailed documentation for the Apify web scraping and aut
 
 Anything missing? Please let us know at [support@apify.com](mailto:support@apify.com)
 
-## [](#toc)Table of contents
+## [](#table-of-contents)Table of contents
 
 *   [**Scraping**]({{@link scraping.md}}) - Scrape and crawl websites using a few simple lines of JavaScript.
 *   [**Actor**]({{@link actor.md}}) - Runs arbitrary web scraping or automation tasks in the Apify cloud.
@@ -26,3 +26,4 @@ Anything missing? Please let us know at [support@apify.com](mailto:support@apify
 *   [**API**]({{@link api.md}}) - REST API that enables integration with external applications.
 *   [**SDK**](https://sdk.apify.com) - Open-source libraries to simplify development of local web scraping and automation projects, crawl websites with headless Chrome and Puppeteer, simplify development of Apify actors and integrate with the Apify API.
 *   [**CLI**]({{@link cli.md}}) - Command line interface (CLI) to help you to create, develop, run and deploy Apify actors from your local computer.
+

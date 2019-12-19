@@ -8,7 +8,7 @@ menuWeight: 8.2
 
 Currently, the only available action is to send an HTTP POST request to a URL specified in the webhook. New actions will come later.
 
-## [](./webhooks#actions-http-request)HTTP request
+## [](#http-request)HTTP request
 
 This action sends an HTTP POST request to the provided URL with a JSON payload. The payload is defined using a payload template, a JSON-like syntax that extends JSON with the use of variables enclosed in doubly curly braces `{{variable}}`. This enables the payload to be dynamically injected with data at the time when the webhook is triggered.
 
@@ -16,7 +16,7 @@ The response to the POST request must have an HTTP status code in the `2XX` rang
 
 For safety reasons, the webhook URL should contain a secret token to ensure only Apify can invoke it. To test your endpoint, you can use the _Test_ button in the user interface. The timeout of the webhook HTTP request is 30 seconds. If your endpoint performs a time-consuming operation, you should respond to the request immediately so that it does not time out before Apify receives the response. To ensure that the time-consuming operation is reliably finished, you can internally use a message queue to retry the operation on internal failure. In rare circumstances, the webhook might be invoked more than once, you should design your code to be idempotent to duplicate calls.
 
-### [](./webhooks#actions-http-request-payload-template)Payload template
+### [](#payload-template)Payload template
 
 The payload template is a JSON-like string, whose syntax is extended with the use of variables. This is useful when a custom payload structure is needed, but at the same time dynamic data, that is only known at the time of the webhook's invocation, need to be injected into the payload. Aside from the variables, the string must be a valid JSON.
 
@@ -57,7 +57,7 @@ The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`.
 
 You may have noticed that the `eventData` and `resource` properties contain redundant data. This is for backwards compatibility. Feel free to only use `eventData` or `resource` in your templates, depending on your use case.
 
-### []({{@link webhooks/actions.md#actions-http-request-available-variables}})Available variables
+### [](#available-variables)Available variables
 
 |Variable|Type|Description|
 |--- |--- |--- |
@@ -70,4 +70,5 @@ You may have noticed that the `eventData` and `resource` properties contain redu
 
 #### Resource
 
-The `resource`variable represents the triggering system resource. For example when using the `ACTOR.RUN.SUCCEEDED` event, the resource is the actor run. The variable will be replaced by an `Object` that one would receive as response from the relevant API at the moment when the webhook is triggered. So for the actor run resource, it would be the response of the [`GET` actor run](https://apify.com/docs/api/v2#/reference/actors/run-object/get-run) API endpoint.
+The `resource`variable represents the triggering system resource. For example when using the `ACTOR.RUN.SUCCEEDED` event, the resource is the actor run. The variable will be replaced by an `Object` that one would receive as response from the relevant API at the moment when the webhook is triggered. So for the actor run resource, it would be the response of the [`GET` actor run](https://docs.apify.com/api/v2#/reference/actors/run-object/get-run) API endpoint.
+

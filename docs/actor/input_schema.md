@@ -315,3 +315,4 @@ Usage of this field is based on the selected editor:
 
 *   `requestListSources` - value from this field can be used as input of [RequestList](https://sdk.apify.com/docs/api/requestlist) class from Apify SDK.
 *   `pseudoUrls` - is intended to be used with combination of [PseudoUrl](https://sdk.apify.com/docs/api/pseudourl) class and [Apify.utils.puppeteer.enqueueLinks()](https://sdk.apify.com/docs/api/puppeteer#puppeteer.enqueueLinks) function from Apify SDK.
+

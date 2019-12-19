@@ -6,9 +6,9 @@ menuWeight: 3.2
 
 # [](#source)Source code
 
-The **Source type** setting determines the location of the source code for the actor. It can have one of the following values: [Single JavaScript file](#hosted-source-file), [Multiple source files](#hosted-source-files), [Git repository](#source-git-repo), [Zip file](#source-tarball) or [GitHub Gist](#source-github-gist).
+The **Source type** setting determines the location of the source code for the actor. It can have one of the following values: [Single JavaScript file](#single-javascript-file), [Multiple source files](#multiple-source-files), [Git repository](#git-repository), [Zip file](#zip-file) or [GitHub Gist](#github-gist).
 
-## [](#hosted-source-file)Single JavaScript file
+## [](#single-javascript-file)Single JavaScript file
 
 The source code of the actor can be hosted directly on Apify. All the code needs to be in a single file and written in JavaScript / Node.js. The version of Node.js is determined by the **Base image** setting - see [Base images]({{@link actor/build.md#base-images}}) for the description of possible options.
 
@@ -23,17 +23,17 @@ During the build process, the source code is scanned for occurrences of the `req
 
 Note that certain NPM packages need additional tools for their installation, such as a C compiler or Python interpreter. If these tools are not available in the base Docker image, the build will fail. If that happens, try to change the base image to **Node.js 10 + Puppeteer on Debian**, because it contains much more tools than other images. Alternatively, you can use switch to the [multifile editor](#custom-dockerfile) and create your own docker image configuration.
 
-## [](#hosted-source-files)Multiple source files
+## [](#multiple-source-files)Multiple source files
 
 If the source code of the actor requires the use of multiple files/directories, then it can be hosted on Apify platform with this option. This is particulary useful when you need to add [`INPUT_SCHEMA.json`]({{@link actor/source_code.md#input-schema}}) or `README.md` to your actor, or if you want to create your actor in other language then JavaScript.
 
 The only required file for multifile is `Dockerfile`, all other files depend on your `Dockerfile` settings. By default Apify's custom NodeJS `Dockerfile` is used, which requires `main.js` file containing your source code and `package.json` file, with package configuration for npm.
 
-Unlike the [Single Javascript file](#hosted-source-file) option, `package.json` is not automaticaly generated, and you need to configure it yourself.
+Unlike the [Single Javascript file](#single-javascript-file) option, `package.json` is not automaticaly generated, and you need to configure it yourself.
 
 See [Custom Dockerfile]({{@link actor/source_code.md#custom-dockerfile}}) and [Base Images]({{@link actor/build.md#base-images}}) for more information about creating your own Dockerfile and using Apify's prepared base images.
 
-## [](#source-git-repo)Git repository
+## [](#git-repository)Git repository
 
 If the source code of the actor is hosted externally in a Git repository, it can consist of multiple files and directories, use its own `Dockerfile` to control the build process (see [Custom Dockerfile]({{@link actor/source_code.md#custom-dockerfile}}) for details) and have a user description in store fetched from the `README.md` file. The location of the repository is specified by the **Git URL** setting, which can be an `https`, `git` or `ssh` URL.
 
@@ -45,17 +45,17 @@ Optionally, the second part of the fragment in the Git URL (separated by a colon
 
 Note that you can easily set up an integration where the actor is automatically rebuilt on every commit to the Git repository. For more details, see [GitHub integration]({{@link actor/source_code.md#github-integration}}).
 
-### [](#source-git-repo-private)Private repositories
+### [](#private-repositories)Private repositories
 
 If your source code is hosted in a private Git repository then you need to configure deployment key. Deployment key is different for each actor and might be used only once at Git hosting of your choice (Github, Bitbucket, Gitlab, etc.).
 
 To obtain the key click at the **deployment key** link under the **Git URL** text input and follow the instructions there.
 
-## [](#source-tarball)Zip file
+## [](#zip-file)Zip file
 
-The source code for the actor can also be located in a Zip archive hosted on an external URL. This option enables integration with arbitrary source code or continuous integration systems. Similarly as with the [Git repository]({{@link actor/source_code.md#source-git-repo}}), the source code can consist of multiple files and directories, can contain a custom `Dockerfile` and the actor description is taken from `README.md`.
+The source code for the actor can also be located in a Zip archive hosted on an external URL. This option enables integration with arbitrary source code or continuous integration systems. Similarly as with the [Git repository]({{@link actor/source_code.md#git-repository}}), the source code can consist of multiple files and directories, can contain a custom `Dockerfile` and the actor description is taken from `README.md`.
 
-## [](#source-github-gist)GitHub Gist
+## [](#github-gist)GitHub Gist
 
 Sometimes having a full Git repository or a hosted Zip file might be overly complicated for your small project, but you still want to have the source code in multiple files. In this case, you can simply put your source code into a [GitHub Gist](https://gist.github.com/). For example:
 
@@ -67,11 +67,11 @@ Then set the **Source Type** to **GitHub Gist** and paste the Gist URL as follow
 
 Note that the example actor is available in the Apify Store as [apify/example-github-gist](https://apify.com/apify/example-github-gist).
 
-Similarly as with the [Git repository]({{@link actor/source_code.md#source-git-repo}}), the source code can consist of multiple files and directories, it can contain a custom `Dockerfile` and the actor description is taken from `README.md`.
+Similarly as with the [Git repository]({{@link actor/source_code.md#git-repository}}), the source code can consist of multiple files and directories, it can contain a custom `Dockerfile` and the actor description is taken from `README.md`.
 
 ## [](#custom-dockerfile)Custom Dockerfile
 
-Internally, Apify uses Docker to build and run actors. To control the build of the actor, you can create a custom `Dockerfile` in the root of the Git repository or Zip directory. Note that this option is not available for the [Single JavaScript file]({{@link actor/source_code.md#hosted-source-file}}) option. If the `Dockerfile` is missing, the system uses the following default:
+Internally, Apify uses Docker to build and run actors. To control the build of the actor, you can create a custom `Dockerfile` in the root of the Git repository or Zip directory. Note that this option is not available for the [Single JavaScript file]({{@link actor/source_code.md#single-javascript-file}}) option. If the `Dockerfile` is missing, the system uses the following default:
 
     FROM apify/actor-node-basic
 
@@ -149,13 +149,13 @@ It is possible to develop actors locally on your computer and then only deploy t
 
 In order to test the input and output of your actors on your local machine, you might define the `APIFY_DEV_KEY_VALUE_STORE_DIR` environment variable, which will cause the `apify` NPM package to emulate the key-value store locally using files in a directory. For more details, please see the [`apify` package documentation](https://sdk.apify.com/).
 
-Unfortunately, not all features of the Apify platform can be emulated locally, therefore you might still need to let the [`apify`](https://apify.com/docs/api/apify-client-js/latest) NPM package use your API token in order to interact with the Apify platform. The simplest way to achieve that is by setting the `APIFY_TOKEN` environment variable on your local development machine.
+Unfortunately, not all features of the Apify platform can be emulated locally, therefore you might still need to let the [`apify`](https://docs.apify.com/api/apify-client-js/latest) NPM package use your API token in order to interact with the Apify platform. The simplest way to achieve that is by setting the `APIFY_TOKEN` environment variable on your local development machine.
 
 ## [](#input-schema)Input schema
 
 Actor source files may contain an input schema defining the input that actor accepts and the UI components used for input at Apify platform. Using input schema you can provide UI to actor users that is easy to use and also ensure that input of your actor is valid.
 
-For more information on this topic see [input schema documentation](https://apify.com/docs/actor/input-schema) on a separate page.
+For more information on this topic see [input schema documentation](https://docs.apify.com/actor/input-schema) on a separate page.
 
 ## [](#metamorph)Metamorph
 
@@ -187,3 +187,4 @@ For example, imagine you have an actor that accepts a hotel URL on input and the
 
         // The line here will never be reached, because the actor run will be interrupted.
     });
+
