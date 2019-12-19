@@ -20,15 +20,11 @@ HTTP proxy username is used to pass various parameters for the proxy connection.
 
 The following table describes the available parameters:
 
-<table>
+<table class="table table-bordered table-condensed">
+    <tbody>
     <tr>
         <th><code>groups</code></th>
-        <td>
-            If specified, all proxied requests will use proxy servers from selected proxy groups.
-            For example <code>groups-SHADER+BUYPROXIES94952</code>.
-            <br /><strong>This parameter is optional</strong>,
-            by default, the proxy uses all available proxy servers from all groups the user has access to.
-        </td>
+        <td>Required to be set to <strong>RESIDENTIAL</strong></td>
     </tr>
     <tr>
         <th><code>session</code></th>
@@ -45,15 +41,16 @@ The following table describes the available parameters:
     <tr>
         <th><code>country</code></th>
         <td>
-            If specified, all proxied requests will use proxy servers from a selected country. Please be aware that
-            if there are no proxy servers from the specified country the connection will fail.
-            For example <code>groups-SHADER,country-US</code>.
-            <br /><strong>This parameter is optional</strong>,
-            by default, the proxy uses all available proxy servers from all countries.
-            <strong>The country code needs to be a two letter ISO country code - see the
-            <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">full list of available country codes</a></strong>|
+            If specified, all proxied requests will use IP addresses that geolocated to the specified country.
+            For example <code>country-GB</code> for IP's from Great Britain.
+            <br /><strong>This parameter is optional</strong>, by default, each proxied request
+            is assigned an IP address from a random country.
+            <br /><strong>The country code needs to be a two letter ISO country code - see the
+                <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="blank">full list of available country codes</a>
+            </strong>
         </td>
     </tr>
+    </tbody>
 </table>
 
 This is how the username would look for the most complex variation: Session set and IP selected from the United States
