@@ -8,13 +8,13 @@ menuWeight: 3.5
 
 #### Specification version 1
 
-Actor input schema defines the input that actor accepts and the UI components used for input at Apify platform. Using input schema you can provide UI to actor users that is easy to use and also ensure that input of your actor is valid.
+Actor input schema defines the input that the actor accepts and the UI components used for input at the Apify platform. Using input schema, you can provide UI to actor users that is easy to use, and also ensure that the input of your actor is valid.
 
-Input schema must be stored in a file named `INPUT_SCHEMA.json` in the root directory of the actor. Maximum size of input schema file is 100 kB. If the input schema is provided then input is always validated to fulfill schema when an actor is being started (via API or from run console at Apify platform).
+Input schema must be stored in a file named `INPUT_SCHEMA.json` in the root directory of the actor. Maximum size of the input schema file is 100 kB. If the input schema is provided, then input is always validated to fulfill the schema when an actor is being started (via API or from a run console at the Apify platform).
 
 ## Example
 
-Imagine you are building a simple crawler whose inputs are an array of start URLs and javascript function that will be executed at each page crawler visits. Then the input schema will look as follows:
+Imagine you are building a simple crawler whose inputs are an array of start URLs and a Javascript function that will be executed at each page the crawler visits. Then the input schema will look as follows:
 
     {
         "title": "Cheerio Crawler input",
@@ -43,11 +43,11 @@ Imagine you are building a simple crawler whose inputs are an array of start URL
         "required": ["startUrls", "pageFunction"]
     }
 
-And generated input UI will be:
+And generated the input UI will be:
 
 ![Apify actor input schema example]({{@asset actor/images/input-schema-example.png}})
 
-If you switch input to **raw** display using a blue switcher then you will see entered input stringified to a JSON format as it will be passed to the actor:
+If you switch the input to **raw** display using the blue toggle, then you will see the entered input stringified to a JSON format as it will be passed to the actor:
 
     {
       "startUrls": [
@@ -63,22 +63,22 @@ If you switch input to **raw** display using a blue switcher then you will see e
 
 ## Structure
 
-Input schema is a JSON file named `INPUT_SCHEMA.json` in the root directory of an actor with the following structure:
+The input schema is a JSON file named `INPUT_SCHEMA.json`, placed in the root directory of an actor with the following structure:
 
     {
         "title": "Cheerio Crawler input",
         "type": "object",
         "schemaVersion": 1,
-        "properties": { /* here is a place for definition of input fields */ },
+        "properties": { /* here is a place for the definition of input fields */ },
         "required": []
     }
 
 |Property|Type|Required|Description|
 |--- |--- |--- |--- |
 |`title`|String|Yes|Any text describing your input schema.|
-|`description`|String|No|Help text for input that will be displayed above the UI fields.|
-|`type`|String|Yes|This is fixed and must be set to string `object`|
-|`schemaVersion`|Integer|Yes|The version of input schema specification against your schema is written. Currently, only version `1` is out.|
+|`description`|String|No|Help text for the input that will be displayed above the UI fields.|
+|`type`|String|Yes|This is fixed and must be set to string `object`.|
+|`schemaVersion`|Integer|Yes|The version of the input schema specification against which your schema is written. Currently, only version `1` is out.|
 |`properties`|Object|Yes|This is an object mapping each field key to its specification.|
 |`required`|[String]|No|An array of field keys that are required.|
 
@@ -94,17 +94,17 @@ Each field of your input is described under its key in `inputSchema.properties` 
 |`default`|Must match `type` property.|No|Default value that will be used when no value is provided.|
 |`prefill`|Must match `type` property.|No|Value that will be prefilled in the actor input interface. Only the `boolean` type doesn't support `prefill` property.|
 |`example`|Must match `type` property.|No|Sample value of this field for the actor to be displayed when actor is published in Apify Store.|
-|`sectionCaption`|String|No|If this property is set then all fields following this field (this field included) will be separated into a collapsible section with the value set as it's caption. The section ends at the last field or next field which has `sectionCaption` property set.|
-|`sectionDescription`|String|No|If `sectionCaption` property is set, then you can use this property to provide additional description to the section. The description will be visible right under the caption when the section is open.|
+|`sectionCaption`|String|No|If this property is set, then all fields following this field (this field included) will be separated into a collapsible section with the value set as its caption. The section ends at the last field or the next field which has `sectionCaption` property set.|
+|`sectionDescription`|String|No|If the `sectionCaption` property is set, then you can use this property to provide additional description to the section. The description will be visible right under the caption when the section is open.|
 
 
 ### Additional properties
 
-In addition to that properties listed above, most of the types support also additional properties defining, for example, UI input editor.
+In addition to the properties listed above, most of the types support also additional properties defining, for example, the UI input editor.
 
 #### String
 
-Example of code input:
+Example of a code input:
 
     {
         "title": "Page function",
@@ -118,7 +118,7 @@ Rendered input:
 
 ![Apify actor input schema page function]({{@asset actor/images/input-schema-page-function.png}})
 
-Example of country selection using select input:
+Example of country selection using a select input:
 
     {
         "title": "Country",
@@ -138,13 +138,13 @@ Properties:
 
 |Property|Value|Required|Description|
 |--- |--- |--- |--- |
-|`editor`|One of `json`, `textfield`, `textarea`, `javascript`, `select`, `hidden`|Yes|Visual editor used for input field.|
-|`pattern`|String|No|Regular expression that will be used to validate the input|
-|`minLength`|Integer|No|Minimum length of the string|
-|`maxLength`|Integer|No|Maximum length of the string|
-|`enum`|[String]|Required if editor is `select`|Using this field you can limit values to the given array se of strings. Input will be displayed as select box.|
-|`enumTitles`|[String]|No|Titles for the `enum` keys described|
-|`nullable`|Boolean|No|Specifies whether null is an allowed value|
+|`editor`|One of `json`, `textfield`, `textarea`, `javascript`, `select`, `hidden`|Yes|Visual editor used for the input field.|
+|`pattern`|String|No|Regular expression that will be used to validate the input.|
+|`minLength`|Integer|No|Minimum length of the string.|
+|`maxLength`|Integer|No|Maximum length of the string.|
+|`enum`|[String]|Required if `editor` is `select`|Using this field, you can limit values to the given array of strings. Input will be displayed as select box.|
+|`enumTitles`|[String]|No|Titles for the `enum` keys described.|
+|`nullable`|Boolean|No|Specifies whether `null` is an allowed value.|
 
 
 #### Boolean
@@ -178,10 +178,10 @@ Properties:
 
 |Property|Value|Required|Description|
 |--- |--- |--- |--- |
-|`editor`|One of `checkbox`, `hidden`|no|Visual editor used for input field.|
-|`groupCaption`|String|No|If you want to group multiple checkboxes together add this option to the first one.|
+|`editor`|One of `checkbox`, `hidden`|No|Visual editor used for the input field.|
+|`groupCaption`|String|No|If you want to group multiple checkboxes together, add this option to the first of the group.|
 |`groupDescription`|String|No|Description displayed as help text displayed of group title.|
-|`nullable`|Boolean|No|Specifies whether null is an allowed value|
+|`nullable`|Boolean|No|Specifies whether null is an allowed value.|
 
 #### Integer
 
@@ -204,11 +204,11 @@ Properties:
 
 |Property|Value|Required|Description|
 |--- |--- |--- |--- |
-|`editor`|One of `number`, `hidden`|no|Visual editor used for input field.|
+|`editor`|One of `number`, `hidden`|No|Visual editor used for input field.|
 |`maximum`|Integer|No|Maximum allowed value.|
-|`minimum`|Integer|No|Minimum allowed value|
-|`unit`|String>|No|Unit displayed next to the field in UI. For example second, MB, etc.|
-|`nullable`|Boolean|No|Specifies whether null is an allowed value|
+|`minimum`|Integer|No|Minimum allowed value.|
+|`unit`|String|No|Unit displayed next to the field in UI, for example _second_, _MB_, etc.|
+|`nullable`|Boolean|No|Specifies whether null is an allowed value.|
 
 #### Object
 
@@ -226,21 +226,21 @@ Rendered input:
 
 ![Apify actor input schema proxy]({{@asset actor/images/input-schema-proxy.png}})
 
-The object where proxy configuration is stored has the following structure:
+The object where the proxy configuration is stored has the following structure:
 
     {
         // Indicates whether Apify Proxy was selected.
         "useApifyProxy": Boolean,
 
         // Array of Apify Proxy groups. Is missing or null if Apify Proxy's
-        // automatic mode was selected or proxies are not used.
+        // automatic mode was selected or if proxies are not used.
         "apifyProxyGroups": String[],
 
         // Array of custom proxy URLs. Is missing or null if custom proxies were not used.
         "proxyUrls": String[],
     }
 
-Example of an blackbox object:
+Example of a blackbox object:
 
     {
         "title": "User object",
@@ -259,11 +259,11 @@ Properties:
 |Property|Value|Required|Description|
 |--- |--- |--- |--- |
 |`editor`|One of `json`, `proxy`, `hidden`|Yes|UI editor used for input.|
-|`patternKey`|String|No|Regular expression that will be used to validate the keys of the object|
-|`patternValue`|String|No|Regular expression that will be used to validate the values of object|
-|`maxProperties`|Integer|No|Maximum number of properties the object can have|
-|`minProperties`|Integer|No|Minimum number of properties the object can have|
-|`nullable`|Boolean|No|Specifies whether null is an allowed value|
+|`patternKey`|String|No|Regular expression that will be used to validate the keys of the object.|
+|`patternValue`|String|No|Regular expression that will be used to validate the values of object.|
+|`maxProperties`|Integer|No|Maximum number of properties the object can have.|
+|`minProperties`|Integer|No|Minimum number of properties the object can have.|
+|`nullable`|Boolean|No|Specifies whether null is an allowed value.|
 
 
 ### Array
@@ -307,12 +307,12 @@ Properties:
 |`patternValue`|String|No|Regular expression that will be used to validate the values of items in the array. Works only with `keyValue` and `stringList` editors.|
 |`maxItems`|Integer|No|Maximum number of items the array can contain.|
 |`minItems`|Integer|No|Minimum number of items the array can contain.|
-|`uniqueItems`|Boolean|No|Specifies whether the array should contain only unique values|
-|`nullable`|Boolean|No|Specifies whether null is an allowed value|
+|`uniqueItems`|Boolean|No|Specifies whether the array should contain only unique values.|
+|`nullable`|Boolean|No|Specifies whether null is an allowed value.|
 
 
 Usage of this field is based on the selected editor:
 
 *   `requestListSources` - value from this field can be used as input of [RequestList](https://sdk.apify.com/docs/api/requestlist) class from Apify SDK.
-*   `pseudoUrls` - is intended to be used with combination of [PseudoUrl](https://sdk.apify.com/docs/api/pseudourl) class and [Apify.utils.puppeteer.enqueueLinks()](https://sdk.apify.com/docs/api/puppeteer#puppeteer.enqueueLinks) function from Apify SDK.
+*   `pseudoUrls` - is intended to be used with a combination of the [PseudoUrl](https://sdk.apify.com/docs/api/pseudourl) class and the [Apify.utils.puppeteer.enqueueLinks()](https://sdk.apify.com/docs/api/puppeteer#puppeteer.enqueueLinks) function from the Apify SDK.
 
