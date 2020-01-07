@@ -17,16 +17,16 @@ Actor run events are triggered when an actor run gets created or transitions int
 ### Event types:
 
 *   `ACTOR.RUN.CREATED` - New actor run has been created.
-*   `ACTOR.RUN.SUCCEEDED` - Actor run finished with status `SUCCEEDED`
-*   `ACTOR.RUN.FAILED` - Actor run finished with status `FAILED`
-*   `ACTOR.RUN.ABORTED` - Actor run finished with status `ABORTED`
-*   `ACTOR.RUN.TIMED_OUT` - Actor run finished with status `TIMED-OUT`
+*   `ACTOR.RUN.SUCCEEDED` - Actor run finished with status `SUCCEEDED`.
+*   `ACTOR.RUN.FAILED` - Actor run finished with status `FAILED`.
+*   `ACTOR.RUN.ABORTED` - Actor run finished with status `ABORTED`.
+*   `ACTOR.RUN.TIMED_OUT` - Actor run finished with status `TIMED-OUT`.
 
 ### Event data:
 
     {
         "actorId": "ID of the triggering actor.",
         "actorTaskId": "If task was used, its ID.",
-        "actorRunId": "Id of the triggering actor run.",
+        "actorRunId": "ID of the triggering actor run.",
     }
 
