@@ -149,5 +149,5 @@ The following example demonstrates how to start a simple web server in your acto
 
 ## [](#data-retention)Data retention
 
-Actor run gets deleted along with its default storages (key-value store, dataset, request queue) after a data retention period which is based on [subscription plan](https://apify.com/pricing) of a user.
+Actor run gets deleted along with its default storages (key-value store, dataset, request queue) after a data retention period which is based on the [subscription plan](https://apify.com/pricing) of a user.
 
