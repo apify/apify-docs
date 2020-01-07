@@ -82,12 +82,15 @@ const replacePaths = (index) => {
         const linkMatches = pageDef.content.match(/\{\{@link\s[^}]+\}\}/g);
         if (linkMatches) {
             linkMatches.forEach((linkMatch) => {
-                const linkedPage = linkMatch
+                const linkedPageParts = linkMatch
                     .substr(8, linkMatch.length - 10)
-                    .split('#')[0];
+                    .split('#');
+                const linkedPage = linkedPageParts[0];
+                // TODO check if the target anchor exists in the linked page
+                const linkedPageTarget = linkedPageParts[1] ? `#${linkedPageParts[1]}` : '';
                 const linkedPageDef = index.pages[linkedPage];
                 if (!linkedPageDef) throw new Error(`Page ${pagePath} contains invalid link ${linkMatch}!`);
-                pageDef.content = pageDef.content.replace(linkMatch, `/${linkedPageDef.path}`);
+                pageDef.content = pageDef.content.replace(linkMatch, `/${linkedPageDef.path}${linkedPageTarget}`);
             });
         }
 
