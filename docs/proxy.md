@@ -11,9 +11,9 @@ Apify Proxy provides access to Apify's proxy services that can be used in [actor
 You can view your Apify Proxy settings on the [Proxy page](https://my.apify.com/proxy) in the app.
 
 
+*   [**Connection settings**]({{@link proxy/connection_settings.md}})
 *   [**Datacenter proxy**]({{@link proxy/datacenter_proxy.md}})
 *   [**Residential proxy**]({{@link proxy/residential_proxy.md}})
 *   [**Google SERP proxy**]({{@link proxy/google_serp_proxy.md}})
-*   [**Connection_settings**]({{@link proxy/connection_settings.md}})
-*   [**troubleshooting**]({{@link proxy/troubleshooting.md}})
+*   [**Troubleshooting**]({{@link proxy/troubleshooting.md}})
 
