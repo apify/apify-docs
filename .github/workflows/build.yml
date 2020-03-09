@@ -12,6 +12,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
+      - name: install apiary
+        run: sudo gem install apiaryio
       - name: Create install dependencies
         run: npm install
       - name: Build documentation
@@ -23,7 +25,3 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - name: Upload API docs to Apiary.io
         run: ./upload_to_apiary.sh
-
-# github_token: ${{ secrets.GITHUB_TOKEN }}
-# - pip install --user awscli
-
