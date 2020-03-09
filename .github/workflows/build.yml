@@ -1,0 +1,23 @@
+name: Build and deploy
+
+on: [push]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Create install dependencies
+        run: npm install
+      - name: Build documentation
+        run: npm run build
+      - name: Upload to AWS S3
+        run: ./s3_sync.sh
+# github_token: ${{ secrets.GITHUB_TOKEN }}
+# - pip install --user awscli
+
