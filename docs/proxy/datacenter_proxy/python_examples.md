@@ -3,7 +3,7 @@ title: Python Examples
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
 ---
 
-# [](#datacenter-proxy--python-examples)Python Examples
+# [](#python-examples)Python Examples
 
 The following section contain several examples of how to use Apify Proxy in python.
 

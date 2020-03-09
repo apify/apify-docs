@@ -12,7 +12,7 @@ The dataset is storage that enables the saving and retrieval of sequential data 
 
 Each actor run is assigned its own dataset, created when the first item is stored to it. The ID of this dataset is available under `run.defaultDatasetId`.
 
-In your actor you can use shorthand methods to save items into the default dataset - `Apify.pushData()` [[see docs](https://sdk.apify.com/docs/api/apify#module_Apify.pushData)].
+In your actor you can use shorthand methods to save items into the default dataset - `Apify.pushData()` [[see docs](https://sdk.apify.com/docs/api/apify#apifypushdataitem)].
 
     const Apify = require('apify');
 
@@ -27,7 +27,7 @@ In your actor you can use shorthand methods to save items into the default datas
         ]);
     });
 
-If you want to use something other than the default dataset, e.g. some dataset that you share between actors or between actor runs, then you can use `Apify.openDataset()` [[see docs](https://sdk.apify.com/docs/api/apify#module_Apify.openDataset)]:
+If you want to use something other than the default dataset, e.g. some dataset that you share between actors or between actor runs, then you can use `Apify.openDataset()` [[see docs](https://sdk.apify.com/docs/api/apify#apifyopendatasetdatasetidorname-options)]:
 
     const dataset = await Apify.openDataset('some-name');
 

@@ -63,5 +63,5 @@ And here is how it would look if you need a random proxy from the US
 
 ## [](#session-persistence)Session persistence
 
-When using Apify Proxy with `session` parameter set in the username (see [Username parameters]({{@link proxy/residential_proxy.md#residential-proxy--username-params}})) a single IP is assigned to the session ID provided after the first request is made. This IP is persisted for one minute and its expiration is refreshed with each request. If the proxy server becomes unresponsive or the session expires a new IP is selected for the next request.
+When using Apify Proxy with `session` parameter set in the username (see [Username parameters](#username-parameters)) a single IP is assigned to the session ID provided after the first request is made. This IP is persisted for one minute and its expiration is refreshed with each request. If the proxy server becomes unresponsive or the session expires a new IP is selected for the next request.
 

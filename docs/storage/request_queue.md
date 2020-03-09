@@ -4,7 +4,7 @@ description: Documentation of Apify simple key-value store that enables storage 
 menuWeight: 6.3
 ---
 
-# [](#queue)Request queue
+# [](#request-queue)Request queue
 
 The request queue is a storage type that enables the enqueueing and retrieval of requests (i.e. URLs with HTTP method and other parameters). This is useful not only for web crawling, but anywhere you need to process a high number of URLs and to be able to enqueue new links.
 
@@ -12,7 +12,7 @@ The request queue is a storage type that enables the enqueueing and retrieval of
 
 Each actor run is assigned own request queue, created when the first request is added to it. The ID of this request queue is available under `run.defaultRequestQueueId`. You can also create a named queue which can be shared between actors or between actor runs.
 
-To open a request queue, use `Apify.openRequestQueue()` [[see docs](https://sdk.apify.com/docs/api/apify#module_Apify.openRequestQueue)].
+To open a request queue, use `Apify.openRequestQueue()` [[see docs](https://sdk.apify.com/docs/api/apify#apifyopenrequestqueuequeueidorname-options)].
 
     const Apify = require('apify');
 

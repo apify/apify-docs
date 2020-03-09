@@ -29,7 +29,7 @@ The actor can also be invoked using the Apify API by sending a HTTP POST request
 
 The actor's input and its content type can be passed as a payload of the POST request and additional options can be specified using URL query parameters. For more details, see the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
 
-Actors can also be invoked programmatically from other actors using the [`call()`](https://sdk.apify.com/docs/api/apify#module_Apify.call) function provided by the [`apify`](https://sdk.apify.com/) NPM package. For example:
+Actors can also be invoked programmatically from other actors using the [`call()`](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options) function provided by the [`apify`](https://sdk.apify.com/) NPM package. For example:
 
     const run = await Apify.call('apify/hello-world', { message: 'Hello!' });
     console.dir(run.output);
@@ -42,7 +42,7 @@ Internally, the `call()` function takes the user's API token from the `APIFY_TOK
 
 As demonstrated in the hello world example above, actors can accept input and generate output. Both input and output are stored in a key-value store that is created when the actor is started, under the `INPUT` and `OUTPUT` keys, respectively. Note that the actor can store other values under arbitrary keys, for example crawling results or screenshots of web pages.
 
-The key-value store associated with the actor run can be conveniently accessed using the [`getValue()`](https://sdk.apify.com/docs/api/apify#module_Apify.getValue) and [`setValue()`](https://sdk.apify.com/docs/api/apify#module_Apify.setValue) functions provided by the `apify` NPM package. Internally, these functions read the ID of the key-value store from the `APIFY_DEFAULT_KEY_VALUE_STORE_ID` environment variable and then access the store using the Apify API. For more details about the key-value stores, go to the [Storage]({{@link storage.md}}) section.
+The key-value store associated with the actor run can be conveniently accessed using the [`getValue()`](https://sdk.apify.com/docs/api/apify#apifygetvaluekey) and [`setValue()`](https://sdk.apify.com/docs/api/apify#apifysetvaluekey-value-options) functions provided by the `apify` NPM package. Internally, these functions read the ID of the key-value store from the `APIFY_DEFAULT_KEY_VALUE_STORE_ID` environment variable and then access the store using the Apify API. For more details about the key-value stores, go to the [Storage]({{@link storage.md}}) section.
 
 The input can be passed to the actor either manually in the Console or using a POST payload when running the actor using API. See [Run]({{@link actor/run.md}}) section for details.
 
@@ -55,7 +55,7 @@ Aside from [custom environment variables]({{@link actor/source_code.md#custom-en
 |`APIFY_ACTOR_ID`|ID of the actor.|
 |`APIFY_ACTOR_RUN_ID`|ID of the actor run.|
 |`APIFY_ACTOR_TASK_ID`|ID of the actor task. It's empty if actor is run outside of any task, e.g. directly using the API.|
-|`APIFY_ACTOR_EVENTS_WS_URL`|Websocket URL where actor may listen for events from Actor plaform. See [documentation](https://sdk.apify.com/docs/api/apify#module_Apify.events) for more information.|
+|`APIFY_ACTOR_EVENTS_WS_URL`|Websocket URL where actor may listen for events from Actor plaform. See [documentation](https://sdk.apify.com/docs/api/apify#apifyevents) for more information.|
 |`APIFY_DEFAULT_DATASET_ID`|ID of the dataset where you can push the data.|
 |`APIFY_DEFAULT_KEY_VALUE_STORE_ID`|ID of the key-value store where the actor's input and output data is stored.|
 |`APIFY_DEFAULT_REQUEST_QUEUE_ID`|ID of the request queue that stores and handles requests that you enqueue.|
@@ -123,7 +123,7 @@ Resurrection can be peformed in Apify app using the **resurrect** button or via 
 Each actor run is assigned a unique hard-to-guess URL (e.g. `http://kmdo7wpzlshygi.runs.apify.net`), which enables HTTP access to an optional web server running inside the actor run's Docker container. The URL is available in the following places:
 
 *   In the web application, on the actor run details page as the **Container URL** field.
-*   In the API as the `containerUrl` property of the [Run object](https://apify.com/api/v2#/reference/actor/run-object/get-run).
+*   In the API as the `containerUrl` property of the [Run object](https://docs.apify.com/api/v2#/reference/actors/run-object/get-run).
 *   In the actor run's container as the `APIFY_CONTAINER_URL` environment variable.
 
 The web server running inside the container must listen at the port defined by the `APIFY_CONTAINER_PORT` environment variable (typically 4321). If you want to use another port, simply define the `APIFY_CONTAINER_PORT` environment variable with the desired port number in your actor version configuration - see [Custom environment variable]({{@link actor/source_code.md#custom-environment-variables}}) for details.
