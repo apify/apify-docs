@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 GIT_BRANCH=`git branch | grep \* | cut -d ' ' -f2`
 
