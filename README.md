@@ -1,6 +1,6 @@
 # Apify documentation
 
-[![Build Status](https://travis-ci.com/apifytech/apify-docs.svg?branch=master)](https://travis-ci.org/apifytech/apify-docs)
+[![Build Status](https://github.com/apifytech/apify-docs/workflows/Build%20and%20deploy/badge.svg?branch=master)](https://github.com/apifytech/apify-docs/actions)
 
 ## Intro
 
@@ -12,7 +12,7 @@ On each commit to the master branch of this repository, a new version of Apify d
 
 On commit to any other branch a develop version of docs gets updated. This version can be viewed using a `?version=develop` parameter, i.e. at [https://docs.apify.com?version=develop](https://docs.apify.com?version=develop).
 
-Keep in mind that there might be about 2 minute delay before updated documentation gets online (1 minute Travis build + 1 minute update interval of docs website).
+Keep in mind that there might be about 2 minute delay before updated documentation gets online (1 minute Github actions build + 1 minute update interval of docs website).
 
 ## Implementation
 
