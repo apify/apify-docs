@@ -14,14 +14,16 @@ jobs:
       - uses: actions/checkout@master
       - name: install apiary
         run: sudo gem install apiaryio
-      - name: Create install dependencies
+      - name: Install dependencies
         run: npm install
       - name: Build documentation
         run: npm run build
-      - name: Upload to AWS S3
+      - name: Upload docs to AWS S3
         run: ./upload_to_s3.sh
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - name: Upload API docs to Apiary.io
         run: ./upload_to_apiary.sh
+        env:
+          APIARY_API_KEY: ${{ secrets.APIARY_API_KEY }}
