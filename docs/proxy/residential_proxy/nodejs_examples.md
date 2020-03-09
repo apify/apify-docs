@@ -3,11 +3,11 @@ title: NodeJS Examples
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
 ---
 
-# [](#residential-proxy--nodejs-examples)NodeJS Examples
+# [](#nodejs-examples)NodeJS Examples
 
 The following sections contain several examples of how to use Apify Proxy in NodeJS (used as the default language in [actors]({{@link actor.md}})).
 
-## Usage in [PuppeteerCrawler](https://docs.apify.com/sdk/apify-runtime-js/latest#PuppeteerCrawler)
+## Usage in [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler)
 
 Use a single session with IP from the US for the whole PuppeteerCrawler run (for as long as the session lasts)
 
@@ -67,7 +67,7 @@ Create a new session with IP from GB for each browser launched during the Crawle
         await crawler.run();
     });
 
-## Usage in [Apify.launchPuppeteer()](https://docs.apify.com/sdk/apify-runtime-js/latest#module-Apify-launchPuppeteer)
+## Usage in [Apify.launchPuppeteer()](https://sdk.apify.com/docs/api/apify#apifylaunchpuppeteeroptions)
 
 Use a single IP from Germany for all requests done in the launched browser
 

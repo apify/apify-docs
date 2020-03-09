@@ -20,7 +20,7 @@ Click **▷ Run** to build and run your actor. After the run is finished you sho
 
 Congratulations, you have successfully created and run your first actor!
 
-Let's try something little more complicated. We will change the actor to accept input and generate output (see [Input and output]({{@link actor/run.md#input-output}}) for more details):
+Let's try something little more complicated. We will change the actor to accept input and generate output (see [Input and output]({{@link actor/run.md#input-and-output}}) for more details):
 
     const Apify = require('apify');
 
@@ -45,7 +45,7 @@ Then set **Content type** to `application/json; charset=utf-8` and click **Run**
 
 Excellent, you have just created your first actor to accept input and store output! Now you can start adding some magic.
 
-Note that the above actor is also available in the store as [apify/hello-world](https://apify.com/apify/hello-world). It uses the [`apify`](https://sdk.apify.com/) NPM package, which provides various helper functions to simplify the development of actors. For example, the [`Apify.main()`](https://sdk.apify.com/docs/api/apify#module_Apify.main) function invokes a user function and waits for its finish, it logs exception details, etc. Note that the `apify` package is optional and actors do not need to use it at all.
+Note that the above actor is also available in the store as [apify/hello-world](https://apify.com/apify/hello-world). It uses the [`apify`](https://sdk.apify.com/) NPM package, which provides various helper functions to simplify the development of actors. For example, the [`Apify.main()`](https://sdk.apify.com/docs/api/apify#apifymainuserfunc) function invokes a user function and waits for its finish, it logs exception details, etc. Note that the `apify` package is optional and actors do not need to use it at all.
 
 For more complicated actors, you'll probably prefer to host the source code on Git. To do that, follow these steps:
 
@@ -55,5 +55,5 @@ For more complicated actors, you'll probably prefer to host the source code on G
 4.  Paste the Git repo link to **Git URL**, save changes and build your actor.
 5.  That's it, now you can develop your actor locally on your computer and run it in the Apify cloud!
 
-For more information, go to the [Git repository]({{@link actor/source_code.md#source-git-repo}}) section.
+For more information, go to the [Git repository]({{@link actor/source_code.md#git-repository}}) section.
 

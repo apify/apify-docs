@@ -3,11 +3,11 @@ title: NodeJS Examples
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
 ---
 
-# [](#google-serp--nodejs-examples)NodeJS Examples
+# [](#nodejs-examples)NodeJS Examples
 
 The following sections contain several examples of how to use Google SERP proxy in [actors]({{@link actor.md}}).
 
-## Usage in [PuppeteerCrawler](https://docs.apify.com/sdk/apify-runtime-js/latest#PuppeteerCrawler)
+## Usage in [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler)
 
 Get a list of results from the US for keyword `wikipedia` and parse them through cheerio
 
@@ -108,7 +108,7 @@ Get a list of shopping results from the Czech Republic for keyword `Apple iPhone
         await crawler.run();
     });
 
-## Usage in [Apify.launchPuppeteer()](https://docs.apify.com/sdk/apify-runtime-js/latest#module-Apify-launchPuppeteer)
+## Usage in [Apify.launchPuppeteer()](https://sdk.apify.com/docs/api/apify#apifylaunchpuppeteeroptions)
 
 Get a list of results from the US for keyword `wikipedia` and parse them through cheerio
 

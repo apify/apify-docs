@@ -4,7 +4,7 @@ description: Documentation of Apify Proxy that enables anonymization of access t
 menuWeight: 7.5
 ---
 
-# [](#google-serp)Google SERP proxy
+# [](#google-serp-proxy)Google SERP proxy
 
 If you need to get search results from Google Search or other google search powered services from multiple countries with an option to dynamically switch between countries then you can use Google SERP proxy.
 
@@ -12,8 +12,8 @@ Requests made through the proxy are automatically routed through a proxy server 
 
 Currently supported google search services are:
 
-*   Google Search (http://www.google.<country domain>/search)
-*   Google Shopping (http://www.google.<country domain>/search?tbm=shop)
+*   Google Search (`http://www.google.<country domain>/search`)
+*   Google Shopping (`http://www.google.<country domain>/search?tbm=shop`)
 
 **Important:** Only HTTP requests are allowed, and the Google hostname needs to start with `www.` subdomain.
 
