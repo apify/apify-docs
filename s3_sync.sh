@@ -2,11 +2,9 @@
 
 set -e
 
-GIT_BRANCH=$TRAVIS_BRANCH
-[ -z "$GIT_BRANCH" ] && GIT_BRANCH=`git branch | grep \* | cut -d ' ' -f2`
+GIT_BRANCH=`git branch | grep \* | cut -d ' ' -f2`
 
-echo "Echo Git branch:"
-echo $GIT_BRANCH
+echo "Deploying branch: \"${GIT_BRANCH}\"..."
 
 # For now let's have a master and develop version as we don't change docs often.
 # Develop will contain the latest non-master version pushed to GitHub.
