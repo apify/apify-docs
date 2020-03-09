@@ -1,8 +1,0 @@
-language: node_js
-node_js:
-  - "10"
-before_install:
-  - pip install --user awscli
-script:
-  - npm i
-  - npm run build && ./s3_sync.sh
