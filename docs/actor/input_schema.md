@@ -6,7 +6,7 @@ menuWeight: 3.5
 
 # [](#actor-input-schema)Actor input schema
 
-#### Specification version 1
+## Specification version 1
 
 Actor input schema defines the input that the actor accepts and the UI components used for input at the Apify platform. Using input schema, you can provide UI to actor users that is easy to use, and also ensure that the input of your actor is valid.
 
