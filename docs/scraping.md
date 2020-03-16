@@ -10,7 +10,7 @@ Scraping and crawling the web can be difficult and time consuming without the ri
 
 Don't let the number of options confuse you. Unless you're really sure that you need to use a specific tool, just go ahead and use the [Web Scraper]({{@link scraping/web_scraper.md}}). It is the easiest to pick up and can handle almost anything. Look at [Puppeteer Scraper]({{@link scraping/puppeteer_scraper.md}}) or [Cheerio Scraper]({{@link scraping/cheerio_scraper.md}}) only after you know your target websites well and need to optimize your scraper.
 
-[Visit the Scraper introduction tutorial to get started!]({{@link scraping/quick_start.md}})
+[Visit the Scraper introduction tutorial to get started!]({{@link scraping/getting_started.md}})
 
 ## [](#web-scraper)Web Scraper
 
