@@ -12,7 +12,7 @@ The key-value store is simple storage that can be used for string or file ([buff
 
 Each actor run is assigned its own key-value store containing its input and possibly output. The ID of this key-value store is available under `run.defaultKeyValueStoreId`.
 
-In an actor you can use three shorthand methods to save and read records from its default key-value store - `Apify.setValue()` [[see docs](https://sdk.apify.com/docs/api/apify#module_Apify.setValue)], `Apify.getInput()` [[see docs](https://sdk.apify.com/docs/api/apify#module_Apify.getInput)], and `Apify.getValue()` [[see docs](https://sdk.apify.com/docs/api/apify#module_Apify.getValue)]. So to fetch an actor's INPUT and set OUTPUT value, call:
+In an actor you can use three shorthand methods to save and read records from its default key-value store - `Apify.setValue()` [[see docs](https://sdk.apify.com/docs/api/apify#apifysetvaluekey-value-options)], `Apify.getInput()` [[see docs](https://sdk.apify.com/docs/api/apify#apifygetinput)], and `Apify.getValue()` [[see docs](https://sdk.apify.com/docs/api/apify#apifygetvaluekey)]. So to fetch an actor's INPUT and set OUTPUT value, call:
 
 Method `Apify.getInput()` is not only a shortcut to `Apify.getValue('INPUT')` but it's also compatible with `Apify.metamorph()` [[see docs](https://docs.apify.com/actor#metamorph)] as metamorphed actor run has input stored in key `INPUT-METAMORPH-1` instead of `INPUT` which hosts original input.
 

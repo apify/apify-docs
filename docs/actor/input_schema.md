@@ -6,13 +6,15 @@ menuWeight: 3.5
 
 # [](#actor-input-schema)Actor input schema
 
-## Specification version 1
+## [](#specification-version-1)Specification version 1
 
 Actor input schema defines the input that the actor accepts and the UI components used for input at the Apify platform. Using input schema, you can provide UI to actor users that is easy to use, and also ensure that the input of your actor is valid.
 
 Input schema must be stored in a file named `INPUT_SCHEMA.json` in the root directory of the actor. Maximum size of the input schema file is 100 kB. If the input schema is provided, then input is always validated to fulfill the schema when an actor is being started (via API or from a run console at the Apify platform).
 
-## Example
+You can also use our [visual input schema editor](https://apifytech.github.io/input-schema-editor-react) to guide you through creation of the `INPUT_SCHEMA.json` file.
+
+## [](#example)Example
 
 Imagine you are building a simple crawler whose inputs are an array of start URLs and a Javascript function that will be executed at each page the crawler visits. Then the input schema will look as follows:
 
@@ -61,7 +63,7 @@ If you switch the input to **raw** display using the blue toggle, then you will 
       "pageFunction": "async () => {\n  return $('title').text();\n\n}"
     }
 
-## Structure
+## [](#structure)Structure
 
 The input schema is a JSON file named `INPUT_SCHEMA.json`, placed in the root directory of an actor with the following structure:
 
@@ -82,7 +84,7 @@ The input schema is a JSON file named `INPUT_SCHEMA.json`, placed in the root di
 |`properties`|Object|Yes|This is an object mapping each field key to its specification.|
 |`required`|[String]|No|An array of field keys that are required.|
 
-## Fields
+## [](#fields)Fields
 
 Each field of your input is described under its key in `inputSchema.properties` object. The field might have `integer`, `string`, `array`, `object` or `boolean` type and its specification contains the following properties:
 
@@ -98,11 +100,11 @@ Each field of your input is described under its key in `inputSchema.properties` 
 |`sectionDescription`|String|No|If the `sectionCaption` property is set, then you can use this property to provide additional description to the section. The description will be visible right under the caption when the section is open.|
 
 
-### Additional properties
+### [](#additional-properties)Additional properties
 
 In addition to the properties listed above, most of the types support also additional properties defining, for example, the UI input editor.
 
-#### String
+#### [](#string)String
 
 Example of a code input:
 
@@ -147,7 +149,7 @@ Properties:
 |`nullable`|Boolean|No|Specifies whether `null` is an allowed value.|
 
 
-#### Boolean
+#### [](#boolean)Boolean
 
 Beware that the `boolean` input type doesn't support the `prefill` property, since there is no way to display the prefilled value in the user interface.
 
@@ -183,7 +185,7 @@ Properties:
 |`groupDescription`|String|No|Description displayed as help text displayed of group title.|
 |`nullable`|Boolean|No|Specifies whether null is an allowed value.|
 
-#### Integer
+#### [](#integer)Integer
 
 Example:
 
@@ -210,7 +212,7 @@ Properties:
 |`unit`|String|No|Unit displayed next to the field in UI, for example _second_, _MB_, etc.|
 |`nullable`|Boolean|No|Specifies whether null is an allowed value.|
 
-#### Object
+#### [](#object)Object
 
 Example of proxy configuration:
 
@@ -266,7 +268,7 @@ Properties:
 |`nullable`|Boolean|No|Specifies whether null is an allowed value.|
 
 
-### Array
+### [](#array)Array
 
 Example of request list sources configuration:
 
