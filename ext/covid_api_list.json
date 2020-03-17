@@ -1,0 +1,254 @@
+[
+    {
+        "title": "Austria 🇦🇹",
+        "description": "Gets the actual number of examined and infected people.",
+        "dataSource": "https://www.sozialministerium.at/Informationen-zum-Coronavirus/Neuartiges-Coronavirus-(2019-nCov).html",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/RJtyHLXtCepb4aYxB/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/EFWZ2Q5JAtC6QDSwV/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "petrpatek/covid-austria"
+    },
+    {
+        "title": "Bahrain 🇧🇭",
+        "description": "Gets the actual number of tested, infected and recovered people.",
+        "dataSource": "https://www.moh.gov.bh/COVID19",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/0RyiE7sWxNtUDEklU/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/cheo7Qo0hrcEWHDyn/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/tugkan/covid-bh"
+    },
+    {
+        "title": "Brazil 🇧🇷",
+        "description": "Gets the actual number of examined and infected people.",
+        "dataSource": "http://plataforma.saude.gov.br/novocoronavirus/",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/TyToNta7jGKkpszMZ/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/3S2T1ZBxB9zhRJTBB/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "pocesar/covid-brazil"
+    },
+    {
+        "title": "Czech Republic 🇨🇿",
+        "description": "Gets the actual number of examined and infected people.",
+        "dataSource": "https://onemocneni-aktualne.mzcr.cz/covid-19",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/K373S4uCFR9W1K8ei/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/XQWw0I5IUaUPQdc9k/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/petrpatek/covid-cz"
+    },
+    {
+        "title": "Denmark 🇩🇰",
+        "description": "Gets the actual number of tested, infected and deceased people.",
+        "dataSource": "https://www.ssi.dk/aktuelt/sygdomsudbrud/coronavirus",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/EAlpwScH29Qa5m60g/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/Ugq8cNqnhUSjfJeHr/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/tugkan/covid-dk"
+    },
+    {
+        "title": "Estonia 🇪🇪",
+        "description": "Actor gets the actual number of infected and deceased people.",
+        "dataSource": "https://www.terviseamet.ee/en/covid19",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/AZUhwS51lBBg26wSG/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/Ix8h3SN2Ngyukf7yM/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/lukass/covid-est"
+    },
+    {
+        "title": "Finland 🇫🇮",
+        "description": "Gets the actual number of confirmed cases.",
+        "dataSource": "https://thl.fi/en/web/infectious-diseases/what-s-new/coronavirus-covid-19-latest-updates",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/lDegAca820XgvjE0C/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/73pVXuygDYAtIMOhI/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/dtrungtin/covid-fi"
+    },
+    {
+        "title": "Germany 🇩🇪",
+        "description": "Actor gets the actual number of infected and deceased people.",
+        "dataSource": "https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/OHrZyNo9BzT6xKMRD/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/dcm4uXhiGIjVdJAzS/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/lukass/covid-ger"
+    },
+    {
+        "title": "Hungary 🇭🇺",
+        "description": "Gets the actual number of infected, recovered, quarantined, tested and deceased people.",
+        "dataSource": "https://koronavirus.gov.hu/",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/RGEUeKe60NjU16Edo/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/Gm6qjTgGqxkEZTkuJ/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/tugkan/covid-hu"
+    },
+    {
+        "title": "Italy 🇮🇹",
+        "description": "Gets the actual number of examined and infected people.",
+        "dataSource": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-andamento-nazionale.json",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/UFpnR8mukiu0TSrb4/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://my.apify.com/storage/dataset/CUdKmb25Z3HjkoDiN",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/cyberfly/covid-it"
+    },
+    {
+        "title": "Luxembourg 🇱🇺",
+        "description": "Gets the actual number of infected and deceased people.",
+        "dataSource": "https://gouvernement.lu/fr/dossiers.gouv_msan+fr+dossiers+2020+corona-virus.html#bloub-0",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/RVkUl1Y7FZn3Y410K/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/oZH6thpQSdIyo3ky2/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/tugkan/covid-lu"
+    },
+    {
+        "title": "Norway 🇳🇴",
+        "description": "Gets the actual number of infected people.",
+        "dataSource": "https://www.fhi.no/sv/smittsomme-sykdommer/corona/dags--og-ukerapporter/dags--og-ukerapporter-om-koronavirus/",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/0RyiE7sWxNtUDEklU/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/cheo7Qo0hrcEWHDyn/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/tugkan/covid-no"
+    },
+    {
+        "title": "Poland 🇵🇱",
+        "description": "Gets the actual number of examined and infected people.",
+        "dataSource": "https://www.gov.pl/web/koronawirus/wykaz-zarazen-koronawirusem-sars-cov-2",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/3Po6TV7wTht4vIEid/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/L3VCmhMeX0KUQeJto/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/vaclavrut/covid-pl"
+    },
+    {
+        "title": "Singapore 🇸🇬",
+        "description": "Gets the actual number of infected, recovered and deceased people.",
+        "dataSource": "https://www.moh.gov.sg/covid-19",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/yaPbKe9e5Et61bl7W/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/suHgi59tSfu02VsRO/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/tugkan/covid-sg"
+    },
+    {
+        "title": "Sweden 🇸🇪",
+        "description": "Gets the actual number of infected, recovered and deceased people.",
+        "dataSource": "https://www.folkhalsomyndigheten.se/smittskydd-beredskap/utbrott/aktuella-utbrott/covid-19/aktuellt-epidemiologiskt-lage",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/8mRFdwyukavRNCr42/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/Nq3XwHX262iDwsFJS/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/tugkan/covid-se"
+    },
+    {
+        "title": "Switzerland 🇨🇭",
+        "description": "Gets the actual number of tested cases, the number of confirmed cases and the number of deaths.",
+        "dataSource": "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/situation-schweiz-und-international.html",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/lDegAca820XgvjE0C/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/73pVXuygDYAtIMOhI/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/dtrungtin/covid-ch"
+    },
+    {
+        "title": "United States 🇺🇸",
+        "description": "Gets the actual number of examined and infected people by COVID-19.",
+        "dataSource": "https://www.cdc.gov/coronavirus/2019-ncov/cases-in-us.html",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/moxA3Q0aZh5LosewB/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/FIbyK6uHUntt2kNy3/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/petrpatek/covid-usa-cdc"
+    },
+    {
+        "title": "USA - Los Angeles 🇺🇸",
+        "description": "Gets the actual number of Coronavirus cases and deaths.",
+        "dataSource": "http://publichealth.lacounty.gov/media/Coronavirus",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/datasets/xF9o1iiT0vqTXDy4T/items?format=json&clean=1&limit=1&desc=1",
+            "frequency": "10 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/xF9o1iiT0vqTXDy4T/items?format=json&clean=1",
+            "frequency": "10 mins"
+        },
+        "actorPage": "/jakubbalada/coronavirus-la"
+    }
+]
