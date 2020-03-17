@@ -33,7 +33,7 @@ You can also create a webhook dynamically from the code of your actor using the 
         requestUrl: 'https://example.com/run-created'
     });
 
-To learn more, see the [Apify SDK documentation](https://sdk.apify.com/docs/api/apify#apifyaddwebhook-code-promise-lt-object-undefined-gt-code).
+To learn more, see the [Apify SDK documentation](https://sdk.apify.com/docs/api/apify#apifyaddwebhookoptions).
 
 To ensure that duplicate ad hoc webhooks won't get created in a case of actor restart you can use the `idempotencyKey` parameter. The idempotency key must be unique across all the webhooks of a user so that only one webhook gets created for a given value. You can use, for example, the actor run ID as idempotency key:
 

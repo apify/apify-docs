@@ -3,7 +3,7 @@ title: Tips and tricks
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
 ---
 
-# [](#residential-proxy--tips)Tips and tricks
+# [](#tips-and-tricks)Tips and tricks
 
 Since Residential proxy is less predictable than datacenter proxy and is priced differently (by number of IPs vs traffic used), there are some important things that need to be considered before you use the Residential proxy in your solutions.
 
