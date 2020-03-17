@@ -20,7 +20,7 @@ For safety reasons, the webhook URL should contain a secret token to ensure only
 
 The payload template is a JSON-like string, whose syntax is extended with the use of variables. This is useful when a custom payload structure is needed, but at the same time dynamic data, that is only known at the time of the webhook's invocation, need to be injected into the payload. Aside from the variables, the string must be a valid JSON.
 
-The variables need to be enclosed in double curly braces and cannot be chosen arbitrarily. A pre-defined list, [that can be found below](#available-variables}}), shows all the currently available variables. Using any other variable than one of the pre-defined will result in a validation error.
+The variables need to be enclosed in double curly braces and cannot be chosen arbitrarily. A pre-defined list, [that can be found below](#available-variables), shows all the currently available variables. Using any other variable than one of the pre-defined will result in a validation error.
 
 The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`.
 
