@@ -33,11 +33,11 @@
         "dataSource": "http://plataforma.saude.gov.br/novocoronavirus/",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/TyToNta7jGKkpszMZ/records/LATEST?disableRedirect=true",
-            "frequency": "5 mins"
+            "frequency": "15 mins"
         },
         "historyApi": {
             "url": "https://api.apify.com/v2/datasets/3S2T1ZBxB9zhRJTBB/items?format=json&clean=1",
-            "frequency": "5 mins"
+            "frequency": "15 mins"
         },
         "actorPage": "/pocesar/covid-brazil"
     },
@@ -88,11 +88,11 @@
         "description": "Gets the actual number of confirmed cases.",
         "dataSource": "https://thl.fi/en/web/infectious-diseases/what-s-new/coronavirus-covid-19-latest-updates",
         "latestApi": {
-            "url": "https://api.apify.com/v2/key-value-stores/lDegAca820XgvjE0C/records/LATEST?disableRedirect=true",
+            "url": "https://api.apify.com/v2/key-value-stores/jEFt5tgCTMfjJpLD3/records/LATEST?disableRedirect=true",
             "frequency": "5 mins"
         },
         "historyApi": {
-            "url": "https://api.apify.com/v2/datasets/73pVXuygDYAtIMOhI/items?format=json&clean=1",
+            "url": "https://api.apify.com/v2/datasets/BDEAOLx0DzEW91s5L/items?format=json&clean=1",
             "frequency": "5 mins"
         },
         "actorPage": "/dtrungtin/covid-fi"
@@ -158,11 +158,11 @@
         "description": "Gets the actual number of infected people.",
         "dataSource": "https://www.fhi.no/sv/smittsomme-sykdommer/corona/dags--og-ukerapporter/dags--og-ukerapporter-om-koronavirus/",
         "latestApi": {
-            "url": "https://api.apify.com/v2/key-value-stores/0RyiE7sWxNtUDEklU/records/LATEST?disableRedirect=true",
+            "url": "https://api.apify.com/v2/key-value-stores/3qlmMu1XN2ZLoVIQt/records/LATEST?disableRedirect=true",
             "frequency": "5 mins"
         },
         "historyApi": {
-            "url": "https://api.apify.com/v2/datasets/cheo7Qo0hrcEWHDyn/items?format=json&clean=1",
+            "url": "https://api.apify.com/v2/datasets/6tpTe4Z2TBePRWYti/items?format=json&clean=1",
             "frequency": "5 mins"
         },
         "actorPage": "/tugkan/covid-no"
