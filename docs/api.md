@@ -8,7 +8,7 @@ menuWeight: 10
 
 Yeah, you guessed right - Apify also has its own API to enable programmatic access to the platform. Apify API is organized around [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) HTTP endpoints. Both requests and responses (including errors) are encoded in [JSON](https://www.json.org) format with UTF-8. All API endpoints run on the host `api.apify.com`.
 
-Note that you can find API endpoints related to specific sections of the app in the API tab, if available. For example, see the [API tab](https://my.apify.com/actors#api) on the actor list page.
+Note that you can find API endpoints related to specific sections of the app in the API tab, if available. For example, see the [API tab](https://my.apify.com/actors#/api) on the actor list page.
 
 **IMPORTANT: All requests with JSON payloads need to specify the `Content-Type: application/json` HTTP header or they will not work!**
 

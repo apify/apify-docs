@@ -4,7 +4,7 @@ description: Documentation of Apify actors - a serverless computing jobs that en
 menuWeight: 3.2
 ---
 
-# [](#source)Source code
+# [](#source-code)Source code
 
 The **Source type** setting determines the location of the source code for the actor. It can have one of the following values: [Single JavaScript file](#single-javascript-file), [Multiple source files](#multiple-source-files), [Git repository](#git-repository), [Zip file](#zip-file) or [GitHub Gist](#github-gist).
 
@@ -133,7 +133,7 @@ To access environment variables in Node.js, use the `process.env` object, for ex
 
     console.log(process.env.SMTP_HOST);
 
-The actor runtime sets additional environment variables for the actor process during the run. See [Environment variables]({{@link actor/run.md#run-env-vars}}) for details.
+The actor runtime sets additional environment variables for the actor process during the run. See [Environment variables]({{@link actor/run.md#environment-variables}}) for details.
 
 ## [](#versioning)Versioning
 
@@ -145,7 +145,7 @@ The versions of the actors are built and run separately. For details, see [Build
 
 ## [](#local-development)Local development
 
-It is possible to develop actors locally on your computer and then only deploy them to the Apify cloud when they are ready. This is especially useful if you're using Git integration. See [Git repository]({{@link actor/source_code.md#source-git-repo}}) for more details. The boilerplate for creating an actor in a Git repository is available on [GitHub](https://github.com/apifytech/actor-quick-start).
+It is possible to develop actors locally on your computer and then only deploy them to the Apify cloud when they are ready. This is especially useful if you're using Git integration. See [Git repository](#git-repository) for more details. The boilerplate for creating an actor in a Git repository is available on [GitHub](https://github.com/apifytech/actor-quick-start).
 
 In order to test the input and output of your actors on your local machine, you might define the `APIFY_DEV_KEY_VALUE_STORE_DIR` environment variable, which will cause the `apify` NPM package to emulate the key-value store locally using files in a directory. For more details, please see the [`apify` package documentation](https://sdk.apify.com/).
 

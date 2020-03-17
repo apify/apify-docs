@@ -3,7 +3,7 @@ title: PHP Examples
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
 ---
 
-# [](#google-serp--php-examples)PHP Examples
+# [](#php-examples)PHP Examples
 
 The following section contain several examples of how to use Google SERP proxy in PHP.
 

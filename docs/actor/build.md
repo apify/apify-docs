@@ -6,7 +6,7 @@ menuWeight: 3.3
 
 # [](#build)Build
 
-Before the actor can be run, it first needs to be built. The build effectively creates a snapshot of a specific version of the actor's settings such as the [Source code]({{@link actor/source_code.md}}) and [Environment variables]({{@link actor/run.md}}#run-env-vars), and creates a Docker image that contains everything the actor needs for its run, including necessary NPM packages, web browsers, etc.
+Before the actor can be run, it first needs to be built. The build effectively creates a snapshot of a specific version of the actor's settings such as the [Source code]({{@link actor/source_code.md}}) and [Environment variables]({{@link actor/run.md}}#environment-variables), and creates a Docker image that contains everything the actor needs for its run, including necessary NPM packages, web browsers, etc.
 
 Each build is assigned a unique build number of the form `MAJOR.MINOR.BUILD` (e.g. `1.2.345`), where `MAJOR.MINOR` corresponds to the actor version number (see [Versioning]({{@link actor/source_code.md#versioning}})) and `BUILD` is an automatically-incremented number starting at `1`.
 
@@ -22,12 +22,12 @@ To set a tag for builds of a specific actor version, set the **Build tag** prope
 
 Apify provides the following Docker images that can be used as a base for user actors:
 
-*   **Node.js 10 on Alpine Linux** ([apify/actor-node-basic](https://hub.docker.com/r/apify/actor-node-basic/))
-    Slim and efficient image, contains only the most elementary tools. Note that neither Puppeteer nor Selenium Webdriver is available in this image.
-*   **Node.js 10 + Chrome on Debian** ([apify/actor-node-chrome](https://hub.docker.com/r/apify/actor-node-chrome/))
-    Larger image with a bundled both Chromium and Google Chrome browsers, [puppeteer](https://www.npmjs.com/package/puppeteer) and [selenium-webdriver](https://www.npmjs.com/package/selenium-webdriver) NPM packages. With this image, you can use both [`Apify.launchPuppeteer()`](https://sdk.apify.com/docs/api/apify#module_Apify.launchPuppeteer) and [`Apify.launchWebDriver()`](https://sdk.apify.com/docs/api/apify#module_Apify.launchWebDriver) functions. Note that Chrome requires quite a lot of resources, therefore the actor should run with at least 1024 MB of memory.
-*   **Node.js 10 + Chrome + Xvfb on Debian** ([apify/actor-node-chrome-xvfb](https://hub.docker.com/r/apify/actor-node-chrome-xvfb/))
-    This image extends `apify/actor-node-chrome` with X virtual framebuffer ([Xvfb](https://www.x.org/archive/X11R7.6/doc/man/man1/Xvfb.1.xhtml)) in order to support non-headless browsing. Note that with this image the [`Apify.launchPuppeteer()`](https://sdk.apify.com/docs/api/apify#module_Apify.launchPuppeteer) and [`Apify.launchWebDriver()`](https://sdk.apify.com/docs/api/apify#module_Apify.launchWebDriver) functions open non-headless Chrome by default.
+*   **Node.js 12 on Alpine Linux** ([apify/actor-node-basic](https://hub.docker.com/r/apify/actor-node-basic/))
+    Slim and efficient image, contains only the most elementary tools. Note that Puppeteer is not available in this image.
+*   **Node.js 12 + Chrome on Debian** ([apify/actor-node-chrome](https://hub.docker.com/r/apify/actor-node-chrome/))
+    Larger image with the Chromium and Google Chrome browsers and the [puppeteer](https://www.npmjs.com/package/puppeteer) NPM package bundled. With this image, you can use the [`Apify.launchPuppeteer()`](https://sdk.apify.com/docs/api/apify#apifylaunchpuppeteeroptions) function. Note that Chrome requires quite a lot of resources, therefore the actor should run with at least 1024 MB of memory.
+*   **Node.js 12 + Chrome + Xvfb on Debian** ([apify/actor-node-chrome-xvfb](https://hub.docker.com/r/apify/actor-node-chrome-xvfb/))
+    This image extends `apify/actor-node-chrome` with X virtual framebuffer ([Xvfb](https://www.x.org/archive/X11R7.6/doc/man/man1/Xvfb.1.xhtml)) in order to support non-headless browsing. Note that with this image the [`Apify.launchPuppeteer()`](https://sdk.apify.com/docs/api/apify#module_Apify.launchPuppeteer) function opens non-headless Chrome by default.
 *   **[DEPRECATED] Node.js 10 + Puppeteer on Debian** ([apify/actor-node-puppeteer](https://hub.docker.com/r/apify/actor-node-puppeteer/))
     This image is deprecated and will be removed in the future. Use the `apify/actor-node-chrome` image instead.
 
