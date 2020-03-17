@@ -11,18 +11,18 @@
             "url": "https://api.apify.com/v2/datasets/EFWZ2Q5JAtC6QDSwV/items?format=json&clean=1",
             "frequency": "5 mins"
         },
-        "actorPage": "petrpatek/covid-austria"
+        "actorPage": "/petrpatek/covid-austria"
     },
     {
         "title": "Bahrain 🇧🇭",
         "description": "Gets the actual number of tested, infected and recovered people.",
         "dataSource": "https://www.moh.gov.bh/COVID19",
         "latestApi": {
-            "url": "https://api.apify.com/v2/key-value-stores/0RyiE7sWxNtUDEklU/records/LATEST?disableRedirect=true",
+            "url": "https://api.apify.com/v2/key-value-stores/c7Bc6QnnwaPLOMv3J/records/LATEST?disableRedirect=true",
             "frequency": "5 mins"
         },
         "historyApi": {
-            "url": "https://api.apify.com/v2/datasets/cheo7Qo0hrcEWHDyn/items?format=json&clean=1",
+            "url": "https://api.apify.com/v2/datasets/eHhCNFErvfnC42mEc/items?format=json&clean=1",
             "frequency": "5 mins"
         },
         "actorPage": "/tugkan/covid-bh"
@@ -39,7 +39,7 @@
             "url": "https://api.apify.com/v2/datasets/3S2T1ZBxB9zhRJTBB/items?format=json&clean=1",
             "frequency": "5 mins"
         },
-        "actorPage": "pocesar/covid-brazil"
+        "actorPage": "/pocesar/covid-brazil"
     },
     {
         "title": "Czech Republic 🇨🇿",
