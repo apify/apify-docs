@@ -98,6 +98,20 @@
         "actorPage": "/dtrungtin/covid-fi"
     },
     {
+        "title": "France 🇫🇷",
+        "description": "Gets an actual number of examined and infected people.",
+        "dataSource": "https://www.santepubliquefrance.fr/",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/ufVgKLP8ljtn3ufaU/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/QBiS7pd57KVmFfgZM/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/drobnikj/covid-stats-france"
+    },
+    {
         "title": "Germany 🇩🇪",
         "description": "Actor gets the actual number of infected and deceased people.",
         "dataSource": "https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html",
@@ -138,6 +152,20 @@
             "frequency": "5 mins"
         },
         "actorPage": "/cyberfly/covid-it"
+    },
+    {
+        "title": "Lithuania 🇱🇹",
+        "description": "Gets an actual number of tested/confirmed cases.",
+        "dataSource": "http://sam.lrv.lt/lt/naujienos/koronavirusas",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/xhGDb8VTqjtm1AQL6/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/1XdITM6u7PbhUrlmK/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/dtrungtin/covid-lt"
     },
     {
         "title": "Luxembourg 🇱🇺",
@@ -194,6 +222,20 @@
             "frequency": "5 mins"
         },
         "actorPage": "/tugkan/covid-sg"
+    },
+    {
+        "title": "Slovenia 🇸🇮",
+        "description": "Gets an actual number of confirmed cases.",
+        "dataSource": "https://www.gov.si/en/news/2020-03-12-slovenia-declares-coronavirus-epidemic/",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/603AyvQ8QjyqmnZx6/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/H6HKZRQr8I81bClnb/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/dtrungtin/covid-si"
     },
     {
         "title": "Sweden 🇸🇪",
