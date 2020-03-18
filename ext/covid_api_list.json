@@ -134,7 +134,7 @@
             "frequency": "5 mins"
         },
         "historyApi": {
-            "url": "https://my.apify.com/storage/dataset/CUdKmb25Z3HjkoDiN",
+            "url": "https://api.apify.com/v2/datasets/CUdKmb25Z3HjkoDiN/items?format=json&clean=1",
             "frequency": "5 mins"
         },
         "actorPage": "/cyberfly/covid-it"
