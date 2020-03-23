@@ -266,20 +266,6 @@
         "actorPage": "/tugkan/covid-sg"
     },
     {
-        "title": "Slovakia \uD83C\uDDF8\uD83C\uDDF0",
-        "description": "Gets an actual number of examined and infected people",
-        "dataSource": "https://www.korona.gov.sk/",
-        "latestApi": {
-            "url": "https://api.apify.com/v2/key-value-stores/SohSUsZTWJ7b2lBPh/records/LATEST?disableRedirect=true",
-            "frequency": "5 mins"
-        },
-        "historyApi": {
-            "url": "https://api.apify.com/v2/datasets/GF4cdKh8v9oD6qkfQ/items?format=json&clean=1",
-            "frequency": "5 mins"
-        },
-        "actorPage": "/lukass/covid-sk"
-    },
-    {
         "title": "Slovakia 🇸🇰",
         "description": "Gets an actual number of examined and infected people by COVID-19.",
         "dataSource": "https://www.arcgis.com/apps/opsdashboard/index.html#/5fe83e34abc14349b7d2fcd5c48c6c85",
@@ -350,7 +336,7 @@
         "actorPage": "/dtrungtin/covid-ch"
     },
     {
-        "title": "United Kingdom uk",
+        "title": "United Kingdom \uD83C\uDDEC\uD83C\uDDE7",
         "description": "Gets the statistics of the actual number of infected, daily confirmed, recovered and deceased people by COVID-19",
         "dataSource": "https://www.gov.uk/government/publications/covid-19-track-coronavirus-cases",
         "latestApi": {
