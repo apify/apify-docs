@@ -30,14 +30,14 @@
     {
         "title": "Brazil 🇧🇷",
         "description": "Gets the actual number of examined and infected people.",
-        "dataSource": "http://plataforma.saude.gov.br/novocoronavirus/",
+        "dataSource": "https://saude.gov.br/",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/TyToNta7jGKkpszMZ/records/LATEST?disableRedirect=true",
-            "frequency": "15 mins"
+            "frequency": "30 mins"
         },
         "historyApi": {
             "url": "https://api.apify.com/v2/datasets/3S2T1ZBxB9zhRJTBB/items?format=json&clean=1",
-            "frequency": "15 mins"
+            "frequency": "30 mins"
         },
         "actorPage": "/pocesar/covid-brazil"
     },
@@ -292,5 +292,75 @@
             "frequency": "10 mins"
         },
         "actorPage": "/jakubbalada/coronavirus-la"
-    }
+    },
+    {
+      "title": "Japan",
+      "description": "Gets an actual number of examined and infected people",
+      "dataSource": "https://mhlw-gis.maps.arcgis.com/apps/opsdashboard/index.html#/0c5d0502bbb54f9a8dddebca003631b8",
+      "latestApi": {
+          "url": "https://api.apify.com/v2/key-value-stores/YbboJrL3cgVfkV1am/records/LATEST?disableRedirect=true",
+          "frequency": "5 mins"
+      },
+      "historyApi": {
+          "url": "https://api.apify.com/v2/datasets/ugfJOQkPhQ0fvLYzN/items?format=json&clean=1",
+          "frequency": "5 mins"
+      },
+      "actorPage": "/lukass/covid-jap"
+  },
+  {
+      "title": "Portugal",
+      "description": "Get statistics of COVID-19 virus",
+      "dataSource": "https://covid19.min-saude.pt/ponto-de-situacao-atual-em-portugal/",
+      "latestApi": {
+          "url": "https://api.apify.com/v2/key-value-stores/NDqcdJ53aN730Kb1Q/records/LATEST?disableRedirect=true",
+          "frequency": "5 mins"
+      },
+      "historyApi": {
+          "url": "https://api.apify.com/v2/datasets/VeXjF7u71PU8IO6NH/items?format=json&clean=1",
+          "frequency": "5 mins"
+      },
+      "actorPage": "/onidivo/covid-pt"
+  },
+  {
+      "title": "South Korea",
+      "description": "Get statistics of COVID-19 virus",
+      "dataSource": "https://www.cdc.go.kr/board/board.es?mid=&bid=0030",
+      "latestApi": {
+          "url": "https://api.apify.com/v2/key-value-stores/TMFbhs7qtXpGpeaeP/records/LATEST?disableRedirect=true",
+          "frequency": "5 mins"
+      },
+      "historyApi": {
+          "url": "https://api.apify.com/v2/datasets/T43VVY5mDBeFMyRcn/items?format=json&clean=1",
+          "frequency": "5 mins"
+      },
+      "actorPage": "/onidivo/covid-kr"
+  },
+  {
+      "title": "Slovakia",
+      "description": "Gets an actual number of examined and infected people",
+      "dataSource": "https://www.korona.gov.sk/",
+      "latestApi": {
+          "url": "https://api.apify.com/v2/key-value-stores/SohSUsZTWJ7b2lBPh/records/LATEST?disableRedirect=true",
+          "frequency": "5 mins"
+      },
+      "historyApi": {
+          "url": "https://api.apify.com/v2/datasets/GF4cdKh8v9oD6qkfQ/items?format=json&clean=1",
+          "frequency": "5 mins"
+      },
+      "actorPage": "/lukass/covid-sk"
+  },
+  {
+      "title": "Netherlands",
+      "description": "Gets an actual number of examined and infected people",
+      "dataSource": "https://www.rivm.nl/node/152921",
+      "latestApi": {
+          "url": "https://api.apify.com/v2/key-value-stores/vqnEUe7VtKNMqGqFF/records/LATEST?disableRedirect=true",
+          "frequency": "5 mins"
+      },
+      "historyApi": {
+          "url": "https://api.apify.com/v2/datasets/jr5ogVGnyfMZJwpnB/items?format=json&clean=1",
+          "frequency": "5 mins"
+      },
+      "actorPage": "/lukass/covid-nl"
+  }
 ]
