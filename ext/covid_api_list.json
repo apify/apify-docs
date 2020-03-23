@@ -362,5 +362,19 @@
             "frequency": "10 mins"
         },
         "actorPage": "/jakubbalada/coronavirus-la"
+    },
+    {
+        "title": "Slovakia 🇸🇰",
+        "description": "Gets an actual number of examined and infected people by COVID-19.",
+        "dataSource": "https://www.arcgis.com/apps/opsdashboard/index.html#/5fe83e34abc14349b7d2fcd5c48c6c85",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/GlTLAdXAuOz6bLAIO/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/oUWi8ci7F2R9V5ZFy/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/davidrychly/covid-sk-3"
     }
 ]
