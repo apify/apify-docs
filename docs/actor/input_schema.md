@@ -302,7 +302,7 @@ Properties:
 
 |Property|Value|Required|Description|
 |--- |--- |--- |--- |
-|`editor`|One of `json`, `requestListSources`, `pseudoUrls`, `keyValue`, `stringList`, `hidden`|Yes|UI editor used for input. Editor type `requestListSources` supports text files containing objects with `url` in JSON format as well as plain line separated list of URLs|
+|`editor`|One of `json`, `requestListSources`, `pseudoUrls`, `keyValue`, `stringList`, `hidden`|Yes|UI editor used for input.|
 |`placeholderKey`|String|No|Placeholder displayed for key field when no value is specified. Works only with `keyValue` editor.|
 |`placeholderValue`|String|No|Placeholder displayed in value field when no value is provided. Works only with `keyValue` and `stringList` editors.|
 |`patternKey`|String|No|Regular expression that will be used to validate the keys of items in the array. Works only with `keyValue` editor.|
@@ -318,3 +318,4 @@ Usage of this field is based on the selected editor:
 *   `requestListSources` - value from this field can be used as input of [RequestList](https://sdk.apify.com/docs/api/request-list) class from Apify SDK.
 *   `pseudoUrls` - is intended to be used with a combination of the [PseudoUrl](https://sdk.apify.com/docs/api/pseudo-url) class and the [Apify.utils.enqueueLinks()](https://sdk.apify.com/docs/api/utils#utilsenqueuelinksoptions) function from the Apify SDK.
 
+Editor type `requestListSources` supports input in formats defined by the [sources](https://sdk.apify.com/docs/typedefs/request-list-options#sources) property of [RequestListOptions](https://sdk.apify.com/docs/typedefs/request-list-options)
