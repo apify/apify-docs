@@ -154,7 +154,7 @@
         "actorPage": "/cyberfly/covid-it"
     },
     {
-        "title": "Kosovo",
+        "title": "Kosovo \uD83C\uDDFD\uD83C\uDDF0",
         "description": "Gets an actual number of coronavirus identified cases, recovered and deceased people.",
         "dataSource": "https://kosova.health/en/",
         "latestApi": {
