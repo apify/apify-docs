@@ -302,7 +302,7 @@ Properties:
 
 |Property|Value|Required|Description|
 |--- |--- |--- |--- |
-|`editor`|One of `json`, `requestListSources`, `pseudoUrls`, `keyValue`, `stringList`, `hidden`|Yes|UI editor used for input.|
+|`editor`|One of `json`, `requestListSources`, `pseudoUrls`, `keyValue`, `stringList`, `hidden`|Yes|UI editor used for input. Editor type `requestListSources` supports text files containing objects with `url` in JSON format as well as plain line separated list of URLs|
 |`placeholderKey`|String|No|Placeholder displayed for key field when no value is specified. Works only with `keyValue` editor.|
 |`placeholderValue`|String|No|Placeholder displayed in value field when no value is provided. Works only with `keyValue` and `stringList` editors.|
 |`patternKey`|String|No|Regular expression that will be used to validate the keys of items in the array. Works only with `keyValue` editor.|
