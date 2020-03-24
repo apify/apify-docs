@@ -154,6 +154,20 @@
         "actorPage": "/cyberfly/covid-it"
     },
     {
+        "title": "Kosovo",
+        "description": "Gets an actual number of coronavirus identified cases, recovered and deceased people.",
+        "dataSource": "https://kosova.health/en/",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/C10heVVVE8yBd1YvF/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/ruoBcTzhMpN6SaeS2/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/katerinahronik/covid-kosovo"
+    },
+    {
         "title": "Japan \uD83C\uDDEF\uD83C\uDDF5",
         "description": "Gets an actual number of examined and infected people",
         "dataSource": "https://mhlw-gis.maps.arcgis.com/apps/opsdashboard/index.html#/0c5d0502bbb54f9a8dddebca003631b8",
