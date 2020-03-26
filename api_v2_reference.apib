@@ -730,7 +730,7 @@ Only builds that are starting or running are aborted. For builds with status `FI
     + Attributes
         - data (BuildAborted, required)
 
-## Run collection [/v2/acts/{actorId}/runs{?token,offset,limit,desc,waitForFinish,timeout,memory,build,webhooks}]
+## Run collection [/v2/acts/{actorId}/runs{?token,offset,limit,desc,waitForFinish,timeout,memory,build,webhooks,timeout,memory,build}]
 
 + Parameters
 
@@ -1361,7 +1361,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
     + Attributes
         - data (TaskRun, required)
 
-## Run task synchronously [/v2/actor-tasks/{actorTaskId}/run-sync{?token,outputRecordKey,webhooks}]
+## Run task synchronously [/v2/actor-tasks/{actorTaskId}/run-sync{?token,outputRecordKey,webhooks,timeout,memory,build}]
 
 + Parameters
 
@@ -2310,7 +2310,7 @@ Updates request in queue. Mark request as handled by setting `request.handledAt 
     + forefront:   false (string, optional) - Determines if request should be added to the head of the queue or to the end. Default value is `false` (end of queue).
     + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + clientKey: `client-abc` (string, optional) - A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided,
-    the system considers this API call to come from a new client. For details, see the `hadMultipleClients` field returned by the [Get head](#reference/request-queues/queue-head) operation.
+    the system considers this API call to come from af new client. For details, see the `hadMultipleClients` field returned by the [Get head](#reference/request-queues/queue-head) operation.
 
 + Request (application/json)
 
@@ -2550,6 +2550,136 @@ Gets webhook dispatch object with all details.
 
     + Attributes
         - data (WebhookDispatch, required)
+
+# Group Schedules
+
+This section describes API endpoints to manage schedules.
+
+Schedules are used to automatically start your actors at certain times. Each schedule can be associated with a number of actors and actor tasks, and it is also possible
+to override the settings of each actor (task) in a similar fashion as when invoking the actor (task) using the API.
+For more information see <a href="https://docs.apify.com/scheduler">Schedules documentation</a>.
+
+Each schedule has assigned actions to be performed. Actions can be of two types - `RUN_ACTOR` and `RUN_ACTOR_TASK`. For details see documentation of
+[Get schedule](#reference/schedules/schedule-object/get-schedule) endpoint.
+
+## Schedules collection [/v2/schedules{?token,limit,offset,desc}]
+
++ Parameters
+
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+
+### Get list of schedules [GET]
+
+Gets the list of schedules that the user created.
+
+The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records.
+By default, the records are sorted by the `createdAt` field in ascending order. To sort the records in descending order, use the `desc=1`
+parameter.
+
++ Parameters
+
+    + offset: 10 (number, optional) - Number of records that should be skipped at the start. The default value is `0`.
+    + limit: 99 (number, optional) - Maximum number of records to return. The default value as well as the maximum is `1000`.
+    + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `createdAt` field in descending order. By default, they are sorted in ascending order.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (object, required)
+            - total: 2 (number, required)
+            - offset: 0 (number, required)
+            - limit: 1000 (number, required)
+            - desc: false (boolean, required)
+            - count: 2 (number, required)
+            - items (array[ScheduleShort1, ScheduleShort2], required)
+
+### Create schedule [POST]
+
+Creates a new schedule with settings provided by the schedule object passed as JSON in the payload.
+The response is the created schedule object.
+
+The request needs to specify the `Content-Type: application/json` HTTP header!
+
++ Request (application/json)
+
+    + Attributes(ScheduleCreate)
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: https://api.apify.com/v2/schedule/asdLZtadYvn4mBZmm
+
+    + Attributes
+        - data (Schedule, required)
+
+## Schedule object [/v2/schedule/{scheduleId}{?token}]
+
++ Parameters
+
+    + scheduleId: `asdLZtadYvn4mBZmm`    (string, required) - Webhook ID.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+
+### Get schedule [GET]
+
+Gets schedule object with all details.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (Schedule, required)
+
+### Update schedule [PUT]
+
+Updates a schedule using values specified by a schedule object passed as JSON in the POST payload.
+If the object does not define a specific property, its value will not be updated.
+
+The response is the full schedule object as returned by the
+[Get schedule](#reference/schedules/schedule-object/get-schedule) endpoint.
+
+The request needs to specify the `Content-Type: application/json` HTTP header!
+
++ Request (application/json)
+
+    + Attributes(ScheduleCreate)
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (Schedule, required)
+
+### Delete schedule [DELETE]
+
+Deletes an schedule.
+
++ Response 204 (application/json)
+
+    + Attributes(object)
+
+## Schedule log [/v2/schedule/{scheduleId}/log{?token}]
+
++ Parameters
+
+    + scheduleId: `asdLZtadYvn4mBZmm`    (string, required) - Webhook ID.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+
+### Get schedule log [GET]
+
+Gets schedule log as a JSON array containing info about up to a 1000 invocations of schedule.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (array, required)
+            - (object, required)
+                - message   `Schedule invoked`          (string, required)
+                - level     `INFO`                      (string, required)
+                - createdAt `2020-03-26T12:28:00.370Z`  (string, required)
+
+            - (object, required)
+                - message   `Cannot start actor task \"iEvfA6pm6DWjRTGxS\": Provided input must be object, got \"string\" instead.` (string, required)
+                - level     `ERROR`                     (string, required)
+                - createdAt `2020-03-26T12:30:00.325Z`  (string, required)
 
 # Group Logs
 
@@ -3158,3 +3288,82 @@ The user account is identified by the provided authentication token.
         - finishedAt:   `2015-12-12T07:34:14.202Z`  (string, nullable)
         - responseStatus: 200                       (number, nullable)
         - responseBody:   `{ "foo": "bar" }`        (string, nullable)
+
+## ScheduleShort1
+- id:         `asdLZtadYvn4mBZmm`         (string, required)
+- name:       `my-schedule`               (string, required)
+- userId:     `wRsJZtadYvn4mBZmm`         (string, required)
+- isEnabled:  true                        (boolean, required)
+- createdAt:  `2019-12-12T07:34:14.202Z`  (string, required)
+- modifiedAt: `2019-12-20T06:33:11.202Z`  (string, required)
+- lastRunAt:  `2020-04-12T07:33:10.202Z`  (string, required)
+- nextRunAt:  `2020-04-12T07:34:10.202Z`  (string, required)
+
+## ScheduleShort2
+- id:         `JgwXN9BdwxGcu9MMF`         (string, required)
+- name:       `my-schedule`               (string, required)
+- userId:     `wRsJZtadYvn4mBZmm`         (string, required)
+- isEnabled:  true                        (boolean, required)
+- createdAt:  `2020-01-12T05:34:14.202Z`  (string, required)
+- modifiedAt: `2020-01-23T06:55:11.202Z`  (string, required)
+- lastRunAt:  `2020-04-10T07:34:10.202Z`  (string, required)
+- nextRunAt:  `2020-05-10T07:34:10.202Z`  (string, required)
+
+## Schedule
+- id:             `asdLZtadYvn4mBZmm`         (string, required)
+- name:           `my-schedule`               (string, required)
+- userId:         `wRsJZtadYvn4mBZmm`         (string, required)
+- isEnabled:      true                        (boolean, nullable)
+- isExclusive:    true                        (boolean, nullable)
+- createdAt:      `2019-12-12T07:34:14.202Z`  (string, nullable)
+- modifiedAt:     `2019-12-20T06:33:11.202Z`  (string, nullable)
+- lastRunAt:      `2020-04-12T07:33:10.202Z`  (string, nullable)
+- nextRunAt:      `2020-04-12T07:34:10.202Z`  (string, nullable)
+- cronExpression: `* * * * *`                 (string, nullable)
+- description:    `Schedule of actor ...`     (string, nullable)
+- actions                                     (array, nullable)
+    -                                         (object, required)
+        - id:               `c6KfSgoQzFhMk3etc`               (string, required)
+        - type:             `RUN_ACTOR`                       (string, required)
+        - actorId:          `jF8GGEvbEg4Au3NLA`               (string, required)
+        - runInput                                            (object, nullable)
+            - body:         `{\n   \"foo\": \"actor\"\n}`     (string, nullable)
+            - contentType:  `application/json; charset=utf-8` (string, nullable)
+        - runOptions                                          (object, nullable)
+            - build:        latest                            (string, nullable)
+            - timeoutSecs:  60                                (number, nullable)
+            - memoryMbytes: 1024                              (number, nullable)
+
+    -                                         (object, required)
+        - id:               `VvTKsjqhKDcDxbR9d`               (string, required)
+        - type:             `RUN_ACTOR_TASK`                  (string, required)
+        - actorTaskId:      `iEvfA6pm6DWjRTGxS`               (string, required)
+        - input                                               (object, nullable)
+            - foo:         `bar`                              (string, nullable)
+            - hotel:       `restaurant`                       (string, nullable)
+
+## ScheduleCreate
+- name:           `my-schedule`               (string, required)
+- userId:         `wRsJZtadYvn4mBZmm`         (string, required)
+- isEnabled:      true                        (boolean, nullable)
+- isExclusive:    true                        (boolean, nullable)
+- cronExpression: `* * * * *`                 (string, nullable)
+- description:    `Schedule of actor ...`     (string, nullable)
+- actions                                     (array, nullable)
+    -                                         (object, required)
+        - type:             `RUN_ACTOR`                       (string, required)
+        - actorId:          `jF8GGEvbEg4Au3NLA`               (string, required)
+        - runInput                                            (object, nullable)
+            - body:         `{\n   \"foo\": \"actor\"\n}`     (string, nullable)
+            - contentType:  `application/json; charset=utf-8` (string, nullable)
+        - runOptions                                          (object, nullable)
+            - build:        latest                            (string, nullable)
+            - timeoutSecs:  60                                (number, nullable)
+            - memoryMbytes: 1024                              (number, nullable)
+
+    -                                         (object, required)
+        - type:             `RUN_ACTOR_TASK`                  (string, required)
+        - actorTaskId:      `iEvfA6pm6DWjRTGxS`               (string, required)
+        - input                                               (object, nullable)
+            - foo:         `bar`                              (string, nullable)
+            - hotel:       `restaurant`                       (string, nullable)
