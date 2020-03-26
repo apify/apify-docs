@@ -38,11 +38,10 @@ const identifyFilesAndDirectories = async (currentPath, items) => {
         const itemFullPath = path.join(DOCS_PATH, itemPath);
         const stat = await lstatPromised(itemFullPath);
 
-        stat.isDirectory()
-            ? dirPaths.push(itemPath)
-            : filePaths.push(itemPath);
+        if (stat.isDirectory()) dirPaths.push(itemPath);
+        else filePaths.push(itemPath);
     });
-    await Promise.all(promises)
+    await Promise.all(promises);
 
     return { filePaths, dirPaths };
 };
@@ -102,7 +101,6 @@ const replacePaths = (index) => {
                 pageDef.content = pageDef.content.replace(assetMatch, `/${linkedAsset}`);
             });
         }
-
     });
 };
 
