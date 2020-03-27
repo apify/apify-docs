@@ -2310,7 +2310,7 @@ Updates request in queue. Mark request as handled by setting `request.handledAt 
     + forefront:   false (string, optional) - Determines if request should be added to the head of the queue or to the end. Default value is `false` (end of queue).
     + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + clientKey: `client-abc` (string, optional) - A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided,
-    the system considers this API call to come from af new client. For details, see the `hadMultipleClients` field returned by the [Get head](#reference/request-queues/queue-head) operation.
+    the system considers this API call to come from a new client. For details, see the `hadMultipleClients` field returned by the [Get head](#reference/request-queues/queue-head) operation.
 
 + Request (application/json)
 
