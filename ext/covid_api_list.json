@@ -252,7 +252,7 @@
         "actorPage": "/tugkan/covid-no"
     },
     {
-        "title": "Pakistan PK",
+        "title": "Pakistan \uD83C\uDDF5\uD83C\uDDF0",
         "description": "Gets the actual number of affected people.",
         "dataSource": "http://covid.gov.pk",
         "latestApi": {
