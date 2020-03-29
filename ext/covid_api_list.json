@@ -29,7 +29,7 @@
     },
     {
         "title": "Brazil 🇧🇷",
-        "description": "Gets an actual number of infected people and deaths per region by COVID-19 in Brazil.",
+        "description": "Gets the actual number of infected people and deaths per region by COVID-19 in Brazil.",
         "dataSource": "https://www.saude.gov.br/noticias/agencia-saude",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/TyToNta7jGKkpszMZ/records/LATEST?disableRedirect=true",
@@ -42,8 +42,22 @@
         "actorPage": "/pocesar/covid-brazil"
     },
     {
+        "title": "Bulgaria \uD83C\uDDE7\uD83C\uDDEC",
+        "description": "Gets the actual number of examined and infected people.",
+        "dataSource": "https://www.mh.government.bg/bg/informaciya-za-grazhdani/potvrdeni-sluchai-na-koronavirus-na-teritoriyata-na-r-blgariya/",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/np4eYah8M5uQtj0Su/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/OicoAbu38M2cGAcDl/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/zuzka/covid-bg"
+    },
+    {
         "title": "China 🇨🇳",
-        "description": "Actor gets an actual number of current confirmed, confirmed, suspected, cured and deceased people by COVID-19 in China.",
+        "description": "Actor gets the actual number of current confirmed, confirmed, suspected, cured and deceased people by COVID-19 in China.",
         "dataSource": "https://github.com/BlankerL/DXY-COVID-19-Data/blob/master/json/DXYOverall.json",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/x4iHxk7TVGI7UxFv6/records/LATEST?disableRedirect=true",
@@ -113,7 +127,7 @@
     },
     {
         "title": "France 🇫🇷",
-        "description": "Gets an actual number of examined and infected people.",
+        "description": "Gets the actual number of examined and infected people.",
         "dataSource": "https://www.santepubliquefrance.fr/",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/ufVgKLP8ljtn3ufaU/records/LATEST?disableRedirect=true",
@@ -169,7 +183,7 @@
     },
     {
         "title": "Kosovo \uD83C\uDDFD\uD83C\uDDF0",
-        "description": "Gets an actual number of coronavirus identified cases, recovered and deceased people.",
+        "description": "Gets the actual number of coronavirus identified cases, recovered and deceased people.",
         "dataSource": "https://kosova.health/en/",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/C10heVVVE8yBd1YvF/records/LATEST?disableRedirect=true",
@@ -183,7 +197,7 @@
     },
     {
         "title": "Japan \uD83C\uDDEF\uD83C\uDDF5",
-        "description": "Gets an actual number of examined and infected people",
+        "description": "Gets the actual number of examined and infected people",
         "dataSource": "https://mhlw-gis.maps.arcgis.com/apps/opsdashboard/index.html#/0c5d0502bbb54f9a8dddebca003631b8",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/YbboJrL3cgVfkV1am/records/LATEST?disableRedirect=true",
@@ -197,7 +211,7 @@
     },
     {
         "title": "Lithuania 🇱🇹",
-        "description": "Gets an actual number of tested/confirmed cases.",
+        "description": "Gets the actual number of tested/confirmed cases.",
         "dataSource": "http://sam.lrv.lt/lt/naujienos/koronavirusas",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/xhGDb8VTqjtm1AQL6/records/LATEST?disableRedirect=true",
@@ -224,8 +238,22 @@
         "actorPage": "/tugkan/covid-lu"
     },
     {
+        "title": "Malaysia \uD83C\uDDF2\uD83C\uDDFE",
+        "description": "Gets the actual number of examined and infected people.",
+        "dataSource": "http://www.moh.gov.my/index.php/pages/view/2019-ncov-wuhan",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/6t65lJVfs3d8s6aKc/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/7Fdb90FMDLZir2ROo/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/zuzka/covid-my"
+    },
+    {
         "title": "Netherlands \uD83C\uDDF3\uD83C\uDDF1",
-        "description": "Gets an actual number of examined and infected people",
+        "description": "Gets the actual number of examined and infected people",
         "dataSource": "https://www.rivm.nl/node/152921",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/vqnEUe7VtKNMqGqFF/records/LATEST?disableRedirect=true",
@@ -309,7 +337,7 @@
     },
     {
         "title": "Slovakia 🇸🇰",
-        "description": "Gets an actual number of examined and infected people by COVID-19.",
+        "description": "Gets the actual number of examined and infected people by COVID-19.",
         "dataSource": "https://www.arcgis.com/apps/opsdashboard/index.html#/5fe83e34abc14349b7d2fcd5c48c6c85",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/GlTLAdXAuOz6bLAIO/records/LATEST?disableRedirect=true",
@@ -323,7 +351,7 @@
     },
     {
         "title": "Slovenia 🇸🇮",
-        "description": "Gets an actual number of confirmed cases.",
+        "description": "Gets the actual number of confirmed cases.",
         "dataSource": "https://www.gov.si/en/news/2020-03-12-slovenia-declares-coronavirus-epidemic/",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/603AyvQ8QjyqmnZx6/records/LATEST?disableRedirect=true",
@@ -348,6 +376,20 @@
             "frequency": "5 mins"
         },
         "actorPage": "/onidivo/covid-kr"
+    },
+    {
+        "title": "Spain \uD83C\uDDEA\uD83C\uDDF8",
+        "description": "Gets the actual number of examined and infected people.",
+        "dataSource": "https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/situacionActual.htm",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/lluBbYoQVN65R3BGO/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/hxwow9BB75z8RV3JT/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/zuzka/covid-es"
     },
     {
         "title": "Sweden 🇸🇪",
