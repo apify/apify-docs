@@ -318,4 +318,4 @@ Usage of this field is based on the selected editor:
 *   `requestListSources` - value from this field can be used as input of [RequestList](https://sdk.apify.com/docs/api/request-list) class from Apify SDK.
 *   `pseudoUrls` - is intended to be used with a combination of the [PseudoUrl](https://sdk.apify.com/docs/api/pseudo-url) class and the [Apify.utils.enqueueLinks()](https://sdk.apify.com/docs/api/utils#utilsenqueuelinksoptions) function from the Apify SDK.
 
-Editor type `requestListSources` supports input in formats defined by the [sources](https://sdk.apify.com/docs/typedefs/request-list-options#sources) property of [RequestListOptions](https://sdk.apify.com/docs/typedefs/request-list-options)
+Editor type `requestListSources` supports input in formats defined by the [sources](https://sdk.apify.com/docs/typedefs/request-list-options#sources) property of [RequestListOptions](https://sdk.apify.com/docs/typedefs/request-list-options).
