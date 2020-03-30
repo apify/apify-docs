@@ -2553,13 +2553,13 @@ Gets webhook dispatch object with all details.
 
 # Group Schedules
 
-This section describes API endpoints to manage schedules.
+This section describes API endpoints for managing schedules.
 
-Schedules are used to automatically start your actors at certain times. Each schedule can be associated with a number of actors and actor tasks, and it is also possible
-to override the settings of each actor (task) in a similar fashion as when invoking the actor (task) using the API.
-For more information see <a href="https://docs.apify.com/scheduler">Schedules documentation</a>.
+Schedules are used to automatically start your actors at certain times. Each schedule can be associated with a number of actors and actor tasks. It is also possible
+to override the settings of each actor (task) similarly to when invoking the actor (task) using the API.
+For more information, see <a href="https://docs.apify.com/scheduler">Schedules documentation</a>.
 
-Each schedule has assigned actions to be performed. Actions can be of two types - `RUN_ACTOR` and `RUN_ACTOR_TASK`. For details see documentation of
+Each schedule is assigned actions for it to perform. Actions can be of two types - `RUN_ACTOR` and `RUN_ACTOR_TASK`. For details, see the documentation of the
 [Get schedule](#reference/schedules/schedule-object/get-schedule) endpoint.
 
 ## Schedules collection [/v2/schedules{?token,limit,offset,desc}]
@@ -2572,15 +2572,15 @@ Each schedule has assigned actions to be performed. Actions can be of two types 
 
 Gets the list of schedules that the user created.
 
-The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records.
+The endpoint supports pagination using the `limit` and `offset` parameters. It will not return more than 1000 records.
 By default, the records are sorted by the `createdAt` field in ascending order. To sort the records in descending order, use the `desc=1`
 parameter.
 
 + Parameters
 
     + offset: 10 (number, optional) - Number of records that should be skipped at the start. The default value is `0`.
-    + limit: 99 (number, optional) - Maximum number of records to return. The default value as well as the maximum is `1000`.
-    + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `createdAt` field in descending order. By default, they are sorted in ascending order.
+    + limit: 99 (number, optional) - Maximum number of records to return. The default value, as well as the maximum, is `1000`.
+    + desc: true (boolean, optional) - If `true` or `1`, the objects are sorted by the `createdAt` field in descending order. By default, they are sorted in ascending order.
 
 + Response 200 (application/json)
 
@@ -2622,7 +2622,7 @@ The request needs to specify the `Content-Type: application/json` HTTP header!
 
 ### Get schedule [GET]
 
-Gets schedule object with all details.
+Gets the schedule object with all details.
 
 + Response 200 (application/json)
 
@@ -2637,7 +2637,7 @@ If the object does not define a specific property, its value will not be updated
 The response is the full schedule object as returned by the
 [Get schedule](#reference/schedules/schedule-object/get-schedule) endpoint.
 
-The request needs to specify the `Content-Type: application/json` HTTP header!
+**The request needs to specify the `Content-Type: application/json` HTTP header!**
 
 + Request (application/json)
 
@@ -2650,7 +2650,7 @@ The request needs to specify the `Content-Type: application/json` HTTP header!
 
 ### Delete schedule [DELETE]
 
-Deletes an schedule.
+Deletes a schedule.
 
 + Response 204 (application/json)
 
@@ -2665,7 +2665,7 @@ Deletes an schedule.
 
 ### Get schedule log [GET]
 
-Gets schedule log as a JSON array containing info about up to a 1000 invocations of schedule.
+Gets the schedule log as a JSON array containing information about up to a 1000 invocations of the schedule.
 
 + Response 200 (application/json)
 
