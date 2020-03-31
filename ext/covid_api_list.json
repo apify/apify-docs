@@ -168,7 +168,7 @@
         "actorPage": "/tugkan/covid-hu"
     },
     {
-        "title": "India",
+        "title": "India \uD83C\uDDEE\uD83C\uDDF3",
         "description": "Gets the actual number of examined and infected people.",
         "dataSource": "https://www.mohfw.gov.in/",
         "latestApi": {
