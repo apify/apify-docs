@@ -448,7 +448,7 @@
         "actorPage": "/katerinahronik/covid-uk"
     },
     {
-        "title": "Turkey  🇹🇷🇬",
+        "title": "Turkey  🇹🇷",
         "description": "Gets the actual number of infected, tested, recovered and deceased people.",
         "dataSource": "https://covid19.saglik.gov.tr/",
         "latestApi": {
