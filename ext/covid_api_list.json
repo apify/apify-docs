@@ -434,20 +434,6 @@
         "actorPage": "/dtrungtin/covid-ch"
     },
     {
-        "title": "United Kingdom \uD83C\uDDEC\uD83C\uDDE7",
-        "description": "Gets the statistics of the actual number of infected, daily confirmed, recovered and deceased people by COVID-19",
-        "dataSource": "https://www.gov.uk/government/publications/covid-19-track-coronavirus-cases",
-        "latestApi": {
-            "url": "https://api.apify.com/v2/key-value-stores/KWLojgM5r1JmMW4b4/records/LATEST?disableRedirect=true",
-            "frequency": "5 mins"
-        },
-        "historyApi": {
-            "url": "https://api.apify.com/v2/datasets/K1mXdufnpvr53AFk6/items?format=json&clean=1",
-            "frequency": "5 mins"
-        },
-        "actorPage": "/katerinahronik/covid-uk"
-    },
-    {
         "title": "Turkey  🇹🇷",
         "description": "Gets the actual number of infected, tested, recovered and deceased people.",
         "dataSource": "https://covid19.saglik.gov.tr/",
@@ -460,6 +446,20 @@
             "frequency": "5 mins"
         },
         "actorPage": "/tugkan/covid-tr"
+    },
+    {
+        "title": "United Kingdom \uD83C\uDDEC\uD83C\uDDE7",
+        "description": "Gets the statistics of the actual number of infected, daily confirmed, recovered and deceased people by COVID-19",
+        "dataSource": "https://www.gov.uk/government/publications/covid-19-track-coronavirus-cases",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/KWLojgM5r1JmMW4b4/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/K1mXdufnpvr53AFk6/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/katerinahronik/covid-uk"
     },
     {
         "title": "United States 🇺🇸",
