@@ -307,6 +307,20 @@
         },
         "actorPage": "/tugkan/covid-no"
     },
+     {
+        "title": "Philippines 🇵🇭",
+        "description": "Gets the actual number of tested and infected people.",
+        "dataSource": "https://ncovtracker.doh.gov.ph/",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/lFItbkoNDXKeSWBBA/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": " https://api.apify.com/v2/datasets/sFSef5gfYg3soj8mb/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "katerinahronik/covid-philippines"
+    },
     {
         "title": "Pakistan \uD83C\uDDF5\uD83C\uDDF0",
         "description": "Gets the actual number of affected people.",
