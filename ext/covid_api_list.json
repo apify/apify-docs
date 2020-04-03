@@ -518,7 +518,7 @@
         "actorPage": "/jakubbalada/coronavirus-la"
     },
     {
-        "title": "Vietnam vi",
+        "title": "Vietnam \uD83C\uDDFB\uD83C\uDDF3",
         "description": "Gets the actual number of Coronavirus cases and deaths.",
         "dataSource": "https://ncov.moh.gov.vn/",
         "latestApi": {
