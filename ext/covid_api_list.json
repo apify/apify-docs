@@ -351,7 +351,7 @@
     },
     {
         "title": "Portugal",
-        "description": "Get statistics of COVID-19 virus",
+        "description": "Get the actual statistics.",
         "dataSource": "https://covid19.min-saude.pt/ponto-de-situacao-atual-em-portugal/",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/NDqcdJ53aN730Kb1Q/records/LATEST?disableRedirect=true",
@@ -421,7 +421,7 @@
     },
     {
         "title": "South Korea",
-        "description": "Get statistics of COVID-19 virus",
+        "description": "Get the actual statistics.",
         "dataSource": "https://www.cdc.go.kr/board/board.es?mid=&bid=0030",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/TMFbhs7qtXpGpeaeP/records/LATEST?disableRedirect=true",
@@ -544,5 +544,19 @@
             "frequency": "5 mins"
         },
         "actorPage": "/dtrungtin/covid-vi"
+    },
+    {
+        "title": "Belgium",
+        "description": "Get the actual statistics.",
+        "dataSource": "https://epistat.wiv-isp.be/covid",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/apVM8aZ8hKZFvnKm7/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/DD9jrAixr0QMvQIE3/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/onidivo/covid-be"
     }
 ]
