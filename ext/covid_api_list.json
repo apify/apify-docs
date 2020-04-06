@@ -28,6 +28,20 @@
         "actorPage": "/tugkan/covid-bh"
     },
     {
+        "title": "Belgium",
+        "description": "Get the actual statistics.",
+        "dataSource": "https://epistat.wiv-isp.be/covid",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/apVM8aZ8hKZFvnKm7/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/DD9jrAixr0QMvQIE3/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/onidivo/covid-be"
+    },
+    {
         "title": "Brazil",
         "description": "Gets the actual number of infected people and deaths per region by COVID-19 in Brazil.",
         "dataSource": "https://covid.saude.gov.br/",
@@ -544,19 +558,5 @@
             "frequency": "5 mins"
         },
         "actorPage": "/dtrungtin/covid-vi"
-    },
-    {
-        "title": "Belgium",
-        "description": "Get the actual statistics.",
-        "dataSource": "https://epistat.wiv-isp.be/covid",
-        "latestApi": {
-            "url": "https://api.apify.com/v2/key-value-stores/apVM8aZ8hKZFvnKm7/records/LATEST?disableRedirect=true",
-            "frequency": "5 mins"
-        },
-        "historyApi": {
-            "url": "https://api.apify.com/v2/datasets/DD9jrAixr0QMvQIE3/items?format=json&clean=1",
-            "frequency": "5 mins"
-        },
-        "actorPage": "/onidivo/covid-be"
     }
 ]
