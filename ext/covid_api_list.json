@@ -30,7 +30,7 @@
     {
         "title": "Brazil",
         "description": "Gets the actual number of infected people and deaths per region by COVID-19 in Brazil.",
-        "dataSource": "https://www.saude.gov.br/noticias/agencia-saude",
+        "dataSource": "https://covid.saude.gov.br/",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/TyToNta7jGKkpszMZ/records/LATEST?disableRedirect=true",
             "frequency": "30 mins"
@@ -128,7 +128,7 @@
     {
         "title": "Finland",
         "description": "Gets the actual number of confirmed cases.",
-        "dataSource": "https://thl.fi/en/web/infectious-diseases/what-s-new/coronavirus-covid-19-latest-updates",
+        "dataSource": "https://experience.arcgis.com/experience/d40b2aaf08be4b9c8ec38de30b714f26",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/jEFt5tgCTMfjJpLD3/records/LATEST?disableRedirect=true",
             "frequency": "5 mins"
@@ -282,7 +282,7 @@
     {
         "title": "Netherlands",
         "description": "Gets the actual number of examined and infected people",
-        "dataSource": "https://www.rivm.nl/node/152921",
+        "dataSource": "https://www.rivm.nl/actuele-informatie-over-coronavirus",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/vqnEUe7VtKNMqGqFF/records/LATEST?disableRedirect=true",
             "frequency": "5 mins"
@@ -306,6 +306,20 @@
             "frequency": "5 mins"
         },
         "actorPage": "/tugkan/covid-no"
+    },
+     {
+        "title": "Philippines 🇵🇭",
+        "description": "Gets the actual number of tested and infected people.",
+        "dataSource": "https://ncovtracker.doh.gov.ph/",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/lFItbkoNDXKeSWBBA/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": " https://api.apify.com/v2/datasets/sFSef5gfYg3soj8mb/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "katerinahronik/covid-philippines"
     },
     {
         "title": "Pakistan",
@@ -350,7 +364,21 @@
         "actorPage": "/onidivo/covid-pt"
     },
     {
-        "title": "Singapore",
+        "title": "Saudi Arabia",
+        "description": "Gets the actual number of infected, recovered and deceased people.",
+        "dataSource": "https://covid19.moh.gov.sa/",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/40xwYCZ57p5OkyBIJ/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/OeaEEGdhvUSkXRrWU/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/katerinahronik/covid-sa"
+    },
+    {
+        "title": "Singapore 🇸🇬",
         "description": "Gets the actual number of infected, recovered and deceased people.",
         "dataSource": "https://www.moh.gov.sg/covid-19",
         "latestApi": {
@@ -380,7 +408,7 @@
     {
         "title": "Slovenia",
         "description": "Gets the actual number of confirmed cases.",
-        "dataSource": "https://www.gov.si/en/news/2020-03-12-slovenia-declares-coronavirus-epidemic/",
+        "dataSource": "https://www.gov.si/en/topics/coronavirus-disease-covid-19/",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/603AyvQ8QjyqmnZx6/records/LATEST?disableRedirect=true",
             "frequency": "5 mins"
@@ -502,5 +530,19 @@
             "frequency": "10 mins"
         },
         "actorPage": "/jakubbalada/coronavirus-la"
+    },
+    {
+        "title": "Vietnam \uD83C\uDDFB\uD83C\uDDF3",
+        "description": "Gets the actual number of Coronavirus cases and deaths.",
+        "dataSource": "https://ncov.moh.gov.vn/",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/EaCBL1JNntjR3EakU/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/RnzK2Aea1RlgBcauw/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/dtrungtin/covid-vi"
     }
 ]
