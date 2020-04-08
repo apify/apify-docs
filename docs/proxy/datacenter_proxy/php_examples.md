@@ -7,7 +7,7 @@ description: Documentation of Apify Proxy that enables anonymization of access t
 
 The following section contain several examples of how to use Apify Proxy in PHP.
 
-## Usage with [CURL](http://php.net/manual/en/book.curl.php)
+## [](#usage-with-curl) Usage with [CURL](http://php.net/manual/en/book.curl.php)
 
 **IMPORTANT:** For all examples in this section you need to have cURL extension enabled in your PHP installation. See [installation instructions](http://php.net/manual/en/curl.installation.php) for more information.
 

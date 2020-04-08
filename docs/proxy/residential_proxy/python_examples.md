@@ -7,7 +7,7 @@ description: Documentation of Apify Proxy that enables anonymization of access t
 
 The following section contain several examples of how to use Apify Proxy in python.
 
-## Usage with [Python 3+](https://www.python.org/downloads/)
+## [](#usage-with-python3) Usage with [Python 3+](https://www.python.org/downloads/)
 
 Single request with random IP chosen from all available countries.
 
@@ -86,7 +86,7 @@ Two requests with the different IPs from the Czech Republic.
     print('Should contain different clientIp than ')
     print(do_request())
 
-## Usage with [Python 2+](https://www.python.org/download/releases/2.7.2/)
+## [](#usage-with-python2) Usage with [Python 2+](https://www.python.org/download/releases/2.7.2/)
 
 **IMPORTANT:** For all examples in this section you need to have [six](https://pypi.org/project/six/) enabled in your Python installation. Run `pip install six` to enable it.
 
