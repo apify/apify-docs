@@ -7,7 +7,7 @@ description: Documentation of Apify Proxy that enables anonymization of access t
 
 The following section contain several examples of how to use Google SERP proxy in python.
 
-## Usage with [Python 3+](https://www.python.org/downloads/)
+## [](#usage-with-python3) Usage with [Python 3+](https://www.python.org/downloads/)
 
 Get HTML of search results from the US for keyword `wikipedia`
 
@@ -45,7 +45,7 @@ Get HTML of shopping results from the Czech Republic for query `Apple iPhone XS 
     query = parse.urlencode({ 'q': 'Apple iPhone XS 64GB', 'tbm': 'shop' })
     print(opener.open(f"http://www.google.cz/search?{query}").read())
 
-## Usage with [Python 2+](https://www.python.org/download/releases/2.7.2/)
+## [](#usage-with-python2) Usage with [Python 2+](https://www.python.org/download/releases/2.7.2/)
 
 **IMPORTANT:** For all examples in this section you need to have [six](https://pypi.org/project/six/) enabled in your Python installation. Run `pip install six` to enable it.
 
