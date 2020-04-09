@@ -1,5 +1,19 @@
 [
     {
+        "title": "World",
+        "description": "Aggregates data from all the Apify coronavirus public actors and unifies them in a one overview dataset.",
+        "dataSource": "https://apify.com/store?search=coronavirus",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/WVCrzX7IMJYqWCdQ5/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/petrpatek/covid-19-aggregator"
+    },
+    {
         "title": "Austria",
         "description": "Gets the actual number of examined and infected people.",
         "dataSource": "https://www.sozialministerium.at/Informationen-zum-Coronavirus/Neuartiges-Coronavirus-(2019-nCov).html",
