@@ -14,6 +14,20 @@
         "actorPage": "/petrpatek/covid-austria"
     },
     {
+        "title": "Azerbaijan",
+        "description": "Gets an actual number of infected, recovered, deceased and tested people.",
+        "dataSource": "https://koronavirusinfo.az/az/page/statistika/azerbaycanda-cari-veziyyet",
+        "latestApi": {
+            "url": "https://api.apify.com/v2/key-value-stores/1mPmYJOTUu8hPfhc0/records/LATEST?disableRedirect=true",
+            "frequency": "5 mins"
+        },
+        "historyApi": {
+            "url": "https://api.apify.com/v2/datasets/qEXqbam4XI8GOQf9q/items?format=json&clean=1",
+            "frequency": "5 mins"
+        },
+        "actorPage": "/anarmammad/covid-az"
+    },
+    {
         "title": "Bahrain",
         "description": "Gets the actual number of tested, infected and recovered people.",
         "dataSource": "https://www.moh.gov.bh/COVID19",
