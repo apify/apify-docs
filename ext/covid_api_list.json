@@ -452,11 +452,11 @@
         "description": "Get the actual statistics.",
         "dataSource": "https://covid19.min-saude.pt/ponto-de-situacao-atual-em-portugal/",
         "latestApi": {
-            "url": "https://api.apify.com/v2/key-value-stores/NDqcdJ53aN730Kb1Q/records/LATEST?disableRedirect=true",
+            "url": "https://api.apify.com/v2/key-value-stores/BXGEYTTUQzYBboEQK/records/LATEST?disableRedirect=true",
             "frequency": "5 mins"
         },
         "historyApi": {
-            "url": "https://api.apify.com/v2/datasets/VeXjF7u71PU8IO6NH/items?format=json&clean=1",
+            "url": "https://api.apify.com/v2/datasets/f1Qd4cMBzV1E0oRNc/items?format=json&clean=1",
             "frequency": "5 mins"
         },
         "actorPage": "/onidivo/covid-pt"
