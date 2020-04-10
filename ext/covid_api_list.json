@@ -336,6 +336,20 @@
         "actorPage": "/lukass/covid-nl"
     },
     {
+	"title": "Nigeria",
+	"description": "Gets the actual number of infected people and deaths per region by COVID-19 in Nigeria.",
+	"dataSource": "https://covid19.ncdc.gov.ng/",
+	"latestApi": {
+			"url": "https://api.apify.com/v2/key-value-stores/Eb694wt67UxjdSGbc/records/LATEST?disableRedirect=true",
+			"frequency": "5 mins"
+	},
+	"historyApi": {
+			"url": "https://api.apify.com/v2/datasets/ccY329O0ng68poTiX/items?format=json&clean=1",
+			"frequency": "5 mins"
+	},
+	"actorPage": "/zuzka/covid-ng"
+    },
+    {
         "title": "Norway",
         "description": "Gets the actual number of infected people.",
         "dataSource": "https://www.fhi.no/en/id/infectious-diseases/coronavirus/daily-reports/daily-reports-COVID19/",
