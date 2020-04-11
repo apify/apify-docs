@@ -408,7 +408,7 @@
     {
         "title": "Palestine",
         "description": "Gets the actual number of affected people.",
-        "dataSource": "https://corona.ps/",
+        "dataSource": "http://site.moh.ps",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/SbribCOVf2wgR868y/records/LATEST?disableRedirect=true",
             "frequency": "5 mins"
@@ -447,7 +447,7 @@
         },
         "actorPage": "/vaclavrut/covid-pl"
     },
-    {
+     {
         "title": "Portugal",
         "description": "Get the actual statistics.",
         "dataSource": "https://covid19.min-saude.pt/ponto-de-situacao-atual-em-portugal/",
@@ -520,13 +520,13 @@
     {
         "title": "South Korea",
         "description": "Get the actual statistics.",
-        "dataSource": "https://www.cdc.go.kr/board/board.es?mid=&bid=0030",
+        "dataSource": "http://ncov.mohw.go.kr/en",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/TMFbhs7qtXpGpeaeP/records/LATEST?disableRedirect=true",
             "frequency": "5 mins"
         },
         "historyApi": {
-            "url": "https://api.apify.com/v2/datasets/T43VVY5mDBeFMyRcn/items?format=json&clean=1",
+            "url": "https://api.apify.com/v2/datasets/Lc0Hoa8MgAbscJA4w/items?format=json&clean=1",
             "frequency": "5 mins"
         },
         "actorPage": "/onidivo/covid-kr"
