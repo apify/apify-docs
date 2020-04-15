@@ -19,6 +19,7 @@ const readAndParsePage = async (fullPath, shortPath) => {
     const invalidKeys = _.without(Object.keys(metadata), ...ALLOWED_METADATA_KEYS);
     if (invalidKeys.length) throw new Error(`Invalid metadata keys found: ${invalidKeys.join(', ')}, allowed keys: ${ALLOWED_METADATA_KEYS.join(', ')}`); // eslint-disable-line
     if (!metadata.title) throw new Error(`Value metadata.title is missing in ${fullPath}`);
+    if (!Array.isArray(metadata.paths)) throw new Error('Value metadata.paths needs to be of type Array');
 
     return Object.assign({
         content,
