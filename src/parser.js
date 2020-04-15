@@ -21,8 +21,7 @@ const readAndParsePage = async (fullPath, shortPath) => {
     if (!metadata.title) throw new Error(`Value metadata.title is missing in ${fullPath}`);
     if (!metadata.paths && !Array.isArray(metadata.paths)) throw new Error(`Value metadata.paths is missing or not an Array in ${fullPath}.`);
 
-    // Rename this const?
-    // Check if the path generated here is in the metadata.paths array
+    // Check if the path based on filename is in the metadata.paths array
     const filenamePath = shortPath.replace('/index.md', '').replace('.md', '').replace(/_/g, '-');
     if (!_.includes(metadata.paths, filenamePath)) throw new Error(`Value metadata.paths in ${fullPath} is missing the path "${filenamePath}"`);
 
