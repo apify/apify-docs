@@ -1,5 +1,6 @@
 ---
 title: Request queue
+menuTitle: Request queue
 description: Documentation of Apify simple key-value store that enables storage of Actor inputs and results.
 menuWeight: 6.3
 paths:

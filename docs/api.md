@@ -1,5 +1,6 @@
 ---
 title: API
+menuTitle: API
 description: Documentation of Apify REST API that enables integration with external applications and systems.
 menuWeight: 10
 paths:

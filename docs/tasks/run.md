@@ -1,5 +1,6 @@
 ---
 title: Run
+menuTitle: Create
 description: Documentation of Apify Task - a way to set up configuration of your Apify Actor for simplified usage.
 menuWeight: 4.3
 paths:
