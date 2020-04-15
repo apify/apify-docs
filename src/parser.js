@@ -19,13 +19,19 @@ const readAndParsePage = async (fullPath, shortPath) => {
     const invalidKeys = _.without(Object.keys(metadata), ...ALLOWED_METADATA_KEYS);
     if (invalidKeys.length) throw new Error(`Invalid metadata keys found: ${invalidKeys.join(', ')}, allowed keys: ${ALLOWED_METADATA_KEYS.join(', ')}`); // eslint-disable-line
     if (!metadata.title) throw new Error(`Value metadata.title is missing in ${fullPath}`);
-    if (!Array.isArray(metadata.paths)) throw new Error('Value metadata.paths needs to be of type Array');
+    if (!metadata.paths && !Array.isArray(metadata.paths)) throw new Error(`Value metadata.paths is missing or not an Array in ${fullPath}.`);
+
+    // Rename this const?
+    // Check if the path generated here is in the metadata.paths array
+    const filenamePath = shortPath.replace('/index.md', '').replace('.md', '').replace(/_/g, '-');
+    if (!_.includes(metadata.paths, filenamePath)) throw new Error(`Value metadata.paths in ${fullPath} is missing the path "${filenamePath}"`);
 
     return Object.assign({
         content,
         contentHash: crypto.createHash('sha256').update(content).digest('base64'),
         menuTitle: metadata.title,
-        path: shortPath.replace('/index.md', '').replace('.md', '').replace(/_/g, '-'),
+        path: filenamePath,
+        redirectPaths: metadata.paths,
         sourceUrl: `https://apify-docs.s3.amazonaws.com/master/pages/${shortPath}`,
     }, metadata);
 };
