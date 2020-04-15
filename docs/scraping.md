@@ -2,6 +2,8 @@
 title: Scraping
 description: Scraping documentation is a hub for all your web scraping and crawling needs.
 menuWeight: 2
+paths:
+    - scraping
 ---
 
 # [](./scraping)Scraping with Apify
