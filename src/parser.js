@@ -27,13 +27,20 @@ const readAndParsePage = async (fullPath, shortPath) => {
     const filenamePath = shortPath.replace('/index.md', '').replace('.md', '').replace(/_/g, '-');
     if (!_.includes(metadata.redirectPaths, filenamePath)) throw new Error(`Metadata.redirectPaths in ${fullPath} is missing path "${filenamePath}"`);
 
-    return Object.assign({
-        content,
-        contentHash: crypto.createHash('sha256').update(content).digest('base64'),
-        sourceUrl: `https://apify-docs.s3.amazonaws.com/master/pages/${shortPath}`,
-        path: filenamePath,
-        menuTitle: metadata.menuTitle ? metadata.menuTitle : metadata.title,
-    }, metadata);
+    // Return Object with filenamePath removed from redirectPaths to avoid
+    // redirect loop on the website
+    return Object.assign(
+        {},
+        _.omit(metadata, 'redirectPaths'),
+        {
+            content,
+            contentHash: crypto.createHash('sha256').update(content).digest('base64'),
+            sourceUrl: `https://apify-docs.s3.amazonaws.com/master/pages/${shortPath}`,
+            path: filenamePath,
+            redirectPaths: metadata.redirectPaths.filter(p => p !== filenamePath),
+            menuTitle: metadata.menuTitle || metadata.menuTitle,
+        },
+    );
 };
 
 const identifyFilesAndDirectories = async (currentPath, items) => {
