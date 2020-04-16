@@ -30,9 +30,9 @@ const readAndParsePage = async (fullPath, shortPath) => {
     return Object.assign({
         content,
         contentHash: crypto.createHash('sha256').update(content).digest('base64'),
-        menuTitle: metadata.menuTitle ? metadata.menuTitle : metadata.title,
-        path: filenamePath,
         sourceUrl: `https://apify-docs.s3.amazonaws.com/master/pages/${shortPath}`,
+        path: filenamePath,
+        menuTitle: metadata.menuTitle ? metadata.menuTitle : metadata.title,
     }, metadata);
 };
 
