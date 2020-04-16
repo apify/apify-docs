@@ -1,6 +1,5 @@
 ---
 title: Tips and tricks
-menuTitle: Tips and tricks
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
 redirectPaths:
     - proxy/residential-proxy/tips-and-tricks
