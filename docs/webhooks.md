@@ -3,7 +3,7 @@ title: Webhooks
 menuTitle: Webhooks
 description: Documentation of Apify webhooks system that enables integration of multiple actors or external systems.
 menuWeight: 8
-paths:
+redirectPaths:
     - webhooks
 ---
 

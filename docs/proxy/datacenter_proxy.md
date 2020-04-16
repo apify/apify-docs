@@ -3,7 +3,7 @@ title: Datacenter proxy
 menuTitle: Datacenter proxy
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
 menuWeight: 7.3
-paths:
+redirectPaths:
     - proxy/datacenter-proxy
 ---
 

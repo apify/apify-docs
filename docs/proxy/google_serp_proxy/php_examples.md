@@ -2,7 +2,7 @@
 title: PHP Examples
 menuTitle: PHP Examples
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
-paths:
+redirectPaths:
     - proxy/google-serp-proxy/php-examples
 ---
 
