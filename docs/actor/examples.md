@@ -3,7 +3,7 @@ title: Examples
 menuTitle: Examples
 description: Documentation of Apify actors - a serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
 menuWeight: 3.7
-paths:
+redirectPaths:
     - actor/examples
 ---
 
