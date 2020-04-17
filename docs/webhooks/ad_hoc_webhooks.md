@@ -2,7 +2,7 @@
 title: Ad hoc webhooks
 description: Documentation of Apify webhooks system that enables integration of multiple actors or external systems.
 menuWeight: 8.3
-redirectPaths:
+paths:
     - webhooks/ad-hoc-webhooks
 ---
 

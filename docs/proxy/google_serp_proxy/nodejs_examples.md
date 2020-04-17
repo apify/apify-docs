@@ -1,7 +1,7 @@
 ---
 title: NodeJS Examples
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
-redirectPaths:
+paths:
     - proxy/google-serp-proxy/nodejs-examples
 ---
 

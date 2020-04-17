@@ -2,7 +2,7 @@
 title: Input schema
 description: Documentation of Apify Actor input schema.
 menuWeight: 3.5
-redirectPaths:
+paths:
     - actor/input-schema
 ---
 
