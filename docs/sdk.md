@@ -2,7 +2,7 @@
 title: SDK
 description: Apify SDK Documentation
 menuWeight: 12
-redirectPaths:
+paths:
     - sdk
 ---
 

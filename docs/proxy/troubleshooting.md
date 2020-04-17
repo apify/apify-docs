@@ -2,7 +2,7 @@
 title: Troubleshooting
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
 menuWeight: 7.6
-redirectPaths:
+paths:
     - proxy/troubleshooting
 ---
 
