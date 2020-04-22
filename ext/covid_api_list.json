@@ -127,8 +127,8 @@
     },
     {
         "title": "Finland 🇫🇮",
-        "description": "Gets the actual number of confirmed cases.",
-        "dataSource": "https://experience.arcgis.com/experience/d40b2aaf08be4b9c8ec38de30b714f26",
+        "description": "Gets the actual number of Coronavirus cases and deaths.",
+        "dataSource": "https://thl.fi/fi/web/infektiotaudit-ja-rokotukset/ajankohtaista/ajankohtaista-koronaviruksesta-covid-19/tilannekatsaus-koronaviruksesta",
         "latestApi": {
             "url": "https://api.apify.com/v2/key-value-stores/jEFt5tgCTMfjJpLD3/records/LATEST?disableRedirect=true",
             "frequency": "5 mins"
