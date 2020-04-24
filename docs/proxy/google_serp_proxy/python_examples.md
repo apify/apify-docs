@@ -45,7 +45,7 @@ Get HTML of shopping results from the Czech Republic for query `Apple iPhone XS 
     query = parse.urlencode({ 'q': 'Apple iPhone XS 64GB', 'tbm': 'shop' })
     print(opener.open(f"http://www.google.cz/search?{query}").read())
 
-## [](#usage-with-python2) Usage with [Python 2+](https://www.python.org/download/releases/2.7.2/)
+## [](#usage-with-python2) Usage with [Python 2+](https://www.python.org/download/releases/2.7.2/) {usage-python-2-id}
 
 **IMPORTANT:** For all examples in this section you need to have [six](https://pypi.org/project/six/) enabled in your Python installation. Run `pip install six` to enable it.
 
