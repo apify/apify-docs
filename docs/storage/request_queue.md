@@ -27,9 +27,9 @@ To open a request queue, use `Apify.openRequestQueue()` [[see docs](https://sdk.
 If queue is opened then you can use it:
 
     // Add requests to queue
-    await queue.addRequest(new Apify.Request({ url: 'http://example.com/aaa'});
-    await queue.addRequest(new Apify.Request({ url: 'http://example.com/bbb'});
-    await queue.addRequest(new Apify.Request({ url: 'http://example.com/foo/bar'}, { forefront: true });
+    await queue.addRequest(new Apify.Request({ url: 'http://example.com/aaa'}));
+    await queue.addRequest(new Apify.Request({ url: 'http://example.com/bbb'}));
+    await queue.addRequest(new Apify.Request({ url: 'http://example.com/foo/bar'}, { forefront: true }));
 
     // Get requests from queue
     const request1 = queue.fetchNextRequest();
