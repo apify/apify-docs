@@ -2,6 +2,8 @@
 title: Events
 description: Documentation of Apify webhooks system that enables integration of multiple actors or external systems.
 menuWeight: 8.1
+paths:
+    - webhooks/events
 ---
 
 # [](./webhooks#events)Events
