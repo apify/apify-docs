@@ -19,30 +19,30 @@ To open a request queue, use `Apify.openRequestQueue()` [[see docs](https://sdk.
     const Apify = require('apify');
 
     Apify.main(async () => {
-        // Open default request queue of the run:
-        const queue1 = await Apify.openRequestQueue();
+        // Open the default request queue associated with the actor run:
+        const queue = await Apify.openRequestQueue();
 
-        // Open request queue with name "my-queue":
-        const queue2 = await Apify.openRequestQueue('my-queue');
+        // Open a request queue with name "my-queue":
+        const queueWithName = await Apify.openRequestQueue('my-queue');
     });
 
 If queue is opened then you can use it:
 
-    // Add requests to queue
-    await queue.addRequest(new Apify.Request({ url: 'http://example.com/aaa'});
-    await queue.addRequest(new Apify.Request({ url: 'http://example.com/bbb'});
-    await queue.addRequest(new Apify.Request({ url: 'http://example.com/foo/bar'}, { forefront: true });
+    // Enqueue some requests
+    await queue.addRequest({ url: 'http://example.com/aaa' });
+    await queue.addRequest({ url: 'http://example.com/bbb' });
+    await queue.addRequest({ url: 'http://example.com/foo/bar' }, { forefront: true });
 
     // Get requests from queue
-    const request1 = queue.fetchNextRequest();
-    const request2 = queue.fetchNextRequest();
-    const request3 = queue.fetchNextRequest();
+    const request1 = await queue.fetchNextRequest();
+    const request2 = await queue.fetchNextRequest();
+    const request3 = await queue.fetchNextRequest();
 
-    // Mark some of them as handled
-    queue.markRequestHandled(request1);
+    // Mark a request as handled
+    await queue.markRequestHandled(request1);
 
-    // If processing fails then reclaim it back to the queue
-    queue.reclaimRequest(request2);
+    // If the processing of a request fails then reclaim it back to the queue, so that it's crawled again
+    await queue.reclaimRequest(request2);
 
 ## [](#api-and-javascript-client)API and Javascript client
 
