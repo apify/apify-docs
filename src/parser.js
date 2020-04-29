@@ -38,7 +38,7 @@ const readAndParsePage = async (fullPath, shortPath) => {
             sourceUrl: `https://apify-docs.s3.amazonaws.com/master/pages/${shortPath}`,
             path: filenamePath,
             redirectPaths: metadata.paths.filter(p => p !== filenamePath),
-            menuTitle: metadata.menuTitle || metadata.menuTitle,
+            menuTitle: metadata.menuTitle || metadata.title,
         },
     );
 };
