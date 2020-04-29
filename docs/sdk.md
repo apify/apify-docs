@@ -2,6 +2,8 @@
 title: SDK
 description: Apify SDK Documentation
 menuWeight: 12
+paths:
+    - sdk
 ---
 
 # [](./SDK)SDK

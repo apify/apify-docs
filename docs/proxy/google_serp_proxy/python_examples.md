@@ -1,6 +1,8 @@
 ---
 title: Python Examples
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
+paths:
+    - proxy/google-serp-proxy/python-examples
 ---
 
 # [](#python-examples)Python Examples

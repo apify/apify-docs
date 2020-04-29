@@ -19,14 +19,28 @@ const readAndParsePage = async (fullPath, shortPath) => {
     const invalidKeys = _.without(Object.keys(metadata), ...ALLOWED_METADATA_KEYS);
     if (invalidKeys.length) throw new Error(`Invalid metadata keys found: ${invalidKeys.join(', ')}, allowed keys: ${ALLOWED_METADATA_KEYS.join(', ')}`); // eslint-disable-line
     if (!metadata.title) throw new Error(`Value metadata.title is missing in ${fullPath}`);
+    if (!metadata.paths || !Array.isArray(metadata.paths)) {
+        throw new Error(`Metadata.paths missing or not an Array in ${fullPath}.`);
+    }
 
-    return Object.assign({
-        content,
-        contentHash: crypto.createHash('sha256').update(content).digest('base64'),
-        menuTitle: metadata.title,
-        path: shortPath.replace('/index.md', '').replace('.md', '').replace(/_/g, '-'),
-        sourceUrl: `https://apify-docs.s3.amazonaws.com/master/pages/${shortPath}`,
-    }, metadata);
+    // Check if the path based on filename is in the metadata.paths array
+    const filenamePath = shortPath.replace('/index.md', '').replace('.md', '').replace(/_/g, '-');
+    if (!_.includes(metadata.paths, filenamePath)) throw new Error(`Metadata.paths in ${fullPath} is missing path "${filenamePath}"`);
+
+    // Return Object with filenamePath removed from paths to avoid
+    // redirect loop on the website
+    return Object.assign(
+        {},
+        _.omit(metadata, 'paths'),
+        {
+            menuTitle: metadata.menuTitle || metadata.title,
+            content,
+            contentHash: crypto.createHash('sha256').update(content).digest('base64'),
+            sourceUrl: `https://apify-docs.s3.amazonaws.com/master/pages/${shortPath}`,
+            path: filenamePath,
+            redirectPaths: metadata.paths.filter(p => p !== filenamePath),
+        },
+    );
 };
 
 const identifyFilesAndDirectories = async (currentPath, items) => {
