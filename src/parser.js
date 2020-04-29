@@ -33,12 +33,12 @@ const readAndParsePage = async (fullPath, shortPath) => {
         {},
         _.omit(metadata, 'paths'),
         {
+            menuTitle: metadata.menuTitle || metadata.title,
             content,
             contentHash: crypto.createHash('sha256').update(content).digest('base64'),
             sourceUrl: `https://apify-docs.s3.amazonaws.com/master/pages/${shortPath}`,
             path: filenamePath,
             redirectPaths: metadata.paths.filter(p => p !== filenamePath),
-            menuTitle: metadata.menuTitle || metadata.title,
         },
     );
 };
