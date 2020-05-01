@@ -55,6 +55,6 @@ AVOID:
 
 ## [](#renaming-your-actor) Renaming your actor
 
-**Warning!** Changing your actor's **technical name** may break current integrations for that actor's users. This is why some actors in the Apify Store don't have consistent naming. For the same reason, it is best to change the actor's name early, before you build a steady user base.
+**Warning!** Changing your actor's `technical name` may break current integrations for that actor's users. This is why some actors in the Apify Store don't have consistent naming. For the same reason, it is best to change the actor's name early, before you build a steady user base.
 
-The **publication title**, however, can be changed without any problems. 
+The `publication title`, however, can be changed without any problems. 
