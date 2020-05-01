@@ -10,7 +10,7 @@ paths:
 
 # [](#seo-for-actors) SEO for actors
 
-The actor details page in the [Apify Store](https://apify.com/store) provides a great way to promote your actor to users of search engines like Google. The goal is to attract all people searching for the specific problem that your actor solves, for example ["Kickstarter API"](https://www.google.com/search?q=kickstarter+api) or ["Amazon crawler"](https://www.google.com/search?q=amazon+crawler). This article provides some basic information about [Search Engine Optimization (SEO)](https://en.wikipedia.org/wiki/Search_engine_optimization) for your actors.
+The actor details page in the [Apify Store](https://apify.com/store) provides a great way to promote your actor to users of search engines like Google. The goal is to attract all people searching for the specific problem that your actor solves, for example ["Kickstarter API"](https://www.google.com/search?q=kickstarter+api) or ["Amazon crawler"](https://www.google.com/search?q=amazon+crawler). This article provides some basic information about [search engine optimization (SEO)](https://en.wikipedia.org/wiki/Search_engine_optimization) for your actors.
 
 **The golden rule of SEO:** create quality content that provides value and engagement to your users. [Don't over-optimize SEO](https://seo-hacker.com/over-optimization-penalty/), otherwise you risk being penalized by Google.
 
