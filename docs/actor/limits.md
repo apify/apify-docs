@@ -20,4 +20,4 @@ This section describes various resource limits of the Apify platform. Do you nee
 |Maximum combined memory of all running jobs (free accounts)|8,192 MB<!-- ACTOR_LIMITS.FREE_ACCOUNT_MAX_MEMORY_MBYTES -->|
 |Maximum combined memory of all running jobs (paid accounts)|65,536 MB<!-- ACTOR_LIMITS.PAID_ACCOUNT_MAX_MEMORY_MBYTES -->|
 |Build/run maximum log size|5,000,000 characters<!-- ACTOR_LIMITS.LOG_MAX_CHARS -->|
-
+|Maximum number of dataset columns for xlsx format|2,000 columns|
