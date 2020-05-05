@@ -20,5 +20,5 @@ A single isolated actor consists of source code and various settings. You can th
 *   [**Build**]({{@link actors/build.md}})
 *   [**Source code**]({{@link actors/source_code.md}})
 *   [**Limits**]({{@link actors/limits.md}})
-*   [**Publishing**]({{@link actors/publishing/publishing-your-actor.md}})
+*   [**Publishing**]({{@link actors/publishing/publishing_your_actor.md}})
 
