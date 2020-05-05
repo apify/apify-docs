@@ -1,21 +1,22 @@
 ---
 title: Actor naming standards
 description: Documentation of Apify's standards for actor naming.
-menuWeight: 
+menuWeight: 3.6.2
 paths:
     - actors/publishing/naming
+    - actor/pulishing/naming
 ---
 
 # TODO: add menuWeight metadata
 
 # [](#actor-naming-standards) Actor naming standards
 
-Naming your actor can be tricky. Especially when you've spent a long time coding and are excited to show your brand new creation to the world. To help users find your actor, we've introduced naming standards. These will improve your actor's [search engine optimization (SEO)](https://en.wikipedia.org/wiki/Search_engine_optimization) and maintain consistency in the [Apify Store](https://apify.com/store).
+Naming your actor can be tricky. Especially when you've spent a long time coding and are excited to show your brand new creation to the world. To help users find your actor, we've introduced naming standards. These standards improve your actor's [search engine optimization (SEO)](https://en.wikipedia.org/wiki/Search_engine_optimization) and maintain consistency in the [Apify Store](https://apify.com/store).
 
 
 ## [](#scrapers) Scrapers
 
-For actors that scrape web pages such as [YouTube Scraper](https://apify.com/bernardo/youtube-scraper) or [Amazon Scraper](https://apify.com/vaclavrut/amazon-crawler), we usually have one actor per domain. This helps with naming, as the domain name will serves as your actor's name.
+For actors such as [YouTube Scraper](https://apify.com/bernardo/youtube-scraper) or [Amazon Scraper](https://apify.com/vaclavrut/amazon-crawler), which scrape web pages, we usually have one actor per domain. This helps with naming, as the domain name serves as your actor's name.
 
 GOOD:
   * Technical name (actor's name in the [Apify app](https://my.apify.com)): `${domain}-scraper`, e.g. `youtube-scraper`
@@ -37,7 +38,7 @@ For example,
 
 ## [](#non-scraping-actors) Non-scraping actors
 
-Naming for non-scraping actors is more liberal. Being creative and considering SEO and user experience are a good place to start. Think about what your users will type into a serach engine when looking for your actor. What is your actor's function? 
+Naming for non-scraping actors is more liberal. Being creative and considering SEO and user experience are good places to start. Think about what your users will type into a serach engine when looking for your actor. What is your actor's function? 
 
 If you're having trouble, you can always run your ideas by the Apify team using the chat icon in the bottom-right corner.
 
