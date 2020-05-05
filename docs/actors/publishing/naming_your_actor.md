@@ -1,7 +1,7 @@
 ---
 title: Naming your actor
 description: Documentation of Apify's standards for actor naming.
-menuWeight: 3.6.2
+# menuWeight: 3.6.2
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actors/publishing/naming-your-actor
