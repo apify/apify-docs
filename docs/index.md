@@ -19,7 +19,7 @@ Anything missing? Please let us know at [support@apify.com](mailto:support@apify
 ## [](#table-of-contents)Table of contents
 
 *   [**Scraping**]({{@link scraping.md}}) - Scrape and crawl websites using a few simple lines of JavaScript.
-*   [**Actor**]({{@link actors.md}}) - Runs arbitrary web scraping or automation tasks in the Apify cloud.
+*   [**Actors**]({{@link actors.md}}) - Runs arbitrary web scraping or automation tasks in the Apify cloud.
 *   [**Tasks**]({{@link tasks.md}}) - Stores one or more configurations of an Actor.
 *   [**Scheduler**]({{@link scheduler.md}}) - Executes crawler or actor jobs at specific times.
 *   [**Storage**]({{@link storage.md}}) - Key-value store, dataset and request queue that enables storage of actor inputs and results.
