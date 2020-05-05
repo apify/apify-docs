@@ -3,14 +3,16 @@ title: Run
 description: Documentation of Apify actors - a serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
 menuWeight: 3.4
 paths:
+# NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/run
+    - actors/run
 ---
 
 # [](#run)Run
 
 The actor can be invoked in a number of ways. One option is to start the actor manually in **Console** in the app:
 
-![Apify actor run console]({{@asset actor/images/run-console.png}})
+![Apify actor run console]({{@asset actors/images/run-console.png}})
 
 The following table describes the run settings:
 
@@ -46,11 +48,11 @@ As demonstrated in the hello world example above, actors can accept input and ge
 
 The key-value store associated with the actor run can be conveniently accessed using the [`getValue()`](https://sdk.apify.com/docs/api/apify#apifygetvaluekey) and [`setValue()`](https://sdk.apify.com/docs/api/apify#apifysetvaluekey-value-options) functions provided by the `apify` NPM package. Internally, these functions read the ID of the key-value store from the `APIFY_DEFAULT_KEY_VALUE_STORE_ID` environment variable and then access the store using the Apify API. For more details about the key-value stores, go to the [Storage]({{@link storage.md}}) section.
 
-The input can be passed to the actor either manually in the Console or using a POST payload when running the actor using API. See [Run]({{@link actor/run.md}}) section for details.
+The input can be passed to the actor either manually in the Console or using a POST payload when running the actor using API. See [Run]({{@link actors/run.md}}) section for details.
 
 ## [](#environment-variables)Environment variables
 
-Aside from [custom environment variables]({{@link actor/source_code.md#custom-environment-variables}}), the actor's process has several environment variables set to provide it with context:
+Aside from [custom environment variables]({{@link actors/source_code.md#custom-environment-variables}}), the actor's process has several environment variables set to provide it with context:
 
 |||
 |--- |--- |
@@ -70,8 +72,8 @@ Aside from [custom environment variables]({{@link actor/source_code.md#custom-en
 |`APIFY_TIMEOUT_AT`|Date when the actor will time out.|
 |`APIFY_TOKEN`|The API token of the user who started the actor.|
 |`APIFY_USER_ID`|ID of the user who started the actor. Note that it might be different than the owner of the actor.|
-|`APIFY_CONTAINER_PORT`|TCP port on which the actor can start a HTTP server to receive messages from the outside world. See [Container web server]({{@link actor/run.md#container-web-server}}) section for more details.|
-|`APIFY_CONTAINER_URL`|A unique public URL under which the actor run web server is accessible from the outside world. See [Container web server]({{@link actor/run.md#container-web-server}}) section for more details.|
+|`APIFY_CONTAINER_PORT`|TCP port on which the actor can start a HTTP server to receive messages from the outside world. See [Container web server]({{@link actors/run.md#container-web-server}}) section for more details.|
+|`APIFY_CONTAINER_URL`|A unique public URL under which the actor run web server is accessible from the outside world. See [Container web server]({{@link actors/run.md#container-web-server}}) section for more details.|
 
 
 Dates are always in the UTC timezone and are represented in simplified extended ISO format ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)), e.g. `2017-10-13T14:23:37.281Z`
@@ -82,7 +84,7 @@ To access environment variables in Node.js, use the `process.env` object, for ex
 
 ## [](#resource-limits)Resource limits
 
-Actors run inside a Docker container whose resources are limited. When invoking the actor, the caller has to specify the amount of memory allocated for the actor. Additionally, each user has a certain total limit of memory for running actors. The sum of memory allocated for all running actors and builds needs to fit into this limit, otherwise the user cannot start a new actor. For more details, see [Limits]({{@link actor/limits.md}}).
+Actors run inside a Docker container whose resources are limited. When invoking the actor, the caller has to specify the amount of memory allocated for the actor. Additionally, each user has a certain total limit of memory for running actors. The sum of memory allocated for all running actors and builds needs to fit into this limit, otherwise the user cannot start a new actor. For more details, see [Limits]({{@link actors/limits.md}}).
 
 The share of CPU is computed automatically from the memory as follows: for each 4096 MB of memory, the actor gets 1 full CPU core. For other amounts of memory the number of CPU cores is computed fractionally. For example, an actor with 1024 MB of memory will have a 1/4 share of a CPU core.
 
@@ -128,7 +130,7 @@ Each actor run is assigned a unique hard-to-guess URL (e.g. `http://kmdo7wpzlshy
 *   In the API as the `containerUrl` property of the [Run object](https://docs.apify.com/api/v2#/reference/actors/run-object/get-run).
 *   In the actor run's container as the `APIFY_CONTAINER_URL` environment variable.
 
-The web server running inside the container must listen at the port defined by the `APIFY_CONTAINER_PORT` environment variable (typically 4321). If you want to use another port, simply define the `APIFY_CONTAINER_PORT` environment variable with the desired port number in your actor version configuration - see [Custom environment variable]({{@link actor/source_code.md#custom-environment-variables}}) for details.
+The web server running inside the container must listen at the port defined by the `APIFY_CONTAINER_PORT` environment variable (typically 4321). If you want to use another port, simply define the `APIFY_CONTAINER_PORT` environment variable with the desired port number in your actor version configuration - see [Custom environment variable]({{@link actors/source_code.md#custom-environment-variables}}) for details.
 
 The following example demonstrates how to start a simple web server in your actor:
 
