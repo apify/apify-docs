@@ -25,7 +25,7 @@ Private actors can only be accessed and started by their owner. To keep your act
 
 ## [](#description) Description
 
-The short actor description shown in the store is taken from **Settings → Description**. Additionally, if the actor's source code is hosted in a [Git repository]({{@link actor/source_code.md#git-repository}}), [Zip file]({{@link actor/source_code.md#zip-file}}) or [GitHub Gist]({{@link actor/source_code.md#github-gist}}), you can add a long description in the [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) language to the `README.md` file in the root of the source code's directory. To see an example of how this looks, visit [apify/web-scraper](https://apify.com/apify/web-scraper).
+The short actor description shown in the store is taken from **Settings → Description**. Additionally, if the actor's source code is hosted in a [Git repository]({{@link actors/source_code.md#git-repository}}), [Zip file]({{@link actors/source_code.md#zip-file}}) or [GitHub Gist]({{@link actors/source_code.md#github-gist}}), you can add a long description in the [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) language to the `README.md` file in the root of the source code's directory. To see an example of how this looks, visit [apify/web-scraper](https://apify.com/apify/web-scraper).
 
 ## [](#charges) Charges
 
