@@ -3,7 +3,9 @@ title: Limits
 description: Documentation of Apify actors - a serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
 menuWeight: 3.8
 paths:
+# NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/limits
+    - actors/limits
 ---
 
 # [](#limits)Limits

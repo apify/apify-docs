@@ -7,7 +7,7 @@ paths:
 
 # [](#nodejs-examples)NodeJS Examples
 
-The following sections contain several examples of how to use Google SERP proxy in [actors]({{@link actor.md}}).
+The following sections contain several examples of how to use Google SERP proxy in [actors]({{@link actors.md}}).
 
 ## [](#usage-in-puppeteer-crawler) Usage in [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler)
 
