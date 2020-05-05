@@ -1,13 +1,13 @@
 ---
-title: Actor naming standards
+title: Naming your actor
 description: Documentation of Apify's standards for actor naming.
 menuWeight: 3.6.2
 paths:
-    - actors/publishing/naming
-    - actor/pulishing/naming
+    - actors/publishing/naming-your-actor
+    - actor/publishing/naming-your-actor
 ---
 
-# [](#actor-naming-standards) Actor naming standards
+# [](#naming-your-actor) Naming your actor
 
 Naming your actor can be tricky. Especially when you've spent a long time coding and are excited to show your brand new creation to the world. To help users find your actor, we've introduced naming standards. These standards improve your actor's [search engine optimization (SEO)](https://en.wikipedia.org/wiki/Search_engine_optimization) and maintain consistency in the [Apify Store](https://apify.com/store).
 
