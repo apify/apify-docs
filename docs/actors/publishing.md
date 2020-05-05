@@ -14,6 +14,6 @@ placeholder text about publishing
 
 
 
-*   [**Publishing your actor**]({{@link actors/publishing/publishing-your-actor.md}})
-*   [**Naming your actor**]({{@link actors/publishing/naming-your-actor.md}})
+*   [**Publishing your actor**]({{@link actors/publishing/publishing_your_actor.md}})
+*   [**Naming your actor**]({{@link actors/publishing/naming_your_actor.md}})
 *   [**SEO for actors**]({{@link actors/publishing/seo_for_actors.md}})
