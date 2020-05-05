@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: Documentation of the Apify platform, which includes detailed description of Crawler, Actor, Storage, SDK and API.
+description: Documentation of the Apify platform, which includes detailed description of Apify Actors, Storage, Proxy, and API.
 menuWeight: 1
 paths:
     - index
