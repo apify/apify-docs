@@ -3,6 +3,7 @@ title: SEO for actors
 description: Optimize your actors' title, description, and README to get more relevant visits from Google and other search engines.
 menuWeight: 3.6.3
 paths: 
+# NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actors/publishing/seo-for-actors
     - actor/publishing/seo-for-actors
 ---
@@ -50,7 +51,7 @@ The description is used by search engines to understand what the actor is about,
 
 If you’re not sure about similar phrases, check out the Google suggest tool in the search and it will show you some hints and tips. Of course, the description should primarily be about what the actor does, but it’s always a good idea to enrich the text with popular keywords.
 
-![google suggestions example](../../images/actors-publishing-google.png)
+![Google suggestions example]({{@asset actors/images/actors-publishing-google.png}})
 
 ## [](#readme) README
 

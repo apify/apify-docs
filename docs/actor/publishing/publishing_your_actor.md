@@ -3,6 +3,7 @@ title: Publishing your actor
 description: Documentation of Apify actors - a serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
 menuWeight: 3.6.1
 paths:
+# NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/publishing
     - actors/publishing/publishing-your-actor
     - actor/publishing/publishing-your-actor
