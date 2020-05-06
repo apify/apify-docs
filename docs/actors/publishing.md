@@ -1,6 +1,7 @@
 ---
-title: Publishing your actor
-description: A few useful details on the actor publishing process.
+title: Publishing
+description: Documentation for the process of publishing an actor in the Apify Store.
+menuWeight: 3.6
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/publishing
