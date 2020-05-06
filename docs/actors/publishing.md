@@ -17,7 +17,7 @@ As well as the requirements shown under `Is everything set?`, you'll need a user
 
 Actors can be private or public. 
 
-Public actorsare shown in the [store](https://apify.com/store) and can be run by anyone. Each public actor has a globally unique identifier that consists of the owner's username and the actor name, e.g. [apify/hello-world](https://apify.com/apify/hello-world).
+Public actors are shown in the [store](https://apify.com/store) and can be run by anyone. Each public actor has a globally unique identifier that consists of the owner's username and the actor name, e.g. [apify/hello-world](https://apify.com/apify/hello-world).
 
 Private actors can only be accessed and started by their owner. To keep your actor private, keep the **Published** box in the **Publication** tab unticked.
 
