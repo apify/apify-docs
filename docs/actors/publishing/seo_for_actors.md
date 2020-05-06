@@ -1,7 +1,6 @@
 ---
 title: SEO for actors
 description: Optimize your actors' title, description, and README to get more relevant visits from Google and other search engines.
-# menuWeight: 3.6.3
 paths: 
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actors/publishing/seo-for-actors
