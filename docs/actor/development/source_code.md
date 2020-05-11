@@ -13,7 +13,7 @@ The **Source type** setting determines the location of the source code for the a
 
 ## [](#single-javascript-file)Single JavaScript file
 
-The source code of the actor can be hosted directly on Apify. All the code needs to be in a single file and written in JavaScript / Node.js. The version of Node.js is determined by the **Base image** setting - see [Base images]({{@link actor/development/build.md#base-images}}) for the description of possible options.
+The source code of the actor can be hosted directly on Apify. All the code needs to be in a single file and written in JavaScript / Node.js. The version of Node.js is determined by the **Base image** setting - see [base Docker images]({{@link actor/development/base_docker_images.md}}) for the description of possible options.
 
 The hosted source is especially useful for simple actors. The source code can require arbitrary NPM packages. For example:
 
@@ -34,7 +34,7 @@ The only required file for multifile is `Dockerfile`, all other files depend on 
 
 Unlike the [Single Javascript file](#single-javascript-file) option, `package.json` is not automaticaly generated, and you need to configure it yourself.
 
-See [Custom Dockerfile]({{@link actor/development/source_code.md#custom-dockerfile}}) and [Base Images]({{@link actor/development/build.md#base-images}}) for more information about creating your own Dockerfile and using Apify's prepared base images.
+See [Custom Dockerfile]({{@link actor/development/source_code.md#custom-dockerfile}}) and [base Docker images]({{@link actor/development/base_docker_images.md}}) for more information about creating your own Dockerfile and using Apify's prepared base images.
 
 ## [](#git-repository)Git repository
 
@@ -88,7 +88,7 @@ Internally, Apify uses Docker to build and run actors. To control the build of t
 
 For more information about Dockerfile syntax and commands, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
-Note that `apify/actor-node-basic` is a base Docker image provided by Apify. There are other base images with other features available. However, you can use arbitrary Docker images as the base for your actors, although using the Apify images has some performance advantages. See [Base images]({{@link actor/development/build.md#base-images}}) for details.
+Note that `apify/actor-node-basic` is a base Docker image provided by Apify. There are other base images with other features available. However, you can use arbitrary Docker images as the base for your actors, although using the Apify images has some performance advantages. See [base Docker images]({{@link actor/development/base_docker_images.md}}) for details.
 
 By default, all Apify base Docker images start your Node.js application same way as `npm start` does, i.e. by running the command specified in the `package.json` file under the `scripts` - `start` key. The default `package.json` file looks similarly to this one:
 
