@@ -1,6 +1,6 @@
 ---
 title: Base Docker images
-description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Documentation of Apify actors - options for Docker images to use as your actor's base.
 paths:
     - actor/development/base-docker-images
     - actors/development/base-docker-images

@@ -1,6 +1,6 @@
 ---
 title: Source code
-description: Documentation of Apify actors - a serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Documentation of Apify actors - storing your actor's source code.
 paths:
     - actor/source-code
     - actor/development/source-code

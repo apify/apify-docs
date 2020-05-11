@@ -1,6 +1,6 @@
 ---
 title: State persistence
-description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Documentation of Apify actors - persisting your actor's state.
 paths:
     - actor/development/state-persistence
     - actors/development/state-persistence
