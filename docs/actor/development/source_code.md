@@ -158,7 +158,7 @@ Unfortunately, not all features of the Apify platform can be emulated locally, t
 
 Actor source files may contain an input schema defining the input that actor accepts and the UI components used for input at Apify platform. Using input schema you can provide UI to actor users that is easy to use and also ensure that input of your actor is valid.
 
-For more information on this topic see [input schema documentation](https://docs.apify.com/actor/input-schema) on a separate page.
+For more information on this topic see [input schema documentation](https://docs.apify.com/actor/development/input-schema) on a separate page.
 
 ## [](#metamorph)Metamorph
 
