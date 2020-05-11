@@ -56,7 +56,7 @@ This example demonstrates how to use headless Chrome with Puppeteer to open a we
        console.log(`- https://api.apify.com/v2/key-value-stores/${storeId}/records/page.pdf`);
     });
 
-The code above uses the [`launchPuppeteer()`](https://sdk.apify.com/docs/api/apify#apifylaunchpuppeteeroptions) function provided by the [`apify`](https://sdk.apify.com/) NPM package. The function launches Puppeteer with several settings that enable it to run in an actor. Note that the actor needs to have **Base image** set to [Node.js 10 + Puppeteer on Debian]({{@link actor/development/build.md#base-images}}) in order to run Puppeteer.
+The code above uses the [`launchPuppeteer()`](https://sdk.apify.com/docs/api/apify#apifylaunchpuppeteeroptions) function provided by the [`apify`](https://sdk.apify.com/) NPM package. The function launches Puppeteer with several settings that enable it to run in an actor. Note that the actor needs to have **Base image** set to [Node.js 10 + Puppeteer on Debian]({{@link actor/development/base_docker_images.md}}) in order to run Puppeteer.
 
 ## [](#custom-dockerfile)Custom Dockerfile
 
