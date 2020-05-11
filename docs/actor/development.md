@@ -7,6 +7,8 @@ paths:
     - actors/development
 ---
 
-*   [Input schema]({{@link actor/development/input-schema.md}}) - definition of the input an actor can accept
-*   [Source code]({{@link actor/development/source-code.md}}) - the location of an actor's source code
+In this section, you can find the documentation on developing and building your own actor.
+
+*   [Input schema]({{@link actor/development/input_schema.md}}) - definition of the input an actor can accept
+*   [Source code]({{@link actor/development/source_code.md}}) - the location of an actor's source code
 *   [Build]({{@link actor/development/build.md}}) - creating a Docker image that contains everything an actor needs to run
