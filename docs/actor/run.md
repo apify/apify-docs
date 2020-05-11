@@ -48,38 +48,6 @@ The key-value store associated with the actor run can be conveniently accessed u
 
 The input can be passed to the actor either manually in the Console or using a POST payload when running the actor using API. See [Run]({{@link actor/run.md}}) section for details.
 
-## [](#environment-variables)Environment variables
-
-Aside from [custom environment variables]({{@link actor/development/source_code.md#custom-environment-variables}}), the actor's process has several environment variables set to provide it with context:
-
-|||
-|--- |--- |
-|`APIFY_ACTOR_ID`|ID of the actor.|
-|`APIFY_ACTOR_RUN_ID`|ID of the actor run.|
-|`APIFY_ACTOR_TASK_ID`|ID of the actor task. It's empty if actor is run outside of any task, e.g. directly using the API.|
-|`APIFY_ACTOR_EVENTS_WS_URL`|Websocket URL where actor may listen for events from Actor plaform. See [documentation](https://sdk.apify.com/docs/api/apify#apifyevents) for more information.|
-|`APIFY_DEFAULT_DATASET_ID`|ID of the dataset where you can push the data.|
-|`APIFY_DEFAULT_KEY_VALUE_STORE_ID`|ID of the key-value store where the actor's input and output data is stored.|
-|`APIFY_DEFAULT_REQUEST_QUEUE_ID`|ID of the request queue that stores and handles requests that you enqueue.|
-|`APIFY_INPUT_KEY`|The key of the record in the default key-value store that holds the actor input. Typically it's `INPUT`, but it might be something else.|
-|`APIFY_HEADLESS`|If set to `1`, the web browsers inside the actor should run in the headless mode because there is no windowing system available.|
-|`APIFY_IS_AT_HOME`|Returns `1` if the act is running on Apify servers.|
-|`APIFY_MEMORY_MBYTES`|Indicates the size of memory allocated for the actor run, in megabytes. It can be used by actors to optimize their memory usage.|
-|`APIFY_PROXY_PASSWORD`|The [Apify Proxy](/docs/proxy) password of the user who started the actor.|
-|`APIFY_STARTED_AT`|Date when the actor was started.|
-|`APIFY_TIMEOUT_AT`|Date when the actor will time out.|
-|`APIFY_TOKEN`|The API token of the user who started the actor.|
-|`APIFY_USER_ID`|ID of the user who started the actor. Note that it might be different than the owner of the actor.|
-|`APIFY_CONTAINER_PORT`|TCP port on which the actor can start a HTTP server to receive messages from the outside world. See [Container web server]({{@link actor/run.md#container-web-server}}) section for more details.|
-|`APIFY_CONTAINER_URL`|A unique public URL under which the actor run web server is accessible from the outside world. See [Container web server]({{@link actor/run.md#container-web-server}}) section for more details.|
-
-
-Dates are always in the UTC timezone and are represented in simplified extended ISO format ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)), e.g. `2017-10-13T14:23:37.281Z`
-
-To access environment variables in Node.js, use the `process.env` object, for example:
-
-    console.log(process.env.APIFY_USER_ID);
-
 ## [](#resource-limits)Resource limits
 
 Actors run inside a Docker container whose resources are limited. When invoking the actor, the caller has to specify the amount of memory allocated for the actor. Additionally, each user has a certain total limit of memory for running actors. The sum of memory allocated for all running actors and builds needs to fit into this limit, otherwise the user cannot start a new actor. For more details, see [Limits]({{@link actor/limits.md}}).
