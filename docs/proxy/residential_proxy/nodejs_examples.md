@@ -18,14 +18,19 @@ Use a single session with IP from the US for the whole PuppeteerCrawler run (for
     Apify.main(async () => {
         const requestList = new Apify.RequestList({ sources: [{ url: 'http://www.example.com' }] });
         await requestList.initialize();
-
-        const password = process.env.APIFY_PROXY_PASSWORD;
-        const username = 'groups-RESIDENTIAL,session-my_session,country-US';
-        const proxyUrl = `http://${username}:${password}@proxy.apify.com:8000`;
+        const proxyConfiguration = await Apify.createProxyConfiguration({
+            password,
+            groups: ['RESIDENTIAL'],
+            countryCode: 'US'
+        });
 
         const crawler = new Apify.PuppeteerCrawler({
             requestList,
-            launchPuppeteerOptions: { proxyUrl },
+            proxyConfiguration,
+            useSessionPool: true,
+            sessionPoolOptions: {
+                sessionOptions: { maxPoolSize: 1 }, // Using single session
+            },
             handlePageFunction: async ({ page, request }) => {
                 return Apify.pushData({ title: await page.title() });
             },
@@ -44,19 +49,19 @@ Create a new session with IP from GB for each browser launched during the Crawle
     Apify.main(async () => {
         const requestList = new Apify.RequestList({ sources: [{ url: 'http://www.example.com' }] });
         await requestList.initialize();
-
         const password = process.env.APIFY_PROXY_PASSWORD;
+        const proxyConfiguration = await Apify.createProxyConfiguration({
+            password,
+            groups: ['RESIDENTIAL'],
+            countryCode: 'GB'
+        });
 
         const crawler = new Apify.PuppeteerCrawler({
             requestList,
-            // The main difference from the example above
-            // is that we are creating new session id for each
-            // browser launched.
-            launchPuppeteerFunction: () => {
-                const sessionNumber = Math.floor(Math.random() * 100000);
-                const username = `groups-RESIDENTIAL,session-s_${sessionNumber},country-US`;
-                const proxyUrl = `http://${username}:${password}@proxy.apify.com:8000`;
-                return Apify.launchPuppeteer({ proxyUrl });
+            proxyConfiguration,
+            useSessionPool: true,
+            sessionPoolOptions: { // Creates a new session for each launched browser
+                sessionOptions: { maxUsageCount: 1 },
             },
             handlePageFunction: async ({ page, request }) => {
                 return Apify.pushData({ title: await page.title() });
@@ -77,9 +82,15 @@ Use a single IP from Germany for all requests done in the launched browser
 
     Apify.main(async () => {
         const password = process.env.APIFY_PROXY_PASSWORD;
-        const username = 'groups-RESIDENTIAL,session-my_session1,country-DE';
+        const proxyConfiguration = await Apify.createProxyConfiguration({
+            password,
+            groups: ['RESIDENTIAL'],
+            countryCode: 'DE'
+        });
+        const proxyUrl = proxyConfiguration.getUrl('my_session1')￿;
+
         const browser = await Apify.launchPuppeteer({
-            proxyUrl: `http://${username}:${password}@proxy.apify.com:8000`,
+            proxyUrl
         });
 
         const page = await browser.newPage();
@@ -92,51 +103,62 @@ Use a single IP from Germany for all requests done in the launched browser
         console.log(html);
     });
 
-## [](#usage-with-request) Usage with [request](https://www.npmjs.com/package/request) and [request-promise](https://www.npmjs.com/package/request-promise) NPM packages
+## [](#usage-with-request) Usage with our [requestAsBrowser](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions)
 
 Make a request with Residential Proxy using the [request](https://www.npmjs.com/package/request) NPM package
 
-    const request = require('request');
+    const Apify = require('apify');
 
-    const password = process.env.APIFY_PROXY_PASSWORD;
-    const username = 'groups-RESIDENTIAL';
-    request(
-        {
-            url: 'http://www.example.com',
-            proxy: `http://${username}:${password}@proxy.apify.com:8000`
-        },
-        (err, response, HTML) => {
-            if (err) {
-                console.error(error);
-                return;
-            }
-            console.log(HTML);
-        }
-    );
-
-Use the same IP for two requests with proxy geolocated in France using [request-promise](https://www.npmjs.com/package/request-promise) NPM package.
-
-    const request = require('request-promise');
-
-    async function main() {
+    Apify.main(async () => {
         const password = process.env.APIFY_PROXY_PASSWORD;
-        const username = 'groups-RESIDENTIAL,session-my_session_3,country-FR';
-        const proxy = `http://${username}:${password}@proxy.apify.com:8000`;
+        const proxyConfiguration = await Apify.createProxyConfiguration({
+            password,
+            groups: ['RESIDENTIAL'],
+        });
         try {
-            const response1 = await request({
-                url: 'https://api.apify.com/v2/browser-info',
-                proxy,
+            const { body } = await Apify.utils.requestAsBrowser({
+                url: 'https://www.example.com',
+                proxyUrl: proxyConfiguration.getUrl(),
             });
-            const response2 = await request({
-                url: 'https://api.apify.com/v2/browser-info',
-                proxy,
-            });
-            console.log(response1.clientIp);
-            console.log('should be the same as');
-            console.log(response2.clientIp);
+            console.log(body); // returns HTML of returned page
         } catch (e) {
             console.error(e);
         }
-    }
-    main();
+    });
+
+
+Use the same IP for two requests with proxy geolocated in France using our [requestAsBrowser](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions).
+
+    const Apify = require('apify');
+
+    Apify.main(async () => {
+        const password = process.env.APIFY_PROXY_PASSWORD;
+        const proxyConfiguration = await Apify.createProxyConfiguration({
+            password,
+            groups: ['RESIDENTIAL'],
+            country: 'FR',
+        });
+        const proxyUrl = proxyConfiguration.getUrl('my_session');
+
+        try {
+            const response1 = await Apify.utils.requestAsBrowser({
+                url: 'https://api.apify.com/v2/browser-info',
+                proxyUrl,
+                json: true
+            });
+            const response2 = await Apify.utils.requestAsBrowser({
+                url: 'https://api.apify.com/v2/browser-info',
+                proxyUrl,
+                json: true
+            });
+            console.log(response1.body.clientIp);
+            console.log('should be the same as');
+            console.log(response2.body.clientIp);
+        } catch (e) {
+            console.error(e);
+        }
+    });
+
+
+
 
