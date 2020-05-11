@@ -7,6 +7,8 @@ paths:
     - actors/development
 ---
 
+# Development
+
 In this section, you can find the documentation on developing and building your own actor.
 
 *   [Input schema]({{@link actor/development/input_schema.md}}) - definition of the input an actor can accept
