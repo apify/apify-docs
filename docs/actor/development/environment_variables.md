@@ -1,6 +1,6 @@
 ---
 title: Environment variables
-description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Documentation of Apify actors - determining your actor's context using environment variables.
 paths:
     - actor/development/environment-variables
     - actors/development/environment-variables

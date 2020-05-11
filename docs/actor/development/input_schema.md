@@ -1,6 +1,6 @@
 ---
 title: Input schema
-description: Documentation of Apify actor input schema.
+description: Documentation of Apify actors - defining your actor's input schema.
 paths:
     - actor/input-schema
     - actor/development/input-schema
