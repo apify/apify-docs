@@ -91,7 +91,7 @@ print "I am done!\n";
 
 ## [](#state-persistence)State persistence
 
-This actor demonstrates how to persist a state, so that on restart the actor can continue where it left off. For more information, see the [State persistence]({{@link actor/run.md#state-persistence}}) section. The actor simply counts from one up. In each run it prints one number. Its state (counter position) is stored in a named [key-value store]({{@link storage/key_value_store.md}}) called `example-counter`. You will find it in the [Storage](https://my.apify.com/key-value-stores) section of the app after you run the actor.
+This actor demonstrates how to persist a state, so that on restart the actor can continue where it left off. For more information, see the [State persistence]({{@link actor/development/state_persistence.md}}) section. The actor simply counts from one up. In each run it prints one number. Its state (counter position) is stored in a named [key-value store]({{@link storage/key_value_store.md}}) called `example-counter`. You will find it in the [Storage](https://my.apify.com/key-value-stores) section of the app after you run the actor.
 
 The actor can be found in the Apify store as [apify/example-counter](https://apify.com/apify/example-counter).
 
