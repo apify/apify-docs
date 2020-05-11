@@ -136,7 +136,7 @@ To access environment variables in Node.js, use the `process.env` object, for ex
 
     console.log(process.env.SMTP_HOST);
 
-The actor runtime sets additional environment variables for the actor process during the run. See [Environment variables]({{@link actor/run.md#environment-variables}}) for details.
+The actor runtime sets additional environment variables for the actor process during the run. See [Environment variables]({{@link actor/development/environment_variables.md}}) for details.
 
 ## [](#versioning)Versioning
 
