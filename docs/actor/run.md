@@ -56,10 +56,6 @@ The share of CPU is computed automatically from the memory as follows: for each 
 
 The actor has hard disk space limited by twice the amount of memory. For example, an actor with 1024 MB of memory will have 2048 MB of disk available.
 
-## [](#state-persistence)State persistence
-
-Unlike traditional serverless platforms, actors have no limits on the duration of an actor run. However, that means that an actor might need to be restarted from time to time, e.g. when the server it's running on is to be shutdown. Actors need to account for this possibility. For short-running actors, the chance of a restart is quite low and the cost of repeated runs is low, so restarts can be ignored. However, for long-running actors a restart might be very costly and therefore such actors should periodically persist their state, possibly to the key-value store associated with the actor run. On start, actors should first check whether there is some state stored and if so they should continue where they left off.
-
 ## [](#lifecycle)Lifecycle
 
 Each run starts with the initial status `READY` and goes through one or more transitional statuses to one of the terminal statuses.
