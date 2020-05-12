@@ -3,7 +3,9 @@ title: Quick start
 description: Documentation of Apify actors - a serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
 menuWeight: 3.1
 paths:
+# NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/quick-start
+    - actors/quick-start
 ---
 
 # Quick start
@@ -18,11 +20,11 @@ Go to the [Actor](https://my.apify.com/actors) section in the app, create a new 
 
 Click **▷ Run** to build and run your actor. After the run is finished you should see something like:
 
-![Apify actor run log]({{@asset actor/images/run-log.png}})
+![Apify actor run log]({{@asset actors/images/run-log.png}})
 
 Congratulations, you have successfully created and run your first actor!
 
-Let's try something little more complicated. We will change the actor to accept input and generate output (see [Input and output]({{@link actor/run.md#input-and-output}}) for more details):
+Let's try something little more complicated. We will change the actor to accept input and generate output (see [Input and output]({{@link actors/run.md#input-and-output}}) for more details):
 
     const Apify = require('apify');
 
@@ -43,7 +45,7 @@ Save your actor by clicking **Save** and then rebuild it by clicking **Build**. 
 
 Then set **Content type** to `application/json; charset=utf-8` and click **Run**. You will see something like:
 
-![Apify actor run log]({{@asset actor/images/run-log-2.png}})
+![Apify actor run log]({{@asset actors/images/run-log-2.png}})
 
 Excellent, you have just created your first actor to accept input and store output! Now you can start adding some magic.
 
@@ -57,5 +59,5 @@ For more complicated actors, you'll probably prefer to host the source code on G
 4.  Paste the Git repo link to **Git URL**, save changes and build your actor.
 5.  That's it, now you can develop your actor locally on your computer and run it in the Apify cloud!
 
-For more information, go to the [Git repository]({{@link actor/development/source_code.md#git-repository}}) section.
+For more information, go to the [Git repository]({{@link actors/development/source_code.md#git-repository}}) section.
 
