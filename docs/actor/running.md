@@ -1,6 +1,6 @@
 ---
 title: Running
-description: Documentation of Apify actors - a serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
 menuWeight: 3.4
 paths:
     - actor/run
@@ -11,7 +11,7 @@ paths:
 
 # [](#run)Running
 
-The actor can be invoked in a number of ways. One option is to start the actor manually in **Console** in the app:
+An Apify actor can be invoked in a number of ways. One option is to start the actor manually in **Console** in the app:
 
 ![Apify actor run console]({{@asset actor/images/run-console.png}})
 
@@ -43,38 +43,6 @@ The newly started actor runs under the same user account as the initial actor an
 
 Internally, the `call()` function takes the user's API token from the `APIFY_TOKEN` environment variable, then it invokes the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get record](https://docs.apify.com/api/v2/#/reference/key-value-stores/record/get-record) API endpoint.
 
-## [](#environment-variables)Environment variables
-
-Aside from [custom environment variables]({{@link actor/source_code.md#custom-environment-variables}}), the actor's process has several environment variables set to provide it with context:
-
-|||
-|--- |--- |
-|`APIFY_ACTOR_ID`|ID of the actor.|
-|`APIFY_ACTOR_RUN_ID`|ID of the actor run.|
-|`APIFY_ACTOR_TASK_ID`|ID of the actor task. It's empty if actor is run outside of any task, e.g. directly using the API.|
-|`APIFY_ACTOR_EVENTS_WS_URL`|Websocket URL where actor may listen for events from Actor plaform. See [documentation](https://sdk.apify.com/docs/api/apify#apifyevents) for more information.|
-|`APIFY_DEFAULT_DATASET_ID`|ID of the dataset where you can push the data.|
-|`APIFY_DEFAULT_KEY_VALUE_STORE_ID`|ID of the key-value store where the actor's input and output data is stored.|
-|`APIFY_DEFAULT_REQUEST_QUEUE_ID`|ID of the request queue that stores and handles requests that you enqueue.|
-|`APIFY_INPUT_KEY`|The key of the record in the default key-value store that holds the actor input. Typically it's `INPUT`, but it might be something else.|
-|`APIFY_HEADLESS`|If set to `1`, the web browsers inside the actor should run in the headless mode because there is no windowing system available.|
-|`APIFY_IS_AT_HOME`|Returns `1` if the act is running on Apify servers.|
-|`APIFY_MEMORY_MBYTES`|Indicates the size of memory allocated for the actor run, in megabytes. It can be used by actors to optimize their memory usage.|
-|`APIFY_PROXY_PASSWORD`|The [Apify Proxy](/docs/proxy) password of the user who started the actor.|
-|`APIFY_STARTED_AT`|Date when the actor was started.|
-|`APIFY_TIMEOUT_AT`|Date when the actor will time out.|
-|`APIFY_TOKEN`|The API token of the user who started the actor.|
-|`APIFY_USER_ID`|ID of the user who started the actor. Note that it might be different than the owner of the actor.|
-|`APIFY_CONTAINER_PORT`|TCP port on which the actor can start a HTTP server to receive messages from the outside world. See [Container web server]({{@link actor/run.md#container-web-server}}) section for more details.|
-|`APIFY_CONTAINER_URL`|A unique public URL under which the actor run web server is accessible from the outside world. See [Container web server]({{@link actor/run.md#container-web-server}}) section for more details.|
-
-
-Dates are always in the UTC timezone and are represented in simplified extended ISO format ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)), e.g. `2017-10-13T14:23:37.281Z`
-
-To access environment variables in Node.js, use the `process.env` object, for example:
-
-    console.log(process.env.APIFY_USER_ID);
-
 ## [](#resource-limits)Resource limits
 
 Actors run inside a Docker container whose resources are limited. When invoking the actor, the caller has to specify the amount of memory allocated for the actor. Additionally, each user has a certain total limit of memory for running actors. The sum of memory allocated for all running actors and builds needs to fit into this limit, otherwise the user cannot start a new actor. For more details, see [Limits]({{@link actor/limits.md}}).
@@ -82,10 +50,6 @@ Actors run inside a Docker container whose resources are limited. When invoking 
 The share of CPU is computed automatically from the memory as follows: for each 4096 MB of memory, the actor gets 1 full CPU core. For other amounts of memory the number of CPU cores is computed fractionally. For example, an actor with 1024 MB of memory will have a 1/4 share of a CPU core.
 
 The actor has hard disk space limited by twice the amount of memory. For example, an actor with 1024 MB of memory will have 2048 MB of disk available.
-
-## [](#state-persistence)State persistence
-
-Unlike traditional serverless platforms, actors have no limits on the duration of an actor run. However, that means that an actor might need to be restarted from time to time, e.g. when the server it's running on is to be shutdown. Actors need to account for this possibility. For short-running actors, the chance of a restart is quite low and the cost of repeated runs is low, so restarts can be ignored. However, for long-running actors a restart might be very costly and therefore such actors should periodically persist their state, possibly to the key-value store associated with the actor run. On start, actors should first check whether there is some state stored and if so they should continue where they left off.
 
 ## [](#lifecycle)Lifecycle
 
@@ -123,7 +87,7 @@ Each actor run is assigned a unique hard-to-guess URL (e.g. `http://kmdo7wpzlshy
 *   In the API as the `containerUrl` property of the [Run object](https://docs.apify.com/api/v2#/reference/actors/run-object/get-run).
 *   In the actor run's container as the `APIFY_CONTAINER_URL` environment variable.
 
-The web server running inside the container must listen at the port defined by the `APIFY_CONTAINER_PORT` environment variable (typically 4321). If you want to use another port, simply define the `APIFY_CONTAINER_PORT` environment variable with the desired port number in your actor version configuration - see [Custom environment variable]({{@link actor/source_code.md#custom-environment-variables}}) for details.
+The web server running inside the container must listen at the port defined by the `APIFY_CONTAINER_PORT` environment variable (typically 4321). If you want to use another port, simply define the `APIFY_CONTAINER_PORT` environment variable with the desired port number in your actor version configuration - see [Custom environment variable]({{@link actor/development/source_code.md#custom-environment-variables}}) for details.
 
 The following example demonstrates how to start a simple web server in your actor:
 
