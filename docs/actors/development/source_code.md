@@ -35,7 +35,7 @@ The only required file for multifile is `Dockerfile`, all other files depend on 
 
 Unlike the [Single Javascript file](#single-javascript-file) option, `package.json` is not automaticaly generated, and you need to configure it yourself.
 
-See [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) and [base Docker images]({{@link actors/development/base-docker-images}}) for more information about creating your own Dockerfile and using Apify's prepared base images.
+See [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) and [base Docker images]({{@link actors/development/base_docker_images.md}}) for more information about creating your own Dockerfile and using Apify's prepared base images.
 
 ## [](#git-repository)Git repository
 
@@ -89,7 +89,7 @@ Internally, Apify uses Docker to build and run actors. To control the build of t
 
 For more information about Dockerfile syntax and commands, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
-Note that `apify/actor-node-basic` is a base Docker image provided by Apify. There are other base images with other features available. However, you can use arbitrary Docker images as the base for your actors, although using the Apify images has some performance advantages. See [base Docker images]({{@link actors/development/base-docker-images}}) for details.
+Note that `apify/actor-node-basic` is a base Docker image provided by Apify. There are other base images with other features available. However, you can use arbitrary Docker images as the base for your actors, although using the Apify images has some performance advantages. See [base Docker images]({{@link actors/development/base_docker_images.md}}) for details.
 
 By default, all Apify base Docker images start your Node.js application same way as `npm start` does, i.e. by running the command specified in the `package.json` file under the `scripts` - `start` key. The default `package.json` file looks similarly to this one:
 
