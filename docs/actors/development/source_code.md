@@ -131,7 +131,7 @@ The actor owner can specify custom environment variables that are set to the act
 
 ![Custom environment variables]({{@asset actors/images/source-env-vars.png}})
 
-Note that the custom environment variables are fixed during the build of the actor and cannot be changed later. See the [Build]({{@link actors/development/build.md#build}}) section for details.
+Note that the custom environment variables are fixed during the build of the actor and cannot be changed later. See the [Builds]({{@link actors/development/builds.md}}) section for details.
 
 To access environment variables in Node.js, use the `process.env` object, for example:
 
@@ -145,7 +145,7 @@ In order to enable active development, the actor can have multiple versions of t
 
 For example, the actor can have a production version `1.1`, a beta version `1.2` that contains new features but is still backwards compatible, and a development version `2.0` that contains breaking changes.
 
-The versions of the actors are built and run separately. For details, see [Build]({{@link actors/development/build.md}}) and [Run]({{@link actors/run.md}}).
+The versions of the actors are built and run separately. For details, see [Build]({{@link actors/development/builds.md}}) and [Run]({{@link actors/run.md}}).
 
 ## [](#local-development)Local development
 
