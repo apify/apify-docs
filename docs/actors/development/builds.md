@@ -1,13 +1,13 @@
 ---
-title: Build
+title: Builds
 description: Documentation of Apify actors - building your actor.
 paths:
     - actor/build
-    - actor/development/build
-    - actors/development/build
+    - actor/development/builds
+    - actors/development/builds
 ---
 
-# [](#build)Build
+# [](#build)Builds
 
 Before the actor can be run, it first needs to be built. The build effectively creates a snapshot of a specific version of the actor's settings such as the [Source code]({{@link actors/development/source_code.md}}) and [Environment variables]({{@link actors/development/environment_variables.md}}), and creates a Docker image that contains everything the actor needs for its run, including necessary NPM packages, web browsers, etc.
 
