@@ -1,5 +1,5 @@
 ---
-title: Running
+title: Run
 description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
 menuWeight: 3.4
 paths:
@@ -9,7 +9,7 @@ paths:
     - actors/running
 ---
 
-# [](#run)Running
+# [](#run)Run
 
 An Apify actor can be invoked in a number of ways. One option is to start the actor manually in **Console** in the app:
 
