@@ -2,8 +2,10 @@
 title: Input schema
 description: Documentation of Apify actors - defining your actor's input schema.
 paths:
+# NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/input-schema
     - actor/development/input-schema
+    - actors/input-schema
     - actors/development/input-schema
 ---
 
@@ -50,7 +52,7 @@ Imagine you are building a simple crawler whose inputs are an array of start URL
 
 And generated the input UI will be:
 
-![Apify actor input schema example]({{@asset actor/images/input-schema-example.png}})
+![Apify actor input schema example]({{@asset actors/images/input-schema-example.png}})
 
 If you switch the input to **raw** display using the blue toggle, then you will see the entered input stringified to a JSON format as it will be passed to the actor:
 
@@ -121,7 +123,7 @@ Example of a code input:
 
 Rendered input:
 
-![Apify actor input schema page function]({{@asset actor/images/input-schema-page-function.png}})
+![Apify actor input schema page function]({{@asset actors/images/input-schema-page-function.png}})
 
 Example of country selection using a select input:
 
@@ -137,7 +139,7 @@ Example of country selection using a select input:
 
 Rendered input:
 
-![Apify actor input schema - country input]({{@asset actor/images/input-schema-country.png}})
+![Apify actor input schema - country input]({{@asset actors/images/input-schema-country.png}})
 
 Properties:
 
@@ -177,7 +179,7 @@ Example options with group caption:
 
 Rendered input:
 
-![Apify actor input schema options]({{@asset actor/images/input-schema-options.png}})
+![Apify actor input schema options]({{@asset actors/images/input-schema-options.png}})
 
 Properties:
 
@@ -203,7 +205,7 @@ Example:
 
 Rendered input:
 
-![Apify actor input schema memory]({{@asset actor/images/input-schema-memory.png}})
+![Apify actor input schema memory]({{@asset actors/images/input-schema-memory.png}})
 
 Properties:
 
@@ -229,7 +231,7 @@ Example of proxy configuration:
 
 Rendered input:
 
-![Apify actor input schema proxy]({{@asset actor/images/input-schema-proxy.png}})
+![Apify actor input schema proxy]({{@asset actors/images/input-schema-proxy.png}})
 
 The object where the proxy configuration is stored has the following structure:
 
@@ -257,7 +259,7 @@ Example of a blackbox object:
 
 Rendered input:
 
-![Apify actor input schema user object]({{@asset actor/images/input-schema-user.png}})
+![Apify actor input schema user object]({{@asset actors/images/input-schema-user.png}})
 
 Properties:
 
@@ -285,7 +287,7 @@ Example of request list sources configuration:
 
 Rendered input:
 
-![Apify actor input schema start urls array]({{@asset actor/images/input-schema-start-urls.png}})
+![Apify actor input schema start urls array]({{@asset actors/images/input-schema-start-urls.png}})
 
 Example of an array:
 
@@ -299,7 +301,7 @@ Example of an array:
 
 Rendered input:
 
-![Apify actor input schema colors array]({{@asset actor/images/input-schema-colors.png}})
+![Apify actor input schema colors array]({{@asset actors/images/input-schema-colors.png}})
 
 Properties:
 
