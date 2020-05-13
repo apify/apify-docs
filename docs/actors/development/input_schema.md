@@ -5,6 +5,7 @@ paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/input-schema
     - actor/development/input-schema
+    - actors/input-schema
     - actors/development/input-schema
 ---
 
