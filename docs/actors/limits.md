@@ -27,6 +27,7 @@ If needed, resources such as `Maximum combined memory of all running jobs` can b
 |Build/run disk size|2x job memory limit<!-- ACTOR_LIMITS.RUN_DISK_TO_MEMORY_SIZE_COEFF -->|
 |Memory per CPU core|4,096 MB<!-- ACTOR_LIMITS.RUN_MEMORY_MBYTES_PER_CPU_CORE -->|
 |Build/run maximum log size|5,000,000 characters<!-- ACTOR_LIMITS.LOG_MAX_CHARS -->|
+|Maximum number of dataset columns for xlsx format|2,000 columns|
 |Maximum size of input schema for a task/actor|100 * 1024 B<!-- ACTOR_LIMITS.INPUT_SCHEMA_MAX_BYTES -->|
 
 ## [](#platform-limits) Platform limits
