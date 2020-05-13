@@ -18,6 +18,8 @@ An Apify actor can be invoked in a number of ways. One option is to start the ac
 
 The actor's owner can specify its default settings in the actor's **Settings** tab. If the actor caller does not specify a particular setting either in the **Input** or **Options** tabs, the default value is used.
 
+The following table describes the default actor settings:
+
 |||
 |--- |--- |
 |**Build**|Tag or number of the build to run (e.g. `latest` or `1.2.34`).|
