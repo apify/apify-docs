@@ -1,16 +1,18 @@
 ---
-title: Run
-description: Documentation of Apify actors - a serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+title: Running
+description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
 menuWeight: 3.4
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/run
+    - actor/running
     - actors/run
+    - actors/running
 ---
 
-# [](#run)Run
+# [](#run)Running
 
-The actor can be invoked in a number of ways. One option is to start the actor manually in **Console** in the app:
+An Apify actor can be invoked in a number of ways. One option is to start the actor manually in **Console** in the app:
 
 ![Apify actor run console]({{@asset actors/images/run-console.png}})
 
@@ -41,14 +43,6 @@ Actors can also be invoked programmatically from other actors using the [`call()
 The newly started actor runs under the same user account as the initial actor and therefore all resources consumed are charged to the same user account. This allows more complex actors to be built using simpler actors built and owned by other users.
 
 Internally, the `call()` function takes the user's API token from the `APIFY_TOKEN` environment variable, then it invokes the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get record](https://docs.apify.com/api/v2/#/reference/key-value-stores/record/get-record) API endpoint.
-
-## [](#input-and-output)Input and output
-
-As demonstrated in the hello world example above, actors can accept input and generate output. Both input and output are stored in a key-value store that is created when the actor is started, under the `INPUT` and `OUTPUT` keys, respectively. Note that the actor can store other values under arbitrary keys, for example crawling results or screenshots of web pages.
-
-The key-value store associated with the actor run can be conveniently accessed using the [`getValue()`](https://sdk.apify.com/docs/api/apify#apifygetvaluekey) and [`setValue()`](https://sdk.apify.com/docs/api/apify#apifysetvaluekey-value-options) functions provided by the `apify` NPM package. Internally, these functions read the ID of the key-value store from the `APIFY_DEFAULT_KEY_VALUE_STORE_ID` environment variable and then access the store using the Apify API. For more details about the key-value stores, go to the [Storage]({{@link storage.md}}) section.
-
-The input can be passed to the actor either manually in the Console or using a POST payload when running the actor using API. See [Run]({{@link actors/run.md}}) section for details.
 
 ## [](#resource-limits)Resource limits
 
