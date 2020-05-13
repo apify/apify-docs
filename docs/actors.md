@@ -17,8 +17,8 @@ A single isolated actor consists of source code and various settings. You can th
 *   [**Quick Start**]({{@link actors/quick_start.md}})
 *   [**Run**]({{@link actors/run.md}})
 *   [**Examples**]({{@link actors/examples.md}})
-*   [**Build**]({{@link actors/build.md}})
-*   [**Source code**]({{@link actors/source_code.md}})
+*   [**Build**]({{@link actors/development/builds.md}})
+*   [**Source code**]({{@link actors/development/source_code.md}})
 *   [**Limits**]({{@link actors/limits.md}})
 *   [**Publishing**]({{@link actors/publishing.md}})
 
