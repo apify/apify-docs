@@ -8,7 +8,7 @@ paths:
 
 # [](./storage)Storage
 
-The Apify platform contains three storage types that you can use in your [actors]({{@link actor.md}}) and also outside the Apify platform using [HTTP API](https://docs.apify.com/api/v2) and [JavaScript client](https://docs.apify.com/api/apify-client-js/latest).
+The Apify platform contains three storage types that you can use in your [actors]({{@link actors.md}}) and also outside the Apify platform using [HTTP API](https://docs.apify.com/api/v2) and [JavaScript client](https://docs.apify.com/api/apify-client-js/latest).
 
 *   [Key-value store]({{@link storage/key_value_store.md}}) - simple storage for strings and files
 *   [Dataset]({{@link storage/dataset.md}}) - storage for sequential data objects (results)
