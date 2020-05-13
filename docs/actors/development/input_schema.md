@@ -1,11 +1,12 @@
 ---
 title: Input schema
-description: Documentation of Apify Actor input schema.
-menuWeight: 3.5
+description: Documentation of Apify actors - defining your actor's input schema.
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/input-schema
+    - actor/development/input-schema
     - actors/input-schema
+    - actors/development/input-schema
 ---
 
 # [](#actor-input-schema)Actor input schema
