@@ -146,7 +146,7 @@ In order to enable active development, the actor can have multiple versions of t
 
 For example, the actor can have a production version `1.1`, a beta version `1.2` that contains new features but is still backwards compatible, and a development version `2.0` that contains breaking changes.
 
-The versions of the actors are built and run separately. For details, see [Build]({{@link actors/development/builds.md}}) and [Run]({{@link actors/run.md}}).
+The versions of the actors are built and run separately. For details, see [Build]({{@link actors/development/builds.md}}) and [Running]({{@link actors/running.md}}).
 
 ## [](#local-development)Local development
 
