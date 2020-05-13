@@ -28,8 +28,8 @@ Aside from [custom environment variables]({{@link actors/development/source_code
 |`APIFY_TIMEOUT_AT`|Date when the actor will time out.|
 |`APIFY_TOKEN`|The API token of the user who started the actor.|
 |`APIFY_USER_ID`|ID of the user who started the actor. Note that it might be different than the owner of the actor.|
-|`APIFY_CONTAINER_PORT`|TCP port on which the actor can start a HTTP server to receive messages from the outside world. See [Container web server]({{@link actors/run.md#container-web-server}}) section for more details.|
-|`APIFY_CONTAINER_URL`|A unique public URL under which the actor run web server is accessible from the outside world. See [Container web server]({{@link actors/run.md#container-web-server}}) section for more details.|
+|`APIFY_CONTAINER_PORT`|TCP port on which the actor can start a HTTP server to receive messages from the outside world. See [Container web server]({{@link actors/running.md#container-web-server}}) section for more details.|
+|`APIFY_CONTAINER_URL`|A unique public URL under which the actor run web server is accessible from the outside world. See [Container web server]({{@link actors/running.md#container-web-server}}) section for more details.|
 
 
 Dates are always in the UTC timezone and are represented in simplified extended ISO format ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)), e.g. `2017-10-13T14:23:37.281Z`
