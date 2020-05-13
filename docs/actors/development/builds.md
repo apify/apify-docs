@@ -3,6 +3,7 @@ title: Builds
 description: Documentation of Apify actors - building your actor.
 paths:
     - actor/build
+    - actor/development/build
     - actor/development/builds
     - actors/development/builds
 ---
