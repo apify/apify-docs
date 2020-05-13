@@ -5,6 +5,7 @@ paths:
     - actor/build
     - actor/development/build
     - actor/development/builds
+    - actors/build
     - actors/development/builds
 ---
 
