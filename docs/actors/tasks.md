@@ -4,6 +4,7 @@ description: Documentation of Apify Task - a way to set up configuration of your
 menuWeight: 3.3
 paths:
     - tasks
+    - actors/tasks
 ---
 
 # [](./tasks)Actor Tasks
@@ -12,7 +13,7 @@ Actor Tasks help you prepare the configuration of an actor to perform a specific
 
 Tasks can also be set up for actors made by someone else. Just [search the store](https://apify.com/store) to find an actor you want to use and click the try button to create a task from it.
 
-*   [**Run**]({{@link tasks/run.md}})
-*   [**Create**]({{@link tasks/create.md}})
-*   [**Configure**]({{@link tasks/configure.md}})
+*   [**Create**]({{@link actors/tasks/create.md}})
+*   [**Configure**]({{@link actors/tasks/configure.md}})
+*   [**Run**]({{@link actors/tasks/run.md}})
 

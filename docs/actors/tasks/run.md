@@ -1,9 +1,10 @@
 ---
 title: Run
 description: Documentation of Apify Task - a way to set up configuration of your Apify Actor for simplified usage.
-menuWeight: 4.3
+menuWeight: 3.3.3
 paths:
     - tasks/run
+    - actors/tasks/run
 ---
 
 # [](#running-the-task)Running the task
