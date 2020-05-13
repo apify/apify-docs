@@ -6,6 +6,7 @@ paths:
     - actor/run
     - actor/run#input-and-output
     - actor/running/input-and-output
+    - actors/run#input-and-output
     - actors/running/input-and-output
 ---
 
