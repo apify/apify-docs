@@ -1,9 +1,10 @@
 ---
 title: Configure
 description: Documentation of Apify Task - a way to set up configuration of your Apify Actor for simplified usage.
-menuWeight: 4.2
+menuWeight: 3.2.2
 paths:
     - tasks/configure
+    - actors/tasks/configure
 ---
 
 # [](#configuring-the-task)Configuring the task
