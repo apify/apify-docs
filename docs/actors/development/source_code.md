@@ -4,6 +4,7 @@ description: Documentation of Apify actors - storing your actor's source code.
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/source-code
+    - actors/source-code
     - actor/development/source-code
     - actors/development/source-code
 ---
