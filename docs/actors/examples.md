@@ -3,7 +3,9 @@ title: Examples
 description: Documentation of Apify actors - a serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
 menuWeight: 3.7
 paths:
+# NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/examples
+    - actors/examples
 ---
 
 # [](#examples)Examples
@@ -56,11 +58,11 @@ This example demonstrates how to use headless Chrome with Puppeteer to open a we
        console.log(`- https://api.apify.com/v2/key-value-stores/${storeId}/records/page.pdf`);
     });
 
-The code above uses the [`launchPuppeteer()`](https://sdk.apify.com/docs/api/apify#apifylaunchpuppeteeroptions) function provided by the [`apify`](https://sdk.apify.com/) NPM package. The function launches Puppeteer with several settings that enable it to run in an actor. Note that the actor needs to have **Base image** set to [Node.js 10 + Puppeteer on Debian]({{@link actor/build.md#base-images}}) in order to run Puppeteer.
+The code above uses the [`launchPuppeteer()`](https://sdk.apify.com/docs/api/apify#apifylaunchpuppeteeroptions) function provided by the [`apify`](https://sdk.apify.com/) NPM package. The function launches Puppeteer with several settings that enable it to run in an actor. Note that the actor needs to have **Base image** set to [Node.js 10 + Puppeteer on Debian]({{@link actors/development/base_docker_images.md}}) in order to run Puppeteer.
 
 ## [](#custom-dockerfile)Custom Dockerfile
 
-This example demonstrates how to create an actor written in PHP using a custom Dockerfile. For more information, see the [Custom Dockerfile]({{@link actor/source_code.md#custom-dockerfile}}) section. The Dockerfile is based on the [`php:7.0-cli`](https://hub.docker.com/_/php/) Docker image that contains everything needed to run PHP in a terminal.
+This example demonstrates how to create an actor written in PHP using a custom Dockerfile. For more information, see the [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) section. The Dockerfile is based on the [`php:7.0-cli`](https://hub.docker.com/_/php/) Docker image that contains everything needed to run PHP in a terminal.
 
 `Dockerfile` contains only two commands. The first copies source code into the container and the second executes `main.php`.
 
@@ -91,7 +93,7 @@ print "I am done!\n";
 
 ## [](#state-persistence)State persistence
 
-This actor demonstrates how to persist a state, so that on restart the actor can continue where it left off. For more information, see the [State persistence]({{@link actor/run.md#state-persistence}}) section. The actor simply counts from one up. In each run it prints one number. Its state (counter position) is stored in a named [key-value store]({{@link storage/key_value_store.md}}) called `example-counter`. You will find it in the [Storage](https://my.apify.com/key-value-stores) section of the app after you run the actor.
+This actor demonstrates how to persist a state, so that on restart the actor can continue where it left off. For more information, see the [State persistence]({{@link actors/development/state_persistence.md}}) section. The actor simply counts from one up. In each run it prints one number. Its state (counter position) is stored in a named [key-value store]({{@link storage/key_value_store.md}}) called `example-counter`. You will find it in the [Storage](https://my.apify.com/key-value-stores) section of the app after you run the actor.
 
 The actor can be found in the Apify store as [apify/example-counter](https://apify.com/apify/example-counter).
 
