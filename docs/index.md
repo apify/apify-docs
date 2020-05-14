@@ -25,7 +25,7 @@ Anything missing? Please let us know at [support@apify.com](mailto:support@apify
 *   [**Storage**]({{@link storage.md}}) - Key-value store, dataset and request queue that enable storage of actor inputs and results.
 *   [**Proxy**]({{@link proxy.md}}) - Provides access to proxy services that can be used in crawlers, actors or any other application that support HTTP proxies.
 *   [**Webhooks**]({{@link webhooks.md}}) - Provide an easy and reliable way to configure the Apify platform to carry out an action when a certain system event occurs.
-*   [**API**]({{@link api_reference.md}}) - REST API that enables integration with external applications.
+*   [**API**]({{@link api.md}}) - REST API that enables integration with external applications.
 *   [**SDK**](https://sdk.apify.com) - Open-source libraries to simplify development of local web scraping and automation projects, crawl websites with headless Chrome and Puppeteer, simplify development of Apify actors and integrate with the Apify API.
 *   [**CLI**]({{@link cli.md}}) - Command line interface (CLI) to help you to create, develop, run and deploy Apify actors from your local computer.
 
