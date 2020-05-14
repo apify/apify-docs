@@ -5,6 +5,5 @@ menuWeight: 10
 paths:
     - api
     - api/v2
-    - api-v2
 ---
 
