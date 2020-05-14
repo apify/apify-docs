@@ -4,14 +4,15 @@ description: Full documentation of the latest version of the apify-client NPM pa
 menuWeight: 11
 paths:
     - api/apify-client-js
-    - javascript-client
+    - apify-client-js
+    - javascript-api-client
 ---
 
 # [](#javascript-api-client)JavaScript API client
 
 The `apify-client` NPM package provides a JavaScript client for Apify API. This package greatly simplifies the development of apps that depend on the Apify platform.
 
-*   [Documentation for latest version](https://docs.apify.com/api/apify-client-js/latest)
+*   [Documentation for latest version](https://docs.apify.com/apify-client-js/latest)
 *   [Package page on NPM](https://www.npmjs.com/package/apify-client)
 *   [Source code on GitHub](https://github.com/apifytech/apify-client-js)
 
