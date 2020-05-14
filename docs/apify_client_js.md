@@ -5,7 +5,6 @@ menuWeight: 11
 paths:
     - api/apify-client-js
     - apify-client-js
-    - javascript-api-client
 ---
 
 # [](#javascript-api-client)JavaScript API client
