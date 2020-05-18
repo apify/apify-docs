@@ -16,25 +16,16 @@ Get a list of results from the US for keyword `wikipedia` and parse them through
     const Apify = require('apify');
 
     Apify.main(async() => {
-        const password = process.env.APIFY_PROXY_PASSWORD;
         const proxyConfiguration = await Apify.createProxyConfiguration({
-            password,
             groups: ['GOOGLE_SERP'],
-            countryCode: 'US',
         });
         const url = 'http://www.google.com/search?q=wikipedia';
 
-        const requestList = new Apify.RequestList({
-            sources: [{ url }],
-        });
-        await requestList.initialize(); // Load requests.
+        const requestList = await Apify.openRequestList('my-list', [url]);
 
         const crawler = new Apify.PuppeteerCrawler({
             requestList,
             proxyConfiguration,
-            launchPuppeteerOptions: {
-                headless: true
-            },
             gotoFunction: async({ page, request }) => {
                 await page.setRequestInterception(true);
                 page.on('request', request => {
@@ -70,25 +61,16 @@ Get a list of shopping results from the Czech Republic for keyword `Apple iPhone
     const Apify = require('apify');
 
     Apify.main(async() => {
-        const password = process.env.APIFY_PROXY_PASSWORD;
         const proxyConfiguration = await Apify.createProxyConfiguration({
-            password,
             groups: ['GOOGLE_SERP'],
-            countryCode: 'CZ',
         });
         const url = 'http://www.google.cz/search?q=Apple+iPhone+XS+64GB&tbm=shop';
 
-        const requestList = new Apify.RequestList({
-            sources: [{ url }],
-        });
-        await requestList.initialize(); // Load requests.
+        const requestList = await Apify.openRequestList('my-list', [url]);
 
         const crawler = new Apify.PuppeteerCrawler({
             requestList,
             proxyConfiguration
-            launchPuppeteerOptions: {
-                headless: true,
-            },
             gotoFunction: async({ page, request }) => {
                 await page.setRequestInterception(true);
                 page.on('request', request => {
@@ -125,18 +107,14 @@ Get a list of results from the US for keyword `wikipedia` and parse them through
     const Apify = require('apify');
 
     Apify.main(async() => {
-        const password = process.env.APIFY_PROXY_PASSWORD;
         const proxyConfiguration = await Apify.createProxyConfiguration({
-            password,
             groups: ['GOOGLE_SERP'],
-            countryCode: 'US',
         });
         const proxyUrl = proxyConfiguration.getUrl();
         const url = 'http://www.google.com/search?q=wikipedia';
 
         try {
             const browser = await Apify.launchPuppeteer({
-                headless: true,
                 proxyUrl,
             });
             const page = await browser.newPage();
@@ -170,18 +148,14 @@ Get a list of shopping results from the Czech Republic for keyword `Apple iPhone
     const Apify = require('apify');
 
     Apify.main(async() => {
-        const password = process.env.APIFY_PROXY_PASSWORD;
         const proxyConfiguration = await Apify.createProxyConfiguration({
-            password,
             groups: ['GOOGLE_SERP'],
-            countryCode: 'CZ',
         });
         const proxyUrl = proxyConfiguration.getUrl();
         const url = 'http://www.google.cz/search?q=Apple+iPhone+XS+64GB&tbm=shop';
 
         try {
             const browser = await Apify.launchPuppeteer({
-                headless: true,
                 proxyUrl,
             });
             const page = await browser.newPage();
@@ -217,11 +191,8 @@ Get a list of results from the US for keyword `wikipedia` and parse them through
      const cheerio = require('cheerio');
 
      Apify.main(async () => {
-         const password = process.env.APIFY_PROXY_PASSWORD;
          const proxyConfiguration = await Apify.createProxyConfiguration({
-             password,
              groups: ['GOOGLE_SERP'],
-             countryCode: 'US'
          });
          const proxyUrl = proxyConfiguration.getUrl();
          const { body } = await Apify.utils.requestAsBrowser({
@@ -246,11 +217,8 @@ Get a list of shopping results from the Czech Republic for query `Apple iPhone X
     const cheerio = require('cheerio');
 
     Apify.main(async () => {
-        const password = process.env.APIFY_PROXY_PASSWORD;
         const proxyConfiguration = await Apify.createProxyConfiguration({
-            password,
             groups: ['GOOGLE_SERP'],
-            countryCode: 'CZ'
         });
         const proxyUrl = proxyConfiguration.getUrl();
         const query = encodeURI('Apple iPhone XS 64GB');
