@@ -1,6 +1,6 @@
 ---
 title: Quick start
-description: Documentation of Apify actors - a serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
 menuWeight: 3.1
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
@@ -24,7 +24,7 @@ Click **▷ Run** to build and run your actor. After the run is finished you sho
 
 Congratulations, you have successfully created and run your first actor!
 
-Let's try something little more complicated. We will change the actor to accept input and generate output (see [Input and output]({{@link actors/run.md#input-and-output}}) for more details):
+Let's try something little more complicated. We will change the actor to accept input and generate output (see [Input and output]({{@link actors/running/input_and_output.md}}) for more details):
 
     const Apify = require('apify');
 
@@ -59,5 +59,5 @@ For more complicated actors, you'll probably prefer to host the source code on G
 4.  Paste the Git repo link to **Git URL**, save changes and build your actor.
 5.  That's it, now you can develop your actor locally on your computer and run it in the Apify cloud!
 
-For more information, go to the [Git repository]({{@link actors/source_code.md#git-repository}}) section.
+For more information, go to the [Git repository]({{@link actors/development/source_code.md#git-repository}}) section.
 
