@@ -4,6 +4,7 @@ description: Documentation of the Apify REST API (version 2), which enables you 
 menuWeight: 10
 paths:
     - api
+    - api-reference
 ---
 
  
