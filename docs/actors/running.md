@@ -1,7 +1,7 @@
 ---
 title: Running
 description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
-menuWeight: 3.4
+menuWeight: 3.2
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/run
