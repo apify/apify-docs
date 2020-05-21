@@ -1,7 +1,7 @@
 ---
 title: Running
 description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
-menuWeight: 3.4
+menuWeight: 3.2
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/run
@@ -12,22 +12,19 @@ paths:
 
 # [](#run)Running
 
-An Apify actor can be invoked in a number of ways. One option is to start the actor manually in **Console** in the app:
+An Apify actor can be invoked in a number of ways. One option is to start the actor from the **Developer console** in the app:
 
-![Apify actor run console]({{@asset actors/images/run-console.png}})
+![Apify developer console]({{@asset actors/images/developer-console.png}})
 
-The following table describes the run settings:
+The actor's owner can specify its default settings in the actor's **Settings** tab. If the actor caller does not specify a particular setting either in the **Input** or **Options** tabs, the default value is used.
+
+The following table describes the default actor settings:
 
 |||
 |--- |--- |
 |**Build**|Tag or number of the build to run (e.g. `latest` or `1.2.34`).|
 |**Timeout**|Timeout for the actor run in seconds. Zero value means there is no timeout.|
 |**Memory**|Amount of memory allocated for the actor run, in megabytes.|
-|**Input**|Input data for the actor. The maximum length is 1M characters.|
-|**Content type**|Indicates what kind of data is in the input (e.g. `application/json`).|
-
-
-The owner of the actor can specify default values for all the above settings in the **Default run configuration** section in the app. If the actor caller does not specify a particular setting, the default value is used.
 
 The actor can also be invoked using the Apify API by sending a HTTP POST request to the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, such as:
 
