@@ -14,7 +14,7 @@ An event is represented by a **type** and related **data**. The type is a `strin
 
 ## [](#actor-run)Actor run
 
-Actor run events are triggered when an actor run gets created or transitions into a new state. Webhook can be defined for all runs of an [actor]({{@link actors.md}}) at its detail page or for a specific [actor task]({{@link tasks.md}}) at its detail page. In that case, the webhook is invoked only for runs started for that task.
+Actor run events are triggered when an actor run gets created or transitions into a new state. Webhook can be defined for all runs of an [actor]({{@link actors.md}}) at its detail page or for a specific [actor task]({{@link actors/tasks.md}}) at its detail page. In that case, the webhook is invoked only for runs started for that task.
 
 ### Event types:
 

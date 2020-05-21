@@ -1,10 +1,11 @@
 ---
 title: Create
 description: Documentation of Apify Task - a way to set up configuration of your Apify Actor for simplified usage.
-menuWeight: 4.1
 paths:
     - tasks/create
+    - actors/tasks/create
 ---
+
 # [](#create-a-task) Create a Task
 The way to set up configuration of your Apify Actor for simplified usage.
 
@@ -12,7 +13,7 @@ The way to set up configuration of your Apify Actor for simplified usage.
 
 Go to the [Actor](https://my.apify.com/actors) section in the app and open the actor for which you want to create a task. Now you should see a console with the option to run the actor or create a task.
 
-![Run or create Apify task]({{@asset tasks/images/run-or-create-task.png}})
+![Run or create Apify task]({{@asset actors/tasks/images/run-or-create-task.png}})
 
 When you click the "Create Task" button, a new task will be created with the input and options copied from the tabs below.
 
