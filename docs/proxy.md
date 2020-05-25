@@ -1,7 +1,7 @@
 ---
 title: Proxy
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
-menuWeight: 7
+menuWeight: 6
 category: platform
 paths:
     - proxy
