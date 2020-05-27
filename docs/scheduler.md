@@ -1,7 +1,8 @@
 ---
 title: Scheduler
 description: Documentation of Apify Scheduler that executes crawler or actor jobs at specific times using a cron-like syntax.
-menuWeight: 5
+menuWeight: 4
+category: platform
 paths:
     - scheduler
 ---
