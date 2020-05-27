@@ -1,7 +1,8 @@
 ---
 title: SDK
 description: Apify SDK Documentation
-menuWeight: 13
+menuWeight: 12
+category: developer tools
 paths:
     - sdk
 ---
