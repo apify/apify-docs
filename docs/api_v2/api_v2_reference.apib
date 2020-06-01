@@ -9,8 +9,9 @@ HTTP endpoints.
 All requests and responses (including errors) are encoded in [JSON](http://www.json.org/) format with UTF-8 encoding,
 with a few exceptions that are explicitly described in the reference.
 
-To access the API from a Node.js code, we recommend using the
-<a href="https://docs.apify.com/api/apify-client-js/latest">apify-client</a> NPM package.
+To access the API using [Node.js](https://nodejs.org/en/), we recommend using the
+[`apify-client`](https://docs.apify.com/api/apify-client-js/latest) [NPM package](https://www.npmjs.com/package/apify-client). 
+The client's functions correspond to the API endpoints and have the same parameters. This simplifies development of apps that depend on the Apify platform.
 
 **All requests with JSON payloads need to specify the `Content-Type: application/json` HTTP header!**
 
