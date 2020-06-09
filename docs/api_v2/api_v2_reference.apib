@@ -386,10 +386,10 @@ parameter.
     + Attributes
         - data (object, required)
             - total: 2 (number, required)
+            - count: 2 (number, required)
             - offset: 0 (number, required)
             - limit: 1000 (number, required)
             - desc: false (boolean, required)
-            - count: 2 (number, required)
             - items (array[ActorShort1,ActorShort2], required)
 
 ### Create actor [POST]
@@ -469,7 +469,7 @@ Deletes an actor.
 
 ### Get list of versions [GET]
 
-Gets the list of versions of a specific actor. The response is a JSON with the list
+Gets the list of versions of a specific actor. The response is a JSON object with the list
 of [Version objects](#reference/actors/version-object) where each
 contains basic information about a single version.
 
@@ -477,12 +477,12 @@ contains basic information about a single version.
 
     + Attributes
         - data (object, required)
-            - total: 1 (number, required)
+            - total: 5 (number, required)
             - items (array[Version], required)
 
 ### Create version [POST]
 
-Creates an actor version using values specified by a [Version object](#reference/actors/version-object) passed as JSON in the POST payload.
+Creates a version of an actor using values specified in a [Version object](#reference/actors/version-object) passed as JSON in the POST payload.
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
 
@@ -2801,17 +2801,17 @@ The user account is identified by the provided authentication token.
 
 ## ActorShort1 (object)
 - id:              `br9CKmk457`                (string, required)
-- name:             `MyAct`                    (string, required)
-- username:         `john-doe`                 (string, required)
 - createdAt:        `2015-10-29T07:34:24.202Z` (string, required)
 - modifiedAt:       `2015-10-30T07:34:24.202Z` (string, required)
+- name:             `MyAct`                    (string, required)
+- username:         `john-doe`                 (string, required)
 
 ## ActorShort2 (object)
 - id:              `ksiEKo23pz`                (string, required)
-- name:             `MySecondAct`              (string, required)
-- username:         `john-doe`                 (string, required)
 - createdAt:        `2015-11-30T07:34:24.202Z` (string, required)
 - modifiedAt:       `2015-12-12T07:34:24.202Z` (string, required)
+- name:             `MySecondAct`              (string, required)
+- username:         `john-doe`                 (string, required)
 
 ## Task (object)
 - id:                    `zdc3Pyhyz3m8vjDeM`                (string, required)
@@ -2880,7 +2880,7 @@ The user account is identified by the provided authentication token.
 ## Version (object)
 -                                                                   (array)
     -                                                               (object)
-        - versionNumber:            `0.1`                           (string, required)
+        - versionNumber:            `0.0`                           (string, required)
         - sourceType:               `SOURCE_CODE`                   (VersionSourceType, required)
         - envVars                                                   (array, nullable)
             -                                                       (object)
@@ -2895,7 +2895,7 @@ The user account is identified by the provided authentication token.
         - buildTag:                 `latest`                        (string, required)
         - sourceCode:               `console.log('Hello world!');`  (string, nullable)
     -                                                               (object)
-        - versionNumber:            `0.2`                           (string, required)
+        - versionNumber:            `0.1`                           (string, required)
         - envVars:                  []                              (array, nullable)
         - sourceType:               `SOURCE_FILES`                  (VersionSourceType, required)
         - sourceCode:               `console.log('Hello world!');`  (string, nullable)
@@ -2905,7 +2905,7 @@ The user account is identified by the provided authentication token.
             -                                                       (object)
                 - name: `src/main.js`                                   (string, required)
                 - format: `TEXT`                                        (string, required)
-                - content: `console.log('This is the main.js file')`    (string, required)
+                - content: `console.log('This is the main.js file');`    (string, required)
             -                                                           (object)
                 - name: `package.json`                                  (string, required)
                 - format: `TEXT`                                        (string, required)
@@ -2913,18 +2913,25 @@ The user account is identified by the provided authentication token.
             -                                                           (object)
                 - name: `Dockerfile`                                    (string, required)
                 - format: `TEXT`                                        (string, required)
-                - content: ` # Dockerfile contains ...`                 (string, required)
+                - content: ` # Dockerfile contains instructions ...`                 (string, required)
              -                                                          (object)
                 - name: `README.md`                                     (string, required)
                 - format: `TEXT`                                        (string, required)
                 - content: `My Actor scrapes the web`                   (string, required)
     -                                                                   (object)
-        - versionNumber:            `0.3`                               (string, required)
+        - versionNumber:            `0.2`                               (string, required)
         - sourceType:               `GIT_REPO`                          (VersionSourceType, required)
         - envVars:                  []                                  (array, nullable)
         - applyEnvVarsToBuild:       false                              (boolean, nullable)
         - buildTag:                 `latest`                            (string, required)
         - gitRepoUrl:               `https://github.com/john35/my-actor`    (string, required)
+    -                                                                   (object)
+        - versionNumber:            `0.3`                               (string, required)
+        - sourceType:               `TARBALL`                           (VersionSourceType, required)
+        - envVars:                  []                                  (array, nullable)
+        - applyEnvVarsToBuild:       false                              (boolean, nullable)
+        - buildTag:                 `latest`                            (string, required)
+        - tarballUrl:               `https://github.com/john35/my-actor/archive/master.zip`    (string, required)
     -                                                                   (object)
         - versionNumber:            `0.4`                               (string, required)
         - sourceType:               `GITHUB_GIST`                       (VersionSourceType, required)
@@ -2932,30 +2939,23 @@ The user account is identified by the provided authentication token.
         - applyEnvVarsToBuild:       false                              (boolean, nullable)
         - buildTag:                 `latest`                            (string, required)
         - gitHubGistUrl:            `https://gist.github.com/john35/e51feb784yu89`    (string, required)
-    -                                                                   (object)
-        - versionNumber:            `0.5`                               (string, required)
-        - sourceType:               `TARBALL`                           (VersionSourceType, required)
-        - envVars:                  []                                  (array, nullable)
-        - applyEnvVarsToBuild:       false                              (boolean, nullable)
-        - buildTag:                 `latest`                            (string, required)
-        - tarballUrl:               `https://github.com/john35/my-actor/archive/master.zip`    (string, required)
 
 
 ## VersionUpdate (object)
 - versionNumber:            `0.0`                                (string, nullable)
 - sourceType:               `SOURCE_CODE`                        (VersionSourceType, nullable)
-- buildTag:                 `latest`                             (string, nullable)
 - envVars                                                        (array, nullable)
     -                                                            (object)
         - name:             `DOMAIN`                             (string, nullable)
         - value:            `http://example.com`                 (string, nullable)
         - isSecret:         false                                (boolean, nullable)
     -                                                            (object)
-        - name:              `SECRET_PASSWORD`                    (string, nullable)
+        - name:              `SECRET_PASSWORD`                   (string, nullable)
         - value:            `MyTopSecretPassword123`             (string, nullable)
         - isSecret:         true                                 (boolean, nullable)
 - baseDockerImage:          `apify/actor-node-basic`             (string, nullable)
 - applyEnvVarsToBuild:       false                               (boolean, nullable)
+- buildTag:                 `latest`                             (string, nullable)
 - sourceCode:               `console.log('Hello world!');`       (string, nullable)
 
 ## VersionSourceType (enum)
