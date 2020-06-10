@@ -2836,9 +2836,9 @@ The user account is identified by the provided authentication token.
 - userId:                `wRsJZtadYvn4mBZmm`            (string, required)
 - actId:                 `asADASadYvn4mBZmm`            (string, required)
 - actName:               `my-actor`                     (string, required)
-- actUsername:           `john-doe`                     (string, required)
 - name:                  `my-task`                      (string, required)
 - username:              `john-doe`                     (string, nullable)
+- actUsername:           `john-doe`                     (string, required)
 - createdAt:             `2018-10-26T07:23:14.855Z`     (string, required)
 - modifiedAt:            `2018-10-26T13:30:49.578Z`     (string, required)
 - stats                                                 (object, nullable)
@@ -2858,8 +2858,14 @@ The user account is identified by the provided authentication token.
     - totalRuns:         4                              (number, required)
 
 ## TaskCreate (object)
+- id:                    `ZxLNxrRaZrSjuhT9y`                (string, required)
+- userId:                `BPWZBd7Z9c746JAnF`                (string, required)
 - actId:                 `asADASadYvn4mBZmm`                (string, required)
 - name:                  `my-task`                          (string, required)
+- createdAt:             `2020-06-09T14:13:31.285Z`         (string, required) # TODO: review
+- modifiedAt:            `2020-06-09T14:13:31.285Z`         (string, required)  # TODO: review
+- stats                                                     (object)
+    - totalRuns:         41                                 (number, nullable)  # TODO: review
 - options                                                   (object, nullable)
     - build:             `latest`                           (string, nullable)
     - timeoutSecs:       300                                (number, nullable)
@@ -2868,8 +2874,16 @@ The user account is identified by the provided authentication token.
     - hello:             `world`                            (string, nullable)
 
 ## TaskUpdate (object)
+- id:                    `ZxLNxrRaZrSjuhT9y`                (string, required)
+- userId:                `BPWZBd7Z9c746JAnF`                (string, required)
 - actId:                 `asADASadYvn4mBZmm`                (string, required)
 - name:                  `my-task`                          (string, required)
+- username:              `john-doe`                         (string, nullable)
+- createdAt:             `2018-10-26T07:23:14.855Z`         (string, required)
+- modifiedAt:            `2018-10-26T13:30:49.578Z`         (string, required)
+- removedAt:             `null`                             (string, nullable)
+- stats                                                     (object, nullable)
+    - totalRuns:         15                                 (number, required)
 - options                                                   (object, nullable)
     - build:             `latest`                           (string, nullable)
     - timeoutSecs:       300                                (number, nullable)
