@@ -704,6 +704,7 @@ This is useful to avoid periodic polling when waiting for an actor build to fini
     + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
                                              If the build finishes in time then the returned build object will have a terminal status (e.g. `SUCCEEDED`),
                                              otherwise it will have a transitional status (e.g. `RUNNING`).
+    + buildId: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token. It is only required for private actors.
         Builds of public actors can be queried without any token.
 
