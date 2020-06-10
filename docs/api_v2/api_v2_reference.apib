@@ -478,7 +478,7 @@ contains basic information about a single version.
     + Attributes
         - data (object, required)
             - total: 5 (number, required)
-            - items (array[Version], required)
+            - items (ListOfVersions, required)
 
 ### Create version [POST]
 
@@ -2893,6 +2893,22 @@ The user account is identified by the provided authentication token.
     - hello:             `world`                            (string, nullable)
 
 ## Version (object)
+- versionNumber:            `0.0`                           (string, required)
+- sourceType:               `SOURCE_CODE`                   (VersionSourceType, required)
+- envVars                                                   (array, nullable)
+    -                                                       (object)
+        - name:             `DOMAIN`                        (string, required)
+        - value:            `http://example.com`            (string, required)
+        - isSecret:         false                           (boolean, nullable)
+    -                                                       (object)
+        - name:              `SECRET_PASSWORD`              (string, required)
+        - isSecret:         true                            (boolean, nullable)
+- baseDockerImage:          `apify/actor-node-basic`        (string, nullable)
+- applyEnvVarsToBuild:       false                          (boolean, nullable)
+- buildTag:                 `latest`                        (string, required)
+- sourceCode:               `console.log('Hello world!');`  (string, nullable)
+
+## ListOfVersions (object)
 -                                                                   (array)
     -                                                               (object)
         - versionNumber:            `0.0`                           (string, required)
