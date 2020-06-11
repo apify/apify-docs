@@ -261,7 +261,7 @@ Here is the table of the most common errors that can occur for many API endpoint
   <tr>
     <td><code>400</code></td>
     <td><code>invalid-value</code></td>
-    <td>Invalid value provided: Comments is required</td>
+    <td>Invalid value provided: Comment is required</td>
   </tr>
   <tr>
     <td><code>400</code></td>
@@ -1093,7 +1093,7 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 
 # Group Actor tasks
 
-The API endpoints described in this section enables you to manage and run Apify actor tasks.
+The API endpoints described in this section enable you to manage and run Apify actor tasks.
 For more information, see the <a href="https://docs.apify.com/tasks">Actor tasks documentation</a>.
 
 Note that for all the API endpoints that accept the `actorTaskId` parameter to specify a task,
@@ -1109,8 +1109,7 @@ username of the task's owner and the task's name (e.g. `johndoe~my-task`).
 
 ### Get list of tasks [GET]
 
-Gets the list of all tasks that the user created or used. The response is a list of objects where each object
-contains essential information about a single task.
+Gets the complete list of tasks that a user has created or used. The response is a list of objects in which each object contains essential information about a single task.
 
 The endpoint supports pagination using the `limit` and `offset` parameters, and it does not return more than a 1000 records.
 
@@ -1660,11 +1659,6 @@ This endpoint is paginated using `exclusiveStartKey` and `limit` parameters - se
 
     + Attributes
         - data (object, required)
-            - isTruncated: true (boolean, required)
-            - exclusiveStartKey: `some-key` (string)
-            - nextExclusiveStartKey: `third-key` (string)
-            - count: 2 (number, required)
-            - limit: 2 (number, required)
             - items (array, required)
                 - (object)
                     - key: `second-key` (string, required)
@@ -1672,6 +1666,11 @@ This endpoint is paginated using `exclusiveStartKey` and `limit` parameters - se
                 - (object)
                     - key: `third-key` (string, required)
                     - size: 128 (number, required)
+            - count: 2 (number, required)
+            - limit: 2 (number, required)
+            - exclusiveStartKey: `some-key` (string)
+            - isTruncated: true (boolean, required)
+            - nextExclusiveStartKey: `third-key` (string)
 
 ## Record [/v2/key-value-stores/{storeId}/records/{recordKey}{?disableRedirect,token}]
 
@@ -1811,7 +1810,7 @@ are authenticated using the hard-to-guess ID of the dataset.
 
 ### Get list of datasets [GET]
 
-Lists datasets of user. Response is a JSON array of objects where each object
+Lists all of a user's datasets. The response is a JSON array of objects where each object
 contains basic information about one dataset.
 
 By default, the objects are sorted by the `createdAt` field in ascending order,
@@ -2165,7 +2164,7 @@ are authenticated using the hard-to-guess ID of the queue.
 
 ### Get list of request queues [GET]
 
-Lists request queues of user. Response is a JSON array of objects where each object
+Lists all of a user's request queues. The response is a JSON array of objects where each object
 contains basic information about one queue.
 
 By default, the objects are sorted by the `createdAt` field in ascending order,
@@ -2305,7 +2304,9 @@ Returns request from queue.
 
 ### Update request [PUT]
 
-Updates request in queue. Mark request as handled by setting `request.handledAt = new Date()`. If `handledAt` is set then request will be removed from head of the queue.
+Updates a request in a queue. Mark request as handled by setting `request.handledAt = new Date()`.
+
+If `handledAt` is set, the request will be removed from head of the queue.
 
 + Parameters
 
@@ -2361,9 +2362,9 @@ This field is used by [Apify SDK](https://sdk.apify.com) to determine whether th
             - hadMultipleClients: false                   (boolean, required)
             - items (array, required)
               - (object)
-                  - id:         `8OamqXBCpPHxyH9`.       (string, required)
+                  - id:         `8OamqXBCpPHxyH9`        (string, required)
                   - retryCount: 0                        (number, required)
-                  - uniqueKe":  `http://example.com`     (string, required)
+                  - uniqueKey:  `http://example.com`     (string, required)
                   - url:        `http://example.com`     (string, required)
                   - method:     `GET`                    (string, required)
               - (object)
@@ -2676,12 +2677,12 @@ Gets the schedule log as a JSON array containing information about up to a 1000 
             - (object, required)
                 - message   `Schedule invoked`          (string, required)
                 - level     `INFO`                      (string, required)
-                - createdAt `2020-03-26T12:28:00.370Z`  (string, required)
+                - createdAt `2019-03-26T12:28:00.370Z`  (string, required)
 
             - (object, required)
                 - message   `Cannot start actor task \"iEvfA6pm6DWjRTGxS\": Provided input must be object, got \"string\" instead.` (string, required)
                 - level     `ERROR`                     (string, required)
-                - createdAt `2020-03-26T12:30:00.325Z`  (string, required)
+                - createdAt `2019-03-26T12:30:00.325Z`  (string, required)
 
 # Group Logs
 
@@ -2767,8 +2768,8 @@ The user account is identified by the provided authentication token.
 - restartOnError:   false                      (boolean, nullable)
 - isPublic:         false                      (boolean, required)
 - isAnonymouslyRunnable: false                 (boolean, nullable)
-- createdAt:        `2020-07-08T11:27:57.401Z` (string, required)
-- modifiedAt:       `2020-07-08T14:01:05.546Z` (string, required)
+- createdAt:        `2019-07-08T11:27:57.401Z` (string, required)
+- modifiedAt:       `2019-07-08T14:01:05.546Z` (string, required)
 - stats                                        (object, required)
     - totalBuilds:      9                      (number, required)
     - totalRuns:        16                     (number, required)
@@ -2777,7 +2778,7 @@ The user account is identified by the provided authentication token.
     - totalUsers30Days: 6                      (number, required)
     - totalUsers90Days: 6                      (number, required)
     - totalMetamorphs:  2                      (number, required)
-    - lastRunStartedAt: `2020-07-08T14:01:05.546Z` (string, required)
+    - lastRunStartedAt: `2019-07-08T14:01:05.546Z` (string, required)
 - versions                                     (array, required)
     -                                          (Version, required)
 - defaultRunOptions                            (object, required)
@@ -2794,7 +2795,7 @@ The user account is identified by the provided authentication token.
     - latest                                   (object, nullable)
         - buildId:      `z2EryhbfhgSyqj6Hn`    (string, nullable)
         - buldNumber:   `0.0.2`                (string, nullable)
-        - finishedAt:   `2020-06-10T11:15:49.286Z`          (string, nullable)
+        - finishedAt:   `2019-06-10T11:15:49.286Z`          (string, nullable)
 
 ## ActCreate (object)
 - name:             `MyActor`                  (string, required)
@@ -2816,15 +2817,15 @@ The user account is identified by the provided authentication token.
 
 ## ActorShort1 (object)
 - id:              `br9CKmk457`                (string, required)
-- createdAt:        `2015-10-29T07:34:24.202Z` (string, required)
-- modifiedAt:       `2015-10-30T07:34:24.202Z` (string, required)
+- createdAt:        `2019-10-29T07:34:24.202Z` (string, required)
+- modifiedAt:       `2019-10-30T07:34:24.202Z` (string, required)
 - name:             `MyAct`                    (string, required)
 - username:         `john-doe`                 (string, required)
 
 ## ActorShort2 (object)
 - id:              `ksiEKo23pz`                (string, required)
-- createdAt:        `2015-11-30T07:34:24.202Z` (string, required)
-- modifiedAt:       `2015-12-12T07:34:24.202Z` (string, required)
+- createdAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- modifiedAt:       `2019-12-12T07:34:24.202Z` (string, required)
 - name:             `MySecondAct`              (string, required)
 - username:         `john-doe`                 (string, required)
 
@@ -2877,8 +2878,8 @@ The user account is identified by the provided authentication token.
 - userId:                `BPWZBd7Z9c746JAnF`                (string, required)
 - actId:                 `asADASadYvn4mBZmm`                (string, required)
 - name:                  `my-task`                          (string, required)
-- createdAt:             `2020-06-09T14:13:31.285Z`         (string, required) # TODO: review
-- modifiedAt:            `2020-06-09T14:13:31.285Z`         (string, required)  # TODO: review
+- createdAt:             `2019-06-09T14:13:31.285Z`         (string, required) # TODO: review
+- modifiedAt:            `2019-06-09T14:13:31.285Z`         (string, required)  # TODO: review
 - stats                                                     (object)
     - totalRuns:         41                                 (number, nullable)  # TODO: review
 - options                                                   (object, nullable)
@@ -3015,8 +3016,8 @@ The user account is identified by the provided authentication token.
 - id:               `HG7ML7M8z78YcAPEB`        (string, required)
 - actId:            `johndoe~my-actor`         (string, required)
 - userId:           `klmdEpoiojmdEMlk3`        (string, required)
-- startedAt:        `2015-11-30T07:34:24.202Z` (string, required)
-- finishedAt:       `2015-12-12T09:30:12.202Z` (string, nullable)
+- startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- finishedAt:       `2019-12-12T09:30:12.202Z` (string, nullable)
 - status:           `SUCCEEDED`                (string, required)
 - meta                                         (object, required)
     - origin:        `WEB`                     (string, required)
@@ -3041,8 +3042,8 @@ The user account is identified by the provided authentication token.
 ## BuildShort1 (object)
 - id:              `HG7ML7M8z78YcAPEB`         (string, required)
 - status:           `SUCCEEDED`                (string, required)
-- startedAt:        `2015-11-30T07:34:24.202Z` (string, required)
-- finishedAt:       `2015-12-12T09:30:12.202Z` (string, required)
+- startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- finishedAt:       `2019-12-12T09:30:12.202Z` (string, required)
 - meta:                                        (object)
     - origin        `WEB`                      (string, required) # TODO: review
     - clientIp:      `172.234.12.34`           (string, required)
@@ -3050,8 +3051,8 @@ The user account is identified by the provided authentication token.
 
 ## BuildShort2 (object)
 - id:              `HG7ML7M8z78YcAPEB`         (string, required)
-- startedAt:        `2015-12-12T07:34:14.202Z` (string, required)
-- finishedAt:       `2015-12-13T08:36:13.202Z` (string, required)
+- startedAt:        `2019-12-12T07:34:14.202Z` (string, required)
+- finishedAt:       `2019-12-13T08:36:13.202Z` (string, required)
 - status:           `FAILED`                   (string, required)
 - meta:                                        (object)
     - origin        `API`                      (string, required) # TODO: review
@@ -3062,8 +3063,8 @@ The user account is identified by the provided authentication token.
 - id:               `HG7ML7M8z78YcAPEB`        (string, required)
 - actId:            `johndoe~my-actor`         (string, required)
 - userId:           `klmdEpoiojmdEMlk3`        (string, required)
-- startedAt:        `2015-11-30T07:34:24.202Z` (string, required)
-- finishedAt:       `2015-12-12T09:30:12.202Z` (string, nullable)
+- startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- finishedAt:       `2019-12-12T09:30:12.202Z` (string, nullable)
 - status:           `ABORTED`                  (string, required)
 - meta                                         (object, required)
     - origin:        `WEB`                     (string, required)
@@ -3086,8 +3087,8 @@ The user account is identified by the provided authentication token.
 - actId:            `HDSasDasz78YcAPEB`        (string, required)
 - userId:           `7sT5jcggjjA9fNcxF`        (string, required)
 - actorTaskId:      `KJHSKHausidyaJKHs`        (string, nullable)
-- startedAt:        `2020-11-30T07:34:24.202Z` (string, required)
-- finishedAt:       `2020-12-12T09:30:12.202Z` (string, required)
+- startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- finishedAt:       `2019-12-12T09:30:12.202Z` (string, required)
 - status:           `RUNNING`                  (string, required)
 - meta                                         (object, required)
     - origin:       `WEB`                      (string, required)
@@ -3118,6 +3119,7 @@ The user account is identified by the provided authentication token.
     - emfileError:              false          (boolean, nullable)
     - computeUnits:             0.13804        (number, nullable)
 - buildId:          `7sT5jcggjjA9fNcxF`        (string, required)
+- exitCode:         0                          (number, nullable) # TODO: review
 - defaultKeyValueStoreId: `eJNzqsbPiopwJcgGQ`  (string, required)
 - defaultDatasetId: `wmKPijuyDnPZAPRMk`        (string, required)
 - defaultRequestQueueId: `FL35cSF7jrxr3BY39`   (string, required)
@@ -3127,8 +3129,8 @@ The user account is identified by the provided authentication token.
 ## RunShort1 (object)
 - id:              `HG7ML7M8z78YcAPEB`         (string, required)
 - status:           `SUCCEEDED`                (string, required)
-- startedAt:        `2020-11-30T07:34:24.202Z` (string, required)
-- finishedAt:       `2020-12-12T09:30:12.202Z` (string, required)
+- startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- finishedAt:       `2019-12-12T09:30:12.202Z` (string, required)
 - buildId:          `HG7ML7M8z78YcAPEB`        (string, required)
 - buildNumber:      `0.0.2`                    (string, nullable) # TODO: review
 - meta                                         (object, required)
@@ -3143,8 +3145,8 @@ The user account is identified by the provided authentication token.
 - id:              `HG7ML7M8z78YcAPEB`         (string, required)
 - status:           `FAILED`                   (string, required)
 - buildId:          `HG7ML7M8z78YcAPEB`        (string, required)
-- startedAt:        `2020-12-12T07:34:14.202Z` (string, required)
-- finishedAt:       `2020-12-13T08:36:13.202Z` (string, required)
+- startedAt:        `2019-12-12T07:34:14.202Z` (string, required)
+- finishedAt:       `2019-12-13T08:36:13.202Z` (string, required)
 - buildId:          `u78dML7M8z78YcAPEB`       (string, required)
 - buildNumber:      `0.2.2`                    (string, nullable) # TODO: review
 - meta                                         (object, required)
@@ -3161,15 +3163,15 @@ The user account is identified by the provided authentication token.
 - actId:            `HDSasDasz78YcAPEB`        (string, required)
 - userId:           `BPWZBd9V9c746JAnF`        (string, required)
 - actorTaskId:      `KJHSKHausidyaJKHs`        (string, nullable)
-- startedAt:        `2020-11-30T07:34:24.202Z` (string, required)
-- finishedAt:       `2020-12-12T09:30:12.202Z` (string, required)
+- startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- finishedAt:       `2019-12-12T09:30:12.202Z` (string, required)
 - status:           `SUCCEEDED`                (string, required)
 - meta                                         (object, required)
     - origin:       `WEB`                      (string, required)
     - clientIp:     `172.234.12.34`            (string, nullable)
     - userAgent:    `Mozilla/5.0 (iPad)`       (string, required)
     - scheduleId:   `dWazFsPpxMigMSqHL`        (string, required)
-    - scheduledAt:  `2020-06-10T11:40:00.000Z` (string, required)
+    - scheduledAt:  `2019-06-10T11:40:00.000Z` (string, required)
 - stats                                        (object, required)
     - inputBodyLen:              240           (number, nullable) # TODO: review stats segment
     - restartCount:              0             (number, nullable)
@@ -3194,7 +3196,7 @@ The user account is identified by the provided authentication token.
     - emfileError:               false         (boolean, nullable)
     - computeUnits:              0.0072886     (number, nullable)
 - options                                      (object, nullable)
-    - build:        latest                     (string, nullable)
+    - build:        `latest`                   (string, nullable)
     - timeoutSecs:  300                        (number, nullable)
     - memoryMbytes: 1024                       (number, nullable)
     - diskMbytes:   2048                       (number, nullable)
@@ -3209,8 +3211,8 @@ The user account is identified by the provided authentication token.
 ## RunAborted (object)
 - id:               `HG7ML7M8z78YcAPEB`        (string, required)
 - actId:            `johndoe~my-actor`         (string, required)
-- startedAt:        `2015-11-30T07:34:24.202Z` (string, required)
-- finishedAt:       `2015-12-12T09:30:12.202Z` (string, required)
+- startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- finishedAt:       `2019-12-12T09:30:12.202Z` (string, required)
 - status:           `ABORTED`                  (string, required)
 - meta                                         (object, required)
     - origin:       `WEB`                      (string, required)
@@ -3240,7 +3242,7 @@ The user account is identified by the provided authentication token.
     - emfileError:               false         (boolean, nullable)
     - computeUnits:              0.0072886     (number, nullable)
 - options                                      (object, nullable)
-    - build:        latest                     (string, nullable)
+    - build:        `latest`                   (string, nullable)
     - timeoutSecs:  300                        (number, nullable)
     - memoryMbytes: 1024                       (number, nullable)
     - diskMbytes:   2048                       (number, nullable)
@@ -3253,7 +3255,7 @@ The user account is identified by the provided authentication token.
 - id:               `HG7ML7M8z78YcAPEB`        (string, required)
 - actId:            `johndoe~my-actor`         (string, required)
 - userId:           `PNWZBd7Z9c746JAnF`        (string, nullable) # TODO: review
-- startedAt:        `2015-11-30T07:34:24.202Z` (string, required)
+- startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
 - finishedAt:       null (string, required)
 - status:           `RUNNING`                  (string, required)
 - meta                                         (object, required)
@@ -3284,7 +3286,7 @@ The user account is identified by the provided authentication token.
     - emfileError:               false         (boolean, nullable)
     - computeUnits:              0.0072886     (number, nullable)
 - options                                      (object, nullable)
-    - build:        latest                     (string, nullable)
+    - build:        `latest`                   (string, nullable)
     - timeoutSecs:  300                        (number, nullable)
     - memoryMbytes: 1024                       (number, nullable)
     - diskMbytes:   2048                       (number, nullable)
@@ -3294,7 +3296,7 @@ The user account is identified by the provided authentication token.
 - defaultRequestQueueId: `FL35cSF7jrxr3BY39`   (string, required)
 - metamorphs                                   (array, nullable)
     -                                          (object, nullable)
-        - createdAt `2015-11-30T07:39:24.202Z` (string, required)
+        - createdAt `2019-11-30T07:39:24.202Z` (string, required)
         - actorId   `nspoEjklmnsF2oosD`        (string, required)
         - buildId   `ME6oKecqy5kXDS4KQ`        (string, required)
         - inputKey  `INPUT-METAMORPH-1`        (string, required)
@@ -3305,84 +3307,110 @@ The user account is identified by the provided authentication token.
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
 - name:             `d7b9MDYsbtX5L7XAj`        (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`        (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z` (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z` (string, required)
-- accessedAt:       `2015-12-14T08:36:13.202Z` (string, required)
+- createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
+- accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
+- actId:                                       (object, nullable) # TODO: review
+- actRunId:                                    (object, nullable) # TODO: review
 
 ## KVStoreShort1 (object)
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
 - name:             `d7b9MDYsbtX5L7XAj`        (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z` (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z` (string, required)
-- accessedAt:       `2015-12-14T08:36:13.202Z` (string, required)
+- userId:           `BPWDBd7Z9c746JAnF`        (string, nullable) # TODO: review
+- username:         `john-doe`                 (string, nullable) # TODO: review
+- createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
+- accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
+- actId:                                       (object, nullable) # TODO: review
+- actRunId:                                    (object, nullable) # TODO: review
 
 ## KVStoreShort2 (object)
 - id:               `YiKoxjkaS9gjGTqhF`        (string, required)
 - name:             `eshop-items`              (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z` (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z` (string, required)
-- accessedAt:       `2015-12-14T08:36:13.202Z` (string, required)
+- userId:           `BPWDBd7Z9c746JAnF`        (string, nullable) # TODO: review
+- username:         `john-doe`                 (string, nullable) # TODO: review
+- createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
+- accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
+- actId:                                       (object, nullable) # TODO: review
+- actRunId:                                    (object, nullable) # TODO: review
 
 ## Dataset (object)
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
 - name:             `d7b9MDYsbtX5L7XAj`        (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`        (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z` (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z` (string, required)
-- accessedAt:       `2015-12-14T08:36:13.202Z` (string, required)
+- createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
+- accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
 - itemCount:        7                          (number, required)
 - cleanItemCount:   5                          (number, required)
+- actId:                                       (object, nullable) # TODO: review
+- actRunId:                                    (object, nullable) # TODO: review
 
 ## DatasetShort1 (object)
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
 - name:             `d7b9MDYsbtX5L7XAj`        (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z` (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z` (string, required)
-- accessedAt:       `2015-12-14T08:36:13.202Z` (string, required)
+- userId:           `tbXmWu7GCxnyYtSiL`        (string, required) # TODO: review
+- createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
+- accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
 - itemCount:        7                          (number, required)
 - cleanItemCount:   5                          (number, required)
+- actId:                                       (object, nullable) # TODO: review
+- actRunId:                                    (object, nullable) # TODO: review
 
 ## DatasetShort2 (object)
 - id:               `YiKoxjkaS9gjGTqhF`        (string, required)
 - name:             `eshop-items`              (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z` (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z` (string, required)
-- accessedAt:       `2015-12-14T08:36:13.202Z` (string, required)
+- userId:           `tbXmWu7GCxnyYtSiL`        (string, required) # TODO: review
+- createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
+- accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
 - itemCount:        2                          (number, required)
 - cleanItemCount:   2                          (number, required)
+- actId:                                       (object, nullable) # TODO: review
+- actRunId:                                    (object, nullable) # TODO: review
 
 ## RequestQueue (object)
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
 - name:             `some-name`                (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`        (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z` (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z` (string, required)
-- accessedAt:       `2015-12-14T08:36:13.202Z` (string, required)
+- createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
+- accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
 - totalRequestCount:   870                     (number, required)
 - handledRequestCount: 100                     (number, required)
 - pendingRequestCount: 670                     (number, required)
-- hadMultipleClients: true                     (boolean, required)
+- hadMultipleClients:  true                    (boolean, required)
 
 ## RequestQueueShort1 (object)
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
 - name:             `some-name`                (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z` (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z` (string, required)
-- accessedAt:       `2015-12-14T08:36:13.202Z` (string, required)
+- userId:           `wRsJZtadYvn4mBZmm`        (string, required)
+- userName:         `john-doe`                 (string, required)
+- createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
+- accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
+- expireAt:         `2019-06-02T17:15:06.751Z` (string, required) # TODO: review
 - totalRequestCount:   100                     (number, required)
 - handledRequestCount:  50                     (number, required)
 - pendingRequestCount:  50                     (number, required)
+- actId:                                       (object, nullable) # TODO: review
+- actRunId:                                    (object, nullable) # TODO: review
 - hadMultipleClients: true                     (boolean, required)
 
 ## RequestQueueShort2 (object)
 - id:               `YiKoxjkaS9gjGTqhF`        (string, required)
 - name:             `example-com`              (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z` (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z` (string, required)
-- accessedAt:       `2015-12-14T08:36:13.202Z` (string, required)
+- createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
+- accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
+- expireAt:         `2019-06-02T17:15:06.751Z` (string, required) # TODO: review
 - totalRequestCount:   90                      (number, required)
 - handledRequestCount: 20                      (number, required)
 - pendingRequestCount: 70                      (number, required)
+- actId:                                       (object, nullable) # TODO: review
+- actRunId:                                    (object, nullable) # TODO: review
 - hadMultipleClients: false                    (boolean, required)
 
 ## RequestOperationInfo (object)
@@ -3396,15 +3424,25 @@ The user account is identified by the provided authentication token.
 - method:           `GET`                      (string, required)
 
 ## Request1 (object)
+- loadedUrl:                                   (object, nullable) # TODO: review 'nullable/required' on whole object
+- payload:                                     (object, nullable)
+- noRetry:          false                      (boolean, required)
+- errorMessages:                               (object, nullable)
+- headers:                                     (object, nullable)
+- userData:                                    (object, nullable)
+    - label:        `DETAIL`                   (string, nullable)
+    - image:        `https://picserver1.eu`    (string, nullable)
+- handledAt                                    (object, nullable)
 - id:               `dnjkDMKLmdlkmlkmld`       (string, required)
+- retryCount:       0                          (number, required)
 - uniqueKey:        `http://example.com`       (string, required)
 - url:              `http://example.com`       (string, required)
 - method:           `GET`                      (string, required)
 
-## Request2 (object)
+## Request2 (object) # TODO: this object isn't used anywhere
 - id:               `jkndkjMDKWLUlsmkls`       (string, required)
-- uniqueKey:        `http://example.com/a/b    (string, required)
-- url:              `http://example.com/a/b    (string, required)
+- uniqueKey:        `http://example.com/a/b`   (string, required)
+- url:              `http://example.com/a/b`   (string, required)
 - method:           `GET`                      (string, required)
 
 ## UserPublicInfo (object)
@@ -3448,8 +3486,8 @@ The user account is identified by the provided authentication token.
 
 ## Webhook (object)
 - id:               `YiKoxjkaS9gjGTqhF`             (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z`      (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z`      (string, required)
+- createdAt:        `2019-12-12T07:34:14.202Z`      (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z`      (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`             (string, required)
 - isAdHoc:          false                           (boolean, nullable)
 - eventTypes                                        (array, required)
@@ -3464,14 +3502,14 @@ The user account is identified by the provided authentication token.
 - payloadTemplate:  `{\n \"userId\": {{userId}}...` (string, nullable)
 - lastDispatch                                      (object, nullable)
     - status:       `SUCCEEDED`                     (string, required)
-    - finishedAt:   `2015-12-13T08:36:13.202Z`      (string, required)
+    - finishedAt:   `2019-12-13T08:36:13.202Z`      (string, required)
 - stats                                             (object, nullable)
     - totalDispatches: 1                            (number, required)
 
 ## WebhookShort (object)
 - id:               `YiKoxjkaS9gjGTqhF`         (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z`  (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z`  (string, required)
+- createdAt:        `2019-12-12T07:34:14.202Z`  (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z`  (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`         (string, required)
 - isAdHoc:          false                       (boolean, nullable)
 - eventTypes                                    (array, required)
@@ -3484,7 +3522,7 @@ The user account is identified by the provided authentication token.
 - requestUrl:       `http://example.com/`       (string, required)
 - lastDispatch                                  (object, nullable)
     - status:       `SUCCEEDED`                 (string, required)
-    - finishedAt:   `2015-12-13T08:36:13.202Z`  (string, required)
+    - finishedAt:   `2019-12-13T08:36:13.202Z`  (string, required)
 - stats                                         (object, nullable)
     - totalDispatches: 1                        (number, required)
 
@@ -3513,7 +3551,7 @@ The user account is identified by the provided authentication token.
 
 ## WebhookDispatch
 - id:               `asdLZtadYvn4mBZmm`         (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z`  (string, required)
+- createdAt:        `2019-12-12T07:34:14.202Z`  (string, required)
 - webhookId:        `asdLZtadYvn4mBZmm`         (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`         (string, required)
 - status:           `SUCCEEDED`                 (string, required)
@@ -3523,8 +3561,8 @@ The user account is identified by the provided authentication token.
     - actorRunId:   `JgwXN9BdwxGcu9MMF`         (string, required)
 - calls                                         (array, nullable)
     - (object)
-        - startedAt:    `2015-12-12T07:34:14.202Z`  (string, nullable)
-        - finishedAt:   `2015-12-12T07:34:14.202Z`  (string, nullable)
+        - startedAt:    `2019-12-12T07:34:14.202Z`  (string, nullable)
+        - finishedAt:   `2019-12-12T07:34:14.202Z`  (string, nullable)
         - responseStatus: 200                       (number, nullable)
         - responseBody:   `{ "foo": "bar" }`        (string, nullable)
 
@@ -3535,18 +3573,18 @@ The user account is identified by the provided authentication token.
 - isEnabled:  true                        (boolean, required)
 - createdAt:  `2019-12-12T07:34:14.202Z`  (string, required)
 - modifiedAt: `2019-12-20T06:33:11.202Z`  (string, required)
-- lastRunAt:  `2020-04-12T07:33:10.202Z`  (string, required)
-- nextRunAt:  `2020-04-12T07:34:10.202Z`  (string, required)
+- lastRunAt:  `2019-04-12T07:33:10.202Z`  (string, required)
+- nextRunAt:  `2019-04-12T07:34:10.202Z`  (string, required)
 
 ## ScheduleShort2
 - id:         `JgwXN9BdwxGcu9MMF`         (string, required)
 - name:       `my-schedule`               (string, required)
 - userId:     `wRsJZtadYvn4mBZmm`         (string, required)
 - isEnabled:  true                        (boolean, required)
-- createdAt:  `2020-01-12T05:34:14.202Z`  (string, required)
-- modifiedAt: `2020-01-23T06:55:11.202Z`  (string, required)
-- lastRunAt:  `2020-04-10T07:34:10.202Z`  (string, required)
-- nextRunAt:  `2020-05-10T07:34:10.202Z`  (string, required)
+- createdAt:  `2019-01-12T05:34:14.202Z`  (string, required)
+- modifiedAt: `2019-01-23T06:55:11.202Z`  (string, required)
+- lastRunAt:  `2019-04-10T07:34:10.202Z`  (string, required)
+- nextRunAt:  `2019-05-10T07:34:10.202Z`  (string, required)
 
 ## Schedule
 - id:             `asdLZtadYvn4mBZmm`         (string, required)
@@ -3556,8 +3594,8 @@ The user account is identified by the provided authentication token.
 - isExclusive:    true                        (boolean, nullable)
 - createdAt:      `2019-12-12T07:34:14.202Z`  (string, nullable)
 - modifiedAt:     `2019-12-20T06:33:11.202Z`  (string, nullable)
-- lastRunAt:      `2020-04-12T07:33:10.202Z`  (string, nullable)
-- nextRunAt:      `2020-04-12T07:34:10.202Z`  (string, nullable)
+- lastRunAt:      `2019-04-12T07:33:10.202Z`  (string, nullable)
+- nextRunAt:      `2019-04-12T07:34:10.202Z`  (string, nullable)
 - cronExpression: `* * * * *`                 (string, nullable)
 - description:    `Schedule of actor ...`     (string, nullable)
 - actions                                     (array, nullable)
@@ -3569,7 +3607,7 @@ The user account is identified by the provided authentication token.
             - body:         `{\n   \"foo\": \"actor\"\n}`     (string, nullable)
             - contentType:  `application/json; charset=utf-8` (string, nullable)
         - runOptions                                          (object, nullable)
-            - build:        latest                            (string, nullable)
+            - build:        `latest`                          (string, nullable)
             - timeoutSecs:  60                                (number, nullable)
             - memoryMbytes: 1024                              (number, nullable)
 
@@ -3596,7 +3634,7 @@ The user account is identified by the provided authentication token.
             - body:         `{\n   \"foo\": \"actor\"\n}`     (string, nullable)
             - contentType:  `application/json; charset=utf-8` (string, nullable)
         - runOptions                                          (object, nullable)
-            - build:        latest                            (string, nullable)
+            - build:        `latest`                          (string, nullable)
             - timeoutSecs:  60                                (number, nullable)
             - memoryMbytes: 1024                              (number, nullable)
 
