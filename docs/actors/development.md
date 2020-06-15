@@ -1,7 +1,7 @@
 ---
 title: Development
 description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
-menuWeight: 3.5
+menuWeight: 3.4
 paths:
     - actor/development
     - actors/development
