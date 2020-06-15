@@ -77,7 +77,7 @@ Use a single IP from Germany for all requests done in the launched browser
             groups: ['RESIDENTIAL'],
             countryCode: 'DE'
         });
-        const proxyUrl = proxyConfiguration.getUrl('my_session1');
+        const proxyUrl = proxyConfiguration.newUrl('my_session1');
 
         const browser = await Apify.launchPuppeteer({
             proxyUrl
@@ -106,7 +106,7 @@ Make a request with Residential Proxy using the [request](https://www.npmjs.com/
         try {
             const { body } = await Apify.utils.requestAsBrowser({
                 url: 'https://www.example.com',
-                proxyUrl: proxyConfiguration.getUrl(),
+                proxyUrl: proxyConfiguration.newUrl(),
             });
             console.log(body); // returns HTML of returned page
         } catch (e) {
@@ -124,7 +124,7 @@ Use the same IP for two requests with proxy geolocated in France using our [requ
             groups: ['RESIDENTIAL'],
             countryCode: 'FR',
         });
-        const proxyUrl = proxyConfiguration.getUrl('my_session');
+        const proxyUrl = proxyConfiguration.newUrl('my_session');
 
         try {
             const response1 = await Apify.utils.requestAsBrowser({

@@ -128,7 +128,7 @@ Use one IP chosen from `SHADER` and `BUYPROXIES94952` proxy groups for the brows
         });
 
         const browser = await Apify.launchPuppeteer({
-            proxyUrl: proxyConfiguration.getUrl('my_session');
+            proxyUrl: proxyConfiguration.newUrl('my_session'),
         });
 
         const page = await browser.newPage();
@@ -152,7 +152,7 @@ Use one randomly selected IP from all available proxy servers.
             try {
                 const { body } = await Apify.utils.requestAsBrowser({
                     url: 'https://www.example.com',
-                    proxyUrl: proxyConfiguration.getUrl(),
+                    proxyUrl: proxyConfiguration.newUrl(),
                 });
                 console.log(body); // returns HTML of returned page
             } catch (e) {
@@ -169,7 +169,7 @@ Use one IP selected from `SHADER` proxy group for two requests.
             const proxyConfiguration = await Apify.createProxyConfiguration({
                 groups: ['SHADER']
             });
-            const proxyUrl = proxyConfiguration.getUrl('my_session');
+            const proxyUrl = proxyConfiguration.newUrl('my_session');
 
             try {
                 const response1 = await Apify.utils.requestAsBrowser({
@@ -198,7 +198,7 @@ Use randomly chosen IP selected from `SHADER` and `BUYPROXIES94952` proxy groups
                 const proxyConfiguration = await Apify.createProxyConfiguration({
                     groups: ['SHADER', 'BUYPROXIES94952']
                 });
-                const proxyUrl = proxyConfiguration.getUrl();
+                const proxyUrl = proxyConfiguration.newUrl();
                 const url = 'https://api.apify.com/v2/browser-info';
 
                 try {
