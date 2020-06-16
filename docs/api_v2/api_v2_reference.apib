@@ -2788,7 +2788,7 @@ The user account is identified by the provided authentication token.
 - exampleRunInput                              (object, nullable)
     - body:             `{ "helloWorld": 123 }`             (string, required)
     - contentType:      `application/json; charset=utf-8`   (string, required)
-- isDeprecated:         false                  (number, nullable)
+- isDeprecated:         false                  (boolean, nullable)
 - deploymentKey:        `ssh-rsa AAAA ...`     (string, nullable)
 - title:                `My Actor`             (string, nullable)
 - taggedBuilds                                 (object, nullable)
@@ -3029,9 +3029,9 @@ The user account is identified by the provided authentication token.
     - runTimeSecs:   45.718                    (number, required)
     - readyTimeSecs: 0.035                     (number, required)
     - initTotalSecs: 0.139                     (number, required)
-    - emfileError:   {}                         (object, nullable)
+    - emfileError:                             (object, nullable)
     - computeUnits:  0.012699444444444444      (number, required)
-- options:                                     (object, nullable)
+- options                                      (object, nullable)
     - useCache:      false                     (boolean, nullable)
     - memoryMbytes:  1024                      (number, nullable)
     - diskMbytes:    2048                      (number, nullable)
@@ -3044,19 +3044,19 @@ The user account is identified by the provided authentication token.
 - status:           `SUCCEEDED`                (string, required)
 - startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
 - finishedAt:       `2019-12-12T09:30:12.202Z` (string, required)
-- meta:                                        (object)
-    - origin        `WEB`                      (string, required) # TODO: review
-    - clientIp:      `172.234.12.34`           (string, required)
-    - userAgent     `Mozilla/5.0 (Macintosh)`  (string, required) # TODO: review
+- meta                                         (object)
+    - origin:       `WEB`                      (string, required) # TODO: review
+    - clientIp:     `172.234.12.34`            (string, required)
+    - userAgent:    `Mozilla/5.0 (Macintosh)`  (string, required) # TODO: review
 
 ## BuildShort2 (object)
 - id:              `HG7ML7M8z78YcAPEB`         (string, required)
 - startedAt:        `2019-12-12T07:34:14.202Z` (string, required)
 - finishedAt:       `2019-12-13T08:36:13.202Z` (string, required)
 - status:           `FAILED`                   (string, required)
-- meta:                                        (object)
-    - origin        `API`                      (string, required) # TODO: review
-    - clientIp:      `172.234.12.34`           (string, required)
+- meta                                         (object)
+    - origin:       `API`                      (string, required) # TODO: review
+    - clientIp:     `172.234.12.34`            (string, required)
     - userAgent     `Mozilla/5.0 (Intel)`      (string, required) # TODO: review
 
 ## BuildAborted (object)
@@ -3076,8 +3076,8 @@ The user account is identified by the provided authentication token.
     - runTimeSecs:   5.718                     (number, required)
     - readyTimeSecs: 0.035                     (number, required)
     - initTotalSecs: 0.139                     (number, required)
-    - emfileError:   {}                        (object, nullable)
-- options:                                     (object, nullable)
+    - emfileError                              (object, nullable)
+- options                                      (object, nullable)
     - useCache:      false                     (boolean, nullable)
     - memoryMbytes:  1024                      (number, nullable)
     - diskMbytes:    2048                      (number, nullable)
@@ -3291,17 +3291,17 @@ The user account is identified by the provided authentication token.
     - memoryMbytes: 1024                       (number, nullable)
     - diskMbytes:   2048                       (number, nullable)
 - buildId:          `HG7ML7M8z78YcAPEB`        (string, required)
-- defaultKeyValueStoreId: `eJNzqsbPiopwJcgGQ`  (string, required)
-- defaultDatasetId: `wmKPijuyDnPZAPRMk`  (string, required)
-- defaultRequestQueueId: `FL35cSF7jrxr3BY39`   (string, required)
-- metamorphs                                   (array, nullable)
-    -                                          (object, nullable)
-        - createdAt `2019-11-30T07:39:24.202Z` (string, required)
-        - actorId   `nspoEjklmnsF2oosD`        (string, required)
-        - buildId   `ME6oKecqy5kXDS4KQ`        (string, required)
-        - inputKey  `INPUT-METAMORPH-1`        (string, required)
-- buildNumber       `0.1.10`                   (string, nullable) # TODO: review
--containerUrl       `https://hfewsyknno9o.runs.apify.com`  (string, nullable) # TODO: review
+- defaultKeyValueStoreId: `eJNzqsbPiopwJcgGQ`    (string, required)
+- defaultDatasetId:       `wmKPijuyDnPZAPRMk`    (string, required)
+- defaultRequestQueueId:  `FL35cSF7jrxr3BY39`    (string, required)
+- metamorphs                                     (array, nullable)
+    -                                            (object, nullable)
+        - createdAt:  `2019-11-30T07:39:24.202Z` (string, required)
+        - actorId:    `nspoEjklmnsF2oosD`        (string, required)
+        - buildId:    `ME6oKecqy5kXDS4KQ`        (string, required)
+        - inputKey:   `INPUT-METAMORPH-1`        (string, required)
+- buildNumber:        `0.1.10`                   (string, nullable) # TODO: review
+- containerUrl:       `https://hfewsyknno9o.runs.apify.com`  (string, nullable) # TODO: review
 
 ## KVStore (object)
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
@@ -3310,8 +3310,8 @@ The user account is identified by the provided authentication token.
 - createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
 - modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
 - accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
-- actId:                                       (object, nullable) # TODO: review
-- actRunId:                                    (object, nullable) # TODO: review
+- actId                                        (object, nullable) # TODO: review
+- actRunId                                     (object, nullable) # TODO: review
 
 ## KVStoreShort1 (object)
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
@@ -3321,8 +3321,8 @@ The user account is identified by the provided authentication token.
 - createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
 - modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
 - accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
-- actId:                                       (object, nullable) # TODO: review
-- actRunId:                                    (object, nullable) # TODO: review
+- actId                                        (object, nullable) # TODO: review
+- actRunId                                     (object, nullable) # TODO: review
 
 ## KVStoreShort2 (object)
 - id:               `YiKoxjkaS9gjGTqhF`        (string, required)
@@ -3332,8 +3332,8 @@ The user account is identified by the provided authentication token.
 - createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
 - modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
 - accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
-- actId:                                       (object, nullable) # TODO: review
-- actRunId:                                    (object, nullable) # TODO: review
+- actId                                        (object, nullable) # TODO: review
+- actRunId                                     (object, nullable) # TODO: review
 
 ## Dataset (object)
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
@@ -3344,8 +3344,8 @@ The user account is identified by the provided authentication token.
 - accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
 - itemCount:        7                          (number, required)
 - cleanItemCount:   5                          (number, required)
-- actId:                                       (object, nullable) # TODO: review
-- actRunId:                                    (object, nullable) # TODO: review
+- actId                                        (object, nullable) # TODO: review
+- actRunId                                     (object, nullable) # TODO: review
 
 ## DatasetShort1 (object)
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
@@ -3356,8 +3356,8 @@ The user account is identified by the provided authentication token.
 - accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
 - itemCount:        7                          (number, required)
 - cleanItemCount:   5                          (number, required)
-- actId:                                       (object, nullable) # TODO: review
-- actRunId:                                    (object, nullable) # TODO: review
+- actId                                        (object, nullable) # TODO: review
+- actRunId                                     (object, nullable) # TODO: review
 
 ## DatasetShort2 (object)
 - id:               `YiKoxjkaS9gjGTqhF`        (string, required)
@@ -3368,8 +3368,8 @@ The user account is identified by the provided authentication token.
 - accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
 - itemCount:        2                          (number, required)
 - cleanItemCount:   2                          (number, required)
-- actId:                                       (object, nullable) # TODO: review
-- actRunId:                                    (object, nullable) # TODO: review
+- actId                                        (object, nullable) # TODO: review
+- actRunId                                     (object, nullable) # TODO: review
 
 ## RequestQueue (object)
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
@@ -3395,8 +3395,8 @@ The user account is identified by the provided authentication token.
 - totalRequestCount:   100                     (number, required)
 - handledRequestCount:  50                     (number, required)
 - pendingRequestCount:  50                     (number, required)
-- actId:                                       (object, nullable) # TODO: review
-- actRunId:                                    (object, nullable) # TODO: review
+- actId                                        (object, nullable) # TODO: review
+- actRunId                                     (object, nullable) # TODO: review
 - hadMultipleClients: true                     (boolean, required)
 
 ## RequestQueueShort2 (object)
@@ -3409,8 +3409,8 @@ The user account is identified by the provided authentication token.
 - totalRequestCount:   90                      (number, required)
 - handledRequestCount: 20                      (number, required)
 - pendingRequestCount: 70                      (number, required)
-- actId:                                       (object, nullable) # TODO: review
-- actRunId:                                    (object, nullable) # TODO: review
+- actId                                        (object, nullable) # TODO: review
+- actRunId                                     (object, nullable) # TODO: review
 - hadMultipleClients: false                    (boolean, required)
 
 ## RequestOperationInfo (object)
@@ -3424,25 +3424,19 @@ The user account is identified by the provided authentication token.
 - method:           `GET`                      (string, required)
 
 ## Request1 (object)
-- loadedUrl:                                   (object, nullable) # TODO: review 'nullable/required' on whole object
-- payload:                                     (object, nullable)
+- loadedUrl         `http://example.com/example-1`   (object, nullable) # TODO: review 'nullable/required' on whole object
+- payload                                      (object, nullable)
 - noRetry:          false                      (boolean, required)
-- errorMessages:                               (object, nullable)
-- headers:                                     (object, nullable)
-- userData:                                    (object, nullable)
+- errorMessages                                (array, nullable)
+- headers                                      (object, nullable)
+- userData                                     (object)
     - label:        `DETAIL`                   (string, nullable)
     - image:        `https://picserver1.eu`    (string, nullable)
-- handledAt                                    (object, nullable)
+- handledAt         `2019-06-16T10:23:31.607Z` (object, nullable)
 - id:               `dnjkDMKLmdlkmlkmld`       (string, required)
 - retryCount:       0                          (number, required)
 - uniqueKey:        `http://example.com`       (string, required)
 - url:              `http://example.com`       (string, required)
-- method:           `GET`                      (string, required)
-
-## Request2 (object) # TODO: this object isn't used anywhere
-- id:               `jkndkjMDKWLUlsmkls`       (string, required)
-- uniqueKey:        `http://example.com/a/b`   (string, required)
-- url:              `http://example.com/a/b`   (string, required)
 - method:           `GET`                      (string, required)
 
 ## UserPublicInfo (object)
@@ -3456,9 +3450,7 @@ The user account is identified by the provided authentication token.
     - twitterUsername:   `@BillGates`                                            (string)
 
 ## UserPrivateInfo (object)
-- id:               `YiKoxjkaS9gjGTqhF`        (string, required)
 - username:         `myusername`               (string, required)
-- email:            `bob@example.com`          (string, required)
 - profile                                      (object, required)
     - bio:               `I started web scraping in 1985 using Altair BASIC.`    (string)
     - name:              `John Doe`                                              (string)
@@ -3466,23 +3458,46 @@ The user account is identified by the provided authentication token.
     - githubUsername:    `torvalds.`                                             (string)
     - websiteUrl:        `http://www.example.com`                                (string)
     - twitterUsername:   `@BillGates`                                            (string)
-- proxy                                       (object, required)
-    - password:          `ad78knd9Jkjd86`                                        (string, required)
-    - groups                                                                  (array, required)
-- limits                 (object, required)
-    - maxParallelCrawlers:  `10`        (number, required)
-    - monthlyPages:         `900000`    (number, required)
-    - monthlyComputeUnits:  `300`       (number, required)
-    - dataRetentionDays:    `7`         (number, required)
-    - maxMemoryMbytes:      `16384`     (number, required)
-    - maxActsCount:         `100`       (number, nullable)
-    - maxActs2Count:        `100`       (number, nullable)
-- currentBillingPeriod    (object, required)
-    - startAt:              `2018-03-14T23:00:00.000Z`        (string, required)
-    - endAt:                `2018-04-14T21:59:59.000Z`        (string, required)
-    - usage                                              (object, required)
-        - pagesCrawled:     `900000`                        (number, required)
-        - computeUnits:     `300`                           (number, required)
+- id:               `YiKoxjkaS9gjGTqhF`                     (string, required)
+- email:            `bob@example.com`                       (string, required)
+- currentBillingPeriod                                      (object, required)
+    - startAt:              `2018-03-14T23:00:00.000Z`      (string, required)
+    - endAt:                `2018-04-14T21:59:59.000Z`      (string, required)
+    - usage                                                 (object, required)
+        - pagesCrawled:     900000                          (number, required)
+        - computeUnits:     300                             (number, required)
+- proxy                                             (object, required)
+    - password:          `ad78knd9Jkjd86`           (string, required)
+    - groups                                        (array, required)
+- limits                                            (object, required)
+    - monthlyPages:                  900000         (number, required)
+    - monthlyComputeUnits:           300            (number, required)
+    - monthlyResidentialProxyGbytes: 0              (number, nullable) # TODO: review
+    - monthlyGoogleSerpRequests:     20             (number, nullable) # TODO: review
+    - dataRetentionDays:             7              (number, required)
+    - maxMemoryMbytes:               16384          (number, required)
+    - maxParallelCrawlers:           10             (number, required)
+    - isActorBanned:                 null           (string, nullable) # TODO: review
+    - isProxyBanned:                 null           (string, nullable) # TODO: review
+    - isResidentialProxyBanned:      null           (string, nullable) # TODO: review
+    - isGoogleSerpBanned:            null           (string, nullable) # TODO: review
+    - actorBannedUntil:              null           (string, nullable) # TODO: review
+    - proxyBannedUntil:              null           (string, nullable) # TODO: review
+    - residentialProxyBannedUntil:   null           (string, nullable) # TODO: review
+    - googleSerpBannedUntil:         null           (string, nullable) # TODO: review
+    - maxActsCount:                  100            (number, nullable)
+    - maxActs2Count:                 null           (number, nullable) # TODO: review
+    - maxActorTaskCount:             null           (number, nullable) # TODO: review
+    - hasProxyTrial:                 true           (boolean, nullable) # TODO: review
+    - proxyTrialUntil:      `2021-04-01T21:59:59.999Z`  (string, nullable) # TODO: review
+- availableProxyGroups                    (object, nullable) # TODO: review whole object required/nullable
+    - SHADER:               50             (number, required)
+    - BUYPROXIES94952:      100            (number, required)
+    - BUYPROXIES63811:      5              (number, nullable)
+    - BUYPROXIES63748:      10             (number, nullable)
+    - qfCaFFuCodXxAS59E:    3              (number, nullable)
+    - GOOGLESERP:           1              (number, nullable)
+- monthlyDatacenterProxyGbytes:      500            (number, nullable)
 
 ## Webhook (object)
 - id:               `YiKoxjkaS9gjGTqhF`             (string, required)
