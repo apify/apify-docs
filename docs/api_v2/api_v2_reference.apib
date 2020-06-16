@@ -2924,7 +2924,7 @@ The user account is identified by the provided authentication token.
 - sourceCode:               `console.log('Hello world!');`  (string, nullable)
 
 ## ListOfVersions (object)
--                                                                   (array)
+- ListOfVersions                                                    (array)
     -                                                               (object)
         - versionNumber:            `0.0`                           (string, required)
         - sourceType:               `SOURCE_CODE`                   (VersionSourceType, required)
@@ -2947,20 +2947,20 @@ The user account is identified by the provided authentication token.
         - sourceCode:               `console.log('Hello world!');`  (string, nullable)
         - applyEnvVarsToBuild:       false                          (boolean, nullable)
         - buildTag:                 `latest`                        (string, required)
-        - sourceFiles                                               (array)
-            -                                                       (object)
+        - sourceFiles                                                   (array)
+            - 1                                                         (object)
                 - name: `src/main.js`                                   (string, required)
                 - format: `TEXT`                                        (string, required)
-                - content: `console.log('This is the main.js file');`    (string, required)
-            -                                                           (object)
+                - content: `console.log('This is the main.js file');`   (string, required)
+            - 2                                                         (object)
                 - name: `package.json`                                  (string, required)
                 - format: `TEXT`                                        (string, required)
                 - content: `name: "My Scraper"`                         (string, required)
-            -                                                           (object)
+            - 3                                                         (object)
                 - name: `Dockerfile`                                    (string, required)
                 - format: `TEXT`                                        (string, required)
                 - content: ` # Dockerfile contains instructions ...`                 (string, required)
-             -                                                          (object)
+             - 4                                                        (object)
                 - name: `README.md`                                     (string, required)
                 - format: `TEXT`                                        (string, required)
                 - content: `My Actor scrapes the web`                   (string, required)
@@ -3029,7 +3029,7 @@ The user account is identified by the provided authentication token.
     - runTimeSecs:   45.718                    (number, required)
     - readyTimeSecs: 0.035                     (number, required)
     - initTotalSecs: 0.139                     (number, required)
-    - emfileError:                             (object, nullable)
+    - emfileError                              (object, nullable)
     - computeUnits:  0.012699444444444444      (number, required)
 - options                                      (object, nullable)
     - useCache:      false                     (boolean, nullable)
@@ -3486,8 +3486,8 @@ The user account is identified by the provided authentication token.
     - residentialProxyBannedUntil:   null           (string, nullable) # TODO: review
     - googleSerpBannedUntil:         null           (string, nullable) # TODO: review
     - maxActsCount:                  100            (number, nullable)
-    - maxActs2Count:                 null           (number, nullable) # TODO: review
-    - maxActorTaskCount:             null           (number, nullable) # TODO: review
+    - maxActs2Count:                 0              (number, nullable) # TODO: review
+    - maxActorTaskCount:             0              (number, nullable) # TODO: review
     - hasProxyTrial:                 true           (boolean, nullable) # TODO: review
     - proxyTrialUntil:      `2021-04-01T21:59:59.999Z`  (string, nullable) # TODO: review
 - availableProxyGroups                    (object, nullable) # TODO: review whole object required/nullable
