@@ -1756,7 +1756,7 @@ Removes a record specified by a key from the key-value store.
 
     + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
-+ Response 200 (application/json)
++ Response 204 (application/json)
 
 ## Direct upload URL [/v2/key-value-stores/{storeId}/records/{recordKey}/direct-upload-url{?token}]
 
@@ -2277,7 +2277,7 @@ If request with same `uniqueKey` was already present in the queue then returns a
 
     + Attributes(RequestWithoutId)
 
-+ Response 200 (application/json)
++ Response 201 (application/json)
 
     + Attributes
         - data (RequestOperationInfo, required)
