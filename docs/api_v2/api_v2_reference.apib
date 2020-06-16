@@ -9,7 +9,7 @@ HTTP endpoints.
 All requests and responses (including errors) are encoded in [JSON](http://www.json.org/) format with UTF-8 encoding,
 with a few exceptions that are explicitly described in the reference.
 
-To access the API using [Node.js](https://nodejs.org/en/), we recommend using the
+To access the API using [Node.js](https://nodejs.org/en/), we recommend the
 [`apify-client`](https://docs.apify.com/api/apify-client-js/latest) [NPM package](https://www.npmjs.com/package/apify-client). 
 The client's functions correspond to the API endpoints and have the same parameters. This simplifies development of apps that depend on the Apify platform.
 
@@ -261,7 +261,7 @@ Here is the table of the most common errors that can occur for many API endpoint
   <tr>
     <td><code>400</code></td>
     <td><code>invalid-value</code></td>
-    <td>Invalid value provided: Comment is required</td>
+    <td>Invalid value provided: Comments required</td>
   </tr>
   <tr>
     <td><code>400</code></td>
@@ -362,7 +362,7 @@ username of the actor owner and the actor name (e.g. `johndoe~my-actor`).
 
 ### Get list of actors [GET]
 
-Gets the list of all actors that the user created or used. The response is a list of objects where each object
+Gets the list of all actors that the user created or used. The response is a list of objects, where each object
 contains a basic information about a single actor.
 To only get actors created by the user, add the `my=1` query parameter.
 
@@ -470,7 +470,7 @@ Deletes an actor.
 ### Get list of versions [GET]
 
 Gets the list of versions of a specific actor. The response is a JSON object with the list
-of [Version objects](#reference/actors/version-object) where each
+of [Version objects](#reference/actors/version-object), where each
 contains basic information about a single version.
 
 + Response 200 (application/json)
@@ -599,7 +599,7 @@ Deletes a specific version of actor's source code.
 
 ### Get list of webhooks [GET]
 
-Gets the list of webhooks of a specific actor. The response is a JSON with the list of objects where each object
+Gets the list of webhooks of a specific actor. The response is a JSON with the list of objects, where each object
 contains basic information about a single webhook.
 
 The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records.
@@ -634,7 +634,7 @@ to sort the records in descending order, use the `desc=1` parameter.
 
 ### Get list of builds [GET]
 
-Gets the list of builds of a specific actor. The response is a JSON with the list of objects where each object
+Gets the list of builds of a specific actor. The response is a JSON with the list of objects, where each object
 contains basic information about a single build.
 
 The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records.
@@ -740,7 +740,7 @@ Only builds that are starting or running are aborted. For builds with status `FI
 
 ### Get list of runs [GET]
 
-Gets the list of runs of a specific actor. The response is a list of objects where each object
+Gets the list of runs of a specific actor. The response is a list of objects, where each object
 contains basic information about a single actor run.
 
 The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000
@@ -1249,7 +1249,7 @@ The request needs to specify the `Content-Type: application/json` HTTP header!
 
 ### Get list of webhooks [GET]
 
-Gets the list of webhooks of a specific actor task. The response is a JSON with the list of objects where each object
+Gets the list of webhooks of a specific actor task. The response is a JSON with the list of objects, where each object
 contains basic information about a single webhook.
 
 The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records.
@@ -1283,7 +1283,7 @@ to sort the records in descending order, use the `desc=1` parameter.
 
 ### Get list of task runs [GET]
 
-Get a list of runs of a specific task. The response is a list of objects where each object
+Get a list of runs of a specific task. The response is a list of objects, where each object
 contains essential information about a single task run.
 
 The endpoint supports pagination using the `limit` and `offset` parameters, and it does not return more than a 1000
@@ -1554,7 +1554,7 @@ are authenticated using a hard-to-guess ID of the key-value store.
 ### Get list of key-value stores [GET]
 
 Gets the list of key-value stores owned by the user.
-The response is a list of objects where each objects contains a basic information about a single key-value store.
+The response is a list of objects, where each objects contains a basic information about a single key-value store.
 
 The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000
 array elements.
@@ -1796,7 +1796,7 @@ add the `Content-Encoding: gzip` header to your request.
 
 This section describes API endpoints to manage Datasets.
 
-Dataset is a storage for structured data where each record stored has the same attributes,
+Dataset is a storage for structured data, where each record stored has the same attributes,
 such as online store products or real estate offers. You can imagine it as a table,
 where each object is a row and its attributes are columns. Dataset is an append-only
 storage - you can only add new records to it but you cannot modify or remove existing
@@ -1810,7 +1810,7 @@ are authenticated using the hard-to-guess ID of the dataset.
 
 ### Get list of datasets [GET]
 
-Lists all of a user's datasets. The response is a JSON array of objects where each object
+Lists all of a user's datasets. The response is a JSON array of objects, where each object
 contains basic information about one dataset.
 
 By default, the objects are sorted by the `createdAt` field in ascending order,
@@ -2164,7 +2164,7 @@ are authenticated using the hard-to-guess ID of the queue.
 
 ### Get list of request queues [GET]
 
-Lists all of a user's request queues. The response is a JSON array of objects where each object
+Lists all of a user's request queues. The response is a JSON array of objects, where each object
 contains basic information about one queue.
 
 By default, the objects are sorted by the `createdAt` field in ascending order,
