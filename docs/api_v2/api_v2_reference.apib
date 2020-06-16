@@ -3519,6 +3519,7 @@ The user account is identified by the provided authentication token.
     - actorTaskId:  `asdLZtadYvn4mBZmm`         (string, nullable)
     - actorRunId:   `hgdKZtadYvn4mBpoi`         (string, nullable)
 - ignoreSslErrors:  false                       (boolean, required)
+- doNotRetry:        false                      (boolean, nullable) # TODO: review
 - requestUrl:       `http://example.com/`       (string, required)
 - lastDispatch                                  (object, nullable)
     - status:       `SUCCEEDED`                 (string, required)
@@ -3551,9 +3552,9 @@ The user account is identified by the provided authentication token.
 
 ## WebhookDispatch
 - id:               `asdLZtadYvn4mBZmm`         (string, required)
-- createdAt:        `2019-12-12T07:34:14.202Z`  (string, required)
-- webhookId:        `asdLZtadYvn4mBZmm`         (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`         (string, required)
+- webhookId:        `asdLZtadYvn4mBZmm`         (string, required)
+- createdAt:        `2019-12-12T07:34:14.202Z`  (string, required)
 - status:           `SUCCEEDED`                 (string, required)
 - eventType:        `ACTOR.RUN.SUCCEEDED`       (string, required)
 - eventData                                     (object, required)
@@ -3563,13 +3564,14 @@ The user account is identified by the provided authentication token.
     - (object)
         - startedAt:    `2019-12-12T07:34:14.202Z`  (string, nullable)
         - finishedAt:   `2019-12-12T07:34:14.202Z`  (string, nullable)
+        - errorMessage: `Cannot send request`       (string, nullable) # TODO: review
         - responseStatus: 200                       (number, nullable)
         - responseBody:   `{ "foo": "bar" }`        (string, nullable)
 
 ## ScheduleShort1
 - id:         `asdLZtadYvn4mBZmm`         (string, required)
-- name:       `my-schedule`               (string, required)
 - userId:     `wRsJZtadYvn4mBZmm`         (string, required)
+- name:       `my-schedule`               (string, required)
 - isEnabled:  true                        (boolean, required)
 - createdAt:  `2019-12-12T07:34:14.202Z`  (string, required)
 - modifiedAt: `2019-12-20T06:33:11.202Z`  (string, required)
@@ -3578,8 +3580,8 @@ The user account is identified by the provided authentication token.
 
 ## ScheduleShort2
 - id:         `JgwXN9BdwxGcu9MMF`         (string, required)
-- name:       `my-schedule`               (string, required)
 - userId:     `wRsJZtadYvn4mBZmm`         (string, required)
+- name:       `my-schedule`               (string, required)
 - isEnabled:  true                        (boolean, required)
 - createdAt:  `2019-01-12T05:34:14.202Z`  (string, required)
 - modifiedAt: `2019-01-23T06:55:11.202Z`  (string, required)
@@ -3588,16 +3590,18 @@ The user account is identified by the provided authentication token.
 
 ## Schedule
 - id:             `asdLZtadYvn4mBZmm`         (string, required)
-- name:           `my-schedule`               (string, required)
 - userId:         `wRsJZtadYvn4mBZmm`         (string, required)
+- name:           `my-schedule`               (string, required)
+- nameLowerCase:  `my-schedule`               (string, required) # TODO: review
+- cronExpression: `* * * * *`                 (string, nullable)
+- timezone:       `UTC`                       (string, required)
 - isEnabled:      true                        (boolean, nullable)
 - isExclusive:    true                        (boolean, nullable)
+- description:    `Schedule of actor ...`     (string, nullable)
 - createdAt:      `2019-12-12T07:34:14.202Z`  (string, nullable)
 - modifiedAt:     `2019-12-20T06:33:11.202Z`  (string, nullable)
-- lastRunAt:      `2019-04-12T07:33:10.202Z`  (string, nullable)
 - nextRunAt:      `2019-04-12T07:34:10.202Z`  (string, nullable)
-- cronExpression: `* * * * *`                 (string, nullable)
-- description:    `Schedule of actor ...`     (string, nullable)
+- lastRunAt:      `2019-04-12T07:33:10.202Z`  (string, nullable)
 - actions                                     (array, nullable)
     -                                         (object, required)
         - id:               `c6KfSgoQzFhMk3etc`               (string, required)
