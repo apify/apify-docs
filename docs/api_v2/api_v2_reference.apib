@@ -2812,8 +2812,8 @@ The user account is identified by the provided authentication token.
 - versions                                     (ListOfVersions, required)
 - defaultRunOptions                            (object, required)
     - build:            `latest`               (string, required) # TODO: review + all the fields below
-    - timeOutSecs:      3600                   (number, required)
-    - memoryBytes:      2048                   (number, required)
+    - timeoutSecs:      3600                   (number, required)
+    - memoryMbytes:      2048                  (number, required)
 - exampleRunInput                              (object, nullable)
     - body:             `{ "helloWorld": 123 }`             (string, required)
     - contentType:      `application/json; charset=utf-8`   (string, required)
