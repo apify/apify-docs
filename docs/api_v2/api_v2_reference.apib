@@ -1027,7 +1027,7 @@ For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrec
     + Attributes
         - data (Run, required)
 
-## Last run object and its storages [/v2/acts/{actorId}/runs/last/{token,status}]
+## Last run object and its storages [/v2/acts/{actorId}/runs/last/{?token,status}]
 
 This is not a single endpoint, but an entire group of endpoints that lets you to
 retrieve and manage the last run of given actor or any of its default storages.
@@ -1475,7 +1475,7 @@ To run the Task asynchronously, use the [Run task asynchronously](#reference/act
             - type: `run-timeout-exceeded` (string, required)
             - message: `Actor run exceeded timeout of 300 seconds for this API endpoint` (string, required)
 
-## Last run object and its storages [/v2/acts/{actorId}/runs/last/{token,status,actorTaskId}]
+## Last run object and its storages [/v2/acts/{actorId}/runs/last/{?token,status,actorTaskId}]
 
 This is not a single endpoint, but an entire group of endpoints that lets you to
 retrieve and manage the last run of given actor task or any of its default storages.
