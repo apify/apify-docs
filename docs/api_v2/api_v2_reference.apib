@@ -350,7 +350,7 @@ For more information, see the <a href="https://docs.apify.com/actor">Actor docum
 
 Note that for all the API endpoints that accept the `actorId` parameter to specify an actor,
 you can pass either the actor ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
-username of the actor owner and the actor name (e.g. `johndoe~my-actor`).
+username of the actor owner and the actor name (e.g. `janedoe~my-actor`).
 
 ## Actor collection [/v2/acts{?token,offset,limit,desc,my}]
 
@@ -421,7 +421,7 @@ For more information, see [Version object](#reference/actors/version-object).
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get actor [GET]
@@ -464,7 +464,7 @@ Deletes an actor.
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get list of versions [GET]
@@ -549,7 +549,7 @@ For more information about source code and actor versions, see [Source code](htt
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + versionNumber: `1.0` (string, required) - Actor major and minor version of the actor.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
@@ -594,7 +594,7 @@ Deletes a specific version of actor's source code.
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get list of webhooks [GET]
@@ -629,7 +629,7 @@ to sort the records in descending order, use the `desc=1` parameter.
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get list of builds [GET]
@@ -690,7 +690,7 @@ The response is the build object as returned by the
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
 
 ### Get build [GET]
 
@@ -723,7 +723,7 @@ Only builds that are starting or running are aborted. For builds with status `FI
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + buildId: `3KH8gEpp4d8uQSe8T` (string, required) - Build ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
@@ -736,7 +736,7 @@ Only builds that are starting or running are aborted. For builds with status `FI
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
 
 ### Get list of runs [GET]
 
@@ -819,7 +819,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token. Public actors that are configured to be anonymously runnable do not require token parameter.
     + outputRecordKey: `OUTPUT` (string, optional) - Key of the record from run's default key-value store to be returned
                                                      in the response. By default, it is `OUTPUT`.
@@ -947,7 +947,7 @@ This endpoints do not require the authentication token, the calls are authentica
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
                                                  If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
@@ -967,7 +967,7 @@ Only runs that are starting or running are aborted. For runs with status `FINISH
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
@@ -993,7 +993,7 @@ For more information, see [Actor docs](http://apify.com/docs/actor#metamorph).
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Actor run ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
     + targetActorId: `HDSasDasz78YcAPEB` (string, required) - ID of a target actor that the run should be transformed into.
@@ -1018,7 +1018,7 @@ For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrec
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
@@ -1086,7 +1086,7 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
     + status: `SUCCEEDED` (string, optional) - Filter for the run status.
 
@@ -1104,7 +1104,7 @@ For more information, see the <a href="https://docs.apify.com/tasks">Actor tasks
 
 Note that for all the API endpoints that accept the `actorTaskId` parameter to specify a task,
 you can pass either the task ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
-username of the task's owner and the task's name (e.g. `johndoe~my-task`).
+username of the task's owner and the task's name (e.g. `janedoe~my-task`).
 
 ## Task collection [/v2/actor-tasks{?token,offset,limit,desc}]
 
@@ -1167,7 +1167,7 @@ The request needs to specify the `Content-Type: application/json` HTTP header!
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get task [GET]
@@ -1210,7 +1210,7 @@ Delete the task specified through the `actorTaskId` parameter.
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get task input [GET]
@@ -1250,7 +1250,7 @@ The request needs to specify the `Content-Type: application/json` HTTP header!
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get list of webhooks [GET]
@@ -1285,7 +1285,7 @@ to sort the records in descending order, use the `desc=1` parameter.
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
 
 ### Get list of task runs [GET]
 
@@ -1302,7 +1302,7 @@ parameter.
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
     + offset: 10 (number, optional) - Number of array elements that should be skipped at the start. The default value is `0`.
     + limit: 99 (number, optional) - Maximum number of array elements to return. The default value as well as the maximum is `1000`.
@@ -1338,7 +1338,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token.
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the task settings.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. By default, the run uses a memory limit specified in the task settings.
@@ -1372,7 +1372,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token.
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the task settings.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. By default, the run uses a memory limit specified in the task settings.
@@ -1534,7 +1534,7 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Actor ID or a tilde-separated owner's username and actor task name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Actor ID or a tilde-separated owner's username and actor task name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
     + status: `SUCCEEDED` (string, optional) - Filter for the run status.
 
@@ -2442,7 +2442,7 @@ Multiple calls to create webhook with the same idempotency key will only create 
 with the first call and return the existing webhook on subsequent calls. Idempotency keys
 must be unique, so use a UUID or another random string with enough entropy.
 
-The request needs to specify the `Content-Type: application/json` HTTP header!
+**Important**: The request must specify the `Content-Type: application/json` HTTP header.
 
 + Request (application/json)
 
@@ -2775,7 +2775,7 @@ The user account is identified by the provided authentication token.
 - id:               `zdc3Pyhyz3m8vjDeM`        (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`        (string, required)
 - name:             `MyActor`                  (string, required)
-- username:         `john35`                   (string, required)
+- username:         `jane35`                   (string, required)
 - description:      `My favourite actor!`      (string, nullable)
 - restartOnError:   false                      (boolean, nullable)
 - isPublic:         false                      (boolean, required)
@@ -2831,21 +2831,21 @@ The user account is identified by the provided authentication token.
 - createdAt:        `2019-10-29T07:34:24.202Z` (string, required)
 - modifiedAt:       `2019-10-30T07:34:24.202Z` (string, required)
 - name:             `MyAct`                    (string, required)
-- username:         `john-doe`                 (string, required)
+- username:         `janedoe`                 (string, required)
 
 ## ActorShort2 (object)
 - id:              `ksiEKo23pz`                (string, required)
 - createdAt:        `2019-11-30T07:34:24.202Z` (string, required)
 - modifiedAt:       `2019-12-12T07:34:24.202Z` (string, required)
 - name:             `MySecondAct`              (string, required)
-- username:         `john-doe`                 (string, required)
+- username:         `janedoe`                 (string, required)
 
 ## Task (object)
 - id:                    `zdc3Pyhyz3m8vjDeM`                (string, required)
 - userId:                `wRsJZtadYvn4mBZmm`                (string, required)
 - actId:                 `asADASadYvn4mBZmm`                (string, required)
 - name:                  `my-task`                          (string, required)
-- username:              `john-doe`                         (string, nullable)
+- username:              `janedoe`                         (string, nullable)
 - createdAt:             `2018-10-26T07:23:14.855Z`         (string, required)
 - modifiedAt:            `2018-10-26T13:30:49.578Z`         (string, required)
 - removedAt:             `null`                             (string, nullable)
@@ -2864,8 +2864,8 @@ The user account is identified by the provided authentication token.
 - actId:                 `asADASadYvn4mBZmm`            (string, required)
 - actName:               `my-actor`                     (string, required)
 - name:                  `my-task`                      (string, required)
-- username:              `john-doe`                     (string, nullable)
-- actUsername:           `john-doe`                     (string, required)
+- username:              `janedoe`                     (string, nullable)
+- actUsername:           `janedoe`                     (string, required)
 - createdAt:             `2018-10-26T07:23:14.855Z`     (string, required)
 - modifiedAt:            `2018-10-26T13:30:49.578Z`     (string, required)
 - stats                                                 (object, nullable)
@@ -2876,9 +2876,9 @@ The user account is identified by the provided authentication token.
 - userId:                `wRsJZtadYvn4mBZmm`            (string, required)
 - actId:                 `asADASadYvn4mBZmm`            (string, required)
 - actName:               `my-actor`                     (string, required)
-- actUsername:           `john-doe`                     (string, required)
+- actUsername:           `janedoe`                     (string, required)
 - name:                  `my-task-2`                    (string, required)
-- username:              `john-doe`                     (string, nullable)
+- username:              `janedoe`                     (string, nullable)
 - createdAt:             `2018-10-26T07:23:14.855Z`     (string, required)
 - modifiedAt:            `2018-10-26T13:30:49.578Z`     (string, required)
 - stats                                                 (object, nullable)
@@ -2905,7 +2905,7 @@ The user account is identified by the provided authentication token.
 - userId:                `BPWZBd7Z9c746JAnF`                (string, required)
 - actId:                 `asADASadYvn4mBZmm`                (string, required)
 - name:                  `my-task`                          (string, required)
-- username:              `john-doe`                         (string, nullable)
+- username:              `janedoe`                          (string, nullable)
 - createdAt:             `2018-10-26T07:23:14.855Z`         (string, required)
 - modifiedAt:            `2018-10-26T13:30:49.578Z`         (string, required)
 - removedAt:             `null`                             (string, nullable)
@@ -2980,21 +2980,21 @@ The user account is identified by the provided authentication token.
     - envVars:                  []                                  (array, nullable)
     - applyEnvVarsToBuild:       false                              (boolean, nullable)
     - buildTag:                 `latest`                            (string, required)
-    - gitRepoUrl:               `https://github.com/john35/my-actor`    (string, required)
+    - gitRepoUrl:               `https://github.com/jane35/my-actor`    (string, required)
 -                                                                   (object)
     - versionNumber:            `0.3`                               (string, required)
     - sourceType:               `TARBALL`                           (VersionSourceType, required)
     - envVars:                  []                                  (array, nullable)
     - applyEnvVarsToBuild:       false                              (boolean, nullable)
     - buildTag:                 `latest`                            (string, required)
-    - tarballUrl:               `https://github.com/john35/my-actor/archive/master.zip`    (string, required)
+    - tarballUrl:               `https://github.com/jane35/my-actor/archive/master.zip`    (string, required)
 -                                                                   (object)
     - versionNumber:            `0.4`                               (string, required)
     - sourceType:               `GITHUB_GIST`                       (VersionSourceType, required)
     - envVars:                  []                                  (array, nullable)
     - applyEnvVarsToBuild:       false                              (boolean, nullable)
     - buildTag:                 `latest`                            (string, required)
-    - gitHubGistUrl:            `https://gist.github.com/john35/e51feb784yu89`    (string, required)
+    - gitHubGistUrl:            `https://gist.github.com/jane35/e51feb784yu89`    (string, required)
 
 
 ## VersionUpdate (object)
@@ -3024,7 +3024,7 @@ The user account is identified by the provided authentication token.
 
 ## Build (object)
 - id:               `HG7ML7M8z78YcAPEB`        (string, required)
-- actId:            `johndoe~my-actor`         (string, required)
+- actId:            `janedoe~my-actor`         (string, required)
 - userId:           `klmdEpoiojmdEMlk3`        (string, required)
 - startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
 - finishedAt:       `2019-12-12T09:30:12.202Z` (string, nullable)
@@ -3071,7 +3071,7 @@ The user account is identified by the provided authentication token.
 
 ## BuildAborted (object)
 - id:               `HG7ML7M8z78YcAPEB`        (string, required)
-- actId:            `johndoe~my-actor`         (string, required)
+- actId:            `janedoe~my-actor`         (string, required)
 - userId:           `klmdEpoiojmdEMlk3`        (string, required)
 - startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
 - finishedAt:       `2019-12-12T09:30:12.202Z` (string, nullable)
@@ -3225,7 +3225,7 @@ The user account is identified by the provided authentication token.
 
 ## RunAborted (object)
 - id:               `HG7ML7M8z78YcAPEB`        (string, required)
-- actId:            `johndoe~my-actor`         (string, required)
+- actId:            `janedoe~my-actor`         (string, required)
 - startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
 - finishedAt:       `2019-12-12T09:30:12.202Z` (string, required)
 - status:           `ABORTED`                  (string, required)
@@ -3268,7 +3268,7 @@ The user account is identified by the provided authentication token.
 
 ## RunMetamorphed (object)
 - id:               `HG7ML7M8z78YcAPEB`        (string, required)
-- actId:            `johndoe~my-actor`         (string, required)
+- actId:            `janedoe~my-actor`         (string, required)
 - userId:           `PNWZBd7Z9c746JAnF`        (string, nullable) # TODO: review
 - startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
 - finishedAt:       null (string, required)
@@ -3332,7 +3332,7 @@ The user account is identified by the provided authentication token.
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
 - name:             `d7b9MDYsbtX5L7XAj`        (string, required)
 - userId:           `BPWDBd7Z9c746JAnF`        (string, nullable) # TODO: review
-- username:         `john-doe`                 (string, nullable) # TODO: review
+- username:         `janedoe`                  (string, nullable) # TODO: review
 - createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
 - modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
 - accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
@@ -3343,7 +3343,7 @@ The user account is identified by the provided authentication token.
 - id:               `YiKoxjkaS9gjGTqhF`        (string, required)
 - name:             `eshop-items`              (string, required)
 - userId:           `BPWDBd7Z9c746JAnF`        (string, nullable) # TODO: review
-- username:         `john-doe`                 (string, nullable) # TODO: review
+- username:         `janedoe`                  (string, nullable) # TODO: review
 - createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
 - modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
 - accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
@@ -3402,7 +3402,7 @@ The user account is identified by the provided authentication token.
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
 - name:             `some-name`                (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`        (string, required)
-- userName:         `john-doe`                 (string, required)
+- userName:         `janedoe`                  (string, required)
 - createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
 - modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
 - accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
@@ -3458,7 +3458,7 @@ The user account is identified by the provided authentication token.
 - username:         `d7b9MDYsbtX5L7XAj`        (string, required)
 - profile                                      (object, required)
     - bio:               `I started web scraping in 1985 using Altair BASIC.`    (string)
-    - name:              `John Doe`                                              (string)
+    - name:              `Jane Doe`                                              (string)
     - pictureUrl:        `/img/anonymous_user_picture.png`                       (string)
     - githubUsername:    `torvalds.`                                             (string)
     - websiteUrl:        `http://www.example.com`                                (string)
@@ -3468,7 +3468,7 @@ The user account is identified by the provided authentication token.
 - username:         `myusername`               (string, required)
 - profile                                      (object, required)
     - bio:               `I started web scraping in 1985 using Altair BASIC.`    (string)
-    - name:              `John Doe`                                              (string)
+    - name:              `Jane Doe`                                              (string)
     - pictureUrl:        `/img/anonymous_user_picture.png`                       (string)
     - githubUsername:    `torvalds.`                                             (string)
     - websiteUrl:        `http://www.example.com`                                (string)
