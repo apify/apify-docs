@@ -3109,7 +3109,7 @@ The user account is identified by the provided authentication token.
     - restartCount:             0              (number, nullable)
     - workersUsed:              1              (number, nullable)
     - resurrectCount:           2              (number, nullable)
-    - initPrepSec:              0.005          (number, nullable)
+    - initPrepSecs:              0.005          (number, nullable)
     - initImagePullSecs:        19.775         (number, nullable)
     - initContainerCreateSecs:  0.567          (number, nullable)
     - initContainerStartSecs:   0.888          (number, nullable)
@@ -3128,12 +3128,17 @@ The user account is identified by the provided authentication token.
     - initTotalSecs:            21.235         (number, nullable)
     - emfileError:              false          (boolean, nullable)
     - computeUnits:             0.13804        (number, nullable)
+- options                                      (object, nullable)
+    - build:        `latest`                   (string, nullable)
+    - timeoutSecs:  300                        (number, nullable)
+    - memoryMbytes: 1024                       (number, nullable)
+    - diskMbytes:   2048                       (number, nullable)
 - buildId:          `7sT5jcggjjA9fNcxF`        (string, required)
 - exitCode:         0                          (number, nullable) # TODO: review
 - defaultKeyValueStoreId: `eJNzqsbPiopwJcgGQ`  (string, required)
 - defaultDatasetId: `wmKPijuyDnPZAPRMk`        (string, required)
 - defaultRequestQueueId: `FL35cSF7jrxr3BY39`   (string, required)
-- buldNumber:       `0.0.36`                   (string, nullable)
+- buildNumber:       `0.0.36`                   (string, nullable)
 - containerUrl:     `https://g8kd8kbc5ge8.runs.apify.net`  (string, required) # TODO: review
 
 ## RunShort1 (object)
