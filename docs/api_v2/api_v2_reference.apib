@@ -1087,9 +1087,15 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 + Parameters
 
     + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
     + status: `SUCCEEDED` (string, optional) - Filter for the run status.
 
 ### Get last run [GET]
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (Run, required)
 
 # Group Actor tasks
 
@@ -2780,7 +2786,7 @@ The user account is identified by the provided authentication token.
     - totalMetamorphs:  2                      (number, required)
     - lastRunStartedAt: `2019-07-08T14:01:05.546Z` (string, required)
 - versions                                     (array, required)
-    -                                          (Version, required)
+    -                                          (ListOfVersions, required)
 - defaultRunOptions                            (object, required)
     - build:            `latest`               (string, required) # TODO: review + all the fields below
     - timeOutSecs:      3600                   (number, required)
@@ -2924,7 +2930,7 @@ The user account is identified by the provided authentication token.
 - sourceCode:               `console.log('Hello world!');`  (string, nullable)
 
 ## ListOfVersions (object)
-- ListOfVersions                                                    (array)
+-                                                                   (array)
     -                                                               (object)
         - versionNumber:            `0.0`                           (string, required)
         - sourceType:               `SOURCE_CODE`                   (VersionSourceType, required)
