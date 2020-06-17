@@ -32,7 +32,7 @@ Get a list of results from the US for keyword `wikipedia` and parse them through
                     if (request.resourceType() !== 'document') return request.abort();
                     return request.continue();
                 });
-                return page.goto(url, { waitUntil: 'domcontentloaded' });
+                return page.goto(url);
             },
             handlePageFunction: async({ page, request, proxyInfo }) => {
                 await Apify.utils.puppeteer.injectJQuery(page);
@@ -40,7 +40,6 @@ Get a list of results from the US for keyword `wikipedia` and parse them through
                     return $('#search div.g').map(function () {
                         return {
                             title: $($(this).find('h3')[0]).text(),
-                            cite: $(this).find('div cite').text(),
                             description: $(this).find('.s div .st').text(),
                         }
                     }).toArray();
@@ -76,7 +75,7 @@ Get a list of shopping results from the Czech Republic for keyword `Apple iPhone
                     if (request.resourceType() !== 'document') return request.abort();
                     return request.continue();
                 });
-                return page.goto(url, { waitUntil: 'domcontentloaded' });
+                return page.goto(url);
             },
             handlePageFunction: async({ page, request, proxyInfo }) => {
                 await Apify.utils.puppeteer.injectJQuery(page);
@@ -122,13 +121,12 @@ Get a list of results from the US for keyword `wikipedia` and parse them through
                 if (request.resourceType() !== 'document') return request.abort();
                 return request.continue();
             });
-            await page.goto(url, {waitUntil: 'domcontentloaded'});
+            await page.goto(url);
             await Apify.utils.puppeteer.injectJQuery(page);
             const searchResults = await page.evaluate(() => {
                 return $('#search div.g').map(function () {
                     return {
                         title: $($(this).find('h3')[0]).text(),
-                        cite: $(this).find('div cite').text(),
                         description: $(this).find('.s div .st').text(),
                     }
                 }).toArray();
@@ -162,7 +160,7 @@ Get a list of shopping results from the Czech Republic for keyword `Apple iPhone
                 if (request.resourceType() !== 'document') return request.abort();
                 return request.continue();
             });
-            await page.goto(url, { waitUntil: 'domcontentloaded' });
+            await page.goto(url);
             await Apify.utils.puppeteer.injectJQuery(page);
             const searchResults = await page.evaluate(() => {
                 return $('[class$="list-result"] > div > div:nth-child(2)').map(function() {
@@ -181,7 +179,7 @@ Get a list of shopping results from the Czech Republic for keyword `Apple iPhone
         }
     });
 
-## [](#usage-with-request-promise) Usage with our [requestAsBrowser](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) and [cheerio](https://www.npmjs.com/package/cheerio) NPM package
+## [](#usage-with-request) Usage with our [requestAsBrowser](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) and [cheerio](https://www.npmjs.com/package/cheerio) NPM package
 
 Get a list of results from the US for keyword `wikipedia` and parse them through cheerio
 
@@ -201,7 +199,6 @@ Get a list of results from the US for keyword `wikipedia` and parse them through
          const searchResults = $('#search div.g').map(function() {
              return {
                  title: $($(this).find('h3')[0]).text(),
-                 cite: $(this).find('div cite').text(),
                  description: $(this).find('.s div .st').text(),
              }
          }).toArray();
