@@ -2827,13 +2827,13 @@ The user account is identified by the provided authentication token.
         - finishedAt:   `2019-06-10T11:15:49.286Z`          (string, nullable)
 
 ## ActCreate (object)
-- name:             `MyActor`                  (string, required)
+- name:             `MyActor`                  (string, nullable)
 - description:      `My favourite actor!`      (string, nullable)
-- isPublic:         false                      (boolean, required)
+- isPublic:         false                      (boolean, nullable)
 - title:            `My Actor`                 (string, nullable)
 - restartOnError:   false                      (boolean, nullable)
-- versions                                     (array, required)
-    -                                          (VersionUpdate, required)
+- versions                                     (array, nullable)
+    -                                          (VersionUpdate, nullable)
 
 ## ActUpdate (object)
 - name:             `MyActor`                  (string, required)
