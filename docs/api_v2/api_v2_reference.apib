@@ -2437,10 +2437,18 @@ parameter.
 Creates a new webhook with settings provided by the webhook object passed as JSON in the payload.
 The response is the created webhook object.
 
-To make sure that the same webhook is not created twice, use the `idempotencyKey` parameter.
-Multiple calls to create webhook with the same idempotency key will only create the webhook
-with the first call and return the existing webhook on subsequent calls. Idempotency keys
-must be unique, so use a UUID or another random string with enough entropy.
+To avoid duplicating a webhook, use the `idempotencyKey` parameter in the request body.
+Multiple calls to create a webhook with the same `idempotencyKey` will only create the webhook with the first call and return the existing webhook on subsequent calls.
+Idempotency keys must be unique, so use a UUID or another random string with enough entropy.
+
+To assign the new webhook to an actor or task, add the actor's or tasks' ID to the `condition` object in the request body.
+
+```
+"condition": {
+    "actorId": "janedoe~my-actor",
+    "actorTaskId": "rANaydYvTxjsnA3oz",
+  }
+```
 
 **Important**: The request must specify the `Content-Type: application/json` HTTP header.
 
