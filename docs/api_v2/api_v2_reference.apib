@@ -2443,9 +2443,9 @@ Idempotency keys must be unique, so use a UUID or another random string with eno
 
 To assign the new webhook to an actor or task, the request body must contain `requestUrl`, `eventTypes`, and `condition` properties.
 
-* `condition` should be an object containing the ID of the actor or task to which the webhook will be assigned.
 * `requestUrl` is the webhook's target URL, to which data is sent as a POST request with a JSON payload.
 * `eventTypes` is a list of events that will trigger the webhook, e.g. when the actor run succeeds.
+* `condition` should be an object containing the ID of the actor or task to which the webhook will be assigned.
 
 ```
     "isAdHoc" : false,
