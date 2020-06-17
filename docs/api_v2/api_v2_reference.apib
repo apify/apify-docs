@@ -2441,13 +2441,23 @@ To avoid duplicating a webhook, use the `idempotencyKey` parameter in the reques
 Multiple calls to create a webhook with the same `idempotencyKey` will only create the webhook with the first call and return the existing webhook on subsequent calls.
 Idempotency keys must be unique, so use a UUID or another random string with enough entropy.
 
-To assign the new webhook to an actor or task, add the actor's or tasks' ID to the `condition` object in the request body.
+To assign the new webhook to an actor or task, the request body must contain `requestUrl`, `eventTypes`, and `condition` properties.
+
+* `condition` should be an object containing the ID of the actor or task to which the webhook will be assigned.
+* `requestUrl` is the webhook's target URL, to which data is sent as a POST request with a JSON payload.
+* `eventTypes` is a list of events that will trigger the webhook, e.g. when the actor run succeeds.
 
 ```
-"condition": {
-    "actorId": "janedoe~my-actor",
-    "actorTaskId": "rANaydYvTxjsnA3oz",
-  }
+    "isAdHoc" : false,
+    "requestUrl" : "https://example.com",
+    "eventTypes" : [ 
+        "ACTOR.RUN.SUCCEEDED", 
+        "ACTOR.RUN.ABORTED"
+    ],
+    "condition" : {
+        "actorId": "janedoe~my-actor",
+        "actorTaskId" : "W9bs9JE9v7wprjAnJ"
+    }
 ```
 
 **Important**: The request must specify the `Content-Type: application/json` HTTP header.
