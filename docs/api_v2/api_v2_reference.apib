@@ -505,12 +505,32 @@ contains basic information about a single version.
 
 Creates a version of an actor using values specified in a [Version object](#reference/actors/version-object) passed as JSON in the POST payload.
 
-The request needs to specify the `Content-Type: application/json` HTTP header!
+The request must specify a `versionNumber` and `sourceType` parameters (as strings) in the JSON payload and a `Content-Type: application/json` HTTP header.
+
+Each `sourceType` requires its own additional properties to be passed to the JSON payload object. These are outlined in the [Version object](#reference/actors/version-object) table below.
+
+For example, if an actor's source code is stored in a [GitHub repository](https://docs.apify.com/actors/development/source-code), you will set the `sourceType` to `GIT_REPO` and pass the repository's URL in the `gitRepoUrl` property.
+
+```
+{
+    "versionNumber": "0.1",
+    "sourceType": "GIT_REPO",
+    "gitRepoUrl": "https://github.com/my-github-account/actor-repo"
+}
+```
 
 The response is the [Version object](#reference/actors/version-object) as returned by the
 [Get version](#reference/actors/version-object/get-version) endpoint.
 
 + Attributes(VersionUpdate)
+
++ Request
+
+        {
+            "versionNumber": "0.1",
+            "sourceType": "GIT_REPO",
+            "gitRepoUrl": "https://github.com/my-github-account/actor-repo"
+        }
 
 + Response 201 (application/json)
 
@@ -524,8 +544,8 @@ The response is the [Version object](#reference/actors/version-object) as return
 ## Version object [/v2/acts/{actorId}/versions/{versionNumber}{?token}]
 
 The **Version object** contains the source code of a specific version of an actor.
-The `sourceType` field indicates where the source code is hosted, and based
-on its value the Version object has the following additional fields:
+The `sourceType` property indicates where the source code is hosted, and based
+on its value the Version object has the following additional property:
 
 <table>
   <tr>
