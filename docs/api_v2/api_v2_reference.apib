@@ -46,13 +46,15 @@ This means you need to append your [secret API token](https://my.apify.com/accou
 
 Optionally, you can include the query parameters described in the [Run actor](#reference/actors/run-collection/run-actor) section to customize your run.
 
+If you're using Node.js, the best way to run an actor is using the Apify.call() method from the [Apify SDK](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options). It runs the actor using the account you are currently logged into (determined by the [secret API token](https://my.apify.com/account#/integrations)). The result is an [actor run object](https://sdk.apify.com/docs/typedefs/actor-run) and its output (if any). 
+
 A typical workflow is as follows:
 
 1. Run an actor or task using the [Run actor](#reference/actors/run-collection/run-actor) or [Run task](#reference/actor-tasks/run-collection/run-task) API endpoints.
 
 2. Monitor the actor run by periodically polling its progress using the [Get run](#reference/actors/run-object/get-run) API endpoint.
 
-3. Fetch the results from the [Get items](#reference/datasets/item-collection/get-items) API endpoint using the `defaultDatasetId`, which you receive in the Run request response.
+3. Fetch the results from the [Get items](#reference/datasets/item-collection/get-items) API endpoint using the `defaultDatasetId`, which you receive in the Run request response. Additional data may be stored in a key-value store. You can fetch them from the [Get record](#reference/key-value-stores/record/get-record) API endpoint using the `defaultKeyValueStoreId` and the store's `key`.
 
 **Note**: Instead of periodic polling, you can also run your [actor](#reference/actors/run-actor-synchronously) or [task](#reference/actor-tasks/runs-collection/run-task-synchronously) synchronously. This will ensure that the request waits until the run finishes and returns its output.
 
