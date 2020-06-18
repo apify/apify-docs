@@ -1654,13 +1654,24 @@ Gets an object that contains all the details about a specific key-value store.
 
 ### Update store [PUT]
 
-Updates a key-value store.
+Updates a key-value store's name using a value specified by a JSON object passed in the PUT payload. 
+
+The response is the updated key-value store object, as returned by the [Get store](#reference/key-value-stores/store-object/get-store) API endpoint.
 
 + Parameters
 
     + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
++ Request
+
+        {
+            "name": "new-store-name"
+        }
+
 + Response 200 (application/json)
+
+    + Attributes
+        - data (KVStore, required)
 
 ### Delete store [DELETE]
 
@@ -1909,13 +1920,25 @@ Returns dataset object for given dataset ID.
 
 ### Update dataset [PUT]
 
-Updates a specific dataset.
+Updates a dataset's name using a value specified by a JSON object passed in the PUT payload. 
+
+The response is the updated dataset object, as returned by the
+[Get dataset](#reference/datasets/dataset-collection/get-dataset) API endpoint.
 
 + Parameters
 
     + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
++ Request
+
+        {
+            "name": "new-dataset-name"
+        }
+
 + Response 200 (application/json)
+
+    + Attributes
+        - data (Dataset, required)
 
 ### Delete dataset [DELETE]
 
@@ -2263,11 +2286,21 @@ Returns queue object for given queue ID.
 
 ### Update request queue [PUT]
 
-Updates a request queue.
+Updates a request queue's name using a value specified by a JSON object passed in the PUT payload.
+
+The response is the updated request queue object, as returned by the
+[Get request queue](#reference/request-queues/queue-collection/get-request-queue) API endpoint.
+
 
 + Parameters
 
     + token:   `soSkq9ekdmfOslopH` (string) - API authentication token.
+
++ Request
+
+        {
+            "name": "new-request-queue-name"
+        }
 
 + Response 200 (application/json)
 
