@@ -34,6 +34,28 @@ unless you fully understand the consequences!**
 Note that some API endpoints such as [Get list of keys](#reference/key-value-stores/key-collection/get-list-of-keys)
 do not require any authentication token, because they contain a hard-to-guess identifier that effectively serves as an authentication key.
 
+## Basic usage
+
+To run an actor, send a POST request to the [Run actor](#reference/actors/run-collection/run-actor-actor) endpoint using either the actor ID code (e.g. `vKg4IjxZbEYTYeW8T`) or its name (e.g. `janedoe~my-actor`):
+
+`https://api.apify.com/v2/acts/[actor_id]/runs`
+
+If the actor is not runnable anonymously, you will receive a 401 or 403
+[response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
+This means you need to append your [secret API token](https://my.apify.com/account#/integrations) as a query parameter `?token=[your_token]`.
+
+Optionally, you can include the query parameters described in the [Run actor](#reference/actors/run-collection/run-actor) section to customize your run.
+
+A typical workflow is as follows:
+
+1. Run an actor or task using the [Run actor](#reference/actors/run-collection/run-actor) or [Run task](#reference/actor-tasks/run-collection/run-task) API endpoints.
+
+2. Monitor the actor run by periodically polling its progress using the [Get run](#reference/actors/run-object/get-run) API endpoint.
+
+3. Fetch the results from the [Get items](#reference/datasets/item-collection/get-items) API endpoint using the `defaultDatasetId`, which you receive in the Run request response.
+
+**Note**: Instead of periodic polling, you can also run your [actor](#reference/actors/run-actor-synchronously) or [task](#reference/actor-tasks/runs-collection/run-task-synchronously) synchronously. This will ensure that the request waits until the run finishes and returns its output.
+
 ## Response structure
 
 Most API endpoints return a JSON object with the `data` property:
