@@ -507,9 +507,9 @@ Creates a version of an actor using values specified in a [Version object](#refe
 
 The request must specify a `versionNumber` and `sourceType` parameters (as strings) in the JSON payload and a `Content-Type: application/json` HTTP header.
 
-Each `sourceType` requires its own additional properties to be passed to the JSON payload object. These are outlined in the [Version object](#reference/actors/version-object) table below.
+Each `sourceType` requires its own additional properties to be passed to the JSON payload object. These are outlined in the [Version object](#reference/actors/version-object) table below and in more detail in the [Apify documentation](https://docs.apify.com/actors/development/source-code).
 
-For example, if an actor's source code is stored in a [GitHub repository](https://docs.apify.com/actors/development/source-code), you will set the `sourceType` to `GIT_REPO` and pass the repository's URL in the `gitRepoUrl` property.
+For example, if an actor's source code is stored in a [GitHub repository](https://docs.apify.com/actors/development/source-code#git-repository), you will set the `sourceType` to `GIT_REPO` and pass the repository's URL in the `gitRepoUrl` property.
 
 ```
 {
