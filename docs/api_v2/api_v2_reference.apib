@@ -13,7 +13,7 @@ To access the API using [Node.js](https://nodejs.org/en/), we recommend the
 [`apify-client`](https://docs.apify.com/api/apify-client-js/latest) [NPM package](https://www.npmjs.com/package/apify-client). 
 The client's functions correspond to the API endpoints and have the same parameters. This simplifies development of apps that depend on the Apify platform.
 
-**All requests with JSON payloads need to specify the `Content-Type: application/json` HTTP header!**
+**Note:** All requests with JSON payloads need to specify the `Content-Type: application/json` HTTP header!
 
 All API endpoints support the `method` query parameter that can override the HTTP method.
 For example, if you want to call a POST endpoint using a GET request, simply
@@ -36,7 +36,7 @@ do not require any authentication token, because they contain a hard-to-guess id
 
 ## Basic usage
 
-To run an actor, send a POST request to the [Run actor](#reference/actors/run-collection/run-actor-actor) endpoint using either the actor ID code (e.g. `vKg4IjxZbEYTYeW8T`) or its name (e.g. `janedoe~my-actor`):
+To run an actor, send a POST request to the [Run actor](#reference/actors/run-collection/run-actor) endpoint using either the actor ID code (e.g. `vKg4IjxZbEYTYeW8T`) or its name (e.g. `janedoe~my-actor`):
 
 `https://api.apify.com/v2/acts/[actor_id]/runs`
 
@@ -46,7 +46,7 @@ This means you need to append your [secret API token](https://my.apify.com/accou
 
 Optionally, you can include the query parameters described in the [Run actor](#reference/actors/run-collection/run-actor) section to customize your run.
 
-If you're using Node.js, the best way to run an actor is using the Apify.call() method from the [Apify SDK](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options). It runs the actor using the account you are currently logged into (determined by the [secret API token](https://my.apify.com/account#/integrations)). The result is an [actor run object](https://sdk.apify.com/docs/typedefs/actor-run) and its output (if any). 
+If you're using Node.js, the best way to run an actor is using the `Apify.call()` method from the [Apify SDK](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options). It runs the actor using the account you are currently logged into (determined by the [secret API token](https://my.apify.com/account#/integrations)). The result is an [actor run object](https://sdk.apify.com/docs/typedefs/actor-run) and its output (if any). 
 
 A typical workflow is as follows:
 
@@ -1030,7 +1030,7 @@ Internally, the system stops the Docker container corresponding to the actor run
 and starts a new container using a different Docker image.
 All the default storages are preserved and the new input is stored under the `INPUT-METAMORPH-1` key in the same default key-value store.
 
-For more information, see [Actor docs](http://apify.com/docs/actor#metamorph).
+For more information, see [Actor docs](https://docs.apify.com/actors/development/source-code#metamorph).
 
 + Parameters
 
@@ -3135,6 +3135,7 @@ The user account is identified by the provided authentication token.
     - computeUnits:  0.012699444444444444      (number, required)
 - options                                      (object, nullable)
     - useCache:      false                     (boolean, nullable)
+    - betaPackages:  false                     (boolean, nullable)
     - memoryMbytes:  1024                      (number, nullable)
     - diskMbytes:    2048                      (number, nullable)
 - inputSchema:       `{\n  \"title\": \"Schema for ... }`  (string, nullable)
@@ -3318,6 +3319,8 @@ The user account is identified by the provided authentication token.
 ## RunAborted (object)
 - id:               `HG7ML7M8z78YcAPEB`        (string, required)
 - actId:            `janedoe~my-actor`         (string, required)
+- userId:           `BPWZBd7Z9c746JAng`        (string, required)
+- actorTaskId:      `rANaydYhUxjsnA3oz`        (string, required)
 - startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
 - finishedAt:       `2019-12-12T09:30:12.202Z` (string, required)
 - status:           `ABORTED`                  (string, required)
@@ -3347,6 +3350,7 @@ The user account is identified by the provided authentication token.
     - readyTimeSecs:             1.276         (number, nullable)
     - initTotalSecs:             19.241        (number, nullable)
     - emfileError:               false         (boolean, nullable)
+    - resurrectCount:            1             (number, nullable)
     - computeUnits:              0.0072886     (number, nullable)
 - options                                      (object, nullable)
     - build:        `latest`                   (string, nullable)
@@ -3354,6 +3358,7 @@ The user account is identified by the provided authentication token.
     - memoryMbytes: 1024                       (number, nullable)
     - diskMbytes:   2048                       (number, nullable)
 - buildId:          `7sT5jcggjjA9fNcxF`        (string, required)
+- exitCode:                                    (object, nullable) # TODO: review
 - defaultKeyValueStoreId: `eJNzqsbPiopwJcgGQ`  (string, required)
 - defaultDatasetId: `wmKPijuyDnPZAPRMk`        (string, required)
 - defaultRequestQueueId: `FL35cSF7jrxr3BY39`   (string, required)
@@ -3494,7 +3499,7 @@ The user account is identified by the provided authentication token.
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
 - name:             `some-name`                (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`        (string, required)
-- userName:         `janedoe`                  (string, required)
+- username:         `janedoe`                  (string, required)
 - createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
 - modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
 - accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
