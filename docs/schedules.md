@@ -1,13 +1,14 @@
 ---
-title: Scheduler
-description: Documentation of Apify Scheduler that executes crawler or actor jobs at specific times using a cron-like syntax.
+title: Schedules
+description: Documentation of the Apify Schedules, which execute crawler or actor jobs at specific times using cron-like syntax.
 menuWeight: 4
 category: platform
 paths:
     - scheduler
+    - schedules
 ---
 
-# [](./scheduler)Scheduler
+# [](./schedules)Schedules
 
 [Schedules](https://my.apify.com/schedules) are used to automatically start your actors at certain times. Each schedule can be associated with a number of actors and actor tasks, and it is also possible to override the settings of each actor (task) in a similar fashion as when invoking the actor (task) using the API.
 
