@@ -2592,9 +2592,16 @@ Deletes a webhook.
 
     + Attributes(object)
 
-## Dispatches collection [/v2/webhooks/{webhookId}/dispatches{?token}]
+### Dispatches collection [/v2/webhooks/{webhookId}/dispatches{?token}]
 
-Gets list of dispatches of a given webhook.
+## Get collection [GET]
+
+Gets a given webhook's list of dispatches.
+
++ Parameters
+
+    + webhookId: `pVJtoTelgYUq4qJOt`     (string, required) - ID number of the webhook.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 + Response 200 (application/json)
 
@@ -3358,7 +3365,7 @@ The user account is identified by the provided authentication token.
     - memoryMbytes: 1024                       (number, nullable)
     - diskMbytes:   2048                       (number, nullable)
 - buildId:          `7sT5jcggjjA9fNcxF`        (string, required)
-- exitCode:                                    (object, nullable) # TODO: review
+- exitCode:         0                          (number, nullable) # TODO: review
 - defaultKeyValueStoreId: `eJNzqsbPiopwJcgGQ`  (string, required)
 - defaultDatasetId: `wmKPijuyDnPZAPRMk`        (string, required)
 - defaultRequestQueueId: `FL35cSF7jrxr3BY39`   (string, required)
