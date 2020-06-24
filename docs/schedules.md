@@ -55,7 +55,7 @@ As an example, we are going to schedule a monthly SEO audit on the Apify domain 
 
 We'll set `https://apify.com` as the task's `input`. In the `Settings` tab, we'll set the task's name to `apify-domain-seo-audit` and add a short description, then click `Save`.
 
-### [](#new-schedule-platform) From the Apify app
+### [](#new-schedule-platform) From the Apify platform
 
 To create a new schedule, click on the [`Schedules`](https://my.apify.com/schedules) button in the left side menu, then click on the `Create new` button.
 
