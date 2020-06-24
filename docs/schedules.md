@@ -51,7 +51,7 @@ Before setting up a new schedule, you should have the [actor](https://docs.apify
 
 As an example, we are going to schedule a monthly SEO audit on the Apify domain using the [SEO audit](https://apify.com/drobnikj/seo-audit-tool) actor. On the actor's detail page, we'll click `Try it for free`, which redirects us back to the Apify platform and [creates a new task](https://docs.apify.com/actors/tasks/create). 
 
-![SEO audit tool]({{@asset images/seo-audit-tool.png}})
+![SEO audit tool]({{@asset /images/seo-audit-tool.png}})
 
 We'll set `https://apify.com` as the task's `input`. In the `Settings` tab, we'll set the task's name to `apify-domain-seo-audit` and add a short description, then click `Save`.
 
@@ -61,11 +61,11 @@ To create a new schedule, click on the [`Schedules`](https://my.apify.com/schedu
 
 In the `Settings` tab, we'll set the schedule's name to `apify-domain-monthly-seo-audit`, add a brief description, and use the `@monthly` cron expression shortcut. 
 
-![New schedule]({{@asset images/new-schedule-settings.png}})
+![New schedule]({{@asset /images/new-schedule-settings.png}})
 
 Next, we need to give the schedule something to run. This is where the task we prepared earlier comes in. We'll switch to the `Tasks` tab and click `Add task`. From the `Task` dropdown menu, we'll select our `apify-domain-seo-audit` task. Since we don't need to change any input parameters this time, we'll leave the `Input JSON overrides` field as it is. 
 
-![Add task to schedule]({{@asset images/schedule-add-tasks.png}})
+![Add task to schedule]({{@asset /images/schedule-add-tasks.png}})
 
 Now, all we need to do is click `Save` and wait for our scheduled actor runs to return our data.
 
