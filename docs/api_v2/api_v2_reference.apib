@@ -56,7 +56,7 @@ A typical workflow is as follows:
 
 3. Fetch the results from the [Get items](#reference/datasets/item-collection/get-items) API endpoint using the `defaultDatasetId`, which you receive in the Run request response. Additional data may be stored in a key-value store. You can fetch them from the [Get record](#reference/key-value-stores/record/get-record) API endpoint using the `defaultKeyValueStoreId` and the store's `key`.
 
-**Note**: Instead of periodic polling, you can also run your [actor](#reference/actors/run-actor-synchronously) or [task](#reference/actor-tasks/runs-collection/run-task-synchronously) synchronously, receiving the actor's output in the request's response. However, these endpoints have a timeout of 300 seconds (5 minutes), so if the actor run takes longer, the request will time out and throw an error. 
+**Note**: Instead of periodic polling, you can also run your [actor](#reference/actors/run-actor-synchronously) or [task](#reference/actor-tasks/runs-collection/run-task-synchronously) synchronously. This will ensure that the request waits for 300 seconds (5 minutes) for the run to finish and returns its output. If the run takes longer, the request will time out and throw an error.
 
 ## Response structure
 
