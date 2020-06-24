@@ -75,11 +75,33 @@ If you are an advanced user, you can add a [webhook](https://docs.apify.com/webh
 
 ### [](#new-schedule-api) Via API
 
+To [create a new schedule](https://docs.apify.com/api/v2#/reference/schedules/) using the [Apify API](https://docs.apify.com/api/v2), you can send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to
 
+```https://api.apify.com/v2/schedules?token={your_API_token}```
 
-## Limits
-(update later - probably join to another section) 
-* You can run a maxiumum of 10 tasks per schedule
-* You can create a maximum of 10 tasks per schedule.
+You can find your [secret API token](https://docs.apify.com/api/v2#/introduction/authentication) in your Apify account's [Integrations](https://my.apify.com/account#/integrations) tab.
 
-What other limits are there?
+To create the same schedule we did earlier, our POST request should contain the following JSON object.
+
+```
+{
+  "name": "apify-domain-monthly-seo-audit",
+  "userId": "7AxwNL4kCDZxsMHip",
+  "isEnabled": true,
+  "isExclusive": true,
+  "cronExpression": "@monthly",
+  "timezone": "UTC",
+  "description": "SA monthly audit of the Apify domain's SEO",
+  "actions": [
+    {
+      "type": "RUN_ACTOR_TASK",
+      "actorTaskId": "6rHoK2zjYJkmYhSug",
+      "input": {
+        "startUrl": "https://apify.com"
+      }
+    }
+  ]
+}
+```
+
+For more information, see the [Schedules documentation](https://docs.apify.com/api/v2#/reference/schedules/schedule-object/get-schedule).
