@@ -30,17 +30,17 @@ Note that certain NPM packages need additional tools for their installation, suc
 
 ## [](#multiple-source-files)Multiple source files
 
-If the source code of the actor requires the use of multiple files/directories, then it can be hosted on Apify platform with this option. This is particulary useful when you need to add [`INPUT_SCHEMA.json`]({{@link actors/development/source_code.md#input-schema}}) or `README.md` to your actor, or if you want to create your actor in other language then JavaScript.
+If the actor's source code requires the use of multiple files/directories, then it can be hosted on the Apify platform using this option. This is particulary useful when you need to add [`INPUT_SCHEMA.json`]({{@link actors/development/source_code.md#input-schema}}) or `README.md` to your actor, or if you want to create your actor in a language other than JavaScript.
 
-The only required file for multifile is `Dockerfile`, all other files depend on your `Dockerfile` settings. By default Apify's custom NodeJS `Dockerfile` is used, which requires `main.js` file containing your source code and `package.json` file, with package configuration for npm.
+The only required file for multifile is `Dockerfile`, and all other files depend on your `Dockerfile` settings. By default Apify's custom NodeJS `Dockerfile` is used, which requires a `main.js` file containing your source code and a `package.json` file containing package configurations for [NPM](https://www.npmjs.com/).
 
-Unlike the [Single Javascript file](#single-javascript-file) option, `package.json` is not automaticaly generated, and you need to configure it yourself.
+Unlike in the [Single JavaScript file](#single-javascript-file) option, the `package.json` is not automaticaly generated, and you need to configure it yourself.
 
 See [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) and [base Docker images]({{@link actors/development/base_docker_images.md}}) for more information about creating your own Dockerfile and using Apify's prepared base images.
 
 ## [](#git-repository)Git repository
 
-If the source code of the actor is hosted externally in a Git repository, it can consist of multiple files and directories, use its own `Dockerfile` to control the build process (see [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) for details) and have a user description in store fetched from the `README.md` file. The location of the repository is specified by the **Git URL** setting, which can be an `https`, `git` or `ssh` URL.
+If the actor's source code is hosted externally in a Git repository, it can consist of multiple files and directories, use its own `Dockerfile` to control the build process (see [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) for details) and have a user description in store fetched from the `README.md` file. The location of the repository is specified by the **Git URL** setting, which can be an `https`, `git` or `ssh` URL.
 
 To help you get started quickly, you can use the [apify/quick-start](https://apify.com/apify/quick-start) actor which contains all the boilerplate necessary when creating a new actor hosted on Git. The source code is available on [GitHub](https://github.com/apifytech/actor-quick-start).
 
