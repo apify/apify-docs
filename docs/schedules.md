@@ -10,7 +10,7 @@ paths:
 
 # [](#schedules) Schedules
 
-[Schedules](https://my.apify.com/schedules) are used to automatically start your actors at certain times. Each schedule can be associated with up to 10 actors and 10 actor tasks. It is also possible to override the settings of each actor/task similarly to when invoking the actor/task using the [Apify API](https://docs.apify.com/api/v2#/reference/schedules/).
+[Schedules](https://my.apify.com/schedules) allow you to automatically run your actors and tasks at specific times. Each schedule can be associated with a maximum of 10 actors and 10 actor tasks. It is also possible to override the settings of each actor/task similarly to when invoking them using the [Apify API](https://docs.apify.com/api/v2#/reference/schedules/).
 
 The schedules use [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to specify run times. A cron expression has the following structure:
 
@@ -44,36 +44,39 @@ Additionally, you can use the following shortcut expressions:
 - `@daily` = `0 0 * * *`
 - `@hourly` = `0 * * * *`
 
-
 You can find more information and examples of cron expressions on [crontab.guru](http://crontab.guru/).
 
 ## [](#setting-up) Setting up a new schedule
 
 Before setting up a new schedule, you should have the [actor](https://docs.apify.com/actors) or [task](https://docs.apify.com/tasks) you want to schedule prepared and tested.
 
-As an example, we are going to schedule a monthly SEO audit on the Apify domain using the [SEO audit](https://apify.com/drobnikj/seo-audit-tool) actor. On the actor's detail page, we'll click `Try it for free`, which redirects us back to the Apify platform and [creates a new task](https://docs.apify.com/actors/tasks/create). 
-
-![SEO audit tool]({{@asset images/seo-audit-tool.png}})
-
-We'll set `https://apify.com` as the task's `input`. In the `Settings` tab, we'll set the task's name to `apify-domain-seo-audit` and add a short description, then click `Save`.
+If you are planning to schedule an actor run, you need to use the actor before you can schedule any runs. If you haven't, dont' worry - just navigate to the actor's page in the [Apify Store](https://apify.co/store), click the `Try for free` button, then run it with your preferred settings.
 
 ### [](#new-schedule-platform) From the Apify platform
 
-To create a new schedule, click on the [`Schedules`](https://my.apify.com/schedules) button in the left side menu, then click on the `Create new` button.
+In the [Apify platform](https://my.apify.com/), click on the [`Schedules`](https://my.apify.com/schedules) button in the left side menu, then click the `Create new` button.
 
-In the `Settings` tab, we'll set the schedule's name to `apify-domain-monthly-seo-audit`, add a brief description, and use the `@monthly` cron expression shortcut. 
+In the `Settings` tab, give your schedule a memorable name, add a description, and choose how often you would like your actor or task to run using the `Cron expression` field.
 
 ![New schedule]({{@asset images/new-schedule-settings.png}})
 
-Next, we need to give the schedule something to run. This is where the task we prepared earlier comes in. We'll switch to the `Tasks` tab and click `Add task`. From the `Task` dropdown menu, we'll select our `apify-domain-seo-audit` task. Since we don't need to change any input parameters this time, we'll leave the `Input JSON overrides` field as it is. 
+Next, you'll need to give the schedule something to run. This is where the actor or task you prepared earlier comes in. Switch to the `Actors` or `Tasks` tab, as appropriate, and click the `Add ...` button.
+
+If you're scheduling an actor run, you'll be able to specify the [`build`](https://docs.apify.com/actors/development/builds), `timeout`, `memory`, and `body`. The `timeout` value is specified in seconds; a value of `0` means there is no timeout and the actor runs until it is finished. The `body` should contain a JSON object with the actor's [input](https://docs.apify.com/actors/running/input-and-output).
+
+![Add actor to schedule]({{@asset images/schedule-actor-run.png}})
+
+If you're scheduling a task, just select the task you prepared earlier from the `Task` dropdown. If you need to override the task's input, you can pass it as a JSON object in the `Input JSON overrides` field.
 
 ![Add task to schedule]({{@asset images/schedule-add-tasks.png}})
 
-Now, all we need to do is click `Save` and wait for our scheduled actor runs to return our data.
+To add more actors or tasks, just repeat the process.
 
-**Note:** you can add a maximum of 10 actors and 10 tasks to each schedule.
+> You can add a maximum of 10 actors and 10 tasks to each schedule.
 
-If you are an advanced user, you can add a [webhook](https://docs.apify.com/webhooks) to your task that will notify you every time the task runs.
+Now, all you need to do is click `Save` and wait for your scheduled actors/tasks to run and return your data.
+
+If you are an advanced user, you can also add a [webhook](https://docs.apify.com/webhooks) to your tasks, which will notify you (or perform an action of your choice) every time the task runs.
 
 ### [](#new-schedule-api) Via API
 
@@ -81,14 +84,14 @@ To [create a new schedule](https://docs.apify.com/api/v2#/reference/schedules/) 
 
 ```https://api.apify.com/v2/schedules?token={your_API_token}```
 
-You can find your [secret API token](https://docs.apify.com/api/v2#/introduction/authentication) in your Apify account's [Integrations](https://my.apify.com/account#/integrations) tab. In the POST request's payload should be a JSON object specifying the schedule's name, your [user ID](https://my.apify.com/account#/integrations), a cron expression, and the schedule's actions.
+You can find your [secret API token](https://docs.apify.com/api/v2#/introduction/authentication) in your Apify account's [Integrations](https://my.apify.com/account#/integrations) tab. In the POST request's payload should be a JSON object specifying the schedule's name, your [user ID](https://my.apify.com/account#/integrations), and the schedule's `actions`.
 
-To create the same schedule we did earlier, our POST request's payload will look like this: 
+The below JSON object creates a schedule which runs an SEO audit of the Apify domain once a month.
 
 ```
 {
   "name": "apify-domain-monthly-seo-audit",
-  "userId": "7AxwNL4kCDZxsMHip",
+  "userId": "7AxwNO4kCDZxsMHip",
   "isEnabled": true,
   "isExclusive": true,
   "cronExpression": "@monthly",
@@ -106,6 +109,6 @@ To create the same schedule we did earlier, our POST request's payload will look
 }
 ```
 
-If the request is successful, you will receive a 201 [HTTP response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) and your new schedule object in the response body. If you receive an error (4** code), you will need to check your API token, user ID, or POST request body.
+If the request is successful, you will receive a 201 [HTTP response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) and your new schedule object in the response body. If you receive an error (4**/5** code), you will need to check your API token, user ID, or POST request body.
 
 For more information, see the [Schedules documentation](https://docs.apify.com/api/v2#/reference/schedules/schedule-object/get-schedule).
