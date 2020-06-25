@@ -1,6 +1,6 @@
 ---
 title: Schedules
-description: Documentation of Apify Schedules, which execute crawler or actor jobs at specific times using cron-like syntax.
+description: Documentation of Apify Schedules, which run actors or tasks at specific times using cron-like syntax.
 menuWeight: 4
 category: platform
 paths:
@@ -10,7 +10,7 @@ paths:
 
 # [](#schedules) Schedules
 
-[Schedules](https://my.apify.com/schedules) allow you to automatically run your actors and tasks at specific times. Each schedule can be associated with a maximum of 10 actors and 10 actor tasks. It is also possible to override the settings of each actor/task similarly to when invoking them using the [Apify API](https://docs.apify.com/api/v2#/reference/schedules/).
+[Schedules](https://my.apify.com/schedules) allow you to automatically run your actors and tasks at specific times. They can be set up both from the [Apify app](https://my.apify.com) and via [API](https://docs.apify.com/api/v2). Each schedule can be associated with a maximum of 10 actors and 10 actor tasks. It is also possible to override the settings of each actor/task similarly to when invoking them using the [Apify API](https://docs.apify.com/api/v2#/reference/schedules/).
 
 The schedules use [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to specify run times. A cron expression has the following structure:
 
@@ -50,19 +50,19 @@ You can find more information and examples of cron expressions on [crontab.guru]
 
 Before setting up a new schedule, you should have the [actor](https://docs.apify.com/actors) or [task](https://docs.apify.com/tasks) you want to schedule prepared and tested.
 
-If you are planning to schedule an actor run, you need to use the actor before you can schedule any runs. If you haven't, dont' worry - just navigate to the actor's page in the [Apify Store](https://apify.co/store), click the `Try for free` button, then run it with your preferred settings.
+If you are planning to schedule an actor run, you need to use the actor before you can schedule any runs. If you haven't, dont' worry - just navigate to the actor's page in the [Apify Store](https://apify.co/store), click the `Try for free` button, then `Save & run` it with your preferred settings.
 
-### [](#new-schedule-platform) From the Apify platform
+### [](#new-schedule-platform) From the Apify app
 
-In the [Apify platform](https://my.apify.com/), click on the [`Schedules`](https://my.apify.com/schedules) button in the left side menu, then click the `Create new` button.
+In the [Apify app](https://my.apify.com/), click on the [`Schedules`](https://my.apify.com/schedules) button in the left side menu, then click the `Create new` button.
 
 In the `Settings` tab, give your schedule a memorable name, add a description, and choose how often you would like your actor or task to run using the `Cron expression` field.
 
 ![New schedule]({{@asset images/new-schedule-settings.png}})
 
-Next, you'll need to give the schedule something to run. This is where the actor or task you prepared earlier comes in. Switch to the `Actors` or `Tasks` tab, as appropriate, and click the `Add ...` button.
+Next, you'll need to give the schedule something to run. This is where the actor or task you prepared earlier comes in. Switch to the `Actors` or `Tasks` tab, as appropriate, and click the `Add actor/task button.
 
-If you're scheduling an actor run, you'll be able to specify the [`build`](https://docs.apify.com/actors/development/builds), `timeout`, `memory`, and `body`. The `timeout` value is specified in seconds; a value of `0` means there is no timeout and the actor runs until it is finished. The `body` should contain a JSON object with the actor's [input](https://docs.apify.com/actors/running/input-and-output).
+If you're scheduling an actor run, you'll be able to specify the [`build`](https://docs.apify.com/actors/development/builds), `timeout`, `memory`, and `body`. The `timeout` value is specified in seconds; a value of `0` means there is no timeout and the actor runs until it finishes. The `body` should contain a JSON object with the actor's [input](https://docs.apify.com/actors/running/input-and-output).
 
 ![Add actor to schedule]({{@asset images/schedule-actor-run.png}})
 
@@ -109,6 +109,8 @@ The below JSON object creates a schedule which runs an SEO audit of the Apify do
 }
 ```
 
-If the request is successful, you will receive a 201 [HTTP response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) and your new schedule object in the response body. If you receive an error (4**/5** code), you will need to check your API token, user ID, or POST request body.
+If the request is successful, you will receive a 201 [HTTP response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) and your new schedule object in the response body. If you receive an error (`4**` code), you will need to check your API token, user ID, or POST request body.
+
+You can add multiple actor and task runs to a schedule with a single POST request. Simply add another object with the run's details to the `actions` array in your POST request's payload object.
 
 For more information, see the [Schedules documentation](https://docs.apify.com/api/v2#/reference/schedules/schedule-object/get-schedule).
