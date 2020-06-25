@@ -11,7 +11,7 @@ paths:
     - actors/running/input
 ---
 
-# [](#input-and-output) Input
+# [](#input) Input
 
 An Apify actor's input is stored in the `INPUT.json` key-value store in the actor's `apify_storage/key_value_stores/default` directory.
 
