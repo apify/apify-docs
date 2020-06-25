@@ -24,7 +24,7 @@ Click **▷ Run** to build and run your actor. After the run is finished you sho
 
 Congratulations, you have successfully created and run your first actor!
 
-Let's try something little more complicated. We will change the actor to accept input and generate output (see [Input and output]({{@link actors/running/input_and_output.md}}) for more details):
+Let's try something little more complicated. We will change the actor to accept input and generate output (see [Input and output]({{@link actors/running/input.md}}) for more details):
 
     const Apify = require('apify');
 
