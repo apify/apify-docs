@@ -106,4 +106,6 @@ To create the same schedule we did earlier, our POST request's payload will look
 }
 ```
 
+If the request is successful, you will receive a 201 [HTTP response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) and your new schedule object in the response body. If you receive an error (4** code), you will need to check your API token, user ID, or POST request body.
+
 For more information, see the [Schedules documentation](https://docs.apify.com/api/v2#/reference/schedules/schedule-object/get-schedule).
