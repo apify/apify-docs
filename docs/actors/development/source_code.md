@@ -34,7 +34,7 @@ If the actor's source code requires the use of multiple files/directories, then 
 
 The only required file for multifile is `Dockerfile`, and all other files depend on your `Dockerfile` settings. By default Apify's custom NodeJS `Dockerfile` is used, which requires a `main.js` file containing your source code and a `package.json` file containing package configurations for [NPM](https://www.npmjs.com/).
 
-Unlike in the [Single JavaScript file](#single-javascript-file) option, the `package.json` is not automaticaly generated, and you need to configure it yourself.
+Unlike with the [single JavaScript file](#single-javascript-file) option, the `package.json` is not automaticaly generated when you use multiple source files, so you need to configure it yourself.
 
 See [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) and [base Docker images]({{@link actors/development/base_docker_images.md}}) for more information about creating your own Dockerfile and using Apify's prepared base images.
 
