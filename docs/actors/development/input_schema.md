@@ -25,7 +25,9 @@ Imagine you are building a simple crawler whose inputs are an array of start URL
 
     {
         "title": "Cheerio Crawler input",
-        "description": "To update crawler to another site you need to change startUrls and pageFunction options!",
+        "description": "To update crawler to another site,
+            you need to change startUrls and
+            pageFunction options!",
         "type": "object",
         "schemaVersion": 1,
         "properties": {
@@ -43,7 +45,7 @@ Imagine you are building a simple crawler whose inputs are an array of start URL
                 "title": "Page function",
                 "type": "string",
                 "description": "Function executed for each request",
-                "prefill": "async () => {\n  return $('title').text();\n\n}",
+                "prefill": "async () => {return $('title').text();}",
                 "editor": "javascript"
             }
         },
@@ -65,7 +67,7 @@ If you switch the input to **raw** display using the blue toggle, then you will 
           "url": "http://example.com/some-path"
         }
       ],
-      "pageFunction": "async () => {\n  return $('title').text();\n\n}"
+      "pageFunction": "async () => {return $('title').text();}"
     }
 
 ## [](#structure)Structure
@@ -76,17 +78,17 @@ The input schema is a JSON file named `INPUT_SCHEMA.json`, placed in the root di
         "title": "Cheerio Crawler input",
         "type": "object",
         "schemaVersion": 1,
-        "properties": { /* here is a place for the definition of input fields */ },
+        "properties": { /* define input fields here */ },
         "required": []
     }
 
 |Property|Type|Required|Description|
 |--- |--- |--- |--- |
 |`title`|String|Yes|Any text describing your input schema.|
-|`description`|String|No|Help text for the input that will be displayed above the UI fields.|
-|`type`|String|Yes|This is fixed and must be set to string `object`.|
-|`schemaVersion`|Integer|Yes|The version of the input schema specification against which your schema is written. Currently, only version `1` is out.|
-|`properties`|Object|Yes|This is an object mapping each field key to its specification.|
+|`description`|String|No|Help text for the input that will be <br/>displayed above the UI fields.|
+|`type`|String|Yes|This is fixed and must be set <br/>to string `object`.|
+|`schemaVersion`|Integer|Yes|The version of the input schema <br/>specification against which <br/>your schema is written. <br/>Currently, only version `1` is out.|
+|`properties`|Object|Yes|This is an object mapping each field key <br/>to its specification.|
 |`required`|[String]|No|An array of field keys that are required.|
 
 ## [](#fields)Fields
@@ -95,14 +97,14 @@ Each field of your input is described under its key in `inputSchema.properties` 
 
 |Property|Value|Required|Description|
 |--- |--- |--- |--- |
-|`type`|One of `string`, `array`, `object`, `boolean`, `integer`|Yes|Allowed type for the input value. Cannot be mixed.|
+|`type`|One of <br/>`string`, <br/>`array`, <br/>`object`, <br/>`boolean`, <br/>`integer`|Yes|Allowed type for the input value. <br/>Cannot be mixed.|
 |`title`|String|Yes|Title of the field in UI.|
-|`description`|String|Yes|Description of the field that will be displayed as help text in Actor input UI.|
-|`default`|Must match `type` property.|No|Default value that will be used when no value is provided.|
-|`prefill`|Must match `type` property.|No|Value that will be prefilled in the actor input interface. Only the `boolean` type doesn't support `prefill` property.|
-|`example`|Must match `type` property.|No|Sample value of this field for the actor to be displayed when actor is published in Apify Store.|
-|`sectionCaption`|String|No|If this property is set, then all fields following this field (this field included) will be separated into a collapsible section with the value set as its caption. The section ends at the last field or the next field which has `sectionCaption` property set.|
-|`sectionDescription`|String|No|If the `sectionCaption` property is set, then you can use this property to provide additional description to the section. The description will be visible right under the caption when the section is open.|
+|`description`|String|Yes|Description of the field that will be <br/>displayed as help text in Actor input UI.|
+|`default`|Must match <br/>`type` property.|No|Default value that will be <br/>used when no value is provided.|
+|`prefill`|Must match <br/>`type` property.|No|Value that will be prefilled <br/>in the actor input interface. <br/>Only the `boolean` type doesn't <br/>support `prefill` property.|
+|`example`|Must match <br/>`type` property.|No|Sample value of this field <br/>for the actor to be displayed when <br/>actor is published in Apify Store.|
+|`sectionCaption`|String|No|If this property is set, <br/>then all fields following this field <br/>(this field included) will be separated into a collapsible section <br/>with the value set as its caption. <br/>The section ends at the last field <br/>or the next field which has the <br/> `sectionCaption` property set.|
+|`sectionDescription`|String|No|If the `sectionCaption` property is set, <br/>then you can use this property to <br/>provide additional description to the section. <br/>The description will be visible right under <br/>the caption when the section is open.|
 
 
 ### [](#additional-properties)Additional properties
@@ -118,7 +120,7 @@ Example of a code input:
         "type": "string",
         "description": "Function executed for each request",
         "editor": "javascript",
-        "prefill": "async () => {\n  return $('title').text();\n\n}"
+        "prefill": "async () => {return $('title').text();}"
     }
 
 Rendered input:
@@ -145,13 +147,13 @@ Properties:
 
 |Property|Value|Required|Description|
 |--- |--- |--- |--- |
-|`editor`|One of `json`, `textfield`, `textarea`, `javascript`, `select`, `hidden`|Yes|Visual editor used for the input field.|
-|`pattern`|String|No|Regular expression that will be used to validate the input.|
+|`editor`|One of `json`, <br/>`textfield`, <br/>`textarea`, <br/>`javascript`, <br/>`select`, <br/>`hidden`|Yes|Visual editor used for <br/>the input field.|
+|`pattern`|String|No|Regular expression that will be <br/>used to validate the input.|
 |`minLength`|Integer|No|Minimum length of the string.|
 |`maxLength`|Integer|No|Maximum length of the string.|
-|`enum`|[String]|Required if `editor` is `select`|Using this field, you can limit values to the given array of strings. Input will be displayed as select box.|
+|`enum`|[String]|Required if <br/>`editor` <br/>is `select`|Using this field, you can limit values <br/>to the given array of strings. <br/>Input will be displayed as select box.|
 |`enumTitles`|[String]|No|Titles for the `enum` keys described.|
-|`nullable`|Boolean|No|Specifies whether `null` is an allowed value.|
+|`nullable`|Boolean|No|Specifies whether `null` <br/>is an allowed value.|
 
 
 #### [](#boolean)Boolean
@@ -164,7 +166,8 @@ Example options with group caption:
         "verboseLog": {
             "title": "Verbose log",
             "type": "boolean",
-            "description": "Debug messages will be included in the log.",
+            "description": "Debug messages will be included
+                in the log.",
             "default": true,
             "groupCaption": "Options",
             "groupDescription": "Various options for this actor"
@@ -172,7 +175,8 @@ Example options with group caption:
         "lightspeed": {
             "title": "Lightspeed",
             "type": "boolean",
-            "description": "If checked then actors runs at a speed of light.",
+            "description": "If checked then actors runs at the
+                speed of light.",
             "default": true
         }
     }
@@ -185,9 +189,9 @@ Properties:
 
 |Property|Value|Required|Description|
 |--- |--- |--- |--- |
-|`editor`|One of `checkbox`, `hidden`|No|Visual editor used for the input field.|
-|`groupCaption`|String|No|If you want to group multiple checkboxes together, add this option to the first of the group.|
-|`groupDescription`|String|No|Description displayed as help text displayed of group title.|
+|`editor`|One of <br/>`checkbox`, <br/>`hidden`|No|Visual editor used for the input field.|
+|`groupCaption`|String|No|If you want to group <br/>multiple checkboxes together, <br/>add this option to the first <br/>of the group.|
+|`groupDescription`|String|No|Description displayed as help text <br/>displayed of group title.|
 |`nullable`|Boolean|No|Specifies whether null is an allowed value.|
 
 #### [](#integer)Integer
@@ -211,10 +215,10 @@ Properties:
 
 |Property|Value|Required|Description|
 |--- |--- |--- |--- |
-|`editor`|One of `number`, `hidden`|No|Visual editor used for input field.|
+|`editor`|One of <br/>`number`, <br/>`hidden`|No|Visual editor used for input field.|
 |`maximum`|Integer|No|Maximum allowed value.|
 |`minimum`|Integer|No|Minimum allowed value.|
-|`unit`|String|No|Unit displayed next to the field in UI, for example _second_, _MB_, etc.|
+|`unit`|String|No|Unit displayed next to the field in UI, <br/>for example _second_, _MB_, etc.|
 |`nullable`|Boolean|No|Specifies whether null is an allowed value.|
 
 #### [](#object)Object
@@ -239,11 +243,13 @@ The object where the proxy configuration is stored has the following structure:
         // Indicates whether Apify Proxy was selected.
         "useApifyProxy": Boolean,
 
-        // Array of Apify Proxy groups. Is missing or null if Apify Proxy's
-        // automatic mode was selected or if proxies are not used.
+        // Array of Apify Proxy groups. Is missing or null if
+        // Apify Proxy's automatic mode was selected
+        // or if proxies are not used.
         "apifyProxyGroups": String[],
 
-        // Array of custom proxy URLs. Is missing or null if custom proxies were not used.
+        // Array of custom proxy URLs. 
+        // Is missing or null if custom proxies were not used.
         "proxyUrls": String[],
     }
 
@@ -253,7 +259,8 @@ Example of a blackbox object:
         "title": "User object",
         "type": "object",
         "description": "Enter object representing user",
-        "prefill": { "name": "John Doe", "email": "johndoe@gmail.com" },
+        "prefill": { "name": "John Doe",
+            "email": "janedoe@gmail.com" },
         "editor": "json"
     }
 
@@ -265,11 +272,11 @@ Properties:
 
 |Property|Value|Required|Description|
 |--- |--- |--- |--- |
-|`editor`|One of `json`, `proxy`, `hidden`|Yes|UI editor used for input.|
-|`patternKey`|String|No|Regular expression that will be used to validate the keys of the object.|
-|`patternValue`|String|No|Regular expression that will be used to validate the values of object.|
-|`maxProperties`|Integer|No|Maximum number of properties the object can have.|
-|`minProperties`|Integer|No|Minimum number of properties the object can have.|
+|`editor`|One of <br/>`json`, <br/>`proxy`, <br/>`hidden`|Yes|UI editor used for input.|
+|`patternKey`|String|No|Regular expression that will be used <br/>to validate the keys of the object.|
+|`patternValue`|String|No|Regular expression that will be used <br/>to validate the values of object.|
+|`maxProperties`|Integer|No|Maximum number of properties <br/>the object can have.|
+|`minProperties`|Integer|No|Minimum number of properties <br/>the object can have.|
 |`nullable`|Boolean|No|Specifies whether null is an allowed value.|
 
 
@@ -307,15 +314,15 @@ Properties:
 
 |Property|Value|Required|Description|
 |--- |--- |--- |--- |
-|`editor`|One of `json`, `requestListSources`, `pseudoUrls`, `keyValue`, `stringList`, `hidden`|Yes|UI editor used for input.|
-|`placeholderKey`|String|No|Placeholder displayed for key field when no value is specified. Works only with `keyValue` editor.|
-|`placeholderValue`|String|No|Placeholder displayed in value field when no value is provided. Works only with `keyValue` and `stringList` editors.|
-|`patternKey`|String|No|Regular expression that will be used to validate the keys of items in the array. Works only with `keyValue` editor.|
-|`patternValue`|String|No|Regular expression that will be used to validate the values of items in the array. Works only with `keyValue` and `stringList` editors.|
-|`maxItems`|Integer|No|Maximum number of items the array can contain.|
-|`minItems`|Integer|No|Minimum number of items the array can contain.|
-|`uniqueItems`|Boolean|No|Specifies whether the array should contain only unique values.|
-|`nullable`|Boolean|No|Specifies whether null is an allowed value.|
+|`editor`|One of <br/>`json`, <br/>`requestListSources`, <br/>`pseudoUrls`, <br/>`keyValue`, <br/>`stringList`, <br/>`hidden`|Yes|UI editor used for input.|
+|`placeholderKey`|String|No|Placeholder displayed for <br/>key field when no value is specified. <br/>Works only with `keyValue` editor.|
+|`placeholderValue`|String|No|Placeholder displayed in value field <br/>when no value is provided. <br/>Works only with `keyValue` and <br/>`stringList` editors.|
+|`patternKey`|String|No|Regular expression that <br/>will be used to validate <br/>the keys of items in the array. <br/>Works only with `keyValue` <br/>editor.|
+|`patternValue`|String|No|Regular expression that <br/>will be used to validate the values <br/>of items in the array. <br/>Works only with `keyValue` and <br/>`stringList` editors.|
+|`maxItems`|Integer|No|Maximum number of items <br/>the array can contain.|
+|`minItems`|Integer|No|Minimum number of items <br/>the array can contain.|
+|`uniqueItems`|Boolean|No|Specifies whether the array <br/>should contain only unique values.|
+|`nullable`|Boolean|No|Specifies whether null is <br/>an allowed value.|
 
 
 Usage of this field is based on the selected editor:
