@@ -27,7 +27,9 @@ Method `Apify.getInput()` is not only a shortcut to `Apify.getValue('INPUT')` bu
 
         ...
 
-        await Apify.setValue('OUTPUT', imageBuffer, { contentType: 'image/jpeg' });
+        await Apify.setValue(
+            'OUTPUT', imageBuffer, { contentType: 'image/jpeg' }
+        );
     });
 
 If you want to use something other than the default key-value store, e.g. some store that you share between actors or between actor runs, then you can use `Apify.openKeyValueStore()` [[see docs](https://sdk.apify.com/docs/api/apify#apifyopenkeyvaluestorestoreidorname-options)]:
