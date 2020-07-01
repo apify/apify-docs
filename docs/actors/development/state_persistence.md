@@ -48,7 +48,8 @@ The actor below can be found in the Apify store as [apify/example-counter](https
         await keyValueStores.putRecord({
             storeId: store.id,
             key: 'counter',
-            body: counter.toString(), // Record body must be a string or buffer!
+            // Record body must be a string or buffer!
+            body: counter.toString(),
         });
     });
 

@@ -80,10 +80,12 @@ Internally, Apify uses Docker to build and run actors. To control the build of t
 
     FROM apify/actor-node-basic
 
-    # Copy all files and directories from the directory to the Docker image
+    # Copy all files and directories from the directory
+    # to the Docker image
     COPY . ./
 
-    # Install NPM packages, skip optional and development dependencies to keep the image small,
+    # Install NPM packages, skip optional and development
+    # dependencies to keep the image small,
     # avoid logging too much, and log the dependency tree
     RUN npm install --quiet --only=prod --no-optional \
      && npm list
@@ -182,14 +184,18 @@ For example, imagine you have an actor that accepts a hotel URL on input and the
         const newInput = {
             startUrls: [{ url: hotelUrl }],
             pageFunction: () => {
-                // Here you pass the page function that scrapes all the reviews ...
+                // Here you pass the page function that
+                // scrapes all the reviews ...
             },
-            // ... and here would be all the additional input parameters.
+            // ... and here would be all the additional
+            // input parameters.
         };
 
-        // Transform the actor run to apify/web-scraper with the new input.
+        // Transform the actor run to apify/web-scraper
+        // with the new input.
         await Apify.metamorph('apify/web-scraper', newInput);
 
-        // The line here will never be reached, because the actor run will be interrupted.
+        // The line here will never be reached, because the
+        // actor run will be interrupted.
     });
 
