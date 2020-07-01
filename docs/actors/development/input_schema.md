@@ -259,8 +259,10 @@ Example of a blackbox object:
         "title": "User object",
         "type": "object",
         "description": "Enter object representing user",
-        "prefill": { "name": "John Doe",
-            "email": "janedoe@gmail.com" },
+        "prefill": {
+            "name": "John Doe",
+            "email": "janedoe@gmail.com"
+        },
         "editor": "json"
     }
 
