@@ -21,7 +21,7 @@ There are four ways to access your datasets:
 
 * [Apify app](https://my.apify.com) - provides an easy-to-understand interface ([more details](#app))
 * [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor ([more details](#sdk))
-* [Apify JavaScript client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from outside the Apify platform (e.g. when building a Node.js application) ([more details](#js-client))
+* [Apify JavaScript client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from outside the Apify platform ([more details](#js-client))
 * [Apify API](#https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically ([more details](#api))
 
 ## [](#basic-usage) Basic usage
@@ -52,8 +52,11 @@ If you have chosen to store your dataset locally, you can find it in the followi
 
 To add data to the default dataset, you can use the below example.
 
+    // Import the `apify` package to your project
     const Apify = require('apify');
 
+    // The main function, which performs the actor's job
+    // and terminates the process when it is finished
     Apify.main(async () => {
         
         // Add one item to the default dataset:
@@ -70,6 +73,7 @@ To add data to the default dataset, you can use the below example.
 
 If you want to use something other than the default dataset, e.g. a dataset that you share between actors or between actor runs, you can use the [`Apify.openDataset()` method](https://sdk.apify.com/docs/api/apify#apifyopendatasetdatasetidorname-options)].
 
+    // Save a named dataset to a variable
     const dataset = await Apify.openDataset('some-name');
 
     // Add data to the named dataset
@@ -79,11 +83,61 @@ For more information on managing datasets using the Apify SDK, see the [SDK docu
 
 ### [](#js-client) Apify JavaScript client
 
-Use if you're accessing your dataset from a Node.js application outside the Apify platform.
+The [Apify JavaScript client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) allows you to access your datasets from outside the Apify platform (e.g. from a Node.js application).
 
+To use the `apify client` in your application, you will first need to have [Node.js](https://nodejs.org/en/) version 10 or higher installed. You can use the following commands to check which version of Node.js you have.
 
+    node --version
+    npm --version
 
+You can then install the `apify-client` package from [NPM](https://www.npmjs.com/package/apify-cli) using the below command in your terminal.
 
+    npm install apify-cli
+
+Once installed, `require` the `apify-client` package in your app, create a new instance of it using your account `user ID' and secret `API token` (you can find these in the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account), and save your datasets to a variable for easier access.
+
+    // Import the `apify-client` package
+    const ApifyClient = require('apify-client');
+
+    // Create a new instance of the client
+    const apifyClient = new ApifyClient({
+        userId: 'RWnGtczasdwP63Mak',
+        token: 'f5J7XsdaKDyRywwuGGo9',
+    });
+
+    // Save your datasets to a variable for easier access
+    const datasets = apifyClient.datasets;
+
+You can then create, update, and delete datasets using the commands below.
+
+    // Get the dataset with the name 'my-dataset'
+    const dataset = await datasets.getOrCreateDataset({
+        datasetName: 'my-dataset',
+    });
+
+    // Set the dataset as the default to be used
+    // in the following commands
+    apifyClient.setOptions({ datasetId: dataset.id });
+
+    // Add an object and and array of objects to the dataset
+    await datasets.putItems({
+        data: { foo: 'bar' }
+    });
+    await datasets.putItems({
+        data: [
+            { foo: 'hotel' },
+            { foo: 'restaurant' }
+        ],
+    });
+
+    // Get items from a dataset
+    const paginationList = await datasets.getItems();
+    const items = paginationList.items;
+
+    // Delete a dataset
+    await datasets.deleteDataset();
+
+For more information, see the [Apify JavaScript client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) documentation.
 
 ### [](#api) Apify API
 [Apify API](https://docs.apify.com/api/v2#/reference/datasets)
@@ -91,6 +145,9 @@ Use if you're accessing your dataset from a Node.js application outside the Apif
 Talk about the API and provide links to several endpoints, such as update, create, get list of datasets.
 
 ADD HOW TO ADD DATA USING THE PUT DATA ENDPOINT
+
+The actual data is exported using the [Get dataset items] Apify API endpoint. This way you can easily share crawling results.
+
 
 ## [](#hidden-fields) Hidden fields
 
