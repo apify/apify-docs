@@ -8,7 +8,7 @@ paths:
 
 # [](#dataset)Dataset
 
-Dataset storage enables you to save and retrieve sequential data objects which share the same attribute. Each actor run is assigned its own dataset–it is created when the first item is stored to it.
+Dataset storage enables you to save and retrieve sequential data objects. Each actor run is assigned its own dataset–it is created when the first item is stored to it.
 
 Datasets usually contain results from web scraping, crawling or data processing jobs. It can be visualized as a table where each object is a row and its attributes are the columns. The data can be exported in JSON, CSV, XML, RSS, Excel or HTML formats.
 
@@ -16,6 +16,15 @@ Datasets usually contain results from web scraping, crawling or data processing 
 > Unnamed datasets expire after 7 days unless otherwise specified.
 
 Dataset storage is immutable - data can only be added and cannot be changed.
+
+---
+for tabulated data (html, csv, excel) (anything that has columns), the maximum number of columns is 3000 - evrything else will be cut off
+
+show that parameters like 'fields' can be isolated when exporting (check in api docs under OMIT) api, client, sdk
+
+lik sdk examples for dataset map/reduce
+
+MENTION ABOUT XML STUFF IN API DOCS
 
 There are four ways to access your datasets:
 
@@ -194,8 +203,7 @@ Example payload:
         }
     ]
 
-
-## [](#hidden-fields) Hidden fields
+## Hidden fields
 
 Top-level fields starting with the `#` character are considered [hidden](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items?console=1).
 These fields may be easily omitted when downloading the data from a dataset. This provides a convenient way to store debug information that should not appear in the final dataset. 
@@ -215,5 +223,7 @@ Below is an example of a dataset record containing hidden fields with an HTTP re
     }
 
 Data without hidden fields are called "clean" and can be downloaded from the [Apify app](https://my.apify.com/storage#/datasets) using the "Clean items" link or via API using the `clean=true` or `clean=1` [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items?console=1).
+
+## Limits
 
 
