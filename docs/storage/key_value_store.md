@@ -1,7 +1,7 @@
 ---
 title: Key-value store
-description: Documentation of Apify storage, which allows you to store actor inputs and outputs.
-menuWeight: 6.1
+description: Documentation of Apify Storage, which allows you to store actor inputs and outputs.
+menuWeight: 6.2
 paths:
     - storage/key-value-store
 ---
