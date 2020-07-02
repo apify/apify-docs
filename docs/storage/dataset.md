@@ -10,9 +10,8 @@ paths:
 
 Dataset storage enables you to save and retrieve sequential data objects which share the same attribute. Each actor run is assigned its own dataset–it is created when the first item is stored to it.
 
-Datasets usually contain results from web scraping, crawling or data processing jobs. The data can be visualized as a table where each object is a row and its attributes are the columns. Data from the dataset can be exported in JSON, CSV, XML, RSS, Excel or HTML formats.
+Datasets usually contain results from web scraping, crawling or data processing jobs. It can be visualized as a table where each object is a row and its attributes are the columns. The data can be exported in JSON, CSV, XML, RSS, Excel or HTML formats.
 
-> Note:
 > Named datasets are retained indefinitely. <br/>
 > Unnamed datasets expire after 7 days unless otherwise specified.
 
