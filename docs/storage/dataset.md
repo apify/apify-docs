@@ -15,18 +15,18 @@ Datasets usually contain results from web scraping, crawling or data processing 
 > Named datasets are retained indefinitely <br/>
 > Unnamed datasets expire after 7 days unless otherwise specified
 
-Dataset storage is immutable - data can only be added and cannot be changed. You [add data to a dataset](#api) using the `Put items` endpoint in the [Apify API](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items?console=1).
+Dataset storage is immutable - data can only be added and cannot be changed.
 
 There are four ways to access your datasets:
 
-* [Apify app](https://my.apify.com) - provides an easy-to-understand interface ([more details](#app))
-* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor ([more details](#sdk))
-* [Apify JavaScript client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from outside the Apify platform ([more details](#js-client))
-* [Apify API](#https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically ([more details](#api))
+* [Apify app](https://my.apify.com) - provides an easy-to-understand interface ([more details](#apify-app))
+* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor ([more details](#apify-sdk))
+* [Apify JavaScript client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from outside the Apify platform ([more details](#apify-javascript-client))
+* [Apify API](#https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically ([more details](#apify-api))
 
 ## [](#basic-usage) Basic usage
 
-### [](#app) Apify app
+### [](#apify-app) Apify app
 
 In the [Apify app](https://my.apify.com), you can view your datasets under the [Datasets](https://my.apify.com/storage#/datasets) tab in the [Storage](https://my.apify.com/storage) section.
 
@@ -37,7 +37,7 @@ Only named datasets are displayed by default. Select the `Include unnamed datase
 To view or download a dataset in various formats, click on its `Dataset ID`. In the detail page, you can update the dataset's name (and, in turn, its retention period) and
 [access rights]({{@link access_rights.md}}) under the `Settings` tab. The API tab allows you to view and test the dataset's [API endpoints](https://docs.apify.com/api/v2#/reference/datasets).
 
-### [](#sdk) Apify SDK
+### [](#apify-sdk) Apify SDK
 
 If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify SDK](https://sdk.apify.com).
 In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset), the dataset is represented by the [`Dataset`](https://sdk.apify.com/docs/guides/data-storage#dataset) class.
@@ -81,7 +81,7 @@ If you want to use something other than the default dataset, e.g. a dataset that
 
 For more information on managing datasets using the Apify SDK, see the [SDK documentation](https://sdk.apify.com/docs/api/dataset).
 
-### [](#js-client) Apify JavaScript client
+### [](#apify-javascript-client) Apify JavaScript client
 
 The [Apify JavaScript client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) allows you to access your datasets from outside the Apify platform (e.g. from a Node.js application).
 
@@ -139,7 +139,7 @@ You can then create, update, and delete datasets using the commands below.
 
 For more information, see the [Apify JavaScript client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) documentation.
 
-### [](#api) Apify API
+### [](#apify-api) Apify API
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/datasets) allows you to access your datasets programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) or easily share your crawling results.
 
