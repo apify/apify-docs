@@ -20,7 +20,7 @@ Dataset storage is immutable - data can only be added and cannot be changed. You
 There are four ways to access your datasets:
 
 * [Apify app](https://my.apify.com) - provides an easy-to-understand interface ([more details](#app))
-* [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor ([more details](#sdk))
+* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor ([more details](#sdk))
 * [Apify JavaScript client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from outside the Apify platform (e.g. when building a Node.js application) ([more details](#js-client))
 * [Apify API](#https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically ([more details](#api))
 
@@ -38,21 +38,49 @@ To view or download a dataset in various formats, click on its `Dataset ID`. In 
 [access rights]({{@link access_rights.md}}) under the `Settings` tab. The API tab allows you to view and test the dataset's [API endpoints](https://docs.apify.com/api/v2#/reference/datasets).
 
 ### [](#sdk) Apify SDK
-[Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset)
 
-Handy if you want to customize your datasets when building and actor using the SDK.
+If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify SDK](https://sdk.apify.com).
+In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset), the dataset is represented by the [`Dataset`](https://sdk.apify.com/docs/guides/data-storage#dataset) class.
 
----ADD CODE EXAMPLES
+You can use the `Dataset` class to specify whether your data is stored locally on in the Apify cloud, push data to datasets of your choice using the `pushData()` method, and perform functions such as `getData()` and `reduce()`. For more information on this, see the [Apify SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset).
 
+If you have chosen to store your dataset locally, you can find it in the following files:
 
+    {APIFY_LOCAL_STORAGE_DIR}/datasets/{DATASET_ID}/{INDEX}.json
 
+> `DATASET_ID` refers to the dataset's `name` or `ID`. The default dataset will be stored in the `default` directory.
+
+To add data to the default dataset, you can use the below example.
+
+    const Apify = require('apify');
+
+    Apify.main(async () => {
+        
+        // Add one item to the default dataset:
+        await Apify.pushData({ foo: 'bar' });
+
+        // Add multiple items to the default dataset:
+        await Apify.pushData([
+            { foo: 'hotel' },
+            { foo: 'restaurant' },
+        ]);
+    });
+
+> Make sure to use the `await` keyword when calling `pushData()`, otherwise the actor process might finish before the data is stored!
+
+If you want to use something other than the default dataset, e.g. a dataset that you share between actors or between actor runs, you can use the [`Apify.openDataset()` method](https://sdk.apify.com/docs/api/apify#apifyopendatasetdatasetidorname-options)].
+
+    const dataset = await Apify.openDataset('some-name');
+
+    // Add data to the named dataset
+    await dataset.pushData({ foo: 'bar' });
+
+For more information on managing datasets using the Apify SDK, see the [SDK documentation](https://sdk.apify.com/docs/api/dataset).
 
 ### [](#js-client) Apify JavaScript client
-[Apify JavaScript client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets)
 
 Use if you're accessing your dataset from a Node.js application outside the Apify platform.
 
----ADD CODE EXAMPLES
 
 
 
