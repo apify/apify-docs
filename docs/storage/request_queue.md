@@ -1,6 +1,6 @@
 ---
 title: Request queue
-description: Documentation of Apify storage, which allows you to store actor inputs and outputs.
+description: Documentation of Apify Storage, which allows you to store actor inputs and outputs.
 menuWeight: 6.3
 paths:
     - storage/request-queue
