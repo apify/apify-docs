@@ -1,41 +1,66 @@
 ---
 title: Dataset
-description: Documentation of Apify storage, which allows you to store actor inputs and outputs.
-menuWeight: 6.2
+description: Documentation of Apify Storage, which allows you to store actor inputs and outputs.
+menuWeight: 6.1
 paths:
     - storage/dataset
 ---
 
 # [](#dataset)Dataset
 
-The dataset is storage that enables the saving and retrieval of sequential data objects - typically the results of some long-running operation such as scraping or data extraction. The dataset is immutable - i.e. data can only be added and cannot be changed.
+Dataset storage enables you to save and retrieve sequential data objects which share the same attribute. These are usually results from web scraping, crawling or data processing jobs. The data can be visualized as a table where each object is a row and its attributes are the columns. Data from the dataset can be exported in JSON, CSV, XML, RSS, Excel or HTML formats.
 
-## [](#basic-usage)Basic usage
+Dataset storage is immutable - data can only be added and cannot be changed.
 
-Each actor run is assigned its own dataset, created when the first item is stored to it. The ID of this dataset is available under `run.defaultDatasetId`.
+> Named datasets are retained indefinitely
+> Unnamed datasets expire after 7 days unless otherwise specified
 
-In your actor you can use shorthand methods to save items into the default dataset - `Apify.pushData()` [[see docs](https://sdk.apify.com/docs/api/apify#apifypushdataitem)].
+There are four ways to access and manage your datasets:
 
-    const Apify = require('apify');
+* [Apify app](https://my.apify.com) - provides an easy-to-understand interface ([more details](#app))
+* [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor ([more details](#sdk))
+* [Apify JavaScript client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from outside the Apify platform (e.g. when building a Node.js application) ([more details](#js-client))
+* [Apify API](#https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically ([more details](#api))
 
-    Apify.main(async () => {
-        // Put one item into the dataset:
-        await Apify.pushData({ foo: 'bar' });
+## [](#basic-usage) Basic usage
 
-        // Put multiple items into the dataset:
-        await Apify.pushData([
-            { foo: 'hotel' },
-            { foo: 'restaurant' },
-        ]);
-    });
+### [](#app) Apify app
 
-If you want to use something other than the default dataset, e.g. some dataset that you share between actors or between actor runs, then you can use `Apify.openDataset()` [[see docs](https://sdk.apify.com/docs/api/apify#apifyopendatasetdatasetidorname-options)]:
+In the [Apify app](https://my.apify.com), you can view your datasets under the [Datasets](https://my.apify.com/storage#/datasets) tab of the [Storage](https://my.apify.com/storage) section.
 
-    const dataset = await Apify.openDataset('some-name');
+Select the `Include unnamed datasets` checkbox to display all of your datasets.
 
-    await dataset.pushData({ foo: 'bar' });
+---ADD SCREENSHOTS OF THE APP
 
-## [](#hidden-fields)Hidden fields
+
+
+
+### [](#sdk) Apify SDK
+[Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset)
+
+Handy if you want to customize your datasets when building and actor using the SDK.
+
+---ADD CODE EXAMPLES
+
+
+
+
+### [](#js-client) Apify JavaScript client
+[Apify JavaScript client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets)
+
+Use if you're accessing your dataset from a Node.js application outside the Apify platform.
+
+---ADD CODE EXAMPLES
+
+
+
+
+### [](#api) Apify API
+[Apify API](https://docs.apify.com/api/v2#/reference/datasets)
+
+Talk about the API and provide links to several endpoints, such as update, create, get list of datasets.
+
+## [](#hidden-fields) Hidden fields
 
 Hidden fields are fields starting with the `#` character. These fields might be easily omitted when downloading the data from a dataset and therefore provides a convenient way to store debug information that should not appear in the final dataset. Here is an example of a dataset record containing hidden fields with an HTTP response and error:
 
@@ -52,6 +77,40 @@ Hidden fields are fields starting with the `#` character. These fields might be 
     }
 
 Data without hidden fields are called "clean" and can be downloaded at Apify app using the "clean items" link or via API using a URL parameter `clean=true`.
+
+
+
+
+
+
+# ------- OLD STUFF ---------
+Each actor run is assigned its own dataset, created when the first item is stored to it. 
+
+<!-- Where? How can I access it? Talk about the ID -->
+The ID of this dataset is available under `run.defaultDatasetId`.
+
+<!-- elaborate. provide infor for SDK and app users -->
+In your actor you can use shorthand methods to save items into the default dataset - `Apify.pushData()` [[see docs](https://sdk.apify.com/docs/api/apify#apifypushdataitem)].
+
+    const Apify = require('apify');
+
+    Apify.main(async () => {
+        // Put one item into the dataset:
+        await Apify.pushData({ foo: 'bar' });
+
+        // Put multiple items into the dataset:
+        await Apify.pushData([
+            { foo: 'hotel' },
+            { foo: 'restaurant' },
+        ]);
+    });
+
+<!--  How can we do this in-app? -->
+If you want to use something other than the default dataset, e.g. some dataset that you share between actors or between actor runs, then you can use `Apify.openDataset()` [[see docs](https://sdk.apify.com/docs/api/apify#apifyopendatasetdatasetidorname-options)]:
+
+    const dataset = await Apify.openDataset('some-name');
+
+    await dataset.pushData({ foo: 'bar' });
 
 ## [](#api-and-javascript-client)API and JavaScript client
 
