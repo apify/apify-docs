@@ -94,7 +94,7 @@ You can then install the `apify-client` package from [NPM](https://www.npmjs.com
 
     npm install apify-cli
 
-Once installed, `require` the `apify-client` package in your app, create a new instance of it using your account `user ID' and secret `API token` (you can find these in the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account), and save your datasets to a variable for easier access.
+Once installed, `require` the `apify-client` package in your app, create a new instance of it using your account `user ID' and secret `API token` (you can find these on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account), and save your datasets to a variable for easier access.
 
     // Import the `apify-client` package
     const ApifyClient = require('apify-client');
@@ -140,18 +140,64 @@ You can then create, update, and delete datasets using the commands below.
 For more information, see the [Apify JavaScript client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) documentation.
 
 ### [](#api) Apify API
-[Apify API](https://docs.apify.com/api/v2#/reference/datasets)
 
-Talk about the API and provide links to several endpoints, such as update, create, get list of datasets.
+The [Apify API](https://docs.apify.com/api/v2#/reference/datasets) allows you to access your datasets programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) or easily share your crawling results.
 
-ADD HOW TO ADD DATA USING THE PUT DATA ENDPOINT
+To access your datasets via the Apify API, you will need your secret API token, which you can find on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account. 
 
-The actual data is exported using the [Get dataset items] Apify API endpoint. This way you can easily share crawling results.
+In most cases, you will also need to provide a `dataset ID` (demonstrated in the examples below as `DATASET_ID`), which can be provided in the following formats:
+
+* `WkzbQMuFYuamGv3YF` - the dataset's numerical ID if the dataset is unnamed
+* `username~dataset-name` - your username and the dataset's name separated by a tilde (`~`) character (e.g. `janedoe~ecommerce-scraping-results`) if the dataset is named
+
+The `DATASET_ID` parameter 
+
+For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
+
+#### Get a list of datasets
+
+To get a list of your datasets, send a GET request to the [Get list of datasets](https://docs.apify.com/api/v2#/reference/datasets/get-list-of-datasets?console=1) endpoint, providing your API token as a query parameter. 
+
+    https://api.apify.com/v2/datasets?token={YOUR_API_TOKEN}
+
+#### Get dataset information
+
+To get information about a dataset such as its creation time and `item count`, send a GET request to the [Get dataset](https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset?console=1) endpoint.
+
+    https://api.apify.com/v2/datasets/{DATASET_ID}?token={YOUR_API_TOKEN}
+
+#### Get dataset items
+
+To export a dataset's data, send a GET request to the
+[Get dataset items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items) Apify API endpoint.
+
+    https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
+
+#### Put data
+
+To add data to a dataset, send a POST request, with a JSON object containing the data you want to add as the payload to the [Put items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items?console=1) endpoint.
+
+    https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
+
+Example payload:
+
+    [
+        {
+            "foo": "bar"
+        },
+        {
+            "foo": "hotel"
+        },
+        {
+            "foo": "restaurant"
+        }
+    ]
 
 
 ## [](#hidden-fields) Hidden fields
 
-Hidden fields are fields starting with the `#` character. These fields might be easily omitted when downloading the data from a dataset and therefore provides a convenient way to store debug information that should not appear in the final dataset. Here is an example of a dataset record containing hidden fields with an HTTP response and error:
+Top-level fields starting with the `#` character are considered [hidden](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items?console=1).
+These fields may be easily omitted when downloading the data from a dataset. This provides a convenient way to store debug information that should not appear in the final dataset. Here is an example of a dataset record containing hidden fields with an HTTP response and error:
 
     {
         "url": "https://example.com",
@@ -165,43 +211,6 @@ Hidden fields are fields starting with the `#` character. These fields might be 
         }
     }
 
-Data without hidden fields are called "clean" and can be downloaded at Apify app using the "clean items" link or via API using a URL parameter `clean=true`.
+Data without hidden fields are called "clean" and can be downloaded from the [Apify app](https://my.apify.com/storage#/datasets) using the "Clean items" link or via API using the `clean=true` or `clean=1` [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items?console=1).
 
-
-
-
-
-
-# ------- OLD STUFF ---------
-Each actor run is assigned its own dataset, created when the first item is stored to it. 
-
-<!-- Where? How can I access it? Talk about the ID -->
-The ID of this dataset is available under `run.defaultDatasetId`.
-
-<!-- elaborate. provide info for SDK and app users -->
-In your actor you can use shorthand methods to save items into the default dataset - `Apify.pushData()` [[see docs](https://sdk.apify.com/docs/api/apify#apifypushdataitem)].
-
-    const Apify = require('apify');
-
-    Apify.main(async () => {
-        // Put one item into the dataset:
-        await Apify.pushData({ foo: 'bar' });
-
-        // Put multiple items into the dataset:
-        await Apify.pushData([
-            { foo: 'hotel' },
-            { foo: 'restaurant' },
-        ]);
-    });
-
-<!--  How can we do this in-app? -->
-If you want to use something other than the default dataset, e.g. some dataset that you share between actors or between actor runs, then you can use `Apify.openDataset()` [[see docs](https://sdk.apify.com/docs/api/apify#apifyopendatasetdatasetidorname-options)]:
-
-    const dataset = await Apify.openDataset('some-name');
-
-    await dataset.pushData({ foo: 'bar' });
-
-## [](#api-and-javascript-client)API and JavaScript client
-
-The dataset provides a [HTTP API](https://docs.apify.com/api/v2#/reference/datasets) to manage datasets and to add/retrieve their data. If you are developing a Node.js application, then you can also use the [Apify JavaScript client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets).
 
