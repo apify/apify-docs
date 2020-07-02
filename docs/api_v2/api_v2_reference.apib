@@ -10,7 +10,7 @@ All requests and responses (including errors) are encoded in [JSON](http://www.j
 with a few exceptions that are explicitly described in the reference.
 
 To access the API using [Node.js](https://nodejs.org/en/), we recommend the
-[`apify-client`](https://docs.apify.com/api/apify-client-js/latest) [NPM package](https://www.npmjs.com/package/apify-client). 
+[`apify-client`](https://docs.apify.com/api/apify-client-js/latest) [NPM package](https://www.npmjs.com/package/apify-client).
 The client's functions correspond to the API endpoints and have the same parameters. This simplifies development of apps that depend on the Apify platform.
 
 **Note:** All requests with JSON payloads need to specify the `Content-Type: application/json` HTTP header!
@@ -46,7 +46,7 @@ This means you need to append your [secret API token](https://my.apify.com/accou
 
 Optionally, you can include the query parameters described in the [Run actor](#reference/actors/run-collection/run-actor) section to customize your run.
 
-If you're using Node.js, the best way to run an actor is using the `Apify.call()` method from the [Apify SDK](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options). It runs the actor using the account you are currently logged into (determined by the [secret API token](https://my.apify.com/account#/integrations)). The result is an [actor run object](https://sdk.apify.com/docs/typedefs/actor-run) and its output (if any). 
+If you're using Node.js, the best way to run an actor is using the `Apify.call()` method from the [Apify SDK](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options). It runs the actor using the account you are currently logged into (determined by the [secret API token](https://my.apify.com/account#/integrations)). The result is an [actor run object](https://sdk.apify.com/docs/typedefs/actor-run) and its output (if any).
 
 A typical workflow is as follows:
 
@@ -1676,7 +1676,7 @@ Gets an object that contains all the details about a specific key-value store.
 
 ### Update store [PUT]
 
-Updates a key-value store's name using a value specified by a JSON object passed in the PUT payload. 
+Updates a key-value store's name using a value specified by a JSON object passed in the PUT payload.
 
 The response is the updated key-value store object, as returned by the [Get store](#reference/key-value-stores/store-object/get-store) API endpoint.
 
@@ -1942,7 +1942,7 @@ Returns dataset object for given dataset ID.
 
 ### Update dataset [PUT]
 
-Updates a dataset's name using a value specified by a JSON object passed in the PUT payload. 
+Updates a dataset's name using a value specified by a JSON object passed in the PUT payload.
 
 The response is the updated dataset object, as returned by the
 [Get dataset](#reference/datasets/dataset-collection/get-dataset) API endpoint.
@@ -2524,8 +2524,8 @@ To assign the new webhook to an actor or task, the request body must contain `re
 ```
     "isAdHoc" : false,
     "requestUrl" : "https://example.com",
-    "eventTypes" : [ 
-        "ACTOR.RUN.SUCCEEDED", 
+    "eventTypes" : [
+        "ACTOR.RUN.SUCCEEDED",
         "ACTOR.RUN.ABORTED"
     ],
     "condition" : {
@@ -3133,12 +3133,8 @@ The user account is identified by the provided authentication token.
     - clientIp:      `172.234.12.34`           (string, required)
     - userAgent:     `Mozilla/5.0 (iPad)`      (string, required)
 - stats                                        (object, nullable)
-    - workersUsed:   1                         (number, required)
     - durationMillis: 1000                     (number, required)
     - runTimeSecs:   45.718                    (number, required)
-    - readyTimeSecs: 0.035                     (number, required)
-    - initTotalSecs: 0.139                     (number, required)
-    - emfileError                              (object, nullable)
     - computeUnits:  0.012699444444444444      (number, required)
 - options                                      (object, nullable)
     - useCache:      false                     (boolean, nullable)
@@ -3181,12 +3177,8 @@ The user account is identified by the provided authentication token.
     - clientIp:      `172.234.12.34`           (string, required)
     - userAgent:     `Mozilla/5.0 (iPad)`      (string, required)
 - stats                                        (object, nullable)
-    - workersUsed:   1                         (number, required)
     - durationMillis 1000                      (number, required)
     - runTimeSecs:   5.718                     (number, required)
-    - readyTimeSecs: 0.035                     (number, required)
-    - initTotalSecs: 0.139                     (number, required)
-    - emfileError                              (object, nullable)
 - options                                      (object, nullable)
     - useCache:      false                     (boolean, nullable)
     - memoryMbytes:  1024                      (number, nullable)
@@ -3205,34 +3197,26 @@ The user account is identified by the provided authentication token.
     - clientIp:      `172.234.12.34`           (string, required)
     - userAgent:    `Mozilla/5.0 (iPad)`       (string, required)
 - stats                                        (object, required)
-    - inputBodyLen:             240            (number, nullable) # TODO: review 'nullable' on whole segment
-    - restartCount:             0              (number, nullable)
-    - workersUsed:              1              (number, nullable)
-    - resurrectCount:           2              (number, nullable)
-    - initPrepSecs:              0.005          (number, nullable)
-    - initImagePullSecs:        19.775         (number, nullable)
-    - initContainerCreateSecs:  0.567          (number, nullable)
-    - initContainerStartSecs:   0.888          (number, nullable)
-    - memAvgBytes:              267874071.9    (number, nullable)
-    - memMaxBytes:              404713472      (number, nullable)
-    - memCurrentBytes:          0              (number, nullable)
-    - cpuAvgUsage:              33.75321011075384   (number, nullable)
-    - cpuMaxUsage:              169.65073553494125  (number, nullable)
-    - cpuCurrentUsage:          0              (number, nullable)
-    - netRxBytes:               103508042      (number, nullable)
-    - netTxBytes:               4854600        (number, nullable)
-    - durationMillis:           248472         (number, nullable)
-    - runTimeSecs:              248.472        (number, nullable)
-    - metamorph:                0              (number, nullable)
-    - readyTimeSecs:            0.166          (number, nullable)
-    - initTotalSecs:            21.235         (number, nullable)
-    - emfileError:              false          (boolean, nullable)
-    - computeUnits:             0.13804        (number, nullable)
-- options                                      (object, nullable)
-    - build:        `latest`                   (string, nullable)
-    - timeoutSecs:  300                        (number, nullable)
-    - memoryMbytes: 1024                       (number, nullable)
-    - diskMbytes:   2048                       (number, nullable)
+    - inputBodyLen:             240            (number, required)
+    - restartCount:             0              (number, required)
+    - resurrectCount:           2              (number, required)
+    - memAvgBytes:              267874071.9    (number, required)
+    - memMaxBytes:              404713472      (number, required)
+    - memCurrentBytes:          0              (number, required)
+    - cpuAvgUsage:              33.75321011075384   (number, required)
+    - cpuMaxUsage:              169.65073553494125  (number, required)
+    - cpuCurrentUsage:          0              (number, required)
+    - netRxBytes:               103508042      (number, required)
+    - netTxBytes:               4854600        (number, required)
+    - durationMillis:           248472         (number, required)
+    - runTimeSecs:              248.472        (number, required)
+    - metamorph:                0              (number, required)
+    - computeUnits:             0.13804        (number, required)
+- options                                      (object, required)
+    - build:        `latest`                   (string, required)
+    - timeoutSecs:  300                        (number, required)
+    - memoryMbytes: 1024                       (number, required)
+    - diskMbytes:   2048                       (number, required)
 - buildId:          `7sT5jcggjjA9fNcxF`        (string, required)
 - exitCode:         0                          (number, nullable) # TODO: review
 - defaultKeyValueStoreId: `eJNzqsbPiopwJcgGQ`  (string, required)
@@ -3288,33 +3272,26 @@ The user account is identified by the provided authentication token.
     - scheduleId:   `dWazFsPpxMigMSqHL`        (string, required)
     - scheduledAt:  `2019-06-10T11:40:00.000Z` (string, required)
 - stats                                        (object, required)
-    - inputBodyLen:              240           (number, nullable) # TODO: review stats segment
-    - restartCount:              0             (number, nullable)
-    - workersUsed:               1             (number, nullable)
-    - initPrepSecs:              0.012         (number, nullable)
-    - initImagePullSecs:         9.953         (number, nullable)
-    - initContainerCreateSecs:   4.405         (number, nullable)
-    - initContainerStartSecs:    4.871         (number, nullable)
-    - memAvgBytes:               35914228.4    (number, nullable)
-    - memMaxBytes:               38244352      (number, nullable)
-    - memCurrentBytes:           0             (number, nullable)
-    - cpuAvgUsage:               0.00955965    (number, nullable)
-    - cpuMaxUsage:               3.15469       (number, nullable)
-    - cpuCurrentUsage:           0             (number, nullable)
-    - netRxBytes:                2652          (number, nullable)
-    - netTxBytes:                1338          (number, nullable)
-    - durationMillis:            26239         (number, nullable)
-    - runTimeSecs:               26.239        (number, nullable)
-    - metamorph:                 0             (number, nullable)
-    - readyTimeSecs:             1.276         (number, nullable)
-    - initTotalSecs:             19.241        (number, nullable)
-    - emfileError:               false         (boolean, nullable)
-    - computeUnits:              0.0072886     (number, nullable)
-- options                                      (object, nullable)
-    - build:        `latest`                   (string, nullable)
-    - timeoutSecs:  300                        (number, nullable)
-    - memoryMbytes: 1024                       (number, nullable)
-    - diskMbytes:   2048                       (number, nullable)
+    - inputBodyLen:              240           (number, required)
+    - restartCount:              0             (number, required)
+    - resurrectCount:            2             (number, required)
+    - memAvgBytes:               35914228.4    (number, required)
+    - memMaxBytes:               38244352      (number, required)
+    - memCurrentBytes:           0             (number, required)
+    - cpuAvgUsage:               0.00955965    (number, required)
+    - cpuMaxUsage:               3.15469       (number, required)
+    - cpuCurrentUsage:           0             (number, required)
+    - netRxBytes:                2652          (number, required)
+    - netTxBytes:                1338          (number, required)
+    - durationMillis:            26239         (number, required)
+    - runTimeSecs:               26.239        (number, required)
+    - metamorph:                 0             (number, required)
+    - computeUnits:              0.0072886     (number, required)
+- options                                      (object, required)
+    - build:        `latest`                   (string, required)
+    - timeoutSecs:  300                        (number, required)
+    - memoryMbytes: 1024                       (number, required)
+    - diskMbytes:   2048                       (number, required)
 - buildId:          `7sT5jcggjjA9fNcxF`        (string, nullable) # TODO: review
 - exitCode:         0                          (number, nullable) # TODO: review
 - defaultKeyValueStoreId: `eJNzqsbPiopwJcgGQ`  (string, required)
@@ -3336,34 +3313,26 @@ The user account is identified by the provided authentication token.
     - clientIp:     `172.234.12.34`            (string, required)
     - userAgent:    `Mozilla/5.0 (iPad)`       (string, required)
 - stats                                        (object, required)
-    - inputBodyLen:              240           (number, nullable) # TODO: review stats segment
-    - restartCount:              0             (number, nullable)
-    - workersUsed:               1             (number, nullable)
-    - initPrepSecs:              0.012         (number, nullable)
-    - initImagePullSecs:         9.953         (number, nullable)
-    - initContainerCreateSecs:   4.405         (number, nullable)
-    - initContainerStartSecs:    4.871         (number, nullable)
-    - memAvgBytes:               35914228.4    (number, nullable)
-    - memMaxBytes:               38244352      (number, nullable)
-    - memCurrentBytes:           0             (number, nullable)
-    - cpuAvgUsage:               0.00955965    (number, nullable)
-    - cpuMaxUsage:               3.1546        (number, nullable)
-    - cpuCurrentUsage:           0             (number, nullable)
-    - netRxBytes:                2652          (number, nullable)
-    - netTxBytes:                1338          (number, nullable)
-    - durationMillis:            26239         (number, nullable)
-    - runTimeSecs:               26.239        (number, nullable)
-    - metamorph:                 0             (number, nullable)
-    - readyTimeSecs:             1.276         (number, nullable)
-    - initTotalSecs:             19.241        (number, nullable)
-    - emfileError:               false         (boolean, nullable)
-    - resurrectCount:            1             (number, nullable)
-    - computeUnits:              0.0072886     (number, nullable)
-- options                                      (object, nullable)
-    - build:        `latest`                   (string, nullable)
-    - timeoutSecs:  300                        (number, nullable)
-    - memoryMbytes: 1024                       (number, nullable)
-    - diskMbytes:   2048                       (number, nullable)
+    - inputBodyLen:              240           (number, required)
+    - restartCount:              0             (number, required)
+    - resurrectCount:            1             (number, required)
+    - memAvgBytes:               35914228.4    (number, required)
+    - memMaxBytes:               38244352      (number, required)
+    - memCurrentBytes:           0             (number, required)
+    - cpuAvgUsage:               0.00955965    (number, required)
+    - cpuMaxUsage:               3.1546        (number, required)
+    - cpuCurrentUsage:           0             (number, required)
+    - netRxBytes:                2652          (number, required)
+    - netTxBytes:                1338          (number, required)
+    - durationMillis:            26239         (number, required)
+    - runTimeSecs:               26.239        (number, required)
+    - metamorph:                 0             (number, required)
+    - computeUnits:              0.0072886     (number, required)
+- options                                      (object, required)
+    - build:        `latest`                   (string, required)
+    - timeoutSecs:  300                        (number, required)
+    - memoryMbytes: 1024                       (number, required)
+    - diskMbytes:   2048                       (number, required)
 - buildId:          `7sT5jcggjjA9fNcxF`        (string, required)
 - exitCode:         0                          (number, nullable) # TODO: review
 - defaultKeyValueStoreId: `eJNzqsbPiopwJcgGQ`  (string, required)
@@ -3382,33 +3351,26 @@ The user account is identified by the provided authentication token.
     - clientIp:     `172.234.12.34`            (string, required)
     - userAgent:    `Mozilla/5.0 (iPad)`       (string, required)
 - stats                                        (object, required)
-    - inputBodyLen:              240           (number, nullable) # TODO: review stats segment
-    - restartCount:              0             (number, nullable)
-    - workersUsed:               1             (number, nullable)
-    - initPrepSecs:              0.012         (number, nullable)
-    - initImagePullSecs:         9.953         (number, nullable)
-    - initContainerCreateSecs:   4.405         (number, nullable)
-    - initContainerStartSecs:    4.871         (number, nullable)
-    - memAvgBytes:               35914228.4    (number, nullable)
-    - memMaxBytes:               38244352      (number, nullable)
-    - memCurrentBytes:           0             (number, nullable)
-    - cpuAvgUsage:               0.00955965    (number, nullable)
-    - cpuMaxUsage:               3.1546        (number, nullable)
-    - cpuCurrentUsage:           0             (number, nullable)
-    - netRxBytes:                2652          (number, nullable)
-    - netTxBytes:                1338          (number, nullable)
-    - durationMillis:            26239         (number, nullable)
-    - runTimeSecs:               26.239        (number, nullable)
-    - metamorph:                 0             (number, nullable)
-    - readyTimeSecs:             1.276         (number, nullable)
-    - initTotalSecs:             19.241        (number, nullable)
-    - emfileError:               false         (boolean, nullable)
-    - computeUnits:              0.0072886     (number, nullable)
-- options                                      (object, nullable)
-    - build:        `latest`                   (string, nullable)
-    - timeoutSecs:  300                        (number, nullable)
-    - memoryMbytes: 1024                       (number, nullable)
-    - diskMbytes:   2048                       (number, nullable)
+    - inputBodyLen:              240           (number, required)
+    - restartCount:              0             (number, required)
+    - resurrectCount:            1             (number, required)
+    - memAvgBytes:               35914228.4    (number, required)
+    - memMaxBytes:               38244352      (number, required)
+    - memCurrentBytes:           0             (number, required)
+    - cpuAvgUsage:               0.00955965    (number, required)
+    - cpuMaxUsage:               3.1546        (number, required)
+    - cpuCurrentUsage:           0             (number, required)
+    - netRxBytes:                2652          (number, required)
+    - netTxBytes:                1338          (number, required)
+    - durationMillis:            26239         (number, required)
+    - runTimeSecs:               26.239        (number, required)
+    - metamorph:                 0             (number, required)
+    - computeUnits:              0.0072886     (number, required)
+- options                                      (object, required)
+    - build:        `latest`                   (string, required)
+    - timeoutSecs:  300                        (number, required)
+    - memoryMbytes: 1024                       (number, required)
+    - diskMbytes:   2048                       (number, required)
 - buildId:          `HG7ML7M8z78YcAPEB`        (string, required)
 - defaultKeyValueStoreId: `eJNzqsbPiopwJcgGQ`    (string, required)
 - defaultDatasetId:       `wmKPijuyDnPZAPRMk`    (string, required)
@@ -3604,7 +3566,6 @@ The user account is identified by the provided authentication token.
     - proxyBannedUntil:              null           (string, nullable) # TODO: review
     - residentialProxyBannedUntil:   null           (string, nullable) # TODO: review
     - googleSerpBannedUntil:         null           (string, nullable) # TODO: review
-    - maxActsCount:                  100            (number, nullable)
     - maxActs2Count:                 0              (number, nullable) # TODO: review
     - maxActorTaskCount:             0              (number, nullable) # TODO: review
     - hasProxyTrial:                 true           (boolean, nullable) # TODO: review
