@@ -10,6 +10,11 @@ paths:
 
 The key-value store is simple storage that can be used for string or file ([buffer](https://nodejs.org/api/buffer.html)) records.
 
+
+## Adding data
+Can add data, but only possible from API with the PUT items endpoint
+
+
 ## [](#basic-usage)Basic usage
 
 Each actor run is assigned its own key-value store containing its input and possibly output. The ID of this key-value store is available under `run.defaultKeyValueStoreId`.
