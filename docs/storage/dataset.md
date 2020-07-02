@@ -6,7 +6,7 @@ paths:
     - storage/dataset
 ---
 
-# [](#dataset)Dataset
+# Dataset
 
 Dataset storage enables you to save and retrieve sequential data objects. Each actor run is assigned its own dataset–it is created when the first item is stored to it.
 
@@ -17,14 +17,12 @@ Datasets usually contain results from web scraping, crawling or data processing 
 
 Dataset storage is immutable - data can only be added and cannot be changed.
 
----
-for tabulated data (html, csv, excel) (anything that has columns), the maximum number of columns is 3000 - evrything else will be cut off
 
-show that parameters like 'fields' can be isolated when exporting (check in api docs under OMIT) api, client, sdk
+TO DO
 
-lik sdk examples for dataset map/reduce
+----show that parameters like 'fields' can be isolated when exporting (check in api docs under OMIT) api, client, sdk
 
-MENTION ABOUT XML STUFF IN API DOCS
+----MENTION ABOUT XML STUFF IN API DOCS
 
 There are four ways to access your datasets:
 
@@ -33,9 +31,9 @@ There are four ways to access your datasets:
 * [Apify JavaScript client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from outside the Apify platform ([more details](#apify-javascript-client))
 * [Apify API](#https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically ([more details](#apify-api))
 
-## [](#basic-usage) Basic usage
+## Basic usage
 
-### [](#apify-app) Apify app
+### Apify app
 
 In the [Apify app](https://my.apify.com), you can view your datasets in the [Storage](https://my.apify.com/storage) section under the [Datasets](https://my.apify.com/storage#/datasets) tab.
 
@@ -46,13 +44,15 @@ Only named datasets are displayed by default. Select the `Include unnamed datase
 To view or download a dataset in the above mentioned formats, click on its `Dataset ID`. In the detail page, you can update the dataset's name (and, in turn, its retention period) and
 [access rights]({{@link access_rights.md}}) under the `Settings` tab. The API tab allows you to view and test the dataset's [API endpoints](https://docs.apify.com/api/v2#/reference/datasets).
 
-### [](#apify-sdk) Apify SDK
+### Apify SDK
 
 If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify softwware development kit (SDK)](https://sdk.apify.com).
 In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset), the dataset is represented by the
 [`Dataset`](https://sdk.apify.com/docs/guides/data-storage#dataset) class.
 
-You can use the `Dataset` class to specify whether your data is stored locally on in the Apify cloud, push data to datasets of your choice using the `pushData()` method, and perform functions such as `getData()` and `reduce()`. For more information on this, see the [Apify SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset).
+You can use the `Dataset` class to specify whether your data is stored locally on in the Apify cloud, push data to datasets of your choice using the `pushData()` [method](https://sdk.apify.com/docs/examples/add-data-to-dataset), and perform functions such as `getData()`, `map()`,
+and `reduce()`([example](https://sdk.apify.com/docs/examples/map-and-reduce)).
+For more information and code examples, see the [Apify SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset).
 
 If you have chosen to store your dataset locally, you can find it in the location below.
 
@@ -91,7 +91,7 @@ If you want to use something other than the default dataset, e.g. a dataset that
 
 For more information on managing datasets using the Apify SDK, see the [SDK documentation](https://sdk.apify.com/docs/api/dataset).
 
-### [](#apify-javascript-client) Apify JavaScript client
+### Apify JavaScript client
 
 The [Apify JavaScript client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) allows you to access your datasets from outside the Apify platform (e.g. from a Node.js application).
 
@@ -151,7 +151,7 @@ You can then create, update, and delete datasets using the commands below.
 
 For more information, see the [Apify JavaScript client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) documentation.
 
-### [](#apify-api) Apify API
+### Apify API
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/datasets) allows you to access your datasets programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
@@ -226,4 +226,4 @@ Data without hidden fields are called "clean" and can be downloaded from the [Ap
 
 ## Limits
 
-
+Tabulated data storage formats (ones that display the data in columns), such as HTML, CSV, and EXCEL, have a maximum limit of `3000` columns. All data that do not fit into this limit will be lost.
