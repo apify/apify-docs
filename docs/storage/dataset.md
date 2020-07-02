@@ -8,14 +8,16 @@ paths:
 
 # [](#dataset)Dataset
 
-Dataset storage enables you to save and retrieve sequential data objects which share the same attribute. These are usually results from web scraping, crawling or data processing jobs. The data can be visualized as a table where each object is a row and its attributes are the columns. Data from the dataset can be exported in JSON, CSV, XML, RSS, Excel or HTML formats.
+Dataset storage enables you to save and retrieve sequential data objects which share the same attribute. Each actor run is assigned its own dataset–it is created when the first item is stored to it.
 
-Dataset storage is immutable - data can only be added and cannot be changed.
+Datasets usually contain results from web scraping, crawling or data processing jobs. The data can be visualized as a table where each object is a row and its attributes are the columns. Data from the dataset can be exported in JSON, CSV, XML, RSS, Excel or HTML formats.
 
-> Named datasets are retained indefinitely
+> Named datasets are retained indefinitely <br/>
 > Unnamed datasets expire after 7 days unless otherwise specified
 
-There are four ways to access and manage your datasets:
+Dataset storage is immutable - data can only be added and cannot be changed. You [add data to a dataset](#api) using the `Put items` endpoint in the [Apify API](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items?console=1).
+
+There are four ways to access your datasets:
 
 * [Apify app](https://my.apify.com) - provides an easy-to-understand interface ([more details](#app))
 * [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor ([more details](#sdk))
@@ -26,14 +28,14 @@ There are four ways to access and manage your datasets:
 
 ### [](#app) Apify app
 
-In the [Apify app](https://my.apify.com), you can view your datasets under the [Datasets](https://my.apify.com/storage#/datasets) tab of the [Storage](https://my.apify.com/storage) section.
+In the [Apify app](https://my.apify.com), you can view your datasets under the [Datasets](https://my.apify.com/storage#/datasets) tab in the [Storage](https://my.apify.com/storage) section.
 
-Select the `Include unnamed datasets` checkbox to display all of your datasets.
+Only named datasets are displayed by default. Select the `Include unnamed datasets` checkbox to display all of your datasets.
 
----ADD SCREENSHOTS OF THE APP
+![Datasets in app]({{@asset storage/images/datasets-app.png}})
 
-
-
+To view or download a dataset in various formats, click on its `Dataset ID`. In the detail page, you can update the dataset's name (and, in turn, its retention period) and
+[access rights]({{@link access_rights.md}}) under the `Settings` tab. The API tab allows you to view and test the dataset's [API endpoints](https://docs.apify.com/api/v2#/reference/datasets).
 
 ### [](#sdk) Apify SDK
 [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset)
@@ -59,6 +61,8 @@ Use if you're accessing your dataset from a Node.js application outside the Apif
 [Apify API](https://docs.apify.com/api/v2#/reference/datasets)
 
 Talk about the API and provide links to several endpoints, such as update, create, get list of datasets.
+
+ADD HOW TO ADD DATA USING THE PUT DATA ENDPOINT
 
 ## [](#hidden-fields) Hidden fields
 
@@ -89,7 +93,7 @@ Each actor run is assigned its own dataset, created when the first item is store
 <!-- Where? How can I access it? Talk about the ID -->
 The ID of this dataset is available under `run.defaultDatasetId`.
 
-<!-- elaborate. provide infor for SDK and app users -->
+<!-- elaborate. provide info for SDK and app users -->
 In your actor you can use shorthand methods to save items into the default dataset - `Apify.pushData()` [[see docs](https://sdk.apify.com/docs/api/apify#apifypushdataitem)].
 
     const Apify = require('apify');

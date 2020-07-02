@@ -17,6 +17,8 @@ The Apify platform includes three storage types you can use both in your [actors
 
 The [dataset]({{@link storage/dataset.md}}) provides storage for sequential data objects such as results from web scraping, crawling or data processing jobs. These data can then be exported in various formats like JSON, CSV, XML, RSS, Excel or HTML.
 
+---- SHOULD I TALK ABOUT THE FORMATS? IS IT NECESSARY?
+
 <!-- ADD THE MARKETING GRAPHIC HERE -->
 
 Datasets are ideal for storing a list of items, products from an online store or contact details of prospective customers. The advanced formatting and filtering options let you easily integrate datasets into your data pipeline.
