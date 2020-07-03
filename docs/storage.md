@@ -9,21 +9,7 @@ paths:
 
 # Storage
 
-The Apify platform includes three storage types you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](https://docs.apify.com/api/v2#/reference/key-value-stores/put-record), the Apify [software development kit](https://sdk.apify.com)(SDK) and the Apify [JavaScript API client](https://docs.apify.com/api/apify-client-js).
-
-To access your storages from the Apify app, go to the [`Storage` section](https://my.apify.com/storage) in the left-side menu. From there, you can view your storages by cicking on their `ID` and test your storage API endpoints under the `API` tab.
-
-![Datasets in app]({{@asset storage/images/datasets-app.png}})
-
-> Only named datasets are displayed by default. Select the `Include unnamed datasets` checkbox to display all of your datasets.
-
-To view or export a stored item, click on its `ID`, then select the format in which you want to download it. You can export your storages in JSON, CSV, XML, RSS, Excel or HTML formats.
-
-You can quickly share the contents of your storages by sharing the URLs you find under the `API` tab. These URLs provide links to API `endpoints`-the place where your data are stored. Some of the endpoints do not require an [authentication token](https://docs.apify.com/api/v2#/introduction/authentication)-the calls are authenticated using a hard-to-guess ID.
-
-![Storage API]({{@asset storage/images/overview-api.png}})
-
-You can edit your storages' names in the `Settings` tab of the store's detail page. There, you can also grant [access rights](https://docs.apify.com/access-rights) to other Apify users.
+The Apify platform includes three storage types you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](https://docs.apify.com/api/v2#/reference/key-value-stores), the Apify [software development kit](https://sdk.apify.com)(SDK) and the Apify [JavaScript API client](https://docs.apify.com/api/apify-client-js).
 
 ## Dataset
 
@@ -32,7 +18,7 @@ You can edit your storages' names in the `Settings` tab of the store's detail pa
 ![Dataset illustration]({{@asset storage/images/datasets-overview.png}})
 
 The easiest way to access your datasets is via the
-[Apify app](https://docs.apify.com/storage/dataset#apify-app), which provides a user-friendly interface for viewing or downloading the data and editing you datasets' names. 
+[Apify app](https://docs.apify.com/storage/dataset#apify-app), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' names. 
 
 For more access options and to add data to your datasets, you can use the
 [Apify SDK](https://docs.apify.com/storage/dataset#apify-sdk),
@@ -43,7 +29,14 @@ For more information, see the [Dataset]({{@link storage/dataset.md}}) documentat
 
 ## Key-value-store
 
-Store arbitrary data records along with their MIME content type. The records are accessible under a unique name and can be written and read at a rapid rate. The key-value store is ideal for saving files, such as screenshots of web pages or PDFs, or to persist the state of your actors and crawlers.
+Store arbitrary data records along with their MIME content type. The records are accessible under a unique name and can be written and read quickly. The key-value store is ideal for saving files such as screenshots of web pages or PDFs or for persisting the state of your actors and crawlers.
+
+The easiest way to access your key-value stores is via the
+[Apify app](https://docs.apify.com/storage/key-value-store#apify-app), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' names. 
+
+For more access options and to manage the data in your key-value stores, you can use the
+[Apify SDK](https://docs.apify.com/storage/key-value-store#apify-sdk), Apify's [JavaScript API client](https://docs.apify.com/storage/key-value-store#javascript-api-client) or
+the [Apify API](https://docs.apify.com/storage/key-value-store#apify-api).
 
 ![Key-value store]({{@asset storage/images/key-value-overview.png}})
 
@@ -60,11 +53,37 @@ Maintain a queue of URLs of web pages in order to recursively crawl websites, st
 
 The request queue lets you query whether specific URLs were already found, push new URLs to the queue and fetch the next ones to process. Request queues support both breadth-first and depth-first crawling orders, and custom data attributes.
 
+For more information, see the [Request queue]({{@link storage/request_queue.md}}) documentation.
+
 ## Basic usage
 
-?
+To access your storages from the Apify app, go to the [`Storage` section](https://my.apify.com/storage) in the left-side menu. From there, you can view your storages by cicking on their `ID` and test your storage API endpoints under the `API` tab.
 
-## Named and unnamed storages
+![Datasets in app]({{@asset storage/images/datasets-app.png}})
+
+> Only named datasets are displayed by default. Select the `Include unnamed datasets` checkbox to display all of your datasets.
+
+To view or export a stored item, click on its `ID`, then select the format in which you want to download it. You can export your storages in JSON, CSV, XML, RSS, Excel or HTML formats.
+
+You can edit your storages' names in the `Settings` tab of the store's detail page. There, you can also grant [access rights](https://docs.apify.com/access-rights) to other Apify users.
+
+### Sharing
+
+You can quickly share the contents of your storages by sharing the URLs you find under the `API` tab in a store's detail page. 
+
+![Storage API]({{@asset storage/images/overview-api.png}})
+
+These URLs provide links to API `endpoints`-the places where your data are stored. Some of the endpoints do not require an [authentication token](https://docs.apify.com/api/v2#/introduction/authentication)-the calls are authenticated using a hard-to-guess ID, so they can be shared freely.
+
+> If an endpoint requires authentication, we suggest sharing the data another way
+
+## Data retention
+
+Named storages are retained indefinitely.
+
+Unnamed storages expire after 7 days unless otherwise specified.
+
+### Named and unnamed storages
 
 <!-- verify -->
 All datasets are created equal - they are created without a name.
@@ -77,7 +96,5 @@ If a dataset is unnamed, it can still be accessed using its ID.
 What's the difference?
 
 
-> Named storages are retained indefinitely.
-> Unnamed storages expire after 7 days unless otherwise specified.
 
 
