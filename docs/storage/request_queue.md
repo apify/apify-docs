@@ -48,3 +48,8 @@ If queue is opened then you can use it:
 
 The request queue provides a [HTTP API](https://docs.apify.com/api/v2#/reference/request-queues) to manage queues and to add/retrieve requests. If you are developing a Node.js application, then you can also use the [Apify JavaScript client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-requestQueues).
 
+
+
+ADD - ONLY ONE ACTOR CAN PROCESS ONE QUEUE AT ONE TIME - THEY CAN'T BE PROCESSING IT CONCURRENTLY
+
+CAN HAVE MULTIPLE ACTORS PUSHING TO SAME QUEUE, BUT ONLY ONE CAN PROCESS IT 

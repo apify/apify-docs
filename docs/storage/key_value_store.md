@@ -14,6 +14,8 @@ The key-value store is simple storage that can be used for string or file ([buff
 ## Adding data
 Can add data, but only possible from API with the PUT items endpoint
 
+see if this can be added:
+https://help.apify.com/en/articles/1474989-how-to-get-put-records-into-a-named-key-value-store-in-an-actor
 
 ## [](#basic-usage)Basic usage
 
