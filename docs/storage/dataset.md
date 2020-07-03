@@ -17,16 +17,6 @@ Datasets usually contain results from web scraping, crawling or data processing 
 
 Dataset storage is immutable - data can only be added and cannot be changed.
 
-
-TO DO
-
-----show that parameters like 'fields' can be isolated when exporting (check in api docs under OMIT) api, client, sdk
-
-https://sdk.apify.com/docs/api/dataset
-[fields]: Array<string> - An array of field names that will be included in the result. If omitted, all fields are included in the results.
-
-----MENTION ABOUT XML STUFF IN API DOCS
-
 There are four ways to access your datasets:
 
 * [Apify app](https://my.apify.com) - provides an easy-to-understand interface ([more details](#apify-app))
@@ -97,7 +87,7 @@ When using the `getData()` method, you can specify the data you retrieve using t
     const hotelAndCafeData = await dataset.getData(
         fields=[
             'hotel',
-            'cafe'
+            'cafe',
         ]
     );
 
@@ -149,7 +139,7 @@ You can then create, update, and delete datasets using the commands below.
     await datasets.putItems({
         data: [
             { foo: 'hotel' },
-            { foo: 'cafe' }
+            { foo: 'cafe' },
         ],
     });
 
@@ -167,7 +157,7 @@ When using the `getItems()` method, you can specify the data you retrieve using 
     const hotelAndCafeData = await datasets.getItems(
         fields=[
             'hotel',
-            'cafe'
+            'cafe',
         ]
     );
 
@@ -254,6 +244,74 @@ Below is an example of a dataset record containing hidden fields with an HTTP re
     }
 
 Data without hidden fields are called "clean" and can be downloaded from the [Apify app](https://my.apify.com/storage#/datasets) using the "Clean items" link or via API using the `clean=true` or `clean=1` [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items?console=1).
+
+## XML format extension
+
+When you export results to XML or RSS formats, object property names become XML tags, while the corresponding values become the tags' children.
+
+For example, the JavaScript object:
+
+    {
+        name: "Rashida Jones",
+        address: [
+            {
+                type: "home",
+                street: "21st",
+                city: "Chicago",
+            },
+            {
+                type: "office",
+                street: null,
+                city: null,
+            }
+        ]
+    }
+
+becomes the following XML snippet:
+
+    <name>Rashida Jones</name>
+    <address>
+        <type>home</type>
+        <street>21st</street>
+        <city>Chicago</city>
+    </address>
+    <address>
+        <type>office</type>
+        <street/>
+        <city/>
+    </address>
+
+If the JavaScript object contains a property named `@`, its sub-properties are exported as attributes of the parent XML element. If the parent XML element does not have any child elements, its value is taken from a JavaScript object property named `#`. 
+
+For example, the following JavaScript object:
+
+    {
+        "address": [{
+            "@": {
+                "type": "home",
+            },
+            "street": "21st",
+            "city": "Chicago",
+        },
+        {
+            "@": {
+                "type": "office",
+            },
+            "#": 'unknown',
+        }]
+    }
+
+will be transformed to the following XML snippet:
+
+    <address type="home">
+        <street>21st</street>
+        <city>Chicago</city>
+    </address>
+    <address type="office">unknown</address>
+
+This feature is also useful when customizing your RSS feeds generated for various websites.
+
+By default, the whole result and each page object are wrapped in an `–` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when GETting your data.
 
 ## Limits
 
