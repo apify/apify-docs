@@ -16,13 +16,13 @@ Use default functionality of Apify Proxy (randomly choose a proxy server from al
     const Apify = require('apify');
 
     Apify.main(async () => {
-        const requestList = new Apify.RequestList({ sources: [{ url: 'http://www.example.com' }] });
-        await requestList.initialize();
+        const requestList = await Apify.openRequestList('my-list', ['http://www.example.com']);
+        const proxyConfiguration = await Apify.createProxyConfiguration();
 
         const crawler = new Apify.PuppeteerCrawler({
             requestList,
-            launchPuppeteerOptions: { useApifyProxy: true },
-            handlePageFunction: async ({ page, request }) => {
+            proxyConfiguration,
+            handlePageFunction: async ({ page, request, proxyInfo }) => {
                 return Apify.pushData({ title: await page.title() });
             },
             handleFailedRequestFunction: ({ request }) => {
@@ -38,18 +38,17 @@ Only use proxy servers from proxy group `SHADER` during the PuppeteerCrawler run
     const Apify = require('apify');
 
     Apify.main(async () => {
-        const requestList = new Apify.RequestList({ sources: [{ url: 'http://www.example.com' }] });
-        await requestList.initialize();
+        const requestList = await Apify.openRequestList('my-list', ['http://www.example.com']);
+        const proxyConfiguration = await Apify.createProxyConfiguration({
+            // if you need to use more then one group
+            // simply add the additional ID to the array below
+            groups: ['SHADER'],
+        });
 
         const crawler = new Apify.PuppeteerCrawler({
             requestList,
-            launchPuppeteerOptions: {
-                useApifyProxy: true,
-                // if you need to use more then one group
-                // simply add the additional ID's to the array below
-                apifyProxyGroups: ['SHADER'],
-            },
-            handlePageFunction: async ({ page, request }) => {
+            proxyConfiguration,
+            handlePageFunction: async ({ page, request, proxyInfo }) => {
                 return Apify.pushData({ title: await page.title() });
             },
             handleFailedRequestFunction: ({ request }) => {
@@ -60,24 +59,26 @@ Only use proxy servers from proxy group `SHADER` during the PuppeteerCrawler run
         await crawler.run();
     });
 
-Keep a single IP selected from `SHADER` proxy group during the whole PuppeteerCrawler run
+Keep a single IP selected from `SHADER` proxy group until it fails (gets retired)
 
     const Apify = require('apify');
 
     Apify.main(async () => {
-        const requestList = new Apify.RequestList({ sources: [{ url: 'http://www.example.com' }] });
-        await requestList.initialize();
+        const requestList = await Apify.openRequestList('my-list', ['http://www.example.com']);
+        const proxyConfiguration = await Apify.createProxyConfiguration({
+            // if you need to use more then one group
+            // simply add the additional ID to the array below
+            groups: ['SHADER'],
+        });
 
         const crawler = new Apify.PuppeteerCrawler({
             requestList,
-            launchPuppeteerOptions: {
-                useApifyProxy: true,
-                // if you need to use more then one group
-                // simply add the additional ID's to the array below
-                apifyProxyGroups: ['SHADER'],
-                apifyProxySession: 'my_session',
+            proxyConfiguration,
+            useSessionPool: true,
+            sessionPoolOptions: {
+                sessionOptions: { maxPoolSize: 1 },
             },
-            handlePageFunction: async ({ page, request }) => {
+            handlePageFunction: async ({ page, request, proxyInfo }) => {
                 return Apify.pushData({ title: await page.title() });
             },
             handleFailedRequestFunction: ({ request }) => {
@@ -93,21 +94,18 @@ Get a new IP selected from `SHADER` proxy group for each browser opened during t
     const Apify = require('apify');
 
     Apify.main(async () => {
-        const requestList = new Apify.RequestList({ sources: [{ url: 'http://www.example.com' }] });
-        await requestList.initialize();
+        const requestList = await Apify.openRequestList('my-list', ['http://www.example.com']);
+        const proxyConfiguration = await Apify.createProxyConfiguration({
+            // if you need to use more then one group
+            // simply add the additional ID to the array below
+            groups: ['SHADER'],
+        });
 
         const crawler = new Apify.PuppeteerCrawler({
             requestList,
-            // Notice that now we are setting options
-            // in launchPuppeteerFunction instead of launchPuppeteerOptions
-            launchPuppeteerFunction: () => Apify.launchPuppeteer({
-                useApifyProxy: true,
-                // if you need to use more then one group
-                // simply add the additional ID's to the array below
-                apifyProxyGroups: ['SHADER'],
-                apifyProxySession: `my_sess_${Math.floor(Math.random() * 100000)}`,
-            }),
-            handlePageFunction: async ({ page, request }) => {
+            proxyConfiguration,
+            useSessionPool: true,
+            handlePageFunction: async ({ page, request, proxyInfo }) => {
                 return Apify.pushData({ title: await page.title() });
             },
             handleFailedRequestFunction: ({ request }) => {
@@ -125,10 +123,12 @@ Use one IP chosen from `SHADER` and `BUYPROXIES94952` proxy groups for the brows
     const Apify = require('apify');
 
     Apify.main(async () => {
-        const password = process.env.APIFY_PROXY_PASSWORD;
-        const username = 'groups-SHADER+BUYPROXIES94952,session-my_session';
+        const proxyConfiguration = await Apify.createProxyConfiguration({
+            groups: ['SHADER', 'BUYPROXIES94952'],
+        });
+
         const browser = await Apify.launchPuppeteer({
-            proxyUrl: `http://${username}:${password}@proxy.apify.com:8000`,
+            proxyUrl: proxyConfiguration.newUrl('my_session'),
         });
 
         const page = await browser.newPage();
@@ -141,74 +141,82 @@ Use one IP chosen from `SHADER` and `BUYPROXIES94952` proxy groups for the brows
         console.log(html);
     });
 
-## [](#usage-with-request) Usage with [request](https://www.npmjs.com/package/request) and [request-promise](https://www.npmjs.com/package/request-promise) NPM packages
+## [](#usage-with-request) Usage with our [requestAsBrowser](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions)
 
 Use one randomly selected IP from all available proxy servers.
 
-    const request = require('request');
+    const Apify = require('apify');
 
-    const password = process.env.APIFY_PROXY_PASSWORD;
-    request(
-        {
-            url: 'http://www.example.com',
-            proxy: `http://auto:${password}@proxy.apify.com:8000`
-        },
-        (err, response, HTML) => {
-            if (err) {
-                console.error(error);
-                return;
+        Apify.main(async () => {
+            const proxyConfiguration = await Apify.createProxyConfiguration();
+            try {
+                const { body } = await Apify.utils.requestAsBrowser({
+                    url: 'https://www.example.com',
+                    proxyUrl: proxyConfiguration.newUrl(),
+                });
+                console.log(body); // returns HTML of returned page
+            } catch (e) {
+                console.error(e);
             }
-            console.log(HTML);
-        }
-    );
+        });
+
 
 Use one IP selected from `SHADER` proxy group for two requests.
 
-    const request = require('request-promise');
+    const Apify = require('apify');
 
-    async function main() {
-        const password = process.env.APIFY_PROXY_PASSWORD;
-        const proxyUrl = `http://groups-SHADER,session-my_session:${password}@proxy.apify.com:8000`;
-        try {
-            const response1 = await request({
-                url: 'https://api.apify.com/v2/browser-info',
-                proxy: proxyUrl,
+        Apify.main(async () => {
+            const proxyConfiguration = await Apify.createProxyConfiguration({
+                groups: ['SHADER']
             });
-            const response2 = await request({
-                url: 'https://api.apify.com/v2/browser-info',
-                proxy: proxyUrl,
-            });
-            console.log(response1.clientIp);
-            console.log('should be the same as');
-            console.log(response2.clientIp);
-        } catch (e) {
-            console.error(e);
-        }
-    }
-    main();
+            const proxyUrl = proxyConfiguration.newUrl('my_session');
 
-Use randomly choose IP selected from `SHADER` and `BUYPROXIES94952` proxy groups for two requests.
+            try {
+                const response1 = await Apify.utils.requestAsBrowser({
+                    url: 'https://api.apify.com/v2/browser-info',
+                    proxyUrl,
+                    json: true
+                });
+                const response2 = await Apify.utils.requestAsBrowser({
+                    url: 'https://api.apify.com/v2/browser-info',
+                    proxyUrl,
+                    json: true
+                });
+                console.log(response1.body.clientIp);
+                console.log('should be the same as');
+                console.log(response2.body.clientIp);
+            } catch (e) {
+                console.error(e);
+            }
+        });
 
-    const request = require('request-promise');
+Use randomly chosen IP selected from `SHADER` and `BUYPROXIES94952` proxy groups for two requests.
 
-    async function main() {
-        const password = process.env.APIFY_PROXY_PASSWORD;
-        const proxyUrl = `http://groups-SHADER+BUYPROXIES94952:${password}@proxy.apify.com:8000`;
-        try {
-            const response1 = await request({
-                url: 'https://api.apify.com/v2/browser-info',
-                proxy: proxyUrl,
+    const Apify = require('apify');
+
+            Apify.main(async () => {
+                const proxyConfiguration = await Apify.createProxyConfiguration({
+                    groups: ['SHADER', 'BUYPROXIES94952']
+                });
+                const proxyUrl = proxyConfiguration.newUrl();
+                const url = 'https://api.apify.com/v2/browser-info';
+
+                try {
+                    const response1 = await Apify.utils.requestAsBrowser({
+                        url,
+                        proxyUrl,
+                        json: true
+                    });
+                    const response2 = await Apify.utils.requestAsBrowser({
+                        url,
+                        proxyUrl,
+                        json: true
+                    });
+                    console.log(response1.body.clientIp);
+                    console.log('should be different than');
+                    console.log(response2.body.clientIp);
+                } catch (e) {
+                    console.error(e);
+                }
             });
-            const response2 = await request({
-                url: 'https://api.apify.com/v2/browser-info',
-                proxy: proxyUrl,
-            });
-            console.log(response1.clientIp);
-            console.log('should be different than');
-            console.log(response2.clientIp);
-        } catch (e) {
-            console.error(e);
-        }
-    }
-    main();
 

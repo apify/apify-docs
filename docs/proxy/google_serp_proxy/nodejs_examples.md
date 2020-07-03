@@ -16,38 +16,31 @@ Get a list of results from the US for keyword `wikipedia` and parse them through
     const Apify = require('apify');
 
     Apify.main(async() => {
-        const password = process.env.APIFY_PROXY_PASSWORD;
-        const proxyUrl = `http://groups-GOOGLE_SERP:${password}@localhost:8000`;
+        const proxyConfiguration = await Apify.createProxyConfiguration({
+            groups: ['GOOGLE_SERP'],
+        });
         const url = 'http://www.google.com/search?q=wikipedia';
 
-        const requestList = new Apify.RequestList({
-            sources: [{ url }],
-        });
-        await requestList.initialize(); // Load requests.
+        const requestList = await Apify.openRequestList('my-list', [url]);
 
         const crawler = new Apify.PuppeteerCrawler({
             requestList,
-            launchPuppeteerOptions: {
-                headless: true,
-                proxyUrl,
-            },
+            proxyConfiguration,
             gotoFunction: async({ page, request }) => {
                 await page.setRequestInterception(true);
                 page.on('request', request => {
                     if (request.resourceType() !== 'document') return request.abort();
                     return request.continue();
                 });
-                return page.goto(url, { waitUntil: 'domcontentloaded' });
+                return page.goto(url);
             },
-            handlePageFunction: async({ page, request }) => {
+            handlePageFunction: async({ page, request, proxyInfo }) => {
                 await Apify.utils.puppeteer.injectJQuery(page);
                 const searchResults = await page.evaluate(() => {
-                    return $('[class$="list-result"] div div:nth-child(2) ').map(function() {
-                        const title = $(this).find('a[jsaction="spop.c"]')[0];
+                    return $('#search div.g').map(function () {
                         return {
-                            title: $(title).text(),
-                            url: $(title).attr('href'),
-                            price: $(this).find('div:nth-child(2)').text(),
+                            title: $($(this).find('h3')[0]).text(),
+                            description: $(this).find('.s div .st').text(),
                         }
                     }).toArray();
                 });
@@ -66,30 +59,25 @@ Get a list of shopping results from the Czech Republic for keyword `Apple iPhone
     const Apify = require('apify');
 
     Apify.main(async() => {
-        const password = process.env.APIFY_PROXY_PASSWORD;
-        const proxyUrl = `http://groups-GOOGLE_SERP:${password}@localhost:8000`;
+        const proxyConfiguration = await Apify.createProxyConfiguration({
+            groups: ['GOOGLE_SERP'],
+        });
         const url = 'http://www.google.cz/search?q=Apple+iPhone+XS+64GB&tbm=shop';
 
-        const requestList = new Apify.RequestList({
-            sources: [{ url }],
-        });
-        await requestList.initialize(); // Load requests.
+        const requestList = await Apify.openRequestList('my-list', [url]);
 
         const crawler = new Apify.PuppeteerCrawler({
             requestList,
-            launchPuppeteerOptions: {
-                headless: true,
-                proxyUrl,
-            },
+            proxyConfiguration,
             gotoFunction: async({ page, request }) => {
                 await page.setRequestInterception(true);
                 page.on('request', request => {
                     if (request.resourceType() !== 'document') return request.abort();
                     return request.continue();
                 });
-                return page.goto(url, { waitUntil: 'domcontentloaded' });
+                return page.goto(url);
             },
-            handlePageFunction: async({ page, request }) => {
+            handlePageFunction: async({ page, request, proxyInfo }) => {
                 await Apify.utils.puppeteer.injectJQuery(page);
                 const searchResults = await page.evaluate(() => {
                     return $('[class$="list-result"] > div > div:nth-child(2)').map(function() {
@@ -116,14 +104,15 @@ Get a list of results from the US for keyword `wikipedia` and parse them through
 
     const Apify = require('apify');
 
-    Apify.main(async() => {
-        const password = process.env.APIFY_PROXY_PASSWORD;
-        const proxyUrl = `http://groups-GOOGLE_SERP:${password}@localhost:8000`;
+    Apify.main(async () => {
+        const proxyConfiguration = await Apify.createProxyConfiguration({
+            groups: ['GOOGLE_SERP'],
+        });
+        const proxyUrl = proxyConfiguration.newUrl();
         const url = 'http://www.google.com/search?q=wikipedia';
 
         try {
             const browser = await Apify.launchPuppeteer({
-                headless: true,
                 proxyUrl,
             });
             const page = await browser.newPage();
@@ -132,15 +121,13 @@ Get a list of results from the US for keyword `wikipedia` and parse them through
                 if (request.resourceType() !== 'document') return request.abort();
                 return request.continue();
             });
-            await page.goto(url, { waitUntil: 'domcontentloaded' });
+            await page.goto(url);
             await Apify.utils.puppeteer.injectJQuery(page);
             const searchResults = await page.evaluate(() => {
-                return $('[class$="list-result"] div div:nth-child(2) ').map(function() {
-                    const title = $(this).find('a[jsaction="spop.c"]')[0];
+                return $('#search div.g').map(function () {
                     return {
-                        title: $(title).text(),
-                        url: $(title).attr('href'),
-                        price: $(this).find('div:nth-child(2)').text(),
+                        title: $($(this).find('h3')[0]).text(),
+                        description: $(this).find('.s div .st').text(),
                     }
                 }).toArray();
             });
@@ -148,7 +135,7 @@ Get a list of results from the US for keyword `wikipedia` and parse them through
             await page.close();
             await browser.close();
         } catch (error) {
-            console.error(error.message());
+            console.error(error.message);
         }
     });
 
@@ -157,13 +144,14 @@ Get a list of shopping results from the Czech Republic for keyword `Apple iPhone
     const Apify = require('apify');
 
     Apify.main(async() => {
-        const password = process.env.APIFY_PROXY_PASSWORD;
-        const proxyUrl = `http://groups-GOOGLE_SERP:${password}@localhost:8000`;
+        const proxyConfiguration = await Apify.createProxyConfiguration({
+            groups: ['GOOGLE_SERP'],
+        });
+        const proxyUrl = proxyConfiguration.newUrl();
         const url = 'http://www.google.cz/search?q=Apple+iPhone+XS+64GB&tbm=shop';
 
         try {
             const browser = await Apify.launchPuppeteer({
-                headless: true,
                 proxyUrl,
             });
             const page = await browser.newPage();
@@ -172,7 +160,7 @@ Get a list of shopping results from the Czech Republic for keyword `Apple iPhone
                 if (request.resourceType() !== 'document') return request.abort();
                 return request.continue();
             });
-            await page.goto(url, { waitUntil: 'domcontentloaded' });
+            await page.goto(url);
             await Apify.utils.puppeteer.injectJQuery(page);
             const searchResults = await page.evaluate(() => {
                 return $('[class$="list-result"] > div > div:nth-child(2)').map(function() {
@@ -191,46 +179,50 @@ Get a list of shopping results from the Czech Republic for keyword `Apple iPhone
         }
     });
 
-## [](#usage-with-request-promise) Usage with [request-promise](https://www.npmjs.com/package/request-promise) and [cheerio](https://www.npmjs.com/package/cheerio) NPM packages
+## [](#usage-with-request) Usage with our [requestAsBrowser](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) and [cheerio](https://www.npmjs.com/package/cheerio) NPM package
 
 Get a list of results from the US for keyword `wikipedia` and parse them through cheerio
 
-    const request = require('request-promise');
-    const cheerio = require('cheerio');
+     const Apify = require('apify');
+     const cheerio = require('cheerio');
 
-    async function main() {
-        const password = process.env.APIFY_PROXY_PASSWORD;
-        const proxyUrl = `http://groups-GOOGLE_SERP:${password}>@proxy.apify.com:8000`;
-        const html = await request({ url: 'http://www.google.com/search?q=wikipedia', proxy: proxyUrl });
-        const $ = cheerio.load(html);
-        const searchResults = $('#search div.g').map(function() {
-            return {
-                title: $($(this).find('h3')[0]).text(),
-                url: $(this).find('div cite').text(),
-                description: $(this).find('.s div .st').text(),
-            }
-        }).toArray();
-        console.log(searchResults);
-    }
+     Apify.main(async () => {
+         const proxyConfiguration = await Apify.createProxyConfiguration({
+             groups: ['GOOGLE_SERP'],
+         });
+         const proxyUrl = proxyConfiguration.newUrl();
+         const { body } = await Apify.utils.requestAsBrowser({
+             url: 'http://www.google.com/search?q=wikipedia',
+             proxyUrl,
+         });
+         const $ = cheerio.load(body);
+         const searchResults = $('#search div.g').map(function() {
+             return {
+                 title: $($(this).find('h3')[0]).text(),
+                 description: $(this).find('.s div .st').text(),
+             }
+         }).toArray();
+         console.log(searchResults);
+     });
 
-    main();
 
 Get a list of shopping results from the Czech Republic for query `Apple iPhone XS 64GB` and parse them through cheerio
 
-    const request = require('request-promise');
+    const Apify = require('apify');
     const cheerio = require('cheerio');
 
-    async function main() {
-        const password = process.env.APIFY_PROXY_PASSWORD;
-        const proxyUrl = `http://groups-GOOGLE_SERP:${password}>@proxy.apify.com:8000`;
+    Apify.main(async () => {
+        const proxyConfiguration = await Apify.createProxyConfiguration({
+            groups: ['GOOGLE_SERP'],
+        });
+        const proxyUrl = proxyConfiguration.newUrl();
         const query = encodeURI('Apple iPhone XS 64GB');
-
         try {
-            const html = await request({
+            const { body } = await Apify.utils.requestAsBrowser({
                 url: `http://www.google.cz/search?tbm=shop&q=${query}`,
-                proxy: proxyUrl,
+                proxyUrl,
             });
-            const $ = cheerio.load(html);
+            const $ = cheerio.load(body);
             const searchResults = $('[class$="list-result"] > div > div:nth-child(2) ').map(function() {
                 const title = $(this).find('a[jsaction="spop.c"]')[0];
                 return {
@@ -242,7 +234,7 @@ Get a list of shopping results from the Czech Republic for query `Apple iPhone X
         } catch (error) {
             console.error(error.message)
         }
-    }
+    });
 
-    main();
+
 
