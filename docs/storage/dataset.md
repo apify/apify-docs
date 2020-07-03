@@ -1,6 +1,6 @@
 ---
 title: Dataset
-description: Documentation of Apify Storage, which allows you to store actor inputs and outputs.
+description: Documentation of Dataset storage, provides storage for sequential data objects such as actor outputs.
 menuWeight: 6.1
 paths:
     - storage/dataset
@@ -22,7 +22,7 @@ There are four ways to access your datasets:
 * [Apify app](https://my.apify.com) - provides an easy-to-understand interface ([more details](#apify-app))
 * [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor ([more details](#apify-sdk))
 * [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from outside the Apify platform ([more details](#javascript-api-client))
-* [Apify API](#https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically ([more details](#apify-api))
+* [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically ([more details](#apify-api))
 
 ## Basic usage
 
