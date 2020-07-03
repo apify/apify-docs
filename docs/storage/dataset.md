@@ -19,7 +19,7 @@ Dataset storage is immutable - data can only be added and cannot be changed.
 
 There are four ways to access your datasets:
 
-* [Apify app](https://my.apify.com) - provides an easy-to-understand interface ([more details](#apify-app))
+* [Apify app](https://my.apify.com/storage#/datasets) - provides an easy-to-understand interface ([more details](#apify-app))
 * [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor ([more details](#apify-sdk))
 * [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from outside the Apify platform ([more details](#javascript-api-client))
 * [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically ([more details](#apify-api))
@@ -95,27 +95,11 @@ For more information on managing datasets using the Apify SDK, see the [SDK docu
 
 ### JavaScript API client
 
-Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) allows you to access your datasets from outside the Apify platform (e.g. from a Node.js application).
+Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) (`apify-client`) allows you to access your datasets from outside the Apify platform (e.g. from a Node.js application).
 
-To use the `apify client` in your application, you will first need to have [Node.js](https://nodejs.org/en/) version 10 or higher installed. You can use the following commands to check which version of Node.js you have.
+For help with setting up the JavaScript API client, see the Storage section [overview page](https://docs.apify.com/storage/#setting-up-the-javascript-api-client).
 
-    node --version
-    npm --version
-
-You can then install the `apify-client` package from [NPM](https://www.npmjs.com/package/apify-cli) using the below command in your terminal.
-
-    npm install apify-cli
-
-Once installed, `require` the `apify-client` package in your app, create a new instance of it using your account `user ID` and secret `API token` (you can find these on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account), and save your datasets to a variable for easier access.
-
-    // Import the `apify-client` package
-    const ApifyClient = require('apify-client');
-
-    // Create a new instance of the client
-    const apifyClient = new ApifyClient({
-        userId: 'RWnGtczasdwP63Mak',
-        token: 'f5J7XsdaKDyRywwuGGo9',
-    });
+After importing the `apify-client` package into your application and creating an instance of it, save it to a variable for easier access.
 
     // Save your datasets to a variable for easier access
     const datasets = apifyClient.datasets;
@@ -167,14 +151,7 @@ For more information, see the [JavaScript API client](https://docs.apify.com/api
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/datasets) allows you to access your datasets programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
-To access your datasets via the Apify API, you will need your secret API token, which you can find on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account. 
-
-In most cases, you will also need to provide a `dataset ID` (demonstrated in the examples below as `DATASET_ID`), which can be provided in the following formats:
-
-* `WkzbQMuFYuamGv3YF` - the dataset's numerical ID if the dataset is unnamed
-* `username~dataset-name` - your username and the dataset's name separated by a tilde (`~`) character (e.g. `janedoe~ecommerce-scraping-results`) if the dataset is named
-
-For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
+You can find your secret API token on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
 
 #### Get a list of datasets
 
@@ -223,6 +200,8 @@ Example payload:
             "foo": "cafe"
         }
     ]
+
+For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 
 ## Hidden fields
 
