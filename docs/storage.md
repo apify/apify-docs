@@ -9,22 +9,25 @@ paths:
 
 # Storage
 
-The Apify platform includes three storage types you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform using the [Apify API](https://docs.apify.com/api/v2) and [JavaScript client](https://docs.apify.com/api/apify-client-js).
+The Apify platform includes three storage types you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](https://docs.apify.com/api/v2#/reference/key-value-stores/put-record), the Apify [software development kit](https://sdk.apify.com)(SDK) and the Apify [JavaScript API client](https://docs.apify.com/api/apify-client-js).
 
-Storages can be accessed using App, API, SDK, and CLI. 
+To access your storages from the Apify app, go to the [`Storage` section](https://my.apify.com/storage) in the left-side menu. From there, you can view your storages by cicking on their `ID` and test your storage API endpoints under the `API` tab.
 
-Add links to all the relevant places (my.apify, sdk docs, cli docs/storage).
+![Datasets in app]({{@asset storage/images/datasets-app.png}})
 
+> Only named datasets are displayed by default. Select the `Include unnamed datasets` checkbox to display all of your datasets.
 
+To view or export a stored item, click on its `ID`, then select the format in which you want to download it. You can export your storages in JSON, CSV, XML, RSS, Excel or HTML formats.
 
-When accessing them from the app, go to the `Storages` section in the left menu and click around.
+You can quickly share the contents of your storages by sharing the URLs you find under the `API` tab. These URLs provide links to API `endpoints`-the place where your data are stored. Some of the endpoints do not require an [authentication token](https://docs.apify.com/api/v2#/introduction/authentication)-the calls are authenticated using a hard-to-guess ID.
 
-Only named datasets are displayed by default. Select the `Include unnamed datasets` checkbox to display all of your datasets.
+![Storage API]({{@asset storage/images/overview-api.png}})
 
+You can edit your storages' names in the `Settings` tab of the store's detail page. There, you can also grant [access rights](https://docs.apify.com/access-rights) to other Apify users.
 
 ## Dataset
 
-[Dataset]({{@link storage/dataset.md}}) provides storage for sequential data objects such as results from web scraping, crawling or data processing jobs. These data can then be exported in various formats like JSON, CSV, XML, RSS, Excel or HTML.
+[Dataset]({{@link storage/dataset.md}}) provides storage for sequential data objects such as results from web scraping, crawling or data processing jobs.
 
 ![Dataset illustration]({{@asset storage/images/datasets-overview.png}})
 
@@ -40,11 +43,11 @@ For more information, see the [Dataset]({{@link storage/dataset.md}}) documentat
 
 ## Key-value-store
 
-*   [Key-value store]({{@link storage/key_value_store.md}}) - simple storage for strings and files
-
 Store arbitrary data records along with their MIME content type. The records are accessible under a unique name and can be written and read at a rapid rate. The key-value store is ideal for saving files, such as screenshots of web pages or PDFs, or to persist the state of your actors and crawlers.
 
 ![Key-value store]({{@asset storage/images/key-value-overview.png}})
+
+For more information, see the [Key-value store]({{@link storage/key_value_store.md}}) documentation.
 
 ## Request queue
 
