@@ -1,29 +1,53 @@
 ---
 title: Key-value store
-description: Documentation of Apify Storage, which allows you to store actor inputs and outputs.
+description: Documentation of Key-value storage, which allows you to store arbitrary data records such as actor inputs.
 menuWeight: 6.2
 paths:
     - storage/key-value-store
 ---
 
-# [](#key-value-store)Key-value store
+# Key-value store
 
-The key-value store is simple storage that can be used for string or file ([buffer](https://nodejs.org/api/buffer.html)) records.
+The key-value store is simple storage that can be used for storing arbitrary data records as strings or files ([buffer](https://nodejs.org/api/buffer.html)) along with their MIME content type. Each actor run is assigned its own key-value store when it is created. The store contains the actor's input and possibly output.
+
+Key-value stores are mutable–you can both add entries and delete them.
+
+> Named key-value stores are retained indefinitely. <br/>
+> Unnamed key-value stores expire after 7 days unless otherwise specified.
+
+There are four ways to access your key-value stores:
+
+* [Apify app](https://my.apify.com/storage#/keyValueStores) - provides an easy-to-understand interface ([more details](#apify-app))
+* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#key-value-store) - when building your own Apify actor ([more details](#apify-sdk))
+* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) - to access your key-value stores from outside the Apify platform ([more details](#javascript-api-client))
+* [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items?console=1) - for accessing your key-value stores programmatically ([more details](#apify-api))
+
+## Basic usage
+
+### Apify app
+
+In the [Apify app](https://my.apify.com), you can view your key-value stores in the [Storage](https://my.apify.com/storage) section under the [Key-value stores](https://my.apify.com/storage#/keyValueStores) tab.
 
 
-## Adding data
-Can add data, but only possible from API with the PUT items endpoint
+### Apify SDK
 
-see if this can be added:
-https://help.apify.com/en/articles/1474989-how-to-get-put-records-into-a-named-key-value-store-in-an-actor
+If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify softwware development kit (SDK)](https://sdk.apify.com).
+In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#key-value-store), the key-value store is represented by the
+[`KeyValueStore`](https://sdk.apify.com/docs/guides/data-storage#key-value-store) class.
 
-## [](#basic-usage)Basic usage
+
+
+
+-------OLD STUFF, mainly SDK 
+
 
 Each actor run is assigned its own key-value store containing its input and possibly output. The ID of this key-value store is available under `run.defaultKeyValueStoreId`.
 
-In an actor you can use three shorthand methods to save and read records from its default key-value store - `Apify.setValue()` [[see docs](https://sdk.apify.com/docs/api/apify#apifysetvaluekey-value-options)], `Apify.getInput()` [[see docs](https://sdk.apify.com/docs/api/apify#apifygetinput)], and `Apify.getValue()` [[see docs](https://sdk.apify.com/docs/api/apify#apifygetvaluekey)]. So to fetch an actor's INPUT and set OUTPUT value, call:
+In an actor you can use three shorthand methods to save and read records from its default key-value store - `Apify.setValue()` [[see docs](https://sdk.apify.com/docs/api/apify#apifysetvaluekey-value-options)], `Apify.getInput()` [[see docs](https://sdk.apify.com/docs/api/apify#apifygetinput)], and `Apify.getValue()` [[see docs](https://sdk.apify.com/docs/api/apify#apifygetvaluekey)]. So, to fetch an actor's INPUT and set OUTPUT value, call:
 
-Method `Apify.getInput()` is not only a shortcut to `Apify.getValue('INPUT')` but it's also compatible with `Apify.metamorph()` [[see docs](https://docs.apify.com/actors/source-code#metamorph)] as metamorphed actor run has input stored in key `INPUT-METAMORPH-1` instead of `INPUT` which hosts original input.
+
+<!-- keep this -->
+The `Apify.getInput()`method is not only a shortcut to `Apify.getValue('INPUT')`- it is also compatible with `Apify.metamorph()` [[see docs](https://docs.apify.com/actors/source-code#metamorph)]. This is because metamorphed actor run' input is stored in the `INPUT-METAMORPH-1` key instead of `INPUT`, which hosts the original input.
 
     const Apify = require('apify');
 
@@ -43,7 +67,33 @@ If you want to use something other than the default key-value store, e.g. some s
 
     const value = await store.getValue('some-value-key');
 
-## [](#api-and-javascript-client)API and JavaScript client
 
-The key-value store also provides a [HTTP API](https://docs.apify.com/api/v2#/reference/key-value-stores) to manage key-value stores and their records. If you are developing a Node.js application then you can also use the [Apify JavaScript client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-keyValueStores).
+
+
+
+
+### JavaScript API client
+
+Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) (`apify-client`) allows you to access your key-value stores from outside the Apify platform (e.g. from a Node.js application).
+
+For help with setting up the JavaScript API client, see the Storage documentation's [overview page](https://docs.apify.com/storage/#setting-up-the-javascript-api-client).
+
+After importing the `apify-client` package into your application and creating an instance of it, save it to a variable for easier access.
+
+    // Save your key-value stores to a variable for easier access
+    const keyValStores = apifyClient.keyValueStores;
+
+
+### Apify API
+
+The [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) allows you to access your key-value stores programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
+
+You can find your secret API token on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+
+#### Get list of stores
+
+
+
+
+
 
