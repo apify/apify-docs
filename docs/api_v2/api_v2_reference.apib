@@ -13,7 +13,7 @@ To access the API using [Node.js](https://nodejs.org/en/), we recommend the
 [`apify-client`](https://docs.apify.com/api/apify-client-js/latest) [NPM package](https://www.npmjs.com/package/apify-client).
 The client's functions correspond to the API endpoints and have the same parameters. This simplifies development of apps that depend on the Apify platform.
 
-**All requests with JSON payloads need to specify the `Content-Type: application/json` HTTP header!**
+**Note:** All requests with JSON payloads need to specify the `Content-Type: application/json` HTTP header!
 
 All API endpoints support the `method` query parameter that can override the HTTP method.
 For example, if you want to call a POST endpoint using a GET request, simply
@@ -26,10 +26,9 @@ from services that can only send GET requests.
 Most API requests need to be authenticated by passing a secret API token
 to the request URL as the `token` query parameter.
 The API token can be found on the
-<a href="https://my.apify.com/account#/integrations" target="_blank" rel="nofollow">Integrations</a>
-page in the Apify app.
+[Integrations](https://my.apify.com/account#/integrations) page in the Apify app.
 
-**IMPORTANT: Do not share the API token with untrusted parties, or use it directly from a client-side code,
+**IMPORTANT**: Do not share the API token with untrusted parties, or use it directly from a client-side code,
 unless you fully understand the consequences!**
 
 Note that some API endpoints such as [Get list of keys](#reference/key-value-stores/key-collection/get-list-of-keys)
@@ -188,7 +187,7 @@ The following table describes the meaning of the response properties:
 
 ### Using key
 
-The records in the <a href="https://docs.apify.com/storage/key-value-store" target="_blank" rel="noopener">Key-value store</a>
+The records in the [key-value store](https://docs.apify.com/storage/key-value-store)
 are not ordered based on numerical indexes,
 but rather by their keys in the UTF-8 binary order.
 Therefore the [Get list of keys](#reference/key-value-stores/key-collection/get-list-of-keys)
@@ -285,7 +284,7 @@ Here is the table of the most common errors that can occur for many API endpoint
   <tr>
     <td><code>400</code></td>
     <td><code>invalid-value</code></td>
-    <td>Invalid value provided: Comments is required</td>
+    <td>Invalid value provided: Comments required</td>
   </tr>
   <tr>
     <td><code>400</code></td>
@@ -374,19 +373,18 @@ For more information, see the <a href="https://docs.apify.com/actor">Actor docum
 
 Note that for all the API endpoints that accept the `actorId` parameter to specify an actor,
 you can pass either the actor ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
-username of the actor owner and the actor name (e.g. `johndoe~my-actor`).
+username of the actor owner and the actor name (e.g. `janedoe~my-actor`).
 
 ## Actor collection [/v2/acts{?token,offset,limit,desc,my}]
 
 + Parameters
 
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
-    + my: false (boolean, optional) - If true returns only own actors. By default returns all the actors used by the user.
 
 
 ### Get list of actors [GET]
 
-Gets the list of all actors that the user created or used. The response is a list of objects where each object
+Gets the list of all actors that the user created or used. The response is a list of objects, where each object
 contains a basic information about a single actor.
 To only get actors created by the user, add the `my=1` query parameter.
 
@@ -396,7 +394,6 @@ By default, the records are sorted by the `createdAt` field in ascending order,
 therefore you can use pagination to incrementally fetch all actors while new
 ones are still being created. To sort the records in descending order, use the `desc=1`
 parameter.
-
 
 + Parameters
 
@@ -410,10 +407,10 @@ parameter.
     + Attributes
         - data (object, required)
             - total: 2 (number, required)
+            - count: 2 (number, required)
             - offset: 0 (number, required)
             - limit: 1000 (number, required)
             - desc: false (boolean, required)
-            - count: 2 (number, required)
             - items (array[ActorShort1,ActorShort2], required)
 
 ### Create actor [POST]
@@ -445,7 +442,7 @@ For more information, see [Version object](#reference/actors/version-object).
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get actor [GET]
@@ -488,32 +485,52 @@ Deletes an actor.
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get list of versions [GET]
 
-Gets the list of versions of a specific actor. The response is a JSON with the list
-of [Version objects](#reference/actors/version-object) where each
+Gets the list of versions of a specific actor. The response is a JSON object with the list
+of [Version objects](#reference/actors/version-object), where each
 contains basic information about a single version.
 
 + Response 200 (application/json)
 
     + Attributes
         - data (object, required)
-            - total: 1 (number, required)
-            - items (array[Version], required)
+            - total: 5 (number, required)
+            - items (ListOfVersions, required)
 
 ### Create version [POST]
 
-Creates an actor version using values specified by a [Version object](#reference/actors/version-object) passed as JSON in the POST payload.
+Creates a version of an actor using values specified in a [Version object](#reference/actors/version-object) passed as JSON in the POST payload.
 
-The request needs to specify the `Content-Type: application/json` HTTP header!
+The request must specify `versionNumber` and `sourceType` parameters (as strings) in the JSON payload and a `Content-Type: application/json` HTTP header.
+
+Each `sourceType` requires its own additional properties to be passed to the JSON payload object. These are outlined in the [Version object](#reference/actors/version-object) table below and in more detail in the [Apify documentation](https://docs.apify.com/actors/development/source-code).
+
+For example, if an actor's source code is stored in a [GitHub repository](https://docs.apify.com/actors/development/source-code#git-repository), you will set the `sourceType` to `GIT_REPO` and pass the repository's URL in the `gitRepoUrl` property.
+
+```
+{
+    "versionNumber": "0.1",
+    "sourceType": "GIT_REPO",
+    "gitRepoUrl": "https://github.com/my-github-account/actor-repo"
+}
+```
 
 The response is the [Version object](#reference/actors/version-object) as returned by the
 [Get version](#reference/actors/version-object/get-version) endpoint.
 
 + Attributes(VersionUpdate)
+
++ Request
+
+        {
+            "versionNumber": "0.1",
+            "sourceType": "GIT_REPO",
+            "gitRepoUrl": "https://github.com/my-github-account/actor-repo"
+        }
 
 + Response 201 (application/json)
 
@@ -527,8 +544,8 @@ The response is the [Version object](#reference/actors/version-object) as return
 ## Version object [/v2/acts/{actorId}/versions/{versionNumber}{?token}]
 
 The **Version object** contains the source code of a specific version of an actor.
-The `sourceType` field indicates where the source code is hosted, and based
-on its value the Version object has the following additional fields:
+The `sourceType` property indicates where the source code is hosted, and based
+on its value the Version object has the following additional property:
 
 <table>
   <tr>
@@ -573,7 +590,7 @@ For more information about source code and actor versions, see [Source code](htt
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + versionNumber: `1.0` (string, required) - Actor major and minor version of the actor.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
@@ -618,12 +635,12 @@ Deletes a specific version of actor's source code.
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get list of webhooks [GET]
 
-Gets the list of webhooks of a specific actor. The response is a JSON with the list of objects where each object
+Gets the list of webhooks of a specific actor. The response is a JSON with the list of objects, where each object
 contains basic information about a single webhook.
 
 The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records.
@@ -653,12 +670,12 @@ to sort the records in descending order, use the `desc=1` parameter.
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get list of builds [GET]
 
-Gets the list of builds of a specific actor. The response is a JSON with the list of objects where each object
+Gets the list of builds of a specific actor. The response is a JSON with the list of objects, where each object
 contains basic information about a single build.
 
 The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records.
@@ -714,7 +731,7 @@ The response is the build object as returned by the
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
 
 ### Get build [GET]
 
@@ -728,6 +745,7 @@ This is useful to avoid periodic polling when waiting for an actor build to fini
     + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
                                              If the build finishes in time then the returned build object will have a terminal status (e.g. `SUCCEEDED`),
                                              otherwise it will have a transitional status (e.g. `RUNNING`).
+    + buildId: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token. It is only required for private actors.
         Builds of public actors can be queried without any token.
 
@@ -746,7 +764,7 @@ Only builds that are starting or running are aborted. For builds with status `FI
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + buildId: `3KH8gEpp4d8uQSe8T` (string, required) - Build ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
@@ -759,11 +777,11 @@ Only builds that are starting or running are aborted. For builds with status `FI
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
 
 ### Get list of runs [GET]
 
-Gets the list of runs of a specific actor. The response is a list of objects where each object
+Gets the list of runs of a specific actor. The response is a list of objects, where each object
 contains basic information about a single actor run.
 
 The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000
@@ -796,7 +814,7 @@ parameter.
 
 Runs an actor and immediately returns without waiting for the run to finish.
 
-The POST payload including its `Content-Type` header is passed as `INPUT` to the actor (usually <code>application/json</code>).
+The POST payload including its `Content-Type` header is passed as `INPUT` to the actor (usually `application/json`).
 The actor is started with the default options; you can override them using various URL query parameters.
 
 The response is the Run object as returned by the [Get run](#reference/actors/run-object/get-run) API endpoint.
@@ -842,7 +860,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token. Public actors that are configured to be anonymously runnable do not require token parameter.
     + outputRecordKey: `OUTPUT` (string, optional) - Key of the record from run's default key-value store to be returned
                                                      in the response. By default, it is `OUTPUT`.
@@ -964,13 +982,13 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
 Gets an object that contains all the details about a specific run of an actor.
 
 By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the build to finish.
-This is useful to avoid periodic polling when waiting for actor build to complete.
+This is useful to avoid periodic polling when waiting for actor run to complete.
 
 This endpoints do not require the authentication token, the calls are authenticated using a hard-to-guess ID of the run.
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
                                                  If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
@@ -990,7 +1008,7 @@ Only runs that are starting or running are aborted. For runs with status `FINISH
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
@@ -1012,11 +1030,11 @@ Internally, the system stops the Docker container corresponding to the actor run
 and starts a new container using a different Docker image.
 All the default storages are preserved and the new input is stored under the `INPUT-METAMORPH-1` key in the same default key-value store.
 
-For more information, see [Actor docs](http://apify.com/docs/actor#metamorph).
+For more information, see [Actor docs](https://docs.apify.com/actors/development/source-code#metamorph).
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Actor run ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
     + targetActorId: `HDSasDasz78YcAPEB` (string, required) - ID of a target actor that the run should be transformed into.
@@ -1041,7 +1059,7 @@ For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrec
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
@@ -1050,7 +1068,7 @@ For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrec
     + Attributes
         - data (Run, required)
 
-## Last run object and its storages [/v2/acts/{actorId}/runs/last/{subPath}{token,status}]
+## Last run object and its storages [/v2/acts/{actorId}/runs/last/{?token,status}]
 
 This is not a single endpoint, but an entire group of endpoints that lets you to
 retrieve and manage the last run of given actor or any of its default storages.
@@ -1109,19 +1127,25 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 
 + Parameters
 
-    + actorId: `johndoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
     + status: `SUCCEEDED` (string, optional) - Filter for the run status.
 
 ### Get last run [GET]
 
++ Response 200 (application/json)
+
+    + Attributes
+        - data (Run, required)
+
 # Group Actor tasks
 
-The API endpoints described in this section enables you to manage and run Apify actor tasks.
+The API endpoints described in this section enable you to manage and run Apify actor tasks.
 For more information, see the <a href="https://docs.apify.com/tasks">Actor tasks documentation</a>.
 
 Note that for all the API endpoints that accept the `actorTaskId` parameter to specify a task,
 you can pass either the task ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
-username of the task's owner and the task's name (e.g. `johndoe~my-task`).
+username of the task's owner and the task's name (e.g. `janedoe~my-task`).
 
 ## Task collection [/v2/actor-tasks{?token,offset,limit,desc}]
 
@@ -1132,8 +1156,7 @@ username of the task's owner and the task's name (e.g. `johndoe~my-task`).
 
 ### Get list of tasks [GET]
 
-Gets the list of all tasks that the user created or used. The response is a list of objects where each object
-contains essential information about a single task.
+Gets the complete list of tasks that a user has created or used. The response is a list of objects in which each object contains essential information about a single task.
 
 The endpoint supports pagination using the `limit` and `offset` parameters, and it does not return more than a 1000 records.
 
@@ -1185,7 +1208,7 @@ The request needs to specify the `Content-Type: application/json` HTTP header!
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get task [GET]
@@ -1228,7 +1251,7 @@ Delete the task specified through the `actorTaskId` parameter.
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get task input [GET]
@@ -1268,12 +1291,12 @@ The request needs to specify the `Content-Type: application/json` HTTP header!
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get list of webhooks [GET]
 
-Gets the list of webhooks of a specific actor task. The response is a JSON with the list of objects where each object
+Gets the list of webhooks of a specific actor task. The response is a JSON with the list of objects, where each object
 contains basic information about a single webhook.
 
 The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records.
@@ -1299,15 +1322,15 @@ to sort the records in descending order, use the `desc=1` parameter.
             - count: 2 (number, required)
             - items (array[Webhook,Webhook], required)
 
-## Run collection [/v2/actor-tasks/{actorTaskId}/runs{?token,offset,limit,desc,waitForFinish,webhooks}]
+## Run collection [/v2/actor-tasks/{actorTaskId}/runs{?token,offset,limit,desc,waitForFinish,webhooks,timeout,memory,build}]
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
 
 ### Get list of task runs [GET]
 
-Get a list of runs of a specific task. The response is a list of objects where each object
+Get a list of runs of a specific task. The response is a list of objects, where each object
 contains essential information about a single task run.
 
 The endpoint supports pagination using the `limit` and `offset` parameters, and it does not return more than a 1000
@@ -1320,7 +1343,7 @@ parameter.
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
     + offset: 10 (number, optional) - Number of array elements that should be skipped at the start. The default value is `0`.
     + limit: 99 (number, optional) - Maximum number of array elements to return. The default value as well as the maximum is `1000`.
@@ -1356,7 +1379,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token.
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the task settings.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. By default, the run uses a memory limit specified in the task settings.
@@ -1390,7 +1413,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token.
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the task settings.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. By default, the run uses a memory limit specified in the task settings.
@@ -1493,7 +1516,7 @@ To run the Task asynchronously, use the [Run task asynchronously](#reference/act
             - type: `run-timeout-exceeded` (string, required)
             - message: `Actor run exceeded timeout of 300 seconds for this API endpoint` (string, required)
 
-## Last run object and its storages [/v2/acts/{actorId}/runs/last/{subPath}{token,status,actorTaskId}]
+## Last run object and its storages [/v2/acts/{actorId}/runs/last/{?token,status,actorTaskId}]
 
 This is not a single endpoint, but an entire group of endpoints that lets you to
 retrieve and manage the last run of given actor task or any of its default storages.
@@ -1552,10 +1575,16 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 
 + Parameters
 
-    + actorTaskId: `johndoe~my-task` (string, required) - Actor ID or a tilde-separated owner's username and actor task name.
+    + actorTaskId: `janedoe~my-task` (string, required) - Actor ID or a tilde-separated owner's username and actor task name.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
     + status: `SUCCEEDED` (string, optional) - Filter for the run status.
 
 ### Get last run [GET]
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (Run, required)
 
 # Group Key-value stores
 
@@ -1578,7 +1607,7 @@ are authenticated using a hard-to-guess ID of the key-value store.
 ### Get list of key-value stores [GET]
 
 Gets the list of key-value stores owned by the user.
-The response is a list of objects where each objects contains a basic information about a single key-value store.
+The response is a list of objects, where each objects contains a basic information about a single key-value store.
 
 The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000
 array elements.
@@ -1655,7 +1684,16 @@ The response is the updated key-value store object, as returned by the [Get stor
 
     + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
++ Request
+
+        {
+            "name": "new-store-name"
+        }
+
 + Response 200 (application/json)
+
+    + Attributes
+        - data (KVStore, required)
 
 ### Delete store [DELETE]
 
@@ -1685,11 +1723,6 @@ This endpoint is paginated using `exclusiveStartKey` and `limit` parameters - se
 
     + Attributes
         - data (object, required)
-            - isTruncated: true (boolean, required)
-            - exclusiveStartKey: `some-key` (string)
-            - nextExclusiveStartKey: `third-key` (string)
-            - count: 2 (number, required)
-            - limit: 2 (number, required)
             - items (array, required)
                 - (object)
                     - key: `second-key` (string, required)
@@ -1697,6 +1730,11 @@ This endpoint is paginated using `exclusiveStartKey` and `limit` parameters - se
                 - (object)
                     - key: `third-key` (string, required)
                     - size: 128 (number, required)
+            - count: 2 (number, required)
+            - limit: 2 (number, required)
+            - exclusiveStartKey: `some-key` (string)
+            - isTruncated: true (boolean, required)
+            - nextExclusiveStartKey: `third-key` (string)
 
 ## Record [/v2/key-value-stores/{storeId}/records/{recordKey}{?disableRedirect,token}]
 
@@ -1782,7 +1820,7 @@ Removes a record specified by a key from the key-value store.
 
     + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
-+ Response 200 (application/json)
++ Response 204 (application/json)
 
 ## Direct upload URL [/v2/key-value-stores/{storeId}/records/{recordKey}/direct-upload-url{?token}]
 
@@ -1822,7 +1860,7 @@ add the `Content-Encoding: gzip` header to your request.
 
 This section describes API endpoints to manage Datasets.
 
-Dataset is a storage for structured data where each record stored has the same attributes,
+Dataset is a storage for structured data, where each record stored has the same attributes,
 such as online store products or real estate offers. You can imagine it as a table,
 where each object is a row and its attributes are columns. Dataset is an append-only
 storage - you can only add new records to it but you cannot modify or remove existing
@@ -1836,7 +1874,7 @@ are authenticated using the hard-to-guess ID of the dataset.
 
 ### Get list of datasets [GET]
 
-Lists datasets of user. Response is a JSON array of objects where each object
+Lists all of a user's datasets. The response is a JSON array of objects, where each object
 contains basic information about one dataset.
 
 By default, the objects are sorted by the `createdAt` field in ascending order,
@@ -1913,7 +1951,16 @@ The response is the updated dataset object, as returned by the
 
     + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
++ Request
+
+        {
+            "name": "new-dataset-name"
+        }
+
 + Response 200 (application/json)
+
+    + Attributes
+        - data (Dataset, required)
 
 ### Delete dataset [DELETE]
 
@@ -2193,7 +2240,7 @@ are authenticated using the hard-to-guess ID of the queue.
 
 ### Get list of request queues [GET]
 
-Lists request queues of user. Response is a JSON array of objects where each object
+Lists all of a user's request queues. The response is a JSON array of objects, where each object
 contains basic information about one queue.
 
 By default, the objects are sorted by the `createdAt` field in ascending order,
@@ -2261,11 +2308,21 @@ Returns queue object for given queue ID.
 
 ### Update request queue [PUT]
 
-Updates a request queue.
+Updates a request queue's name using a value specified by a JSON object passed in the PUT payload.
+
+The response is the updated request queue object, as returned by the
+[Get request queue](#reference/request-queues/queue-collection/get-request-queue) API endpoint.
+
 
 + Parameters
 
     + token:   `soSkq9ekdmfOslopH` (string) - API authentication token.
+
++ Request
+
+        {
+            "name": "new-request-queue-name"
+        }
 
 + Response 200 (application/json)
 
@@ -2306,7 +2363,7 @@ If request with same `uniqueKey` was already present in the queue then returns a
 
     + Attributes(RequestWithoutId)
 
-+ Response 200 (application/json)
++ Response 201 (application/json)
 
     + Attributes
         - data (RequestOperationInfo, required)
@@ -2333,7 +2390,9 @@ Returns request from queue.
 
 ### Update request [PUT]
 
-Updates request in queue. Mark request as handled by setting `request.handledAt = new Date()`. If `handledAt` is set then request will be removed from head of the queue.
+Updates a request in a queue. Mark request as handled by setting `request.handledAt = new Date()`.
+
+If `handledAt` is set, the request will be removed from head of the queue.
 
 + Parameters
 
@@ -2389,9 +2448,9 @@ This field is used by [Apify SDK](https://sdk.apify.com) to determine whether th
             - hadMultipleClients: false                   (boolean, required)
             - items (array, required)
               - (object)
-                  - id:         `8OamqXBCpPHxyH9`.       (string, required)
+                  - id:         `8OamqXBCpPHxyH9`        (string, required)
                   - retryCount: 0                        (number, required)
-                  - uniqueKe":  `http://example.com`     (string, required)
+                  - uniqueKey:  `http://example.com`     (string, required)
                   - url:        `http://example.com`     (string, required)
                   - method:     `GET`                    (string, required)
               - (object)
@@ -2452,10 +2511,11 @@ parameter.
 Creates a new webhook with settings provided by the webhook object passed as JSON in the payload.
 The response is the created webhook object.
 
-To make sure that the same webhook is not created twice, use the `idempotencyKey` parameter.
-Multiple calls to create webhook with the same idempotency key will only create the webhook
-with the first call and return the existing webhook on subsequent calls. Idempotency keys
-must be unique, so use a UUID or another random string with enough entropy.
+To avoid duplicating a webhook, use the `idempotencyKey` parameter in the request body.
+Multiple calls to create a webhook with the same `idempotencyKey` will only create the webhook with the first call and return the existing webhook on subsequent calls.
+Idempotency keys must be unique, so use a UUID or another random string with enough entropy.
+
+To assign the new webhook to an actor or task, the request body must contain `requestUrl`, `eventTypes`, and `condition` properties.
 
 * `requestUrl` is the webhook's target URL, to which data is sent as a POST request with a JSON payload.
 * `eventTypes` is a list of events that will trigger the webhook, e.g. when the actor run succeeds.
@@ -2526,7 +2586,7 @@ The request needs to specify the `Content-Type: application/json` HTTP header!
 
 ### Delete webhook [DELETE]
 
-Deletes an webhook.
+Deletes a webhook.
 
 + Response 204 (application/json)
 
@@ -2728,12 +2788,12 @@ Gets the schedule log as a JSON array containing information about up to a 1000 
             - (object, required)
                 - message   `Schedule invoked`          (string, required)
                 - level     `INFO`                      (string, required)
-                - createdAt `2020-03-26T12:28:00.370Z`  (string, required)
+                - createdAt `2019-03-26T12:28:00.370Z`  (string, required)
 
             - (object, required)
                 - message   `Cannot start actor task \"iEvfA6pm6DWjRTGxS\": Provided input must be object, got \"string\" instead.` (string, required)
                 - level     `ERROR`                     (string, required)
-                - createdAt `2020-03-26T12:30:00.325Z`  (string, required)
+                - createdAt `2019-03-26T12:30:00.325Z`  (string, required)
 
 # Group Logs
 
@@ -2814,13 +2874,13 @@ The user account is identified by the provided authentication token.
 - id:               `zdc3Pyhyz3m8vjDeM`        (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`        (string, required)
 - name:             `MyActor`                  (string, required)
-- username:         `john35`                   (string, required)
+- username:         `jane35`                   (string, required)
 - description:      `My favourite actor!`      (string, nullable)
-- isPublic:         false                      (boolean, required)
-- title:            `My Actor`                 (string, nullable)
-- createdAt:        `2017-07-08T11:27:57.401Z` (string, required)
-- modifiedAt:       `2017-07-08T14:01:05.546Z` (string, required)
 - restartOnError:   false                      (boolean, nullable)
+- isPublic:         false                      (boolean, required)
+- isAnonymouslyRunnable: false                 (boolean, nullable)
+- createdAt:        `2019-07-08T11:27:57.401Z` (string, required)
+- modifiedAt:       `2019-07-08T14:01:05.546Z` (string, required)
 - stats                                        (object, required)
     - totalBuilds:      9                      (number, required)
     - totalRuns:        16                     (number, required)
@@ -2848,13 +2908,13 @@ The user account is identified by the provided authentication token.
         - finishedAt:   `2019-06-10T11:15:49.286Z`          (string, nullable)
 
 ## ActCreate (object)
-- name:             `MyActor`                  (string, required)
+- name:             `MyActor`                  (string, nullable)
 - description:      `My favourite actor!`      (string, nullable)
-- isPublic:         false                      (boolean, required)
+- isPublic:         false                      (boolean, nullable)
 - title:            `My Actor`                 (string, nullable)
 - restartOnError:   false                      (boolean, nullable)
-- versions                                     (array, required)
-    -                                          (VersionUpdate, required)
+- versions                                     (array, nullable)
+    -                                          (VersionUpdate, nullable)
 
 ## ActUpdate (object)
 - name:             `MyActor`                  (string, required)
@@ -2867,24 +2927,24 @@ The user account is identified by the provided authentication token.
 
 ## ActorShort1 (object)
 - id:              `br9CKmk457`                (string, required)
+- createdAt:        `2019-10-29T07:34:24.202Z` (string, required)
+- modifiedAt:       `2019-10-30T07:34:24.202Z` (string, required)
 - name:             `MyAct`                    (string, required)
-- username:         `john-doe`                 (string, required)
-- createdAt:        `2015-10-29T07:34:24.202Z` (string, required)
-- modifiedAt:       `2015-10-30T07:34:24.202Z` (string, required)
+- username:         `janedoe`                 (string, required)
 
 ## ActorShort2 (object)
 - id:              `ksiEKo23pz`                (string, required)
+- createdAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- modifiedAt:       `2019-12-12T07:34:24.202Z` (string, required)
 - name:             `MySecondAct`              (string, required)
-- username:         `john-doe`                 (string, required)
-- createdAt:        `2015-11-30T07:34:24.202Z` (string, required)
-- modifiedAt:       `2015-12-12T07:34:24.202Z` (string, required)
+- username:         `janedoe`                 (string, required)
 
 ## Task (object)
 - id:                    `zdc3Pyhyz3m8vjDeM`                (string, required)
 - userId:                `wRsJZtadYvn4mBZmm`                (string, required)
 - actId:                 `asADASadYvn4mBZmm`                (string, required)
 - name:                  `my-task`                          (string, required)
-- username:              `john-doe`                         (string, nullable)
+- username:              `janedoe`                         (string, nullable)
 - createdAt:             `2018-10-26T07:23:14.855Z`         (string, required)
 - modifiedAt:            `2018-10-26T13:30:49.578Z`         (string, required)
 - removedAt:             `null`                             (string, nullable)
@@ -2902,9 +2962,9 @@ The user account is identified by the provided authentication token.
 - userId:                `wRsJZtadYvn4mBZmm`            (string, required)
 - actId:                 `asADASadYvn4mBZmm`            (string, required)
 - actName:               `my-actor`                     (string, required)
-- actUsername:           `john-doe`                     (string, required)
 - name:                  `my-task`                      (string, required)
-- username:              `john-doe`                     (string, nullable)
+- username:              `janedoe`                     (string, nullable)
+- actUsername:           `janedoe`                     (string, required)
 - createdAt:             `2018-10-26T07:23:14.855Z`     (string, required)
 - modifiedAt:            `2018-10-26T13:30:49.578Z`     (string, required)
 - stats                                                 (object, nullable)
@@ -2915,15 +2975,17 @@ The user account is identified by the provided authentication token.
 - userId:                `wRsJZtadYvn4mBZmm`            (string, required)
 - actId:                 `asADASadYvn4mBZmm`            (string, required)
 - actName:               `my-actor`                     (string, required)
-- actUsername:           `john-doe`                     (string, required)
+- actUsername:           `janedoe`                     (string, required)
 - name:                  `my-task-2`                    (string, required)
-- username:              `john-doe`                     (string, nullable)
+- username:              `janedoe`                     (string, nullable)
 - createdAt:             `2018-10-26T07:23:14.855Z`     (string, required)
 - modifiedAt:            `2018-10-26T13:30:49.578Z`     (string, required)
 - stats                                                 (object, nullable)
     - totalRuns:         4                              (number, required)
 
 ## TaskCreate (object)
+- id:                    `ZxLNxrRaZrSjuhT9y`                (string, required)
+- userId:                `BPWZBd7Z9c746JAnF`                (string, required)
 - actId:                 `asADASadYvn4mBZmm`                (string, required)
 - name:                  `my-task`                          (string, required)
 - stats                                                     (object)
@@ -2936,8 +2998,16 @@ The user account is identified by the provided authentication token.
     - hello:             `world`                            (string, nullable)
 
 ## TaskUpdate (object)
+- id:                    `ZxLNxrRaZrSjuhT9y`                (string, required)
+- userId:                `BPWZBd7Z9c746JAnF`                (string, required)
 - actId:                 `asADASadYvn4mBZmm`                (string, required)
 - name:                  `my-task`                          (string, required)
+- username:              `janedoe`                          (string, nullable)
+- createdAt:             `2018-10-26T07:23:14.855Z`         (string, required)
+- modifiedAt:            `2018-10-26T13:30:49.578Z`         (string, required)
+- removedAt:             `null`                             (string, nullable)
+- stats                                                     (object, nullable)
+    - totalRuns:         15                                 (number, required)
 - options                                                   (object, nullable)
     - build:             `latest`                           (string, nullable)
     - timeoutSecs:       300                                (number, nullable)
@@ -2946,36 +3016,99 @@ The user account is identified by the provided authentication token.
     - hello:             `world`                            (string, nullable)
 
 ## Version (object)
-- versionNumber:            `0.0`                                (string, required)
-- sourceType:               `SOURCE_CODE`                        (VersionSourceType, required)
-- buildTag:                 `latest`                             (string, required)
-- envVars                                                        (array, nullable)
-    -                                                            (object)
-        - name:             `DOMAIN`                             (string, required)
-        - value:            `http://example.com`                 (string, required)
-        - isSecret:         false                                (boolean, nullable)
-    -                                                            (object)
-        - name:              `SECRET_PASSWORD`                    (string, required)
-        - isSecret:         true                                 (boolean, nullable)
-- baseDockerImage:          `apify/actor-node-basic`             (string, nullable)
-- applyEnvVarsToBuild:       false                               (boolean, nullable)
-- sourceCode:               `console.log('Hello world!');`       (string, nullable)
+- versionNumber:            `0.0`                           (string, required)
+- sourceType:               `SOURCE_CODE`                   (VersionSourceType, required)
+- envVars                                                   (array, nullable)
+    -                                                       (object)
+        - name:             `DOMAIN`                        (string, required)
+        - value:            `http://example.com`            (string, required)
+        - isSecret:         false                           (boolean, nullable)
+    -                                                       (object)
+        - name:              `SECRET_PASSWORD`              (string, required)
+        - isSecret:         true                            (boolean, nullable)
+- baseDockerImage:          `apify/actor-node-basic`        (string, nullable)
+- applyEnvVarsToBuild:       false                          (boolean, nullable)
+- buildTag:                 `latest`                        (string, required)
+- sourceCode:               `console.log('Hello world!');`  (string, nullable)
+
+## ListOfVersions (array)
+-                                                               (object)
+    - versionNumber:            `0.0`                           (string, required)
+    - sourceType:               `SOURCE_CODE`                   (VersionSourceType, required)
+    - envVars                                                   (array, nullable)
+        -                                                       (object)
+            - name:             `DOMAIN`                        (string, required)
+            - value:            `http://example.com`            (string, required)
+            - isSecret:         false                           (boolean, nullable)
+        -                                                       (object)
+            - name:              `SECRET_PASSWORD`              (string, required)
+            - isSecret:         true                            (boolean, nullable)
+    - baseDockerImage:          `apify/actor-node-basic`        (string, nullable)
+    - applyEnvVarsToBuild:       false                          (boolean, nullable)
+    - buildTag:                 `latest`                        (string, required)
+    - sourceCode:               `console.log('Hello world!');`  (string, nullable)
+-                                                               (object)
+    - versionNumber:            `0.1`                           (string, required)
+    - envVars:                  []                              (array, nullable)
+    - sourceType:               `SOURCE_FILES`                  (VersionSourceType, required)
+    - sourceCode:               `console.log('Hello world!');`  (string, nullable)
+    - applyEnvVarsToBuild:       false                          (boolean, nullable)
+    - buildTag:                 `latest`                        (string, required)
+    - sourceFiles                                                   (array)
+        -(object)
+            - name: `src/main.js`                                   (string, required)
+            - format: `TEXT`                                        (string, required)
+            - content: `console.log('This is the main.js file');`   (string, required)
+        -(object)
+            - name: `package.json`                                  (string, required)
+            - format: `TEXT`                                        (string, required)
+            - content: `name: "My Scraper"`                         (string, required)
+        -(object)
+            - name: `Dockerfile`                                    (string, required)
+            - format: `TEXT`                                        (string, required)
+            - content: ` # Dockerfile contains instructions ...`                 (string, required)
+            -(object)
+            - name: `README.md`                                     (string, required)
+            - format: `TEXT`                                        (string, required)
+            - content: `My Actor scrapes the web`                   (string, required)
+-                                                                   (object)
+    - versionNumber:            `0.2`                               (string, required)
+    - sourceType:               `GIT_REPO`                          (VersionSourceType, required)
+    - envVars:                  []                                  (array, nullable)
+    - applyEnvVarsToBuild:       false                              (boolean, nullable)
+    - buildTag:                 `latest`                            (string, required)
+    - gitRepoUrl:               `https://github.com/jane35/my-actor`    (string, required)
+-                                                                   (object)
+    - versionNumber:            `0.3`                               (string, required)
+    - sourceType:               `TARBALL`                           (VersionSourceType, required)
+    - envVars:                  []                                  (array, nullable)
+    - applyEnvVarsToBuild:       false                              (boolean, nullable)
+    - buildTag:                 `latest`                            (string, required)
+    - tarballUrl:               `https://github.com/jane35/my-actor/archive/master.zip`    (string, required)
+-                                                                   (object)
+    - versionNumber:            `0.4`                               (string, required)
+    - sourceType:               `GITHUB_GIST`                       (VersionSourceType, required)
+    - envVars:                  []                                  (array, nullable)
+    - applyEnvVarsToBuild:       false                              (boolean, nullable)
+    - buildTag:                 `latest`                            (string, required)
+    - gitHubGistUrl:            `https://gist.github.com/jane35/e51feb784yu89`    (string, required)
+
 
 ## VersionUpdate (object)
 - versionNumber:            `0.0`                                (string, nullable)
 - sourceType:               `SOURCE_CODE`                        (VersionSourceType, nullable)
-- buildTag:                 `latest`                             (string, nullable)
 - envVars                                                        (array, nullable)
     -                                                            (object)
         - name:             `DOMAIN`                             (string, nullable)
         - value:            `http://example.com`                 (string, nullable)
         - isSecret:         false                                (boolean, nullable)
     -                                                            (object)
-        - name:              `SECRET_PASSWORD`                    (string, nullable)
+        - name:              `SECRET_PASSWORD`                   (string, nullable)
         - value:            `MyTopSecretPassword123`             (string, nullable)
         - isSecret:         true                                 (boolean, nullable)
 - baseDockerImage:          `apify/actor-node-basic`             (string, nullable)
 - applyEnvVarsToBuild:       false                               (boolean, nullable)
+- buildTag:                 `latest`                             (string, nullable)
 - sourceCode:               `console.log('Hello world!');`       (string, nullable)
 
 ## VersionSourceType (enum)
@@ -2988,13 +3121,13 @@ The user account is identified by the provided authentication token.
 
 ## Build (object)
 - id:               `HG7ML7M8z78YcAPEB`        (string, required)
-- actId:            `johndoe~my-actor`         (string, required)
+- actId:            `janedoe~my-actor`         (string, required)
 - userId:           `klmdEpoiojmdEMlk3`        (string, required)
-- startedAt:        `2015-11-30T07:34:24.202Z` (string, required)
-- finishedAt:       `2015-12-12T09:30:12.202Z` (string, nullable)
+- startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- finishedAt:       `2019-12-12T09:30:12.202Z` (string, nullable)
 - status:           `SUCCEEDED`                (string, required)
 - meta                                         (object, required)
-    - source:        `WEB`                     (string, required)
+    - origin:        `WEB`                     (string, required)
     - clientIp:      `172.234.12.34`           (string, required)
     - userAgent:     `Mozilla/5.0 (iPad)`      (string, required)
 - stats                                        (object, nullable)
@@ -3012,8 +3145,6 @@ The user account is identified by the provided authentication token.
 
 ## BuildShort1 (object)
 - id:              `HG7ML7M8z78YcAPEB`         (string, required)
-- startedAt:        `2015-11-30T07:34:24.202Z` (string, required)
-- finishedAt:       `2015-12-12T09:30:12.202Z` (string, required)
 - status:           `SUCCEEDED`                (string, required)
 - startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
 - finishedAt:       `2019-12-12T09:30:12.202Z` (string, required)
@@ -3024,25 +3155,21 @@ The user account is identified by the provided authentication token.
 
 ## BuildShort2 (object)
 - id:              `HG7ML7M8z78YcAPEB`         (string, required)
-- startedAt:        `2015-12-12T07:34:14.202Z` (string, required)
-- finishedAt:       `2015-12-13T08:36:13.202Z` (string, required)
+- startedAt:        `2019-12-12T07:34:14.202Z` (string, required)
+- finishedAt:       `2019-12-13T08:36:13.202Z` (string, required)
 - status:           `FAILED`                   (string, required)
-- meta                                         (object, required)
+- meta                                         (object)
     - origin:       `API`                      (string, required)
-    - clientIp:     `172.234.12.34`            (string, required)
-    - userAgent:    `Mozilla/5.0 (iPad)`       (string, required)
 
 ## BuildAborted (object)
 - id:               `HG7ML7M8z78YcAPEB`        (string, required)
-- actId:            `johndoe~my-actor`         (string, required)
+- actId:            `janedoe~my-actor`         (string, required)
 - userId:           `klmdEpoiojmdEMlk3`        (string, required)
-- startedAt:        `2015-11-30T07:34:24.202Z` (string, required)
-- finishedAt:       `2015-12-12T09:30:12.202Z` (string, nullable)
+- startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- finishedAt:       `2019-12-12T09:30:12.202Z` (string, nullable)
 - status:           `ABORTED`                  (string, required)
 - meta                                         (object, required)
     - origin:        `WEB`                     (string, required)
-    - clientIp:      `172.234.12.34`           (string, required)
-    - userAgent:     `Mozilla/5.0 (iPad)`      (string, required)
 - stats                                        (object, nullable)
     - durationMillis 1000                      (number, required)
     - runTimeSecs:   5.718                     (number, required)
@@ -3053,11 +3180,11 @@ The user account is identified by the provided authentication token.
 
 ## Run (object)
 - id:               `HG7ML7M8z78YcAPEB`        (string, required)
-- buildId:          `HG7ML7M8z78YcAPEB`        (string, required)
 - actId:            `HDSasDasz78YcAPEB`        (string, required)
-- actTaskId:        `KJHSKHausidyaJKHs`        (string, nullable)
-- startedAt:        `2015-11-30T07:34:24.202Z` (string, required)
-- finishedAt:       `2015-12-12T09:30:12.202Z` (string, required)
+- userId:           `7sT5jcggjjA9fNcxF`        (string, required)
+- actorTaskId:      `KJHSKHausidyaJKHs`        (string, nullable)
+- startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- finishedAt:       `2019-12-12T09:30:12.202Z` (string, required)
 - status:           `RUNNING`                  (string, required)
 - meta                                         (object, required)
     - origin:       `WEB`                      (string, required)
@@ -3094,6 +3221,9 @@ The user account is identified by the provided authentication token.
 
 ## RunShort1 (object)
 - id:              `HG7ML7M8z78YcAPEB`         (string, required)
+- status:           `SUCCEEDED`                (string, required)
+- startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- finishedAt:       `2019-12-12T09:30:12.202Z` (string, required)
 - buildId:          `HG7ML7M8z78YcAPEB`        (string, required)
 - buildNumber:      `0.0.2`                    (string, required)
 - meta                                         (object, required)
@@ -3104,6 +3234,7 @@ The user account is identified by the provided authentication token.
 
 ## RunShort2 (object)
 - id:              `HG7ML7M8z78YcAPEB`         (string, required)
+- status:           `FAILED`                   (string, required)
 - buildId:          `HG7ML7M8z78YcAPEB`        (string, required)
 - startedAt:        `2019-12-12T07:34:14.202Z` (string, required)
 - finishedAt:       `2019-12-13T08:36:13.202Z` (string, required)
@@ -3117,19 +3248,19 @@ The user account is identified by the provided authentication token.
 
 ## TaskRun (object)
 - id:               `HG7ML7M8z78YcAPEB`        (string, required)
-- buildId:          `HG7ML7M8z78YcAPEB`        (string, required)
+- buildId:          `7sT5jcggjjA9fNcxF`        (string, required)
 - actId:            `HDSasDasz78YcAPEB`        (string, required)
-- actTaskId:        `KJHSKHausidyaJKHs`        (string, nullable)
-- startedAt:        `2015-11-30T07:34:24.202Z` (string, required)
-- finishedAt:       `2015-12-12T09:30:12.202Z` (string, required)
+- userId:           `BPWZBd9V9c746JAnF`        (string, required)
+- actorTaskId:      `KJHSKHausidyaJKHs`        (string, nullable)
+- startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- finishedAt:       `2019-12-12T09:30:12.202Z` (string, required)
 - status:           `SUCCEEDED`                (string, required)
-- defaultKeyValueStoreId: `eJNzqsbPiopwJcgGQ`  (string, required)
-- defaultDatasetId: `wmKPijuyDnPZAPRMk`  (string, required)
-- defaultRequestQueueId: `FL35cSF7jrxr3BY39`   (string, required)
 - meta                                         (object, required)
-    - source:       `WEB`                      (string, required)
-    - clientIp:     `172.234.12.34`            (string, required)
+    - origin:       `WEB`                      (string, required)
+    - clientIp:     `172.234.12.34`            (string, nullable)
     - userAgent:    `Mozilla/5.0 (iPad)`       (string, required)
+    - scheduleId:   `dWazFsPpxMigMSqHL`        (string, required)
+    - scheduledAt:  `2019-06-10T11:40:00.000Z` (string, required)
 - stats                                        (object, required)
     - inputBodyLen:              240           (number, required)
     - restartCount:              0             (number, required)
@@ -3161,16 +3292,14 @@ The user account is identified by the provided authentication token.
 
 ## RunAborted (object)
 - id:               `HG7ML7M8z78YcAPEB`        (string, required)
-- buildId:          `HG7ML7M8z78YcAPEB`        (string, required)
-- actId:            `johndoe~my-actor`         (string, required)
-- startedAt:        `2015-11-30T07:34:24.202Z` (string, required)
-- finishedAt:       `2015-12-12T09:30:12.202Z` (string, required)
+- actId:            `janedoe~my-actor`         (string, required)
+- userId:           `BPWZBd7Z9c746JAng`        (string, required)
+- actorTaskId:      `rANaydYhUxjsnA3oz`        (string, required)
+- startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
+- finishedAt:       `2019-12-12T09:30:12.202Z` (string, required)
 - status:           `ABORTED`                  (string, required)
-- defaultKeyValueStoreId: `eJNzqsbPiopwJcgGQ`  (string, required)
-- defaultDatasetId: `wmKPijuyDnPZAPRMk`  (string, required)
-- defaultRequestQueueId: `FL35cSF7jrxr3BY39`   (string, required)
 - meta                                         (object, required)
-    - source:       `WEB`                      (string, required)
+    - origin:       `WEB`                      (string, required)
     - clientIp:     `172.234.12.34`            (string, required)
     - userAgent:    `Mozilla/5.0 (iPad)`       (string, required)
 - stats                                        (object, required)
@@ -3207,11 +3336,8 @@ The user account is identified by the provided authentication token.
 - startedAt:        `2019-11-30T07:34:24.202Z` (string, required)
 - finishedAt:       null (string, required)
 - status:           `RUNNING`                  (string, required)
-- defaultKeyValueStoreId: `eJNzqsbPiopwJcgGQ`  (string, required)
-- defaultDatasetId: `wmKPijuyDnPZAPRMk`  (string, required)
-- defaultRequestQueueId: `FL35cSF7jrxr3BY39`   (string, required)
 - meta                                         (object, required)
-    - source:       `WEB`                      (string, required)
+    - origin:       `WEB`                      (string, required)
     - clientIp:     `172.234.12.34`            (string, required)
     - userAgent:    `Mozilla/5.0 (iPad)`       (string, required)
 - stats                                        (object, required)
@@ -3284,9 +3410,9 @@ The user account is identified by the provided authentication token.
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
 - name:             `d7b9MDYsbtX5L7XAj`        (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`        (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z` (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z` (string, required)
-- accessedAt:       `2015-12-14T08:36:13.202Z` (string, required)
+- createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
+- accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
 - itemCount:        7                          (number, required)
 - cleanItemCount:   5                          (number, required)
 - actId                                        (object, nullable)
@@ -3320,13 +3446,13 @@ The user account is identified by the provided authentication token.
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
 - name:             `some-name`                (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`        (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z` (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z` (string, required)
-- accessedAt:       `2015-12-14T08:36:13.202Z` (string, required)
+- createdAt:        `2019-12-12T07:34:14.202Z` (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z` (string, required)
+- accessedAt:       `2019-12-14T08:36:13.202Z` (string, required)
 - totalRequestCount:   870                     (number, required)
 - handledRequestCount: 100                     (number, required)
 - pendingRequestCount: 670                     (number, required)
-- hadMultipleClients: true                     (boolean, required)
+- hadMultipleClients:  true                    (boolean, required)
 
 ## RequestQueueShort1 (object)
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
@@ -3384,29 +3510,21 @@ The user account is identified by the provided authentication token.
     - image:        `https://picserver1.eu`    (string, nullable)
 - handledAt         `2019-06-16T10:23:31.607Z` (object, nullable)
 
-## Request2 (object)
-- id:               `jkndkjMDKWLUlsmkls`       (string, required)
-- uniqueKey:        `http://example.com/a/b    (string, required)
-- url:              `http://example.com/a/b    (string, required)
-- method:           `GET`                      (string, required)
-
 ## UserPublicInfo (object)
 - username:         `d7b9MDYsbtX5L7XAj`        (string, required)
 - profile                                      (object, required)
     - bio:               `I started web scraping in 1985 using Altair BASIC.`    (string)
-    - name:              `John Doe`                                              (string)
+    - name:              `Jane Doe`                                              (string)
     - pictureUrl:        `/img/anonymous_user_picture.png`                       (string)
     - githubUsername:    `torvalds.`                                             (string)
     - websiteUrl:        `http://www.example.com`                                (string)
     - twitterUsername:   `@BillGates`                                            (string)
 
 ## UserPrivateInfo (object)
-- id:               `YiKoxjkaS9gjGTqhF`        (string, required)
 - username:         `myusername`               (string, required)
-- email:            `bob@example.com`          (string, required)
 - profile                                      (object, required)
     - bio:               `I started web scraping in 1985 using Altair BASIC.`    (string)
-    - name:              `John Doe`                                              (string)
+    - name:              `Jane Doe`                                              (string)
     - pictureUrl:        `/img/anonymous_user_picture.png`                       (string)
     - githubUsername:    `torvalds.`                                             (string)
     - websiteUrl:        `http://www.example.com`                                (string)
@@ -3453,8 +3571,8 @@ The user account is identified by the provided authentication token.
 
 ## Webhook (object)
 - id:               `YiKoxjkaS9gjGTqhF`             (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z`      (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z`      (string, required)
+- createdAt:        `2019-12-12T07:34:14.202Z`      (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z`      (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`             (string, required)
 - isAdHoc:          false                           (boolean, nullable)
 - eventTypes                                        (array, required)
@@ -3469,14 +3587,14 @@ The user account is identified by the provided authentication token.
 - payloadTemplate:  `{\n \"userId\": {{userId}}...` (string, nullable)
 - lastDispatch                                      (object, nullable)
     - status:       `SUCCEEDED`                     (string, required)
-    - finishedAt:   `2015-12-13T08:36:13.202Z`      (string, required)
+    - finishedAt:   `2019-12-13T08:36:13.202Z`      (string, required)
 - stats                                             (object, nullable)
     - totalDispatches: 1                            (number, required)
 
 ## WebhookShort (object)
 - id:               `YiKoxjkaS9gjGTqhF`         (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z`  (string, required)
-- modifiedAt:       `2015-12-13T08:36:13.202Z`  (string, required)
+- createdAt:        `2019-12-12T07:34:14.202Z`  (string, required)
+- modifiedAt:       `2019-12-13T08:36:13.202Z`  (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`         (string, required)
 - isAdHoc:          false                       (boolean, nullable)
 - eventTypes                                    (array, required)
@@ -3490,7 +3608,7 @@ The user account is identified by the provided authentication token.
 - requestUrl:       `http://example.com/`       (string, required)
 - lastDispatch                                  (object, nullable)
     - status:       `SUCCEEDED`                 (string, required)
-    - finishedAt:   `2015-12-13T08:36:13.202Z`  (string, required)
+    - finishedAt:   `2019-12-13T08:36:13.202Z`  (string, required)
 - stats                                         (object, nullable)
     - totalDispatches: 1                        (number, required)
 
@@ -3519,9 +3637,9 @@ The user account is identified by the provided authentication token.
 
 ## WebhookDispatch
 - id:               `asdLZtadYvn4mBZmm`         (string, required)
-- createdAt:        `2015-12-12T07:34:14.202Z`  (string, required)
-- webhookId:        `asdLZtadYvn4mBZmm`         (string, required)
 - userId:           `wRsJZtadYvn4mBZmm`         (string, required)
+- webhookId:        `asdLZtadYvn4mBZmm`         (string, required)
+- createdAt:        `2019-12-12T07:34:14.202Z`  (string, required)
 - status:           `SUCCEEDED`                 (string, required)
 - eventType:        `ACTOR.RUN.SUCCEEDED`       (string, required)
 - eventData                                     (object, required)
@@ -3537,37 +3655,37 @@ The user account is identified by the provided authentication token.
 
 ## ScheduleShort1
 - id:         `asdLZtadYvn4mBZmm`         (string, required)
-- name:       `my-schedule`               (string, required)
 - userId:     `wRsJZtadYvn4mBZmm`         (string, required)
+- name:       `my-schedule`               (string, required)
 - isEnabled:  true                        (boolean, required)
 - createdAt:  `2019-12-12T07:34:14.202Z`  (string, required)
 - modifiedAt: `2019-12-20T06:33:11.202Z`  (string, required)
-- lastRunAt:  `2020-04-12T07:33:10.202Z`  (string, required)
-- nextRunAt:  `2020-04-12T07:34:10.202Z`  (string, required)
+- lastRunAt:  `2019-04-12T07:33:10.202Z`  (string, required)
+- nextRunAt:  `2019-04-12T07:34:10.202Z`  (string, required)
 
 ## ScheduleShort2
 - id:         `JgwXN9BdwxGcu9MMF`         (string, required)
-- name:       `my-schedule`               (string, required)
 - userId:     `wRsJZtadYvn4mBZmm`         (string, required)
+- name:       `my-schedule`               (string, required)
 - isEnabled:  true                        (boolean, required)
-- createdAt:  `2020-01-12T05:34:14.202Z`  (string, required)
-- modifiedAt: `2020-01-23T06:55:11.202Z`  (string, required)
-- lastRunAt:  `2020-04-10T07:34:10.202Z`  (string, required)
-- nextRunAt:  `2020-05-10T07:34:10.202Z`  (string, required)
+- createdAt:  `2019-01-12T05:34:14.202Z`  (string, required)
+- modifiedAt: `2019-01-23T06:55:11.202Z`  (string, required)
+- lastRunAt:  `2019-04-10T07:34:10.202Z`  (string, required)
+- nextRunAt:  `2019-05-10T07:34:10.202Z`  (string, required)
 
 ## Schedule
 - id:             `asdLZtadYvn4mBZmm`         (string, required)
+- userId:         `wRsJZtadYvn4mBZmm`         (string, required)
 - name:           `my-schedule`               (string, required)
 - cronExpression: `* * * * *`                 (string, nullable)
 - timezone:       `UTC`                       (string, required)
 - isEnabled:      true                        (boolean, nullable)
 - isExclusive:    true                        (boolean, nullable)
+- description:    `Schedule of actor ...`     (string, nullable)
 - createdAt:      `2019-12-12T07:34:14.202Z`  (string, nullable)
 - modifiedAt:     `2019-12-20T06:33:11.202Z`  (string, nullable)
-- lastRunAt:      `2020-04-12T07:33:10.202Z`  (string, nullable)
-- nextRunAt:      `2020-04-12T07:34:10.202Z`  (string, nullable)
-- cronExpression: `* * * * *`                 (string, nullable)
-- description:    `Schedule of actor ...`     (string, nullable)
+- nextRunAt:      `2019-04-12T07:34:10.202Z`  (string, nullable)
+- lastRunAt:      `2019-04-12T07:33:10.202Z`  (string, nullable)
 - actions                                     (array, nullable)
     -                                         (object, required)
         - id:               `c6KfSgoQzFhMk3etc`               (string, required)
@@ -3577,7 +3695,7 @@ The user account is identified by the provided authentication token.
             - body:         `{\n   \"foo\": \"actor\"\n}`     (string, nullable)
             - contentType:  `application/json; charset=utf-8` (string, nullable)
         - runOptions                                          (object, nullable)
-            - build:        latest                            (string, nullable)
+            - build:        `latest`                          (string, nullable)
             - timeoutSecs:  60                                (number, nullable)
             - memoryMbytes: 1024                              (number, nullable)
 
@@ -3604,7 +3722,7 @@ The user account is identified by the provided authentication token.
             - body:         `{\n   \"foo\": \"actor\"\n}`     (string, nullable)
             - contentType:  `application/json; charset=utf-8` (string, nullable)
         - runOptions                                          (object, nullable)
-            - build:        latest                            (string, nullable)
+            - build:        `latest`                          (string, nullable)
             - timeoutSecs:  60                                (number, nullable)
             - memoryMbytes: 1024                              (number, nullable)
 
