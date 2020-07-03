@@ -8,7 +8,7 @@ paths:
 
 # Dataset
 
-Dataset storage enables you to save and retrieve sequential data objects. Each actor run is assigned its own dataset–it is created when the first item is stored to it.
+Dataset storage enables you to save and retrieve sequential data objects. Each actor run is assigned its own dataset, which is created when the first item is stored to it.
 
 Datasets usually contain results from web scraping, crawling or data processing jobs. It can be visualized as a table where each object is a row and its attributes are the columns. The data can be exported in JSON, CSV, XML, RSS, Excel or HTML formats.
 
@@ -22,13 +22,16 @@ TO DO
 
 ----show that parameters like 'fields' can be isolated when exporting (check in api docs under OMIT) api, client, sdk
 
+https://sdk.apify.com/docs/api/dataset
+[fields]: Array<string> - An array of field names that will be included in the result. If omitted, all fields are included in the results.
+
 ----MENTION ABOUT XML STUFF IN API DOCS
 
 There are four ways to access your datasets:
 
 * [Apify app](https://my.apify.com) - provides an easy-to-understand interface ([more details](#apify-app))
 * [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor ([more details](#apify-sdk))
-* [Apify JavaScript client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from outside the Apify platform ([more details](#apify-javascript-client))
+* [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from outside the Apify platform ([more details](#javascript-api-client))
 * [Apify API](#https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically ([more details](#apify-api))
 
 ## Basic usage
@@ -50,9 +53,8 @@ If you are building an [Apify actor]({{@link actors.md}}), you will be using the
 In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset), the dataset is represented by the
 [`Dataset`](https://sdk.apify.com/docs/guides/data-storage#dataset) class.
 
-You can use the `Dataset` class to specify whether your data is stored locally on in the Apify cloud, push data to datasets of your choice using the `pushData()` [method](https://sdk.apify.com/docs/examples/add-data-to-dataset), and perform functions such as `getData()`, `map()`,
-and `reduce()`([example](https://sdk.apify.com/docs/examples/map-and-reduce)).
-For more information and code examples, see the [Apify SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset).
+You can use the `Dataset` class to specify whether your data is stored locally on in the Apify cloud, push data to datasets of your choice using the `pushData()` [method](https://sdk.apify.com/docs/examples/add-data-to-dataset), and perform functions such as `getData()`, `map()` and `reduce()`([example](https://sdk.apify.com/docs/examples/map-and-reduce)).
+For more information, see the [Apify SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset).
 
 If you have chosen to store your dataset locally, you can find it in the location below.
 
@@ -75,7 +77,7 @@ To add data to the default dataset, you can use the example below.
         // Add multiple items to the default dataset:
         await Apify.pushData([
             { foo: 'hotel' },
-            { foo: 'restaurant' },
+            { foo: 'cafe' },
         ]);
     });
 
@@ -89,11 +91,21 @@ If you want to use something other than the default dataset, e.g. a dataset that
     // Add data to the named dataset
     await dataset.pushData({ foo: 'bar' });
 
+When using the `getData()` method, you can specify the data you retrieve using the `[fields]` parameter. It should be an array of field names (strings) that will be included in the results. To include all the results, simply omit the `[fields]` parameter.
+
+    // Only get the 'hotel' and 'cafe' fields
+    const hotelAndCafeData = await dataset.getData(
+        fields=[
+            'hotel',
+            'cafe'
+        ]
+    );
+
 For more information on managing datasets using the Apify SDK, see the [SDK documentation](https://sdk.apify.com/docs/api/dataset).
 
-### Apify JavaScript client
+### JavaScript API client
 
-The [Apify JavaScript client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) allows you to access your datasets from outside the Apify platform (e.g. from a Node.js application).
+Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) allows you to access your datasets from outside the Apify platform (e.g. from a Node.js application).
 
 To use the `apify client` in your application, you will first need to have [Node.js](https://nodejs.org/en/) version 10 or higher installed. You can use the following commands to check which version of Node.js you have.
 
@@ -137,7 +149,7 @@ You can then create, update, and delete datasets using the commands below.
     await datasets.putItems({
         data: [
             { foo: 'hotel' },
-            { foo: 'restaurant' }
+            { foo: 'cafe' }
         ],
     });
 
@@ -149,7 +161,17 @@ You can then create, update, and delete datasets using the commands below.
     // Delete a dataset
     await datasets.deleteDataset();
 
-For more information, see the [Apify JavaScript client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) documentation.
+When using the `getItems()` method, you can specify the data you retrieve using the `[fields]` parameter. It should be an array of field names (strings) that will be included in the results. To include all the results, simply omit the `[fields]` parameter.
+
+    // Only get the 'hotel' and 'cafe' fields
+    const hotelAndCafeData = await datasets.getItems(
+        fields=[
+            'hotel',
+            'cafe'
+        ]
+    );
+
+For more information, see the [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) documentation.
 
 ### Apify API
 
@@ -183,6 +205,15 @@ To export a dataset's data, send a GET request to the
 
     https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
 
+You can specify which data are exported by adding a comma-separated list of fields to the `fields` query parameter. Likewise, you can also omit certain fields using the `omit` parameter.
+
+> Instead of commas, however, you will need to use the `%2C` code, which represents `,` in URL encoding.<br/>
+> Learn more about URL encoding [here](https://www.url-encode-decode.com).
+
+To retrieve the `hotel` and `cafe` fields, while omitting `restaurant` and `bar`, you would use the send your GET request to the URL below. 
+
+    https://api.apify.com/v2/datasets/{DATASET_ID}/items?token={YOUR_API_TOKEN}&fields=hotel%2Ccafe&omit=restaurant%2Cbar
+
 #### Put data
 
 To add data to a dataset, send a POST request, with a JSON object containing the data you want to add as the payload to the [Put items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items?console=1) endpoint.
@@ -199,7 +230,7 @@ Example payload:
             "foo": "hotel"
         },
         {
-            "foo": "restaurant"
+            "foo": "cafe"
         }
     ]
 
