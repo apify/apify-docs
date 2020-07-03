@@ -42,11 +42,20 @@ For more information, see the [Dataset]({{@link storage/dataset.md}}) documentat
 
 *   [Key-value store]({{@link storage/key_value_store.md}}) - simple storage for strings and files
 
-## Request queue
+Store arbitrary data records along with their MIME content type. The records are accessible under a unique name and can be written and read at a rapid rate. The key-value store is ideal for saving files, such as screenshots of web pages or PDFs, or to persist the state of your actors and crawlers.
 
+![Key-value store]({{@asset storage/images/key-value-overview.png}})
+
+## Request queue
 
 *   [Request queue]({{@link storage/request_queue.md}}) - dynamic queue of URLs to be processed
 
+
+Maintain a queue of URLs of web pages in order to recursively crawl websites, starting from initial URLs and adding new links as they are found while skipping duplicates.
+
+![Request queue]({{@asset storage/images/request-queue-overview.png}})
+
+The request queue lets you query whether specific URLs were already found, push new URLs to the queue and fetch the next ones to process. Request queues support both breadth-first and depth-first crawling orders, and custom data attributes.
 
 ## Basic usage
 
