@@ -11,6 +11,12 @@ paths:
 
 The Apify platform includes three storage types you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](https://docs.apify.com/api/v2#/reference/key-value-stores), the Apify [software development kit](https://sdk.apify.com)(SDK) and the Apify [JavaScript API client](https://docs.apify.com/api/apify-client-js).
 
+On this page, you will find a brief introduction to the three types of storage Apify offers.
+
+You will then find [basic usage](#basic-usage) instances which are shared by all three types of storage. For example, how to manage your storages in the [Apify app](#apify-app), the basics of setting up the [Apify SDK](#apify-sdk) and
+[JavaScript API client](#javascript-api-client),
+and general information for using storages with the [Apify API](#apify-api).
+
 ## Dataset
 
 [Dataset]({{@link storage/dataset.md}}) provides storage for sequential data objects such as results from web scraping, crawling or data processing jobs.
@@ -57,17 +63,17 @@ For more information, see the [Request queue]({{@link storage/request_queue.md}}
 
 ## Basic usage
 
+### Apify app
+
 To access your storages from the Apify app, go to the [`Storage` section](https://my.apify.com/storage) in the left-side menu. From there, you can view your storages by cicking on their `ID` and test your storage API endpoints under the `API` tab.
 
-![Datasets in app]({{@asset storage/images/datasets-app.png}})
+![Storages in app]({{@asset storage/images/datasets-app.png}})
 
-> Only named datasets are displayed by default. Select the `Include unnamed datasets` checkbox to display all of your datasets.
+> Only named storages are displayed by default. Select the `Include unnamed store` checkbox to display all of your storages.
 
-To view or export a stored item, click on its `ID`, then select the format in which you want to download it. You can export your storages in JSON, CSV, XML, RSS, Excel or HTML formats.
+To view or export a store, click on its `ID`, then select the format in which you want to download it. You can export your storages in JSON, CSV, XML, RSS, Excel or HTML formats.
 
-You can edit your storages' names in the `Settings` tab of the store's detail page. There, you can also grant [access rights](https://docs.apify.com/access-rights) to other Apify users.
-
-### Sharing
+You can edit your stores' names in the `Settings` tab of their detail page. There, you can also grant [access rights](https://docs.apify.com/access-rights) to other Apify users.
 
 You can quickly share the contents of your storages by sharing the URLs you find under the `API` tab in a store's detail page. 
 
@@ -75,7 +81,59 @@ You can quickly share the contents of your storages by sharing the URLs you find
 
 These URLs provide links to API `endpoints`-the places where your data are stored. Some of the endpoints do not require an [authentication token](https://docs.apify.com/api/v2#/introduction/authentication)-the calls are authenticated using a hard-to-guess ID, so they can be shared freely.
 
-> If an endpoint requires authentication, we suggest sharing the data another way
+<!-- IS THERE ANOTHER WAY TO SHARE YOUR DATA VIA API? -->
+> If an endpoint requires authentication, we suggest not sharing the URL which contains it but instead downloading the data first and then sharing it.
+
+### Apify SDK
+
+The [Apify SDK](https://sdk.apify.com) requires Apify SDK requires [Node.js](https://nodejs.org/en/) 10.17 or later, with the exception of Node.js 11. To add Apify SDK to a Node.js project run the following command in your terminal.
+
+    npm install apify --save
+
+Then, import the SDK into your application by `require`-ing it.
+
+    const Apify = require('apify');
+
+For more information of getting started with the Apify SDK, visit the [SDK documentation](https://sdk.apify.com/docs/guides/quick-start).
+
+<!-- This will be included in the new JS API CLIENT docs -->
+<!-- so all we'll have to do is link to the instructions -->
+### JavaScript API client
+
+Apify's [JavaScript API client](https://docs.apify.com/apify-client-js) (`apify-client`) allows you to access your datasets from outside the Apify platform (e.g. from a Node.js application).
+
+To use the `apify-client` in your application, you will first need to have [Node.js](https://nodejs.org/en/) version 10 or higher installed. You can use the following commands to check which version of Node.js you have.
+
+    node --version
+    npm --version
+
+You can then install the `apify-client` package from [NPM](https://www.npmjs.com/package/apify-cli) using the below command in your terminal.
+
+    npm install apify-client
+
+Once installed, `require` the `apify-client` package in your app and create a new instance of it using your `user ID` and secret `API token` (you can find these on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account).
+
+    // Import the `apify-client` package
+    const ApifyClient = require('apify-client');
+
+    // Create a new instance of the client
+    const apifyClient = new ApifyClient({
+        userId: 'RWnGtczasdwP63Mak',
+        token: 'f5J7XsdaKDyRywwuGGo9',
+    });
+
+### Apify API
+
+The [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) allows you to access your storages programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
+
+To access your storages via the Apify API, you will need your secret API token, which you can find on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account. 
+
+In most cases, you will also need to provide a `store ID`, which can be provided in the following formats:
+
+* `WkzbQMuFYuamGv3YF` - the store's numerical ID if the store is unnamed
+* `username~store-name` - your username and the store's name separated by a tilde (`~`) character (e.g. `janedoe~ecommerce-scraping-results`) if the store is named
+
+For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 
 ## Data retention
 
