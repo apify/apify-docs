@@ -1,6 +1,6 @@
 ---
 title: Actors
-description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Learn about Apify Actors - the easy way to develop, run and share serverless cloud programs.
 menuWeight: 3
 category: platform
 paths: 
@@ -9,11 +9,11 @@ paths:
     - actors
 ---
  
-# Apify Actors
+# Actors
 
-Actors run on the Apify serverless computing platform and enable the execution of arbitrary pieces of code. Unlike traditional serverless platforms, the run of an actor is not limited to the lifetime of a single HTTP transaction. It can run for as long as necessary, even forever. The actor can perform anything from a simple action such as filling out a web form or sending an email, to complex operations such as crawling an entire website and removing duplicates from a large dataset.
+Actors are serverless cloud programs running on the Apify platform that can perform arbitrary computing jobs such as send an email or crawl a website with millions of pages. They can be started manually, using API or scheduler, and they can be easily integrated with other apps.
 
-A single isolated actor consists of source code and various settings. You can think of an actor as a cloud app or service.
+A single isolated actor consists of source code and various settings. You can think of an actor as a cloud app or service. Unlike traditional serverless platforms, the run of an actor is not limited to the lifetime of a single HTTP transaction. It can run for as long as necessary, even forever.
 
 *   [**Quick Start**]({{@link actors/quick_start.md}})
 *   [**Running**]({{@link actors/running.md}})
