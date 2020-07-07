@@ -54,7 +54,7 @@ If you have chosen to store your dataset locally, you can find it in the locatio
 
 To add data to the default dataset, you can use the example below.
 
-    // Import the `apify` package to your project
+    // Import the Apify SDK into your project
     const Apify = require('apify');
 
     // The main function, which performs the actor's job
@@ -91,7 +91,7 @@ When using the `getData()` method, you can specify the data you retrieve using t
         ]
     );
 
-For more information on managing datasets using the Apify SDK, see the [SDK documentation](https://sdk.apify.com/docs/api/dataset).
+For more information on managing datasets using the Apify SDK, see the [SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset) and [API reference](https://sdk.apify.com/docs/api/dataset).
 
 ### JavaScript API client
 
