@@ -9,9 +9,13 @@ paths:
 
 # Storage
 
-The Apify platform includes three storage types you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](https://docs.apify.com/api/v2#/reference/key-value-stores), the Apify [software development kit](https://sdk.apify.com)(SDK) and the Apify [JavaScript API client](https://docs.apify.com/api/apify-client-js).
+The Apify platform includes three storage types you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](https://docs.apify.com/api/v2#/reference/key-value-stores), the Apify [software development kit (SDK)](https://sdk.apify.com) and Apify's [JavaScript API client](https://docs.apify.com/api/apify-client-js).
 
-On this page, you will find a brief introduction to the three types of storage Apify offers.
+This page contains brief introductions of the three types of storage Apify offers:
+
+* [Dataset](#dataset) - storage for sequential data objects
+* [Key-value store](#key-value-store) - storage for arbitrary data records like actor inputs
+* [Request queue](#request-queue) - a queue of URLs for your actors to visit
 
 You will then find [basic usage](#basic-usage) instances which are shared by all three types of storage. For example, how to manage your storages in the [Apify app](#apify-app), the basics of setting up the [Apify SDK](#apify-sdk) and
 [JavaScript API client](#javascript-api-client),
@@ -19,32 +23,33 @@ and general information for using storages with the [Apify API](#apify-api).
 
 ## Dataset
 
-[Dataset]({{@link storage/dataset.md}}) provides storage for sequential data objects such as results from web scraping, crawling or data processing jobs.
+[Dataset]({{@link storage/dataset.md}}) storage allows you to store sequential data objects such as results from web scraping, crawling or data processing jobs.
 
 ![Dataset illustration]({{@asset storage/images/datasets-overview.png}})
 
 The easiest way to access your datasets is via the
-[Apify app](https://docs.apify.com/storage/dataset#apify-app), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' names. 
+[Apify app](https://docs.apify.com/storage/dataset#apify-app), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties. 
 
-For more access options and to add data to your datasets, you can use the
+To add data to your datasets (and for more access options), you can use the
 [Apify SDK](https://docs.apify.com/storage/dataset#apify-sdk),
 Apify's [JavaScript API client](https://docs.apify.com/storage/dataset#javascript-api-client) or
 the [Apify API](https://docs.apify.com/storage/dataset#apify-api).
 
 For more information, see the [Dataset]({{@link storage/dataset.md}}) documentation.
 
-## Key-value-store
+## Key-value store
 
-Store arbitrary data records along with their MIME content type. The records are accessible under a unique name and can be written and read quickly. The key-value store is ideal for saving files such as screenshots of web pages or PDFs or for persisting the state of your actors and crawlers.
-
-The easiest way to access your key-value stores is via the
-[Apify app](https://docs.apify.com/storage/key-value-store#apify-app), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' names. 
-
-For more access options and to manage the data in your key-value stores, you can use the
-[Apify SDK](https://docs.apify.com/storage/key-value-store#apify-sdk), Apify's [JavaScript API client](https://docs.apify.com/storage/key-value-store#javascript-api-client) or
-the [Apify API](https://docs.apify.com/storage/key-value-store#apify-api).
+The key-value store is ideal for saving actor [inputs]({{@link actors/running/input.md}})
+(and outputs), files such as screenshots of web pages or PDFs or for persisting the state of your actors and crawlers. The records are accessible under a unique name and can be written and read quickly. 
 
 ![Key-value store]({{@asset storage/images/key-value-overview.png}})
+
+The easiest way to access your key-value stores is via the
+[Apify app](https://docs.apify.com/storage/key-value-store#apify-app), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties. 
+
+To manage the data in your key-value stores (and for more access options), you can use the
+[Apify SDK](https://docs.apify.com/storage/key-value-store#apify-sdk), Apify's [JavaScript API client](https://docs.apify.com/storage/key-value-store#javascript-api-client) or
+the [Apify API](https://docs.apify.com/storage/key-value-store#apify-api).
 
 For more information, see the [Key-value store]({{@link storage/key_value_store.md}}) documentation.
 
@@ -65,7 +70,7 @@ For more information, see the [Request queue]({{@link storage/request_queue.md}}
 
 ### Apify app
 
-To access your storages from the Apify app, go to the [`Storage` section](https://my.apify.com/storage) in the left-side menu. From there, you can view your storages by cicking on their `ID` and test your storage API endpoints under the `API` tab.
+To access your storages from the Apify app, go to the [`Storage` section](https://my.apify.com/storage) in the left-side menu. From there, you can view your storages by cicking on their `ID` and view your storage API endpoints under the `API` tab.
 
 ![Storages in app]({{@asset storage/images/datasets-app.png}})
 
@@ -75,18 +80,20 @@ To view or export a store, click on its `ID`, then select the format in which yo
 
 You can edit your stores' names in the `Settings` tab of their detail page. There, you can also grant [access rights](https://docs.apify.com/access-rights) to other Apify users.
 
-You can quickly share the contents of your storages by sharing the URLs you find under the `API` tab in a store's detail page. 
+You can quickly share your storages' contents and details by sharing the URLs you find under the `API` tab in a store's detail page. 
 
 ![Storage API]({{@asset storage/images/overview-api.png}})
 
 These URLs provide links to API `endpoints`-the places where your data are stored. Some of the endpoints do not require an [authentication token](https://docs.apify.com/api/v2#/introduction/authentication)-the calls are authenticated using a hard-to-guess ID, so they can be shared freely.
 
 <!-- IS THERE ANOTHER WAY TO SHARE YOUR DATA VIA API? -->
-> If an endpoint requires authentication, we suggest not sharing the URL which contains it but instead downloading the data first and then sharing it.
+> If an endpoint requires authentication, we suggest not sharing the URL containing the token. Instead, download the data and sharing it as a file.
 
 ### Apify SDK
 
-The [Apify SDK](https://sdk.apify.com) requires Apify SDK requires [Node.js](https://nodejs.org/en/) 10.17 or later, with the exception of Node.js 11. To add Apify SDK to a Node.js project run the following command in your terminal.
+The [Apify SDK](https://sdk.apify.com) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions. It requires [Node.js](https://nodejs.org/en/) 10.17 or later, with the exception of `Node.js 11`. 
+
+To install the Apify SDK, run the following command in your terminal.
 
     npm install apify --save
 
@@ -94,7 +101,7 @@ Then, import the SDK into your application by `require`-ing it.
 
     const Apify = require('apify');
 
-For more information of getting started with the Apify SDK, visit the [SDK documentation](https://sdk.apify.com/docs/guides/quick-start).
+To learn about building your own actors with the Apify SDK, visit the [SDK documentation](https://sdk.apify.com/docs/guides/quick-start).
 
 <!-- This will be included in the new JS API CLIENT docs -->
 <!-- so all we'll have to do is link to the instructions -->
@@ -117,6 +124,7 @@ Once installed, `require` the `apify-client` package in your app and create a ne
     const ApifyClient = require('apify-client');
 
     // Create a new instance of the client
+    // and configure it to use your credentials
     const apifyClient = new ApifyClient({
         userId: 'RWnGtczasdwP63Mak',
         token: 'f5J7XsdaKDyRywwuGGo9',
@@ -128,7 +136,7 @@ The [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) allow
 
 To access your storages via the Apify API, you will need your secret API token, which you can find on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account. 
 
-In most cases, you will also need to provide a `store ID`, which can be provided in the following formats:
+In most cases, when accessing your storages via API, you will need to provide a `store ID`, which you can do in the following formats:
 
 * `WkzbQMuFYuamGv3YF` - the store's numerical ID if the store is unnamed
 * `username~store-name` - your username and the store's name separated by a tilde (`~`) character (e.g. `janedoe~ecommerce-scraping-results`) if the store is named
