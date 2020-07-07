@@ -1,6 +1,6 @@
 # Apify documentation
 
-[![Build Status](https://github.com/apifytech/apify-docs/workflows/Build%20and%20deploy/badge.svg?branch=master)](https://github.com/apifytech/apify-docs/actions)
+[![Build Status](https://github.com/apify/apify-docs/workflows/Build%20and%20deploy/badge.svg?branch=master)](https://github.com/apify/apify-docs/actions)
 
 ## Intro
 
