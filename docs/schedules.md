@@ -48,9 +48,9 @@ You can find more information and examples of cron expressions on [crontab.guru]
 
 ## [](#setting-up-a-new-schedule) Setting up a new schedule
 
-Before setting up a new schedule, you should have the [actor](https://docs.apify.com/actors) or [task](https://docs.apify.com/tasks) you want to schedule prepared and tested.
+Before setting up a new schedule, you should have the [actor](https://docs.apify.com/actors) or [task](https://docs.apify.com/tasks) whose run you want to schedule prepared and tested.
 
-If you are planning to schedule an actor run, you need to use the actor before you can schedule any runs. If you haven't, dont' worry - just navigate to the actor's page in the [Apify Store](https://apify.co/store), click the `Try for free` button, then `Save & run` it with your preferred settings.
+If you are planning to schedule an actor run, you need to use the actor before you can schedule any runs. Navigate to the actor's page in the [Apify Store](https://apify.co/store), click the `Try for free` button, then `Save & run` it with your preferred settings.
 
 ### [](#from-the-apify-platform) From the Apify app
 
