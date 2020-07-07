@@ -1,6 +1,6 @@
 ---
 title: Key-value store
-description: Documentation of Key-value storage, which allows you to store arbitrary data records such as actor inputs.
+description: Documentation of Key-value store, which allows you to store arbitrary data records such as actor inputs.
 menuWeight: 6.2
 paths:
     - storage/key-value-store
@@ -8,7 +8,7 @@ paths:
 
 # Key-value store
 
-The key-value store is simple storage that can be used for storing arbitrary data records as strings or files ([buffer](https://nodejs.org/api/buffer.html)) along with their MIME content type. Each actor run is assigned its own key-value store when it is created. The store contains the actor's input and possibly output.
+The key-value store is simple storage that can be used for storing arbitrary data records as strings or files ([buffer](https://nodejs.org/api/buffer.html)) along with their [MIME content type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Each actor run is assigned its own key-value store when it is created. The store contains the actor's input and possibly output.
 
 Key-value stores are mutable–you can both add entries and delete them.
 
@@ -28,6 +28,14 @@ There are four ways to access your key-value stores:
 
 In the [Apify app](https://my.apify.com), you can view your key-value stores in the [Storage](https://my.apify.com/storage) section under the [Key-value stores](https://my.apify.com/storage#/keyValueStores) tab.
 
+Only named key-value stores are displayed by default. Select the `Include unnamed key-value stores` checkbox to display all of your key-value stores.
+
+![Key-value stores in app]({{@asset storage/images/key-value-stores-app.png}})
+
+To view a key-value store's content, click on its `Store ID`, then click on a store's `View` button.
+In the detail page, under the `Settings` tab, you can update the store's name (and, in turn, its retention period) and
+[access rights]({{@link access_rights.md}}).
+The API tab allows you to view and test a store's [API endpoints](https://docs.apify.com/api/v2#/reference/datasets).
 
 ### Apify SDK
 
