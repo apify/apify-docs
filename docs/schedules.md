@@ -29,7 +29,7 @@ The minimum interval between runs is 10 seconds; if your next run is scheduled s
 
 > **Note:** schedules now allow timezone settings and support daylight saving time shifts. 
 
-## [](#examples) Examples of cron expressions
+## [](#examples-of-cron-expressions) Examples of cron expressions
 
 - `0 8 * * *`  -  every day at 8am
 - `0 0 * * 0` - every 7 days (at 00:00 on Sunday)
@@ -46,13 +46,13 @@ Additionally, you can use the following shortcut expressions:
 
 You can find more information and examples of cron expressions on [crontab.guru](http://crontab.guru/).
 
-## [](#setting-up) Setting up a new schedule
+## [](#setting-up-a-new-schedule) Setting up a new schedule
 
 Before setting up a new schedule, you should have the [actor](https://docs.apify.com/actors) or [task](https://docs.apify.com/tasks) you want to schedule prepared and tested.
 
 If you are planning to schedule an actor run, you need to use the actor before you can schedule any runs. If you haven't, dont' worry - just navigate to the actor's page in the [Apify Store](https://apify.co/store), click the `Try for free` button, then `Save & run` it with your preferred settings.
 
-### [](#new-schedule-platform) From the Apify app
+### [](#from-the-apify-platform) From the Apify app
 
 In the [Apify app](https://my.apify.com/), click on the [`Schedules`](https://my.apify.com/schedules) button in the left side menu, then click the `Create new` button.
 
@@ -78,7 +78,7 @@ Now, all you need to do is click `Save` and wait for your scheduled actors/tasks
 
 If you are an advanced user, you can also add a [webhook](https://docs.apify.com/webhooks) to your tasks, which will notify you (or perform an action of your choice) every time the task runs.
 
-### [](#new-schedule-api) Via API
+### [](#via-api) Via API
 
 To [create a new schedule](https://docs.apify.com/api/v2#/reference/schedules/) using the [Apify API](https://docs.apify.com/api/v2), send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to
 
