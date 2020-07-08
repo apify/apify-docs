@@ -1,6 +1,6 @@
 ---
 title: Request queue
-description: Documentation of Apify Storage, which allows you to store actor inputs and outputs.
+description: Documentation of Request queues, which allow you to queue URLs for your crawler to visit.
 menuWeight: 6.3
 paths:
     - storage/request-queue
@@ -8,7 +8,21 @@ paths:
 
 # [](#request-queue)Request queue
 
-The request queue is a storage type that enables the enqueueing and retrieval of requests (i.e. URLs with HTTP method and other parameters). This is useful not only for web crawling, but anywhere you need to process a high number of URLs and to be able to enqueue new links.
+Request queues enable you to enqueue and retrieve requests such as URLs with [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and other parameters. They are useful not only in web crawling, but anywhere you need to process a high number of URLs and enqueue new links.
+
+Request queue storage supports both breadth-first and depth-first crawling orders, as well as custom data attributes. It allows you to query whether specific URLs were already found, push new URLs to the queue and fetch the next URLs to process.
+
+> Named request queues are retained indefinitely. <br/>
+> Unnamed request queues expire after 7 days unless otherwise specified.<br/>
+> [Learn about named and unnamed stores]({{@link storage.md#data-retention}})
+
+There are four ways to access your request queues:
+
+* [Apify app](https://my.apify.com/storage#/requestQueues) - provides an easy-to-understand interface ([more details](#apify-app))
+* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#request-queue) - when building your own Apify actor ([more details](#apify-sdk))
+* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) - to access your request queues from outside the Apify platform ([more details](#javascript-api-client))
+* [Apify API](https://docs.apify.com/api/v2#/reference/request-queues) - for accessing your request queues programmatically ([more details](#apify-api))
+
 
 ## [](#basic-usage)Basic usage
 
@@ -50,6 +64,8 @@ The request queue provides a [HTTP API](https://docs.apify.com/api/v2#/reference
 
 
 
-ADD - ONLY ONE ACTOR CAN PROCESS ONE QUEUE AT ONE TIME - THEY CAN'T BE PROCESSING IT CONCURRENTLY
+## Limits
+
+ONLY ONE ACTOR CAN PROCESS ONE QUEUE AT ONE TIME - THEY CAN'T BE PROCESSING IT CONCURRENTLY
 
 CAN HAVE MULTIPLE ACTORS PUSHING TO SAME QUEUE, BUT ONLY ONE CAN PROCESS IT 
