@@ -1,6 +1,6 @@
 ---
 title: Key-value store
-description: Documentation of Key-value store, which allows you to store arbitrary data records such as actor inputs.
+description: Documentation of Key-value stores, which allow you to store arbitrary data records such as actor inputs.
 menuWeight: 6.2
 paths:
     - storage/key-value-store
@@ -14,7 +14,7 @@ Key-value stores are mutable–you can both add entries and delete them.
 
 > Named key-value stores are retained indefinitely. <br/>
 > Unnamed key-value stores expire after 7 days unless otherwise specified.<br/>
-> [Learn about named and unnamed datasets]({{@link storage.md#data-retention}})
+> [Learn about named and unnamed stores]({{@link storage.md#data-retention}})
 
 There are four ways to access your key-value stores:
 
