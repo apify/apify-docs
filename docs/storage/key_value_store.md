@@ -57,14 +57,15 @@ You can find INPUT.json and other key-value stores in the location below.
 
     {APIFY_LOCAL_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}
 
-The default key-value store has the ID `default`, which you can override using the APIFY_DEFAULT_KEY_VALUE_STORE_ID environment variable. The {KEY} is the record's `key` and {EXT} corresponds to the data value's MIME content type.
+> The default key-value store's ID is `default`. The {KEY} is the record's `key` and {EXT} corresponds to the data value's MIME content type.
 
-To **get your actor's input**, use the `getValue()` method.
+To manage your key-value stores, you can use the following methods. For a full list of methods, see the Apify SDK's [API reference](https://sdk.apify.com/docs/api/key-value-store).
 
     // Get the default input
     const input = await Apify.getInput();
 
-To **open a named key-value store**, and save a value (write a record) to it, use `setValue()`.
+    // Read a record in the `exampleStore` storage
+    const value = await exampleStore.getValue('some-key');
 
     // Open a named key-value store
     const exampleStore = await Apify.openKeyValueStore('my-store');
@@ -72,15 +73,10 @@ To **open a named key-value store**, and save a value (write a record) to it, us
     // Write a record to `exampleStore`
     await exampleStore.setValue('some-key', { foo: 'bar' });
 
-To **open a record in a key-value store**, use the `getValue()` method. Note that JSON is automatically parsed to a JavaScript object, text data returned as a string and other data is returned as binary buffer.
-
-    // Read a record in `exampleStore`
-    const value = await store.getValue('some-key');
-
-To **delete a record**, just set its value to `null`.
-
     // Delete a record in `exampleStore`
     await exampleStore.setValue('some-key', null);
+
+> Note that JSON is automatically parsed to a JavaScript object, text data returned as a string and other data is returned as binary buffer.
 
 The `Apify.getInput()`method is not only a shortcut to `Apify.getValue('INPUT')`- it is also compatible with `Apify.metamorph()` [[see docs](https://docs.apify.com/actors/source-code#metamorph)]. This is because a metamorphed actor run's input is stored in the `INPUT-METAMORPH-1` key instead of `INPUT`, which hosts the original input.
 
@@ -98,7 +94,6 @@ The `Apify.getInput()`method is not only a shortcut to `Apify.getValue('INPUT')`
 
 For more information on managing your key-value stores with the Apify SDK, see the SDK [documentation](https://sdk.apify.com/docs/guides/data-storage#key-value-store) and [API reference](https://sdk.apify.com/docs/api/key-value-store).
 
-
 ### JavaScript API client
 
 Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) (`apify-client`) allows you to access your key-value stores from outside the Apify platform (e.g. from a Node.js application).
@@ -113,8 +108,9 @@ After importing the `apify-client` package into your application and creating an
 You can then access your stores, retrieve records in stores, write new records or delete records.
 
     // Get the `my-store` key-value store or create it
-    // if it doesn't exist
+    // if it doesn't exist and set it as the default
     const exampleStore = await keyValueStores.getOrCreateStore({ storeName: 'my-store' });
+    apifyClient.setOptions({ storeId: store.id });
 
     // Get a record from `exampleStore` 
     const record = await exampleStore.getRecord({ key: 'foo' });
