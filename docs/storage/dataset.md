@@ -35,7 +35,7 @@ Only named datasets are displayed by default. Select the `Include unnamed datase
 
 ![Datasets in app]({{@asset storage/images/datasets-app.png}})
 
-To view or download a dataset in the above mentioned formats, click on its `Dataset ID`. In the detail page, you can update the dataset's name (and, in turn, its retention period) and
+To view or download a dataset in the above mentioned formats, click on its `Dataset ID`. In the detail page, you can update the dataset's name (and, in turn, its [retention period]({{@link storage.md#data-retention}})) and
 [access rights]({{@link access_rights.md}}) under the `Settings` tab. The API tab allows you to view and test the dataset's [API endpoints](https://docs.apify.com/api/v2#/reference/datasets).
 
 ![Datasets detail view]({{@asset storage/images/datasets-detail.png}})
