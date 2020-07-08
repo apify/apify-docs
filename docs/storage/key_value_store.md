@@ -166,3 +166,7 @@ To **delete a record**, send a DELETE request specifying the key from a key-valu
     https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}?token={YOUR_API_TOKEN}
 
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/key-value-stores).
+
+## Limits
+
+When adding a record using the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) endpoint, the request payload is limited to **9MB**. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.
