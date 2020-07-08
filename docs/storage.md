@@ -134,14 +134,14 @@ Once installed, `require` the `apify-client` package in your app and create a ne
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) allows you to access your storages programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
-To access your storages via the Apify API, you will need your secret API token, which you can find on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account. 
-
 In most cases, when accessing your storages via API, you will need to provide a `store ID`, which you can do in the following formats:
 
 * `WkzbQMuFYuamGv3YF` - the store's numerical ID if the store is unnamed
 * `username~store-name` - your username and the store's name separated by a tilde (`~`) character (e.g. `janedoe~ecommerce-scraping-results`) if the store is named
 
-For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
+To access your storages via the Apify API (if you are using the `username~store-name` store ID format), you will need to append your secret API token as a query parameter. You can find your token on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+
+For a detailed breakdown of each storage API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 
 ## Data retention
 
