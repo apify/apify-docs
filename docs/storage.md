@@ -39,7 +39,7 @@ For more information, see the [Dataset]({{@link storage/dataset.md}}) documentat
 
 ## Key-value store
 
-The key-value store is ideal for saving actor [inputs]({{@link actors/running/input.md}})
+The [key-value store]({{@link storage/key_value_store.md}}) is ideal for saving actor [inputs]({{@link actors/running/input.md}})
 (and outputs), files such as screenshots of web pages or PDFs or for persisting the state of your actors and crawlers. The records are accessible under a unique name and can be written and read quickly. 
 
 ![Key-value store]({{@asset storage/images/key-value-overview.png}})
@@ -55,14 +55,16 @@ For more information, see the [Key-value store]({{@link storage/key_value_store.
 
 ## Request queue
 
-*   [Request queue]({{@link storage/request_queue.md}}) - dynamic queue of URLs to be processed
-
-
-Maintain a queue of URLs of web pages in order to recursively crawl websites, starting from initial URLs and adding new links as they are found while skipping duplicates.
+[Request queues]({{@link storage/request_queue.md}}) allow you to dynamically maintain a queue of URLs of web pages. You can use this in recursively crawling websites: you start from initial URLs and add new links as they are found, while skipping duplicates.
 
 ![Request queue]({{@asset storage/images/request-queue-overview.png}})
 
-The request queue lets you query whether specific URLs were already found, push new URLs to the queue and fetch the next ones to process. Request queues support both breadth-first and depth-first crawling orders, and custom data attributes.
+The easiest way to access your request queues is via the
+[Apify app](https://docs.apify.com/storage/request-queue#apify-app), which provides a user-friendly interface for viewing your request queues and editing your queues' properties. 
+
+To manage your request queues, you can use the
+[Apify SDK](https://docs.apify.com/storage/key-value-store#apify-sdk), Apify's [JavaScript API client](https://docs.apify.com/storage/key-value-store#javascript-api-client) or
+the [Apify API](https://docs.apify.com/storage/key-value-store#apify-api).
 
 For more information, see the [Request queue]({{@link storage/request_queue.md}}) documentation.
 
@@ -158,6 +160,11 @@ To name a dataset (and preserve it indefinitely), go to the 'datasets' tab of yo
 <!-- Is this true? -->
 If a dataset is unnamed, it can still be accessed using its ID.
 
+---
+Can all named storages be shared among different actors or actor runs?
+Is it just request queues?
+If it's all storages, add a bit in each pointing to this section.
+---
 
 What's the difference?
 
