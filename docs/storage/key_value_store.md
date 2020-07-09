@@ -152,7 +152,7 @@ To **add a record** to a specific key in a key-value store, send a PUT request t
 Example payload:
 
     {
-        "foo": "bar"
+        'foo': 'bar'
     }
 
 > When adding a record, the request payload is limited to 9MB. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.
@@ -165,4 +165,4 @@ For a detailed breakdown of each API endpoint, see the [API documentation](https
 
 ## Limits
 
-When adding a record using the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) endpoint, the request payload is limited to **9MB**. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.
+When adding a record using the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) API endpoint, the request payload is limited to **9MB**. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.

@@ -184,13 +184,13 @@ Example payload:
 
     [
         {
-            "foo": "bar"
+            'foo': 'bar'
         },
         {
-            "foo": "hotel"
+            'foo': 'hotel'
         },
         {
-            "foo": "cafe"
+            'foo': 'cafe'
         }
     ]
 
@@ -204,18 +204,18 @@ These fields may be easily omitted when downloading the data from a dataset. Thi
 Below is an example of a dataset record containing hidden fields with an HTTP response and error.
 
     {
-        "url": "https://example.com",
-        "title": "Example page",
-        "data": {
-            "foo": "bar"
+        'url': 'https://example.com',
+        'title': 'Example page',
+        'data': {
+            'foo': 'bar'
         },
-        "#error": null,
-        "#response": {
-            "statusCode": 201
+        '#error': null,
+        '#response': {
+            'statusCode': 201
         }
     }
 
-Data without hidden fields are called "clean" and can be downloaded from the [Apify app](https://my.apify.com/storage#/datasets) using the "Clean items" link or via API using the `clean=true` or `clean=1` [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items).
+Data without hidden fields are called 'clean' and can be downloaded from the [Apify app](https://my.apify.com/storage#/datasets) using the 'Clean items' link or via API using the `clean=true` or `clean=1` [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items).
 
 ## XML format extension
 
@@ -224,15 +224,15 @@ When you export results to XML or RSS formats, object property names become XML 
 For example, the JavaScript object:
 
     {
-        name: "Rashida Jones",
+        name: 'Rashida Jones',
         address: [
             {
-                type: "home",
-                street: "21st",
-                city: "Chicago",
+                type: 'home',
+                street: '21st',
+                city: 'Chicago',
             },
             {
-                type: "office",
+                type: 'office',
                 street: null,
                 city: null,
             }
@@ -258,33 +258,42 @@ If the JavaScript object contains a property named `@`, its sub-properties are e
 For example, the following JavaScript object:
 
     {
-        "address": [{
-            "@": {
-                "type": "home",
+        'address': [{
+            '@': {
+                'type': 'home',
             },
-            "street": "21st",
-            "city": "Chicago",
+            'street': '21st',
+            'city': 'Chicago',
         },
         {
-            "@": {
-                "type": "office",
+            '@': {
+                'type': 'office',
             },
-            "#": 'unknown',
+            '#': 'unknown',
         }]
     }
 
 will be transformed to the following XML snippet:
 
-    <address type="home">
+    <address type='home'>
         <street>21st</street>
         <city>Chicago</city>
     </address>
-    <address type="office">unknown</address>
+    <address type='office'>unknown</address>
 
 This feature is also useful when customizing your RSS feeds generated for various websites.
 
 By default, the whole result and each page object are wrapped in an `–` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when GETting your data.
 
+## Sharing datasets between runs
+
+You can access a dataset from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its `name` or `ID`.
+
+To use a dataset from another run, open it in your actor run using the `Apify` class and the dataset's ID or name. Use the `Apify.openDataset([datasetIdOrName])` to [open a dataset](https://sdk.apify.com/docs/api/apify#apifyopendatasetdatasetidorname-options).
+
+
 ## Limits
 
-Tabulated data storage formats (ones that display the data in columns), such as HTML, CSV, and EXCEL, have a maximum limit of `3000` columns. All data that do not fit into this limit will be lost.
+* Tabulated data storage formats (ones that display the data in columns), such as HTML, CSV, and EXCEL, have a maximum limit of `3000` columns. All data that do not fit into this limit will be lost.
+
+* When using the `pushData()` method, the size of the data is limited by the receiving API. Therefore, `pushData()` will only allow objects whose JSON representation is smaller than **9MB**. When an array is passed, none of the included objects may be larger than 9MB, however the array itself may be of any size.
