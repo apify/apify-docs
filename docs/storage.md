@@ -9,15 +9,15 @@ paths:
 
 # Storage
 
-The Apify platform includes three storage types you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](https://docs.apify.com/api/v2#/reference/key-value-stores), the Apify [software development kit (SDK)](https://sdk.apify.com) and Apify's [JavaScript API client](https://docs.apify.com/api/apify-client-js).
+The Apify platform includes three types of storage you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](https://docs.apify.com/api/v2#/reference/key-value-stores), the Apify [software development kit (SDK)](https://sdk.apify.com) and Apify's [JavaScript API client](https://docs.apify.com/api/apify-client-js).
 
-This page contains brief introductions of the three types of storage Apify offers:
+This page contains a brief introduction of the three types of Apify Storage.
 
 * [Dataset](#dataset) - storage for sequential data objects
 * [Key-value store](#key-value-store) - storage for arbitrary data records like actor inputs
 * [Request queue](#request-queue) - a queue of URLs for your actors to visit
 
-You will then find [basic usage](#basic-usage) instances which are shared by all three types of storage. For example, how to manage your storages in the [Apify app](#apify-app), the basics of setting up the [Apify SDK](#apify-sdk) and
+You will then find [basic usage](#basic-usage) information relating to all three types of storage. For example, how to manage your storages in the [Apify app](#apify-app), the basics of setting up the [Apify SDK](#apify-sdk) and
 [JavaScript API client](#javascript-api-client),
 and general information for using storages with the [Apify API](#apify-api).
 
@@ -28,12 +28,12 @@ and general information for using storages with the [Apify API](#apify-api).
 ![Dataset illustration]({{@asset storage/images/datasets-overview.png}})
 
 The easiest way to access your datasets is via the
-[Apify app](https://docs.apify.com/storage/dataset#apify-app), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties. 
+[Apify app](https://my.apify.com/storage#/dataset), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties. 
 
-To add data to your datasets (and for more access options), you can use the
-[Apify SDK](https://docs.apify.com/storage/dataset#apify-sdk),
-Apify's [JavaScript API client](https://docs.apify.com/storage/dataset#javascript-api-client) or
-the [Apify API](https://docs.apify.com/storage/dataset#apify-api).
+To add data to your datasets (and for more management options), you can use the
+[Apify SDK](https://sdk.apify.com/docs/api/dataset),
+Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) or
+the [Apify API](https://docs.apify.com/api/v2#/reference/datasets).
 
 For more information, see the [Dataset]({{@link storage/dataset.md}}) documentation.
 
@@ -45,7 +45,7 @@ The [key-value store]({{@link storage/key_value_store.md}}) is ideal for saving 
 ![Key-value store]({{@asset storage/images/key-value-overview.png}})
 
 The easiest way to access your key-value stores is via the
-[Apify app](https://docs.apify.com/storage/key-value-store#apify-app), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties. 
+[Apify app](https://my.apify.com/storage#/keyValueStores), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties. 
 
 To manage the data in your key-value stores (and for more access options), you can use the
 [Apify SDK](https://docs.apify.com/storage/key-value-store#apify-sdk), Apify's [JavaScript API client](https://docs.apify.com/storage/key-value-store#javascript-api-client) or
