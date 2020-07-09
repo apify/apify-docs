@@ -99,7 +99,7 @@ For more information on managing datasets using the Apify SDK, see the [SDK docu
 
 Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) (`apify-client`) allows you to access your datasets from outside the Apify platform (e.g. from a Node.js application).
 
-For help with setting up the JavaScript API client, see the Storage section [overview page](https://docs.apify.com/storage/#setting-up-the-javascript-api-client).
+For help with setting up the JavaScript API client, see the Storage section [overview page](https://docs.apify.com/storage/#javascript-api-client).
 
 After importing the `apify-client` package into your application and creating an instance of it, save it to a variable for easier access.
 
@@ -289,7 +289,21 @@ By default, the whole result and each page object are wrapped in an `–` elemen
 
 You can access a dataset from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its `name` or `ID`.
 
-To use a dataset from another run, open it in your actor run using the `Apify` class and the dataset's ID or name. Use the `Apify.openDataset([datasetIdOrName])` to [open a dataset](https://sdk.apify.com/docs/api/apify#apifyopendatasetdatasetidorname-options).
+To access a dataset from another run using the Apify SDK, open it using the `Apify.openDataset([datasetIdOrName])` [method](https://sdk.apify.com/docs/api/apify#apifyopendatasetdatasetidorname-options) like you would any other dataset.
+
+    const otherDataset = await Apify.openDataset('old-dataset');
+
+To access a dataset using the [JavaScript API client](#javascript-api-client), use the `getOrCreateDataset()` [method](https://docs.apify.com/apify-client-js#ApifyClient-datasets).
+
+    const otherDataset = await datasets.getOrCreateDataset({
+        datasetName: 'my-dataset',
+    });
+
+Once you've opened the dataset, read its contents and add new data like you would with a dataset from your current run.
+
+The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally.
+
+For more information on sharing storages between runs, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs).
 
 
 ## Limits

@@ -45,7 +45,7 @@ The API tab allows you to view and test a queue's [API endpoints](https://docs.a
 ### Apify SDK
 
 If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify software development kit (SDK)](https://sdk.apify.com).
-In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#request-queue), the key-value store is represented by the
+In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#request-queue), the request queue is represented by the
 [`RequestQueue`](https://sdk.apify.com/docs/guides/data-storage#request-queue) class.
 
 You can use the `RequestQueue` class to specify whether your data is [stored locally or in the Apify cloud](https://sdk.apify.com/docs/api/request-queue), enqueue new URLs
@@ -106,7 +106,7 @@ For more information on managing your request queues with the Apify SDK, see the
 
 ### JavaScript API client
 
-Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) (`apify-client`) allows you to access your key-value stores from outside the Apify platform (e.g. from a Node.js application).
+Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) (`apify-client`) allows you to access your request queues from outside the Apify platform (e.g. from a Node.js application).
 
 For help with setting up the JavaScript API client, see the Storage documentation's [overview page](https://docs.apify.com/storage/#javascript-api-client).
 
@@ -196,17 +196,17 @@ Example payload:
 
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/request-queues).
 
-## Queue sharing
+## Sharing request queues between runs
 
 You can access a request queue from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its `name` or `ID`.
 
-To access a request queue from another run using the Apify SDK, open it using the `Apify.openRequestQueue([queueIdOrName])` [method]((https://sdk.apify.com/docs/api/apify#apifyopenrequestqueuequeueidorname-options)) like you would any other named queue.
+To access a request queue from another run using the Apify SDK, open it using the `Apify.openRequestQueue([queueIdOrName])` [method]((https://sdk.apify.com/docs/api/apify#apifyopenrequestqueuequeueidorname-options)) like you would any other queue.
 
     const otherQueue = await Apify.openRequestQueue('old-queue');
 
 To access a request queue using the [JavaScript API client](#javascript-api-client), use the `getOrCreateQueue()` [method](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues).
 
-    const queue = await requestQueues.getOrCreateQueue({
+    const otherQueue = await requestQueues.getOrCreateQueue({
         queueName: 'my-queue',
     });
 
@@ -216,4 +216,4 @@ The same applies for the [Apify API](#apify-api) - you can use [the same endpoin
 
 > While multiple actor or task runs can **add new requests** to a queue concurrently, only one run can **process a queue** (use it in its crawl) at any one time.
 
-For more information on sharing storages, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs) 
+For more information on sharing storages between runs, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs).

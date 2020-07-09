@@ -98,7 +98,7 @@ For more information on managing your key-value stores with the Apify SDK, see t
 
 Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) (`apify-client`) allows you to access your key-value stores from outside the Apify platform (e.g. from a Node.js application).
 
-For help with setting up the JavaScript API client, see the Storage documentation's [overview page](https://docs.apify.com/storage/#setting-up-the-javascript-api-client).
+For help with setting up the JavaScript API client, see the Storage documentation's [overview page](https://docs.apify.com/storage/#javascript-api-client).
 
 After importing the `apify-client` package into your application and creating an instance of it, save it to a variable for easier access.
 
@@ -162,6 +162,26 @@ To **delete a record**, send a DELETE request specifying the key from a key-valu
     https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}?token={YOUR_API_TOKEN}
 
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/key-value-stores).
+
+## Sharing key-value stores between runs
+
+You can access a key-value store from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its `name` or `ID`.
+
+To access a key-value store from another run using the Apify SDK, open it using the `Apify.openDataset([store])` [method](https://sdk.apify.com/docs/api/apify#openkeyvaluestore) like you would any other store.
+
+    const otherStore = await Apify.openKeyValueStore('old-store');
+
+To access a key-value store using the [JavaScript API client](#javascript-api-client), use the `getOrCreateStore()` [method](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores).
+
+    const otherStore = await keyValueStores.getOrCreateStore({
+        storeName: 'my-store',
+    });
+
+Once you've opened a store, read and manage its contents like you would with a key-value store from your current run.
+
+The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally.
+
+For more information on sharing storages between runs, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs).
 
 ## Limits
 
