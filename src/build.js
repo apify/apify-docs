@@ -31,4 +31,8 @@ const main = async () => {
 
 main()
     .then(() => console.log('Done.'))
-    .catch(err => log.exception(err, 'Build process failed.'));
+    .catch((err) => {
+        log.exception(err, 'Build process failed.');
+        // NOTE: Needs to exit with non-zero exit code otherwise, Github pipeline finishes successfully.
+        process.exit(1);
+    });
