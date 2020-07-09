@@ -66,7 +66,7 @@ To manage your request queues, you can use the
 [Apify SDK](https://sdk.apify.com/docs/api/request-queue), Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) or
 the [Apify API](https://docs.apify.com/api/v2#/reference/request-queues).
 
-For more information, see the [Request queue]({{@link storage/request_queue.md}}) documentation.
+For more information, see the [Request queue]({{@link storage/request_queue.md}}) documentation. 
 
 ## Basic usage
 
