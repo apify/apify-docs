@@ -147,27 +147,41 @@ For a detailed breakdown of each storage API endpoint, see the [API documentatio
 
 ## Data retention
 
-Named storages are retained indefinitely.
-
 Unnamed storages expire after 7 days unless otherwise specified.
 
-### Named and unnamed storages
+Named storages are retained indefinitely. 
 
-<!-- verify -->
-All datasets are created equal - they are created without a name.
-To name a dataset (and preserve it indefinitely), go to the 'datasets' tab of your 'Storage' section in the app, select 'Include unnamed datasets', and click on its ID. Then, in the dataset's 'settings' tab, you can give it a name, which will preserve it.
+To learn how to name and rename your storages, see each storage option's respective documentation.
 
-<!-- Is this true? -->
-If a dataset is unnamed, it can still be accessed using its ID.
+## Named and unnamed storages
 
----
-Can all named storages be shared among different actors or actor runs?
-Is it just request queues?
-If it's all storages, add a bit in each pointing to this section.
----
+All storages are created without a name (but with an ID number). This is so they would expire after 7 days and not clog up your storage space. If you want to preserve a storage, simply [give it a name](#apify-app) and it will be retained indefinitely.
 
-What's the difference?
+Apart from the retention period, the difference between named and unnamed storages is that it is easier to verify you are using the correct store.
 
+For example, the storage names `janeDoe~my-storage-1` and `janeDoe~web-scrape-results` are easier to tell apart than the IDs `cAbcYOfuXemTPwnIB` and `2DwusuZbp7JHzkwl1`.
 
+## Sharing storages between runs
 
+Any storage can be accessed from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know either its `name` or `ID`. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
+
+[Datasets]({{@link storage/dataset.md}}) and [key-value stores]({{@link storage/key_value_store.md}}) can be used concurently by multiple actors. This means that multiple actors or tasks running at the same time can **write** data to a single dataset or key-value store (or read their data). The same applies for reading data - multiple runs can **read** data from datasets and key-value stores concurrently.
+
+[Request queues]({{@link storage/request_queue.md}}), on the other hand only allow multiple runs to **add new data**. A request queue can only be processed by one actor or task run an any one time.
+
+---PLEASE VERIFY I UNDERSTOOD THIS CORRECTLY---
+> When multiple runs try to write data to a storage at the same time, it isn't possible to control the order in which the data will be written. It will be written whenever the request is processed. <br/>
+> In key-value stores and request queues, the same applies for deleting records: if a request to delete a record is made shortly before a request to read that same record, the second request will fail.
+
+## Deleting storages
+
+Named storages are only removed when you request it. You can delete storages in the following ways.
+
+* [Apify app](https://my.apify.com/storage) - using the `Actions` button in the store's detail page
+* [Apify SDK](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoredrop) - using the `drop()` method
+* [JavaScript API client](https://docs.apify.com/apify-client-js) - using the
+[`deleteStore()`](https://docs.apify.com/apify-client-js#ApifyClient-datasets),
+[`deleteDataset()`](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores)
+or [`deleteQueue()`](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) methods.
+* [API](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/delete-store) using the - `Delete {store}` endpoint, where `{store}` is the type of storage you want to delete.
 
