@@ -75,7 +75,7 @@ To **open a request queue**, use the `Apify.openRequestQueue()` [method](https:/
         // the actor run
         const queue = await Apify.openRequestQueue();
 
-        // Open the "my-queue" request queue
+        // Open the 'my-queue' request queue
         const queueWithName = await Apify.openRequestQueue('my-queue');
     });
 
@@ -108,7 +108,7 @@ For more information on managing your request queues with the Apify SDK, see the
 
 Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) (`apify-client`) allows you to access your key-value stores from outside the Apify platform (e.g. from a Node.js application).
 
-For help with setting up the JavaScript API client, see the Storage documentation's [overview page](https://docs.apify.com/storage/#setting-up-the-javascript-api-client).
+For help with setting up the JavaScript API client, see the Storage documentation's [overview page](https://docs.apify.com/storage/#javascript-api-client).
 
 After importing the `apify-client` package into your application and creating an instance of it, save it to a variable for easier access.
 
@@ -148,8 +148,72 @@ You can then get or create new queues, retrieve existing requests or enqueue new
 
 For more information on managing your request queues using the JavaScript API client, see its [documentation](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues).
 
-## Limits
+### Apify API
 
-ONLY ONE ACTOR CAN PROCESS ONE QUEUE AT ONE TIME - THEY CAN'T BE PROCESSING IT CONCURRENTLY
+The [Apify API](https://docs.apify.com/api/v2#/reference/request-queues) allows you to access your request queues programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-CAN HAVE MULTIPLE ACTORS PUSHING TO SAME QUEUE, BUT ONLY ONE CAN PROCESS IT 
+If you are accessing your request queues using the `username~store-name` [store ID format]({{@link storage.md#apify-api}}), you will need to append your [secret API token](https://docs.apify.com/api/v2#/introduction/authentication) as a query parameter (see below). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+
+To **get a list of your request queues**, send a GET request to the [Get list of request queues](https://docs.apify.com/api/v2#/reference/request-queues/store-collection/get-list-of-request-queues) endpoint, providing your secret API token as a query parameter.
+
+    https://api.apify.com/v2/request-queues?token={YOUR_API_TOKEN}
+
+To **get information about a request queue** such as its creation time and item count, send a GET request to the [Get request queue](https://docs.apify.com/api/v2#/reference/request-queues/queue/get-request-queue) endpoint.
+
+    https://api.apify.com/v2/request-queues/{QUEUE_ID}?token={YOUR_API_TOKEN}
+
+To **get a request from a queue**, send a GET request to the [Get request](https://docs.apify.com/api/v2#/reference/request-queues/request/get-request) endpoint. 
+
+    https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}?token={YOUR_API_TOKEN}
+
+To **add a request to a queue**, send a POST request with the request to be added as a JSON object in the request's payload to the [Add request](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/add-request) endpoint.
+
+    https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests?token={YOUR_API_TOKEN}
+
+Example payload:
+
+    {
+        'uniqueKey': 'http://example.com',
+        'url': 'http://example.com',
+        'method': 'GET',
+    }
+
+To **update a request in a queue**, send a PUT request with the request to update as a JSON object in the request's payload to the [Update request](https://docs.apify.com/api/v2#/reference/request-queues/request/update-request) endpoint. In the payload, specify the request's ID and add the information you want to update.
+
+    https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}?token={YOUR_API_TOKEN}
+
+Example payload:
+
+    {
+        'id': 'dnjkDMKLmdlkmlkmld',
+        'uniqueKey': 'http://example.com',
+        'url': 'http://example.com',
+        'method': 'GET',
+    }
+
+> When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](#queue-sharing). If `clientKey` is not provided, the system considers this API call to come from a new client. For details, see the `hadMultipleClients` field returned by the `Get head` [operation](https://docs.apify.com/api/v2#/reference/request-queues/queue-head/get-head). <br/>
+> Example: client-abc
+
+For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/request-queues).
+
+## Queue sharing
+
+You can access a request queue from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its `name` or `ID`.
+
+To access a request queue from another run using the Apify SDK, open it using the `Apify.openRequestQueue([queueIdOrName])` [method]((https://sdk.apify.com/docs/api/apify#apifyopenrequestqueuequeueidorname-options)) like you would any other named queue.
+
+    const otherQueue = await Apify.openRequestQueue('old-queue');
+
+To access a request queue using the [JavaScript API client](#javascript-api-client), use the `getOrCreateQueue()` [method](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues).
+
+    const queue = await requestQueues.getOrCreateQueue({
+        queueName: 'my-queue',
+    });
+
+Once you've opened the request queue, you can use it in your crawl or add new requests like you would with a queue from your current run.
+
+The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally.
+
+> While multiple actor or task runs can **add new requests** to a queue concurrently, only one run can **process a queue** (use it in its crawl) at any one time.
+
+For more information on sharing storages, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs) 
