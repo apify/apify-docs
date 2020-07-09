@@ -28,7 +28,7 @@ and general information for using storages with the [Apify API](#apify-api).
 ![Dataset illustration]({{@asset storage/images/datasets-overview.png}})
 
 The easiest way to access your datasets is via the
-[Apify app](https://my.apify.com/storage#/dataset), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties. 
+[Apify app](https://my.apify.com/storage#/datasets), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties. 
 
 To add data to your datasets (and for more management options), you can use the
 [Apify SDK](https://sdk.apify.com/docs/api/dataset),
@@ -48,8 +48,8 @@ The easiest way to access your key-value stores is via the
 [Apify app](https://my.apify.com/storage#/keyValueStores), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties. 
 
 To manage the data in your key-value stores (and for more access options), you can use the
-[Apify SDK](https://docs.apify.com/storage/key-value-store#apify-sdk), Apify's [JavaScript API client](https://docs.apify.com/storage/key-value-store#javascript-api-client) or
-the [Apify API](https://docs.apify.com/storage/key-value-store#apify-api).
+[Apify SDK](https://sdk.apify.com/docs/api/key-value-store), Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) or
+the [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores).
 
 For more information, see the [Key-value store]({{@link storage/key_value_store.md}}) documentation.
 
@@ -60,11 +60,11 @@ For more information, see the [Key-value store]({{@link storage/key_value_store.
 ![Request queue]({{@asset storage/images/request-queue-overview.png}})
 
 The easiest way to access your request queues is via the
-[Apify app](https://docs.apify.com/storage/request-queue#apify-app), which provides a user-friendly interface for viewing your request queues and editing your queues' properties. 
+[Apify app](https://my.apify.com/storage#/requestQueues), which provides a user-friendly interface for viewing your request queues and editing your queues' properties. 
 
 To manage your request queues, you can use the
-[Apify SDK](https://docs.apify.com/storage/key-value-store#apify-sdk), Apify's [JavaScript API client](https://docs.apify.com/storage/key-value-store#javascript-api-client) or
-the [Apify API](https://docs.apify.com/storage/key-value-store#apify-api).
+[Apify SDK](https://sdk.apify.com/docs/api/request-queue), Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) or
+the [Apify API](https://docs.apify.com/api/v2#/reference/request-queues).
 
 For more information, see the [Request queue]({{@link storage/request_queue.md}}) documentation.
 
