@@ -23,7 +23,7 @@ and general information for using storages with the [Apify API](#apify-api).
 
 ## Dataset
 
-[Dataset]({{@link storage/dataset.md}}) storage allows you to store sequential data objects such as results from web scraping, crawling or data processing jobs.
+[Dataset]({{@link storage/dataset.md}}) storage allows you to store sequential data objects such as results from web scraping, crawling or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel or HTML formats.
 
 ![Dataset illustration]({{@asset storage/images/datasets-overview.png}})
 
@@ -72,28 +72,33 @@ For more information, see the [Request queue]({{@link storage/request_queue.md}}
 
 ### Apify app
 
-To access your storages from the Apify app, go to the [`Storage` section](https://my.apify.com/storage) in the left-side menu. From there, you can view your storages by cicking on their `ID` and view your storage API endpoints under the `API` tab.
+To access your storages from the Apify app, go to the [`Storage` section](https://my.apify.com/storage) in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, and request queues, as well as API endpoints. To view your storages, click their `ID`.
 
 ![Storages in app]({{@asset storage/images/datasets-app.png}})
 
-> Only named storages are displayed by default. Select the `Include unnamed store` checkbox to display all of your storages.
+> Only named storages are displayed by default. Select the `Include unnamed *store*` checkbox to display all of your storages.
 
-To view or export a store, click on its `ID`, then select the format in which you want to download it. You can export your storages in JSON, CSV, XML, RSS, Excel or HTML formats.
-
-You can edit your stores' names in the `Settings` tab of their detail page. There, you can also grant [access rights](https://docs.apify.com/access-rights) to other Apify users.
+You can edit your stores' names under the `Settings` tab of their detail page. There, you can also grant [access rights](https://docs.apify.com/access-rights) to other Apify users.
 
 You can quickly share your storages' contents and details by sharing the URLs you find under the `API` tab in a store's detail page. 
 
 ![Storage API]({{@asset storage/images/overview-api.png}})
 
-These URLs provide links to API `endpoints`-the places where your data are stored. Some of the endpoints do not require an [authentication token](https://docs.apify.com/api/v2#/introduction/authentication)-the calls are authenticated using a hard-to-guess ID, so they can be shared freely.
+These URLs provide links to API `endpoints`–the places where your data are stored. Some of the endpoints do not require an [authentication token](https://docs.apify.com/api/v2#/introduction/authentication)-the calls are authenticated using a hard-to-guess ID, so they can be shared freely.
 
 <!-- IS THERE ANOTHER WAY TO SHARE YOUR DATA VIA API? -->
-> If an endpoint requires authentication, we suggest not sharing the URL containing the token. Instead, download the data and sharing it as a file.
+> If an endpoint requires authentication, we suggest not sharing the URL containing the token. Instead, download the data and share it as a file.
 
 ### Apify SDK
 
-The [Apify SDK](https://sdk.apify.com) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions. It requires [Node.js](https://nodejs.org/en/) 10.17 or later, with the exception of `Node.js 11`. 
+The [Apify SDK](https://sdk.apify.com) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions. It requires [Node.js](https://nodejs.org/en/) 10.17 or later, with the exception of `Node.js 11`. You can use the following commands to check which version of Node.js you have and update it.
+
+    // Check the version
+    node --version
+    npm --version
+
+    // Update Node.js
+    npm install -g npm
 
 To install the Apify SDK, run the following command in your terminal.
 
@@ -111,10 +116,14 @@ To learn about building your own actors with the Apify SDK, visit the [SDK docum
 
 Apify's [JavaScript API client](https://docs.apify.com/apify-client-js) (`apify-client`) allows you to access your datasets from outside the Apify platform (e.g. from a Node.js application).
 
-To use the `apify-client` in your application, you will first need to have [Node.js](https://nodejs.org/en/) version 10 or higher installed. You can use the following commands to check which version of Node.js you have.
+To use the `apify-client` in your application, you will first need to have [Node.js](https://nodejs.org/en/) version 10 or higher installed. You can use the following commands to check which version of Node.js you have and update it.
 
+    // Check the version
     node --version
     npm --version
+
+    // Update Node.js
+    npm install -g npm
 
 You can then install the `apify-client` package from [NPM](https://www.npmjs.com/package/apify-cli) using the below command in your terminal.
 
@@ -141,7 +150,7 @@ In most cases, when accessing your storages via API, you will need to provide a 
 * `WkzbQMuFYuamGv3YF` - the store's numerical ID if the store is unnamed
 * `username~store-name` - your username and the store's name separated by a tilde (`~`) character (e.g. `janedoe~ecommerce-scraping-results`) if the store is named
 
-To access your storages via the Apify API (if you are using the `username~store-name` store ID format), you will need to append your secret API token as a query parameter. You can find your token on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+To access your storages via the Apify API (if you are using the `username~store-name` store ID format), you will need to append your secret API token as a query parameter. This is because the numerical store IDs are harder for potential mischief makers to guess than the `username~store-name` format. You can find your token on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
 
 For a detailed breakdown of each storage API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 
@@ -151,25 +160,24 @@ Unnamed storages expire after 7 days unless otherwise specified.
 
 Named storages are retained indefinitely. 
 
-To learn how to name and rename your storages, see each storage option's respective documentation.
+You can edit your storages' names in the [Apify app](#apify-app) or using the access methods mentioned above.
 
 ## Named and unnamed storages
 
-All storages are created without a name (but with an ID number). This is so they would expire after 7 days and not clog up your storage space. If you want to preserve a storage, simply [give it a name](#apify-app) and it will be retained indefinitely.
+All storages are created without a name (with only an ID number). This allows them to expire after 7 days and not take up your storage space. If you want to preserve a storage, simply [give it a name](#apify-app) and it will be retained indefinitely.
 
-Apart from the retention period, the difference between named and unnamed storages is that it is easier to verify you are using the correct store.
+Apart from the retention period, the difference between named and unnamed storages is that named storages make it easier to verify you are using the correct store. In all other regards, including [sharing between runs](#sharing-storages-between-runs), named and unnamed storages are the same.
 
-For example, the storage names `janeDoe~my-storage-1` and `janeDoe~web-scrape-results` are easier to tell apart than the IDs `cAbcYOfuXemTPwnIB` and `2DwusuZbp7JHzkwl1`.
+For example, the storage names `janeDoe~my-storage-1` and `janeDoe~web-scrape-results` are easier to tell apart than the IDs `cAbcYOfuXemTPwnIB` and `CAbcsuZbp7JHzkw1B`.
 
 ## Sharing storages between runs
 
-Any storage can be accessed from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know either its `name` or `ID`. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
+Any storage can be accessed from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its `name` or `ID`. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
-[Datasets]({{@link storage/dataset.md}}) and [key-value stores]({{@link storage/key_value_store.md}}) can be used concurently by multiple actors. This means that multiple actors or tasks running at the same time can **write** data to a single dataset or key-value store (or read their data). The same applies for reading data - multiple runs can **read** data from datasets and key-value stores concurrently.
+[Datasets]({{@link storage/dataset.md}}) and [key-value stores]({{@link storage/key_value_store.md}}) can be used concurently by multiple actors. This means that multiple actors or tasks running at the same time can **write** data to a single dataset or key-value store. The same applies for reading data - multiple runs can **read** data from datasets and key-value stores concurrently.
 
 [Request queues]({{@link storage/request_queue.md}}), on the other hand only allow multiple runs to **add new data**. A request queue can only be processed by one actor or task run an any one time.
 
----PLEASE VERIFY I UNDERSTOOD THIS CORRECTLY---
 > When multiple runs try to write data to a storage at the same time, it isn't possible to control the order in which the data will be written. It will be written whenever the request is processed. <br/>
 > In key-value stores and request queues, the same applies for deleting records: if a request to delete a record is made shortly before a request to read that same record, the second request will fail.
 
