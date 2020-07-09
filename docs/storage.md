@@ -184,4 +184,4 @@ Named storages are only removed when you request it. You can delete storages in 
 [`deleteDataset()`](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores)
 or [`deleteQueue()`](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) methods.
 * [API](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/delete-store) using the - `Delete {store}` endpoint, where `{store}` is the type of storage you want to delete.
-
+ 
