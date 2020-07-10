@@ -1,7 +1,7 @@
 ---
 title: Dataset
 description: Documentation of Apify simple key-value store that enables storage of Actor inputs and results.
-menuWeight: 6.2
+menuWeight: 7.2
 paths:
     - storage/dataset
 ---
