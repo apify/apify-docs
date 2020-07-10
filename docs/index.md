@@ -18,7 +18,8 @@ Anything missing? Please let us know at [support@apify.com](mailto:support@apify
 
 ## [](#table-of-contents)Table of contents
 
-*   [**Scraping**]({{@link scraping.md}}) - Scrape and crawl websites using a few simple lines of JavaScript.
+*   [**Web Scraping 101**]({{@link web_scraping_101.md}}) - Learn all there is to know about web scraping at large.
+*   [**Scraping with Apify actors**]({{@link scraping.md}}) - Scrape and crawl websites using a few simple lines of JavaScript.
 *   [**Actors**]({{@link actors.md}}) - Run arbitrary web scraping or automation tasks in the Apify cloud.
 *   [**Tasks**]({{@link actors/tasks.md}}) - Store one or more configurations of an Actor.
 *   [**Schedules**]({{@link schedules.md}}) - Executes crawler or actor jobs at specific times.
