@@ -1,7 +1,7 @@
 ---
 title: Connection settings
 description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
-menuWeight: 7.1
+menuWeight: 8.1
 paths:
     - proxy/connection-settings
 ---

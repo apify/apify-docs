@@ -1,7 +1,7 @@
 ---
 title: Storage
 description: Documentation of Apify simple key-value store that enables storage of Actor inputs and results.
-menuWeight: 5
+menuWeight: 6
 category: platform
 paths:
     - storage

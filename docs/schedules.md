@@ -1,7 +1,7 @@
 ---
 title: Schedules
 description: Documentation of Apify Schedules, which run actors or tasks at specific times using cron-like syntax.
-menuWeight: 4
+menuWeight: 5
 category: platform
 paths:
     - scheduler

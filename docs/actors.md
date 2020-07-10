@@ -1,7 +1,7 @@
 ---
 title: Actors
 description: Learn about Apify Actors - the easy way to develop, run and share serverless cloud programs.
-menuWeight: 3
+menuWeight: 4
 category: platform
 paths: 
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS

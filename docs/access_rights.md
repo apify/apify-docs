@@ -1,7 +1,7 @@
 ---
 title: Access rights
 description: Documentation of access rights and publication on the Apify platform.
-menuWeight: 8
+menuWeight: 9
 category: platform
 paths: 
     - access-rights
