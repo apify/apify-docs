@@ -1,6 +1,6 @@
 ---
 title: Overview of anti scraping techniques
-description: Learn about modern web scraping protection used by websites and how to bypass them. Scrape up to three times more pages by combining IP address rotation with per-IP-address storage.
+description: Learn about modern web scraping protection used by websites and how to bypass them.
 # menuWeight: 3.1
 category: guides
 paths:
