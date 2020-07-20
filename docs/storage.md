@@ -25,7 +25,7 @@ and general information for using storages with the [Apify API](#apify-api).
 
 [Dataset]({{@link storage/dataset.md}}) storage allows you to store sequential data objects such as results from web scraping, crawling or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel or HTML formats.
 
-![Dataset illustration]({{@asset storage/images/datasets-overview.png}})
+![Dataset illustration]({{@asset images/datasets-overview.png}})
 
 The easiest way to access your datasets is via the
 [Apify app](https://my.apify.com/storage#/datasets), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties. 
@@ -42,7 +42,7 @@ For more information, see the [Dataset]({{@link storage/dataset.md}}) documentat
 The [key-value store]({{@link storage/key_value_store.md}}) is ideal for saving actor [inputs]({{@link actors/running/input.md}})
 (and outputs), files such as screenshots of web pages or PDFs or for persisting the state of your actors and crawlers. The records are accessible under a unique name and can be written and read quickly. 
 
-![Key-value store]({{@asset storage/images/key-value-overview.png}})
+![Key-value store]({{@asset images/key-value-overview.svg}})
 
 The easiest way to access your key-value stores is via the
 [Apify app](https://my.apify.com/storage#/keyValueStores), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties. 
@@ -57,7 +57,7 @@ For more information, see the [Key-value store]({{@link storage/key_value_store.
 
 [Request queues]({{@link storage/request_queue.md}}) allow you to dynamically maintain a queue of URLs of web pages. You can use this in recursively crawling websites: you start from initial URLs and add new links as they are found, while skipping duplicates.
 
-![Request queue]({{@asset storage/images/request-queue-overview.png}})
+![Request queue]({{@asset images/request-queue-overview.svg}})
 
 The easiest way to access your request queues is via the
 [Apify app](https://my.apify.com/storage#/requestQueues), which provides a user-friendly interface for viewing your request queues and editing your queues' properties. 
