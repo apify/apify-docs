@@ -1,6 +1,6 @@
 ---
 title: Key-value store
-description: Documentation of Key-value stores, which allow you to store arbitrary data records such as actor inputs.
+description: Documentation of Key-value stores, which allow you to store any kind of data, e.g. JSON documents or images.
 menuWeight: 6.2
 paths:
     - storage/key-value-store
@@ -8,7 +8,9 @@ paths:
 
 # Key-value store
 
-The key-value store is simple storage that can be used for storing arbitrary data records as strings or files ([buffer](https://nodejs.org/api/buffer.html)) along with their [MIME content type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Each actor run is assigned its own key-value store when it is created. The store contains the actor's input, and, if necessary, other stores such as its output.
+The key-value store is simple storage that can be used for storing any kind of data. It can be JSON or HTML documents, zip files, images, or simply strings. The data are stored along with their [MIME content type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
+
+Each actor run is assigned its own key-value store when it is created. The store contains the actor's input, and, if necessary, other stores such as its output.
 
 Key-value stores are mutable–you can both add entries and delete them.
 
@@ -61,69 +63,79 @@ You can find INPUT.json and other key-value stores in the location below.
 
 To manage your key-value stores, you can use the following methods. For a full list of methods, see the Apify SDK's [API reference](https://sdk.apify.com/docs/api/key-value-store).
 
-    // Get the default input
-    const input = await Apify.getInput();
+```js
+// Get the default input
+const input = await Apify.getInput();
 
-    // Read a record in the `exampleStore` storage
-    const value = await exampleStore.getValue('some-key');
+// Open a named key-value store
+const exampleStore = await Apify.openKeyValueStore("my-store");
 
-    // Open a named key-value store
-    const exampleStore = await Apify.openKeyValueStore('my-store');
+// Read a record in the `exampleStore` storage
+const value = await exampleStore.getValue("some-key");
 
-    // Write a record to `exampleStore`
-    await exampleStore.setValue('some-key', { foo: 'bar' });
+// Write a record to `exampleStore`
+await exampleStore.setValue("some-key", { foo: "bar" });
 
-    // Delete a record in `exampleStore`
-    await exampleStore.setValue('some-key', null);
+// Delete a record in `exampleStore`
+await exampleStore.setValue("some-key", null);
+```
 
 > Note that JSON is automatically parsed to a JavaScript object, text data returned as a string and other data is returned as binary buffer.
 
-The `Apify.getInput()`method is not only a shortcut to `Apify.getValue('INPUT')`- it is also compatible with `Apify.metamorph()` [[see docs](https://docs.apify.com/actors/source-code#metamorph)]. This is because a metamorphed actor run's input is stored in the `INPUT-METAMORPH-1` key instead of `INPUT`, which hosts the original input.
+The `Apify.getInput()`method is not only a shortcut to `Apify.getValue("INPUT")`- it is also compatible with `Apify.metamorph()` [[see docs](https://docs.apify.com/actors/source-code#metamorph)]. This is because a metamorphed actor run's input is stored in the `INPUT-METAMORPH-1` key instead of `INPUT`, which hosts the original input.
 
-    const Apify = require('apify');
+```js
+const Apify = require("apify");
 
-    Apify.main(async () => {
-        // Get input of your actor
-        const input = await Apify.getInput();
-        const value = await Apify.getValue('my-key');
+// The optional Apify.main() function performs the
+// actor's job and terminates the process when it is finished
+Apify.main(async () => {
+    // Get input of your actor
+    const input = await Apify.getInput();
+    const value = await Apify.getValue("my-key");
 
-        ...
+    ...
 
-        await Apify.setValue('OUTPUT', imageBuffer, { contentType: 'image/jpeg' });
-    });
+    await Apify.setValue("OUTPUT", imageBuffer, { contentType: "image/jpeg" });
+});
+```
 
 For more information on managing your key-value stores with the Apify SDK, see the SDK [documentation](https://sdk.apify.com/docs/guides/data-storage#key-value-store) and [API reference](https://sdk.apify.com/docs/api/key-value-store).
 
 ### JavaScript API client
 
-Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) (`apify-client`) allows you to access your key-value stores from outside the Apify platform (e.g. from a Node.js application).
+Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) (`apify-client`) allows you to access your key-value stores from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
 For help with setting up the JavaScript API client, see the Storage documentation's [overview page](https://docs.apify.com/storage/#javascript-api-client).
 
 After importing the `apify-client` package into your application and creating an instance of it, save it to a variable for easier access.
 
-    // Save your key-value stores to a variable for easier access
-    const keyValueStores = apifyClient.keyValueStores;
+```js
+// Save your key-value stores to a variable for easier access
+const keyValueStores = apifyClient.keyValueStores;
+```
 
 You can then access your stores, retrieve records in stores, write new records or delete records.
 
-    // Get the `my-store` key-value store or create it
-    // if it doesn't exist and set it as the default
-    const exampleStore = await keyValueStores.getOrCreateStore({ storeName: 'my-store' });
-    apifyClient.setOptions({ storeId: store.id });
+```js
+// Get the `my-store` key-value store or create it
+// if it doesn't exist and set it as the default
+const exampleStore = await keyValueStores.getOrCreateStore({ storeName: "my-store" });
+apifyClient.setOptions({ storeId: store.id });
 
-    // Get a record from `exampleStore` 
-    const record = await exampleStore.getRecord({ key: 'foo' });
+// Get a record from `exampleStore` 
+const record = await keyValueStores.getRecord({ key: "foo" });
 
-    // Write a record to the `exampleStore` storage
-    await keyValueStores.putRecord({
-        key: 'foo',
-        body: 'bar',
-        contentType: 'text/plain; charset=utf-8',
-    });
+// Write a record to the `exampleStore` storage
+await keyValueStores.putRecord({
+    key: "foo",
+    body: "bar",
+    contentType: "text/plain; charset=utf-8",
+});
 
-    // Delete a record in `exampleStore`
-    await exampleStore.deleteRecord({ key: 'foo' });
+// Delete a record in `exampleStore`
+await keyValueStores.deleteRecord({ key: "foo" });
+```
 
 For more information on managing your key-value stores using the JavaScript API client, see its [documentation](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores).
 
@@ -151,9 +163,11 @@ To **add a record** to a specific key in a key-value store, send a PUT request t
 
 Example payload:
 
-    {
-        'foo': 'bar'
-    }
+```json
+{
+    "foo": "bar"
+}
+```
 
 > When adding a record, the request payload is limited to 9MB. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.
 
@@ -169,13 +183,17 @@ You can access a key-value store from any [actor]({{@link actors.md}}) or [task]
 
 To access a key-value store from another run using the Apify SDK, open it using the `Apify.openDataset([store])` [method](https://sdk.apify.com/docs/api/apify#openkeyvaluestore) like you would any other store.
 
-    const otherStore = await Apify.openKeyValueStore('old-store');
+```js
+const otherStore = await Apify.openKeyValueStore("old-store");
+```
 
 To access a key-value store using the [JavaScript API client](#javascript-api-client), use the `getOrCreateStore()` [method](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores).
 
-    const otherStore = await keyValueStores.getOrCreateStore({
-        storeName: 'my-store',
-    });
+```js
+const otherStore = await keyValueStores.getOrCreateStore({
+    storeName: "my-store",
+});
+```
 
 Once you've opened a store, read and manage its contents like you would with a key-value store from your current run.
 
@@ -186,3 +204,15 @@ For more information on sharing storages between runs, see the Storage [overview
 ## Limits
 
 When adding a record using the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) API endpoint, the request payload is limited to **9MB**. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.
+
+### Data consistency
+
+Key-value storage uses `read-after-write` consistency, which is characteristic of its underlying [AWS S3](https://aws.amazon.com/s3/) storage. With read after write consistency, a newly created data item is immediately visible to all users.
+
+So, when you write (POST) a **new record** to your storage, then read (GET) it afterward, the storage returns the record you just wrote. However, if you **update** an existing record (PUT), you may still receive the old record the next time you fetch it. This is known as [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency).
+
+The same applies if you read a **non-existent** record (404 error code), then create the missing record and try to read it again. You may still receive a 404 error, even though the record is there.
+
+If you repeat the read (GET) request after a short time, the response should return the latest data.
+
+Visit [this](https://codeburst.io/quick-explanation-of-the-s3-consistency-model-6c9f325e3f82) article for more details on the issue and [this](https://medium.com/@dhruvsharma_50981/s3-eventual-data-consistency-model-issues-and-tackling-them-47093365a595) article for some ideas on how to tackle the issue.

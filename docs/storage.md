@@ -13,7 +13,7 @@ The Apify platform includes three types of storage you can use both in your [act
 
 This page contains a brief introduction of the three types of Apify Storage.
 
-* [Dataset](#dataset) - storage for sequential data objects
+* [Dataset](#dataset) - storage for data objects such as scrape results
 * [Key-value store](#key-value-store) - storage for arbitrary data records like actor inputs
 * [Request queue](#request-queue) - a queue of URLs for your actors to visit
 
@@ -23,7 +23,7 @@ and general information for using storages with the [Apify API](#apify-api).
 
 ## Dataset
 
-[Dataset]({{@link storage/dataset.md}}) storage allows you to store sequential data objects such as results from web scraping, crawling or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel or HTML formats.
+[Dataset]({{@link storage/dataset.md}}) storage allows you to store a series of data objects such as results from web scraping, crawling or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel or HTML formats.
 
 ![Dataset illustration]({{@asset images/datasets-overview.png}})
 
@@ -39,8 +39,7 @@ For more information, see the [Dataset]({{@link storage/dataset.md}}) documentat
 
 ## Key-value store
 
-The [key-value store]({{@link storage/key_value_store.md}}) is ideal for saving actor [inputs]({{@link actors/running/input.md}})
-(and outputs), files such as screenshots of web pages or PDFs or for persisting the state of your actors and crawlers. The records are accessible under a unique name and can be written and read quickly. 
+The [key-value store]({{@link storage/key_value_store.md}}) is ideal for saving arbitrary data records such as files, screenshots of web pages, PDFs or for persisting the state of your actors and crawlers. The records are accessible under a unique name and can be written and read quickly. 
 
 ![Key-value store]({{@asset images/key-value-overview.svg}})
 
@@ -84,46 +83,28 @@ You can quickly share your storages' contents and details by sharing the URLs yo
 
 ![Storage API]({{@asset storage/images/overview-api.png}})
 
-These URLs provide links to API `endpoints`–the places where your data are stored. Some of the endpoints do not require an [authentication token](https://docs.apify.com/api/v2#/introduction/authentication)-the calls are authenticated using a hard-to-guess ID, so they can be shared freely.
+These URLs provide links to API `endpoints`–the places where your data are stored. Endpoints that allow you to `read` stored information do not require an [authentication token](https://docs.apify.com/api/v2#/introduction/authentication)-the calls are authenticated using a hard-to-guess ID, so they can be shared freely. Operations such as `update` or `delete`, however, will need the authentication token.
 
-<!-- IS THERE ANOTHER WAY TO SHARE YOUR DATA VIA API? -->
-> If an endpoint requires authentication, we suggest not sharing the URL containing the token. Instead, download the data and share it as a file.
+> Never share a URL containing your authentication token, as if will compromise your account's security. <br/>
+> If the data you want to share requires a token, first download the data, then share it as a file.
 
 ### Apify SDK
 
-The [Apify SDK](https://sdk.apify.com) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions. It requires [Node.js](https://nodejs.org/en/) 10.17 or later, with the exception of `Node.js 11`. You can use the following commands to check which version of Node.js you have and update it.
+The [Apify SDK](https://sdk.apify.com) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions. It requires [Node.js](https://nodejs.org/en/) 10.17 or later, with the exception of `Node.js 11`. 
 
-    // Check the version
-    node --version
-    npm --version
-
-    // Update Node.js
-    npm install -g npm
-
-To install the Apify SDK, run the following command in your terminal.
-
-    npm install apify --save
-
-Then, import the SDK into your application by `require`-ing it.
-
-    const Apify = require('apify');
-
-To learn about building your own actors with the Apify SDK, visit the [SDK documentation](https://sdk.apify.com/docs/guides/quick-start).
+For setup instructions and to learn how to build your own actors, visit the [SDK documentation](https://sdk.apify.com/docs/guides/getting-started).
 
 <!-- This will be included in the new JS API CLIENT docs -->
 <!-- so all we'll have to do is link to the instructions -->
 ### JavaScript API client
 
-Apify's [JavaScript API client](https://docs.apify.com/apify-client-js) (`apify-client`) allows you to access your datasets from outside the Apify platform (e.g. from a Node.js application).
+Apify's [JavaScript API client](https://docs.apify.com/apify-client-js) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
-To use the `apify-client` in your application, you will first need to have [Node.js](https://nodejs.org/en/) version 10 or higher installed. You can use the following commands to check which version of Node.js you have and update it.
+To use the `apify-client` in your application, you will first need to have [Node.js](https://nodejs.org/en/) version 10 or higher installed. You can use the following commands to check which version of Node.js you have.
 
     // Check the version
     node --version
     npm --version
-
-    // Update Node.js
-    npm install -g npm
 
 You can then install the `apify-client` package from [NPM](https://www.npmjs.com/package/apify-cli) using the below command in your terminal.
 
@@ -131,15 +112,17 @@ You can then install the `apify-client` package from [NPM](https://www.npmjs.com
 
 Once installed, `require` the `apify-client` package in your app and create a new instance of it using your `user ID` and secret `API token` (you can find these on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account).
 
-    // Import the `apify-client` package
-    const ApifyClient = require('apify-client');
+```js
+// Import the `apify-client` package
+const ApifyClient = require('apify-client');
 
-    // Create a new instance of the client
-    // and configure it to use your credentials
-    const apifyClient = new ApifyClient({
-        userId: 'RWnGtczasdwP63Mak',
-        token: 'f5J7XsdaKDyRywwuGGo9',
-    });
+// Create a new instance of the client
+// and configure it to use your credentials
+const apifyClient = new ApifyClient({
+    userId: 'RWnGtczasdwP63Mak',
+    token: 'f5J7XsdaKDyRywwuGGo9',
+});
+```
 
 ### Apify API
 
@@ -147,10 +130,10 @@ The [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) allow
 
 In most cases, when accessing your storages via API, you will need to provide a `store ID`, which you can do in the following formats:
 
-* `WkzbQMuFYuamGv3YF` - the store's numerical ID if the store is unnamed
+* `WkzbQMuFYuamGv3YF` - the store's alpha-numerical ID if the store is unnamed
 * `username~store-name` - your username and the store's name separated by a tilde (`~`) character (e.g. `janedoe~ecommerce-scraping-results`) if the store is named
 
-To access your storages via the Apify API (if you are using the `username~store-name` store ID format), you will need to append your secret API token as a query parameter. This is because the numerical store IDs are harder for potential mischief makers to guess than the `username~store-name` format. You can find your token on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+To access your storages via the Apify API (if you are using the `username~store-name` store ID format), you will need to append your secret API token as a query parameter. This is because the alpha-numerical store IDs are harder for potential mischief makers to guess than the `username~store-name` format. You can find your token on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
 
 For a detailed breakdown of each storage API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 
@@ -164,7 +147,7 @@ You can edit your storages' names in the [Apify app](#apify-app) or using the ac
 
 ## Named and unnamed storages
 
-All storages are created without a name (with only an ID number). This allows them to expire after 7 days and not take up your storage space. If you want to preserve a storage, simply [give it a name](#apify-app) and it will be retained indefinitely.
+All storages are created without a name (with only an `ID`). This allows them to expire after 7 days and not take up your storage space. If you want to preserve a storage, simply [give it a name](#apify-app) and it will be retained indefinitely.
 
 Apart from the retention period, the difference between named and unnamed storages is that named storages make it easier to verify you are using the correct store. In all other regards, including [sharing between runs](#sharing-storages-between-runs), named and unnamed storages are the same.
 
