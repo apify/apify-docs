@@ -1,6 +1,6 @@
 ---
 title: Create
-description: Documentation of Apify Task - a way to set up configuration of your Apify Actor for simplified usage.
+description: Documentation of Apify tasks - a way to set up a configuration of your Apify actors for simplified usage.
 paths:
     - tasks/create
     - actors/tasks/create
