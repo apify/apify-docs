@@ -21,7 +21,7 @@ Anything missing? Please let us know at [support@apify.com](mailto:support@apify
 *   [**Scraping**]({{@link scraping.md}}) - Scrape and crawl websites using a few simple lines of JavaScript.
 *   [**Actors**]({{@link actors.md}}) - Run arbitrary web scraping or automation tasks in the Apify cloud.
 *   [**Tasks**]({{@link actors/tasks.md}}) - Store one or more configurations of an Actor.
-*   [**Scheduler**]({{@link scheduler.md}}) - Executes crawler or actor jobs at specific times.
+*   [**Schedules**]({{@link schedules.md}}) - Executes crawler or actor jobs at specific times.
 *   [**Storage**]({{@link storage.md}}) - Key-value store, dataset and request queue that enable storage of actor inputs and results.
 *   [**Proxy**]({{@link proxy.md}}) - Provides access to proxy services that can be used in crawlers, actors or any other application that support HTTP proxies.
 *   [**Webhooks**]({{@link webhooks.md}}) - Provide an easy and reliable way to configure the Apify platform to carry out an action when a certain system event occurs.
