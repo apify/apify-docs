@@ -6,7 +6,7 @@ paths:
     - storage/dataset
 ---
 
-# Dataset
+# [](#dataset) Dataset
 
 Dataset storage enables you to sequentially save and retrieve data. Each actor run is assigned its own dataset, which is created when the first item is stored to it.
 
@@ -25,9 +25,9 @@ There are four ways to access your datasets:
 * [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from outside the Apify platform ([more details](#javascript-api-client))
 * [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically ([more details](#apify-api))
 
-## Basic usage
+## [](#basic-usage) Basic usage
 
-### Apify app
+### [](#apify-app) Apify app
 
 In the [Apify app](https://my.apify.com), you can view your datasets in the [Storage](https://my.apify.com/storage) section under the [Datasets](https://my.apify.com/storage#/datasets) tab.
 
@@ -40,7 +40,7 @@ To view or download a dataset in the above mentioned formats, click on its `Data
 
 ![Datasets detail view]({{@asset storage/images/datasets-detail.png}})
 
-### Apify SDK
+### [](#apify-sdk) Apify SDK
 
 If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify software development kit (SDK)](https://sdk.apify.com).
 In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset), the dataset is represented by the
@@ -98,7 +98,7 @@ const hotelAndCafeData = await dataset.getData({
 
 For more information on managing datasets using the Apify SDK, see the [SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset) and [API reference](https://sdk.apify.com/docs/api/dataset).
 
-### JavaScript API client
+### [](#javascript-api-client) JavaScript API client
 
 Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
@@ -154,7 +154,7 @@ const hotelAndCafeData = await datasets.getItems({
 
 For more information, see the JavaScript API client [documentation](https://docs.apify.com/apify-client-js#ApifyClient-datasets).
 
-### Apify API
+### [](#apify-api) Apify API
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/datasets) allows you to access your datasets programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
@@ -202,7 +202,7 @@ Example payload:
 ```
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 
-## Hidden fields
+## [](#hidden-fields) Hidden fields
 
 Top-level fields starting with the `#` character are considered [hidden](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items).
 These fields may be easily omitted when downloading the data from a dataset. This provides a convenient way to store debug information that should not appear in the final dataset. 
@@ -223,7 +223,7 @@ Below is an example of a dataset record containing hidden fields with an HTTP re
 ```
 Data without hidden fields are called "clean" and can be downloaded from the [Apify app](https://my.apify.com/storage#/datasets) using the "Clean items" link or via API using the `clean=true` or `clean=1` [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items).
 
-## XML format extension
+## [](#xml-format-extension) XML format extension
 
 When you export results to XML or RSS formats, object property names become XML tags, while the corresponding values become the tags' children.
 
@@ -299,7 +299,7 @@ This feature is also useful when customizing your RSS feeds generated for variou
 
 By default, the whole result and each page object are wrapped in an `–` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when GETting your data.
 
-## Sharing datasets between runs
+## [](#sharing-datasets-between-runs) Sharing datasets between runs
 
 You can access a dataset from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its `name` or `ID`.
 
@@ -324,7 +324,7 @@ The same applies for the [Apify API](#apify-api) - you can use [the same endpoin
 For more information on sharing storages between runs, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs).
 
 
-## Limits
+## [](#limits) Limits
 
 * Tabulated data storage formats (ones that display the data in columns), such as HTML, CSV, and EXCEL, have a maximum limit of `3000` columns. All data that do not fit into this limit will not be retrieved.
 

@@ -6,7 +6,7 @@ paths:
     - storage/request-queue
 ---
 
-# [](#request-queue)Request queue
+# [](#request-queue) Request queue
 
 Request queues enable you to enqueue and retrieve requests such as URLs with [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and other parameters. They are useful not only in web crawling, but anywhere you need to process a high number of URLs and enqueue new links.
 
@@ -24,9 +24,9 @@ There are four ways to access your request queues:
 * [Apify API](https://docs.apify.com/api/v2#/reference/request-queues) - for accessing your request queues programmatically ([more details](#apify-api))
 
 
-## Basic usage
+## [](#basic-usage) Basic usage
 
-### Apify app
+### [](#apify-app) Apify app
 
 In the [Apify app](https://my.apify.com), you can view your request queues in the [Storage](https://my.apify.com/storage) section under the [Request queues](https://my.apify.com/storage#/requestQueues) tab.
 
@@ -42,7 +42,7 @@ The API tab allows you to view and test a queue's [API endpoints](https://docs.a
 
 ![Request queues detail]({{@asset storage/images/request-queue-detail.png}})
 
-### Apify SDK
+### [](#apify-sdk) Apify SDK
 
 If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify software development kit (SDK)](https://sdk.apify.com).
 In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#request-queue), the request queue is represented by the
@@ -108,7 +108,7 @@ await queue.drop();
 
 For more information on managing your request queues with the Apify SDK, see the SDK [documentation](https://sdk.apify.com/docs/guides/data-storage#request-queue) and [API reference](https://sdk.apify.com/docs/api/request-queue).
 
-### JavaScript API client
+### [](#javascript-api-client) JavaScript API client
 
 Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) (`apify-client`) allows you to access your request queues from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
@@ -150,7 +150,7 @@ await requestQueues.updateRequest(request1);
 
 For more information on managing your request queues using the JavaScript API client, see its [documentation](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues).
 
-### Apify API
+### [](#apify-api) Apify API
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/request-queues) allows you to access your request queues programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
@@ -201,7 +201,7 @@ Example payload:
 
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/request-queues).
 
-## Sharing request queues between runs
+## [](#sharing-request-queues-between-runs) Sharing request queues between runs
 
 You can access a request queue from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its `name` or `ID`.
 

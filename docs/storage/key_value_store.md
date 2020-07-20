@@ -6,7 +6,7 @@ paths:
     - storage/key-value-store
 ---
 
-# Key-value store
+# [](#key-value-store) Key-value store
 
 The key-value store is simple storage that can be used for storing any kind of data. It can be JSON or HTML documents, zip files, images, or simply strings. The data are stored along with their [MIME content type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
@@ -25,9 +25,9 @@ There are four ways to access your key-value stores:
 * [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) - to access your key-value stores from outside the Apify platform ([more details](#javascript-api-client))
 * [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically ([more details](#apify-api))
 
-## Basic usage
+## [](#basic-usage) Basic usage
 
-### Apify app
+### [](#apify-app) Apify app
 
 In the [Apify app](https://my.apify.com), you can view your key-value stores in the [Storage](https://my.apify.com/storage) section under the [Key-value stores](https://my.apify.com/storage#/keyValueStores) tab.
 
@@ -42,7 +42,7 @@ The API tab allows you to view and test a store's [API endpoints](https://docs.a
 
 ![Key-value stores detail]({{@asset storage/images/key-value-stores-detail.png}})
 
-### Apify SDK
+### [](#apify-sdk) Apify SDK
 
 If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify software development kit (SDK)](https://sdk.apify.com).
 In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#key-value-store), the key-value store is represented by the
@@ -102,7 +102,7 @@ Apify.main(async () => {
 
 For more information on managing your key-value stores with the Apify SDK, see the SDK [documentation](https://sdk.apify.com/docs/guides/data-storage#key-value-store) and [API reference](https://sdk.apify.com/docs/api/key-value-store).
 
-### JavaScript API client
+### [](#javascript-api-client) JavaScript API client
 
 Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) (`apify-client`) allows you to access your key-value stores from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
@@ -139,7 +139,7 @@ await keyValueStores.deleteRecord({ key: "foo" });
 
 For more information on managing your key-value stores using the JavaScript API client, see its [documentation](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores).
 
-### Apify API
+### [](#apify-api) Apify API
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) allows you to access your key-value stores programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
@@ -177,7 +177,7 @@ To **delete a record**, send a DELETE request specifying the key from a key-valu
 
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/key-value-stores).
 
-## Sharing key-value stores between runs
+## [](#sharing-key-value-stores-between-runs) Sharing key-value stores between runs
 
 You can access a key-value store from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its `name` or `ID`.
 
@@ -201,11 +201,11 @@ The same applies for the [Apify API](#apify-api) - you can use [the same endpoin
 
 For more information on sharing storages between runs, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs).
 
-## Limits
+## [](#limits) Limits
 
 When adding a record using the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) API endpoint, the request payload is limited to **9MB**. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.
 
-### Data consistency
+### [](#data-consistency) Data consistency
 
 Key-value storage uses `read-after-write` consistency, which is characteristic of its underlying [AWS S3](https://aws.amazon.com/s3/) storage. With read after write consistency, a newly created data item is immediately visible to all users.
 
