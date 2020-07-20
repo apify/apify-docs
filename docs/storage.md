@@ -1,31 +1,31 @@
 ---
 title: Storage
-description: Documentation of Apify Storage, which allows you to store actor inputs and outputs.
+description: Documentation of Apify Storage, which allows you to store actor output and other data.
 menuWeight: 5
 category: platform
 paths:
     - storage
 ---
  
-# Storage
+# [](#storage) Storage
 
 The Apify platform includes three types of storage you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](https://docs.apify.com/api/v2#/reference/key-value-stores), the Apify [software development kit (SDK)](https://sdk.apify.com) and Apify's [JavaScript API client](https://docs.apify.com/api/apify-client-js).
 
 This page contains a brief introduction of the three types of Apify Storage.
 
-* [Dataset](#dataset) - storage for data objects such as scrape results
-* [Key-value store](#key-value-store) - storage for arbitrary data records like actor inputs
+* [Dataset](#dataset) - storage for data objects such as scraping output
+* [Key-value store](#key-value-store) - storage for arbitrary data records such as files, images, and strings
 * [Request queue](#request-queue) - a queue of URLs for your actors to visit
 
 You will then find [basic usage](#basic-usage) information relating to all three types of storage. For example, how to manage your storages in the [Apify app](#apify-app), the basics of setting up the [Apify SDK](#apify-sdk) and
 [JavaScript API client](#javascript-api-client),
 and general information for using storages with the [Apify API](#apify-api).
 
-## Dataset
+## [](#dataset) Dataset
 
 [Dataset]({{@link storage/dataset.md}}) storage allows you to store a series of data objects such as results from web scraping, crawling or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel or HTML formats.
 
-![Dataset illustration]({{@asset images/datasets-overview.png}})
+![Dataset graphic]({{@asset images/datasets-overview.png}})
 
 The easiest way to access your datasets is via the
 [Apify app](https://my.apify.com/storage#/datasets), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties. 
@@ -37,11 +37,11 @@ the [Apify API](https://docs.apify.com/api/v2#/reference/datasets).
 
 For more information, see the [Dataset]({{@link storage/dataset.md}}) documentation.
 
-## Key-value store
+## [](#key-value-store) Key-value store
 
 The [key-value store]({{@link storage/key_value_store.md}}) is ideal for saving arbitrary data records such as files, screenshots of web pages, PDFs or for persisting the state of your actors and crawlers. The records are accessible under a unique name and can be written and read quickly. 
 
-![Key-value store]({{@asset images/key-value-overview.svg}})
+![Key-value store graphic]({{@asset images/key-value-overview.svg}})
 
 The easiest way to access your key-value stores is via the
 [Apify app](https://my.apify.com/storage#/keyValueStores), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties. 
@@ -52,11 +52,11 @@ the [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores).
 
 For more information, see the [Key-value store]({{@link storage/key_value_store.md}}) documentation.
 
-## Request queue
+## [](#request-queue) Request queue
 
 [Request queues]({{@link storage/request_queue.md}}) allow you to dynamically maintain a queue of URLs of web pages. You can use this in recursively crawling websites: you start from initial URLs and add new links as they are found, while skipping duplicates.
 
-![Request queue]({{@asset images/request-queue-overview.svg}})
+![Request queue graphic]({{@asset images/request-queue-overview.svg}})
 
 The easiest way to access your request queues is via the
 [Apify app](https://my.apify.com/storage#/requestQueues), which provides a user-friendly interface for viewing your request queues and editing your queues' properties. 
@@ -67,9 +67,9 @@ the [Apify API](https://docs.apify.com/api/v2#/reference/request-queues).
 
 For more information, see the [Request queue]({{@link storage/request_queue.md}}) documentation. 
 
-## Basic usage
+## [](#basic-usage) Basic usage
 
-### Apify app
+### [](#apify-app) Apify app
 
 To access your storages from the Apify app, go to the [`Storage` section](https://my.apify.com/storage) in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, and request queues, as well as API endpoints. To view your storages, click their `ID`.
 
@@ -88,7 +88,7 @@ These URLs provide links to API `endpoints`–the places where your data are sto
 > Never share a URL containing your authentication token, as if will compromise your account's security. <br/>
 > If the data you want to share requires a token, first download the data, then share it as a file.
 
-### Apify SDK
+### [](#apify-sdk) Apify SDK
 
 The [Apify SDK](https://sdk.apify.com) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions. It requires [Node.js](https://nodejs.org/en/) 10.17 or later, with the exception of `Node.js 11`. 
 
@@ -96,7 +96,7 @@ For setup instructions and to learn how to build your own actors, visit the [SDK
 
 <!-- This will be included in the new JS API CLIENT docs -->
 <!-- so all we'll have to do is link to the instructions -->
-### JavaScript API client
+### [](#javascript-api-client) JavaScript API client
 
 Apify's [JavaScript API client](https://docs.apify.com/apify-client-js) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
@@ -124,7 +124,7 @@ const apifyClient = new ApifyClient({
 });
 ```
 
-### Apify API
+### [](#apify-api) Apify API
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) allows you to access your storages programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
@@ -137,7 +137,7 @@ To access your storages via the Apify API (if you are using the `username~store-
 
 For a detailed breakdown of each storage API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 
-## Data retention
+## [](#data-retention) Data retention
 
 Unnamed storages expire after 7 days unless otherwise specified.
 
@@ -145,7 +145,7 @@ Named storages are retained indefinitely.
 
 You can edit your storages' names in the [Apify app](#apify-app) or using the access methods mentioned above.
 
-## Named and unnamed storages
+## [](#named-and-unnamed-storages) Named and unnamed storages
 
 All storages are created without a name (with only an `ID`). This allows them to expire after 7 days and not take up your storage space. If you want to preserve a storage, simply [give it a name](#apify-app) and it will be retained indefinitely.
 
@@ -153,7 +153,7 @@ Apart from the retention period, the difference between named and unnamed storag
 
 For example, the storage names `janeDoe~my-storage-1` and `janeDoe~web-scrape-results` are easier to tell apart than the IDs `cAbcYOfuXemTPwnIB` and `CAbcsuZbp7JHzkw1B`.
 
-## Sharing storages between runs
+## [](#sharing-storages-between-runs) Sharing storages between runs
 
 Any storage can be accessed from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its `name` or `ID`. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
@@ -164,7 +164,7 @@ Any storage can be accessed from any [actor]({{@link actors.md}}) or [task]({{@l
 > When multiple runs try to write data to a storage at the same time, it isn't possible to control the order in which the data will be written. It will be written whenever the request is processed. <br/>
 > In key-value stores and request queues, the same applies for deleting records: if a request to delete a record is made shortly before a request to read that same record, the second request will fail.
 
-## Deleting storages
+## [](#deleting-storages) Deleting storages
 
 Named storages are only removed when you request it. You can delete storages in the following ways.
 
