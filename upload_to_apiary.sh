@@ -14,7 +14,7 @@ else
     export API_NAME="apify2prod"
 fi
 
-apiary publish --api-name=${API_NAME} --path="./api_v2_reference.apib"
+apiary publish --api-name=${API_NAME} --path="./docs/api_v2/api_v2_reference.apib"
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Cannot upload to Apiary (did you install apiary tool by running 'sudo gem install apiaryio'?)"

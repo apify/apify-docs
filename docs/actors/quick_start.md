@@ -24,7 +24,7 @@ Click **▷ Run** to build and run your actor. After the run is finished you sho
 
 Congratulations, you have successfully created and run your first actor!
 
-Let's try something little more complicated. We will change the actor to accept input and generate output (see [Input and output]({{@link actors/running/input_and_output.md}}) for more details):
+Let's try something little more complicated. We will change the actor to accept input and generate output (see [Input and output]({{@link actors/running/input.md}}) for more details):
 
     const Apify = require('apify');
 
@@ -49,7 +49,7 @@ Then set **Content type** to `application/json; charset=utf-8` and click **Run**
 
 Excellent, you have just created your first actor to accept input and store output! Now you can start adding some magic.
 
-Note that the above actor is also available in the store as [apify/hello-world](https://apify.com/apify/hello-world). It uses the [`apify`](https://sdk.apify.com/) NPM package, which provides various helper functions to simplify the development of actors. For example, the [`Apify.main()`](https://sdk.apify.com/docs/api/apify#apifymainuserfunc) function invokes a user function and waits for its finish, it logs exception details, etc. Note that the `apify` package is optional and actors do not need to use it at all.
+The above actor is also available in the store as [apify/hello-world](https://apify.com/apify/hello-world). It uses the `apify` [NPM package](https://sdk.apify.com/), which provides various helper functions to simplify the development of actors. For example, the `Apify.main()` function invokes the main [user function]((https://sdk.apify.com/docs/api/apify#apifymainuserfunc)) and waits for its finish, logs exception details, etc. Note that the `apify` package is optional and actors do not need to use it at all.
 
 For more complicated actors, you'll probably prefer to host the source code on Git. To do that, follow these steps:
 
