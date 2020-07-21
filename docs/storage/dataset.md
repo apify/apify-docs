@@ -14,7 +14,7 @@ Datasets usually contain results from web scraping, crawling or data processing 
 
 > Named datasets are retained indefinitely. <br/>
 > Unnamed datasets expire after 7 days unless otherwise specified. <br/>
-> [Learn about named and unnamed stores]({{@link storage.md#data-retention}}).
+> [Learn about named and unnamed datasets]({{@link storage.md#data-retention}}).
 
 Dataset storage is immutable - data can only be added and cannot be changed or deleted.
 

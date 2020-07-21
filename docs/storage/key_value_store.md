@@ -16,16 +16,16 @@ Key-value stores are mutable–you can both add entries and delete them.
 
 > Named key-value stores are retained indefinitely. <br/>
 > Unnamed key-value stores expire after 7 days unless otherwise specified.<br/>
-> [Learn about named and unnamed stores]({{@link storage.md#data-retention}})
+> [Learn about named and unnamed key-value stores]({{@link storage.md#data-retention}}).
+
+## [](#basic-usage) Basic usage
 
 There are four ways to access your key-value stores:
 
 * [Apify app](https://my.apify.com/storage#/keyValueStores) - provides an easy-to-understand interface ([more details](#apify-app))
 * [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#key-value-store) - when building your own Apify actor ([more details](#apify-sdk))
-* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) - to access your key-value stores from outside the Apify platform ([more details](#javascript-api-client))
+* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) - to access your key-value stores from any Node.js application ([more details](#javascript-api-client))
 * [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically ([more details](#apify-api))
-
-## [](#basic-usage) Basic usage
 
 ### [](#apify-app) Apify app
 
@@ -59,7 +59,7 @@ You can find INPUT.json and other key-value stores in the location below.
 
     {APIFY_LOCAL_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}
 
-> The default key-value store's ID is `default`. The {KEY} is the record's `key` and {EXT} corresponds to the data value's MIME content type.
+The default key-value store's ID is `default`. The {KEY} is the record's `key` and {EXT} corresponds to the data value's MIME content type.
 
 To manage your key-value stores, you can use the following methods. For a full list of methods, see the Apify SDK's [API reference](https://sdk.apify.com/docs/api/key-value-store).
 
@@ -96,11 +96,15 @@ Apify.main(async () => {
 
     ...
 
-    await Apify.setValue("OUTPUT", imageBuffer, { contentType: "image/jpeg" });
+    await Apify.setValue(
+        "OUTPUT",
+        imageBuffer,
+        { contentType: "image/jpeg" }
+    );
 });
 ```
 
-For more information on managing your key-value stores with the Apify SDK, see the SDK [documentation](https://sdk.apify.com/docs/guides/data-storage#key-value-store) and [API reference](https://sdk.apify.com/docs/api/key-value-store).
+For more information on managing your key-value stores with the Apify SDK, see the SDK [documentation](https://sdk.apify.com/docs/guides/data-storage#key-value-store) and its [API reference](https://sdk.apify.com/docs/api/key-value-store).
 
 ### [](#javascript-api-client) JavaScript API client
 
@@ -120,7 +124,9 @@ You can then access your stores, retrieve records in stores, write new records o
 ```js
 // Get the `my-store` key-value store or create it
 // if it doesn't exist and set it as the default
-const exampleStore = await keyValueStores.getOrCreateStore({ storeName: "my-store" });
+const exampleStore = await keyValueStores.getOrCreateStore({
+    storeName: "my-store"
+});
 apifyClient.setOptions({ storeId: store.id });
 
 // Get a record from `exampleStore` 
@@ -165,7 +171,8 @@ Example payload:
 
 ```json
 {
-    "foo": "bar"
+    "foo": "bar",
+    "fos": "baz"
 }
 ```
 
@@ -201,11 +208,7 @@ The same applies for the [Apify API](#apify-api) - you can use [the same endpoin
 
 For more information on sharing storages between runs, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs).
 
-## [](#limits) Limits
-
-When adding a record using the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) API endpoint, the request payload is limited to **9MB**. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.
-
-### [](#data-consistency) Data consistency
+## [](#data-consistency) Data consistency
 
 Key-value storage uses `read-after-write` consistency, which is characteristic of its underlying [AWS S3](https://aws.amazon.com/s3/) storage. With read after write consistency, a newly created data item is immediately visible to all users.
 
@@ -216,3 +219,7 @@ The same applies if you read a **non-existent** record (404 error code), then cr
 If you repeat the read (GET) request after a short time, the response should return the latest data.
 
 Visit [this](https://codeburst.io/quick-explanation-of-the-s3-consistency-model-6c9f325e3f82) article for more details on the issue and [this](https://medium.com/@dhruvsharma_50981/s3-eventual-data-consistency-model-issues-and-tackling-them-47093365a595) article for some ideas on how to tackle the issue.
+
+## [](#limits) Limits
+
+When adding a record using the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) API endpoint, the request payload is limited to **9MB**. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.
