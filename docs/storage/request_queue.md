@@ -126,7 +126,7 @@ You can then get or create new queues, retrieve existing requests or enqueue new
 // Get the "my-queue" request queue and set it as the default
 // to be used in the following commands
 const queue = await requestQueues.getOrCreateQueue({
-    queueName: "my-queue",
+    queueName: "my-queue"
 });
 apifyClient.setOptions({ queueId: queue.id });
 
@@ -180,7 +180,7 @@ Example payload:
 {
     "uniqueKey": "http://example.com",
     "url": "http://example.com",
-    "method": "GET",
+    "method": "GET"
 }
 ```
 
@@ -189,12 +189,13 @@ To **update a request in a queue**, send a PUT request with the request to updat
     https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}?token={YOUR_API_TOKEN}
 
 Example payload:
+
 ```json
 {
     "id": "dnjkDMKLmdlkmlkmld",
     "uniqueKey": "http://example.com",
     "url": "http://example.com",
-    "method": "GET",
+    "method": "GET"
 }
 ```
 
@@ -209,13 +210,17 @@ You can access a request queue from any [actor]({{@link actors.md}}) or [task]({
 
 To access a request queue from another run using the Apify SDK, open it using the `Apify.openRequestQueue([queueIdOrName])` [method]((https://sdk.apify.com/docs/api/apify#apifyopenrequestqueuequeueidorname-options)) like you would any other queue.
 
-    const otherQueue = await Apify.openRequestQueue("old-queue");
+```js
+const otherQueue = await Apify.openRequestQueue("old-queue");
+```
 
 To access a request queue using the [JavaScript API client](#javascript-api-client), use the `getOrCreateQueue()` [method](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues).
 
-    const otherQueue = await requestQueues.getOrCreateQueue({
-        queueName: "my-queue",
-    });
+```js
+const otherQueue = await requestQueues.getOrCreateQueue({
+    queueName: "my-queue"
+});
+```
 
 Once you've opened the request queue, you can use it in your crawl or add new requests like you would with a queue from your current run.
 
@@ -223,6 +228,6 @@ The same applies for the [Apify API](#apify-api) - you can use [the same endpoin
 
 For more information on sharing storages between runs, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs).
 
-### [](#limits) Limits
+## [](#limits) Limits
 
-While multiple actor or task runs can **add new requests** to a queue concurrently, only one run can **process a queue** (use it in its crawl) at any one time.
+While multiple actor or task runs can **add new requests** to a queue concurrently, only one run can **process a queue** at any one time.
