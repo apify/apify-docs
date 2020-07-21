@@ -103,7 +103,7 @@ Each field of your input is described under its key in `inputSchema.properties` 
 |`default`|Must match <br/>`type` property.|No|Default value that will be <br/>used when no value is provided.|
 |`prefill`|Must match <br/>`type` property.|No|Value that will be prefilled <br/>in the actor input interface. <br/>Only the `boolean` type doesn't <br/>support `prefill` property.|
 |`example`|Must match <br/>`type` property.|No|Sample value of this field <br/>for the actor to be displayed when <br/>actor is published in Apify Store.|
-|`sectionCaption`|String|No|If this property is set, <br/>then all fields following this field <br/>(this field included) will be separated into a collapsible section <br/>with the value set as its caption. <br/>The section ends at the last field <br/>or the next field which has the <br/> `sectionCaption` property set.|
+|`sectionCaption`|String|No|If this property is set, <br/>then all fields following this field <br/>(this field included) will be separated <br/>into a collapsible section <br/>with the value set as its caption. <br/>The section ends at the last field <br/>or the next field which has the <br/> `sectionCaption` property set.|
 |`sectionDescription`|String|No|If the `sectionCaption` property is set, <br/>then you can use this property to <br/>provide additional description to the section. <br/>The description will be visible right under <br/>the caption when the section is open.|
 
 
@@ -192,7 +192,7 @@ Properties:
 |`editor`|One of <br/>`checkbox`, <br/>`hidden`|No|Visual editor used for the input field.|
 |`groupCaption`|String|No|If you want to group <br/>multiple checkboxes together, <br/>add this option to the first <br/>of the group.|
 |`groupDescription`|String|No|Description displayed as help text <br/>displayed of group title.|
-|`nullable`|Boolean|No|Specifies whether null is an allowed value.|
+|`nullable`|Boolean|No|Specifies whether null is <br/>an allowed value.|
 
 #### [](#integer)Integer
 
@@ -279,7 +279,7 @@ Properties:
 |`patternValue`|String|No|Regular expression that will be used <br/>to validate the values of object.|
 |`maxProperties`|Integer|No|Maximum number of properties <br/>the object can have.|
 |`minProperties`|Integer|No|Minimum number of properties <br/>the object can have.|
-|`nullable`|Boolean|No|Specifies whether null is an allowed value.|
+|`nullable`|Boolean|No|Specifies whether null is <br/>an allowed value.|
 
 
 ### [](#array)Array
