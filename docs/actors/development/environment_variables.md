@@ -28,7 +28,7 @@ Aside from [custom environment variables]({{@link actors/development/source_code
 |`APIFY_TIMEOUT_AT`|Date when the actor will time out.|
 |`APIFY_TOKEN`|The API token of the user <br/>who started the actor.|
 |`APIFY_USER_ID`|ID of the user who started the actor. <br/>Note that it might be different <br/>than the owner of the actor.|
-|`APIFY_CONTAINER_PORT`|TCP port on which the actor can <br/>start a HTTP server to receive <br/>messages from the outside world. <br/>See [Container web server]({{@link actors/running.md#container-web-server}}) section for more details.|
+|`APIFY_CONTAINER_PORT`|TCP port on which the actor can <br/>start a HTTP server to receive <br/>messages from the outside world. <br/>See [Container web server]({{@link actors/running.md#container-web-server}}) section <br/>for more details.|
 |`APIFY_CONTAINER_URL`|A unique public URL under which <br/>the actor run web server is accessible <br/>from the outside world. <br/>See [Container web server]({{@link actors/running.md#container-web-server}}) section <br/>for more details.|
 
 
