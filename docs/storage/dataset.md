@@ -298,7 +298,7 @@ will be transformed to the following XML snippet:
 
 This feature is also useful when customizing your RSS feeds generated for various websites.
 
-By default, the whole result and each page object are wrapped in an `–` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when GETting your data.
+By default, the whole result is wrapped in an `<items/>` emelent, while each page object is contained in an `<item/>` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when GETting your data.
 
 ## [](#sharing-datasets-between-runs) Sharing datasets between runs
 
