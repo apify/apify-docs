@@ -54,7 +54,7 @@ If you have chosen to store your dataset locally, you can find it in the locatio
 
 `DATASET_ID` refers to the dataset's `name` or `ID`. The default dataset will be stored in the `default` directory.
 
-To add data to the default dataset, you can use the example below, however using the `Apify.main()` function is optional–it is merely provided for your convenience.
+To add data to the default dataset, you can use the example below, however using the `Apify.main()` function is optional–it is only provided for your convenience.
 
 ```js
 // Import the Apify SDK into your project
@@ -68,10 +68,7 @@ Apify.main(async () => {
     await Apify.pushData({ foo: "bar" });
 
     // Add multiple items to the default dataset
-    await Apify.pushData([
-        { foo: "hotel" },
-        { foo: "cafe" },
-    ]);
+    await Apify.pushData([{ foo: "hotel" }, { foo: "cafe" }]);
 });
 ```
 
@@ -129,10 +126,7 @@ await datasets.putItems({
     data: { foo: "bar" }
 });
 await datasets.putItems({
-    data: [
-        { foo: "hotel" },
-        { foo: "cafe" },
-    ]
+    data: [{ foo: "hotel" }, { foo: "cafe" }]
 });
 
 // Get items from a dataset
