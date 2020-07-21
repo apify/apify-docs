@@ -14,18 +14,18 @@ Datasets usually contain results from web scraping, crawling or data processing 
 
 > Named datasets are retained indefinitely. <br/>
 > Unnamed datasets expire after 7 days unless otherwise specified. <br/>
-> [Learn about named and unnamed datasets]({{@link storage.md#data-retention}}).
+> [Learn about named and unnamed datasets.]({{@link storage.md#named-and-unnamed-storages}})
 
-Dataset storage is immutable - data can only be added and cannot be changed or deleted.
+Dataset storage is `append-only` - data can only be added and cannot be changed or deleted.
 
 ## [](#basic-usage) Basic usage
 
 There are four ways to access your datasets:
 
-* [Apify app](https://my.apify.com/storage#/datasets) - provides an easy-to-understand interface [[more details](#apify-app)]
-* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor [[more details](#apify-sdk)]
-* [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from any Node.js application [[more details](#javascript-api-client)]
-* [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically [[more details](#apify-api)]
+* [Apify app](https://my.apify.com/storage#/datasets) - provides an easy-to-understand interface [[details](#apify-app)]
+* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor [[details](#apify-sdk)]
+* [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from any Node.js application [[details](#javascript-api-client)]
+* [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically [[details](#apify-api)]
 
 ### [](#apify-app) Apify app
 
@@ -44,7 +44,7 @@ To view or download a dataset in the above mentioned formats, click on its `Data
 
 If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify software development kit (SDK)](https://sdk.apify.com).
 In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset), the dataset is represented by the
-[`Dataset`](https://sdk.apify.com/docs/guides/data-storage#dataset) class.
+[`Dataset`](https://sdk.apify.com/docs/api/dataset) class.
 
 You can use the `Dataset` class to specify whether your data is stored locally or on in the Apify cloud, push data to datasets of your choice using the `pushData()` [method](https://sdk.apify.com/docs/examples/add-data-to-dataset), and perform functions such as `getData()`, `map()` and `reduce()`([see example](https://sdk.apify.com/docs/examples/map-and-reduce)).
 
@@ -93,15 +93,15 @@ const hotelAndCafeData = await dataset.getData({
 });
 ```
 
-For more information on managing datasets using the Apify SDK, see the [SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset) and its [API reference](https://sdk.apify.com/docs/api/dataset).
+For more information on managing datasets using the Apify SDK, see the [SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset) and the `Dataset` class's [API reference](https://sdk.apify.com/docs/api/dataset#datasetpushdatadata).
 
 ### [](#javascript-api-client) JavaScript API client
 
 Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
-For help with setting up the JavaScript API client, see the Storage section [overview page](https://docs.apify.com/storage/#javascript-api-client).
+For help with setting up the client, see the JavaScript API client section on the [overview page](https://docs.apify.com/storage/#javascript-api-client).
 
-After importing the `apify-client` package into your application and creating an instance of it, save it to a variable for easier access.
+After [importing](https://docs.apify.com/storage/#javascript-api-client) the `apify-client` package into your application and creating an instance of it, save it to a variable for easier access.
 
 ```js
 // Save your datasets to a variable for easier access
@@ -146,6 +146,9 @@ const hotelAndCafeData = await datasets.getItems({
 });
 ```
 
+> If you both specify and omit the same field in a request, the **omit** parameter will prevail and the field will not be returned.
+
+
 For more information, see the JavaScript API client [documentation](https://docs.apify.com/apify-client-js#ApifyClient-datasets).
 
 ### [](#apify-api) Apify API
@@ -168,6 +171,8 @@ To **view a dataset's data**, send a GET request to the
     https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
 
 You can **specify which data are exported** by adding a comma-separated list of fields to the `fields` query parameter. Likewise, you can also omit certain fields using the `omit` parameter.
+
+> If you both specify and omit the same field in a request, the **omit** parameter will prevail and the field will not be returned.
 
 To retrieve the `hotel` and `cafe` fields, you would send your GET request to the URL below. 
 
@@ -198,10 +203,11 @@ For a detailed breakdown of each API endpoint, see the [API documentation](https
 
 ## [](#hidden-fields) Hidden fields
 
-Top-level fields starting with the `#` character are considered [hidden](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items).
-These fields may be easily omitted when downloading the data from a dataset. This provides a convenient way to store debug information that should not appear in the final dataset. 
+Top-level fields starting with the `#` character are considered hidden.
+These fields may be easily omitted when downloading the data from a dataset by providing the `skipHidden=1` or `clean=1` query parameters. This provides a convenient way to store debug information that should not appear in the final dataset. 
 
 Below is an example of a dataset record containing hidden fields with an HTTP response and error.
+
 ```json
 {
     "url": "https://example.com",
@@ -215,6 +221,7 @@ Below is an example of a dataset record containing hidden fields with an HTTP re
     }
 }
 ```
+
 Data without hidden fields are called "clean" and can be downloaded from the [Apify app](https://my.apify.com/storage#/datasets) using the "Clean items" link or via API using the `clean=true` or `clean=1` [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items).
 
 ## [](#xml-format-extension) XML format extension

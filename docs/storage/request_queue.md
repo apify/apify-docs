@@ -14,16 +14,16 @@ Request queue storage supports both breadth-first and depth-first crawling order
 
 > Named request queues are retained indefinitely. <br/>
 > Unnamed request queues expire after 7 days unless otherwise specified.<br/>
-> [Learn about named and unnamed queues]({{@link storage.md#data-retention}}).
+> [Learn about named and unnamed queues.]({{@link storage.md#named-and-unnamed-storages}})
 
 ## [](#basic-usage) Basic usage
 
 There are four ways to access your request queues:
 
-* [Apify app](https://my.apify.com/storage#/requestQueues) - provides an easy-to-understand interface [[more details](#apify-app)]
-* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#request-queue) - when building your own Apify actor [[more details](#apify-sdk)]
-* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) - to access your request queues from any Node.js application [[more details](#javascript-api-client)]
-* [Apify API](https://docs.apify.com/api/v2#/reference/request-queues) - for accessing your request queues programmatically [[more details](#apify-api)]
+* [Apify app](https://my.apify.com/storage#/requestQueues) - provides an easy-to-understand interface [[details](#apify-app)]
+* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#request-queue) - when building your own Apify actor [[details](#apify-sdk)]
+* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) - to access your request queues from any Node.js application [[details](#javascript-api-client)]
+* [Apify API](https://docs.apify.com/api/v2#/reference/request-queues) - for accessing your request queues programmatically [[details](#apify-api)]
 
 ### [](#apify-app) Apify app
 
@@ -45,7 +45,7 @@ The API tab allows you to view and test a queue's [API endpoints](https://docs.a
 
 If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify software development kit (SDK)](https://sdk.apify.com).
 In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#request-queue), the request queue is represented by the
-[`RequestQueue`](https://sdk.apify.com/docs/guides/data-storage#request-queue) class.
+[`RequestQueue`](https://sdk.apify.com/docs/api/request-queue) class.
 
 You can use the `RequestQueue` class to specify whether your data is [stored locally or in the Apify cloud](https://sdk.apify.com/docs/api/request-queue), enqueue new URLs
 ([see example]((https://sdk.apify.com/docs/examples/puppeteer-crawler))),
@@ -80,7 +80,7 @@ Apify.main(async () => {
 });
 ```
 
-Once a queue is open, you can manage it using the following methods. For a full list of methods, see the Apify SDK's [API reference](https://sdk.apify.com/docs/api/request-queue).
+Once a queue is open, you can manage it using the following methods. For a full list of methods, see the `RequestQueue` class's [API reference](https://sdk.apify.com/docs/api/request-queue#requestqueueaddrequestrequest-options).
 
 ```js
 // Enqueue requests
@@ -105,15 +105,15 @@ await queue.reclaimRequest(request2);
 await queue.drop();
 ```
 
-For more information on managing your request queues with the Apify SDK, see the SDK [documentation](https://sdk.apify.com/docs/guides/data-storage#request-queue) and its [API reference](https://sdk.apify.com/docs/api/request-queue).
+For more information on managing your request queues with the Apify SDK, see the SDK [documentation](https://sdk.apify.com/docs/guides/data-storage#request-queue) and the `RequestQueue` class's [API reference](https://sdk.apify.com/docs/api/request-queue#requestqueueaddrequestrequest-options).
 
 ### [](#javascript-api-client) JavaScript API client
 
 Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) (`apify-client`) allows you to access your request queues from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
-For help with setting up the JavaScript API client, see the Storage documentation's [overview page](https://docs.apify.com/storage/#javascript-api-client).
+For help with setting up the client, see the JavaScript API client section on the [overview page](https://docs.apify.com/storage/#javascript-api-client).
 
-After importing the `apify-client` package into your application and creating an instance of it, save it to a variable for easier access.
+After [importing](https://docs.apify.com/storage/#javascript-api-client) the `apify-client` package into your application and creating an instance of it, save it to a variable for easier access.
 
 ```js
 // Save your request queues to a variable for easier access
