@@ -31,23 +31,25 @@ The following table describes the available parameters:
     <tr>
         <th><code>session</code></th>
         <td>
-            If specified, all proxied requests with the same session identifier are routed through
-            the same IP address.
-            For example <code>session-rand123456</code>.
+            If specified, all proxied requests with the same session identifier are routed 
+            <br/>through the same IP address. For example <code>session-rand123456</code>.
             <br /><strong>This parameter is optional</strong>, by default, each proxied request
-            is assigned a randomly picked least used IP address.
-            <br /><strong>The session string can only contain numbers (0-9), letters (a-z or A-Z),
-            dot (.), underscore (_), a tilde (~) and the maximum length is 50 characters!</strong>
+            is assigned
+             <br/>a randomly picked least used IP address.
+            <br /><strong>The session string can only contain numbers (0-9), letters (a-z or A-Z), dot (.),
+            <br/>underscore (_), a tilde (~) and the maximum length is 50 characters!</strong>
         </td>
     </tr>
     <tr>
         <th><code>country</code></th>
         <td>
-            If specified, all proxied requests will use IP addresses that geolocated to the specified country.
-            For example <code>country-GB</code> for IP's from Great Britain.
+            If specified, all proxied requests will use IP addresses that geolocated to
+             <br/>the specified country. For example <code>country-GB</code> for IPs from Great Britain.
             <br /><strong>This parameter is optional</strong>, by default, each proxied request
-            is assigned an IP address from a random country.
-            <br /><strong>The country code needs to be a two letter ISO country code - see the
+            is assigned an
+             <br/>IP address from a random country.
+            <br /><strong>The country code needs to be a two letter ISO country code -
+             <br/>see the
                 <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="blank">full list of available country codes</a>
             </strong>
         </td>

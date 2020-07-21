@@ -15,8 +15,8 @@ The following table shows the HTTP proxy connection settings for the Apify Proxy
 | Proxy type     | `HTTP`              |
 | Hostname       | `proxy.apify.com`   |
 | Port           | `8000`              |
-| Username       | Specifies the proxy parameters. See [username parameters]({{@link proxy/datacenter_proxy.md#username-parameters}}) below for details. **Beware that this is not your Apify username!** |
-| Password       | Proxy password. Your password is displayed on the [Proxy page](https://my.apify.com/proxy) in the app. Also, in Apify actors, it is passed as the `APIFY_PROXY_PASSWORD` environment variable. See [actor documentation]({{@link actors/development/environment_variables.md}}) for more details. |
+| Username       | Specifies the proxy parameters. See [username parameters]({{@link proxy/datacenter_proxy.md#username-parameters}}) below for details. <br/>**Beware that this is not your Apify username!** |
+| Password       | Proxy password. Your password is displayed on the [Proxy page](https://my.apify.com/proxy) in the app. <br/>Also, in Apify actors, it is passed as the `APIFY_PROXY_PASSWORD` <br/>environment variable. See [actor documentation]({{@link actors/development/environment_variables.md}}) for more details. |
 | Connection URL | `http://<username>:<password>@proxy.apify.com:8000`|
 
 
