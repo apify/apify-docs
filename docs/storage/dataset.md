@@ -14,18 +14,18 @@ Datasets usually contain results from web scraping, crawling or data processing 
 
 > Named datasets are retained indefinitely. <br/>
 > Unnamed datasets expire after 7 days unless otherwise specified. <br/>
-> [Learn about named and unnamed stores]({{@link storage.md#data-retention}})
+> [Learn about named and unnamed stores]({{@link storage.md#data-retention}}).
 
 Dataset storage is immutable - data can only be added and cannot be changed or deleted.
+
+## [](#basic-usage) Basic usage
 
 There are four ways to access your datasets:
 
 * [Apify app](https://my.apify.com/storage#/datasets) - provides an easy-to-understand interface ([more details](#apify-app))
 * [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor ([more details](#apify-sdk))
-* [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from outside the Apify platform ([more details](#javascript-api-client))
+* [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from any Node.js application ([more details](#javascript-api-client))
 * [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically ([more details](#apify-api))
-
-## [](#basic-usage) Basic usage
 
 ### [](#apify-app) Apify app
 
@@ -52,9 +52,9 @@ If you have chosen to store your dataset locally, you can find it in the locatio
 
     {APIFY_LOCAL_STORAGE_DIR}/datasets/{DATASET_ID}/{INDEX}.json
 
-> `DATASET_ID` refers to the dataset's `name` or `ID`. The default dataset will be stored in the `default` directory.
+`DATASET_ID` refers to the dataset's `name` or `ID`. The default dataset will be stored in the `default` directory.
 
-To add data to the default dataset, you can use the example below (please note that using the `Apify.main()` function is optional–it is merely provided for your convenience).
+To add data to the default dataset, you can use the example below, however using the `Apify.main()` function is optional–it is merely provided for your convenience.
 
 ```js
 // Import the Apify SDK into your project
@@ -64,10 +64,10 @@ const Apify = require("apify");
 // actor's job and terminates the process when it is finished
 Apify.main(async () => {
     
-    // Add one item to the default dataset:
+    // Add one item to the default dataset
     await Apify.pushData({ foo: "bar" });
 
-    // Add multiple items to the default dataset:
+    // Add multiple items to the default dataset
     await Apify.pushData([
         { foo: "hotel" },
         { foo: "cafe" },
@@ -96,7 +96,7 @@ const hotelAndCafeData = await dataset.getData({
 });
 ```
 
-For more information on managing datasets using the Apify SDK, see the [SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset) and [API reference](https://sdk.apify.com/docs/api/dataset).
+For more information on managing datasets using the Apify SDK, see the [SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset) and its [API reference](https://sdk.apify.com/docs/api/dataset).
 
 ### [](#javascript-api-client) JavaScript API client
 
@@ -173,16 +173,16 @@ To **view a dataset's data**, send a GET request to the
 
     https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
 
-You can specify which data are exported by adding a comma-separated list of fields to the `fields` query parameter. Likewise, you can also omit certain fields using the `omit` parameter.
-
-> Instead of commas, however, you will need to use the `%2C` code, which represents `,` in URL encoding.<br/>
-> Learn more about URL encoding [here](https://www.url-encode-decode.com).
+You can **specify which data are exported** by adding a comma-separated list of fields to the `fields` query parameter. Likewise, you can also omit certain fields using the `omit` parameter.
 
 To retrieve the `hotel` and `cafe` fields, you would send your GET request to the URL below. 
 
     https://api.apify.com/v2/datasets/{DATASET_ID}/items?token={YOUR_API_TOKEN}&fields=hotel%2Ccafe
 
-To add data to a dataset, send a POST request, with a JSON object containing the data you want to add as the payload to the [Put items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items) endpoint.
+> Instead of commas, you will need to use the `%2C` code, which represents `,` in URL encoding.<br/>
+> Learn more about URL encoding [here](https://www.url-encode-decode.com).
+
+To **add data to a dataset**, send a POST request, with a JSON object containing the data you want to add as the payload to the [Put items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items) endpoint.
 
     https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
 
