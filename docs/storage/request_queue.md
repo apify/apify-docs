@@ -19,7 +19,8 @@ To open a request queue, use `Apify.openRequestQueue()` [[see docs](https://sdk.
     const Apify = require('apify');
 
     Apify.main(async () => {
-        // Open the default request queue associated with the actor run:
+        // Open the default request queue associated with
+        // the actor run:
         const queue = await Apify.openRequestQueue();
 
         // Open a request queue with name "my-queue":
@@ -31,7 +32,10 @@ If queue is opened then you can use it:
     // Enqueue some requests
     await queue.addRequest({ url: 'http://example.com/aaa' });
     await queue.addRequest({ url: 'http://example.com/bbb' });
-    await queue.addRequest({ url: 'http://example.com/foo/bar' }, { forefront: true });
+    await queue.addRequest(
+        { url: 'http://example.com/foo/bar' },
+        { forefront: true }
+    );
 
     // Get requests from queue
     const request1 = await queue.fetchNextRequest();
@@ -41,7 +45,8 @@ If queue is opened then you can use it:
     // Mark a request as handled
     await queue.markRequestHandled(request1);
 
-    // If the processing of a request fails then reclaim it back to the queue, so that it's crawled again
+    // If the processing of a request fails then reclaim it
+    // back to the queue, so that it's crawled again
     await queue.reclaimRequest(request2);
 
 ## [](#api-and-javascript-client)API and Javascript client

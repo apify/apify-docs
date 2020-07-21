@@ -34,7 +34,9 @@ The actor's input and its content type can be passed as a payload of the POST re
 
 Actors can also be invoked programmatically from other actors using the [`call()`](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options) function provided by the [`apify`](https://sdk.apify.com/) NPM package. For example:
 
-    const run = await Apify.call('apify/hello-world', { message: 'Hello!' });
+    const run = await Apify.call('apify/hello-world', { 
+        message: 'Hello!'
+    });
     console.dir(run.output);
 
 The newly started actor runs under the same user account as the initial actor and therefore all resources consumed are charged to the same user account. This allows more complex actors to be built using simpler actors built and owned by other users.
@@ -99,7 +101,9 @@ The following example demonstrates how to start a simple web server in your acto
         res.send('Hello World!');
     });
 
-    app.listen(port, () => console.log(`Web server is listening and can be accessed at ${process.env.APIFY_CONTAINER_URL}!`))
+    app.listen(port, () => console.log(`Web server is listening
+        and can be accessed at
+        ${process.env.APIFY_CONTAINER_URL}!`))
 
     Apify.main(async () => {
         // Let the actor run for an hour.
