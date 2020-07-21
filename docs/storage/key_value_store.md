@@ -22,10 +22,10 @@ Key-value stores are mutable–you can both add entries and delete them.
 
 There are four ways to access your key-value stores:
 
-* [Apify app](https://my.apify.com/storage#/keyValueStores) - provides an easy-to-understand interface ([more details](#apify-app))
-* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#key-value-store) - when building your own Apify actor ([more details](#apify-sdk))
-* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) - to access your key-value stores from any Node.js application ([more details](#javascript-api-client))
-* [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically ([more details](#apify-api))
+* [Apify app](https://my.apify.com/storage#/keyValueStores) - provides an easy-to-understand interface [[more details](#apify-app)]
+* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#key-value-store) - when building your own Apify actor [[more details](#apify-sdk)]
+* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) - to access your key-value stores from any Node.js application [[more details](#javascript-api-client)]
+* [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically [[more details](#apify-api)]
 
 ### [](#apify-app) Apify app
 

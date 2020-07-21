@@ -22,10 +22,10 @@ Dataset storage is immutable - data can only be added and cannot be changed or d
 
 There are four ways to access your datasets:
 
-* [Apify app](https://my.apify.com/storage#/datasets) - provides an easy-to-understand interface ([more details](#apify-app))
-* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor ([more details](#apify-sdk))
-* [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from any Node.js application ([more details](#javascript-api-client))
-* [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically ([more details](#apify-api))
+* [Apify app](https://my.apify.com/storage#/datasets) - provides an easy-to-understand interface [[more details](#apify-app)]
+* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor [[more details](#apify-sdk)]
+* [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from any Node.js application [[more details](#javascript-api-client)]
+* [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically [[more details](#apify-api)]
 
 ### [](#apify-app) Apify app
 
