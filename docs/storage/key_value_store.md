@@ -210,13 +210,14 @@ For more information on sharing storages between runs, see the Storage [overview
 
 ## [](#data-consistency) Data consistency
 
-Key-value storage uses `read-after-write` consistency, which is characteristic of its underlying [AWS S3](https://aws.amazon.com/s3/) storage. With read after write consistency, a newly created data item is immediately visible to all users.
+Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. According to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html), it provides `read-after-write` consistency for newly-created items. This means that if a record does not exist and you create it, then read it right after, you will be able to see it.
 
-So, when you write (POST) a **new record** to your storage, then read (GET) it afterward, the storage returns the record you just wrote. However, if you **update** an existing record (PUT), you may still receive the old record the next time you fetch it. This is known as [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency).
+However, S3 storage has a caveat, described in the below quote from the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html).
 
-The same applies if you read a **non-existent** record (404 error code), then create the missing record and try to read it again. You may still receive a 404 error, even though the record is there.
+> [...] if you make a HEAD or GET request to a key name before the object is created, then create the object shortly after that, a subsequent GET might not return the object due to eventual consistency. <br/>
+> Amazon S3 offers eventual consistency for overwrite PUTS and DELETES in all Regions. 
 
-If you repeat the read (GET) request after a short time, the response should return the latest data.
+[Eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency) means that if you update a value and then retrieve it from storage, the value will be consistent with the last update *eventually*. Before enough time has passed, however, the returned value may be inconsistent.
 
 Visit [this](https://codeburst.io/quick-explanation-of-the-s3-consistency-model-6c9f325e3f82) article for more details on the issue and [this](https://medium.com/@dhruvsharma_50981/s3-eventual-data-consistency-model-issues-and-tackling-them-47093365a595) article for some ideas on how to tackle the issue.
 
