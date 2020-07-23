@@ -69,6 +69,13 @@ For more information, see the [request queue]({{@link storage/request_queue.md}}
 
 ## [](#basic-usage) Basic usage
 
+There are four ways to access your storage:
+
+* [Apify app](https://my.apify.com/storage) - provides an easy-to-understand interface [[details](#apify-app)]
+* [Apify (SDK)](https://sdk.apify.com/docs/guides/data-storage) - when building your own Apify actor [[details](#apify-sdk)]
+* [JavaScript API client](https://docs.apify.com/apify-client-js) - to access your storages from any Node.js application [[details](#javascript-api-client)]
+* [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) - for accessing your storages programmatically [[details](#apify-api)]
+
 ### [](#apify-app) Apify app
 
 To access your storages from the Apify app, go to the [`Storage` section](https://my.apify.com/storage) in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, request queues and related API endpoints. To view a storage, click its `ID`.
