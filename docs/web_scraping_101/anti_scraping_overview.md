@@ -82,4 +82,5 @@ To make it work, you need to make sure that a single user session is always rout
 
 ## Comparing way of bypassing scraping protection
 **ADD BLOG POST LINK BELOW**
+More useful info: https://help.apify.com/en/articles/1961361-several-tips-how-to-bypass-website-anti-scraping-protections
 In a [recent experiment](), we found session emulation to be at least twice as effective as plain IP address rotation. Visit the [Apify blog]() to find out more.
