@@ -10,41 +10,16 @@ paths:
 
 # [](#schedules) Schedules
 
-[Schedules](https://my.apify.com/schedules) allow you to automatically run your actors and tasks at specific times. They can be set up both from the [Apify app](https://my.apify.com) and via [API](https://docs.apify.com/api/v2). Each schedule can be associated with a maximum of 10 actors and 10 actor tasks. It is also possible to override the settings of each actor/task similarly to when invoking them using the [Apify API](https://docs.apify.com/api/v2#/reference/schedules/).
+[Schedules](https://my.apify.com/schedules) allow you to automatically run your actors and tasks at specific times. You schedule the run frequency using [cron expressions](#cron-expressions).
 
-The schedules use [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to specify run times. A cron expression has the following structure:
+> Schedules allow timezone settings and support daylight saving time shifts (DST). 
 
-|Position|Field|Values|Wildcards|Optional|
-|--- |--- |--- |--- |--- |
-|1|second|0 - 59|, - * /|yes|
-|2|minute|0 - 59|, - * /|no|
-|3|hour|0 - 23|, - * /|no|
-|4|day of month|1 - 31|, - * /|no|
-|5|month|1 - 12|, - * /|no|
-|6|day of week|0 - 7 (0 or 7 is Sunday)|, - * /|no|
+You can set up and manage schedules both from the [Apify app](https://my.apify.com/schedules) and via [API](https://docs.apify.com/api/v2#/reference/schedules). When scheduling a new actor or task run, you can override its input settings using a JSON object similarly to when ivoking a schedule using the [Apify API](https://docs.apify.com/api/v2#/reference/schedules/).
 
-For example, the expression `30 5 16 * * 1` will start an actor at 16:05:30 every Monday.
+> In most cases, scheduled events are fired within one second of their scheduled time. <br/>
+> Occasionally, however, runs can be delayed because of a system overload or a server shutting down.
 
-The minimum interval between runs is 10 seconds; if your next run is scheduled sooner than 10 seconds after the previous run, the next run will be skipped.
-
-> **Note:** schedules now allow timezone settings and support daylight saving time shifts. 
-
-## [](#examples-of-cron-expressions) Examples of cron expressions
-
-- `0 8 * * *`  -  every day at 8am
-- `0 0 * * 0` - every 7 days (at 00:00 on Sunday)
-- `*/3 * * * *` - every 3rd minute
-- `0 0 1 */2 *` - every other month (at 00:00 on the first day of month, every 2nd month)
-
-Additionally, you can use the following shortcut expressions:
-
-- `@yearly` = `0 0 1 1 *`
-- `@monthly` = `0 0 1 * *`
-- `@weekly` = `0 0 * * 0`
-- `@daily` = `0 0 * * *`
-- `@hourly` = `0 * * * *`
-
-You can find more information and examples of cron expressions on [crontab.guru](http://crontab.guru/).
+Each schedule can be associated with a maximum of 10 actors and 10 actor tasks.
 
 ## [](#setting-up-a-new-schedule) Setting up a new schedule
 
@@ -113,4 +88,38 @@ If the request is successful, you will receive a 201 [HTTP response code](https:
 
 You can add multiple actor and task runs to a schedule with a single POST request. Simply add another object with the run's details to the `actions` array in your POST request's payload object.
 
-For more information, see the [Schedules documentation](https://docs.apify.com/api/v2#/reference/schedules/schedule-object/get-schedule).
+For more information, see the [schedules section](https://docs.apify.com/api/v2#/reference/schedules/schedule-object/get-schedule) in the API documentation.
+
+## [](#cron-expressions) Cron expressions
+
+Schedules use [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to specify run times. A cron expression has the following structure:
+
+|Position|Field|Values|Wildcards|Optional|
+|--- |--- |--- |--- |--- |
+|1|second|0 - 59|, - * /|yes|
+|2|minute|0 - 59|, - * /|no|
+|3|hour|0 - 23|, - * /|no|
+|4|day of month|1 - 31|, - * /|no|
+|5|month|1 - 12|, - * /|no|
+|6|day of week|0 - 7 (0 or 7 is Sunday)|, - * /|no|
+
+For example, the expression `30 5 16 * * 1` will start an actor at 16:05:30 every Monday.
+
+The minimum interval between runs is 10 seconds; if your next run is scheduled sooner than 10 seconds after the previous run, the next run will be skipped.
+
+### [](#examples-of-cron-expressions) Examples of cron expressions
+
+- `0 8 * * *`  -  every day at 8am.
+- `0 0 * * 0` - every 7 days (at 00:00 on Sunday).
+- `*/3 * * * *` - every 3rd minute.
+- `0 0 1 */2 *` - every other month (at 00:00 on the first day of month, every 2nd month).
+
+Additionally, you can use the following shortcut expressions:
+
+- `@yearly` = `0 0 1 1 *` - once a year, on Jan 1st at midnight.
+- `@monthly` = `0 0 1 * *` - once a month, on the 1st at midnight.
+- `@weekly` = `0 0 * * 0` - once a week, on Sunday at midnight.
+- `@daily` = `0 0 * * *` - run once a day, at midnight.
+- `@hourly` = `0 * * * *` - on the hour, every hour.
+
+You can find more information and examples of cron expressions on [crontab.guru](http://crontab.guru/). For additional and non-standard characters, see [this](https://en.wikipedia.org/wiki/Cron#CRON_expression) Wikipedia article.
