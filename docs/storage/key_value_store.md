@@ -22,10 +22,10 @@ Key-value stores are mutable–you can both add entries and delete them.
 
 There are four ways to access your key-value stores:
 
-* [Apify app](https://my.apify.com/storage#/keyValueStores) - provides an easy-to-understand interface [[details](#apify-app)]
-* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#key-value-store) - when building your own Apify actor [[details](#apify-sdk)]
-* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) - to access your key-value stores from any Node.js application [[details](#javascript-api-client)]
-* [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically [[details](#apify-api)]
+* [Apify app](https://my.apify.com/storage#/keyValueStores) - provides an easy-to-understand interface [[details](#apify-app)].
+* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#key-value-store) - when building your own Apify actor [[details](#apify-sdk)].
+* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) - to access your key-value stores from any Node.js application [[details](#javascript-api-client)].
+* [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically [[details](#apify-api)].
 
 ### [](#apify-app) Apify app
 
@@ -53,7 +53,7 @@ You can use the `KeyValueStore` class to specify whether your data is [stored lo
 [set](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoresetvaluekey-value-options)
 values using the `Apify.getValue()` and `Apify.setValue()` methods or [iterate over your key-value store keys](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoreforeachkeyiteratee-options) using the `forEachKey()` method.
 
-Each actor run is associated with the default key-value store, which is created for the actor run. When running your actors and storing data locally, you can pass its [input]({{@link actors/running/input.md}}) using the `INPUT.json` key-value store. 
+Each actor run is associated with the default key-value store, which is created for the actor run. When running your actors and storing data locally, you can pass its [input]({{@link actors/running/input.md}}) using the `INPUT.json` key-value store.
 
 You can find INPUT.json and other key-value stores in the location below.
 
@@ -129,7 +129,7 @@ const exampleStore = await keyValueStores.getOrCreateStore({
 });
 apifyClient.setOptions({ storeId: store.id });
 
-// Get a record from `exampleStore` 
+// Get a record from `exampleStore`
 const record = await keyValueStores.getRecord({ key: "foo" });
 
 // Write a record to the `exampleStore` storage
@@ -215,7 +215,7 @@ Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. Accordi
 However, S3 storage has a caveat, described in the below quote from the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html).
 
 > [...] if you make a HEAD or GET request to a key name before the object is created, then create the object shortly after that, a subsequent GET might not return the object due to eventual consistency. <br/>
-> Amazon S3 offers eventual consistency for overwrite PUTS and DELETES in all Regions. 
+> Amazon S3 offers eventual consistency for overwrite PUTS and DELETES in all Regions.
 
 [Eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency) means that if you update a value and then retrieve it from storage, the value will be consistent with the last update *eventually*. Before enough time has passed, however, the returned value may be inconsistent.
 
