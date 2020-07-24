@@ -1,6 +1,6 @@
 ---
 title: Proxy
-description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
+description: Learn how to anonymously access websites when running web scraping or automation jobs. Prevent IP address-based blocking using IP address rotation.
 menuWeight: 6
 category: platform
 paths:
