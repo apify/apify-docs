@@ -6,7 +6,7 @@ category: platform
 paths:
     - storage
 ---
- 
+
 # [](#storage) Storage
 
 The Apify platform includes three types of storage you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](https://docs.apify.com/api/v2#/reference/key-value-stores), the Apify [software development kit (SDK)](https://sdk.apify.com) and Apify's [JavaScript API client](https://docs.apify.com/api/apify-client-js).
@@ -28,7 +28,7 @@ and general information for using storages with the [Apify API](#apify-api).
 ![Dataset graphic]({{@asset images/datasets-overview.png}})
 
 The easiest way to access your datasets is via the
-[Apify app](https://my.apify.com/storage#/datasets), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties. 
+[Apify app](https://my.apify.com/storage#/datasets), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties.
 
 To add data to your datasets (and for more management options), you can use the
 [Apify SDK](https://sdk.apify.com/docs/api/dataset),
@@ -39,12 +39,12 @@ For more information, see the [dataset]({{@link storage/dataset.md}}) documentat
 
 ## [](#key-value-store) Key-value store
 
-The [key-value store]({{@link storage/key_value_store.md}}) is ideal for saving data records such as files, screenshots of web pages, and PDFs or for persisting your actors' state. The records are accessible under a unique name and can be written and read quickly. 
+The [key-value store]({{@link storage/key_value_store.md}}) is ideal for saving data records such as files, screenshots of web pages, and PDFs or for persisting your actors' state. The records are accessible under a unique name and can be written and read quickly.
 
 ![Key-value store graphic]({{@asset images/key-value-overview.svg}})
 
 The easiest way to access your key-value stores is via the
-[Apify app](https://my.apify.com/storage#/keyValueStores), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties. 
+[Apify app](https://my.apify.com/storage#/keyValueStores), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties.
 
 To manage the data in your key-value stores (and for more access options), you can use the
 [Apify SDK](https://sdk.apify.com/docs/api/key-value-store), Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) or
@@ -59,13 +59,13 @@ For more information, see the [key-value store]({{@link storage/key_value_store.
 ![Request queue graphic]({{@asset images/request-queue-overview.svg}})
 
 The easiest way to access your request queues is via the
-[Apify app](https://my.apify.com/storage#/requestQueues), which provides a user-friendly interface for viewing your request queues and editing your queues' properties. 
+[Apify app](https://my.apify.com/storage#/requestQueues), which provides a user-friendly interface for viewing your request queues and editing your queues' properties.
 
 To manage your request queues, you can use the
 [Apify SDK](https://sdk.apify.com/docs/api/request-queue), Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) or
 the [Apify API](https://docs.apify.com/api/v2#/reference/request-queues).
 
-For more information, see the [request queue]({{@link storage/request_queue.md}}) documentation page. 
+For more information, see the [request queue]({{@link storage/request_queue.md}}) documentation page.
 
 ## [](#basic-usage) Basic usage
 
@@ -78,15 +78,15 @@ There are four ways to access your storage:
 
 ### [](#apify-app) Apify app
 
-To access your storages from the Apify app, go to the [`Storage` section](https://my.apify.com/storage) in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, request queues and related API endpoints. To view a storage, click its `ID`.
+To access your storages from the Apify app, go to the [*Storage* section](https://my.apify.com/storage) in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, request queues and related API endpoints. To view a storage, click its `ID`.
 
 ![Storages in app]({{@asset storage/images/datasets-app.png}})
 
-> Only named storages are displayed by default. Select the `Include unnamed *store*` checkbox to display all of your storages.
+> Only named storages are displayed by default. Select the *Include unnamed store* checkbox to display all of your storages.
 
-You can edit your stores' names under the `Settings` tab of their detail page. There, you can also grant [access rights](https://docs.apify.com/access-rights) to other Apify users.
+You can edit your stores' names under the *Settings* tab of their detail page. There, you can also grant [access rights](https://docs.apify.com/access-rights) to other Apify users.
 
-You can quickly share your storages' contents and details by sharing the URLs you find under the `API` tab in a store's detail page. 
+You can quickly share your storages' contents and details by sharing the URLs you find under the `API` tab in a store's detail page.
 
 ![Storage API]({{@asset storage/images/overview-api.png}})
 
@@ -97,7 +97,7 @@ These URLs provide links to API `endpoints`–the places where your data are sto
 
 ### [](#apify-sdk) Apify SDK
 
-The [Apify SDK](https://sdk.apify.com) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions. It requires [Node.js](https://nodejs.org/en/) 10.17 or later, with the exception of `Node.js 11`. 
+The [Apify SDK](https://sdk.apify.com) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions. It requires [Node.js](https://nodejs.org/en/) 10.17 or later, with the exception of `Node.js 11`.
 
 For setup instructions and to learn how to build your own actors, visit the [SDK documentation](https://sdk.apify.com/docs/guides/getting-started).
 
@@ -146,7 +146,7 @@ For more information and a detailed breakdown of each storage API endpoint, see 
 
 Unnamed storages expire after 7 days unless otherwise specified.
 
-Named storages are retained indefinitely. 
+Named storages are retained indefinitely.
 
 You can edit your storages' names in the [Apify app](#apify-app) or using the access methods above.
 

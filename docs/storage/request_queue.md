@@ -20,10 +20,10 @@ Request queue storage supports both breadth-first and depth-first crawling order
 
 There are four ways to access your request queues:
 
-* [Apify app](https://my.apify.com/storage#/requestQueues) - provides an easy-to-understand interface [[details](#apify-app)]
-* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#request-queue) - when building your own Apify actor [[details](#apify-sdk)]
-* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) - to access your request queues from any Node.js application [[details](#javascript-api-client)]
-* [Apify API](https://docs.apify.com/api/v2#/reference/request-queues) - for accessing your request queues programmatically [[details](#apify-api)]
+* [Apify app](https://my.apify.com/storage#/requestQueues) - provides an easy-to-understand interface [[details](#apify-app)].
+* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#request-queue) - when building your own Apify actor [[details](#apify-sdk)].
+* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) - to access your request queues from any Node.js application [[details](#javascript-api-client)].
+* [Apify API](https://docs.apify.com/api/v2#/reference/request-queues) - for accessing your request queues programmatically [[details](#apify-api)].
 
 ### [](#apify-app) Apify app
 
@@ -131,7 +131,7 @@ const queue = await requestQueues.getOrCreateQueue({
 apifyClient.setOptions({ queueId: queue.id });
 
 // Add a request to the default queue
-await requestQueues.addRequest({ 
+await requestQueues.addRequest({
     url: "http://example.com",
     uniqueKey: "http://example.com"
 });
@@ -166,7 +166,7 @@ To **get information about a request queue** such as its creation time and item 
 
     https://api.apify.com/v2/request-queues/{QUEUE_ID}?token={YOUR_API_TOKEN}
 
-To **get a request from a queue**, send a GET request to the [Get request](https://docs.apify.com/api/v2#/reference/request-queues/request/get-request) endpoint. 
+To **get a request from a queue**, send a GET request to the [Get request](https://docs.apify.com/api/v2#/reference/request-queues/request/get-request) endpoint.
 
     https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}?token={YOUR_API_TOKEN}
 

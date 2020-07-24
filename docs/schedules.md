@@ -27,14 +27,14 @@ For example, the expression `30 5 16 * * 1` will start an actor at 16:05:30 ever
 
 The minimum interval between runs is 10 seconds; if your next run is scheduled sooner than 10 seconds after the previous run, the next run will be skipped.
 
-> **Note:** schedules now allow timezone settings and support daylight saving time shifts. 
+> **Note:** schedules now allow timezone settings and support daylight saving time shifts.
 
 ## [](#examples-of-cron-expressions) Examples of cron expressions
 
-- `0 8 * * *`  -  every day at 8am
-- `0 0 * * 0` - every 7 days (at 00:00 on Sunday)
-- `*/3 * * * *` - every 3rd minute
-- `0 0 1 */2 *` - every other month (at 00:00 on the first day of month, every 2nd month)
+- `0 8 * * *`  -  every day at 8am.
+- `0 0 * * 0` - every 7 days (at 00:00 on Sunday).
+- `*/3 * * * *` - every 3rd minute.
+- `0 0 1 */2 *` - every other month (at 00:00 on the first day of month, every 2nd month).
 
 Additionally, you can use the following shortcut expressions:
 
