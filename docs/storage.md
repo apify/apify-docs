@@ -14,6 +14,8 @@ and outside the Apify platform via [API](https://docs.apify.com/api/v2#/referenc
 the [Apify SDK](https://sdk.apify.com) and
 Apify's [JavaScript API client](https://docs.apify.com/api/apify-client-js).
 
+![Apify storage illustration]({{@asset images/storage-marketing.svg}})
+
 This page contains a brief introduction of the three types of Apify Storage.
 
 * [Dataset](#dataset) - storage for data objects such as scraping output
