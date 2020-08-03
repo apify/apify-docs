@@ -138,8 +138,8 @@ The [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) allow
 
 In most cases, when accessing your storages via API, you will need to provide a `store ID`, which you can do in the following formats:
 
-* `WkzbQMuFYuamGv3YF` - the store's alpha-numerical ID if the store is unnamed
-* `username~store-name` - your username and the store's name separated by a tilde (`~`) character (e.g. `janedoe~ecommerce-scraping-results`) if the store is named
+* `WkzbQMuFYuamGv3YF` - the store's alpha-numerical ID if the store is unnamed.
+* `username~store-name` - your username and the store's name separated by a tilde (`~`) character (e.g. `janedoe~ecommerce-scraping-results`) if the store is named.
 
 For read (GET) requests, it is enough to use a store's alpha-numerical ID, since the ID is hard to guess and effectively serves as an authentication key.
 
@@ -178,11 +178,11 @@ Any storage can be accessed from any [actor]({{@link actors.md}}) or [task]({{@l
 
 Named storages are only removed when you request it. You can delete storages in the following ways.
 
-* [Apify app](https://my.apify.com/storage) - using the `Actions` button in the store's detail page
+* [Apify app](https://my.apify.com/storage) - using the `Actions` button in the store's detail page.
 * [Apify SDK](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoredrop) - using the `[store].drop()` method, where `[store]` is the type of storage you want to delete.
 * [JavaScript API client](https://docs.apify.com/apify-client-js) - using the
 [`deleteStore()`](https://docs.apify.com/apify-client-js#ApifyClient-datasets),
 [`deleteDataset()`](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores)
-or [`deleteQueue()`](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) methods
-* [API](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/delete-store) using the - `Delete [store]` endpoint, where `[store]` is the type of storage you want to delete
+or [`deleteQueue()`](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) methods.
+* [API](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/delete-store) using the - `Delete [store]` endpoint, where `[store]` is the type of storage you want to delete.
 
