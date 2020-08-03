@@ -18,9 +18,9 @@ Apify's [JavaScript API client](https://docs.apify.com/api/apify-client-js).
 
 This page contains a brief introduction of the three types of Apify Storage.
 
-* [Dataset](#dataset) - storage for data objects such as scraping output
-* [Key-value store](#key-value-store) - storage for arbitrary data records such as files, images, and strings
-* [Request queue](#request-queue) - a queue of URLs for your actors to visit
+* [Dataset](#dataset) - storage for data objects such as scraping output.
+* [Key-value store](#key-value-store) - storage for data records such as files, images, and strings.
+* [Request queue](#request-queue) - a queue of URLs for your actors to visit.
 
 You will then find [basic usage](#basic-usage) information relating to all three types of storage. For example, how to manage your storages in the [Apify app](#apify-app), the basics of setting up the [Apify SDK](#apify-sdk) and
 [JavaScript API client](#javascript-api-client),
