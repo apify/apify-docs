@@ -11,11 +11,11 @@ paths:
 
 # [](#source-code)Source code
 
-The **Source type** setting determines the location of the source code for the actor. It can have one of the following values: [Single JavaScript file](#single-javascript-file), [Multiple source files](#multiple-source-files), [Git repository](#git-repository), [Zip file](#zip-file) or [GitHub Gist](#github-gist).
+The *Source type* setting determines the location of the source code for the actor. It can have one of the following values: [Single JavaScript file](#single-javascript-file), [Multiple source files](#multiple-source-files), [Git repository](#git-repository), [Zip file](#zip-file) or [GitHub Gist](#github-gist).
 
 ## [](#single-javascript-file)Single JavaScript file
 
-The source code of the actor can be hosted directly on Apify. All the code needs to be in a single file and written in JavaScript / Node.js. The version of Node.js is determined by the **Base image** setting - see [base Docker images]({{@link actors/development/base_docker_images.md}}) for the description of possible options.
+The source code of the actor can be hosted directly on Apify. All the code needs to be in a single file and written in JavaScript / Node.js. The version of Node.js is determined by the *Base image* setting - see [base Docker images]({{@link actors/development/base_docker_images.md}}) for the description of possible options.
 
 The hosted source is especially useful for simple actors. The source code can require arbitrary NPM packages. For example:
 
@@ -26,7 +26,7 @@ During the build process, the source code is scanned for occurrences of the `req
 
     npm install underscore request --save --only=prod --no-optional
 
-Note that certain NPM packages need additional tools for their installation, such as a C compiler or Python interpreter. If these tools are not available in the base Docker image, the build will fail. If that happens, try to change the base image to **Node.js 10 + Puppeteer on Debian**, because it contains much more tools than other images. Alternatively, you can use switch to the [multifile editor](#custom-dockerfile) and create your own docker image configuration.
+Note that certain NPM packages need additional tools for their installation, such as a C compiler or Python interpreter. If these tools are not available in the base Docker image, the build will fail. If that happens, try to change the base image to *Node.js 10 + Puppeteer on Debian*, because it contains much more tools than other images. Alternatively, you can use switch to the [multifile editor](#custom-dockerfile) and create your own docker image configuration.
 
 ## [](#multiple-source-files)Multiple source files
 
@@ -40,7 +40,7 @@ See [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerf
 
 ## [](#git-repository)Git repository
 
-If the actor's source code is hosted externally in a Git repository, it can consist of multiple files and directories, use its own *Dockerfile* to control the build process (see [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) for details) and have a user description in store fetched from the *README.md* file. The location of the repository is specified by the **Git URL** setting, which can be an *https*, *git* or *ssh* URL.
+If the actor's source code is hosted externally in a Git repository, it can consist of multiple files and directories, use its own *Dockerfile* to control the build process (see [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) for details) and have a user description in store fetched from the *README.md* file. The location of the repository is specified by the *Git URL* setting, which can be an *https*, *git* or *ssh* URL.
 
 To help you get started quickly, you can use the [apify/quick-start](https://apify.com/apify/quick-start) actor which contains all the boilerplate necessary when creating a new actor hosted on Git. The source code is available on [GitHub](https://github.com/apifytech/actor-quick-start).
 
@@ -54,7 +54,7 @@ Note that you can easily set up an integration where the actor is automatically 
 
 If your source code is hosted in a private Git repository then you need to configure deployment key. Deployment key is different for each actor and might be used only once at Git hosting of your choice (Github, Bitbucket, Gitlab, etc.).
 
-To obtain the key click at the **deployment key** link under the **Git URL** text input and follow the instructions there.
+To obtain the key click at the *deployment key* link under the *Git URL* text input and follow the instructions there.
 
 ## [](#zip-file)Zip file
 
@@ -66,7 +66,7 @@ Sometimes having a full Git repository or a hosted Zip file might be overly comp
 
 [https://gist.github.com/jancurn/2dbe83fea77c439b1119fb3f118513e7](https://gist.github.com/jancurn/2dbe83fea77c439b1119fb3f118513e7)
 
-Then set the **Source Type** to **GitHub Gist** and paste the Gist URL as follows:
+Then set the *Source Type* to *GitHub Gist* and paste the Gist URL as follows:
 
 ![GitHub Gist settings]({{@asset actors/images/gist-settings.png}})
 
@@ -111,18 +111,18 @@ By default, all Apify base Docker images start your Node.js application same way
       "repository": {}
     }
 
-**This means that by default the system expects the source code to be in the *main.js* file.** If you want to override this behavior, use a custom *package.json* and/or *Dockerfile*.
+*This means that by default the system expects the source code to be in the *main.js* file.* If you want to override this behavior, use a custom *package.json* and/or *Dockerfile*.
 
 
 ## [](#github-integration)GitHub integration
 
 If the source code of an actor is hosted in a [Git repository](#git-repository), it is possible to set up integration so that on every push to the Git repository the actor is automatically rebuilt. For that, you only need to set up a webhook in your Git source control system that will invoke the [Build actor](/docs/api/v2/#/reference/actors/build-collection/build-actor) API endpoint on every push to Git repository.
 
-For example, for repositories on GitHub it can be done using the following steps. First, go to the actor detail page, open the **API** tab and copy the **Build actor** API endpoint URL. It should look something like this:
+For example, for repositories on GitHub it can be done using the following steps. First, go to the actor detail page, open the *API* tab and copy the *Build actor* API endpoint URL. It should look something like this:
 
     https://api.apify.com/v2/acts/apify~hello-world/builds?token=<API_TOKEN>&version=0.1
 
-Then go to your GitHub repository, click **Settings**, select **Webhooks** tab and click **Add webhook**. Paste the API URL to the **Payload URL** as follows:
+Then go to your GitHub repository, click *Settings*, select *Webhooks* tab and click *Add webhook*. Paste the API URL to the *Payload URL* as follows:
 
 ![GitHub integration]({{@asset actors/images/github-integration.png}})
 
@@ -130,7 +130,7 @@ And that's it! Now your actor should automatically rebuild on every push to the 
 
 ## [](#custom-environment-variables)Custom environment variables
 
-The actor owner can specify custom environment variables that are set to the actor's process during the run. Sensitive environment variables such as passwords or API tokens can be protected by setting the **Secret** option. With this option enabled, the value of the environment variable is encrypted and it will not be visible in the app or APIs, and the value is redacted from actor logs to avoid the accidental leakage of sensitive data.
+The actor owner can specify custom environment variables that are set to the actor's process during the run. Sensitive environment variables such as passwords or API tokens can be protected by setting the *Secret* option. With this option enabled, the value of the environment variable is encrypted and it will not be visible in the app or APIs, and the value is redacted from actor logs to avoid the accidental leakage of sensitive data.
 
 ![Custom environment variables]({{@asset actors/images/source-env-vars.png}})
 
@@ -144,7 +144,7 @@ The actor runtime sets additional environment variables for the actor process du
 
 ## [](#versioning)Versioning
 
-In order to enable active development, the actor can have multiple versions of the source code and associated settings, such as the **Base image** and **Environment**. Each version is denoted by a version number of the form `MAJOR.MINOR`; the version numbers should adhere to the [Semantic Versioning](http://semver.org/) logic.
+In order to enable active development, the actor can have multiple versions of the source code and associated settings, such as the *Base image* and *Environment*. Each version is denoted by a version number of the form `MAJOR.MINOR`; the version numbers should adhere to the [Semantic Versioning](http://semver.org/) logic.
 
 For example, the actor can have a production version *1.1*, a beta version *1.2* that contains new features but is still backwards compatible, and a development version *2.0* that contains breaking changes.
 

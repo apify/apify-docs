@@ -56,7 +56,7 @@ And generated the input UI will be:
 
 ![Apify actor input schema example]({{@asset actors/images/input-schema-example.png}})
 
-If you switch the input to **raw** display using the blue toggle, then you will see the entered input stringified to a JSON format as it will be passed to the actor:
+If you switch the input to *raw* display using the blue toggle, then you will see the entered input stringified to a JSON format as it will be passed to the actor:
 
     {
       "startUrls": [

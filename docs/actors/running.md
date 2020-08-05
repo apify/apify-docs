@@ -12,19 +12,19 @@ paths:
 
 # [](#run)Running
 
-An Apify actor can be invoked in a number of ways. One option is to start the actor from the **Developer console** in the app:
+An Apify actor can be invoked in a number of ways. One option is to start the actor from the *Developer console* in the app:
 
 ![Apify developer console]({{@asset actors/images/developer-console.png}})
 
-The actor's owner can specify its default settings in the actor's **Settings** tab. If the actor caller does not specify a particular setting either in the **Input** or **Options** tabs, the default value is used.
+The actor's owner can specify its default settings in the actor's *Settings* tab. If the actor caller does not specify a particular setting either in the *Input* or *Options* tabs, the default value is used.
 
 The following table describes the default actor settings:
 
 |||
 |--- |--- |
-|**Build**|Tag or number of the build to run (e.g. *latest* or *1.2.34*).|
-|**Timeout**|Timeout for the actor run in seconds. Zero value means there is no timeout.|
-|**Memory**|Amount of memory allocated for the actor run, in megabytes.|
+|*Build*|Tag or number of the build to run (e.g. *latest* or *1.2.34*).|
+|*Timeout*|Timeout for the actor run in seconds. Zero value means there is no timeout.|
+|*Memory*|Amount of memory allocated for the actor run, in megabytes.|
 
 The actor can also be invoked using the Apify API by sending a HTTP POST request to the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, such as:
 
@@ -77,13 +77,13 @@ The whole process of resurrection looks as follows:
 *   Updated duration will include the time when actor was not running. This does not affect compute units consumption.
 *   Timeout will be counted from the point when this actor run was resurrected.
 
-Resurrection can be peformed in Apify app using the **resurrect** button or via API using the [resurrect run](https://docs.apify.com/api/v2#/reference/actors/resurrect-run) API endpoint.
+Resurrection can be peformed in Apify app using the *resurrect* button or via API using the [resurrect run](https://docs.apify.com/api/v2#/reference/actors/resurrect-run) API endpoint.
 
 ## [](#container-web-server)Container web server
 
 Each actor run is assigned a unique hard-to-guess URL (e.g. http://kmdo7wpzlshygi.runs.apify.net), which enables HTTP access to an optional web server running inside the actor run's Docker container. The URL is available in the following places:
 
-*   In the web application, on the actor run details page as the **Container URL** field.
+*   In the web application, on the actor run details page as the *Container URL* field.
 *   In the API as the *containerUrl* property of the [Run object](https://docs.apify.com/api/v2#/reference/actors/run-object/get-run).
 *   In the actor run's container as the *APIFY_CONTAINER_URL* environment variable.
 
