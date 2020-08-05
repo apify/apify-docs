@@ -21,7 +21,7 @@ By default, the build has a timeout of 300 seconds and consumes 1024 MB of memor
 
 When running the actor, the caller needs to specify which actor build should actually be used. To simplify this process, the builds can be associated with a tag such *latest* or *beta*, which can be used instead of the version number when running the actor. The tags are unique - only one build can be associated with a specific tag.
 
-To set a tag for builds of a specific actor version, set the **Build tag** property. Whenever a new build of the version is successfully finished, it is automatically assigned the tag. By default, the builds are set the *latest* tag.
+To set a tag for builds of a specific actor version, set the *Build tag* property. Whenever a new build of the version is successfully finished, it is automatically assigned the tag. By default, the builds are set the *latest* tag.
 
 ## [](#cache)Cache
 

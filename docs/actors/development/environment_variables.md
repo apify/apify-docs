@@ -19,9 +19,9 @@ Aside from [custom environment variables]({{@link actors/development/source_code
 |`APIFY_DEFAULT_DATASET_ID`|ID of the dataset where you can <br/>push the data.|
 |`APIFY_DEFAULT_KEY_VALUE_STORE_ID`|ID of the key-value store where <br/>the actor's input and output data <br/>are stored.|
 |`APIFY_DEFAULT_REQUEST_QUEUE_ID`|ID of the request queue that stores <br/>and handles requests that you enqueue.|
-|`APIFY_INPUT_KEY`|The key of the record in <br/>the default key-value store <br/>that holds the actor input. <br/>Typically it's `INPUT`, but <br/>it might be something else.|
-|`APIFY_HEADLESS`|If set to `1`, the web browsers inside <br/>the actor should run in <br/>headless mode because there is no <br/>windowing system available.|
-|`APIFY_IS_AT_HOME`|Returns `1` if the actor is running <br/>on Apify servers.|
+|`APIFY_INPUT_KEY`|The key of the record in <br/>the default key-value store <br/>that holds the actor input. <br/>Typically it's *INPUT*, but <br/>it might be something else.|
+|`APIFY_HEADLESS`|If set to *1*, the web browsers inside <br/>the actor should run in <br/>headless mode because there is no <br/>windowing system available.|
+|`APIFY_IS_AT_HOME`|Returns *1* if the actor is running <br/>on Apify servers.|
 |`APIFY_MEMORY_MBYTES`|Indicates the size of memory <br/>allocated for the actor run, <br/>in megabytes. <br/>It can be used by actors <br/>to optimize their memory usage.|
 |`APIFY_PROXY_PASSWORD`|The [Apify Proxy](/docs/proxy) password of the user <br/>who started the actor.|
 |`APIFY_STARTED_AT`|Date when the actor was started.|
