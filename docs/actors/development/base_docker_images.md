@@ -19,6 +19,6 @@ Apify provides the following Docker images that can be used as a base for user a
 *   **[DEPRECATED] Node.js 10 + Puppeteer on Debian** ([apify/actor-node-puppeteer](https://hub.docker.com/r/apify/actor-node-puppeteer/))
     This image is deprecated and will be removed in the future. Use the `apify/actor-node-chrome` image instead.
 
-All images come in two versions: the `latest` tag corresponds to the stable version and `beta` to images where we test new features. Use the beta version at your own risk.
+All images come in two versions: the *latest* tag corresponds to the stable version and *beta* to images where we test new features. Use the beta version at your own risk.
 
 Note that all Apify Docker images are pre-cached on Apify servers in order to speed-up the actor builds and runs. The source code used to generate the images is available in the [apify-actor-docker](https://github.com/apifytech/apify-actor-docker) GitHub repository.
