@@ -1,6 +1,7 @@
 ---
 title: Request queue
-description: Documentation of Request queues, which allow you to queue URLs for your crawler to visit.
+description: Queue URLs for an actor to visit in its run. Learn how to share your queues between actor runs. Access and manage request queues from the Apify app or via API.
+
 menuWeight: 6.3
 paths:
     - storage/request-queue
@@ -131,7 +132,7 @@ const queue = await requestQueues.getOrCreateQueue({
 apifyClient.setOptions({ queueId: queue.id });
 
 // Add a request to the default queue
-await requestQueues.addRequest({ 
+await requestQueues.addRequest({
     url: "http://example.com",
     uniqueKey: "http://example.com"
 });
@@ -166,7 +167,7 @@ To **get information about a request queue** such as its creation time and item 
 
     https://api.apify.com/v2/request-queues/{QUEUE_ID}?token={YOUR_API_TOKEN}
 
-To **get a request from a queue**, send a GET request to the [Get request](https://docs.apify.com/api/v2#/reference/request-queues/request/get-request) endpoint. 
+To **get a request from a queue**, send a GET request to the [Get request](https://docs.apify.com/api/v2#/reference/request-queues/request/get-request) endpoint.
 
     https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}?token={YOUR_API_TOKEN}
 
