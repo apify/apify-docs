@@ -1,6 +1,6 @@
 ---
 title: Dataset
-description: Documentation of Dataset storage, which provides storage for data objects such as actor outputs.
+description: Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in the Apify app or via API.
 menuWeight: 6.1
 paths:
     - storage/dataset
@@ -63,7 +63,7 @@ const Apify = require("apify");
 // The optional Apify.main() function performs the
 // actor's job and terminates the process when it is finished
 Apify.main(async () => {
-    
+
     // Add one item to the default dataset
     await Apify.pushData({ foo: "bar" });
 
@@ -157,7 +157,7 @@ The [Apify API](https://docs.apify.com/api/v2#/reference/datasets) allows you to
 
 If you are accessing your datasets using the `username~store-name` [store ID format]({{@link storage.md#apify-api}}), you will need to append your [secret API token](https://docs.apify.com/api/v2#/introduction/authentication) as a query parameter (see below). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
 
-To **get a list of your datasets**, send a GET request to the [Get list of datasets](https://docs.apify.com/api/v2#/reference/datasets/get-list-of-datasets) endpoint, providing your API token as a query parameter. 
+To **get a list of your datasets**, send a GET request to the [Get list of datasets](https://docs.apify.com/api/v2#/reference/datasets/get-list-of-datasets) endpoint, providing your API token as a query parameter.
 
     https://api.apify.com/v2/datasets?token={YOUR_API_TOKEN}
 
@@ -174,7 +174,7 @@ You can **specify which data are exported** by adding a comma-separated list of 
 
 > If you both specify and omit the same field in a request, the **omit** parameter will prevail and the field will not be returned.
 
-To retrieve the `hotel` and `cafe` fields, you would send your GET request to the URL below. 
+To retrieve the `hotel` and `cafe` fields, you would send your GET request to the URL below.
 
     https://api.apify.com/v2/datasets/{DATASET_ID}/items?token={YOUR_API_TOKEN}&fields=hotel%2Ccafe
 
@@ -204,7 +204,7 @@ For a detailed breakdown of each API endpoint, see the [API documentation](https
 ## [](#hidden-fields) Hidden fields
 
 Top-level fields starting with the `#` character are considered hidden.
-These fields may be easily omitted when downloading the data from a dataset by providing the `skipHidden=1` or `clean=1` query parameters. This provides a convenient way to store debug information that should not appear in the final dataset. 
+These fields may be easily omitted when downloading the data from a dataset by providing the `skipHidden=1` or `clean=1` query parameters. This provides a convenient way to store debug information that should not appear in the final dataset.
 
 Below is an example of a dataset record containing hidden fields with an HTTP response and error.
 
@@ -264,7 +264,7 @@ becomes the following XML snippet:
 </address>
 ```
 
-If the JavaScript object contains a property named `@`, its sub-properties are exported as attributes of the parent XML element. If the parent XML element does not have any child elements, its value is taken from a JavaScript object property named `#`. 
+If the JavaScript object contains a property named `@`, its sub-properties are exported as attributes of the parent XML element. If the parent XML element does not have any child elements, its value is taken from a JavaScript object property named `#`.
 
 For example, the following JavaScript object:
 
