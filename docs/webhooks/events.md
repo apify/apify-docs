@@ -1,6 +1,6 @@
 ---
 title: Events
-description: Documentation of Apify webhooks system that enables integration of multiple actors or external systems.
+description: Specify the types of events that trigger a webhook in an actor or task run. Trigger an action on actor or task run creation, success or failure.
 menuWeight: 8.1
 paths:
     - webhooks/events
@@ -10,7 +10,7 @@ paths:
 
 An event is represented by a **type** and related **data**. The type is a `string` that shows the event's name and its hierarchy in the tree of available events, e.g.: `ACTOR.RUN.SUCCEEDED`. The data are an `Object` with variable properties. See documentation of individual events for examples of data.
 
-**Currently, webhooks are only available for actor run events, with new types in the pipeline.**
+> Currently, webhooks are only available for actor run events, with new types in the pipeline.
 
 ## [](#actor-run)Actor run
 
