@@ -1,6 +1,6 @@
 ---
 title: Datacenter proxy
-description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
+description: Learn how to reduce blocking when web scraping using IP address rotation. See proxy parameters and learn to implement Apify Proxy in an application.
 menuWeight: 7.3
 paths:
     - proxy/datacenter-proxy
@@ -8,7 +8,7 @@ paths:
 
 # [](#datacenter-proxy-servers)Datacenter proxy servers
 
-Apify Proxy provides access to Apify's pool of datacenter IP addresses to [actors](./actor) or any other application that support HTTP proxies. The proxy enables intelligent rotation of IP addresses during web scraping to avoid being blocked by target websites.
+Apify Proxy provides access to Apify's pool of datacenter IP addresses to [actors](./actors) or any other application that support HTTP proxies. The proxy enables intelligent rotation of IP addresses during web scraping to avoid being blocked by target websites.
 
 ## [](#overview)Overview
 
