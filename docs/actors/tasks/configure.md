@@ -1,6 +1,6 @@
 ---
 title: Configure
-description: Documentation of Apify tasks - a way to set up a configuration of your Apify actors for simplified usage.
+description: Create custom versions of an actor for specific use cases. Set a task's name and input parameters.
 paths:
     - tasks/configure
     - actors/tasks/configure
