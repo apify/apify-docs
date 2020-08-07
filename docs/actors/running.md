@@ -1,6 +1,8 @@
 ---
 title: Running
-description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Start your actors from the Apify app or via API. Learn about actor lifecycles, how to specify settings and version, provide input and resurrect finished runs.
+
+Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
 menuWeight: 3.2
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
@@ -34,7 +36,7 @@ The actor's input and its content type can be passed as a payload of the POST re
 
 Actors can also be invoked programmatically from other actors using the [`call()`](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options) function provided by the [`apify`](https://sdk.apify.com/) NPM package. For example:
 
-    const run = await Apify.call('apify/hello-world', { 
+    const run = await Apify.call('apify/hello-world', {
         message: 'Hello!'
     });
     console.dir(run.output);
