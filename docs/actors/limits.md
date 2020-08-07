@@ -1,6 +1,6 @@
 ---
 title: Limits
-description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of actors/tasks per user or schedule.
 menuWeight: 3.7
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
@@ -10,7 +10,7 @@ paths:
 
 # [](#limits) Limits
 
-The tables below demonstrate the Apify platform's default resource limits. 
+The tables below demonstrate the Apify platform's default resource limits.
 
 If needed, the limits shown below can be increased on paid accounts. For details, contact us on `hello@apify.com` or using the chat icon in the bottom-right corner.
 
