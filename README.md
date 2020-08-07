@@ -14,6 +14,21 @@ On commit to any other branch, the documentation's `develop` version gets update
 
 Keep in mind that there might be about 2 minute delay before updated documentation gets online (1 minute Github actions build + 1 minute update interval of docs website).
 
+## API docs
+
+The `docs/api_v2` directory contains the source file for the
+API reference (https://docs.apify.com/api/v2) hosted on Apiary.
+Using the build script contained in the folder, the API docs are automatically uploaded to Apiary during the web deployment process.
+
+### Local testing
+
+1. Install Apiary gem `gem install apiaryio`
+2. After that, you can open the generated doc with the command: `apiary preview --path="./api-v2-reference.apib"`
+
+### Test
+
+You should ALWAYS log in to Apiary, analyze the document and make sure there are **no warnings**!
+
 ## Implementation
 
 ### Metadata
