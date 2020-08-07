@@ -1,6 +1,6 @@
 ---
 title: State persistence
-description: Documentation of Apify actors - persisting your actor's state.
+description: Maintain your actor's state in case it needs to be restarted. Learn how to protect your actor or task run in case of server shutdown with a code example.
 paths:
     - actor/development/state-persistence
     - actors/development/state-persistence
@@ -8,11 +8,11 @@ paths:
 
 # [](#state-persistence)State persistence
 
-Unlike traditional serverless platforms, the duration of an Apify actor's run is unlimited. This means, however, that an actor might need to be restarted from time to time, e.g. when the server it's running on is to be shut down. 
+Unlike traditional serverless platforms, the duration of an Apify actor's run is unlimited. This means, however, that an actor might need to be restarted from time to time, e.g. when the server it's running on is to be shut down.
 
-Actors need to account for this possibility. For short-running actors, the chance of a restart is quite low and the cost of repeated runs is low, so restarts can be ignored. 
+Actors need to account for this possibility. For short-running actors, the chance of a restart is quite low and the cost of repeated runs is low, so restarts can be ignored.
 
-However, for long-running actors a restart might be very costly and therefore such actors should periodically persist their state, possibly to the key-value store associated with the actor run. 
+However, for long-running actors a restart might be very costly and therefore such actors should periodically persist their state, possibly to the key-value store associated with the actor run.
 
 On start, actors should first check whether there is some state stored and if so they should continue where they left off.
 

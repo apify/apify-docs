@@ -1,6 +1,6 @@
 ---
 title: Environment variables
-description: Documentation of Apify actors - determining your actor's context using environment variables.
+description: Learn how to provide your actor with context that determines its behavior.
 paths:
     - actor/development/environment-variables
     - actors/development/environment-variables

@@ -1,6 +1,6 @@
 ---
 title: Python Examples
-description: Learn how to connect to Google SERP proxies from your application using Python 2 and 3 code examples. Configure proxy locations and reduce blocking when web scraping.
+description: Learn how to connect to Google SERP proxies from your application using Python 2 and 3 code examples. Configure proxy locations and reduce blocking.
 paths:
     - proxy/google-serp-proxy/python-examples
 ---
