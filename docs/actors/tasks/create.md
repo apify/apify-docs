@@ -1,6 +1,6 @@
 ---
 title: Create
-description: Learn how to set up reusable versions of your actor for specific use cases.
+description: Learn how to set up reusable versions of your actors for specific use cases.
 paths:
     - tasks/create
     - actors/tasks/create
