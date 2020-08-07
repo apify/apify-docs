@@ -1,6 +1,6 @@
 ---
 title: State persistence
-description: Maintain your actor's state in case it needs to be restarted. Learn how to protect your actor or task run in case of server shutdown with a code example.
+description: Maintain a long-running actor's state to protect from unexpected restarts. See a code example on how to protect your run in case of server shutdown.
 paths:
     - actor/development/state-persistence
     - actors/development/state-persistence
