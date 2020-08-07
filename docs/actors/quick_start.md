@@ -1,6 +1,6 @@
 ---
 title: Quick start
-description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Create your first Apify actor using code examples. A step-by-step introduction to web scraping with the Apify platform.
 menuWeight: 3.1
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
@@ -10,7 +10,7 @@ paths:
 
 # Quick start
 
-Go to the [Actor](https://my.apify.com/actors) section in the app, create a new actor and go to **Source** tab. Paste the following Node.js code into the **Source code** editor:
+Go to the [Actors](https://my.apify.com/actors) section in the app, create a new actor and go to **Source** tab. Paste the following Node.js code into the **Source code** editor:
 
     const Apify = require('apify');
 
