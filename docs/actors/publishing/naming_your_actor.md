@@ -1,6 +1,6 @@
 ---
 title: Naming your actor
-description: Documentation of Apify's standards for actor naming.
+description: Apify's standards for actor naming. Learn how to choose the right name for scraping and non-scraping actors and how to optimize your actor for search engines.
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/publishing/naming-your-actor
@@ -9,7 +9,7 @@ paths:
 
 # [](#naming-your-actor) Naming your actor
 
-Naming your actor can be tricky. Especially when you've spent a long time coding and are excited to show your brand new creation to the world. To help users find your actor, we've introduced naming standards. These standards improve your actor's [search engine optimization (SEO)](https://en.wikipedia.org/wiki/Search_engine_optimization) and maintain consistency in the [Apify Store](https://apify.com/store).
+Naming your actor can be tricky. Especially when you've spent a long time coding and are excited to show your brand-new creation to the world. To help users find your actor, we've introduced naming standards. These standards improve your actor's [search engine optimization (SEO)](https://en.wikipedia.org/wiki/Search_engine_optimization) and maintain consistency in the [Apify Store](https://apify.com/store).
 
 
 ## [](#scrapers) Scrapers
@@ -36,7 +36,7 @@ For example,
 
 ## [](#non-scraping-actors) Non-scraping actors
 
-Naming for non-scraping actors is more liberal. Being creative and considering SEO and user experience are good places to start. Think about what your users will type into a serach engine when looking for your actor. What is your actor's function? 
+Naming for non-scraping actors is more liberal. Being creative and considering SEO and user experience are good places to start. Think about what your users will type into a search engine when looking for your actor. What is your actor's function?
 
 If you're having trouble, you can always run your ideas by the Apify team using the chat icon in the bottom-right corner.
 
@@ -56,4 +56,4 @@ AVOID:
 
 **Warning!** Changing your actor's `technical name` may break current integrations for that actor's users. This is why some actors in the Apify Store don't have consistent naming. For the same reason, it is best to change the actor's name early, before you build a steady user base.
 
-The `publication title`, however, can be changed without any problems. 
+The `publication title`, however, can be changed without any problems.

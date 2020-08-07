@@ -1,6 +1,6 @@
 ---
 title: Publishing
-description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Learn how to make your actor available to the public or keep it private. Prepare your actor for Apify Store with a description and README file.
 menuWeight: 3.5
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
@@ -16,7 +16,7 @@ As well as the requirements shown under `Is everything set?`, you'll need a user
 
 ## [](#private-or-public) Private or public?
 
-Actors can be private or public. 
+Actors can be private or public.
 
 Public actors are shown in the [store](https://apify.com/store) and can be run by anyone. Each public actor has a globally unique identifier that consists of the owner's username and the actor name, e.g. [apify/hello-world](https://apify.com/apify/hello-world).
 
