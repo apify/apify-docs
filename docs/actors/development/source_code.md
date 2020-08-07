@@ -1,6 +1,6 @@
 ---
 title: Source code
-description: Documentation of Apify actors - storing your actor's source code.
+description: Define the location where your actor's code is stored. Build your actor from a GitHub repo, upload a Zip file or write your actor in the in-app editor.
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/source-code

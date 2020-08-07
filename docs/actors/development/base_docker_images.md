@@ -1,6 +1,6 @@
 ---
 title: Base Docker images
-description: Documentation of Apify actors - options for Docker images to use as your actor's base.
+description: Learn about the options for Docker images to use as your actor's base. Choose the correct base image for your actor's type  and requirements.
 paths:
     - actor/development/base-docker-images
     - actors/development/base-docker-images

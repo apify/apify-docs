@@ -1,6 +1,6 @@
 ---
 title: Input schema
-description: Documentation of Apify actors - defining your actor's input schema.
+description: Learn how to define and structure your actor's input in the codebase or using a visual editor. Define input type and minimum/maximum values.
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/input-schema
@@ -248,7 +248,7 @@ The object where the proxy configuration is stored has the following structure:
         // or if proxies are not used.
         "apifyProxyGroups": String[],
 
-        // Array of custom proxy URLs. 
+        // Array of custom proxy URLs.
         // Is missing or null if custom proxies were not used.
         "proxyUrls": String[],
     }
