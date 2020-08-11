@@ -22,10 +22,10 @@ Key-value stores are mutable–you can both add entries and delete them.
 
 There are four ways to access your key-value stores:
 
-* [Apify app](https://my.apify.com/storage#/keyValueStores) - provides an easy-to-understand interface [[details](#apify-app)]
-* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#key-value-store) - when building your own Apify actor [[details](#apify-sdk)]
-* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) - to access your key-value stores from any Node.js application [[details](#javascript-api-client)]
-* [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically [[details](#apify-api)]
+* [Apify app](https://my.apify.com/storage#/keyValueStores) - provides an easy-to-understand interface [[details](#apify-app)].
+* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#key-value-store) - when building your own Apify actor [[details](#apify-sdk)].
+* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) - to access your key-value stores from any Node.js application [[details](#javascript-api-client)].
+* [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically [[details](#apify-api)].
 
 ### [](#apify-app) Apify app
 
@@ -59,7 +59,7 @@ You can find INPUT.json and other key-value stores in the location below.
 
     {APIFY_LOCAL_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}
 
-The default key-value store's ID is *default*. The {KEY} is the record's *key* and {EXT} corresponds to the data value's MIME content type.
+The default key-value store's ID is *default*\. The {KEY} is the record's *key* and {EXT} corresponds to the data value's MIME content type.
 
 To manage your key-value stores, you can use the following methods. For a full list of methods, see the `KeyValueStore` class's [API reference](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoregetvaluekey).
 
@@ -70,13 +70,13 @@ const input = await Apify.getInput();
 // Open a named key-value store
 const exampleStore = await Apify.openKeyValueStore("my-store");
 
-// Read a record in the *exampleStore* storage
+// Read a record in the exampleStore storage
 const value = await exampleStore.getValue("some-key");
 
-// Write a record to *exampleStore*
+// Write a record to exampleStore
 await exampleStore.setValue("some-key", { foo: "bar" });
 
-// Delete a record in *exampleStore*
+// Delete a record in exampleStore
 await exampleStore.setValue("some-key", null);
 ```
 
@@ -129,17 +129,17 @@ const exampleStore = await keyValueStores.getOrCreateStore({
 });
 apifyClient.setOptions({ storeId: store.id });
 
-// Get a record from *exampleStore*
+// Get a record from exampleStore
 const record = await keyValueStores.getRecord({ key: "foo" });
 
-// Write a record to the *exampleStore* storage
+// Write a record to the exampleStore storage
 await keyValueStores.putRecord({
     key: "foo",
     body: "bar",
     contentType: "text/plain; charset=utf-8",
 });
 
-// Delete a record in *exampleStore*
+// Delete a record in exampleStore
 await keyValueStores.deleteRecord({ key: "foo" });
 ```
 

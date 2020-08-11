@@ -111,7 +111,7 @@ By default, all Apify base Docker images start your Node.js application same way
       "repository": {}
     }
 
-*This means that by default the system expects the source code to be in the *main.js* file.* If you want to override this behavior, use a custom *package.json* and/or *Dockerfile*.
+*This means that by default the system expects the source code to be in the **main.js** file.* If you want to override this behavior, use a custom *package.json* and/or *Dockerfile*.
 
 
 ## [](#github-integration)GitHub integration
@@ -122,7 +122,7 @@ For example, for repositories on GitHub it can be done using the following steps
 
     https://api.apify.com/v2/acts/apify~hello-world/builds?token=<API_TOKEN>&version=0.1
 
-Then go to your GitHub repository, click *Settings*, select *Webhooks* tab and click *Add webhook*. Paste the API URL to the *Payload URL* as follows:
+Then go to your GitHub repository, click *Settings*, select *Webhooks* tab and click *Add webhook*\. Paste the API URL to the *Payload URL* as follows:
 
 ![GitHub integration]({{@asset actors/images/github-integration.png}})
 
