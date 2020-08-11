@@ -39,7 +39,7 @@ The `paths` metadata ensures successful redirects in case articles are renamed. 
 
 ### Assets
 
-You can place assets (images for example) in any directory. If you want to obtain a URL them use following tag:
+You can place assets (images for example) in any directory. If you want to obtain a URL, use the following tag:
 
 ```
 {{@asset actor/images/run-log-2.png}}
@@ -53,7 +53,7 @@ So to include this image in Markdown use:
 
 ### Linking
 
-For links we use similar syntax as for assets:
+For links we use a similar syntax as for assets:
 
 ```
 {{@link actor/source_code.md#source-git-repo}}
