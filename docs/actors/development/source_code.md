@@ -11,42 +11,42 @@ paths:
 
 # [](#source-code)Source code
 
-The *Source type* setting determines the location of the source code for the actor. It can have one of the following values: [Single JavaScript file](#single-javascript-file), [Multiple source files](#multiple-source-files), [Git repository](#git-repository), [Zip file](#zip-file) or [GitHub Gist](#github-gist).
+The **Source type** setting determines the location of the source code for the actor. It can have one of the following values: [Single JavaScript file](#single-javascript-file), [Multiple source files](#multiple-source-files), [Git repository](#git-repository), [Zip file](#zip-file) or [GitHub Gist](#github-gist).
 
 ## [](#single-javascript-file)Single JavaScript file
 
-The source code of the actor can be hosted directly on Apify. All the code needs to be in a single file and written in JavaScript / Node.js. The version of Node.js is determined by the *Base image* setting - see [base Docker images]({{@link actors/development/base_docker_images.md}}) for the description of possible options.
+The source code of the actor can be hosted directly on Apify. All the code needs to be in a single file and written in JavaScript / Node.js. The version of Node.js is determined by the **Base image** setting - see [base Docker images]({{@link actors/development/base_docker_images.md}}) for the description of possible options.
 
 The hosted source is especially useful for simple actors. The source code can require arbitrary NPM packages. For example:
 
     const _ = require('underscore');
     const request = require('request');
 
-During the build process, the source code is scanned for occurrences of the `require()` function and the corresponding NPM dependencies are automatically added to the *package.json* file by running:
+During the build process, the source code is scanned for occurrences of the `require()` function and the corresponding NPM dependencies are automatically added to the **package.json** file by running:
 
     npm install underscore request --save --only=prod --no-optional
 
-Note that certain NPM packages need additional tools for their installation, such as a C compiler or Python interpreter. If these tools are not available in the base Docker image, the build will fail. If that happens, try to change the base image to *Node.js 10 + Puppeteer on Debian*, because it contains much more tools than other images. Alternatively, you can use switch to the [multifile editor](#custom-dockerfile) and create your own docker image configuration.
+Note that certain NPM packages need additional tools for their installation, such as a C compiler or Python interpreter. If these tools are not available in the base Docker image, the build will fail. If that happens, try to change the base image to **Node.js 10 + Puppeteer on Debian**, because it contains much more tools than other images. Alternatively, you can use switch to the [multifile editor](#custom-dockerfile) and create your own docker image configuration.
 
 ## [](#multiple-source-files)Multiple source files
 
-If the actor's source code requires the use of multiple files/directories, then it can be hosted on the Apify platform using this option. This is particulary useful when you need to add [*INPUT_SCHEMA.json*]({{@link actors/development/source_code.md#input-schema}}) or *README.md* to your actor, or if you want to create your actor in a language other than JavaScript.
+If the actor's source code requires the use of multiple files/directories, then it can be hosted on the Apify platform using this option. This is particulary useful when you need to add [**INPUT_SCHEMA.json**]({{@link actors/development/source_code.md#input-schema}}) or **README.md** to your actor, or if you want to create your actor in a language other than JavaScript.
 
-The only required file for multifile is *Dockerfile*, and all other files depend on your *Dockerfile* settings. By default Apify's custom NodeJS *Dockerfile* is used, which requires a *main.js* file containing your source code and a *package.json* file containing package configurations for [NPM](https://www.npmjs.com/).
+The only required file for multifile is **Dockerfile**, and all other files depend on your Dockerfile settings. By default Apify's custom NodeJS Dockerfile is used, which requires a **main.js** file containing your source code and a **package.json** file containing package configurations for [NPM](https://www.npmjs.com/).
 
-Unlike with the [single JavaScript file](#single-javascript-file) option, *package.json* is not automaticaly generated when you use multiple source files, so you need to configure it yourself.
+Unlike with the [single JavaScript file](#single-javascript-file) option, **package.json** is not automaticaly generated when you use multiple source files, so you need to configure it yourself.
 
 See [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) and [base Docker images]({{@link actors/development/base_docker_images.md}}) for more information about creating your own Dockerfile and using Apify's prepared base images.
 
 ## [](#git-repository)Git repository
 
-If the actor's source code is hosted externally in a Git repository, it can consist of multiple files and directories, use its own *Dockerfile* to control the build process (see [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) for details) and have a user description in store fetched from the *README.md* file. The location of the repository is specified by the *Git URL* setting, which can be an *https*, *git* or *ssh* URL.
+If the actor's source code is hosted externally in a Git repository, it can consist of multiple files and directories, use its own **Dockerfile** to control the build process (see [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) for details) and have a user description in store fetched from the **README.md** file. The location of the repository is specified by the **Git URL** setting, which can be an **https**, **git** or **ssh** URL.
 
 To help you get started quickly, you can use the [apify/quick-start](https://apify.com/apify/quick-start) actor which contains all the boilerplate necessary when creating a new actor hosted on Git. The source code is available on [GitHub](https://github.com/apifytech/actor-quick-start).
 
-To specify a Git branch or tag to check out, add a URL fragment to the URL. For example, to check out the *develop* branch, specify a URL such as https://github.com/jancurn/act-analyse-pages.git#develop
+To specify a Git branch or tag to check out, add a URL fragment to the URL. For example, to check out the **develop** branch, specify a URL such as https://github.com/jancurn/act-analyse-pages.git#develop
 
-Optionally, the second part of the fragment in the Git URL (separated by a colon) specifies the context directory for the Docker build. For example, https://github.com/jancurn/act-analyse-pages.git#develop:some/dir will check out the *develop* branch and set *some/dir* as a context directory for the Docker build.
+Optionally, the second part of the fragment in the Git URL (separated by a colon) specifies the context directory for the Docker build. For example, https://github.com/jancurn/act-analyse-pages.git#develop:some/dir will check out the **develop** branch and set **some/dir** as a context directory for the Docker build.
 
 Note that you can easily set up an integration where the actor is automatically rebuilt on every commit to the Git repository. For more details, see [GitHub integration]({{@link actors/development/source_code.md#github-integration}}).
 
@@ -54,11 +54,11 @@ Note that you can easily set up an integration where the actor is automatically 
 
 If your source code is hosted in a private Git repository then you need to configure deployment key. Deployment key is different for each actor and might be used only once at Git hosting of your choice (Github, Bitbucket, Gitlab, etc.).
 
-To obtain the key click at the *deployment key* link under the *Git URL* text input and follow the instructions there.
+To obtain the key click at the **deployment key** link under the **Git URL** text input and follow the instructions there.
 
 ## [](#zip-file)Zip file
 
-The source code for the actor can also be located in a Zip archive hosted on an external URL. This option enables integration with arbitrary source code or continuous integration systems. Similarly as with the [Git repository]({{@link actors/development/source_code.md#git-repository}}), the source code can consist of multiple files and directories, can contain a custom *Dockerfile* and the actor description is taken from *README.md*.
+The source code for the actor can also be located in a Zip archive hosted on an external URL. This option enables integration with arbitrary source code or continuous integration systems. Similarly as with the [Git repository]({{@link actors/development/source_code.md#git-repository}}), the source code can consist of multiple files and directories, can contain a custom **Dockerfile** and the actor description is taken from **README.md**.
 
 ## [](#github-gist)GitHub Gist
 
@@ -66,17 +66,17 @@ Sometimes having a full Git repository or a hosted Zip file might be overly comp
 
 [https://gist.github.com/jancurn/2dbe83fea77c439b1119fb3f118513e7](https://gist.github.com/jancurn/2dbe83fea77c439b1119fb3f118513e7)
 
-Then set the *Source Type* to *GitHub Gist* and paste the Gist URL as follows:
+Then set the **Source Type** to **GitHub Gist** and paste the Gist URL as follows:
 
 ![GitHub Gist settings]({{@asset actors/images/gist-settings.png}})
 
 Note that the example actor is available in the Apify Store as [apify/example-github-gist](https://apify.com/apify/example-github-gist).
 
-Similarly as with the [Git repository]({{@link actors/development/source_code.md#git-repository}}), the source code can consist of multiple files and directories, it can contain a custom *Dockerfile* and the actor description is taken from *README.md*.
+Similarly as with the [Git repository]({{@link actors/development/source_code.md#git-repository}}), the source code can consist of multiple files and directories, it can contain a custom **Dockerfile** and the actor description is taken from **README.md**.
 
 ## [](#custom-dockerfile)Custom Dockerfile
 
-Internally, Apify uses Docker to build and run actors. To control the build of the actor, you can create a custom *Dockerfile* in the root of the Git repository or Zip directory. Note that this option is not available for the [Single JavaScript file]({{@link actors/development/source_code.md#single-javascript-file}}) option. If the *Dockerfile* is missing, the system uses the following default:
+Internally, Apify uses Docker to build and run actors. To control the build of the actor, you can create a custom **Dockerfile** in the root of the Git repository or Zip directory. Note that this option is not available for the [Single JavaScript file]({{@link actors/development/source_code.md#single-javascript-file}}) option. If the **Dockerfile** is missing, the system uses the following default:
 
     FROM apify/actor-node-basic
 
@@ -94,7 +94,7 @@ For more information about Dockerfile syntax and commands, see the [Dockerfile r
 
 Note that `apify/actor-node-basic` is a base Docker image provided by Apify. There are other base images with other features available. However, you can use arbitrary Docker images as the base for your actors, although using the Apify images has some performance advantages. See [base Docker images]({{@link actors/development/base_docker_images.md}}) for details.
 
-By default, all Apify base Docker images start your Node.js application same way as *npm start* does, i.e. by running the command specified in the *package.json* file under the *scripts* - *start* key. The default *package.json* file is similar to the following.
+By default, all Apify base Docker images start your Node.js application same way as **npm start** does, i.e. by running the command specified in the **package.json** file under the **scripts** - **start** key. The default **package.json** file is similar to the following.
 
     {
       "description": "Anonymous actor on the Apify platform",
@@ -111,18 +111,18 @@ By default, all Apify base Docker images start your Node.js application same way
       "repository": {}
     }
 
-*This means that by default the system expects the source code to be in the **main.js** file.* If you want to override this behavior, use a custom *package.json* and/or *Dockerfile*.
+*This means that by default the system expects the source code to be in the **main.js** file.* If you want to override this behavior, use a custom **package.json** and/or **Dockerfile**.
 
 
 ## [](#github-integration)GitHub integration
 
 If the source code of an actor is hosted in a [Git repository](#git-repository), it is possible to set up integration so that on every push to the Git repository the actor is automatically rebuilt. For that, you only need to set up a webhook in your Git source control system that will invoke the [Build actor](/docs/api/v2/#/reference/actors/build-collection/build-actor) API endpoint on every push to Git repository.
 
-For example, for repositories on GitHub it can be done using the following steps. First, go to the actor detail page, open the *API* tab and copy the *Build actor* API endpoint URL. It should look something like this:
+For example, for repositories on GitHub it can be done using the following steps. First, go to the actor detail page, open the **API** tab and copy the **Build actor** API endpoint URL. It should look something like this:
 
     https://api.apify.com/v2/acts/apify~hello-world/builds?token=<API_TOKEN>&version=0.1
 
-Then go to your GitHub repository, click *Settings*, select *Webhooks* tab and click *Add webhook*\. Paste the API URL to the *Payload URL* as follows:
+Then go to your GitHub repository, click **Settings**, select **Webhooks** tab and click **Add webhook**\. Paste the API URL to the **Payload URL** as follows:
 
 ![GitHub integration]({{@asset actors/images/github-integration.png}})
 
@@ -130,7 +130,7 @@ And that's it! Now your actor should automatically rebuild on every push to the 
 
 ## [](#custom-environment-variables)Custom environment variables
 
-The actor owner can specify custom environment variables that are set to the actor's process during the run. Sensitive environment variables such as passwords or API tokens can be protected by setting the *Secret* option. With this option enabled, the value of the environment variable is encrypted and it will not be visible in the app or APIs, and the value is redacted from actor logs to avoid the accidental leakage of sensitive data.
+The actor owner can specify custom environment variables that are set to the actor's process during the run. Sensitive environment variables such as passwords or API tokens can be protected by setting the **Secret** option. With this option enabled, the value of the environment variable is encrypted and it will not be visible in the app or APIs, and the value is redacted from actor logs to avoid the accidental leakage of sensitive data.
 
 ![Custom environment variables]({{@asset actors/images/source-env-vars.png}})
 
@@ -144,9 +144,9 @@ The actor runtime sets additional environment variables for the actor process du
 
 ## [](#versioning)Versioning
 
-In order to enable active development, the actor can have multiple versions of the source code and associated settings, such as the *Base image* and *Environment*. Each version is denoted by a version number of the form `MAJOR.MINOR`; the version numbers should adhere to the [Semantic Versioning](http://semver.org/) logic.
+In order to enable active development, the actor can have multiple versions of the source code and associated settings, such as the **Base image** and **Environment**. Each version is denoted by a version number of the form `MAJOR.MINOR`; the version numbers should adhere to the [Semantic Versioning](http://semver.org/) logic.
 
-For example, the actor can have a production version *1.1*, a beta version *1.2* that contains new features but is still backwards compatible, and a development version *2.0* that contains breaking changes.
+For example, the actor can have a production version **1.1**, a beta version **1.2** that contains new features but is still backwards compatible, and a development version **2.0** that contains breaking changes.
 
 The versions of the actors are built and run separately. For details, see [Build]({{@link actors/development/builds.md}}) and [Running]({{@link actors/running.md}}).
 
@@ -168,9 +168,9 @@ For more information on this topic see [input schema documentation](https://docs
 
 The metamorph operation transforms an actor run into a run of another actor with a new input. This feature is useful if you want to use another actor to finish the work of your current actor, instead of internally starting a new actor run and waiting for its finish. With metamorph, you can easily create new actors on top of existing ones, and give your users nicer input structure and user-interface for the final actor. For the users of your actors, the metamorph operation is completely transparent, they will just see your actor got the work done.
 
-Internally, the system stops the Docker container corresponding to the actor run and starts a new container using a different Docker image. All the default storages are preserved and the new input is stored under the *INPUT-METAMORPH-1* key in the same default key-value store.
+Internally, the system stops the Docker container corresponding to the actor run and starts a new container using a different Docker image. All the default storages are preserved and the new input is stored under the **INPUT-METAMORPH-1** key in the same default key-value store.
 
-To make you actor compatible with metamorph operation use `Apify.getInput()` instead of `Apify.getValue('INPUT')`. This method will fetch the input using the right key *INPUT-METAMORPH-1* in a case of metamorphed run.
+To make you actor compatible with metamorph operation use `Apify.getInput()` instead of `Apify.getValue('INPUT')`. This method will fetch the input using the right key **INPUT-METAMORPH-1** in a case of metamorphed run.
 
 For example, imagine you have an actor that accepts a hotel URL on input and then internally uses the [apify/web-scraper](https://www.apify.com/apify/web-scraper) actor to scrape all the hotel reviews. The metamorphing code would look as follows:
 

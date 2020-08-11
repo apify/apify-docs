@@ -29,12 +29,12 @@ There are four ways to access your request queues:
 
 In the [Apify app](https://my.apify.com), you can view your request queues in the [Storage](https://my.apify.com/storage) section under the [Request queues](https://my.apify.com/storage#/requestQueues) tab.
 
-Only named request queues are displayed by default. Select the *Include unnamed request queues* checkbox to display all of your queues.
+Only named request queues are displayed by default. Select the **Include unnamed request queues** checkbox to display all of your queues.
 
 ![Request queues in app]({{@asset storage/images/request-queue-app.png}})
 
-To view a request queue, click on its *Queue ID*\.
-In the detail page, under the *Settings* tab, you can update the queue's name (and, in turn, its
+To view a request queue, click on its **Queue ID**\.
+In the detail page, under the **Settings** tab, you can update the queue's name (and, in turn, its
 [retention period]({{@link storage.md#data-retention}})) and
 [access rights]({{@link access_rights.md}}).
 The API tab allows you to view and test a queue's [API endpoints](https://docs.apify.com/api/v2#/reference/request-queues).
@@ -53,13 +53,13 @@ and [manage your existing queues](https://sdk.apify.com/docs/api/request-queue#r
 
 Each actor run is associated with the default request queue, which is created for the actor run when the first request is added to it. Typically, it is used to store URLs to crawl in the specific actor run, however its usage is optional.
 
-You can also create *named queues* which can be shared between actors or between actor runs.
+You can also create **named queues** which can be shared between actors or between actor runs.
 
 If you are storing your data locally, you can find your request queue at the following location.
 
     {APIFY_LOCAL_STORAGE_DIR}/request_queues/{QUEUE_ID}/{STATE}/{NUMBER}.json
 
-The default request queue's ID is *default*\. Each request in the queue is stored as a separate JSON file, where {STATE} is either *handled* or *pending*, and {NUMBER} is an integer indicating the request's position in the queue.
+The default request queue's ID is **default**\. Each request in the queue is stored as a separate JSON file, where {STATE} is either **handled** or **pending**, and {NUMBER} is an integer indicating the request's position in the queue.
 
 To **open a request queue**, use the `Apify.openRequestQueue()` [method](https://sdk.apify.com/docs/api/apify#apifyopenrequestqueuequeueidorname-options).
 
@@ -156,7 +156,7 @@ For more information on managing your request queues using the JavaScript API cl
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/request-queues) allows you to access your request queues programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your request queues using the *username~store-name* [store ID format]({{@link storage.md#apify-api}}), you will need to append your [secret API token](https://docs.apify.com/api/v2#/introduction/authentication) as a query parameter (see below). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+If you are accessing your request queues using the **username~store-name** [store ID format]({{@link storage.md#apify-api}}), you will need to append your [secret API token](https://docs.apify.com/api/v2#/introduction/authentication) as a query parameter (see below). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
 
 To **get a list of your request queues**, send a GET request to the [Get list of request queues](https://docs.apify.com/api/v2#/reference/request-queues/store-collection/get-list-of-request-queues) endpoint, providing your secret API token as a query parameter.
 
@@ -206,7 +206,7 @@ For a detailed breakdown of each API endpoint, see the [API documentation](https
 
 ## [](#sharing-request-queues-between-runs) Sharing request queues between runs
 
-You can access a request queue from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its *name* or *ID*.
+You can access a request queue from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its **name** or **ID**.
 
 To access a request queue from another run using the Apify SDK, open it using the `Apify.openRequestQueue([queueIdOrName])` [method]((https://sdk.apify.com/docs/api/apify#apifyopenrequestqueuequeueidorname-options)) like you would any other queue.
 
