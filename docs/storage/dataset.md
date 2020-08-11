@@ -22,10 +22,10 @@ Dataset storage is *append-only* - data can only be added and cannot be changed 
 
 There are four ways to access your datasets:
 
-* [Apify app](https://my.apify.com/storage#/datasets) - provides an easy-to-understand interface [[details](#apify-app)]
-* [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor [[details](#apify-sdk)]
-* [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from any Node.js application [[details](#javascript-api-client)]
-* [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically [[details](#apify-api)]
+* [Apify app](https://my.apify.com/storage#/datasets) - provides an easy-to-understand interface [[details](#apify-app)].
+* [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor [[details](#apify-sdk)].
+* [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from any Node.js application [[details](#javascript-api-client)].
+* [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically [[details](#apify-api)].
 
 ### [](#apify-app) Apify app
 
@@ -35,7 +35,7 @@ Only named datasets are displayed by default. Select the *Include unnamed datase
 
 ![Datasets in app]({{@asset storage/images/datasets-app.png}})
 
-To view or download a dataset in the above mentioned formats, click on its *Dataset ID*. In the detail page, you can update the dataset's name (and, in turn, its [retention period]({{@link storage.md#data-retention}})) and
+To view or download a dataset in the above mentioned formats, click on its *Dataset ID*\. In the detail page, you can update the dataset's name (and, in turn, its [retention period]({{@link storage.md#data-retention}})) and
 [access rights]({{@link access_rights.md}}) under the *Settings* tab. The API tab allows you to view and test the dataset's [API endpoints](https://docs.apify.com/api/v2#/reference/datasets).
 
 ![Datasets detail view]({{@asset storage/images/datasets-detail.png}})
@@ -52,7 +52,7 @@ If you have chosen to store your dataset locally, you can find it in the locatio
 
     {APIFY_LOCAL_STORAGE_DIR}/datasets/{DATASET_ID}/{INDEX}.json
 
-*DATASET_ID* refers to the dataset's *name* or *ID*. The default dataset will be stored in the *default* directory.
+*DATASET_ID* refers to the dataset's *name* or *ID*\. The default dataset will be stored in the *default* directory.
 
 To add data to the default dataset, you can use the example below, however using the `Apify.main()` function is optional–it is only provided for your convenience.
 

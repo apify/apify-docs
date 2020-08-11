@@ -3,7 +3,7 @@ title: Access rights
 description: Documentation of access rights and publication on the Apify platform.
 menuWeight: 8
 category: platform
-paths: 
+paths:
     - access-rights
 ---
 
@@ -23,7 +23,7 @@ To be able to grant access rights to another user you must have a username set u
 
 Another way to share what you have made is to publish your actor in [Apify Store](https://apify.com/store). The published actor appears in [Apify Store](https://apify.com/store), any user will be able to view its source code and run it. Nobody except the author can modify it. If a user runs the actor, it gets billed to his account and the actor run will be available only for him.
 
-To publish the actor, open it in [Apify app](https://my.apify.com), go to the "Publication" tab and follow the instructions:
+To publish the actor, open it in [Apify app](https://my.apify.com), go to the *Publication* tab and follow the instructions:
 
 ![Access rights configuration]({{@asset images/publication.png}})
 

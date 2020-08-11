@@ -33,7 +33,7 @@ Only named request queues are displayed by default. Select the *Include unnamed 
 
 ![Request queues in app]({{@asset storage/images/request-queue-app.png}})
 
-To view a request queue, click on its *Queue ID*.
+To view a request queue, click on its *Queue ID*\.
 In the detail page, under the *Settings* tab, you can update the queue's name (and, in turn, its
 [retention period]({{@link storage.md#data-retention}})) and
 [access rights]({{@link access_rights.md}}).
@@ -59,7 +59,7 @@ If you are storing your data locally, you can find your request queue at the fol
 
     {APIFY_LOCAL_STORAGE_DIR}/request_queues/{QUEUE_ID}/{STATE}/{NUMBER}.json
 
-The default request queue's ID is *default*. Each request in the queue is stored as a separate JSON file, where {STATE} is either *handled* or *pending*, and {NUMBER} is an integer indicating the request's position in the queue.
+The default request queue's ID is *default*\. Each request in the queue is stored as a separate JSON file, where {STATE} is either *handled* or *pending*, and {NUMBER} is an integer indicating the request's position in the queue.
 
 To **open a request queue**, use the `Apify.openRequestQueue()` [method](https://sdk.apify.com/docs/api/apify#apifyopenrequestqueuequeueidorname-options).
 
