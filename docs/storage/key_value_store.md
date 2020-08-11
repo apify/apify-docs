@@ -122,7 +122,7 @@ const keyValueStores = apifyClient.keyValueStores;
 You can then access your stores, retrieve records in stores, write new records or delete records.
 
 ```js
-// Get the *my-store* key-value store or create it
+// Get the "my-store" key-value store or create it
 // if it doesn't exist and set it as the default
 const exampleStore = await keyValueStores.getOrCreateStore({
     storeName: "my-store"
@@ -132,7 +132,7 @@ apifyClient.setOptions({ storeId: store.id });
 // Get a record from exampleStore
 const record = await keyValueStores.getRecord({ key: "foo" });
 
-// Write a record to the exampleStore storage
+// Write a record to exampleStore
 await keyValueStores.putRecord({
     key: "foo",
     body: "bar",
