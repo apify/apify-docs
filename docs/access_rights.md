@@ -1,6 +1,6 @@
 ---
 title: Access rights
-description: Control permissions for private resources such as actors, actor runs and storages. Allow other users to share, modify or build new versions.
+description: Control permissions for private resources such as actors, actor runs and storages. Allow other users to read, run, modify or build new versions.
 menuWeight: 8
 category: platform
 paths:

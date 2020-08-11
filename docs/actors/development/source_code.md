@@ -1,6 +1,6 @@
 ---
 title: Source code
-description: Define the location where your actor's code is stored. Build your actor from a GitHub repo, upload a Zip file or write your actor in the in-app editor.
+description: Learn all about an Apify actor's code. Compare hosting options, create a custom Dockerfile, set environment variables and metamorph your actor.
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/source-code
