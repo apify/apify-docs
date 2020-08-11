@@ -53,9 +53,9 @@ The above actor is also available in the store as [apify/hello-world](https://ap
 
 For more complicated actors, you'll probably prefer to host the source code on Git. To do that, follow these steps:
 
-1.  Create a new Git repository
-2.  Copy the boilerplate actor code from the [apify/quick-start](https://github.com/apifytech/actor-quick-start) actor
-3.  Set **Source type** to **Git repository** for your actor in the app
+1.  Create a new Git repository.
+2.  Copy the boilerplate actor code from the [apify/quick-start](https://github.com/apifytech/actor-quick-start) actor.
+3.  Set **Source type** to **Git repository** for your actor in the app.
 4.  Paste the Git repo link to **Git URL**, save changes and build your actor.
 5.  That's it, now you can develop your actor locally on your computer and run it in the Apify cloud!
 

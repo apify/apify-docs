@@ -20,10 +20,10 @@ Request queue storage supports both breadth-first and depth-first crawling order
 
 There are four ways to access your request queues:
 
-* [Apify app](https://my.apify.com/storage#/requestQueues) - provides an easy-to-understand interface [[details](#apify-app)]
-* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#request-queue) - when building your own Apify actor [[details](#apify-sdk)]
-* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) - to access your request queues from any Node.js application [[details](#javascript-api-client)]
-* [Apify API](https://docs.apify.com/api/v2#/reference/request-queues) - for accessing your request queues programmatically [[details](#apify-api)]
+* [Apify app](https://my.apify.com/storage#/requestQueues) - provides an easy-to-understand interface [[details](#apify-app)].
+* [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#request-queue) - when building your own Apify actor [[details](#apify-sdk)].
+* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) - to access your request queues from any Node.js application [[details](#javascript-api-client)].
+* [Apify API](https://docs.apify.com/api/v2#/reference/request-queues) - for accessing your request queues programmatically [[details](#apify-api)].
 
 ### [](#apify-app) Apify app
 
@@ -43,7 +43,7 @@ The API tab allows you to view and test a queue's [API endpoints](https://docs.a
 
 ### [](#apify-sdk) Apify SDK
 
-If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify software development kit (SDK)](https://sdk.apify.com).
+If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify SDK](https://sdk.apify.com).
 In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#request-queue), the request queue is represented by the
 [`RequestQueue`](https://sdk.apify.com/docs/api/request-queue) class.
 

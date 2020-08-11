@@ -23,8 +23,8 @@ The key-value store associated with an actor run can be conveniently accessed us
 
 ## [](#passing-input) Passing input
 
-There are three ways to pass input to an actor
-  * using the INPUT tab if you are running the actor in the Apify [app](https://my.apify.com)
-  * by creating or editing the *INPUT.json* file in the key-value store
-  * using a POST payload when running the actor using the [Apify API](https://docs.apify.com/api)
+There are three ways to pass input to an actor:
+  * using the INPUT tab if you are running the actor in the Apify [app](https://my.apify.com).
+  * by creating or editing the *INPUT.json* file in the key-value store.
+  * using a POST payload when running the actor using the [Apify API](https://docs.apify.com/api).
 
