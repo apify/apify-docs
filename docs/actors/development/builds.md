@@ -13,7 +13,7 @@ paths:
 
 Before the actor can be run, it first needs to be built. The build effectively creates a snapshot of a specific version of the actor's settings such as the [Source code]({{@link actors/development/source_code.md}}) and [Environment variables]({{@link actors/development/environment_variables.md}}), and creates a Docker image that contains everything the actor needs for its run, including necessary NPM packages, web browsers, etc.
 
-Each build is assigned a unique build number of the form *MAJOR.MINOR.BUILD* (e.g. *1\.2\.345*), where *MAJOR.MINOR* corresponds to the actor version number (see [Versioning]({{@link actors/development/source_code.md#versioning}})) and *BUILD* is an automatically-incremented number starting at *1*.
+Each build is assigned a unique build number of the form *MAJOR\.MINOR\.BUILD* (e.g. *1\.2\.345*), where *MAJOR\.MINOR* corresponds to the actor version number (see [Versioning]({{@link actors/development/source_code.md#versioning}})) and *BUILD* is an automatically-incremented number starting at *1*.
 
 By default, the build has a timeout of 300 seconds and consumes 1024 MB of memory from the user's memory limit. See the [Resource limits]({{@link actors/running.md#resource-limits}}) section for more details.
 
