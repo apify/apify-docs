@@ -31,7 +31,7 @@ const readAndParsePage = async (fullPath, shortPath) => {
     if (metadata.description) {
         const descriptionLength = metadata.description.length;
         if (descriptionLength < 140 || descriptionLength > 160) {
-            console.error(`Description in ${filenamePath}.md too ${descriptionLength < 140 ? 'long' : 'short'} (${descriptionLength}). `
+            console.error(`Description in ${filenamePath}.md too ${descriptionLength < 140 ? 'short' : 'long'} (${descriptionLength}). `
             + 'It should be between 140 and 160 characters for best SEO. \n');
         }
     }
