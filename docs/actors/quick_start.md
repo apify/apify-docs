@@ -39,7 +39,7 @@ Let's try something little more complicated. We will change the actor to accept 
         await Apify.setValue('OUTPUT', output);
     });
 
-Save your actor by clicking *Save* and then rebuild it by clicking *Build*. After the build is finished, go to *Console* and set *Input* to:
+Save your actor by clicking *Save* and then rebuild it by clicking *Build*\. After the build is finished, go to *Console* and set *Input* to:
 
     { "hello": 123 }
 
