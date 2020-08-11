@@ -1,6 +1,6 @@
 ---
 title: Base Docker images
-description: Learn about the Docker images you can use as your actor's base. Choose the correct base image for your actor's type  and requirements.
+description: Learn about the Docker images you can use as your actor's base. Choose the correct base image for your actor's type and requirements.
 paths:
     - actor/development/base-docker-images
     - actors/development/base-docker-images
