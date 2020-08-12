@@ -16,8 +16,6 @@ Currently, Apify Proxy provides access to [datacenter proxy servers]({{@link pro
 and [Google SERP proxy]({{@link proxy/google_serp_proxy.md}}).
 It supports HTTP as well as other protocols like HTTPS and FTP.
 
-![Apify proxy graphic]({{@asset images/proxy-marketing.svg}})
-
 You can view your Apify Proxy settings on the [Proxy page](https://my.apify.com/proxy) in the app.
 
 

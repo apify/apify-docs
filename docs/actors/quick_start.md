@@ -10,7 +10,7 @@ paths:
 
 # Quick start
 
-Go to the [Actor](https://my.apify.com/actors) section in the app, create a new actor and go to **Source** tab. Paste the following Node.js code into the **Source code** editor:
+Go to the [Actor](https://my.apify.com/actors) section in the app, create a new actor and go to *Source* tab. Paste the following Node.js code into the *Source code* editor:
 
     const Apify = require('apify');
 
@@ -18,7 +18,7 @@ Go to the [Actor](https://my.apify.com/actors) section in the app, create a new 
        console.log('Hello world from Actor!');
     });
 
-Click **▷ Run** to build and run your actor. After the run is finished you should see something like:
+Click *▷ Run* to build and run your actor. After the run is finished you should see something like:
 
 ![Apify actor run log]({{@asset actors/images/run-log.png}})
 
@@ -39,7 +39,7 @@ Let's try something little more complicated. We will change the actor to accept 
         await Apify.setValue('OUTPUT', output);
     });
 
-Save your actor by clicking **Save** and then rebuild it by clicking **Build**. After the build is finished, go to **Console** and set **Input** to:
+Save your actor by clicking **Save** and then rebuild it by clicking **Build**\. After the build is finished, go to **Console** and set **Input** to:
 
     { "hello": 123 }
 
