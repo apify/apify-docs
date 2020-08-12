@@ -1,6 +1,6 @@
 ---
 title: SEO for actors
-description: Optimize your actors to get more relevant visits from Google and other search engines. See search engine-friendly actor name, title and description examples.
+description: Optimize your actors to get more relevant visits from Google and other search engines. Set search engine-friendly actor name, title and description examples.
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/publishing/seo-for-actors
@@ -31,10 +31,10 @@ However, the name should also be readable and clear enough, so that people using
 
 The actor title provides a human-readable name. The title is the most important real estate from SEO standpoint. It should exactly match the most likely search query that potential users of your actor will use.
 
-At the same time, it should give your actor a clear name for people who will use it every day. So if you’re working on an "Amazon crawler" or a "Google Places API", use the following formats for your actor's name:
+At the same time, it shoud give your actor a clear name for people who will use it every day. So if you’re working on an "Amazon crawler" or a "Google Places API", use the following formats for your actor's name:
 
-> GOOD: Amazon crawler, Google Places API, Kickstarter search
-> AVOID: Crawler for Amazon, API for Google Places, Search in Kickstarter
+> GOOD: Amazon crawler, Google Places API, Kickstarter search.
+> AVOID: Crawler for Amazon, API for Google Places, Search in Kickstarter.
 
 ## [](#description) Description
 

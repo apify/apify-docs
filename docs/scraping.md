@@ -1,6 +1,6 @@
 ---
 title: Scraping
-description: Browse Apify's ready-made web scraping and automation tools. Compare Web Scraper, Cheerio Scraper and Puppeteer Scraper to decide which is right for you.
+description: Discover Apify's ready-made web scraping and automation tools. Compare Web Scraper, Cheerio Scraper and Puppeteer Scraper to decide which is right for you.
 menuWeight: 2
 category: guides
 paths:
@@ -11,7 +11,7 @@ paths:
 
 Scraping and crawling the web can be difficult and time-consuming without the right tools. That's why Apify provides ready-made solutions to crawl and scrape any website. They are based on our [actors](https://apify.com/actors) and the [Apify SDK](https://sdk.apify.com).
 
-Don't let the number of options confuse you. Unless you're really sure that you need to use a specific tool, just go ahead and use the [Web Scraper]({{@link scraping/web_scraper.md}}). It is the easiest to pick up and can handle almost anything. Look at [Puppeteer Scraper]({{@link scraping/puppeteer_scraper.md}}) or [Cheerio Scraper]({{@link scraping/cheerio_scraper.md}}) only after you know your target websites well and need to optimize your scraper.
+Don't let the number of options confuse you. Unless you're really sure you need to use a specific tool, just go ahead and use **Web Scraper** ([apify/web-scraper]({{@link scraping/web_scraper.md}})). It is the easiest to pick up and can handle almost anything. Look at **Puppeteer Scraper** ([apify/puppeteer-scraper]({{@link scraping/puppeteer_scraper.md}})) or **Cheerio Scraper** ([apify/cheerio-scraper]({{@link scraping/cheerio_scraper.md}})) only after you know your target websites well and need to optimize your scraper.
 
 [Visit the Scraper introduction tutorial to get started!]({{@link scraping/getting_started.md}})
 
@@ -25,19 +25,19 @@ Underneath, it uses the Puppeteer library to control the browser, but you don't 
 
 ## [](#cheerio-scraper)Cheerio Scraper
 
-Cheerio Scraper is a ready-made solution for crawling the web using plain HTTP requests to retrieve HTML pages and then parsing and inspecting the HTML using the Cheerio library. It's blazing fast.
+Cheerio Scraper is a ready-made solution for crawling the web using plain HTTP requests to retrieve HTML pages and then parsing and inspecting the HTML using the [cheerio](https://www.npmjs.com/package/cheerio) library. It's blazing fast.
 
-Cheerio is a server-side version of the popular jQuery library that does not run in the browser, but instead constructs a DOM out of a HTML string and then provides the user with API to work with that DOM.
+Cheerio is a server-side version of the popular jQuery library that does not run in the browser but instead constructs a DOM out of an HTML string and then provides the user an API to work with that DOM.
 
-Cheerio Scraper is ideal for scraping websites that do not rely on client-side JavaScript to serve their content. It can be as much as 20 times faster than using a full browser solution such as Puppeteer.
+Cheerio Scraper is ideal for scraping websites that do not rely on client-side JavaScript to serve their content. It can be as much as 20 times faster than using a full-browser solution like Puppeteer.
 
 [Visit the Cheerio Scraper tutorial to get started!]({{@link scraping/cheerio_scraper.md}})
 
 ## [](#puppeteer-scraper)Puppeteer Scraper
 
-Puppeteer Scraper is the most powerful scraper tool in our arsenal (aside from developing your own actors). It uses the Puppeteer library to programmatically control a headless Chrome browser and it can make it do almost anything. If using the Web Scraper does not cut it, Puppeteer Scraper is what you need.
+Puppeteer Scraper is the most powerful scraper tool in our arsenal (aside from developing your own actors). It uses the Puppeteer library to programmatically control a headless Chrome browser, and it can make it do almost anything. If using Web Scraper does not cut it, Puppeteer Scraper is what you need.
 
-Puppeteer is a Node.js library, so knowledge of Node.js and its paradigms is expected when working with the Puppeteer Scraper.
+Puppeteer is a Node.js library, so knowledge of Node.js and its paradigms is expected when working with Puppeteer Scraper.
 
 [Visit the Puppeteer Scraper tutorial to get started!]({{@link scraping/puppeteer_scraper.md}})
 

@@ -68,7 +68,7 @@ The code above uses the [`launchPuppeteer()`](https://sdk.apify.com/docs/api/api
 
 This example demonstrates how to create an actor written in PHP using a custom Dockerfile. For more information, see the [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) section. The Dockerfile is based on the [`php:7.0-cli`](https://hub.docker.com/_/php/) Docker image that contains everything needed to run PHP in a terminal.
 
-`Dockerfile` contains only two commands. The first copies source code into the container and the second executes `main.php`.
+**Dockerfile** contains only two commands. The first copies source code into the container and the second executes **main.php**.
 
 The actor can be found in the Apify store as [apify/example-php](https://apify.com/apify/example-php).
 
@@ -97,7 +97,7 @@ print "I am done!\n";
 
 ## [](#state-persistence)State persistence
 
-This actor demonstrates how to persist a state, so that on restart the actor can continue where it left off. For more information, see the [State persistence]({{@link actors/development/state_persistence.md}}) section. The actor simply counts from one up. In each run it prints one number. Its state (counter position) is stored in a named [key-value store]({{@link storage/key_value_store.md}}) called `example-counter`. You will find it in the [Storage](https://my.apify.com/key-value-stores) section of the app after you run the actor.
+This actor demonstrates how to persist a state, so that on restart the actor can continue where it left off. For more information, see the [State persistence]({{@link actors/development/state_persistence.md}}) section. The actor simply counts from one up. In each run it prints one number. Its state (counter position) is stored in a named [key-value store]({{@link storage/key_value_store.md}}) called **example-counter**. You will find it in the [Storage](https://my.apify.com/key-value-stores) section of the app after you run the actor.
 
 The actor can be found in the Apify store as **Example Counter** ([apify/example-counter](https://apify.com/apify/example-counter)).
 

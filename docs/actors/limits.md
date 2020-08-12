@@ -12,11 +12,11 @@ paths:
 
 The tables below demonstrate the Apify platform's default resource limits.
 
-If needed, the limits shown below can be increased on paid accounts. For details, contact us on `hello@apify.com` or using the chat icon in the bottom-right corner.
+If needed, the limits shown below can be increased on paid accounts. For details, contact us on **hello@apify.com** or using the chat icon in the bottom-right corner.
 
-* Maximum combined memory of all running jobs
-* Maximum number of actors per user
-* Maximum number of tasks per user
+* Maximum combined memory of all running jobs.
+* Maximum number of actors per user.
+* Maximum number of tasks per user.
 
 ## [](#actor-limits) Actor limits
 

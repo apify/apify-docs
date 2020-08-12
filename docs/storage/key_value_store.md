@@ -22,21 +22,21 @@ Key-value stores are mutable–you can both add entries and delete them.
 
 There are four ways to access your key-value stores:
 
-* [Apify app](https://my.apify.com/storage#/keyValueStores) - provides an easy-to-understand interface [[details](#apify-app)]
-* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#key-value-store) - when building your own Apify actor [[details](#apify-sdk)]
-* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) - to access your key-value stores from any Node.js application [[details](#javascript-api-client)]
-* [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically [[details](#apify-api)]
+* [Apify app](https://my.apify.com/storage#/keyValueStores) - provides an easy-to-understand interface [[details](#apify-app)].
+* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#key-value-store) - when building your own Apify actor [[details](#apify-sdk)].
+* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) - to access your key-value stores from any Node.js application [[details](#javascript-api-client)].
+* [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically [[details](#apify-api)].
 
 ### [](#apify-app) Apify app
 
 In the [Apify app](https://my.apify.com), you can view your key-value stores in the [Storage](https://my.apify.com/storage) section under the [Key-value stores](https://my.apify.com/storage#/keyValueStores) tab.
 
-Only named key-value stores are displayed by default. Select the `Include unnamed key-value stores` checkbox to display all of your stores.
+Only named key-value stores are displayed by default. Select the **Include unnamed key-value stores** checkbox to display all of your stores.
 
 ![Key-value stores in app]({{@asset storage/images/key-value-stores-app.png}})
 
-To view a key-value store's content, click on its `Store ID`, then click on a store's `View` button.
-In the detail page, under the `Settings` tab, you can update the store's name (and, in turn, its [retention period]({{@link storage.md#data-retention}})) and
+To view a key-value store's content, click on its **Store ID**, then click on a store's **View** button.
+In the detail page, under the **Settings** tab, you can update the store's name (and, in turn, its [retention period]({{@link storage.md#data-retention}})) and
 [access rights]({{@link access_rights.md}}).
 The API tab allows you to view and test a store's [API endpoints](https://docs.apify.com/api/v2#/reference/key-value-stores).
 
@@ -53,13 +53,13 @@ You can use the `KeyValueStore` class to specify whether your data is [stored lo
 [set](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoresetvaluekey-value-options)
 values using the `Apify.getValue()` and `Apify.setValue()` methods or [iterate over your key-value store keys](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoreforeachkeyiteratee-options) using the `forEachKey()` method.
 
-Each actor run is associated with the default key-value store, which is created for the actor run. When running your actors and storing data locally, you can pass its [input]({{@link actors/running/input.md}}) using the `INPUT.json` key-value store.
+Each actor run is associated with the default key-value store, which is created for the actor run. When running your actors and storing data locally, you can pass its [input]({{@link actors/running/input.md}}) using the **INPUT.json** key-value store.
 
 You can find INPUT.json and other key-value stores in the location below.
 
     {APIFY_LOCAL_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}
 
-The default key-value store's ID is `default`. The {KEY} is the record's `key` and {EXT} corresponds to the data value's MIME content type.
+The default key-value store's ID is **default**\. The {KEY} is the record's **key** and {EXT} corresponds to the data value's MIME content type.
 
 To manage your key-value stores, you can use the following methods. For a full list of methods, see the `KeyValueStore` class's [API reference](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoregetvaluekey).
 
@@ -70,13 +70,13 @@ const input = await Apify.getInput();
 // Open a named key-value store
 const exampleStore = await Apify.openKeyValueStore("my-store");
 
-// Read a record in the `exampleStore` storage
+// Read a record in the exampleStore storage
 const value = await exampleStore.getValue("some-key");
 
-// Write a record to `exampleStore`
+// Write a record to exampleStore
 await exampleStore.setValue("some-key", { foo: "bar" });
 
-// Delete a record in `exampleStore`
+// Delete a record in exampleStore
 await exampleStore.setValue("some-key", null);
 ```
 
@@ -102,7 +102,7 @@ Apify.main(async () => {
 });
 ```
 
-The `Apify.getInput()`method is not only a shortcut to `Apify.getValue("INPUT")`- it is also compatible with `Apify.metamorph()` [[docs](https://docs.apify.com/actors/source-code#metamorph)]. This is because a metamorphed actor run's input is stored in the `INPUT-METAMORPH-1` key instead of `INPUT`, which hosts the original input.
+The `Apify.getInput()`method is not only a shortcut to `Apify.getValue("INPUT")`- it is also compatible with `Apify.metamorph()` [[docs](https://docs.apify.com/actors/source-code#metamorph)]. This is because a metamorphed actor run's input is stored in the **INPUT-METAMORPH-1** key instead of **INPUT**, which hosts the original input.
 
 For more information on managing your key-value stores with the Apify SDK, see the SDK [documentation](https://sdk.apify.com/docs/guides/data-storage#key-value-store) and the `KeyValueStore` class's [API reference](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoregetvaluekey).
 
@@ -122,24 +122,24 @@ const keyValueStores = apifyClient.keyValueStores;
 You can then access your stores, retrieve records in stores, write new records or delete records.
 
 ```js
-// Get the `my-store` key-value store or create it
+// Get the "my-store" key-value store or create it
 // if it doesn't exist and set it as the default
 const exampleStore = await keyValueStores.getOrCreateStore({
     storeName: "my-store"
 });
 apifyClient.setOptions({ storeId: store.id });
 
-// Get a record from `exampleStore`
+// Get a record from exampleStore
 const record = await keyValueStores.getRecord({ key: "foo" });
 
-// Write a record to the `exampleStore` storage
+// Write a record to exampleStore
 await keyValueStores.putRecord({
     key: "foo",
     body: "bar",
     contentType: "text/plain; charset=utf-8",
 });
 
-// Delete a record in `exampleStore`
+// Delete a record in exampleStore
 await keyValueStores.deleteRecord({ key: "foo" });
 ```
 
@@ -149,7 +149,7 @@ For more information on managing your key-value stores using the JavaScript API 
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) allows you to access your key-value stores programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
-If you are accessing your stores using the `username~store-name` [store ID format]({{@link storage.md#apify-api}}), you will need to append your [secret API token](https://docs.apify.com/api/v2#/introduction/authentication) as a query parameter (see below). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+If you are accessing your stores using the **username~store-name** [store ID format]({{@link storage.md#apify-api}}), you will need to append your [secret API token](https://docs.apify.com/api/v2#/introduction/authentication) as a query parameter (see below). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
 
 To **get a list of your key-value stores**, send a GET request to the [Get list of key-value stores](https://docs.apify.com/api/v2#/reference/key-value-stores/store-collection/get-list-of-key-value-stores) endpoint, providing your secret API token as a query parameter.
 
@@ -186,7 +186,7 @@ For a detailed breakdown of each API endpoint, see the [API documentation](https
 
 ## [](#sharing-key-value-stores-between-runs) Sharing key-value stores between runs
 
-You can access a key-value store from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its `name` or `ID`.
+You can access a key-value store from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its **name** or **ID**.
 
 To access a key-value store from another run using the Apify SDK, open it using the `Apify.openDataset([store])` [method](https://sdk.apify.com/docs/api/apify#openkeyvaluestore) like you would any other store.
 
@@ -210,14 +210,14 @@ For more information on sharing storages between runs, see the Storage [overview
 
 ## [](#data-consistency) Data consistency
 
-Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. According to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html), it provides `read-after-write` consistency for newly-created items. This means that if a record does not exist and you create it, then read it right after, you will be able to see it.
+Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. According to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html), it provides **read-after-write** consistency for newly-created items. This means that if a record does not exist and you create it, then read it right after, you will be able to see it.
 
 However, S3 storage has a caveat, described in the below quote from the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html).
 
 > [...] if you make a HEAD or GET request to a key name before the object is created, then create the object shortly after that, a subsequent GET might not return the object due to eventual consistency. <br/>
 > Amazon S3 offers eventual consistency for overwrite PUTS and DELETES in all Regions.
 
-[Eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency) means that if you update a value and then retrieve it from storage, the value will be consistent with the last update *eventually*. Before enough time has passed, however, the returned value may be inconsistent.
+[Eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency) means that if you update a value and then retrieve it from storage, the value will be consistent with the last update **eventually**. Before enough time has passed, however, the returned value may be inconsistent.
 
 Visit [this](https://codeburst.io/quick-explanation-of-the-s3-consistency-model-6c9f325e3f82) article for more details on the issue and [this](https://medium.com/@dhruvsharma_50981/s3-eventual-data-consistency-model-issues-and-tackling-them-47093365a595) article for some ideas on how to tackle the issue.
 
