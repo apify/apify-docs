@@ -13,9 +13,9 @@ The Apify platform includes three types of storage you can use both in your [act
 
 This page contains a brief introduction of the three types of Apify Storage.
 
-* [Dataset](#dataset) - storage for data objects such as scraping output
-* [Key-value store](#key-value-store) - storage for arbitrary data records such as files, images, and strings
-* [Request queue](#request-queue) - a queue of URLs for your actors to visit
+* [Dataset](#dataset) - storage for data objects such as scraping output.
+* [Key-value store](#key-value-store) - storage for arbitrary data records such as files, images, and strings.
+* [Request queue](#request-queue) - a queue of URLs for your actors to visit.
 
 You will then find [basic usage](#basic-usage) information relating to all three types of storage. For example, how to manage your storages in the [Apify app](#apify-app), the basics of setting up the [Apify SDK](#apify-sdk) and
 [JavaScript API client](#javascript-api-client),
@@ -78,26 +78,26 @@ There are four ways to access your storage:
 
 ### [](#apify-app) Apify app
 
-To access your storages from the Apify app, go to the [`Storage` section](https://my.apify.com/storage) in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, request queues and related API endpoints. To view a storage, click its `ID`.
+To access your storages from the Apify app, go to the [**Storage** section](https://my.apify.com/storage) in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, request queues and related API endpoints. To view a storage, click its **ID**.
 
 ![Storages in app]({{@asset storage/images/datasets-app.png}})
 
-> Only named storages are displayed by default. Select the `Include unnamed *store*` checkbox to display all of your storages.
+> Only named storages are displayed by default. Select the **Include unnamed *store*** checkbox to display all of your storages.
 
-You can edit your stores' names under the `Settings` tab of their detail page. There, you can also grant [access rights](https://docs.apify.com/access-rights) to other Apify users.
+You can edit your stores' names under the **Settings** tab of their detail page. There, you can also grant [access rights](https://docs.apify.com/access-rights) to other Apify users.
 
-You can quickly share your storages' contents and details by sharing the URLs you find under the `API` tab in a store's detail page.
+You can quickly share your storages' contents and details by sharing the URLs you find under the **API** tab in a store's detail page.
 
 ![Storage API]({{@asset storage/images/overview-api.png}})
 
-These URLs provide links to API `endpoints`–the places where your data are stored. Endpoints that allow you to `read` stored information do not require an [authentication token](https://docs.apify.com/api/v2#/introduction/authentication). The calls are authenticated using a hard-to-guess ID, so they can be shared freely. Operations such as `update` or `delete`, however, will need the authentication token.
+These URLs provide links to API **endpoints**–the places where your data are stored. Endpoints that allow you to **read** stored information do not require an [authentication token](https://docs.apify.com/api/v2#/introduction/authentication). The calls are authenticated using a hard-to-guess ID, so they can be shared freely. Operations such as **update** or **delete**, however, will need the authentication token.
 
 > Never share a URL containing your authentication token, as this will compromise your account's security. <br/>
 > If the data you want to share requires a token, first download the data, then share it as a file.
 
 ### [](#apify-sdk) Apify SDK
 
-The [Apify SDK](https://sdk.apify.com) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions. It requires [Node.js](https://nodejs.org/en/) 10.17 or later, with the exception of `Node.js 11`.
+The [Apify SDK](https://sdk.apify.com) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions. It requires [Node.js](https://nodejs.org/en/) 10.17 or later, with the exception of **Node.js 11**.
 
 For setup instructions and to learn how to build your own actors, visit the [SDK documentation](https://sdk.apify.com/docs/guides/getting-started).
 
@@ -113,7 +113,7 @@ You can then install the `apify-client` package from [NPM](https://www.npmjs.com
 
     npm install apify-client
 
-Once installed, `require` the `apify-client` package in your app and create a new instance of it using your `user ID` and secret `API token` (you can find these on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account).
+Once installed, **require** the `apify-client` package in your app and create a new instance of it using your **user ID** and secret **API token** (you can find these on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account).
 
 ```js
 // Import the `apify-client` package
@@ -131,14 +131,14 @@ const apifyClient = new ApifyClient({
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) allows you to access your storages programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
-In most cases, when accessing your storages via API, you will need to provide a `store ID`, which you can do in the following formats:
+In most cases, when accessing your storages via API, you will need to provide a **store ID**, which you can do in the following formats:
 
-* `WkzbQMuFYuamGv3YF` - the store's alpha-numerical ID if the store is unnamed
-* `username~store-name` - your username and the store's name separated by a tilde (`~`) character (e.g. `janedoe~ecommerce-scraping-results`) if the store is named
+* **WkzbQMuFYuamGv3YF** - the store's alpha-numerical ID if the store is unnamed
+* **username~store-name** - your username and the store's name separated by a tilde (`~`) character (e.g. **janedoe~ecommerce-scraping-results**) if the store is named
 
 For read (GET) requests, it is enough to use a store's alpha-numerical ID, since the ID is hard to guess and effectively serves as an authentication key.
 
-With other request types and when using the `username~store-name`, however, you will need to provide your secret API token as a query parameter. You can find your token on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+With other request types and when using the **username~store-name**, however, you will need to provide your secret API token as a query parameter. You can find your token on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
 
 For more information and a detailed breakdown of each storage API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 
@@ -152,15 +152,15 @@ You can edit your storages' names in the [Apify app](#apify-app) or using the ac
 
 ## [](#named-and-unnamed-storages) Named and unnamed storages
 
-All storages are created without a name (with only an `ID`). This allows them to expire after 7 days and not take up your storage space. If you want to preserve a storage, simply [give it a name](#apify-app) and it will be retained indefinitely.
+All storages are created without a name (with only an **ID**). This allows them to expire after 7 days and not take up your storage space. If you want to preserve a storage, simply [give it a name](#apify-app) and it will be retained indefinitely.
 
 Named and unnamed storages are the same in all regards except their retention period. The only difference is that named storages make it easier to verify you are using the correct store.
 
-For example, the storage names `janedoe~my-storage-1` and `janedoe~web-scrape-results` are easier to tell apart than the alpha-numerical IDs `cAbcYOfuXemTPwnIB` and `CAbcsuZbp7JHzkw1B`.
+For example, the storage names **janedoe~my-storage-1** and **janedoe~web-scrape-results** are easier to tell apart than the alpha-numerical IDs **cAbcYOfuXemTPwnIB** and **CAbcsuZbp7JHzkw1B**.
 
 ## [](#sharing-storages-between-runs) Sharing storages between runs
 
-Any storage can be accessed from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its `name` or `ID`. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
+Any storage can be accessed from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its **name** or **ID**. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
 [Datasets]({{@link storage/dataset.md}}) and [key-value stores]({{@link storage/key_value_store.md}}) can be used concurently by multiple actors. This means that multiple actors or tasks running at the same time can **write** data to a single dataset or key-value store. The same applies for reading data–multiple runs can **read** data from datasets and key-value stores concurrently.
 
@@ -173,11 +173,11 @@ Any storage can be accessed from any [actor]({{@link actors.md}}) or [task]({{@l
 
 Named storages are only removed when you request it. You can delete storages in the following ways.
 
-* [Apify app](https://my.apify.com/storage) - using the `Actions` button in the store's detail page
-* [Apify SDK](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoredrop) - using the `[store].drop()` method, where `[store]` is the type of storage you want to delete.
+* [Apify app](https://my.apify.com/storage) - using the **Actions** button in the store's detail page
+* [Apify SDK](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoredrop) - using the `[store].drop()` method, where **[store]** is the type of storage you want to delete.
 * [JavaScript API client](https://docs.apify.com/apify-client-js) - using the
 [`deleteStore()`](https://docs.apify.com/apify-client-js#ApifyClient-datasets),
 [`deleteDataset()`](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores)
 or [`deleteQueue()`](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) methods
-* [API](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/delete-store) using the - `Delete [store]` endpoint, where `[store]` is the type of storage you want to delete
+* [API](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/delete-store) using the - **Delete [store]** endpoint, where **[store]** is the type of storage you want to delete
 

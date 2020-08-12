@@ -6,7 +6,7 @@ category: platform
 paths:
     - access-rights
 ---
-
+ 
 # [](./access_rights)Access rights
 
 By default, each system resource (actor, key-value store, run, ...) created by the user is only available to its owner. There are two ways a user can grant access to their resources - either by using an access rights system or by publishing their own actor in [Apify Store](https://apify.com/store).
@@ -23,7 +23,7 @@ To be able to grant access rights to another user you must have a username set u
 
 Another way to share what you have made is to publish your actor in [Apify Store](https://apify.com/store). The published actor appears in [Apify Store](https://apify.com/store), any user will be able to view its source code and run it. Nobody except the author can modify it. If a user runs the actor, it gets billed to his account and the actor run will be available only for him.
 
-To publish the actor, open it in [Apify app](https://my.apify.com), go to the "Publication" tab and follow the instructions:
+To publish the actor, open it in [Apify app](https://my.apify.com), go to the *Publication* tab and follow the instructions:
 
 ![Access rights configuration]({{@asset images/publication.png}})
 
