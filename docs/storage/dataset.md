@@ -16,33 +16,33 @@ Datasets usually contain results from web scraping, crawling or data processing 
 > Unnamed datasets expire after 7 days unless otherwise specified. <br/>
 > [Learn about named and unnamed datasets.]({{@link storage.md#named-and-unnamed-storages}})
 
-Dataset storage is `append-only` - data can only be added and cannot be changed or deleted.
+Dataset storage is **append-only** - data can only be added and cannot be changed or deleted.
 
 ## [](#basic-usage) Basic usage
 
 There are four ways to access your datasets:
 
-* [Apify app](https://my.apify.com/storage#/datasets) - provides an easy-to-understand interface [[details](#apify-app)]
-* [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor [[details](#apify-sdk)]
-* [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from any Node.js application [[details](#javascript-api-client)]
-* [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically [[details](#apify-api)]
+* [Apify app](https://my.apify.com/storage#/datasets) - provides an easy-to-understand interface [[details](#apify-app)].
+* [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor [[details](#apify-sdk)].
+* [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from any Node.js application [[details](#javascript-api-client)].
+* [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically [[details](#apify-api)].
 
 ### [](#apify-app) Apify app
 
 In the [Apify app](https://my.apify.com), you can view your datasets in the [Storage](https://my.apify.com/storage) section under the [Datasets](https://my.apify.com/storage#/datasets) tab.
 
-Only named datasets are displayed by default. Select the `Include unnamed datasets` checkbox to display all of your datasets.
+Only named datasets are displayed by default. Select the **Include unnamed datasets** checkbox to display all of your datasets.
 
 ![Datasets in app]({{@asset storage/images/datasets-app.png}})
 
-To view or download a dataset in the above mentioned formats, click on its `Dataset ID`. In the detail page, you can update the dataset's name (and, in turn, its [retention period]({{@link storage.md#data-retention}})) and
-[access rights]({{@link access_rights.md}}) under the `Settings` tab. The API tab allows you to view and test the dataset's [API endpoints](https://docs.apify.com/api/v2#/reference/datasets).
+To view or download a dataset in the above mentioned formats, click on its **Dataset ID**\. In the detail page, you can update the dataset's name (and, in turn, its [retention period]({{@link storage.md#data-retention}})) and
+[access rights]({{@link access_rights.md}}) under the **Settings** tab. The API tab allows you to view and test the dataset's [API endpoints](https://docs.apify.com/api/v2#/reference/datasets).
 
 ![Datasets detail view]({{@asset storage/images/datasets-detail.png}})
 
 ### [](#apify-sdk) Apify SDK
 
-If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify software development kit (SDK)](https://sdk.apify.com).
+If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify SDK](https://sdk.apify.com).
 In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset), the dataset is represented by the
 [`Dataset`](https://sdk.apify.com/docs/api/dataset) class.
 
@@ -52,7 +52,7 @@ If you have chosen to store your dataset locally, you can find it in the locatio
 
     {APIFY_LOCAL_STORAGE_DIR}/datasets/{DATASET_ID}/{INDEX}.json
 
-`DATASET_ID` refers to the dataset's `name` or `ID`. The default dataset will be stored in the `default` directory.
+**DATASET_ID** refers to the dataset's **name** or **ID**\. The default dataset will be stored in the **default** directory.
 
 To add data to the default dataset, you can use the example below, however using the `Apify.main()` function is optional–it is only provided for your convenience.
 
@@ -63,7 +63,7 @@ const Apify = require("apify");
 // The optional Apify.main() function performs the
 // actor's job and terminates the process when it is finished
 Apify.main(async () => {
-    
+
     // Add one item to the default dataset
     await Apify.pushData({ foo: "bar" });
 
@@ -155,13 +155,13 @@ For more information, see the JavaScript API client [documentation](https://docs
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/datasets) allows you to access your datasets programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
-If you are accessing your datasets using the `username~store-name` [store ID format]({{@link storage.md#apify-api}}), you will need to append your [secret API token](https://docs.apify.com/api/v2#/introduction/authentication) as a query parameter (see below). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+If you are accessing your datasets using the **username~store-name** [store ID format]({{@link storage.md#apify-api}}), you will need to append your [secret API token](https://docs.apify.com/api/v2#/introduction/authentication) as a query parameter (see below). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
 
-To **get a list of your datasets**, send a GET request to the [Get list of datasets](https://docs.apify.com/api/v2#/reference/datasets/get-list-of-datasets) endpoint, providing your API token as a query parameter. 
+To **get a list of your datasets**, send a GET request to the [Get list of datasets](https://docs.apify.com/api/v2#/reference/datasets/get-list-of-datasets) endpoint, providing your API token as a query parameter.
 
     https://api.apify.com/v2/datasets?token={YOUR_API_TOKEN}
 
-To **get information about a dataset** such as its creation time and `item count`, send a GET request to the [Get dataset](https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset) endpoint.
+To **get information about a dataset** such as its creation time and **item count**, send a GET request to the [Get dataset](https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset) endpoint.
 
     https://api.apify.com/v2/datasets/{DATASET_ID}?token={YOUR_API_TOKEN}
 
@@ -170,11 +170,11 @@ To **view a dataset's data**, send a GET request to the
 
     https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
 
-You can **specify which data are exported** by adding a comma-separated list of fields to the `fields` query parameter. Likewise, you can also omit certain fields using the `omit` parameter.
+You can **specify which data are exported** by adding a comma-separated list of fields to the **fields** query parameter. Likewise, you can also omit certain fields using the **omit** parameter.
 
 > If you both specify and omit the same field in a request, the **omit** parameter will prevail and the field will not be returned.
 
-To retrieve the `hotel` and `cafe` fields, you would send your GET request to the URL below. 
+To retrieve the **hotel** and **cafe** fields, you would send your GET request to the URL below.
 
     https://api.apify.com/v2/datasets/{DATASET_ID}/items?token={YOUR_API_TOKEN}&fields=hotel%2Ccafe
 
@@ -204,7 +204,7 @@ For a detailed breakdown of each API endpoint, see the [API documentation](https
 ## [](#hidden-fields) Hidden fields
 
 Top-level fields starting with the `#` character are considered hidden.
-These fields may be easily omitted when downloading the data from a dataset by providing the `skipHidden=1` or `clean=1` query parameters. This provides a convenient way to store debug information that should not appear in the final dataset. 
+These fields may be easily omitted when downloading the data from a dataset by providing the **skipHidden=1** or **clean=1** query parameters. This provides a convenient way to store debug information that should not appear in the final dataset.
 
 Below is an example of a dataset record containing hidden fields with an HTTP response and error.
 
@@ -222,7 +222,7 @@ Below is an example of a dataset record containing hidden fields with an HTTP re
 }
 ```
 
-Data without hidden fields are called "clean" and can be downloaded from the [Apify app](https://my.apify.com/storage#/datasets) using the "Clean items" link or via API using the `clean=true` or `clean=1` [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items).
+Data without hidden fields are called "clean" and can be downloaded from the [Apify app](https://my.apify.com/storage#/datasets) using the "Clean items" link or via API using the **clean=true** or **clean=1** [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items).
 
 ## [](#xml-format-extension) XML format extension
 
@@ -264,7 +264,7 @@ becomes the following XML snippet:
 </address>
 ```
 
-If the JavaScript object contains a property named `@`, its sub-properties are exported as attributes of the parent XML element. If the parent XML element does not have any child elements, its value is taken from a JavaScript object property named `#`. 
+If the JavaScript object contains a property named `@`, its sub-properties are exported as attributes of the parent XML element. If the parent XML element does not have any child elements, its value is taken from a JavaScript object property named `#`.
 
 For example, the following JavaScript object:
 
@@ -302,7 +302,7 @@ By default, the whole result is wrapped in an `<items/>` emelent, while each pag
 
 ## [](#sharing-datasets-between-runs) Sharing datasets between runs
 
-You can access a dataset from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its `name` or `ID`.
+You can access a dataset from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its **name** or **ID**.
 
 To access a dataset from another run using the Apify SDK, open it using the `Apify.openDataset([datasetIdOrName])` [method](https://sdk.apify.com/docs/api/apify#apifyopendatasetdatasetidorname-options) like you would any other dataset.
 
@@ -327,6 +327,6 @@ For more information on sharing storages between runs, see the Storage [overview
 
 ## [](#limits) Limits
 
-* Tabulated data storage formats (ones that display the data in columns), such as HTML, CSV, and EXCEL, have a maximum limit of `3000` columns. All data that do not fit into this limit will not be retrieved.
+* Tabulated data storage formats (ones that display the data in columns), such as HTML, CSV, and EXCEL, have a maximum limit of **3000** columns. All data that do not fit into this limit will not be retrieved.
 
 * When using the `pushData()` method, the size of the data is limited by the receiving API. Therefore, `pushData()` will only allow objects whose JSON representation is smaller than **9MB**. When an array is passed, none of the included objects may be larger than 9MB, however the array itself may be of any size.
