@@ -1,6 +1,6 @@
 ---
 title: Command-line interface
-description: Apify command line interface (CLI) helps you to create, develop, run and deploy Apify Actor acts from your local computer.
+description: Create new actors from your computer's command line. Run actors locally or deploy them to the Apify platform. View the Apify CLI's command reference.
 externalSourceUrl: https://raw.githubusercontent.com/apifytech/apify-cli/master/README.md
 menuWeight: 11
 category: developer tools

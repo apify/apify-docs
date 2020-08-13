@@ -1,6 +1,6 @@
 ---
 title: Quick start
-description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Create your first Apify actor using code examples. A step-by-step introduction to web scraping with the Apify platform.
 menuWeight: 3.1
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS

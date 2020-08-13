@@ -1,6 +1,6 @@
 ---
 title: Source code
-description: Documentation of Apify actors - storing your actor's source code.
+description: Learn all about an Apify actor's code. Compare deployment options, create a custom Dockerfile, set environment variables and metamorph your actor.
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/source-code

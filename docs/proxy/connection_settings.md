@@ -1,6 +1,6 @@
 ---
 title: Connection settings
-description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
+description: Learn how to connect your application to Apify Proxy. See the required parameters such as the correct username and password.
 menuWeight: 7.1
 paths:
     - proxy/connection-settings

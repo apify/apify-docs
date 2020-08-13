@@ -1,6 +1,6 @@
 ---
 title: SEO for actors
-description: Optimize your actors' title, description, and README to get more relevant visits from Google and other search engines.
+description: Optimize your actors to get more relevant visits from Google and other search engines. Set search engine-friendly actor name, title and description examples.
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/publishing/seo-for-actors

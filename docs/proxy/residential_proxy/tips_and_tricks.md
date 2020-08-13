@@ -1,6 +1,6 @@
 ---
 title: Tips and tricks
-description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
+description: Helpful tips for using your application with Apify's residential proxies. Control traffic, deal with interrupted connections and manage expenses.
 paths:
     - proxy/residential-proxy/tips-and-tricks
 ---
@@ -24,7 +24,7 @@ When both of these options are combined, the data traffic of your solution can b
 
 Each host on the Residential proxy network uses a different device, has different network speed and different latencies. This means that request made with one session can be extremely fast, while another request with different session can be extremely slow. The difference can be from a few milliseconds to a few seconds.
 
-If your solution requires quickly loaded content, the best option is to set session, try a small request and see if the response time is acceptable. If it is, you can use this session for other requests. Otherwise, repeat the attempt with a different session.  
+If your solution requires quickly loaded content, the best option is to set session, try a small request and see if the response time is acceptable. If it is, you can use this session for other requests. Otherwise, repeat the attempt with a different session.
 Just remember that sessions are not persistent, so from time to time, you will have to reevaluate the speed of the session and switch to a different one if needed.
 
 ## Connections can be interrupted

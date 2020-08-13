@@ -1,6 +1,6 @@
 ---
 title: Scraping
-description: Scraping documentation is a hub for all your web scraping and crawling needs.
+description: Discover Apify's ready-made web scraping and automation tools. Compare Web Scraper, Cheerio Scraper and Puppeteer Scraper to decide which is right for you.
 menuWeight: 2
 category: guides
 paths:

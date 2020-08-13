@@ -1,6 +1,6 @@
 ---
 title: State persistence
-description: Documentation of Apify actors - persisting your actor's state.
+description: Maintain a long-running actor's state to protect from unexpected restarts. See a code example on how to protect your run in case of server shutdown.
 paths:
     - actor/development/state-persistence
     - actors/development/state-persistence

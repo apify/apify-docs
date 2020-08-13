@@ -1,6 +1,6 @@
 ---
 title: JavaScript API client
-description: Full documentation of the latest version of the apify-client NPM package, which simplifies access to the Apify API using JavaScript / Node.js
+description: Simplified access to the Apify API from any JavaScript or Node.js application. Manage your actors, tasks and storage via API with the apify-client NPM package.
 category: developer tools
 menuWeight: 10
 paths:
@@ -9,4 +9,3 @@ paths:
     - apify-client-js/latest
     - apify-client-js
 ---
- 

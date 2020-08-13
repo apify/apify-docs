@@ -1,6 +1,6 @@
 ---
 title: Development
-description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Read about the technical part of building Apify actors. Learn to define actor inputs, build new versions, persist actor state and choose base Docker images.
 menuWeight: 3.4
 paths:
     - actor/development

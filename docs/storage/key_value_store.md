@@ -1,6 +1,6 @@
 ---
 title: Key-value store
-description: Documentation of Key-value stores, which allow you to store any kind of data, e.g. JSON documents or images.
+description: Store anything from actor or task run results JSON documents or images. Learn how to access and manage key-value stores from the Apify app or via API.
 menuWeight: 6.2
 paths:
     - storage/key-value-store

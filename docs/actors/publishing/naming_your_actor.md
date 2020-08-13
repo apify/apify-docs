@@ -1,6 +1,6 @@
 ---
 title: Naming your actor
-description: Documentation of Apify's standards for actor naming.
+description: Apify's standards for actor naming. Learn how to choose the right name for scraping and non-scraping actors and how to optimize your actor for search engines.
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/publishing/naming-your-actor
