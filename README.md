@@ -4,7 +4,7 @@
 
 ## Intro
 
-This project is the home of Apify documentation, which you can find running at [docs.apify.com](https://docs.apify.com/). Documentation is written using the [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) format and all of its source files are located in the [/docs](https://github.com/apifytech/apify-docs/tree/master/docs) directory.
+This repo is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using the [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) format and all of its source files are located in the [/docs](https://github.com/apifytech/apify-docs/tree/master/docs) directory.
 
 ## Deployment
 
@@ -13,6 +13,21 @@ On each commit to the `master` branch of this repository, a new version of the A
 On commit to any other branch, the documentation's `develop` version gets updated. This version can be viewed using the `?version=develop` parameter, e.g. [https://docs.apify.com?version=develop](https://docs.apify.com?version=develop).
 
 Keep in mind that there might be about 2 minute delay before updated documentation gets online (1 minute Github actions build + 1 minute update interval of docs website).
+
+## API docs
+
+The `docs/api_v2` directory contains the source file for the
+API reference (https://docs.apify.com/api/v2) hosted on Apiary.
+Using the build script contained in the folder, the API docs are automatically uploaded to Apiary during the web deployment process.
+
+### Local testing
+
+1. Install Apiary gem `gem install apiaryio`
+2. After that, you can open the generated doc with the command: `apiary preview --path="./api-v2-reference.apib"`
+
+### Test
+
+You should ALWAYS log in to Apiary, analyze the document and make sure there are **no warnings**!
 
 ## Implementation
 
