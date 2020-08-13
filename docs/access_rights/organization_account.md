@@ -8,19 +8,31 @@ paths:
 
 # Organization account
 
-Apify's organization account allows teams to manage permissions and work as one organization.
+Apify's organization account allows teams to manage permissions and work as one organization. Manage team members, invite new members, etc.
+
+If you already have all your code in the user account and you convert it to organization, you can keep using your integrations and everything will be fine.
+
+If you make a new account for the organization and then move the projects over to it from your personal account, the integrations/linking/everything will need to be updated.
+
+So, if you're gonna start a brand new codebase, it's best to create a new account. If you already have everything in place and want to manage your team's permissions, etc, it's best to convert your account to organization.
+
+<!-- Taken from GitHub - rephrase, customize, don't plagiarize -->
+>**Warning:** when you convert an existing user account into an organization,
+> * You will no longer be able to sign in to the converted user account.
+> * An organization cannot be converted back to a user.
+> * All of your integrations will keep working.
 
 ## Creating a new organization
 
+(add instructions with screenshots here.)
+
+* Create a new user account that will serve as the organization
+* Add the team
 
 ## Convert a user to an organization
 
-<!-- Taken from GitHub - rephrase, customize, don't plagiarize -->
-|**Warning:** when you convert an existing user account into an organization, |
-|---|
-|You will no longer be able to sign in to the converted user account.|
-|You will no longer be able to create or modify gists owned by the converted user account.|
-|An organization cannot be converted back to a user.|
-|The SSH keys, OAuth tokens, job profile, reactions, and associated user information, will not be transferred to the organization. This is only true for the user account that's being converted, not any of the user account's collaborators.|
-|Any commits made with the converted user account will no longer be linked to that account. The commits themselves will remain intact.|
+(add instructions with screenshots)
+
+* First, create a new personal account for yourself
+* describe the steps
 
