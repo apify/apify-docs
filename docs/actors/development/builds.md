@@ -1,6 +1,6 @@
 ---
 title: Builds
-description: Documentation of Apify actors - building your actor.
+description: Apify's conventions for actor build numbers. Learn to use a specific version of your actor in a run, understand an actor's lifecycle and manage its cache.
 paths:
     - actor/build
     - actor/development/build

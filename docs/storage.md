@@ -1,6 +1,6 @@
 ---
 title: Storage
-description: Documentation of Apify Storage, which allows you to store actor output and other data.
+description: Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data from the Apify platform or via API.
 menuWeight: 5
 category: platform
 paths:
@@ -13,9 +13,9 @@ The Apify platform includes three types of storage you can use both in your [act
 
 This page contains a brief introduction of the three types of Apify Storage.
 
-* [Dataset](#dataset) - storage for data objects such as scraping output
-* [Key-value store](#key-value-store) - storage for arbitrary data records such as files, images, and strings
-* [Request queue](#request-queue) - a queue of URLs for your actors to visit
+* [Dataset](#dataset) - storage for data objects such as scraping output.
+* [Key-value store](#key-value-store) - storage for arbitrary data records such as files, images, and strings.
+* [Request queue](#request-queue) - a queue of URLs for your actors to visit.
 
 You will then find [basic usage](#basic-usage) information relating to all three types of storage. For example, how to manage your storages in the [Apify app](#apify-app), the basics of setting up the [Apify SDK](#apify-sdk) and
 [JavaScript API client](#javascript-api-client),

@@ -1,7 +1,6 @@
 ---
 title: Input
-# Description update: Documentation of input and output configurations for Apify actors
-description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Configure your actor's input parameters using the Apify app, locally or via API. Access parameters in key-value stores from your actor's code.
 paths:
     - actor/run
     - actor/run#input-and-output

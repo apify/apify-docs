@@ -1,6 +1,6 @@
 ---
 title: Actors
-description: Learn about Apify Actors - the easy way to develop, run and share serverless cloud programs.
+description: Learn how to develop, run and share serverless cloud programs. Create your own web scraping and automation tools and publish them on the Apify platform.
 menuWeight: 3
 category: platform
 paths:

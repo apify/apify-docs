@@ -1,6 +1,6 @@
 ---
 title: Publishing
-description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
+description: Learn how to make your actor available to the public or keep it private. Prepare your actor for Apify Store with a description and README file.
 menuWeight: 3.5
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS

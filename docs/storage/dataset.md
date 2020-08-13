@@ -1,6 +1,6 @@
 ---
 title: Dataset
-description: Documentation of Dataset storage, which provides storage for data objects such as actor outputs.
+description: Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in the Apify app or via API.
 menuWeight: 6.1
 paths:
     - storage/dataset

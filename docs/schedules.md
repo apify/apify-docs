@@ -1,6 +1,6 @@
 ---
 title: Schedules
-description: Documentation of Apify Schedules, which run actors or tasks at specific times using cron-like syntax.
+description: Learn how to automatically start your actor and task runs and the basics of *cron* expressions. Set up and manage your schedules from the Apify app or via API.
 menuWeight: 4
 category: platform
 paths:
@@ -10,11 +10,11 @@ paths:
 
 # [](#schedules) Schedules
 
-[Schedules](https://my.apify.com/schedules) allow you to automatically run your actors and tasks at specific times. You schedule the run frequency using [cron expressions](#cron-expressions).
+[Schedules](https://my.apify.com/schedules) allow you to run your actors and tasks at specific times. You schedule the run frequency using [cron expressions](#cron-expressions).
 
 > Schedules allow timezone settings and support daylight saving time shifts (DST).
 
-You can set up and manage schedules both from the [Apify app](https://my.apify.com/schedules) and via [API](https://docs.apify.com/api/v2#/reference/schedules). When scheduling a new actor or task run, you can override its input settings using a JSON object similarly to when ivoking a schedule using the [Apify API](https://docs.apify.com/api/v2#/reference/schedules/).
+You can set up and manage schedules both from the [Apify app](https://my.apify.com/schedules) and via [API](https://docs.apify.com/api/v2#/reference/schedules). When scheduling a new actor or task run, you can override its input settings using a JSON object similarly to when invoking a schedule using the [Apify API](https://docs.apify.com/api/v2#/reference/schedules/).
 
 > In most cases, scheduled events are fired within one second of their scheduled time. <br/>
 > Occasionally, however, runs can be delayed because of a system overload or a server shutting down.
