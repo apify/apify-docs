@@ -12,52 +12,44 @@ Below you can find descriptions of every permission that can be granted on the A
 
 ## [](#actor-permissions) Actor permissions
 
-const ACTOR_IAM_PERMISSIONS = {
-    READ: 'ACTOR.READ',
-    WRITE: 'ACTOR.WRITE',
-    RUN: 'ACTOR.RUN',
-    BUILD: 'ACTOR.BUILD',
-    DELETE: 'ACTOR.DELETE',
-    VIEW_RUNS: 'ACTOR.VIEW_RUNS',
-    MANAGE_ACCESS_RIGHTS: 'ACTOR.MANAGE_ACCESS_RIGHTS',
-};
+For more information about Apify actors, see the actors' [documentation]({{@link actors.md}}).
 
-# **^^ Should we include the `ACTOR.RUN` part as well?**
+### [](#actor) Actor
 
 |Permission|Description|
 |---|---|
 |Read|View actor settings, source code and builds.|
 |Write|Edit actor settings and source code.|
-|Run|Run any of the actor's builds.|
+|Run|Run any of an actor's builds.|
 |Delete|Remove the actor.|
-|View runs|View a list of the actor's runs and their details.|
-|Manage access rights|Manage access rights to the actor.|
+|View runs|View a list of actor runs and their details.|
+|Manage access rights|Manage actor access rights.|
 
 ### [](#actor-run) Actor run
 
-const ACTOR_RUN_IAM_PERMISSIONS = {
-    READ: 'ACTOR_RUN.READ',
-    METAMORPH: 'ACTOR_RUN.METAMORPH',
-    RESURRECT: 'ACTOR_RUN.RESURRECT',
-    ABORT: 'ACTOR_RUN.ABORT',
-};
+|Permission|Description|
+|---|---|
+|Read|View actor run details and log.|
+|Metamorph|Metamorph actor run.|
+|Resurrect|Resurrect actor run.|
+|Abort|Abort actor run.|
 
 ### [](#build) Build
 
-const ACTOR_BUILD_IAM_PERMISSIONS = {
-    READ: 'ACTOR_BUILD.READ',
-    ABORT: 'ACTOR_BUILD.ABORT',
-};
+|Permission|Description|
+|---|---|
+|Read|View actor build details and log.|
+|Abort|Abort actor build.|
 
 ### [](#actor-task) Actor task
 
-const ACTOR_TASK_IAM_PERMISSIONS = {
-    READ: 'ACTOR_TASK.READ',
-    WRITE: 'ACTOR_TASK.WRITE',
-    DELETE: 'ACTOR_TASK.DELETE',
-    VIEW_RUNS: 'ACTOR_TASK.VIEW_RUNS',
-    MANAGE_ACCESS_RIGHTS: 'ACTOR_TASK.MANAGE_ACCESS_RIGHTS',
-};
+|Permission|Description|
+|---|---|
+|Read|View task configuration.|
+|Write|Edit task configuration and settings.|
+|Delete|Remove the task.|
+|View runs|View a list of actor task runs and their details.|
+|Manage access rights|Manage actor task access rights.|
 
 ## [](#storage-permissions)
 
@@ -65,46 +57,48 @@ For more information about Storage, see its [documentation]({{@link storage.md}}
 
 ### [](#dataset) Dataset
 
-const DATASET_IAM_PERMISSIONS = {
-    READ: 'DATASET.READ',
-    WRITE: 'DATASET.WRITE',
-    DELETE: 'DATASET.DELETE',
-    MANAGE_ACCESS_RIGHTS: 'DATASET.MANAGE_ACCESS_RIGHTS',
-};
+|Permission|Description|
+|---|---|
+|Read|View dataset information and its data.|
+|Write|Edit dataset settings and push data to it.|
+|Delete|Remove the dataset.|
+|Manage access rights|Manage dataset access rights.|
 
 ### [](#key-value-store) Key-value-store
 
-const KEY_VALUE_STORE_IAM_PERMISSIONS = {
-    READ: 'KEY_VALUE_STORE.READ',
-    WRITE: 'KEY_VALUE_STORE.WRITE',
-    DELETE: 'KEY_VALUE_STORE.DELETE',
-    MANAGE_ACCESS_RIGHTS: 'KEY_VALUE_STORE.MANAGE_ACCESS_RIGHTS',
-};
+|Permission|Description|
+|---|---|
+|Read|View key-value store details and records.|
+|Write|Edit key-value store settings and add, update or <br/> remove its records.|
+|Delete|Remove key-value store.|
+|Manage access rights|Manage key-value store access rights.|
 
 ### [](#request-queue) Request queue
 
-const REQUEST_QUEUE_IAM_PERMISSIONS = {
-    READ: 'REQUEST_QUEUE.READ',
-    WRITE: 'REQUEST_QUEUE.WRITE',
-    DELETE: 'REQUEST_QUEUE.DELETE',
-    MANAGE_ACCESS_RIGHTS: 'REQUEST_QUEUE.MANAGE_ACCESS_RIGHTS',
-};
+|Permission|Description|
+|---|---|
+|Read|View request queue details and records.|
+|Write|Edit request queue settings and add, update or <br/> remove its records.|
+|Delete|Remove request queue.|
+|Manage access rights|Manage request queue access rights.|
 
 ## [](#schedule-permissions) Schedule permissions
 
-const SCHEDULE_IAM_PERMISSIONS = {
-    READ: 'SCHEDULE.READ',
-    WRITE: 'SCHEDULE.WRITE',
-    DELETE: 'SCHEDULE.DELETE',
-};
+|Permission|Description|
+|---|---|
+|Read|View schedule settings and scheduled actors/tasks.|
+|Write|Edit schedule settings and scheduled actors/tasks.|
+|Delete|Remove the schedule.|
 
 ## [](#proxy-permissions) Proxy permissions
 
-const PROXY_IAM_PERMISSIONS = {
-    USE: 'PROXY.USE',
-};
+|Permission|Description|
+|---|---|
+|Use proxy|Allow to use Apify Proxy.|
 
 ## [](#user-permissions) User permissions
+
+(***Is this in Organization account?***)
 
 const USER_IAM_PERMISSIONS = {
     MANAGE_ACCESS_KEYS: 'USER.MANAGE_ACCESS_KEYS',
