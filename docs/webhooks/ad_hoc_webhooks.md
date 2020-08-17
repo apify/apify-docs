@@ -1,6 +1,6 @@
 ---
 title: Ad hoc webhooks
-description: Documentation of Apify webhooks system that enables integration of multiple actors or external systems.
+description: Learn how to set one-off webhooks for actor runs started via the Apify API or from the actor's code. Trigger the event once the run reaches a desired state.
 menuWeight: 8.3
 paths:
     - webhooks/ad-hoc-webhooks

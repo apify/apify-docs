@@ -1,6 +1,6 @@
 ---
 title: Events
-description: Documentation of Apify webhooks system that enables integration of multiple actors or external systems.
+description: Specify the types of events that trigger a webhook in an actor or task run. Trigger an action on actor or task run creation, success or failure.
 menuWeight: 8.1
 paths:
     - webhooks/events
@@ -10,7 +10,7 @@ paths:
 
 An event is represented by a **type** and related **data**. The type is a `string` that shows the event's name and its hierarchy in the tree of available events, e.g.: `ACTOR.RUN.SUCCEEDED`. The data are an `Object` with variable properties. See documentation of individual events for examples of data.
 
-**Currently, webhooks are only available for actor run events, with new types in the pipeline.**
+> Currently, webhooks are only available for actor run events, with new types in the pipeline.
 
 ## [](#actor-run)Actor run
 
@@ -18,11 +18,11 @@ Actor run events are triggered when an actor run gets created or transitions int
 
 ### Event types:
 
-*   `ACTOR.RUN.CREATED` - New actor run has been created.
-*   `ACTOR.RUN.SUCCEEDED` - Actor run finished with status `SUCCEEDED`.
-*   `ACTOR.RUN.FAILED` - Actor run finished with status `FAILED`.
-*   `ACTOR.RUN.ABORTED` - Actor run finished with status `ABORTED`.
-*   `ACTOR.RUN.TIMED_OUT` - Actor run finished with status `TIMED-OUT`.
+*   `ACTOR.RUN.CREATED` - new actor run has been created.
+*   `ACTOR.RUN.SUCCEEDED` - actor run finished with status `SUCCEEDED`.
+*   `ACTOR.RUN.FAILED` - actor run finished with status `FAILED`.
+*   `ACTOR.RUN.ABORTED` - actor run finished with status `ABORTED`.
+*   `ACTOR.RUN.TIMED_OUT` - actor run finished with status `TIMED-OUT`.
 
 ### Event data:
 

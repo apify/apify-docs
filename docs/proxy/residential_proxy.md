@@ -1,6 +1,6 @@
 ---
 title: Residential proxy
-description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
+description: Achieve a higher level of anonymity using real IP addresses. Access a wider pool of proxies and reduce blocking by websites' anti-scraping measures.
 menuWeight: 7.4
 paths:
     - proxy/residential-proxy
@@ -31,7 +31,7 @@ The following table describes the available parameters:
     <tr>
         <th><code>session</code></th>
         <td>
-            If specified, all proxied requests with the same session identifier are routed 
+            If specified, all proxied requests with the same session identifier are routed
             <br/>through the same IP address. For example <code>session-rand123456</code>.
             <br /><strong>This parameter is optional</strong>, by default, each proxied request
             is assigned
