@@ -1,6 +1,6 @@
 ---
 title: Google SERP proxy
-description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
+description: Learn how to collect search results from Google Search-powered tools. Get search results from localised domains in multiple countries, e.g. the US and Germany.
 menuWeight: 7.5
 paths:
     - proxy/google-serp-proxy
@@ -33,7 +33,7 @@ Unlike datacenter or residential proxies, there is no session parameter.
 
 ## [](#country-selection)Country selection
 
-A correct google domain needs to be used to get results for the desired country code.  
+A correct google domain needs to be used to get results for the desired country code.
 For example:
 
 Search results from the US: `http://www.google.com/search?q=<query>`

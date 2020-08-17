@@ -27,6 +27,15 @@ const readAndParsePage = async (fullPath, shortPath) => {
     const filenamePath = shortPath.replace('/index.md', '').replace('.md', '').replace(/_/g, '-');
     if (!_.includes(metadata.paths, filenamePath)) throw new Error(`Metadata.paths in ${fullPath} is missing path "${filenamePath}"`);
 
+    // Check that metadata.description is 140-160 characters long (for SEO)
+    if (metadata.description) {
+        const descriptionLength = metadata.description.length;
+        if (descriptionLength < 140 || descriptionLength > 160) {
+            console.error(`Description in ${filenamePath}.md too ${descriptionLength < 140 ? 'short' : 'long'} (${descriptionLength}). `
+            + 'It should be between 140 and 160 characters for best SEO. \n');
+        }
+    }
+
     // Return Object with filenamePath removed from paths to avoid
     // redirect loop on the website
     return Object.assign(
