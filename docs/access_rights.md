@@ -30,7 +30,7 @@ To share an actor, task, key-value store, request queue or dataset, open its **S
 
 ## [](#organization-account) Organization account
 
-Apify's organization account allows you to grant role-specific access permissions to members of your team. For more details, see the [organization account documentation](({{@link organization_account.md}}))
+Apify's organization account allows you to grant role-specific access permissions to members of your team. For more details, see the [organization account documentation](({{@link access_rights/organization_account.md}}))
 
 ### SHOW SCREENSHOT OF ORG ACCOUNT
 
@@ -50,7 +50,7 @@ To publish an actor, open it in the [Apify app](https://my.apify.com), go to the
 
 ## [](#permissions) Permissions
 
-Below are the permissions you can grant via [Access rights](#granting-access-rights), [Organization account]({{@link access-rights/organization_account.md) and [publishing in Apify store](#publishing-in-apify-store).
+Below are the permissions you can grant via [Access rights](#granting-access-rights), [Organization account]({{@link access_rights/organization_account.md}}) and [publishing in Apify store]({{@link actors/publishing.md}}).
 
 * The access rights system allows you to manage a **specific** user's permissions for a **specific** resource.
 * Organization accounts allow you to manage each **specific** member's permissions for **all** of an organization's resources.
