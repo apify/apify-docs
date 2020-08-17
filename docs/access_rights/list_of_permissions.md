@@ -43,7 +43,7 @@ For more information on actor runs, see the [documentation]({{@link actors/runni
 |Read|View actor build details and log.|
 |Abort|Abort actor build.|
 
-For more information on builds, see the [documentation]({{@link actors/development/builds.md}}).
+For more information on actor builds, see the [documentation]({{@link actors/development/builds.md}}).
 
 ### [](#actor-task) Actor task
 
@@ -113,6 +113,8 @@ For more information on schedules, see the [documentation]({{@link schedules.md}
 For more information on Apify Proxy, see its [documentation]({{@link proxy.md}}).
 
 ## [](#user-permissions) User permissions
+
+Permissions that can be granted to members of organizations. For more information on organization accounts, see the [documentation]({{@link access_rights/organization_account.md}}).
 
 |Permission|Description|
 |---|---|
