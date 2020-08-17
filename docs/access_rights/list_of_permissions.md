@@ -1,6 +1,6 @@
 ---
 title: List of permissions
-description: Learn about the access rights you can grant to other users. See a list of all the permissions for Apify resources such as actors, actor runs/tasks and storage.
+description: Learn about the access rights you can grant to other users. See a list of all access options for Apify resources such as actors, actor runs/tasks and storage.
 menuWeight: 8.2
 paths:
     - access-rights/list-of-permissions
@@ -8,11 +8,11 @@ paths:
 
 # List of permissions
 
-Below you can find descriptions of every permission that can be granted on the Apify platform.
+This document contains all the access options that can be granted to resources on the Apify platform.
 
-## [](#actor-permissions) Actor permissions
+## [](#actor-permissions) Actors
 
-For more information about Apify actors, see the actors' [documentation]({{@link actors.md}}).
+Click [here]({{@link actors.md}}) to learn about Apify actors.
 
 ### [](#actor) Actor
 
@@ -34,7 +34,7 @@ For more information about Apify actors, see the actors' [documentation]({{@link
 |Resurrect|Resurrect actor run.|
 |Abort|Abort actor run.
 
-For more information on actor runs, see the [documentation]({{@link actors/running.md}}).
+To learn about actor runs, see the [documentation]({{@link actors/running.md}}).
 
 ### [](#build) Build
 
@@ -43,7 +43,7 @@ For more information on actor runs, see the [documentation]({{@link actors/runni
 |Read|View actor build details and log.|
 |Abort|Abort actor build.|
 
-For more information on actor builds, see the [documentation]({{@link actors/development/builds.md}}).
+To learn about actor builds, see the [documentation]({{@link actors/development/builds.md}}).
 
 ### [](#actor-task) Actor task
 
@@ -55,9 +55,9 @@ For more information on actor builds, see the [documentation]({{@link actors/dev
 |View runs|View a list of actor task runs and their details.|
 |Manage access rights|Manage actor task access rights.|
 
-For more information on actor tasks, see the [documentation]({{@link actors/tasks.md}}).
+To learn about actor tasks, see the [documentation]({{@link actors/tasks.md}}).
 
-## [](#storage-permissions)
+## [](#storage) Storage
 
 For more information about Storage, see its [documentation]({{@link storage.md}}).
 
@@ -70,7 +70,7 @@ For more information about Storage, see its [documentation]({{@link storage.md}}
 |Delete|Remove the dataset.|
 |Manage access rights|Manage dataset access rights.|
 
-For more information on dataset storage, see its [documentation]({{@link storage/dataset.md}}).
+To learn about dataset storage, see its [documentation]({{@link storage/dataset.md}}).
 
 ### [](#key-value-store) Key-value-store
 
@@ -81,7 +81,7 @@ For more information on dataset storage, see its [documentation]({{@link storage
 |Delete|Remove key-value store.|
 |Manage access rights|Manage key-value store access rights.|
 
-For more information on key-value stores, see the [documentation]({{@link storage/key_value_store.md}}).
+To learn about key-value stores, see the [documentation]({{@link storage/key_value_store.md}}).
 
 ### [](#request-queue) Request queue
 
@@ -92,9 +92,9 @@ For more information on key-value stores, see the [documentation]({{@link storag
 |Delete|Remove request queue.|
 |Manage access rights|Manage request queue access rights.|
 
-For more information on request queue storage, see its [documentation]({{@link storage/request_queue.md}}).
+To learn about request queue storage, see the [documentation]({{@link storage/request_queue.md}}).
 
-## [](#schedule-permissions) Schedule permissions
+## [](#schedules) Schedules
 
 |Permission|Description|
 |---|---|
@@ -102,19 +102,19 @@ For more information on request queue storage, see its [documentation]({{@link s
 |Write|Edit schedule settings and scheduled actors/tasks.|
 |Delete|Remove the schedule.|
 
-For more information on schedules, see the [documentation]({{@link schedules.md}}).
+To learn about schedules, see the [documentation]({{@link schedules.md}}).
 
-## [](#proxy-permissions) Proxy permissions
+## [](#proxy) Proxy
 
 |Permission|Description|
 |---|---|
 |Use proxy|Allow to use Apify Proxy.|
 
-For more information on Apify Proxy, see its [documentation]({{@link proxy.md}}).
+To learn about Apify Proxy, see its [documentation]({{@link proxy.md}}).
 
-## [](#user-permissions) User permissions
+## [](#user) User permissions
 
-Permissions that can be granted to members of organizations. For more information on organization accounts, see the [documentation]({{@link access_rights/organization_account.md}}).
+Permissions that can be granted to members of organizations. To learn about the organization account, see its [documentation]({{@link access_rights/organization_account.md}}).
 
 |Permission|Description|
 |---|---|
@@ -129,7 +129,7 @@ Permissions that can be granted to members of organizations. For more informatio
 |View invoices|See the account's invoices.|
 |Manage organization|Change the organization's settings.|
 
-## [](#marketplace-permissions) Marketplace permissions
+## [](#marketplace) Marketplace
 
 ### [](#project) Project
 

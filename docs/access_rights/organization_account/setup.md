@@ -13,7 +13,7 @@ Once you have created your organization, you can customize it. Under the [Settin
 
 The **Roles** tab allows you to define the permissions each group of users will be granted. For example, you can have a **Read-only** role for users who will not need to update the actors, account settings or other resources.
 
-> You should define roles before adding members to your organization, since otherwise no one will know what their permissions are.
+> You'll need to define roles and their permissions before adding members to your organization.
 
 <<**Screenshot of 'roles' and 'permissions' box**>>
 
@@ -27,5 +27,5 @@ You can add members to your organization in the **Members** tab.
 
 Here, you can see the status of your invitation, every user's **Role** and the option to remove users from the team.
 
-> Users are not automatically added to your organizations–they need to accept your invitation first.
+> Users are not automatically added to your organizations–they need to accept your invitation first. This protects everyone from being added to organizations without their approval.
 
