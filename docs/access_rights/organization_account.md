@@ -10,10 +10,10 @@ paths:
 
 Apify's organization account allows you to keep your business account separate from your personal account. It enables you to manage your team members' [permissions]({{@link access_rights/list_of_permissions.md}}) and to centralize your billing.
 
-At the same time, a shared organization account means teams no longer have to share the credentials of a single personal account. You can [switch]({{@link access_rights/organization_account/how_to_use.md#in-the-apify-app}}) between your personal and organization accounts seamlessly in just two clicks.
+At the same time, a separate organization account means teams no longer have to share the credentials of a single personal account. You can [switch]({{@link access_rights/organization_account/how_to_use.md#in-the-apify-app}}) between your personal and organization accounts seamlessly in just two clicks.
 
 You can start an organization account in two ways.
-* [Convert an existing account](#convert-an-existing-account) into an organization. If your codebase is already established in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will need a new personal account.
+* [Convert an existing account](#convert-an-existing-account) into an organization. If your actors and integrations are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will need a new personal account.
 * [Create a brand-new account](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
 
 > Any account can be converted into an organization. However, this option is only available on our **[[SPECIFY PLAN HERE]]** plan(s).
