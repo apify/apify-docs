@@ -13,7 +13,7 @@ By default, each system resource (actor, key-value store, run, ...) you create i
 
 ## [](#granting-access-rights) Granting access rights
 
-You can easily and securely share your own resources - actors, tasks, key-value stores, datasets and request queues using a [granular](https://www.google.com/search?client=firefox-b-d&q=define+granular+permissions) permissions system. This enables you to, for example, allow your colleague to run an actor but not to modify it.
+You can easily and securely share your own resources - actors, tasks, key-value stores, datasets and request queues using a [granular](https://www.google.com/search?client=firefox-b-d&q=define+granular+permissions) permissions system. This enables you to, for example, allow your colleague to run an [actor]({{@link actors.md}}) or view a [dataset]({{@link storage/dataset.md}}) but not to modify them.
 
 You can also grant permission to update an actor and build a new version.
 [Storages]({{@link storage.md}}) (key-value stores, request queues and datasets) are sharable the same way with, for example, just **read** permission, or a combination of both **read** and **write** permissions.
