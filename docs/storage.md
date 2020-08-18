@@ -158,7 +158,11 @@ Named and unnamed storages are the same in all regards except their retention pe
 
 For example, the storage names **janedoe~my-storage-1** and **janedoe~web-scrape-results** are easier to tell apart than the alpha-numerical IDs **cAbcYOfuXemTPwnIB** and **CAbcsuZbp7JHzkw1B**.
 
-## [](#sharing-storages-between-runs) Sharing storages between runs
+## [](#sharing) Sharing
+
+You can invite other Apify users to view or modify your storages using the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#storage}}).
+
+### [](#sharing-storages-between-runs) Sharing storages between runs
 
 Any storage can be accessed from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its **name** or **ID**. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
