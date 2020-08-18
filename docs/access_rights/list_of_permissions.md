@@ -36,7 +36,7 @@ Click [here]({{@link actors.md}}) to learn about Apify actors.
 
 To learn about actor runs, see the [documentation]({{@link actors/running.md}}).
 
-### [](#build) Build
+### [](#actor-builds) Actor builds
 
 |Permission|Description|
 |---|---|

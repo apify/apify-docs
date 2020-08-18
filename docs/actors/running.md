@@ -114,3 +114,6 @@ The following example demonstrates how to start a simple web server in your acto
 
 Actor run gets deleted along with its default storages (key-value store, dataset, request queue) after a data retention period which is based on the [subscription plan](https://apify.com/pricing) of a user.
 
+## [](#sharing) Sharing
+
+You share your actor runs with other Apify users via the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#actor-run}}).

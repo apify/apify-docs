@@ -205,7 +205,11 @@ Example payload:
 
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/request-queues).
 
-## [](#sharing-request-queues-between-runs) Sharing request queues between runs
+## [](#sharing) Sharing
+
+You can invite other Apify users to view or modify your request queues using the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#request-queue}}).
+
+### [](#sharing-request-queues-between-runs) Sharing request queues between runs
 
 You can access a request queue from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its **name** or **ID**.
 

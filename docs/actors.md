@@ -17,6 +17,8 @@ They can be started manually, using API or scheduler, and they can be easily int
 
 A single isolated actor consists of source code and various settings. You can think of an actor as a cloud app or service. Unlike traditional serverless platforms, the run of an actor is not limited to the lifetime of a single HTTP transaction. It can run for as long as necessary, even forever.
 
+Like any other resource, you can share your actors with other Apify users via the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#actors}}).
+
 *   [**Quick Start**]({{@link actors/quick_start.md}})
 *   [**Running**]({{@link actors/running.md}})
 *   [**Examples**]({{@link actors/examples.md}})
