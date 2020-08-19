@@ -1,7 +1,7 @@
 ---
 title: Examples
 description: Discover the Apify platform's various features. This page contains introductory code for building actors, Dockerfiles and persisting your actor's state.
-menuWeight: 3.8
+menuWeight: 4.8
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/examples

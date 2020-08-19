@@ -1,7 +1,7 @@
 ---
 title: Limits
 description: Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of actors/tasks per user or schedule.
-menuWeight: 3.7
+menuWeight: 4.7
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/limits
