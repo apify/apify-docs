@@ -18,16 +18,25 @@ Keep in mind that there might be about 2 minute delay before updated documentati
 
 The `docs/api_v2` directory contains the source file for the
 API reference (https://docs.apify.com/api/v2) hosted on Apiary.
-Using the build script contained in the folder, the API docs are automatically uploaded to Apiary during the web deployment process.
+The build script contained in the **apify-docs/src** folder automatically uploads the API docs to Apiary during the web deployment process.
 
 ### Local testing
 
 1. Install Apiary gem `gem install apiaryio`
-2. After that, you can open the generated doc with the command: `apiary preview --path="./api-v2-reference.apib"`
+2. After that, you can open the generated doc with the command: `apiary preview --path="./docs/api_v2/api-v2-reference.apib"`
 
 ### Test
 
-You should ALWAYS log in to Apiary, analyze the document and make sure there are **no warnings**!
+After updating the API docs, you should ALWAYS log in to Apiary, analyze the document and make sure there are **no warnings**!
+
+## External docs
+
+You will find most of the documentation in this repository.
+
+There are, however, a few exceptions, shown below. To make changes to them, you'll need to clone those repos and make your pull requests to them. When updating the tutorials in the **apify/actor-scraper** repo, don't forget to execute `npm run build` before pushing your code to GitHub.
+* Tutorials for Apify's scrapers (**docs/scraping** directory) are in the [**apify/actor-scraper**](https://github.com/apify/actor-scraper) repository.
+* Apify's API client for JavaScript documentation is in the [**apify-docs/apify-client-js**](https://github.com/apify/apify-client-js) repository.
+* Docs for the command-line interface are in the [**apify/apify-cli**](https://github.com/apify/apify-cli) repo.
 
 ## Implementation
 
@@ -54,6 +63,8 @@ The `paths` metadata ensures successful redirects in case articles are renamed. 
 
 ### Assets
 
+When adding new images to articles, first compress them using [tinypng.com](https://tinypng.com). This will help our docs pages load faster.
+
 You can place assets (images for example) in any directory. If you want to obtain a URL, use the following tag:
 
 ```
@@ -68,7 +79,7 @@ So to include this image in Markdown use:
 
 ### Linking
 
-For links we use a similar syntax as for assets:
+For links, we use a similar syntax as for assets:
 
 ```
 {{@link actor/source_code.md#source-git-repo}}
