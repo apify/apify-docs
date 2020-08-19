@@ -1,9 +1,10 @@
 ---
-title: Introduction
-description: Documentation of the Apify platform, which includes detailed descriptions of Apify Actors, Storage, Proxy, and API.
+title: Home
+description: Overview of the Apify platform's documentation. Discover Apify actors, Schedules, Storage, Proxy and API.
 menuWeight: 1
 paths:
     - index
+    - home
 ---
 
 # Apify documentation
