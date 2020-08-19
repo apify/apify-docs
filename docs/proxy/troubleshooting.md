@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting
-description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
-menuWeight: 8.6
+description: Useful tips for debugging applications that use Apify Proxy. Check the status of your proxies and view information about the client IP address.
+menuWeight: 7.6
 paths:
     - proxy/troubleshooting
 ---

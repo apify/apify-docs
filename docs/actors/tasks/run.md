@@ -1,6 +1,6 @@
 ---
 title: Run
-description: Documentation of Apify Task - a way to set up configuration of your Apify Actor for simplified usage.
+description: Start your actor tasks from the Apify app or via API.
 paths:
     - tasks/run
     - actors/tasks/run
