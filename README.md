@@ -6,6 +6,8 @@
 
 This repo is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using the [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) format and all of its source files are located in the [/docs](https://github.com/apifytech/apify-docs/tree/master/docs) directory.
 
+Before **push**-ing to GitHub, always execute `npm run build` to make sure everything works.
+
 ## Implementation and style
 
 Before making changes, make sure you're familiar with the [Apify Writing Style Guide](https://www.notion.so/apify/The-Apify-Writing-Style-Guide-de9fbb99dcd84665b6d3f790fc88b3b6).
@@ -38,11 +40,13 @@ The `paths` metadata ensures successful redirects in case articles are renamed. 
 
 Metadata descriptions are super important in making our documentation easy to find using search engines. To maximize our SEO,
 
-#### Keep the descriptions between [140 and 160 characters in length](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwigg6Og56brAhUNi1wKHULsAHEQFjAGegQIDBAG&url=https%3A%2F%2Fmoz.com%2Flearn%2Fseo%2Fmeta-description&usg=AOvVaw3L26bXhHZTd0wYDM_5xtJ9) whenever possible.
+#### Keep the descriptions between [140 and 160 characters in length](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwigg6Og56brAhUNi1wKHULsAHEQFjAGegQIDBAG&url=https%3A%2F%2Fmoz.com%2Flearn%2Fseo%2Fmeta-description&usg=AOvVaw3L26bXhHZTd0wYDM_5xtJ9) whenever possible
 
 GOOD: "Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data from the Apify platform or via API."
 
 AVOID: "Apify storage docs."
+
+Of course, when there just isn't enough to say, don't waffle, just leave it short.
 
 #### Avoid using the word "**documentation**"
 
