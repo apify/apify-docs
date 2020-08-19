@@ -52,11 +52,11 @@ Metadata descriptions are super important in making our documentation easy to fi
 
 #### Keep the descriptions between [140 and 160 characters in length](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwigg6Og56brAhUNi1wKHULsAHEQFjAGegQIDBAG&url=https%3A%2F%2Fmoz.com%2Flearn%2Fseo%2Fmeta-description&usg=AOvVaw3L26bXhHZTd0wYDM_5xtJ9) whenever possible
 
+(Of course, when there just isn't enough to say, don't waffle - it's not a university essay.)
+
 GOOD: "Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data from the Apify platform or via API."
 
 AVOID: "Apify storage docs."
-
-Of course, when there just isn't enough to say, don't waffle, just leave it short.
 
 #### Avoid using the word "**documentation**"
 
@@ -71,11 +71,13 @@ AVOID: "Documentation of Apify actors - the easy way to build serverless cloud p
 GOOD:
 
 Title: Proxy
+
 Description: Learn how to anonymously access websites when running web scraping or automation jobs. Prevent IP address-based blocking using IP address rotation.
 
 AVOID:
 
 Title: Proxy
+
 Description: Learn how to use Apify Proxy. Prevent IP address-based blocking using proxy. Apify Proxy helps you bypass security.
 
 #### Phrase the descriptions in a way that answers a question that the person using the search engine might have.
