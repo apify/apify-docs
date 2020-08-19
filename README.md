@@ -14,7 +14,17 @@ Before making changes, make sure you're familiar with the [Apify Writing Style G
 
 ### Highlighting
 
-For consistency, use **bold** for highlighting non-code words/phrases. For inline `code` examples, use **backticks** (\` \`).
+For consistency, use **bold** for highlighting non-code words/phrases.
+
+For inline `code` examples, use **backticks** (\` \`).
+
+For multi-line code examples, use code fences and specify the language:
+
+```js
+const docsAreCool = require('coolDocs');
+...
+return docsAreCool;
+```
 
 ### Metadata
 
