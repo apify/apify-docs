@@ -1,7 +1,7 @@
 ---
 title: Tasks
-description: Documentation of Apify Task - a way to set up configuration of your Apify Actor for simplified usage.
-menuWeight: 4.3
+description: Set up configurations of your Apify actors for simplified usage. Create multiple configurations of the same actor tailored to various use cases.
+menuWeight: 3.3
 paths:
     - tasks
     - actors/tasks

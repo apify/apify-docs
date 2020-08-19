@@ -1,6 +1,6 @@
 ---
 title: NodeJS Examples
-description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
+description: Learn how to connect to Apify's datacenter proxies from your application using Node.js code examples. Configure proxy groups and IP address use.
 paths:
     - proxy/datacenter-proxy/nodejs-examples
 ---

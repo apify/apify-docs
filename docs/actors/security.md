@@ -1,7 +1,7 @@
 ---
 title: Security
-description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
-menuWeight: 4.6
+description: Read Apify's security whitepaper, which describes our best practices.
+menuWeight: 3.6
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/security

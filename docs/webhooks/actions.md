@@ -1,7 +1,7 @@
 ---
 title: Actions
-description: Documentation of Apify webhooks system that enables integration of multiple actors or external systems.
-menuWeight: 9.2
+description: Send a notification when a specific event occurs in your actor or task run. Dynamically add data to the notification payload when sending the notification.
+menuWeight: 8.2
 paths:
     - webhooks/actions
 ---
@@ -12,7 +12,7 @@ Currently, the only available action is to send an HTTP POST request to a URL sp
 
 ## [](#http-request)HTTP request
 
-This action sends an HTTP POST request to the provided URL with a JSON payload. The payload is defined using a payload template, a JSON-like syntax that extends JSON with the use of variables enclosed in doubly curly braces `{{variable}}`. This enables the payload to be dynamically injected with data at the time when the webhook is triggered.
+This action sends an HTTP POST request to the provided URL with a JSON payload. The payload is defined using a payload template, a JSON-like syntax that extends JSON with the use of variables enclosed in double curly braces `{{variable}}`. This enables the payload to be dynamically injected with data at the time when the webhook is triggered.
 
 The response to the POST request must have an HTTP status code in the `2XX` range. Otherwise it is considered an error and the request is periodically retried with an exponential back-off: first retry happens after roughly 1 minute, second after 2 minutes, third after 4 minutes etc. After 11 such retries which take around 32 hours, the system gives up and stops retrying the requests.
 

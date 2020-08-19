@@ -21,11 +21,11 @@ jobs:
       - name: Build documentation
         run: npm run build
       - name: Upload docs to AWS S3
-        run: ./upload_to_s3.sh
+        run: ./src/upload_to_s3.sh
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - name: Upload API docs to Apiary.io
-        run: ./upload_to_apiary.sh
+        run: ./src/upload_to_apiary.sh
         env:
           APIARY_API_KEY: ${{ secrets.APIARY_API_KEY }}

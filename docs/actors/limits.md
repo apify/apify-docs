@@ -1,7 +1,7 @@
 ---
 title: Limits
-description: Documentation of Apify actors - serverless computing jobs that enable execution of long-running web scraping and automation tasks in the cloud.
-menuWeight: 4.7
+description: Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of actors/tasks per user or schedule.
+menuWeight: 3.7
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/limits
@@ -10,13 +10,13 @@ paths:
 
 # [](#limits) Limits
 
-The tables below demonstrate the Apify platform's default resource limits. 
+The tables below demonstrate the Apify platform's default resource limits.
 
-If needed, the limits shown below can be increased on paid accounts. For details, contact us on `hello@apify.com` or using the chat icon in the bottom-right corner.
+If needed, the limits shown below can be increased on paid accounts. For details, contact us on **hello@apify.com** or using the chat icon in the bottom-right corner.
 
-* Maximum combined memory of all running jobs
-* Maximum number of actors per user
-* Maximum number of tasks per user
+* Maximum combined memory of all running jobs.
+* Maximum number of actors per user.
+* Maximum number of tasks per user.
 
 ## [](#actor-limits) Actor limits
 
@@ -25,8 +25,8 @@ If needed, the limits shown below can be increased on paid accounts. For details
 |Build memory size|1,024 MB <!-- ACTOR_LIMITS.BUILD_DEFAULT_MEMORY_MBYTES -->|
 |Run minimum memory|128 MB<!-- ACTOR_LIMITS.MIN_RUN_MEMORY_MBYTES -->|
 |Run maximum memory|32,768 MB<!-- ACTOR_LIMITS.MAX_RUN_MEMORY_MBYTES -->|
-|Maximum combined memory of all running jobs (free accounts)|8,192 MB<!-- ACTOR_LIMITS.FREE_ACCOUNT_MAX_MEMORY_MBYTES -->|
-|Maximum combined memory of all running jobs (paid accounts)|65,536 MB<!-- ACTOR_LIMITS.PAID_ACCOUNT_MAX_MEMORY_MBYTES -->|
+|Maximum combined memory of all running jobs <br/>(free accounts)|8,192 MB<!-- ACTOR_LIMITS.FREE_ACCOUNT_MAX_MEMORY_MBYTES -->|
+|Maximum combined memory of all running jobs <br/>(paid accounts)|65,536 MB<!-- ACTOR_LIMITS.PAID_ACCOUNT_MAX_MEMORY_MBYTES -->|
 |Build timeout|600 secs <!-- ACTOR_LIMITS.BUILD_TIMEOUT_SECS --> |
 |Build/run disk size|2x job memory limit<!-- ACTOR_LIMITS.RUN_DISK_TO_MEMORY_SIZE_COEFF -->|
 |Memory per CPU core|4,096 MB<!-- ACTOR_LIMITS.RUN_MEMORY_MBYTES_PER_CPU_CORE -->|

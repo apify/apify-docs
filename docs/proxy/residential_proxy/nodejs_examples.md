@@ -1,6 +1,6 @@
 ---
 title: NodeJS Examples
-description: Documentation of Apify Proxy that enables anonymization of access to websites and IP rotation.
+description: Learn how to connect to Apify's residential proxies from your application using Node.js code examples. Configure proxy locations and IP address use.
 paths:
     - proxy/residential-proxy/nodejs-examples
 ---
