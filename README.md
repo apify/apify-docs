@@ -10,7 +10,7 @@ Before **push**-ing to GitHub, always execute `npm run build` to make sure every
 
 ## Implementation and style
 
-In addition to the tips below: when in doubt, check existing docs for formatting and style.
+In addition to the tips below: when in doubt, check existing docs for formatting and style tips.
 
 ### Highlighting
 
