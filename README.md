@@ -10,7 +10,7 @@ Before **push**-ing to GitHub, always execute `npm run build` to make sure every
 
 ## Implementation and style
 
-Before making changes, make sure you're familiar with the [Apify Writing Style Guide](https://www.notion.so/apify/The-Apify-Writing-Style-Guide-de9fbb99dcd84665b6d3f790fc88b3b6).
+In addition to the tips below: when in doubt, check existing docs for formatting and style.
 
 ### Highlighting
 
