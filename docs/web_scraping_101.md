@@ -9,8 +9,10 @@ paths:
 
 # Web scraping 101
 
-This section aims to be the best and most comprehensive web scraping resource. Here, we aim to compile our best knowledge on web scraping and its various techniques.
+This section aims to be the best and most comprehensive web scraping resource. Here, we aim to compile our best knowledge on web scraping and the various techniques involved.
 
 Of course, there is no scraping without anti-scraping measures, so we aim to dedicate a large portion of the section to those. We will discuss different anti-scraping techniques and how to bypass them.
 
-*   [**Overview of anti-scraping techniques**]({{@link web_scraping_101/anti_scraping_introduction.md}}) - Learn the basics of web scraping prevention and how to bypass them.
+If you are new to web scraping and want to learn about the obstacles you're bound to discover, checkout our [**Introduction to anti-scraping techniques and how to bypass them**]({{@link web_scraping_101/anti_scraping_introduction.md}}).
+
+Pop in from time to time as we expand this section with articles on more specific and advanced topics in the realm of web scraping.
