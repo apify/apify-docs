@@ -1,15 +1,15 @@
 ---
 title: Introduction to anti-scraping techniques and how to bypass them
 menuTitle: Anti-scraping introduction
-description: Learn the basics of modern web scraping protection used by websites and how to bypass them. Reduce blocking when web scraping and scrape for longer.
+description: Explore the basics of web scraping prevention. Get around them with IP address rotation and proxies, emulate browser signatures or shared IP address sessions.
 menuWeight: 3.1
 paths:
     - web-scraping-101/anti-scraping-introduction
 ---
 
-# [](#Introduction) Introduction to anti-scraping techniques and how to bypass them
+# [](#introduction) Introduction to anti-scraping techniques and how to bypass them
 
-This article covers the basics of modern anti-scraping techniques and how to bypass them. We look at IP address rotation using proxies, emulation of browser HTTP signatures and shared IP address emulation (also known as [session multiplexing](https://en.wikipedia.org/wiki/Session_multiplexing)).
+This article introduces the principles behind anti-scraping measures to demonstrate what you are up against when scraping sites that are protective of their data. We then describe the antidotes for these defenses. You can usually get around more basic protections by doing the direct opposite. For example, if a site is blocking your IP address, you can switch between different addresses to stop them detecting you. If a website is analyzing your behavior, make it as human-like as possible. And, if the simpler options aren't enough, don't despair - shared IP address emulation (also known as [session multiplexing](https://en.wikipedia.org/wiki/Session_multiplexing)) is there for you.
 
 ## [](#ip-address-based-blocking) IP address-based blocking
 
@@ -33,7 +33,7 @@ When crawling a website, you’ll typically send many more requests from a singl
 
 There are two ways to work around rate limiting. One option is to limit how many pages on a single site you scrape concurrently, and possibly even introduce delays (after reaching the original limit). The other is to use proxy servers and rotate IP addresses after a certain number of requests.
 
-To lower the concurrency, when using the [Apify SDK](https://sdk.apify.com/docs/typedefs/basic-crawler-options#maxconcurrency), just pass the `maxConcurrency` option to your crawler's setup. If you use actors from [Apify Store](https://apify.com/store), you can usually set the maximum concurrency in the actor's input.
+To lower the concurrency when using the [Apify SDK](https://sdk.apify.com/docs/typedefs/basic-crawler-options#maxconcurrency), just pass the `maxConcurrency` option to your crawler's setup. If you use actors from [Apify Store](https://apify.com/store), you can usually set the maximum concurrency in the actor's input.
 
 ## [](#http-request-analysis) HTTP request analysis
 
@@ -46,7 +46,7 @@ Websites can check for these signals and block requests that don’t have the si
 
 ### [](#bypassing-http-request-analysis) Bypassing HTTP request analysis
 
-A straightforward way to circumvent the HTTP request analysis is to use a real web browser, such as [headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome), for to emulate browser HTTP signatures. However, this can quickly become expensive since web browsers consume a lot of system resources and are generally slow.
+A straightforward way to circumvent the HTTP request analysis is to use a real web browser, such as [headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome), to emulate browser HTTP signatures. However, this can quickly become expensive since web browsers consume a lot of system resources and are generally slow.
 
 Thankfully, it is possible to emulate browsers’ HTTP request signatures even when using a low-level HTTP request library. This will make your scripted HTTP request look like a real web browser, yet it will be much faster and more efficient. Of course, this will only work in situations where the interesting page content is served directly in the first HTML response and not loaded later using [AJAX](https://en.wikipedia.org/wiki/Ajax_(programming)).
 
