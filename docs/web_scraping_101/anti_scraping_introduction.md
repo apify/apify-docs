@@ -9,7 +9,7 @@ paths:
 
 # [](#introduction) Introduction to anti-scraping techniques and how to bypass them
 
-This article introduces the principles behind anti-scraping measures to demonstrate what you are up against when scraping sites that are protective of their data. We then describe the antidotes for these defenses. You can usually get around more basic protections by doing the direct opposite. For example, if a site is blocking your IP address, you can switch between different addresses to stop them detecting you. If a website is analyzing your behavior, make it as human-like as possible. And, if the simpler options aren't enough, don't despair - shared IP address emulation (also known as [session multiplexing](https://en.wikipedia.org/wiki/Session_multiplexing)) is there for you.
+This article introduces the principles behind anti-scraping measures to demonstrate what you are up against when scraping sites that are protective of their data. We then describe the antidotes for these defenses. You can usually get around more basic protections by doing the direct opposite. For example, if a site is blocking your IP address, you can switch between different addresses to stop them detecting you. If a website is analyzing your behavior, make it as human-like as possible. And, if the simpler options aren't enough, don't despair - [shared IP address emulation](#shared-ip-address-emulation) (also known as [session multiplexing](https://en.wikipedia.org/wiki/Session_multiplexing)) is there for you.
 
 ## [](#ip-address-based-blocking) IP address-based blocking
 
@@ -74,11 +74,13 @@ To make things complicated, websites often employ various scraping protection co
 
 Even though IP address rotation and emulation of browser HTTP signatures can get you far, there is a chance that for large scale crawls you’ll start getting blocked. Of course, you can always add more proxies, but that can become overly expensive.
 
-Shared IP address emulation is a technique that can dramatically extend the effectiveness of your scraping and multiply the number of pages that you can fetch. The technique relies on websites knowing that many different users can be behind a single IP address.
+Shared IP address emulation can dramatically extend the effectiveness of your scraping and multiply the number of pages that you can fetch. The technique relies on websites knowing that many different users can be behind a single IP address.
 
 For example, requests from mobile devices are usually only routed through a handful of IP addresses, while users behind a single corporate firewall might all have a single IP address. By emulating and managing these user sessions per IP address, it is possible to trick websites into limiting how aggressive their blocking is.
 
 To make it work, you need to make sure that a single user session is always routed via the same IP address. A website can identify such user sessions based on cookies, authentication tokens or a browser HTTP signature/fingerprint.
+
+The [Apify SDK](https://sdk.apify.com)'s [`SessionPool`](https://sdk.apify.com/docs/api/session-pool#docsNav) class lets you do just that. It is easy to add to other Apify tools such as [actors]({{@link actors.md}}) or [proxy]({{@link proxy.md}}) but also works outside of the Apify ecosystem.
 
 ## [](#comparing-techniques) Comparing ways of bypassing scraping protection
 
