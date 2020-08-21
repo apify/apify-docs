@@ -9,7 +9,9 @@ paths:
 
 # [](#introduction) Introduction to anti-scraping techniques and how to bypass them
 
-This article introduces the principles behind anti-scraping measures to demonstrate what you are up against when scraping sites that are protective of their data. We then describe the antidotes for these defenses. You can usually get around more basic protections by doing the direct opposite. For example, if a site is blocking your IP address, you can switch between different addresses to stop them detecting you. If a website is analyzing your behavior, make it as human-like as possible. And, if the simpler options aren't enough, don't despair - [shared IP address emulation](#shared-ip-address-emulation) (also known as [session multiplexing](https://en.wikipedia.org/wiki/Session_multiplexing)) is there for you.
+This article introduces the principles behind anti-scraping measures to demonstrate what you are up against when scraping sites that are protective of their data. We then describe the antidotes for these defenses. You can usually get around more basic protections by doing the direct opposite. 
+
+For example, if a site is blocking your IP address, you can switch between different addresses to stop them detecting you. If a website is analyzing your behavior, make it as human-like as possible. And, if the simpler options aren't enough, don't despair - [shared IP address emulation](#shared-ip-address-emulation) (also known as [session multiplexing](https://en.wikipedia.org/wiki/Session_multiplexing)) is there for you.
 
 ## [](#ip-address-based-blocking) IP address-based blocking
 
