@@ -13,6 +13,6 @@ This section aims to be the best and most comprehensive web scraping resource. H
 
 Of course, there is no scraping without anti-scraping measures, so we aim to dedicate a large portion of the section to those. We will discuss different anti-scraping techniques and how to bypass them.
 
-If you are new to web scraping and want to learn about the obstacles you're bound to discover, check out our [**Introduction to anti-scraping techniques and how to bypass them**]({{@link web_scraping_101/anti_scraping_techniques.md}}).
+If you are new to web scraping and want to learn about the obstacles you're bound to discover, check out our [introduction]({{@link web_scraping_101/anti_scraping_techniques.md}}) to anti-scraping techniques and bypassing them.
 
 Pop in from time to time as we expand this section with articles on more specific and advanced topics in the realm of web scraping.
