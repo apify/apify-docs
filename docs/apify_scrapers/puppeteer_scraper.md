@@ -6,4 +6,5 @@ externalSourceUrl: https://raw.githubusercontent.com/apifytech/actor-scraper/mas
 menuWeight: 2.4
 paths:
     - scraping/puppeteer-scraper
+    - apify-scrapers/puppeteer-scraper
 ---

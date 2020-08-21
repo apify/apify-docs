@@ -6,4 +6,5 @@ externalSourceUrl: https://raw.githubusercontent.com/apifytech/actor-scraper/mas
 menuWeight: 2.1
 paths:
     - scraping/getting-started
+    - apify-scrapers/getting-started
 ---

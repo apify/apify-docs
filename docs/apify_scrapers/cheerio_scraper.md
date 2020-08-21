@@ -6,4 +6,5 @@ externalSourceUrl: https://raw.githubusercontent.com/apifytech/actor-scraper/mas
 menuWeight: 2.3
 paths:
     - scraping/cheerio-scraper
+    - apify-scrapers/cheerio-scraper
 ---
