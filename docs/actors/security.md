@@ -1,7 +1,7 @@
 ---
 title: Security
 description: Read Apify's security whitepaper, which describes our best practices.
-menuWeight: 3.6
+menuWeight: 4.6
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/security
