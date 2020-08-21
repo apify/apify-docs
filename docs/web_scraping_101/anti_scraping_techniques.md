@@ -1,15 +1,15 @@
 ---
-title: Introduction to anti-scraping techniques and how to bypass them
-menuTitle: Anti-scraping introduction
+title: Anti-scraping techniques and how to bypass them
+menuTitle: Anti-scraping techniques
 description: Explore the basics of web scraping prevention. Get around them with IP address rotation and proxies, emulate browser signatures or shared IP address sessions.
 menuWeight: 3.1
 paths:
-    - web-scraping-101/anti-scraping-introduction
+    - web-scraping-101/anti-scraping-techniques
 ---
 
-# [](#introduction) Introduction to anti-scraping techniques and how to bypass them
+# [](#introduction) Anti-scraping techniques and how to bypass them
 
-This article introduces the principles behind anti-scraping measures to demonstrate what you are up against when scraping sites that are protective of their data. We then describe the antidotes for these defenses. You can usually get around more basic protections by doing the direct opposite. 
+This article introduces the principles behind anti-scraping measures to demonstrate what you are up against when scraping sites that are protective of their data. We then describe the antidotes for these defenses. You can usually get around more basic protections by doing the direct opposite.
 
 For example, if a site is blocking your IP address, you can switch between different addresses to stop them detecting you. If a website is analyzing your behavior, make it as human-like as possible. And, if the simpler options aren't enough, don't despair - [shared IP address emulation](#shared-ip-address-emulation) (also known as [session multiplexing](https://en.wikipedia.org/wiki/Session_multiplexing)) is there for you.
 
@@ -86,5 +86,5 @@ The [Apify SDK](https://sdk.apify.com)'s [`SessionPool`](https://sdk.apify.com/d
 
 ## [](#comparing-techniques) Comparing ways of bypassing scraping protection
 
-In a [recent experiment](https://dev.to/apify/bypassing-web-scraping-protection-get-the-most-out-of-your-proxies-with-shared-ip-address-emulation-291c), we found session emulation to be at least twice as effective as plain [IP address rotation](#ip-address-rotation).
+In a [recent experiment](https://dev.to/apify/bypassing-web-scraping-protection-get-the-most-out-of-your-proxies-with-shared-ip-address-emulation-291c), we found session emulation to be at least twice as effective as plain [IP address rotation](#bypassing-ip-address-based-blocking).
 
