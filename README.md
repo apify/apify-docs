@@ -22,9 +22,9 @@ For multi-line code examples, use code fences and specify the language:
 
 \```js
 
-const docsAreCool = require('coolDocs');
-...
-return docsAreCool;
+const docsAreCool = require('coolDocs'); <br/>
+...<br/>
+return docsAreCool;<br/>
 
 \```
 
