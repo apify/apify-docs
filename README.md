@@ -21,9 +21,11 @@ For inline `code` examples, use **backticks** (\` \`).
 For multi-line code examples, use code fences and specify the language:
 
 \```js
+
 const docsAreCool = require('coolDocs');
 ...
 return docsAreCool;
+
 \```
 
 ### Metadata
