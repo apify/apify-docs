@@ -330,3 +330,5 @@ For more information on sharing storages between runs, see the Storage [overview
 * Tabulated data storage formats (ones that display the data in columns), such as HTML, CSV, and EXCEL, have a maximum limit of **3000** columns. All data that do not fit into this limit will not be retrieved.
 
 * When using the `pushData()` method, the size of the data is limited by the receiving API. Therefore, `pushData()` will only allow objects whose JSON representation is smaller than **9MB**. When an array is passed, none of the included objects may be larger than 9MB, however the array itself may be of any size.
+
+* Dataset names can be up to 63 characters long.

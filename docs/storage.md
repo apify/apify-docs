@@ -154,6 +154,8 @@ You can edit your storages' names in the [Apify app](#apify-app) or using the ac
 
 All storages are created without a name (with only an **ID**). This allows them to expire after 7 days and not take up your storage space. If you want to preserve a storage, simply [give it a name](#apify-app) and it will be retained indefinitely.
 
+> Storages' names can be up to 63 characters long.
+
 Named and unnamed storages are the same in all regards except their retention period. The only difference is that named storages make it easier to verify you are using the correct store.
 
 For example, the storage names **janedoe~my-storage-1** and **janedoe~web-scrape-results** are easier to tell apart than the alpha-numerical IDs **cAbcYOfuXemTPwnIB** and **CAbcsuZbp7JHzkw1B**.

@@ -231,4 +231,6 @@ For more information on sharing storages between runs, see the Storage [overview
 
 ## [](#limits) Limits
 
-While multiple actor or task runs can **add new requests** to a queue concurrently, only one run can **process a queue** at any one time.
+* While multiple actor or task runs can **add new requests** to a queue concurrently, only one run can **process a queue** at any one time.
+
+* Request queue names can be up to 63 characters long.
