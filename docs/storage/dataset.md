@@ -185,6 +185,8 @@ To **add data to a dataset**, send a POST request, with a JSON object containing
 
     https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
 
+> Pushing data to dataset via API is limited to **200** requests per second to prevent our servers from being overloaded.
+
 Example payload:
 ```json
 [
@@ -199,7 +201,6 @@ Example payload:
     }
 ]
 ```
-> Requests to the **Put data** endpoint are limited to 200 requests per second to prevent Apify servers from being overloaded.
 
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 
