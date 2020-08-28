@@ -142,6 +142,19 @@ With other request types and when using the **username~store-name**, however, yo
 
 For more information and a detailed breakdown of each storage API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 
+## [](#rate-limiting) Rate limiting
+
+All API endpoints limit their rate of requests to protect Apify servers from overloading. The default rate limit is **30** requests per second, with a few exceptions, which are limited to **200** requests per second:
+
+* [Push items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items) to dataset.
+* CRUD ([add](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/add-request),
+[get](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/get-request),
+[update](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/update-request),
+[delete](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/delete-request))
+operations of **request queue** requests.
+
+See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details.
+
 ## [](#data-retention) Data retention
 
 Unnamed storages expire after 7 days unless otherwise specified.
