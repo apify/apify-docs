@@ -240,8 +240,8 @@ CRUD ([add](https://docs.apify.com/api/v2#/reference/request-queues/request-coll
 [get](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/get-request),
 [update](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/update-request),
 [delete](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/delete-request))
-operation requests are limited to **200** per second to protect Apify servers from overloading.
+operation requests are limited to **200** per second per request queue. This helps protect Apify servers from being overloaded.
 
-All other request queue API [endpoints](https://docs.apify.com/api/v2#/reference/request-queues) are limited to **30** requests per second.
+All other request queue API [endpoints](https://docs.apify.com/api/v2#/reference/request-queues) are limited to **30** requests per second per request queue.
 
-See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details.
+See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details and to learn what to do if you exceed the rate limit.

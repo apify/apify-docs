@@ -336,8 +336,8 @@ For more information on sharing storages between runs, see the Storage [overview
 
 ### [](#rate-limiting) Rate limiting
 
-When pushing data to a dataset via [API](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items), the request rate is limited to **200** per second to protect Apify servers from overloading.
+When pushing data to a dataset via [API](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items), the request rate is limited to **200** per second per dataset. This helps protect Apify servers from being overloaded.
 
-All other dataset API [endpoints](https://docs.apify.com/api/v2#/reference/datasets) are limited to **30** requests per second.
+All other dataset API [endpoints](https://docs.apify.com/api/v2#/reference/datasets) are limited to **30** requests per second per dataset.
 
-See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details.
+See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details and to learn what to do if you exceed the rate limit.

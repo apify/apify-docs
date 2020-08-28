@@ -144,7 +144,7 @@ For more information and a detailed breakdown of each storage API endpoint, see 
 
 ## [](#rate-limiting) Rate limiting
 
-All API endpoints limit their rate of requests to protect Apify servers from overloading. The default rate limit is **30** requests per second, with a few exceptions, which are limited to **200** requests per second:
+All API endpoints limit their rate of requests to protect Apify servers from overloading. The default rate limit is **30** requests per second per storage object, with a few exceptions, which are limited to **200** requests per second per storage object:
 
 * [Push items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items) to dataset.
 * CRUD ([add](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/add-request),
@@ -153,7 +153,18 @@ All API endpoints limit their rate of requests to protect Apify servers from ove
 [delete](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/delete-request))
 operations of **request queue** requests.
 
-See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details.
+If a client sends too many requests, the API endpoints respond with the HTTP status code `429 Too Many Requests` and the following body:
+
+````
+{
+    "error": {
+        "type": "rate-limit-exceeded",
+        "message": "You have exceeded the rate limit of ... requests per second"
+    }
+}
+````
+
+See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details and to learn what to do if you exceed the rate limit.
 
 ## [](#data-retention) Data retention
 
