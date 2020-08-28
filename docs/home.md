@@ -33,8 +33,6 @@ To learn how to build your own actor from scratch, you can use the [Apify SDK](h
 
 ## [](#experienced-users) Experienced users
 
-If you've used Apify before, welcome back!
-
 For everything you need to know about Apify actors such as [development]({{@link actors/development.md}}), [running]({{@link actors/running.md}}), [publishing]({{@link actors/publishing.md}}) or [platform limits]({{@link actors/limits.md}}), visit the [**Actors**]({{@link actors.md}}) section.
 
 If you're looking to set up recurring events such as actor or task runs, check out the [**Schedules**]({{@link storage.md}}) page.
@@ -55,8 +53,8 @@ And, last but not least, our [**command-line client**]({{@link cli.md}}) will he
 
 ## [](#external-resources) External resources
 
-*   [**Video tutorials**](https://www.youtube.com/apify) - step-by-step video tutorials for beginners.
-*   [**Help center**](https://help.apify.com/) - examples, tutorials and various tips & tricks.
 *   [**Stack Overflow**](https://stackoverflow.com/questions/tagged/apify) - community questions.
+*   [**Help center**](https://help.apify.com/) - examples, tutorials and various tips & tricks.
+*   [**Video tutorials**](https://www.youtube.com/apify) - step-by-step video tutorials for beginners.
 
 Anything missing? Please let us know at [support@apify.com](mailto:support@apify.com) or using the **Feedback** button on the right.
