@@ -15,7 +15,7 @@ If you're new to Apify, it's great to meet you! Let's get you up to speed with w
 
 Apify is an online cloud platform specializing in web scraping, data extraction and robotic process automation. With Apify, you can easily compare prices of services or generate new leads for your business by extracting structured data from websites. In addition, you can use our tools to automate manual workflows such as filling in forms or uploading files.
 
-This site contains everything you need to know about using Apify, from beginner-friendly [tutorials]({{@link scraping.md}}) for using our ready-made scrapers to information about how to [develop]({{@link actors/development.md}}) your own actors or manage your [stored data]({{@link storage.md}}).
+This site contains everything you need to know about using Apify, from beginner-friendly [tutorials]({{@link tutorials.md}}) for using our ready-made scrapers to information about how to [develop]({{@link actors/development.md}}) your own actors or manage your [stored data]({{@link storage.md}}).
 
 We are always trying to improve our documentation, so if you have any feedback, please let us know using the green **Feedback** button on the right.
 
@@ -27,7 +27,7 @@ Once you're familiar with the basics, you can visit [Apify Store](https://apify.
 
 ### [](#tutorials) Tutorials
 
-If you're interested in learning how to scrape websites or automate processes using Apify, visit our [tutorials]({{@link scraping.md}}). They will walk you through the principles of our scraping tools and prepare you for more advanced projects.
+If you're interested in learning how to scrape websites or automate processes using Apify, visit our [tutorials]({{@link tutorials.md}}). They will walk you through the principles of our scraping tools and prepare you for more advanced projects.
 
 To learn how to build your own actor from scratch, you can use the [Apify SDK](https://sdk.apify.com/docs/guides/getting-started). It is a scalable JavaScript/Node.js library tailor-made for data extraction and web automation jobs (not only) with [headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) and [Puppeteer](https://pptr.dev/).
 
