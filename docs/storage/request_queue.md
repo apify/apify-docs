@@ -233,7 +233,7 @@ For more information on sharing storages between runs, see the Storage [overview
 
 While multiple actor or task runs can **add new requests** to a queue concurrently, only one run can **process a queue** at any one time.
 
-### [](#rate-limits) Rate limiting
+### [](#rate-limiting) Rate limiting
 
 When managing request queues via [API](https://docs.apify.com/api/v2#/reference/request-queues/put-items),
 CRUD ([add](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/add-request),

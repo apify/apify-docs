@@ -333,7 +333,7 @@ For more information on sharing storages between runs, see the Storage [overview
 
 * When using the `pushData()` method, the size of the data is limited by the receiving API. Therefore, `pushData()` will only allow objects whose JSON representation is smaller than **9MB**. When an array is passed, none of the included objects may be larger than 9MB, however the array itself may be of any size.
 
-### [](#rate-limits) Rate limiting
+### [](#rate-limiting) Rate limiting
 
 When pushing data to a dataset via [API](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items), the request rate is limited to **200** per second to protect Apify servers from overloading.
 
