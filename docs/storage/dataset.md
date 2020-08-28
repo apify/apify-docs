@@ -199,6 +199,8 @@ Example payload:
     }
 ]
 ```
+> Requests to the **Put data** endpoint are limited to 200 requests per second to prevent Apify servers from being overloaded.
+
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 
 ## [](#hidden-fields) Hidden fields
@@ -330,3 +332,11 @@ For more information on sharing storages between runs, see the Storage [overview
 * Tabulated data storage formats (ones that display the data in columns), such as HTML, CSV, and EXCEL, have a maximum limit of **3000** columns. All data that do not fit into this limit will not be retrieved.
 
 * When using the `pushData()` method, the size of the data is limited by the receiving API. Therefore, `pushData()` will only allow objects whose JSON representation is smaller than **9MB**. When an array is passed, none of the included objects may be larger than 9MB, however the array itself may be of any size.
+
+### [](#rate-limits) Rate limiting
+
+When pushing data to a dataset via [API](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items), the request rate is limited to **200** per second to protect Apify servers from overloading.
+
+All other dataset API [endpoints](https://docs.apify.com/api/v2#/reference/datasets) are limited to **30** requests per second.
+
+See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details.
