@@ -15,9 +15,9 @@ If you're new to Apify, it's great to meet you! Let's get you up to speed with w
 
 Apify is an online cloud platform specializing in web scraping, data extraction and robotic process automation. With Apify, you can easily compare prices of services or generate new leads for your business by extracting structured data from websites. In addition, you can use our tools to automate manual workflows such as filling in forms or uploading files.
 
-This site contains everything you need to know about using Apify, from beginner-friendly [tutorials]({{@link tutorials.md}}) for using our ready-made scrapers to information about how to [develop]({{@link actors/development.md}}) your own actors or manage your [stored data]({{@link storage.md}}).
+This site contains everything you need to know about using Apify, from beginner-friendly [tutorials]({{@link tutorials.md}}) for using our ready-made scrapers to information about how to [develop]({{@link actors/development.md}}) your own actors, manage your [stored data]({{@link storage.md}}) or reduce blocking using [proxies]({{@link proxy.md}}).
 
-We are always trying to improve our documentation, so if you have any feedback, please let us know using the green **Feedback** button on the right.
+We are always trying to improve our documentation, so if you have any feedback, please let us know using the **Feedback** button on the right.
 
 ## [](#get-started) Get started
 
