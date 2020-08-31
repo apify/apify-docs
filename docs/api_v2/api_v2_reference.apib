@@ -1053,12 +1053,24 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
 
 + Response 201
 
+    + Attributes
+            + format: `json`
+
     + Headers
 
-            Content-Type: application/json
+            X-Apifier-Pagination-Offset: 0
+            X-Apifier-Pagination-Limit: 100
+            X-Apifier-Pagination-Count: 100
+            X-Apifier-Pagination-Total: 10204
 
-    + Attributes
-        - bar: `foo`
+    + Body
+
+            [
+              {
+                myValue: 'some value',
+                myOtherValue: 'some other value'
+              }
+            ]
 
 
 + Response 400
@@ -1100,12 +1112,24 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
 
 + Response 201
 
+    + Attributes
+            + format: `json`
+
     + Headers
 
-            Content-Type: application/json
+            X-Apifier-Pagination-Offset: 0
+            X-Apifier-Pagination-Limit: 100
+            X-Apifier-Pagination-Count: 100
+            X-Apifier-Pagination-Total: 10204
 
-    + Attributes
-        - foo: `bar`
+    + Body
+
+            [
+              {
+                myValue: 'some value',
+                myOtherValue: 'some other value'
+              }
+            ]
 
 
 + Response 400
@@ -1752,12 +1776,24 @@ To run the task asynchronously, use the [Run task](#reference/actor-tasks/run-co
 
 + Response 201
 
+    + Attributes
+            + format: `json`
+
     + Headers
 
-            Content-Type: application/json
+            X-Apifier-Pagination-Offset: 0
+            X-Apifier-Pagination-Limit: 100
+            X-Apifier-Pagination-Count: 100
+            X-Apifier-Pagination-Total: 10204
 
-    + Attributes
-        - bar: `foo`
+    + Body
+
+            [
+              {
+                myValue: 'some value',
+                myOtherValue: 'some other value'
+              }
+            ]
 
 
 + Response 400
@@ -1786,12 +1822,24 @@ To run the Task asynchronously, use the [Run task asynchronously](#reference/act
 
 + Response 201
 
+    + Attributes
+            + format: `json`
+
     + Headers
 
-            Content-Type: application/json
+            X-Apifier-Pagination-Offset: 0
+            X-Apifier-Pagination-Limit: 100
+            X-Apifier-Pagination-Count: 100
+            X-Apifier-Pagination-Total: 10204
 
-    + Attributes
-        - bar: `foo`
+    + Body
+
+            [
+              {
+                myValue: 'some value',
+                myOtherValue: 'some other value'
+              }
+            ]
 
 
 + Response 400
