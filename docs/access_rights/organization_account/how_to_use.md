@@ -39,6 +39,13 @@ For a detailed breakdown of all Apify API endpoints and help on using them, visi
 
 notes:
 
+as a member of a team, you're given your API token and proxy password, which are limited to your permissions in the org. These tokens are visible only to you and you can use them for any API-related tasks.
+
+you get your tokens which let you do the stuff you're allowed to do in permissions
+
+then, if you have the 'manage organization access keys' permission to manage organization tokens, you can see the org's organization-wide API tokens in the Integrations tab. They are shared across the organization, to anyone who has the permission 'manage organization access keys'.
+
+then, you can make organization-wide integrations using those tokens.
 
 
 
