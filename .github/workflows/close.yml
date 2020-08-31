@@ -1,0 +1,16 @@
+name: Close pull request
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  close:
+    name: Close
+    runs-on:  ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: remove branch specific artifacts from AWS S3
+        run: ./src/scripts/remove_branch_artifacts_from_s3.sh
+        env:
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
