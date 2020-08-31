@@ -1,19 +1,20 @@
 ---
-title: Scraping
+title: Apify scrapers
 description: Discover Apify's ready-made web scraping and automation tools. Compare Web Scraper, Cheerio Scraper and Puppeteer Scraper to decide which is right for you.
-menuWeight: 2
+menuWeight: 2.1
 category: guides
 paths:
     - scraping
+    - tutorials/apify-scrapers
 ---
 
-# [](./scraping)Scraping with Apify
+# [](#apify_scrapers)Scraping with Apify
 
 Scraping and crawling the web can be difficult and time-consuming without the right tools. That's why Apify provides ready-made solutions to crawl and scrape any website. They are based on our [actors](https://apify.com/actors) and the [Apify SDK](https://sdk.apify.com).
 
-Don't let the number of options confuse you. Unless you're really sure you need to use a specific tool, just go ahead and use **Web Scraper** ([apify/web-scraper]({{@link scraping/web_scraper.md}})). It is the easiest to pick up and can handle almost anything. Look at **Puppeteer Scraper** ([apify/puppeteer-scraper]({{@link scraping/puppeteer_scraper.md}})) or **Cheerio Scraper** ([apify/cheerio-scraper]({{@link scraping/cheerio_scraper.md}})) only after you know your target websites well and need to optimize your scraper.
+Don't let the number of options confuse you. Unless you're really sure you need to use a specific tool, just go ahead and use **Web Scraper** ([apify/web-scraper]({{@link tutorials/apify_scrapers/web_scraper.md}})). It is the easiest to pick up and can handle almost anything. Look at **Puppeteer Scraper** ([apify/puppeteer-scraper]({{@link tutorials/apify_scrapers/puppeteer_scraper.md}})) or **Cheerio Scraper** ([apify/cheerio-scraper]({{@link tutorials/apify_scrapers/cheerio_scraper.md}})) only after you know your target websites well and need to optimize your scraper.
 
-[Visit the Scraper introduction tutorial to get started!]({{@link scraping/getting_started.md}})
+[Visit the Scraper introduction tutorial to get started!]({{@link tutorials/apify_scrapers/getting_started.md}})
 
 ## [](#web-scraper)Web Scraper
 
@@ -21,7 +22,7 @@ Web Scraper is a ready-made solution for scraping the web using the Chrome brows
 
 Underneath, it uses the Puppeteer library to control the browser, but you don't need to worry about that. Using a simple web UI and a little of basic JavaScript, you can tweak it to serve almost any scraping need.
 
-[Visit the Web Scraper tutorial to get started!]({{@link scraping/web_scraper.md}})
+[Visit the Web Scraper tutorial to get started!]({{@link tutorials/apify_scrapers/web_scraper.md}})
 
 ## [](#cheerio-scraper)Cheerio Scraper
 
@@ -31,7 +32,7 @@ Cheerio is a server-side version of the popular jQuery library that does not run
 
 Cheerio Scraper is ideal for scraping websites that do not rely on client-side JavaScript to serve their content. It can be as much as 20 times faster than using a full-browser solution like Puppeteer.
 
-[Visit the Cheerio Scraper tutorial to get started!]({{@link scraping/cheerio_scraper.md}})
+[Visit the Cheerio Scraper tutorial to get started!]({{@link tutorials/apify_scrapers/cheerio_scraper.md}})
 
 ## [](#puppeteer-scraper)Puppeteer Scraper
 
@@ -39,5 +40,5 @@ Puppeteer Scraper is the most powerful scraper tool in our arsenal (aside from d
 
 Puppeteer is a Node.js library, so knowledge of Node.js and its paradigms is expected when working with Puppeteer Scraper.
 
-[Visit the Puppeteer Scraper tutorial to get started!]({{@link scraping/puppeteer_scraper.md}})
+[Visit the Puppeteer Scraper tutorial to get started!]({{@link tutorials/apify_scrapers/puppeteer_scraper.md}})
 
