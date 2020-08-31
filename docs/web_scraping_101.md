@@ -9,9 +9,9 @@ paths:
 
 # [](#what-is-web-scraping) Web scraping 101
 
-Web scraping is the process of extracting structured information from a web page. Essentially, web scraping automates the process off manually finding and copy/pasting the information on a website you find useful.
+Web scraping is the process of extracting structured information from a web page. In essence, web scraping automates the process of manually finding and copy/pasting the information on a website you find useful.
 
-In other words, instead of manually visiting each of the 1000 listings for white T-shirts on an e-commerce site and copy-pasting each listing's price, description and seller information, you can create a bot that will do it for you. You can then make your bot return the data in a handy format like JSON, HTML or Excel, so you could process it and use it for your advantage.
+In other words, instead of manually visiting each of the 1000 listings for white T-shirts on an e-commerce site and copy-pasting each listing's price, description and seller information, you can create a bot that does it for you. You can then make your bot return the data in a handy format like JSON, HTML or Excel, so you could process and use it.
 
 ## [](#what-can-i-use-web-scraping-for) What can I use web scraping for?
 
@@ -31,8 +31,8 @@ To see examples of organizations that have already benefitted from web scraping,
 
 While web scraping is a kind of [RPA]((https://apify.com/use-cases/rpa), it focuses on extracting data. RPA focuses on the other tasks in browsers - everything except for extracting information.
 
- RPA allows you to handle processes like filling forms or uploading files while you get on with more important tasks. And it's not just boring tasks you can automate. How about [processing your invoices](https://apify.com/katerinahronik/toggl-invoice-download) or automating your sales processes?
+ RPA allows you to handle processes like filling forms or uploading files while you get on with more important tasks. And it's not just simple tasks you can automate. How about [processing your invoices](https://apify.com/katerinahronik/toggl-invoice-download) or automating your sales processes?
 
 ## [](#additional-resources) Additional resources
 
-If you would like to learn more, check out [this](https://learn.g2.com/web-scraping) helpful article and [this](https://info.scrapinghub.com/web-scraping-guide/beginners-guide-to-web-scraping#3) guide, which explains the principles of scraping and the difference between a crawlers and scrapers.
+If you would like to learn more, check out [this](https://learn.g2.com/web-scraping) helpful article and [this](https://info.scrapinghub.com/web-scraping-guide/beginners-guide-to-web-scraping#3) guide, which explains the principles of scraping and the difference between crawlers and scrapers.
