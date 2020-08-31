@@ -23,12 +23,13 @@ To see examples of organizations that have already benefitted from web scraping,
 
 ## [](#how-does-web-scraping-work) How does web scraping work?
 
-Web scraping consists of a web crawler and a web scraper.
-
+1. The scraper [requests](https://www.codecademy.com/articles/http-requests) the contents of a particular page from a website (e.g. this week's Top 10 singles on Spotify). The site returns it in [HTML](https://en.wikipedia.org/wiki/HTML) format.
+2. It [parses](https://en.wikipedia.org/wiki/Parsing) (splits up the data and converts it to the required format) the HTML and extracts the data it's been programmed to extract (e.g. the song title and artist name).
+3. The scraper stores the data in the specified format so you can use it manually or in a program.
 
 ## [](#is-web-scraping-rpa) Is web scraping the same as robotic process automation (RPA)?
 
-While web scraping is a kind of RPA, it focuses on extracting data. [Robotic process automation](https://apify.com/use-cases/rpa) focuses on the other tasks in browsers - everything except for extracting information.
+While web scraping is a kind of [RPA]((https://apify.com/use-cases/rpa), it focuses on extracting data. RPA focuses on the other tasks in browsers - everything except for extracting information.
 
  RPA allows you to handle processes like filling forms or uploading files while you get on with more important tasks. And it's not just boring tasks you can automate. How about [processing your invoices](https://apify.com/katerinahronik/toggl-invoice-download) or automating your sales processes?
 
