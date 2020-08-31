@@ -35,17 +35,18 @@ You can view and manage the organizations you are a member of from the **Organiz
 
 While you cannot manage an organization account's settings and members via API, you can access its actor and task runs, webhooks, schedules and storages just like you would with any other account.
 
+As a member of an organization, you are assigned an API tokens and proxy password for accessing the Apify platform via REST API. You can view them in your organization's **Integrations** tab, under the URL below.
+
+    https://my.apify.com/organization/{YOUR_USER_ID}/account#/integrations.
+
+The API tokens' functionality reflects your account's permissions in the organization, so if you only have the **read** and **run** permissions for actors, you will only be able to view and run actors via API. Only you can view your API token and password.
+
+> Do not share your API token or password with untrusted parties.
+
+<<screenshot?>>
+
+If you have the **manage organization access keys** permission, you are able to view and use organization-wide API tokens. These are shared across the organization, so everyone with the **manage organization access keys** permission can use them for organization-wide integrations.
+
+<<screenshot?>>
+
 For a detailed breakdown of all Apify API endpoints and help on using them, visit the API [documentation](https://docs.apify.com/api/v2).
-
-notes:
-
-as a member of a team, you're given your API token and proxy password, which are limited to your permissions in the org. These tokens are visible only to you and you can use them for any API-related tasks.
-
-you get your tokens which let you do the stuff you're allowed to do in permissions
-
-then, if you have the 'manage organization access keys' permission to manage organization tokens, you can see the org's organization-wide API tokens in the Integrations tab. They are shared across the organization, to anyone who has the permission 'manage organization access keys'.
-
-then, you can make organization-wide integrations using those tokens.
-
-
-
