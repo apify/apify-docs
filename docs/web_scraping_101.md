@@ -33,3 +33,6 @@ While web scraping is a kind of [RPA]((https://apify.com/use-cases/rpa), it focu
 
  RPA allows you to handle processes like filling forms or uploading files while you get on with more important tasks. And it's not just boring tasks you can automate. How about [processing your invoices](https://apify.com/katerinahronik/toggl-invoice-download) or automating your sales processes?
 
+## [](#additional-resources) Additional resources
+
+If you would like to learn more, check out [this](https://learn.g2.com/web-scraping) helpful article and [this](https://info.scrapinghub.com/web-scraping-guide/beginners-guide-to-web-scraping#3) guide, which explains the principles of scraping and the difference between a crawlers and scrapers.
