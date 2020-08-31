@@ -23,21 +23,12 @@ To see examples of organizations that have already benefitted from web scraping,
 
 ## [](#how-does-web-scraping-work) How does web scraping work?
 
-Explain crawlers and scrapers (birds and bees)
+Web scraping consists of a web crawler and a web scraper.
 
 
-## [](#is-web-scraping-rpa) Is web scraping the same as robotic process automation?
+## [](#is-web-scraping-rpa) Is web scraping the same as robotic process automation (RPA)?
 
-While web scraping is a kind of automation, it focuses on extracting data. [Robotic process automation](https://apify.com/use-cases/rpa) (RPA), on the other hand, is about performing tasks in browsers.
+While web scraping is a kind of RPA, it focuses on extracting data. [Robotic process automation](https://apify.com/use-cases/rpa) focuses on the other tasks in browsers - everything except for extracting information.
 
  RPA allows you to handle processes like filling forms or uploading files while you get on with more important tasks. And it's not just boring tasks you can automate. How about [processing your invoices](https://apify.com/katerinahronik/toggl-invoice-download) or automating your sales processes?
 
-## [](#in-this-section) In this section
-
-This section aims to be the best and most comprehensive web scraping resource. Here, we aim to compile our best knowledge on web scraping and the various techniques involved.
-
-Of course, there is no scraping without anti-scraping measures, so we aim to dedicate a large portion of the section to those. We will discuss different anti-scraping techniques and how to bypass them.
-
-If you are new to web scraping and want to learn about the obstacles you're bound to discover, check out our [introduction]({{@link web_scraping_101/anti_scraping_techniques.md}}) to anti-scraping techniques and bypassing them.
-
-Pop in from time to time as we expand this section with articles on more specific and advanced topics in the realm of web scraping.
