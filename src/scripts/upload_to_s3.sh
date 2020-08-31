@@ -7,5 +7,4 @@ S3_PREFIX="s3://apify-docs/${GIT_BRANCH}"
 
 echo "Deploying branch: \"${GIT_BRANCH}\" to \"${S3_PREFIX}\""
 
-aws s3 rm --recursive "${S3_PREFIX}"
-aws s3 sync --acl public-read build "${S3_PREFIX}"
+aws s3 sync --delete --acl public-read build "${S3_PREFIX}"
