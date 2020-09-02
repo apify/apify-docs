@@ -790,7 +790,7 @@ array elements.
 By default, the records are sorted by the `startedAt` field in ascending order,
 therefore you can use pagination to incrementally fetch all records while new
 ones are still being created. To sort the records in descending order, use `desc=1`
-parameter.
+parameter. You can also filter runs on status ([available statuses](https://docs.apify.com/actors/running#lifecycle)).
 
 + Parameters
 
@@ -798,6 +798,7 @@ parameter.
     + offset: 10 (number, optional) - Number of array elements that should be skipped at the start. The default value is `0`.
     + limit: 99 (number, optional) - Maximum number of array elements to return. The default value as well as the maximum is `1000`.
     + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `startedAt` field in descending order. By default, they are sorted in ascending order.
+    + status: SUCCEEDED (string, optional) - Return only runs with the provided status ([available statuses](https://docs.apify.com/actors/running#lifecycle))
 
 + Response 200 (application/json)
 
@@ -1339,7 +1340,7 @@ array elements.
 By default, the records are sorted by the `startedAt` field in ascending order;
 therefore you can use pagination to incrementally fetch all records while new
 ones are still being created. To sort the records in descending order, use the `desc=1`
-parameter.
+parameter. You can also filter runs on status ([available statuses](https://docs.apify.com/actors/running#lifecycle)).
 
 + Parameters
 
@@ -1348,6 +1349,7 @@ parameter.
     + offset: 10 (number, optional) - Number of array elements that should be skipped at the start. The default value is `0`.
     + limit: 99 (number, optional) - Maximum number of array elements to return. The default value as well as the maximum is `1000`.
     + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `startedAt` field in descending order. By default, they are sorted in ascending order.
+    + status: SUCCEEDED (string, optional) - Return only runs with the provided status ([available statuses](https://docs.apify.com/actors/running#lifecycle))
 
 + Response 200 (application/json)
 
