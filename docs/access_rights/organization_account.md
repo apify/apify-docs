@@ -43,7 +43,7 @@ Before converting your current user account into an organization, create a new p
 
 > An organization can't be a member of other organizations. If you want to convert your account to an organization, you'll first need to leave all the organizations you are a part of.
 
-Then, in the **Organization** tab of the soon-to-be organization [account](https://my.apify.com/account#/organization), click the **Convert your account to an organization** button.
+Then, under the **Settings** tab of the soon-to-be organization [account](https://my.apify.com/account), click the **Convert your account to an organization** button.
 
 ![Convert your account to an organization]({{@asset access_rights/images/convert-to-organization.png}})
 
