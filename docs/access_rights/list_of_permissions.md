@@ -25,26 +25,6 @@ Click [here]({{@link actors.md}}) to learn about Apify actors.
 |View runs|View a list of actor runs and their details.|
 |Manage access rights|Manage actor access rights.|
 
-### [](#actor-run) Actor run
-
-|Permission|Description|
-|---|---|
-|Read|View actor run details and log.|
-|Metamorph|Transform an actor run into another actor.|
-|Resurrect|Resurrect actor run.|
-|Abort|Abort actor run.
-
-To learn about actor runs, see the [documentation]({{@link actors/running.md}}).
-
-### [](#actor-builds) Actor builds
-
-|Permission|Description|
-|---|---|
-|Read|View actor build details and log.|
-|Abort|Abort actor build.|
-
-To learn about actor builds, see the [documentation]({{@link actors/development/builds.md}}).
-
 ### [](#actor-task) Actor task
 
 |Permission|Description|
@@ -108,7 +88,7 @@ To learn about schedules, see the [documentation]({{@link schedules.md}}).
 
 |Permission|Description|
 |---|---|
-|Use proxy|Allow to use Apify Proxy.|
+|Proxy|Allow to use Apify Proxy.|
 
 To learn about Apify Proxy, see its [documentation]({{@link proxy.md}}).
 
@@ -123,53 +103,11 @@ Permissions that can be granted to members of organizations. To learn about the 
 |Update profile|Make changes in profile information.|
 |Update email|Update the contact email for the account.|
 |Reset password|Reset the account's password.|
-|Remove account|Remove an account from an organization.|
-|View notifications|Receive notifications from actor and task runs.|
-|Acknowledge notifications|Mark notifications as *seen*.|
 |View invoices|See the account's invoices.|
 |Manage organization|Change the organization's settings.|
 
 ## [](#marketplace) Marketplace
 
-### [](#project) Project
-
-const PROJECT_IAM_PERMISSIONS = {
-    READ: 'PROJECT.READ',
-    WRITE: 'PROJECT.WRITE',
-    ACCEPT_SOLUTION: 'PROJECT.ACCEPT_SOLUTION',
-    CREATE_OFFER: 'PROJECT.CREATE_OFFER',
-    DEVELOPER_ACCESS: 'PROJECT.DEVELOPER_ACCESS',
-    POST_REVIEW: 'PROJECT.POST_REVIEW',
-};
-
-### [](#offer) Offer
-
-const OFFER_IAM_PERMISSIONS = {
-    READ: 'OFFER.READ',
-    WRITE: 'OFFER.WRITE',
-    ACCEPT_OFFER: 'OFFER.ACCEPT_OFFER',
-    REJECT_OFFER: 'OFFER.REJECT_OFFER',
-};
-
-### [](#comments) Comments
-
-const COMMENTS_IAM_PERMISSIONS = {
-    READ: 'COMMENT.READ',
-    WRITE: 'COMMENT.WRITE',
-    UPDATE: 'COMMENT.UPDATE',
-};
-
-### [](#issues) Issues
-
-const ISSUES_IAM_PERMISSIONS = {
-    READ: 'ISSUE.READ',
-    WRITE: 'ISSUE.WRITE',
-    ADD_ADDITIONAL_EMAILS: 'ISSUE.ADD_ADDITIONAL_EMAILS',
-    UPDATE_STATUS: 'ISSUE.UPDATE_STATUS',
-};
-
-
-
-**NOTE**
-PROJECT_IAM_PERMISSIONS, OFFER_IAM_PERMISSIONS, COMMENTS_IAM_PERMISSIONS, ISSUES_IAM_PERMISSIONS
- all belong to marketplace might be unified under a single 1 - MANAGE_MARKETPLACE (edited)
+|Permission|Description|
+|---|---|
+|Marketplace|Allow access to Apify Marketplace.|
