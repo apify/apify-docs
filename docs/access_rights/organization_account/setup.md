@@ -1,31 +1,35 @@
 ---
 title: Setup
 description: Configure your organization account by inviting new members and assigning their roles. Manage team members' access permissions to the organization's resources.
+menuWeight: 1
 paths:
     - access-rights/organization-account/setup
 ---
 
 # Setup
 
-Once you have created your organization, you can customize it. Under the [Settings](ADD LINK) tab, you can set the organization's email address, owner and delete the account. The [Profile](ADD LINK) tab allows you to update your organization's name or set a custom profile image.
+Once you have created your organization, you can customize it. Under the **Settings** tab, you can set the organization's email address, owner and delete the account. The **Profile** tab allows you to update your organization's name or set a custom profile image.
+
+## [](#add-users-to-organization) Add users to your organization
+
+You can add members to your organization in the **Members** tab. You can use their **User ID**, **username** or **email**. When adding a member to the organization, you must assign them a **Role** so their permissions are known right away.
+
+The **Members** tab allows you to view and manage your organization's members and transfer the organization's membership.
+
+![Organization members]({{@asset access_rights/images/members.png}})
 
 ## [](#define-roles-and-permissions) Define roles and permissions
 
-The **Roles** tab allows you to define the permissions each group of users will be granted. For example, you can have a **Read-only** role for users who will not need to update the actors, account settings or other resources.
+Roles allow you to define permissions to your organization's resources by group. Every new organization comes with three pre-defined roles, which you can customize or remove.
 
-> You'll need to define roles and their permissions before adding members to your organization.
+> Each member can only have one role to avoid conflicting permissions.
 
-<<**Screenshot of 'roles' and 'permissions' box**>>
+To edit the permissions for each role, click on the **Configure permissions** button in the top-right corner.
+
+![Organization roles]({{@asset access_rights/images/roles.png}})
 
 You can see a full list of permissions that can be granted to Apify resources [here]({{@link access_rights/list_of_permissions.md}}).
 
-## [](#invite-users-to-organization) Invite users to your organization
 
-You can add members to your organization in the **Members** tab.
 
-<<**Screenshot of 'members' view**>>
-
-Here, you can see the status of your invitation, every user's **Role** and the option to remove users from the team.
-
-> Users are not automatically added to your organizations–they need to accept your invitation first. This protects everyone from being added to organizations without their approval.
 

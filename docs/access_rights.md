@@ -28,8 +28,6 @@ To share an actor, task, key-value store, request queue or dataset, open its **S
 
 Apify's organization account allows you to grant role-specific access permissions to members of your team. For more details, see the organization account [documentation](({{@link access_rights/organization_account.md}})).
 
-### SHOW SCREENSHOT OF ORG ACCOUNT
-
 ## [](#publishing-in-apify-store) Publishing in Apify Store
 
 Another way to share your actor is to [publish]({{@link actors/publishing.md}}) it in [Apify Store](https://apify.com/store). The published actor appears in [Apify Store](https://apify.com/store), which means that **any user will be able to view its source code and run it**.
@@ -42,7 +40,7 @@ If a user runs the actor, it gets billed to their account, and the actor run wil
 
 To publish an actor, open it in the [Apify app](https://my.apify.com), go to the **Publication** tab and follow the instructions below.
 
-![Access rights configuration]({{@asset images/publication.png}})
+![Publishing your actor]({{@asset images/publication.png}})
 
 ## [](#permissions) Permissions
 
