@@ -20,17 +20,17 @@ You can start an organization account in two ways.
 * [Convert an existing account](#convert-an-existing-account) into an organization. If your actors and integrations are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will need a new personal account.
 * [Create a brand-new account](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
 
-> An organization needs its own email account for receiving notifications, invoices, etc. If your email provider supports it, you can set up an [email alias](https://support.cloudhq.net/how-to-setup-gmail-aliases/), so the organization's emails get redirected to your email address.
-
 ## [](#create-a-new-organization) Creating a new organization
 
-<< **I will add this section when the UI is done, to avoid guessing and redoing it**>>
+> **Warning**: the organization account is under closed beta testing. If you'd like to try it, contact us at [support@apify.com](mailto:support@apify.com?subject=Organization%20account%20beta%20testing).
 
-<< **It will just be a simple step-by-step tutorial** >>
+You can create a new organization by clicking the **Create a new organization** button under the **My organizations** tab in your [account](https://my.apify.com/account?redirect=/account#/myorganizations).
 
-In the user selection menu in the top-right corner, select the **Create a new organization** option.
+![Create a new organization]({{@asset access_rights/images/my-organizations-new.png}})
 
-<**screenshot**>
+> You can own as many organizations and be a member of as many organizations as you need.
+
+An organization needs its own email account for receiving notifications, invoices, etc. If your email provider supports it, you can set up an [email alias](https://support.cloudhq.net/how-to-setup-gmail-aliases/), so the organization's emails get redirected to your email address.
 
 ## [](#convert-an-existing-account) Convert an existing account
 
@@ -41,13 +41,13 @@ In the user selection menu in the top-right corner, select the **Create a new or
 
 Before converting your current user account into an organization, create a new personal account for the organization's owner.
 
-> An organization can't be a member of other organizations. If you want to convert your account to an organization, you'll first need to leave all the teams you are a part of.
+> An organization can't be a member of other organizations. If you want to convert your account to an organization, you'll first need to leave all the organizations you are a part of.
 
-Then, in the **Organization** tab of the soon-to-be organization [account](https://my.apify.com/account#/organization), click the **Convert your user account to an organization** button.
+Then, in the **Organization** tab of the soon-to-be organization [account](https://my.apify.com/account#/organization), click the **Convert your account to an organization** button.
+
+![Convert your account to an organization]({{@asset access_rights/images/convert-to-organization.png}})
 
 Next, set the organization's name and designate an owner (this can be your new personal account) who will [set up]({{@link access_rights/organization_account/setup.md}}) the organization.
-
-![Convert your account to an organization]({{@asset access_rights/images/convert_to_organization.png}})
 
 And that's it! You will be logged out from your user account (which has become the organization), so you'll need to log in as the organization's owner.
 
