@@ -98,8 +98,8 @@ Permissions that can be granted to members of organizations. To learn about the 
 
 |Permission|Description|
 |---|---|
-|Manage access keys|Manage account access keys.|
-|Update subscription|Update the type of subscription.|
+|Manage access keys|Manage account access keys, i.e. API token and proxy password.|
+|Update subscription|Update the type of subscription, billing details and payment methods.|
 |Update profile|Make changes in profile information.|
 |Update email|Update the contact email for the account.|
 |Reset password|Reset the account's password.|
