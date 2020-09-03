@@ -227,4 +227,6 @@ Visit [this](https://codeburst.io/quick-explanation-of-the-s3-consistency-model-
 
 ## [](#limits) Limits
 
-When adding a record using the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) API endpoint, the request payload is limited to **9MB**. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.
+* When adding a record using the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) API endpoint, the request payload is limited to **9MB**. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.
+
+* Key-value store names can be up to 63 characters long.
