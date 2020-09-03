@@ -185,6 +185,8 @@ To **add data to a dataset**, send a POST request, with a JSON object containing
 
     https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
 
+> Pushing data to dataset via API is limited to **200** requests per second to prevent our servers from being overloaded.
+
 Example payload:
 ```json
 [
@@ -199,6 +201,7 @@ Example payload:
     }
 ]
 ```
+
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 
 ## [](#hidden-fields) Hidden fields
@@ -300,7 +303,11 @@ This feature is also useful when customizing your RSS feeds generated for variou
 
 By default, the whole result is wrapped in an `<items/>` emelent, while each page object is contained in an `<item/>` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when GETting your data.
 
-## [](#sharing-datasets-between-runs) Sharing datasets between runs
+## [](#sharing) Sharing
+
+You can invite other Apify users to view or modify your datasets using the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#dataset}}).
+
+### [](#sharing-datasets-between-runs) Sharing datasets between runs
 
 You can access a dataset from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its **name** or **ID**.
 
@@ -332,3 +339,11 @@ For more information on sharing storages between runs, see the Storage [overview
 * When using the `pushData()` method, the size of the data is limited by the receiving API. Therefore, `pushData()` will only allow objects whose JSON representation is smaller than **9MB**. When an array is passed, none of the included objects may be larger than 9MB, however the array itself may be of any size.
 
 * Dataset names can be up to 63 characters long.
+
+### [](#rate-limiting) Rate limiting
+
+When pushing data to a dataset via [API](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items), the request rate is limited to **200** per second per dataset. This helps protect Apify servers from being overloaded.
+
+All other dataset API [endpoints](https://docs.apify.com/api/v2#/reference/datasets) are limited to **30** requests per second per dataset.
+
+See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details and to learn what to do if you exceed the rate limit.

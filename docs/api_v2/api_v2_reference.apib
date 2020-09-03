@@ -342,7 +342,7 @@ and the following body:
 {
     "error": {
         "type": "rate-limit-exceeded",
-        "message": "You have exceeded the rate limit of 20 requests per second"
+        "message": "You have exceeded the rate limit of ... requests per second"
     }
 }
 ````
@@ -1551,8 +1551,8 @@ of the original one:
 #### Key-value store
 
 * `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/keys{?token,status}` [Key collection](#reference/key-value-stores/key-collection)
-* `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/record/{recordKey}{?token,status}` [Record](#reference/key-value-stores/record)
-* `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/record/{recordKey}/direct-upload-url{?token,status}` [Direct upload URL](#reference/key-value-stores/direct-upload-url)
+* `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/records/{recordKey}{?token,status}` [Record](#reference/key-value-stores/record)
+* `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/records/{recordKey}/direct-upload-url{?token,status}` [Direct upload URL](#reference/key-value-stores/direct-upload-url)
 
 #### Dataset
 
