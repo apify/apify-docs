@@ -184,7 +184,11 @@ To **delete a record**, send a DELETE request specifying the key from a key-valu
 
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/key-value-stores).
 
-## [](#sharing-key-value-stores-between-runs) Sharing key-value stores between runs
+## [](#sharing) Sharing
+
+You can invite other Apify users to view or modify your key-value stores using the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#key-value-store}}).
+
+### [](#sharing-key-value-stores-between-runs) Sharing key-value stores between runs
 
 You can access a key-value store from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its **name** or **ID**.
 

@@ -142,6 +142,30 @@ With other request types and when using the **username~store-name**, however, yo
 
 For more information and a detailed breakdown of each storage API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 
+## [](#rate-limiting) Rate limiting
+
+All API endpoints limit their rate of requests to protect Apify servers from overloading. The default rate limit is **30** requests per second per storage object, with a few exceptions, which are limited to **200** requests per second per storage object:
+
+* [Push items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items) to dataset.
+* CRUD ([add](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/add-request),
+[get](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/get-request),
+[update](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/update-request),
+[delete](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/delete-request))
+operations of **request queue** requests.
+
+If a client sends too many requests, the API endpoints respond with the HTTP status code `429 Too Many Requests` and the following body:
+
+````
+{
+    "error": {
+        "type": "rate-limit-exceeded",
+        "message": "You have exceeded the rate limit of ... requests per second"
+    }
+}
+````
+
+See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details and to learn what to do if you exceed the rate limit.
+
 ## [](#data-retention) Data retention
 
 Unnamed storages expire after 7 days unless otherwise specified.
@@ -160,7 +184,11 @@ Named and unnamed storages are the same in all regards except their retention pe
 
 For example, the storage names **janedoe~my-storage-1** and **janedoe~web-scrape-results** are easier to tell apart than the alpha-numerical IDs **cAbcYOfuXemTPwnIB** and **CAbcsuZbp7JHzkw1B**.
 
-## [](#sharing-storages-between-runs) Sharing storages between runs
+## [](#sharing) Sharing
+
+You can invite other Apify users to view or modify your storages using the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#storage}}).
+
+### [](#sharing-storages-between-runs) Sharing storages between runs
 
 Any storage can be accessed from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its **name** or **ID**. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
