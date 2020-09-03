@@ -123,3 +123,7 @@ Additionally, you can use the following shortcut expressions:
 - `@hourly` = `0 * * * *` - on the hour, every hour.
 
 You can find more information and examples of cron expressions on [crontab.guru](http://crontab.guru/). For additional and non-standard characters, see [this](https://en.wikipedia.org/wiki/Cron#CRON_expression) Wikipedia article.
+
+## [](#sharing) Sharing
+
+You can invite other Apify users to view or modify your schedules using the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#schedules}}).
