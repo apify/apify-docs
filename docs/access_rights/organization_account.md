@@ -1,7 +1,7 @@
 ---
 title: Organization account
 description: Create a specialized account for your organization to encourage collaboration and manage permissions efficiently. Convert an existing account or create one from scratch.
-menuWeight: 8.1
+menuWeight: 9.1
 paths:
     - access-rights/organization-account
 ---
@@ -18,13 +18,13 @@ At the same time, a separate organization account means teams no longer have to 
 
 You can start an organization account in two ways.
 * [Convert an existing account](#convert-an-existing-account) into an organization. If your actors and integrations are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will need a new personal account.
-* [Create a brand-new account](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
+* [Create a new organization](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
 
-## [](#create-a-new-organization) Creating a new organization
+## [](#create-a-new-organization) Create a new organization
 
 > **Warning**: the organization account is under closed beta testing. If you'd like to try it, contact us at [support@apify.com](mailto:support@apify.com?subject=Organization%20account%20beta%20testing).
 
-You can create a new organization by clicking the **Create a new organization** button under the **My organizations** tab in your [account](https://my.apify.com/account?redirect=/account#/myorganizations).
+You can create a new organization by clicking the **Create a new organization** button under the **My organizations** tab in your [account](https://my.apify.com/account#/myorganizations).
 
 ![Create a new organization]({{@asset access_rights/images/my-organizations-new.png}})
 
