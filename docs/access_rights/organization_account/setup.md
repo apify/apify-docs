@@ -22,11 +22,15 @@ The **Members** tab allows you to view and manage your organization's members an
 
 Roles allow you to define permissions to your organization's resources by group. Every new organization comes with three pre-defined roles, which you can customize or remove.
 
-> Each member can only have one role to avoid conflicting permissions.
-
 To edit the permissions for each role, click on the **Configure permissions** button in the top-right corner.
 
 ![Organization roles]({{@asset access_rights/images/roles.png}})
+
+> Each member can only have one role to avoid conflicting permissions.
+
+You can configure individual permissions for each resource type such as actors, actor tasks or storage. Bear in mind that if a user has the **read** permission for [Datasets]({{@link storage/dataset.md}}), you cannot prevent them from accessing a particular dataset - they will have access to all of the organization's datasets.
+
+![Configure permissions]({{@asset access_rights/images/configure-permissions.png}})
 
 You can see a full list of permissions that can be granted to Apify resources [here]({{@link access_rights/list_of_permissions.md}}).
 
