@@ -300,7 +300,11 @@ This feature is also useful when customizing your RSS feeds generated for variou
 
 By default, the whole result is wrapped in an `<items/>` emelent, while each page object is contained in an `<item/>` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when GETting your data.
 
-## [](#sharing-datasets-between-runs) Sharing datasets between runs
+## [](#sharing) Sharing
+
+You can invite other Apify users to view or modify your datasets using the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#dataset}}).
+
+### [](#sharing-datasets-between-runs) Sharing datasets between runs
 
 You can access a dataset from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its **name** or **ID**.
 
