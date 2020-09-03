@@ -39,7 +39,7 @@ An organization needs its own email account for receiving notifications, invoice
 >  * **An organization cannot be converted back to a personal account.**
 >  * **When converting or creating the account, you select an owner who will be responsible for [setting up]({{@link access_rights/organization_account/setup.md}}) the organization.**
 
-Before converting your current user account into an organization, create a new personal account for the organization's owner.
+Before converting your current user account into an organization, make sure you set a **username** and create a new personal account for the organization's owner.
 
 > An organization can't be a member of other organizations. If you want to convert your account to an organization, you'll first need to leave all the organizations you are a part of.
 
