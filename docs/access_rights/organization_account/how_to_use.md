@@ -40,7 +40,7 @@ The organization, its actors and integrations will keep running as they are. The
 
 While you cannot manage an organization account's settings and members via API, you can access its actor and task runs, webhooks, schedules and storages just like you would with any other account.
 
-As a member of an organization, you are assigned an API tokens (under the **Integrations** tab) and proxy password (under the **Proxy** tab) for accessing the Apify platform via REST API.
+As a member of an organization, you are assigned an API tokens (under the **Integrations** tab) and proxy password (click the **Proxy** button in the left menu) for accessing the Apify platform via REST API.
 
 ![Integration tokens]({{@asset access_rights/images/integrations.png}})
 
