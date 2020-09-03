@@ -185,6 +185,8 @@ To **add data to a dataset**, send a POST request, with a JSON object containing
 
     https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
 
+> Pushing data to dataset via API is limited to **200** requests per second to prevent our servers from being overloaded.
+
 Example payload:
 ```json
 [
@@ -199,6 +201,7 @@ Example payload:
     }
 ]
 ```
+
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 
 ## [](#hidden-fields) Hidden fields
@@ -334,3 +337,11 @@ For more information on sharing storages between runs, see the Storage [overview
 * Tabulated data storage formats (ones that display the data in columns), such as HTML, CSV, and EXCEL, have a maximum limit of **3000** columns. All data that do not fit into this limit will not be retrieved.
 
 * When using the `pushData()` method, the size of the data is limited by the receiving API. Therefore, `pushData()` will only allow objects whose JSON representation is smaller than **9MB**. When an array is passed, none of the included objects may be larger than 9MB, however the array itself may be of any size.
+
+### [](#rate-limiting) Rate limiting
+
+When pushing data to a dataset via [API](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items), the request rate is limited to **200** per second per dataset. This helps protect Apify servers from being overloaded.
+
+All other dataset API [endpoints](https://docs.apify.com/api/v2#/reference/datasets) are limited to **30** requests per second per dataset.
+
+See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details and to learn what to do if you exceed the rate limit.

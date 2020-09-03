@@ -236,3 +236,16 @@ For more information on sharing storages between runs, see the Storage [overview
 ## [](#limits) Limits
 
 While multiple actor or task runs can **add new requests** to a queue concurrently, only one run can **process a queue** at any one time.
+
+### [](#rate-limiting) Rate limiting
+
+When managing request queues via [API](https://docs.apify.com/api/v2#/reference/request-queues/put-items),
+CRUD ([add](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/add-request),
+[get](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/get-request),
+[update](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/update-request),
+[delete](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/delete-request))
+operation requests are limited to **200** per second per request queue. This helps protect Apify servers from being overloaded.
+
+All other request queue API [endpoints](https://docs.apify.com/api/v2#/reference/request-queues) are limited to **30** requests per second per request queue.
+
+See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details and to learn what to do if you exceed the rate limit.
