@@ -1,6 +1,6 @@
 ---
 title: Home
-description: Overview of the Apify platform's documentation. Discover Apify actors, Schedules, Storage, Proxy and API.
+description: Overview of the Apify platform's documentation. Make your first steps in web scraping and automating processes or dive deep into technical reference.
 menuWeight: 1
 paths:
     - index
@@ -8,8 +8,6 @@ paths:
 ---
 
 # Apify documentation
-
-Welcome to the Apify documentation.
 
 If you're new to Apify, it's great to meet you! Let's get you up to speed with what we do.
 
