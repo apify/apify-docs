@@ -7,7 +7,7 @@ paths:
     - home
 ---
 
-# Introduction
+# Apify documentation
 
 Welcome to the Apify documentation.
 
