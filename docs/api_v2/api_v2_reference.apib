@@ -1028,13 +1028,13 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
 Runs a specific actor and returns its dataset items.
 
 The POST payload including its `Content-Type` header is passed as `INPUT` to the actor (usually <code>application/json</code>).
-The HTTP response contains actor's dataset items, the format of items depends on specifying dataset items `format` parameter.
+The HTTP response contains the actor's dataset items, while the format of items depends on specifying dataset items' `format` parameter.
 
-It allows to send all possible options in parameters from [Get Dataset Items](#/reference/datasets/item-collection/get-items) API endpoint.
+You can send all the same options in parameters as the [Get Dataset Items](#/reference/datasets/item-collection/get-items) API endpoint.
 
-The actor is started with the default options; you can override them using various URL query parameters.
+The actor is started with the default options; you can override them using URL query parameters.
 If the actor run exceeds 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds,
-the HTTP response will have status 408 (Request Timeout).
+the HTTP response will return the 408 status code (Request Timeout).
 
 Beware that it might be impossible to maintain an idle HTTP connection for a long period of time,
 due to client timeout or network conditions. Make sure your HTTP client is configured to have a long enough connection timeout.
@@ -1752,16 +1752,16 @@ The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds otherwis
 Optionally, you can override the actor input configuration by passing a JSON object as the POST payload
 and setting the `Content-Type: application/json` HTTP header.
 Note that if the object in the POST payload does not define a particular input property,
-the actor run uses the default value defined by the task (or actor's input schema if not defined by the task).
+the actor run uses the default value defined by the task (or the actor's input schema if not defined by the task).
 
-It allows to send all possible options in parameters from [Get Dataset Items](#/reference/datasets/item-collection/get-items) API endpoint.
+You can send all the same options in parameters as the [Get Dataset Items](#/reference/datasets/item-collection/get-items) API endpoint.
 
 Beware that it might be impossible to maintain an idle HTTP connection for an extended period,
 due to client timeout or network conditions. Make sure your HTTP client is configured to have a long enough connection timeout.
 If the connection breaks, you will not receive any information about the run and its status.
 
 Input fields from actor task configuration can be overloaded with values passed as the POST payload.
-Just make sure to specify `Content-Type` header to be `application/json` and input to be an object.
+Just make sure to specify the `Content-Type` header as `application/json` and that the input is an object.
 
 To run the task asynchronously, use the [Run task](#reference/actor-tasks/run-collection/run-task) API endpoint instead.
 
@@ -1812,7 +1812,7 @@ To run the task asynchronously, use the [Run task](#reference/actor-tasks/run-co
 Run a specific task and return its dataset items.
 The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds otherwise the API endpoint returns a timeout error.
 
-It allows to send all possible options in parameters from [Get Dataset Items](#/reference/datasets/item-collection/get-items) API endpoint.
+You can send all the same options in parameters as the [Get Dataset Items](#/reference/datasets/item-collection/get-items) API endpoint.
 
 Beware that it might be impossible to maintain an idle HTTP connection for an extended period,
 due to client timeout or network conditions. Make sure your HTTP client is configured to have a long enough connection timeout.
