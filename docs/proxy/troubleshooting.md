@@ -8,7 +8,7 @@ paths:
 
 # [](#troubleshooting)Troubleshooting
 
-To view the status of the connection to Apify Proxy, open the following URL in the browser that uses the proxy:
+To view the TEST status of the connection to Apify Proxy, open the following URL in the browser that uses the proxy:
 
 [http://proxy.apify.com/](http://proxy.apify.com/)
 
