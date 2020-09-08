@@ -4,7 +4,7 @@
 
 ## Intro
 
-This repo is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using the [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) format and all of its source files are located in the [/docs](https://github.com/apifytech/apify-docs/tree/master/docs) directory.
+This repo is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). All documentation is written using the [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) format and all of its source files are located in the [/docs](https://github.com/apifytech/apify-docs/tree/master/docs) directory.
 
 Before **push**-ing to GitHub, always execute `npm run build` to make sure everything works.
 
