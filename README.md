@@ -8,7 +8,7 @@ This repo is the home of Apify's documentation, which you can find at [docs.apif
 
 Before **push**-ing to GitHub, always execute `npm run build` to make sure everything works.
 
-## Implementation and style
+## Implementation and style 
 
 In addition to the tips below: when in doubt, check existing docs for formatting and style tips.
 
