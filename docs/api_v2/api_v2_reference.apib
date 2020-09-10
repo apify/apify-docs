@@ -1024,7 +1024,7 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
     + skipFailedPages: `false` (boolean, optional) - If `true` or `1` then, the all the items with errorInfo property will be skipped from the output.
         This feature is here to emulate functionality of API version 1 used for the legacy Apify Crawler product and it's not recommended to use it in new integrations.
 
-### With input [POST]
+### Run actor synchronously with input and get dataset items [POST]
 
 Runs a specific actor and returns its dataset items.
 
@@ -1097,7 +1097,7 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
             - type: `run-timeout-exceeded` (string, required)
             - message: `Actor run exceeded timeout of 300 seconds for this API endpoint` (string, required)
 
-### Without input [GET]
+### Run actor synchronously without input and get dataset items [GET]
 
 Runs a specific actor and returns its dataset items.
 The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds otherwise the API endpoint returns a timeout error.
@@ -1746,7 +1746,7 @@ To run the Task asynchronously, use the [Run task asynchronously](#reference/act
     + skipFailedPages: `false` (boolean, optional) - If `true` or `1` then, the all the items with errorInfo property will be skipped from the output.
       This feature is here to emulate functionality of API version 1 used for the legacy Apify Crawler product and it's not recommended to use it in new integrations.
 
-### Run task synchronously (POST) [POST]
+### Run task synchronously and get dataset items (POST) [POST]
 
 Runs an actor task and synchronously returns its dataset items.
 The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds otherwise the API endpoint returns a timeout error.
@@ -1809,7 +1809,7 @@ To run the task asynchronously, use the [Run task](#reference/actor-tasks/run-co
             - type: `run-failed` (string, required)
             - message: `Actor run did not succeed (run ID: 55uatRrZib4xbZs, status: FAILED)` (string, required)
 
-### Run task synchronously (GET) [GET]
+### Run task synchronously and get dataset items (GET) [GET]
 
 Run a specific task and return its dataset items.
 The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds otherwise the API endpoint returns a timeout error.
