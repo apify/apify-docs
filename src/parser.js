@@ -24,7 +24,7 @@ const readAndParsePage = async (fullPath, shortPath) => {
     }
 
     // Check if the path based on filename is in the metadata.paths array
-    const filenamePath = shortPath.replace('/index.md', '').replace('.md', '').replace(/_/g, '-');
+    const filenamePath = shortPath.replace('/home.md', '').replace('.md', '').replace(/_/g, '-');
     if (!_.includes(metadata.paths, filenamePath)) throw new Error(`Metadata.paths in ${fullPath} is missing path "${filenamePath}"`);
 
     // Check that metadata.description is 140-160 characters long (for SEO)

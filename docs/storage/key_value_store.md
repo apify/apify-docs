@@ -184,7 +184,11 @@ To **delete a record**, send a DELETE request specifying the key from a key-valu
 
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/key-value-stores).
 
-## [](#sharing-key-value-stores-between-runs) Sharing key-value stores between runs
+## [](#sharing) Sharing
+
+You can invite other Apify users to view or modify your key-value stores using the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#key-value-store}}).
+
+### [](#sharing-key-value-stores-between-runs) Sharing key-value stores between runs
 
 You can access a key-value store from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its **name** or **ID**.
 
@@ -223,4 +227,6 @@ Visit [this](https://codeburst.io/quick-explanation-of-the-s3-consistency-model-
 
 ## [](#limits) Limits
 
-When adding a record using the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) API endpoint, the request payload is limited to **9MB**. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.
+* When adding a record using the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) API endpoint, the request payload is limited to **9MB**. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.
+
+* Key-value store names can be up to 63 characters long.
