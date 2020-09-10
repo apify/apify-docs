@@ -42,3 +42,6 @@ Each build starts with the initial status **READY** and goes through one or more
 |`ABORTING`|transitional|Being aborted by user|
 |`ABORTED`|terminal|Aborted by user|
 
+## [](#sharing) Sharing
+
+You can allow other Apify users to view your actor builds using the [access rights]({{@link access_rights/list_of_permissions.md#actor-builds}}) system. See the full list of permissions[here]({{@link access_rights/list_of_permissions.md#actor-builds}}).

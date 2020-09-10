@@ -1,21 +1,21 @@
 ---
 title: Webhooks
-description: Learn how to integrate multiple Apify actors or external systems with your actor or task run. Send notifications when your actor run succeeds or fails.
+description: Learn how to integrate multiple Apify actors or external systems with your actor or task run. Send alerts when your actor run succeeds or fails.
 menuWeight: 8
 category: platform
 paths:
     - webhooks
 ---
 
-# [](./webhooks)Webhooks
+# [](./webhooks) Webhooks
 
-Webhooks provide an easy and reliable way to configure the Apify platform to carry out an action when a certain system event occurs. For example, you can use webhooks to start another actor when an actor run finishes or fails.
+Webhooks allow you to configure the Apify platform to perform an action when a certain system event occurs. For example, you can use them to start another actor when the current run finishes or fails.
 
-To define a webhook one needs to select an **event** that triggers the webhook, from the available system events and provide an **action** to be executed after the event occurs. When the event occurs, the system executes the action.
+To define a webhook, select a system **event** that triggers the webhook. Then, provide the **action** to execute after the event. When the event occurs, the system executes the action.
 
->Currently, the only available action is to send an HTTP POST request to a URL specified in the webhook.
+> Currently, the only available action is to send a POST HTTP request to a URL specified in the webhook.
 
 *   [**Events**]({{@link webhooks/events.md}})
 *   [**Actions**]({{@link webhooks/actions.md}})
-*   [**Ad hoc webhooks**]({{@link webhooks/ad_hoc_webhooks.md}})
+*   [**Ad-hoc webhooks**]({{@link webhooks/ad_hoc_webhooks.md}})
 
