@@ -12,19 +12,20 @@ This article is a quick summary of the blog post [link], which includes more det
 
 ## [](#css-selectors) CSS selectors
 
-The first method you'll use when trying web scraping is most likely
-[HTML elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
-[CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors). All content on a web page is contained in HTML elements. [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), meanwhile, determines the content's appearance.
+The first method you'll use when trying web scraping is most likely 
+[CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors). They allow you to select your desired elements by type, class, ID or attributes. 
 
-To see which element contains the information you need, open your browser's Developer Tools. Right-click the content, then select **Inspect** on [Chrome](https://developers.google.com/web/tools/chrome-devtools) and **Inspect element** on [Mozilla](https://developer.mozilla.org/en-US/docs/Tools).
+To see which element contains the information you need (and its details), open your browser's Developer Tools. Right-click the content, then select **Inspect** on [Chrome](https://developers.google.com/web/tools/chrome-devtools) and **Inspect element** on [Mozilla](https://developer.mozilla.org/en-US/docs/Tools).
 
-![Opening developer tools]({{@asset images/open-devtools.png}})
-
-Here, you can see that the title's container is an \<h1></h1> tag. You can use just the HTML tag. If there are several tags of the same type, though, you'll want to be more specific. For example, you can use the element's [class](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class) name. Once you know which elements you need, pass them to your web scraping software.
+If you're only looking to scrape a couple of elements from a page, this method is sufficient. For more elaborate extraction use cases, however, there are other, more effective, methods.
 
 ## [](#schema-org-microdata) Schema.org microdata
 
+Schemas provide a way to mark up web pages so major search engines like Google, Bing and Yahoo can understand them. In fact, the [schema.org](https://schema.org) website was created via collaboration between the three companies. 
 
+Pages with schema markup still use HTML. The only difference is that they add machine-readable code markers into the HTML documents. This helps cut down on [ambiguity](https://schema.org/docs/gs.html) and allows search engines to return more accurate results.
+
+**** ADD how to scrape them...
 
 ## [](#json-ld) JSON-LD
 
