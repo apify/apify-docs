@@ -24,45 +24,45 @@ I will need to send authentication tokens in the URLs when doing the proxy reque
 
 ```marked-tabs
 <marked-tab header="NodeJS" lang="javascript">
-    const Apify = require('apify');
+const Apify = require('apify');
 
-    Apify.main(async () => {
-        const proxyConfiguration = await Apify.createProxyConfiguration({
-            groups: ['SHADER']
-        });
-        const proxyUrl = proxyConfiguration.newUrl('my_session');
-
-        try {
-            const response1 = await Apify.utils.requestAsBrowser({
-                url: 'https://api.apify.com/v2/browser-info',
-                proxyUrl,
-                json: true
-            });
-            const response2 = await Apify.utils.requestAsBrowser({
-                url: 'https://api.apify.com/v2/browser-info',
-                proxyUrl,
-                json: true
-            });
-            console.log(response1.body.clientIp);
-            console.log('should be the same as');
-            console.log(response2.body.clientIp);
-        } catch (e) {
-            console.error(e);
-        }
+Apify.main(async () => {
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['SHADER']
     });
+    const proxyUrl = proxyConfiguration.newUrl('my_session');
+
+    try {
+        const response1 = await Apify.utils.requestAsBrowser({
+            url: 'https://api.apify.com/v2/browser-info',
+            proxyUrl,
+            json: true
+        });
+        const response2 = await Apify.utils.requestAsBrowser({
+            url: 'https://api.apify.com/v2/browser-info',
+            proxyUrl,
+            json: true
+        });
+        console.log(response1.body.clientIp);
+        console.log('should be the same as');
+        console.log(response2.body.clientIp);
+    } catch (e) {
+        console.error(e);
+    }
+});
 </marked-tab>
 
 
-<marked-tab header="Python 3+" lang="python3">
-    print('Some python code');
+<marked-tab header="Python 3+" lang="python">
+print('Some python code');
 
-    count = 1
+count = 1
 
-    if count >= 1:
+if count >= 1:
 
-        print('Some intended python code');
+    print('Some intended python code');
 
-    print('Some python code on next line');
+print('Some python code on next line');
 </marked-tab>
 
 
@@ -83,7 +83,7 @@ I will need to send authentication tokens in the URLs when doing the proxy reque
 </marked-tab>
 
 
-<marked-tab header="Python 3+" lang="python3">
+<marked-tab header="Python 3+" lang="python">
 import urllib.request as request
 import ssl
 
@@ -111,7 +111,7 @@ print(do_request())
 </marked-tab>
 
 
-<marked-tab header="Python 2+" lang="python2">
+<marked-tab header="Python 2+" lang="python">
 import six
 from six.moves.urllib import request
 import ssl

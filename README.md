@@ -28,7 +28,7 @@ For multi-line code examples, use code fences and specify the language:
 
 \`\`\`
 
-### Code examples
+### Code example tabs
 
 When providing code examples in multiple languages, use the below format.
 

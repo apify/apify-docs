@@ -163,60 +163,65 @@ Use one randomly selected IP from all available proxy servers.
 
 Use one IP selected from `SHADER` proxy group for two requests.
 
-    const Apify = require('apify');
+```javascript
+const Apify = require('apify');
 
-    Apify.main(async () => {
-        const proxyConfiguration = await Apify.createProxyConfiguration({
-            groups: ['SHADER']
-        });
-        const proxyUrl = proxyConfiguration.newUrl('my_session');
-
-        try {
-            const response1 = await Apify.utils.requestAsBrowser({
-                url: 'https://api.apify.com/v2/browser-info',
-                proxyUrl,
-                json: true
-            });
-            const response2 = await Apify.utils.requestAsBrowser({
-                url: 'https://api.apify.com/v2/browser-info',
-                proxyUrl,
-                json: true
-            });
-            console.log(response1.body.clientIp);
-            console.log('should be the same as');
-            console.log(response2.body.clientIp);
-        } catch (e) {
-            console.error(e);
-        }
+Apify.main(async () => {
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['SHADER']
     });
+    const proxyUrl = proxyConfiguration.newUrl('my_session');
+
+    try {
+        const response1 = await Apify.utils.requestAsBrowser({
+            url: 'https://api.apify.com/v2/browser-info',
+            proxyUrl,
+            json: true
+        });
+        const response2 = await Apify.utils.requestAsBrowser({
+            url: 'https://api.apify.com/v2/browser-info',
+            proxyUrl,
+            json: true
+        });
+        console.log(response1.body.clientIp);
+        console.log('should be the same as');
+        console.log(response2.body.clientIp);
+    } catch (e) {
+        console.error(e);
+    }
+});
+```
 
 Use randomly chosen IP selected from `SHADER` and `BUYPROXIES94952` proxy groups for two requests.
 
-    const Apify = require('apify');
+```marked-tabs
+<marked-tab header="NodeJS" lang="javascript">
+const Apify = require('apify');
 
-    Apify.main(async () => {
-        const proxyConfiguration = await Apify.createProxyConfiguration({
-            groups: ['SHADER', 'BUYPROXIES94952']
-        });
-        const proxyUrl = proxyConfiguration.newUrl();
-        const url = 'https://api.apify.com/v2/browser-info';
-
-        try {
-            const response1 = await Apify.utils.requestAsBrowser({
-                url,
-                proxyUrl,
-                json: true
-            });
-            const response2 = await Apify.utils.requestAsBrowser({
-                url,
-                proxyUrl,
-                json: true
-            });
-            console.log(response1.body.clientIp);
-            console.log('should be different than');
-            console.log(response2.body.clientIp);
-        } catch (e) {
-            console.error(e);
-        }
+Apify.main(async () => {
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['SHADER', 'BUYPROXIES94952']
     });
+    const proxyUrl = proxyConfiguration.newUrl();
+    const url = 'https://api.apify.com/v2/browser-info';
 
+    try {
+        const response1 = await Apify.utils.requestAsBrowser({
+            url,
+            proxyUrl,
+            json: true
+        });
+        const response2 = await Apify.utils.requestAsBrowser({
+            url,
+            proxyUrl,
+            json: true
+        });
+        console.log(response1.body.clientIp);
+        console.log('should be different than');
+        console.log(response2.body.clientIp);
+    } catch (e) {
+        console.error(e);
+    }
+});
+</marked-tab>
+```
