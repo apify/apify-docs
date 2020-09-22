@@ -1,8 +1,7 @@
 ---
 title: Request queue
 description: Queue URLs for an actor to visit in its run. Learn how to share your queues between actor runs. Access and manage request queues from the Apify app or via API.
-
-menuWeight: 6.3
+menuWeight: 7.3
 paths:
     - storage/request-queue
 ---
