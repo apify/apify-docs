@@ -1,7 +1,7 @@
 ---
 title: Datacenter proxy
 description: Learn how to reduce blocking when web scraping using IP address rotation. See proxy parameters and learn to implement Apify Proxy in an application.
-menuWeight: 7.3
+menuWeight: 8.3
 paths:
     - proxy/datacenter-proxy
 ---

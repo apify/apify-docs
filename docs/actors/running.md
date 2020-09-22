@@ -1,7 +1,7 @@
 ---
 title: Running
 description: Start your actors from the Apify app or via API. Learn about actor lifecycles, how to specify settings and version, provide input and resurrect finished runs.
-menuWeight: 4.2
+menuWeight: 5.2
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/run
