@@ -5,7 +5,7 @@ paths:
     - proxy/datacenter-proxy/nodejs-examples
     - proxy/datacenter-proxy/python-examples
     - proxy/datacenter-proxy/php-examples
-    - proxy/datacenter-proxy/code_examples
+    - proxy/datacenter-proxy/code-examples
 ---
 <!-- Watch out! This file is hard to read because our own 'marked-tabs' language fences aren't syntax-highlighted -->
 
