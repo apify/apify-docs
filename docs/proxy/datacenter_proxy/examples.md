@@ -1,28 +1,28 @@
 ---
 title: Examples
-description: Learn how to connect to Apify's datacenter proxies from your application with Node.js (axios and got), Python 2 and 3 and PHP using code examples.
+description: Learn how to connect to Apify"s datacenter proxies from your application with Node.js (axios and got), Python 2 and 3 and PHP using code examples.
 paths:
-    # - proxy/datacenter-proxy/nodejs-examples
-    # - proxy/datacenter-proxy/python-examples
-    # - proxy/datacenter-proxy/php-examples
+    - proxy/datacenter-proxy/nodejs-examples
+    - proxy/datacenter-proxy/python-examples
+    - proxy/datacenter-proxy/php-examples
     - proxy/datacenter-proxy/examples
 ---
-<!-- Watch out! This file is hard to read because our own 'marked-tabs' language fences aren't syntax-highlighted -->
+<!-- Watch out! This file is hard to read because our own "marked-tabs" language fences aren"t syntax-highlighted -->
 
 # Connect to datacenter proxies
 
 This page shows how you can connect to datacenter proxies via Apify Proxy. Below are examples using popular languages such as [Node.js]() (using the [axios]() and [got]() libraries), [Python](), and [PHP]().
 
-If you are building your own Apify [actor]({{@link actors.md}}), we've included examples specific to the [Apify SDK](https://sdk.apify.com).
+If you are building your own Apify [actor]({{@link actors.md}}), we"ve included examples specific to the [Apify SDK](https://sdk.apify.com).
 
 ## [](#standard-libraries-and-languages) Using standard libraries and languages
 
 Single request with a random IP address chosen from all available proxy groups. You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
 
-> The **username** field is **not** your Apify username - here, you specify proxy settings (e.g. 'groups-SHADER+BUYPROXIES94952', 'session-123'). Use 'auto' for default settings.
+> The **username** field is **not** your Apify username - here, you specify proxy settings (e.g. "groups-SHADER+BUYPROXIES94952", "session-123"). Use "auto" for default settings.
 
 ```marked-tabs
-<marked-tab header='Node.js - axios' lang='javascript'>
+<marked-tab header="Node.js - axios" lang="javascript">
 const HttpsProxyAgent = require("https-proxy-agent");
 axios = require("axios");
 
@@ -35,22 +35,22 @@ const httpsAgent = new HttpsProxyAgent({
 axios = axios.create({httpsAgent});
 
 async function useProxy() {
-    const response = await axios.get('https://api.apify.com/v2/browser-info');
+    const response = await axios.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 useProxy();
 </marked-tab>
 
 
-<marked-tab header='Node.js - got' lang='javascript'>
+<marked-tab header="Node.js - got" lang="javascript">
 const got = require("got");
-const HttpProxyAgent = require('http-proxy-agent');
-const HttpsProxyAgent = require('https-proxy-agent');
+const HttpProxyAgent = require("http-proxy-agent");
+const HttpsProxyAgent = require("https-proxy-agent");
 
 const proxyUrl = "http://auto:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
 async function useProxy() {
-    const response = await got('https://api.apify.com/v2/browser-info', {
+    const response = await got("https://api.apify.com/v2/browser-info", {
         agent: {
             http: new HttpProxyAgent(proxyUrl),
             https: new HttpsProxyAgent(proxyUrl)
@@ -63,17 +63,17 @@ useProxy();
 </marked-tab>
 
 
-<marked-tab header='Python 3+' lang='python'>
+<marked-tab header="Python 3+" lang="python">
 import urllib.request as request
 import ssl
 
 # Replace <YOUR_PROXY_PASSWORD> below with your password
 # found at https://my.apify.com/proxy
-password = '<YOUR_PROXY_PASSWORD>'
-proxy_url = f'http://auto:{password}@proxy.apify.com:8000'
+password = "<YOUR_PROXY_PASSWORD>"
+proxy_url = f"http://auto:{password}@proxy.apify.com:8000"
 proxy_handler = request.ProxyHandler({
-    'http': proxy_url,
-    'https': proxy_url,
+    "http": proxy_url,
+    "https": proxy_url,
 })
 
 ctx = ssl.create_default_context()
@@ -82,38 +82,38 @@ ctx.verify_mode = ssl.CERT_NONE
 httpHandler = request.HTTPSHandler(context=ctx)
 
 opener = request.build_opener(httpHandler,proxy_handler)
-print(opener.open('https://api.apify.com/v2/browser-info').read())
+print(opener.open("https://api.apify.com/v2/browser-info").read())
 </marked-tab>
 
 
-<marked-tab header='Python 2+' lang='python'>
+<marked-tab header="Python 2+" lang="python">
 import six
 from six.moves.urllib import request
 
 # Replace <YOUR_PROXY_PASSWORD> below with your password
 # found at https://my.apify.com/proxy
-password = '<YOUR_PROXY_PASSWORD>'
+password = "<YOUR_PROXY_PASSWORD>"
 proxy_url = (
-    'http://auto:%s@proxy.apify.com:8000' %
+    "http://auto:%s@proxy.apify.com:8000" %
     (password)
 )
 proxy_handler = request.ProxyHandler({
-    'http': proxy_url,
-    'https': proxy_url,
+    "http": proxy_url,
+    "https": proxy_url,
 })
 opener = request.build_opener(proxy_handler)
-print(opener.open('https://api.apify.com/v2/browser-info').read())
+print(opener.open("https://api.apify.com/v2/browser-info").read())
 </marked-tab>
 
 
-<marked-tab header='PHP' lang='php'>
+<marked-tab header="PHP" lang="php">
 <?php
-$curl = curl_init('https://api.apify.com/v2/browser-info');
+$curl = curl_init("https://api.apify.com/v2/browser-info");
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($curl, CURLOPT_PROXY, 'http://proxy.apify.com:8000');
+curl_setopt($curl, CURLOPT_PROXY, "http://proxy.apify.com:8000");
 // Replace <YOUR_PROXY_PASSWORD> below with your password
 // found at https://my.apify.com/proxy
-curl_setopt($curl, CURLOPT_PROXYUSERPWD, 'auto:<YOUR_PROXY_PASSWORD>');
+curl_setopt($curl, CURLOPT_PROXYUSERPWD, "auto:<YOUR_PROXY_PASSWORD>");
 $response = curl_exec($curl);
 curl_close($curl);
 if ($response) echo $response;
@@ -123,10 +123,10 @@ if ($response) echo $response;
 
 Two requests with the same IP address chosen from all available proxy groups. 
 
-> The **username** field is **not** your Apify username - here, you specify proxy settings (e.g. 'groups-SHADER+BUYPROXIES94952', 'session-123'). Use 'auto' for default settings.
+> The **username** field is **not** your Apify username - here, you specify proxy settings (e.g. "groups-SHADER+BUYPROXIES94952", "session-123"). Use "auto" for default settings.
 
 ```marked-tabs
-<marked-tab header='Node.js - axios' lang='javascript'>
+<marked-tab header="Node.js - axios" lang="javascript">
 const HttpsProxyAgent = require("https-proxy-agent");
 axios = require("axios");
 
@@ -139,7 +139,7 @@ const httpsAgent = new HttpsProxyAgent({
 axios = axios.create({httpsAgent});
 
 async function useProxy() {
-    const response = await axios.get('https://api.apify.com/v2/browser-info');
+    const response = await axios.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 useProxy();
@@ -148,15 +148,15 @@ useProxy();
 </marked-tab>
 
 
-<marked-tab header='Node.js - got' lang='javascript'>
+<marked-tab header="Node.js - got" lang="javascript">
 const got = require("got");
-const HttpProxyAgent = require('http-proxy-agent');
-const HttpsProxyAgent = require('https-proxy-agent');
+const HttpProxyAgent = require("http-proxy-agent");
+const HttpsProxyAgent = require("https-proxy-agent");
 
 const proxyUrl = "http://session-my_session:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
 async function useProxy() {
-    const response = await got('https://api.apify.com/v2/browser-info', {
+    const response = await got("https://api.apify.com/v2/browser-info", {
         agent: {
             http: new HttpProxyAgent(proxyUrl),
             https: new HttpsProxyAgent(proxyUrl)
@@ -171,18 +171,18 @@ useProxy();
 </marked-tab>
 
 
-<marked-tab header='Python 3+' lang='python'>
+<marked-tab header="Python 3+" lang="python">
 import urllib.request as request
 import ssl
 
 def do_request():
     # Replace <YOUR_PROXY_PASSWORD> below with your password
     # found at https://my.apify.com/proxy
-    password = '<YOUR_PROXY_PASSWORD>'
-    proxy_url = f'http://session-my_session:{password}@proxy.apify.com:8000'
+    password = "<YOUR_PROXY_PASSWORD>"
+    proxy_url = f"http://session-my_session:{password}@proxy.apify.com:8000"
     proxy_handler = request.ProxyHandler({
-        'http': proxy_url,
-        'https': proxy_url,
+        "http": proxy_url,
+        "https": proxy_url,
     })
 
     ctx = ssl.create_default_context()
@@ -191,15 +191,15 @@ def do_request():
     httpHandler = request.HTTPSHandler(context=ctx)
 
     opener = request.build_opener(httpHandler,proxy_handler)
-    return opener.open('https://api.apify.com/v2/browser-info').read()
+    return opener.open("https://api.apify.com/v2/browser-info").read()
 
 print(do_request())
-print('Should return the same clientIp as ')
+print("Should return the same clientIp as ")
 print(do_request())
 </marked-tab>
 
 
-<marked-tab header='Python 2+' lang='python'>
+<marked-tab header="Python 2+" lang="python">
 import six
 from six.moves.urllib import request
 import ssl
@@ -207,14 +207,14 @@ import ssl
 def do_request():
     # Replace <YOUR_PROXY_PASSWORD> below with your password
     # found at https://my.apify.com/proxy
-    password = '<YOUR_PROXY_PASSWORD>'
+    password = "<YOUR_PROXY_PASSWORD>"
     proxy_url = (
-        'http://session-my_session:%s@proxy.apify.com:8000' %
+        "http://session-my_session:%s@proxy.apify.com:8000" %
         (password)
     )
     proxy_handler = request.ProxyHandler({
-        'http': proxy_url,
-        'https': proxy_url,
+        "http": proxy_url,
+        "https": proxy_url,
     })
 
     ctx = ssl.create_default_context()
@@ -223,23 +223,23 @@ def do_request():
     httpHandler = request.HTTPSHandler(context=ctx)
 
     opener = request.build_opener(httpHandler,proxy_handler)
-    return opener.open('https://api.apify.com/v2/browser-info').read()
+    return opener.open("https://api.apify.com/v2/browser-info").read()
 
 print(do_request())
-print('Should return the same clientIp as ')
+print("Should return the same clientIp as ")
 print(do_request())
 </marked-tab>
 
 
-<marked-tab header='PHP' lang='php'>
+<marked-tab header="PHP" lang="php">
 <?php
 function doRequest() {
-    $curl = curl_init('https://api.apify.com/v2/browser-info');
+    $curl = curl_init("https://api.apify.com/v2/browser-info");
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($curl, CURLOPT_PROXY, 'http://proxy.apify.com:8000');
+    curl_setopt($curl, CURLOPT_PROXY, "http://proxy.apify.com:8000");
     // Replace <YOUR_PROXY_PASSWORD> below with your password
     // found at https://my.apify.com/proxy
-    curl_setopt($curl, CURLOPT_PROXYUSERPWD, 'session-my_session:<YOUR_PROXY_PASSWORD>');
+    curl_setopt($curl, CURLOPT_PROXYUSERPWD, "session-my_session:<YOUR_PROXY_PASSWORD>");
     $response = curl_exec($curl);
     curl_close($curl);
     return $response;
@@ -247,7 +247,7 @@ function doRequest() {
 $response1 = doRequest();
 $response2 = doRequest();
 echo $response1;
-echo '\nShould be contain same clientIp as\n';
+echo "\nShould be contain same clientIp as\n";
 echo $response2;
 ?>
 </marked-tab>
@@ -255,10 +255,10 @@ echo $response2;
 
 Two requests with different IP addresses chosen from the `SHADER` and `BUYPROXIES94952` proxy groups.
 
-> The **username** field is **not** your Apify username - here, you specify proxy settings (e.g. 'groups-SHADER+BUYPROXIES94952', 'session-123'). Use 'auto' for default settings.
+> The **username** field is **not** your Apify username - here, you specify proxy settings (e.g. "groups-SHADER+BUYPROXIES94952", "session-123"). Use "auto" for default settings.
 
 ```marked-tabs
-<marked-tab header='Node.js - axios' lang='javascript'>
+<marked-tab header="Node.js - axios" lang="javascript">
 const HttpsProxyAgent = require("https-proxy-agent");
 axios = require("axios");
 
@@ -271,7 +271,7 @@ const httpsAgent = new HttpsProxyAgent({
 axios = axios.create({httpsAgent});
 
 async function useProxy() {
-    const response = await axios.get('https://api.apify.com/v2/browser-info');
+    const response = await axios.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 useProxy();
@@ -280,15 +280,15 @@ useProxy();
 </marked-tab>
 
 
-<marked-tab header='Node.js - got' lang='javascript'>
+<marked-tab header="Node.js - got" lang="javascript">
 const got = require("got");
-const HttpProxyAgent = require('http-proxy-agent');
-const HttpsProxyAgent = require('https-proxy-agent');
+const HttpProxyAgent = require("http-proxy-agent");
+const HttpsProxyAgent = require("https-proxy-agent");
 
 const proxyUrl = "http://groups-SHADER+BUYPROXIES94952:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
 async function useProxy() {
-    const response = await got('https://api.apify.com/v2/browser-info', {
+    const response = await got("https://api.apify.com/v2/browser-info", {
         agent: {
             http: new HttpProxyAgent(proxyUrl),
             https: new HttpsProxyAgent(proxyUrl)
@@ -302,18 +302,18 @@ useProxy();
 </marked-tab>
 
 
-<marked-tab header='Python 3+' lang='python'>
+<marked-tab header="Python 3+" lang="python">
 import urllib.request as request
 import ssl
 
 def do_request():
     # Replace <YOUR_PROXY_PASSWORD> below with your password
     # found at https://my.apify.com/proxy
-    password = '<YOUR_PROXY_PASSWORD>'
-    proxy_url = f'http://groups-SHADER+BUYPROXIES94952:{password}@proxy.apify.com:8000'
+    password = "<YOUR_PROXY_PASSWORD>"
+    proxy_url = f"http://groups-SHADER+BUYPROXIES94952:{password}@proxy.apify.com:8000"
     proxy_handler = request.ProxyHandler({
-        'http': proxy_url,
-        'https': proxy_url,
+        "http": proxy_url,
+        "https": proxy_url,
     })
 
     ctx = ssl.create_default_context()
@@ -322,15 +322,15 @@ def do_request():
     httpHandler = request.HTTPSHandler(context=ctx)
 
     opener = request.build_opener(httpHandler,proxy_handler)
-    return opener.open('https://api.apify.com/v2/browser-info').read()
+    return opener.open("https://api.apify.com/v2/browser-info").read()
 
 print(do_request())
-print('Should return a different clientIp than ')
+print("Should return a different clientIp than ")
 print(do_request())
 </marked-tab>
 
 
-<marked-tab header='Python 2+' lang='python'>
+<marked-tab header="Python 2+" lang="python">
 import six
 from six.moves.urllib import request
 import ssl
@@ -338,15 +338,15 @@ import ssl
 def do_request():
     # Replace <YOUR_PROXY_PASSWORD> below with your password
     # found at https://my.apify.com/proxy
-    password = '<YOUR_PROXY_PASSWORD>'
+    password = "<YOUR_PROXY_PASSWORD>"
     proxy_url = (
-        'http://groups-SHADER+BUYPROXIES94952:%s@proxy.apify.com:8000' %
+        "http://groups-SHADER+BUYPROXIES94952:%s@proxy.apify.com:8000" %
         (password)
     )
 
     proxy_handler = request.ProxyHandler({
-        'http': proxy_url,
-        'https': proxy_url,
+        "http": proxy_url,
+        "https": proxy_url,
     })
 
     ctx = ssl.create_default_context()
@@ -355,23 +355,23 @@ def do_request():
     httpHandler = request.HTTPSHandler(context=ctx)
 
     opener = request.build_opener(httpHandler,proxy_handler)
-    return opener.open('https://api.apify.com/v2/browser-info').read()
+    return opener.open("https://api.apify.com/v2/browser-info").read()
 
 print(do_request())
-print('Should return a different clientIp than ')
+print("Should return a different clientIp than ")
 print(do_request())
 </marked-tab>
 
 
-<marked-tab header='PHP' lang='php'>
+<marked-tab header="PHP" lang="php">
 <?php
 function doRequest() {
-    $curl = curl_init('https://api.apify.com/v2/browser-info');
+    $curl = curl_init("https://api.apify.com/v2/browser-info");
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($curl, CURLOPT_PROXY, 'http://proxy.apify.com:8000');
+    curl_setopt($curl, CURLOPT_PROXY, "http://proxy.apify.com:8000");
     // Replace <YOUR_PROXY_PASSWORD> below with your password
     // found at https://my.apify.com/proxy
-    curl_setopt($curl, CURLOPT_PROXYUSERPWD, 'groups-SHADER+BUYPROXIES94952:<YOUR_PROXY_PASSWORD>');
+    curl_setopt($curl, CURLOPT_PROXYUSERPWD, "groups-SHADER+BUYPROXIES94952:<YOUR_PROXY_PASSWORD>");
     $response = curl_exec($curl);
     curl_close($curl);
     return $response;
@@ -379,7 +379,7 @@ function doRequest() {
 $response1 = doRequest();
 $response2 = doRequest();
 echo $response1;
-echo '\nShould have different clientIp than\n';
+echo "\nShould have different clientIp than\n";
 echo $response2;
 ?>
 </marked-tab>
@@ -393,12 +393,12 @@ add link to sdk
 Use one randomly selected IP address from all available proxy servers.
 
 ```marked-tabs
-<marked-tab header='PuppeteerCrawler' lang='javascript'>
-const Apify = require('apify');
+<marked-tab header="PuppeteerCrawler" lang="javascript">
+const Apify = require("apify");
 
 Apify.main(async () => {
     const requestList = await Apify.openRequestList(
-        'my-list', ['http://www.example.com']
+        "my-list", ["http://www.example.com"]
     );
     const proxyConfiguration = await Apify.createProxyConfiguration();
 
@@ -409,7 +409,7 @@ Apify.main(async () => {
             return Apify.pushData({ title: await page.title() });
         },
         handleFailedRequestFunction: ({ request }) => {
-            console.error('Request failed', request.url, request.errorMessages);
+            console.error("Request failed", request.url, request.errorMessages);
         },
     });
 
@@ -418,14 +418,14 @@ Apify.main(async () => {
 </marked-tab>
 
 
-<marked-tab header='requestAsBrowser()' lang='javascript'>
-const Apify = require('apify');
+<marked-tab header="requestAsBrowser()" lang="javascript">
+const Apify = require("apify");
 
 Apify.main(async () => {
     const proxyConfiguration = await Apify.createProxyConfiguration();
     try {
         const { body } = await Apify.utils.requestAsBrowser({
-            url: 'https://www.example.com',
+            url: "https://www.example.com",
             proxyUrl: proxyConfiguration.newUrl(),
         });
         console.log(body); // returns HTML of returned page
@@ -440,17 +440,17 @@ Apify.main(async () => {
 Use one IP address chosen from the `SHADER` and `BUYPROXIES94952` proxy groups.
 
 ```marked-tabs
-<marked-tab header='PuppeteerCrawler' lang='javascript'>
-const Apify = require('apify');
+<marked-tab header="PuppeteerCrawler" lang="javascript">
+const Apify = require("apify");
 
 Apify.main(async () => {
     const requestList = await Apify.openRequestList(
-        'my-list', ['http://www.example.com']
+        "my-list", ["http://www.example.com"]
     );
     const proxyConfiguration = await Apify.createProxyConfiguration({
         // if you need to use more then one group
         // simply add the additional ID to the array below
-        groups: ['SHADER', 'BUYPROXIES94952'],
+        groups: ["SHADER", "BUYPROXIES94952"],
     });
 
     const crawler = new Apify.PuppeteerCrawler({
@@ -460,7 +460,7 @@ Apify.main(async () => {
             return Apify.pushData({ title: await page.title() });
         },
         handleFailedRequestFunction: ({ request }) => {
-            console.error('Request failed', request.url, request.errorMessages);
+            console.error("Request failed", request.url, request.errorMessages);
         },
     });
 
@@ -469,40 +469,40 @@ Apify.main(async () => {
 </marked-tab>
 
 
-<marked-tab header='launchPuppeteer()' lang='javascript'>
+<marked-tab header="launchPuppeteer()" lang="javascript">
 // Randomly choose an IP address from all available proxy servers
-const Apify = require('apify');
+const Apify = require("apify");
 
 Apify.main(async () => {
     const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: ['SHADER', 'BUYPROXIES94952'],
+        groups: ["SHADER", "BUYPROXIES94952"],
     });
 
     const browser = await Apify.launchPuppeteer({
-        proxyUrl: proxyConfiguration.newUrl('my_session'),
+        proxyUrl: proxyConfiguration.newUrl("my_session"),
     });
 
     const page = await browser.newPage();
 
-    await page.goto('http://www.example.com');
+    await page.goto("http://www.example.com");
 
     const html = await page.content();
 
-    console.log('HTML:');
+    console.log("HTML:");
     console.log(html);
 });
 </marked-tab>
 
 
-<marked-tab header='requestAsBrowser()' lang='javascript'>
-const Apify = require('apify');
+<marked-tab header="requestAsBrowser()" lang="javascript">
+const Apify = require("apify");
 
 Apify.main(async () => {
     const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: ['SHADER', 'BUYPROXIES94952']
+        groups: ["SHADER", "BUYPROXIES94952"]
     });
     const proxyUrl = proxyConfiguration.newUrl();
-    const url = 'https://api.apify.com/v2/browser-info';
+    const url = "https://api.apify.com/v2/browser-info";
 
     try {
         const response1 = await Apify.utils.requestAsBrowser({
@@ -516,7 +516,7 @@ Apify.main(async () => {
             json: true
         });
         console.log(response1.body.clientIp);
-        console.log('should be different than');
+        console.log("should be different than");
         console.log(response2.body.clientIp);
     } catch (e) {
         console.error(e);
@@ -529,17 +529,17 @@ Apify.main(async () => {
 Using [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav), get a new IP address selected from the `SHADER` proxy group for each browser opened during an entire run.
 
 ```marked-tabs
-<marked-tab header='PuppeteerCrawler' lang='javascript'>
-const Apify = require('apify');
+<marked-tab header="PuppeteerCrawler" lang="javascript">
+const Apify = require("apify");
 
 Apify.main(async () => {
     const requestList = await Apify.openRequestList(
-        'my-list', ['http://www.example.com']
+        "my-list", ["http://www.example.com"]
     );
     const proxyConfiguration = await Apify.createProxyConfiguration({
         // if you need to use more then one group
         // simply add the additional ID to the array below
-        groups: ['SHADER'],
+        groups: ["SHADER"],
     });
 
     const crawler = new Apify.PuppeteerCrawler({
@@ -550,7 +550,7 @@ Apify.main(async () => {
             return Apify.pushData({ title: await page.title() });
         },
         handleFailedRequestFunction: ({ request }) => {
-            console.error('Request failed', request.url, request.errorMessages);
+            console.error("Request failed", request.url, request.errorMessages);
         },
     });
 
@@ -563,17 +563,17 @@ Apify.main(async () => {
 Using [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav), keep a single IP address selected from the `SHADER` proxy group until it fails (gets retired).
 
 ```marked-tabs
-<marked-tab header='PuppeteerCrawler' lang='javascript'>
-const Apify = require('apify');
+<marked-tab header="PuppeteerCrawler" lang="javascript">
+const Apify = require("apify");
 
 Apify.main(async () => {
     const requestList = await Apify.openRequestList(
-        'my-list', ['http://www.example.com']
+        "my-list", ["http://www.example.com"]
     );
     const proxyConfiguration = await Apify.createProxyConfiguration({
         // if you need to use more then one group
         // simply add the additional ID to the array below
-        groups: ['SHADER'],
+        groups: ["SHADER"],
     });
 
     const crawler = new Apify.PuppeteerCrawler({
@@ -587,7 +587,7 @@ Apify.main(async () => {
             return Apify.pushData({ title: await page.title() });
         },
         handleFailedRequestFunction: ({ request }) => {
-            console.error('Request failed', request.url, request.errorMessages);
+            console.error("Request failed", request.url, request.errorMessages);
         },
     });
 
@@ -600,28 +600,28 @@ Apify.main(async () => {
 With the `requestAsBrowser()` [function](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions), use one IP address from the `SHADER` proxy group for two requests.
 
 ```marked-tabs
-<marked-tab header='requestAsBrowser()' lang='javascript'>
-const Apify = require('apify');
+<marked-tab header="requestAsBrowser()" lang="javascript">
+const Apify = require("apify");
 
 Apify.main(async () => {
     const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: ['SHADER']
+        groups: ["SHADER"]
     });
-    const proxyUrl = proxyConfiguration.newUrl('my_session');
+    const proxyUrl = proxyConfiguration.newUrl("my_session");
 
     try {
         const response1 = await Apify.utils.requestAsBrowser({
-            url: 'https://api.apify.com/v2/browser-info',
+            url: "https://api.apify.com/v2/browser-info",
             proxyUrl,
             json: true
         });
         const response2 = await Apify.utils.requestAsBrowser({
-            url: 'https://api.apify.com/v2/browser-info',
+            url: "https://api.apify.com/v2/browser-info",
             proxyUrl,
             json: true
         });
         console.log(response1.body.clientIp);
-        console.log('should be the same as');
+        console.log("should be the same as");
         console.log(response2.body.clientIp);
     } catch (e) {
         console.error(e);
