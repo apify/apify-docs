@@ -1,11 +1,11 @@
 ---
-title: Code examples
+title: Examples
 description: Learn how to connect to Apify's datacenter proxies from your application with Node.js (axios and got), Python 2 and 3 and PHP using code examples.
 paths:
     - proxy/datacenter-proxy/nodejs-examples
     - proxy/datacenter-proxy/python-examples
     - proxy/datacenter-proxy/php-examples
-    - proxy/datacenter-proxy/code-examples
+    - proxy/datacenter-proxy/examples
 ---
 <!-- Watch out! This file is hard to read because our own 'marked-tabs' language fences aren't syntax-highlighted -->
 
