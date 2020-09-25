@@ -23,47 +23,40 @@ Single request with a random IP address chosen from all available proxy groups. 
 
 ```marked-tabs
 <marked-tab header='Node.js - axios' lang='javascript'>
-const axios = require('axios');
+const HttpsProxyAgent = require("https-proxy-agent");
+axios = require("axios");
+
+const httpsAgent = new HttpsProxyAgent({
+    host: "proxy.apify.com",
+    port: "8000",
+    auth: "auto:<YOUR_PROXY_PASSWORD>"
+});
+
+axios = axios.create({httpsAgent});
 
 async function useProxy() {
-    const getData = await axios.get({
-        url: 'https://api.apify.com/v2/browser-info',
-        proxy: {
-            host: 'proxy.apify.com',
-            port: 8000,
-            auth: {
-                username: '<SPECIFY_PROXY_SETTINGS>',
-                password: '<YOUR_PROXY_PASSWORD>'
-            }
-        }
-    });
-    console.log(getData.data)
+    const response = await axios.get('https://api.apify.com/v2/browser-info');
+    console.log(response.data)
 };
-
 useProxy();
 </marked-tab>
 
 
 <marked-tab header='Node.js - got' lang='javascript'>
 const got = require("got");
-const tunnel = require("tunnel");
+const HttpProxyAgent = require('http-proxy-agent');
+const HttpsProxyAgent = require('https-proxy-agent');
+
+const proxyUrl = "http://auto:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
 async function useProxy() {
-    const response = await got("http://api.apify.com/v2/browser-info", {
+    const response = await got('https://api.apify.com/v2/browser-info', {
         agent: {
-            https: tunnel.httpsOverHttp({
-                proxy: {
-                    host: "proxy.apify.com",
-                    port: 8000,
-                    auth: {
-                        username: '<SPECIFY_PROXY_SETTINGS>',
-                        password: '<YOUR_PROXY_PASSWORD>'
-                    }
-                }
-            })
+            http: new HttpProxyAgent(proxyUrl),
+            https: new HttpsProxyAgent(proxyUrl)
         }
     });
-    console.log(response);
+    console.log(response.body)
 };
 
 useProxy();
@@ -134,12 +127,47 @@ Two requests with the same IP address chosen from all available proxy groups.
 
 ```marked-tabs
 <marked-tab header='Node.js - axios' lang='javascript'>
+const HttpsProxyAgent = require("https-proxy-agent");
+axios = require("axios");
 
+const httpsAgent = new HttpsProxyAgent({
+    host: "proxy.apify.com",
+    port: "8000",
+    auth: "session-my_session:<YOUR_PROXY_PASSWORD>"
+});
+
+axios = axios.create({httpsAgent});
+
+async function useProxy() {
+    const response = await axios.get('https://api.apify.com/v2/browser-info');
+    console.log(response.data)
+};
+useProxy();
+// Should return the same clientIp as
+useProxy();
 </marked-tab>
 
 
 <marked-tab header='Node.js - got' lang='javascript'>
+const got = require("got");
+const HttpProxyAgent = require('http-proxy-agent');
+const HttpsProxyAgent = require('https-proxy-agent');
 
+const proxyUrl = "http://session-my_session:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
+
+async function useProxy() {
+    const response = await got('https://api.apify.com/v2/browser-info', {
+        agent: {
+            http: new HttpProxyAgent(proxyUrl),
+            https: new HttpsProxyAgent(proxyUrl)
+        }
+    });
+    console.log(response.body)
+};
+
+useProxy();
+// Should return the same clientIp as
+useProxy();
 </marked-tab>
 
 
@@ -166,7 +194,7 @@ def do_request():
     return opener.open('https://api.apify.com/v2/browser-info').read()
 
 print(do_request())
-print('Should return the contain the same clientIp as ')
+print('Should return the same clientIp as ')
 print(do_request())
 </marked-tab>
 
@@ -198,7 +226,7 @@ def do_request():
     return opener.open('https://api.apify.com/v2/browser-info').read()
 
 print(do_request())
-print('Should return the contain the same clientIp as ')
+print('Should return the same clientIp as ')
 print(do_request())
 </marked-tab>
 
@@ -231,12 +259,46 @@ Two requests with different IP addresses chosen from the `SHADER` and `BUYPROXIE
 
 ```marked-tabs
 <marked-tab header='Node.js - axios' lang='javascript'>
+const HttpsProxyAgent = require("https-proxy-agent");
+axios = require("axios");
 
+const httpsAgent = new HttpsProxyAgent({
+    host: "proxy.apify.com",
+    port: "8000",
+    auth: "groups-SHADER+BUYPROXIES94952:<YOUR_PROXY_PASSWORD>"
+});
+
+axios = axios.create({httpsAgent});
+
+async function useProxy() {
+    const response = await axios.get('https://api.apify.com/v2/browser-info');
+    console.log(response.data)
+};
+useProxy();
+// Should return a different clientIp than
+useProxy();
 </marked-tab>
 
 
 <marked-tab header='Node.js - got' lang='javascript'>
+const got = require("got");
+const HttpProxyAgent = require('http-proxy-agent');
+const HttpsProxyAgent = require('https-proxy-agent');
 
+const proxyUrl = "http://groups-SHADER+BUYPROXIES94952:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
+
+async function useProxy() {
+    const response = await got('https://api.apify.com/v2/browser-info', {
+        agent: {
+            http: new HttpProxyAgent(proxyUrl),
+            https: new HttpsProxyAgent(proxyUrl)
+        }
+    });
+    console.log(response.body)
+};
+useProxy();
+// Should return a different clientIp than
+useProxy();
 </marked-tab>
 
 
@@ -263,7 +325,7 @@ def do_request():
     return opener.open('https://api.apify.com/v2/browser-info').read()
 
 print(do_request())
-print('Should return the contain different clientIp than ')
+print('Should return a different clientIp than ')
 print(do_request())
 </marked-tab>
 
@@ -296,7 +358,7 @@ def do_request():
     return opener.open('https://api.apify.com/v2/browser-info').read()
 
 print(do_request())
-print('Should return the contain different clientIp than ')
+print('Should return a different clientIp than ')
 print(do_request())
 </marked-tab>
 
