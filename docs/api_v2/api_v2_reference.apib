@@ -1570,7 +1570,9 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
       If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
       otherwise it will have a transitional status (e.g. `RUNNING`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
-      e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
+      e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks.
+      Note: if you already have a webhook set up for the actor run, you do not have to add it again here.
+      For more information, see
       [Webhooks documenation](https://docs.apify.com/webhooks).
 
 + Request
