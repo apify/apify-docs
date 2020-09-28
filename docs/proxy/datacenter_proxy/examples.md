@@ -13,10 +13,10 @@ paths:
 
 This page shows how you can connect to [datacenter proxies]({{@link proxy/datacenter_proxy.md}}) using Apify Proxy.
 
-If you are building your own Apify [actor]({{@link actors.md}}), at the [bottom of the page](#using-apify-sdk) you will find examples specific to the [Apify SDK](https://sdk.apify.com).
+If you are building your own Apify [actor]({{@link actors.md}}), below are [examples](#using-the-apify-sdk) specific to the [Apify SDK](https://sdk.apify.com).
 
 
-## [](#standard-libraries-and-languages) Using standard libraries and languages
+## [](#using-standard-libraries-and-languages) Using standard libraries and languages
 
 You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
 
@@ -24,7 +24,7 @@ You can find your proxy password on the [Proxy page](https://my.apify.com/proxy)
 > Instead of a username, you specify proxy settings (e.g. "groups-SHADER+BUYPROXIES94952", "session-123").<br/>
 > Use **auto** for default settings.
 
-### [](#single-request-random-ip) Single request with a random IP address
+### [](#single-request-with-a-random-ip-address) Single request with a random IP address
 
 The IP address is chosen from all available proxy groups.
 
@@ -134,7 +134,7 @@ if ($response) echo $response;
 </marked-tab>
 ```
 
-### [](#two-requests-same-ip) Two requests with the same IP address 
+### [](#two-requests-with-the-same-ip-address) Two requests with the same IP address
 
 The IP address is chosen at random from all available proxy groups.
 
@@ -272,7 +272,7 @@ echo $response2;
 </marked-tab>
 ```
 
-### [](#two-requests-different-ip) Two requests with different IP addresses
+### [](#two-requests-with-different-ip-addresses) Two requests with different IP addresses
 
 The IP addresses are chosen from the `SHADER` and `BUYPROXIES94952` proxy groups.
 
@@ -410,7 +410,7 @@ echo $response2;
 </marked-tab>
 ```
 
-## [](#using-apify-sdk) Using the Apify SDK
+## [](#using-the-apify-sdk) Using the Apify SDK
 
 If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you can use Apify proxy in:
 
@@ -418,7 +418,7 @@ If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you 
 * [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
 * [launchPuppeteer()](https://sdk.apify.com/docs/typedefs/launch-puppeteer#docsNav) by specifying the configuration in the function's options.
 
-### (#sdk-one-random-ip) Single random IP address
+### (#single-random-ip-address) Single random IP address
 
 The IP address is selected at random from all available proxy servers.
 
@@ -466,7 +466,7 @@ Apify.main(async () => {
 </marked-tab>
 ```
 
-### [](#single-ip-from-specific-groups) Single IP address from specific groups
+### [](#single-ip-address-from-specific-groups) Single IP address from specific groups
 
 The IP address is selected from the `SHADER` and `BUYPROXIES94952` proxy groups.
 
@@ -556,7 +556,7 @@ Apify.main(async () => {
 ```
 
 
-### [](#single-ip-specific-group-puppeteercrawler) Single IP from a specific group using PuppeteerCrawler
+### [](#single-ip-from-a-specific-group-using-puppeteercrawler) Single IP from a specific group using PuppeteerCrawler
 
 Using [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav), get a new IP address selected from the `SHADER` proxy group for each browser opened during an entire run.
 
@@ -627,7 +627,7 @@ Apify.main(async () => {
 </marked-tab>
 ```
 
-### [](#single-ip-multiple-requests-requestasbrowser) Use a single IP address from specific groups for multiple requests
+### [](#use-a-single-ip-address-from-specific-groups-for-multiple-requests) Use a single IP address from specific groups for multiple requests
 
 With the `requestAsBrowser()` [function](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions), use one IP address from the `SHADER` proxy group for two requests.
 
