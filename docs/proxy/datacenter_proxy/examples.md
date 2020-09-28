@@ -418,7 +418,7 @@ If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you 
 * [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
 * [launchPuppeteer()](https://sdk.apify.com/docs/typedefs/launch-puppeteer#docsNav) by specifying the configuration in the function's options.
 
-### (#single-random-ip-address) Single random IP address
+### [](#single-random-ip-address) Single random IP address
 
 The IP address is selected at random from all available proxy servers.
 
