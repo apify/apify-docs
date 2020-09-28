@@ -1,6 +1,6 @@
 ---
 title: Examples
-description: Learn how to connect to Apify"s datacenter proxies from your application with Node.js (axios and got), Python 2 and 3 and PHP using code examples.
+description: Learn how to connect to Apify's datacenter proxies from your application with Node.js (axios and got), Python 2 and 3 and PHP using code examples.
 paths:
     - proxy/datacenter-proxy/nodejs-examples
     - proxy/datacenter-proxy/python-examples
@@ -11,24 +11,35 @@ paths:
 
 # Connect to datacenter proxies
 
-This page shows how you can connect to datacenter proxies via Apify Proxy. Below are examples using popular languages such as [Node.js]() (using the [axios]() and [got]() libraries), [Python](), and [PHP]().
+This page shows how you can connect to [datacenter proxies]({{@link proxy/datacenter_proxy.md}}) using Apify Proxy.
 
-If you are building your own Apify [actor]({{@link actors.md}}), we"ve included examples specific to the [Apify SDK](https://sdk.apify.com).
+If you are building your own Apify [actor]({{@link actors.md}}), at the [bottom of the page](#using-apify-sdk) you will find examples specific to the [Apify SDK](https://sdk.apify.com).
+
 
 ## [](#standard-libraries-and-languages) Using standard libraries and languages
 
-Single request with a random IP address chosen from all available proxy groups. You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
+You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
 
-> The **username** field is **not** your Apify username - here, you specify proxy settings (e.g. "groups-SHADER+BUYPROXIES94952", "session-123"). Use "auto" for default settings.
+> Note that in all examples, the **username** field is **not** your Apify username.<br/>
+> Instead of a username, you specify proxy settings (e.g. "groups-SHADER+BUYPROXIES94952", "session-123").<br/>
+> Use **auto** for default settings.
+
+### [](#single-request-random-ip) Single request with a random IP address
+
+The IP address is chosen from all available proxy groups.
+
+Select this option by setting the **username** parameter to **auto**.
 
 ```marked-tabs
-<marked-tab header="Node.js - axios" lang="javascript">
+<marked-tab header="Node.js (axios)" lang="javascript">
 const HttpsProxyAgent = require("https-proxy-agent");
 axios = require("axios");
 
 const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
     port: "8000",
+    // Replace <YOUR_PROXY_PASSWORD> below with your password
+    // found at https://my.apify.com/proxy
     auth: "auto:<YOUR_PROXY_PASSWORD>"
 });
 
@@ -42,11 +53,13 @@ useProxy();
 </marked-tab>
 
 
-<marked-tab header="Node.js - got" lang="javascript">
+<marked-tab header="Node.js (got)" lang="javascript">
 const got = require("got");
 const HttpProxyAgent = require("http-proxy-agent");
 const HttpsProxyAgent = require("https-proxy-agent");
 
+// Replace <YOUR_PROXY_PASSWORD> below with your password
+// found at https://my.apify.com/proxy
 const proxyUrl = "http://auto:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
 async function useProxy() {
@@ -121,18 +134,22 @@ if ($response) echo $response;
 </marked-tab>
 ```
 
-Two requests with the same IP address chosen from all available proxy groups. 
+### [](#two-requests-same-ip) Two requests with the same IP address 
 
-> The **username** field is **not** your Apify username - here, you specify proxy settings (e.g. "groups-SHADER+BUYPROXIES94952", "session-123"). Use "auto" for default settings.
+The IP address is chosen at random from all available proxy groups.
+
+To use this option, set a session name in the **username** parameter.
 
 ```marked-tabs
-<marked-tab header="Node.js - axios" lang="javascript">
+<marked-tab header="Node.js (axios)" lang="javascript">
 const HttpsProxyAgent = require("https-proxy-agent");
 axios = require("axios");
 
 const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
     port: "8000",
+    // Replace <YOUR_PROXY_PASSWORD> below with your password
+    // found at https://my.apify.com/proxy
     auth: "session-my_session:<YOUR_PROXY_PASSWORD>"
 });
 
@@ -148,11 +165,13 @@ useProxy();
 </marked-tab>
 
 
-<marked-tab header="Node.js - got" lang="javascript">
+<marked-tab header="Node.js (got)" lang="javascript">
 const got = require("got");
 const HttpProxyAgent = require("http-proxy-agent");
 const HttpsProxyAgent = require("https-proxy-agent");
 
+// Replace <YOUR_PROXY_PASSWORD> below with your password
+// found at https://my.apify.com/proxy
 const proxyUrl = "http://session-my_session:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
 async function useProxy() {
@@ -253,18 +272,22 @@ echo $response2;
 </marked-tab>
 ```
 
-Two requests with different IP addresses chosen from the `SHADER` and `BUYPROXIES94952` proxy groups.
+### [](#two-requests-different-ip) Two requests with different IP addresses
 
-> The **username** field is **not** your Apify username - here, you specify proxy settings (e.g. "groups-SHADER+BUYPROXIES94952", "session-123"). Use "auto" for default settings.
+The IP addresses are chosen from the `SHADER` and `BUYPROXIES94952` proxy groups.
+
+Specify proxy groups in the **username** parameter.
 
 ```marked-tabs
-<marked-tab header="Node.js - axios" lang="javascript">
+<marked-tab header="Node.js (axios)" lang="javascript">
 const HttpsProxyAgent = require("https-proxy-agent");
 axios = require("axios");
 
 const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
     port: "8000",
+    // Replace <YOUR_PROXY_PASSWORD> below with your password
+    // found at https://my.apify.com/proxy
     auth: "groups-SHADER+BUYPROXIES94952:<YOUR_PROXY_PASSWORD>"
 });
 
@@ -280,11 +303,13 @@ useProxy();
 </marked-tab>
 
 
-<marked-tab header="Node.js - got" lang="javascript">
+<marked-tab header="Node.js (got)" lang="javascript">
 const got = require("got");
 const HttpProxyAgent = require("http-proxy-agent");
 const HttpsProxyAgent = require("https-proxy-agent");
 
+// Replace <YOUR_PROXY_PASSWORD> below with your password
+// found at https://my.apify.com/proxy
 const proxyUrl = "http://groups-SHADER+BUYPROXIES94952:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
 async function useProxy() {
@@ -385,12 +410,17 @@ echo $response2;
 </marked-tab>
 ```
 
-
 ## [](#using-apify-sdk) Using the Apify SDK
 
-add link to sdk
+If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you can use Apify proxy in:
 
-Use one randomly selected IP address from all available proxy servers.
+* [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav) using the [createProxyConfiguration()](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) function.
+* [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
+* [launchPuppeteer()](https://sdk.apify.com/docs/typedefs/launch-puppeteer#docsNav) by specifying the configuration in the function's options.
+
+### (#sdk-one-random-ip) Single random IP address
+
+The IP address is selected at random from all available proxy servers.
 
 ```marked-tabs
 <marked-tab header="PuppeteerCrawler" lang="javascript">
@@ -436,8 +466,9 @@ Apify.main(async () => {
 </marked-tab>
 ```
 
+### [](#single-ip-from-specific-groups) Single IP address from specific groups
 
-Use one IP address chosen from the `SHADER` and `BUYPROXIES94952` proxy groups.
+The IP address is selected from the `SHADER` and `BUYPROXIES94952` proxy groups.
 
 ```marked-tabs
 <marked-tab header="PuppeteerCrawler" lang="javascript">
@@ -470,7 +501,6 @@ Apify.main(async () => {
 
 
 <marked-tab header="launchPuppeteer()" lang="javascript">
-// Randomly choose an IP address from all available proxy servers
 const Apify = require("apify");
 
 Apify.main(async () => {
@@ -526,6 +556,8 @@ Apify.main(async () => {
 ```
 
 
+### [](#single-ip-specific-group-puppeteercrawler) Single IP from a specific group using PuppeteerCrawler
+
 Using [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav), get a new IP address selected from the `SHADER` proxy group for each browser opened during an entire run.
 
 ```marked-tabs
@@ -557,8 +589,7 @@ Apify.main(async () => {
     await crawler.run();
 });
 </marked-tab>
-```
-
+``` 
 
 Using [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav), keep a single IP address selected from the `SHADER` proxy group until it fails (gets retired).
 
@@ -596,6 +627,7 @@ Apify.main(async () => {
 </marked-tab>
 ```
 
+### [](#single-ip-multiple-requests-requestasbrowser) Use a single IP address from specific groups for multiple requests
 
 With the `requestAsBrowser()` [function](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions), use one IP address from the `SHADER` proxy group for two requests.
 
