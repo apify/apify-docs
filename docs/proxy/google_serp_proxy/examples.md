@@ -267,3 +267,240 @@ If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you 
 * [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
 * [launchPuppeteer()](https://sdk.apify.com/docs/typedefs/launch-puppeteer#docsNav) by specifying the configuration in the function's options.
 
+### [](#get-and-parse-a-list-of-search-results) Get and parse a list of search results
+
+Get a list of search results from the USA for the keyword `wikipedia` and parse them using [cheerio](https://cheerio.js.org/).
+
+```marked-tabs
+<marked-tab header="PuppeteerCrawler" lang="javascript">
+const Apify = require('apify');
+
+Apify.main(async() => {
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['GOOGLE_SERP'],
+    });
+    const url = 'http://www.google.com/search?q=wikipedia';
+
+    const requestList = await Apify.openRequestList('my-list', [url]);
+
+    const crawler = new Apify.PuppeteerCrawler({
+        requestList,
+        proxyConfiguration,
+        gotoFunction: async({ page, request }) => {
+            await page.setRequestInterception(true);
+            page.on('request', request => {
+                if (request.resourceType() !== 'document') return request.abort();
+                return request.continue();
+            });
+            return page.goto(url);
+        },
+        handlePageFunction: async({ page, request, proxyInfo }) => {
+            await Apify.utils.puppeteer.injectJQuery(page);
+            const searchResults = await page.evaluate(() => {
+                return $('#search div.g').map(function () {
+                    return {
+                        title: $($(this).find('h3')[0]).text(),
+                        description: $(this).find('.s div .st').text(),
+                    }
+                }).toArray();
+            });
+            console.log(searchResults);
+        },
+        handleFailedRequestFunction: async({ request }) => {
+            console.error(request.errorMessages);
+        },
+    });
+
+    await crawler.run();
+});
+</marked-tab>
+
+
+<marked-tab header="launchPuppeteer()" lang="javascript">
+const Apify = require('apify');
+
+Apify.main(async () => {
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['GOOGLE_SERP'],
+    });
+    const proxyUrl = proxyConfiguration.newUrl();
+    const url = 'http://www.google.com/search?q=wikipedia';
+
+    try {
+        const browser = await Apify.launchPuppeteer({
+            proxyUrl,
+        });
+        const page = await browser.newPage();
+        await page.setRequestInterception(true);
+        page.on('request', request => {
+            if (request.resourceType() !== 'document') return request.abort();
+            return request.continue();
+        });
+        await page.goto(url);
+        await Apify.utils.puppeteer.injectJQuery(page);
+        const searchResults = await page.evaluate(() => {
+            return $('#search div.g').map(function () {
+                return {
+                    title: $($(this).find('h3')[0]).text(),
+                    description: $(this).find('.s div .st').text(),
+                }
+            }).toArray();
+        });
+        console.log(searchResults);
+        await page.close();
+        await browser.close();
+    } catch (error) {
+        console.error(error.message);
+    }
+});
+</marked-tab>
+
+
+<marked-tab header="requestAsBrowser()" lang="javascript">
+const Apify = require('apify');
+ const cheerio = require('cheerio');
+
+ Apify.main(async () => {
+     const proxyConfiguration = await Apify.createProxyConfiguration({
+         groups: ['GOOGLE_SERP'],
+     });
+     const proxyUrl = proxyConfiguration.newUrl();
+     const { body } = await Apify.utils.requestAsBrowser({
+         url: 'http://www.google.com/search?q=wikipedia',
+         proxyUrl,
+     });
+     const $ = cheerio.load(body);
+     const searchResults = $('#search div.g').map(function() {
+         return {
+             title: $($(this).find('h3')[0]).text(),
+             description: $(this).find('.s div .st').text(),
+         }
+     }).toArray();
+     console.log(searchResults);
+ });
+</marked-tab>
+```
+
+### [](#get-and-parse-a-list-of-shopping-results) Get and parse a list of shopping results
+
+Get a list of shopping results for the query `Apple iPhone XS 64GB` from Great Britain and parse them using [cheerio](https://cheerio.js.org/).
+
+
+```marked-tabs
+<marked-tab header="PuppeteerCrawler" lang="javascript">
+const Apify = require('apify');
+
+Apify.main(async() => {
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['GOOGLE_SERP'],
+    });
+    const url = 'http://www.google.co.uk/search?q=Apple+iPhone+XS+64GB&tbm=shop';
+
+    const requestList = await Apify.openRequestList('my-list', [url]);
+
+    const crawler = new Apify.PuppeteerCrawler({
+        requestList,
+        proxyConfiguration,
+        gotoFunction: async({ page, request }) => {
+            await page.setRequestInterception(true);
+            page.on('request', request => {
+                if (request.resourceType() !== 'document') return request.abort();
+                return request.continue();
+            });
+            return page.goto(url);
+        },
+        handlePageFunction: async({ page, request, proxyInfo }) => {
+            await Apify.utils.puppeteer.injectJQuery(page);
+            const searchResults = await page.evaluate(() => {
+                return $('[class$="list-result"] > div > div:nth-child(2)').map(function() {
+                    const title = $(this).find('a[jsaction="spop.c"]')[0];
+                    return {
+                        title: $(title).text(),
+                        price: $(this).find('div:nth-child(2) > div:nth-child(1)').text(),
+                    }
+                }).toArray();
+            });
+            console.log(searchResults);
+        },
+        handleFailedRequestFunction: async({ request }) => {
+            console.error(request.errorMessages);
+        },
+    });
+
+    await crawler.run();
+});
+</marked-tab>
+
+
+<marked-tab header="launchPuppeteer()" lang="javascript">
+const Apify = require('apify');
+
+Apify.main(async() => {
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['GOOGLE_SERP'],
+    });
+    const proxyUrl = proxyConfiguration.newUrl();
+    const url = 'http://www.google.co.uk/search?q=Apple+iPhone+XS+64GB&tbm=shop';
+
+    try {
+        const browser = await Apify.launchPuppeteer({
+            proxyUrl,
+        });
+        const page = await browser.newPage();
+        await page.setRequestInterception(true);
+        page.on('request', request => {
+            if (request.resourceType() !== 'document') return request.abort();
+            return request.continue();
+        });
+        await page.goto(url);
+        await Apify.utils.puppeteer.injectJQuery(page);
+        const searchResults = await page.evaluate(() => {
+            return $('[class$="list-result"] > div > div:nth-child(2)').map(function() {
+                const title = $(this).find('a[jsaction="spop.c"]')[0];
+                return {
+                    title: $(title).text(),
+                    price: $(this).find('div:nth-child(2) > div:nth-child(1)').text(),
+                }
+            }).toArray();
+        });
+        console.log(searchResults);
+        await page.close();
+        await browser.close();
+    } catch (error) {
+        console.error(error.message());
+    }
+});
+</marked-tab>
+
+
+<marked-tab header="requestAsBrowser()" lang="javascript">
+const Apify = require('apify');
+const cheerio = require('cheerio');
+
+Apify.main(async () => {
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['GOOGLE_SERP'],
+    });
+    const proxyUrl = proxyConfiguration.newUrl();
+    const query = encodeURI('Apple iPhone XS 64GB');
+    try {
+        const { body } = await Apify.utils.requestAsBrowser({
+            url: `http://www.google.co.uk/search?tbm=shop&q=${query}`,
+            proxyUrl,
+        });
+        const $ = cheerio.load(body);
+        const searchResults = $('[class$="list-result"] > div > div:nth-child(2) ').map(function() {
+            const title = $(this).find('a[jsaction="spop.c"]')[0];
+            return {
+                title: $(title).text(),
+                price: $(this).find('div:nth-child(2)').text(),
+            }
+        }).toArray();
+        console.log(searchResults);
+    } catch (error) {
+        console.error(error.message)
+    }
+});
+</marked-tab>
+```
+
