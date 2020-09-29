@@ -36,6 +36,10 @@ Next to the code fence, specify the language as **marked-tabs**.
 
 Place each language's code in a **\<marked-tab header="Language name to display" lang="Language name" >\</marked-tab>** element.
 
+> Only use double quotation marks in the code tab headers <br/>
+> **Good**: \<marked-tab header="Curl" lang="bash"> </br>
+> **Avoid**: \<marked-tab header='Curl' lang='bash'>
+
 \`\`\`marked-tabs
 
 \<marked-tab header="NodeJS" lang="javascript">
@@ -67,7 +71,6 @@ Place each language's code in a **\<marked-tab header="Language name to display"
 \</marked-tab>
 
 \`\`\`
-
 
 ### Metadata
 
