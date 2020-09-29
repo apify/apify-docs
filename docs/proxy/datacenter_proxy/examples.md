@@ -24,6 +24,8 @@ You can find your proxy password on the [Proxy page](https://my.apify.com/proxy)
 > Instead of a username, you specify proxy settings (e.g. "groups-SHADER+BUYPROXIES94952", "session-123").<br/>
 > Use **auto** for default settings.
 
+For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
+
 ### [](#single-request-with-a-random-ip-address) Single request with a random IP address
 
 The IP address is chosen from all available proxy groups.
