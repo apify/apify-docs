@@ -139,7 +139,7 @@ if ($response) echo $response;
 
 ### [](#two-requests-with-the-same-ip-address) Two requests with the same IP address
 
-The examples below use an IP address geolocated in Japan.
+The examples below use an IP address geolocated in Japan (JP).
 
 To use this option, set the **username** parameter to **groups-RESIDENTIAL,session-session_name,country-country_code**.
 
@@ -231,7 +231,7 @@ def do_request():
     # Replace <YOUR_PROXY_PASSWORD> below with your password
     # found at https://my.apify.com/proxy
     password = '<YOUR_PROXY_PASSWORD>'
-    username = 'groups-RESIDENTIAL,session-my_session,country-jp'
+    username = 'groups-RESIDENTIAL,session-my_session,country-JP'
     proxy_url = (
         'http://%s:%s@proxy.apify.com:8000' %
         (username, password)
@@ -283,7 +283,7 @@ echo $response2;
 
 ### [](#two-requests-with-different-ip-addresses) Two requests with different IP addresses
 
-The examples below use two IP addresses located in the US.
+The examples below use two IP addresses located in the USA (US).
 
 To use this option, set the **username** parameter to **groups-RESIDENTIAL,session-session_name,country-country_code**.
 
@@ -292,7 +292,7 @@ To use this option, set the **username** parameter to **groups-RESIDENTIAL,sessi
 const HttpsProxyAgent = require("https-proxy-agent");
 axios = require("axios");
 
-const username = "groups-RESIDENTIAL,country-JP";
+const username = "groups-RESIDENTIAL,country-US";
 const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
     port: "8000",
@@ -317,7 +317,7 @@ const got = require("got");
 const HttpProxyAgent = require("http-proxy-agent");
 const HttpsProxyAgent = require("https-proxy-agent");
 
-const username = "groups-RESIDENTIAL,country-JP";
+const username = "groups-RESIDENTIAL,country-US";
 // Replace <YOUR_PROXY_PASSWORD> below with your password
 // found at https://my.apify.com/proxy
 const proxyUrl = `${username}:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000`
@@ -433,7 +433,7 @@ If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you 
 
 ### [](#single-ip-address) Single IP address
 
-Use a single session with an IP address from Germany for the whole run.
+Use a single session with an IP address from Germany (DE) for the whole run.
 
 ```marked-tabs
 <marked-tab header="PuppeteerCrawler" lang="javascript">
@@ -445,7 +445,7 @@ Apify.main(async () => {
     );
     const proxyConfiguration = await Apify.createProxyConfiguration({
         groups: ['RESIDENTIAL'],
-        countryCode: 'US'
+        countryCode: 'DE'
     });
 
     const crawler = new Apify.PuppeteerCrawler({
@@ -500,6 +500,7 @@ const Apify = require('apify');
 Apify.main(async () => {
     const proxyConfiguration = await Apify.createProxyConfiguration({
         groups: ['RESIDENTIAL'],
+        countryCode: 'DE'
     });
     try {
         const { body } = await Apify.utils.requestAsBrowser({
@@ -550,7 +551,7 @@ Apify.main(async () => {
 
 ### [](#use-a-single-ip-address-for-multiple-requests) Single IP address for multiple requests
 
-With the `requestAsBrowser()` [function](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions), use the same IP address geolocated in France for two requests.
+With the `requestAsBrowser()` [function](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions), use the same IP address geolocated in France (FR) for two requests.
 
 ```marked-tabs
 <marked-tab header="requestAsBrowser()" lang="javascript">
