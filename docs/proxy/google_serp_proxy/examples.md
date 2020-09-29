@@ -47,7 +47,7 @@ const httpsAgent = new HttpsProxyAgent({
 });
 axios = axios.create({httpsAgent});
 
-// Encode your query as an URI parameter
+// Encode your query as a URI parameter
 const query = `q=${encodeURIComponent('wikipedia')}`;
 
 async function useProxy() {
@@ -67,7 +67,7 @@ const HttpsProxyAgent = require("https-proxy-agent");
 // found at https://my.apify.com/proxy
 const proxyUrl = "http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
-// Encode your query as an URI parameter
+// Encode your query as a URI parameter
 const query = `q=${encodeURIComponent('wikipedia')}`;
 
 async function useProxy() {
@@ -164,7 +164,7 @@ const httpsAgent = new HttpsProxyAgent({
 });
 axios = axios.create({httpsAgent});
 
-// Encode your query as an URI parameter
+// Encode your query as a URI parameter
 const query = `q=${encodeURIComponent('wikipedia')}tbm=${'shop'}`;
 
 async function useProxy() {
@@ -184,7 +184,7 @@ const HttpsProxyAgent = require("https-proxy-agent");
 // found at https://my.apify.com/proxy
 const proxyUrl = "http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
-// Encode your query as an URI parameter
+// Encode your query as a URI parameter
 const query = `q=${encodeURIComponent('Apple iPhone XS 64GB')}`;
 
 async function useProxy() {
