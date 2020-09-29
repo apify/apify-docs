@@ -26,6 +26,8 @@ You can find your proxy password on the [Proxy page](https://my.apify.com/proxy)
 
 For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
 
+Examples in [Python 2](https://www.python.org/download/releases/2.0/) use the [six](https://pypi.org/project/six/) library. Run `pip install six` to enable it.
+
 ### [](#single-request-with-a-random-ip-address) Single request with a random IP address
 
 The IP address is chosen from all available proxy groups.
