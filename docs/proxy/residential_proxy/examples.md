@@ -26,6 +26,8 @@ You can find your proxy password on the [Proxy page](https://my.apify.com/proxy)
 
 For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
 
+Examples in [Python 2](https://www.python.org/download/releases/2.0/) use the [six](https://pypi.org/project/six/) library. Run `pip install six` to enable it.
+
 ### [](#single-request-with-a-random-ip-address) Single request with a random IP address
 
 The IP address is chosen from all available countries.
@@ -420,4 +422,165 @@ echo $response2;
 </marked-tab>
 ```
 
+
+## [](#using-the-apify-sdk) Using the Apify SDK
+
+If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you can use Apify proxy in:
+
+* [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav) using the [createProxyConfiguration()](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) function.
+* [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
+* [launchPuppeteer()](https://sdk.apify.com/docs/typedefs/launch-puppeteer#docsNav) by specifying the configuration in the function's options.
+
+### [](#single-ip-address) Single IP address
+
+Use a single session with an IP address from Germany for the whole run.
+
+```marked-tabs
+<marked-tab header="PuppeteerCrawler" lang="javascript">
+const Apify = require('apify');
+
+Apify.main(async () => {
+    const requestList = await Apify.openRequestList(
+        'my-list', ['http://www.example.com']
+    );
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['RESIDENTIAL'],
+        countryCode: 'US'
+    });
+
+    const crawler = new Apify.PuppeteerCrawler({
+        requestList,
+        proxyConfiguration,
+        useSessionPool: true,
+        sessionPoolOptions: {
+            sessionOptions: { maxPoolSize: 1 }, // Using single session
+        },
+        handlePageFunction: async ({ page, request }) => {
+            return Apify.pushData({ title: await page.title() });
+        },
+        handleFailedRequestFunction: ({ request }) => {
+            console.error('Request failed', request.url, request.errorMessages);
+        },
+    });
+
+    await crawler.run();
+});
+</marked-tab>
+
+
+<marked-tab header="launchPuppeteer()" lang="javascript">
+const Apify = require('apify');
+
+Apify.main(async () => {
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['RESIDENTIAL'],
+        countryCode: 'DE'
+    });
+    const proxyUrl = proxyConfiguration.newUrl('my_session');
+
+    const browser = await Apify.launchPuppeteer({
+        proxyUrl
+    });
+
+    const page = await browser.newPage();
+
+    await page.goto('http://www.example.com');
+
+    const html = await page.content();
+
+    console.log('HTML:');
+    console.log(html);
+});
+</marked-tab>
+
+
+<marked-tab header="requestAsBrowser()" lang="javascript">
+const Apify = require('apify');
+
+Apify.main(async () => {
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['RESIDENTIAL'],
+    });
+    try {
+        const { body } = await Apify.utils.requestAsBrowser({
+            url: 'https://www.example.com',
+            proxyUrl: proxyConfiguration.newUrl(),
+        });
+        console.log(body); // returns HTML of returned page
+    } catch (e) {
+        console.error(e);
+    }
+});
+</marked-tab>
+```
+
+### [](#new-session-for-each-browser-using-puppeteercrawler) New session for each browser using PuppeteerCrawler
+
+Using [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav), create a new session with an IP address from France (FR) for each browser launched during the crawler run.
+
+```marked-tabs
+<marked-tab header="PuppeteerCrawler" lang="javascript">
+const Apify = require('apify');
+
+Apify.main(async () => {
+    const requestList = await Apify.openRequestList(
+        'my-list', ['http://www.example.com']
+    );
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['RESIDENTIAL'],
+        countryCode: 'FR'
+    });
+
+    const crawler = new Apify.PuppeteerCrawler({
+        requestList,
+        proxyConfiguration,
+        useSessionPool: true,
+        handlePageFunction: async ({ page, request }) => {
+            return Apify.pushData({ title: await page.title() });
+        },
+        handleFailedRequestFunction: ({ request }) => {
+            console.error('Request failed', request.url, request.errorMessages);
+        },
+    });
+
+    await crawler.run();
+});
+</marked-tab>
+``` 
+
+### [](#use-a-single-ip-address-for-multiple-requests) Single IP address for multiple requests
+
+With the `requestAsBrowser()` [function](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions), use the same IP address geolocated in France for two requests.
+
+```marked-tabs
+<marked-tab header="requestAsBrowser()" lang="javascript">
+const Apify = require('apify');
+
+Apify.main(async () => {
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['RESIDENTIAL'],
+        countryCode: 'FR',
+    });
+    const proxyUrl = proxyConfiguration.newUrl('my_session');
+
+    try {
+        const response1 = await Apify.utils.requestAsBrowser({
+            url: 'https://api.apify.com/v2/browser-info',
+            proxyUrl,
+            json: true
+        });
+        const response2 = await Apify.utils.requestAsBrowser({
+            url: 'https://api.apify.com/v2/browser-info',
+            proxyUrl,
+            json: true
+        });
+        console.log(response1.body.clientIp);
+        console.log('should be the same as');
+        console.log(response2.body.clientIp);
+    } catch (e) {
+        console.error(e);
+    }
+});
+</marked-tab>
+```
 
