@@ -78,7 +78,7 @@ useProxy();
 </marked-tab>
 
 
-<marked-tab header="Python 3+" lang="python">
+<marked-tab header="Python 3" lang="python">
 import urllib.request as request
 import ssl
 
@@ -101,7 +101,7 @@ print(opener.open("https://api.apify.com/v2/browser-info").read())
 </marked-tab>
 
 
-<marked-tab header="Python 2+" lang="python">
+<marked-tab header="Python 2" lang="python">
 import six
 from six.moves.urllib import request
 
@@ -195,7 +195,7 @@ useProxy();
 </marked-tab>
 
 
-<marked-tab header="Python 3+" lang="python">
+<marked-tab header="Python 3" lang="python">
 import urllib.request as request
 import ssl
 
@@ -224,7 +224,7 @@ print(do_request())
 </marked-tab>
 
 
-<marked-tab header="Python 2+" lang="python">
+<marked-tab header="Python 2" lang="python">
 import six
 from six.moves.urllib import request
 import ssl
@@ -340,7 +340,7 @@ useProxy();
 </marked-tab>
 
 
-<marked-tab header="Python 3+" lang="python">
+<marked-tab header="Python 3" lang="python">
 import urllib.request as request
 import ssl
 
@@ -369,7 +369,7 @@ print(do_request())
 </marked-tab>
 
 
-<marked-tab header="Python 2+" lang="python">
+<marked-tab header="Python 2" lang="python">
 import six
 from six.moves.urllib import request
 import ssl
