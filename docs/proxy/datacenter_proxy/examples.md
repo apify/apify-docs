@@ -561,9 +561,11 @@ Apify.main(async () => {
 ```
 
 
-### [](#single-ip-address-until-failure) Single IP address until failure
+### [](#single-ip-address-from-a-group) Single IP address from a group
 
 Using [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav), get a new IP address selected from the `SHADER` proxy group for each browser opened during an entire run.
+
+If the IP fails, all browsers using it are retired and new ones, each with its own new random IP, are started.
 
 ```marked-tabs
 <marked-tab header="PuppeteerCrawler" lang="javascript">
@@ -597,6 +599,8 @@ Apify.main(async () => {
 ``` 
 
 Using [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav), keep a single IP address selected from the `SHADER` proxy group until it fails (gets retired).
+
+The `maxPoolSize: 1` configuration means that a single IP will be used by all browsers until it fails. Then, all running browsers are retired, a new IP is selected and new browsers opened. The browsers all use the new IP.
 
 ```marked-tabs
 <marked-tab header="PuppeteerCrawler" lang="javascript">
