@@ -15,6 +15,8 @@ This page shows how you can connect to [Google SERP proxies]({{@link proxy/googl
 
 If you are building your own Apify [actor]({{@link actors.md}}), below are [examples](#using-the-apify-sdk) specific to the [Apify SDK](https://sdk.apify.com).
 
+See the [connection settings]({{@link proxy/connection_settings.md}}) page for connection parameters.
+
 ## [](#using-standard-libraries-and-languages) Using standard libraries and languages
 
 You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
