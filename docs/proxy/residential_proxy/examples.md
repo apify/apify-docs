@@ -37,7 +37,7 @@ Select this option by setting the **username** parameter to **groups-RESIDENTIAL
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
 const HttpsProxyAgent = require("https-proxy-agent");
-axios = require("axios");
+const axios = require("axios");
 
 const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
@@ -46,9 +46,10 @@ const httpsAgent = new HttpsProxyAgent({
     // found at https://my.apify.com/proxy
     auth: "groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>"
 });
-axios = axios.create({httpsAgent});
+
+axiosHttpAgent = axios.create({httpsAgent});
 async function useProxy() {
-    const response = await axios.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosHttpAgent.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 useProxy();
@@ -146,7 +147,7 @@ To use this option, set the **username** parameter to **groups-RESIDENTIAL,sessi
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
 const HttpsProxyAgent = require("https-proxy-agent");
-axios = require("axios");
+const axios = require("axios");
 
 const username = "groups-RESIDENTIAL,session-my_session,country-JP";
 const httpsAgent = new HttpsProxyAgent({
@@ -156,9 +157,10 @@ const httpsAgent = new HttpsProxyAgent({
     // found at https://my.apify.com/proxy
     auth: `${username}:<YOUR_PROXY_PASSWORD>`
 });
-axios = axios.create({httpsAgent});
+
+axiosHttpAgent = axios.create({httpsAgent});
 async function useProxy() {
-    const response = await axios.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosHttpAgent.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 
@@ -290,7 +292,7 @@ To use this option, set the **username** parameter to **groups-RESIDENTIAL,sessi
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
 const HttpsProxyAgent = require("https-proxy-agent");
-axios = require("axios");
+const axios = require("axios");
 
 const username = "groups-RESIDENTIAL,country-US";
 const httpsAgent = new HttpsProxyAgent({
@@ -300,9 +302,10 @@ const httpsAgent = new HttpsProxyAgent({
     // found at https://my.apify.com/proxy
     auth: `${username}:<YOUR_PROXY_PASSWORD>`
 });
-axios = axios.create({httpsAgent});
+
+axiosHttpAgent = axios.create({httpsAgent});
 async function useProxy() {
-    const response = await axios.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosHttpAgent.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 
