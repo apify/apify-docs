@@ -55,51 +55,9 @@ HTTP proxy username is used to pass various parameters for the proxy connection.
 
     groups-SHADER,session-rand123456
 
-The following table describes the available parameters:
+**This parameter is optional**. By default, the proxy uses all available proxy servers from all groups the user has access to.
 
-<table class="table table-bordered table-condensed">
-    <tbody>
-    <tr>
-        <th><code>groups</code></th>
-        <td>
-            If specified, all proxied requests will use proxy servers from selected proxy groups.
-            <br/>For example <code>groups-SHADER+BUYPROXIES94952</code>.
-            <br /><strong>This parameter is optional</strong>,
-            by default, the proxy uses all available proxy servers
-            <br/>from all groups the user has access to.
-        </td>
-    </tr>
-    <tr>
-        <th><code>session</code></th>
-        <td>
-            If specified, all proxied requests with the same session identifier are routed
-            <br/>through the same IP address. For example <code>session-rand123456</code>.
-            <br /><strong>This parameter is optional</strong>, by default, each proxied request
-            is assigned a
-            <br/>randomly picked least used IP address.
-            <br /><strong>The session string can only contain numbers (0-9), letters (a-z or A-Z),
-            dot (.),
-            <br/>underscore (_), a tilde (~) and the maximum length is 50 characters!</strong>
-        </td>
-    </tr>
-    <tr>
-        <th><code>country</code></th>
-        <td>
-            If specified, all proxied requests will use proxy servers from a selected country.
-             <br/>Please be aware that if there are no proxy servers
-            <br/>from the specified country the connection will fail.
-             <br/>For example <code>groups-SHADER,country-US</code>.
-            <br /><strong>This parameter is optional</strong>,
-            by default, the proxy uses all available
-            <br/>proxy servers from all countries.
-        </td>
-    </tr>
-    </tbody>
-</table>
-
-If you do not want to specify both `groups` and `session` parameters and therefore use **default** behavior for both, use the following username:
-
-    auto
+If you do not want to specify either **groups** or **session** parameters and therefore use **default** behavior for both, set the username to **auto**.
 
 ## [](#session-persistence)Session persistence
 
