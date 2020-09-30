@@ -47,10 +47,10 @@ const httpsAgent = new HttpsProxyAgent({
     auth: "auto:<YOUR_PROXY_PASSWORD>"
 });
 
-axiosHttpAgent = axios.create({ httpsAgent });
+axiosHttpsAgent = axios.create({ httpsAgent });
 
 async function useProxy() {
-    const response = await axiosHttpAgent.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosHttpsAgent.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 useProxy();
@@ -157,10 +157,10 @@ const httpsAgent = new HttpsProxyAgent({
     auth: "session-my_session:<YOUR_PROXY_PASSWORD>"
 });
 
-axiosHttpAgent = axios.create({ httpsAgent });
+axiosHttpsAgent = axios.create({ httpsAgent });
 
 async function useProxy() {
-    const response = await axiosHttpAgent.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosHttpsAgent.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 useProxy();
@@ -278,7 +278,7 @@ echo $response2;
 
 ### [](#two-requests-with-different-ip-addresses) Two requests with different IP addresses
 
-The IP addresses are chosen from the `SHADER` and `BUYPROXIES94952` proxy groups.
+The IP addresses are chosen from the `SHADER` and `BUYPROXIES94952` proxy groups, however you don't have to specify proxy groups to use different IPs.
 
 Specify proxy groups in the **username** parameter.
 
@@ -295,10 +295,10 @@ const httpsAgent = new HttpsProxyAgent({
     auth: "groups-SHADER+BUYPROXIES94952:<YOUR_PROXY_PASSWORD>"
 });
 
-axiosHttpAgent = axios.create({ httpsAgent });
+axiosHttpsAgent = axios.create({ httpsAgent });
 
 async function useProxy() {
-    const response = await axiosHttpAgent.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosHttpsAgent.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 useProxy();
@@ -422,9 +422,9 @@ If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you 
 * [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
 * [launchPuppeteer()](https://sdk.apify.com/docs/typedefs/launch-puppeteer#docsNav) by specifying the configuration in the function's options.
 
-### [](#single-random-ip-address) Single random IP address
+### [](#rotate-ip-addresses) Rotate IP addresses
 
-The IP address is selected at random from all available proxy servers.
+IP addresses are selected at random from all available proxy servers.
 
 ```marked-tabs
 <marked-tab header="PuppeteerCrawler" lang="javascript">
@@ -560,7 +560,7 @@ Apify.main(async () => {
 ```
 
 
-### [](#single-ip-from-a-specific-group-using-puppeteercrawler) Single IP from a specific group using PuppeteerCrawler
+### [](#single-ip-address-until-failure) Single IP address until failure
 
 Using [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav), get a new IP address selected from the `SHADER` proxy group for each browser opened during an entire run.
 
