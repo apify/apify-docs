@@ -6,42 +6,50 @@ paths:
     - proxy/google-serp-proxy
 ---
 
-# [](#google-serp-proxy)Google SERP proxy
+# [](#google-serp-proxy) Google SERP proxy
 
 If you need to get search results from Google Search or other google search powered services from multiple countries with an option to dynamically switch between countries then you can use Google SERP proxy.
 
 Requests made through the proxy are automatically routed through a proxy server from the selected country and pure **HTML code of the search result page is returned**.
 
-Currently supported google search services are:
+Currently supported Google search services are:
 
 *   Google Search (`http://www.google.<country domain>/search`)
 *   Google Shopping (`http://www.google.<country domain>/search?tbm=shop`)
 
-**Important:** Only HTTP requests are allowed, and the Google hostname needs to start with `www.` subdomain.
+**Important:** Only HTTP requests are allowed, and the Google hostname needs to start with the `www.` prefix.
 
-**Pricing is based on the number of requests made**. Please [contact us](https://apify.com/contact) if you want to use Google SERP Proxy or if you need more information.
+**Pricing is based on the number of requests made**. [Contact us](https://apify.com/contact) if you want to use Google SERP proxy or if you need more information.
 
-## [](#username-parameters)Username parameters
 
-HTTP proxy username is used to pass various parameters for the proxy connection.
+## [](#connecting-to-google-serp-proxy) Connecting to Google SERP proxy
 
-In the case of Google SERP proxy, the username should always look like this
+For code examples on how to connect to Google SERP proxies, see the [examples]({{@link proxy/google_serp_proxy/examples.md}}) page.
 
-    groups-GOOGLE_SERP
+### [](#username-parameters) Username parameters
 
-Unlike datacenter or residential proxies, there is no session parameter.
+The **username** field enables you to pass various [parameters]({{@link proxy/connection_settings.md#username-parameters}}) for your proxy connection.
 
-## [](#country-selection)Country selection
+When using Google SERP proxy, the username should always be:
 
-A correct google domain needs to be used to get results for the desired country code.
+```
+groups-GOOGLE_SERP
+```
+
+Unlike [datacenter]({{@link proxy/datacenter_proxy.md}}) or [residential]({{@link proxy/residential_proxy.md}}) proxies, there is no [session]({{@link proxy/connection_settings.md#username-parameters}}) parameter.
+
+## [](#country-selection) Country selection
+
+You must use the correct Google domain to get results for your desired country code.
+
 For example:
 
-Search results from the US: `http://www.google.com/search?q=<query>`
+* Search results from the USA: `http://www.google.com/search?q=<query>`
 
-Shopping results from Great Britain: `http://www.google.co.uk/seach?tbm=shop&q=<query>`
+* Shopping results from Great Britain: `http://www.google.co.uk/seach?tbm=shop&q=<query>`
 
-Search results from Germany: `http://www.google.de/search?q=<query>`
+See a [full list](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/List_of_Google_domains.html) of available domain names for specific countries. When using them, remember to prepend the domain name with the `www.` prefix.
 
-See [full list of available domain names](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/List_of_Google_domains.html) for specific countries. When used, always remember to prepend the domain name with `www.` prefix.
+## [](#using-with-puppeteer) Using with Puppeteer
 
-
+Google SERP proxy cannot be used with [Puppeteer](https://pptr.dev/), due to HTTP Strict Transport Security [headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security).

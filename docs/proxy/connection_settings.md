@@ -25,7 +25,7 @@ The following table shows the HTTP proxy connection settings for the Apify Proxy
 
 The **username** field enables you to pass parameters for your proxy connection.
 
-For example, if you're using [datacenter proxies]({{@link proxy/datacenter_proxy.md}}), the username can be:
+For example, if you're using [datacenter proxies]({{@link proxy/datacenter_proxy.md}}) and want to start a new session using the SHADER group, the username can be:
 
     groups-SHADER,session-new_job_123
 
