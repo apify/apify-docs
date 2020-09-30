@@ -46,13 +46,13 @@ const httpsAgent = new HttpsProxyAgent({
     auth: "groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>"
 });
 
-axiosHttpAgent = axios.create({httpsAgent});
+axiosHttpsAgent = axios.create({ httpsAgent });
 
 // Encode your query as a URI parameter
 const query = `q=${encodeURIComponent('wikipedia')}`;
 
 async function useProxy() {
-    const response = await axiosHttpAgent.get(`http://www.google.com/search?${query}`);
+    const response = await axiosHttpsAgent.get(`http://www.google.com/search?${query}`);
     console.log(response.data)
 };
 useProxy();
@@ -164,13 +164,13 @@ const httpsAgent = new HttpsProxyAgent({
     auth: "groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>"
 });
 
-axiosHttpAgent = axios.create({httpsAgent});
+axiosHttpsAgent = axios.create({ httpsAgent });
 
 // Encode your query as a URI parameter
 const query = `q=${encodeURIComponent('wikipedia')}tbm=${'shop'}`;
 
 async function useProxy() {
-    const response = await axiosHttpAgent.get(`http://www.google.co.uk/search?${query}`);
+    const response = await axiosHttpsAgent.get(`http://www.google.co.uk/search?${query}`);
     console.log(response.data)
 };
 useProxy();
