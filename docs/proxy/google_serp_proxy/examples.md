@@ -36,7 +36,7 @@ Select this option by setting the **username** parameter to **groups-GOOGLE_SERP
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
 const HttpsProxyAgent = require("https-proxy-agent");
-axios = require("axios");
+const axios = require("axios");
 
 const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
@@ -45,13 +45,14 @@ const httpsAgent = new HttpsProxyAgent({
     // found at https://my.apify.com/proxy
     auth: "groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>"
 });
-axios = axios.create({httpsAgent});
+
+axiosHttpAgent = axios.create({httpsAgent});
 
 // Encode your query as a URI parameter
 const query = `q=${encodeURIComponent('wikipedia')}`;
 
 async function useProxy() {
-    const response = await axios.get(`http://www.google.com/search?${query}`);
+    const response = await axiosHttpAgent.get(`http://www.google.com/search?${query}`);
     console.log(response.data)
 };
 useProxy();
@@ -153,7 +154,7 @@ Select this option by setting the **username** parameter to **groups-GOOGLE_SERP
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
 const HttpsProxyAgent = require("https-proxy-agent");
-axios = require("axios");
+const axios = require("axios");
 
 const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
@@ -162,13 +163,14 @@ const httpsAgent = new HttpsProxyAgent({
     // found at https://my.apify.com/proxy
     auth: "groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>"
 });
-axios = axios.create({httpsAgent});
+
+axiosHttpAgent = axios.create({httpsAgent});
 
 // Encode your query as a URI parameter
 const query = `q=${encodeURIComponent('wikipedia')}tbm=${'shop'}`;
 
 async function useProxy() {
-    const response = await axios.get(`http://www.google.co.uk/search?${query}`);
+    const response = await axiosHttpAgent.get(`http://www.google.co.uk/search?${query}`);
     console.log(response.data)
 };
 useProxy();
