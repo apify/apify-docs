@@ -37,7 +37,7 @@ Select this option by setting the **username** parameter to **auto**.
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
 const HttpsProxyAgent = require("https-proxy-agent");
-axios = require("axios");
+const axios = require("axios");
 
 const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
@@ -47,10 +47,10 @@ const httpsAgent = new HttpsProxyAgent({
     auth: "auto:<YOUR_PROXY_PASSWORD>"
 });
 
-axios = axios.create({httpsAgent});
+axiosHttpAgent = axios.create({ httpsAgent });
 
 async function useProxy() {
-    const response = await axios.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosHttpAgent.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 useProxy();
@@ -147,7 +147,7 @@ To use this option, set a session name in the **username** parameter.
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
 const HttpsProxyAgent = require("https-proxy-agent");
-axios = require("axios");
+const axios = require("axios");
 
 const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
@@ -157,10 +157,10 @@ const httpsAgent = new HttpsProxyAgent({
     auth: "session-my_session:<YOUR_PROXY_PASSWORD>"
 });
 
-axios = axios.create({httpsAgent});
+axiosHttpAgent = axios.create({ httpsAgent });
 
 async function useProxy() {
-    const response = await axios.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosHttpAgent.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 useProxy();
@@ -285,7 +285,7 @@ Specify proxy groups in the **username** parameter.
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
 const HttpsProxyAgent = require("https-proxy-agent");
-axios = require("axios");
+const axios = require("axios");
 
 const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
@@ -295,10 +295,10 @@ const httpsAgent = new HttpsProxyAgent({
     auth: "groups-SHADER+BUYPROXIES94952:<YOUR_PROXY_PASSWORD>"
 });
 
-axios = axios.create({httpsAgent});
+axiosHttpAgent = axios.create({ httpsAgent });
 
 async function useProxy() {
-    const response = await axios.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosHttpAgent.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 useProxy();
