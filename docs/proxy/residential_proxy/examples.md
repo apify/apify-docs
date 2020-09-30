@@ -47,9 +47,10 @@ const httpsAgent = new HttpsProxyAgent({
     auth: "groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>"
 });
 
-axiosHttpAgent = axios.create({httpsAgent});
+axiosHttpsAgent = axios.create({ httpsAgent });
+
 async function useProxy() {
-    const response = await axiosHttpAgent.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosHttpsAgent.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 useProxy();
@@ -63,7 +64,8 @@ const HttpsProxyAgent = require("https-proxy-agent");
 
 // Replace <YOUR_PROXY_PASSWORD> below with your password
 // found at https://my.apify.com/proxy
-const proxyUrl = "http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
+const proxyUrl = "http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000";
+
 async function useProxy() {
     const response = await got("https://api.apify.com/v2/browser-info", {
         agent: {
@@ -150,6 +152,7 @@ const HttpsProxyAgent = require("https-proxy-agent");
 const axios = require("axios");
 
 const username = "groups-RESIDENTIAL,session-my_session,country-JP";
+
 const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
     port: "8000",
@@ -158,9 +161,10 @@ const httpsAgent = new HttpsProxyAgent({
     auth: `${username}:<YOUR_PROXY_PASSWORD>`
 });
 
-axiosHttpAgent = axios.create({httpsAgent});
+axiosHttpsAgent = axios.create({ httpsAgent });
+
 async function useProxy() {
-    const response = await axiosHttpAgent.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosHttpsAgent.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 
@@ -176,9 +180,11 @@ const HttpProxyAgent = require("http-proxy-agent");
 const HttpsProxyAgent = require("https-proxy-agent");
 
 const username = "groups-RESIDENTIAL,session-my_session,country-JP";
+
 // Replace <YOUR_PROXY_PASSWORD> below with your password
 // found at https://my.apify.com/proxy
-const proxyUrl = `${username}:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000`
+const proxyUrl = `${username}:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000`;
+
 async function useProxy() {
     const response = await got("https://api.apify.com/v2/browser-info", {
         agent: {
@@ -295,6 +301,7 @@ const HttpsProxyAgent = require("https-proxy-agent");
 const axios = require("axios");
 
 const username = "groups-RESIDENTIAL,country-US";
+
 const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
     port: "8000",
@@ -303,9 +310,10 @@ const httpsAgent = new HttpsProxyAgent({
     auth: `${username}:<YOUR_PROXY_PASSWORD>`
 });
 
-axiosHttpAgent = axios.create({httpsAgent});
+axiosHttpsAgent = axios.create({ httpsAgent });
+
 async function useProxy() {
-    const response = await axiosHttpAgent.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosHttpsAgent.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 
@@ -321,9 +329,11 @@ const HttpProxyAgent = require("http-proxy-agent");
 const HttpsProxyAgent = require("https-proxy-agent");
 
 const username = "groups-RESIDENTIAL,country-US";
+
 // Replace <YOUR_PROXY_PASSWORD> below with your password
 // found at https://my.apify.com/proxy
-const proxyUrl = `${username}:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000`
+const proxyUrl = `${username}:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000`;
+
 async function useProxy() {
     const response = await got("https://api.apify.com/v2/browser-info", {
         agent: {
