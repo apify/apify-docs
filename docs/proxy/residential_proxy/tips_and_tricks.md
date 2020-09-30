@@ -26,7 +26,9 @@ Each host on the residential proxy network uses a different device. They have di
 
 If your solution requires quickly loaded content, the best option is to set a session, try a small request and see if the response time is acceptable. If it is, you can use this session for other requests. Otherwise, repeat the attempt with a different session.
 
-Just remember that sessions are not persistent, so from time to time, you will have to re-evaluate the session's speed and switch to a different one.
+## [](#connections-can-be-interrupted) Connections can be interrupted
+
+While sessions are persistent, they can be destroyed at any time if the host devices are turned off or disconnected.
 
 ## [](#connection-interruptions) Connection interruptions
 
