@@ -9,33 +9,39 @@ paths:
 
 # [](./proxy) Proxy
 
-<!-- TODO: when code example files are merged, link to them  -->
-
 [Apify Proxy](https://apify.com/proxy) allows you to disguise yourself when web scraping to reduce your chance of being [blocked]({{@link web_scraping_101/anti_scraping_techniques.md#ip-address-based-blocking}}).
 
 You can use proxies in your [actors]({{@link actors.md}}) or any other application that support HTTP, HTTPS and FTP protocols. Apify Proxy monitors the health of your IP pool and smartly rotates addresses to prevent detection.
 
 **You can view your proxy settings on the [Proxy](https://my.apify.com/proxy) page in the Apify app.**
 
-Currently, Apify Proxy provides access to the following options.
+## [](#our-proxies) Our proxies
 
-* [Datacenter proxy]({{@link proxy/datacenter_proxy.md}}) – the fastest and cheapest option, it uses datacentres to mask your IP address. Chance of blocking due to other users' activity.
+* [Datacenter proxy]({{@link proxy/datacenter_proxy.md}}) – the fastest and cheapest option, it uses data centers to mask your IP address. Chance of blocking due to other users' activity.
 
-    <!-- * [Code examples]({{@link proxy/datacenter_proxy/examples.md}}) for connecting your application -->
+    * [Code examples]({{@link proxy/datacenter_proxy/examples.md}}) for connecting your application
 
 * [Residential proxy]({{@link proxy/residential_proxy.md}}) – IP addresses located in homes and offices of people all around the world. These IPs have the lowest chance of blocking.
 
-    <!-- * [Code examples]({{@link proxy/residential_proxy/examples.md}}) for connecting your application -->
+    * [Code examples]({{@link proxy/residential_proxy/examples.md}}) for connecting your application
 
 * [Google SERP proxy]({{@link proxy/google_serp_proxy.md}}) – download and extract data from Google Search engine result pages (SERPs). You can select country and language to get localized results.
 
-    <!-- * [Code examples]({{@link proxy/google_serp_proxy/examples.md}}) for connecting your application -->
+    * [Code examples]({{@link proxy/google_serp_proxy/examples.md}}) for connecting your application
 
 **For pricing information, visit [apify.com/proxy](https://apify.com/proxy).**
 
-## [](#connecting-to-proxies) Connecting to proxies
+## [](#sessions) Sessions
 
-Link here to code examples and connection settings
+Sessions allow you to use the same IP address for multiple connections.
+
+To set a new session, pass the [**session**]({{@link proxy/connection_settings.md#username-parameters}}) parameter in your [username]({{@link proxy/connection_settings.md#username-parameters}}) when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To use that IP address in other requests, pass that same session ID in the username field.
+
+The created session will store information such as cookies and can be used to generate [browser fingerprints](https://pixelprivacy.com/resources/browser-fingerprinting/). You can also assign custom user data such as authorization tokens and specific headers.
+
+Sessions are available for [datacenter]({{@link proxy/datacenter_proxy.md#session-persistence}}) and [residential]({{@link proxy/residential_proxy.md#session-persistence}}) proxies.
+
+**This parameter is optional**. By default, each proxied request is assigned a randomly picked least used IP address.
 
 ## [](#session-persistence) Session persistence
 
