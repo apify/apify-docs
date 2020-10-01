@@ -331,9 +331,9 @@ of endpoints that are rate limited to 200 requests per second:
   [delete](#reference/request-queues/request-collection/delete-request))
   operations of request queue requests
 
-For authenticated API endpoints, the limit is counted per user,
-storage API endpoints count the limit per storage object
-and anonymous API endpoints per IP address of the client.
+> For authenticated API endpoints (if you use an [authentication token](#authentication)), the limit is counted per user.
+Storage API endpoints (when a token isn't used) count the limit per storage object.
+Anonymous API endpoints count the limit per client IP adress.
 
 If the client is sending too many requests, the API endpoints respond with the HTTP status code `429 Too Many Requests`
 and the following body:
