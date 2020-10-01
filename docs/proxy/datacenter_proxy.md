@@ -6,15 +6,16 @@ paths:
     - proxy/datacenter-proxy
 ---
 
-# [](#datacenter-proxy-servers) Datacenter proxy servers
+# [](#datacenter-proxy) Datacenter proxy
 
-Datacenter proxy automatically rotates IP addresses. For each HTTP or HTTPS request, the proxy takes the list of all IP addresses available to the user and selects the one used the longest time ago for the specific hostname. This minimizes the chance of the proxy being blocked.
+Datacenter proxies are a cheap, fast and stable way to mask your identity online. When you access a website using a datacenter proxy, the site can only see the proxy center's credentials, not yours.
 
-Note that by default, each proxied HTTP request is potentially sent via a different target proxy server, which adds overhead and could be potentially problematic for websites which save cookies based on IP address.
+Datacenter proxies allow you to mask and [rotate](#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked]({{@link web_scraping_101/anti_scraping_techniques.md#ip-address-based-blocking}}).
 
-If you want to force the proxy to pick an IP address and then pass all subsequent connections via the same IP address, you can use the `session` parameter. See [Username parameters](#username-parameters) more details.
+[Apify Proxy](https://apify.com/proxy) currently offers two types of datacenter proxy:
 
-Prices for dedicated proxy servers are mainly based on the number of proxy servers, their type, and location. Please [contact us](https://apify.com/contact) for more information.
+* [Shared proxy groups](#shared-proxy-groups)
+* [Dedicated proxy groups](#dedicated-proxy-groups)
 
 ## [](#features) Features
 
@@ -29,7 +30,7 @@ Prices for dedicated proxy servers are mainly based on the number of proxy serve
 
 ## [](#shared-proxy-groups) Shared proxy groups
 
-Each user has access to a selected number of proxy servers from a shared pool. These servers are spread into groups (called Proxy Groups) on the Apify platform. Each group shares a common feature (location, provider, speed and so on).
+Each user has access to a selected number of proxy servers from a shared pool. These servers are spread into groups (called proxy groups) on the [Apify platform](https://apify.com). Each group shares a common feature (location, provider, speed and so on).
 
 The number of proxy servers available depends on your subscription plan. When you first sign up to the Apify platform, you start a 30-day trial of the ["Freelancer"](https://apify.com/pricing) plan. Proxy servers are allocated accordingly. After the trial, you must subscribe to a paid plan to continue using Apify Proxy.
 
@@ -41,55 +42,48 @@ To access more servers or to use Apify Proxy without other parts of the Apify pl
 
 When you purchase access to dedicated proxy groups, they are assigned to you and only you can use them. You gain access to a range of static IP addresses from these groups.
 
-This feature is useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP rotation]({{@link web_scraping_101/anti_scraping_techniques.md#bypassing-ip-address-based-blocking}}), [persistent sessions](#session-persistance), and health checking).
+This feature is useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation](#ip-address-rotation), [persistent sessions](#session-persistance), and health checking).
 
 If you do not have your own pool, the [customer support](https://apify.com/contact) team can set up a dedicated group for you based on your needs and requirements.
 
+Prices for dedicated proxy servers are mainly based on the number of proxy servers, their type, and location. [Contact us](https://apify.com/contact) for more information.
+
 [Contact us](https://apify.com/contact) for more details or if you have any questions.
 
-## [](#connecting-to-datacenter-proxy) Connecting to datacenter proxy
+## [](#connecting-to-datacenter-proxies) Connecting to datacenter proxies
+
+For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname. This minimizes the chance of the proxy being blocked.
+
+By default, each proxied HTTP request is potentially sent via a different target proxy server, which adds overhead and could be potentially problematic for websites which save cookies based on IP address.
+
+If you want to force the proxy to pick an IP address and then pass all subsequent connections via the same IP address, you can use the [**session**]({{@link proxy.md#sessions}}) parameter.
 
 For code examples on how to connect to datacenter proxies, see the [examples]({{@link proxy/datacenter_proxy/examples.md}}) page.
 
-## [](#username-parameters) Username parameters
+### [](#username-parameters) Username parameters
 
 The **username** field enables you to pass various [parameters]({{@link proxy/connection_settings.md#username-parameters}}) for your proxy connection.
 
-**This parameter is optional**. By default, the proxy uses all available proxy servers from all groups the user has access to.
+**This parameter is optional**. By default, the proxy uses all available proxy servers from all groups you have access to.
 
 If you do not want to specify either **groups** or **session** parameters and therefore use the default behavior for both, set the username to **auto**.
 
-### [](#examples) Examples
+## [](#ip-address-rotation) IP address rotation
 
-Use randomly allocated IP addresses from the SHADER group:
+Web scrapers can rotate the IP addresses they use to access websites. They assign each request a different IP address, which makes it appear like they're all coming from different users.
 
-```
-groups-SHADER
-```
+Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or [HTTP requests](https://apify.com/apify/cheerio-scraper) for your scraping jobs, IP address rotation works differently.
 
-Use a randomly allocated IP address for multiple requests:
+* Browser - a different IP address is used for each browser.
+* HTTP request - a different IP address is used for each request.
 
-```
-session-new_job_123
-```
-
-Use the same IP address from the `SHADER` and `BUYPROXIES94952` groups for multiple requests:
-
-```
-groups-SHADER+BUYPROXIES94952,session-new_job_123
-```
-
-Set a session and select an IP from the `BUYPROXIES94952` group geolocated in the USA:
-
-```
-groups-BUYPROXIES94952,session-new_job_123,country-US
-```
+[Click here]({{@link web_scraping_101/anti_scraping_techniques.md#bypassing-ip-address-based-blocking}}) to learn more about IP address rotation and other ways of bypassing blocking.
 
 ## [](#session-persistence) Session persistence
 
 When you use datacenter proxy with the **session** parameter set in the [**username**](#username-parameters), a single IP is assigned to the **session ID** provided after you make the first request.
 
-This **IP/session_id** combination is persited, and expires 24 hours later. Each additional request resets the expiration time to 24 hours.
+This **IP/session_id** combination is persisted, and expires 24 hours later. Each additional request resets the expiration time to 24 hours.
 
 So, if you use the session at least once a day, it will never expire, with two possible exceptions:
 

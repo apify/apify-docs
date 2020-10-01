@@ -599,3 +599,22 @@ Apify.main(async () => {
 </marked-tab>
 ```
 
+## [](#username-examples) Username examples
+
+Use randomly allocated IP addresses from all available countries:
+
+```
+groups-RESIDENTIAL
+```
+
+A random proxy from the US:
+
+```
+groups-RESIDENTIAL,country-US
+```
+
+Set a session and select an IP address from the United States:
+
+```
+groups-RESIDENTIAL,session-my_session_1,country-US
+```

@@ -423,6 +423,8 @@ If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you 
 * [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
 * [launchPuppeteer()](https://sdk.apify.com/docs/typedefs/launch-puppeteer#docsNav) by specifying the configuration in the function's options.
 
+The Apify SDK's [ProxyConfiguration](https://sdk.apify.com/docs/api/proxy-configuration) enables you to choose which proxies you use for all connections. You can inspect the current proxy's URL and other attributes using the [ProxyInfo](https://sdk.apify.com/docs/typedefs/proxy-info) property in your crawler's [page function](https://sdk.apify.com/docs/typedefs/cheerio-crawler-options#handlepagefunction).
+
 ### [](#rotate-ip-addresses) Rotate IP addresses
 
 IP addresses are selected at random from all available proxy servers.
@@ -671,3 +673,28 @@ Apify.main(async () => {
 </marked-tab>
 ```
 
+## [](#username-examples) Username examples
+
+Use randomly allocated IP addresses from the SHADER group:
+
+```
+groups-SHADER
+```
+
+Use a randomly allocated IP address for multiple requests:
+
+```
+session-new_job_123
+```
+
+Use the same IP address from the `SHADER` and `BUYPROXIES94952` groups for multiple requests:
+
+```
+groups-SHADER+BUYPROXIES94952,session-new_job_123
+```
+
+Set a session and select an IP from the `BUYPROXIES94952` group geolocated in the USA:
+
+```
+groups-BUYPROXIES94952,session-new_job_123,country-US
+```
