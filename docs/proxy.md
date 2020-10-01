@@ -1,27 +1,58 @@
 ---
 title: Proxy
-description: Learn how to anonymously access websites when running web scraping or automation jobs. Prevent IP address-based blocking using IP address rotation.
+description: Learn how to anonymously access websites when running web scraping or automation jobs. Reduce IP address-based blocking using IP address rotation.
 menuWeight: 7
 category: platform
 paths:
     - proxy
 ---
 
-# [](./proxy)Proxy
+# [](./proxy) Proxy
 
-Apify Proxy provides access to Apify's proxy services that can be used in [actors]({{@link actors.md}})
-or any other application that support HTTP proxies.
-Currently, Apify Proxy provides access to [datacenter proxy servers]({{@link proxy/datacenter_proxy.md}}),
-[residential proxy]({{@link proxy/residential_proxy.md}}),
-and [Google SERP proxy]({{@link proxy/google_serp_proxy.md}}).
-It supports HTTP as well as other protocols like HTTPS and FTP.
+<!-- TODO: when code example files are merged, link to them  -->
 
-You can view your Apify Proxy settings on the [Proxy page](https://my.apify.com/proxy) in the app.
+[Apify Proxy](https://apify.com/proxy) allows you to disguise yourself when web scraping to reduce your chance of being [blocked]({{@link web_scraping_101/anti_scraping_techniques.md#ip-address-based-blocking}}).
 
+You can use proxies in your [actors]({{@link actors.md}}) or any other application that support HTTP, HTTPS and FTP protocols. Apify Proxy monitors the health of your IP pool and smartly rotates addresses to prevent detection.
 
-*   [**Connection settings**]({{@link proxy/connection_settings.md}})
-*   [**Datacenter proxy**]({{@link proxy/datacenter_proxy.md}})
-*   [**Residential proxy**]({{@link proxy/residential_proxy.md}})
-*   [**Google SERP proxy**]({{@link proxy/google_serp_proxy.md}})
-*   [**Troubleshooting**]({{@link proxy/troubleshooting.md}})
+**You can view your proxy settings on the [Proxy](https://my.apify.com/proxy) page in the Apify app.**
+
+Currently, Apify Proxy provides access to the following options.
+
+* [Datacenter proxy]({{@link proxy/datacenter_proxy.md}}) – the fastest and cheapest option, it uses datacentres to mask your IP address. Chance of blocking due to other users' activity.
+
+    <!-- * [Code examples]({{@link proxy/datacenter_proxy/examples.md}}) for connecting your application -->
+
+* [Residential proxy]({{@link proxy/residential_proxy.md}}) – IP addresses located in homes and offices of people all around the world. These IPs have the lowest chance of blocking.
+
+    <!-- * [Code examples]({{@link proxy/residential_proxy/examples.md}}) for connecting your application -->
+
+* [Google SERP proxy]({{@link proxy/google_serp_proxy.md}}) – download and extract data from Google Search engine result pages (SERPs). You can select country and language to get localized results.
+
+    <!-- * [Code examples]({{@link proxy/google_serp_proxy/examples.md}}) for connecting your application -->
+
+**For pricing information, visit [apify.com/proxy](https://apify.com/proxy).**
+
+## [](#connecting-to-proxies) Connecting to proxies
+
+Link here to code examples and connection settings
+
+## [](#session-persistence) Session persistence
+
+You can persist your sessions (use the same IP address) by setting the **session** parameter in the [**username**](#username-parameters).
+
+This assigns a single IP address is assigned to the **session ID** after you make the first request.
+
+For datacenter proxies, a session persists for **24 hours** ([more info]({{@link proxy/datacenter_proxy.md#session-persistence}})).
+
+For residential proxies, a session persists for 1 minute ([more info]({{@link proxy/residential_proxy.md#session-persistence}})).
+
+Google SERP proxies do not support sessions.
+
+## [](#dead-proxies) Dead proxies
+
+Our health check performs an HTTP and HTTPS request with each proxy server every few hours. If a server fails both requests 3 times in a row, it's marked as dead and all user sessions with this server are discarded.
+
+Banned proxies are not considered dead.
+
 
