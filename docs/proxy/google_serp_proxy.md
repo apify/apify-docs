@@ -29,7 +29,7 @@ For code examples on how to connect to Google SERP proxies, see the [examples]({
 
 ### [](#username-parameters) Username parameters
 
-The **username** field enables you to pass various [parameters]({{@link proxy/connection_settings.md#username-parameters}}) for your proxy connection.
+The **username** field enables you to pass various [parameters]({{@link proxy/connection_settings.md#username-parameters}}) such as groups, session and country for your proxy connection.
 
 When using Google SERP proxy, the username should always be:
 

@@ -1,6 +1,6 @@
 ---
 title: Connection settings
-description: Learn how to connect your application to Apify Proxy. See the required parameters such as the correct username and password.
+description: Learn how to connect your application to Apify Proxy. Learn to select your desired proxy group with username parameters and connection URL.
 menuWeight: 7.1
 paths:
     - proxy/connection-settings
@@ -8,24 +8,24 @@ paths:
 
 # [](#connection-settings) Connection settings
 
-The following table shows the HTTP proxy connection settings for the Apify Proxy.
+Below are the HTTP proxy connection settings for Apify Proxy.
 
 | Parameter      | Value / explanation |
 |----------------|---------------------|
 | Proxy type     | `HTTP`              |
 | Hostname       | `proxy.apify.com`   |
 | Port           | `8000`              |
-| Username       | Specifies the proxy parameters. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username. |
+| Username       | Specifies the proxy parameters such as groups, session and location. <br/>See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username. |
 | Password       | Proxy password. Your password is displayed on the [Proxy](https://my.apify.com/proxy) page in the Apify app. <br/>In Apify actors, it is passed as the `APIFY_PROXY_PASSWORD` <br/>environment variable.<br/>See the [documentation]({{@link actors/development/environment_variables.md}}) for more details. |
 | Connection URL | `http://<username>:<password>@proxy.apify.com:8000`|
 
-**WARNING:** All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks, because the password is sent unencrypted due to the limitations of the HTTP protocol.
+**WARNING:** All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks – the password is sent unencrypted due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
 
 ## [](#username-parameters) Username parameters
 
-The **username** field enables you to pass parameters for your proxy connection.
+The **username** field enables you to pass parameters like group, session ID and country for your proxy connection.
 
-For example, if you're using [datacenter proxies]({{@link proxy/datacenter_proxy.md}}) and want to start a new session using the SHADER group, the username can be:
+For example, if you're using [datacenter proxies]({{@link proxy/datacenter_proxy.md}}) and want to use the **new_job_123** session using the `SHADER` group, the username will be:
 
     groups-SHADER,session-new_job_123
 
@@ -62,7 +62,7 @@ The table below describes the available parameters.
              <br/>Note that if there are no proxy servers
             <br/>from the specified country, the connection will fail.
              <br/>For example <code>groups-SHADER,country-US</code> uses proxies
-             <br/> from the SHADER group located in the USA.
+             <br/> from the <code>SHADER</code> group located in the USA.
             <br /><strong>This parameter is optional</strong>.
             By default, the proxy uses all available
             <br/>proxy servers from all countries.
