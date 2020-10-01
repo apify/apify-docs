@@ -30,9 +30,9 @@ Datacenter proxies allow you to mask and [rotate](#ip-address-rotation) your IP 
 
 ## [](#shared-proxy-groups) Shared proxy groups
 
-Each user has access to a selected number of proxy servers from a shared pool. These servers are spread into groups (called proxy groups) on the [Apify platform](https://apify.com). Each group shares a common feature (location, provider, speed and so on).
+Each user has access to a selected number of proxy servers from a shared pool. These servers are spread into groups (called proxy groups). Each group shares a common feature (location, provider, speed and so on).
 
-The number of proxy servers available depends on your subscription plan. When you first sign up to the Apify platform, you start a 30-day trial of the ["Freelancer"](https://apify.com/pricing) plan. Proxy servers are allocated accordingly. After the trial, you must subscribe to a paid plan to continue using Apify Proxy.
+The number of proxy servers available depends on your subscription plan. When you first sign up to the Apify platform, you start a 30-day trial of the "[Freelancer](https://apify.com/pricing)" plan. Proxy servers are allocated accordingly. After the trial, you must subscribe to a paid plan to continue using Apify Proxy.
 
 For a full list of plans and number of allocated proxy servers for each plan, see our [pricing](https://apify.com/pricing).
 
@@ -42,7 +42,7 @@ To access more servers or to use Apify Proxy without other parts of the Apify pl
 
 When you purchase access to dedicated proxy groups, they are assigned to you and only you can use them. You gain access to a range of static IP addresses from these groups.
 
-This feature is useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation](#ip-address-rotation), [persistent sessions](#session-persistance), and health checking).
+This feature is useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation](#ip-address-rotation), [persistent sessions](#session-persistence), and health checking).
 
 If you do not have your own pool, the [customer support](https://apify.com/contact) team can set up a dedicated group for you based on your needs and requirements.
 
@@ -56,13 +56,13 @@ For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Meth
 
 By default, each proxied HTTP request is potentially sent via a different target proxy server, which adds overhead and could be potentially problematic for websites which save cookies based on IP address.
 
-If you want to force the proxy to pick an IP address and then pass all subsequent connections via the same IP address, you can use the [**session**]({{@link proxy.md#sessions}}) parameter.
+If you want to pick an IP address and pass all subsequent connections via that same IP address, you can use the [**session**]({{@link proxy.md#sessions}}) parameter.
 
 For code examples on how to connect to datacenter proxies, see the [examples]({{@link proxy/datacenter_proxy/examples.md}}) page.
 
 ### [](#username-parameters) Username parameters
 
-The **username** field enables you to pass various [parameters]({{@link proxy/connection_settings.md#username-parameters}}) for your proxy connection.
+The **username** field enables you to pass various [parameters]({{@link proxy/connection_settings.md#username-parameters}}) such as groups, session and country for your proxy connection.
 
 **This parameter is optional**. By default, the proxy uses all available proxy servers from all groups you have access to.
 
@@ -70,12 +70,12 @@ If you do not want to specify either **groups** or **session** parameters and th
 
 ## [](#ip-address-rotation) IP address rotation
 
-Web scrapers can rotate the IP addresses they use to access websites. They assign each request a different IP address, which makes it appear like they're all coming from different users.
+Web scrapers can rotate the IP addresses they use to access websites. They assign each request a different IP address, which makes it appear like they are all coming from different users.
 
 Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or [HTTP requests](https://apify.com/apify/cheerio-scraper) for your scraping jobs, IP address rotation works differently.
 
-* Browser - a different IP address is used for each browser.
-* HTTP request - a different IP address is used for each request.
+* Browser – a different IP address is used for each browser.
+* HTTP request – a different IP address is used for each request.
 
 [Click here]({{@link web_scraping_101/anti_scraping_techniques.md#bypassing-ip-address-based-blocking}}) to learn more about IP address rotation and other ways of bypassing blocking.
 
