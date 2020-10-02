@@ -21,9 +21,9 @@ See the [connection settings]({{@link proxy/connection_settings.md}}) page for c
 
 You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
 
-> The **username** field is **not** your Apify username.<br/>
-> Instead, you specify proxy settings (e.g. **groups-RESIDENTIAL**).<br/>
-> Use **groups-RESIDENTIAL** to use proxies from all available countries.
+> The `username` field is **not** your Apify username.<br/>
+> Instead, you specify proxy settings (e.g. `groups-RESIDENTIAL`).<br/>
+> Use `groups-RESIDENTIAL` to use proxies from all available countries.
 
 For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
 
@@ -33,7 +33,7 @@ Examples in [Python 2](https://www.python.org/download/releases/2.0/) use the [s
 
 The IP address is chosen from all available countries.
 
-Select this option by setting the **username** parameter to **groups-RESIDENTIAL**.
+Select this option by setting the `username` parameter to `groups-RESIDENTIAL`.
 
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
@@ -145,7 +145,7 @@ if ($response) echo $response;
 
 The examples below use an IP address geolocated in Japan (JP).
 
-To use this option, set the **username** parameter to **groups-RESIDENTIAL,session-session_name,country-country_code**.
+To use this option, set the `username` parameter to `groups-RESIDENTIAL,session-session_name,country-country_code`.
 
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
@@ -294,7 +294,7 @@ echo $response2;
 
 The examples below use two IP addresses located in the USA (US).
 
-To use this option, set the **username** parameter to **groups-RESIDENTIAL,session-session_name,country-country_code**.
+To use this option, set the `username` parameter to `groups-RESIDENTIAL,session-session_name,country-country_code`.
 
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">

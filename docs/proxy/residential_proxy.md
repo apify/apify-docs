@@ -22,15 +22,15 @@ For code examples on how to connect to residential proxies, see the [examples]({
 
 ### [](#username-parameters) Username parameters
 
-The **username** field enables you to pass various [parameters]({{@link proxy/connection_settings.md#username-parameters}}), such as groups, session and country, for your proxy connection.
+The `username` field enables you to pass various [parameters]({{@link proxy/connection_settings.md#username-parameters}}), such as groups, session and country, for your proxy connection.
 
-When using residential proxies, the username should specify **groups-RESIDENTIAL**.
+When using residential proxies, the username should specify `groups-RESIDENTIAL`.
 
 ## [](#session-persistence) Session persistence
 
-When using residential proxy with the **session** parameter set in the [username](#username-parameters), a single IP address is assigned to the **session ID** provided after you make the first request.
+When using residential proxy with the `session` parameter set in the [username](#username-parameters), a single IP address is assigned to the `session ID` provided after you make the first request.
 
-This **IP/session_ID** combination persists for 1 minute. Each subsequent request resets the expiration time to 1 minute.
+This IP/session ID combination persists for 1 minute. Each subsequent request resets the expiration time to 1 minute.
 
 If the proxy server becomes unresponsive or the session expires, a new IP address is selected for the next request.
 

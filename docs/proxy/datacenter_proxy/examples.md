@@ -21,9 +21,9 @@ See the [connection settings]({{@link proxy/connection_settings.md}}) page for c
 
 You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
 
-> The **username** field is **not** your Apify username.<br/>
-> Instead, you specify proxy settings (e.g. **groups-SHADER+BUYPROXIES94952**, **session-123**).<br/>
-> Use **auto** for default settings.
+> The `username` field is **not** your Apify username.<br/>
+> Instead, you specify proxy settings (e.g. `groups-SHADER+BUYPROXIES94952`, `session-123`).<br/>
+> Use `auto` for default settings.
 
 For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
 
@@ -33,7 +33,7 @@ Examples in [Python 2](https://www.python.org/download/releases/2.0/) use the [s
 
 The IP address is chosen from all available proxy groups.
 
-Select this option by setting the **username** parameter to **auto**.
+Select this option by setting the `username` parameter to `auto`.
 
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
@@ -143,7 +143,7 @@ if ($response) echo $response;
 
 The IP address is chosen at random from all available proxy groups.
 
-To use this option, set a session name in the **username** parameter.
+To use this option, set a session name in the `username` parameter.
 
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
@@ -281,7 +281,7 @@ echo $response2;
 
 The IP addresses are chosen from the `SHADER` and `BUYPROXIES94952` proxy groups, however you don't have to specify proxy groups to use different IPs.
 
-Specify proxy groups in the **username** parameter.
+Specify proxy groups in the `username` parameter.
 
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">

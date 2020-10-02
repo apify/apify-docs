@@ -19,9 +19,9 @@ You can use proxies in your [actors]({{@link actors.md}}) or any other applicati
 
 [Datacenter proxy]({{@link proxy/datacenter_proxy.md}}) – the fastest and cheapest option, it uses data centers to mask your IP address. Chance of blocking due to other users' activity. [[Code examples]({{@link proxy/datacenter_proxy/examples.md}})]
 
-[Residential proxy]({{@link proxy/residential_proxy.md}}) – IP addresses located in homes and offices around the world. These IPs have the lowest chance of blocking. [Code examples]({{@link proxy/residential_proxy/examples.md}})
+[Residential proxy]({{@link proxy/residential_proxy.md}}) – IP addresses located in homes and offices around the world. These IPs have the lowest chance of blocking. [[Code examples]({{@link proxy/residential_proxy/examples.md}})]
 
-[Google SERP proxy]({{@link proxy/google_serp_proxy.md}}) – download and extract data from Google Search engine result pages (SERPs). You can select country and language to get localized results. [Code examples]({{@link proxy/google_serp_proxy/examples.md}})
+[Google SERP proxy]({{@link proxy/google_serp_proxy.md}}) – download and extract data from Google Search engine result pages (SERPs). You can select country and language to get localized results. [[Code examples]({{@link proxy/google_serp_proxy/examples.md}})]
 
 **For pricing information, visit [apify.com/proxy](https://apify.com/proxy).**
 
@@ -29,7 +29,7 @@ You can use proxies in your [actors]({{@link actors.md}}) or any other applicati
 
 Sessions allow you to use the same IP address for multiple connections.
 
-To set a new session, pass the [**session**]({{@link proxy/connection_settings.md#username-parameters}}) parameter in your [username]({{@link proxy/connection_settings.md#username-parameters}}) when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To use that IP address in other requests, pass that same session ID in the username field.
+To set a new session, pass the `session` [parameter]({{@link proxy/connection_settings.md#username-parameters}}) in your username [field]({{@link proxy/connection_settings.md#username-parameters}}) when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To use that IP address in other requests, pass that same session ID in the username field.
 
 The created session will store information such as cookies and can be used to generate [browser fingerprints](https://pixelprivacy.com/resources/browser-fingerprinting/). You can also assign custom user data such as authorization tokens and specific headers.
 
@@ -39,7 +39,7 @@ Sessions are available for [datacenter]({{@link proxy/datacenter_proxy.md#sessio
 
 ### [](#session-persistence) Session persistence
 
-You can persist your sessions (use the same IP address) by setting the **session** parameter in the [**username**](#username-parameters). This assigns a single IP address is assigned to the **session ID** after you make the first request.
+You can persist your sessions (use the same IP address) by setting the `session` parameter in the `username` [field]({{@link proxy/connection_settings.md#username-parameters}). This assigns a single IP address is assigned to the `session ID` after you make the first request.
 
 For datacenter proxies, a session persists for **24 hours** ([more info]({{@link proxy/datacenter_proxy.md#session-persistence}})).
 
