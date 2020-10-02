@@ -62,7 +62,7 @@ For code examples on how to connect to datacenter proxies, see the [examples]({{
 
 ### [](#username-parameters) Username parameters
 
-The **username** field enables you to pass various [parameters]({{@link proxy/connection_settings.md#username-parameters}}) such as groups, session and country for your proxy connection.
+The **username** field enables you to pass various [parameters]({{@link proxy/connection_settings.md#username-parameters}}), such as groups, session and country, for your proxy connection.
 
 **This parameter is optional**. By default, the proxy uses all available proxy servers from all groups you have access to.
 
