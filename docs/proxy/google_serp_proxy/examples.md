@@ -11,7 +11,7 @@ paths:
 
 # Connect to Google SERP proxies
 
-This page shows how you can connect to [Google SERP proxies]({{@link proxy/google_serp_proxy.md}}) using Apify Proxy.
+This page contains code examples for connecting to [Google SERP proxies]({{@link proxy/google_serp_proxy.md}}) using [Apify Proxy](https://apify.com/proxy).
 
 If you are building your own Apify [actor]({{@link actors.md}}), below are [examples](#using-the-apify-sdk) specific to the [Apify SDK](https://sdk.apify.com).
 
@@ -21,9 +21,9 @@ See the [connection settings]({{@link proxy/connection_settings.md}}) page for c
 
 You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
 
-> Note that in all examples, the **username** field is **not** your Apify username.<br/>
-> Instead of a username, you specify proxy settings (e.g. "groups-RESIDENTIAL").<br/>
-> Use **groups-RESIDENTIAL** to use proxies from all available countries.
+> The **username** field is **not** your Apify username.<br/>
+> Instead, you specify proxy settings (e.g. **groups-GOOGLE_SERP**).<br/>
+> Use **groups-GOOGLE_SERP** to use proxies from all available countries.
 
 For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
 
@@ -31,9 +31,9 @@ Examples in [Python 2](https://www.python.org/download/releases/2.0/) use the [s
 
 ### [](#html-from-search-results) HTML from search results
 
-Get the HTML of search results for the keyword `wikipedia` from the USA.
+Get the HTML of search results for the keyword **wikipedia** from the USA (**google.com**).
 
-Select this option by setting the **username** parameter to **groups-GOOGLE_SERP**. Add the item you want to search to the URL as a parameter.
+Select this option by setting the **username** parameter to **groups-GOOGLE_SERP**. Add the item you want to search to the `query` variable.
 
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
@@ -68,7 +68,7 @@ const HttpsProxyAgent = require("https-proxy-agent");
 
 // Replace <YOUR_PROXY_PASSWORD> below with your password
 // found at https://my.apify.com/proxy
-const proxyUrl = "http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
+const proxyUrl = "http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
 // Encode your query as a URI parameter
 const query = `q=${encodeURIComponent('wikipedia')}`;
@@ -149,9 +149,11 @@ echo $response;
 
 ### [](#html-from-localized-shopping-results) HTML from localized shopping results
 
-Get HTML of shopping results for the query `Apple iPhone XS 64GB` from Great Britain.
+Get HTML of shopping results for the query **Apple iPhone XS 64GB** from Great Britain (**google.co.uk**).
 
-Select this option by setting the **username** parameter to **groups-GOOGLE_SERP**. Add the item you want to search and specify the shopping page as URL parameters. Set the domain (your country of choice) in the URL.
+Select this option by setting the **username** parameter to **groups-GOOGLE_SERP**. In the `query` variable, add the item you want to search and specify the **shop** page as a URL parameter.
+
+Set the domain (your country of choice) in the URL (in the `response` variable).
 
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
@@ -186,7 +188,7 @@ const HttpsProxyAgent = require("https-proxy-agent");
 
 // Replace <YOUR_PROXY_PASSWORD> below with your password
 // found at https://my.apify.com/proxy
-const proxyUrl = "http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
+const proxyUrl = "http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
 // Encode your query as a URI parameter
 const query = `q=${encodeURIComponent('Apple iPhone XS 64GB')}`;
@@ -265,7 +267,7 @@ echo $response;
 
 ## [](#using-the-apify-sdk) Using the Apify SDK
 
-If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you can use Apify proxy in:
+If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you can use Apify Proxy in:
 
 * [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav) using the [createProxyConfiguration()](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) function.
 * [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
@@ -273,7 +275,7 @@ If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you 
 
 ### [](#get-and-parse-a-list-of-search-results) Get and parse a list of search results
 
-Get a list of search results from the USA for the keyword `wikipedia` and parse them using [cheerio](https://cheerio.js.org/).
+Get a list of search results from the USA (**google.com**) for the keyword **wikipedia** and parse them using [cheerio](https://cheerio.js.org/).
 
 ```marked-tabs
 <marked-tab header="PuppeteerCrawler" lang="javascript">
@@ -387,7 +389,7 @@ const Apify = require('apify');
 
 ### [](#get-and-parse-a-list-of-shopping-results) Get and parse a list of shopping results
 
-Get a list of shopping results for the query `Apple iPhone XS 64GB` from Great Britain and parse them using [cheerio](https://cheerio.js.org/).
+Get a list of shopping results for the query **Apple iPhone XS 64GB** from Great Britain (**google.co.uk**) and parse them using [cheerio](https://cheerio.js.org/).
 
 
 ```marked-tabs

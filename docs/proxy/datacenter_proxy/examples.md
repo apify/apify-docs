@@ -11,7 +11,7 @@ paths:
 
 # Connect to datacenter proxies
 
-This page shows how you can connect to [datacenter proxies]({{@link proxy/datacenter_proxy.md}}) using Apify Proxy.
+This page contains code examples for connecting to [datacenter proxies]({{@link proxy/datacenter_proxy.md}}) using [Apify Proxy](https://apify.com/proxy).
 
 If you are building your own Apify [actor]({{@link actors.md}}), below are [examples](#using-the-apify-sdk) specific to the [Apify SDK](https://sdk.apify.com).
 
@@ -21,8 +21,8 @@ See the [connection settings]({{@link proxy/connection_settings.md}}) page for c
 
 You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
 
-> Note that in all examples, the **username** field is **not** your Apify username.<br/>
-> Instead of a username, you specify proxy settings (e.g. "groups-SHADER+BUYPROXIES94952", "session-123").<br/>
+> The **username** field is **not** your Apify username.<br/>
+> Instead, you specify proxy settings (e.g. **groups-SHADER+BUYPROXIES94952**, **session-123**).<br/>
 > Use **auto** for default settings.
 
 For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
@@ -417,7 +417,7 @@ echo $response2;
 
 ## [](#using-the-apify-sdk) Using the Apify SDK
 
-If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you can use Apify proxy in:
+If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you can use Apify Proxy in:
 
 * [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav) using the [createProxyConfiguration()](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) function.
 * [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
