@@ -56,17 +56,17 @@ For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Meth
 
 By default, each proxied HTTP request is potentially sent via a different target proxy server, which adds overhead and could be potentially problematic for websites which save cookies based on IP address.
 
-If you want to pick an IP address and pass all subsequent connections via that same IP address, you can use the [**session**]({{@link proxy.md#sessions}}) parameter.
+If you want to pick an IP address and pass all subsequent connections via that same IP address, you can use the `session` [parameter]({{@link proxy.md#sessions}}).
 
 For code examples on how to connect to datacenter proxies, see the [examples]({{@link proxy/datacenter_proxy/examples.md}}) page.
 
 ### [](#username-parameters) Username parameters
 
-The **username** field enables you to pass various [parameters]({{@link proxy/connection_settings.md#username-parameters}}), such as groups, session and country, for your proxy connection.
+The `username` field enables you to pass various [parameters]({{@link proxy/connection_settings.md#username-parameters}}), such as groups, session and country, for your proxy connection.
 
 **This parameter is optional**. By default, the proxy uses all available proxy servers from all groups you have access to.
 
-If you do not want to specify either **groups** or **session** parameters and therefore use the default behavior for both, set the username to **auto**.
+If you do not want to specify either `groups` or `session` parameters and therefore use the default behavior for both, set the username to `auto`.
 
 ## [](#ip-address-rotation) IP address rotation
 
@@ -81,9 +81,9 @@ Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or
 
 ## [](#session-persistence) Session persistence
 
-When you use datacenter proxy with the **session** parameter set in the [**username**](#username-parameters), a single IP is assigned to the **session ID** provided after you make the first request.
+When you use datacenter proxy with the `session` parameter set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
 
-This **IP/session_id** combination is persisted, and expires 24 hours later. Each additional request resets the expiration time to 24 hours.
+This IP/session ID combination persists and expires 24 hours later. Each additional request resets the expiration time to 24 hours.
 
 So, if you use the session at least once a day, it will never expire, with two possible exceptions:
 
