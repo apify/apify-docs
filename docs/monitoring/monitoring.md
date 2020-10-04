@@ -21,7 +21,7 @@ You can use any task of your own, but for the purpose of this example, let's say
 
 Go to the Apify Store to create a [monitoring suite](https://apify.com/apify/monitoring) task. Click the **Try for free** button.
 
-![Puppies task]({{@asset monitoring/images/Snimek_obrazovky_2020-09-11_v_11.22.23.png}})
+![Monitoring store actor]({{@asset monitoring/images/monitoringInStore.png}})
 
 Give your task a name and save it. Let's say you pick: **`monitoring-puppies-are-ok`** as the name. Next step is configuration of your monitoring suite.
 
@@ -41,13 +41,13 @@ To set the minimal number of items go to the **Validating by a schema** section 
 
 Lets say your minimal accepted number of results is 100. Go to the **Validation options** input field and create object with **minItemCount** key with 100 as a value. You can also set this number to 1 if you want to be notified only when there are no items.
 
-![Task configuration]({{@asset monitoring/images/Snimek_obrazovky_2020-09-21_v_11.02.25.png}})
+![Task configuration]({{@asset monitoring/images/puppiesTask2.png}})
 
 Click the **Save & Run** button and it's done. From now on, you will get a notification to your account's email every time your `puppies-from-instagram` task wouldn't succeed or there is less then 100 items in the dataset.
 
 This is how the example error report looks like when your run `TIMED-OUT` for any reason:
 
-[Task configuration]({{@asset monitoring/images/Snimek_obrazovky_2020-09-21_v_14.45.15.png}})
+[Task configuration]({{@asset monitoring/images/puppiesTask3.png}})
 
 To see what went wrong, you can open your task's run dashboard by clicking on the time next to **Actor run.** **When you click on **Details**, you'll find a detailed monitoring report in a JSON format.
 
@@ -71,7 +71,7 @@ Let's say you already have set up your task named for example **`amazon-iphone-o
 
 Go to the Apify Store to create a [monitoring suite](https://apify.com/apify/monitoring) task. Click the **Try for free** button.
 
-[Monitoring store]({{@asset monitoring/images/Snimek_obrazovky_2020-09-11_v_11.22.23.png}})
+[Monitoring store actor]({{@asset monitoring/images/monnitoringInStore.png}})
 
 Name your Task for example **`monitoring-iphone-offers`** and save. Now, you have your task created and you want to make it work.
 
@@ -87,13 +87,13 @@ Checking the option **Notify me whenever actor/task does not succeed** **enables
 
 This is how the configuration should look like:
 
-[Task configuration]({{@asset monitoring/images/Snimek_obrazovky_2020-09-21_v_11.01.42.png}})
+[Task configuration]({{@asset monitoring/images/iphoneTask.png}})
 
 Lets say that you need each of your item to always have properties as: `title`, `asin`, `currency`, and list of `sellers`. The desired configuration can look like:
 
 The validation is done always after the each run finishes.
 
-[Task configuration]({{@asset monitoring/images/Snimek_obrazovky_2020-09-21_v_11.03.51.png}})
+[Task configuration]({{@asset monitoring/images/iphoneTask2.png}})
 
 Check **Enable duplicate items check** option in ***Check for duplicates** section and insert* `asin`
 
@@ -101,17 +101,17 @@ as a **Unique key** option if you do not want to allow more items with a same `a
 
 Checking for duplicated items will be also always done after run's finish.
 
-[Task configuration]({{@asset monitoring/images/Snimek_obrazovky_2020-09-21_v_11.06.50.png}})
+[Task configuration]({{@asset monitoring/images/iphoneTask3.png}})
 
 Basic data visualization is hidden under ***Statistics dashboard*** section and you can enable it by checking the **Enable dashboard** **option.
 
-[Task configuration]({{@asset monitoring/images/Snimek_obrazovky_2020-09-21_v_11.09.27.png}})
+[Task configuration]({{@asset monitoring/images/iphoneTask4.png}})
 
 After the monitoring configuration is run and finished and the statistics are counted you receive an email with link to your monitoring project dashboard. You can see result statuses of your monitored tasks and filter them by time. Run's key-value store records, dataset items charts are generated.
 
 This is how your dashboard can look like after some time:
 
-[Monitoring dashboard]({{@asset monitoring/images/Snimek_obrazovky_2020-09-11_v_15.07.06.png}})
+[Monitoring dashboard]({{@asset monitoring/images/monitoringDashboard.png}})
 
 Click the **Save & Run** button which will create a monitoring configuration and turn the monitoring ON. You should receive the dashboard email after a while. After each of your **`amazon-iphone-offers`** task run all the checkers will process the results and report you if any checks does not pass.
 
@@ -148,7 +148,7 @@ In order to setup the monitoring suite to monitor a dataset on a daily basis we 
 
 Go to the Apify Store to create a [monitoring suite](https://apify.com/apify/monitoring) task. Click the **Try for free** button.
 
-[Store monitoring actor]({{@asset monitoring/images/Snimek_obrazovky_2020-09-11_v_11.22.23.png}})
+[Store monitoring actor]({{@asset monitoring/images/monitoringInStore.png}})
 
 Give your task a name and save it. Let's say you pick: **`monitoring-jokes`** as the name. Next step is configuration of your monitoring suite.
 
