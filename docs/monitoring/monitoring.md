@@ -1,4 +1,4 @@
-# Monitoring suite example setups
+# Monitoring suite
 In this documentation section you are presented the most common use-cases for the monitoring suite, which you can leverage in your own projects to have better understanding of your actors, tasks and datasets validity.
 Each of the use-case presents the use-case itself and than it guides you through the [monitoring suite](https://apify.com/apify/monitoring) task configuration.
 The use-cases starts with the easy ones.
