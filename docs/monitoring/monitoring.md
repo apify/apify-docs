@@ -151,14 +151,6 @@ Now to the actual monitoring part. For the need of this short tutorial let's ski
 
 In order to setup the monitoring suite to monitor a dataset on a daily basis we have to do a few steps.
 
-### Add Monitoring suite to your account @TODO Replace with a anchor link in the docs.
-
-Go to the Apify Store to create a [monitoring suite](https://apify.com/apify/monitoring) task. Click the **Try for free** button.
-
-[Store monitoring actor]({{@asset monitoring/images/monitoringInStore.png}})
-
-Give your task a name and save it. Let's say you pick: **`monitoring-jokes`** as the name. Next step is configuration of your monitoring suite.
-
 ### Monitoring configuration
 
 First of all Choose **create configuration** in **mode** option. Now you have to select the `Type of target` as dataset and into the target name patterns enter only one pattern and for our use case it is the `DAILY-JOKES` pattern. It could be also more strict pattern such as `^DAILY-JOKES`.
