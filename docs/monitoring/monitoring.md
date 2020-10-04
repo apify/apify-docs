@@ -1,5 +1,12 @@
-# Monitoring
-@TODO: Intro
+# Monitoring suite example setups
+In this documentation section you are presented the most common use-cases for the monitoring suite, which you can leverage in your own projects to have better understanding of your actors, tasks and datasets validity.
+Each of the use-case presents the use-case itself and than it guides you through the [monitoring suite](https://apify.com/apify/monitoring) task configuration.
+The use-cases starts with the easy ones.
+
+## What is monitoring suite?
+Monitoring suite is an easy to use tool that allows you to set up automated
+monitoring of your actors in no time. It can be used for simple tasks and
+complex projects spanning multiple actors and datasets as well.
 
 ## Monitoring setup examples
 
