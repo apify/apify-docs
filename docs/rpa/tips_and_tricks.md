@@ -1,56 +1,41 @@
 ---
 title: Tips and tricks
-description: Learn useful tips and tricks that will help you automate your processes more effectively.
+description: Learn how to make your automated processes more effective. Avoid common RPA pitfalls and improve your processes.
 paths:
     - rpa/tips-and-tricks
 ---
 
-# [](./tips-and-tricks) Web RPA tips and tricks
+# [](./tips-and-tricks) RPA tips and tricks
 
-# Automation guide (WIP)
+This collection of [robotic process automation]({{@link rpa.md}}) (RPA) tips and tricks is a work in progress. Here, we aim to collect useful advice on how you can make your automations work smoother and produce fewer errors. 
 
-## Event-bound flows
-
-> Events make history...
+## [](#event-bound-flows) Event-bound flows
 
 Always strive to make automation as fluid as possible. Listen to events and react to them as needed by triggering consecutive actions immediately.
 
-- **avoid** any **fixed-duration** delays wherever possible
-- prefer fluid flow based on the **occurrence of events**
+- **Avoid** any **fixed-duration** delays wherever possible.
+- Prefer fluid flow based on the **occurrence of events**.
 
-$~$
-$$Examples$$
-
-```jsx
-await page.waitForTimeout(timeout) ⇒ await page.waitForFunction(function, options, args)
-await page.waitForTimeout(timeout) ⇒ await page.waitForFunction(() => window.location.href.includes('path'))
+```javascript
+await page.waitForTimeout(timeout) ⇒ await page.waitForFunction(function, options, args);
+await page.waitForTimeout(timeout) ⇒ await page.waitForFunction(() => window.location.href.includes('path'));
 await page.waitForTimeout(timeout) ⇒ await page.waitForFunction(selector => document.querySelector(selector).innerText, {polling: 'mutation'}, '[data-qa="btnAppleSignUp"]');
 ```
 
-$~$
+## [](#proofs-and-verification) Proofs and verification
 
-## Proofs & verification
-
-> Absence of evidence ≠ evidence of absence
+**Absence of evidence ≠ evidence of absence**.
 
 Make sure output remains consistent regardless of any changes at the target host/website:
 
-- always base all important checks on the **PRESENCE** of a proof
-- never build any important checks on the **ABSENCE** of anything
+- Always base all important checks on the **PRESENCE** of a proof.
+- Never build any important checks on the **ABSENCE** of anything.
 
-$~$
-$$Examples$$
+The absence of an expected element or message does NOT prove an action has been (un)successful. The website might have been updated or expected content may no longer exist in the original form. The **action relying on the absence** of something **might still be failing** and must instead rely on a proof of presence as opposed to something expected missing.
 
-Absence of an expected element or message does NOT prove action has been successful. Website might have been updated, expected content may no longer exist in the original form but the **action relying on the absence** of something **might still be failing** and must instead rely on a proof of presence as opposed to something expected missing.
+**Good**: Outcome relies on the presence of an element or other content confirming a successful action
 
-```jsx
-const $paymentAmount = await page.$('#PaymentAmount');
-if (!$paymentAmount) return OUTPUT.paymentSuccess;
-```
-
-- [ ]  Outcome relies on the absence of an element that may have been simply updated or changed
-
-```jsx
+```javascript
 try {
 	await page.waitForSelector('#PaymentAccepted');
 } catch (error) {
@@ -60,9 +45,13 @@ try {
 return OUTPUT.paymentSuccess;
 ```
 
-✔️ Outcome relies on the presence of an element or other content confirming a successful action
+**Avoid**: The example below relies on the absence of an element that may have been simply updated or changed.
 
-$~$
+```javascript
+const $paymentAmount = await page.$('#PaymentAmount');
+if (!$paymentAmount) return OUTPUT.paymentSuccess;
+```
+
 
 ## Presumption of failure
 
@@ -75,12 +64,9 @@ Always **verify important steps** to avoid false positives or false negatives.
 - false ***positive*** = **false / failed** outcome **reported as true / successful** on output
 - false ***negative*** = **true / successful** outcome **reported as false / failed** on output
 
-$~$
-$$Examples$$
-
 **Assuming** any action has been **successful without direct proof** to that end is **dangerous**. **Disprove failure** actively through **proof of success** instead and only then consider output valid and verified.
 
-```jsx
+```javascript
 await Promise.all([
 	page.click('submitPayment'),
 	page.waitForNavigation()
@@ -91,7 +77,7 @@ return OUTPUT.paymentSuccess;
 
 - [ ]  Outcome has not been verified and could have easily failed despite output claiming otherwise
 
-```jsx
+```javascript
 await Promise.all([
 	page.click('submitPayment'),
 	page.waitForNavigation()
