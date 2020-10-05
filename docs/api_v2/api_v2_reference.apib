@@ -259,14 +259,14 @@ Each error response contains a JSON object defining the `error` property, which 
 the `type` and `message` properties that contain the error code and a human-readable error description, respectively.
 For example:
 
-````
+```
 {
     "error": {
         "type": "record-not-found",
         "message": "Store was not found."
     }
 }
-````
+```
 
 Here is the table of the most common errors that can occur for many API endpoints:
 
@@ -304,7 +304,7 @@ Here is the table of the most common errors that can occur for many API endpoint
   <tr>
     <td><code>429</code></td>
     <td><code>rate-limit-exceeded</code></td>
-    <td>You have exceeded the rate limit of 20 requests per second</td>
+    <td>You have exceeded the rate limit of 30 requests per second</td>
   </tr>
   <tr>
     <td><code>405</code></td>
@@ -331,21 +331,21 @@ of endpoints that are rate limited to 200 requests per second:
   [delete](#reference/request-queues/request-collection/delete-request))
   operations of request queue requests
 
-For authenticated API endpoints, the limit is counted per user,
-storage API endpoints count the limit per storage object
-and anonymous API endpoints per IP address of the client.
+> For authenticated API endpoints (if you use an [authentication token](#authentication)), the limit is counted per user.
+Storage API endpoints (when a token isn't used) count the limit per storage object.
+Anonymous API endpoints count the limit per client IP adress.
 
 If the client is sending too many requests, the API endpoints respond with the HTTP status code `429 Too Many Requests`
 and the following body:
 
-````
+```
 {
     "error": {
         "type": "rate-limit-exceeded",
         "message": "You have exceeded the rate limit of ... requests per second"
     }
 }
-````
+```
 
 If the client receives the rate limit error, it should wait a certain period of time and then retry the request.
 If the error happens again, the client should double the wait period and retry the request,
@@ -1570,7 +1570,9 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
       If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
       otherwise it will have a transitional status (e.g. `RUNNING`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
-      e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
+      e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks.
+      **Note**: if you already have a webhook set up for the actor or task, you do not have to add it again here.
+      For more information, see
       [Webhooks documenation](https://docs.apify.com/webhooks).
 
 + Request
@@ -2385,7 +2387,7 @@ query parameters.
 
 For example, if you store the following object to the dataset:
 
-````
+```
 {
     productName: "iPhone Xs",
     description: "Welcome to the big screens."
@@ -2394,7 +2396,7 @@ For example, if you store the following object to the dataset:
         crawledAt: "2019-01-21T16:06:03.683Z"
     }
 }
-````
+```
 
 The `#debug` field will be considered as hidden and can be omitted from the results. This is useful to
 provide nice cleaned data to end users, while keeping debugging info available if needed. The Dataset object
@@ -2404,7 +2406,7 @@ returned by the API contains the number of such clean items in the `dataset.clea
 
 When exporting results to XML or RSS formats, the names of object properties become XML tags
 and the corresponding values become tag's children. For example, the following JavaScript object:
-````
+```
 {
     name: "Paul Newman",
     address: [
@@ -2412,9 +2414,9 @@ and the corresponding values become tag's children. For example, the following J
         { type: "office", street: null, city: null }
     ]
 }
-````
+```
 will be transformed to the following XML snippet:
-````
+```
 <name>Paul Newman</name>
 <address>
   <type>home</type>
@@ -2426,14 +2428,14 @@ will be transformed to the following XML snippet:
   <street/>
   <city/>
 </address>
-````
+```
 
 If the JavaScript object contains a property named `@`
 then its sub-properties are exported as attributes of the parent XML element.
 If the parent XML element does not have any child elements then its value is taken from a JavaScript object property named `#`.
 For example, the following JavaScript object:
 
-````
+```
 {
   "address": [{
     "@": {
@@ -2449,15 +2451,15 @@ For example, the following JavaScript object:
     "#": 'unknown'
   }]
 }
-````
+```
 will be transformed to the following XML snippet:
-````
+```
 <address type="home">
   <street>21st</street>
   <city>Chicago</city>
 </address>
 <address type="office">unknown</address>
-````
+```
 This feature is also useful to customize your RSS feeds generated for various websites.
 
 By default the whole result is wrapped in a `<items>` element and each page object is wrapped in a `<item>` element.
