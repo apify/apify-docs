@@ -1,11 +1,10 @@
 ---
-title: RPA
-menuTitle: Robotic process automation
+title: Robotic process automation
 description: Learn the basics of robotic process automation. Make your processes on the web and other software more efficient by automating repetitive tasks.
 menuWeight: 4
 category: guides
 paths:
-    - rpa
+    - robotic-process-automation
 ---
 
 # [](#what-is-robotic-process-automation-rpa) What is robotic process automation (RPA)?
