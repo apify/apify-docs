@@ -57,13 +57,13 @@ If you are an advanced user, you can also add a [webhook](https://docs.apify.com
 
 To [create a new schedule](https://docs.apify.com/api/v2#/reference/schedules/) using the [Apify API](https://docs.apify.com/api/v2), send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to
 
-```https://api.apify.com/v2/schedules?token={your_API_token}```
+`https://api.apify.com/v2/schedules?token={your_API_token}`
 
 You can find your [secret API token](https://docs.apify.com/api/v2#/introduction/authentication) in your Apify account's [Integrations](https://my.apify.com/account#/integrations) tab. In the POST request's payload should be a JSON object specifying the schedule's name, your [user ID](https://my.apify.com/account#/integrations), and the schedule's **actions**.
 
 The below JSON object creates a schedule which runs an SEO audit of the Apify domain once a month.
 
-```
+```json
 {
   "name": "apify-domain-monthly-seo-audit",
   "userId": "7AxwNO4kCDZxsMHip",
