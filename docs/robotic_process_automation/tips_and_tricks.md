@@ -46,7 +46,7 @@ Make sure output remains consistent regardless of any changes at the target host
 - Always base all important checks on the **presence** of proof.
 - Never build any important checks on the **absence** of anything.
 
-The absence of an expected element or message does **not** prove an action has been (un)successful. The website might have been updated or expected content may no longer exist in the original form. The **action relying on the absence** of something might still be failing and must instead rely on a **proof of presence**.
+The absence of an expected element or message does **not** prove an action has been (un)successful. The website might have been updated or expected content may no longer exist in the original form. The **action relying on the absence** of something might still be failing. Instead, it must rely on **proof of presence**.
 
 **Good**: rely on the presence of an element or other content confirming a successful action.
 
@@ -74,10 +74,10 @@ if (!$paymentAmount) return OUTPUT.paymentSuccess;
 
 Always assume an action has failed before having a proof of success. Always verify important steps to avoid false positives or false negatives.
 
-- False **positive** = **false / failed** outcome reported as **true / successful** on output.
-- False **negative** = **true / successful** outcome reported as **false / failed** on output.
+- False positive = **false / failed** outcome reported as **true / successful** on output.
+- False negative = **true / successful** outcome reported as **false / failed** on output.
 
-Assuming any action has been successful without direct proof to that dangerous. Disprove failure actively through proof of success instead. Only then consider output valid and verified.
+Assuming any action has been successful without direct proof is dangerous. Disprove failure actively through proof of success instead. Only then consider output valid and verified.
 
 **Good**: verify outcome through proof. Clearly disprove failure of an important action.
 
@@ -118,22 +118,22 @@ Be both as specific and as generic as possible at the same time.
 Make sure your [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) have the best chance to remain valid after a website is updated.
 
 - Prefer [**higher-specificity**](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) selectors over lower specificity ones (**#id** over **.class**).
-- Use [**attribute selectors**](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors to search parts of attributes (prefix, suffix etc.).
+- Use [**attribute selectors**](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to search parts of attributes (prefix, suffix etc.).
 - Use element attributes with the **lowest probability of a future change**.
 - Completely **avoid or strip** selectors of values that are clearly **random**.
 - Completely **avoid or strip** selectors of values that are clearly **flexible**.
 - **Extend low-specificity** selectors to reduce probability of **collisions**.
 
-Below is an example of stripping away non-specific parts of a selector 
+Below is an example of stripping away non-specific parts of a selector.
 
 ```javascript
-*#P_L_v201w3_t3_ReceiptToolStripLabel* => **a[id*="ReceiptToolStripLabel"]**
+#P_L_v201w3_t3_ReceiptToolStripLabel => a[id*="ReceiptToolStripLabel"]
 ```
 
 If you are reasonably confident a page layout will remain without any dramatic future changes **and** need to increase the selector specificity to reduce the chance of a collision with other selectors, you can use the principle below.
 
 ```javascript
-*#ReceiptToolStripLabel_P_L_v201w3_t3* => **table li > a[id^="ReceiptToolStripLabel"]**
+#ReceiptToolStripLabel_P_L_v201w3_t3 => table li > a[id^="ReceiptToolStripLabel"]
 ```
 
 ### [](#content-pattern-matching) Content pattern matching
