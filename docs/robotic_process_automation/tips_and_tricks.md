@@ -1,13 +1,13 @@
 ---
 title: Tips and tricks
-description: Learn how to make your automated processes more effective. Avoid common RPA pitfalls and improve your processes.
+description: Learn how to make your automated processes more effective. Avoid common RPA pitfalls, future-proof your programs and improve your processes.
 paths:
     - robotic-process-automation/tips-and-tricks
 ---
 
 # [](./tips-and-tricks) RPA tips and tricks
 
-This collection of [robotic process automation]({{@link robotic_process_automation.md}}) (RPA) tips and tricks is a work in progress. Here, we aim to collect useful advice on how you can make your automations work smoother and produce fewer errors. 
+This collection of [robotic process automation]({{@link robotic_process_automation.md}}) (RPA) tips and tricks aims to help you make your automations work smoother and produce fewer errors.
 
 ## [](#event-bound-flows) Event-bound flows
 
@@ -43,7 +43,7 @@ await page.waitForTimeout(timeout) => {
 
 Make sure output remains consistent regardless of any changes at the target host/website:
 
-- Always base all important checks on the **presence** of a proof.
+- Always base all important checks on the **presence** of proof.
 - Never build any important checks on the **absence** of anything.
 
 The absence of an expected element or message does **not** prove an action has been (un)successful. The website might have been updated or expected content may no longer exist in the original form. The **action relying on the absence** of something might still be failing and must instead rely on a **proof of presence**.
