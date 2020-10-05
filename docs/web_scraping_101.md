@@ -29,7 +29,7 @@ To see examples of organizations that have already benefitted from web scraping,
 
 ## [](#is-web-scraping-rpa) Is web scraping the same as robotic process automation (RPA)?
 
-While web scraping is a kind of [RPA]({{@link web_rpa.md}}), it focuses on extracting data. RPA focuses on the other tasks in browsers - everything except for extracting information.
+While web scraping is a kind of [RPA]({{@link rpa.md}}), it focuses on extracting data. RPA focuses on the other tasks in browsers - everything except for extracting information.
 
 RPA allows you to handle [use cases](https://apify.com/use-cases/rpa) like filling forms or uploading files while you get on with more important tasks. And it's not just simple tasks you can automate. How about [processing your invoices](https://apify.com/katerinahronik/toggl-invoice-download) or automating your sales processes?
 
