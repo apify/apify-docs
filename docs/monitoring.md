@@ -40,7 +40,7 @@ We currently have tutorials for monitoring the following scenarios.
 
 * [Monitor actor or task runs for failure]({{@link monitoring/actor_or_task_run_failure.md}})
 
-* [Checking product-based data for correct format and duplicates]({{@link monitoring/check_data_format_and_duplicates.md}})
+* [Checking product-based data for correct format and duplicates]({{@link monitoring/check_data_quality.md}})
 
 * [Monitoring shared datasets]({{@link monitoring/monitor_shared_datasets.md}})
 
