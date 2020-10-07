@@ -1,6 +1,6 @@
 ---
 title: Monitoring
-description: Step-by-step tutorial that will help you get started with monitoring of your projects.
+description: Learn how to ensure your actors, tasks and storages are running as you intended. Validate your data and receive notifications when your jobs succeed or fail.
 menuWeight: 5
 category: guides
 paths:
@@ -9,41 +9,54 @@ paths:
 
 # [](#what-is-the-monitoring-suite) What is the monitoring suite?
 
-The [monitoring suite](https://apify.com/apify/monitoring) is a collection of Apify [actors]({{@link actors.md}}) that allows you to automate the monitoring of other jobs you have running on the Apify [platform](https://apify.com).
+The [monitoring suite](https://apify.com/apify/monitoring) is a collection of Apify [actors]({{@link actors.md}}) that allows you to automate the monitoring of jobs you have running on the Apify [platform](https://apify.com).
 
 You can use it to monitor anything from a single actor to complex projects spanning multiple actors, [tasks]({{@link actors/tasks.md}}) or [storages]({{@link storage.md}}).
 
 ## [](#how-does-it-work) How does it work?
 
+The monitoring suite is made up of a system of actors we call **checkers**. Each checker is programmed to monitor one thing, e.g. the items in a [dataset]({{@link storage/dataset.md}}) for duplicates and correct format.
 
+Based on your configuration, the suite will create [schedules]({{@link schedules.md}}) and [webhooks]({{@link webhooks.md}}) under your account and use those to trigger actor runs. Some checkers will make sure that your data are correct, others will send you notifications about failed runs.
 
 ## [](#what-can-i-gain-from-monitoring) What can I gain from monitoring?
 
+The monitoring suite allows you to automate tedious processes that would usually be complicated or tedious. In essence, monitoring gives you more time.
 
+If you are [scraping your competitor's website](https://www.youtube.com/watch?v=BsidLZKdYWQ&t=95s) every day, you have already automated a part of the process. With monitoring, you can save even more time and ensure all your results are useable even before you need them. 
+
+And if the scraping job fails, you will receive a notification, so there will be no unpleasant surprises.
 
 ## [](#how-much-does-it-cost) How much does it cost?
 
+You can use the monitoring suite free of charge, but under the hood, it is a system of actors that consume [compute units](https://help.apify.com/en/articles/3490384-what-is-a-compute-unit) (CUs). We have tried our best to make it as efficient as possible.
 
+* Medium projects (single monitoring configuration with 5-20 daily running monitored tasks or actors) should consume around **10 CUs per month**.
+* Bigger projects (more monitoring configurations with more than 20 daily running tasks or actors) can exceed **50 CUs+ per month**.
 
 ## [](#how-can-I-set-up-monitoring) How can I set up monitoring?
 
-We currently have examples for monitoring the following scenarios.
+We currently have tutorials for monitoring the following scenarios.
 
-* [Notify me when an actor or task fails or there are no results](#notify-me-when-an-actor-or-task-fails-or-there-are-no-results)
+* [Monitor actor or task runs for failure]({{@link monitoring/actor_or_task_run_failure.md}})
 
-* [Check my product-based data for correct format and duplicates](#check-my-product-based-data-for-correct-format-and-duplicates)
+* [Checking product-based data for correct format and duplicates]({{@link monitoring/check_data_format_and_duplicates.md}})
 
-* [Monitor named datasets which aggregate data from multiple actors or tasks](#monitor-named-datasets-which-aggregate-data-from-multiple-actors-or-tasks)
+* [Monitoring shared datasets]({{@link monitoring/monitor_shared_datasets.md}})
 
-* [Monitor multiple actors or tasks with dataset validation and dashboard](#monitor-multiple-actors-or-tasks-with-dataset-validation-and-dashboard)
+* [Monitoring multiple actors or tasks]({{@link monitoring/monitor_multiple_actors_or_tasks.md}})
+
+## [](#how-do-I-turn-this-off-or-make-changes) How do I turn this off or make changes?
+
+To turn off a monitoring task, simply run it the **Mode** (in the task's **Input** section) set to **Delete configuration**. It will clean up all its resources and turn off all monitoring activity. You will no longer receive [notifications](#notifications).
+
+To make any changes to an existing configuration, choose the **Update configuration** mode in the task's **Input**, make your changes and run the monitoring suite task again. 
 
 ### [](#add-the-monitoring-suite-to-your-account) Add the monitoring suite to your account
 
 On the [monitoring suite](https://apify.com/apify/monitoring)'s page in [Apify Store](https://apify.com/store), click the **Try for free** button. This will add the suite to your [list of actors](https://my.apify.com/actors), take you to the [Apify app](https://my.apify.com) and create a new [task]({{@link actors/tasks.md}}).
 
 ![Monitoring actor in Apify Store]({{@asset monitoring/images/monitoring-in-store.png}})
-
-Then, just give your task a name (under the **Settings** tab) and save it.
 
 ## [](#notifications) Notifications
 
