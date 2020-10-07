@@ -1,10 +1,10 @@
 ---
 title: Monitoring
 description: Step-by-step tutorial that will help you get started with monitoring of your projects.
-menuWeight: 5.1
+menuWeight: 5
 category: guides
 paths:
-    - monitoring/monitoring
+    - monitoring
 ---
 
 # [](#what-is-the-monitoring-suite) What is the monitoring suite?

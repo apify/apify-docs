@@ -14,7 +14,7 @@ This example walks you through setting up [monitoring](https://apify.com/apify/m
 
 ## [](#use-case) Use case
 
-You have two or more [actors]({{@link actors.md}}) or [tasks]({{@link tasks.md}}) that scrape the same type of data from multiple websites and [push the data]({{@link storage/dataset.md#sharing-datasets-between-runs}}) to one [named dataset]({{@link storage.md#named-and-unnamed-storages}}).
+You have two or more [actors]({{@link actors.md}}) or [tasks]({{@link actors/tasks.md}}) that scrape the same type of data from multiple websites and [push the data]({{@link storage/dataset.md#sharing-datasets-between-runs}}) to one [named dataset]({{@link storage.md#named-and-unnamed-storages}}).
 
 You need:
 
@@ -65,7 +65,7 @@ Next, we will configure the monitoring suite.
 
 Your configuration will look like this:
 
-[Monitoring configuration]({{@asset monitoring/images/jokes-monitoring-config.png}})
+[Monitoring configuration]({{@asset monitoring/images/joke-monitoring-config.png}})
 
 ## [](#validate-data) Validate data
 
