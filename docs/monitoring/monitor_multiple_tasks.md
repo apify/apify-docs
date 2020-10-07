@@ -1,15 +1,15 @@
 ---
-title: Monitor multiple actors or tasks
+title: Monitor multiple tasks
 description: A step-by-step monitoring tutorial that shows you how to monitor multiple runs, validate your results and visualize them using the monitoring dashboard.
 menuWeight: 5.4
 category: guides
 paths:
-    - monitoring/monitor-multiple-actors-or-tasks
+    - monitoring/monitor-multiple-tasks
 ---
 
 # [](#monitor-multiple-actors-or-tasks) Monitor multiple actors or tasks
 
-This example walks you through setting up [monitoring](https://apify.com/apify/monitoring) for a multiple [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}), [validating data](#validate-data) and setting up a data enabling dashboard. 
+This example walks you through setting up [monitoring](https://apify.com/apify/monitoring) for a multiple [tasks]({{@link actors/tasks.md}}), [validating data](#validate-data) and setting up a data monitoring [dashboard](#set-up-data-visualization). Though the tutorial focuses on tasks, you can also use it to monitor [actors]({{@link actors.md}}).
 
 ## [](#use-case) Use case
 
@@ -21,12 +21,12 @@ You need:
 - [Notification]({{@link monitoring.md#notifications}}) of run failure.
 - Statistics presented on a [dashboard](#set-up-data-visualization).
 
-In this scenario we'll imagine you want to scrape [COVID-19 data](https://apify.com/covid-19) for several countries:
+In this scenario we'll imagine you want to scrape [COVID-19 data](https://apify.com/covid-19) for [several countries](https://apify.com/store?search=covid):
 [Brazil](https://apify.com/pocesar/covid-brazil),
 [Germany](https://apify.com/lukass/covid-ger),
 the [USA](https://apify.com/petrpatek/covid-usa-cdc)
 and [Singapore](https://apify.com/tugkan/covid-sg).
-You have created a task from each of the actors [tracking those countries](https://apify.com/store?search=covid).
+You have created a task from each of the actors tracking those countries.
 
 [Multiple tasks]({{@asset monitoring/images/covid-multiple-tasks.png}})
 
@@ -46,7 +46,7 @@ Next, we will configure the monitoring suite.
 
 2. Next, open the **What you want to monitor** section. Give the monitoring suite a name in the **Monitoring suite name** field, e.g. `covid-tasks`. 
 
-3. In the **Type of target:** dropdown, select **Task**, since you will be monitoring [actor tasks]){{@link actors/tasks.md}}.
+3. In the **Type of target:** dropdown, select **Task**, since you will be monitoring [actor tasks]({{@link actors/tasks.md}}).
 
 4. **Target name patterns** should be `^covid-`. The task names follow a simple naming convention (all start with **covid-**), so this name pattern will target all of the above tasks. To select only particular tasks, add separate **Target name patterns** for each: `covid-germany`, `covid-usa`, etc.
 
@@ -64,7 +64,7 @@ We have used four actors from [Apify Store](https://apify.com/store). Each actor
 
 1. Open the **Validating by a schema** section and select the **Enable schema validation** option.
 
-2. In the **Validation options** field, create a separate [object](https://javascript.info/object) for each task containing `filter` and `schema`. In the `filter` key's value, specify the task it is for (e.g. `covid-singapore`). In the `schema` key's value, set an object specifying the format of each of the properties you want to validate.
+2. In the **Validation options** field, create a separate [object](https://javascript.info/object) for each task containing `filter` and `schema`. For `filter`, specify the task it is for (e.g. `covid-singapore`). For `schema`, set an object specifying the format of each of the properties you want to validate.
 
 3. It is best to set **Validation frequency** to `Per run`, so the data is validated right after it is collected.
 
