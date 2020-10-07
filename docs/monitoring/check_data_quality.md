@@ -1,10 +1,10 @@
 ---
-title: Check data format and duplicates
+title: Check data quality
 description: A step-by-step monitoring tutorial that shows you how to ensure your data is correctly formatted and unique. Visualize your data using the monitoring dashboard.
 menuWeight: 5.2
 category: guides
 paths:
-    - monitoring/check-data-format-and-duplicates
+    - monitoring/check-data-quality
 ---
 
 # [](#check-product-based-data-for-correct-format-and-duplicates) Check product-based data for correct format and duplicates
@@ -40,13 +40,13 @@ If you have already added the task, under its **Settings** tab, give it a name. 
 
 2. Next, open the **What you want to monitor** section. Give the monitoring suite a name in the **Monitoring suite name** field, e.g. `iphone-offers`. 
 
-> Each of your monitoring suites must have a unique name.
-
 3. In the **Type of target:** dropdown, select **Task**, since you will be monitoring an Amazon Crawler task.
 
 4. **Target name patterns** should be the name of your task, `amazon-iphone-offers`.
 
 5. Select the **Notify me whenever actor/task does not succeed** option to receive a report when a run finishes unsuccessfully.
+
+> Each of your monitoring suites must have a unique name.
 
 This is what the configuration should look like:
 

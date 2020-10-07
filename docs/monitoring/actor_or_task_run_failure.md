@@ -43,13 +43,13 @@ Next, we will configure the monitoring suite.
 
 2. Next, open the **What you want to monitor** section. Give the monitoring suite a name in the **Monitoring suite name** field, e.g. `puppies-are-ok`. 
 
-> Each of your monitoring suites must have a unique name.
-
 3. In the **Type of target:** dropdown, select **Task**, since you will be monitoring an Instagram Scraper task.
 
 4. **Target name patterns** should be the name of your task, `puppies-from-instagram`. 
 
 5. Select the **Notify me whenever actor/task does not succeed** option to receive a report when a run finishes unsuccessfully.
+
+> Each of your monitoring suites must have a unique name.
 
 The configuration should look like this:
 
