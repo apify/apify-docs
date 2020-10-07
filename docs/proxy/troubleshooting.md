@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting
 description: Useful tips for debugging applications that use Apify Proxy. Check the status of your proxies and view information about the client IP address.
-menuWeight: 7.6
+menuWeight: 9.6
 paths:
     - proxy/troubleshooting
 ---

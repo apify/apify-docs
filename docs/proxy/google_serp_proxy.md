@@ -1,7 +1,7 @@
 ---
 title: Google SERP proxy
-description: Learn how to collect search results from Google Search-powered tools. Get search results from localised domains in multiple countries, e.g. the US and Germany.
-menuWeight: 7.5
+description: Learn how to collect search results from Google Search-powered tools. Get search results from localized domains in multiple countries, e.g. the US and Germany.
+menuWeight: 9.5
 paths:
     - proxy/google-serp-proxy
 ---
