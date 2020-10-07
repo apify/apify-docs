@@ -55,13 +55,13 @@ Next, we will configure the monitoring suite.
 
 2. Next, open the **What you want to monitor** section. Give the monitoring suite a name in the **Monitoring suite name** field, e.g. **daily-jokes**. 
 
-> Each of your monitoring suites must have a unique name.
-
 3. In the **Type of target:** dropdown, select **Dataset**, since you will be monitoring a shared dataset.
 
 4. **Target name patterns** should be the name of your dataset, **DAILY-JOKES**. If you want to use a more strict pattern, you can use **^DAILY-JOKES**.
 
 5. Select the **Notify me whenever actor/task does not succeed** option to receive a report when a run finishes unsuccessfully.
+
+> Each of your monitoring suites must have a unique name.
 
 Your configuration will look like this:
 

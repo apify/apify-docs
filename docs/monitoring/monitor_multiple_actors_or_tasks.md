@@ -46,13 +46,13 @@ Next, we will configure the monitoring suite.
 
 2. Next, open the **What you want to monitor** section. Give the monitoring suite a name in the **Monitoring suite name** field, e.g. `covid-tasks`. 
 
-> Each of your monitoring suites must have a unique name.
-
 3. In the **Type of target:** dropdown, select **Task**, since you will be monitoring [actor tasks]){{@link actors/tasks.md}}.
 
 4. **Target name patterns** should be `^covid-`. The task names follow a simple naming convention (all start with **covid-**), so this name pattern will target all of the above tasks. To select only particular tasks, add separate **Target name patterns** for each: `covid-germany`, `covid-usa`, etc.
 
 5. Select the **Notify me whenever actor/task does not succeed** option to receive a report when a run finishes unsuccessfully.
+
+> Each of your monitoring suites must have a unique name.
 
 [Monitoring covid tasks - configuration]({{@asset monitoring/images/covid-config.png}})
 
