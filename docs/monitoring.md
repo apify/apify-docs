@@ -21,13 +21,13 @@ If you are [scraping your competitor's website](https://www.youtube.com/watch?v=
 
 And if the scraping job fails, you will receive a notification, so there will be no unpleasant surprises.
 
-![Monitoring dashboard]({{@asset monitoring/images/monitoring-dashboard.png}})
-
 ## [](#what-is-the-apify-monitoring-suite) What is the Apify monitoring suite?
 
 The [monitoring suite](https://apify.com/apify/monitoring) is a collection of Apify [actors]({{@link actors.md}}) that allows you to automate the monitoring of jobs you have running on the Apify [platform](https://apify.com).
 
 You can use it to monitor anything from a single actor to complex projects spanning multiple actors, [tasks]({{@link actors/tasks.md}}) or [storages]({{@link storage.md}}).
+
+![Monitoring dashboard]({{@asset monitoring/images/monitoring-dashboard.png}})
 
 ## [](#how-does-it-work) How does it work?
 
