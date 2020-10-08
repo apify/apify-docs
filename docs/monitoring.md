@@ -27,13 +27,13 @@ The [monitoring suite](https://apify.com/apify/monitoring) is a collection of Ap
 
 You can use it to monitor anything from a single actor to complex projects spanning multiple actors, [tasks]({{@link actors/tasks.md}}) or [storages]({{@link storage.md}}).
 
-![Monitoring dashboard]({{@asset monitoring/images/monitoring-dashboard.png}})
-
 ## [](#how-does-it-work) How does it work?
 
 The monitoring suite is made up of a system of actors: **checkers** and **reporters**. Based on your configuration, the suite will create [schedules]({{@link schedules.md}}) and [webhooks]({{@link webhooks.md}}) under your account and use those to run these actors.
 
-As the names suggest, the checkers make sure your data is up to standard. Reporters create visualizations of how your data progress over time and send [notifications](#notofications) about failed runs.
+As the names suggest, the checkers make sure your data is up to standard. Reporters create visualizations of how your actors perform over time and send [notifications](#notofications) about failed runs.
+
+![Monitoring dashboard]({{@asset monitoring/images/monitoring-dashboard.png}})
 
 ## [](#how-much-does-it-cost) How much does it cost?
 
