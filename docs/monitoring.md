@@ -64,7 +64,7 @@ The suite will send notifications to the [email address associated with your acc
 
 You can disable email notifications or change the email address in a task **Input**'s **Email notifications** section.
 
-[Customize notifications]({{@asset monitoring/images/customize-notifications.png}})
+![Customize notifications]({{@asset monitoring/images/customize-notifications.png}})
 
 If you use [Slack](https://slack.com/), we suggest you using Slack notifications instead of email.
 
@@ -72,6 +72,6 @@ If you use [Slack](https://slack.com/), we suggest you using Slack notifications
 
 Below is an example of an email notification for a task run that did not return enough results.
 
-[Failed run example]({{@asset monitoring/images/puppies-failed-run.png}})
+![Failed run example]({{@asset monitoring/images/puppies-failed-run.png}})
 
 To see what went wrong, click on the **time** next to **Actor run** to open your task's **Runs** dashboard. When you click on **Details**, you'll find a detailed monitoring report in JSON format.
