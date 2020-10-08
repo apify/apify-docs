@@ -19,7 +19,7 @@ You need:
 
 - Data to always be in the [correct format](#validate-data).
 - Alerts if items are [duplicated](#check-for-duplicates).
-- [Notification]({{@link monitoring.md#notifications}}) when your scheduled run finishes successfully.
+- [Notification]({{@link monitoring.md#notifications}}) when your scheduled run times out or fails.
 - [Data visualization](#set-up-data-visualization) on a simple dashboard.
 
 Let's say you're using the **Amazon Crawler** ([vaclavrut/amazon-crawler](https://apify.com/vaclavrut/amazon-crawler)) from [Apify Store](https://apify.com/store) to get daily **iPhone X** offers.
