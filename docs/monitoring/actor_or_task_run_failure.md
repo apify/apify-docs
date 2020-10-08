@@ -69,7 +69,7 @@ Finally, click the **Save & Run** button and you're done.
 
 From now on, you will get a [notification]({{@link monitoring.md#example-of-a-failed-run}}) to your account's email every time your `puppies-from-instagram` task doesn't succeed or returns fewer than 100 items.
 
-[Failed run example]({{@asset monitoring/images/puppies-failed-run.png}})
+![Failed run example]({{@asset monitoring/images/puppies-failed-run.png}})
 
 
 

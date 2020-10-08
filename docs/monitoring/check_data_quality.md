@@ -50,7 +50,7 @@ If you have already added the task, under its **Settings** tab, give it a name. 
 
 This is what the configuration should look like:
 
-[Task configuration - input]({{@asset monitoring/images/iphone-task.png}})
+![Task configuration - input]({{@asset monitoring/images/iphone-task.png}})
 
 ## [](#validate-data) Validate data
 
@@ -60,7 +60,7 @@ Let's say you need each item to always have properties such as `title`, `ASIN`, 
 
 2. In the **Validation options** field, create an [object](https://javascript.info/object) containing a `schema` key. As its value, set an object specifying the format of each of the properties you want to validate.
 
-[Task configuration - validate data]({{@asset monitoring/images/iphone-validate-data.png}})
+![Task configuration - validate data]({{@asset monitoring/images/iphone-validate-data.png}})
 
 The monitoring suite uses the [ow](https://www.npmjs.com/package/ow) library for type validation. Make sure to import the library using `/* global ow */`.
 
@@ -72,13 +72,13 @@ The monitoring suite uses the [ow](https://www.npmjs.com/package/ow) library for
 
 2. Set the **Unique keys** field to `asin` to make sure all the ASIN properties are unique.
 
-[Task configuration - check for duplicates]({{@asset monitoring/images/iphone-check-duplicates.png}})
+![Task configuration - check for duplicates]({{@asset monitoring/images/iphone-check-duplicates.png}})
 
 ## [](#set-up-data-visualization) Set up data visualization
 
 In the **Statistics dashboard** section, check the **Enable dashboard** option to activate data visualization.
 
-[Task configuration - visualization]({{@asset monitoring/images/enable-dashboard.png}})
+![Task configuration - visualization]({{@asset monitoring/images/enable-dashboard.png}})
 
 Finally, click the **Save & Run** button. It will create a monitoring configuration and turn the monitoring ON.
 
@@ -90,6 +90,6 @@ Here, you can see the result statuses of your monitored tasks and filter them by
 
 This is what your dashboard can look like after some time:
 
-[Monitoring dashboard]({{@asset monitoring/images/monitoring-dashboard.png}})
+![Monitoring dashboard]({{@asset monitoring/images/monitoring-dashboard.png}})
 
 

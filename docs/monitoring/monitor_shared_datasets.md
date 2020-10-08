@@ -27,15 +27,15 @@ For this use case, we will imagine you want to scrape fresh jokes from two websi
 
 You created two tasks from **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)) and set them to save the results in the desired dataset. Next, you need to test (validate / verify) your data to make sure it fits your needs. To avoid creating separate software that will do this, you can use our [monitoring suite](https://apify.com/apify/monitoring).
 
-[Joke tasks]({{@asset monitoring/images/joke-scraper-tasks.png}})
+![Joke tasks]({{@asset monitoring/images/joke-scraper-tasks.png}})
 
 Each of the above tasks handles a different website. After the tasks finish successfully, they call the monitoring actor using a [webhook]({{@link webhooks.md}}) that handles the data aggregation.
 
-[Joke schedule]({{@asset monitoring/images/joke-schedule.png}})
+![Joke schedule]({{@asset monitoring/images/joke-schedule.png}})
 
 The two extraction tasks are [scheduled]({{@link schedules.md}}) to run every day using the `@daily` [cron](https://crontab.guru) expression. They produce a new named dataset each day. The [naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming)) for the dataset is `DAILY-JOKES-<DateOfTheDay>`.
 
-[Joke storage]({{@asset monitoring/images/joke-storage.png}})
+![Joke storage]({{@asset monitoring/images/joke-storage.png}})
 
 Now, to the monitoring part. For this tutorial, let's skip the monitoring of the tasks and jump right to the the dataset.
 
@@ -65,7 +65,7 @@ Next, we will configure the monitoring suite.
 
 Your configuration will look like this:
 
-[Monitoring configuration]({{@asset monitoring/images/joke-monitoring-config.png}})
+![Monitoring configuration]({{@asset monitoring/images/joke-monitoring-config.png}})
 
 ## [](#validate-data) Validate data
 
@@ -77,7 +77,7 @@ Now, let's ensure that your jokes are in the correct form. Each joke's dataset i
 
 3. Make sure you set **Validation frequency** to something other than **Per run** because datasets don't have runs. You can use [natural language cron expressions](https://github.com/darkeyedevelopers/natural-cron.js), so in this instance, you can set frequency to **Every day at noon**.
 
-[Monitoring dashboard configuration - validate]({{@asset monitoring/images/joke-validate-schema.png}})
+![Monitoring dashboard configuration - validate]({{@asset monitoring/images/joke-validate-schema.png}})
 
 The monitoring suite uses the [ow](https://www.npmjs.com/package/ow) library for type validation. Make sure to import the library using `/* global ow */`.
 
@@ -89,10 +89,10 @@ The monitoring suite uses the [ow](https://www.npmjs.com/package/ow) library for
 
 3. Just like with validation frequency, set the **Check frequency** to something other than **Per run** (check step 3 for tips).
 
-[Monitoring duplication configuration]({{@asset monitoring/images/joke-duplicates.png}})
+![Monitoring duplication configuration]({{@asset monitoring/images/joke-duplicates.png}})
 
 ## [](#set-up-data-visualization) Set up data visualization
 
 You can configure data visualization in the **Statistics dashboard** section. To enable it, check the **Enable dashboard** option.
 
-[Enable monitoring dashboard]({{@asset monitoring/images/enable-dashboard.png}})
+![Enable monitoring dashboard]({{@asset monitoring/images/enable-dashboard.png}})
