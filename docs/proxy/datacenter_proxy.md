@@ -81,7 +81,7 @@ Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or
 
 ## [](#session-persistence) Session persistence
 
-When you use datacenter proxy with the `session` parameter set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
+When you use datacenter proxy with the `session` [parameter]({{@link proxy.md#sessions}}) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
 
 This IP/session ID combination persists and expires 24 hours later. Each additional request resets the expiration time to 24 hours.
 
