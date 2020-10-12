@@ -15,7 +15,7 @@ Below are the HTTP proxy connection settings for Apify Proxy.
 | Proxy type     | `HTTP`              |
 | Hostname       | `proxy.apify.com`   |
 | Port           | `8000`              |
-| Username       | Specifies the proxy parameters such as groups, session and location. <br/>See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username. |
+| Username       | Specifies the proxy parameters such as groups, [session]({{@link proxy.md#sessions}}) and location. <br/>See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username. |
 | Password       | Proxy password. Your password is displayed on the [Proxy](https://my.apify.com/proxy) page in the Apify app. <br/>In Apify actors, it is passed as the `APIFY_PROXY_PASSWORD` <br/>environment variable.<br/>See the [documentation]({{@link actors/development/environment_variables.md}}) for more details. |
 | Connection URL | `http://<username>:<password>@proxy.apify.com:8000`|
 
@@ -23,7 +23,7 @@ Below are the HTTP proxy connection settings for Apify Proxy.
 
 ## [](#username-parameters) Username parameters
 
-The `username` field enables you to pass parameters like group, session ID and country for your proxy connection.
+The `username` field enables you to pass parameters like group, [session]({{@link proxy.md#sessions}}) ID and country for your proxy connection.
 
 For example, if you're using [datacenter proxies]({{@link proxy/datacenter_proxy.md}}) and want to use the `new_job_123` session using the `SHADER` group, the username will be:
 
