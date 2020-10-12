@@ -301,7 +301,6 @@ Set a session and select an IP from the `BUYPROXIES94952` group geolocated in th
 groups-BUYPROXIES94952,session-new_job_123,country-US
 ```
 
-
 ## [](#using-standard-libraries-and-languages) Using standard libraries and languages
 
 You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
