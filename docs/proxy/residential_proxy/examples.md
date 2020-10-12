@@ -48,10 +48,10 @@ const httpsAgent = new HttpsProxyAgent({
     auth: "groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>"
 });
 
-axiosHttpsAgent = axios.create({ httpsAgent });
+const axiosWithProxy = axios.create({ httpsAgent });
 
 async function useProxy() {
-    const response = await axiosHttpsAgent.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosWithProxy.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 useProxy();
@@ -160,10 +160,10 @@ const httpsAgent = new HttpsProxyAgent({
     auth: `${username}:<YOUR_PROXY_PASSWORD>`
 });
 
-axiosHttpsAgent = axios.create({ httpsAgent });
+const axiosWithProxy = axios.create({ httpsAgent });
 
 async function useProxy() {
-    const response = await axiosHttpsAgent.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosWithProxy.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 
@@ -307,10 +307,10 @@ const httpsAgent = new HttpsProxyAgent({
     auth: `${username}:<YOUR_PROXY_PASSWORD>`
 });
 
-axiosHttpsAgent = axios.create({ httpsAgent });
+const axiosWithProxy = axios.create({ httpsAgent });
 
 async function useProxy() {
-    const response = await axiosHttpsAgent.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosWithProxy.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
 
