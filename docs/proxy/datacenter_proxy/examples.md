@@ -17,398 +17,6 @@ If you are building your own Apify [actor]({{@link actors.md}}), below are [exam
 
 See the [connection settings]({{@link proxy/connection_settings.md}}) page for connection parameters.
 
-## [](#using-standard-libraries-and-languages) Using standard libraries and languages
-
-You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
-
-> The `username` field is **not** your Apify username.<br/>
-> Instead, you specify proxy settings (e.g. `groups-SHADER+BUYPROXIES94952`, `session-123`).<br/>
-> Use `auto` for default settings.
-
-For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
-
-Examples in [Python 2](https://www.python.org/download/releases/2.0/) use the [six](https://pypi.org/project/six/) library. Run `pip install six` to enable it.
-
-### [](#single-request-with-a-random-ip-address) Single request with a random IP address
-
-The IP address is chosen from all available proxy groups.
-
-Select this option by setting the `username` parameter to `auto`.
-
-```marked-tabs
-<marked-tab header="Node.js (axios)" lang="javascript">
-const HttpsProxyAgent = require("https-proxy-agent");
-const axios = require("axios");
-
-const httpsAgent = new HttpsProxyAgent({
-    host: "proxy.apify.com",
-    port: "8000",
-    // Replace <YOUR_PROXY_PASSWORD> below with your password
-    // found at https://my.apify.com/proxy
-    auth: "auto:<YOUR_PROXY_PASSWORD>"
-});
-
-const axiosWithProxy = axios.create({ httpsAgent });
-
-async function useProxy() {
-    const response = await axiosWithProxy.get("https://api.apify.com/v2/browser-info");
-    console.log(response.data);
-};
-useProxy();
-</marked-tab>
-
-
-<marked-tab header="Node.js (got)" lang="javascript">
-const got = require("got");
-const HttpsProxyAgent = require("https-proxy-agent");
-
-// Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://my.apify.com/proxy
-const proxyUrl = "http://auto:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
-
-async function useProxy() {
-    const response = await got("https://api.apify.com/v2/browser-info", {
-        agent: {
-            https: new HttpsProxyAgent(proxyUrl),
-        }
-    });
-    console.log(response.body);
-};
-
-useProxy();
-</marked-tab>
-
-
-<marked-tab header="Python 3" lang="python">
-import urllib.request as request
-import ssl
-
-# Replace <YOUR_PROXY_PASSWORD> below with your password
-# found at https://my.apify.com/proxy
-password = "<YOUR_PROXY_PASSWORD>"
-proxy_url = f"http://auto:{password}@proxy.apify.com:8000"
-proxy_handler = request.ProxyHandler({
-    "http": proxy_url,
-    "https": proxy_url,
-})
-
-ctx = ssl.create_default_context()
-ctx.check_hostname = False
-ctx.verify_mode = ssl.CERT_NONE
-httpHandler = request.HTTPSHandler(context=ctx)
-
-opener = request.build_opener(httpHandler,proxy_handler)
-print(opener.open("https://api.apify.com/v2/browser-info").read())
-</marked-tab>
-
-
-<marked-tab header="Python 2" lang="python">
-import six
-from six.moves.urllib import request
-
-# Replace <YOUR_PROXY_PASSWORD> below with your password
-# found at https://my.apify.com/proxy
-password = "<YOUR_PROXY_PASSWORD>"
-proxy_url = (
-    "http://auto:%s@proxy.apify.com:8000" %
-    (password)
-)
-proxy_handler = request.ProxyHandler({
-    "http": proxy_url,
-    "https": proxy_url,
-})
-opener = request.build_opener(proxy_handler)
-print(opener.open("https://api.apify.com/v2/browser-info").read())
-</marked-tab>
-
-
-<marked-tab header="PHP" lang="php">
-<?php
-$curl = curl_init("https://api.apify.com/v2/browser-info");
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($curl, CURLOPT_PROXY, "http://proxy.apify.com:8000");
-// Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://my.apify.com/proxy
-curl_setopt($curl, CURLOPT_PROXYUSERPWD, "auto:<YOUR_PROXY_PASSWORD>");
-$response = curl_exec($curl);
-curl_close($curl);
-if ($response) echo $response;
-?>
-</marked-tab>
-```
-
-### [](#two-requests-with-the-same-ip-address) Two requests with the same IP address
-
-The IP address is chosen at random from all available proxy groups.
-
-To use this option, set a session name in the `username` parameter.
-
-```marked-tabs
-<marked-tab header="Node.js (axios)" lang="javascript">
-const HttpsProxyAgent = require("https-proxy-agent");
-const axios = require("axios");
-
-const httpsAgent = new HttpsProxyAgent({
-    host: "proxy.apify.com",
-    port: "8000",
-    // Replace <YOUR_PROXY_PASSWORD> below with your password
-    // found at https://my.apify.com/proxy
-    auth: "session-my_session:<YOUR_PROXY_PASSWORD>"
-});
-
-const axiosWithProxy = axios.create({ httpsAgent });
-
-async function useProxy() {
-    const response = await axiosWithProxy.get("https://api.apify.com/v2/browser-info");
-    console.log(response.data);
-};
-useProxy();
-// Should return the same clientIp as
-useProxy();
-</marked-tab>
-
-
-<marked-tab header="Node.js (got)" lang="javascript">
-const got = require("got");
-const HttpsProxyAgent = require("https-proxy-agent");
-
-// Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://my.apify.com/proxy
-const proxyUrl = "http://session-my_session:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
-
-async function useProxy() {
-    const response = await got("https://api.apify.com/v2/browser-info", {
-        agent: {
-            https: new HttpsProxyAgent(proxyUrl),
-        }
-    });
-    console.log(response.body);
-};
-
-useProxy();
-// Should return the same clientIp as
-useProxy();
-</marked-tab>
-
-
-<marked-tab header="Python 3" lang="python">
-import urllib.request as request
-import ssl
-
-def do_request():
-    # Replace <YOUR_PROXY_PASSWORD> below with your password
-    # found at https://my.apify.com/proxy
-    password = "<YOUR_PROXY_PASSWORD>"
-    proxy_url = f"http://session-my_session:{password}@proxy.apify.com:8000"
-    proxy_handler = request.ProxyHandler({
-        "http": proxy_url,
-        "https": proxy_url,
-    })
-
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
-    httpHandler = request.HTTPSHandler(context=ctx)
-
-    opener = request.build_opener(httpHandler,proxy_handler)
-    return opener.open("https://api.apify.com/v2/browser-info").read()
-
-print(do_request())
-print("Should return the same clientIp as ")
-print(do_request())
-</marked-tab>
-
-
-<marked-tab header="Python 2" lang="python">
-import six
-from six.moves.urllib import request
-import ssl
-
-def do_request():
-    # Replace <YOUR_PROXY_PASSWORD> below with your password
-    # found at https://my.apify.com/proxy
-    password = "<YOUR_PROXY_PASSWORD>"
-    proxy_url = (
-        "http://session-my_session:%s@proxy.apify.com:8000" %
-        (password)
-    )
-    proxy_handler = request.ProxyHandler({
-        "http": proxy_url,
-        "https": proxy_url,
-    })
-
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
-    httpHandler = request.HTTPSHandler(context=ctx)
-
-    opener = request.build_opener(httpHandler,proxy_handler)
-    return opener.open("https://api.apify.com/v2/browser-info").read()
-
-print(do_request())
-print("Should return the same clientIp as ")
-print(do_request())
-</marked-tab>
-
-
-<marked-tab header="PHP" lang="php">
-<?php
-function doRequest() {
-    $curl = curl_init("https://api.apify.com/v2/browser-info");
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($curl, CURLOPT_PROXY, "http://proxy.apify.com:8000");
-    // Replace <YOUR_PROXY_PASSWORD> below with your password
-    // found at https://my.apify.com/proxy
-    curl_setopt($curl, CURLOPT_PROXYUSERPWD, "session-my_session:<YOUR_PROXY_PASSWORD>");
-    $response = curl_exec($curl);
-    curl_close($curl);
-    return $response;
-}
-$response1 = doRequest();
-$response2 = doRequest();
-echo $response1;
-echo "\nShould be contain same clientIp as\n";
-echo $response2;
-?>
-</marked-tab>
-```
-
-### [](#two-requests-with-different-ip-addresses) Two requests with different IP addresses
-
-The IP addresses are chosen from the `SHADER` and `BUYPROXIES94952` proxy groups, however you don't have to specify proxy groups to use different IPs.
-
-Specify proxy groups in the `username` parameter.
-
-```marked-tabs
-<marked-tab header="Node.js (axios)" lang="javascript">
-const HttpsProxyAgent = require("https-proxy-agent");
-const axios = require("axios");
-
-const httpsAgent = new HttpsProxyAgent({
-    host: "proxy.apify.com",
-    port: "8000",
-    // Replace <YOUR_PROXY_PASSWORD> below with your password
-    // found at https://my.apify.com/proxy
-    auth: "groups-SHADER+BUYPROXIES94952:<YOUR_PROXY_PASSWORD>"
-});
-
-const axiosWithProxy = axios.create({ httpsAgent });
-
-async function useProxy() {
-    const response = await axiosWithProxy.get("https://api.apify.com/v2/browser-info");
-    console.log(response.data)
-};
-useProxy();
-// Should return a different clientIp than
-useProxy();
-</marked-tab>
-
-
-<marked-tab header="Node.js (got)" lang="javascript">
-const got = require("got");
-const HttpsProxyAgent = require("https-proxy-agent");
-
-// Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://my.apify.com/proxy
-const proxyUrl = "http://groups-SHADER+BUYPROXIES94952:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
-
-async function useProxy() {
-    const response = await got("https://api.apify.com/v2/browser-info", {
-        agent: {
-            https: new HttpsProxyAgent(proxyUrl),
-        }
-    });
-    console.log(response.body);
-};
-useProxy();
-// Should return a different clientIp than
-useProxy();
-</marked-tab>
-
-
-<marked-tab header="Python 3" lang="python">
-import urllib.request as request
-import ssl
-
-def do_request():
-    # Replace <YOUR_PROXY_PASSWORD> below with your password
-    # found at https://my.apify.com/proxy
-    password = "<YOUR_PROXY_PASSWORD>"
-    proxy_url = f"http://groups-SHADER+BUYPROXIES94952:{password}@proxy.apify.com:8000"
-    proxy_handler = request.ProxyHandler({
-        "http": proxy_url,
-        "https": proxy_url,
-    })
-
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
-    httpHandler = request.HTTPSHandler(context=ctx)
-
-    opener = request.build_opener(httpHandler,proxy_handler)
-    return opener.open("https://api.apify.com/v2/browser-info").read()
-
-print(do_request())
-print("Should return a different clientIp than ")
-print(do_request())
-</marked-tab>
-
-
-<marked-tab header="Python 2" lang="python">
-import six
-from six.moves.urllib import request
-import ssl
-
-def do_request():
-    # Replace <YOUR_PROXY_PASSWORD> below with your password
-    # found at https://my.apify.com/proxy
-    password = "<YOUR_PROXY_PASSWORD>"
-    proxy_url = (
-        "http://groups-SHADER+BUYPROXIES94952:%s@proxy.apify.com:8000" %
-        (password)
-    )
-
-    proxy_handler = request.ProxyHandler({
-        "http": proxy_url,
-        "https": proxy_url,
-    })
-
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
-    httpHandler = request.HTTPSHandler(context=ctx)
-
-    opener = request.build_opener(httpHandler,proxy_handler)
-    return opener.open("https://api.apify.com/v2/browser-info").read()
-
-print(do_request())
-print("Should return a different clientIp than ")
-print(do_request())
-</marked-tab>
-
-
-<marked-tab header="PHP" lang="php">
-<?php
-function doRequest() {
-    $curl = curl_init("https://api.apify.com/v2/browser-info");
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($curl, CURLOPT_PROXY, "http://proxy.apify.com:8000");
-    // Replace <YOUR_PROXY_PASSWORD> below with your password
-    // found at https://my.apify.com/proxy
-    curl_setopt($curl, CURLOPT_PROXYUSERPWD, "groups-SHADER+BUYPROXIES94952:<YOUR_PROXY_PASSWORD>");
-    $response = curl_exec($curl);
-    curl_close($curl);
-    return $response;
-}
-$response1 = doRequest();
-$response2 = doRequest();
-echo $response1;
-echo "\nShould have different clientIp than\n";
-echo $response2;
-?>
-</marked-tab>
-```
-
 ## [](#using-the-apify-sdk) Using the Apify SDK
 
 If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you can use Apify Proxy in:
@@ -691,4 +299,261 @@ Set a session and select an IP from the `BUYPROXIES94952` group geolocated in th
 
 ```
 groups-BUYPROXIES94952,session-new_job_123,country-US
+```
+
+
+## [](#using-standard-libraries-and-languages) Using standard libraries and languages
+
+You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
+
+> The `username` field is **not** your Apify username.<br/>
+> Instead, you specify proxy settings (e.g. `groups-SHADER+BUYPROXIES94952`, `session-123`).<br/>
+> Use `auto` for default settings.
+
+For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
+
+Examples in [Python 2](https://www.python.org/download/releases/2.0/) use the [six](https://pypi.org/project/six/) library. Run `pip install six` to enable it.
+
+### [](#requests-with-random-ip-addresses) Requests with random IP addresses
+
+For each request, a random IP address is chosen from all [available proxy groups](https://my.apify.com/proxy). You can also use random IP addresses from proxy groups by specifying the group(s) in the `username` parameter.
+
+A random IP address will be used for each request.
+
+```marked-tabs
+<marked-tab header="Node.js (axios)" lang="javascript">
+const HttpsProxyAgent = require("https-proxy-agent");
+const axios = require("axios");
+
+const httpsAgent = new HttpsProxyAgent({
+    host: "proxy.apify.com",
+    port: "8000",
+    // Replace <YOUR_PROXY_PASSWORD> below with your password
+    // found at https://my.apify.com/proxy
+    auth: "auto:<YOUR_PROXY_PASSWORD>"
+});
+
+const axiosWithProxy = axios.create({ httpsAgent });
+
+async function useProxy() {
+    const response = await axiosWithProxy.get("https://api.apify.com/v2/browser-info");
+    console.log(response.data);
+};
+useProxy();
+</marked-tab>
+
+
+<marked-tab header="Node.js (got)" lang="javascript">
+const got = require("got");
+const HttpsProxyAgent = require("https-proxy-agent");
+
+// Replace <YOUR_PROXY_PASSWORD> below with your password
+// found at https://my.apify.com/proxy
+const proxyUrl = "http://auto:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
+
+async function useProxy() {
+    const response = await got("https://api.apify.com/v2/browser-info", {
+        agent: {
+            https: new HttpsProxyAgent(proxyUrl),
+        }
+    });
+    console.log(response.body);
+};
+
+useProxy();
+</marked-tab>
+
+
+<marked-tab header="Python 3" lang="python">
+import urllib.request as request
+import ssl
+
+# Replace <YOUR_PROXY_PASSWORD> below with your password
+# found at https://my.apify.com/proxy
+password = "<YOUR_PROXY_PASSWORD>"
+proxy_url = f"http://auto:{password}@proxy.apify.com:8000"
+proxy_handler = request.ProxyHandler({
+    "http": proxy_url,
+    "https": proxy_url,
+})
+
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+httpHandler = request.HTTPSHandler(context=ctx)
+
+opener = request.build_opener(httpHandler,proxy_handler)
+print(opener.open("https://api.apify.com/v2/browser-info").read())
+</marked-tab>
+
+
+<marked-tab header="Python 2" lang="python">
+import six
+from six.moves.urllib import request
+
+# Replace <YOUR_PROXY_PASSWORD> below with your password
+# found at https://my.apify.com/proxy
+password = "<YOUR_PROXY_PASSWORD>"
+proxy_url = (
+    "http://auto:%s@proxy.apify.com:8000" %
+    (password)
+)
+proxy_handler = request.ProxyHandler({
+    "http": proxy_url,
+    "https": proxy_url,
+})
+opener = request.build_opener(proxy_handler)
+print(opener.open("https://api.apify.com/v2/browser-info").read())
+</marked-tab>
+
+
+<marked-tab header="PHP" lang="php">
+<?php
+$curl = curl_init("https://api.apify.com/v2/browser-info");
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl, CURLOPT_PROXY, "http://proxy.apify.com:8000");
+// Replace <YOUR_PROXY_PASSWORD> below with your password
+// found at https://my.apify.com/proxy
+curl_setopt($curl, CURLOPT_PROXYUSERPWD, "auto:<YOUR_PROXY_PASSWORD>");
+$response = curl_exec($curl);
+curl_close($curl);
+if ($response) echo $response;
+?>
+</marked-tab>
+```
+
+### [](#multiple-requests-with-the-same-ip-address) Multiple requests with the same IP address
+
+The IP address in the example is chosen at random from all available proxy groups.
+
+To use this option, set a session name in the `username` parameter.
+
+```marked-tabs
+<marked-tab header="Node.js (axios)" lang="javascript">
+const HttpsProxyAgent = require("https-proxy-agent");
+const axios = require("axios");
+
+const httpsAgent = new HttpsProxyAgent({
+    host: "proxy.apify.com",
+    port: "8000",
+    // Replace <YOUR_PROXY_PASSWORD> below with your password
+    // found at https://my.apify.com/proxy
+    auth: "session-my_session:<YOUR_PROXY_PASSWORD>"
+});
+
+const axiosWithProxy = axios.create({ httpsAgent });
+
+async function useProxy() {
+    const response = await axiosWithProxy.get("https://api.apify.com/v2/browser-info");
+    console.log(response.data);
+};
+useProxy();
+// Should return the same clientIp as
+useProxy();
+</marked-tab>
+
+
+<marked-tab header="Node.js (got)" lang="javascript">
+const got = require("got");
+const HttpsProxyAgent = require("https-proxy-agent");
+
+// Replace <YOUR_PROXY_PASSWORD> below with your password
+// found at https://my.apify.com/proxy
+const proxyUrl = "http://session-my_session:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
+
+async function useProxy() {
+    const response = await got("https://api.apify.com/v2/browser-info", {
+        agent: {
+            https: new HttpsProxyAgent(proxyUrl),
+        }
+    });
+    console.log(response.body);
+};
+
+useProxy();
+// Should return the same clientIp as
+useProxy();
+</marked-tab>
+
+
+<marked-tab header="Python 3" lang="python">
+import urllib.request as request
+import ssl
+
+def do_request():
+    # Replace <YOUR_PROXY_PASSWORD> below with your password
+    # found at https://my.apify.com/proxy
+    password = "<YOUR_PROXY_PASSWORD>"
+    proxy_url = f"http://session-my_session:{password}@proxy.apify.com:8000"
+    proxy_handler = request.ProxyHandler({
+        "http": proxy_url,
+        "https": proxy_url,
+    })
+
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    httpHandler = request.HTTPSHandler(context=ctx)
+
+    opener = request.build_opener(httpHandler,proxy_handler)
+    return opener.open("https://api.apify.com/v2/browser-info").read()
+
+print(do_request())
+print("Should return the same clientIp as ")
+print(do_request())
+</marked-tab>
+
+
+<marked-tab header="Python 2" lang="python">
+import six
+from six.moves.urllib import request
+import ssl
+
+def do_request():
+    # Replace <YOUR_PROXY_PASSWORD> below with your password
+    # found at https://my.apify.com/proxy
+    password = "<YOUR_PROXY_PASSWORD>"
+    proxy_url = (
+        "http://session-my_session:%s@proxy.apify.com:8000" %
+        (password)
+    )
+    proxy_handler = request.ProxyHandler({
+        "http": proxy_url,
+        "https": proxy_url,
+    })
+
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    httpHandler = request.HTTPSHandler(context=ctx)
+
+    opener = request.build_opener(httpHandler,proxy_handler)
+    return opener.open("https://api.apify.com/v2/browser-info").read()
+
+print(do_request())
+print("Should return the same clientIp as ")
+print(do_request())
+</marked-tab>
+
+
+<marked-tab header="PHP" lang="php">
+<?php
+function doRequest() {
+    $curl = curl_init("https://api.apify.com/v2/browser-info");
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_PROXY, "http://proxy.apify.com:8000");
+    // Replace <YOUR_PROXY_PASSWORD> below with your password
+    // found at https://my.apify.com/proxy
+    curl_setopt($curl, CURLOPT_PROXYUSERPWD, "session-my_session:<YOUR_PROXY_PASSWORD>");
+    $response = curl_exec($curl);
+    curl_close($curl);
+    return $response;
+}
+$response1 = doRequest();
+$response2 = doRequest();
+echo $response1;
+echo "\nShould be contain same clientIp as\n";
+echo $response2;
+?>
+</marked-tab>
 ```
