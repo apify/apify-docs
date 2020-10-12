@@ -52,7 +52,7 @@ axiosHttpsAgent = axios.create({ httpsAgent });
 
 async function useProxy() {
     const response = await axiosHttpsAgent.get("https://api.apify.com/v2/browser-info");
-    console.log(response.data)
+    console.log(response.data);
 };
 useProxy();
 </marked-tab>
@@ -60,7 +60,6 @@ useProxy();
 
 <marked-tab header="Node.js (got)" lang="javascript">
 const got = require("got");
-const HttpProxyAgent = require("http-proxy-agent");
 const HttpsProxyAgent = require("https-proxy-agent");
 
 // Replace <YOUR_PROXY_PASSWORD> below with your password
@@ -70,11 +69,10 @@ const proxyUrl = "http://auto:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 async function useProxy() {
     const response = await got("https://api.apify.com/v2/browser-info", {
         agent: {
-            http: new HttpProxyAgent(proxyUrl),
-            https: new HttpsProxyAgent(proxyUrl)
+            https: new HttpsProxyAgent(proxyUrl),
         }
     });
-    console.log(response.body)
+    console.log(response.body);
 };
 
 useProxy();
@@ -162,7 +160,7 @@ axiosHttpsAgent = axios.create({ httpsAgent });
 
 async function useProxy() {
     const response = await axiosHttpsAgent.get("https://api.apify.com/v2/browser-info");
-    console.log(response.data)
+    console.log(response.data);
 };
 useProxy();
 // Should return the same clientIp as
@@ -172,7 +170,6 @@ useProxy();
 
 <marked-tab header="Node.js (got)" lang="javascript">
 const got = require("got");
-const HttpProxyAgent = require("http-proxy-agent");
 const HttpsProxyAgent = require("https-proxy-agent");
 
 // Replace <YOUR_PROXY_PASSWORD> below with your password
@@ -182,11 +179,10 @@ const proxyUrl = "http://session-my_session:<YOUR_PROXY_PASSWORD>@proxy.apify.co
 async function useProxy() {
     const response = await got("https://api.apify.com/v2/browser-info", {
         agent: {
-            http: new HttpProxyAgent(proxyUrl),
-            https: new HttpsProxyAgent(proxyUrl)
+            https: new HttpsProxyAgent(proxyUrl),
         }
     });
-    console.log(response.body)
+    console.log(response.body);
 };
 
 useProxy();
@@ -310,7 +306,6 @@ useProxy();
 
 <marked-tab header="Node.js (got)" lang="javascript">
 const got = require("got");
-const HttpProxyAgent = require("http-proxy-agent");
 const HttpsProxyAgent = require("https-proxy-agent");
 
 // Replace <YOUR_PROXY_PASSWORD> below with your password
@@ -320,11 +315,10 @@ const proxyUrl = "http://groups-SHADER+BUYPROXIES94952:<YOUR_PROXY_PASSWORD>@pro
 async function useProxy() {
     const response = await got("https://api.apify.com/v2/browser-info", {
         agent: {
-            http: new HttpProxyAgent(proxyUrl),
-            https: new HttpsProxyAgent(proxyUrl)
+            https: new HttpsProxyAgent(proxyUrl),
         }
     });
-    console.log(response.body)
+    console.log(response.body);
 };
 useProxy();
 // Should return a different clientIp than

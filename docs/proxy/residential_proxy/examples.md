@@ -60,7 +60,6 @@ useProxy();
 
 <marked-tab header="Node.js (got)" lang="javascript">
 const got = require("got");
-const HttpProxyAgent = require("http-proxy-agent");
 const HttpsProxyAgent = require("https-proxy-agent");
 
 // Replace <YOUR_PROXY_PASSWORD> below with your password
@@ -70,11 +69,10 @@ const proxyUrl = "http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.co
 async function useProxy() {
     const response = await got("https://api.apify.com/v2/browser-info", {
         agent: {
-            http: new HttpProxyAgent(proxyUrl),
-            https: new HttpsProxyAgent(proxyUrl)
+            https: new HttpsProxyAgent(proxyUrl),
         }
     });
-    console.log(response.body)
+    console.log(response.body);
 };
 
 useProxy();
@@ -177,7 +175,6 @@ useProxy();
 
 <marked-tab header="Node.js (got)" lang="javascript">
 const got = require("got");
-const HttpProxyAgent = require("http-proxy-agent");
 const HttpsProxyAgent = require("https-proxy-agent");
 
 const username = "groups-RESIDENTIAL,session-my_session,country-JP";
@@ -189,11 +186,10 @@ const proxyUrl = `${username}:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000`;
 async function useProxy() {
     const response = await got("https://api.apify.com/v2/browser-info", {
         agent: {
-            http: new HttpProxyAgent(proxyUrl),
-            https: new HttpsProxyAgent(proxyUrl)
+            https: new HttpsProxyAgent(proxyUrl),
         }
     });
-    console.log(response.body)
+    console.log(response.body);
 };
 
 useProxy();
@@ -326,7 +322,6 @@ useProxy();
 
 <marked-tab header="Node.js (got)" lang="javascript">
 const got = require("got");
-const HttpProxyAgent = require("http-proxy-agent");
 const HttpsProxyAgent = require("https-proxy-agent");
 
 const username = "groups-RESIDENTIAL,country-US";
@@ -338,11 +333,10 @@ const proxyUrl = `${username}:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000`;
 async function useProxy() {
     const response = await got("https://api.apify.com/v2/browser-info", {
         agent: {
-            http: new HttpProxyAgent(proxyUrl),
-            https: new HttpsProxyAgent(proxyUrl)
+            https: new HttpsProxyAgent(proxyUrl),
         }
     });
-    console.log(response.body)
+    console.log(response.body);
 };
 
 useProxy();
