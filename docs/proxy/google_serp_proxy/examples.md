@@ -63,7 +63,6 @@ useProxy();
 
 <marked-tab header="Node.js (got)" lang="javascript">
 const got = require("got");
-const HttpProxyAgent = require("http-proxy-agent");
 const HttpsProxyAgent = require("https-proxy-agent");
 
 // Replace <YOUR_PROXY_PASSWORD> below with your password
@@ -76,11 +75,10 @@ const query = `q=${encodeURIComponent('wikipedia')}`;
 async function useProxy() {
     const response = await got(`http://www.google.com/search?${query}`, {
         agent: {
-            http: new HttpProxyAgent(proxyUrl),
-            https: new HttpsProxyAgent(proxyUrl)
+            https: new HttpsProxyAgent(proxyUrl),
         }
     });
-    console.log(response.body)
+    console.log(response.body);
 };
 
 useProxy();
@@ -183,7 +181,6 @@ useProxy();
 
 <marked-tab header="Node.js (got)" lang="javascript">
 const got = require("got");
-const HttpProxyAgent = require("http-proxy-agent");
 const HttpsProxyAgent = require("https-proxy-agent");
 
 // Replace <YOUR_PROXY_PASSWORD> below with your password
@@ -196,11 +193,10 @@ const query = `q=${encodeURIComponent('Apple iPhone XS 64GB')}`;
 async function useProxy() {
     const response = await got(`http://www.google.co.uk/search?${query}tbm=${'shop'}`, {
         agent: {
-            http: new HttpProxyAgent(proxyUrl),
-            https: new HttpsProxyAgent(proxyUrl)
+            https: new HttpsProxyAgent(proxyUrl),
         }
     });
-    console.log(response.body)
+    console.log(response.body);
 };
 
 useProxy();
