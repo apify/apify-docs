@@ -209,7 +209,7 @@ const httpsAgent = new HttpsProxyAgent({
 const axiosWithProxy = axios.create({ httpsAgent });
 
 async function useProxy() {
-    const response = await axiosWithProxy.get("https://api.apify.com/v2/browser-info");
+    const response = await axiosWithProxy.get("https://proxy.apify.com/?format=json");
     console.log(response.data)
 };
 
@@ -226,7 +226,7 @@ const HttpsProxyAgent = require("https-proxy-agent");
 const proxyUrl = "http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000";
 
 async function useProxy() {
-    const response = await got("https://api.apify.com/v2/browser-info", {
+    const response = await got("https://proxy.apify.com/?format=json", {
         agent: {
             https: new HttpsProxyAgent(proxyUrl),
         }
@@ -257,7 +257,7 @@ ctx.verify_mode = ssl.CERT_NONE
 httpHandler = request.HTTPSHandler(context=ctx)
 
 opener = request.build_opener(httpHandler,proxy_handler)
-print(opener.open("https://api.apify.com/v2/browser-info").read())
+print(opener.open("https://proxy.apify.com/?format=json").read())
 </marked-tab>
 
 
@@ -279,13 +279,13 @@ proxy_handler = request.ProxyHandler({
 })
 
 opener = request.build_opener(proxy_handler)
-print(opener.open("https://api.apify.com/v2/browser-info").read())
+print(opener.open("https://proxy.apify.com/?format=json").read())
 </marked-tab>
 
 
 <marked-tab header="PHP" lang="php">
 <?php
-$curl = curl_init("https://api.apify.com/v2/browser-info");
+$curl = curl_init("https://proxy.apify.com/?format=json");
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($curl, CURLOPT_PROXY, "http://proxy.apify.com:8000");
 // Replace <YOUR_PROXY_PASSWORD> below with your password
