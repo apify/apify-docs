@@ -62,15 +62,13 @@ const Apify = require("apify");
 
 Apify.main(async () => {
     const proxyConfiguration = await Apify.createProxyConfiguration();
-    try {
-        const { body } = await Apify.utils.requestAsBrowser({
-            url: "https://www.example.com",
-            proxyUrl: proxyConfiguration.newUrl(),
-        });
-        console.log(body); // returns HTML of returned page
-    } catch (e) {
-        console.error(e);
-    }
+
+    const { body } = await Apify.utils.requestAsBrowser({
+        url: "https://www.example.com",
+        proxyUrl: proxyConfiguration.newUrl(),
+    });
+
+    console.log(body); // returns HTML of returned page
 });
 </marked-tab>
 ```
@@ -143,23 +141,21 @@ Apify.main(async () => {
     const proxyUrl = proxyConfiguration.newUrl();
     const url = "https://api.apify.com/v2/browser-info";
 
-    try {
-        const response1 = await Apify.utils.requestAsBrowser({
-            url,
-            proxyUrl,
-            json: true
-        });
-        const response2 = await Apify.utils.requestAsBrowser({
-            url,
-            proxyUrl,
-            json: true
-        });
-        console.log(response1.body.clientIp);
-        console.log("should be different than");
-        console.log(response2.body.clientIp);
-    } catch (e) {
-        console.error(e);
-    }
+    const response1 = await Apify.utils.requestAsBrowser({
+        url,
+        proxyUrl,
+        json: true
+    });
+
+    const response2 = await Apify.utils.requestAsBrowser({
+        url,
+        proxyUrl,
+        json: true
+    });
+
+    console.log(response1.body.clientIp);
+    console.log("should be different than");
+    console.log(response2.body.clientIp);
 });
 </marked-tab>
 ```
@@ -254,51 +250,23 @@ Apify.main(async () => {
     });
     const proxyUrl = proxyConfiguration.newUrl("my_session");
 
-    try {
-        const response1 = await Apify.utils.requestAsBrowser({
-            url: "https://api.apify.com/v2/browser-info",
-            proxyUrl,
-            json: true
-        });
-        const response2 = await Apify.utils.requestAsBrowser({
-            url: "https://api.apify.com/v2/browser-info",
-            proxyUrl,
-            json: true
-        });
-        console.log(response1.body.clientIp);
-        console.log("should be the same as");
-        console.log(response2.body.clientIp);
-    } catch (e) {
-        console.error(e);
-    }
+    const response1 = await Apify.utils.requestAsBrowser({
+        url: "https://api.apify.com/v2/browser-info",
+        proxyUrl,
+        json: true
+    });
+
+    const response2 = await Apify.utils.requestAsBrowser({
+        url: "https://api.apify.com/v2/browser-info",
+        proxyUrl,
+        json: true
+    });
+    
+    console.log(response1.body.clientIp);
+    console.log("should be the same as");
+    console.log(response2.body.clientIp);
 });
 </marked-tab>
-```
-
-## [](#username-examples) Username examples
-
-Use randomly allocated IP addresses from the SHADER group:
-
-```
-groups-SHADER
-```
-
-Use a randomly allocated IP address for multiple requests:
-
-```
-session-new_job_123
-```
-
-Use the same IP address from the `SHADER` and `BUYPROXIES94952` groups for multiple requests:
-
-```
-groups-SHADER+BUYPROXIES94952,session-new_job_123
-```
-
-Set a session and select an IP from the `BUYPROXIES94952` group geolocated in the USA:
-
-```
-groups-BUYPROXIES94952,session-new_job_123,country-US
 ```
 
 ## [](#using-standard-libraries-and-languages) Using standard libraries and languages
@@ -315,7 +283,7 @@ Examples in [Python 2](https://www.python.org/download/releases/2.0/) use the [s
 
 ### [](#requests-with-random-ip-addresses) Requests with random IP addresses
 
-For each request, a random IP address is chosen from all [available proxy groups](https://my.apify.com/proxy). You can also use random IP addresses from proxy groups by specifying the group(s) in the `username` parameter.
+For each request, a random IP address is chosen from all [available proxy groups](https://my.apify.com/proxy). You can use random IP addresses from proxy groups by specifying the group(s) in the `username` parameter.
 
 A random IP address will be used for each request.
 
@@ -338,6 +306,7 @@ async function useProxy() {
     const response = await axiosWithProxy.get("https://api.apify.com/v2/browser-info");
     console.log(response.data);
 };
+
 useProxy();
 </marked-tab>
 
@@ -446,6 +415,7 @@ async function useProxy() {
     const response = await axiosWithProxy.get("https://api.apify.com/v2/browser-info");
     console.log(response.data);
 };
+
 useProxy();
 // Should return the same clientIp as
 useProxy();
@@ -555,4 +525,30 @@ echo "\nShould be contain same clientIp as\n";
 echo $response2;
 ?>
 </marked-tab>
+```
+
+## [](#username-examples) Username examples
+
+Use randomly allocated IP addresses from the SHADER group:
+
+```
+groups-SHADER
+```
+
+Use a randomly allocated IP address for multiple requests:
+
+```
+session-new_job_123
+```
+
+Use the same IP address from the `SHADER` and `BUYPROXIES94952` groups for multiple requests:
+
+```
+groups-SHADER+BUYPROXIES94952,session-new_job_123
+```
+
+Set a session and select an IP from the `BUYPROXIES94952` group geolocated in the USA:
+
+```
+groups-BUYPROXIES94952,session-new_job_123,country-US
 ```

@@ -84,32 +84,36 @@ Apify.main(async () => {
     const proxyUrl = proxyConfiguration.newUrl();
     const url = 'http://www.google.com/search?q=wikipedia';
 
-    try {
-        const browser = await Apify.launchPuppeteer({
-            proxyUrl,
-        });
-        const page = await browser.newPage();
-        await page.setRequestInterception(true);
-        page.on('request', request => {
-            if (request.resourceType() !== 'document') return request.abort();
-            return request.continue();
-        });
-        await page.goto(url);
-        await Apify.utils.puppeteer.injectJQuery(page);
-        const searchResults = await page.evaluate(() => {
-            return $('#search div.g').map(function () {
-                return {
-                    title: $($(this).find('h3')[0]).text(),
-                    description: $(this).find('.s div .st').text(),
-                }
-            }).toArray();
-        });
-        console.log(searchResults);
-        await page.close();
-        await browser.close();
-    } catch (error) {
-        console.error(error.message);
-    }
+    const browser = await Apify.launchPuppeteer({
+        proxyUrl,
+    });
+
+    const page = await browser.newPage();
+    
+    await page.setRequestInterception(true);
+    
+    page.on('request', request => {
+        if (request.resourceType() !== 'document') return request.abort();
+        return request.continue();
+    });
+    
+    await page.goto(url);
+    
+    await Apify.utils.puppeteer.injectJQuery(page);
+    
+    const searchResults = await page.evaluate(() => {
+        return $('#search div.g').map(function () {
+            return {
+                title: $($(this).find('h3')[0]).text(),
+                description: $(this).find('.s div .st').text(),
+            }
+        }).toArray();
+    });
+    
+    console.log(searchResults);
+    
+    await page.close();
+    await browser.close();
 });
 </marked-tab>
 
@@ -200,33 +204,37 @@ Apify.main(async() => {
     const proxyUrl = proxyConfiguration.newUrl();
     const url = 'http://www.google.co.uk/search?q=Apple+iPhone+XS+64GB&tbm=shop';
 
-    try {
-        const browser = await Apify.launchPuppeteer({
-            proxyUrl,
-        });
-        const page = await browser.newPage();
-        await page.setRequestInterception(true);
-        page.on('request', request => {
-            if (request.resourceType() !== 'document') return request.abort();
-            return request.continue();
-        });
-        await page.goto(url);
-        await Apify.utils.puppeteer.injectJQuery(page);
-        const searchResults = await page.evaluate(() => {
-            return $('[class$="list-result"] > div > div:nth-child(2)').map(function() {
-                const title = $(this).find('a[jsaction="spop.c"]')[0];
-                return {
-                    title: $(title).text(),
-                    price: $(this).find('div:nth-child(2) > div:nth-child(1)').text(),
-                }
-            }).toArray();
-        });
-        console.log(searchResults);
-        await page.close();
-        await browser.close();
-    } catch (error) {
-        console.error(error.message());
-    }
+    const browser = await Apify.launchPuppeteer({
+        proxyUrl,
+    });
+
+    const page = await browser.newPage();
+    
+    await page.setRequestInterception(true);
+    
+    page.on('request', request => {
+        if (request.resourceType() !== 'document') return request.abort();
+        return request.continue();
+    });
+    
+    await page.goto(url);
+    
+    await Apify.utils.puppeteer.injectJQuery(page);
+    
+    const searchResults = await page.evaluate(() => {
+        return $('[class$="list-result"] > div > div:nth-child(2)').map(function() {
+            const title = $(this).find('a[jsaction="spop.c"]')[0];
+            return {
+                title: $(title).text(),
+                price: $(this).find('div:nth-child(2) > div:nth-child(1)').text(),
+            }
+        }).toArray();
+    });
+    
+    console.log(searchResults);
+    
+    await page.close();
+    await browser.close();
 });
 </marked-tab>
 
@@ -241,23 +249,23 @@ Apify.main(async () => {
     });
     const proxyUrl = proxyConfiguration.newUrl();
     const query = encodeURI('Apple iPhone XS 64GB');
-    try {
-        const { body } = await Apify.utils.requestAsBrowser({
-            url: `http://www.google.co.uk/search?tbm=shop&q=${query}`,
-            proxyUrl,
-        });
-        const $ = cheerio.load(body);
-        const searchResults = $('[class$="list-result"] > div > div:nth-child(2) ').map(function() {
-            const title = $(this).find('a[jsaction="spop.c"]')[0];
-            return {
-                title: $(title).text(),
-                price: $(this).find('div:nth-child(2)').text(),
-            }
-        }).toArray();
-        console.log(searchResults);
-    } catch (error) {
-        console.error(error.message)
-    }
+
+    const { body } = await Apify.utils.requestAsBrowser({
+        url: `http://www.google.co.uk/search?tbm=shop&q=${query}`,
+        proxyUrl,
+    });
+
+    const $ = cheerio.load(body);
+
+    const searchResults = $('[class$="list-result"] > div > div:nth-child(2) ').map(function() {
+        const title = $(this).find('a[jsaction="spop.c"]')[0];
+        return {
+            title: $(title).text(),
+            price: $(this).find('div:nth-child(2)').text(),
+        }
+    }).toArray();
+
+    console.log(searchResults);
 });
 </marked-tab>
 ```
@@ -302,6 +310,7 @@ async function useProxy() {
     const response = await axiosWithProxy.get(`http://www.google.com/search?${query}`);
     console.log(response.data)
 };
+
 useProxy();
 </marked-tab>
 
@@ -420,6 +429,7 @@ async function useProxy() {
     const response = await axiosWithProxy.get(`http://www.google.co.uk/search?${query}`);
     console.log(response.data)
 };
+
 useProxy();
 </marked-tab>
 
