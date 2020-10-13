@@ -19,50 +19,32 @@ See the [connection settings]({{@link proxy/connection_settings.md}}) page for c
 
 ## [](#using-the-apify-sdk) Using the Apify SDK
 
-If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you can use Apify Proxy in:
+If you're developing an actor using the [Apify SDK](https://sdk.apify.com), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://sdk.apify.com/docs/api/cheerio-crawler). This is because Google SERP proxy [only returns a page's HTML]({{@link proxy/google_serp_proxy.md#connecting-to-google-serp-proxy}}). Alternatively, you can use the [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
 
-* [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav) using the [createProxyConfiguration()](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) function.
-* [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
-* [launchPuppeteer()](https://sdk.apify.com/docs/typedefs/launch-puppeteer#docsNav) by specifying the configuration in the function's options.
+Apify Proxy also works with [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav) and [launchPuppeteer()](https://sdk.apify.com/docs/typedefs/launch-puppeteer#docsNav). However, it is not efficient to load a full browser just to retrieve HTML.
 
-### [](#get-and-parse-a-list-of-search-results) Get and parse a list of search results
+### [](#get-a-list-of-search-results) Get a list of search results
 
-Get a list of search results from the USA (**google.com**) for the keyword **wikipedia** and parse them using [cheerio](https://cheerio.js.org/).
+Get a list of search results from the USA (**google.com**) for the keyword **wikipedia**.
 
 ```marked-tabs
-<marked-tab header="PuppeteerCrawler" lang="javascript">
+<marked-tab header="CheerioCrawler" lang="javascript">
 const Apify = require('apify');
 
 Apify.main(async() => {
     const proxyConfiguration = await Apify.createProxyConfiguration({
         groups: ['GOOGLE_SERP'],
     });
-    const url = 'http://www.google.com/search?q=wikipedia';
+    const url = 'http://www.google.co.uk/search?q=wikipedia';
 
     const requestList = await Apify.openRequestList('my-list', [url]);
 
-    const crawler = new Apify.PuppeteerCrawler({
+    const crawler = new Apify.CheerioCrawler({
         requestList,
         proxyConfiguration,
-        gotoFunction: async({ page, request }) => {
-            await page.setRequestInterception(true);
-            page.on('request', request => {
-                if (request.resourceType() !== 'document') return request.abort();
-                return request.continue();
-            });
-            return page.goto(url);
-        },
-        handlePageFunction: async({ page, request, proxyInfo }) => {
-            await Apify.utils.puppeteer.injectJQuery(page);
-            const searchResults = await page.evaluate(() => {
-                return $('#search div.g').map(function () {
-                    return {
-                        title: $($(this).find('h3')[0]).text(),
-                        description: $(this).find('.s div .st').text(),
-                    }
-                }).toArray();
-            });
-            console.log(searchResults);
+        handlePageFunction: async ({ request, response, body }) => {
+            // ... 
+            console.log(body)
         },
     });
 
@@ -71,82 +53,33 @@ Apify.main(async() => {
 </marked-tab>
 
 
-<marked-tab header="launchPuppeteer()" lang="javascript">
+<marked-tab header="requestAsBrowser()" lang="javascript">
 const Apify = require('apify');
 
 Apify.main(async () => {
     const proxyConfiguration = await Apify.createProxyConfiguration({
         groups: ['GOOGLE_SERP'],
     });
+    
     const proxyUrl = proxyConfiguration.newUrl();
-    const url = 'http://www.google.com/search?q=wikipedia';
-
-    const browser = await Apify.launchPuppeteer({
+    
+    const { body } = await Apify.utils.requestAsBrowser({
+        url: 'http://www.google.com/search?q=wikipedia',
         proxyUrl,
-    });
+     });
 
-    const page = await browser.newPage();
-    
-    await page.setRequestInterception(true);
-    
-    page.on('request', request => {
-        if (request.resourceType() !== 'document') return request.abort();
-        return request.continue();
-    });
-    
-    await page.goto(url);
-    
-    await Apify.utils.puppeteer.injectJQuery(page);
-    
-    const searchResults = await page.evaluate(() => {
-        return $('#search div.g').map(function () {
-            return {
-                title: $($(this).find('h3')[0]).text(),
-                description: $(this).find('.s div .st').text(),
-            }
-        }).toArray();
-    });
-    
-    console.log(searchResults);
-    
-    await page.close();
-    await browser.close();
+    console.log(body);
 });
-</marked-tab>
-
-
-<marked-tab header="requestAsBrowser()" lang="javascript">
-const Apify = require('apify');
- const cheerio = require('cheerio');
-
- Apify.main(async () => {
-     const proxyConfiguration = await Apify.createProxyConfiguration({
-         groups: ['GOOGLE_SERP'],
-     });
-     const proxyUrl = proxyConfiguration.newUrl();
-     const { body } = await Apify.utils.requestAsBrowser({
-         url: 'http://www.google.com/search?q=wikipedia',
-         proxyUrl,
-     });
-     const $ = cheerio.load(body);
-     const searchResults = $('#search div.g').map(function() {
-         return {
-             title: $($(this).find('h3')[0]).text(),
-             description: $(this).find('.s div .st').text(),
-         }
-     }).toArray();
-     console.log(searchResults);
- });
 </marked-tab>
 ```
 
-### [](#get-and-parse-a-list-of-shopping-results) Get and parse a list of shopping results
+### [](#get-a-list-of-shopping-results) Get a list of shopping results
 
-Get a list of shopping results for the query **Apple iPhone XS 64GB** from Great Britain (**google.co.uk**) and parse them using [cheerio](https://cheerio.js.org/).
+Get a list of shopping results for the query **Apple iPhone XS 64GB** from Great Britain (**google.co.uk**).
 
 
 ```marked-tabs
-<marked-tab header="PuppeteerCrawler" lang="javascript">
+<marked-tab header="CheerioCrawler" lang="javascript">
 const Apify = require('apify');
 
 Apify.main(async() => {
@@ -157,29 +90,12 @@ Apify.main(async() => {
 
     const requestList = await Apify.openRequestList('my-list', [url]);
 
-    const crawler = new Apify.PuppeteerCrawler({
+    const crawler = new Apify.CheerioCrawler({
         requestList,
         proxyConfiguration,
-        gotoFunction: async({ page, request }) => {
-            await page.setRequestInterception(true);
-            page.on('request', request => {
-                if (request.resourceType() !== 'document') return request.abort();
-                return request.continue();
-            });
-            return page.goto(url);
-        },
-        handlePageFunction: async({ page, request, proxyInfo }) => {
-            await Apify.utils.puppeteer.injectJQuery(page);
-            const searchResults = await page.evaluate(() => {
-                return $('[class$="list-result"] > div > div:nth-child(2)').map(function() {
-                    const title = $(this).find('a[jsaction="spop.c"]')[0];
-                    return {
-                        title: $(title).text(),
-                        price: $(this).find('div:nth-child(2) > div:nth-child(1)').text(),
-                    }
-                }).toArray();
-            });
-            console.log(searchResults);
+        handlePageFunction: async ({ request, response, body }) => {
+            // ...
+            console.log(body)
         },
     });
 
@@ -187,55 +103,8 @@ Apify.main(async() => {
 });
 </marked-tab>
 
-
-<marked-tab header="launchPuppeteer()" lang="javascript">
-const Apify = require('apify');
-
-Apify.main(async() => {
-    const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: ['GOOGLE_SERP'],
-    });
-    const proxyUrl = proxyConfiguration.newUrl();
-    const url = 'http://www.google.co.uk/search?q=Apple+iPhone+XS+64GB&tbm=shop';
-
-    const browser = await Apify.launchPuppeteer({
-        proxyUrl,
-    });
-
-    const page = await browser.newPage();
-    
-    await page.setRequestInterception(true);
-    
-    page.on('request', request => {
-        if (request.resourceType() !== 'document') return request.abort();
-        return request.continue();
-    });
-    
-    await page.goto(url);
-    
-    await Apify.utils.puppeteer.injectJQuery(page);
-    
-    const searchResults = await page.evaluate(() => {
-        return $('[class$="list-result"] > div > div:nth-child(2)').map(function() {
-            const title = $(this).find('a[jsaction="spop.c"]')[0];
-            return {
-                title: $(title).text(),
-                price: $(this).find('div:nth-child(2) > div:nth-child(1)').text(),
-            }
-        }).toArray();
-    });
-    
-    console.log(searchResults);
-    
-    await page.close();
-    await browser.close();
-});
-</marked-tab>
-
-
 <marked-tab header="requestAsBrowser()" lang="javascript">
 const Apify = require('apify');
-const cheerio = require('cheerio');
 
 Apify.main(async () => {
     const proxyConfiguration = await Apify.createProxyConfiguration({
@@ -249,17 +118,7 @@ Apify.main(async () => {
         proxyUrl,
     });
 
-    const $ = cheerio.load(body);
-
-    const searchResults = $('[class$="list-result"] > div > div:nth-child(2) ').map(function() {
-        const title = $(this).find('a[jsaction="spop.c"]')[0];
-        return {
-            title: $(title).text(),
-            price: $(this).find('div:nth-child(2)').text(),
-        }
-    }).toArray();
-
-    console.log(searchResults);
+    console.log(body);
 });
 </marked-tab>
 ```
@@ -280,7 +139,7 @@ Examples in [Python 2](https://www.python.org/download/releases/2.0/) use the [s
 
 Get the HTML of search results for the keyword **wikipedia** from the USA (**google.com**).
 
-Select this option by setting the `username` parameter to `groups-GOOGLE_SERP`. Add the item you want to search to the `query` variable.
+Select this option by setting the `username` parameter to `groups-GOOGLE_SERP`. Add the item you want to search to the `query` parameter.
 
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
@@ -401,7 +260,7 @@ echo $response;
 
 Get HTML of shopping results for the query **Apple iPhone XS 64GB** from Great Britain (`google.co.uk`).
 
-Select this option by setting the `username` parameter to `groups-GOOGLE_SERP`. In the `query` variable, add the item you want to search and specify the **shop** page as a URL parameter.
+Select this option by setting the `username` parameter to `groups-GOOGLE_SERP`. In the `query` parameter, add the item you want to search and specify the **shop** page as a URL parameter.
 
 Set the domain (your country of choice) in the URL (in the `response` variable).
 
