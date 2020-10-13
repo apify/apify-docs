@@ -29,7 +29,10 @@ The Apify SDK's [ProxyConfiguration](https://sdk.apify.com/docs/api/proxy-config
 
 ### [](#rotate-ip-addresses) Rotate IP addresses
 
-IP addresses are selected at random from all available proxy servers.
+IP addresses for each request are selected at random from all available proxy servers.
+
+To use IP addresses from specific proxy groups, add a `groups` [property](https://sdk.apify.com/docs/api/proxy-configuration#docsNav)
+to `createProxyConfiguration()` and specify the group names. For example, `groups: ["GROUP_NAME_1", "GROUP_NAME_2"]`.
 
 ```marked-tabs
 <marked-tab header="PuppeteerCrawler" lang="javascript">
@@ -46,59 +49,6 @@ Apify.main(async () => {
         proxyConfiguration,
         handlePageFunction: async ({ page, request, proxyInfo }) => {
             return Apify.pushData({ title: await page.title() });
-        },
-        handleFailedRequestFunction: ({ request }) => {
-            console.error("Request failed", request.url, request.errorMessages);
-        },
-    });
-
-    await crawler.run();
-});
-</marked-tab>
-
-
-<marked-tab header="requestAsBrowser()" lang="javascript">
-const Apify = require("apify");
-
-Apify.main(async () => {
-    const proxyConfiguration = await Apify.createProxyConfiguration();
-
-    const { body } = await Apify.utils.requestAsBrowser({
-        url: "https://www.example.com",
-        proxyUrl: proxyConfiguration.newUrl(),
-    });
-
-    console.log(body); // returns HTML of returned page
-});
-</marked-tab>
-```
-
-### [](#single-ip-address-from-specific-groups) Single IP address from specific groups
-
-The IP address is selected from the `SHADER` and `BUYPROXIES94952` proxy groups.
-
-```marked-tabs
-<marked-tab header="PuppeteerCrawler" lang="javascript">
-const Apify = require("apify");
-
-Apify.main(async () => {
-    const requestList = await Apify.openRequestList(
-        "my-list", ["http://www.example.com"]
-    );
-    const proxyConfiguration = await Apify.createProxyConfiguration({
-        // if you need to use more then one group
-        // simply add the additional ID to the array below
-        groups: ["SHADER", "BUYPROXIES94952"],
-    });
-
-    const crawler = new Apify.PuppeteerCrawler({
-        requestList,
-        proxyConfiguration,
-        handlePageFunction: async ({ page, request, proxyInfo }) => {
-            return Apify.pushData({ title: await page.title() });
-        },
-        handleFailedRequestFunction: ({ request }) => {
-            console.error("Request failed", request.url, request.errorMessages);
         },
     });
 
@@ -111,9 +61,7 @@ Apify.main(async () => {
 const Apify = require("apify");
 
 Apify.main(async () => {
-    const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: ["SHADER", "BUYPROXIES94952"],
-    });
+    const proxyConfiguration = await Apify.createProxyConfiguration();
 
     const browser = await Apify.launchPuppeteer({
         proxyUrl: proxyConfiguration.newUrl("my_session"),
@@ -135,10 +83,10 @@ Apify.main(async () => {
 const Apify = require("apify");
 
 Apify.main(async () => {
-    const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: ["SHADER", "BUYPROXIES94952"]
-    });
+    const proxyConfiguration = await Apify.createProxyConfiguration();
+
     const proxyUrl = proxyConfiguration.newUrl();
+    
     const url = "https://api.apify.com/v2/browser-info";
 
     const response1 = await Apify.utils.requestAsBrowser({
@@ -160,45 +108,9 @@ Apify.main(async () => {
 </marked-tab>
 ```
 
+### [](#single-ip-address-until-it-fails) Single IP address until it fails
 
-### [](#single-ip-address-from-a-group) Single IP address from a group
-
-Using [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav), get a new IP address selected from the `SHADER` proxy group for each browser opened during an entire run.
-
-If the IP fails, all browsers using it are retired and new ones, each with its own new random IP, are started.
-
-```marked-tabs
-<marked-tab header="PuppeteerCrawler" lang="javascript">
-const Apify = require("apify");
-
-Apify.main(async () => {
-    const requestList = await Apify.openRequestList(
-        "my-list", ["http://www.example.com"]
-    );
-    const proxyConfiguration = await Apify.createProxyConfiguration({
-        // if you need to use more then one group
-        // simply add the additional ID to the array below
-        groups: ["SHADER"],
-    });
-
-    const crawler = new Apify.PuppeteerCrawler({
-        requestList,
-        proxyConfiguration,
-        useSessionPool: true,
-        handlePageFunction: async ({ page, request, proxyInfo }) => {
-            return Apify.pushData({ title: await page.title() });
-        },
-        handleFailedRequestFunction: ({ request }) => {
-            console.error("Request failed", request.url, request.errorMessages);
-        },
-    });
-
-    await crawler.run();
-});
-</marked-tab>
-``` 
-
-Using [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav), keep a single IP address selected from the `SHADER` proxy group until it fails (gets retired).
+Using [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav), use a single IP address until it fails (gets retired).
 
 The `maxPoolSize: 1` configuration means that a single IP will be used by all browsers until it fails. Then, all running browsers are retired, a new IP is selected and new browsers opened. The browsers all use the new IP.
 
@@ -210,11 +122,8 @@ Apify.main(async () => {
     const requestList = await Apify.openRequestList(
         "my-list", ["http://www.example.com"]
     );
-    const proxyConfiguration = await Apify.createProxyConfiguration({
-        // if you need to use more then one group
-        // simply add the additional ID to the array below
-        groups: ["SHADER"],
-    });
+
+    const proxyConfiguration = await Apify.createProxyConfiguration();
 
     const crawler = new Apify.PuppeteerCrawler({
         requestList,
@@ -226,9 +135,6 @@ Apify.main(async () => {
         handlePageFunction: async ({ page, request, proxyInfo }) => {
             return Apify.pushData({ title: await page.title() });
         },
-        handleFailedRequestFunction: ({ request }) => {
-            console.error("Request failed", request.url, request.errorMessages);
-        },
     });
 
     await crawler.run();
@@ -236,18 +142,16 @@ Apify.main(async () => {
 </marked-tab>
 ```
 
-### [](#use-a-single-ip-address-from-specific-groups-for-multiple-requests) Use a single IP address from specific groups for multiple requests
+### [](#single-ip-address-from-specific-groups-for-multiple-requests) Single IP address for multiple requests
 
-With the `requestAsBrowser()` [function](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions), use one IP address from the `SHADER` proxy group for two requests.
+With the `requestAsBrowser()` [function](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions), use one IP address for multiple requests.
 
 ```marked-tabs
 <marked-tab header="requestAsBrowser()" lang="javascript">
 const Apify = require("apify");
 
 Apify.main(async () => {
-    const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: ["SHADER"]
-    });
+    const proxyConfiguration = await Apify.createProxyConfiguration();
     const proxyUrl = proxyConfiguration.newUrl("my_session");
 
     const response1 = await Apify.utils.requestAsBrowser({
