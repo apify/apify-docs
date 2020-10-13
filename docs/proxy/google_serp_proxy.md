@@ -52,7 +52,3 @@ For example:
 * Shopping results from Great Britain: `http://www.google.co.uk/seach?tbm=shop&q=<query>`
 
 See a [full list](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/List_of_Google_domains.html) of available domain names for specific countries. When using them, remember to prepend the domain name with the `www.` prefix.
-
-## [](#using-with-puppeteer) Using with Puppeteer
-
-Google SERP proxy cannot be used with [Puppeteer](https://pptr.dev/), due to HTTP Strict Transport Security [headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security).
