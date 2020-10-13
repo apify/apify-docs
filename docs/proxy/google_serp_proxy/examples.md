@@ -297,11 +297,15 @@ const httpsAgent = new HttpsProxyAgent({
 
 const axiosWithProxy = axios.create({ httpsAgent });
 
-// Encode your query as a URI parameter
-const query = `q=${encodeURIComponent('wikipedia')}`;
-
 async function useProxy() {
-    const response = await axiosWithProxy.get(`http://www.google.com/search?${query}`);
+    const response = await axiosWithProxy.get(
+      `http://www.google.com/search`, 
+      {
+        params: {
+          query: 'wikipedia',
+        },
+      }
+    );
     console.log(response.data)
 };
 
@@ -317,11 +321,11 @@ const HttpsProxyAgent = require("https-proxy-agent");
 // found at https://my.apify.com/proxy
 const proxyUrl = "http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
-// Encode your query as a URI parameter
-const query = `q=${encodeURIComponent('wikipedia')}`;
-
 async function useProxy() {
-    const response = await got(`http://www.google.com/search?${query}`, {
+    const response = await got(`http://www.google.com/search`, {
+        searchParams: {
+          query: 'wikipedia',
+        },
         agent: {
             https: new HttpsProxyAgent(proxyUrl),
         }
@@ -416,11 +420,16 @@ const httpsAgent = new HttpsProxyAgent({
 
 const axiosWithProxy = axios.create({ httpsAgent });
 
-// Encode your query as a URI parameter
-const query = `q=${encodeURIComponent('wikipedia')}tbm=${'shop'}`;
-
 async function useProxy() {
-    const response = await axiosWithProxy.get(`http://www.google.co.uk/search?${query}`);
+    const response = await axiosWithProxy.get(
+      `http://www.google.com/search`, 
+      {
+        params: {
+          query: 'Apple iPhone XS 64GB',
+          tbm: 'shop',
+        },
+      }
+    );
     console.log(response.data)
 };
 
@@ -440,7 +449,11 @@ const proxyUrl = "http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.co
 const query = `q=${encodeURIComponent('Apple iPhone XS 64GB')}`;
 
 async function useProxy() {
-    const response = await got(`http://www.google.co.uk/search?${query}tbm=${'shop'}`, {
+    const response = await got(`http://www.google.co.uk/search`, {
+        searchParams: {
+          query: 'iApple iPhone XS 64GB',
+          tmb: 'shop',
+        },
         agent: {
             https: new HttpsProxyAgent(proxyUrl),
         }
