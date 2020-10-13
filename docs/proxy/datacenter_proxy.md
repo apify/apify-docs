@@ -10,7 +10,7 @@ paths:
 
 Datacenter proxies are a cheap, fast and stable way to mask your identity online. When you access a website using a datacenter proxy, the site can only see the proxy center's credentials, not yours.
 
-Datacenter proxies allow you to mask and [rotate](#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked]({{@link web_scraping_101/anti_scraping_techniques.md#ip-address-based-blocking}}).
+Datacenter proxies allow you to mask and [rotate](#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked]({{@link web_scraping_101/anti_scraping_techniques.md#ip-address-based-blocking}}). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
 
 [Apify Proxy](https://apify.com/proxy) currently offers two types of datacenter proxy:
 
@@ -52,8 +52,6 @@ Prices for dedicated proxy servers are mainly based on the number of proxy serve
 
 ## [](#connecting-to-datacenter-proxies) Connecting to datacenter proxies
 
-For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname. This minimizes the chance of the proxy being blocked.
-
 By default, each proxied HTTP request is potentially sent via a different target proxy server, which adds overhead and could be potentially problematic for websites which save cookies based on IP address.
 
 If you want to pick an IP address and pass all subsequent connections via that same IP address, you can use the `session` [parameter]({{@link proxy.md#sessions}}).
@@ -77,11 +75,15 @@ Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or
 * Browser – a different IP address is used for each browser.
 * HTTP request – a different IP address is used for each request.
 
+**You can use [session persistence](#session-persistence) to manage how you rotate IP addresses.**
+
 [Click here]({{@link web_scraping_101/anti_scraping_techniques.md#bypassing-ip-address-based-blocking}}) to learn more about IP address rotation and other ways of bypassing blocking.
 
 ## [](#session-persistence) Session persistence
 
 When you use datacenter proxy with the `session` [parameter]({{@link proxy.md#sessions}}) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
+
+**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** 
 
 This IP/session ID combination persists and expires 24 hours later. Each additional request resets the expiration time to 24 hours.
 
