@@ -25,6 +25,19 @@ You can use proxies in your [actors]({{@link actors.md}}) or any other applicati
 
 **For pricing information, visit [apify.com/proxy](https://apify.com/proxy).**
 
+## [](#ip-address-rotation) IP address rotation
+
+Web scrapers can rotate the IP addresses they use to access websites. They assign each request a different IP address, which makes it appear like they are all coming from different users.
+
+Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or [HTTP requests](https://apify.com/apify/cheerio-scraper) for your scraping jobs, IP address rotation works differently.
+
+* Browser – a different IP address is used for each browser.
+* HTTP request – a different IP address is used for each request.
+
+**You can use [session persistence](#session-persistence) to manage how you rotate IP addresses.**
+
+[Click here]({{@link web_scraping_101/anti_scraping_techniques.md#bypassing-ip-address-based-blocking}}) to learn more about IP address rotation and other ways of bypassing blocking.
+
 ## [](#sessions) Sessions
 
 Sessions allow you to use the same IP address for multiple connections.
@@ -39,7 +52,9 @@ Sessions are available for [datacenter]({{@link proxy/datacenter_proxy.md#sessio
 
 ### [](#session-persistence) Session persistence
 
-You can persist your sessions (use the same IP address) by setting the `session` parameter in the `username` [field]({{@link proxy/connection_settings.md#username-parameters}). This assigns a single IP address is assigned to the `session ID` after you make the first request.
+You can persist your sessions (use the same IP address) by setting the `session` parameter in the `username` [field]({{@link proxy/connection_settings.md#username-parameters}). This assigns a single IP address to a **session ID** after you make the first request.
+
+**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** In cases where you need to keep the same session (e.g. when you need to log in to a website), it is best to keep the same proxy. By assigning an IP address to a **session ID**, you can use that IP for every request you make.
 
 For datacenter proxies, a session persists for **24 hours** ([more info]({{@link proxy/datacenter_proxy.md#session-persistence}})).
 
