@@ -52,9 +52,6 @@ Apify.main(async () => {
         handlePageFunction: async ({ page, request }) => {
             return Apify.pushData({ title: await page.title() });
         },
-        handleFailedRequestFunction: ({ request }) => {
-            console.error('Request failed', request.url, request.errorMessages);
-        },
     });
 
     await crawler.run();
@@ -130,9 +127,6 @@ Apify.main(async () => {
         useSessionPool: true,
         handlePageFunction: async ({ page, request }) => {
             return Apify.pushData({ title: await page.title() });
-        },
-        handleFailedRequestFunction: ({ request }) => {
-            console.error('Request failed', request.url, request.errorMessages);
         },
     });
 

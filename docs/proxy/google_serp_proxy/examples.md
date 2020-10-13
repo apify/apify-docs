@@ -64,9 +64,6 @@ Apify.main(async() => {
             });
             console.log(searchResults);
         },
-        handleFailedRequestFunction: async({ request }) => {
-            console.error(request.errorMessages);
-        },
     });
 
     await crawler.run();
@@ -183,9 +180,6 @@ Apify.main(async() => {
                 }).toArray();
             });
             console.log(searchResults);
-        },
-        handleFailedRequestFunction: async({ request }) => {
-            console.error(request.errorMessages);
         },
     });
 
