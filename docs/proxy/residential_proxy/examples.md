@@ -96,15 +96,13 @@ Apify.main(async () => {
         groups: ['RESIDENTIAL'],
         countryCode: 'DE'
     });
-    try {
-        const { body } = await Apify.utils.requestAsBrowser({
-            url: 'https://www.example.com',
-            proxyUrl: proxyConfiguration.newUrl(),
-        });
-        console.log(body); // returns HTML of returned page
-    } catch (e) {
-        console.error(e);
-    }
+
+    const { body } = await Apify.utils.requestAsBrowser({
+        url: 'https://www.example.com',
+        proxyUrl: proxyConfiguration.newUrl(),
+    });
+
+    console.log(body); // returns HTML of returned page
 });
 </marked-tab>
 ```
@@ -158,23 +156,21 @@ Apify.main(async () => {
     });
     const proxyUrl = proxyConfiguration.newUrl('my_session');
 
-    try {
-        const response1 = await Apify.utils.requestAsBrowser({
-            url: 'https://api.apify.com/v2/browser-info',
-            proxyUrl,
-            json: true
-        });
-        const response2 = await Apify.utils.requestAsBrowser({
-            url: 'https://api.apify.com/v2/browser-info',
-            proxyUrl,
-            json: true
-        });
-        console.log(response1.body.clientIp);
-        console.log('should be the same as');
-        console.log(response2.body.clientIp);
-    } catch (e) {
-        console.error(e);
-    }
+    const response1 = await Apify.utils.requestAsBrowser({
+        url: 'https://api.apify.com/v2/browser-info',
+        proxyUrl,
+        json: true
+    });
+
+    const response2 = await Apify.utils.requestAsBrowser({
+        url: 'https://api.apify.com/v2/browser-info',
+        proxyUrl,
+        json: true
+    });
+
+    console.log(response1.body.clientIp);
+    console.log('should be the same as');
+    console.log(response2.body.clientIp);
 });
 </marked-tab>
 ```
@@ -216,6 +212,7 @@ async function useProxy() {
     const response = await axiosWithProxy.get("https://api.apify.com/v2/browser-info");
     console.log(response.data)
 };
+
 useProxy();
 </marked-tab>
 
