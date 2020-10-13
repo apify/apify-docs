@@ -10,7 +10,7 @@ paths:
 
 Datacenter proxies are a cheap, fast and stable way to mask your identity online. When you access a website using a datacenter proxy, the site can only see the proxy center's credentials, not yours.
 
-Datacenter proxies allow you to mask and [rotate](#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked]({{@link web_scraping_101/anti_scraping_techniques.md#ip-address-based-blocking}}). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
+Datacenter proxies allow you to mask and [rotate]({{@link proxy.md#ip-address-rotation}}) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked]({{@link web_scraping_101/anti_scraping_techniques.md#ip-address-based-blocking}}). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
 
 [Apify Proxy](https://apify.com/proxy) currently offers two types of datacenter proxy:
 
@@ -42,7 +42,7 @@ To access more servers or to use Apify Proxy without other parts of the Apify pl
 
 When you purchase access to dedicated proxy groups, they are assigned to you and only you can use them. You gain access to a range of static IP addresses from these groups.
 
-This feature is useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation](#ip-address-rotation), [persistent sessions](#session-persistence), and health checking).
+This feature is useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation]({{@link proxy.md#ip-address-rotation}}), [persistent sessions](#session-persistence), and health checking).
 
 If you do not have your own pool, the [customer support](https://apify.com/contact) team can set up a dedicated group for you based on your needs and requirements.
 
@@ -66,24 +66,11 @@ The `username` field enables you to pass various [parameters]({{@link proxy/conn
 
 If you do not want to specify either `groups` or `session` parameters and therefore use the default behavior for both, set the username to `auto`.
 
-## [](#ip-address-rotation) IP address rotation
-
-Web scrapers can rotate the IP addresses they use to access websites. They assign each request a different IP address, which makes it appear like they are all coming from different users.
-
-Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or [HTTP requests](https://apify.com/apify/cheerio-scraper) for your scraping jobs, IP address rotation works differently.
-
-* Browser – a different IP address is used for each browser.
-* HTTP request – a different IP address is used for each request.
-
-**You can use [session persistence](#session-persistence) to manage how you rotate IP addresses.**
-
-[Click here]({{@link web_scraping_101/anti_scraping_techniques.md#bypassing-ip-address-based-blocking}}) to learn more about IP address rotation and other ways of bypassing blocking.
-
 ## [](#session-persistence) Session persistence
 
 When you use datacenter proxy with the `session` [parameter]({{@link proxy.md#sessions}}) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
 
-**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** 
+**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.**
 
 This IP/session ID combination persists and expires 24 hours later. Each additional request resets the expiration time to 24 hours.
 
@@ -93,4 +80,6 @@ So, if you use the session at least once a day, it will never expire, with two p
 *   If the proxy server is part of a proxy group that is refreshed monthly and is rotated out.
 
 If the session is discarded due to the reasons above, it is assigned a new IP address.
+
+To learn more about [sessions]({{@link proxy.md#sessions}}) and [IP address rotation]({{@link proxy.md#ip-address-rotation}}), see the proxy [overview page]({{@link proxy.md}}).
 
