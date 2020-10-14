@@ -1,7 +1,7 @@
 ---
 title: Organization account
 description: Create a specialized account for your organization to encourage collaboration and manage permissions efficiently. Convert an existing account or create one from scratch.
-menuWeight: 9.1
+menuWeight: 11.1
 paths:
     - access-rights/organization-account
 ---
@@ -28,9 +28,7 @@ You can create a new organization by clicking the **Create a new organization** 
 
 ![Create a new organization]({{@asset access_rights/images/my-organizations-new.png}})
 
-> You can own as many organizations and be a member of as many organizations as you need.
-
-An organization needs its own email account for receiving notifications, invoices, etc. If your email provider supports it, you can set up an [email alias](https://support.cloudhq.net/how-to-setup-gmail-aliases/), so the organization's emails get redirected to your email address.
+**You can own as many organizations and be a member of as many organizations as you need.**
 
 ## [](#convert-an-existing-account) Convert an existing account
 
