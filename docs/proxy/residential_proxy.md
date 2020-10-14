@@ -8,7 +8,7 @@ paths:
 
 # [](#residential-proxy) Residential proxy
 
-Residential proxies are connected to real Internet Service Provider-based proxies located in homes and offices. Unlike [datacenter proxies]({{@link proxy/datacenter_proxy.md}}), this makes them very hard to to block. 
+Residential proxies are connected to real Internet Service Provider-based proxies located in homes and offices. Unlike [datacenter proxies]({{@link proxy/datacenter_proxy.md}}), this makes them very hard to block. 
 
 This solution allows you access to a larger pool of servers than datacenter proxy. This makes it a better option in cases when you need a large number of different IP addresses.
 
@@ -87,6 +87,8 @@ groups-RESIDENTIAL,session-my_session_1,country-US
 ## [](#session-persistence) Session persistence
 
 When using residential proxy with the `session` [parameter]({{@link proxy.md#sessions}}) set in the [username](#username-parameters), a single IP address is assigned to the **session ID** provided after you make the first request.
+
+**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info]({{@link proxy.md#sessions}})]
 
 This IP/session ID combination persists for 1 minute. Each subsequent request resets the expiration time to 1 minute.
 

@@ -70,7 +70,7 @@ If you do not want to specify either `groups` or `session` parameters and theref
 
 When you use datacenter proxy with the `session` [parameter]({{@link proxy.md#sessions}}) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
 
-**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.**
+**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info]({{@link proxy.md#sessions}})]
 
 This IP/session ID combination persists and expires 24 hours later. Each additional request resets the expiration time to 24 hours.
 

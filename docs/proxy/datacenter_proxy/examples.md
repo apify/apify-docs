@@ -13,13 +13,11 @@ paths:
 
 This page contains code examples for connecting to [datacenter proxies]({{@link proxy/datacenter_proxy.md}}) using [Apify Proxy](https://apify.com/proxy).
 
-If you are building your own Apify [actor]({{@link actors.md}}), below are [examples](#using-the-apify-sdk) specific to the [Apify SDK](https://sdk.apify.com).
-
 See the [connection settings]({{@link proxy/connection_settings.md}}) page for connection parameters.
 
 ## [](#using-the-apify-sdk) Using the Apify SDK
 
-If you're developing an actor using the [Apify SDK](https://sdk.apify.com), you can use Apify Proxy in:
+If you are developing your own Apify [actor]({{@link actors.md}}) using the [Apify SDK](https://sdk.apify.com), you can use Apify Proxy in:
 
 * [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav) using the [createProxyConfiguration()](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) function.
 * [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
@@ -40,7 +38,7 @@ const Apify = require("apify");
 
 Apify.main(async () => {
     const requestList = await Apify.openRequestList(
-        "my-list", ["http://www.example.com"]
+        "my-list", ["http://proxy.apify.com/?format=json"]
     );
     const proxyConfiguration = await Apify.createProxyConfiguration();
 
@@ -48,7 +46,7 @@ Apify.main(async () => {
         requestList,
         proxyConfiguration,
         handlePageFunction: async ({ page, request, proxyInfo }) => {
-            return Apify.pushData({ title: await page.title() });
+            console.log(page);
         },
     });
 
@@ -120,7 +118,10 @@ const Apify = require("apify");
 
 Apify.main(async () => {
     const requestList = await Apify.openRequestList(
-        "my-list", ["http://www.example.com"]
+        "my-list", [
+            "http://proxy.apify.com/?format=json",
+            "http://proxy.apify.com/?format=json",
+        ]
     );
 
     const proxyConfiguration = await Apify.createProxyConfiguration();
@@ -133,7 +134,7 @@ Apify.main(async () => {
             sessionOptions: { maxPoolSize: 1 },
         },
         handlePageFunction: async ({ page, request, proxyInfo }) => {
-            return Apify.pushData({ title: await page.title() });
+            console.log(page);
         },
     });
 
@@ -453,24 +454,24 @@ echo $response2;
 
 Use randomly allocated IP addresses from the SHADER group:
 
-```
+```json
 groups-SHADER
 ```
 
 Use a randomly allocated IP address for multiple requests:
 
-```
+```json
 session-new_job_123
 ```
 
 Use the same IP address from the `SHADER` and `BUYPROXIES94952` groups for multiple requests:
 
-```
+```json
 groups-SHADER+BUYPROXIES94952,session-new_job_123
 ```
 
 Set a session and select an IP from the `BUYPROXIES94952` group geolocated in the USA:
 
-```
+```json
 groups-BUYPROXIES94952,session-new_job_123,country-US
 ```
