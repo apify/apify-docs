@@ -160,7 +160,7 @@ Apify.main(async () => {
     const html2 = await page.content();
 
     console.log(html);
-    console.log("Should display the same clientIp as);
+    console.log("Should display the same clientIp as");
     console.log(html2);
 });
 </marked-tab>

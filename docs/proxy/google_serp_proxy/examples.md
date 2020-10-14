@@ -23,7 +23,7 @@ Apify Proxy also works with [PuppeteerCrawler](https://sdk.apify.com/docs/api/pu
 
 ### [](#get-a-list-of-search-results) Get a list of search results
 
-Get a list of search results from the USA (`google.com`) for the keyword **wikipedia**.
+Get a list of search results for the keyword **wikipedia** from the USA (`google.com`).
 
 ```marked-tabs
 <marked-tab header="CheerioCrawler" lang="javascript">
@@ -73,7 +73,7 @@ Apify.main(async () => {
 
 ### [](#get-a-list-of-shopping-results) Get a list of shopping results
 
-Get a list of shopping results for the query **Apple iPhone XS 64GB** from Great Britain (**google.co.uk**).
+Get a list of shopping results for the query **Apple iPhone XS 64GB** from Great Britain (`google.co.uk`).
 
 
 ```marked-tabs

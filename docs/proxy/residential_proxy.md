@@ -3,6 +3,9 @@ title: Residential proxy
 description: Achieve a higher level of anonymity using real IP addresses. Access a wider pool of proxies and reduce blocking by websites' anti-scraping measures.
 menuWeight: 7.4
 paths:
+    - proxy/residential-proxy/nodejs-examples
+    - proxy/residential-proxy/python-examples
+    - proxy/residential-proxy/php-examples
     - proxy/residential-proxy
 ---
 
