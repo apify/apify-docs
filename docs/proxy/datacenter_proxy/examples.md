@@ -64,7 +64,7 @@ Apify.main(async () => {
     const proxyConfiguration = await Apify.createProxyConfiguration();
 
     const browser = await Apify.launchPuppeteer({
-        proxyUrl: proxyConfiguration.newUrl("my_session"),
+        proxyUrl: proxyConfiguration.newUrl(),
     });
 
     const page = await browser.newPage();
@@ -102,17 +102,17 @@ Apify.main(async () => {
     });
 
     console.log(response1.body.clientIp);
-    console.log("should be different than");
+    console.log("Should be different than");
     console.log(response2.body.clientIp);
 });
 </marked-tab>
 ```
 
-### [](#single-ip-address-until-it-fails) Single IP address until it fails
+### [](#single-ip-address-for-multiple-requests) Single IP address for multiple requests
 
-Using [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav), use a single IP address until it fails (gets retired).
+Use a single IP address until it fails (gets retired).
 
-The `maxPoolSize: 1` configuration means that a single IP will be used by all browsers until it fails. Then, all running browsers are retired, a new IP is selected and new browsers opened. The browsers all use the new IP.
+The `maxPoolSize: 1` configuration in [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav) means that a single IP will be used by all browsers until it fails. Then, all running browsers are retired, a new IP is selected and new browsers opened. The browsers all use the new IP.
 
 ```marked-tabs
 <marked-tab header="PuppeteerCrawler" lang="javascript">
@@ -140,13 +140,31 @@ Apify.main(async () => {
     await crawler.run();
 });
 </marked-tab>
-```
 
-### [](#single-ip-address-from-specific-groups-for-multiple-requests) Single IP address for multiple requests
 
-With the `requestAsBrowser()` [function](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions), use one IP address for multiple requests.
+<marked-tab header="launchPuppeteer()" lang="javascript">
+const Apify = require("apify");
 
-```marked-tabs
+Apify.main(async () => {
+    const proxyConfiguration = await Apify.createProxyConfiguration();
+    const browser = await Apify.launchPuppeteer({
+        proxyUrl: proxyConfiguration.newUrl("my_session"),
+    });
+    const page = await browser.newPage();
+
+    await page.goto("http://proxy.apify.com/?format=json");
+    const html = await page.content();
+
+    await page.goto("http://proxy.apify.com/?format=json");
+    const html2 = await page.content();
+
+    console.log(html);
+    console.log("Should display the same clientIp as);
+    console.log(html2);
+});
+</marked-tab>
+
+
 <marked-tab header="requestAsBrowser()" lang="javascript">
 const Apify = require("apify");
 
@@ -167,7 +185,7 @@ Apify.main(async () => {
     });
 
     console.log(response1.body.clientIp);
-    console.log("should be the same as");
+    console.log("Should be the same as");
     console.log(response2.body.clientIp);
 });
 </marked-tab>
@@ -185,7 +203,7 @@ For examples using [PHP](https://www.php.net/), you need to have the [cURL](http
 
 Examples in [Python 2](https://www.python.org/download/releases/2.0/) use the [six](https://pypi.org/project/six/) library. Run `pip install six` to enable it.
 
-### [](#requests-with-random-ip-addresses) Requests with random IP addresses
+### [](#rotate-ip-addresses) Rotate IP addresses
 
 For each request, a random IP address is chosen from all [available proxy groups](https://my.apify.com/proxy). You can use random IP addresses from proxy groups by specifying the group(s) in the `username` parameter.
 
@@ -425,7 +443,7 @@ function doRequest() {
 $response1 = doRequest();
 $response2 = doRequest();
 echo $response1;
-echo "\nShould be contain same clientIp as\n";
+echo "\nShould return the same clientIp as\n";
 echo $response2;
 ?>
 </marked-tab>
