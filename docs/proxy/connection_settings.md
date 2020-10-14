@@ -73,7 +73,7 @@ The table below describes the available parameters.
 
 If you do not want to specify either `groups` or `session` parameters and therefore use **default** behavior for both, set the username to `auto`.
 
-For examples of usernames adapted to a variety of use cases, see the [datacenter]({{@link proxy/datacenter_proxy/examples.md#username-examples}}) and [residential]({{@link proxy/residential_proxy/examples.md#username-examples}}) proxy example pages.
+For examples of usernames adapted to a variety of use cases, see the [datacenter]({{@link proxy/datacenter_proxy/examples.md#username-examples}}) and [residential]({{@link proxy/residential_proxy.md#username-examples}}) proxy example pages.
 
 
 ## [](#proxy-groups) Proxy groups
