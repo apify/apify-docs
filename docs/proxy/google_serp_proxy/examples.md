@@ -13,19 +13,17 @@ paths:
 
 This page contains code examples for connecting to [Google SERP proxies]({{@link proxy/google_serp_proxy.md}}) using [Apify Proxy](https://apify.com/proxy).
 
-If you are building your own Apify [actor]({{@link actors.md}}), below are [examples](#using-the-apify-sdk) specific to the [Apify SDK](https://sdk.apify.com).
-
 See the [connection settings]({{@link proxy/connection_settings.md}}) page for connection parameters.
 
 ## [](#using-the-apify-sdk) Using the Apify SDK
 
-If you're developing an actor using the [Apify SDK](https://sdk.apify.com), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://sdk.apify.com/docs/api/cheerio-crawler). This is because Google SERP proxy [only returns a page's HTML]({{@link proxy/google_serp_proxy.md#connecting-to-google-serp-proxy}}). Alternatively, you can use the [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
+If you are developing your own Apify [actor]({{@link actors.md}}) using the [Apify SDK](https://sdk.apify.com), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://sdk.apify.com/docs/api/cheerio-crawler). This is because Google SERP proxy [only returns a page's HTML]({{@link proxy/google_serp_proxy.md#connecting-to-google-serp-proxy}}). Alternatively, you can use the [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
 
 Apify Proxy also works with [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav) and [launchPuppeteer()](https://sdk.apify.com/docs/typedefs/launch-puppeteer#docsNav). However, it is not efficient to load a full browser just to retrieve HTML.
 
 ### [](#get-a-list-of-search-results) Get a list of search results
 
-Get a list of search results from the USA (**google.com**) for the keyword **wikipedia**.
+Get a list of search results from the USA (`google.com`) for the keyword **wikipedia**.
 
 ```marked-tabs
 <marked-tab header="CheerioCrawler" lang="javascript">
@@ -86,7 +84,8 @@ Apify.main(async() => {
     const proxyConfiguration = await Apify.createProxyConfiguration({
         groups: ['GOOGLE_SERP'],
     });
-    const url = 'http://www.google.co.uk/search?q=Apple+iPhone+XS+64GB&tbm=shop';
+    const query = encodeURI('Apple iPhone XS 64GB');
+    const url = `http://www.google.co.uk/search?q=${query}&tbm=shop`;
 
     const requestList = await Apify.openRequestList('my-list', [url]);
 

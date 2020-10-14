@@ -16,14 +16,14 @@ Below are the HTTP proxy connection settings for Apify Proxy.
 | Hostname       | `proxy.apify.com`   |
 | Port           | `8000`              |
 | Username       | Specifies the proxy parameters such as groups, [session]({{@link proxy.md#sessions}}) and location. <br/>See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username. |
-| Password       | Proxy password. Your password is displayed on the [Proxy](https://my.apify.com/proxy) page in the Apify app. <br/>In Apify actors, it is passed as the `APIFY_PROXY_PASSWORD` <br/>environment variable.<br/>See the [documentation]({{@link actors/development/environment_variables.md}}) for more details. |
+| Password       | Proxy password. Your password is displayed on the [Proxy](https://my.apify.com/proxy) page in the Apify app. <br/>In Apify [actors]({{@link actors.md}}), it is passed as the `APIFY_PROXY_PASSWORD` <br/>environment variable.<br/>See the [environment variables docs]({{@link actors/development/environment_variables.md}}) for more details. |
 | Connection URL | `http://<username>:<password>@proxy.apify.com:8000`|
 
-**WARNING:** All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks – the password is sent unencrypted due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
+**WARNING:** All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks – **the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
 
 ## [](#username-parameters) Username parameters
 
-The `username` field enables you to pass parameters like group, [session]({{@link proxy.md#sessions}}) ID and country for your proxy connection.
+The `username` field enables you to pass parameters like **[group](#proxy-groups)**, **[session]({{@link proxy.md#sessions}}) ID** and **country** for your proxy connection.
 
 For example, if you're using [datacenter proxies]({{@link proxy/datacenter_proxy.md}}) and want to use the `new_job_123` session using the `SHADER` group, the username will be:
 
@@ -73,8 +73,15 @@ The table below describes the available parameters.
 
 If you do not want to specify either `groups` or `session` parameters and therefore use **default** behavior for both, set the username to `auto`.
 
-For examples of usernames adapted to a variety of use cases, see the [datacenter]({{@link proxy/datacenter_proxy/examples.md#username-examples}}) and [residential]({{@link proxy/residential_proxy.md#username-examples}}) proxy example pages.
+To learn more about [sessions]({{@link proxy.md#sessions}}) and [IP address rotation]({{@link proxy.md#ip-address-rotation}}), see the proxy overview [page]({{@link proxy.md}}).
 
+## [](#connection-examples) Connection examples
+
+* [Datacenter proxy]({{@link proxy/datacenter_proxy/examples.md}})].
+
+* [Residential proxy]({{@link proxy/residential_proxy.md#connecting-to-residential-proxy}})].
+
+* [Google SERP proxy]({{@link proxy/google_serp_proxy/examples.md}})].
 
 ## [](#proxy-groups) Proxy groups
 
