@@ -19,7 +19,7 @@ You can use proxies in your [actors]({{@link actors.md}}) or any other applicati
 
 [Datacenter proxy]({{@link proxy/datacenter_proxy.md}}) – the fastest and cheapest option, it uses data centers to mask your IP address. Chance of blocking due to other users' activity. [[Code examples]({{@link proxy/datacenter_proxy/examples.md}})]
 
-[Residential proxy]({{@link proxy/residential_proxy.md}}) – IP addresses located in homes and offices around the world. These IPs have the lowest chance of blocking. [[Code examples]({{@link proxy/residential_proxy/examples.md}})]
+[Residential proxy]({{@link proxy/residential_proxy.md}}) – IP addresses located in homes and offices around the world. These IPs have the lowest chance of blocking. [[Code examples]({{@link proxy/residential_proxy.md#connecting-to-residential-proxy}})]
 
 [Google SERP proxy]({{@link proxy/google_serp_proxy.md}}) – download and extract data from Google Search engine result pages (SERPs). You can select country and language to get localized results. [[Code examples]({{@link proxy/google_serp_proxy/examples.md}})]
 

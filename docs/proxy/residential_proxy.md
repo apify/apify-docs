@@ -20,13 +20,69 @@ If you would like to use residential proxy or for more information, [contact us]
 
 ## [](#connecting-to-residential-proxy) Connecting to residential proxy
 
-For code examples on how to connect to residential proxies, see the [examples]({{@link proxy/residential_proxy/examples.md}}) page.
+Connecting to residential proxy works the same way as [datacenter proxy]({{@link proxy/datacenter_proxy/examples.md}}), with two differences.
 
-### [](#username-parameters) Username parameters
+1. The `groups` [username parameter]({{@link proxy/connection_settings.md#username-parameters}}) should always specify `RESIDENTIAL`.
 
-The `username` field enables you to pass various [parameters]({{@link proxy/connection_settings.md#username-parameters}}), such as [groups](https://my.apify.com/proxy), [session]({{@link proxy.md#sessions}}) and country, for your proxy connection.
+2. You can specify the country in which you want your proxies to be.
 
-When using residential proxies, the username should specify `groups-RESIDENTIAL`.
+### [](#how-to-set-a-proxy-group) How to set a proxy group
+
+When using [standard libraries and languages]({{@link proxy/datacenter_proxy/examples.md#using-standard-libraries-and-languages}}), specify the `groups` parameter in the [username]({{@link proxy/connection_settings.md#username-parameters}}) as `groups-RESIDENTIAL`.
+
+For example, your **proxy URL** when using the [got](https://www.npmjs.com/package/got) JavaScript library will look like this:
+
+```js
+const proxyUrl = "http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000";
+```
+
+In the [Apify SDK](https://sdk.apify.com), you set the **group** in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions):
+
+```js
+const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['RESIDENTIAL'],
+});
+```
+
+### [](#how-to-set-a-proxy-country) How to set proxy country
+
+When using [standard libraries and languages]({{@link proxy/datacenter_proxy/examples.md#using-standard-libraries-and-languages}}), specify the `country` parameter in the [username]({{@link proxy/connection_settings.md#username-parameters}}) as `country-COUNTRY-CODE`.
+
+For example, your `username` parameter when using [Python 3](https://docs.python.org/3/) will look like this:
+
+```python
+username = f"groups-RESIDENTIAL,session-my_session,country-JP"
+```
+
+In the [Apify SDK](https://sdk.apify.com), you set the country in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `country` parameter. 
+
+```js
+const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['RESIDENTIAL'],
+        country: 'FR',
+});
+```
+
+### [](#username-examples) Username examples
+
+Use randomly allocated IP addresses from all available countries:
+
+```json
+groups-RESIDENTIAL
+```
+
+A random proxy from the US:
+
+```json
+groups-RESIDENTIAL,country-US
+```
+
+Set a session and select an IP address from the United States:
+
+```json
+groups-RESIDENTIAL,session-my_session_1,country-US
+```
+
 
 ## [](#session-persistence) Session persistence
 
