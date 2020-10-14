@@ -1,7 +1,7 @@
 ---
 title: List of permissions
 description: Learn about the access rights you can grant to other users. See a list of all access options for Apify resources such as actors, actor runs/tasks and storage.
-menuWeight: 10.2
+menuWeight: 11.2
 paths:
     - access-rights/list-of-permissions
 ---

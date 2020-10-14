@@ -1,7 +1,7 @@
 ---
 title: Access rights
 description: Manage permissions for organizations or private resources such as actors, actor runs and storages. Allow other users to read, run, modify or build new versions.
-menuWeight: 10
+menuWeight: 11
 category: platform
 paths:
     - access-rights
