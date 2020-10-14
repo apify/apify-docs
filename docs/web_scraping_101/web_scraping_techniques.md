@@ -21,7 +21,7 @@ The first method you'll use when trying web scraping is most likely
 
 To see which element contains the information you need (and its details), open your browser's Developer Tools. Right-click the content, then select **Inspect** on [Chrome](https://developers.google.com/web/tools/chrome-devtools) and **Inspect element** on [Mozilla](https://developer.mozilla.org/en-US/docs/Tools).
 
-![CSS selectors]({{@asset images/css-selectors.png}})
+![CSS selectors]({{@asset web_scraping_101/images/css-selectors.png}})
 
 If you're only looking to scrape a couple of elements from a page, this method is sufficient. For more elaborate extraction use cases, however, there are other, more effective, methods.
 
@@ -50,7 +50,7 @@ Similar to [Schema.org microdata](#schema-org-microdata), some sites use [JSON f
 
 To see if a website uses JSON-LD, check its `<head>` element using your browser's developer tools. You will find the JSON-LD data in a `<script>` element similar to the one below.
 
-![JSON-LD data]({{@asset images/json-ld.png}})
+![JSON-LD data]({{@asset web_scraping_101/images/json-ld.png}})
 
 Then, you can use the code below in your scraper to extract the data.
 
@@ -88,6 +88,6 @@ Using XHRs, you can access an entire API's content without even looking at the p
 
 You can check the XHRs a web page sends under the **Network** tab, in the **XHR** section in your browser's developer tools. 
 
-![Network tab and XHR section]({{@asset images/xhrs.png}})
+![Network tab and XHR section]({{@asset web_scraping_101/images/xhrs.png}})
 
 Check out [this tutorial](https://blog.apify.com/web-scraping-in-2018-forget-html-use-xhrs-metadata-or-javascript-variables-8167f252439c) for more information and code examples for scraping with XHRs.
