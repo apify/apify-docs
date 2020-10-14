@@ -1,7 +1,7 @@
 ---
 title: Storage
 description: Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data from the Apify platform or via API.
-menuWeight: 6
+menuWeight: 8
 category: platform
 paths:
     - storage
@@ -155,14 +155,14 @@ operations of **request queue** requests.
 
 If a client sends too many requests, the API endpoints respond with the HTTP status code `429 Too Many Requests` and the following body:
 
-````
+```
 {
     "error": {
         "type": "rate-limit-exceeded",
         "message": "You have exceeded the rate limit of ... requests per second"
     }
 }
-````
+```
 
 See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details and to learn what to do if you exceed the rate limit.
 
