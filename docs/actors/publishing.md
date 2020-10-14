@@ -1,7 +1,7 @@
 ---
 title: Publishing
 description: Learn how to make your actor available to the public or keep it private. Prepare your actor for Apify Store with a description and README file.
-menuWeight: 5.5
+menuWeight: 6.5
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/publishing
