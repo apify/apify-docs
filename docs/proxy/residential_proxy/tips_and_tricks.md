@@ -13,12 +13,7 @@ paths:
 
 Residential proxy is priced by data traffic used. Thus, it's easy to quickly use up all your prepaid traffic. In particular, when accessing websites with large files loaded on every page.
 
-There are two main ways to reduce your traffic use.
-
-*   [Block requests which are not required for your solution](https://help.apify.com/en/articles/2423246-block-requests-in-puppeteer).
-*   [Cache responses that you require but do not wish to load again and again](https://help.apify.com/en/articles/2424032-cache-responses-in-puppeteerr).
-
-Combined, these options can significantly reduce your solution's data traffic.
+To reduce your traffic use, we recommend using the Apify SDK's `blockRequests()` [function](https://sdk.apify.com/docs/api/puppeteer#puppeteerblockrequestspage-options). 
 
 ## [](#connected-proxy-speed-variation) Connected proxy speed variation
 
