@@ -8,7 +8,7 @@ paths:
 
 # Web scraping techniques
 
-This article provides a quick summary of the techniques you can use when web scraping.
+This article provides a quick summary of ways websites structure and send their information. Knowing these techniques will help you extract data quicker and more efficiently.
 
 Before scraping a new website, we recommend using our free-to-use [page analyzer](https://apify.com/page-analyzer) tool. It searches the page for all of the elements discussed below, allowing you to find the most effective way to scrape it.
 
@@ -16,14 +16,14 @@ You can find more in-depth discussion and code examples for all of the technique
 
 ## [](#css-selectors) CSS selectors
 
-The first method you'll use when trying web scraping is most likely 
+The first method you will use when trying web scraping is most likely 
 [CSS selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors). They allow you to select your desired elements by type, class, ID or attributes. 
 
 To see which element contains the information you need (and its details), open your browser's Developer Tools. Right-click the content, then select **Inspect** on [Chrome](https://developers.google.com/web/tools/chrome-devtools) and **Inspect element** on [Mozilla](https://developer.mozilla.org/en-US/docs/Tools).
 
 ![CSS selectors]({{@asset web_scraping_101/images/css-selectors.png}})
 
-If you're only looking to scrape a couple of elements from a page, this method is sufficient. For more elaborate extraction use cases, however, there are other, more effective, methods.
+If you are only looking to scrape a couple of elements from a page, this method is sufficient. For more elaborate extraction use cases, however, there are other, more effective, methods.
 
 ## [](#schema-org-microdata) Schema.org microdata
 
