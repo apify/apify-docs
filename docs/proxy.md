@@ -56,7 +56,7 @@ You can persist your sessions (use the same IP address) by setting the `session`
 
 **Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** In cases where you need to keep the same session (e.g. when you need to log in to a website), it is best to keep the same proxy. By assigning an IP address to a **session ID**, you can use that IP for every request you make.
 
-For datacenter proxies, a session persists for **24 hours** ([more info]({{@link proxy/datacenter_proxy.md#session-persistence}})). For residential proxies, it persists for **1 minute** ([more info]({{@link proxy/residential_proxy.md#session-persistence}})).
+For datacenter proxies, a session persists for **24 hours** ([more info]({{@link proxy/datacenter_proxy.md#session-persistence}})). For residential proxies, it persists for **1 minute** ([more info]({{@link proxy/residential_proxy.md#session-persistence}})). Using a session resets its expiry timer.
 
 Google SERP proxies do not support sessions.
 
