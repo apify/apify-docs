@@ -291,6 +291,7 @@ async function useProxy() {
 };
 
 useProxy();
+
 </marked-tab>
 
 
@@ -312,6 +313,7 @@ async function useProxy() {
 };
 
 useProxy();
+
 </marked-tab>
 
 
@@ -402,6 +404,7 @@ async function useProxy() {
 useProxy();
 // Should return the same clientIp as
 useProxy();
+
 </marked-tab>
 
 
@@ -425,6 +428,7 @@ async function useProxy() {
 useProxy();
 // Should return the same clientIp as
 useProxy();
+
 </marked-tab>
 
 
