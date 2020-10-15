@@ -1,7 +1,7 @@
 ---
 title: Connection settings
-description: Learn how to connect your application to Apify Proxy. Learn to select your desired proxy group with username parameters and connection URL.
-menuWeight: 7.1
+description: Learn how to connect your application to Apify Proxy. See the required parameters such as the correct username and password.
+menuWeight: 9.1
 paths:
     - proxy/connection-settings
 ---
