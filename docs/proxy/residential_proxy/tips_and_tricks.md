@@ -13,7 +13,7 @@ paths:
 
 Residential proxy is priced by data traffic used. Thus, it's easy to quickly use up all your prepaid traffic. In particular, when accessing websites with large files loaded on every page.
 
-To reduce your traffic use, we recommend using the Apify SDK's `puppeteer.blockRequests()` [function](https://sdk.apify.com/docs/api/puppeteer#puppeteerblockrequestspage-options). 
+To reduce your traffic use, we recommend using the Apify SDK's `Apify.utils.puppeteer.blockRequests()` [function](https://sdk.apify.com/docs/api/puppeteer#puppeteerblockrequestspage-options). 
 
 ## [](#connected-proxy-speed-variation) Connected proxy speed variation
 
