@@ -63,7 +63,7 @@ return JSON.parse(jsonLD.html());
 
 You can find internal JavaScript variables in a `<script>` tag in a web page's `<head>` element. These variables contain custom data that is set when the page loads.
 
-To use internal variables, first load the page using [headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) (usually with [Puppeteer](https://github.com/GoogleChrome/puppeteer)). Once it is loaded, within the page context, you can return the variable containing using `return {variable_name}`.
+To use internal variables, first load the page using [headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) (usually with [Puppeteer](https://github.com/GoogleChrome/puppeteer)). Once it is loaded, you can return the variable that contains it using `return {variable_name}` (within the page context).
 
 For example, if you are searching for Kaffeine café on [Yelp](https://www.yelp.co.uk/search?find_desc=kaffeine&find_loc=London), search for the café's name in the page's HTML using developer tools. The data you would receive would look something like the example below.
 
