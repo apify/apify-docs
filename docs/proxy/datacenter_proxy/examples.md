@@ -20,6 +20,7 @@ See the [connection settings]({{@link proxy/connection_settings.md}}) page for c
 If you are developing your own Apify [actor]({{@link actors.md}}) using the [Apify SDK](https://sdk.apify.com), you can use Apify Proxy in:
 
 * [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav) using the [createProxyConfiguration()](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) function.
+* [CheerioCrawler](https://sdk.apify.com/docs/api/cheerio-crawler#docsNav) using the [createProxyConfiguration()](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) function.
 * [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
 * [launchPuppeteer()](https://sdk.apify.com/docs/typedefs/launch-puppeteer#docsNav) by specifying the configuration in the function's options.
 
@@ -46,7 +47,33 @@ Apify.main(async () => {
         requestList,
         proxyConfiguration,
         handlePageFunction: async ({ page, request, proxyInfo }) => {
-            console.log(page);
+            console.log(await page.content())
+        },
+    });
+
+    await crawler.run();
+});
+</marked-tab>
+
+
+<marked-tab header="CheerioCrawler" lang="javascript">
+const Apify = require('apify');
+
+Apify.main(async() => {
+    const proxyConfiguration = await Apify.createProxyConfiguration();
+
+    const requestList = await Apify.openRequestList(
+        "my-list", [
+            "http://proxy.apify.com",
+        ]
+    );
+
+    const crawler = new Apify.CheerioCrawler({
+        requestList,
+        proxyConfiguration,
+        handlePageFunction: async ({ request, response, body }) => {
+            // ... 
+            console.log(await body);
         },
     });
 
@@ -120,7 +147,7 @@ Apify.main(async () => {
     const requestList = await Apify.openRequestList(
         "my-list", [
             "http://proxy.apify.com/?format=json",
-            "http://proxy.apify.com/?format=json",
+            "http://proxy.apify.com",
         ]
     );
 
@@ -134,7 +161,40 @@ Apify.main(async () => {
             sessionOptions: { maxPoolSize: 1 },
         },
         handlePageFunction: async ({ page, request, proxyInfo }) => {
-            console.log(page);
+            console.log(await page.content());
+        },
+    });
+
+    await crawler.run();
+});
+</marked-tab>
+
+
+<marked-tab header="CheerioCrawler" lang="javascript">
+const Apify = require('apify');
+
+Apify.main(async() => {
+    const proxyConfiguration = await Apify.createProxyConfiguration();
+
+    const requestList = await Apify.openRequestList(
+        "my-list", [
+            "https://api.apify.com/v2/browser-info",
+            "http://proxy.apify.com/?format=json",
+        ]
+    );
+
+    const crawler = new Apify.CheerioCrawler({
+        requestList,
+        proxyConfiguration,
+        // Make CheerioCrawler process JSON
+        additionalMimeTypes: ["application/json"],
+        useSessionPool: true,
+        sessionPoolOptions: {
+            sessionOptions: { maxPoolSize: 1 },
+        },
+        handlePageFunction: async ({ request, response, body, json }) => {
+            // ... 
+            console.log(await json);
         },
     });
 
@@ -156,7 +216,7 @@ Apify.main(async () => {
     await page.goto("http://proxy.apify.com/?format=json");
     const html = await page.content();
 
-    await page.goto("http://proxy.apify.com/?format=json");
+    await page.goto("http://proxy.apify.com");
     const html2 = await page.content();
 
     console.log(html);
@@ -226,7 +286,7 @@ const httpsAgent = new HttpsProxyAgent({
 const axiosWithProxy = axios.create({ httpsAgent });
 
 async function useProxy() {
-    const response = await axiosWithProxy.get("https://proxy.apify.com/?format=json");
+    const response = await axiosWithProxy.get("http://proxy.apify.com/?format=json");
     console.log(response.data);
 };
 
@@ -243,7 +303,7 @@ const HttpsProxyAgent = require("https-proxy-agent");
 const proxyUrl = "http://auto:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
 async function useProxy() {
-    const response = await got("https://proxy.apify.com/?format=json", {
+    const response = await got("http://proxy.apify.com/?format=json", {
         agent: {
             https: new HttpsProxyAgent(proxyUrl),
         }
@@ -274,7 +334,7 @@ ctx.verify_mode = ssl.CERT_NONE
 httpHandler = request.HTTPSHandler(context=ctx)
 
 opener = request.build_opener(httpHandler,proxy_handler)
-print(opener.open("https://proxy.apify.com/?format=json").read())
+print(opener.open("http://proxy.apify.com/?format=json").read())
 </marked-tab>
 
 
@@ -294,13 +354,13 @@ proxy_handler = request.ProxyHandler({
     "https": proxy_url,
 })
 opener = request.build_opener(proxy_handler)
-print(opener.open("https://proxy.apify.com/?format=json").read())
+print(opener.open("http://proxy.apify.com/?format=json").read())
 </marked-tab>
 
 
 <marked-tab header="PHP" lang="php">
 <?php
-$curl = curl_init("https://proxy.apify.com/?format=json");
+$curl = curl_init("http://proxy.apify.com/?format=json");
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($curl, CURLOPT_PROXY, "http://proxy.apify.com:8000");
 // Replace <YOUR_PROXY_PASSWORD> below with your password
