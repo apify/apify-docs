@@ -1,7 +1,7 @@
 ---
 title: Actions
 description: Send a notification when a specific event occurs in your actor or task run. Dynamically add data to the notification payload when sending the notification.
-menuWeight: 8.2
+menuWeight: 10.2
 paths:
     - webhooks/actions
 ---
