@@ -1,13 +1,13 @@
 {
   "name": "apify-docs",
   "version": "0.0.1",
-  "description": "This is the home of Apify documentation.",
+  "description": "This is a home of Apify documentation.",
   "main": "index.js",
   "scripts": {
     "build": "node ./src/build.js",
     "test": "npm run test",
-    "lint": "./node_modules/.bin/eslint .",
-    "lint:fix": "./node_modules/.bin/eslint . --ext .js,.jsx --fix"
+    "lint": "./node_modules/.bin/eslint . && markdownlint '**/*.md' --ignore node_modules",
+    "lint:fix": "./node_modules/.bin/eslint . --ext .js,.jsx --fix && markdownlint '**/*.md' --ignore node_modules --fix"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,6 @@
     "underscore": "^1.9.1"
   },
   "devDependencies": {
-    "markdownlint": "^0.21.0"
+    "eslint-plugin-md": "^1.0.19"
   }
 }
