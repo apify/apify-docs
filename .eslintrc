@@ -1,7 +1,3 @@
 {
-    "extends": ["@apify"],
-    "env": {
-        "es6": true,
-        "node": true
-    }
+    "extends": ["@apify"]
 }
