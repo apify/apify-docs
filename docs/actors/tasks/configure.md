@@ -8,7 +8,7 @@ paths:
 
 # [](#configuring-the-task)Configuring the task
 
-Once you create the task, you can configure its name and set up options and input for the actor. If you leave the options configuration empty, or partially empty, when you run the task, the missing options configuration will be prefilled with values from the actor's configuration.
+Once you create the task, you can configure its name and set up options and input for the actor. If you leave the options configuration empty, or partially empty, when you run the task, the missing options configuration will be pre-filled with values from the actor's configuration.
 
 > A task's name should be 3-30 characters long.
 

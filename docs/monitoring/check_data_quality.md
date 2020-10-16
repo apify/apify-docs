@@ -38,7 +38,7 @@ If you have already added the task, under its **Settings** tab, give it a name. 
 
 1. Under your task's **Input** tab, set the **Mode** dropdown to **Create configuration**.
 
-2. Next, open the **What you want to monitor** section. Give the monitoring suite a name in the **Monitoring suite name** field, e.g. `iphone-offers`. 
+2. Next, open the **What you want to monitor** section. Give the monitoring suite a name in the **Monitoring suite name** field, e.g. `iphone-offers`.
 
 3. In the **Type of target:** dropdown, select **Task**, since you will be monitoring an Amazon Crawler task.
 
@@ -91,5 +91,4 @@ Here, you can see the result statuses of your monitored tasks and filter them by
 This is what your dashboard can look like after some time:
 
 ![Monitoring dashboard]({{@asset monitoring/images/monitoring-dashboard.png}})
-
 

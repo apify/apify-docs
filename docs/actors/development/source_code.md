@@ -19,12 +19,16 @@ The source code of the actor can be hosted directly on Apify. All the code needs
 
 The hosted source is especially useful for simple actors. The source code can require arbitrary NPM packages. For example:
 
-    const _ = require('underscore');
-    const request = require('request');
+```js
+const _ = require('underscore');
+const request = require('request');
+```
 
 During the build process, the source code is scanned for occurrences of the `require()` function and the corresponding NPM dependencies are automatically added to the **package.json** file by running:
 
-    npm install underscore request --save --only=prod --no-optional
+```bash
+npm install underscore request --save --only=prod --no-optional
+```
 
 Note that certain NPM packages need additional tools for their installation, such as a C compiler or Python interpreter. If these tools are not available in the base Docker image, the build will fail. If that happens, try to change the base image to **Node.js 10 + Puppeteer on Debian**, because it contains much more tools than other images. Alternatively, you can use switch to the [multifile editor](#custom-dockerfile) and create your own docker image configuration.
 
@@ -44,9 +48,9 @@ If the actor's source code is hosted externally in a Git repository, it can cons
 
 To help you get started quickly, you can use the [apify/quick-start](https://apify.com/apify/quick-start) actor which contains all the boilerplate necessary when creating a new actor hosted on Git. The source code is available on [GitHub](https://github.com/apifytech/actor-quick-start).
 
-To specify a Git branch or tag to check out, add a URL fragment to the URL. For example, to check out the **develop** branch, specify a URL such as https://github.com/jancurn/act-analyse-pages.git#develop
+To specify a Git branch or tag to check out, add a URL fragment to the URL. For example, to check out the **develop** branch, specify a URL such as <https://github.com/jancurn/act-analyse-pages.git#develop>
 
-Optionally, the second part of the fragment in the Git URL (separated by a colon) specifies the context directory for the Docker build. For example, https://github.com/jancurn/act-analyse-pages.git#develop:some/dir will check out the **develop** branch and set **some/dir** as a context directory for the Docker build.
+Optionally, the second part of the fragment in the Git URL (separated by a colon) specifies the context directory for the Docker build. For example, <https://github.com/jancurn/act-analyse-pages.git#develop:some/dir> will check out the **develop** branch and set **some/dir** as a context directory for the Docker build.
 
 Note that you can easily set up an integration where the actor is automatically rebuilt on every commit to the Git repository. For more details, see [GitHub integration]({{@link actors/development/source_code.md#github-integration}}).
 
@@ -78,17 +82,19 @@ Similarly as with the [Git repository]({{@link actors/development/source_code.md
 
 Internally, Apify uses Docker to build and run actors. To control the build of the actor, you can create a custom **Dockerfile** in the root of the Git repository or Zip directory. Note that this option is not available for the [Single JavaScript file]({{@link actors/development/source_code.md#single-javascript-file}}) option. If the **Dockerfile** is missing, the system uses the following default:
 
-    FROM apify/actor-node-basic
+```js
+FROM apify/actor-node-basic
 
-    # Copy all files and directories from the directory
-    # to the Docker image
-    COPY . ./
+# Copy all files and directories from the directory
+# to the Docker image
+COPY . ./
 
-    # Install NPM packages, skip optional and development
-    # dependencies to keep the image small,
-    # avoid logging too much, and log the dependency tree
-    RUN npm install --quiet --only=prod --no-optional \
-     && npm list
+# Install NPM packages, skip optional and development
+# dependencies to keep the image small,
+# avoid logging too much, and log the dependency tree
+RUN npm install --quiet --only=prod --no-optional \
+    && npm list
+```
 
 For more information about Dockerfile syntax and commands, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
@@ -96,20 +102,22 @@ Note that `apify/actor-node-basic` is a base Docker image provided by Apify. The
 
 By default, all Apify base Docker images start your Node.js application same way as **npm start** does, i.e. by running the command specified in the **package.json** file under the **scripts** - **start** key. The default **package.json** file is similar to the following.
 
-    {
-      "description": "Anonymous actor on the Apify platform",
-      "version": "0.0.1",
-      "license": "UNLICENSED",
-      "main": "main.js",
-      "scripts": {
-        "start": "node main.js"
-      },
-      "dependencies": {
-        "apify": ">=0.8.15",
-        "apify-client": ">=0.3.0",
-      },
-      "repository": {}
-    }
+```json
+{
+    "description": "Anonymous actor on the Apify platform",
+    "version": "0.0.1",
+    "license": "UNLICENSED",
+    "main": "main.js",
+    "scripts": {
+    "start": "node main.js"
+    },
+    "dependencies": {
+    "apify": ">=0.8.15",
+    "apify-client": ">=0.3.0",
+    },
+    "repository": {}
+}
+```
 
 *This means that by default the system expects the source code to be in the **main.js** file.* If you want to override this behavior, use a custom **package.json** and/or **Dockerfile**.
 
@@ -120,7 +128,9 @@ If the source code of an actor is hosted in a [Git repository](#git-repository),
 
 For example, for repositories on GitHub it can be done using the following steps. First, go to the actor detail page, open the **API** tab and copy the **Build actor** API endpoint URL. It should look something like this:
 
-    https://api.apify.com/v2/acts/apify~hello-world/builds?token=<API_TOKEN>&version=0.1
+```json
+https://api.apify.com/v2/acts/apify~hello-world/builds?token=<API_TOKEN>&version=0.1
+```
 
 Then go to your GitHub repository, click **Settings**, select **Webhooks** tab and click **Add webhook**\. Paste the API URL to the **Payload URL** as follows:
 
@@ -138,7 +148,9 @@ Note that the custom environment variables are fixed during the build of the act
 
 To access environment variables in Node.js, use the `process.env` object, for example:
 
-    console.log(process.env.SMTP_HOST);
+```js
+console.log(process.env.SMTP_HOST);
+```
 
 The actor runtime sets additional environment variables for the actor process during the run. See [Environment variables]({{@link actors/development/environment_variables.md}}) for details.
 
@@ -174,28 +186,29 @@ To make you actor compatible with metamorph operation use `Apify.getInput()` ins
 
 For example, imagine you have an actor that accepts a hotel URL on input and then internally uses the [apify/web-scraper](https://www.apify.com/apify/web-scraper) actor to scrape all the hotel reviews. The metamorphing code would look as follows:
 
-    const Apify = require('apify');
+```js
+const Apify = require('apify');
 
-    Apify.main(async () => {
-        // Get input of your actor.
-        const { hotelUrl } = await Apify.getInput();
+Apify.main(async () => {
+    // Get input of your actor.
+    const { hotelUrl } = await Apify.getInput();
 
-        // Create input for apify/web-scraper
-        const newInput = {
-            startUrls: [{ url: hotelUrl }],
-            pageFunction: () => {
-                // Here you pass the page function that
-                // scrapes all the reviews ...
-            },
-            // ... and here would be all the additional
-            // input parameters.
-        };
+    // Create input for apify/web-scraper
+    const newInput = {
+        startUrls: [{ url: hotelUrl }],
+        pageFunction: () => {
+            // Here you pass the page function that
+            // scrapes all the reviews ...
+        },
+        // ... and here would be all the additional
+        // input parameters.
+    };
 
-        // Transform the actor run to apify/web-scraper
-        // with the new input.
-        await Apify.metamorph('apify/web-scraper', newInput);
+    // Transform the actor run to apify/web-scraper
+    // with the new input.
+    await Apify.metamorph('apify/web-scraper', newInput);
 
-        // The line here will never be reached, because the
-        // actor run will be interrupted.
-    });
-
+    // The line here will never be reached, because the
+    // actor run will be interrupted.
+});
+```

@@ -28,16 +28,20 @@ The following table describes the default actor settings:
 
 The actor can also be invoked using the Apify API by sending a HTTP POST request to the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, such as:
 
-    https://api.apify.com/v2/acts/apify~hello-world/runs?token=<YOUR_API_TOKEN>
+```json
+https://api.apify.com/v2/acts/apify~hello-world/runs?token=<YOUR_API_TOKEN>
+```
 
 The actor's input and its content type can be passed as a payload of the POST request and additional options can be specified using URL query parameters. For more details, see the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
 
 Actors can also be invoked programmatically from other actors using the [`call()`](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options) function provided by the [`apify`](https://sdk.apify.com/) NPM package. For example:
 
-    const run = await Apify.call('apify/hello-world', {
-        message: 'Hello!'
-    });
-    console.dir(run.output);
+```js
+const run = await Apify.call('apify/hello-world', {
+    message: 'Hello!'
+});
+console.dir(run.output);
+```
 
 The newly started actor runs under the same user account as the initial actor and therefore all resources consumed are charged to the same user account. This allows more complex actors to be built using simpler actors built and owned by other users.
 
@@ -72,43 +76,45 @@ Any actor run in terminal state, i.e. run with status **FINISHED**, **FAILED**, 
 
 The whole process of resurrection looks as follows:
 
-*   Run status will be updated to a **RUNNING** and its container will be restarted with the same storages (the same behaviour as when the run gets migrated to the new server).
-*   Existing run log will be discarded. If you need to backup it then please download it before you resurrect this run.
-*   Updated duration will include the time when actor was not running. This does not affect compute units consumption.
-*   Timeout will be counted from the point when this actor run was resurrected.
+* Run status will be updated to a **RUNNING** and its container will be restarted with the same storages (the same behavior as when the run gets migrated to the new server).
+* Existing run log will be discarded. If you need to backup it then please download it before you resurrect this run.
+* Updated duration will include the time when actor was not running. This does not affect compute units consumption.
+* Timeout will be counted from the point when this actor run was resurrected.
 
-Resurrection can be peformed in Apify app using the **resurrect** button or via API using the [resurrect run](https://docs.apify.com/api/v2#/reference/actors/resurrect-run) API endpoint.
+Resurrection can be performed in Apify app using the **resurrect** button or via API using the [resurrect run](https://docs.apify.com/api/v2#/reference/actors/resurrect-run) API endpoint.
 
 ## [](#container-web-server)Container web server
 
-Each actor run is assigned a unique hard-to-guess URL (e.g. http://kmdo7wpzlshygi.runs.apify.net), which enables HTTP access to an optional web server running inside the actor run's Docker container. The URL is available in the following places:
+Each actor run is assigned a unique hard-to-guess URL (e.g. <http://kmdo7wpzlshygi.runs.apify.net>), which enables HTTP access to an optional web server running inside the actor run's Docker container. The URL is available in the following places:
 
-*   In the web application, on the actor run details page as the **Container URL** field.
-*   In the API as the `containerUrl` property of the [Run object](https://docs.apify.com/api/v2#/reference/actors/run-object/get-run).
-*   In the actor run's container as the **APIFY_CONTAINER_URL** environment variable.
+* In the web application, on the actor run details page as the **Container URL** field.
+* In the API as the `containerUrl` property of the [Run object](https://docs.apify.com/api/v2#/reference/actors/run-object/get-run).
+* In the actor run's container as the **APIFY_CONTAINER_URL** environment variable.
 
 The web server running inside the container must listen at the port defined by the `APIFY_CONTAINER_PORT` environment variable (typically 4321). If you want to use another port, simply define the **APIFY_CONTAINER_PORT** environment variable with the desired port number in your actor version configuration - see [Custom environment variable]({{@link actors/development/source_code.md#custom-environment-variables}}) for details.
 
 The following example demonstrates how to start a simple web server in your actor:
 
-    const Apify = require('apify');
-    const express = require('express');
+```js
+const Apify = require('apify');
+const express = require('express');
 
-    const app = express()
-    const port = process.env.APIFY_CONTAINER_PORT;
+const app = express()
+const port = process.env.APIFY_CONTAINER_PORT;
 
-    app.get('/', (req, res) => {
-        res.send('Hello World!');
-    });
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
 
-    app.listen(port, () => console.log(`Web server is listening
-        and can be accessed at
-        ${process.env.APIFY_CONTAINER_URL}!`))
+app.listen(port, () => console.log(`Web server is listening
+    and can be accessed at
+    ${process.env.APIFY_CONTAINER_URL}!`))
 
-    Apify.main(async () => {
-        // Let the actor run for an hour.
-        await Apify.utils.sleep(60 * 60 * 1000);
-    });
+Apify.main(async () => {
+    // Let the actor run for an hour.
+    await Apify.utils.sleep(60 * 60 * 1000);
+});
+```
 
 ## [](#data-retention)Data retention
 
