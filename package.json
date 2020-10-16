@@ -1,7 +1,7 @@
 {
   "name": "apify-docs",
   "version": "0.0.1",
-  "description": "This is a home of Apify documentation.",
+  "description": "This is the home of Apify documentation.",
   "main": "index.js",
   "scripts": {
     "build": "node ./src/build.js",
