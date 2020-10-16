@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "eslint-plugin-md": "^1.0.19",
-    "markdownlint": "^0.21.0"
+    "markdownlint": "^0.21.0",
+    "markdownlint-cli": "^0.24.0"
   }
 }
