@@ -50,7 +50,9 @@ You can use the `Dataset` class to specify whether your data is stored locally o
 
 If you have chosen to store your dataset locally, you can find it in the location below.
 
-    {APIFY_LOCAL_STORAGE_DIR}/datasets/{DATASET_ID}/{INDEX}.json
+```json
+{APIFY_LOCAL_STORAGE_DIR}/datasets/{DATASET_ID}/{INDEX}.json
+```
 
 **DATASET_ID** refers to the dataset's **name** or **ID**\. The default dataset will be stored in the **default** directory.
 
@@ -148,7 +150,6 @@ const hotelAndCafeData = await datasets.getItems({
 
 > If you both specify and omit the same field in a request, the **omit** parameter will prevail and the field will not be returned.
 
-
 For more information, see the JavaScript API client [documentation](https://docs.apify.com/apify-client-js#ApifyClient-datasets).
 
 ### [](#apify-api) Apify API
@@ -159,16 +160,22 @@ If you are accessing your datasets using the **username~store-name** [store ID f
 
 To **get a list of your datasets**, send a GET request to the [Get list of datasets](https://docs.apify.com/api/v2#/reference/datasets/get-list-of-datasets) endpoint, providing your API token as a query parameter.
 
-    https://api.apify.com/v2/datasets?token={YOUR_API_TOKEN}
+```json
+https://api.apify.com/v2/datasets?token={YOUR_API_TOKEN}
+```
 
 To **get information about a dataset** such as its creation time and **item count**, send a GET request to the [Get dataset](https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset) endpoint.
 
-    https://api.apify.com/v2/datasets/{DATASET_ID}?token={YOUR_API_TOKEN}
+```json
+https://api.apify.com/v2/datasets/{DATASET_ID}?token={YOUR_API_TOKEN}
+```
 
 To **view a dataset's data**, send a GET request to the
 [Get dataset items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items) Apify API endpoint.
 
-    https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
+```json
+https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
+```
 
 You can **specify which data are exported** by adding a comma-separated list of fields to the **fields** query parameter. Likewise, you can also omit certain fields using the **omit** parameter.
 
@@ -176,18 +183,23 @@ You can **specify which data are exported** by adding a comma-separated list of 
 
 To retrieve the **hotel** and **cafe** fields, you would send your GET request to the URL below.
 
-    https://api.apify.com/v2/datasets/{DATASET_ID}/items?token={YOUR_API_TOKEN}&fields=hotel%2Ccafe
+```json
+https://api.apify.com/v2/datasets/{DATASET_ID}/items?token={YOUR_API_TOKEN}&fields=hotel%2Ccafe
+```
 
 > Instead of commas, you will need to use the `%2C` code, which represents `,` in URL encoding.<br/>
 > Learn more about URL encoding [here](https://www.url-encode-decode.com).
 
 To **add data to a dataset**, send a POST request, with a JSON object containing the data you want to add as the payload to the [Put items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items) endpoint.
 
-    https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
+```json
+https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
+```
 
 > Pushing data to dataset via API is limited to **200** requests per second to prevent our servers from being overloaded.
 
 Example payload:
+
 ```json
 [
     {
@@ -301,7 +313,7 @@ will be transformed to the following XML snippet:
 
 This feature is also useful when customizing your RSS feeds generated for various websites.
 
-By default, the whole result is wrapped in an `<items/>` emelent, while each page object is contained in an `<item/>` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when GETting your data.
+By default, the whole result is wrapped in an `<items/>` element, while each page object is contained in an `<item/>` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when GETting your data.
 
 ## [](#sharing) Sharing
 
@@ -330,7 +342,6 @@ Once you've opened the dataset, read its contents and add new data like you woul
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally.
 
 For more information on sharing storages between runs, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs).
-
 
 ## [](#limits) Limits
 

@@ -51,8 +51,8 @@ And, last but not least, our [**command-line client**]({{@link cli.md}}) will he
 
 ## [](#external-resources) External resources
 
-*   [**Stack Overflow**](https://stackoverflow.com/questions/tagged/apify) - community questions.
-*   [**Help center**](https://help.apify.com/) - examples, tutorials and various tips & tricks.
-*   [**Video tutorials**](https://www.youtube.com/apify) - step-by-step video tutorials for beginners.
+* [**Stack Overflow**](https://stackoverflow.com/questions/tagged/apify) - community questions.
+* [**Help center**](https://help.apify.com/) - examples, tutorials and various tips & tricks.
+* [**Video tutorials**](https://www.youtube.com/apify) - step-by-step video tutorials for beginners.
 
 Anything missing? Please let us know at [support@apify.com](mailto:support@apify.com) or using the **Feedback** button on the right.

@@ -23,34 +23,36 @@ You can also use our [visual input schema editor](https://apify.github.io/input-
 
 Imagine you are building a simple crawler whose inputs are an array of start URLs and a Javascript function that will be executed at each page the crawler visits. Then the input schema will look as follows:
 
-    {
-        "title": "Cheerio Crawler input",
-        "description": "To update crawler to another site,
-            you need to change startUrls and
-            pageFunction options!",
-        "type": "object",
-        "schemaVersion": 1,
-        "properties": {
-            "startUrls": {
-                "title": "Start URLs",
-                "type": "array",
-                "description": "URLs to start with",
-                "prefill": [
-                    { "url": "http://example.com" },
-                    { "url": "http://example.com/some-path" }
-                ],
-                "editor": "requestListSources"
-            },
-            "pageFunction": {
-                "title": "Page function",
-                "type": "string",
-                "description": "Function executed for each request",
-                "prefill": "async () => {return $('title').text();}",
-                "editor": "javascript"
-            }
+```json
+{
+    "title": "Cheerio Crawler input",
+    "description": "To update crawler to another site,
+        you need to change startUrls and
+        pageFunction options!",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "startUrls": {
+            "title": "Start URLs",
+            "type": "array",
+            "description": "URLs to start with",
+            "prefill": [
+                { "url": "http://example.com" },
+                { "url": "http://example.com/some-path" }
+            ],
+            "editor": "requestListSources"
         },
-        "required": ["startUrls", "pageFunction"]
-    }
+        "pageFunction": {
+            "title": "Page function",
+            "type": "string",
+            "description": "Function executed for each request",
+            "prefill": "async () => {return $('title').text();}",
+            "editor": "javascript"
+        }
+    },
+    "required": ["startUrls", "pageFunction"]
+}
+```
 
 And generated the input UI will be:
 
@@ -58,29 +60,33 @@ And generated the input UI will be:
 
 If you switch the input to **raw** display using the blue toggle, then you will see the entered input stringified to a JSON format as it will be passed to the actor:
 
+```json
+{
+    "startUrls": [
     {
-      "startUrls": [
-        {
-          "url": "http://example.com"
-        },
-        {
-          "url": "http://example.com/some-path"
-        }
-      ],
-      "pageFunction": "async () => {return $('title').text();}"
+        "url": "http://example.com"
+    },
+    {
+        "url": "http://example.com/some-path"
     }
+    ],
+    "pageFunction": "async () => {return $('title').text();}"
+}
+```
 
 ## [](#structure)Structure
 
 The input schema is a JSON file named **INPUT_SCHEMA.json**, placed in the root directory of an actor with the following structure:
 
-    {
-        "title": "Cheerio Crawler input",
-        "type": "object",
-        "schemaVersion": 1,
-        "properties": { /* define input fields here */ },
-        "required": []
-    }
+```json
+{
+    "title": "Cheerio Crawler input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": { /* define input fields here */ },
+    "required": []
+}
+```
 
 |Property|Type|Required|Description|
 |--- |--- |--- |--- |
@@ -115,13 +121,15 @@ In addition to the properties listed above, most of the types support also addit
 
 Example of a code input:
 
-    {
-        "title": "Page function",
-        "type": "string",
-        "description": "Function executed for each request",
-        "editor": "javascript",
-        "prefill": "async () => {return $('title').text();}"
-    }
+```json
+{
+    "title": "Page function",
+    "type": "string",
+    "description": "Function executed for each request",
+    "editor": "javascript",
+    "prefill": "async () => {return $('title').text();}"
+}
+```
 
 Rendered input:
 
@@ -129,15 +137,17 @@ Rendered input:
 
 Example of country selection using a select input:
 
-    {
-        "title": "Country",
-        "type": "string",
-        "description": "Select your country",
-        "editor": "select",
-        "default": "us",
-        "enum": ["us", "de", "fr"],
-        "enumTitles": ["USA", "Germany", "France"]
-    }
+```json
+{
+    "title": "Country",
+    "type": "string",
+    "description": "Select your country",
+    "editor": "select",
+    "default": "us",
+    "enum": ["us", "de", "fr"],
+    "enumTitles": ["USA", "Germany", "France"]
+}
+```
 
 Rendered input:
 
@@ -162,24 +172,26 @@ Beware that the `boolean` input type doesn't support the `prefill` property, sin
 
 Example options with group caption:
 
-    {
-        "verboseLog": {
-            "title": "Verbose log",
-            "type": "boolean",
-            "description": "Debug messages will be included
-                in the log.",
-            "default": true,
-            "groupCaption": "Options",
-            "groupDescription": "Various options for this actor"
-        },
-        "lightspeed": {
-            "title": "Lightspeed",
-            "type": "boolean",
-            "description": "If checked then actors runs at the
-                speed of light.",
-            "default": true
-        }
+```json
+{
+    "verboseLog": {
+        "title": "Verbose log",
+        "type": "boolean",
+        "description": "Debug messages will be included
+            in the log.",
+        "default": true,
+        "groupCaption": "Options",
+        "groupDescription": "Various options for this actor"
+    },
+    "lightspeed": {
+        "title": "Lightspeed",
+        "type": "boolean",
+        "description": "If checked then actors runs at the
+            speed of light.",
+        "default": true
     }
+}
+```
 
 Rendered input:
 
@@ -198,14 +210,16 @@ Properties:
 
 Example:
 
-    {
-        "title": "Memory",
-        "type": "integer",
-        "description": "Select memory in megabytes",
-        "default": 64,
-        "maximum": 1024,
-        "unit": "MB"
-    }
+```json
+{
+    "title": "Memory",
+    "type": "integer",
+    "description": "Select memory in megabytes",
+    "default": 64,
+    "maximum": 1024,
+    "unit": "MB"
+}
+```
 
 Rendered input:
 
@@ -225,13 +239,15 @@ Properties:
 
 Example of proxy configuration:
 
-    {
-        "title": "Proxy configuration",
-        "type": "object",
-        "description": "Select proxies to be used by your crawler.",
-        "prefill": { "useApifyProxy": true },
-        "editor": "proxy"
-    }
+```json
+{
+    "title": "Proxy configuration",
+    "type": "object",
+    "description": "Select proxies to be used by your crawler.",
+    "prefill": { "useApifyProxy": true },
+    "editor": "proxy"
+}
+```
 
 Rendered input:
 
@@ -239,32 +255,36 @@ Rendered input:
 
 The object where the proxy configuration is stored has the following structure:
 
-    {
-        // Indicates whether Apify Proxy was selected.
-        "useApifyProxy": Boolean,
+```json
+{
+    // Indicates whether Apify Proxy was selected.
+    "useApifyProxy": Boolean,
 
-        // Array of Apify Proxy groups. Is missing or null if
-        // Apify Proxy's automatic mode was selected
-        // or if proxies are not used.
-        "apifyProxyGroups": String[],
+    // Array of Apify Proxy groups. Is missing or null if
+    // Apify Proxy's automatic mode was selected
+    // or if proxies are not used.
+    "apifyProxyGroups": String[],
 
-        // Array of custom proxy URLs.
-        // Is missing or null if custom proxies were not used.
-        "proxyUrls": String[],
-    }
+    // Array of custom proxy URLs.
+    // Is missing or null if custom proxies were not used.
+    "proxyUrls": String[],
+}
+```
 
 Example of a blackbox object:
 
-    {
-        "title": "User object",
-        "type": "object",
-        "description": "Enter object representing user",
-        "prefill": {
-            "name": "John Doe",
-            "email": "janedoe@gmail.com"
-        },
-        "editor": "json"
-    }
+```json
+{
+    "title": "User object",
+    "type": "object",
+    "description": "Enter object representing user",
+    "prefill": {
+        "name": "John Doe",
+        "email": "janedoe@gmail.com"
+    },
+    "editor": "json"
+}
+```
 
 Rendered input:
 
@@ -286,13 +306,15 @@ Properties:
 
 Example of request list sources configuration:
 
-    {
-        "title": "Start URLs",
-        "type": "array",
-        "description": "URLs to start with",
-        "prefill": [{ "url": "http://example.com" }],
-        "editor": "requestListSources"
-    }
+```json
+{
+    "title": "Start URLs",
+    "type": "array",
+    "description": "URLs to start with",
+    "prefill": [{ "url": "http://example.com" }],
+    "editor": "requestListSources"
+}
+```
 
 Rendered input:
 
@@ -300,13 +322,15 @@ Rendered input:
 
 Example of an array:
 
-    {
-        "title": "Colors",
-        "type": "array",
-        "description": "Enter colors you know",
-        "prefill": ["Red", "White"],
-        "editor": "json"
-    }
+```json
+{
+    "title": "Colors",
+    "type": "array",
+    "description": "Enter colors you know",
+    "prefill": ["Red", "White"],
+    "editor": "json"
+}
+```
 
 Rendered input:
 
@@ -329,7 +353,7 @@ Properties:
 
 Usage of this field is based on the selected editor:
 
-*   `requestListSources` - value from this field can be used as input of [RequestList](https://sdk.apify.com/docs/api/request-list) class from Apify SDK.
-*   `pseudoUrls` - is intended to be used with a combination of the [PseudoUrl](https://sdk.apify.com/docs/api/pseudo-url) class and the [Apify.utils.enqueueLinks()](https://sdk.apify.com/docs/api/utils#utilsenqueuelinksoptions) function from the Apify SDK.
+* `requestListSources` - value from this field can be used as input of [RequestList](https://sdk.apify.com/docs/api/request-list) class from Apify SDK.
+* `pseudoUrls` - is intended to be used with a combination of the [PseudoUrl](https://sdk.apify.com/docs/api/pseudo-url) class and the [Apify.utils.enqueueLinks()](https://sdk.apify.com/docs/api/utils#utilsenqueuelinksoptions) function from the Apify SDK.
 
 Editor type `requestListSources` supports input in formats defined by the [sources](https://sdk.apify.com/docs/typedefs/request-list-options#sources) property of [RequestListOptions](https://sdk.apify.com/docs/typedefs/request-list-options).

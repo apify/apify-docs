@@ -88,8 +88,8 @@ await Promise.all([
 ]);
 
 try {
-    await page.waitForFunction(selector => 
-        document.querySelector(selector).innerText.includes('Payment Success'), 
+    await page.waitForFunction(selector =>
+        document.querySelector(selector).innerText.includes('Payment Success'),
         {polling: 'mutation'}, '#PaymentOutcome');
 } catch (error) {
     return OUTPUT.paymentFailure;
