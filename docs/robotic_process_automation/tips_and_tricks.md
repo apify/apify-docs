@@ -17,24 +17,9 @@ Always strive to make automation as fluid as possible. Listen to events and reac
 - Prefer fluid flow based on the **occurrence of events**.
 
 ```javascript
-await page.waitForTimeout(timeout) => {
-    await page.waitForFunction(function, options, args);
-};
-
-await page.waitForTimeout(timeout) => {
-    await page.waitForFunction(() => {
-        window.location.href.includes('path'));
-    };
-};
-
-await page.waitForTimeout(timeout) => {
-    await page.waitForFunction(selector => {
-        document.querySelector(selector).innerText,
-        { polling: 'mutation' },
-        '[data-qa="btnAppleSignUp"]'
-        );
-    };
-};
+await page.waitForTimeout(timeout) -> await page.waitForFunction(function, options, args);
+await page.waitForTimeout(timeout) -> await page.waitForFunction(() => window.location.href.includes('path'));
+await page.waitForTimeout(timeout) -> await page.waitForFunction(selector => document.querySelector(selector).innerText, {polling: 'mutation'}, '[data-qa="btnAppleSignUp"]');
 ```
 
 ## [](#proofs-and-verification) Proofs and verification
@@ -124,13 +109,13 @@ Make sure your [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/
 - Completely **avoid or strip** selectors of values that are clearly **flexible**.
 - **Extend low-specificity** selectors to reduce probability of **collisions**.
 
-Below is an example of stripping away non-specific parts of a selector.
+Below is an example of stripping away too specific parts of a selector that are likely random or subject to change
 
 ```javascript
 #P_L_v201w3_t3_ReceiptToolStripLabel => a[id*="ReceiptToolStripLabel"]
 ```
 
-If you are reasonably confident a page layout will remain without any dramatic future changes **and** need to increase the selector specificity to reduce the chance of a collision with other selectors, you can use the principle below.
+If you are reasonably confident a page layout will remain without any dramatic future changes **and** need to increase the selector specificity to reduce the chance of a collision with other selectors, you can extend the selector as per the principle below.
 
 ```javascript
 #ReceiptToolStripLabel_P_L_v201w3_t3 => table li > a[id^="ReceiptToolStripLabel"]
