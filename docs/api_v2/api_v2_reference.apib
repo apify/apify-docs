@@ -1442,9 +1442,9 @@ Returns the input of a given task.
 + Response 200 (application/json)
 
     + Attributes
-        - myField1      `some-value`       (string, nullable)
-        - myField2      `another-value`    (string, nullable)
-        - myField3      1                  (number, nullable)
+        - myField1:      `some-value`       (string, nullable)
+        - myField2:      `another-value`    (string, nullable)
+        - myField3:      1                  (number, nullable)
 
 ### Update task input [PUT]
 
@@ -1459,14 +1459,14 @@ The request needs to specify the `Content-Type: application/json` HTTP header!
 + Request (application/json)
 
     + Attributes
-        - myField2      `updated-value`    (string, nullable)
+        - myField2:     `updated-value`    (string, nullable)
 
 + Response 200 (application/json)
 
     + Attributes
-        - myField1      `some-value`       (string, nullable)
-        - myField2      `updated-value`    (string, nullable)
-        - myField3      1                  (number, nullable)
+        - myField1:      `some-value`       (string, nullable)
+        - myField2:     `updated-value`    (string, nullable)
+        - myField3:      1                  (number, nullable)
 
 ## Webhook collection [/v2/actor-tasks/{actorTaskId}/webhooks{?token,offset,limit,desc}]
 
