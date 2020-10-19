@@ -17,23 +17,22 @@ Always strive to make automation as fluid as possible. Listen to events and reac
 - Prefer fluid flow based on the **occurrence of events**.
 
 ```javascript
-await page.waitForTimeout(timeout) => {
-    await page.waitForFunction(function, options, args);
+// Avoid: 
+await page.waitForTimeout(timeout);
+
+// Good:
+await page.waitForFunction(function, options, args);
+
+// Good:
+await page.waitForFunction(() => {
+    window.location.href.includes('path'));
 };
 
-await page.waitForTimeout(timeout) => {
-    await page.waitForFunction(() => {
-        window.location.href.includes('path'));
-    };
-};
-
-await page.waitForTimeout(timeout) => {
-    await page.waitForFunction(selector => {
-        document.querySelector(selector).innerText,
-        { polling: 'mutation' },
-        '[data-qa="btnAppleSignUp"]'
-        );
-    };
+//Good:
+await page.waitForFunction(selector => {
+    document.querySelector(selector).innerText, 
+    {polling: 'mutation'},
+    '[data-qa="btnAppleSignUp"]');
 };
 ```
 
@@ -48,7 +47,7 @@ Make sure output remains consistent regardless of any changes at the target host
 
 The absence of an expected element or message does **not** prove an action has been (un)successful. The website might have been updated or expected content may no longer exist in the original form. The **action relying on the absence** of something might still be failing. Instead, it must rely on **proof of presence**.
 
-**Good**: rely on the presence of an element or other content confirming a successful action.
+**Good**: Rely on the presence of an element or other content confirming a successful action.
 
 ```javascript
 try {
@@ -60,7 +59,7 @@ try {
 return OUTPUT.paymentSuccess;
 ```
 
-**Avoid**: relying on the absence of an element that may have been simply updated or changed.
+**Avoid**: Relying on the absence of an element that may have been simply updated or changed.
 
 ```javascript
 const $paymentAmount = await page.$('#PaymentAmount');
@@ -79,7 +78,7 @@ Always assume an action has failed before having a proof of success. Always veri
 
 Assuming any action has been successful without direct proof is dangerous. Disprove failure actively through proof of success instead. Only then consider output valid and verified.
 
-**Good**: verify outcome through proof. Clearly disprove failure of an important action.
+**Good**: Verify outcome through proof. Clearly disprove failure of an important action.
 
 ```javascript
 await Promise.all([
@@ -98,7 +97,7 @@ try {
 return OUTPUT.paymentSuccess;
 ```
 
-**Avoid**: not verifying an outcome. It can easily fail despite output claiming otherwise.
+**Avoid**: Not verifying an outcome. It can easily fail despite output claiming otherwise.
 
 ```javascript
 await Promise.all([
@@ -124,13 +123,13 @@ Make sure your [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/
 - Completely **avoid or strip** selectors of values that are clearly **flexible**.
 - **Extend low-specificity** selectors to reduce probability of **collisions**.
 
-Below is an example of stripping away non-specific parts of a selector.
+Below is an example of stripping away too-specific parts of a selector that are likely random or subject to change.
 
 ```javascript
 #P_L_v201w3_t3_ReceiptToolStripLabel => a[id*="ReceiptToolStripLabel"]
 ```
 
-If you are reasonably confident a page layout will remain without any dramatic future changes **and** need to increase the selector specificity to reduce the chance of a collision with other selectors, you can use the principle below.
+If you are reasonably confident a page layout will remain without any dramatic future changes **and** need to increase the selector specificity to reduce the chance of a collision with other selectors, you can extend the selector as per the principle below.
 
 ```javascript
 #ReceiptToolStripLabel_P_L_v201w3_t3 => table li > a[id^="ReceiptToolStripLabel"]
