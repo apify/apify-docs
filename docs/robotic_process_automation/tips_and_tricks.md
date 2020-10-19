@@ -28,7 +28,7 @@ await page.waitForFunction(() => {
     window.location.href.includes('path'));
 };
 
-//Good:
+// Good:
 await page.waitForFunction(selector => {
     document.querySelector(selector).innerText, 
     {polling: 'mutation'},
