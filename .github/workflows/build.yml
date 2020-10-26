@@ -16,8 +16,10 @@ jobs:
         run: sudo gem install apiaryio
       - name: Install dependencies
         run: npm install
+      - name: Lint Markdown
+        run: npm run lint:md
       - name: Lint code
-        run: npm run lint
+        run: npm run lint:code
       - name: Build documentation
         run: npm run build
       - name: Upload docs to AWS S3
