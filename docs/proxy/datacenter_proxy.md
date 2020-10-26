@@ -20,14 +20,14 @@ Prices for dedicated proxy servers are mainly based on the number of proxy serve
 
 ## [](#features)Features
 
-*   Periodic health checks of proxies in the pool to ensure requests are not forwarded via dead proxies.
-*   Intelligent rotation of IP addresses to ensure target hosts are accessed via proxies that have accessed them the longest time ago, to reduce the chance of blocking.
-*   Periodically checks whether proxies are banned by selected target websites, and if they are, stops forwarding traffic to them to get the proxies unbanned as soon as possible.
-*   Ensures proxies are located in specific countries using IP geolocation.
-*   Allows selection of groups of proxy servers with specific characteristics.
-*   Supports persistent sessions that enable you to keep the same IP address for certain parts of your crawls.
-*   Measures statistics of traffic for specific users and hostnames.
-*   Allows selection of proxy servers by country.
+* Periodic health checks of proxies in the pool to ensure requests are not forwarded via dead proxies.
+* Intelligent rotation of IP addresses to ensure target hosts are accessed via proxies that have accessed them the longest time ago, to reduce the chance of blocking.
+* Periodically checks whether proxies are banned by selected target websites, and if they are, stops forwarding traffic to them to get the proxies unbanned as soon as possible.
+* Ensures proxies are located in specific countries using IP geolocation.
+* Allows selection of groups of proxy servers with specific characteristics.
+* Supports persistent sessions that enable you to keep the same IP address for certain parts of your crawls.
+* Measures statistics of traffic for specific users and hostnames.
+* Allows selection of proxy servers by country.
 
 ## [](#shared-proxy-groups)Shared proxy groups
 
@@ -105,8 +105,8 @@ If you do not want to specify both `groups` and `session` parameters and therefo
 
 When using Apify Proxy with `session` parameter set in the username (see [Username parameters]({{@link proxy/datacenter_proxy.md#username-parameters}})) a single IP is assigned to the session ID provided after the first request is made. This IP/session_id combination is persited, and its expiration is set to 24 hours later. Each additional request extends the expiration back to 24 hours, so if you use the session at least once a day it will never expire, with two possible exceptions:
 
-*   Proxy server stops responding and is marked as dead during a health check
-*   If the Proxy Server is part of a Proxy Group that is refreshed monthly and is rotated out.
+* Proxy server stops responding and is marked as dead during a health check
+* If the Proxy Server is part of a Proxy Group that is refreshed monthly and is rotated out.
 
 If the session is discarded due to the reasons above, then a new IP is assigned to the session.
 

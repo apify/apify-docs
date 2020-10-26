@@ -60,17 +60,16 @@ To add data to the default dataset, you can use the example below, however using
 
 ```js
 // Import the Apify SDK into your project
-const Apify = require("apify");
+const Apify = require('apify');
 
 // The optional Apify.main() function performs the
 // actor's job and terminates the process when it is finished
 Apify.main(async () => {
-
     // Add one item to the default dataset
-    await Apify.pushData({ foo: "bar" });
+    await Apify.pushData({ foo: 'bar' });
 
     // Add multiple items to the default dataset
-    await Apify.pushData([{ foo: "hotel" }, { foo: "cafe" }]);
+    await Apify.pushData([{ foo: 'hotel' }, { foo: 'cafe' }]);
 });
 ```
 
@@ -80,10 +79,10 @@ If you want to use something other than the default dataset, e.g. a dataset that
 
 ```js
 // Save a named dataset to a variable
-const dataset = await Apify.openDataset("some-name");
+const dataset = await Apify.openDataset('some-name');
 
 // Add data to the named dataset
-await dataset.pushData({ foo: "bar" });
+await dataset.pushData({ foo: 'bar' });
 ```
 
 When using the `getData()` method, you can specify the data you retrieve using the `[fields]` parameter. It should be an array of field names (strings) that will be included in the results. To include all the results, simply omit the `[fields]` parameter.
@@ -91,7 +90,7 @@ When using the `getData()` method, you can specify the data you retrieve using t
 ```js
 // Only get the "hotel" and "cafe" fields
 const hotelAndCafeData = await dataset.getData({
-    fields: ["hotel", "cafe"]
+    fields: ['hotel', 'cafe']
 });
 ```
 
@@ -107,7 +106,7 @@ After [importing](https://docs.apify.com/storage/#javascript-api-client) the `ap
 
 ```js
 // Save your datasets to a variable for easier access
-const datasets = apifyClient.datasets;
+const { datasets } = apifyClient;
 ```
 
 You can then create, update, and delete datasets using the commands below.
@@ -116,7 +115,7 @@ You can then create, update, and delete datasets using the commands below.
 // Get the dataset with the name "my-dataset"
 // or create it if it doesn't exist
 const dataset = await datasets.getOrCreateDataset({
-    datasetName: "my-dataset",
+    datasetName: 'my-dataset',
 });
 
 // Set the dataset as the default to be used
@@ -125,10 +124,10 @@ apifyClient.setOptions({ datasetId: dataset.id });
 
 // Add an object and and array of objects to the dataset
 await datasets.putItems({
-    data: { foo: "bar" }
+    data: { foo: 'bar' }
 });
 await datasets.putItems({
-    data: [{ foo: "hotel" }, { foo: "cafe" }]
+    data: [{ foo: 'hotel' }, { foo: 'cafe' }]
 });
 
 // Get items from a dataset
@@ -144,7 +143,7 @@ When using the `getItems()` method, you can specify the data you retrieve using 
 ```js
 // Only get the "hotel" and "cafe" fields
 const hotelAndCafeData = await datasets.getItems({
-    fields: ["hotel", "cafe"]
+    fields: ['hotel', 'cafe']
 });
 ```
 
@@ -245,7 +244,7 @@ When you export results to XML or RSS formats, object property names become XML 
 
 For example, the JavaScript object:
 
-```js
+```json
 {
     name: "Rashida Jones",
     address: [
@@ -283,7 +282,7 @@ If the JavaScript object contains a property named `@`, its sub-properties are e
 
 For example, the following JavaScript object:
 
-```js
+```json
 {
     "address": [{
         "@": {

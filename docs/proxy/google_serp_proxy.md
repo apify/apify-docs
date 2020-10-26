@@ -14,8 +14,8 @@ Requests made through the proxy are automatically routed through a proxy server 
 
 Currently supported google search services are:
 
-*   Google Search (`http://www.google.<country domain>/search`)
-*   Google Shopping (`http://www.google.<country domain>/search?tbm=shop`)
+* Google Search (`http://www.google.<country domain>/search`)
+* Google Shopping (`http://www.google.<country domain>/search?tbm=shop`)
 
 **Important:** Only HTTP requests are allowed, and the Google hostname needs to start with `www.` subdomain.
 
@@ -43,5 +43,4 @@ Shopping results from Great Britain: `http://www.google.co.uk/seach?tbm=shop&q=<
 Search results from Germany: `http://www.google.de/search?q=<query>`
 
 See [full list of available domain names](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/List_of_Google_domains.html) for specific countries. When used, always remember to prepend the domain name with `www.` prefix.
-
 
