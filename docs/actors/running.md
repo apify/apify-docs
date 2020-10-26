@@ -99,7 +99,7 @@ The following example demonstrates how to start a simple web server in your acto
 const Apify = require('apify');
 const express = require('express');
 
-const app = express()
+const app = express();
 const port = process.env.APIFY_CONTAINER_PORT;
 
 app.get('/', (req, res) => {
@@ -108,7 +108,7 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => console.log(`Web server is listening
     and can be accessed at
-    ${process.env.APIFY_CONTAINER_URL}!`))
+    ${process.env.APIFY_CONTAINER_URL}!`));
 
 Apify.main(async () => {
     // Let the actor run for an hour.

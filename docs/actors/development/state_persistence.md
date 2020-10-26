@@ -24,7 +24,7 @@ The actor below can be found in the Apify store as [apify/example-counter](https
 const Apify = require('apify');
 
 Apify.main(async () => {
-    const keyValueStores = Apify.client.keyValueStores;
+    const { keyValueStores } = Apify.client;
 
     // Get store with name 'example-counter'.
     const store = await keyValueStores.getOrCreateStore({
@@ -41,7 +41,7 @@ Apify.main(async () => {
     let counter = record ? record.body : 0;
 
     // Increase counter, print and set as output.
-    counter ++;
+    counter++;
     console.log(`Counter: ${counter}`);
     Apify.setValue('OUTPUT', counter);
 

@@ -19,15 +19,15 @@ where `AD_HOC_WEBHOOKS` is a base64 encoded stringified JSON array of webhook de
 ```js
 [
     {
-        "eventTypes": ["ACTOR.RUN.CREATED"],
-        "requestUrl": "https://example.com/run-created"
+        eventTypes: ['ACTOR.RUN.CREATED'],
+        requestUrl: 'https://example.com/run-created',
     },
     {
-        "eventTypes": ["ACTOR.RUN.SUCCEEDED"],
-        "requestUrl": "https://example.com/run-succeeded",
-        "payloadTemplate": "{\"hello\": \"world\", \"resource\":{{resource}}}"
+        eventTypes: ['ACTOR.RUN.SUCCEEDED'],
+        requestUrl: 'https://example.com/run-succeeded',
+        payloadTemplate: '{"hello": "world", "resource":{{resource}}}',
     },
-]
+];
 ```
 
 ## Creating an ad hoc webhook dynamically
