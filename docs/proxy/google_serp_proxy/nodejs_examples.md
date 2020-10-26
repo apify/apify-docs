@@ -236,5 +236,3 @@ Get a list of shopping results from the Czech Republic for query `Apple iPhone X
         }
     });
 
-
-

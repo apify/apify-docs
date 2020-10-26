@@ -15,8 +15,8 @@ Since Residential proxy is priced by data traffic used, it's very easy to realy 
 
 There are two main ways to reduce the traffic use of your solutions:
 
-*   [Block requests which are not required for your solution](https://help.apify.com/en/articles/2423246-block-requests-in-puppeteer)
-*   [Cache responses that you require but do not wish to load again and again](https://help.apify.com/en/articles/2424032-cache-responses-in-puppeteerr)
+* [Block requests which are not required for your solution](https://help.apify.com/en/articles/2423246-block-requests-in-puppeteer)
+* [Cache responses that you require but do not wish to load again and again](https://help.apify.com/en/articles/2424032-cache-responses-in-puppeteerr)
 
 When both of these options are combined, the data traffic of your solution can be reduced dramatically.
 

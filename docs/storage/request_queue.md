@@ -67,18 +67,17 @@ To **open a request queue**, use the `Apify.openRequestQueue()` [method](https:/
 
 ```js
 // Import the Apify SDK into your project
-const Apify = require("apify");
+const Apify = require('apify');
 
 // The optional Apify.main() function performs the
 // actor's job and terminates the process when it is finished
 Apify.main(async () => {
-
     // Open the default request queue associated with
     // the actor run
     const queue = await Apify.openRequestQueue();
 
-    // Open the "my-queue" request queue
-    const queueWithName = await Apify.openRequestQueue("my-queue");
+    // Open the 'my-queue' request queue
+    const queueWithName = await Apify.openRequestQueue('my-queue');
 });
 ```
 
@@ -86,9 +85,9 @@ Once a queue is open, you can manage it using the following methods. For a full 
 
 ```js
 // Enqueue requests
-await queue.addRequest({ url: "http://example.com/aaa" });
+await queue.addRequest({ url: 'http://example.com/aaa' });
 await queue.addRequest(
-    { url: "http://example.com/foo/bar" },
+    { url: 'http://example.com/foo/bar' },
     { forefront: true }
 );
 
@@ -97,7 +96,7 @@ const request1 = await queue.fetchNextRequest();
 const request2 = await queue.fetchNextRequest();
 
 // Get a specific request
-const specificRequest = await queue.getRequest("shi6Nh3bfs3");
+const specificRequest = await queue.getRequest('shi6Nh3bfs3');
 
 // Reclaim a failed request back to the queue
 // and crawl it again
@@ -119,23 +118,23 @@ After [importing](https://docs.apify.com/storage/#javascript-api-client) the `ap
 
 ```js
 // Save your request queues to a variable for easier access
-const requestQueues = apifyClient.requestQueues;
+const { requestQueues } = apifyClient;
 ```
 
 You can then get or create new queues, retrieve existing requests or enqueue new URLs. For a full list of options, see the [JavaScript API client's](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) documentation.
 
 ```js
-// Get the "my-queue" request queue and set it as the default
+// Get the 'my-queue' request queue and set it as the default
 // to be used in the following commands
 const queue = await requestQueues.getOrCreateQueue({
-    queueName: "my-queue"
+    queueName: 'my-queue'
 });
 apifyClient.setOptions({ queueId: queue.id });
 
 // Add a request to the default queue
 await requestQueues.addRequest({
-    url: "http://example.com",
-    uniqueKey: "http://example.com"
+    url: 'http://example.com',
+    uniqueKey: 'http://example.com'
 });
 
 await requestQueues.addRequest({
@@ -227,14 +226,14 @@ You can access a request queue from any [actor]({{@link actors.md}}) or [task]({
 To access a request queue from another run using the Apify SDK, open it using the `Apify.openRequestQueue([queueIdOrName])` [method]((https://sdk.apify.com/docs/api/apify#apifyopenrequestqueuequeueidorname-options)) like you would any other queue.
 
 ```js
-const otherQueue = await Apify.openRequestQueue("old-queue");
+const otherQueue = await Apify.openRequestQueue('old-queue');
 ```
 
 To access a request queue using the [JavaScript API client](#javascript-api-client), use the `getOrCreateQueue()` [method](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues).
 
 ```js
 const otherQueue = await requestQueues.getOrCreateQueue({
-    queueName: "my-queue"
+    queueName: 'my-queue'
 });
 ```
 
