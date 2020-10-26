@@ -124,6 +124,18 @@ On commit to any other branch, the documentation's `develop` version gets update
 
 Keep in mind that there might be about 2 minute delay before updated documentation gets online (1 minute Github actions build + 1 minute update interval of docs website).
 
+## Linting
+
+The **apify-docs** repo contains both Markdown and JavaScript files. Several Markdown files, such as [dataset docs]({{@link docs/storage/dataset.md}}) contain code examples. Because of this, we have two commands for linting.
+
+* **npm run lint:md** / **npm run lint:md:fix** checks the **.md** files.
+* **npm run lint:code** / **npm run lint:code:fix** checks both the code examples within Markdown files and the build scripts.
+
+For Markdown, we use the [markdownlint](https://github.com/DavidAnson/markdownlint) package, which also has a handy VSCode [extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
+
+For JavaScript, we use the [ESLint Markdown plugin](https://github.com/eslint/eslint-plugin-markdown).
+
+
 ## API docs
 
 The `docs/api_v2` directory contains the source file for the
