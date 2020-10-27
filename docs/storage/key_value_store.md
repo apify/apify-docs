@@ -57,7 +57,7 @@ Each actor run is associated with the default key-value store, which is created 
 
 You can find INPUT.json and other key-value stores in the location below.
 
-```json
+```text
 {APIFY_LOCAL_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}
 ```
 
@@ -155,25 +155,25 @@ If you are accessing your stores using the **username~store-name** [store ID for
 
 To **get a list of your key-value stores**, send a GET request to the [Get list of key-value stores](https://docs.apify.com/api/v2#/reference/key-value-stores/store-collection/get-list-of-key-value-stores) endpoint, providing your secret API token as a query parameter.
 
-```json
+```text
 https://api.apify.com/v2/key-value-stores?token={YOUR_API_TOKEN}
 ```
 
 To **get information about a key-value store** such as its creation time and item count, send a GET request to the [Get store](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/get-store) endpoint.
 
-```json
+```text
 https://api.apify.com/v2/key-value-stores/{STORE_ID}?token={YOUR_API_TOKEN}
 ```
 
 To **get a record** (its value) from a key-value store, send a GET request to the [Get record](https://docs.apify.com/api/v2#/reference/key-value-stores/key-collection/get-record) endpoint.
 
-```json
+```text
 https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}?token={YOUR_API_TOKEN}
 ```
 
 To **add a record** to a specific key in a key-value store, send a PUT request to the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) endpoint.
 
-```json
+```text
 https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}?token={YOUR_API_TOKEN}
 ```
 
@@ -190,7 +190,7 @@ Example payload:
 
 To **delete a record**, send a DELETE request specifying the key from a key-value store to the [Delete record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/delete-record) endpoint.
 
-```json
+```text
 https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}?token={YOUR_API_TOKEN}
 ```
 

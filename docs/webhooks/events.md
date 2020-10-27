@@ -18,8 +18,7 @@ Actor run events are triggered when an actor run gets created or transitions int
 
 ### Event types
 
-`ACTOR.RUN.CREATED` - new actor run has been created.
-
+* `ACTOR.RUN.CREATED` - new actor run has been created.
 * `ACTOR.RUN.SUCCEEDED` - actor run finished with status `SUCCEEDED`.
 * `ACTOR.RUN.FAILED` - actor run finished with status `FAILED`.
 * `ACTOR.RUN.ABORTED` - actor run finished with status `ABORTED`.

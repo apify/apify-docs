@@ -50,7 +50,7 @@ You can use the `Dataset` class to specify whether your data is stored locally o
 
 If you have chosen to store your dataset locally, you can find it in the location below.
 
-```json
+```text
 {APIFY_LOCAL_STORAGE_DIR}/datasets/{DATASET_ID}/{INDEX}.json
 ```
 
@@ -159,20 +159,20 @@ If you are accessing your datasets using the **username~store-name** [store ID f
 
 To **get a list of your datasets**, send a GET request to the [Get list of datasets](https://docs.apify.com/api/v2#/reference/datasets/get-list-of-datasets) endpoint, providing your API token as a query parameter.
 
-```json
+```text
 https://api.apify.com/v2/datasets?token={YOUR_API_TOKEN}
 ```
 
 To **get information about a dataset** such as its creation time and **item count**, send a GET request to the [Get dataset](https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset) endpoint.
 
-```json
+```text
 https://api.apify.com/v2/datasets/{DATASET_ID}?token={YOUR_API_TOKEN}
 ```
 
 To **view a dataset's data**, send a GET request to the
 [Get dataset items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items) Apify API endpoint.
 
-```json
+```text
 https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
 ```
 
@@ -182,7 +182,7 @@ You can **specify which data are exported** by adding a comma-separated list of 
 
 To retrieve the **hotel** and **cafe** fields, you would send your GET request to the URL below.
 
-```json
+```text
 https://api.apify.com/v2/datasets/{DATASET_ID}/items?token={YOUR_API_TOKEN}&fields=hotel%2Ccafe
 ```
 
@@ -191,7 +191,7 @@ https://api.apify.com/v2/datasets/{DATASET_ID}/items?token={YOUR_API_TOKEN}&fiel
 
 To **add data to a dataset**, send a POST request, with a JSON object containing the data you want to add as the payload to the [Put items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items) endpoint.
 
-```json
+```text
 https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
 ```
 

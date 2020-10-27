@@ -79,14 +79,7 @@ So, if you use the session at least once a day, it will never expire, with two p
 * The proxy server stops responding and is marked as [dead](#dead-proxies) during a health check.
 * If the proxy server is part of a proxy group that is refreshed monthly and is rotated out.
 
-<<<<<<< HEAD
-
-* Proxy server stops responding and is marked as dead during a health check
-* If the Proxy Server is part of a Proxy Group that is refreshed monthly and is rotated out.
-=======
 If the session is discarded due to the reasons above, it is assigned a new IP address.
-
->>>>>>> master
 
 To learn more about [sessions]({{@link proxy.md#sessions}}) and [IP address rotation]({{@link proxy.md#ip-address-rotation}}), see the proxy [overview page]({{@link proxy.md}}).
 

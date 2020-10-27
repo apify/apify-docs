@@ -168,7 +168,7 @@ Properties:
 
 #### [](#boolean)Boolean
 
-Beware that the `boolean` input type doesn't support the `prefill` property, since there is no way to display the prefilled value in the user interface.
+Beware that the `boolean` input type doesn't support the `prefill` property, since there is no way to display the pre-filled value in the user interface.
 
 Example options with group caption:
 

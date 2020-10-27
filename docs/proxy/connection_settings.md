@@ -27,7 +27,7 @@ The `username` field enables you to pass parameters like **[group](#proxy-groups
 
 For example, if you're using [datacenter proxies]({{@link proxy/datacenter_proxy.md}}) and want to use the `new_job_123` session using the `SHADER` group, the username will be:
 
-```json
+```text
 groups-SHADER,session-new_job_123
 ```
 
