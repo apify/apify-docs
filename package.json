@@ -28,6 +28,7 @@
   "dependencies": {
     "@apify/eslint-config": "0.0.2",
     "apify-shared": "^0.1.55",
+    "babel-eslint": "^10.1.0",
     "fs-extra": "^8.1.0",
     "markdown-yaml-metadata-parser": "^2.0.1",
     "underscore": "^1.9.1"
