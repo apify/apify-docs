@@ -17,7 +17,7 @@ Always strive to make automation as fluid as possible. Listen to events and reac
 - Prefer fluid flow based on the **occurrence of events**.
 
 ```javascript
-// Avoid: 
+// Avoid:
 await page.waitForTimeout(timeout);
 
 // Good:
@@ -30,7 +30,7 @@ await page.waitForFunction(() => {
 
 // Good:
 await page.waitForFunction(selector => {
-    document.querySelector(selector).innerText, 
+    document.querySelector(selector).innerText,
     {polling: 'mutation'},
     '[data-qa="btnAppleSignUp"]');
 };
