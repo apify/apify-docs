@@ -3,69 +3,101 @@ title: Residential proxy
 description: Achieve a higher level of anonymity using real IP addresses. Access a wider pool of proxies and reduce blocking by websites' anti-scraping measures.
 menuWeight: 9.4
 paths:
+    - proxy/residential-proxy/nodejs-examples
+    - proxy/residential-proxy/python-examples
+    - proxy/residential-proxy/php-examples
     - proxy/residential-proxy
 ---
 
-# [](#residential-proxy)Residential proxy
+# [](#residential-proxy) Residential proxy
 
-Sometimes datacenter proxy servers are not a viable option for certain solutions and for these cases Apify Proxy includes an option to use Residential Proxy. This proxy solution allows the user access to a much larger pool of proxy servers than with datacenter proxy servers and therefore it is usually a better option for situations where a large number of proxy servers is required.
+Residential proxies are connected to real Internet Service Provider-based proxies located in homes and offices. Unlike [datacenter proxies]({{@link proxy/datacenter_proxy.md}}), this makes them very hard to block. 
 
-On the Apify platform, users can use Residential Proxy after they are given access to it by the Apify Support Team. **Pricing is based on data traffic**, which is measured for each connection made through the proxy and displayed on the platform's dashboard.
+This solution allows you access to a larger pool of servers than datacenter proxy. This makes it a better option in cases when you need a large number of different IP addresses.
 
-Please [contact us](https://apify.com/contact) if you want to use Apify Residential Proxy or if you need more information.
+Residential proxies support [IP address rotation]({{@link proxy.md#ip-address-rotation}}) and [sessions](#session-persistence).
 
-## [](#username-parameters)Username parameters
+**Pricing is based on data traffic**. It is measured for each connection made and displayed on your [dashboard](https://my.apify.com) in the Apify app.
 
-HTTP proxy username is used to pass various parameters for the proxy connection. For example, the simplest way to use residential proxy is with the username below:
+If you would like to use residential proxy or for more information, [contact us](https://apify.com/contact).
 
-    groups-RESIDENTIAL
+## [](#connecting-to-residential-proxy) Connecting to residential proxy
 
-The following table describes the available parameters:
+Connecting to residential proxy works the same way as [datacenter proxy]({{@link proxy/datacenter_proxy/examples.md}}), with two differences.
 
-<table class="table table-bordered table-condensed">
-    <tbody>
-    <tr>
-        <th><code>groups</code></th>
-        <td>Required to be set to <strong>RESIDENTIAL</strong></td>
-    </tr>
-    <tr>
-        <th><code>session</code></th>
-        <td>
-            If specified, all proxied requests with the same session identifier are routed
-            <br/>through the same IP address. For example <code>session-rand123456</code>.
-            <br /><strong>This parameter is optional</strong>, by default, each proxied request
-            is assigned
-             <br/>a randomly picked least used IP address.
-            <br /><strong>The session string can only contain numbers (0-9), letters (a-z or A-Z), dot (.),
-            <br/>underscore (_), a tilde (~) and the maximum length is 50 characters!</strong>
-        </td>
-    </tr>
-    <tr>
-        <th><code>country</code></th>
-        <td>
-            If specified, all proxied requests will use IP addresses that geolocated to
-             <br/>the specified country. For example <code>country-GB</code> for IPs from Great Britain.
-            <br /><strong>This parameter is optional</strong>, by default, each proxied request
-            is assigned an
-             <br/>IP address from a random country.
-            <br /><strong>The country code needs to be a two letter ISO country code -
-             <br/>see the
-                <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="blank">full list of available country codes</a>
-            </strong>
-        </td>
-    </tr>
-    </tbody>
-</table>
+1. The `groups` [username parameter]({{@link proxy/connection_settings.md#username-parameters}}) should always specify `RESIDENTIAL`.
 
-This is how the username would look for the most complex variation: Session set and IP selected from the United States
+2. You can specify the country in which you want your proxies to be.
 
-    groups-RESIDENTIAL,session-my_session_1,country-US
+### [](#how-to-set-a-proxy-group) How to set a proxy group
 
-And here is how it would look if you need a random proxy from the US
+When using [standard libraries and languages]({{@link proxy/datacenter_proxy/examples.md#using-standard-libraries-and-languages}}), specify the `groups` parameter in the [username]({{@link proxy/connection_settings.md#username-parameters}}) as `groups-RESIDENTIAL`.
 
-    groups-RESIDENTIAL,country-US
+For example, your **proxy URL** when using the [got](https://www.npmjs.com/package/got) JavaScript library will look like this:
 
-## [](#session-persistence)Session persistence
+```js
+const proxyUrl = "http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000";
+```
 
-When using Apify Proxy with `session` parameter set in the username (see [Username parameters](#username-parameters)) a single IP is assigned to the session ID provided after the first request is made. This IP is persisted for one minute and its expiration is refreshed with each request. If the proxy server becomes unresponsive or the session expires a new IP is selected for the next request.
+In the [Apify SDK](https://sdk.apify.com), you set the **group** in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions):
 
+```js
+const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['RESIDENTIAL'],
+});
+```
+
+### [](#how-to-set-a-proxy-country) How to set proxy country
+
+When using [standard libraries and languages]({{@link proxy/datacenter_proxy/examples.md#using-standard-libraries-and-languages}}), specify the `country` parameter in the [username]({{@link proxy/connection_settings.md#username-parameters}}) as `country-COUNTRY-CODE`.
+
+For example, your `username` parameter when using [Python 3](https://docs.python.org/3/) will look like this:
+
+```python
+username = f"groups-RESIDENTIAL,session-my_session,country-JP"
+```
+
+In the [Apify SDK](https://sdk.apify.com), you set the country in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `country` parameter. 
+
+```js
+const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['RESIDENTIAL'],
+        country: 'FR',
+});
+```
+
+### [](#username-examples) Username examples
+
+Use randomly allocated IP addresses from all available countries:
+
+```json
+groups-RESIDENTIAL
+```
+
+A random proxy from the US:
+
+```json
+groups-RESIDENTIAL,country-US
+```
+
+Set a session and select an IP address from the United States:
+
+```json
+groups-RESIDENTIAL,session-my_session_1,country-US
+```
+
+
+## [](#session-persistence) Session persistence
+
+When using residential proxy with the `session` [parameter]({{@link proxy.md#sessions}}) set in the [username](#username-parameters), a single IP address is assigned to the **session ID** provided after you make the first request.
+
+**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info]({{@link proxy.md#sessions}})]
+
+This IP/session ID combination persists for 1 minute. Each subsequent request resets the expiration time to 1 minute.
+
+If the proxy server becomes unresponsive or the session expires, a new IP address is selected for the next request.
+
+> If you really need to persist the same session, you can try sending some data using that session (e.g. every 20 seconds) to keep it alive.<br/>
+> Providing the connection is not interrupted, this will let you keep the IP address for longer.
+
+To learn more about [sessions]({{@link proxy.md#sessions}}) and [IP address rotation]({{@link proxy.md#ip-address-rotation}}), see the proxy [overview page]({{@link proxy.md}}).
