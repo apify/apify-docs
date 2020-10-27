@@ -90,7 +90,7 @@ When using the `getData()` method, you can specify the data you retrieve using t
 ```js
 // Only get the "hotel" and "cafe" fields
 const hotelAndCafeData = await dataset.getData({
-    fields: ['hotel', 'cafe']
+    fields: ['hotel', 'cafe'],
 });
 ```
 
@@ -124,15 +124,15 @@ apifyClient.setOptions({ datasetId: dataset.id });
 
 // Add an object and and array of objects to the dataset
 await datasets.putItems({
-    data: { foo: 'bar' }
+    data: { foo: 'bar' },
 });
 await datasets.putItems({
-    data: [{ foo: 'hotel' }, { foo: 'cafe' }]
+    data: [{ foo: 'hotel' }, { foo: 'cafe' }],
 });
 
 // Get items from a dataset
 const paginationList = await datasets.getItems();
-const items = paginationList.items;
+const { items } = paginationList;
 
 // Delete a dataset
 await datasets.deleteDataset();
@@ -143,7 +143,7 @@ When using the `getItems()` method, you can specify the data you retrieve using 
 ```js
 // Only get the "hotel" and "cafe" fields
 const hotelAndCafeData = await datasets.getItems({
-    fields: ['hotel', 'cafe']
+    fields: ['hotel', 'cafe'],
 });
 ```
 
@@ -325,14 +325,14 @@ You can access a dataset from any [actor]({{@link actors.md}}) or [task]({{@link
 To access a dataset from another run using the Apify SDK, open it using the `Apify.openDataset([datasetIdOrName])` [method](https://sdk.apify.com/docs/api/apify#apifyopendatasetdatasetidorname-options) like you would any other dataset.
 
 ```js
-const otherDataset = await Apify.openDataset("old-dataset");
+const otherDataset = await Apify.openDataset('old-dataset');
 ```
 
 To access a dataset using the [JavaScript API client](#javascript-api-client), use the `getOrCreateDataset()` [method](https://docs.apify.com/apify-client-js#ApifyClient-datasets).
 
 ```js
 const otherDataset = await datasets.getOrCreateDataset({
-    datasetName: "my-dataset",
+    datasetName: 'my-dataset',
 });
 ```
 

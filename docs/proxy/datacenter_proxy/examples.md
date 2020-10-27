@@ -258,7 +258,7 @@ to `createProxyConfiguration()` and specify the group names. For example:
 
 ```js
 const proxyConfiguration = await Apify.createProxyConfiguration({
-    groups: ["GROUP_NAME_1", "GROUP_NAME_2"],
+    groups: ['GROUP_NAME_1', 'GROUP_NAME_2'],
 });
 ```
 
