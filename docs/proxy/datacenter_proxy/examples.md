@@ -30,9 +30,6 @@ The Apify SDK's [ProxyConfiguration](https://sdk.apify.com/docs/api/proxy-config
 
 IP addresses for each request are selected at random from all available proxy servers.
 
-To use IP addresses from specific proxy groups, add a `groups` [property](https://sdk.apify.com/docs/api/proxy-configuration#docsNav)
-to `createProxyConfiguration()` and specify the group names. For example, `groups: ["GROUP_NAME_1", "GROUP_NAME_2"]`.
-
 ```marked-tabs
 <marked-tab header="PuppeteerCrawler" lang="javascript">
 const Apify = require("apify");
@@ -72,7 +69,7 @@ Apify.main(async() => {
         requestList,
         proxyConfiguration,
         handlePageFunction: async ({ request, response, body }) => {
-            // ... 
+            // ...
             console.log(await body);
         },
     });
@@ -111,7 +108,7 @@ Apify.main(async () => {
     const proxyConfiguration = await Apify.createProxyConfiguration();
 
     const proxyUrl = proxyConfiguration.newUrl();
-    
+
     const url = "https://api.apify.com/v2/browser-info";
 
     const response1 = await Apify.utils.requestAsBrowser({
@@ -193,7 +190,7 @@ Apify.main(async() => {
             sessionOptions: { maxPoolSize: 1 },
         },
         handlePageFunction: async ({ request, response, body, json }) => {
-            // ... 
+            // ...
             console.log(await json);
         },
     });
@@ -264,7 +261,7 @@ For examples using [PHP](https://www.php.net/), you need to have the [cURL](http
 
 Examples in [Python 2](https://www.python.org/download/releases/2.0/) use the [six](https://pypi.org/project/six/) library. Run `pip install six` to enable it.
 
-### [](#rotate-ip-addresses) Rotate IP addresses
+### [](#use-ip-rotation) Use IP rotation
 
 For each request, a random IP address is chosen from all [available proxy groups](https://my.apify.com/proxy). You can use random IP addresses from proxy groups by specifying the group(s) in the `username` parameter.
 
@@ -512,6 +509,19 @@ echo "\nShould return the same clientIp as\n";
 echo $response2;
 ?>
 </marked-tab>
+```
+
+## [](#how-to-use-proxy-groups) How to use proxy groups
+
+For simplicity, the examples below use the `auto` proxy group, which selects IP addresses from all available groups.
+
+To use IP addresses from specific proxy groups, add a `groups` [property](https://sdk.apify.com/docs/api/proxy-configuration#docsNav)
+to `createProxyConfiguration()` and specify the group names. For example:
+
+```js
+const proxyConfiguration = await Apify.createProxyConfiguration({
+    groups: ["GROUP_NAME_1", "GROUP_NAME_2"],
+});
 ```
 
 ## [](#username-examples) Username examples
