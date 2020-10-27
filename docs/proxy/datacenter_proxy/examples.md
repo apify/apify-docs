@@ -251,7 +251,7 @@ Apify.main(async () => {
 
 ### [](#how-to-use-proxy-groups) How to use proxy groups
 
-For simplicity, the examples below use the `auto` proxy group, which selects IP addresses from all available groups.
+For simplicity, the examples above use the `auto` proxy group, which selects IP addresses from all available groups.
 
 To use IP addresses from specific proxy groups, add a `groups` [property](https://sdk.apify.com/docs/api/proxy-configuration#docsNav)
 to `createProxyConfiguration()` and specify the group names. For example:
