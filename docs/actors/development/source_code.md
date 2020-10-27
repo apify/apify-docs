@@ -82,7 +82,7 @@ Similarly as with the [Git repository]({{@link actors/development/source_code.md
 
 Internally, Apify uses Docker to build and run actors. To control the build of the actor, you can create a custom **Dockerfile** in the root of the Git repository or Zip directory. Note that this option is not available for the [Single JavaScript file]({{@link actors/development/source_code.md#single-javascript-file}}) option. If the **Dockerfile** is missing, the system uses the following default:
 
-```text
+```dockerfile
 FROM apify/actor-node-basic
 
 # Copy all files and directories from the directory
