@@ -5,29 +5,24 @@ paths:
     - proxy/residential-proxy/tips-and-tricks
 ---
 
-# [](#tips-and-tricks)Tips and tricks
+# [](#tips-and-tricks) Tips and tricks
 
-Since Residential proxy is less predictable than datacenter proxy and is priced differently (by number of IPs vs traffic used), there are some important things that need to be considered before you use the Residential proxy in your solutions.
+[Residential]({{@link proxy/residential_proxy.md}}) proxies are less predictable than [datacenter]({{@link proxy/datacenter_proxy.md}}) proxies and are priced differently (by number of IPs vs traffic used). Because of this, there are some important things to consider before using residential proxy in your solutions.
 
-## The traffic used by automated browsers needs to be controlled
+## [](#control-traffic-used-by-automated-browsers) Control traffic used by automated browsers
 
-Since Residential proxy is priced by data traffic used, it's very easy to realy quickly use up all prepaid traffic, especialy when accessing websites with large files loaded on every page.
+Residential proxy is priced by data traffic used. Thus, it's easy to quickly use up all your prepaid traffic. In particular, when accessing websites with large files loaded on every page.
 
-There are two main ways to reduce the traffic use of your solutions:
+To reduce your traffic use, we recommend using the Apify SDK's `Apify.utils.puppeteer.blockRequests()` [function](https://sdk.apify.com/docs/api/puppeteer#puppeteerblockrequestspage-options). 
 
-*   [Block requests which are not required for your solution](https://help.apify.com/en/articles/2423246-block-requests-in-puppeteer)
-*   [Cache responses that you require but do not wish to load again and again](https://help.apify.com/en/articles/2424032-cache-responses-in-puppeteerr)
+## [](#connected-proxy-speed-variation) Connected proxy speed variation
 
-When both of these options are combined, the data traffic of your solution can be reduced dramatically.
+Each host on the residential proxy network uses a different device. They have different network speeds and different latencies. This means that requests made with one [session]({{@link proxy.md#sessions}}) can be extremely fast, while another request with a different session can be extremely slow. The difference can range from a few milliseconds to a few seconds.
 
-## The speed of connected proxy can vary greatly
+If your solution requires quickly loaded content, the best option is to set a [session]({{@link proxy.md#sessions}}), try a small request and see if the response time is acceptable. If it is, you can use this session for other requests. Otherwise, repeat the attempt with a different session.
 
-Each host on the Residential proxy network uses a different device, has different network speed and different latencies. This means that request made with one session can be extremely fast, while another request with different session can be extremely slow. The difference can be from a few milliseconds to a few seconds.
+## [](#connection-interruptions) Connection interruptions
 
-If your solution requires quickly loaded content, the best option is to set session, try a small request and see if the response time is acceptable. If it is, you can use this session for other requests. Otherwise, repeat the attempt with a different session.
-Just remember that sessions are not persistent, so from time to time, you will have to reevaluate the speed of the session and switch to a different one if needed.
+While sessions are persistent, they can be destroyed at any time if the host devices are turned off or disconnected.
 
-## Connections can be interrupted
-
-For this problem there is no easy solution, so either do not use the Residential proxy for larger requests or if you have no choice, expect that interruptions might happen and write your solution with this situation in mind.
-
+For this problem there is no easy solution. One option is to not use residential proxy for larger requests (instead use [datacenter]({{@link proxy/datacenter_proxy.md}}) proxy). If you have no other choice, expect that interruptions might happen and write your solution with this in mind.
