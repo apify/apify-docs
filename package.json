@@ -33,6 +33,7 @@
     "underscore": "^1.9.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.3",
     "@babel/eslint-parser": "^7.12.1",
     "@babel/eslint-plugin": "^7.12.1",
     "eslint": "^7.12.1",
