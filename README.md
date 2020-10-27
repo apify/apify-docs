@@ -4,7 +4,7 @@
 
 ## Intro
 
-This repo is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using the [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) format and all of its source files are located in the [/docs](https://github.com/apifytech/apify-docs/tree/master/docs) directory.
+This repo is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and all of its source files are located in the [/docs](https://github.com/apifytech/apify-docs/tree/master/docs) directory.
 
 Before **push**-ing to GitHub, always execute `npm run build` to make sure everything works.
 
@@ -25,6 +25,46 @@ For multi-line code examples, use code fences and specify the language:
 const docsAreCool = require('coolDocs'); <br/>
 ...<br/>
 return docsAreCool;<br/>
+
+\`\`\`
+
+### Code example tabs
+
+When providing code examples in multiple languages, use the below format.
+
+Next to the code fence, specify the language as **marked-tabs**.
+
+Place each language's code in a **\<marked-tab header="Language name to display" lang="Language name" >\</marked-tab>** element.
+
+> Only use double quotation marks in the code tab headers <br/>
+> **Good**: \<marked-tab header="Curl" lang="bash"> </br>
+> **Avoid**: \<marked-tab header='Curl' lang='bash'>
+
+\`\`\`marked-tabs
+
+\<marked-tab header="NodeJS" lang="javascript">
+
+console.log('Some JS code');
+
+\</marked-tab>
+
+
+\<marked-tab header="Python" lang="python">
+
+print('Some python code');
+count = 1
+if count >= 1:
+    print('Some intended python code');
+print('Some python code on next line');
+
+\</marked-tab>
+
+
+\<marked-tab header="Curl" lang="bash">
+
+echo "Some bash code"
+
+\</marked-tab>
 
 \`\`\`
 
