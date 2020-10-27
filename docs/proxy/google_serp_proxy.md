@@ -35,7 +35,7 @@ The `username` field enables you to pass various [parameters]({{@link proxy/conn
 
 When using Google SERP proxy, the username should always be:
 
-```json
+```text
 groups-GOOGLE_SERP
 ```
 

@@ -57,7 +57,7 @@ You can also create **named queues** which can be shared between actors or betwe
 
 If you are storing your data locally, you can find your request queue at the following location.
 
-```json
+```text
 {APIFY_LOCAL_STORAGE_DIR}/request_queues/{QUEUE_ID}/{STATE}/{NUMBER}.json
 ```
 
@@ -161,25 +161,25 @@ If you are accessing your request queues using the **username~store-name** [stor
 
 To **get a list of your request queues**, send a GET request to the [Get list of request queues](https://docs.apify.com/api/v2#/reference/request-queues/store-collection/get-list-of-request-queues) endpoint, providing your secret API token as a query parameter.
 
-```json
+```text
 https://api.apify.com/v2/request-queues?token={YOUR_API_TOKEN}
 ```
 
 To **get information about a request queue** such as its creation time and item count, send a GET request to the [Get request queue](https://docs.apify.com/api/v2#/reference/request-queues/queue/get-request-queue) endpoint.
 
-```json
+```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}?token={YOUR_API_TOKEN}
 ```
 
 To **get a request from a queue**, send a GET request to the [Get request](https://docs.apify.com/api/v2#/reference/request-queues/request/get-request) endpoint.
 
-```json
+```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}?token={YOUR_API_TOKEN}
 ```
 
 To **add a request to a queue**, send a POST request with the request to be added as a JSON object in the request's payload to the [Add request](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/add-request) endpoint.
 
-```json
+```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests?token={YOUR_API_TOKEN}
 ```
 
@@ -195,7 +195,7 @@ Example payload:
 
 To **update a request in a queue**, send a PUT request with the request to update as a JSON object in the request's payload to the [Update request](https://docs.apify.com/api/v2#/reference/request-queues/request/update-request) endpoint. In the payload, specify the request's ID and add the information you want to update.
 
-```json
+```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}?token={YOUR_API_TOKEN}
 ```
 

@@ -28,7 +28,7 @@ The following table describes the default actor settings:
 
 The actor can also be invoked using the Apify API by sending a HTTP POST request to the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, such as:
 
-```json
+```text
 https://api.apify.com/v2/acts/apify~hello-world/runs?token=<YOUR_API_TOKEN>
 ```
 

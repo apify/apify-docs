@@ -70,19 +70,19 @@ const proxyConfiguration = await Apify.createProxyConfiguration({
 
 Use randomly allocated IP addresses from all available countries:
 
-```json
+```text
 groups-RESIDENTIAL
 ```
 
 A random proxy from the US:
 
-```json
+```text
 groups-RESIDENTIAL,country-US
 ```
 
 Set a session and select an IP address from the United States:
 
-```json
+```text
 groups-RESIDENTIAL,session-my_session_1,country-US
 ```
 
