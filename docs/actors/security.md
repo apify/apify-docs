@@ -1,6 +1,6 @@
 ---
 title: Security
-description: Read Apify's security whitepaper, which describes our best practices.
+description: Learn more about Apify's security practices and data protection measures.
 menuWeight: 6.6
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
