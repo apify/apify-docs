@@ -249,6 +249,19 @@ Apify.main(async () => {
 </marked-tab>
 ```
 
+### [](#how-to-use-proxy-groups) How to use proxy groups
+
+For simplicity, the examples below use the `auto` proxy group, which selects IP addresses from all available groups.
+
+To use IP addresses from specific proxy groups, add a `groups` [property](https://sdk.apify.com/docs/api/proxy-configuration#docsNav)
+to `createProxyConfiguration()` and specify the group names. For example:
+
+```js
+const proxyConfiguration = await Apify.createProxyConfiguration({
+    groups: ["GROUP_NAME_1", "GROUP_NAME_2"],
+});
+```
+
 ## [](#using-standard-libraries-and-languages) Using standard libraries and languages
 
 You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
@@ -509,19 +522,6 @@ echo "\nShould return the same clientIp as\n";
 echo $response2;
 ?>
 </marked-tab>
-```
-
-## [](#how-to-use-proxy-groups) How to use proxy groups
-
-For simplicity, the examples below use the `auto` proxy group, which selects IP addresses from all available groups.
-
-To use IP addresses from specific proxy groups, add a `groups` [property](https://sdk.apify.com/docs/api/proxy-configuration#docsNav)
-to `createProxyConfiguration()` and specify the group names. For example:
-
-```js
-const proxyConfiguration = await Apify.createProxyConfiguration({
-    groups: ["GROUP_NAME_1", "GROUP_NAME_2"],
-});
 ```
 
 ## [](#username-examples) Username examples
