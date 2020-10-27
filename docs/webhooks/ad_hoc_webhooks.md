@@ -37,7 +37,7 @@ You can also create a webhook dynamically from the code of your actor using the 
 ```js
 await Apify.addWebhook({
     eventTypes: ['ACTOR.RUN.CREATED'],
-    requestUrl: 'https://example.com/run-created'
+    requestUrl: 'https://example.com/run-created',
 });
 ```
 
@@ -48,7 +48,7 @@ To ensure that duplicate ad hoc webhooks won't get created in a case of actor re
 ```js
 await Apify.addWebhook({
     eventTypes: ['ACTOR.RUN.CREATED'],
-    requestUrl: 'https://example.com/run-created'
+    requestUrl: 'https://example.com/run-created',
     idempotencyKey: process.env.APIFY_ACTOR_RUN_ID,
 });
 ```

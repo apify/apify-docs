@@ -38,7 +38,7 @@ Actors can also be invoked programmatically from other actors using the [`call()
 
 ```js
 const run = await Apify.call('apify/hello-world', {
-    message: 'Hello!'
+    message: 'Hello!',
 });
 console.dir(run.output);
 ```

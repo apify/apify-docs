@@ -127,7 +127,7 @@ You can then access your stores, retrieve records in stores, write new records o
 // Get the 'my-store' key-value store or create it
 // if it doesn't exist and set it as the default
 const exampleStore = await keyValueStores.getOrCreateStore({
-    storeName: 'my-store'
+    storeName: 'my-store',
 });
 apifyClient.setOptions({ storeId: store.id });
 

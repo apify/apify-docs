@@ -88,7 +88,7 @@ Once a queue is open, you can manage it using the following methods. For a full 
 await queue.addRequest({ url: 'http://example.com/aaa' });
 await queue.addRequest(
     { url: 'http://example.com/foo/bar' },
-    { forefront: true }
+    { forefront: true },
 );
 
 // Get the next request from queue
@@ -127,23 +127,23 @@ You can then get or create new queues, retrieve existing requests or enqueue new
 // Get the 'my-queue' request queue and set it as the default
 // to be used in the following commands
 const queue = await requestQueues.getOrCreateQueue({
-    queueName: 'my-queue'
+    queueName: 'my-queue',
 });
 apifyClient.setOptions({ queueId: queue.id });
 
 // Add a request to the default queue
 await requestQueues.addRequest({
     url: 'http://example.com',
-    uniqueKey: 'http://example.com'
+    uniqueKey: 'http://example.com',
 });
 
 await requestQueues.addRequest({
     url: 'http://example.com',
-    uniqueKey: 'http://example.com'
+    uniqueKey: 'http://example.com',
 });
 await requestQueues.addRequest({
     url: 'http://example.com/a/b',
-    uniqueKey: 'http://example.com/a/b'
+    uniqueKey: 'http://example.com/a/b',
 });
 
 // Mark request as handled.
@@ -233,7 +233,7 @@ To access a request queue using the [JavaScript API client](#javascript-api-clie
 
 ```js
 const otherQueue = await requestQueues.getOrCreateQueue({
-    queueName: 'my-queue'
+    queueName: 'my-queue',
 });
 ```
 
