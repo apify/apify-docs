@@ -12,4 +12,4 @@ paths:
 
 At Apify, security is the top priority of our daily work. Security best practices are reflected in our development, deployment, monitoring, and project management processes.
 
-[Read the Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf) for a full description of Apify's commitment to security.
+Read the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf) for a full description of Apify's measures and commitments to security.
