@@ -77,11 +77,11 @@ To learn more about [sessions]({{@link proxy.md#sessions}}) and [IP address rota
 
 ## [](#connection-examples) Connection examples
 
-* [Datacenter proxy]({{@link proxy/datacenter_proxy/examples.md}}).
+* [Datacenter proxy]({{@link proxy/datacenter_proxy/examples.md}})
 
-* [Residential proxy]({{@link proxy/residential_proxy.md#connecting-to-residential-proxy}}).
+* [Residential proxy]({{@link proxy/residential_proxy.md#connecting-to-residential-proxy}})
 
-* [Google SERP proxy]({{@link proxy/google_serp_proxy/examples.md}}).
+* [Google SERP proxy]({{@link proxy/google_serp_proxy/examples.md}})
 
 ## [](#proxy-groups) Proxy groups
 
