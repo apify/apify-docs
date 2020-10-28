@@ -16,7 +16,7 @@ This section provides examples of actors using various features of the Apify pla
 
 This example demonstrates how to use headless Chrome with Puppeteer to open a web page, determines its dimensions, save a screenshot and print it to PDF. The actor can be found in the Apify store as [apify/example-puppeteer](https://apify.com/apify/example-puppeteer).
 
-```js
+```javascript
 const Apify = require('apify');
 
 Apify.main(async () => {
@@ -103,7 +103,7 @@ This actor demonstrates how to persist a state, so that on restart the actor can
 
 The actor can be found in the Apify store as **Example Counter** ([apify/example-counter](https://apify.com/apify/example-counter)).
 
-```js
+```javascript
 const Apify = require('apify');
 
 Apify.main(async () => {
