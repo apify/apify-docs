@@ -1,7 +1,7 @@
 ---
 title: Check data quality
 description: A step-by-step monitoring tutorial that shows you how to ensure your data is correctly formatted and unique. Visualize your data using the monitoring dashboard.
-menuWeight: 5.2
+menuWeight: 6.2
 category: guides
 paths:
     - monitoring/check-data-quality

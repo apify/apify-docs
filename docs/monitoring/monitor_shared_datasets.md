@@ -1,7 +1,7 @@
 ---
 title: Monitor shared datasets
 description: A step-by-step monitoring tutorial that shows you how to monitor and ensure consistency in named datasets which aggregate data from multiple actors or tasks.
-menuWeight: 5.3
+menuWeight: 6.3
 category: guides
 paths:
     - monitoring/monitor-shared-datasets
