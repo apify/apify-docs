@@ -2,7 +2,7 @@
 title: Anti-scraping techniques and how to bypass them
 menuTitle: Anti-scraping techniques
 description: Explore the basics of web scraping prevention. Get around them with IP address rotation and proxies, emulate browser signatures or shared IP address sessions.
-menuWeight: 3.2
+menuWeight: 4.2
 paths:
     - web-scraping-101/anti-scraping-techniques
 ---

@@ -1,7 +1,7 @@
 ---
 title: Ad hoc webhooks
 description: Learn how to set one-off webhooks for actor runs started via the Apify API or from the actor's code. Trigger the event once the run reaches a desired state.
-menuWeight: 10.3
+menuWeight: 11.3
 paths:
     - webhooks/ad-hoc-webhooks
 ---

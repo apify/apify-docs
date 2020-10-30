@@ -1,7 +1,7 @@
 ---
 title: Monitor multiple tasks
 description: A step-by-step monitoring tutorial that shows you how to monitor multiple runs, validate your results and visualize them using the monitoring dashboard.
-menuWeight: 5.4
+menuWeight: 6.4
 category: guides
 paths:
     - monitoring/monitor-multiple-tasks
