@@ -1,6 +1,6 @@
 ---
 title: About
-description: Learn about what Apify is and what we do. 
+description: Learn about what Apify is and what we do. Get familiar with the platform and take you first steps in using actors.
 menuWeight: 2
 category: guides
 paths:
@@ -13,20 +13,20 @@ Apify is an online platform specializing in [web scraping]({{@link web_scraping_
 
 [Apify Store](https://apify.com/store) includes a range of ready-made tools such as **Booking Scraper** ([dtrungtin/booking-scraper](https://apify.com/dtrungtin/booking-scraper)), **SEO Audit Tool** ([drobnikj/seo-audit-tool](https://apify.com/drobnikj/seo-audit-tool)), or the **Google Sheets Import & Export** ([lukaskrivka/google-sheets](https://apify.com/lukaskrivka/google-sheets)) tool. You can try all of these for free right now.
 
-## [](#how-does-apify-work) How does Apify work?
-
-Almost everything we do is centered around [actors]({{@link actors.md}}). Actors are cloud programs that can scrape web pages, process data or automate workflows.
-
-You can learn more about actors from their [documentation]({{@link actors.md}}).
+If your needs are more specific, you can order a [custom solutions](https://apify.com/custom-solutions) from [us](https://apify.com/enterprise) or [Apify-approved developers](https://apify.com/marketplace).
 
 ## [](#get-started) Get started
 
-Check out [this video](https://www.youtube.com/watch?v=BsidLZKdYWQ&t=115s) on how to use our **Amazon Scraper**([vaclavrut/amazon-crawler](https://apify.com/vaclavrut/amazon-crawler)). 
+Check out [this video](https://www.youtube.com/watch?v=BsidLZKdYWQ&t=115s) on how to use our **Amazon Scraper**([vaclavrut/amazon-crawler](https://apify.com/vaclavrut/amazon-crawler)). It introduces how web scraping can help your business and serves as a foundation on how to start using other ready-made actors.
 
-The video introduces how web scraping can help your business. It shows how to start using our actors.
-
-For a detailed overview of Apify's features, take the [tour of the platform](https://www.youtube.com/watch?v=XPF0kbyvoOs).
+For an overview of all of Apify's features, take a [tour of the platform](https://www.youtube.com/watch?v=XPF0kbyvoOs).
 
 ### [](#tutorials) Tutorials
 
 When you're ready to go more in depth, visit our [tutorials]({{@link tutorials.md}}) page, which guides you through using our ready-made scrapers.
+
+## [](#how-does-apify-work) How does Apify work?
+
+Almost everything we do is centered around [actors]({{@link actors.md}}). Actors are cloud programs that can scrape web pages, process data, automate workflows or anything else you can imagine.
+
+You can learn more about actors from their [documentation]({{@link actors.md}}).
