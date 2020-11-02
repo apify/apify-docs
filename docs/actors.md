@@ -19,11 +19,11 @@ A single isolated actor consists of source code and various settings. You can th
 
 Like any other resource, you can share your actors with other Apify users via the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#actors}}).
 
-*   [**Quick Start**]({{@link actors/quick_start.md}})
-*   [**Running**]({{@link actors/running.md}})
-*   [**Examples**]({{@link actors/examples.md}})
-*   [**Builds**]({{@link actors/development/builds.md}})
-*   [**Source code**]({{@link actors/development/source_code.md}})
-*   [**Limits**]({{@link actors/limits.md}})
-*   [**Publishing**]({{@link actors/publishing.md}})
+* [**Quick Start**]({{@link actors/quick_start.md}})
+* [**Running**]({{@link actors/running.md}})
+* [**Examples**]({{@link actors/examples.md}})
+* [**Builds**]({{@link actors/development/builds.md}})
+* [**Source code**]({{@link actors/development/source_code.md}})
+* [**Limits**]({{@link actors/limits.md}})
+* [**Publishing**]({{@link actors/publishing.md}})
 
