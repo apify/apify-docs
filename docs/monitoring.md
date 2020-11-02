@@ -44,7 +44,13 @@ You can use the monitoring suite **free of charge**, but under the hood, it is a
 
 ## [](#how-can-I-set-up-monitoring) How can I set up monitoring?
 
-We currently have tutorials for monitoring the following scenarios.
+We currently have video tutorials for setting up monitoring and adding data validation.
+
+* [Set up monitoring](https://www.youtube.com/watch?v=bLVk5dkFA7Y).
+
+* [Add data validation](https://www.youtube.com/watch?v=Yha8X4cLtw8).
+
+We also have written tutorials for the following use cases.
 
 * [Monitor actor or task runs for failure]({{@link monitoring/actor_or_task_run_failure.md}})
 
