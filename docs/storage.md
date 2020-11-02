@@ -111,7 +111,9 @@ To use `apify-client` in your application, you will first need to have [Node.js]
 
 You can then install the `apify-client` package from [NPM](https://www.npmjs.com/package/apify-cli) using the command below in your terminal.
 
-    npm install apify-client
+```bash
+npm install apify-client
+```
 
 Once installed, **require** the `apify-client` package in your app and create a new instance of it using your **user ID** and secret **API token** (you can find these on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account).
 
@@ -155,7 +157,7 @@ operations of **request queue** requests.
 
 If a client sends too many requests, the API endpoints respond with the HTTP status code `429 Too Many Requests` and the following body:
 
-```
+```json
 {
     "error": {
         "type": "rate-limit-exceeded",

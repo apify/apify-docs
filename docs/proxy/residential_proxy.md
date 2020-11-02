@@ -11,7 +11,7 @@ paths:
 
 # [](#residential-proxy) Residential proxy
 
-Residential proxies are connected to real Internet Service Provider-based proxies located in homes and offices. Unlike [datacenter proxies]({{@link proxy/datacenter_proxy.md}}), this makes them very hard to block. 
+Residential proxies are connected to real Internet Service Provider-based proxies located in homes and offices. Unlike [datacenter proxies]({{@link proxy/datacenter_proxy.md}}), this makes them very hard to block.
 
 This solution allows you access to a larger pool of servers than datacenter proxy. This makes it a better option in cases when you need a large number of different IP addresses.
 
@@ -36,14 +36,14 @@ When using [standard libraries and languages]({{@link proxy/datacenter_proxy/exa
 For example, your **proxy URL** when using the [got](https://www.npmjs.com/package/got) JavaScript library will look like this:
 
 ```js
-const proxyUrl = "http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000";
+const proxyUrl = 'http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000';
 ```
 
 In the [Apify SDK](https://sdk.apify.com), you set the **group** in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions):
 
 ```js
 const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: ['RESIDENTIAL'],
+    groups: ['RESIDENTIAL'],
 });
 ```
 
@@ -57,12 +57,12 @@ For example, your `username` parameter when using [Python 3](https://docs.python
 username = f"groups-RESIDENTIAL,session-my_session,country-JP"
 ```
 
-In the [Apify SDK](https://sdk.apify.com), you set the country in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `country` parameter. 
+In the [Apify SDK](https://sdk.apify.com), you set the country in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `country` parameter.
 
 ```js
 const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: ['RESIDENTIAL'],
-        country: 'FR',
+    groups: ['RESIDENTIAL'],
+    country: 'FR',
 });
 ```
 
@@ -70,19 +70,19 @@ const proxyConfiguration = await Apify.createProxyConfiguration({
 
 Use randomly allocated IP addresses from all available countries:
 
-```json
+```text
 groups-RESIDENTIAL
 ```
 
 A random proxy from the US:
 
-```json
+```text
 groups-RESIDENTIAL,country-US
 ```
 
 Set a session and select an IP address from the United States:
 
-```json
+```text
 groups-RESIDENTIAL,session-my_session_1,country-US
 ```
 
