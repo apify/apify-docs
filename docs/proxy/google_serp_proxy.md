@@ -12,12 +12,12 @@ Google SERP proxy allows you to extract search results from Google Search-powere
 
 Our Google SERP proxy currently supports the below services.
 
-*   Google Search (`http://www.google.<country domain>/search`).
-*   Google Shopping (`http://www.google.<country domain>/search?tbm=shop`).
+* Google Search (`http://www.google.<country domain>/search`).
+* Google Shopping (`http://www.google.<country domain>/search?tbm=shop`).
 
 > Google SERP proxy can **only** be used for Google Search and Shopping. It cannot be used to access other websites.
 
-When using the proxy, **pricing is based on the number of requests made**. 
+When using the proxy, **pricing is based on the number of requests made**.
 
 To use Google SERP proxy or for more information, [contact us](https://apify.com/contact).
 
@@ -35,7 +35,7 @@ The `username` field enables you to pass various [parameters]({{@link proxy/conn
 
 When using Google SERP proxy, the username should always be:
 
-```json
+```text
 groups-GOOGLE_SERP
 ```
 
@@ -50,6 +50,7 @@ You must use the correct Google domain to get results for your desired country c
 For example:
 
 * Search results from the USA: `http://www.google.com/search?q=<query>`
+
 
 * Shopping results from Great Britain: `http://www.google.co.uk/seach?tbm=shop&q=<query>`
 

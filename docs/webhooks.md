@@ -15,7 +15,7 @@ To define a webhook, select a system **event** that triggers the webhook. Then, 
 
 > Currently, the only available action is to send a POST HTTP request to a URL specified in the webhook.
 
-*   [**Events**]({{@link webhooks/events.md}})
-*   [**Actions**]({{@link webhooks/actions.md}})
-*   [**Ad-hoc webhooks**]({{@link webhooks/ad_hoc_webhooks.md}})
+* [**Events**]({{@link webhooks/events.md}})
+* [**Actions**]({{@link webhooks/actions.md}})
+* [**Ad-hoc webhooks**]({{@link webhooks/ad_hoc_webhooks.md}})
 

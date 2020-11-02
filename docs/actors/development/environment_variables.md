@@ -36,4 +36,6 @@ Dates are always in the UTC timezone and are represented in simplified extended 
 
 To access environment variables in Node.js, use the `process.env` object, for example:
 
-    console.log(process.env.APIFY_USER_ID);
+```js
+console.log(process.env.APIFY_USER_ID);
+```
