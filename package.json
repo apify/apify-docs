@@ -4,10 +4,12 @@
   "description": "This is a home of Apify documentation.",
   "main": "index.js",
   "scripts": {
-    "build": "node ./src/build.js",
+    "build": "npm run lint:md && npm run lint:code && node ./src/build.js",
     "test": "npm run test",
-    "lint": "./node_modules/.bin/eslint .",
-    "lint:fix": "./node_modules/.bin/eslint . --ext .js,.jsx --fix"
+    "lint:md": "./node_modules/.bin/markdownlint '**/*.md'",
+    "lint:md:fix": "./node_modules/.bin/markdownlint '**/*.md' --fix",
+    "lint:code": "./node_modules/.bin/eslint . && eslint --ext js,md --fix .",
+    "lint:code:fix": "./node_modules/.bin/eslint . --ext .js,.jsx --fix && eslint --ext js,md --fix ."
   },
   "repository": {
     "type": "git",
@@ -26,9 +28,17 @@
   "dependencies": {
     "@apify/eslint-config": "0.0.2",
     "apify-shared": "^0.1.55",
-    "eslint": "^6.1.0",
     "fs-extra": "^8.1.0",
     "markdown-yaml-metadata-parser": "^2.0.1",
     "underscore": "^1.9.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/eslint-parser": "^7.12.1",
+    "@babel/eslint-plugin": "^7.12.1",
+    "eslint": "^7.12.1",
+    "eslint-plugin-markdown": "^2.0.0-rc.0",
+    "markdownlint": "^0.21.0",
+    "markdownlint-cli": "^0.24.0"
   }
 }

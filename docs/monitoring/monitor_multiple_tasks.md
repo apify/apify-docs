@@ -44,7 +44,7 @@ Next, we will configure the monitoring suite.
 
 1. Under your task's **Input** tab, set the **Mode** dropdown to **Create configuration**.
 
-2. Next, open the **What you want to monitor** section. Give the monitoring suite a name in the **Monitoring suite name** field, e.g. `covid-tasks`. 
+2. Next, open the **What you want to monitor** section. Give the monitoring suite a name in the **Monitoring suite name** field, e.g. `covid-tasks`.
 
 3. In the **Type of target:** dropdown, select **Task**, since you will be monitoring [actor tasks]({{@link actors/tasks.md}}).
 

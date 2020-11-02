@@ -258,7 +258,7 @@ to `createProxyConfiguration()` and specify the group names. For example:
 
 ```js
 const proxyConfiguration = await Apify.createProxyConfiguration({
-    groups: ["GROUP_NAME_1", "GROUP_NAME_2"],
+    groups: ['GROUP_NAME_1', 'GROUP_NAME_2'],
 });
 ```
 
@@ -528,24 +528,24 @@ echo $response2;
 
 Use randomly allocated IP addresses from the SHADER group:
 
-```json
+```text
 groups-SHADER
 ```
 
 Use a randomly allocated IP address for multiple requests:
 
-```json
+```text
 session-new_job_123
 ```
 
 Use the same IP address from the `SHADER` and `BUYPROXIES94952` groups for multiple requests:
 
-```json
+```text
 groups-SHADER+BUYPROXIES94952,session-new_job_123
 ```
 
 Set a session and select an IP from the `BUYPROXIES94952` group geolocated in the USA:
 
-```json
+```text
 groups-BUYPROXIES94952,session-new_job_123,country-US
 ```

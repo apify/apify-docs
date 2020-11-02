@@ -7,6 +7,7 @@ paths:
 ---
 
 # [](#create-a-task) Create a Task
+
 The way to set up configuration of your Apify Actor for simplified usage.
 
 ## [](#create-a-task-for-your-actor)Create a Task for your actor

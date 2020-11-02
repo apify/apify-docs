@@ -16,15 +16,15 @@ In addition to the tips below: when in doubt, check existing docs for formatting
 
 For consistency, use **bold** for highlighting non-code words/phrases.
 
-For inline `code` examples, use **backticks** (\` \`).
+For inline `code` examples, use **back-ticks** (\` \`).
 
 For multi-line code examples, use code fences and specify the language:
 
 \`\`\`js
 
-    const docsAreCool = require('coolDocs'); <br/>
-    ...<br/>
-    return docsAreCool;<br/>
+const docsAreCool = require('coolDocs'); <br/>
+...<br/>
+return docsAreCool;<br/>
 
 \`\`\`
 
@@ -44,29 +44,25 @@ Place each language's code in a **\<marked-tab header="Language name to display"
 
 \<marked-tab header="NodeJS" lang="javascript">
 
-    console.log('Some JS code');
+console.log('Some JS code');
 
 \</marked-tab>
 
 
 \<marked-tab header="Python" lang="python">
 
-    print('Some python code');
-    
-    count = 1
-    
-    if count >= 1:
-    
-        print('Some intended python code');
-    
-    print('Some python code on next line');
+print('Some python code');
+count = 1
+if count >= 1:
+    print('Some intended python code');
+print('Some python code on next line');
 
 \</marked-tab>
 
 
 \<marked-tab header="Curl" lang="bash">
 
-    echo "Some bash code"
+echo "Some bash code"
 
 \</marked-tab>
 
@@ -76,7 +72,7 @@ Place each language's code in a **\<marked-tab header="Language name to display"
 
 Each Markdown file here starts with metadata that define the document's menu title, placement, page description, and paths. For example:
 
-```
+```text
 ---
 title: Getting started with Apify Scrapers
 menuTitle: Getting started
@@ -126,7 +122,7 @@ Title: Proxy
 
 Description: Learn how to use Apify Proxy. Prevent IP address-based blocking using proxy. Apify Proxy helps you bypass security.
 
-#### Phrase the descriptions in a way that answers a question that the person using the search engine might have.
+#### Phrase the descriptions in a way that answers a question that the person using the search engine might have
 
 GOOD: "Learn how to make your actor available to the public or keep it private. Prepare your actor for Apify Store with a description and README file."
 
@@ -140,13 +136,13 @@ Avoid HTML in assets or links.
 
 You can place assets (images for example) in any directory. If you want to obtain a URL, use the following tag:
 
-```
+```text
 {{@asset actor/images/run-log-2.png}}
 ```
 
 So to include this image in Markdown use:
 
-```
+```text
 ![Apify actor run log]({{@asset actor/images/run-log-2.png}})
 ```
 
@@ -154,7 +150,7 @@ So to include this image in Markdown use:
 
 For links, we use a similar syntax as for assets:
 
-```
+```text
 {{@link actor/source_code.md#source-git-repo}}
 ```
 
@@ -168,10 +164,22 @@ On commit to any other branch, the documentation's `develop` version gets update
 
 Keep in mind that there might be about 2 minute delay before updated documentation gets online (1 minute Github actions build + 1 minute update interval of docs website).
 
+## Linting
+
+The **apify-docs** repo contains both Markdown and JavaScript files. Several Markdown files, such as [dataset docs]({{@link docs/storage/dataset.md}}) contain code examples. Because of this, we have two commands for linting.
+
+* **npm run lint:md** / **npm run lint:md:fix** checks the **.md** files.
+* **npm run lint:code** / **npm run lint:code:fix** checks both the code examples within Markdown files and the build scripts.
+
+For Markdown, we use the [markdownlint](https://github.com/DavidAnson/markdownlint) package, which also has a handy VSCode [extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
+
+For JavaScript, we use the [ESLint Markdown plugin](https://github.com/eslint/eslint-plugin-markdown).
+
+
 ## API docs
 
 The `docs/api_v2` directory contains the source file for the
-API reference (https://docs.apify.com/api/v2) hosted on Apiary.
+API reference (<https://docs.apify.com/api/v2>) hosted on Apiary.
 The build script contained in the **apify-docs/src** folder automatically uploads the API docs to Apiary during the web deployment process.
 
 ### Local testing
@@ -188,8 +196,7 @@ After updating the API docs, you should ALWAYS log in to Apiary, analyze the doc
 You will find most of the documentation in this repository.
 
 There are, however, a few exceptions, shown below. To make changes to them, you'll need to clone those repos and make your pull requests to them. When updating the tutorials in the **apify/actor-scraper** repo, don't forget to execute `npm run build` before pushing your code to GitHub.
+
 * Tutorials for Apify's scrapers (**docs/scraping** directory) are in the [**apify/actor-scraper**](https://github.com/apify/actor-scraper) repository.
 * Apify's API client for JavaScript documentation is in the [**apify-docs/apify-client-js**](https://github.com/apify/apify-client-js) repository.
 * Docs for the command-line interface are in the [**apify/apify-cli**](https://github.com/apify/apify-cli) repo.
-
-
