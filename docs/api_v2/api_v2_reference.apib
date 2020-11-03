@@ -1989,14 +1989,16 @@ parameter.
 
 ### Create key-value store [POST]
 
-Creates a key-value store with a specific name. The response is the same object
-as returned by the [Get store](#reference/key-value-stores/store-object/get-store) endpoint.
+Creates a key-value store and returns its object. The response is the same object as returned
+by the [Get store](#reference/key-value-stores/store-object/get-store) endpoint.
 
+It creates a store with the given name if the parameter is used.
 If there is another store with the same name, the endpoint does not create a new one and returns the existing object instead.
 
 + Parameters
 
-    + name: `eshop-items` (string, required) - Custom unique name to easily identify the store in the future.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + name: `eshop-values` (string, optional) - Custom unique name to easily identify the store in the future.
 
 + Response 201 (application/json)
 
@@ -2256,13 +2258,15 @@ array elements.
 
 ### Create dataset [POST]
 
-Creates dataset of given name and returns its object. If dataset with given name already exists then returns
+Creates a dataset and returns its object.
+
+It creates a dataset with the given name if the parameter name is used. If a dataset with the given name already exists then returns
 its object.
 
 + Parameters
 
-    + name: `eshop-items` (string, required) - Custom unique name to easily identify the dataset in the future.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + name: `eshop-items` (string, optional) - Custom unique name to easily identify the dataset in the future.
 
 + Response 201 (application/json)
 
@@ -2622,7 +2626,9 @@ array elements.
 
 ### Create request queue [POST]
 
-Creates queue of given name and returns its object. If a queue with the given name already exists then the endpoint returns
+Creates a request queue and returns its object.
+
+It creates a queue of given name if the parameter name is used. If a queue with the given name already exists then the endpoint returns
 its object.
 
 + Parameters
