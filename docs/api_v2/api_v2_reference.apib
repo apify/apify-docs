@@ -1991,6 +1991,7 @@ parameter.
 
 Creates a key-value store and returns its object. The response is the same object as returned
 by the [Get store](#reference/key-value-stores/store-object/get-store) endpoint.
+Keep in mind that data stored under unnamed store follows [data retention period](https://docs.apify.com/storage#data-retention).
 
 It creates a store with the given name if the parameter name is used.
 If there is another store with the same name, the endpoint does not create a new one and returns the existing object instead.
@@ -2259,6 +2260,7 @@ array elements.
 ### Create dataset [POST]
 
 Creates a dataset and returns its object.
+Keep in mind that data stored under unnamed dataset follows [data retention period](https://docs.apify.com/storage#data-retention).
 
 It creates a dataset with the given name if the parameter name is used.
 If a dataset with the given name already exists then returns its object.
@@ -2627,6 +2629,7 @@ array elements.
 ### Create request queue [POST]
 
 Creates a request queue and returns its object.
+Keep in mind that requests stored under unnamed queue follows [data retention period](https://docs.apify.com/storage#data-retention).
 
 It creates a queue of given name if the parameter name is used. If a queue with the given name already exists then the endpoint returns
 its object.
