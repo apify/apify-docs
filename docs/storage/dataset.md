@@ -1,7 +1,7 @@
 ---
 title: Dataset
 description: Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in the Apify app or via API.
-menuWeight: 8.1
+menuWeight: 9.1
 paths:
     - storage/dataset
 ---

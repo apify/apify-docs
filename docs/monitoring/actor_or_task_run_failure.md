@@ -1,7 +1,7 @@
 ---
 title: Actor or task run failure
 description: A step-by-step monitoring tutorial that shows how you can receive notifications when an actor or task run fails or does not return enough results.
-menuWeight: 5.1
+menuWeight: 6.1
 category: guides
 paths:
     - monitoring/actor-or-task-run-failure

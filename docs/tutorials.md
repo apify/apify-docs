@@ -1,7 +1,7 @@
 ---
 title: Tutorials
 description: Learn how to scrape the web and automate processes with Apify. From beginner guides for using actors to advanced topics like migrations and performance.
-menuWeight: 2
+menuWeight: 3
 category: guides
 paths:
     - scraping
