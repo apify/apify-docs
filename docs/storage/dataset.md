@@ -85,7 +85,7 @@ const dataset = await Apify.openDataset('some-name');
 await dataset.pushData({ foo: 'bar' });
 ```
 
-When using the `getData()` method, you can specify the data you retrieve using the `[fields]` parameter. It should be an array of field names (strings) that will be included in the results. To include all the results, simply omit the `[fields]` parameter.
+When using the `getData()` method, you can specify the data you retrieve using the `[fields]` parameter. It should be an array of field names (strings) that will be included in the results. To include all the results, exclude the `[fields]` parameter.
 
 ```js
 // Only get the "hotel" and "cafe" fields
@@ -138,7 +138,7 @@ const { items } = paginationList;
 await datasets.deleteDataset();
 ```
 
-When using the `getItems()` method, you can specify the data you retrieve using the `[fields]` parameter. It should be an array of field names (strings) that will be included in the results. To include all the results, simply omit the `[fields]` parameter.
+When using the `getItems()` method, you can specify the data you retrieve using the `[fields]` parameter. It should be an array of field names (strings) that will be included in the results. To include all the results, exclude the `[fields]` parameter.
 
 ```js
 // Only get the "hotel" and "cafe" fields
@@ -147,7 +147,9 @@ const hotelAndCafeData = await datasets.getItems({
 });
 ```
 
-> If you both specify and omit the same field in a request, the **omit** parameter will prevail and the field will not be returned.
+You can **specify which data are exported** by adding a comma-separated list of fields to the **fields** query parameter. Likewise, you can also omit certain fields using the **omit** parameter.
+
+**If you both specify and omit the same field in a request, the **omit** parameter will prevail and the field will not be returned.**
 
 For more information, see the JavaScript API client [documentation](https://docs.apify.com/apify-client-js#ApifyClient-datasets).
 
@@ -178,12 +180,14 @@ https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
 
 You can **specify which data are exported** by adding a comma-separated list of fields to the **fields** query parameter. Likewise, you can also omit certain fields using the **omit** parameter.
 
-> If you both specify and omit the same field in a request, the **omit** parameter will prevail and the field will not be returned.
+**If you both specify and omit the same field in a request, the **omit** parameter will prevail and the field will not be returned.**
+
+In addition, you can set the format in which you retrieve the data using the **?format=** parameter. The available formats are **json**, **jsonl**, **csv**, **html**, **xlsx**, **xml** and **rss**. The default value is **json**.
 
 To retrieve the **hotel** and **cafe** fields, you would send your GET request to the URL below.
 
 ```text
-https://api.apify.com/v2/datasets/{DATASET_ID}/items?token={YOUR_API_TOKEN}&fields=hotel%2Ccafe
+https://api.apify.com/v2/datasets/{DATASET_ID}/items?format=json?token={YOUR_API_TOKEN}&fields=hotel%2Ccafe
 ```
 
 > Instead of commas, you will need to use the `%2C` code, which represents `,` in URL encoding.<br/>
