@@ -1,7 +1,7 @@
 ---
 title: Web scraping techniques
 description: An introduction to the methods you can use to extract data from websites. Analyze web pages for hidden elements to find the most effective approach.
-menuWeight: 3.1
+menuWeight: 4.1
 paths:
     - web-scraping-101/web-scraping-techniques
 ---
