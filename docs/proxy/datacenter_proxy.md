@@ -19,14 +19,14 @@ Datacenter proxies allow you to mask and [rotate]({{@link proxy.md#ip-address-ro
 
 ## [](#features) Features
 
-*   Periodic health checks of proxies in the pool so requests are not forwarded via [dead]({{@link proxy.md#dead-proxies}}) proxies.
-*   Intelligent rotation of IP addresses so target hosts are accessed via proxies that have accessed them the longest time ago, to reduce the chance of blocking.
-*   Periodically checks whether proxies are banned by selected target websites. If they are, stops forwarding traffic to them to get the proxies unbanned as soon as possible.
-*   Ensures proxies are located in specific countries using IP geolocation.
-*   Allows selection of groups of proxy servers with specific characteristics.
-*   Supports persistent sessions that enable you to keep the same IP address for certain parts of your crawls.
-*   Measures statistics of traffic for specific users and hostnames.
-*   Allows selection of proxy servers by country.
+* Periodic health checks of proxies in the pool so requests are not forwarded via [dead]({{@link proxy.md#dead-proxies}}) proxies.
+* Intelligent rotation of IP addresses so target hosts are accessed via proxies that have accessed them the longest time ago, to reduce the chance of blocking.
+* Periodically checks whether proxies are banned by selected target websites. If they are, stops forwarding traffic to them to get the proxies unbanned as soon as possible.
+* Ensures proxies are located in specific countries using IP geolocation.
+* Allows selection of groups of proxy servers with specific characteristics.
+* Supports persistent sessions that enable you to keep the same IP address for certain parts of your crawls.
+* Measures statistics of traffic for specific users and hostnames.
+* Allows selection of proxy servers by country.
 
 ## [](#shared-proxy-groups) Shared proxy groups
 
@@ -76,8 +76,8 @@ This IP/session ID combination persists and expires 24 hours later. Each additio
 
 So, if you use the session at least once a day, it will never expire, with two possible exceptions:
 
-*   The proxy server stops responding and is marked as [dead](#dead-proxies) during a health check.
-*   If the proxy server is part of a proxy group that is refreshed monthly and is rotated out.
+* The proxy server stops responding and is marked as [dead](#dead-proxies) during a health check.
+* If the proxy server is part of a proxy group that is refreshed monthly and is rotated out.
 
 If the session is discarded due to the reasons above, it is assigned a new IP address.
 

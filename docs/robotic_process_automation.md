@@ -13,7 +13,7 @@ RPA allows you to create software (also known as **bots**), which can imitate yo
 
 ## [](#what-can-i-use-rpa-for) What can I use RPA for?
 
-You can [use](https://apify.com/use-cases/rpa) RPA to automate any repetitive task you perform using software. The tasks can range from [analyzing content](https://apify.com/jakubbalada/content-checker) to monitoring web pages for changes (such as changes in your competitors' pricing). 
+You can [use](https://apify.com/use-cases/rpa) RPA to automate any repetitive task you perform using software. The tasks can range from [analyzing content](https://apify.com/jakubbalada/content-checker) to monitoring web pages for changes (such as changes in your competitors' pricing).
 
 Other use cases for RPA include filling forms or [uploading files](https://apify.com/lukaskrivka/google-sheets) while you get on with more important tasks. And it's not just simple tasks you can automate. How about [processing your invoices](https://apify.com/katerinahronik/toggl-invoice-download) or posting content across several marketing channels at once?
 

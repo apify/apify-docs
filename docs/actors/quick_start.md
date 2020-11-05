@@ -12,11 +12,13 @@ paths:
 
 Go to the [Actor](https://my.apify.com/actors) section in the app, create a new actor and go to *Source* tab. Paste the following Node.js code into the *Source code* editor:
 
-    const Apify = require('apify');
+```js
+const Apify = require('apify');
 
-    Apify.main(async () => {
-       console.log('Hello world from Actor!');
-    });
+Apify.main(async () => {
+    console.log('Hello world from Actor!');
+});
+```
 
 Click *▷ Run* to build and run your actor. After the run is finished you should see something like:
 
@@ -26,22 +28,26 @@ Congratulations, you have successfully created and run your first actor!
 
 Let's try something little more complicated. We will change the actor to accept input and generate output (see [Input and output]({{@link actors/running/input.md}}) for more details):
 
-    const Apify = require('apify');
+```js
+const Apify = require('apify');
 
-    Apify.main(async () => {
-        // Get input and print it
-        const input = await Apify.getInput();
-        console.log('My input:');
-        console.dir(input);
+Apify.main(async () => {
+    // Get input and print it
+    const input = await Apify.getInput();
+    console.log('My input:');
+    console.dir(input);
 
-        // Save output
-        const output = { message: 'Hello world!' };
-        await Apify.setValue('OUTPUT', output);
-    });
+    // Save output
+    const output = { message: 'Hello world!' };
+    await Apify.setValue('OUTPUT', output);
+});
+```
 
 Save your actor by clicking **Save** and then rebuild it by clicking **Build**\. After the build is finished, go to **Console** and set **Input** to:
 
-    { "hello": 123 }
+```json
+{ "hello": 123 }
+```
 
 Then set **Content type** to `application/json; charset=utf-8` and click **Run**. You will see something like:
 
@@ -53,11 +59,11 @@ The above actor is also available in the store as [apify/hello-world](https://ap
 
 For more complicated actors, you'll probably prefer to host the source code on Git. To do that, follow these steps:
 
-1.  Create a new Git repository.
-2.  Copy the boilerplate actor code from the [apify/quick-start](https://github.com/apifytech/actor-quick-start) actor.
-3.  Set **Source type** to **Git repository** for your actor in the app.
-4.  Paste the Git repo link to **Git URL**, save changes and build your actor.
-5.  That's it, now you can develop your actor locally on your computer and run it in the Apify cloud!
+1. Create a new Git repository.
+2. Copy the boilerplate actor code from the [apify/quick-start](https://github.com/apifytech/actor-quick-start) actor.
+3. Set **Source type** to **Git repository** for your actor in the app.
+4. Paste the Git repo link to **Git URL**, save changes and build your actor.
+5. That's it, now you can develop your actor locally on your computer and run it in the Apify cloud!
 
 For more information, go to the [Git repository]({{@link actors/development/source_code.md#git-repository}}) section.
 
