@@ -34,6 +34,3 @@ You can configure individual permissions for each resource type such as actors, 
 
 You can see a full list of permissions that can be granted to Apify resources [here]({{@link access_rights/list_of_permissions.md}}).
 
-
-
-

@@ -41,11 +41,11 @@ Next, we will configure the monitoring suite.
 
 1. Under your task's **Input** tab, set the **Mode** dropdown to **Create configuration**.
 
-2. Next, open the **What you want to monitor** section. Give the monitoring suite a name in the **Monitoring suite name** field, e.g. `puppies-are-ok`. 
+2. Next, open the **What you want to monitor** section. Give the monitoring suite a name in the **Monitoring suite name** field, e.g. `puppies-are-ok`.
 
 3. In the **Type of target:** dropdown, select **Task**, since you will be monitoring an Instagram Scraper task.
 
-4. **Target name patterns** should be the name of your task, `puppies-from-instagram`. 
+4. **Target name patterns** should be the name of your task, `puppies-from-instagram`.
 
 5. Select the **Notify me whenever actor/task does not succeed** option to receive a report when a run finishes unsuccessfully.
 
@@ -70,6 +70,4 @@ Finally, click the **Save & Run** button and you're done.
 From now on, you will get a [notification]({{@link monitoring.md#example-of-a-failed-run}}) to your account's email every time your `puppies-from-instagram` task doesn't succeed or returns fewer than 100 items.
 
 ![Failed run example]({{@asset monitoring/images/puppies-failed-run.png}})
-
-
 

@@ -20,36 +20,37 @@ On start, actors should first check whether there is some state stored and if so
 
 The actor below can be found in the Apify store as [apify/example-counter](https://apify.com/apify/example-counter). It simply counts from one up. In each run it prints one number. Its state (counter position) is stored in a named [key-value store]({{@link storage/key_value_store.md}}) called **example-counter**. You will find it in the [Storage](https://my.apify.com/key-value-stores) section of the app after you run the actor.
 
-    const Apify = require('apify');
+```js
+const Apify = require('apify');
 
-    Apify.main(async () => {
-        const keyValueStores = Apify.client.keyValueStores;
+Apify.main(async () => {
+    const { keyValueStores } = Apify.client;
 
-        // Get store with name 'example-counter'.
-        const store = await keyValueStores.getOrCreateStore({
-            storeName: 'example-counter',
-        });
-
-        // Get counter state record from store.
-        const record = await keyValueStores.getRecord({
-            key: 'counter',
-            storeId: store.id,
-        });
-
-        // If there is no such record then start from zero.
-        let counter = record ? record.body : 0;
-
-        // Increase counter, print and set as output.
-        counter ++;
-        console.log(`Counter: ${counter}`);
-        Apify.setValue('OUTPUT', counter);
-
-        // Save increased value back to store.
-        await keyValueStores.putRecord({
-            storeId: store.id,
-            key: 'counter',
-            // Record body must be a string or buffer!
-            body: counter.toString(),
-        });
+    // Get store with name 'example-counter'.
+    const store = await keyValueStores.getOrCreateStore({
+        storeName: 'example-counter',
     });
 
+    // Get counter state record from store.
+    const record = await keyValueStores.getRecord({
+        key: 'counter',
+        storeId: store.id,
+    });
+
+    // If there is no such record then start from zero.
+    let counter = record ? record.body : 0;
+
+    // Increase counter, print and set as output.
+    counter++;
+    console.log(`Counter: ${counter}`);
+    Apify.setValue('OUTPUT', counter);
+
+    // Save increased value back to store.
+    await keyValueStores.putRecord({
+        storeId: store.id,
+        key: 'counter',
+        // Record body must be a string or buffer!
+        body: counter.toString(),
+    });
+});
+```

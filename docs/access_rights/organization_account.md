@@ -17,6 +17,7 @@ Apify's organization account allows multiple team members to collaborate on proj
 At the same time, a separate organization account means teams no longer have to share the credentials of a single personal account. You can [switch]({{@link access_rights/organization_account/how_to_use.md#in-the-apify-app}}) between your personal and organization accounts seamlessly in just two clicks.
 
 You can start an organization account in two ways.
+
 * [Convert an existing account](#convert-an-existing-account) into an organization. If your actors and integrations are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will need a new personal account.
 * [Create a new organization](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
 
@@ -33,9 +34,10 @@ You can create a new organization by clicking the **Create a new organization** 
 ## [](#convert-an-existing-account) Convert an existing account
 
 > **Warning: when you convert an existing user account into an organization,**
->  * **You will no longer be able to sign in to the converted user account.**
->  * **An organization cannot be converted back to a personal account.**
->  * **When converting or creating the account, you select an owner who will be responsible for [setting up]({{@link access_rights/organization_account/setup.md}}) the organization.**
+>
+> * **You will no longer be able to sign in to the converted user account.**
+> * **An organization cannot be converted back to a personal account.**
+> * **When converting or creating the account, you select an owner who will be responsible for [setting up]({{@link access_rights/organization_account/setup.md}}) the organization.**
 
 Before converting your current user account into an organization, make sure you set a **username** and create a new personal account for the organization's owner.
 

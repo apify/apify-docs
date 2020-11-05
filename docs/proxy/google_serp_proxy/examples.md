@@ -41,7 +41,7 @@ Apify.main(async() => {
         requestList,
         proxyConfiguration,
         handlePageFunction: async ({ request, response, body }) => {
-            // ... 
+            // ...
             console.log(body)
         },
     });
@@ -58,9 +58,9 @@ Apify.main(async () => {
     const proxyConfiguration = await Apify.createProxyConfiguration({
         groups: ['GOOGLE_SERP'],
     });
-    
+
     const proxyUrl = proxyConfiguration.newUrl();
-    
+
     const { body } = await Apify.utils.requestAsBrowser({
         url: 'http://www.google.com/search?q=wikipedia',
         proxyUrl,
@@ -157,7 +157,7 @@ const axiosWithProxy = axios.create({ httpsAgent });
 
 async function useProxy() {
     const response = await axiosWithProxy.get(
-      `http://www.google.com/search`, 
+      `http://www.google.com/search`,
       {
         params: {
           query: 'wikipedia',
@@ -280,7 +280,7 @@ const axiosWithProxy = axios.create({ httpsAgent });
 
 async function useProxy() {
     const response = await axiosWithProxy.get(
-      `http://www.google.com/search`, 
+      `http://www.google.com/search`,
       {
         params: {
           query: 'Apple iPhone XS 64GB',

@@ -26,36 +26,40 @@ The variables need to be enclosed in double curly braces and cannot be chosen ar
 
 The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`.
 
-#### Default payload template:
+#### Default payload template
 
-    {
-        "userId": {{userId}},
-        "createdAt": {{createdAt}},
-        "eventType": {{eventType}},
-        "eventData": {{eventData}},
-        "resource": {{resource}}
-    }
+```json
+{
+    "userId": {{userId}},
+    "createdAt": {{createdAt}},
+    "eventType": {{eventType}},
+    "eventData": {{eventData}},
+    "resource": {{resource}}
+}
+```
 
-#### Default payload example:
+#### Default payload example
 
-    {
+```json
+{
+    "userId": "abf6vtB2nvQZ4nJzo",
+    "createdAt": "2019-01-09T15:59:56.408Z",
+    "eventType": "ACTOR.RUN.SUCCEEDED",
+    "eventData": {
+        "actorId": "fW4MyDhgwtMLrB987",
+        "actorRunId": "uPBN9qaKd2iLs5naZ"
+    },
+    "resource": {
+        "id": "uPBN9qaKd2iLs5naZ",
+        "actId": "fW4MyDhgwtMLrB987",
         "userId": "abf6vtB2nvQZ4nJzo",
-        "createdAt": "2019-01-09T15:59:56.408Z",
-        "eventType": "ACTOR.RUN.SUCCEEDED",
-        "eventData": {
-            "actorId": "fW4MyDhgwtMLrB987",
-            "actorRunId": "uPBN9qaKd2iLs5naZ"
-        },
-        "resource": {
-            "id": "uPBN9qaKd2iLs5naZ",
-            "actId": "fW4MyDhgwtMLrB987",
-            "userId": "abf6vtB2nvQZ4nJzo",
-            "startedAt": "2019-01-09T15:59:40.750Z",
-            "finishedAt": "2019-01-09T15:59:56.408Z",
-            "status": "SUCCEEDED",
-            ...
-        }
+        "startedAt": "2019-01-09T15:59:40.750Z",
+        "finishedAt": "2019-01-09T15:59:56.408Z",
+        "status": "SUCCEEDED",
+        ...
     }
+}
+```
 
 You may have noticed that the `eventData` and `resource` properties contain redundant data. This is for backwards compatibility. Feel free to only use `eventData` or `resource` in your templates, depending on your use case.
 

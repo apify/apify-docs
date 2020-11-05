@@ -16,8 +16,8 @@ You can find more in-depth discussion and code examples for all of the technique
 
 ## [](#css-selectors) CSS selectors
 
-The first method you will use when trying web scraping is most likely 
-[CSS selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors). They allow you to select your desired elements by type, class, ID or attributes. 
+The first method you will use when trying web scraping is most likely
+[CSS selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors). They allow you to select your desired elements by type, class, ID or attributes.
 
 To see which element contains the information you need (and its details), open your browser's Developer Tools. Right-click the content, then select **Inspect** on [Chrome](https://developers.google.com/web/tools/chrome-devtools) and **Inspect element** on [Mozilla](https://developer.mozilla.org/en-US/docs/Tools).
 
@@ -27,7 +27,7 @@ If you are only looking to scrape a couple of elements from a page, this method 
 
 ## [](#schema-org-microdata) Schema.org microdata
 
-Schemas provide a way to mark up web pages so major search engines like Google, Bing and Yahoo can understand them. 
+Schemas provide a way to mark up web pages so major search engines like Google, Bing and Yahoo can understand them.
 
 Pages with [schema.org](https://schema.org) markup still use HTML. The only difference is that they add machine-readable code markers into the HTML documents. This helps cut down on [ambiguity](https://schema.org/docs/gs.html) and allows search engines to [return more accurate results](https://moz.com/learn/seo/what-is-seo).
 
@@ -67,7 +67,7 @@ To use internal variables, first load the page using [headless Chrome](https://d
 
 For example, if you are searching for Kaffeine café on [Yelp](https://www.yelp.co.uk/search?find_desc=kaffeine&find_loc=London), search for the café's name in the page's HTML using developer tools. The data you would receive would look something like the example below.
 
-```js
+```json
 {
     "city": "London",
     "category_aliases": "cafe",
@@ -86,7 +86,7 @@ Check out [this tutorial](https://blog.apify.com/web-scraping-in-2018-forget-htm
 
 Using XHRs, you can access an entire API's content without even looking at the page. Just find the XHR that retrieves the data you want and use it to retrieve the data in a tidy structured format.
 
-You can check the XHRs a web page sends under the **Network** tab, in the **XHR** section in your browser's developer tools. 
+You can check the XHRs a web page sends under the **Network** tab, in the **XHR** section in your browser's developer tools.
 
 ![Network tab and XHR section]({{@asset web_scraping_101/images/xhrs.png}})
 

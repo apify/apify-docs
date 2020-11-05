@@ -17,7 +17,7 @@ You can use data you gain from monitoring to optimize your software and maximize
 
 In essence, monitoring gives you more time. It allows you to automate processes that are complicated or tedious if you have to do them manually.
 
-If you are [scraping your competitor's website](https://www.youtube.com/watch?v=BsidLZKdYWQ&t=95s) every day, you have already automated a part of the process. With monitoring, you can save even more time and ensure all your results are useable even before you need them. 
+If you are [scraping your competitor's website](https://www.youtube.com/watch?v=BsidLZKdYWQ&t=95s) every day, you have already automated a part of the process. With monitoring, you can save even more time and ensure all your results are useable even before you need them.
 
 And if the scraping job fails, you will receive a notification, so there will be no unpleasant surprises.
 
@@ -44,7 +44,13 @@ You can use the monitoring suite **free of charge**, but under the hood, it is a
 
 ## [](#how-can-I-set-up-monitoring) How can I set up monitoring?
 
-We currently have tutorials for monitoring the following scenarios.
+We currently have video tutorials for setting up monitoring and adding data validation.
+
+* [Set up monitoring](https://www.youtube.com/watch?v=bLVk5dkFA7Y).
+
+* [Add data validation](https://www.youtube.com/watch?v=Yha8X4cLtw8).
+
+We also have written tutorials for the following use cases.
 
 * [Monitor actor or task runs for failure]({{@link monitoring/actor_or_task_run_failure.md}})
 
@@ -58,7 +64,7 @@ We currently have tutorials for monitoring the following scenarios.
 
 To turn off a monitoring task, simply run it with the **Mode** (in the task's **Input** section) set to **Delete configuration**. It will clean up all its resources and turn off all monitoring activity. You will no longer receive [notifications](#notifications).
 
-To make any changes to an existing configuration, choose the **Update configuration** mode in the task's **Input**, make your changes and run the monitoring suite task again. 
+To make any changes to an existing configuration, choose the **Update configuration** mode in the task's **Input**, make your changes and run the monitoring suite task again.
 
 ### [](#add-the-monitoring-suite-to-your-account) Add the monitoring suite to your account
 
