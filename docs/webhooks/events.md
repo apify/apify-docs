@@ -1,7 +1,7 @@
 ---
 title: Events
 description: Specify the types of events that trigger a webhook in an actor or task run. Trigger an action on actor or task run creation, success or failure.
-menuWeight: 10.1
+menuWeight: 11.1
 paths:
     - webhooks/events
 ---

@@ -1,7 +1,7 @@
 ---
 title: Schedules
 description: Learn how to automatically start your actor and task runs and the basics of *cron* expressions. Set up and manage your schedules from the Apify app or via API.
-menuWeight: 7
+menuWeight: 8
 category: platform
 paths:
     - scheduler

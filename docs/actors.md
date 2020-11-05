@@ -1,7 +1,7 @@
 ---
 title: Actors
 description: Learn how to develop, run and share serverless cloud programs. Create your own web scraping and automation tools and publish them on the Apify platform.
-menuWeight: 6
+menuWeight: 7
 category: platform
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
