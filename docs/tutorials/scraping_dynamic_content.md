@@ -26,7 +26,7 @@ Before looking at code examples that solve this problem, let's review what the p
 
 1. **HTML document is loaded** (`domcontentloaded` event). This document contains the HTML as it was rendered on the website server. It also includes all the JavaScript that is executed and rendered in the next step. This HTML is what you get when you use [http-request](https://www.npmjs.com/package/@apify/http-request) or **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)) ([CheerioCrawler](https://sdk.apify.com/docs/api/cheerio-crawler) class).
 
-2. **JavaScript is executed and rendered** (`load` event). The page is fully rendered, but may still lack dynamically loaded data. 
+2. **JavaScript is executed and rendered** (`load` event). The page is fully rendered, but may still lack dynamically loaded data.
 
 3. **Network XHR requests are loaded and rendered** (`networkidle0` or `networkidle2` events). Some websites load essential data this way. The execution of these requests may depend on user behavior like in [infinite scroll](https://www.smashingmagazine.com/2013/05/infinite-scrolling-lets-get-to-the-bottom-of-this/).
 This is when you use Web Scraper or Puppeteer Scraper ([PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler) class) to get the page. Be careful that pages often track you with additional requests and the load may never end.
@@ -63,9 +63,9 @@ Try to debug it using logs and screenshots. If your code is working, you know th
 
 ### [](#timeout-and-errors) Timeout and errors
 
-By default, `waitFor` times out after 30 seconds with an error. Usually, this means another error is preventing the selector from loading. The selector itself may be wrong, or your browser got blocked or redirected to another version of the website. 
+By default, `waitFor` times out after 30 seconds with an error. Usually, this means another error is preventing the selector from loading. The selector itself may be wrong, or your browser got blocked or redirected to another version of the website.
 
-Most of the time, if the selector doesn't load in the first 5 seconds, it won't load at all. You can prevent wasteful waiting by changing the timeout to `await page.waitFor('my-selector', { timeout: 10000 })`. 
+Most of the time, if the selector doesn't load in the first 5 seconds, it won't load at all. You can prevent wasteful waiting by changing the timeout to `await page.waitFor('my-selector', { timeout: 10000 })`.
 
 The `waitFor` (the selector version) will throw an error once it reaches the timeout. That is usually a good thing because you don't want this to go unnoticed. But if the data are not too important or you want to fall back to some other solution, you can easily catch the waiting error:
 
