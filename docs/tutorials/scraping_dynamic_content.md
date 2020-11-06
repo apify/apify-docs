@@ -8,7 +8,7 @@ paths:
 
 # Scraping dynamic content
 
-Many websites load data in the background via [XHR requests]({{@link docs/web_scraping_101/web_scraping_techniques.md#xhrs}}). These are usually tracking data, ads and other content that may not be essential for the website to load or is useful to collect periodically. Sometimes, though it may contain actual core page data that you need.
+Many websites load data in the background via [XHR requests]({{@link web_scraping_101/web_scraping_techniques.md#xhrs}}). These are usually tracking data, ads and other content that may not be essential for the website to load or is useful to collect periodically. Sometimes, though it may contain actual core page data that you need.
 
 ## [](#quick-summary) Quick summary
 
@@ -107,7 +107,7 @@ Sometimes, it may be handy to work directly with the XHR request's response.
 
 * It is faster. You don't need to wait for the element to render.
 
-* It may contain nicely structured [JSON data]({{@link docs/web_scraping_101/web_scraping_techniques.md#xhrs}}).
+* It may contain nicely structured [JSON data]({{@link web_scraping_101/web_scraping_techniques.md#xhrs}}).
 
 Keep in mind that `waitForResponse` is not included in `waitFor` cases, so it does not work in Web Scraper. If you are interested in exploring the responses, you can look through them in your browser's developer console. In Firefox and Chrome, it is the **Network** tab with the **XHR** filter selected.
 
