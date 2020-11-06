@@ -160,7 +160,7 @@ Avoid using HTML.
 
 On each commit to the `master` branch of this repository, a new version of the Apify documentation gets built and deployed to [docs.apify.com](https://docs.apify.com/).
 
-On commit to any other branch, the documentation's `develop` version gets updated. This version can be viewed using the `?version=develop` parameter, e.g. [https://docs.apify.com?version=develop](https://docs.apify.com?version=develop).
+Every other branch can be viewed using the `?version=BRANCH_NAME` parameter, e.g. [https://docs.apify.com?version=feature/new-section].
 
 Keep in mind that there might be about 2 minute delay before updated documentation gets online (1 minute Github actions build + 1 minute update interval of docs website).
 

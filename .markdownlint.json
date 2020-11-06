@@ -10,5 +10,6 @@
     },
     "no-multiple-blanks": {
         "maximum": 2
-    }
+    },
+    "no-space-in-emphasis": false
 }
