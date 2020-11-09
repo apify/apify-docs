@@ -1,0 +1,172 @@
+{
+    "Get started": [
+        {
+            "cardItem": "What is Apify?",
+            "href": "/about"
+        },
+        {
+            "cardItem": "Take a video tour of the platform",
+            "href": "https://www.youtube.com/watch?v=XPF0kbyvoOs",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "What is an actor?",
+            "href": "/actors"
+        },
+        {
+            "cardItem": "How to run an actor",
+            "href": "https://www.youtube.com/watch?v=BsidLZKdYWQ",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "What is web scraping?",
+            "href": "/web-scraping-101"
+        },
+        {
+            "cardItem": "Automate repetitive tasks",
+            "href": "/robotic-process-automation"
+        }
+    ],
+    "Use actors and scrapers": [
+        {
+            "cardItem": "Use our ready-made scrapers",
+            "href": "/tutorials/apify-scrapers/getting-started"
+        },
+        {
+            "cardItem": "Create actor tasks",
+            "href": "/actors/tasks"
+        },
+        {
+            "cardItem": "Learn to use Web Scraper",
+            "href": "/tutorials/apify-scrapers/web-scraper"
+        },
+        {
+            "cardItem": "Wait for dynamic content",
+            "href": "https://help.apify.com/en/articles/3339492-waiting-for-dynamic-content",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "When to use Puppeteer Scraper?",
+            "href": "https://help.apify.com/en/articles/3195646-when-to-use-puppeteer-scraper",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Download files with Puppeteer",
+            "href": "https://help.apify.com/en/articles/1929322-handling-file-download-with-puppeteer",
+            "isExternalLink": true
+        }
+    ],
+    "Reduce blocking": [
+        {
+            "cardItem": "Connect to Apify Proxy",
+            "href": "/proxy/connection-settings"
+        },
+        {
+            "cardItem": "Bypass anti-scraping techniques",
+            "href": "/web-scraping-101/anti-scraping-techniques"
+        },
+        {
+            "cardItem": "Use a proxy in your browser",
+            "href": "https://help.apify.com/en/articles/3858935-how-to-use-a-proxy-in-your-browser",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Manage proxies in Apify SDK",
+            "href": "https://sdk.apify.com/docs/guides/proxy-management",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Reduce blocking using sessions in SDK",
+            "href": "https://sdk.apify.com/docs/guides/session-management",
+            "isExternalLink": true
+        }
+    ],
+    "Use platform features": [
+        {
+            "cardItem": "Proxy",
+            "href": "/proxy"
+        },
+        {
+            "cardItem": "API Docs",
+            "href": "/api/v2"
+        },
+        {
+            "cardItem": "Run an actor or task via API",
+            "href": "https://help.apify.com/en/articles/3224035-run-actor-task-and-retrieve-data-via-api",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Manage data",
+            "href": "/storage"
+        },
+        {
+            "cardItem": "Schedule actor runs",
+            "href": "/schedules"
+        },
+        {
+            "cardItem": "Monitor actor and task runs",
+            "href": "/monitoring"
+        }
+    ],
+    "Build actors": [
+        {
+            "cardItem": "Meet the Apify SDK",
+            "href": "https://sdk.apify.com",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Build your first actor",
+            "href": "https://sdk.apify.com/docs/guides/quick-start",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Publish your actor",
+            "href": "/actors/publishing"
+        },
+        {
+            "cardItem": "Apify SDK API reference",
+            "href": "https://sdk.apify.com/docs/api/apify",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Actor code examples",
+            "href": "https://sdk.apify.com/docs/examples/basic-crawler",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Crawl a site using Cheerio Scraper",
+            "href": "https://sdk.apify.com/docs/examples/cheerio-crawler",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Manage data in SDK",
+            "href": "https://sdk.apify.com/docs/guides/data-storage",
+            "isExternalLink": true
+        }
+    ],
+    "Advanced tutorials and debugging": [
+        {
+            "cardItem": "Analyze a page\\'s content before scraping",
+            "href": "/web-scraping-101/web-scraping-techniques"
+        },
+        {
+            "cardItem": "Log in to a website using Puppeteer",
+            "href": "https://help.apify.com/en/articles/1640711-how-to-log-in-to-a-website-using-puppeteer",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Transfer cookies from a browser to a crawler",
+            "href": "https://help.apify.com/en/articles/1444249-log-in-to-website-by-transferring-cookies-from-web-browser",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Debug actors using Live View",
+            "href": "/tutorials/apify-scrapers/web-scraper#debugging"
+        },
+        {
+            "cardItem": "Analyze pages and fix errors",
+            "href": "https://help.apify.com/en/articles/3807823-analyzing-pages-and-fixing-errors-essentials",
+            "isExternalLink": true
+        },
+    ],
+}
