@@ -68,7 +68,7 @@ If you’ve created other actors, it’s completely fine to pop in a promo for t
 > GOOD: Like my Amazon Crawler? See my Amazon Review Crawler.
 > AVOID: No links.
 
-## [](#sharing) Sharing is caring
+## [](#sharing-is-caring) Sharing is caring
 
 Now that you’ve created a cool new actor, let others see it! Share it on your personal Twitter, Facebook, Reddit or any other social platform. Always provide a link with the actor's name. Use #hashtags on Twitter to catch attention. Provide a small “why is this good” segment when sharing inside any group discussions. We will promote your actor sooner or later, but more links means more attention from Google from the beginning.
 

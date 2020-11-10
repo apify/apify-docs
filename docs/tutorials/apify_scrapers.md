@@ -8,7 +8,7 @@ paths:
     - tutorials/apify-scrapers
 ---
 
-# [](#apify_scrapers)Scraping with Apify
+# Scraping with Apify
 
 Scraping and crawling the web can be difficult and time-consuming without the right tools. That's why Apify provides ready-made solutions to crawl and scrape any website. They are based on our [actors](https://apify.com/actors) and the [Apify SDK](https://sdk.apify.com).
 

@@ -7,7 +7,7 @@ paths:
     - web-scraping-101
 ---
 
-# [](#what-is-web-scraping) Web scraping 101
+# [](#web-scraping-101) Web scraping 101
 
 Web scraping is the process of extracting structured information from a web page. In essence, web scraping automates the process of manually finding and copy/pasting the information on a website you find useful.
 
@@ -27,7 +27,7 @@ To see examples of organizations that have already benefitted from web scraping,
 2. It [parses](https://en.wikipedia.org/wiki/Parsing) (splits up the data and converts it to the required format) the HTML and extracts the data it's been programmed to extract (e.g. the song title and artist name).
 3. The scraper stores the data in the specified format so you can use it manually or in a program.
 
-## [](#is-web-scraping-rpa) Is web scraping the same as robotic process automation (RPA)?
+## [](#is-web-scraping-the-same-as-robotic-process-automation-rpa) Is web scraping the same as robotic process automation (RPA)?
 
 While web scraping is a kind of [RPA]({{@link robotic_process_automation.md}}), it focuses on extracting data. RPA focuses on the other tasks in browsers - everything except for extracting information.
 

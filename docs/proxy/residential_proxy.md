@@ -47,7 +47,7 @@ const proxyConfiguration = await Apify.createProxyConfiguration({
 });
 ```
 
-### [](#how-to-set-a-proxy-country) How to set proxy country
+### [](#how-to-set-a-proxy-country) How to set a proxy country
 
 When using [standard libraries and languages]({{@link proxy/datacenter_proxy/examples.md#using-standard-libraries-and-languages}}), specify the `country` parameter in the [username]({{@link proxy/connection_settings.md#username-parameters}}) as `country-COUNTRY-CODE`.
 
@@ -89,7 +89,7 @@ groups-RESIDENTIAL,session-my_session_1,country-US
 
 ## [](#session-persistence) Session persistence
 
-When using residential proxy with the `session` [parameter]({{@link proxy.md#sessions}}) set in the [username](#username-parameters), a single IP address is assigned to the **session ID** provided after you make the first request.
+When using residential proxy with the `session` [parameter]({{@link proxy.md#sessions}}) set in the [username]({{@link proxy/connection_settings.md#username-parameters}}), a single IP address is assigned to the **session ID** provided after you make the first request.
 
 **Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info]({{@link proxy.md#sessions}})]
 

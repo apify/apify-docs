@@ -48,9 +48,9 @@ If the actor's source code is hosted externally in a Git repository, it can cons
 
 To help you get started quickly, you can use the [apify/quick-start](https://apify.com/apify/quick-start) actor which contains all the boilerplate necessary when creating a new actor hosted on Git. The source code is available on [GitHub](https://github.com/apifytech/actor-quick-start).
 
-To specify a Git branch or tag to check out, add a URL fragment to the URL. For example, to check out the **develop** branch, specify a URL such as <https://github.com/jancurn/act-analyse-pages.git#develop>
+To specify a Git branch or tag to check out, add a URL fragment to the URL. For example, to check out the **develop** branch, specify a URL such as `github.com/jancurn/some-actor.git#develop`.
 
-Optionally, the second part of the fragment in the Git URL (separated by a colon) specifies the context directory for the Docker build. For example, <https://github.com/jancurn/act-analyse-pages.git#develop:some/dir> will check out the **develop** branch and set **some/dir** as a context directory for the Docker build.
+Optionally, the second part of the fragment in the Git URL (separated by a colon) specifies the context directory for the Docker build. For example, `github.com/jancurn/some-actor.git#develop:some/dir` will check out the **develop** branch and set **some/dir** as a context directory for the Docker build.
 
 Note that you can easily set up an integration where the actor is automatically rebuilt on every commit to the Git repository. For more details, see [GitHub integration]({{@link actors/development/source_code.md#github-integration}}).
 
@@ -124,7 +124,7 @@ By default, all Apify base Docker images start your Node.js application same way
 
 ## [](#github-integration)GitHub integration
 
-If the source code of an actor is hosted in a [Git repository](#git-repository), it is possible to set up integration so that on every push to the Git repository the actor is automatically rebuilt. For that, you only need to set up a webhook in your Git source control system that will invoke the [Build actor](/docs/api/v2/#/reference/actors/build-collection/build-actor) API endpoint on every push to Git repository.
+If the source code of an actor is hosted in a [Git repository](#git-repository), it is possible to set up integration so that on every push to the Git repository the actor is automatically rebuilt. For that, you only need to set up a webhook in your Git source control system that will invoke the [Build actor](/api/v2/#/reference/actors/build-collection/build-actor) API endpoint on every push to Git repository.
 
 For example, for repositories on GitHub it can be done using the following steps. First, go to the actor detail page, open the **API** tab and copy the **Build actor** API endpoint URL. It should look something like this:
 
