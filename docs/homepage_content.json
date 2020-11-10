@@ -146,7 +146,7 @@
     ],
     "Advanced tutorials and debugging": [
         {
-            "cardItem": "Analyze a page\\'s content before scraping",
+            "cardItem": "Analyze page content before scraping",
             "href": "/web-scraping-101/web-scraping-techniques"
         },
         {
