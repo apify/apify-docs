@@ -6,7 +6,7 @@ paths:
     - actors/development/base-docker-images
 ---
 
-# [](#base-images)Base Docker images
+# [](#base-docker-images) Base Docker images
 
 Apify provides the following Docker images that can be used as a base for user actors:
 

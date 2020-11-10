@@ -6,7 +6,7 @@ paths:
     - webhooks/events
 ---
 
-# [](./webhooks#events)Events
+# Events
 
 An event is represented by a **type** and related **data**. The type is a `string` that shows the event's name and its hierarchy in the tree of available events, e.g.: `ACTOR.RUN.SUCCEEDED`. The data are an `Object` with variable properties. See documentation of individual events for examples of data.
 

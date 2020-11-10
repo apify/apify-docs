@@ -9,7 +9,7 @@ paths:
     - actors/development/builds
 ---
 
-# [](#build)Builds
+# [](#builds)Builds
 
 Before the actor can be run, it first needs to be built. The build effectively creates a snapshot of a specific version of the actor's settings such as the [Source code]({{@link actors/development/source_code.md}}) and [Environment variables]({{@link actors/development/environment_variables.md}}), and creates a Docker image that contains everything the actor needs for its run, including necessary NPM packages, web browsers, etc.
 
@@ -44,4 +44,4 @@ Each build starts with the initial status **READY** and goes through one or more
 
 ## [](#sharing) Sharing
 
-You can allow other Apify users to view your actor builds using the [access rights]({{@link access_rights/list_of_permissions.md#actor-builds}}) system. See the full list of permissions[here]({{@link access_rights/list_of_permissions.md#actor-builds}}).
+You can allow other Apify users to view your actor builds using the [access rights]({{@link access_rights.md}}) system. See the full list of permissions[here]({{@link access_rights/list_of_permissions.md}}).
