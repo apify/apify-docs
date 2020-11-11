@@ -156,6 +156,36 @@ For links, we use a similar syntax as for assets:
 
 Avoid using HTML.
 
+## Homepage
+
+The homepage menu card items are in the `docs/homepage_content.json` file.
+
+The cards aim to suit three types use cases:
+
+* Beginners and people who just want to use the actors (**Get started**, **Use actors and scrapers**).
+
+* Experienced actor and platform users (**Reduce blocking**, **Use platform features**).
+
+* Actor builders and advanced users (**Build actors**, **Advanced tutorials and debugging**).
+
+Each item has its own JSON object, in which "cardItem" is the title and "href" is the link. If the link leads to outside the Apify domain, add the `"isExternalLink" : true` property.
+
+In the title (`cardItem`), do not just give the article's name. Phrase the title in a way that answers a question or fulfills a goal the user might have.
+
+For example:
+```text
+{
+    "cardItem": "How to run an actor",
+    "href": "https://www.youtube.com/watch?v=BsidLZKdYWQ",
+    "isExternalLink": true
+},
+```
+
+Note:
+In JSON, all entries except booleans (`true/false`) and numbers need to be in double quote marks ("").
+
+Over time, we should track which items are useful and which don't get any traffic. Also, as Apify Docs expand, we may need to add more cards and update which articles we link to.
+
 ## Deployment
 
 On each commit to the `master` branch of this repository, a new version of the Apify documentation gets built and deployed to [docs.apify.com](https://docs.apify.com/).
