@@ -10,7 +10,7 @@ paths:
 
 This document contains all the access options that can be granted to resources on the Apify platform.
 
-## [](#actor-permissions) Actors
+## [](#actors) Actors
 
 Click [here]({{@link actors.md}}) to learn about Apify actors.
 
@@ -92,7 +92,7 @@ To learn about schedules, see the [documentation]({{@link schedules.md}}).
 
 To learn about Apify Proxy, see its [documentation]({{@link proxy.md}}).
 
-## [](#user) User permissions
+## [](#user-permissions) User permissions
 
 Permissions that can be granted to members of organizations. To learn about the organization account, see its [documentation]({{@link access_rights/organization_account.md}}).
 

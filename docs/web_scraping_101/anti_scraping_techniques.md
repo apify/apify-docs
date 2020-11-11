@@ -7,7 +7,7 @@ paths:
     - web-scraping-101/anti-scraping-techniques
 ---
 
-# [](#introduction) Anti-scraping techniques and how to bypass them
+# [](#anti-scraping-techniques-and-how-to-bypass-them) Anti-scraping techniques and how to bypass them
 
 This article introduces the principles behind anti-scraping measures to demonstrate what you are up against when scraping sites that are protective of their data. We then describe the antidotes for these defenses. You can usually get around more basic protections by doing the direct opposite.
 
@@ -68,11 +68,11 @@ The tests look for things like information about your browser type and version, 
 
 While this information may seem quite generic, [Panopticlick](https://panopticlick.eff.org/) found that on average only [1 in 286,777](https://panopticlick.eff.org/static/browser-uniqueness.pdf) browsers will have the same fingerprint as you.
 
-## [](#combinations-of-techniques) Combinations of the above techniques
+## [](#combinations-of-the-above-techniques) Combinations of the above techniques
 
 To make things complicated, websites often employ various scraping protection combinations such as IP address-based blocking and HTTP request analysis.
 
-## [](#shared-ip-address-emulation) Reducing blocking with shared IP address emulation
+## [](#reducing-blocking-with-shared-ip-address-emulation) Reducing blocking with shared IP address emulation
 
 Even though IP address rotation and emulation of browser HTTP signatures can get you far, there is a chance that for large scale crawls you’ll start getting blocked. Of course, you can always add more proxies, but that can become overly expensive.
 
@@ -84,7 +84,7 @@ To make it work, you need to make sure that a single user session is always rout
 
 The [Apify SDK](https://sdk.apify.com)'s [`SessionPool`](https://sdk.apify.com/docs/api/session-pool#docsNav) class lets you do just that. It is easy to add to other Apify tools such as [actors]({{@link actors.md}}) or [proxy]({{@link proxy.md}}) but also works outside of the Apify ecosystem.
 
-## [](#comparing-techniques) Comparing ways of bypassing scraping protection
+## [](#comparing-ways-of-bypassing-scraping-protection) Comparing ways of bypassing scraping protection
 
 In a [recent experiment](https://dev.to/apify/bypassing-web-scraping-protection-get-the-most-out-of-your-proxies-with-shared-ip-address-emulation-291c), we found session emulation to be at least twice as effective as plain [IP address rotation](#bypassing-ip-address-based-blocking).
 

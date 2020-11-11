@@ -210,7 +210,7 @@ Example payload:
 }
 ```
 
-> When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](#queue-sharing). If `clientKey` is not provided, the system considers this API call to come from a new client. For details, see the `hadMultipleClients` field returned by the `Get head` [operation](https://docs.apify.com/api/v2#/reference/request-queues/queue-head/get-head). <br/>
+> When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](#sharing). If `clientKey` is not provided, the system considers this API call to come from a new client. For details, see the `hadMultipleClients` field returned by the `Get head` [operation](https://docs.apify.com/api/v2#/reference/request-queues/queue-head/get-head). <br/>
 > Example: client-abc
 
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/request-queues).

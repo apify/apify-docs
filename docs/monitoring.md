@@ -31,7 +31,7 @@ You can use it to monitor anything from a single actor to complex projects spann
 
 The monitoring suite is made up of a system of actors: **checkers** and **reporters**. Based on your configuration, the suite will create [schedules]({{@link schedules.md}}) and [webhooks]({{@link webhooks.md}}) under your account and use those to run these actors.
 
-As the names suggest, the checkers make sure your data is up to standard. Reporters create visualizations of how your actors perform over time and send [notifications](#notofications) about failed runs.
+As the names suggest, the checkers make sure your data is up to standard. Reporters create visualizations of how your actors perform over time and send [notifications](#notifications) about failed runs.
 
 ![Monitoring dashboard]({{@asset monitoring/images/monitoring-dashboard.png}})
 
@@ -42,7 +42,7 @@ You can use the monitoring suite **free of charge**, but under the hood, it is a
 * Medium projects (single monitoring configuration with 5-20 daily running monitored tasks or actors) should consume around **10 CUs per month**.
 * Bigger projects (more monitoring configurations with more than 20 daily running tasks or actors) can exceed **50 CUs+ per month**.
 
-## [](#how-can-I-set-up-monitoring) How can I set up monitoring?
+## [](#how-can-i-set-up-monitoring) How can I set up monitoring?
 
 We currently have video tutorials for setting up monitoring and adding data validation.
 
@@ -60,7 +60,7 @@ We also have written tutorials for the following use cases.
 
 * [Monitoring multiple actors or tasks]({{@link monitoring/monitor_multiple_tasks.md}})
 
-## [](#how-do-I-turn-it-off-or-make-changes) How do I turn it off or make changes?
+## [](#how-do-i-turn-it-off-or-make-changes) How do I turn it off or make changes?
 
 To turn off a monitoring task, simply run it with the **Mode** (in the task's **Input** section) set to **Delete configuration**. It will clean up all its resources and turn off all monitoring activity. You will no longer receive [notifications](#notifications).
 

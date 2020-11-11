@@ -8,7 +8,7 @@ paths:
     - actors/publishing
 ---
 
-# [](#publishing) Publishing your actor
+# Publishing your actor
 
 To publish your actor, go to the **Publication** tab on the actor detail page and tick the **Published** box.
 
