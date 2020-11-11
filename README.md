@@ -173,6 +173,7 @@ Each item has its own JSON object, in which "cardItem" is the title and "href" i
 In the title (`cardItem`), do not just give the article's name. Phrase the title in a way that answers a question or fulfills a goal the user might have.
 
 For example:
+
 ```text
 {
     "cardItem": "How to run an actor",
