@@ -168,7 +168,7 @@ The cards aim to suit three types use cases:
 
 * Actor builders and advanced users (**Build actors**, **Advanced tutorials and debugging**).
 
-Each item has its own JSON object, in which "cardItem" is the title and "href" is the link. If the link leads to outside the Apify domain, add the `"isExternalLink" : true` property.
+Each item has its own JSON object, in which "cardItem" is the title and "href" is the link. If the link leads to outside the Apify Docs site, add the `"isExternalLink" : true` property. For local links, just use the article's path. E.g. `"/tutorials/apify-scrapers/web-scraper"`.
 
 In the title (`cardItem`), do not just give the article's name. Phrase the title in a way that answers a question or fulfills a goal the user might have.
 
