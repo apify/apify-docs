@@ -10,7 +10,7 @@ paths:
     - actors/running
 ---
 
-# [](#run)Running
+# [](#running)Running
 
 An Apify actor can be invoked in a number of ways. One option is to start the actor from the **Developer console** in the app:
 
@@ -85,7 +85,7 @@ Resurrection can be performed in Apify app using the **resurrect** button or via
 
 ## [](#container-web-server)Container web server
 
-Each actor run is assigned a unique hard-to-guess URL (e.g. <http://kmdo7wpzlshygi.runs.apify.net>), which enables HTTP access to an optional web server running inside the actor run's Docker container. The URL is available in the following places:
+Each actor run is assigned a unique hard-to-guess URL (e.g. `kmdo7wpzlshygi.runs.apify.net`), which enables HTTP access to an optional web server running inside the actor run's Docker container. The URL is available in the following places:
 
 * In the web application, on the actor run details page as the **Container URL** field.
 * In the API as the `containerUrl` property of the [Run object](https://docs.apify.com/api/v2#/reference/actors/run-object/get-run).
@@ -122,4 +122,4 @@ Actor run gets deleted along with its default storages (key-value store, dataset
 
 ## [](#sharing) Sharing
 
-You share your actor runs with other Apify users via the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#actor-run}}).
+You share your actor runs with other Apify users via the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md}}).

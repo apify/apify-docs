@@ -10,7 +10,7 @@ paths:
 
 Once you have created your organization, you can customize it. Under the **Settings** tab, you can set the organization's email address, owner and delete the account. The **Profile** tab allows you to update your organization's name or set a custom profile image.
 
-## [](#add-users-to-organization) Add users to your organization
+## [](#add-users-to-your-organization) Add users to your organization
 
 You can add members to your organization in the **Members** tab. You can use their **User ID**, **username** or **email**. When adding a member to the organization, you must assign them a **Role** so their permissions are known right away.
 

@@ -6,7 +6,7 @@ paths:
     - webhooks/actions
 ---
 
-# [](./webhooks#actions)Actions
+# Actions
 
 Currently, the only available action is to send an HTTP POST request to a URL specified in the webhook. New actions will come later.
 

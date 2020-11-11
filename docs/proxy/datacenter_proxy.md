@@ -76,7 +76,7 @@ This IP/session ID combination persists and expires 24 hours later. Each additio
 
 So, if you use the session at least once a day, it will never expire, with two possible exceptions:
 
-* The proxy server stops responding and is marked as [dead](#dead-proxies) during a health check.
+* The proxy server stops responding and is marked as [dead]({{@link proxy.md#dead-proxies}}) during a health check.
 * If the proxy server is part of a proxy group that is refreshed monthly and is rotated out.
 
 If the session is discarded due to the reasons above, it is assigned a new IP address.
