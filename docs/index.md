@@ -6,4 +6,4 @@ paths:
     - index
     - home
 ---
-<!-- TODO: use this file for the homepage's content items, rather than the one in apify-web repo. This will make it much easier to manage the menu items. -->
+<!-- TODO: the homepage menu card items are in the homepage_content.json file -->
