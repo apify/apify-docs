@@ -14,8 +14,8 @@ Many websites load data in the background via [XHR requests]({{@link web_scrapin
 
 Use these helper functions to wait for data. Pass in time in milliseconds or a selector to wait for.
 
-* `page.waitFor` in [Puppeteer](https://pptr.dev) (or **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper))).
-E.g. `await page.waitFor(10000)` - waits for 10 seconds.
+* `page.waitForTimeout` or `page.waitForSelector` in [Puppeteer](https://pptr.dev) (or **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper))).
+E.g. `await page.waitForTimeout(10000)` - waits for 10 seconds.
 
 * `context.waitFor` in **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)).
 E.g. `await context.waitFor('my-selector')` - waits for `my-selector`  to appear on the page.
@@ -43,17 +43,19 @@ But even if data are rendered via JavaScript or loaded dynamically, there are ad
 
 ### [](#web-scraper-puppeteer-scraper-puppeteer) Web Scraper / Puppeteer Scraper / Puppeteer
 
-In 95% of cases, the JavaScript-rendered page that you get with Puppeteer is enough. If you actually need to wait for the dynamic content, Puppeteer has [several helper functions](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagewaitforselectororfunctionortimeout-options-args), of which the most important are: `page.waitForSelector`, `page.waitForResponse`, `page.waitForNavigation`, `page.waitForFunction` and `generic page.waitFor`.
+In 95% of cases, the JavaScript-rendered page that you get with Puppeteer is enough. If you actually need to wait for the dynamic content, Puppeteer has [several helper functions](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagewaitforselectororfunctionortimeout-options-args), of which the most important are: `page.waitForTimeout`, `page.waitForSelector`, `page.waitForResponse`, `page.waitForNavigation` and `page.waitForFunction`.
 
 ### [](#waitfor-function) waitFor function
 
-This function can be found as `page.waitFor` in [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pagewaitforselectorselector-options) and `context.waitFor` in [Web Scraper](https://apify.com/apify/web-scraper#page-function). It is a generic function that has three possible arguments.
+This function can be found as `context.waitFor` in [Web Scraper](https://apify.com/apify/web-scraper#page-function) where it is a generic function that has three possible arguments.
 
-* **Number in milliseconds** - `await page.waitFor(10000)` (will wait for 10 seconds).
+* **Number in milliseconds** - `await context.waitFor(10000)`. The same as `page.waitForTimeout` (will wait for 10 seconds).
 
-* **Selector string** - `await page.waitFor('my-selector')`. The same as `page.waitForSelector` (will wait until that selector appears on the page but timeouts after 30 seconds with an error).
+* **Selector string** - `await context.waitFor('my-selector')`. The same as `page.waitForSelector` (will wait until that selector appears on the page but timeouts after 30 seconds with an error).
 
-* **Predicate function** - `await page.waitFor(functionThatReturnsTrueOrFalse)`. The same as `page.waitForFunction` (you can pass an arbitrary function that is executed periodically and the code waits until it returns `true`).
+* **Predicate function** - `await context.waitFor(functionThatReturnsTrueOrFalse)`. The same as `page.waitForFunction` (you can pass an arbitrary function that is executed periodically and the code waits until it returns `true`).
+
+With newer versions of [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pagewaitforselectorselector-options) you have to use dedicated functions like `page.waitForTimeout`, `page.waitForSelector` or `page.waitForFunction`.
 
 ### [](#testing-it) Testing it
 
@@ -65,12 +67,12 @@ Try to debug it using logs and screenshots. If your code is working, you know th
 
 By default, `waitFor` times out after 30 seconds with an error. Usually, this means another error is preventing the selector from loading. The selector itself may be wrong, or your browser got blocked or redirected to another version of the website.
 
-Most of the time, if the selector doesn't load in the first 5 seconds, it won't load at all. You can prevent wasteful waiting by changing the timeout to `await page.waitFor('my-selector', { timeout: 10000 })`.
+Most of the time, if the selector doesn't load in the first 5 seconds, it won't load at all. You can prevent wasteful waiting by changing the timeout to `await context.waitFor('my-selector', { timeout: 10000 })`.
 
 The `waitFor` (the selector version) will throw an error once it reaches the timeout. That is usually a good thing because you don't want this to go unnoticed. But if the data are not too important or you want to fall back to some other solution, you can easily catch the waiting error:
 
 ```javascript
-await page.waitFor('my-selector', { timeout: 10000 })
+await page.waitForSelector('my-selector', { timeout: 10000 })
     .catch(() => console.log('Wait for my-selector timed out')
 );
 ```
@@ -93,12 +95,12 @@ const has24Products = () => {
 };
 ```
 
-Now we simply pass it to `waitFor` or `waitForFunction`:
+Now we simply pass it to `waitForFunction`:
 
 ```javascript
 // In Puppeteer you need to inject JQuery with
 // await Apify.utils.Puppeteer.injectJQuery(page);
-await page.waitFor(has24Products);
+await page.waitForFunction(has24Products);
 ```
 
 ### [](#waitforresponse) waitForResponse
