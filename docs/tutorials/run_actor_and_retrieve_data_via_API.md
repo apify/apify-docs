@@ -10,7 +10,7 @@ paths:
 
 The most common [integration](https://help.apify.com/en/collections/1669767-integrating-with-apify) of Apify with your system is usually very simple. You need to run an [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}), wait for it to finish, then collect the [data]({{@link storage/dataset.md}}). With all the features Apify provides, new users may not be sure of the standard/easiest way to implement this. So, let's dive in you can do it.
 
-> Don't forget to check out our [API documentation]({{@link api.md}}) with examples in different languages and live API console. I also recommend testing the API with a nice desktop client like [Postman](https://www.getpostman.com/).
+> Don't forget to check out our [API documentation]({{@link api.md}}) with examples in different languages and live API console. We also recommend testing the API with a nice desktop client like [Postman](https://www.getpostman.com/).
 
 The process consists of three steps:
 
