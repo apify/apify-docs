@@ -8,9 +8,9 @@ paths:
 
 # Run an actor or task and retrieve data via API
 
-The most common [integration](https://help.apify.com/en/collections/1669767-integrating-with-apify) of Apify with your system is usually very simple. You need to run an [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}), wait for it to finish, then collect the [data]({{@link storage/dataset.md}}). With all the features Apify provides, new users may not be sure of the standard/easiest way to implement this. So, let's dive in you can do it.
+The most common [integration](https://help.apify.com/en/collections/1669767-integrating-with-apify) of Apify with your system is usually very simple. You need to run an [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}), wait for it to finish, then collect the [data]({{@link storage/dataset.md}}). With all the features Apify provides, new users may not be sure of the standard/easiest way to implement this. So, let's dive in and see how you can do it.
 
-> Don't forget to check out our [API documentation]({{@link api.md}}) with examples in different languages and live API console. We also recommend testing the API with a nice desktop client like [Postman](https://www.getpostman.com/).
+> Do not forget to check out our [API documentation]({{@link api.md}}) with examples in different languages and live API console. We also recommend testing the API with a nice desktop client like [Postman](https://www.getpostman.com/).
 
 The process consists of three steps:
 
@@ -32,7 +32,7 @@ To run (or "call" in API language) an actor/task, you will need a few things:
 
 * Name or ID of the actor/task. The name is in the format `username~actorName` or `username~taskName`.
 
-* Your [API token](/api/v2#/introduction/authentication). You can find it on the Integrations page in the Apify [app](https://my.apify.com/account#/integrations) (make sure it doesn't leak anywhere!).
+* Your [API token](/api/v2#/introduction/authentication). You can find it on the Integrations page in the Apify [app](https://my.apify.com/account#/integrations) (make sure it does not leak anywhere!).
 
 * Possibly an input or other settings if you want to change the default values (e.g. memory or build).
 
@@ -58,19 +58,19 @@ We can also add any settings (these will override the default settings) as addit
 https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN&memory=8192&build=beta
 ```
 
-This works almost identically for actors and tasks. However, for tasks there's no reason to provide a [build]({{@link actors/development/builds.md}}) since a task already has only one specific actor build.
+This works almost identically for actors and tasks. However, for tasks there is no reason to provide a [build]({{@link actors/development/builds.md}}) since a task already has only one specific actor build.
 
 ### [](#input-json) Input JSON
 
-Most actors wouldn't be much use if you could not pass any input to change their behavior. And even though each task already has an input, it is handy to be able to always overwrite with the API call.
+Most actors would not be much use if you could not pass any input to change their behavior. And even though each task already has an input, it is handy to be able to always overwrite with the API call.
 
 The input of an actor or task can be any [JSON object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON), so its structure really depends only on the specific actor. This input JSON should be sent in the POST request's **body**.
 
-If you want to run one of the major actors from [Apify Store](https://apify.com/store), you usually don't need to provide all possible input fields. Good actors have reasonable defaults for most fields.
+If you want to run one of the major actors from [Apify Store](https://apify.com/store), you usually do not need to provide all possible input fields. Good actors have reasonable defaults for most fields.
 
 Let's try to run the most popular actor - generic [Web Scraper](https://apify.com/apify/web-scraper).
 
-The full input with all possible fields is [pretty long and ugly](https://apify.com/apify/web-scraper?section=example-run), so we won't show it here. As it has default values for most of its fields, we can provide just a simple JSON input.
+The full input with all possible fields is [pretty long and ugly](https://apify.com/apify/web-scraper?section=example-run), so we will not show it here. As it has default values for most of its fields, we can provide just a simple JSON input.
 
 We will send a POST request to the endpoint below and add the JSON as a body.
 
@@ -82,7 +82,7 @@ This is how it can look in [Postman](https://www.getpostman.com/).
 
 ![Run an actor via API in Postman]({{@asset tutorials/images/run-actor-postman.png}})
 
-If we press **Send**, it will immediately return some info about the run. The `status` will be either `READY` (which means that it's waiting to be allocated on a server) or `RUNNING` (99% of cases).
+If we press **Send**, it will immediately return some info about the run. The `status` will be either `READY` (which means that it is waiting to be allocated on a server) or `RUNNING` (99% of cases).
 
 ![Actor run info in Postman]({{@asset tutorials/images/run-info-postman.png}})
 
@@ -92,7 +92,7 @@ We will later use this run info JSON to retrieve the data. You can also get this
 
 There may be cases where we need to simply run the actor and go away. But in any kind of integration, we are usually interested in its output. We have three basic options for how to wait for the actor/task to finish.
 
-* [Synchronous call]((#synchronous-call))
+* [Synchronous call](#synchronous-call)
 
 * [Webhooks](#webhooks)
 
@@ -100,7 +100,7 @@ There may be cases where we need to simply run the actor and go away. But in any
 
 ### [](#synchronous-call) Synchronous call
 
-For simple and short actor runs, the synchronous call is the easiest to implement. To make the POST request wait, add the `waitForFinish` parameter. It can have a value from `0` to `300`, which is time in seconds (max wait time is 5 minutes). You can extend the example URL like this:
+For simple and short actor runs, the synchronous call is the easiest to implement. To make the POST request wait, add the `waitForFinish` parameter. It can have a value from `0` to `300`, which is time in seconds (maximum wait time is 5 minutes). You can extend the example URL like this:
 
 ```text
 https://api.apify.com/v2/acts/apify~web-scraper/runs?token=YOUR_TOKEN&waitForFinish=300
@@ -124,14 +124,14 @@ Usually, this event is a successfully finished run, but you can also set a diffe
 
 ![Webhook example]({{@asset tutorials/images/webhook.png}})
 
-The webhook will send you a [pretty complicated JSON]({{@link webhooks/actions.md#http-request}}), but usually you are only interested in the `resource` object. It is essentially the run info JSON from the previous sections. You can leave the payload template as is as for our use case, since it's what we need.
+The webhook will send you a [pretty complicated JSON]({{@link webhooks/actions.md#http-request}}), but usually you are only interested in the `resource` object. It is essentially the run info JSON from the previous sections. You can leave the payload template as is as for our use case, since it is what we need.
 
-Once you receive this request from the webhook, you know the event happened and you can ask for the complete data. Don't forget to respond to the webhook with a **200** status. Otherwise, it will ping you again.
+Once you receive this request from the webhook, you know the event happened and you can ask for the complete data. Do not forget to respond to the webhook with a **200** status. Otherwise, it will ping you again.
 
 
 ### [](#polling) Polling
 
-There are cases where you don't have a server and the run is too long to use a synchronous call. In these cases, periodic polling of the run status is the solution.
+There are cases where you do not have a server and the run is too long to use a synchronous call. In these cases, periodic polling of the run status is the solution.
 
 You run the actor with the [usual API call](#run-the-actor-or-task) shown in the beginning of this article. This will run the actor and give you back the run info JSON. From this JSON, extract the `id` field. It is the ID of the actor run that you just started.
 
@@ -181,7 +181,7 @@ If you have a single output JSON, the convention is to return this as a record n
 https://api.apify.com/v2/key-value-stores/STORE_ID/records/RECORD_KEY
 ```
 
-If you don't know the keys (names) of the records in advance, you can retrieve just the keys with [List keys](https://apify.com/docs/api/v2#/reference/key-value-stores/key-collection/get-list-of-keys) endpoint.
+If you do not know the keys (names) of the records in advance, you can retrieve just the keys with [List keys](https://apify.com/docs/api/v2#/reference/key-value-stores/key-collection/get-list-of-keys) endpoint.
 
 Keep in mind that you can get a maximum of 1000 keys per request, so you will need to paginate over the keys using the `exclusiveStartKey` parameter if you have more than 1000 keys. To do this, after each call, take the last record key and provide it as the `exclusiveStartKey` parameter. You can do this until you get 0 keys back.
 
