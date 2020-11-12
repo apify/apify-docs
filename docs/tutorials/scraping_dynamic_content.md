@@ -118,16 +118,15 @@ Keep in mind that `waitForResponse` is not included in `waitFor` cases, so it d
 We can catch this response by checking for its URL and method (we have to do it since the same URL is included in the OPTIONS method). We return `true` or `false` depending if it is the response we want. `waitForResponse` will even give us the response back.
 
 ```javascript
-const correctResponse = await page.waitForResponse(
-    async (response) => {
-        const url = response.url();
-        const method = response.request().method();
-        if (url.includes('/prod_PUBLIC_STORE') && method === 'POST') {
-            return true;
-        };
-    return false;
+const responseChooser = async (response) => {
+    const url = response.url();
+    const method = response.request().method();
+    if (url.includes('/prod_PUBLIC_STORE') && method === 'POST') {
+        return true;
     };
-);
+    return false;
+};
+const correctResponse = await page.waitForResponse(responseChooser);
 ```
 
  Now, we simply extract the JSON.
@@ -142,24 +141,21 @@ const userAgent = data.user_agent;
 You don't need to rely on Puppeteer's smart functions to implement something. You can implement "waiters" using a simple loop. Then, you can add your own functionality to it. For example, a `waitForSelector` that logs its waiting.
 
 ```javascript
-const waitAndLog = async (
-    page, selector, timeout = 30000) => {
-        const start = Date.now();
-        let myElement = await page.$(selector);
-        while (!myElement) {
-            await page.waitFor(500); // wait 0.5s each time
-            const alreadyWaitingFor = Date.now() - start;
-            if (alreadyWaitingFor > timeout) {
-                throw new Error(
-                    `Wait for ${selector} timed out after ${timeout} ms`
-                );
-            }
-            console.log(`Waiting for ${selector} for ${alreadyWaitingFor}`);
-            myElement = await page.$(selector);
+const waitAndLog = async (page, selector, timeout = 30000) => {
+    const start = Date.now();
+    let myElement = await page.$(selector);
+    while (!myElement) {
+        await page.waitFor(500); // wait 0.5s each time
+        const alreadyWaitingFor = Date.now() - start;
+        if (alreadyWaitingFor > timeout) {
+            throw `Wait for ${selector} timed out after ${timeout} ms`;
         }
-        console.log(`Selector ${selector} appeared on the page!`)
-        return myElement;
-    };
+        console.log(`Waiting for ${selector} for ${alreadyWaitingFor}`);
+        myElement = await page.$(selector);
+    }
+    console.log(`Selector ${selector} appeared on the page!`)
+    return myElement;
+};
 
 // You can use the element handle it returns
 await waitAndLog(page, 'my-selector');
