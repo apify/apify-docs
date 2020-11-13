@@ -1,6 +1,6 @@
 ---
 title: Run actor and retrieve data via API
-description: Learn how to perform the most common integration workflow - run the job, wait, collect data. Start your actors and collect data from your applications.
+description: Learn how to perform the most common integration workflow - run the job => wait => collect data. Integrate Apify actors with your applications.
 menuWeight: 3.3
 paths:
     - tutorials/run-actor-and-retrieve-data-via-API
@@ -114,7 +114,7 @@ The input of an actor or task can be any [JSON object](https://developer.mozilla
 
 If you want to run one of the major actors from [Apify Store](https://apify.com/store), you usually do not need to provide all possible input fields. Good actors have reasonable defaults for most fields.
 
-Let's try to run the most popular actor - generic [Web Scraper](https://apify.com/apify/web-scraper).
+Let's try to run the most popular actor – the generic [Web Scraper](https://apify.com/apify/web-scraper).
 
 The full input with all possible fields is [pretty long and ugly](https://apify.com/apify/web-scraper?section=example-run), so we will not show it here. As it has default values for most of its fields, we can provide just a simple JSON input.
 
