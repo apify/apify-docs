@@ -10,35 +10,43 @@ paths:
 
 The most common [integration](https://help.apify.com/en/collections/1669767-integrating-with-apify) of Apify with your system is usually very simple. You need to run an [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}), wait for it to finish, then collect the [data]({{@link storage/dataset.md}}). With all the features Apify provides, new users may not be sure of the standard/easiest way to implement this. So, let's dive in and see how you can do it.
 
-> Do not forget to check out our [API documentation]({{@link api.md}}) with examples in different languages and live API console. We also recommend testing the API with a nice desktop client like [Postman](https://www.getpostman.com/).
+> Remember to check out our [API documentation]({{@link api.md}}) with examples in different languages and live API console. We also recommend testing the API with a nice desktop client like [Postman](https://www.getpostman.com/).
 
 There are 2 ways to use the API:
 
-- [Synchronously](#synchronous-flow) - Runs shorter than 5 minutes
-- [Asynchronously](#asynchronous-flow) - Runs longer than 5 minutes
+- [Synchronously](#synchronous-flow) – Runs shorter than 5 minutes.
+- [Asynchronously](#asynchronous-flow) – Runs longer than 5 minutes.
 
 ## [](#synchronous-flow) Synchronous flow
 
-If each of your runs will be shorter than 5 minutes, you can completely bypass this flow and use just a single synchronous endpoint. The connection is held for up to 5 minutes. If your run exceeds this time limit, the response will be a run object with info about the run and `RUNNING` status. If that happens, you need to [wait for the run to finish](#wait-for-the-run-to-finish).
+If each of your runs is shorter than 5 minutes, you can use a single [synchronous endpoint](https://usergrid.apache.org/docs/introduction/async-vs-sync.html#synchronous). The connection is held for up to 5 minutes.
 
-### [](#synchronous-runs-with-key-value-store-output) Synchronous runs with Key-value store output
+If your run exceeds this time limit, the response will be a run object containing information about the run and the status `RUNNING`. If that happens, you need to [wait for the run to finish](#wait-for-the-run-to-finish).
 
-Key-value stores are useful for storing files like images, HTML snapshots or JSON dumps. The Apify API provides a **run-sync** endpoint for [actors](https://apify.com/docs/api/v2#/reference/actors/run-actor-synchronously/with-input) and [tasks](https://apify.com/docs/api/v2#/reference/actor-tasks/run-task-synchronously/run-task-synchronously) that includes a body of the selected record of they default Key-value store. By default, it chooses the `OUTPUT` record.
+### [](#synchronous-runs-with-key-value-store-output) Synchronous runs with key-value store output
 
-### [](#synchronous-runs-with-dataset-items-output) Synchronous runs with dataset items output
+[Key-value stores]({{@link storage/key_value_store.md}}) are useful for storing files like images, HTML snapshots or JSON data. The Apify API provides **run-sync** endpoints for
+[actors](/api/v2#/reference/actors/run-actor-synchronously/with-input)
+and [tasks](/api/v2#/reference/actor-tasks/run-task-synchronously/run-task-synchronously). These allow you to run a specific task and receive the output. By default, they return the `OUTPUT` record from the default key-value store.
 
-Most actor runs will store its data in the default dataset. The Apify API provides a **run-sync-get-dataset-items** endpoint for [actors](https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items) and [tasks](https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-(post)) that includes the items from the default dataset.
+### [](#synchronous-runs-with-dataset-output) Synchronous runs with dataset output
 
-A simple example of calling a task and printing the dataset items in Node.js:
+Most actor runs will store their data in the default [dataset]({{@link storage/key_value_store.md}}). The Apify API provides **run-sync-get-dataset-items** endpoints for
+[actors](/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items)
+and [tasks](/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-(post)). These endpoints allow you to run an actor and receive the items from the default dataset.
+
+A simple example of calling a task and logging the dataset items in Node.js.
 
 ```javascript
 // Use your favourite HTTP client
 const got = require('got');
 
-// Swap for your API token
+// Specify your API token
+// (find it at https://my.apify.com/account#/integrations)
 const myToken = 'rWLaYmvZeK55uatRrZib4xbZs';
 
-// Start apify/google-search-scraper actor and pass some queries into the JSON body
+// Start apify/google-search-scraper actor
+// and pass some queries into the JSON body
 const response = await got({
     url: `https://api.apify.com/v2/acts/apify~google-search-scraper/run-sync-get-dataset-items?token=${myToken}`,
     method: 'POST',
@@ -50,7 +58,7 @@ const response = await got({
 
 const items = response.body;
 
-// Print each organic result for both queries
+// Log each organic result for both queries
 items.forEach((item) => {
     const { organicResults } = item;
     organicResults.forEach((result) => {
@@ -60,24 +68,24 @@ items.forEach((item) => {
 });
 ```
 
-For more detailed information, check the [API reference](https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-with-input-and-get-dataset-items).
+For more detailed information, check the [API reference](/api/v2#/reference/actors/run-actor-synchronously-with-input-and-get-dataset-items).
 
 ## [](#asynchronous-flow) Asynchronous flow
 
-For runs longer than 5 minutes the process consists of three steps:
+For runs longer than 5 minutes the process consists of three steps.
 
-- [Run the actor or task](#run-the-actor-or-task)
+- [Run the actor or task](#run-the-actor-or-task).
 
-- [Wait for the run to finish](#wait-for-the-run-to-finish)
+- [Wait for the run to finish](#wait-for-the-run-to-finish).
 
-- [Collect the data](#collect-the-data)
+- [Collect the data](#collect-the-data).
 
 ### [](#run-the-actor-or-task) Run the actor or task
 
 API endpoints for
-[actors](https://apify.com/docs/api/v2#/reference/actors/run-collection/run-actor)
-and [tasks](https://apify.com/docs/api/v2#/reference/actor-tasks/run-collection/run-task)
-and their usage are essentially the same. If you are unsure of the difference between an actor and task, read about it in the [tasks]({{@link actors/tasks.md}}) docs. In brief, tasks are just pre-configured inputs for actors, nothing more.
+[actors](/api/v2#/reference/actors/run-collection/run-actor)
+and [tasks](/api/v2#/reference/actor-tasks/run-collection/run-task)
+and their usage are essentially the same. If you are unsure of the difference between an actor and task, read about it in the [tasks]({{@link actors/tasks.md}}) docs. In brief, tasks are just pre-configured inputs for actors..
 
 To run (or "call" in API language) an actor/task, you will need a few things:
 
@@ -143,13 +151,13 @@ We will later use this run info JSON to retrieve the data. You can also get this
 
 There may be cases where we need to simply run the actor and go away. But in any kind of integration, we are usually interested in its output. We have three basic options for how to wait for the actor/task to finish.
 
-- [Wait for finish parameter](#wait-for-finish-parameter)
+- [waitForFinish parameter](#waitforfinish-parameter).
 
-- [Webhooks](#webhooks)
+- [Webhooks](#webhooks).
 
-- [Polling](#polling)
+- [Polling](#polling).
 
-#### [](#wait-for-finish-parameter) Wait for finish parameter
+#### [](#waitforfinish-parameter) waitForFinish parameter
 
 This solution is quite similar to the synchronous flow. To make the POST request wait, add the `waitForFinish` parameter. It can have a value from `0` to `300`, which is time in seconds (maximum wait time is 5 minutes). You can extend the example URL like this:
 
@@ -157,9 +165,9 @@ This solution is quite similar to the synchronous flow. To make the POST request
 https://api.apify.com/v2/acts/apify~web-scraper/runs?token=YOUR_TOKEN&waitForFinish=300
 ```
 
-Again, the final response will be the run info object, however now its `status` should be `SUCCEEDED` or `FAILED`. If the run exceeds the `waitForFinish` duration, the `status` will still be `RUNNING`.
+Again, the final response will be the run info object, however now its status should be `SUCCEEDED` or `FAILED`. If the run exceeds the `waitForFinish` duration, the status will still be `RUNNING`.
 
-You can also use `waitForFinish` parameter with the [GET Run endpoint](https://docs.apify.com/api/v2#/reference/actors/run-object/get-run) to implement a smarter [polling](#polling) system.
+You can also use `waitForFinish` parameter with the [GET Run endpoint](/api/v2#/reference/actors/run-object/get-run) to implement a smarter [polling](#polling) system.
 
 #### [](#webhooks) Webhooks
 
@@ -178,7 +186,7 @@ Once you receive this request from the webhook, you know the event happened and 
 
 There are cases where you do not have a server and the run is too long to use a synchronous call. In these cases, periodic polling of the run status is the solution.
 
-You run the actor with the [usual API call](#run-the-actor-or-task) shown in the beginning of this article. This will run the actor and give you back the run info JSON. From this JSON, extract the `id` field. It is the ID of the actor run that you just started.
+You run the actor with the [usual API call](#run-the-actor-or-task) shown above. This will run the actor and give you back the run info JSON. From this JSON, extract the `id` field. It is the ID of the actor run that you just started.
 
 Then, you can set an interval that will poll the Apify API (let's say every 5 seconds). In every interval, you will call the [Get run](https://apify.com/docs/api/v2#/reference/actors/run-object/get-run) endpoint to retrieve the run's status. Simply replace the `RUN_ID` with the ID you extracted earlier in the following URL.
 
@@ -198,7 +206,7 @@ The run info JSON also contains IDs of the default [dataset]({{@link storage/dat
 
 If you are scraping products or any list of items with similar fields, the dataset is your storage of choice. Do not forget, though, that dataset items are immutable: you can only add to the dataset, not change its content.
 
-Retrieving the data is simple: Send a GET request to the [Get items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items) endpoint and pass the `defaultDatasetId` to the URL. For a GET request to the default dataset, no token is needed.
+Retrieving the data is simple: Send a GET request to the [Get items](/api/v2#/reference/datasets/item-collection/get-items) endpoint and pass the `defaultDatasetId` to the URL. For a GET request to the default dataset, no token is needed.
 
 ```text
 https://api.apify.com/v2/datasets/DATASET_ID/items
@@ -206,7 +214,7 @@ https://api.apify.com/v2/datasets/DATASET_ID/items
 
 By default, it will return the data in JSON format with some metadata. The actual data are in the `items` array.
 
-There are plenty of additional parameters that you can use. You can learn about them in the [documentation](https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items). We will only mention that you can pass a `format` parameter that transforms the response into popular formats like CSV, XML, Excel, RSS, etc.
+There are plenty of additional parameters that you can use. You can learn about them in the [documentation](/api/v2#/reference/datasets/item-collection/get-items). We will only mention that you can pass a `format` parameter that transforms the response into popular formats like CSV, XML, Excel, RSS, etc.
 
 The items are paginated, which means you can ask only for a subset of the data. Specify this using the `limit` and `offset` parameters. There is actually an overall limit of 250,000 items that the endpoint can return per request. To retrieve more, you will need to send more requests incrementing the `offset` parameter.
 
