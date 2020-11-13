@@ -12,7 +12,7 @@ Many websites load data in the background via [XHR requests]({{@link web_scrapin
 
 ## [](#quick-summary) Quick summary
 
-Use these helper functions to wait for data. Pass in time in milliseconds or a selector to wait for.
+Use these helper functions to wait for data. Pass in time in milliseconds or the [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) to wait for.
 
 * `page.waitForTimeout` or `page.waitForSelector` in [Puppeteer](https://pptr.dev) (or **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper))).
 E.g. `await page.waitForTimeout(10000)` - waits for 10 seconds.
@@ -49,7 +49,7 @@ In 95% of cases, the JavaScript-rendered page that you get with Puppeteer is eno
 
 This function can be found as `context.waitFor` in [Web Scraper](https://apify.com/apify/web-scraper#page-function) where it is a generic function that has three possible arguments.
 
-* **Number in milliseconds** - `await context.waitFor(10000)`. The same as `page.waitForTimeout` (will wait for 10 seconds).
+* **Number of milliseconds** - `await context.waitFor(10000)`. The same as `page.waitForTimeout` (will wait for 10 seconds).
 
 * **Selector string** - `await context.waitFor('my-selector')`. The same as `page.waitForSelector` (will wait until that selector appears on the page but timeouts after 30 seconds with an error).
 
