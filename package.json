@@ -7,7 +7,11 @@
     "build": "npm run lint:fix && node ./src/build.js",
     "test": "npm run test",
     "lint": "./node_modules/.bin/markdownlint '**/*.md' && ./node_modules/.bin/eslint . && eslint --ext js,md",
-    "lint:fix": "./node_modules/.bin/markdownlint '**/*.md' --fix && ./node_modules/.bin/eslint . --ext .js,.jsx --fix && eslint --ext js,md --fix ."
+    "lint:fix": "./node_modules/.bin/markdownlint '**/*.md' --fix && ./node_modules/.bin/eslint . --ext .js,.jsx --fix && eslint --ext js,md --fix .",
+    "lint:md": "./node_modules/.bin/markdownlint '**/*.md'",
+    "lint:md:fix": "./node_modules/.bin/markdownlint '**/*.md' --fix",
+    "lint:code": "./node_modules/.bin/eslint . && eslint --ext js,md",
+    "lint:code:fix": "./node_modules/.bin/eslint . --ext .js,.jsx --fix && eslint --ext js,md --fix ."
   },
   "repository": {
     "type": "git",
