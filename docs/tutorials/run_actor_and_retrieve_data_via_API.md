@@ -13,6 +13,7 @@ The most common [integration](https://help.apify.com/en/collections/1669767-inte
 > Do not forget to check out our [API documentation]({{@link api.md}}) with examples in different languages and live API console. We also recommend testing the API with a nice desktop client like [Postman](https://www.getpostman.com/).
 
 There are 2 ways to use the API:
+
 - [Synchronously](#synchronous-flow) - Runs shorter than 5 minutes
 - [Asynchronously](#asynchronous-flow) - Runs longer than 5 minutes
 
@@ -20,13 +21,16 @@ There are 2 ways to use the API:
 
 If each of your runs will be shorter than 5 minutes, you can completely bypass this flow and use just a single synchronous endpoint. The connection is held for up to 5 minutes. If your run exceeds this time limit, the response will be a run object with info about the run and `RUNNING` status. If that happens, you need to [wait for the run to finish](#wait-for-the-run-to-finish).
 
-#### [](#synchronous-runs-with-key-value-store-output) Synchronous runs with Key-value store output
+### [](#synchronous-runs-with-key-value-store-output) Synchronous runs with Key-value store output
+
 Key-value stores are useful for storing files like images, HTML snapshots or JSON dumps. The Apify API provides a **run-sync** endpoint for [actors](https://apify.com/docs/api/v2#/reference/actors/run-actor-synchronously/with-input) and [tasks](https://apify.com/docs/api/v2#/reference/actor-tasks/run-task-synchronously/run-task-synchronously) that includes a body of the selected record of they default Key-value store. By default, it chooses the `OUTPUT` record.
 
-#### [](#synchronous-runs-with-dataset-items-output) Synchronous runs with dataset items output
+### [](#synchronous-runs-with-dataset-items-output) Synchronous runs with dataset items output
+
 Most actor runs will store its data in the default dataset. The Apify API provides a **run-sync-get-dataset-items** endpoint for [actors](https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items) and [tasks](https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-(post)) that includes the items from the default dataset.
 
 A simple example of calling a task and printing the dataset items in Node.js:
+
 ```javascript
 // Use your favourite HTTP client
 const got = require('got');
@@ -59,13 +63,14 @@ items.forEach((item) => {
 For more detailed information, check the [API reference](https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-with-input-and-get-dataset-items).
 
 ## [](#asynchronous-flow) Asynchronous flow
+
 For runs longer than 5 minutes the process consists of three steps:
 
-* [Run the actor or task](#run-the-actor-or-task)
+- [Run the actor or task](#run-the-actor-or-task)
 
-* [Wait for the run to finish](#wait-for-the-run-to-finish)
+- [Wait for the run to finish](#wait-for-the-run-to-finish)
 
-* [Collect the data](#collect-the-data)
+- [Collect the data](#collect-the-data)
 
 ### [](#run-the-actor-or-task) Run the actor or task
 
@@ -76,11 +81,11 @@ and their usage are essentially the same. If you are unsure of the difference be
 
 To run (or "call" in API language) an actor/task, you will need a few things:
 
-* Name or ID of the actor/task. The name is in the format `username~actorName` or `username~taskName`.
+- Name or ID of the actor/task. The name is in the format `username~actorName` or `username~taskName`.
 
-* Your [API token](/api/v2#/introduction/authentication). You can find it on the Integrations page in the Apify [app](https://my.apify.com/account#/integrations) (make sure it does not leak anywhere!).
+- Your [API token](/api/v2#/introduction/authentication). You can find it on the Integrations page in the Apify [app](https://my.apify.com/account#/integrations) (make sure it does not leak anywhere!).
 
-* Possibly an input or other settings if you want to change the default values (e.g. memory or build).
+- Possibly an input or other settings if you want to change the default values (e.g. memory or build).
 
 The template URL for a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to run the actor looks like this:
 
@@ -138,11 +143,11 @@ We will later use this run info JSON to retrieve the data. You can also get this
 
 There may be cases where we need to simply run the actor and go away. But in any kind of integration, we are usually interested in its output. We have three basic options for how to wait for the actor/task to finish.
 
-* [Wait for finish parameter](#wait-for-finish-parameter)
+- [Wait for finish parameter](#wait-for-finish-parameter)
 
-* [Webhooks](#webhooks)
+- [Webhooks](#webhooks)
 
-* [Polling](#polling)
+- [Polling](#polling)
 
 #### [](#wait-for-finish-parameter) Wait for finish parameter
 
