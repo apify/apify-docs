@@ -1938,6 +1938,144 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
     + Attributes
         - data (Run, required)
 
+# Group Actor runs
+
+The API endpoints described in this section enable you to manage Apify actor run.
+
+## Run object [/v2/actor-runs/{runId}{?token,waitForFinish}]
+
+### Get run [GET]
+
+Gets an object that contains all the details about a specific run of an actor.
+
+By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the run to finish.
+This is useful to avoid periodic polling when waiting for actor run to complete.
+
+This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the run.
+
++ Parameters
+
+    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
+    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
+                                                 If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
+                                                 otherwise it will have a transitional status (e.g. `RUNNING`).
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (Run, required)
+
+## Abort run [/v2/actor-runs/{runId}/abort{?token}]
+
+### Abort run [POST]
+
+Aborts an actor run and returns an object that contains all the details about the run.
+Only runs that are starting or running are aborted. For runs with status `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call does nothing.
+
++ Parameters
+
+    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (RunAborted, required)
+
+## Metamorph run [/v2/actor-runs/{runId}/metamorph{?token,build,targetActorId}]
+
+### Metamorph run [POST]
+
+Transforms an actor run into a run of another actor with a new input.
+This is useful if you want to use another actor to finish the work
+of your current actor run, without the need to create a completely new run and waiting for its finish.
+For the users of your actors, the metamorph operation is transparent, they will just see your actor got the work done.
+
+Internally, the system stops the Docker container corresponding to the actor run
+and starts a new container using a different Docker image.
+All the default storages are preserved and the new input is stored under the `INPUT-METAMORPH-1` key in the same default key-value store.
+
+For more information, see [Actor docs](https://docs.apify.com/actors/development/source-code#metamorph).
+
++ Parameters
+
+    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Actor run ID.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + targetActorId: `HDSasDasz78YcAPEB` (string, required) - ID of a target actor that the run should be transformed into.
+    + build: `beta` (string, optional) - Optional build of the target actor.
+      It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the target actor (typically `latest`).
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (RunMetamorphed, required)
+
+## Resurrect run [/v2/actor-runs/{runId}/resurrect{?token}]
+
+### Resurrect run [POST]
+
+Resurrects a finished actor run and returns an object that contains all the details about the resurrected run.
+Only finished runs, i.e. runs with status `FINISHED`, `FAILED`, `ABORTED` and `TIMED-OUT` can be resurrected.
+Run status will be updated to RUNNING and its container will be restarted with the same storages
+(the same behaviour as when the run gets migrated to the new server).
+
+For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrection-of-finished-run).
+
++ Parameters
+
+    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (Run, required)
+
+# Group Actor builds
+
+The API endpoints described in this section enable you to manage Apify actor build.
+
+## Build object [/v2/actor-builds/{buildId}{?token,waitForFinish}]
+
+### Get build [GET]
+
+Gets an object that contains all the details about a specific build of an actor.
+
+By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the build to finish.
+This is useful to avoid periodic polling when waiting for an actor build to finish.
+
++ Parameters
+
+    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
+                                             If the build finishes in time then the returned build object will have a terminal status (e.g. `SUCCEEDED`),
+                                             otherwise it will have a transitional status (e.g. `RUNNING`).
+    + buildId: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token. It is only required for private actors.
+        Builds of public actors can be queried without any token.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (Build, required)
+
+
+## Abort build [/v2/actor-builds/{buildId}/abort{?token}]
+
+### Abort build [POST]
+
+Aborts an actor build and returns an object that contains all the details about the build.
+Only builds that are starting or running are aborted. For builds with status `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call does nothing.
+
++ Parameters
+
+    + buildId: `3KH8gEpp4d8uQSe8T` (string, required) - Build ID.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (BuildAborted, required)
+
 # Group Key-value stores
 
 This section describes API endpoints to manage Key-value stores.
