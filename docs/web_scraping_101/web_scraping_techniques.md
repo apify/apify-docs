@@ -90,4 +90,4 @@ You can check the XHRs a web page sends under the **Network** tab, in the **XHR*
 
 ![Network tab and XHR section]({{@asset web_scraping_101/images/xhrs.png}})
 
-Check out [this tutorial](https://blog.apify.com/web-scraping-in-2018-forget-html-use-xhrs-metadata-or-javascript-variables-8167f252439c) for more information and code examples for scraping with XHRs.
+Check out [this tutorial](https://scrapersite.com) for more information and code examples for scraping with XHRs.
