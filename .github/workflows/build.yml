@@ -17,9 +17,9 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Lint Markdown
-        run: npm run lint:md
+        run: npm run lint:md:fix
       - name: Lint code
-        run: npm run lint:code
+        run: npm run lint:code:fix
       - name: Build documentation
         run: npm run build
       - name: Upload docs to AWS S3
