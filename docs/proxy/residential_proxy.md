@@ -57,12 +57,12 @@ For example, your `username` parameter when using [Python 3](https://docs.python
 username = f"groups-RESIDENTIAL,session-my_session,country-JP"
 ```
 
-In the [Apify SDK](https://sdk.apify.com), you set the country in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `country` parameter.
+In the [Apify SDK](https://sdk.apify.com), you set the country in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `countryCode` parameter.
 
 ```js
 const proxyConfiguration = await Apify.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
-    country: 'FR',
+    countryCode: 'FR',
 });
 ```
 
