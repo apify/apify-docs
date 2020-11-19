@@ -19,8 +19,7 @@ https://docs.google.com/spreadsheets/d/1GA5sSQhQjB_REes8I5IKg31S-TuRcznWOPjcpNqt
 
 ![Start URLs in a spreadsheet]({{@asset tutorials/images/start-urls-in-spreadsheet.png}})
 
-Add the `/gviz/tq?tqx=out:csv` query parameter to the 
-base part of the Google Sheet URL, right after the long document identifier:
+Add the `/gviz/tq?tqx=out:csv` query parameter to the base part of the Google Sheet URL, right after the long document identifier:
 
 ```URL
 https://docs.google.com/spreadsheets/d/1GA5sSQhQjB_REes8I5IKg31S-TuRcznWOPjcpNqtxmU/gviz/tq?tqx=out:csv
