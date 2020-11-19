@@ -9,9 +9,9 @@ paths:
 
 # Crawl a list of URLs from a Google Sheets document
 
-[Actors]({{@link actors.md}}) such as **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)) **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/web-scraper)) and **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/web-scraper)), make it simple to crawl web pages and extract data from them.
+[Actors]({{@link actors.md}}) such as **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)) **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/web-scraper)) and **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/web-scraper)) make it simple to crawl web pages and extract data from them.
 
-These actors start with a pre-defined list of URLs ([Start URLs]({{@link tutorials/apify_scrapers/getting_started.md#the-start-url}})), then recursively follow links to find new pages (optional).
+These actors start with a pre-defined list of URLs ([start URLs]({{@link tutorials/apify_scrapers/getting_started.md#the-start-url}})), then recursively follow links to find new pages (optional).
 
 ![Add Start URLs in Apify app]({{@asset tutorials/images/start-url.png}})
 
@@ -20,13 +20,15 @@ https://docs.google.com/spreadsheets/d/1GA5sSQhQjB_REes8I5IKg31S-TuRcznWOPjcpNqt
 
 ![Start URLs in a spreadsheet]({{@asset tutorials/images/start-urls-in-spreadsheet.png}})
 
-Add the `/gviz/tq?tqx=out:csv` query parameter to the base part of the Google Sheet URL, right after the long document identifier:
+You don't have to add them to the actor manually or export them as a file, only to upload to the scraper.
+
+Simply add the `/gviz/tq?tqx=out:csv` query parameter to the base part of the Google Sheet URL, right after the long document identifier.
 
 ```URL
 https://docs.google.com/spreadsheets/d/1GA5sSQhQjB_REes8I5IKg31S-TuRcznWOPjcpNqtxmU/gviz/tq?tqx=out:csv
 ```
 
-You will get a URL that automatically exports the spreadsheet to CSV. Then you just need to click **Link remote text file** and paste the URL.
+This gives you a URL that automatically exports the spreadsheet to CSV. Then, just click the **Link remote text file** button in the actor's input and paste the URL.
 
 ![Link a remote text file]({{@asset tutorials/images/link-remote-file.png}})
 
@@ -34,6 +36,6 @@ You will get a URL that automatically exports the spreadsheet to CSV. Then you j
 
 ![Make the link viewable to anyone]({{@asset tutorials/images/make-link-viewable.png}})
 
-And that's it, now the actor will simply download the content of the spreadsheet with up-to-date URLs whenever it starts.
+And that's it, now the actor will download the content of the spreadsheet with up-to-date URLs whenever it starts.
 
 > Beware that the spreadsheet should have a simple structure, so the actor can easily find the URLs in it. Also, it should only have one sheet.
