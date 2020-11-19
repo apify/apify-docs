@@ -4,6 +4,7 @@ description: Learn to crawl and scrape data from URLs specified in a spreadsheet
 menuWeight: 3.5
 paths:
     - tutorials/crawl-a-list-of-urls-from-a-google-sheets-document
+    - tutorials/crawl-urls-from-google-sheets-document
 ---
 
 # Crawl a list of URLs from a Google Sheets document
