@@ -727,7 +727,8 @@ The response is the build object as returned by the
     + Attributes
         - data (Build, required)
 
-## Build object [/v2/acts/{actorId}/builds/{buildId}{?token,waitForFinish}]
+## Build object - deprecated [/v2/acts/{actorId}/builds/{buildId}{?token,waitForFinish}]
+API endpoints related to build of the actor were moved under new namespace [actor builds](#/reference/actor-builds).
 
 + Parameters
 
@@ -1156,7 +1157,8 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
             - type: `run-timeout-exceeded` (string, required)
             - message: `Actor run exceeded timeout of 60 seconds for this API enpoint` (string, required)
 
-## Run object [/v2/acts/{actorId}/runs/{runId}{?token,waitForFinish}]
+## Run object - deprecated [/v2/acts/{actorId}/runs/{runId}{?token,waitForFinish}]
+API endpoints related to run of the actor were moved under new namespace [actor runs](#/reference/actor-runs).
 
 ### Get run [GET]
 
