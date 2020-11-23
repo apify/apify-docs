@@ -1,6 +1,6 @@
 ---
 title: Residential proxy
-description: Achieve a higher level of anonymity using real IP addresses. Access a wider pool of proxies and reduce blocking by websites' anti-scraping measures.
+description: Achieve a higher level of anonymity using IP addresses from human users. Access a wider pool of proxies and reduce blocking by websites' anti-scraping measures.
 menuWeight: 10.4
 paths:
     - proxy/residential-proxy/nodejs-examples
@@ -11,7 +11,7 @@ paths:
 
 # [](#residential-proxy) Residential proxy
 
-Residential proxies are connected to real Internet Service Provider-based proxies located in homes and offices. Unlike [datacenter proxies]({{@link proxy/datacenter_proxy.md}}), this makes them very hard to block.
+Residential proxies use IP addresses assigned by Internet Service Providers to the homes and offices of actual users. Unlike [datacenter proxies]({{@link proxy/datacenter_proxy.md}}), traffic from residential proxies is indistiguishable from that of legitimate users.
 
 This solution allows you access to a larger pool of servers than datacenter proxy. This makes it a better option in cases when you need a large number of different IP addresses.
 
