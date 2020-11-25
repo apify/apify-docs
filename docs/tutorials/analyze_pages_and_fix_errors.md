@@ -8,17 +8,17 @@ paths:
 
 # How to analyze pages and fix errors
 
-Debugging is essential in programming. Even if you would not call yourself a programmer, having basic debugging skills will make building and maintaining [scrapers]({{@link tutorials/apify_scrapers.md}}) and [integration actors]({{@link tutorials/run_actor_and_retrieve_data_via_API.md}}) on Apify much easier. It will help you avoid hiring an expensive developer and solve your issues much faster.
+Debugging is essential in programming. Even if you would not call yourself a programmer, having basic debugging skills will make building and maintaining [scrapers]({{@link tutorials/apify_scrapers.md}}) and [integration actors]({{@link tutorials/run_actor_and_retrieve_data_via_API.md}}) on Apify easier. It will help you avoid hiring an expensive developer and solve your issues faster.
 
 This article covers the absolute basics. It discusses the most common problems and the simplest tools for analyzing the issue.
 
 ## [](#possible-problems) Possible problems
 
-It is hard for beginners to see the full scope of what can go wrong. They assume once the code is set up correctly, it will keep working. Unfortunately, that is not very true in the realm of web scraping and automation.
+It is often tricky to see the full scope of what can go wrong. We assume once the code is set up correctly, it will keep working. Unfortunately, that is rarely true in the realm of web scraping and automation.
 
-Websites change, they introduce new [anti-scraping technologies]({{@link web_scraping_101/anti_scraping_techniques.md}}), programming tools change and people also make mistakes.
+Websites change, they introduce new [anti-scraping technologies]({{@link web_scraping_101/anti_scraping_techniques.md}}), programming tools change and, in addition, people make mistakes.
 
-Here are the most common reasons your working solution breaks.
+Here are the most common reasons your working solution may break.
 
 - The website changes its layout or [data feed](https://www.datafeedwatch.com/academy/data-feed).
 
@@ -107,11 +107,11 @@ Snapshots can tell you if:
 
 #### [](#how-to-save-a-snapshot) How to save a snapshot
 
-In **Apify scrapers** (**Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)), **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)) or **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper))), you can use their built-in `context.saveSnapshot()` function. Once called, it saves a screenshot and HTML into the run's key-value store.
+In Apify scrapers (**Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)), **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)) and **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper))), you can use their built-in `context.saveSnapshot()` function. Once called, it saves a screenshot and HTML into the run's **key-value store**.
 
 When **building your own actors** with [Puppeteer](https://pptr.dev) or the the [Apify SDK](https://sdk.apify.com) package, you can use the powerful `utils.puppeteer.saveSnapshot()` [function](https://sdk.apify.com/docs/api/puppeteer#puppeteersavesnapshot). It allows you name the screenshot, so you can identify it later.
 
-Cheerio-based actors do not have a helper function because they allow taking snapshots with a single line of code. Just save the HTML with the correct content type.
+[Cheerio](https://cheerio.js.org)-based actors do not have a helper function because they allow taking snapshots with a single line of code. Just save the HTML with the correct content type.
 
 ```javascript
 await Apify.setValue('SNAPSHOT', html, { contentType: 'text/html' });
@@ -146,11 +146,11 @@ To make the error snapshot descriptive, we name it `ERROR-LOGIN`. We add a rando
 
 - The snapshot's **name** (key) can only contain letter, number, dot and dash characters. Other characters will cause an error, which makes the random number a safe pick.
 
-- Don't go over-the-top with snapshots. Once you get out of the testing phase, limit them to critical places. Saving snapshots uses resources.
+- Do not overdo the snapshots. Once you get out of the testing phase, limit them to critical places. Saving snapshots uses resources.
 
 ### [](#error-reporting) Error reporting
 
-Logging and snapshotting are great tools but once you reach a certain run size, it may be hard to read through them all. For a large project, it is handy to create a more sophisticated reporting system. For example, let's just look at simple [dataset]({{@link storage/dataset.md}}) reporting.
+Logging and snapshotting are great tools but once you reach a certain run size, it may be hard to read through them all. For a large project, it is handy to create a more sophisticated reporting system. For example, let's just look at simple **dataset** reporting.
 
 This example extends our [previous snapshot solution](#when-to-save-snapshots) by creating a [named dataset]({{@link storage.md#named-and-unnamed-storages}}) (named datasets have infinite retention), where we will accumulate error reports. Those reports will explain what happened and will link to a saved snapshot, so we can do a quick visual check.
 
