@@ -151,8 +151,7 @@
         },
         {
             "cardItem": "Log in to a website using Puppeteer",
-            "href": "https://help.apify.com/en/articles/1640711-how-to-log-in-to-a-website-using-puppeteer",
-            "isExternalLink": true
+            "href": "/tutorials/log-into-a-website-using-puppeteer"
         },
         {
             "cardItem": "Transfer cookies from a browser to a crawler",
@@ -165,8 +164,7 @@
         },
         {
             "cardItem": "Analyze pages and fix errors",
-            "href": "https://help.apify.com/en/articles/3807823-analyzing-pages-and-fixing-errors-essentials",
-            "isExternalLink": true
+            "href": "/tutorials/analyze-pages-and-fix-errors"
         }
     ]
 }

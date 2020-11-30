@@ -4,6 +4,7 @@ description: Learn how to perform the most common integration workflow - run the
 menuWeight: 3.3
 paths:
     - tutorials/run-actor-and-retrieve-data-via-API
+    - tutorials/run-actor-and-retrieve-data-via-api
 ---
 
 # Run an actor or task and retrieve data via API
