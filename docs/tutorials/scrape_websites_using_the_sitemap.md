@@ -40,10 +40,10 @@ and the URLs of craft beers are in the form
 http://www.brewbound.com/breweries/[BREWERY_NAME]/[BEER_NAME]
 ```
 
-They can be matched with the following regular expression.
+They can be matched with the following regular expression (regex).
 
 ```cURL
-http:\/\/www\.brewbound\.com\/breweries\/[^\/]+\/[^\/<]+
+/http(s)?:\/\/www\.brewbound\.com\/breweries\/[^\/]+\/[^\/<]+/gm
 ```
 
 Note the two parts of the regular expression `[^\/<]` containing `<`. This is because we want to exclude the `</loc>` tag, which closes each URL.
@@ -58,7 +58,7 @@ First, let's import the beer URLs from the sitemap to [RequestList](https://sdk.
 const requestList = await new Apify.RequestList({
     sources: [{
         requestsFromUrl: 'https://www.brewbound.com/sitemap.xml',  
-        regex: /http:\/\/www.brewbound.com\/breweries\/.*/,
+        regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^\/]+\/[^\/<]+/gm,
     }],
 });
 
@@ -88,7 +88,9 @@ await crawler.run();
 
 ## [](#full-code-example) Full code example
 
-If we create a new actor using the code below on the Apify [platform](https://my.apify.com/actors/9WLZBWCwS3a5izqit#/source), it returns a nicely formatted spreadsheet containing a list of breweries with their beers and descriptions.
+If we create a new actor using the code below on the Apify [platform](https://my.apify.com/actors), it returns a nicely formatted spreadsheet containing a list of breweries with their beers and descriptions.
+
+Make sure to select the **Node.js 12 + Chrome on Debian** ([apify/actor-node-chrome](https://hub.docker.com/r/apify/actor-node-chrome/)) [base image]({{@link actors/development/base_docker_images.md}}), otherwise the run will fail.
 
 ```javascript
 const Apify = require('apify');
@@ -97,7 +99,7 @@ Apify.main(async () => {
     const requestList = await new Apify.RequestList({
         sources: [{
             requestsFromUrl: 'https://www.brewbound.com/sitemap.xml',
-            regex: /http:\/\/www.brewbound.com\/breweries\/[^\/<]+\/[^\/<]+/gm,
+            regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^\/]+\/[^\/<]+/gm,
         }],
     });
 
