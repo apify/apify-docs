@@ -3374,16 +3374,17 @@ The user account is identified by the provided authentication token.
 
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
-
+<!--
 ### Get user usage [GET]
 
-Returns user's usage for a current billing period.
+Returns user's usage for the current billing period.
 The user account is identified by the provided authentication token.
 
 + Response 200 (application/json)
 
     + Attributes
         - data (UserUsage, required)
+-->
 
 # Data Structures
 
@@ -4076,6 +4077,7 @@ The user account is identified by the provided authentication token.
     - supportLevel:                     `COMMUNITY`         (string, required)
     - availableAddOns                                       (array, required)
 
+<!--
 ## UserUsage (object)
 - usageCycle                                        (object, required)
     - startAt:      `2020-11-20T00:00:00.000Z`      (string, required)
@@ -4083,6 +4085,7 @@ The user account is identified by the provided authentication token.
 - usage                                             (object, required)
     - TOTAL_USAGE_USD:      0.00023407795744696     (number, nullable)
     - ACTOR_COMPUTE_UNITS:  0.0008333333333333333   (number, nullable)
+-->
 
 ## Webhook (object)
 - id:               `YiKoxjkaS9gjGTqhF`             (string, required)
