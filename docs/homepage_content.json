@@ -91,9 +91,8 @@
             "href": "/api/v2"
         },
         {
-            "cardItem": "Run an actor or task via API",
-            "href": "https://help.apify.com/en/articles/3224035-run-actor-task-and-retrieve-data-via-api",
-            "isExternalLink": true
+            "cardItem": "Integrate with the Apify platform",
+            "href": "/tutorials/integrations.md"
         },
         {
             "cardItem": "Manage data",

@@ -23,16 +23,14 @@ from services that can only send GET requests.
 
 ## Authentication
 
-Most API requests need to be authenticated by passing a secret API token
-to the request URL as the `token` query parameter.
-The API token can be found on the
+You can find your API token on the
 [Integrations](https://my.apify.com/account#/integrations) page in the Apify app.
 
-**IMPORTANT**: Do not share the API token with untrusted parties, or use it directly from a client-side code,
-unless you fully understand the consequences!**
+Add the token as the `token` parameter to your request URL.
 
-Note that some API endpoints, such as [Get list of keys](#reference/key-value-stores/key-collection/get-list-of-keys),
-do not require any authentication token, because they contain a hard-to-guess identifier that effectively serves as an authentication key.
+**Do not share your API token or password with untrusted parties.**
+
+For more information, see our [integrations](https://docs.apify.com/tutorials/integrations) documentation.
 
 ## Basic usage
 
