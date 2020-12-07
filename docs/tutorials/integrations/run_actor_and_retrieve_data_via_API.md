@@ -3,7 +3,6 @@ title: Run actor and retrieve data via API
 description: Learn how to perform the most common integration workflow - run the job => wait => collect data. Integrate Apify actors with your applications.
 menuWeight: 1
 paths:
-    - tutorials/run-actor-and-retrieve-data-via-API
     - tutorials/run-actor-and-retrieve-data-via-api
     - tutorials/integrations/run-actor-and-retrieve-data-via-api
 ---

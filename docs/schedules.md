@@ -55,7 +55,7 @@ If you are an advanced user, you can also add a [webhook](https://docs.apify.com
 
 ### [](#via-api) Via API
 
-To [create a new schedule]({{@link api/v2#/reference/schedules}}) using the [Apify API]({{@link api/v2#}}), send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to
+To [create a new schedule]([{{@link api/v2#](https://docs.apify.com/api/v2#/reference/schedules) using the [Apify API](https://docs.apify.com/api/v2#), send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to
 
 `https://api.apify.com/v2/schedules?token={YOU_API_TOKEN}`.
 
