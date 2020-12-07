@@ -226,16 +226,7 @@ For more information on sharing storages between runs, see the Storage [overview
 
 ## [](#data-consistency) Data consistency
 
-Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. According to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html), it provides **read-after-write** consistency for newly-created items. This means that if a record does not exist and you create it, then read it right after, you will be able to see it.
-
-However, S3 storage has a caveat, described in the below quote from the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html).
-
-> [...] if you make a HEAD or GET request to a key name before the object is created, then create the object shortly after that, a subsequent GET might not return the object due to eventual consistency. <br/>
-> Amazon S3 offers eventual consistency for overwrite PUTS and DELETES in all Regions.
-
-[Eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency) means that if you update a value and then retrieve it from storage, the value will be consistent with the last update **eventually**. Before enough time has passed, however, the returned value may be inconsistent.
-
-Visit [this](https://codeburst.io/quick-explanation-of-the-s3-consistency-model-6c9f325e3f82) article for more details on the issue and [this](https://medium.com/@dhruvsharma_50981/s3-eventual-data-consistency-model-issues-and-tackling-them-47093365a595) article for some ideas on how to tackle the issue.
+Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. According to the S3 [documentation](https://aws.amazon.com/s3/consistency/), it provides **strong read-after-write** consistency.
 
 ## [](#limits) Limits
 
