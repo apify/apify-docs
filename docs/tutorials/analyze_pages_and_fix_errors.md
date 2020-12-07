@@ -8,7 +8,7 @@ paths:
 
 # How to analyze pages and fix errors
 
-Debugging is essential in programming. Even if you would not call yourself a programmer, having basic debugging skills will make building and maintaining [scrapers]({{@link tutorials/apify_scrapers.md}}) and [integration actors]({{@link tutorials/integrations/run_actor_and_retrieve_data_via_API.md}}) on Apify easier. It will help you avoid hiring an expensive developer and solve your issues faster.
+Debugging is essential in programming. Even if you would not call yourself a programmer, having basic debugging skills will make building and maintaining [scrapers]({{@link tutorials/apify_scrapers.md}}) and [integration actors]({{@link tutorials/integrations/run_actor_and_retrieve_data_via_api.md}}) on Apify easier. It will help you avoid hiring an expensive developer and solve your issues faster.
 
 This article covers the absolute basics. It discusses the most common problems and the simplest tools for analyzing the issue.
 
