@@ -1,10 +1,11 @@
 ---
 title: Run actor and retrieve data via API
 description: Learn how to perform the most common integration workflow - run the job => wait => collect data. Integrate Apify actors with your applications.
-menuWeight: 3.3
+menuWeight: 1
 paths:
     - tutorials/run-actor-and-retrieve-data-via-API
     - tutorials/run-actor-and-retrieve-data-via-api
+    - tutorials/integrations/run-actor-and-retrieve-data-via-api
 ---
 
 # Run an actor or task and retrieve data via API
@@ -29,7 +30,7 @@ To run (or "call" in API language) an actor/task, you will need a few things:
 
 - Name or ID of the actor/task. The name is in the format `username~actorName` or `username~taskName`.
 
-- Your [API token](/api/v2#/introduction/authentication). You can find it on the Integrations page in the Apify [app](https://my.apify.com/account#/integrations) (make sure it does not leak anywhere!).
+- Your [API token]({{@link tutorials/integrations.md#api-token}}). You can find it on the Integrations page in the Apify [app](https://my.apify.com/account#/integrations) (make sure it does not leak anywhere!).
 
 - Possibly an input or other settings if you want to change the default values (e.g. memory or build).
 
