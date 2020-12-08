@@ -37,7 +37,7 @@ In the **Settings** tab, give your schedule a memorable name, add a description,
 
 Next, you'll need to give the schedule something to run. This is where the actor or task you prepared earlier comes in. Switch to the **Actors** or **Tasks** tab, as appropriate, and click the **Add actor/task button**.
 
-If you're scheduling an actor run, you'll be able to specify the [**build**](https://docs.apify.com/actors/development/builds), **timeout**, **memory**, and **body**\. The **timeout** value is specified in seconds; a value of **0** means there is no timeout and the actor runs until it finishes. The **body** should contain a JSON object with the actor's [input](https://docs.apify.com/actors/running/input-and-output). By default, 8192 MB of memory are allocated to a newly scheduled actor run.
+If you're scheduling an actor run, you'll be able to specify the [**build**](https://docs.apify.com/actors/development/builds), **timeout**, **memory**, and **body**\. The **timeout** value is specified in seconds; a value of **0** means there is no timeout and the actor runs until it finishes. The **body** should contain a JSON object with the actor's [input](https://docs.apify.com/actors/running/input-and-output).
 
 ![Add actor to schedule]({{@asset images/schedule-actor-run.png}})
 
