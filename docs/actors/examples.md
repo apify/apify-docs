@@ -107,34 +107,22 @@ The actor can be found in the Apify store as **Example Counter** ([apify/example
 const Apify = require('apify');
 
 Apify.main(async () => {
-    const { keyValueStores } = Apify.client;
-
     // Get store with name 'example-counter'.
-    const store = await keyValueStores.getOrCreateStore({
-        storeName: 'example-counter',
-    });
+    const store = await Apify.openKeyValueStore('example-counter');
 
-    // Get counter state record from store.
-    const record = await keyValueStores.getRecord({
-        key: 'counter',
-        storeId: store.id,
-    });
+    // Get counter value from store
+    const record = await store.getValue('counter');
 
     // If there is no such record then start from zero.
-    let counter = record ? record.body : 0;
+    let counter = record || 0;
 
     // Increase counter, print and set as output.
-    counter++;
+    counter ++;
     console.log(`Counter: ${counter}`);
     Apify.setValue('OUTPUT', counter);
 
-    // Save increased value back to store.
-    await keyValueStores.putRecord({
-        storeId: store.id,
-        key: 'counter',
-        // Record body must be a string or buffer!
-        body: counter.toString(),
-    });
+    // Update the value in store
+    await store.setValue('counter', counter);
 });
 ```
 
