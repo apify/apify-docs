@@ -57,7 +57,7 @@ If you are an advanced user, you can also add a [webhook](https://docs.apify.com
 
 To [create a new schedule]([{{@link api/v2#](https://docs.apify.com/api/v2#/reference/schedules) using the [Apify API](https://docs.apify.com/api/v2#), send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to
 
-`https://api.apify.com/v2/schedules?token={YOU_API_TOKEN}`.
+`https://api.apify.com/v2/schedules?token={YOUR_API_TOKEN}`.
 
 You can find your [secret API token]({{@link tutorials/integrations.md#api-token}}) in your Apify account's [Integrations](https://my.apify.com/account#/integrations) tab. In the POST request's payload should be a JSON object specifying the schedule's name, your [user ID](https://my.apify.com/account#/integrations), and the schedule's **actions**.
 
