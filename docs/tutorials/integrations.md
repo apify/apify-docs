@@ -10,17 +10,17 @@ paths:
 
 You can connect Apify with practically any cloud service or web app. They allow you to pass your [actor]({{@link actors.md}}) run results to other services, process them, and receive notifications on important events.
 
-## [](#what-are-software-integrations) What are software integrations?
+## [](#what-is-software-integration) What is software integration?
 
-Most applications are not connected to each other. All their processes and data are separate and unable to communicate. Integration allows you to combine two separate applications and take advantage of their combined capabilities.
+Integration allows you to combine separate applications and take advantage of their combined capabilities. It allows you to combine the abilities of applications that are not directly linked. This helps to free your data from isolation and make it more productive.
 
-## [](#how-do-integrations-work) How do integrations work?
+## [](#how-does-integration-work) How does integration work?
 
-Integrations use [APIs](/api/v2#) and [webhooks]({{@link webhooks.md}}) to transfer data between applications.
-Our [RESTful API](https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/) allows you to control the Apify platform from any application.
+Integrations use [APIs](https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/) and [webhooks]({{@link webhooks.md}}) to transfer data between applications.
+Our [RESTful API](/api/v2#) allows you to control the Apify platform from any application.
 You can create [actors](/api/v2#/reference/actors/actor-collection/create-actor) and [tasks](/api/v2#/reference/actor-tasks/task-collection/create-task),
 [start and stop your runs](/api/v2#/reference/actor-tasks/run-task-synchronously/run-task-synchronously-(post)),
-and [manage your data](/api/v2#/reference/datasets/item-collection/put-items) using only HTTP requests (or our handy [API client]({{@link apify_client_js.md}})). Meanwhile, webhooks allow you to perform tasks like sending a HTTP request or notification on certain [events]({{@link webhooks/events.md}}).
+and [manage your data](/api/v2#/reference/datasets/item-collection/put-items) using only HTTP requests (or our handy [API client]({{@link apify_client_js.md}})). Meanwhile, webhooks allow you to perform tasks like sending HTTP requests or notification on when certain [events]({{@link webhooks/events.md}}) occur.
 
 ## [](#get-started) Get started
 
