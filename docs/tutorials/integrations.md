@@ -28,11 +28,11 @@ Below are some examples of the kind of integrations you can set up with Apify.
 
 - [Zapier](https://zapier.com/apps/apify/integrations). See the [tutorial](https://help.apify.com/en/articles/3034235-getting-started-with-apify-integration-for-zapier).
 
-- [Integromat](https://integromat.com/en/integrations/apify).
+- [Google](https://google.com). See the [tutorial](https://help.apify.com/en/articles/2424053-google-integration).
 
 - [Keboola](https://components.keboola.com/components/apify.apify). See the [tutorial](https://help.apify.com/en/articles/2003234-keboola-integration).
 
-- [Google](https://google.com). See the [tutorial](https://help.apify.com/en/articles/2424053-google-integration).
+- [Integromat](https://integromat.com/en/integrations/apify).
 
 ## [](#api-token) API token
 
