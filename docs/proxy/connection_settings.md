@@ -41,7 +41,7 @@ The table below describes the available parameters.
             Set proxied requests to use servers from the selected groups.
             <br/>Set to <code>groups-{group name}</code> or <code>auto</code> when using datacenter proxies.
             <br/>Set to <code>groups-RESIDENTIAL</code> when using residential proxies.
-            <br/>Set to <code>groups-GOOGLE_SERP</code> when using residential proxies.
+            <br/>Set to <code>groups-GOOGLE_SERP</code> when using Google SERP proxies.
         </td>
     </tr>
     <tr>
