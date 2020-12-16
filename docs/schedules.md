@@ -55,11 +55,11 @@ If you are an advanced user, you can also add a [webhook](https://docs.apify.com
 
 ### [](#via-api) Via API
 
-To [create a new schedule](https://docs.apify.com/api/v2#/reference/schedules/) using the [Apify API](https://docs.apify.com/api/v2), send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to
+To [create a new schedule]([{{@link api/v2#](https://docs.apify.com/api/v2#/reference/schedules) using the [Apify API](https://docs.apify.com/api/v2#), send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to
 
-`https://api.apify.com/v2/schedules?token={your_API_token}`
+`https://api.apify.com/v2/schedules?token={YOUR_API_TOKEN}`.
 
-You can find your [secret API token](https://docs.apify.com/api/v2#/introduction/authentication) in your Apify account's [Integrations](https://my.apify.com/account#/integrations) tab. In the POST request's payload should be a JSON object specifying the schedule's name, your [user ID](https://my.apify.com/account#/integrations), and the schedule's **actions**.
+You can find your [secret API token]({{@link tutorials/integrations.md#api-token}}) in your Apify account's [Integrations](https://my.apify.com/account#/integrations) tab. In the POST request's payload should be a JSON object specifying the schedule's name, your [user ID](https://my.apify.com/account#/integrations), and the schedule's **actions**.
 
 The below JSON object creates a schedule which runs an SEO audit of the Apify domain once a month.
 
@@ -94,14 +94,14 @@ For more information, see the [schedules section](https://docs.apify.com/api/v2#
 
 Schedules use [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to specify run times. A cron expression has the following structure:
 
-|Position|Field|Values|Wildcards|Optional|
-|--- |--- |--- |--- |--- |
-|1|second|0 - 59|, - * /|yes|
-|2|minute|0 - 59|, - * /|no|
-|3|hour|0 - 23|, - * /|no|
-|4|day of month|1 - 31|, - * /|no|
-|5|month|1 - 12|, - * /|no|
-|6|day of week|0 - 7 (0 or 7 is Sunday)|, - * /|no|
+| Position | Field        | Values                   | Wildcards | Optional |
+| -------- | ------------ | ------------------------ | --------- | -------- |
+| 1        | second       | 0 - 59                   | , - * /   | yes      |
+| 2        | minute       | 0 - 59                   | , - * /   | no       |
+| 3        | hour         | 0 - 23                   | , - * /   | no       |
+| 4        | day of month | 1 - 31                   | , - * /   | no       |
+| 5        | month        | 1 - 12                   | , - * /   | no       |
+| 6        | day of week  | 0 - 7 (0 or 7 is Sunday) | , - * /   | no       |
 
 For example, the expression `30 5 16 * * 1` will start an actor at 16:05:30 every Monday.
 
