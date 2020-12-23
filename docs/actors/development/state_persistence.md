@@ -8,13 +8,13 @@ paths:
 
 # [](#state-persistence)State persistence
 
-In events like server shutdown, your [actor]({{@link actors.md}}) run may need to migrate to another server. For long-running actors, this means losing the state of their progress and re-starting on the new server. This can be costly. To avoid it, long-running actors should save (persist) their state periodically and listen for [migration events](https://sdk.apify.com/docs/api/apify#apifyevents). On start, these actors should [check for persisted state](#code-example), so they can continue where they left off.
+Long-running [actor]({{@link actors.md}}) runs may need to migrate from one server to another. Unless you save the state of your run's progress, this means losing the state and re-starting the job on the new server. This can be costly. To avoid it, long-running actors should save (persist) their state periodically and listen for [migration events](https://sdk.apify.com/docs/api/apify#apifyevents). On start, these actors should [check for persisted state](#code-example), so they can continue where they left off.
 
 For short-running actors, the chance of a restart and the cost of repeated runs are low, so restarts can be ignored.
 
 ## [](#what-is-a-migration)What is a migration?
 
-A migration is when your actor run moves from one server to another. All in-progress processes are stopped. Unless you have saved your state, the actor run will restart on the new server. For example, if a request in your [request queue]({{@link storage/request_queue.md}}) has not been updated as **crawled** before the migration, it will be crawled again.
+A migration is when your actor run moves from one server to another. All in-progress processes on the current server are stopped. Unless you have saved your state, the actor run will restart on the new server. For example, if a request in your [request queue]({{@link storage/request_queue.md}}) has not been updated as **crawled** before the migration, it will be crawled again.
 
 **When a migration event occurs, you only have a few seconds to save your work.**
 
@@ -22,7 +22,7 @@ A migration is when your actor run moves from one server to another. All in-prog
 
 Migrations happen because of the availability of Amazon EC2's **spot instances**. [Visit Amazon for more information](https://aws.amazon.com/ec2/spot/?cards.sort-by=item.additionalFields.startDateTime&cards.sort-order=asc).
 
-Other causes for migrations are server crashes (unlikely) or when we need to deploy new [workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers).
+Other causes for migrations are server crashes (unlikely) or deploys of new [workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers).
 
 ## [](#why-is-state-lost-during-migration)Why is state lost during migration?
 
