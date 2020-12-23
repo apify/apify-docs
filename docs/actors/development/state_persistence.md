@@ -8,13 +8,15 @@ paths:
 
 # [](#state-persistence)State persistence
 
-Long-running [actor]({{@link actors.md}}) runs may need to migrate from one server to another. Unless you save the state of your run's progress, this means losing the state and re-starting the job on the new server. This can be costly. To avoid it, long-running actors should save (persist) their state periodically and listen for [migration events](https://sdk.apify.com/docs/api/apify#apifyevents). On start, these actors should [check for persisted state](#code-example), so they can continue where they left off.
+Long-running [actor]({{@link actors.md}}) jobs may need to migrate from one server to another. Unless you save your job's progress, it will be lost during the migration. The actor will re-start from scratch on the new server, which can be costly.
+
+To avoid this, long-running actors should save (persist) their state periodically and listen for [migration events](https://sdk.apify.com/docs/api/apify#apifyevents). On start, these actors should [check for persisted state](#code-example), so they can continue where they left off.
 
 For short-running actors, the chance of a restart and the cost of repeated runs are low, so restarts can be ignored.
 
 ## [](#what-is-a-migration)What is a migration?
 
-A migration is when your actor run moves from one server to another. All in-progress processes on the current server are stopped. Unless you have saved your state, the actor run will restart on the new server. For example, if a request in your [request queue]({{@link storage/request_queue.md}}) has not been updated as **crawled** before the migration, it will be crawled again.
+A migration is when a process running on a server has to stop and move to another. All in-progress processes on the current server are stopped. Unless you have saved your state, the actor run will restart on the new server. For example, if a request in your [request queue]({{@link storage/request_queue.md}}) has not been updated as **crawled** before the migration, it will be crawled again.
 
 **When a migration event occurs, you only have a few seconds to save your work.**
 
@@ -38,7 +40,7 @@ There is no specified interval at which migrations happen. They are dependent on
 
 The [Apify SDK](https://sdk.apify.com) persists its state automatically, using the `migrating` and `persistState` [events](https://sdk.apify.com/docs/api/apify#apifyevents). `persistState` notifies SDK components to persist their state at regular intervals in case a migration happens. The `migrating` event is emitted just before a migration.
 
-### [](#code-example)Code example
+### [](#code-examples)Code examples
 
 To persist state manually, you can use the example below.
 
