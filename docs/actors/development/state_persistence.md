@@ -40,7 +40,7 @@ The [Apify SDK](https://sdk.apify.com) persists its state automatically, using t
 
 ### [](#code-examples)Code examples
 
-To persist state manually, you can use the example below.
+To persist state manually, you can use the [Apify.events](https://docs.apify.com/actors/development/state-persistence?version=update/state-persistence) method in the Apify SDK.
 
 ```javascript
 Apify.events.on('migrating', () => {
