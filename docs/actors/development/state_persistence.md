@@ -24,7 +24,7 @@ A migration is when a process running on a server has to stop and move to anothe
 
 - To optimize server workloads.
 - When a server crashes (unlikely).
-- During deploys of new [worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) software to the server.
+- When we release new features and fix bugs.
 
 ## [](#how-often-do-migrations-occur)How often do migrations occur?
 
