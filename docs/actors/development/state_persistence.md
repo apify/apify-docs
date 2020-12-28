@@ -10,7 +10,7 @@ paths:
 
 Long-running [actor]({{@link actors.md}}) jobs may need to migrate from one server to another. Unless you save your job's progress, it will be lost during the migration. The actor will re-start from scratch on the new server, which can be costly.
 
-To avoid this, long-running actors should save (persist) their state periodically and listen for [migration events](https://sdk.apify.com/docs/api/apify#apifyevents). On start, these actors should [check for persisted state](#code-example), so they can continue where they left off.
+To avoid this, long-running actors should save (persist) their state periodically and listen for [migration events](https://sdk.apify.com/docs/api/apify#apifyevents). On start, these actors should [check for persisted state](#code-examples), so they can continue where they left off.
 
 For short-running actors, the chance of a restart and the cost of repeated runs are low, so restarts can be ignored.
 
@@ -20,21 +20,19 @@ A migration is when a process running on a server has to stop and move to anothe
 
 **When a migration event occurs, you only have a few seconds to save your work.**
 
-## [](#why-migrations-happen)Why do migrations happen?
+## [](#why-do-migrations-happen)Why do migrations happen?
 
-Migrations happen because of the availability of Amazon EC2's **spot instances**. [Visit Amazon for more information](https://aws.amazon.com/ec2/spot/?cards.sort-by=item.additionalFields.startDateTime&cards.sort-order=asc).
+- To optimize server workloads.
+- When a server crashes (unlikely).
+- During deploys of new [worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) software to the server.
 
-Other causes for migrations are server crashes (unlikely) or deploys of new [workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers).
+## [](#how-often-do-migrations-occur)How often do migrations occur?
+
+There is no specified interval at which migrations happen. They are caused by the [above events](#why-do-migrations-happen), so they can happen at any time.
 
 ## [](#why-is-state-lost-during-migration)Why is state lost during migration?
 
 Unless instructed to save its output or state to a [storage]({{@link storage.md}}), an actor keeps them in the server's memory. So, when it switches servers, the run loses access to the previous server's memory. Even if data were saved on the server's disk, we would also lose access to that.
-
-We have [dataset]({{@link storage/dataset.md}}), [key-value store]({{@link storage/key_value_store.md}}), and [request queue]({{@link storage/request_queue.md}}) storage so we could store results **and** in-progress data.
-
-## [](#how-often-do-migrations-occur)How often do migrations occur?
-
-There is no specified interval at which migrations happen. They are dependent on the availability of spot instances, so they can happen at any time.
 
 ## [](#how-to-persist-state)How to persist state
 
