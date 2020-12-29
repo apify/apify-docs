@@ -18,17 +18,7 @@ Limited pagination is a common practice on e-commerce sites and is becoming more
 
 Websites usually limit the pagination of a single (sub)category to somewhere between 1,000 to 20,000 listings. The site might have over a million listings in total. Without a proven algorithm, it will be very manual and almost impossible to scrape all listings.
 
-We will first present the best solution and then discuss the less effective options.
-
-### [](#using-filter) Using filter ranges
-
-The best option is to use only a specific type of filter that can be used as a range. The most common one is **price range** but there may be others like the apartment size, etc. You can split the pagination pages to only contain listings within that range, eg. products costing between $10 and $20.
-
-This has several benefits:
-
-1. All listings can eventually be found in a range.
-2. The ranges do not overlap, so we scrape the smallest possible number of pages and avoid duplicate listings.
-3. Ranges can be controlled by a generic algorithm that is simple to re-use for different sites.
+We will first look at a couple ideas that don't work so well and then present the [final robust solution](#using-filter-ranges).
 
 ### [](#going-deeper-into-subcategories) Going deeper into subcategories
 
@@ -47,6 +37,16 @@ At first, it might seem as an easy solution. Enqueue all possible filter combina
 
 1. There is no guarantee that some products don't slip through the chosen filter combinations.
 2. The resulting split might be too granular and end up having too many tiny paginations with many duplicate products. This leads to scraping a lot more pages than necessary and makes analytics much harder.
+
+### [](#using-filter-ranges) Using filter ranges
+
+The best option is to use only a specific type of filter that can be used as a range. The most common one is **price range** but there may be others like the apartment size, etc. You can split the pagination pages to only contain listings within that range, eg. products costing between $10 and $20.
+
+This has several benefits:
+
+1. All listings can eventually be found in a range.
+2. The ranges do not overlap, so we scrape the smallest possible number of pages and avoid duplicate listings.
+3. Ranges can be controlled by a generic algorithm that is simple to re-use for different sites.
 
 ## [](#splitting-pages-with-range-filters) Splitting pages with range filters
 
