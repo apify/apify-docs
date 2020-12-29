@@ -1,7 +1,7 @@
 ---
 title: How to analyze pages and fix errors
 description: Learn to deal with random crashes in your web scraping and automation jobs. Find our the essentials of debugging and fixing problems in your actors.
-menuWeight: 3.7
+menuWeight: 3.8
 paths:
     - tutorials/analyze-pages-and-fix-errors
 ---
