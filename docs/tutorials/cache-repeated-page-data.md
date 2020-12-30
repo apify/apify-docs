@@ -91,7 +91,7 @@ Our cache will be an object where keys will be the seller IDs (imagine a numeric
         "sellerProductsSold": 1560
     },
     "423423": {
-        "sellerId": "4234234",
+        "sellerId": "423423",
         "sellerName": "Martin Smith",
         "sellerRating": 4.2,
         "sellerNumberOfReviews": 23,
