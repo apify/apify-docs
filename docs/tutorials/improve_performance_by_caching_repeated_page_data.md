@@ -8,9 +8,9 @@ paths:
 
 # Improve performance by caching repeated page data
 
-Opening a page is by far the most expensive operation the scraper does. Each request has to use a precious IP address to route the traffic, then download a large HTML document (and a lot of other resources, if you use a browser) over the network (and pay for data transfer), and finally spend CPU time on parsing that HTML. Compared to that, the code you write inside the scraper itself is essentially free.
+Opening a page is by far the most expensive operation a scraper does. Each request has to use a precious IP address to route the traffic, then download a large HTML document (and a lot of other resources, if you use a browser) over the network (and pay for data transfer), and finally spend CPU time on parsing that HTML. Compared to that, the code you write inside the scraper itself is essentially free.
 
-If you want to reduce your scraping costs, not re-scraping certain pages is one of the best ways to do that. The number of use cases where this is possible might be quite low but you should always look for and take advantage of such situations. In this article, we will go through one typical scraping use case and apply caching in a simple and effective way.
+If you want to reduce your scraping costs, not re-scraping certain pages is one of the best ways to do that. The number of use cases where this is possible might be quite low but you should always look for and take advantage of such situations. In this article, we will go through one typical scraping scenario and apply caching in a simple and effective way.
 
 > In a rush? Skip the tutorial and [see the full code example](https://github.com/metalwarrior665/apify-utils/blob/master/examples/caching-page-data.js).
 
@@ -38,7 +38,7 @@ Because [all objects in JavaScript are just references](https://www.freecodecamp
 
 ### [](#persisting-cache-to-the-key-value-store) Persisting cache to the key-value store
 
-The cache lives only in memory. This is the easiest and fastest way to use a cache. One disadvantage is that if the actor run [migrates to a new server]({{@link actors/development/state_persistence.md}}), is aborted or crashes, we lose the cached data. That is not a tragedy but repopulating the cache will waste some resources. Fortunately, this has a simple solution in actors. We can persist arbitrary data into the [key-value store]({{@link storage/key_value_store.md}}).
+The cache lives only in memory. This is the easiest and fastest way to use a cache. One disadvantage is that if the actor run [migrates to a new server]({{@link actors/development/state_persistence.md}}), is aborted or crashes, we lose the cached data. That is not a tragedy but repopulating the cache will waste some resources. Fortunately, this has a simple solution in actors: we can persist arbitrary data into the [key-value store]({{@link storage/key_value_store.md}}).
 
 ```javascript
 const Apify = require('apify');
