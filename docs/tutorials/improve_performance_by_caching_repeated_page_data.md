@@ -1,12 +1,12 @@
 ---
-title: Cache repeated page data
+title: Improve performance by caching repeated page data
 description: Learn how to make your scrapers more efficient by storing repeated page data. Avoid re-scraping pages and reduce your data extraction costs.
 menuWeight: 3.9
 paths:
-    - tutorials/cache-repeated-page-data
+    - tutorials/improve-performance-by-caching-repeated-page-data
 ---
 
-# Cache repeated page data
+# Improve performance by caching repeated page data
 
 Opening a page is by far the most expensive operation the scraper does. Each request has to use a precious IP address to route the traffic, then download a large HTML document (and a lot of other resources, if you use a browser) over the network (and pay for data transfer), and finally spend CPU time on parsing that HTML. Compared to that, the code you write inside the scraper itself is essentially free.
 
