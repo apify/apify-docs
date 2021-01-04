@@ -1,6 +1,6 @@
 ---
 title: Cache repeated page data
-description: Learn how to make your scraper more efficient by storing repeated page data
+description: Learn how to make your scrapers more efficient by storing repeated page data. Avoid re-scraping pages and reduce your data extraction costs.
 menuWeight: 3.9
 paths:
     - tutorials/cache-repeated-page-data
@@ -8,9 +8,11 @@ paths:
 
 # Cache repeated page data
 
-Opening a page is by far the most expensive operation the scraper does. Each request has to use a precious IP address to route the traffic, then download a big HTML (and a lot of other resources if you use a browser) over the network (and pay for data transfer) and finally spend CPU time on parsing that HTML. Compared to that, the code you write inside the scraper itself is basically for free.
+Opening a page is by far the most expensive operation the scraper does. Each request has to use a precious IP address to route the traffic, then download a large HTML document (and a lot of other resources, if you use a browser) over the network (and pay for data transfer), and finally spend CPU time on parsing that HTML. Compared to that, the code you write inside the scraper itself is essentially free.
 
-If you want to reduce the costs of scraping, not re-scraping certain pages is one of the best ways to do that. The number of use-cases where this is possible might be quite low but you should always see and take advantage of such situation. In this article we will go through one typical scraping use-case and apply caching in a simple and effective way.
+If you want to reduce your scraping costs, not re-scraping certain pages is one of the best ways to do that. The number of use cases where this is possible might be quite low but you should always look for and take advantage of such situations. In this article, we will go through one typical scraping use case and apply caching in a simple and effective way.
+
+> In a rush? Skip the tutorial and [see the full code example](https://github.com/metalwarrior665/apify-utils/blob/master/examples/caching-page-data.js).
 
 ## [](#how-to-cache-data-inside-an-actor) How to cache data inside an actor
 
@@ -32,24 +34,24 @@ delete cache.data1
 cache.data2.myNewKey = 'my-new-data'
 ```
 
-Because all objects in JavaScript are just references, we can cheaply pass them to other functions and read or modify them there.
+Because [all objects in JavaScript are just references](https://www.freecodecamp.org/news/how-to-get-a-grip-on-reference-vs-value-in-javascript-cba3f86da223/), we can cheaply pass them to other functions and read or modify them there.
 
-### [](#persisting-cache-to-the-key-value-store) Persisting cache to the Key-Value Store
+### [](#persisting-cache-to-the-key-value-store) Persisting cache to the key-value store
 
-The cache lives only in memory. This is the easiest and fastest way to use a cache. One disadvantage is that if the actor run migrates to a new server, is aborted or crashes, we loose the cached data. That is not a tragedy but it will waste a bit of resources to repopulate the cache. Fortunately, this has a simple solution in actors. We can persist arbitrary data into the Key-Value Store.
+The cache lives only in memory. This is the easiest and fastest way to use a cache. One disadvantage is that if the actor run [migrates to a new server]({{@link actors/development/state_persistence.md}}), is aborted or crashes, we lose the cached data. That is not a tragedy but repopulating the cache will waste some resources. Fortunately, this has a simple solution in actors. We can persist arbitrary data into the [key-value store]({{@link storage/key_value_store.md}}).
 
 ```javascript
 const Apify = require('apify');
 
 Apify.main(async () => {
-    // This is a common idiom, we first check if we already have a cached data in the store
+    // This is a common idiom: we first check if we already have cached data in the store
     // If we do, it means the run was already restared and we restore the cache
     // If we don't, we just initialize the cache to an empty object
     const cache = (await Apify.getValue('CACHE')) || {};
 
-    // Now, we set up the persistence. You can choose between 'migrating' and 'persistState' events.
-    // 'migrating' event only saves on migration so it is a little "cheaper"
-    // 'persistState' is usually preffered, it will help you if you abort actor as well
+    // Now, we set up the persistence. You can choose between 'migrating' and 'persistState' events
+    // 'migrating' only saves on migration, so it is a little "cheaper"
+    // 'persistState' is usually preffered, it will also help if you abort the actor
     Apify.events.on('persistState', async () => {
         await Apify.setValue('CACHE', cache);
     });
@@ -58,33 +60,33 @@ Apify.main(async () => {
 })
 ```
 
-Another advantage of persisting data is that you can open the Key-Value Store and check how they look like at any time.
+Another advantage of persisting data is that you can open the key-value store and check what they look like at any time.
 
 ## [](#how-to-use-caching-in-an-e-commerce-project) How to use caching in an e-commerce project
 
-We went through the base theory and now we can look into how to apply caching to help us skip re-scraping pages. One use-case where this approach is very helpful is for e-commerce marketplaces. Let's define our imaginary example project:
+Now we have covered the base theory, we can look into applying caching to help us avoid re-scraping pages. This approach is very helpful with e-commerce marketplaces. Let's define our imaginary example project:
 
-- We need to scrape all products from an imaginary `https://marketplace.com` website
-- Each product is offered by one seller and the products page links to the seller page
-- Each product row that we scrape should contain all info about the product and its seller
-- A single seller usually sells about 100 products
+- We need to scrape all products from an imaginary `https://marketplace.com` website.
+- Each product is offered by one seller and the product page links to the seller page.
+- Each product row we scrape should contain all info about the product and its seller.
+- A single seller usually sells about 100 products.
 
 Let's also define the URLs:
 
-- Products are available on `https://marketplace.com/product/productId`
-- Sellers are available on `https://marketplace.com/seller/sellerId`
+- Products are available on `https://marketplace.com/product/productId`.
+- Sellers are available on `https://marketplace.com/seller/sellerId`.
 
 ### [](#cache-structure) Cache structure
 
-You might have already realized how we can utilize the cache. Because a seller can sell more than one product, with a naive approach, we would just re-scrape the seller page for each of his or her products. This is wasteful. We can instead store all data we scrape from the seller page to the cache and if we encounter a product of that seller again, we can get the seller data from the cache directly instead.
+You might have already realized how we can utilize the cache. Because a seller can sell more than one product, with a naive approach, we would just re-scrape the seller page for each of their products. This is wasteful. Instead, we can store all the data we scrape from the seller page to our cache. If we encounter the seller's product again, we can get the seller data straight from the cache.
 
-Our cache will be an object where keys will be the seller IDs (imagine a numerical ID) and the values will be seller data.
+Our cache will be an object where the **keys** will be the seller IDs (imagine a numerical ID) and the **values** will be seller data.
 
 ```json
 {
     "545345": {
         "sellerId": "545345",
-        "sellerName": "John Doe",
+        "sellerName": "Jane Doe",
         "sellerRating": 3.5,
         "sellerNumberOfReviews": 345,
         "sellerNumberOfFollowers": 32,
@@ -106,7 +108,7 @@ Our cache will be an object where keys will be the seller IDs (imagine a numeric
 ```javascript
 const Apify = require('apify');
 
-// Let's imagine we defined the extracting functions in extractors.js file
+// Let's imagine we defined the extractor functions in the extractors.js file
 const { extractProductData, extractSellerData } = require('./extractors');
 
 Apify.main(async () => {
@@ -152,7 +154,7 @@ Apify.main(async () => {
                     };
                     await Apify.pushData(result);
                 } else {
-                    // If the cache doesn't have this seller, we have to go to his or her page
+                    // If the cache doesn't have this seller, we have to go to their page
                     await requestQueue.addRequest({
                         url: `https://marketplace.com/seller/${sellerId}`,
                         userData: {
@@ -168,7 +170,7 @@ Apify.main(async () => {
                 // We scrape the seller data
                 const sellerData = extractSellerData($);
 
-                // We populate the cache so all other products of this sellers can be server from there
+                // We populate the cache so we can access all of this seller's other products from there
                 cache[sellerData.sellerId] = sellerData;
 
                 // We merge seller and product data and push
@@ -185,4 +187,4 @@ Apify.main(async () => {
 })
 ```
 
-You can find the whole [example here](https://github.com/metalwarrior665/apify-utils/blob/master/examples/caching-page-data.js).
+[See the full code example](https://github.com/metalwarrior665/apify-utils/blob/master/examples/caching-page-data.js).
