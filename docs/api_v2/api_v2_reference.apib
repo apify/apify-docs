@@ -1940,7 +1940,41 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 
 # Group Actor runs
 
-The API endpoints described in this section enable you to manage Apify actor run.
+The API endpoints described in this section enable you to manage Apify actor runs.
+
+## Run collection [/v2/actor-runs{?token,offset,limit,desc,status}]
+
+### Get user runs list [GET]
+
+Gets a list of all runs for a user. The response is a list of objects, where each object
+contains basic information about a single actor run.
+
+The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000
+array elements.
+
+By default, the records are sorted by the `startedAt` field in ascending order.
+Therefore, you can use pagination to incrementally fetch all records while new
+ones are still being created. To sort the records in descending order, use `desc=1`
+parameter. You can also filter runs by status ([available statuses](https://docs.apify.com/actors/running#lifecycle)).
+
++ Parameters
+
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + offset: 10 (number, optional) - Number of array elements that should be skipped at the start. The default value is `0`.
+    + limit: 99 (number, optional) - Maximum number of array elements to return. The default value (as well as the maximum) is `1000`.
+    + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `startedAt` field in descending order. By default, they are sorted in ascending order.
+    + status: SUCCEEDED (string, optional) - Return only runs with the provided status ([available statuses](https://docs.apify.com/actors/running#lifecycle))
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (object, required)
+            - total: 2 (number, required)
+            - offset: 0 (number, required)
+            - limit: 1000 (number, required)
+            - desc: false (boolean, required)
+            - count: 2 (number, required)
+            - items (array[RunShort1,RunShort2], required)
 
 ## Run object [/v2/actor-runs/{runId}{?token,waitForFinish}]
 
@@ -2033,7 +2067,42 @@ For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrec
 
 # Group Actor builds
 
-The API endpoints described in this section enable you to manage Apify actor build.
+The API endpoints described in this section enable you to manage Apify actor builds.
+
+## Build collection [/v2/actor-builds{?token,offset,limit,desc}]
+
++ Parameters
+
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+
+### Get user builds list [GET]
+
+Gets a list of all builds for a user. The response is a JSON array of objects, where each object
+contains basic information about a single build.
+
+The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records.
+
+By default, the records are sorted by the `startedAt` field in ascending order.
+Therefore, you can use pagination to incrementally fetch all builds while new
+ones are still being started. To sort the records in descending order, use the `desc=1`
+parameter.
+
++ Parameters
+
+    + offset: 10 (number, optional) - Number of records that should be skipped at the start. The default value is `0`.
+    + limit: 99 (number, optional) - Maximum number of records to return. The default value as well as the maximum is `1000`.
+    + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `startedAt` field in descending order. By default, they are sorted in ascending order.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (object, required)
+            - total: 2 (number, required)
+            - offset: 0 (number, required)
+            - limit: 1000 (number, required)
+            - desc: false (boolean, required)
+            - count: 2 (number, required)
+            - items (array[BuildShort1,BuildShort2], required)
 
 ## Build object [/v2/actor-builds/{buildId}{?token,waitForFinish}]
 
