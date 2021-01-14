@@ -54,7 +54,7 @@ When using [standard libraries and languages]({{@link proxy/datacenter_proxy/exa
 For example, your `username` parameter when using [Python 3](https://docs.python.org/3/) will look like this:
 
 ```python
-username = f"groups-RESIDENTIAL,session-my_session,country-JP"
+username = "groups-RESIDENTIAL,session-my_session,country-JP"
 ```
 
 In the [Apify SDK](https://sdk.apify.com), you set the country in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `countryCode` parameter.
