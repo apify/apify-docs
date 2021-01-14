@@ -8,7 +8,7 @@ paths:
 
 # Setup
 
-Once you have created your organization, you can customize it. Under the **Settings** tab, you can set the organization's email address, owner and delete the account. The **Profile** tab allows you to update your organization's name or set a custom profile image.
+Once you have created your organization, you can customize it. Under the **Settings** tab, you can set the organization's email address, owner, or delete the account. The **Profile** tab allows you to update your organization's name or set a custom profile image.
 
 ## [](#add-users-to-your-organization) Add users to your organization
 
