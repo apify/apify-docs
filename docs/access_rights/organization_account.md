@@ -39,9 +39,9 @@ You can create a new organization by clicking the **Create new organization** bu
 > * **An organization cannot be converted back to a personal account.**
 > * **During conversion, a new account (with the same login credentials) will be created for you. You can then use that account to [set up]({{@link access_rights/organization_account/setup.md}}) the organization.**
 
-> An organization can't be a member of other organizations. If you want to convert your account to one, you'll first need to leave all the organizations you are a part of.
-
 Before converting your personal account into an organization, make sure it has a **username**.
+
+> An organization can't be a member of other organizations. If you want to convert your account to one, you'll first need to leave all the organizations you are a part of.
 
 Then, under the **Organizations** [tab](https://my.apify.com/account#/myorganizations), click the **Convert this user account to an organization** button.
 
@@ -55,7 +55,7 @@ For information on [adding members and assigning roles]({{@link access_rights/or
 
 ## [](#billing) Billing
 
-Actor and task runs are billed to the account they are started from. Always **make sure you start your runs from the correct account** to avoid having an organization's runs billed to your personal account.
+Actor and task runs are billed to the account they are started from. **Always make sure you start your runs from the correct account** to avoid having an organization's runs billed to your personal account.
 
 To find out about organization pricing, please get in touch at [support@apify.com](mailto:support@apify.com?subject=Organization%20account%20pricing).
 
