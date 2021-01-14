@@ -10,16 +10,16 @@ paths:
 
 > The organization account is only available to accounts using our new billing system. If you see the migration message when you [log in](https://my.apify.com), you will need to migrate.
 
-Apify's organization account allows groups to collaborate on projects. It enables you to manage your team members' [permissions]({{@link access_rights/list_of_permissions.md}}) and to centralize your billing.
+Organization accounts allow groups to collaborate on projects. It enables you to manage your team members' [permissions]({{@link access_rights/list_of_permissions.md}}) and to centralize your billing without having to share the credentials of a single personal account.
 
-At the same time, a separate organization account means teams no longer have to share the credentials of a single personal account. You can [switch]({{@link access_rights/organization_account/how_to_use.md#in-the-apify-app}}) between your personal and organization accounts in just two clicks: click on your **username** in the top-right corner, then select the organization.
+You can [switch]({{@link access_rights/organization_account/how_to_use.md#in-the-apify-app}}) between your personal and organization accounts in just two clicks: in the [Apify app](https://my.apify.com), click the account button in the top-right corner, then select the organization.
 
 You can start an organization account in two ways.
 
-* [Convert an existing account](#convert-an-existing-account) into an organization. If your actors and [integrations]({{@link tutorials/integrations.md}}) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will need a new personal account.
+* [Convert an existing account](#convert-an-existing-account) into an organization. If your actors and [integrations]({{@link tutorials/integrations.md}}) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
 * [Create a new organization](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
 
-## [](#availablity-and-pricing) Availability and pricing
+## [](#availability-and-pricing) Availability and pricing
 
 The organization account is available on our Team, Business, and Custom plans. [Visit our pricing page](https://apify.com/pricing) for more information.
 
@@ -38,7 +38,8 @@ You can create a new organization by clicking the **Create new organization** bu
 > * **You will no longer be able to sign in to the converted user account.**
 > * **An organization cannot be converted back to a personal account.**
 > * **During conversion, a new account (with the same login credentials) will be created for you. You can then use that account to [set up]({{@link access_rights/organization_account/setup.md}}) the organization.**
-> * **An organization can't be a member of other organizations. If you want to convert your account to one, you'll first need to leave all the organizations you are a part of**.
+
+> An organization can't be a member of other organizations. If you want to convert your account to one, you'll first need to leave all the organizations you are a part of.
 
 Before converting your personal account into an organization, make sure it has a **username**.
 
@@ -50,7 +51,7 @@ Next, set the organization's name and click **Convert**.
 
 And that's it! Your personal account becomes the organization and you will be logged out automatically. You can now log into your new personal account with the same credentials as before.
 
-For information on adding members and assigning roles, see the [Setup]({{@link access_rights/organization_account/setup.md}}) page.
+For information on [adding members and assigning roles]({{@link access_rights/organization_account/setup.md}}), see the Setup page.
 
 ## [](#billing) Billing
 

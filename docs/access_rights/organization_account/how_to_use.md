@@ -10,13 +10,13 @@ paths:
 
 Once an account becomes an organization, you can no longer log into it. Instead, you can switch into the organization to manage account information, memberships and actor runs.
 
-![Switch to organization account]({{@asset access_rights/images/switch-to-organization.png}})
-
 While you can't manage an organization account via [API](https://docs.apify.com/api/v2), you can still manage its runs and resources via API like you would with any other account.
 
 ## [](#in-the-apify-app) In the Apify app
 
-You can switch into **Organization account** view using the **account** button in the top-right corner.
+You can switch into **Organization account** view using the account button in the top-right corner.
+
+![Switch to organization account]({{@asset access_rights/images/switch-to-organization.png}})
 
 In the menu, the account you are currently using is displayed at the top, with all the accounts you can switch to displayed below. When you need to get back to your personal account, you can just switch right back to it–no need to log in and out.
 

@@ -32,5 +32,5 @@ You can configure individual permissions for each resource type such as actors, 
 
 ![Configure permissions]({{@asset access_rights/images/configure-permissions.png}})
 
-You can see a full list of permissions that can be granted to Apify resources [here]({{@link access_rights/list_of_permissions.md}}).
+[See the full list of permissions]({{@link access_rights/list_of_permissions.md}}) that can be granted to Apify resources.
 
