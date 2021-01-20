@@ -29,7 +29,7 @@ You can create a new organization by clicking the **Create new organization** bu
 
 ![Create a new organization]({{@asset access_rights/images/my-organizations-new.png}})
 
-**You can own as many organizations and be a member of as many organizations as you need.**
+**You can own 5 organizations and be a member of as many organizations as you need.**
 
 ## [](#convert-an-existing-account) Convert an existing account
 
