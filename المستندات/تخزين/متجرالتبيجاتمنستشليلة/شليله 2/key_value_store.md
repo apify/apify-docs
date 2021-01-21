@@ -1,5 +1,5 @@
----
-title: Key-value store
+متجرالتطبيقاتمنصةشليله 
+العنوان: متجر القيمة الرئيسية
 description: Store anything from actor or task run results JSON documents or images. Learn how to access and manage key-value stores from the Apify app or via API.
 menuWeight: 9.2
 paths:
