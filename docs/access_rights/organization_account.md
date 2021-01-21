@@ -12,12 +12,12 @@ paths:
 
 Organization accounts allow groups to collaborate on projects. It enables you to manage your team members' [permissions]({{@link access_rights/list_of_permissions.md}}) and to centralize your billing without having to share the credentials of a single personal account.
 
-You can [switch]({{@link access_rights/organization_account/how_to_use.md#in-the-apify-app}}) between your personal and organization accounts in just two clicks: in the [Apify app](https://my.apify.com), click the account button in the top-right corner, then select the organization.
+You can [switch]({{@link access_rights/organization_account/how_to_use.md#in-the-apify-app}}) between your personal and organization accounts in just two clicks: in the [Apify app](https://my.apify.com), click the account button in the top-left corner, then select the organization.
 
 You can start an organization account in two ways.
 
-* [Convert an existing account](#convert-an-existing-account) into an organization. If your actors and [integrations]({{@link tutorials/integrations.md}}) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
 * [Create a new organization](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
+* [Convert an existing account](#convert-an-existing-account) into an organization. If your actors and [integrations]({{@link tutorials/integrations.md}}) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
 
 ## [](#availability-and-pricing) Availability and pricing
 
@@ -29,7 +29,7 @@ You can create a new organization by clicking the **Create new organization** bu
 
 ![Create a new organization]({{@asset access_rights/images/my-organizations-new.png}})
 
-**You can own 5 organizations and be a member of as many organizations as you need.**
+**You can own up to 5 and be a member of as many organizations as you need.**
 
 ## [](#convert-an-existing-account) Convert an existing account
 
