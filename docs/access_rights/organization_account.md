@@ -42,7 +42,7 @@ You can create a new organization by clicking the **Create new organization** bu
 
 Before converting your personal account into an organization, make sure it has a **username**.
 
-> An organization can't be a member of other organizations. If you want to convert your account to one, you'll first need to leave all the organizations you are a part of.
+An organization can't be a member of other organizations. If you want to convert your account to one, you'll first need to **leave all the organizations you are a part of**.
 
 Then, under the **Organizations** [tab](https://my.apify.com/account#/myorganizations), click the **Convert this user account to an organization** button.
 
