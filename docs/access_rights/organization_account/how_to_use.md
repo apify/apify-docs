@@ -50,4 +50,4 @@ The API tokens' functionality reflects your account's permissions in the organiz
 
 If you have the **manage organization access keys** permission, you are able to view and use organization-wide API tokens. These are shared across the organization, so everyone with the **manage organization access keys** permission can use them for organization-wide integrations.
 
-For a detailed breakdown of all Apify API endpoints and help on using them, visit the API [documentation](https://docs.apify.com/api/v2).
+For a [detailed breakdown of all Apify API endpoints](/api/v2) and help on using them, visit the API.

@@ -5,6 +5,7 @@ menuWeight: 12.1
 paths:
     - access-rights/organization-account
 ---
+# TODO: update screenshots to reflect new UI
 
 # Organization account
 
@@ -27,7 +28,7 @@ The organization account is available on our Team, Business, and Custom plans. [
 
 You can create a new organization by clicking the **Create new organization** button under the **Organizations** tab in your [account](https://my.apify.com/account#/myorganizations).
 
-![Create a new organization]({{@asset access_rights/images/my-organizations-new.png}})
+![Create a new organization]({{@asset access_rights/images/create-new-org.png}})
 
 **You can own up to 5 and be a member of as many organizations as you need.**
 
