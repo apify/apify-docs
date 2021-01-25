@@ -5,6 +5,7 @@ menuWeight: 12.1
 paths:
     - access-rights/organization-account
 ---
+
 # Organization account
 
 > The organization account is only available to accounts using our new billing system. If you see the migration message when you [log in](https://my.apify.com), you will need to migrate.
