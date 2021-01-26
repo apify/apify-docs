@@ -8,7 +8,8 @@ paths:
 
 # Organization account
 
-> The organization account is only available to accounts using our new billing system. If you see the migration message when you [log in](https://my.apify.com), you will need to migrate.
+> The organization account is only available to accounts using our [new billing system](https://blog.apify.com/launching-new-billing-system-3a26f8384a44). If you see the [migration message](https://blog.apify.com/launching-new-billing-system-3a26f8384a44#92f7) when you [log in](https://my.apify.com), you will need to migrate.
+> ![Create a new organization]({{@asset access_rights/images/create-new-org.png}})
 
 Organization accounts allow groups to collaborate on projects. It enables you to manage your team members' [permissions]({{@link access_rights/list_of_permissions.md}}) and to centralize your billing without having to share the credentials of a single personal account.
 
