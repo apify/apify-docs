@@ -8,7 +8,7 @@ paths:
 
 # Setup
 
-Once you have created your organization, you can customize it. Under the **Settings** tab, you can set the organization's email address, owner and delete the account. The **Profile** tab allows you to update your organization's name or set a custom profile image.
+Once you have created your organization, you can customize it. Under the **Settings** tab, you can set the organization's email address, owner, or delete the account. The **Profile** tab allows you to update your organization's name or set a custom profile image.
 
 ## [](#add-users-to-your-organization) Add users to your organization
 
@@ -30,7 +30,9 @@ To edit the permissions for each role, click on the **Configure permissions** bu
 
 You can configure individual permissions for each resource type such as actors, actor tasks or storage. Bear in mind that if a user has the **read** permission for [storages]({{@link storage.md}}), you cannot prevent them from accessing a particular storage (e.g. a certain [dataset]({{@link storage.md}})) - they will have access to all of the organization's storages.
 
+**Some permissions have dependencies**. For example, if someone has the **actor run** permission, it is likely they will also need the **storage write** permission, so they can store the results from their actor runs.
+
 ![Configure permissions]({{@asset access_rights/images/configure-permissions.png}})
 
-You can see a full list of permissions that can be granted to Apify resources [here]({{@link access_rights/list_of_permissions.md}}).
+[See the full list of permissions]({{@link access_rights/list_of_permissions.md}}) that can be granted to Apify resources.
 
