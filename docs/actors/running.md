@@ -72,11 +72,11 @@ Each run starts with the initial status **READY** and goes through one or more t
 
 ## [](#resurrection-of-finished-run)Resurrection of finished run
 
-Any actor run in terminal state, i.e. run with status **FINISHED**, **FAILED**, **ABORTED** and **TIMED-OUT**, might be resurrected back to a **RUNNING** state. This is helpful in many cases, for example when the timeout for actor run was too low or any a case of an unexpected error.
+Any actor run in terminal state, i.e. run with status **FINISHED**, **FAILED**, **ABORTED** and **TIMED-OUT**, might be resurrected back to a **RUNNING** state. This is helpful in many cases, for example when the timeout for actor run was too low or in case of an unexpected error.
 
 The whole process of resurrection looks as follows:
 
-* Run status will be updated to a **RUNNING** and its container will be restarted with the same storages (the same behavior as when the run gets migrated to the new server).
+* Run status will be updated to **RUNNING** and its container will be restarted with the same storages (the same behavior as when the run gets migrated to the new server).
 * Existing run log will be discarded. If you need to backup it then please download it before you resurrect this run.
 * Updated duration will include the time when actor was not running. This does not affect compute units consumption.
 * Timeout will be counted from the point when this actor run was resurrected.
