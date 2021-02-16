@@ -50,16 +50,11 @@
             "href": "/tutorials/log-into-a-website-using-puppeteer"
         },
         {
-            "cardItem": "When to use Puppeteer Scraper?",
-            "href": "https://help.apify.com/en/articles/3195646-when-to-use-puppeteer-scraper",
-            "isExternalLink": true
-        },
-        {
             "cardItem": "Integrations",
             "href": "/tutorials/integrations"
         }
     ],
-    "Web scraping guides": [
+    "Web scraping": [
         {
             "cardItem": "Scrape Twitter",
             "href": "https://blog.apify.com/how-to-scrape-tweets-and-more-on-twitter-59330e6fb522",
@@ -88,31 +83,6 @@
             "href": "/tutorials/analyze-pages-and-fix-errors"
         }
     ],
-    "Reduce blocking": [
-        {
-            "cardItem": "Connect to Apify Proxy",
-            "href": "/proxy/connection-settings"
-        },
-        {
-            "cardItem": "Bypass anti-scraping techniques",
-            "href": "/web-scraping-101/anti-scraping-techniques"
-        },
-        {
-            "cardItem": "Use a proxy in your browser",
-            "href": "https://help.apify.com/en/articles/3858935-how-to-use-a-proxy-in-your-browser",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Manage proxies in Apify SDK",
-            "href": "https://sdk.apify.com/docs/guides/proxy-management",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Reduce blocking using sessions in SDK",
-            "href": "https://sdk.apify.com/docs/guides/session-management",
-            "isExternalLink": true
-        }
-    ],
     "Use platform features": [
         {
             "cardItem": "Proxy",
@@ -137,6 +107,31 @@
         {
             "cardItem": "Monitor actor and task runs",
             "href": "/monitoring"
+        }
+    ],
+    "Reduce blocking": [
+        {
+            "cardItem": "Connect to Apify Proxy",
+            "href": "/proxy/connection-settings"
+        },
+        {
+            "cardItem": "Bypass anti-scraping techniques",
+            "href": "/web-scraping-101/anti-scraping-techniques"
+        },
+        {
+            "cardItem": "Use a proxy in your browser",
+            "href": "https://help.apify.com/en/articles/3858935-how-to-use-a-proxy-in-your-browser",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Manage proxies in Apify SDK",
+            "href": "https://sdk.apify.com/docs/guides/proxy-management",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Reduce blocking using sessions in SDK",
+            "href": "https://sdk.apify.com/docs/guides/session-management",
+            "isExternalLink": true
         }
     ],
     "Build actors": [
