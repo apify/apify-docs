@@ -1,7 +1,7 @@
 ---
 title: Improve performance by caching repeated page data
 description: Learn how to make your scrapers more efficient by storing repeated page data. Avoid re-scraping pages and reduce your data extraction costs.
-menuWeight: 3.9
+menuWeight: 3.10
 paths:
     - tutorials/improve-performance-by-caching-repeated-page-data
 ---

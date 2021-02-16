@@ -1,12 +1,14 @@
 ---
 title: Quick start
 description: Create your first Apify actor using code examples. A step-by-step introduction to web scraping with the Apify platform.
-menuWeight: 7.1
+menuWeight: 3.1
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/quick-start
     - actors/quick-start
+    - tutorials/quick-start
 ---
+<!-- TODO: start with a tutorial on how to just run an actor, then add this text for how to make one -->
 
 # Quick start
 
