@@ -1,7 +1,7 @@
 ---
 title: Log into a website using Puppeteer
 description: Learn how to complete a website's authentication process using headless Chrome and Puppeteer. Automate the filling in of log in details and passwords.
-menuWeight: 3.4
+menuWeight: 3.5
 paths:
     - tutorials/log-into-a-website-using-puppeteer
 ---
