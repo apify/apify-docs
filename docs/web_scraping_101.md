@@ -35,4 +35,4 @@ RPA allows you to handle [use cases](https://apify.com/use-cases/rpa) like filli
 
 ## [](#additional-resources) Additional resources
 
-If you would like to learn more, check out [this](https://learn.g2.com/web-scraping) helpful article and [this](https://info.scrapinghub.com/web-scraping-guide/beginners-guide-to-web-scraping#3) guide, which explains the principles of scraping and the difference between crawlers and scrapers.
+If you would like to learn more, check out [this](https://learn.g2.com/web-scraping) helpful article and [this](https://www.zyte.com/learn/what-is-web-scraping/#3) guide, which explains the principles of scraping and the difference between crawlers and scrapers.
