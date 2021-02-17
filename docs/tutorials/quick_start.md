@@ -1,6 +1,6 @@
 ---
 title: Quick start
-description: Create your first Apify actor using code examples. A step-by-step introduction to web scraping with the Apify platform.
+description: Learn how to run any actor in Apify Store or create your first one. A step-by-step guide through your first steps on the Apify platform.
 menuWeight: 3.1
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
@@ -8,9 +8,53 @@ paths:
     - actors/quick-start
     - tutorials/quick-start
 ---
-<!-- TODO: start with a tutorial on how to just run an actor, then add this text for how to make one -->
+
+<!-- TODO push this tutorial with any starter packs - intro emails, show it to new users, etc -->
 
 # Quick start
+
+In this article, you will find the very basics of using the Apify platform. It shows you the principles of running any actor in Apify Store and the basics of making them using the in-app code editor.
+
+Once you get to grips with the basics, take our [Apify scrapers]({{@link tutorials/apify_scrapers.md}}) tutorials to learn about how our main tools work. If you're comfortable getting your hands into some JavaScript, check out the Apify SDK, which has plenty of tutorials to get you going.
+
+**You will need an Apify account to complete this tutorial. If you don't have one, please, [complete the sign-up process](https://my.apify.com/sign-up) first.**
+
+## Run an actor
+
+**1.** Navigate to [apify.com/store] and pick any actor you like the look of. We'll pick the [Google Search Results Scraper](https://apify.com/apify/google-search-scraper).
+
+![Apify store]({{@asset tutorials/images/apify-store.png}})
+
+**2.** On the actor's page, click the "Try for free" button.
+
+![Try for free]({{@asset tutorials/images/try-for-free.png}})
+
+**3**. This will take you to the Apify app. If you already have an account, you will see the screen below screen.
+
+![Actor input view]({{@asset tutorials/images/actor-input-view.png}})
+
+**4.** Don't be put off by all the boxes - the actor is pre-configured to run without any extra input. Just click the "Run" button in the bottom-left corner and it will start.
+
+Alternatively, you can play around with the settings to make the results more interesting for you.
+
+**5.** Wait for the actor to run...
+
+**6.** Get your results!
+
+Click on the flashing "Results" button.
+
+![Actor successful run view]({{@asset tutorials/images/actor-run-view.png}})
+
+Then, choose which format you want your data in and check it out.
+
+![Choose the data format]({{@asset tutorials/images/actor-run-results.png}})
+
+Here is a preview of the actor's output as a table.
+
+![Dataset preview]({{@asset tutorials/images/actor-run-dataset.png}})
+
+## Create an actor
+
 
 Go to the [Actor](https://my.apify.com/actors) section in the app, create a new actor and go to *Source* tab. Paste the following Node.js code into the *Source code* editor:
 
@@ -68,4 +112,6 @@ For more complicated actors, you'll probably prefer to host the source code on G
 5. That's it, now you can develop your actor locally on your computer and run it in the Apify cloud!
 
 For more information, go to the [Git repository]({{@link actors/development/source_code.md#git-repository}}) section.
+
+## What's next?
 
