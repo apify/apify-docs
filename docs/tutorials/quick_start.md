@@ -1,6 +1,6 @@
 ---
 title: Quick start
-description: Learn how to run any actor in Apify Store or create your first one. A step-by-step guide through your first steps on the Apify platform.
+description: Learn how to run any actor in Apify Store or create your own. A step-by-step guide through your first steps on the Apify platform.
 menuWeight: 3.1
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
@@ -15,25 +15,25 @@ paths:
 
 In this article, you will find the very basics of using the Apify platform. It shows you the principles of running any actor in Apify Store and the basics of making them using the in-app code editor.
 
-Once you get to grips with the basics, take our [Apify scrapers]({{@link tutorials/apify_scrapers.md}}) tutorials to learn about how our main tools work. If you're comfortable getting your hands into some JavaScript, check out the Apify SDK, which has plenty of tutorials to get you going.
+Once you get to grips with this, [go through our Apify scrapers tutorials]({{@link tutorials/apify_scrapers.md}}) to learn about how our main tools work. If you're comfortable getting your hands into some JavaScript, [check out the Apify SDK](https://sdk.apify.com), which has plenty of [tutorials to get you going](https://sdk.apify.com/docs/guides/quick-start).
 
-**You will need an Apify account to complete this tutorial. If you don't have one, please, [complete the sign-up process](https://my.apify.com/sign-up) first.**
+**You will need an Apify account to complete this tutorial. If you don't have one, [complete the sign-up process](https://my.apify.com/sign-up) first.**
 
 ## Run an actor
 
-**1.** Navigate to [apify.com/store] and pick any actor you like the look of. We'll pick the [Google Search Results Scraper](https://apify.com/apify/google-search-scraper).
+**1.** Navigate to [apify.com/store](https://apify.com/store) and pick any actor you like the look of. We'll pick the [Google Search Results Scraper](https://apify.com/apify/google-search-scraper).
 
 ![Apify store]({{@asset tutorials/images/apify-store.png}})
 
-**2.** On the actor's page, click the "Try for free" button.
+**2.** On the actor's page, click the **Try for free** button.
 
 ![Try for free]({{@asset tutorials/images/try-for-free.png}})
 
-**3**. This will take you to the Apify app. If you already have an account, you will see the screen below screen.
+**3**. This will take you to the [Apify app](https://my.apify.com), where you will see the screen below.
 
 ![Actor input view]({{@asset tutorials/images/actor-input-view.png}})
 
-**4.** Don't be put off by all the boxes - the actor is pre-configured to run without any extra input. Just click the "Run" button in the bottom-left corner and it will start.
+**4.** Don't be put off by all the boxes - the actor is pre-configured to run without any extra input. Just click the **Run** button in the bottom-left corner and it will start.
 
 Alternatively, you can play around with the settings to make the results more interesting for you.
 
@@ -41,7 +41,7 @@ Alternatively, you can play around with the settings to make the results more in
 
 **6.** Get your results!
 
-Click on the flashing "Results" button.
+Click on the flashing **Results** button.
 
 ![Actor successful run view]({{@asset tutorials/images/actor-run-view.png}})
 
@@ -115,3 +115,7 @@ For more information, go to the [Git repository]({{@link actors/development/sour
 
 ## What's next?
 
+* [Try some other actors from Apify Store](https://apify.com/store).
+* Learn to use our main scrapers: [Web Scraper]({{@link tutorials/apify_scrapers/web_scraper.md}}), [Cheerio Scraper]({{@link tutorials/apify_scrapers/cheerio_scraper.md}}), and [Puppeteer Scraper]({{@link tutorials/apify_scrapers/Puppeteer_scraper.md}}).
+* Learn more about using actors: [tasks]({{@link actors/tasks.md}}), [storages]({{@link storage.md}}), and [proxies]({{@link proxy.md}}).
+* [Build your own actors](https://sdk.apify.com/docs/guides/quick-start) with the Apify SDK.
