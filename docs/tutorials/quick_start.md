@@ -9,8 +9,6 @@ paths:
     - tutorials/quick-start
 ---
 
-<!-- TODO push this tutorial with any starter packs - intro emails, show it to new users, etc -->
-
 # Quick start
 
 In this article, you will find the very basics of using the Apify platform. It shows you the principles of running any actor in Apify Store and the basics of making them using the in-app code editor.
