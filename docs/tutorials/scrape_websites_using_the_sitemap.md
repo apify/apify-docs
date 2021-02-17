@@ -57,7 +57,7 @@ First, let's import the beer URLs from the sitemap to [RequestList](https://sdk.
 ```javascript
 const requestList = await new Apify.RequestList({
     sources: [{
-        requestsFromUrl: 'https://www.brewbound.com/sitemap.xml', 
+        requestsFromUrl: 'https://www.brewbound.com/sitemap.xml',
         regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^\/]+\/[^\/<]+/gm,
     }],
 });
