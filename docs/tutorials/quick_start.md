@@ -116,6 +116,6 @@ For more information, go to the [Git repository]({{@link actors/development/sour
 ## What's next?
 
 * [Try some other actors from Apify Store](https://apify.com/store).
-* Learn to use our main scrapers: [Web Scraper]({{@link tutorials/apify_scrapers/web_scraper.md}}), [Cheerio Scraper]({{@link tutorials/apify_scrapers/cheerio_scraper.md}}), and [Puppeteer Scraper]({{@link tutorials/apify_scrapers/Puppeteer_scraper.md}}).
+* Learn to use our main scrapers: [Web Scraper]({{@link tutorials/apify_scrapers/web_scraper.md}}), [Cheerio Scraper]({{@link tutorials/apify_scrapers/cheerio_scraper.md}}), and [Puppeteer Scraper]({{@link tutorials/apify_scrapers/puppeteer_scraper.md}}).
 * Learn more about using actors: [tasks]({{@link actors/tasks.md}}), [storages]({{@link storage.md}}), and [proxies]({{@link proxy.md}}).
 * [Build your own actors](https://sdk.apify.com/docs/guides/quick-start) with the Apify SDK.
