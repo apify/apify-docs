@@ -1,7 +1,7 @@
 ---
 title: Scrape websites using the sitemap
 description: The sitemap.xml file is a jackpot for every web scraper. Take advantage of this and learn a much easier way to extract data from websites using the Apify SDK.
-menuWeight: 3.7
+menuWeight: 3.8
 paths:
     - tutorials/scrape-websites-using-the-sitemap
 ---
@@ -57,7 +57,7 @@ First, let's import the beer URLs from the sitemap to [RequestList](https://sdk.
 ```javascript
 const requestList = await new Apify.RequestList({
     sources: [{
-        requestsFromUrl: 'https://www.brewbound.com/sitemap.xml',  
+        requestsFromUrl: 'https://www.brewbound.com/sitemap.xml',
         regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^\/]+\/[^\/<]+/gm,
     }],
 });
