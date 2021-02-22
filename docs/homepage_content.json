@@ -29,9 +29,8 @@
     ],
     "Guides": [
         {
-            "cardItem": "How to run an actor",
-            "href": "https://www.youtube.com/watch?v=BsidLZKdYWQ",
-            "isExternalLink": true
+            "cardItem": "Quick start",
+            "href": "/tutorials/quick-start"
         },
         {
             "cardItem": "Use Apify scrapers",
