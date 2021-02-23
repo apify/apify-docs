@@ -267,7 +267,7 @@ const proxyConfiguration = await Apify.createProxyConfiguration({
 You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
 
 > The `username` field is **not** your Apify username.<br/>
-> Instead, you specify proxy settings (e.g. `groups-SHADER+BUYPROXIES94952`, `session-123`).<br/>
+> Instead, you specify proxy settings (e.g. `groups-BUYPROXIES94952+GOOGLESERP`, `session-123`).<br/>
 > Use `auto` for default settings.
 
 For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
@@ -526,10 +526,10 @@ echo $response2;
 
 ## [](#username-examples) Username examples
 
-Use randomly allocated IP addresses from the SHADER group:
+Use randomly allocated IP addresses from the BUYPROXIES94952 group:
 
 ```text
-groups-SHADER
+groups-BUYPROXIES94952
 ```
 
 Use a randomly allocated IP address for multiple requests:
@@ -538,10 +538,10 @@ Use a randomly allocated IP address for multiple requests:
 session-new_job_123
 ```
 
-Use the same IP address from the `SHADER` and `BUYPROXIES94952` groups for multiple requests:
+Use the same IP address from the `GOOGLESERP` and `BUYPROXIES94952` groups for multiple requests:
 
 ```text
-groups-SHADER+BUYPROXIES94952,session-new_job_123
+groups-GOOGLESERP+BUYPROXIES94952,session-new_job_123
 ```
 
 Set a session and select an IP from the `BUYPROXIES94952` group geolocated in the USA:
