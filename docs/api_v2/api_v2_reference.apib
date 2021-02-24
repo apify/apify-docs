@@ -1285,7 +1285,6 @@ of the original one:
 
 * `/v2/acts/{actorId}/runs/last/key-value-store/keys{?token,status}` [Key collection](#reference/key-value-stores/key-collection)
 * `/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}{?token,status}` [Record](#reference/key-value-stores/record)
-* `/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}/direct-upload-url{?token,status}` [Direct upload URL](#reference/key-value-stores/direct-upload-url)
 
 #### Dataset
 
@@ -1904,7 +1903,6 @@ of the original one:
 
 * `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/keys{?token,status}` [Key collection](#reference/key-value-stores/key-collection)
 * `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/records/{recordKey}{?token,status}` [Record](#reference/key-value-stores/record)
-* `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/records/{recordKey}/direct-upload-url{?token,status}` [Direct upload URL](#reference/key-value-stores/direct-upload-url)
 
 #### Dataset
 
@@ -2298,7 +2296,7 @@ This endpoint is paginated using `exclusiveStartKey` and `limit` parameters - se
             - isTruncated: true (boolean, required)
             - nextExclusiveStartKey: `third-key` (string)
 
-## Record [/v2/key-value-stores/{storeId}/records/{recordKey}{?disableRedirect,token}]
+## Record [/v2/key-value-stores/{storeId}/records/{recordKey}{?token}]
 
 + Parameters
 
@@ -2309,12 +2307,13 @@ This endpoint is paginated using `exclusiveStartKey` and `limit` parameters - se
 
 Gets a value stored in the key-value store under a specific key.
 
-If the request defines the `Accept-Encoding: gzip` HTTP header then the response will be gzipped.
+The response body has the same `Content-Encoding` header as it was set in [Put record](#reference/key-value-stores/key-collection/put-record).
+If the request does not define the `Accept-Encoding` HTTP header with the right encoding, the record will be decompressed.
+The most HTTP client supports decompression by default. After using the HTTP client with decompression support, the `Accept-Encoding` header is set up by the client, and a response from the server is
+decompress automatically.
 
 + Parameters
 
-    + disableRedirect: true (boolean, optional) - By default, the API responds with the HTTP 302 status to redirect the client to another URL for faster download of the record.
-                                              You can set `disableRedirect=1` to prevent this behavior and return the record directly.
     + token:   `soSkq9ekdmfOslopH` (string, optional) - API authentication token. It is required only when using the `username~store-name` format for `storeId`.
 
 + Response 302
@@ -2332,13 +2331,15 @@ If the request defines the `Accept-Encoding: gzip` HTTP header then the response
 ### Put record [PUT]
 
 Stores a value under a specific key to the key-value store.
-The value is passed as the PUT payload and it is stored with a MIME content type defined by the `Content-Type` request header.
+The value is passed as the PUT payload and it is stored with a MIME content type defined by the `Content-Type` header and with encoding defined by the `Content-Encoding` header.
 
-**IMPORTANT:** The limit of the request payload is 9 MB. If you want to upload a larger record
-or speed up your upload, use the [Direct upload URL](#reference/key-value-stores/direct-upload-url) endpoint instead.
+To save bandwidth, storage, and speed up your upload, send the request payload compressed with Gzip compression and
+add the `Content-Encoding: gzip` header. It is possible to set up another compression type with `Content-Encoding` request header.
+There is a list of supported `Content-Encoding` types.
 
-To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and
-add the `Content-Encoding: gzip` header.
+* Gzip compression: `Content-Encoding: gzip`
+* Deflate compression: `Content-Encoding: deflate`
+* Brotli compression: `Content-Encoding: br`
 
 + Parameters
 
@@ -2383,40 +2384,6 @@ Removes a record specified by a key from the key-value store.
     + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 + Response 204 (application/json)
-
-## Direct upload URL [/v2/key-value-stores/{storeId}/records/{recordKey}/direct-upload-url{?token}]
-
-### Get direct upload URL [GET]
-
-Generates a unique URL that can be used to upload a record under a specific key to the key-value store.
-The record must be uploaded to the resulting URL using a PUT request.
-
-This endpoint is useful if your record is larger than the limit
-imposed by the [Put record](#reference/key-value-stores/record/put-record) endpoint
-(i.e. 9 MB) or if you want to get the maximum speed for your upload.
-
-To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and
-add the `Content-Encoding: gzip` header to your request.
-
-**IMPORTANT:** The `Content-Type` and `Content-Encoding` headers sent in both requests must match!
-
-+ Parameters
-
-    + storeId: `WkzbQMuFYuamGv3YF` (string, required) - Key-value store ID or `username~store-name`.
-    + recordKey: `some key` (string, required) - Key of the record.
-    + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
-
-+ Request
-
-    + Headers
-
-            Content-Type: image/jpeg
-
-+ Response 200 (application/json)
-
-    + Attributes
-        - data (object, required)
-            - signedUrl: `http://aws.amazon.com/apifier-key-value-store/wsy88Bbk7Fazqrin4/blaaah?AWSAccessKeyId=ksNK&Expires=1500385005&Signature=KAlT68Xt4H4` (string, required)
 
 # Group Datasets
 
