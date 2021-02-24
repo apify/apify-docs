@@ -132,7 +132,7 @@ try {
     const randomNumber = Math.random();
     const key = `ERROR-LOGIN-${randomNumber}`;
     await Apify.utils.puppeteer.saveSnapshot(page, { key });
-    const screenshotLink = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.jpg?disableRedirect=true`
+    const screenshotLink = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.jpg`
 
     // You know where the code crashed so you can explain here
     console.error(`Request failed during login with an error. Screenshot: ${screenshotLink}`);
