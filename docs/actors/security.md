@@ -1,7 +1,7 @@
 ---
 title: Security
 description: Learn more about Apify's security practices and data protection measures.
-menuWeight: 7.6
+menuWeight: 7.7
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/security
