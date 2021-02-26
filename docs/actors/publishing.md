@@ -26,7 +26,7 @@ Private actors can only be accessed and started by their owner. To keep your act
 
 The short actor description shown in the store is taken from **Settings → Description**\. Additionally, if the actor's source code is hosted in a [Git repository]({{@link actors/development/source_code.md#git-repository}}), [Zip file]({{@link actors/development/source_code.md#zip-file}}) or [GitHub Gist]({{@link actors/development/source_code.md#github-gist}}), you can add a long description in the [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) language to the **README.md** file in the root of the source code's directory. To see an example of how this looks, visit [apify/web-scraper](https://apify.com/apify/web-scraper).
 
-## [](#charges) Running costs when making an actor public
+## Running costs when making an actor public
 
 **IMPORTANT:** Note that if you make an actor publicly available and it's used by other people, their usage is not charged towards your account. The user running the actor is always the one who pays for the computational resources consumed by an actor's execution.
 
