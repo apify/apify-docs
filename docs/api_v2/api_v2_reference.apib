@@ -2309,7 +2309,7 @@ Gets a value stored in the key-value store under a specific key.
 
 The response body has the same `Content-Encoding` header as it was set in [Put record](#reference/key-value-stores/key-collection/put-record).
 If the request does not define the `Accept-Encoding` HTTP header with the right encoding, the record will be decompressed.
-The most HTTP client supports decompression by default. After using the HTTP client with decompression support, the `Accept-Encoding` header is set by the client and body is decompressed automatically.
+Most HTTP clients support decompression by default. After using the HTTP client with decompression support, the `Accept-Encoding` header is set by the client and body is decompressed automatically.
 
 + Parameters
 
@@ -2334,7 +2334,7 @@ The value is passed as the PUT payload and it is stored with a MIME content type
 
 To save bandwidth, storage, and speed up your upload, send the request payload compressed with Gzip compression and
 add the `Content-Encoding: gzip` header. It is possible to set up another compression type with `Content-Encoding` request header.
-There is a list of supported `Content-Encoding` types.
+Below is a list of supported `Content-Encoding` types.
 
 * Gzip compression: `Content-Encoding: gzip`
 * Deflate compression: `Content-Encoding: deflate`
