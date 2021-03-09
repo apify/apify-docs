@@ -23,7 +23,6 @@ Actor run events are triggered when an actor run gets created or transitions int
 * `ACTOR.RUN.FAILED` - actor run finished with status `FAILED`.
 * `ACTOR.RUN.ABORTED` - actor run finished with status `ABORTED`.
 * `ACTOR.RUN.TIMED_OUT` - actor run finished with status `TIMED-OUT`.
-* `ACTOR.RUN.RESURRECTED` - actor run has been resurrected.
 
 ### Event data
 
