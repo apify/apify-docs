@@ -1227,7 +1227,7 @@ For more information, see [Actor docs](https://docs.apify.com/actors/development
     + Attributes
         - data (RunMetamorphed, required)
 
-## Resurrect run [/v2/acts/{actorId}/runs/{runId}/resurrect{?token}]
+## Resurrect run [/v2/acts/{actorId}/runs/{runId}/resurrect{?token,build,timeout,memory}]
 
 ### Resurrect run [POST]
 
@@ -1243,6 +1243,9 @@ For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrec
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the run that is being resurrected (typically `latest`).
+    + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the run that is being resurrected.
+    + memory: 256 (number, optional) - Memory limit for the run, in megabytes. By default, the run uses a memory limit specified in the run that is being resurrected.
 
 + Response 200 (application/json)
 
@@ -2044,7 +2047,7 @@ For more information, see [Actor docs](https://docs.apify.com/actors/development
     + Attributes
         - data (RunMetamorphed, required)
 
-## Resurrect run [/v2/actor-runs/{runId}/resurrect{?token}]
+## Resurrect run [/v2/acts/{actorId}/runs/{runId}/resurrect{?token,build,timeout,memory}]
 
 ### Resurrect run [POST]
 
@@ -2059,6 +2062,9 @@ For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrec
 
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the run that is being resurrected (typically `latest`).
+    + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the run that is being resurrected.
+    + memory: 256 (number, optional) - Memory limit for the run, in megabytes. By default, the run uses a memory limit specified in the run that is being resurrected.
 
 + Response 200 (application/json)
 
