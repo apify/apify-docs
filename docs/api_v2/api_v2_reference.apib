@@ -3265,7 +3265,7 @@ The request needs to specify the `Content-Type: application/json` HTTP header!
 
 + Parameters
 
-    + scheduleId: `asdLZtadYvn4mBZmm`    (string, required) - Webhook ID.
+    + scheduleId: `asdLZtadYvn4mBZmm`    (string, required) - Schedule ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get schedule [GET]
@@ -3308,7 +3308,7 @@ Deletes a schedule.
 
 + Parameters
 
-    + scheduleId: `asdLZtadYvn4mBZmm`    (string, required) - Webhook ID.
+    + scheduleId: `asdLZtadYvn4mBZmm`    (string, required) - Schedule ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get schedule log [GET]
@@ -4185,9 +4185,9 @@ The user account is identified by the provided authentication token.
 - modifiedAt: `2019-12-20T06:33:11.202Z`  (string, required)
 - lastRunAt:  `2019-04-12T07:33:10.202Z`  (string, required)
 - nextRunAt:  `2019-04-12T07:34:10.202Z`  (string, required)
-- isEnabled:      true                    (boolean, nullable)
-- isExclusive:    true                    (boolean, nullable)
-- cronExpression: `* * * * *`             (string, nullable)
+- isEnabled:      true                    (boolean, required)
+- isExclusive:    true                    (boolean, required)
+- cronExpression: `* * * * *`             (string, required)
 - timezone:       `UTC`                   (string, required)
 - actions                                 (array, required)
     - (object)
@@ -4207,9 +4207,9 @@ The user account is identified by the provided authentication token.
 - modifiedAt: `2019-01-23T06:55:11.202Z`  (string, required)
 - lastRunAt:  `2019-04-10T07:34:10.202Z`  (string, required)
 - nextRunAt:  `2019-05-10T07:34:10.202Z`  (string, required)
-- isEnabled:      true                    (boolean, nullable)
-- isExclusive:    true                    (boolean, nullable)
-- cronExpression: `* * * * *`             (string, nullable)
+- isEnabled:      true                    (boolean, required)
+- isExclusive:    true                    (boolean, required)
+- cronExpression: `* * * * *`             (string, required)
 - timezone:       `UTC`                   (string, required)
 - actions                                 (array, required)
 
@@ -4217,16 +4217,16 @@ The user account is identified by the provided authentication token.
 - id:             `asdLZtadYvn4mBZmm`         (string, required)
 - userId:         `wRsJZtadYvn4mBZmm`         (string, required)
 - name:           `my-schedule`               (string, required)
-- cronExpression: `* * * * *`                 (string, nullable)
+- cronExpression: `* * * * *`                 (string, required)
 - timezone:       `UTC`                       (string, required)
-- isEnabled:      true                        (boolean, nullable)
-- isExclusive:    true                        (boolean, nullable)
+- isEnabled:      true                        (boolean, required)
+- isExclusive:    true                        (boolean, required)
 - description:    `Schedule of actor ...`     (string, nullable)
-- createdAt:      `2019-12-12T07:34:14.202Z`  (string, nullable)
-- modifiedAt:     `2019-12-20T06:33:11.202Z`  (string, nullable)
+- createdAt:      `2019-12-12T07:34:14.202Z`  (string, required)
+- modifiedAt:     `2019-12-20T06:33:11.202Z`  (string, required)
 - nextRunAt:      `2019-04-12T07:34:10.202Z`  (string, nullable)
 - lastRunAt:      `2019-04-12T07:33:10.202Z`  (string, nullable)
-- actions                                     (array, nullable)
+- actions                                     (array, required)
     -                                         (object, required)
         - id:               `c6KfSgoQzFhMk3etc`               (string, required)
         - type:             `RUN_ACTOR`                       (string, required)
@@ -4249,10 +4249,10 @@ The user account is identified by the provided authentication token.
 
 ## ScheduleCreate
 - name:           `my-schedule`               (string, nullable)
-- userId:         `wRsJZtadYvn4mBZmm`         (string, required)
 - isEnabled:      true                        (boolean, nullable)
 - isExclusive:    true                        (boolean, nullable)
 - cronExpression: `* * * * *`                 (string, nullable)
+- timezone:       `UTC`                       (string, nullable)
 - description:    `Schedule of actor ...`     (string, nullable)
 - actions                                     (array, nullable)
     -                                         (object, required)
