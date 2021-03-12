@@ -6,7 +6,7 @@ paths:
     - proxy/connection-settings
 ---
 
-# [](#connection-settings) Connection settings
+# Connection settings
 
 Below are the HTTP proxy connection settings for Apify Proxy.
 
@@ -21,7 +21,7 @@ Below are the HTTP proxy connection settings for Apify Proxy.
 
 **WARNING:** All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks – **the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
 
-## [](#username-parameters) Username parameters
+## Username parameters
 
 The `username` field enables you to pass parameters like **[group](#proxy-groups)**, **[session]({{@link proxy.md#sessions}}) ID** and **country** for your proxy connection.
 
@@ -77,7 +77,9 @@ If you do not want to specify either `groups` or `session` parameters and theref
 
 To learn more about [sessions]({{@link proxy.md#sessions}}) and [IP address rotation]({{@link proxy.md#ip-address-rotation}}), see the proxy overview [page]({{@link proxy.md}}).
 
-## [](#connection-examples) Connection examples
+## Code examples
+
+We have code examples for connecting to our proxy using the Apify SDK and other JavaScript packages (**axios** and **got**), as well as examples in Python (2 and 3) and PHP.
 
 * [Datacenter proxy]({{@link proxy/datacenter_proxy/examples.md}})
 
@@ -85,7 +87,7 @@ To learn more about [sessions]({{@link proxy.md#sessions}}) and [IP address rota
 
 * [Google SERP proxy]({{@link proxy/google_serp_proxy/examples.md}})
 
-## [](#proxy-groups) Proxy groups
+## Proxy groups
 
 You can see which proxy groups you have access to on the [Proxy page](https://my.apify.com/proxy) in the Apify app.
 
