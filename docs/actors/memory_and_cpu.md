@@ -1,6 +1,6 @@
 ---
 title: Memory and CPU
-description: Learn how to make your actor available to the public or keep it private. Prepare your actor for Apify Store with a description and README file.
+description: Learn about your actors' memory and processing power requirements, their relationship with Docker resources, and minimum requirements for different use cases.
 menuWeight: 7.5
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
