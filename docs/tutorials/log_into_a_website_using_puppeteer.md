@@ -24,6 +24,7 @@ Our actor will use the Puppeteer API to fill in the **username** and **password*
 
 ```javascript
 const Apify = require('apify');
+const { log } = Apify.utils;
 
 Apify.main(async () => {
     // Get the username and password inputs
@@ -50,7 +51,7 @@ Apify.main(async () => {
 
     await browser.close();
 
-    console.log('Done.');
+    log.info('Done.');
 });
 ```
 
@@ -71,6 +72,7 @@ The example below uses a [named key-value store]({{@link storage.md#named-and-un
 
 ```javascript
 const Apify = require('apify');
+const { log } = Apify.utils;
 
 const loggedCheck = async (page) => {
     try {
@@ -94,14 +96,14 @@ Apify.main(async () => {
     let isLogged = false;
     let userCookies = await fcbCacheStore.getValue(cookiesStoreKey);
     if (userCookies) {
-        console.log('Trying to use cached cookies...')
+        log.info('Trying to use cached cookies...')
         await page.setCookie(...userCookies);
         await page.goto('https://facebook.com');
         isLogged = await loggedCheck(page);
     }
 
     if (!isLogged) {
-        console.log(`Cookies from the cache didn't work. Try to log in.`);
+        log.info(`Cookies from the cache didn't work. Try to log in.`);
         await page.goto('https://facebook.com');
         await page.type('#email', input.username);
         await page.type('#pass', input.password);
@@ -115,7 +117,7 @@ Apify.main(async () => {
     }
 
     // Get cookies and refresh them in store cache
-    console.log(`Saving new cookies to cache...`);
+    log.info(`Saving new cookies to cache...`);
     const cookies = await page.cookies();
     await fcbCacheStore.setValue(cookiesStoreKey, cookies);
 
@@ -127,6 +129,6 @@ Apify.main(async () => {
 
     await browser.close();
 
-    console.log('Done.');
+    log.info('Done.');
 });
 ```
