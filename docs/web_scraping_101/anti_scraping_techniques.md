@@ -25,7 +25,7 @@ This method's effectiveness depends on various factors such as the number of web
 
 For successful large-scale scrapes, it is essential to have a sufficient pool of proxies and to time the workload to maximize the scraping throughput while not burning your proxies.
 
-[Apify Proxy]({{@link proxy.md}}) enables you to do just this using a pool of datacenter and residential proxies.
+[Apify Proxy]({{@link proxy.md}}) enables you to do just this using a pool of datacenter and residential proxies. For example, [datacenter proxies]({{@link proxy/datacenter_proxy.md}}) are rotated automatically.
 
 ## [](#ip-rate-limiting) IP rate limiting
 
