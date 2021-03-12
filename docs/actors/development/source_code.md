@@ -62,7 +62,7 @@ To obtain the key click at the **deployment key** link under the **Git URL** tex
 
 ## [](#zip-file)Zip file
 
-The source code for the actor can also be located in a Zip archive hosted on an external URL. This option enables integration with arbitrary source code or continuous integration systems. Similarly as with the [Git repository]({{@link actors/development/source_code.md#git-repository}}), the source code can consist of multiple files and directories, can contain a custom **Dockerfile** and the actor description is taken from **README.md**.
+The source code for the actor can also be located in a Zip archive hosted on an external URL. This option enables integration with arbitrary source code or continuous integration systems. Similarly as with the [Git repository]({{@link actors/development/source_code.md#git-repository}}), the source code can consist of multiple files and directories, can contain a custom **Dockerfile** and the actor description is taken from **README.md**. If you don't use a [custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}), the root file of your application must be named `main.js`.
 
 ## [](#github-gist)GitHub Gist
 
@@ -76,7 +76,7 @@ Then set the **Source Type** to **GitHub Gist** and paste the Gist URL as follow
 
 Note that the example actor is available in the Apify Store as [apify/example-github-gist](https://apify.com/apify/example-github-gist).
 
-Similarly as with the [Git repository]({{@link actors/development/source_code.md#git-repository}}), the source code can consist of multiple files and directories, it can contain a custom **Dockerfile** and the actor description is taken from **README.md**.
+Similarly as with the [Git repository]({{@link actors/development/source_code.md#git-repository}}), the source code can consist of multiple files and directories, it can contain a custom **Dockerfile** and the actor description is taken from **README.md**. If you don't use a [custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}), the root file of your application must be named `main.js`.
 
 ## [](#custom-dockerfile)Custom Dockerfile
 
