@@ -11,34 +11,33 @@ paths:
 
 [Actors]({{@link actors.md}}) run in
 [Docker containers](https://www.docker.com/resources/what-container),
-which have a limited amount of resources. When starting, the actor needs to be allocated a certain share of those resources. This determines how much "CPU horsepower" the actor has.
+which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memory-and-cpu-limit). When starting, the actor needs to be allocated a certain share of those resources, such as how much CPU "horsepower" it will be able to use.
 
+![Setting an actor's memory]({{@asset actors/images/memory-settings.png}})
 
-When you run an actor, you limit the memory it uses - you assign it 1gb, 2gb, whatever. The amount of CPU the actor receives is proportional–1 CPU core per GB of memory allocated.
+By assigning an actor's **memory** capacity, you also assign it a proportional amount of **CPU power**. Every CPU core corresponds to 4 GB of memory. So, 512 MB = 1/8th of a core, 1 GB = 1/4 of core, 8 GB gives you 2 cores, and so on.
 
-The amount of CPU is always scaled. So, if you are using 1GB, you have 25% of a CPU core. But that 25% is your 100%. Same when you’re using 32GB of memory - it’s still your 100%.
-
-**Note from Honza (needs clarifying): The Memory setting not only influences the CPU allocation, but also disk size and IO limits
+In addition to CPU power, the memory allocation also influences [disk size and Input/Output (I/O) limits](https://docs.docker.com/config/containers/runmetrics/#metrics-from-cgroups-memory-cpu-block-io).
 
 ## Memory requirements
 
-Each use case has its own minimum memory requirements. The larger and more complex your project, the more memory it will require. Some examples with specific memory requirements:
+Each use case has its own minimum memory requirements. The larger and more complex your project, the more memory/CPU power it will require. Some examples which have minimum requirements are:
 
-- Actors using Puppeteer: at least 1GB of memory.
+- Actors using [Puppeteer](https://pptr.dev/): at least 1GB of memory.
 
-- Large and complex sites like Google Maps: at least 4GB for optimal speed and concurrency.
+- Large and complex sites like [Google Maps](https://apify.com/drobnikj/crawler-google-places): at least 4GB for optimal speed and [concurrency](https://sdk.apify.com/docs/api/autoscaled-pool#autoscaledpoolminconcurrency).
 
 - Storing large amounts of data.
 
+## Scaling
+
+The amount of CPU power available to you is always **scaled**. So, if you are using 1GB, you have 25% of a CPU core, however that 25% is your 100%. The same applies when you are using 32 GB of memory - it is still your 100%.
+
 ## CPU usage spikes
 
-Sometimes, you see the actor’s CPU use go over 100%. This is not unusual - to help an actor start up faster, it is sometimes allocated extra CPU, just for the startup. For example, if an actor is assigned 1GB (25% of a core), it will temporarily be allowed to use 2GB so it gets started quicker.
+![A usage spike on an actor's start-up]({{@asset actors/images/memory-cpu-usage-spike.png}})
 
--
--
--
-probably leave out?
-Capacity is limited, so actors have enough space when they run on the same machine.
+Sometimes, you see the actor’s CPU use go over 100%. This is not unusual - to help an actor start up faster, it is sometimes allocated extra CPU. For example, if an actor is assigned 1GB (25% of a core), it will temporarily be allowed to use 2GB so it gets started quicker.
 
 ## Limits
 
