@@ -12,6 +12,8 @@ Once an account becomes an organization, you can no longer log into it. Instead,
 
 While you can't manage an organization account via [API](https://docs.apify.com/api/v2), you can still manage its runs and resources via API like you would with any other account.
 
+**[See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) on organization accounts.**
+
 ## [](#in-the-apify-app) In the Apify app
 
 You can switch into **Organization account** view using the account button in the top-left corner.
