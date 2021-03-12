@@ -56,4 +56,4 @@ To check for state saved in a previous run, use:
 const previousCrawlingState = await Apify.getValue('my-crawling-state') || {};
 ```
 
-To improve your actor's performance, you can also [cache repeated page data]({{@link tutorials/improve_performance_by_caching_repeated_page_data.md}}).
+To improve your actor's performance, you can also [cache repeated page data]({{@link tutorials/cache_data_to_improve_performance.md}}).
