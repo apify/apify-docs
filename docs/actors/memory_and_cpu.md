@@ -29,6 +29,12 @@ Each use case has its own minimum memory requirements. The larger and more compl
 
 - Storing large amounts of data.
 
+### Maximum memory
+
+Apify actors run in [Node.js](https://nodejs.org/en/), which uses a [single process thread](https://betterprogramming.pub/is-node-js-really-single-threaded-7ea59bcc8d64). Single-process applications cannot use more than 1 CPU core. Thus, unless you use Puppeteer or other libraries that use subprocesses, you will not gain more CPU power from assigning your actor more than 4 GB of memory.
+
+In other words, giving a simple, [Cheerio-based crawler](https://apify.com/apify/cheerio-scraper) 16GB of memory (4 CPU cores) will not make it faster because these crawlers simply cannot use more than 1 CPU core.
+
 ## Scaling
 
 The amount of CPU power available to you is always **scaled**. So, if you are using 1GB, you have 25% of a CPU core, however that 25% is your 100%. The same applies when you are using 32 GB of memory - it is still your 100%.
@@ -37,7 +43,7 @@ The amount of CPU power available to you is always **scaled**. So, if you are us
 
 ![A usage spike on an actor's start-up]({{@asset actors/images/memory-cpu-usage-spike.png}})
 
-Sometimes, you see the actor’s CPU use go over 100%. This is not unusual - to help an actor start up faster, it is sometimes allocated extra CPU. For example, if an actor is assigned 1GB (25% of a core), it will temporarily be allowed to use 2GB so it gets started quicker.
+Sometimes, you see the actor’s CPU use go over 100%. This is not unusual - to help an actor start up faster, it is allocated a free CPU boost. For example, if an actor is assigned 1GB (25% of a core), it will temporarily be allowed to use 2GB so it gets started quicker.
 
 ## Limits
 
