@@ -1,9 +1,10 @@
 ---
-title: How to scrape websites with limited pagination
-description: Learn how to extract all of a website's listings even if they limit the number of results pages. See code examples for
+title: Scrape paginated sites
+description: Learn how to extract all of a website's listings even if they limit the number of results pages. See code examples for setting up your scraper.
 menuWeight: 3.9
 paths:
     - tutorials/scrape-websites-with-limited-pagination
+    - tutorials/scrape-paginated-sites
 ---
 
 # How to scrape websites with limited pagination
