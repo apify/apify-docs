@@ -6,7 +6,7 @@ paths:
     - storage/key-value-store
 ---
 
-# [](#key-value-store) Key-value store
+# Key-value store
 
 The key-value store is simple storage that can be used for storing any kind of data. It can be JSON or HTML documents, zip files, images, or simply strings. The data are stored along with their [MIME content type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
@@ -18,7 +18,7 @@ Key-value stores are mutable–you can both add entries and delete them.
 > Unnamed key-value stores expire after 7 days unless otherwise specified.<br/>
 > [Learn about named and unnamed key-value stores.]({{@link storage.md#named-and-unnamed-storages}})
 
-## [](#basic-usage) Basic usage
+## Basic usage
 
 There are four ways to access your key-value stores:
 
@@ -27,7 +27,7 @@ There are four ways to access your key-value stores:
 * [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) - to access your key-value stores from any Node.js application [[details](#javascript-api-client)].
 * [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically [[details](#apify-api)].
 
-### [](#apify-app) Apify app
+### Apify app
 
 In the [Apify app](https://my.apify.com), you can view your key-value stores in the [Storage](https://my.apify.com/storage) section under the [Key-value stores](https://my.apify.com/storage#/keyValueStores) tab.
 
@@ -42,7 +42,7 @@ The API tab allows you to view and test a store's [API endpoints](https://docs.a
 
 ![Key-value stores detail]({{@asset storage/images/key-value-stores-detail.png}})
 
-### [](#apify-sdk) Apify SDK
+### Apify SDK
 
 If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify software development kit (SDK)](https://sdk.apify.com).
 In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#key-value-store), the key-value store is represented by the
@@ -108,7 +108,7 @@ The `Apify.getInput()`method is not only a shortcut to `Apify.getValue('INPUT')`
 
 For more information on managing your key-value stores with the Apify SDK, see the SDK [documentation](https://sdk.apify.com/docs/guides/data-storage#key-value-store) and the `KeyValueStore` class's [API reference](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoregetvaluekey).
 
-### [](#javascript-api-client) JavaScript API client
+### JavaScript API client
 
 Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) (`apify-client`) allows you to access your key-value stores from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
@@ -147,7 +147,7 @@ await keyValueStores.deleteRecord({ key: 'foo' });
 
 For more information on managing your key-value stores using the JavaScript API client, see its [documentation](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores).
 
-### [](#apify-api) Apify API
+### Apify API
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) allows you to access your key-value stores programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
@@ -186,8 +186,6 @@ Example payload:
 }
 ```
 
-> When adding a record, the request payload is limited to 9MB. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.
-
 To **delete a record**, send a DELETE request specifying the key from a key-value store to the [Delete record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/delete-record) endpoint.
 
 ```text
@@ -196,11 +194,19 @@ https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}?token={YOU
 
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/key-value-stores).
 
-## [](#sharing) Sharing
+## Compression
+
+In the past, every record uploaded using the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) endpoint was compressed using Gzip before uploading. This has changed. **Now, records are stored in the state you upload them. This means it is up to you if the record is stored compressed or uncompressed.**
+
+You can compress a record and use the [Content-Encoding request header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding) to let our platform know which compression it uses. We recommend compressing large key-value records to save storage space and network traffic.
+
+**If you use the [Apify SDK](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoresetvaluekey-value-options) or our [JavaScript API client](https://docs.apify.com/apify-client-js#keyvaluestoreclient-setrecord), your files are compressed automatically by default.** We recommend using the JavaScript API client, which compresses your data before they are sent to our servers and decompresses them when you retrieve them. This makes your storage costs as low as possible.
+
+## Sharing
 
 You can invite other Apify users to view or modify your key-value stores using the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#key-value-store}}).
 
-### [](#sharing-key-value-stores-between-runs) Sharing key-value stores between runs
+### Sharing key-value stores between runs
 
 You can access a key-value store from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its **name** or **ID**.
 
@@ -224,12 +230,10 @@ The same applies for the [Apify API](#apify-api) - you can use [the same endpoin
 
 For more information on sharing storages between runs, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs).
 
-## [](#data-consistency) Data consistency
+## Data consistency
 
 Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. According to the S3 [documentation](https://aws.amazon.com/s3/consistency/), it provides **strong read-after-write** consistency.
 
-## [](#limits) Limits
-
-* When adding a record using the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) API endpoint, the request payload is limited to **9MB**. To upload a larger record or speed up your upload, use the [Direct upload URL](https://docs.apify.com/api/v2#/reference/key-value-stores/direct-upload-url/get-direct-upload-url) endpoint.
+## Limits
 
 * Key-value store names can be up to 63 characters long.
