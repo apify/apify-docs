@@ -8,49 +8,52 @@ paths:
 
 # [](#state-persistence)State persistence
 
-Unlike traditional serverless platforms, the duration of an Apify actor's run is unlimited. This means, however, that an actor might need to be restarted from time to time, e.g. when the server it's running on is to be shut down.
+Long-running [actor]({{@link actors.md}}) jobs may need to migrate from one server to another. Unless you save your job's progress, it will be lost during the migration. The actor will re-start from scratch on the new server, which can be costly.
 
-Actors need to account for this possibility. For short-running actors, the chance of a restart is quite low and the cost of repeated runs is low, so restarts can be ignored.
+To avoid this, long-running actors should save (persist) their state periodically and listen for [migration events](https://sdk.apify.com/docs/api/apify#apifyevents). On start, these actors should [check for persisted state](#code-examples), so they can continue where they left off.
 
-However, for long-running actors a restart might be very costly and therefore such actors should periodically persist their state, possibly to the key-value store associated with the actor run.
+For short-running actors, the chance of a restart and the cost of repeated runs are low, so restarts can be ignored.
 
-On start, actors should first check whether there is some state stored and if so they should continue where they left off.
+## [](#what-is-a-migration)What is a migration?
 
-## [](#example) Example
+A migration is when a process running on a server has to stop and move to another. All in-progress processes on the current server are stopped. Unless you have saved your state, the actor run will restart on the new server. For example, if a request in your [request queue]({{@link storage/request_queue.md}}) has not been updated as **crawled** before the migration, it will be crawled again.
 
-The actor below can be found in the Apify store as [apify/example-counter](https://apify.com/apify/example-counter). It simply counts from one up. In each run it prints one number. Its state (counter position) is stored in a named [key-value store]({{@link storage/key_value_store.md}}) called **example-counter**. You will find it in the [Storage](https://my.apify.com/key-value-stores) section of the app after you run the actor.
+**When a migration event occurs, you only have a few seconds to save your work.**
 
-```js
-const Apify = require('apify');
+## [](#why-do-migrations-happen)Why do migrations happen?
 
-Apify.main(async () => {
-    const { keyValueStores } = Apify.client;
+- To optimize server workloads.
+- When a server crashes (unlikely).
+- When we release new features and fix bugs.
 
-    // Get store with name 'example-counter'.
-    const store = await keyValueStores.getOrCreateStore({
-        storeName: 'example-counter',
-    });
+## [](#how-often-do-migrations-occur)How often do migrations occur?
 
-    // Get counter state record from store.
-    const record = await keyValueStores.getRecord({
-        key: 'counter',
-        storeId: store.id,
-    });
+There is no specified interval at which migrations happen. They are caused by the [above events](#why-do-migrations-happen), so they can happen at any time.
 
-    // If there is no such record then start from zero.
-    let counter = record ? record.body : 0;
+## [](#why-is-state-lost-during-migration)Why is state lost during migration?
 
-    // Increase counter, print and set as output.
-    counter++;
-    console.log(`Counter: ${counter}`);
-    Apify.setValue('OUTPUT', counter);
+Unless instructed to save its output or state to a [storage]({{@link storage.md}}), an actor keeps them in the server's memory. So, when it switches servers, the run loses access to the previous server's memory. Even if data were saved on the server's disk, we would also lose access to that.
 
-    // Save increased value back to store.
-    await keyValueStores.putRecord({
-        storeId: store.id,
-        key: 'counter',
-        // Record body must be a string or buffer!
-        body: counter.toString(),
-    });
+## [](#how-to-persist-state)How to persist state
+
+The [Apify SDK](https://sdk.apify.com) persists its state automatically, using the `migrating` and `persistState` [events](https://sdk.apify.com/docs/api/apify#apifyevents). `persistState` notifies SDK components to persist their state at regular intervals in case a migration happens. The `migrating` event is emitted just before a migration.
+
+### [](#code-examples)Code examples
+
+To persist state manually, you can use the [Apify.events](https://docs.apify.com/actors/development/state-persistence) method in the Apify SDK.
+
+```javascript
+Apify.events.on('migrating', () => {
+    Apify.setValue('my-crawling-state', {
+        foo: 'bar',
+    }
 });
 ```
+
+To check for state saved in a previous run, use:
+
+```javascript
+const previousCrawlingState = await Apify.getValue('my-crawling-state') || {};
+```
+
+To improve your actor's performance, you can also [cache repeated page data]({{@link tutorials/cache_data_to_improve_performance.md}}).
