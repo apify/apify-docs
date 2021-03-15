@@ -17,8 +17,6 @@ which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memo
 
 By assigning an actor's **memory** capacity, you also assign it a proportional amount of **CPU power**. Every CPU core corresponds to 4 GB of memory. So, 512 MB = 1/8th of a core, 1 GB = 1/4 of core, 8 GB gives you 2 cores, and so on.
 
-In addition to CPU power, the memory allocation also influences [disk size and Input/Output (I/O) limits](https://docs.docker.com/config/containers/runmetrics/#metrics-from-cgroups-memory-cpu-block-io).
-
 ## Memory requirements
 
 Each use case has its own minimum memory requirements. The larger and more complex your project, the more memory/CPU power it will require. Some examples which have minimum requirements are:
