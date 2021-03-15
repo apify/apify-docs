@@ -115,7 +115,7 @@ You can then install the `apify-client` package from [NPM](https://www.npmjs.com
 npm install apify-client
 ```
 
-Once installed, **require** the `apify-client` package in your app and create a new instance of it using your **user ID** and secret **API token** (you can find these on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account).
+Once installed, **require** the `apify-client` package in your app and create a new instance of it using your **user ID** and secret [**API token**]({{@link tutorials/integrations.md#api-token}}) (you can find these on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account).
 
 ```js
 // Import the `apify-client` package

@@ -23,16 +23,14 @@ from services that can only send GET requests.
 
 ## Authentication
 
-Most API requests need to be authenticated by passing a secret API token
-to the request URL as the `token` query parameter.
-The API token can be found on the
+You can find your API token on the
 [Integrations](https://my.apify.com/account#/integrations) page in the Apify app.
 
-**IMPORTANT**: Do not share the API token with untrusted parties, or use it directly from a client-side code,
-unless you fully understand the consequences!**
+Add the token as the `token` parameter to your request URL.
 
-Note that some API endpoints, such as [Get list of keys](#reference/key-value-stores/key-collection/get-list-of-keys),
-do not require any authentication token, because they contain a hard-to-guess identifier that effectively serves as an authentication key.
+**Do not share your API token or password with untrusted parties.**
+
+For more information, see our [integrations](https://docs.apify.com/tutorials/integrations) documentation.
 
 ## Basic usage
 
@@ -1229,7 +1227,7 @@ For more information, see [Actor docs](https://docs.apify.com/actors/development
     + Attributes
         - data (RunMetamorphed, required)
 
-## Resurrect run [/v2/acts/{actorId}/runs/{runId}/resurrect{?token}]
+## Resurrect run [/v2/acts/{actorId}/runs/{runId}/resurrect{?token,build,timeout,memory}]
 
 ### Resurrect run [POST]
 
@@ -1245,6 +1243,9 @@ For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrec
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the run that is being resurrected (typically `latest`).
+    + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the run that is being resurrected.
+    + memory: 256 (number, optional) - Memory limit for the run, in megabytes. By default, the run uses a memory limit specified in the run that is being resurrected.
 
 + Response 200 (application/json)
 
@@ -1287,7 +1288,6 @@ of the original one:
 
 * `/v2/acts/{actorId}/runs/last/key-value-store/keys{?token,status}` [Key collection](#reference/key-value-stores/key-collection)
 * `/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}{?token,status}` [Record](#reference/key-value-stores/record)
-* `/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}/direct-upload-url{?token,status}` [Direct upload URL](#reference/key-value-stores/direct-upload-url)
 
 #### Dataset
 
@@ -1906,7 +1906,6 @@ of the original one:
 
 * `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/keys{?token,status}` [Key collection](#reference/key-value-stores/key-collection)
 * `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/records/{recordKey}{?token,status}` [Record](#reference/key-value-stores/record)
-* `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/records/{recordKey}/direct-upload-url{?token,status}` [Direct upload URL](#reference/key-value-stores/direct-upload-url)
 
 #### Dataset
 
@@ -1942,7 +1941,41 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 
 # Group Actor runs
 
-The API endpoints described in this section enable you to manage Apify actor run.
+The API endpoints described in this section enable you to manage Apify actor runs.
+
+## Run collection [/v2/actor-runs{?token,offset,limit,desc,status}]
+
+### Get user runs list [GET]
+
+Gets a list of all runs for a user. The response is a list of objects, where each object
+contains basic information about a single actor run.
+
+The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000
+array elements.
+
+By default, the records are sorted by the `startedAt` field in ascending order.
+Therefore, you can use pagination to incrementally fetch all records while new
+ones are still being created. To sort the records in descending order, use `desc=1`
+parameter. You can also filter runs by status ([available statuses](https://docs.apify.com/actors/running#lifecycle)).
+
++ Parameters
+
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + offset: 10 (number, optional) - Number of array elements that should be skipped at the start. The default value is `0`.
+    + limit: 99 (number, optional) - Maximum number of array elements to return. The default value (as well as the maximum) is `1000`.
+    + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `startedAt` field in descending order. By default, they are sorted in ascending order.
+    + status: SUCCEEDED (string, optional) - Return only runs with the provided status ([available statuses](https://docs.apify.com/actors/running#lifecycle))
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (object, required)
+            - total: 2 (number, required)
+            - offset: 0 (number, required)
+            - limit: 1000 (number, required)
+            - desc: false (boolean, required)
+            - count: 2 (number, required)
+            - items (array[RunShort1,RunShort2], required)
 
 ## Run object [/v2/actor-runs/{runId}{?token,waitForFinish}]
 
@@ -2012,7 +2045,7 @@ For more information, see [Actor docs](https://docs.apify.com/actors/development
     + Attributes
         - data (RunMetamorphed, required)
 
-## Resurrect run [/v2/actor-runs/{runId}/resurrect{?token}]
+## Resurrect run [/v2/acts/{actorId}/runs/{runId}/resurrect{?token,build,timeout,memory}]
 
 ### Resurrect run [POST]
 
@@ -2027,6 +2060,9 @@ For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrec
 
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the run that is being resurrected (typically `latest`).
+    + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the run that is being resurrected.
+    + memory: 256 (number, optional) - Memory limit for the run, in megabytes. By default, the run uses a memory limit specified in the run that is being resurrected.
 
 + Response 200 (application/json)
 
@@ -2035,7 +2071,42 @@ For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrec
 
 # Group Actor builds
 
-The API endpoints described in this section enable you to manage Apify actor build.
+The API endpoints described in this section enable you to manage Apify actor builds.
+
+## Build collection [/v2/actor-builds{?token,offset,limit,desc}]
+
++ Parameters
+
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+
+### Get user builds list [GET]
+
+Gets a list of all builds for a user. The response is a JSON array of objects, where each object
+contains basic information about a single build.
+
+The endpoint supports pagination using the `limit` and `offset` parameters and it will not return more than 1000 records.
+
+By default, the records are sorted by the `startedAt` field in ascending order.
+Therefore, you can use pagination to incrementally fetch all builds while new
+ones are still being started. To sort the records in descending order, use the `desc=1`
+parameter.
+
++ Parameters
+
+    + offset: 10 (number, optional) - Number of records that should be skipped at the start. The default value is `0`.
+    + limit: 99 (number, optional) - Maximum number of records to return. The default value as well as the maximum is `1000`.
+    + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `startedAt` field in descending order. By default, they are sorted in ascending order.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (object, required)
+            - total: 2 (number, required)
+            - offset: 0 (number, required)
+            - limit: 1000 (number, required)
+            - desc: false (boolean, required)
+            - count: 2 (number, required)
+            - items (array[BuildShort1,BuildShort2], required)
 
 ## Build object [/v2/actor-builds/{buildId}{?token,waitForFinish}]
 
@@ -2231,7 +2302,7 @@ This endpoint is paginated using `exclusiveStartKey` and `limit` parameters - se
             - isTruncated: true (boolean, required)
             - nextExclusiveStartKey: `third-key` (string)
 
-## Record [/v2/key-value-stores/{storeId}/records/{recordKey}{?disableRedirect,token}]
+## Record [/v2/key-value-stores/{storeId}/records/{recordKey}{?token}]
 
 + Parameters
 
@@ -2242,12 +2313,12 @@ This endpoint is paginated using `exclusiveStartKey` and `limit` parameters - se
 
 Gets a value stored in the key-value store under a specific key.
 
-If the request defines the `Accept-Encoding: gzip` HTTP header then the response will be gzipped.
+The response body has the same `Content-Encoding` header as it was set in [Put record](#reference/key-value-stores/key-collection/put-record).
+If the request does not define the `Accept-Encoding` HTTP header with the right encoding, the record will be decompressed.
+Most HTTP clients support decompression by default. After using the HTTP client with decompression support, the `Accept-Encoding` header is set by the client and body is decompressed automatically.
 
 + Parameters
 
-    + disableRedirect: true (boolean, optional) - By default, the API responds with the HTTP 302 status to redirect the client to another URL for faster download of the record.
-                                              You can set `disableRedirect=1` to prevent this behavior and return the record directly.
     + token:   `soSkq9ekdmfOslopH` (string, optional) - API authentication token. It is required only when using the `username~store-name` format for `storeId`.
 
 + Response 302
@@ -2265,13 +2336,15 @@ If the request defines the `Accept-Encoding: gzip` HTTP header then the response
 ### Put record [PUT]
 
 Stores a value under a specific key to the key-value store.
-The value is passed as the PUT payload and it is stored with a MIME content type defined by the `Content-Type` request header.
+The value is passed as the PUT payload and it is stored with a MIME content type defined by the `Content-Type` header and with encoding defined by the `Content-Encoding` header.
 
-**IMPORTANT:** The limit of the request payload is 9 MB. If you want to upload a larger record
-or speed up your upload, use the [Direct upload URL](#reference/key-value-stores/direct-upload-url) endpoint instead.
+To save bandwidth, storage, and speed up your upload, send the request payload compressed with Gzip compression and
+add the `Content-Encoding: gzip` header. It is possible to set up another compression type with `Content-Encoding` request header.
+Below is a list of supported `Content-Encoding` types.
 
-To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and
-add the `Content-Encoding: gzip` header.
+* Gzip compression: `Content-Encoding: gzip`
+* Deflate compression: `Content-Encoding: deflate`
+* Brotli compression: `Content-Encoding: br`
 
 + Parameters
 
@@ -2316,40 +2389,6 @@ Removes a record specified by a key from the key-value store.
     + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 + Response 204 (application/json)
-
-## Direct upload URL [/v2/key-value-stores/{storeId}/records/{recordKey}/direct-upload-url{?token}]
-
-### Get direct upload URL [GET]
-
-Generates a unique URL that can be used to upload a record under a specific key to the key-value store.
-The record must be uploaded to the resulting URL using a PUT request.
-
-This endpoint is useful if your record is larger than the limit
-imposed by the [Put record](#reference/key-value-stores/record/put-record) endpoint
-(i.e. 9 MB) or if you want to get the maximum speed for your upload.
-
-To save bandwidth and speed up your upload, send the request payload compressed with Gzip compression and
-add the `Content-Encoding: gzip` header to your request.
-
-**IMPORTANT:** The `Content-Type` and `Content-Encoding` headers sent in both requests must match!
-
-+ Parameters
-
-    + storeId: `WkzbQMuFYuamGv3YF` (string, required) - Key-value store ID or `username~store-name`.
-    + recordKey: `some key` (string, required) - Key of the record.
-    + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
-
-+ Request
-
-    + Headers
-
-            Content-Type: image/jpeg
-
-+ Response 200 (application/json)
-
-    + Attributes
-        - data (object, required)
-            - signedUrl: `http://aws.amazon.com/apifier-key-value-store/wsy88Bbk7Fazqrin4/blaaah?AWSAccessKeyId=ksNK&Expires=1500385005&Signature=KAlT68Xt4H4` (string, required)
 
 # Group Datasets
 
@@ -3232,7 +3271,7 @@ The request needs to specify the `Content-Type: application/json` HTTP header!
 
 + Parameters
 
-    + scheduleId: `asdLZtadYvn4mBZmm`    (string, required) - Webhook ID.
+    + scheduleId: `asdLZtadYvn4mBZmm`    (string, required) - Schedule ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get schedule [GET]
@@ -3275,7 +3314,7 @@ Deletes a schedule.
 
 + Parameters
 
-    + scheduleId: `asdLZtadYvn4mBZmm`    (string, required) - Webhook ID.
+    + scheduleId: `asdLZtadYvn4mBZmm`    (string, required) - Schedule ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get schedule log [GET]
@@ -3367,7 +3406,6 @@ The user account is identified by the provided authentication token.
 
     + Attributes
         - data (UserPrivateInfo, required)
-
 
 # Data Structures
 
@@ -3914,6 +3952,7 @@ The user account is identified by the provided authentication token.
 - cleanItemCount:   5                          (number, required)
 - actId                                        (object, nullable)
 - actRunId                                     (object, nullable)
+- fields                                       (array[string], nullable)
 
 ## DatasetShort1 (object)
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
@@ -4018,53 +4057,47 @@ The user account is identified by the provided authentication token.
     - twitterUsername:   `@BillGates`                                            (string)
 
 ## UserPrivateInfo (object)
-- username:         `myusername`               (string, required)
-- profile                                      (object, required)
+- id:               `YiKoxjkaS9gjGTqhF`                     (string, required)
+- username:         `myusername`                            (string, required)
+- profile                                                   (object, required)
     - bio:               `I started web scraping in 1985 using Altair BASIC.`    (string)
     - name:              `Jane Doe`                                              (string)
     - pictureUrl:        `/img/anonymous_user_picture.png`                       (string)
     - githubUsername:    `torvalds.`                                             (string)
     - websiteUrl:        `http://www.example.com`                                (string)
     - twitterUsername:   `@BillGates`                                            (string)
-- id:               `YiKoxjkaS9gjGTqhF`                     (string, required)
-- email:            `bob@example.com`                       (string, required)
-- currentBillingPeriod                                      (object, required)
-    - startAt:              `2018-03-14T23:00:00.000Z`      (string, required)
-    - endAt:                `2018-04-14T21:59:59.000Z`      (string, required)
-    - usage                                                 (object, required)
-        - pagesCrawled:     900000                          (number, required)
-        - computeUnits:     300                             (number, required)
-- proxy                                             (object, required)
-    - password:          `ad78knd9Jkjd86`           (string, required)
-    - groups                                        (array, required)
-- limits                                            (object, required)
-    - monthlyPages:                  900000         (number, required)
-    - monthlyComputeUnits:           300            (number, required)
-    - monthlyResidentialProxyGbytes: 0              (number, nullable)
-    - monthlyGoogleSerpRequests:     20             (number, nullable)
-    - dataRetentionDays:             7              (number, required)
-    - maxMemoryMbytes:               16384          (number, required)
-    - maxParallelCrawlers:           10             (number, required)
-    - isActorBanned:                 null           (string, nullable)
-    - isProxyBanned:                 null           (string, nullable)
-    - isResidentialProxyBanned:      null           (string, nullable)
-    - isGoogleSerpBanned:            null           (string, nullable)
-    - actorBannedUntil:              null           (string, nullable)
-    - proxyBannedUntil:              null           (string, nullable)
-    - residentialProxyBannedUntil:   null           (string, nullable)
-    - googleSerpBannedUntil:         null           (string, nullable)
-    - maxActs2Count:                 0              (number, nullable)
-    - maxActorTaskCount:             0              (number, nullable)
-    - hasProxyTrial:                 true           (boolean, nullable)
-    - proxyTrialUntil:      `2021-04-01T21:59:59.999Z`  (string, nullable)
-- availableProxyGroups                    (object, nullable)
-    - SHADER:               50             (number, required)
-    - BUYPROXIES94952:      100            (number, required)
-    - BUYPROXIES63811:      5              (number, nullable)
-    - BUYPROXIES63748:      10             (number, nullable)
-    - qfCaFFuCodXxAS59E:    3              (number, nullable)
-    - GOOGLESERP:           1              (number, nullable)
-- monthlyDatacenterProxyGbytes:      500            (number, nullable)
+- email:                 `bob@example.com`                  (string, required)
+- proxy                                                     (object, required)
+    - password:          `ad78knd9Jkjd86`                   (string, required)
+    - groups                                                (array, required)
+- plan                                                      (object, required)
+    - id:                               `Personal`          (string, required)
+    - description:                      `Cost-effective plan for freelancers, developers and students.` (string, required)
+    - isEnabled:                        true                (boolean, required)
+    - monthlyBasePriceUsd:              49                  (number, required)
+    - monthlyUsageCreditsUsd:           49                  (number, required)
+    - usageDiscountPercent:             0                   (number, required)
+    - enabledPlatformFeatures                               (array, required)
+        - `ACTORS`                                          (array, required)
+        - `STORAGE`                                         (array, required)
+        - `PROXY_SERPS`                                     (array, required)
+        - `SCHEDULER`                                       (array, required)
+        - `WEBHOOKS`                                        (array, required)
+    - maxMonthlyUsageUsd:                9999               (number, required)
+    - maxActorMemoryGbytes:              32                 (number, required)
+    - maxMonthlyActorComputeUnits:       1000               (number, required)
+    - maxMonthlyResidentialProxyGbytes:  10                 (number, required)
+    - maxMonthlyProxySerps:              30000              (number, required)
+    - maxMonthlyExternalDataTransferGbytes: 1000            (number, required)
+    - maxActorCount:                    100                 (number, required)
+    - maxActorTaskCount:                1000                (number, required)
+    - dataRetentionDays:                14                  (number, required)
+    - availableProxyGroups                                  (object, required)
+      - SOMEGROUP:                      20                  (number, required)
+      - ANOTHERGROUP:                   200                 (number, required)
+    - teamAccountSeatCount:             1                   (number, required)
+    - supportLevel:                     `COMMUNITY`         (string, required)
+    - availableAddOns                                       (array, required)
 
 ## Webhook (object)
 - id:               `YiKoxjkaS9gjGTqhF`             (string, required)
@@ -4158,9 +4191,9 @@ The user account is identified by the provided authentication token.
 - modifiedAt: `2019-12-20T06:33:11.202Z`  (string, required)
 - lastRunAt:  `2019-04-12T07:33:10.202Z`  (string, required)
 - nextRunAt:  `2019-04-12T07:34:10.202Z`  (string, required)
-- isEnabled:      true                    (boolean, nullable)
-- isExclusive:    true                    (boolean, nullable)
-- cronExpression: `* * * * *`             (string, nullable)
+- isEnabled:      true                    (boolean, required)
+- isExclusive:    true                    (boolean, required)
+- cronExpression: `* * * * *`             (string, required)
 - timezone:       `UTC`                   (string, required)
 - actions                                 (array, required)
     - (object)
@@ -4180,9 +4213,9 @@ The user account is identified by the provided authentication token.
 - modifiedAt: `2019-01-23T06:55:11.202Z`  (string, required)
 - lastRunAt:  `2019-04-10T07:34:10.202Z`  (string, required)
 - nextRunAt:  `2019-05-10T07:34:10.202Z`  (string, required)
-- isEnabled:      true                    (boolean, nullable)
-- isExclusive:    true                    (boolean, nullable)
-- cronExpression: `* * * * *`             (string, nullable)
+- isEnabled:      true                    (boolean, required)
+- isExclusive:    true                    (boolean, required)
+- cronExpression: `* * * * *`             (string, required)
 - timezone:       `UTC`                   (string, required)
 - actions                                 (array, required)
 
@@ -4190,16 +4223,16 @@ The user account is identified by the provided authentication token.
 - id:             `asdLZtadYvn4mBZmm`         (string, required)
 - userId:         `wRsJZtadYvn4mBZmm`         (string, required)
 - name:           `my-schedule`               (string, required)
-- cronExpression: `* * * * *`                 (string, nullable)
+- cronExpression: `* * * * *`                 (string, required)
 - timezone:       `UTC`                       (string, required)
-- isEnabled:      true                        (boolean, nullable)
-- isExclusive:    true                        (boolean, nullable)
+- isEnabled:      true                        (boolean, required)
+- isExclusive:    true                        (boolean, required)
 - description:    `Schedule of actor ...`     (string, nullable)
-- createdAt:      `2019-12-12T07:34:14.202Z`  (string, nullable)
-- modifiedAt:     `2019-12-20T06:33:11.202Z`  (string, nullable)
+- createdAt:      `2019-12-12T07:34:14.202Z`  (string, required)
+- modifiedAt:     `2019-12-20T06:33:11.202Z`  (string, required)
 - nextRunAt:      `2019-04-12T07:34:10.202Z`  (string, nullable)
 - lastRunAt:      `2019-04-12T07:33:10.202Z`  (string, nullable)
-- actions                                     (array, nullable)
+- actions                                     (array, required)
     -                                         (object, required)
         - id:               `c6KfSgoQzFhMk3etc`               (string, required)
         - type:             `RUN_ACTOR`                       (string, required)
@@ -4222,10 +4255,10 @@ The user account is identified by the provided authentication token.
 
 ## ScheduleCreate
 - name:           `my-schedule`               (string, nullable)
-- userId:         `wRsJZtadYvn4mBZmm`         (string, required)
 - isEnabled:      true                        (boolean, nullable)
 - isExclusive:    true                        (boolean, nullable)
 - cronExpression: `* * * * *`                 (string, nullable)
+- timezone:       `UTC`                       (string, nullable)
 - description:    `Schedule of actor ...`     (string, nullable)
 - actions                                     (array, nullable)
     -                                         (object, required)

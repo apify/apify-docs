@@ -1,14 +1,14 @@
 ---
 title: How to analyze pages and fix errors
 description: Learn to deal with random crashes in your web scraping and automation jobs. Find our the essentials of debugging and fixing problems in your actors.
-menuWeight: 3.7
+menuWeight: 3.9
 paths:
     - tutorials/analyze-pages-and-fix-errors
 ---
 
 # How to analyze pages and fix errors
 
-Debugging is essential in programming. Even if you would not call yourself a programmer, having basic debugging skills will make building and maintaining [scrapers]({{@link tutorials/apify_scrapers.md}}) and [integration actors]({{@link tutorials/run_actor_and_retrieve_data_via_API.md}}) on Apify easier. It will help you avoid hiring an expensive developer and solve your issues faster.
+Debugging is essential in programming. Even if you would not call yourself a programmer, having basic debugging skills will make building and maintaining [scrapers]({{@link tutorials/apify_scrapers.md}}) and [integration actors]({{@link tutorials/integrations/run_actor_and_retrieve_data_via_api.md}}) on Apify easier. It will help you avoid hiring an expensive developer and solve your issues faster.
 
 This article covers the absolute basics. It discusses the most common problems and the simplest tools for analyzing the issue.
 
@@ -132,7 +132,7 @@ try {
     const randomNumber = Math.random();
     const key = `ERROR-LOGIN-${randomNumber}`;
     await Apify.utils.puppeteer.saveSnapshot(page, { key });
-    const screenshotLink = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.jpg?disableRedirect=true`
+    const screenshotLink = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.jpg`
 
     // You know where the code crashed so you can explain here
     console.error(`Request failed during login with an error. Screenshot: ${screenshotLink}`);
