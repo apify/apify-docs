@@ -17,6 +17,8 @@ which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memo
 
 By assigning an actor's **memory** capacity, you also assign it a proportional amount of **CPU power**. Every CPU core corresponds to 4 GB of memory. So, 512 MB = 1/8th of a core, 1 GB = 1/4 of core, 8 GB gives you 2 cores, and so on.
 
+In addition to CPU power, the memory allocation also influences disk size, which amounts to 2x the allocated memory.
+
 ## Memory requirements
 
 Each use case has its own minimum memory requirements. The larger and more complex your project, the more memory/CPU power it will require. Some examples which have minimum requirements are:
@@ -29,19 +31,15 @@ Each use case has its own minimum memory requirements. The larger and more compl
 
 ### Maximum memory
 
-Apify actors run in [Node.js](https://nodejs.org/en/), which uses a [single process thread](https://betterprogramming.pub/is-node-js-really-single-threaded-7ea59bcc8d64). Single-process applications cannot use more than 1 CPU core. Thus, unless you use Puppeteer or other libraries that use subprocesses, you will not gain more CPU power from assigning your actor more than 4 GB of memory.
+Apify actors are most commonly written in [Node.js](https://nodejs.org/en/), which uses a [single process thread](https://betterprogramming.pub/is-node-js-really-single-threaded-7ea59bcc8d64). Unless you use external binaries such as the Chrome browser, Puppeteer, or other multi-threaded libraries you will not gain more CPU power from assigning your actor more than 4 GB of memory because Node.js cannot use more than 1 core.
 
 In other words, giving a simple, [Cheerio-based crawler](https://apify.com/apify/cheerio-scraper) 16GB of memory (4 CPU cores) will not make it faster because these crawlers simply cannot use more than 1 CPU core.
-
-## Scaling
-
-The amount of CPU power available to you is always **scaled**. So, if you are using 1GB, you have 25% of a CPU core, however that 25% is your 100%. The same applies when you are using 32 GB of memory - it is still your 100%.
 
 ## CPU usage spikes
 
 ![A usage spike on an actor's start-up]({{@asset actors/images/memory-cpu-usage-spike.png}})
 
-Sometimes, you see the actor’s CPU use go over 100%. This is not unusual - to help an actor start up faster, it is allocated a free CPU boost. For example, if an actor is assigned 1GB (25% of a core), it will temporarily be allowed to use 2GB so it gets started quicker.
+Sometimes, you see the actor’s CPU use go over 100%. This is not unusual. To help an actor start up faster, it is allocated a free CPU boost. For example, if an actor is assigned 1GB (25% of a core), it will temporarily be allowed to use 100% of the core so it gets started quicker.
 
 ## Limits
 
