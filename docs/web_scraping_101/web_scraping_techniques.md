@@ -10,8 +10,6 @@ paths:
 
 This article provides a quick summary of ways websites structure and send their information. Knowing these techniques will help you extract data quicker and more efficiently.
 
-Before scraping a new website, we recommend using our free-to-use [page analyzer](https://apify.com/page-analyzer) tool. It searches the page for all of the elements discussed below, allowing you to find the most effective way to scrape it.
-
 You can find more in-depth discussion and code examples for all of the techniques in [this](https://blog.apify.com/web-scraping-in-2018-forget-html-use-xhrs-metadata-or-javascript-variables-8167f252439c) article.
 
 ## [](#css-selectors) CSS selectors
