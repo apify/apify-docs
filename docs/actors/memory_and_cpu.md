@@ -27,13 +27,15 @@ Each use case has its own minimum memory requirements. The larger and more compl
 
 - Large and complex sites like [Google Maps](https://apify.com/drobnikj/crawler-google-places): at least 4GB for optimal speed and [concurrency](https://sdk.apify.com/docs/api/autoscaled-pool#autoscaledpoolminconcurrency).
 
-- Storing large amounts of data.
+- Working with a large amount of data in memory.
 
 ### Maximum memory
 
 Apify actors are most commonly written in [Node.js](https://nodejs.org/en/), which uses a [single process thread](https://betterprogramming.pub/is-node-js-really-single-threaded-7ea59bcc8d64). Unless you use external binaries such as the Chrome browser, Puppeteer, or other multi-threaded libraries you will not gain more CPU power from assigning your actor more than 4 GB of memory because Node.js cannot use more than 1 core.
 
 In other words, giving a simple, [Cheerio-based crawler](https://apify.com/apify/cheerio-scraper) 16GB of memory (4 CPU cores) will not make it faster because these crawlers simply cannot use more than 1 CPU core.
+
+> It is possible to [use multiple threads in Node.js-based actor](https://dev.to/reevranj/multiple-threads-in-nodejs-how-and-what-s-new-b23) with some configuration. This can be useful if you need to offload a part of your workload.
 
 ## CPU usage spikes
 
