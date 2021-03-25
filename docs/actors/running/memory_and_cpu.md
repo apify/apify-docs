@@ -1,6 +1,7 @@
 ---
 title: Memory and CPU
 description: Learn about your actors' memory and processing power requirements, their relationship with Docker resources, and minimum requirements for different use cases.
+menuWeight: 2
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actors/memory-and-cpu
