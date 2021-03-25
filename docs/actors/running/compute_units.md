@@ -1,6 +1,6 @@
 ---
 title: Compute units and consumption
-description:
+description: Apify actors' platform resource usage is calculated in compute units. Find out what they are, how they work, and how you are charged for running actors.
 menuWeight: 3
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
