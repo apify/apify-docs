@@ -1,6 +1,7 @@
 ---
 title: Input
 description: Configure your actor's input parameters using the Apify app, locally or via API. Access parameters in key-value stores from your actor's code.
+menuWeight: 1
 paths:
     - actor/run
     - actor/run#input-and-output
