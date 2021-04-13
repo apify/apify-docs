@@ -1,7 +1,6 @@
 ---
 title: Paid actors
 description: Learn how actor rentals work on the Apify platform. Find out about running costs, what you need to try rent an actor, and how to pay for your rentals.
-menuTitle: Publishing
 menuWeight: 7.2
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
@@ -12,9 +11,13 @@ paths:
 
 Paid actors are a new feature in [Apify Store](https://apify.com/store). They're like any other public actors, but with a slight difference. In order to use a paid actor, you **rent** it and pay a monthly fee to the developer. This empowers the developer to dedicate more time and effort to their actors. It ensures that these actors are of the **highest quality** and receive **ongoing maintenance**.
 
+![Paid actors in Apify Store]({{@asset actors/images/paid-actors-store.png}})
+
 Each paid actor has a **free trial,** followed by a flat monthly rental fee that is automatically charged **from your platform usage credits** in advance for the following month. The trial's length is always shown for each paid actor.
 
-You can read more about why we released paid actors in this blog post from Apify CEO Jan Čurn.
+![Paid actors free trial]({{@asset actors/images/paid-actors-trial.png}})
+
+You can read more about why we released paid actors in [this blog post](tbd) from Apify CEO Jan Čurn.
 
 ## Will I be automatically charged at the end of the free trial?
 
@@ -43,6 +46,9 @@ The rental fee for an actor is automatically subtracted from your platform usage
 Since actor rental fees are paid from platform usage credits, these fees conceptually belong under platform usage.
 
 Hence, you can find the breakdown of how much you have been charged for paid actors on the bottom of the **Platform usage** tab in the [Billing and usage](https://my.apify.com/billing-new) section. The overall sum will also be visible in the usage bar chart and the table on the top of the same tab.
+
+![Paid actors billing in Apify app]({{@asset actors/images/paid-actors-billing.png}})
+
 
 ## Can I run the actor via API or the Apify client?
 
