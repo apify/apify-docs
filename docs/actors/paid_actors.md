@@ -17,7 +17,7 @@ Each paid actor has a **free trial,** followed by a flat monthly rental fee that
 
 ![Paid actors free trial]({{@asset actors/images/paid-actors-trial.png}})
 
-You can read more about why we released paid actors in [this blog post](tbd) from Apify CEO Jan Čurn.
+<!-- You can read more about why we released paid actors in [this blog post](tbd) from Apify CEO Jan Čurn. -->
 
 ## Can I run paid actors via API or the Apify client?
 
