@@ -25,7 +25,7 @@ If you have an [Apify paid plan](https://apify.com/pricing), you will be automat
 
 Apart from the monthly rental fee, you will be charged standard platform costs for running the actor (this is why you need to be subscribed), as you would be for any other actor, including your private ones.
 
-## Can I turn off the auto-renewal of the actor rental?
+## Can I cancel my actor rental?
 
 During your trial or any time after that, **you can always turn off auto-renewal** so that you are not charged when your current actor rental expires. If you choose to do so, you can always turn it back on later.
 
