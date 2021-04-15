@@ -41,6 +41,10 @@
             "href": "/actors/tasks"
         },
         {
+            "cardItem": "Run an actor and retrieve data via API",
+            "href": "/tutorials/integrations/run-actor-and-retrieve-data-via-api"
+        },
+        {
             "cardItem": "Learn to use Web Scraper",
             "href": "/tutorials/apify-scrapers/web-scraper"
         },
@@ -70,10 +74,6 @@
             "isExternalLink": true
         },
         {
-            "cardItem": "Run an actor via API",
-            "href": "/tutorials/integrations/run-actor-and-retrieve-data-via-api"
-        },
-        {
             "cardItem": "Analyze page content before scraping",
             "href": "/web-scraping-101/web-scraping-techniques"
         },
@@ -82,7 +82,7 @@
             "href": "/tutorials/analyze-pages-and-fix-errors"
         }
     ],
-    "Use platform features": [
+    "Platform features": [
         {
             "cardItem": "Proxy",
             "href": "/proxy"
