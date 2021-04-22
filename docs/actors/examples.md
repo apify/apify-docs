@@ -43,5 +43,5 @@ Below are a few example use cases for what you can do with actors. The [Apify SD
 While most actors are written in JavaScript, this does not have to be the case. You can write Apify actors in any language.
 
 - [Selenium](https://apify.com/apify/example-selenium).
-- [PHP](https://apify.com/apify/example-php#dockerfile).
+- [PHP](https://apify.com/apify/example-php).
 - [Python](https://apify.com/yonny/python-3-example/source-code).
