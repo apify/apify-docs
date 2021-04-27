@@ -114,4 +114,4 @@ If you have advanced and specific requirements, you can create your own test act
 If using this approach, you can set up notifications using the **Send Mail** ([apify/send-mail](https://apify.com/apify/send-mail)) and **Send Slack Message** ([katerinahronik/slack-message](https://apify.com/katerinahronik/slack-message)) actors.
 
 <!-- Uncomment after the Public actor guide is released -->
-<!-- See our [Maintenance and testing]({{@link actors/development/maintenance_and_testing.md}}) article.-->
+<!-- See our [Maintenance and testing] (link later) article.-->
