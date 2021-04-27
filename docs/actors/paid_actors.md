@@ -1,7 +1,7 @@
 ---
 title: Paid actors
-description: Learn how actor rentals work on the Apify platform. Find out about running costs, what you need to try rent an actor, and how to pay for your rentals.
-menuWeight: 7.2
+description: Learn how actor rentals work on the Apify platform. Find out about running costs, what you need to rent an actor, and how to pay for your rentals.
+menuWeight: 7.4
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actors/paid-actors

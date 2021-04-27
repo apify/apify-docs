@@ -1,7 +1,7 @@
 ---
 title: Development
 description: Read about the technical part of building Apify actors. Learn to define actor inputs, build new versions, persist actor state and choose base Docker images.
-menuWeight: 7.4
+menuWeight: 7.3
 paths:
     - actor/development
     - actors/development
