@@ -11,11 +11,11 @@ If you have a project consisting of several actors, or even one actor that requi
 
 You can automate actor builds and tests using your Git repository's automated workflows like [GitHub Actions](https://github.com/features/actions) or [Bitbucket Pipelines](https://bitbucket.org/product/features/pipelines).
 
-This article will focus on GitHub and [we also have a Bitbucket guide](https://help.apify.com/en/articles/1861038-setting-up-continuous-integration-for-apify-actors-on-bitbucket).
+This article will focus on GitHub but [we also have a guide for Bitbucket](https://help.apify.com/en/articles/1861038-setting-up-continuous-integration-for-apify-actors-on-bitbucket).
 
 ## TL;DR
 
-Below is an example GitHub Actions workflow that will run your tests and build your actor every time you push your code to GitHub. This workflow supports both **latest** and **beta** builds. Copy the code into **separate files** in your actor repo's `.github` directory: e.g. `.github/workflows/main.yml` and `.github/workflows/beta.yml`.
+Below is an example GitHub Actions workflow that will run your tests and build your actor every time you push your code to GitHub. This workflow supports both **latest** and **beta** builds. Copy the code into **separate files** in your actor repo's **.github/workflows** directory: e.g. **.github/workflows/main.yml** and **.github/workflows/beta.yml**.
 
 Each time you push to the **main/master** branch, a new **latest** version of your actor will be built. When you push to **develop**, a **beta** version will be built.
 
