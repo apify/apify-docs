@@ -1,6 +1,6 @@
 ---
 title: Examples
-description: Discover the Apify platform's various features. This page contains introductory code for building actors, Dockerfiles and persisting your actor's state.
+description: Find out what you can do with the Apify platform. See code examples for a variety of use cases and learn about programming language support.
 menuWeight: 7.9
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
@@ -8,121 +8,40 @@ paths:
     - actors/examples
 ---
 
-# [](#examples)Examples
+# Examples
 
-This section provides examples of actors using various features of the Apify platform. All these examples and many more are also available in the [store](https://apify.com/store?type=acts&search=user%3Aapify%20example).
+This section provides examples of actors to illustrate what you can do with the Apify platform.
 
-## [](#puppeteer)Puppeteer
+## Use cases
 
-This example demonstrates how to use headless Chrome with Puppeteer to open a web page, determines its dimensions, save a screenshot and print it to PDF. The actor can be found in the Apify store as [apify/example-puppeteer](https://apify.com/apify/example-puppeteer).
+The example actors (and many more) are available in [Apify Store](https://apify.com/store?type=acts&search=user%3Aapify%20example).
 
-```javascript
-const Apify = require('apify');
+- Scraping specific pages:
+  - [Scrape Google Search results](https://apify.com/apify/google-search-scraper).
+  - [Scrape Twitter](https://apify.com/vdrmota/twitter-scraper).
+  - [Scrape Instagram](https://apify.com/jaroslavhejlek/instagram-scraper).
+- Data processing:
+  - [Import and export Google Sheets files](https://apify.com/lukaskrivka/google-sheets).
+  - [Deduplicate datasets](https://apify.com/lukaskrivka/dedup-datasets).
+- SEO analysis:
+  - [Check for broken links](https://apify.com/jancurn/find-broken-links).
+  - [SEO audit](https://apify.com/drobnikj/seo-audit-tool).
+- Monitoring:
+  - [Monitor your actors' performance](https://apify.com/apify/monitoring).
 
-Apify.main(async () => {
-    const input = await Apify.getInput();
+## Code examples
 
-    if (!input || !input.url) {
-        throw new Error('Invalid input, must be a JSON object with the "url" field!');
-    }
+Below are a few example use cases for what you can do with actors. The [Apify SDK documentation](https://sdk.apify.com/docs/examples/capture-screenshot) contains many more examples using [Puppeteer](https://sdk.apify.com/docs/examples/puppeteer-crawler), [Playwright](https://sdk.apify.com/docs/examples/playwright-crawler), and [Cheerio](https://sdk.apify.com/docs/examples/cheerio-crawler).
 
-    console.log('Launching Puppeteer...');
-    const browser = await Apify.launchPuppeteer();
+- [Crawl an entire website](https://sdk.apify.com/docs/examples/crawl-all-links).
+- [Navigate to a page and capture a screenshot](https://sdk.apify.com/docs/examples/capture-screenshot).
+- [Process data](https://sdk.apify.com/docs/examples/map-and-reduce).
+- [Use other actors in yours](https://sdk.apify.com/docs/examples/call-actor).
 
-    console.log(`Opening URL: ${input.url}`);
-    const page = await browser.newPage();
-    await page.goto(input.url);
+## Language support
 
-    // Get the "viewport" of the page, as reported by the page.
-    console.log('Determining page dimensions...');
-    const dimensions = await page.evaluate(() => ({
-        width: document.documentElement.clientWidth,
-        height: document.documentElement.clientHeight,
-        deviceScaleFactor: window.devicePixelRatio,
-    }));
-    console.log(`Dimension: ${JSON.stringify(dimensions)}`);
+While most actors are written in JavaScript, this does not have to be the case. You can write Apify actors in any language.
 
-    // Grab a screenshot
-    console.log('Saving screenshot...');
-    const screenshotBuffer = await page.screenshot();
-    await Apify.setValue('screenshot.png', screenshotBuffer,
-        { contentType: 'image/png' });
-
-    console.log('Saving PDF snapshot...');
-    const pdfBuffer = await page.pdf({ format: 'A4' });
-    await Apify.setValue('page.pdf', pdfBuffer,
-        { contentType: 'application/pdf' });
-
-    console.log('Closing Puppeteer...');
-    await browser.close();
-
-    console.log('Done.');
-    console.log('You can check the output in the key-value on the following URLs:');
-    const storeId = process.env.APIFY_DEFAULT_KEY_VALUE_STORE_ID;
-    console.log(`- https://api.apify.com/v2/key-value-stores/${storeId}/records/screenshot.png`);
-    console.log(`- https://api.apify.com/v2/key-value-stores/${storeId}/records/page.pdf`);
-});
-```
-
-The code above uses the [`launchPuppeteer()`](https://sdk.apify.com/docs/api/apify#apifylaunchpuppeteeroptions) function provided by the [`apify`](https://sdk.apify.com/) NPM package. The function launches Puppeteer with several settings that enable it to run in an actor. Note that the actor needs to have **Base image** set to [Node.js 10 + Puppeteer on Debian]({{@link actors/development/base_docker_images.md}}) in order to run Puppeteer.
-
-## [](#custom-dockerfile)Custom Dockerfile
-
-This example demonstrates how to create an actor written in PHP using a custom Dockerfile. For more information, see the [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) section. The Dockerfile is based on the [`php:7.0-cli`](https://hub.docker.com/_/php/) Docker image that contains everything needed to run PHP in a terminal.
-
-**Dockerfile** contains only two commands. The first copies source code into the container and the second executes **main.php**.
-
-The actor can be found in the Apify store as [apify/example-php](https://apify.com/apify/example-php).
-
-### Dockerfile
-
-```dockerfile
-FROM php:7.0-cli
-COPY ./* ./
-CMD [ "php", "./main.php" ]
-```
-
-### main.php
-
-```php
-<?php
-print "Starting ...\n";
-print "ENV vars:\n";
-print_r($_ENV);
-print "Fetching http://example.com ...\n";
-$exampleComHtml = file_get_contents('http://example.com');
-print "Searching for <h1> tag contents ...\n";
-preg_match_all('/<h1>(.*?)<\/h1>/', $exampleComHtml, $matches);
-print "Found: " . $matches[1][0] . "\n";
-print "I am done!\n";
-```
-
-## [](#state-persistence)State persistence
-
-This actor demonstrates how to persist a state, so that on restart the actor can continue where it left off. For more information, see the [State persistence]({{@link actors/development/state_persistence.md}}) section. The actor simply counts from one up. In each run it prints one number. Its state (counter position) is stored in a named [key-value store]({{@link storage/key_value_store.md}}) called **example-counter**. You will find it in the [Storage](https://my.apify.com/key-value-stores) section of the app after you run the actor.
-
-The actor can be found in the Apify store as **Example Counter** ([apify/example-counter](https://apify.com/apify/example-counter)).
-
-```javascript
-const Apify = require('apify');
-
-Apify.main(async () => {
-    // Get store with name 'example-counter'.
-    const store = await Apify.openKeyValueStore('example-counter');
-
-    // Get counter value from store
-    const record = await store.getValue('counter');
-
-    // If there is no such record then start from zero.
-    let counter = record || 0;
-
-    // Increase counter, print and set as output.
-    counter ++;
-    console.log(`Counter: ${counter}`);
-    Apify.setValue('OUTPUT', counter);
-
-    // Update the value in store
-    await store.setValue('counter', counter);
-});
-```
-
+- [Selenium](https://apify.com/apify/example-selenium).
+- [PHP](https://apify.com/apify/example-php).
+- [Python](https://apify.com/yonny/python-3-example/source-code).
