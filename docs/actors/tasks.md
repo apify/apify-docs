@@ -1,7 +1,7 @@
 ---
 title: Tasks
 description: Set up configurations of your Apify actors for simplified usage. Create multiple configurations of the same actor tailored to various use cases.
-menuWeight: 7.3
+menuWeight: 7.2
 paths:
     - tasks
     - actors/tasks
