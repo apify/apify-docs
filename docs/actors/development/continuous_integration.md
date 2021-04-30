@@ -15,12 +15,12 @@ This article will focus on GitHub but [we also have a guide for Bitbucket](https
 
 ## TL;DR
 
-Below is an example GitHub Actions workflow that will run your tests and build your actor every time you push your code to GitHub. This workflow supports both **latest** and **beta** builds. Copy the code into **separate files** in your actor repo's **.github/workflows** directory: e.g. **.github/workflows/main.yml** and **.github/workflows/beta.yml**.
+Below is an example GitHub Actions workflow that will run your tests and build your actor every time you push your code to GitHub. This workflow supports both **latest** and **beta** builds. Copy the code into **separate files** in your actor repo's **.github/workflows** directory: e.g. **.github/workflows/latest.yml** and **.github/workflows/beta.yml**.
 
 Each time you push to the **main/master** branch, a new **latest** version of your actor will be built. When you push to **develop**, a **beta** version will be built.
 
 ```marked-tabs
-<marked-tab header="main.yml" lang="yaml">
+<marked-tab header="latest.yml" lang="yaml">
 name: Test and build latest version
 on:
   push:
@@ -76,6 +76,10 @@ You will need an [actor]({{@link tutorials/quick_start.md#create-an-actor}}), a 
 [Add the token to GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository). Go to **your repo > Settings > Secrets > New repository secret**.
 
 Add the [**build actor** API endpoint URL](/api/v2#/reference/actors/build-collection/build-actor) to GitHub secrets. Configure it to use your actor's ID and your API token.
+
+```cURL
+https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=beta&waitForFinish=60
+```
 
 ![Add build actor URL to secrets]({{@asset actors/development/images/ci-add-build-url.png}})
 
