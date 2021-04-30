@@ -1,7 +1,8 @@
 ---
 title: Quick start
 description: Learn how to run any actor in Apify Store or create your own. A step-by-step guide through your first steps on the Apify platform.
-menuWeight: 3.1
+menuWeight: 3
+category: guides
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/quick-start
@@ -13,7 +14,7 @@ paths:
 
 In this article, you will find the very basics of using the Apify platform. It shows you the principles of running any actor in Apify Store and the basics of making them using the in-app code editor.
 
-Once you get to grips with this, [go through our Apify scrapers tutorials]({{@link tutorials/apify_scrapers.md}}) to learn about how our main tools work. If you're comfortable getting your hands into some JavaScript, [check out the Apify SDK](https://sdk.apify.com), which has plenty of [tutorials to get you going](https://sdk.apify.com/docs/guides/quick-start).
+When you're done here, [see our Apify scrapers tutorials]({{@link tutorials/apify_scrapers.md}}) to learn about our main tools. If you're comfortable using JavaScript, [check out the Apify SDK](https://sdk.apify.com), which has plenty of [tutorials to get you going](https://sdk.apify.com/docs/guides/quick-start).
 
 **You will need an Apify account to complete this tutorial. If you don't have one, [complete the sign-up process](https://my.apify.com/sign-up) first.**
 

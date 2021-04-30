@@ -1,7 +1,7 @@
 ---
 title: Web scraping 101
 description: All you need to know about extracting structured data from web pages, the protections websites employ to prevent it, and how to bypass them.
-menuWeight: 4
+menuWeight: 5
 category: guides
 paths:
     - web-scraping-101

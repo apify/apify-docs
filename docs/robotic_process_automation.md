@@ -1,7 +1,7 @@
 ---
 title: Robotic process automation
 description: Learn the basics of robotic process automation. Make your processes on the web and other software more efficient by automating repetitive tasks.
-menuWeight: 5
+menuWeight: 6
 category: guides
 paths:
     - robotic-process-automation
