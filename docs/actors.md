@@ -28,7 +28,7 @@ Like any other resource, you can share your actors with other Apify users via th
   * [Memory and CPU]({{@link actors/running/memory_and_cpu.md}})
   * [Compute units and consumption]({{@link actors/running/compute_units.md}})
 * [Tasks]({{@link actors/tasks.md}})
-* [Development]({{@ actors/development.md}})
+* [Development]({{@link actors/development.md}})
   * [Base Docker images]({{@link actors/development/base_docker_images.md}})
   * [Builds]({{@link actors/development/builds.md}})
   * [Continuous integration]({{@link actors/development/continuous_integration.md}})
