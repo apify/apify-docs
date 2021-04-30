@@ -9,12 +9,32 @@ paths:
 
 # Development
 
-In this section, you can find the documentation on creating your own actors using the Apify platform.
+In this section, you can find documentation on creating your own actors using the Apify platform.
 
-* [Input schema]({{@link actors/development/input_schema.md}}) - definition of the input an actor can accept.
-* [Source code]({{@link actors/development/source_code.md}}) - the location of an actor's source code.
-* [Builds]({{@link actors/development/builds.md}}) - details on building your actor.
-* [Continuous integration]({{@link actors/development/continuous_integration.md}}) - setting up automated deploys and testing for your projects.
-* [Base Docker images]({{@link actors/development/base_docker_images.md}}) - Docker images that can be used as a base for an actor.
-* [Environment variables]({{@link actors/development/environment_variables.md}}) - variables that provide an actor with context.
-* [State persistence]({{@link actors/development/state_persistence.md}}) - persisting an actor's state to preserve data in case of interruptions.
+**If you're interested in building paid actors, contact [community@apify.com](mailto:community@apify.com) to receive the guide.**
+
+## Before you begin
+
+Here are some resources that will help you go from beginner to pro. If you have any questions, join other devs on our [Discord server](https://discord.gg/jyEM2PRvMU) or contact us at [community@apify.com](mailto:community@apify.com).
+
+- Get familiar with [the Apify platform](https://www.youtube.com/watch?v=XPF0kbyvoOs) and [actors]({{@link actors.md}}).
+
+- [Check out our public wiki](https://gitlab.com/apify-public/wiki/-/wikis/home). It contains key information, best practices, and advice for building actors.
+
+- [How to and how not to write an actor](https://gitlab.com/apify-public/wiki/-/wikis/writing-actors/how-to-write-and-not-write-an-actor)
+
+- [Actor performance and optimization](https://gitlab.com/apify-public/wiki/-/wikis/writing-actors/actor-performance-and-optimization)
+
+- [Help articles](https://help.apify.com/en/collections/1669782-publishing-to-apify-store)
+
+## Key aspects of an actor
+
+- Input
+
+- Structure
+
+- README
+
+- Checklist
+
+- Naming

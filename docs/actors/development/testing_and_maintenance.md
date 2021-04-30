@@ -1,13 +1,13 @@
 ---
 title: Testing and maintenance
-description:
+description: Learn how to automate ongoing maintenance and make sure your actors perform over time. See code examples for configuring the Actor Testing actor.
 paths:
-    - actor/development/testing-and-maintenance
+    - actors/development/testing-and-maintenance
 ---
 
 # Testing and maintaining your actors
 
-You should make sure your [actors]({{@link actors.md}}) (especially [paid ones]({{@link actors/development/paid_actors.md}})) are well-maintained. You might not always get feedback from your users, therefore it is crucial that you periodically check if your actors work as expected. You can do this using our [monitoring suite](https://apify.com/apify/monitoring) or by setting up daily runs of the **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) actor.
+You should make sure your [actors]({{@link actors.md}}) (especially [paid ones]({{@link actors/paid_actors.md}})) are well-maintained. You might not always get feedback from your users, therefore it is crucial that you periodically check if your actors work as expected. You can do this using our [monitoring suite](https://apify.com/apify/monitoring) or by setting up daily runs of the **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) actor.
 
 We recommend using the Actor Testing actor only for specific and advanced use cases. The monitoring suite is sufficient for most general applications and includes automated alerts.
 
