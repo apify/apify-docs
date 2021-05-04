@@ -59,22 +59,22 @@ The actor title provides a human-readable name. The title is the most important 
 
 At the same time, it should give your actor a clear name for people who will use it every day. So if you’re working on an "Amazon crawler" or a "Google Places API", use the following formats for your actor's name:
 
-> GOOD: Amazon crawler, Google Places API, Kickstarter search.
+> **GOOD**: Amazon crawler, Google Places API, Kickstarter search.
 <br/>
-> AVOID: Crawler for Amazon, API for Google Places, Search in Kickstarter.
+> **AVOID**: Crawler for Amazon, API for Google Places, Search in Kickstarter.
 
 ### Description
 
 Your actor's description should contain a concise but accurate description of what your actor does, targeted at people who are deciding whether to use it or not. Get straight to the point and avoid any boilerplate text.
 
-> GOOD: Crawls Amazon.com and extracts ... <br/>
-> AVOID: This actor crawls Amazon.com in order to extract ...
+> **GOOD**: Crawls Amazon.com and extracts ... <br/>
+> **AVOID**: This actor crawls Amazon.com in order to extract ...
 
 The description is used by search engines to understand what the actor is about, so it should contain some of the most popular variations and derivations of the [title](#title), including things people might search for.
 
-> GOOD: This Amazon bot will help, whereas the Amazon API won’t. Use the crawler...
+> **GOOD**: This Amazon bot will help, whereas the Amazon API won’t. Use the crawler...
 <br/>
-> AVOID: This crawler will search through results in Amazon and offers you...
+> **AVOID**: This crawler will search through results in Amazon and offers you...
 
 If you’re not sure about similar phrases, check out the Google suggest tool in the search and it will show you some hints and tips. Of course, the description should primarily be about what the actor does, but it’s always a good idea to enrich the text with popular keywords.
 
@@ -86,17 +86,17 @@ The README․md file represents a complete description of your actor, intended f
 
 You have lots of room for SEO optimization in the README, without compromising readability for your users. Make sure the text includes other variants of what potential users of your actor might search for. A good place for these is in the captions and headlines but keywords in the body text will also help. It’s also a good idea to repeat the name of the actor several times.
 
-> GOOD: You can use this Amazon Crawler with your code (Python, PHP, Java) to crawl Amazon without the API...
+> **GOOD**: You can use this Amazon Crawler with your code (Python, PHP, Java) to crawl Amazon without the API...
 <br/>
-> AVOID: Follow the instructions in the Readme and if you have any comments, see the FAQ section...
+> **AVOID**: Follow the instructions in the Readme and if you have any comments, see the FAQ section...
 
 An important part of SEO is internal and external linking. Don’t be shy -  add links to your README leading to similar [actors](https://apify.com/store) or any interesting article in [Apify Help](https://help.apify.com/) that could assist your users. If your actor is scraping a certain website, make sure to add a link to that website. If the actor uses any external libraries, make sure to link their pages.
 
 If you’ve created other actors, it’s completely fine to pop in a promo for them at the end. It’s even better if you edit your old actors and put in a link to your new actor. We’ll take care of extra promotion on the [Apify homepage](https://apify.com/) or [Apify Store](https://apify.com/store) - especially if you’ve done a great job of describing your actors!
 
-> GOOD: Like my <a href="#">Amazon Crawler</a>? See my <a href="#">Amazon Review Crawler</a>.
+> **GOOD**: Like my <a href="#">Amazon Crawler</a>? See my <a href="#">Amazon Review Crawler</a>.
 <br/>
-> AVOID: Check out my Amazon Crawler.
+> **AVOID**: Check out my Amazon Crawler.
 
 ## Promotion
 
@@ -105,33 +105,25 @@ Now that you’ve created a cool new actor, let others see it! Share it on your 
 ### External promotion
 
 - Try to publish an article about your actor in relevant external magazines like [hackernoon.com](https://hackernoon.com/) or [techcrunch.com](https://techcrunch.com/). Do not limit yourself to blogging platforms.
-
 - If you publish an article in external media (magazine, blog etc.), be sure to include backlinks to your actor and the Apify website to strengthen the domain's SEO.
-
 - It's always better to use backlinks with the [`dofollow` attribute](https://raventools.com/marketing-glossary/dofollow-link/).
-
 - Always use the most relevant URL as the backlink's landing page. For example, when talking about Apify Store, link to the Store page ([https://apify.com/store](https://apify.com/store)), not to Apify homepage ([https://apify.com](https://apify.com)).
-
 - Always use the most relevant keyword or phrase for the backlink's text. This can boost the landing page's SEO and help the readers know what to expect from the link.
 
-> GOOD: Try the [Facebook scraper](https://apify.com/pocesar/facebook-pages-scraper) now.
+> **GOOD**: Try the [Facebook scraper](https://apify.com/pocesar/facebook-pages-scraper) now.
 <br/>
-> AVOID: Try the Facebook scraper [here](https://apify.com/pocesar/facebook-pages-scraper).
+> **AVOID**: Try the Facebook scraper [here](https://apify.com/pocesar/facebook-pages-scraper).
 
 ### Social media and forums
 
 - Use relevant and widely used hashtags (Twitter).
 
-> GOOD: Need to crawl #Amazon or #Yelp? See my Amazon crawler https://...
+> **GOOD**: Need to crawl #Amazon or #Yelp? See my Amazon crawler https://...
 <br/>
-> AVOID: I just #created something, check it out on Apify...
+> **AVOID**: I just #created something, check it out on Apify...
 
 - Post in groups or pages with relevant target groups (Facebook and LinkedIn).
-
 - Always use the most relevant URL as the backlink's landing page.
-
 - Use other relevant websites for promotion. For example,  [news.ycombinator.com](https://news.ycombinator.com/), [producthunt.com](https://www.producthunt.com/), [indiehackers.com](https://www.indiehackers.com/), and [dev.to](https://dev.to/)
-
 - While promoting the actor on forums like Reddit or Quora, try not to post strictly promotional answers. If you help someone with their problem, all readers will be more willing to upvote your posts or check the actor.
-
 - If it's possible to upvote your posts, do it and get others help you.
