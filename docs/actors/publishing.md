@@ -15,9 +15,9 @@ Once you have finished coding and testing your actor, it's time to publish it. G
 
 ![Publish your actor in the Apify app]({{@asset actors/publishing/images/publish.png}})
 
-As well as the requirements shown under **Is everything set?**, you'll need a username. You can set one on your [Profile](https://my.apify.com/account#/profile) page. Choose your username wisely, as changing it at a later stage will break any API URLs that contain it.
+As well as a README, input schema, and a category, you'll need a username. You can set one on your [Profile](https://my.apify.com/account#/profile) page. Choose your username wisely, as changing it at a later stage will break any [integrations]({{@link tutorials/integrations.md}}) that use it.
 
-## [](#private-or-public) Private or public?
+## Private or public?
 
 Actors can be private or public.
 
@@ -35,11 +35,11 @@ The title should be simple and clear. Use the official name of the website your 
 
 In one or two sentences (ideally), describe you actor's main feature. Use simple, specific, non-technical language that all users will understand.
 
-To add more details, including technical documentation, you can include a README. If the actor's source code is hosted in a [Git repository]({{@link actors/development/source_code.md#git-repository}}), [Zip file]({{@link actors/development/source_code.md#zip-file}}) or [GitHub Gist]({{@link actors/development/source_code.md#github-gist}}), add a **README.md** file to the repository's root. To see an example of how this looks, visit [apify/web-scraper](https://apify.com/apify/web-scraper).
+To add more details, including technical documentation, you can include a README. If the actor's source code is hosted in a [Git repository]({{@link actors/development/source_code.md#git-repository}}), [Zip file]({{@link actors/development/source_code.md#zip-file}}) or [GitHub Gist]({{@link actors/development/source_code.md#github-gist}}), add a **README.md** file to the repository's root. To see an example, visit [apify/web-scraper](https://apify.com/apify/web-scraper).
 
 ## Categories
 
-Pick the category from the user's perspective. Try to only pick one category, and only add more if necessary.
+Pick the category from the user's perspective. Try to only pick one and only add more if necessary.
 
 ## SEO title and SEO description
 
