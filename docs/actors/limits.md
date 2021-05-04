@@ -32,7 +32,7 @@ If needed, the limits shown below can be increased on paid accounts. For details
 |Memory per CPU core|4,096 MB<!-- ACTOR_LIMITS.RUN_MEMORY_MBYTES_PER_CPU_CORE -->|
 |Build/run maximum log size|5,000,000 characters<!-- ACTOR_LIMITS.LOG_MAX_CHARS -->|
 |Maximum number of dataset columns for xlsx format|2,000 columns|
-|Maximum size of input schema for a task/actor|100 * 1024 B<!-- ACTOR_LIMITS.INPUT_SCHEMA_MAX_BYTES -->|
+|Maximum size of input schema for a task/actor|100 kB<!-- ACTOR_LIMITS.INPUT_SCHEMA_MAX_BYTES -->|
 
 ## [](#platform-limits) Platform limits
 
