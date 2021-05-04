@@ -16,7 +16,7 @@ We recommend using the Actor Testing actor only for specific and advanced use ca
 1. [Prepare 1-5 separate testing tasks for your actor](#set-up-tasks-you-will-test).
 2. [Set up a task from the Actor Testing actor](#set-up-a-task-from-the-actor-testing-actor).
 3. Run the test task until all tests succeed (a few times).
-4. Schedule the test to run at the frequency of your choice (recommended daily) and choose a communication channel receiving info about it ([Slack](https://apify.com/katerinahronik/slack-message) option or [email](https://apify.com/apify/send-mail)).
+4. Schedule the test to run at the frequency of your choice (recommended daily) and choose a communication channel receiving info about it ([Slack](https://apify.com/katerinahronik/slack-message) or [email](https://apify.com/apify/send-mail)).
 5. Ensure you review and fix any issues on a weekly basis.
 
 ## Set up tasks you will test
@@ -25,9 +25,9 @@ First, set up [tasks]({{@link actors/tasks.md}}) for all the possible input conf
 
 ![Tasks that test an actor's configurations]({{@asset actors/development/images/testing-tasks.png}})
 
-We also advise to test your actor's default run – one that uses the pre-filled inputs. It often is the first task your users run and they may be put off if it doesn't work.
+We also advise to test your actor's default run – one that uses the pre-filled inputs. It is often the first task your users run and they may be put off if it doesn't work.
 
-Set a low `maxItem` value for your testing tasks, so that you don't burn your credit uselessly. If you need to test your actor for a large amount of data, set the scheduler for a not so often runs (we don't test for those at the moment).
+Set a low `maxItem` value for your testing tasks, so that you don't burn your credit. If you need to test your actor with a large amount of data, set the scheduler to run less frequently.
 
 ## Set up a task from the Actor Testing actor
 
@@ -46,8 +46,8 @@ Crash information from the log:
 ```javascript
 await expectAsync(runResult).withLog((log) => {
     // Neither ReferenceError or TypeErrors should ever occur
-    // in production code – they mean the code is over-optimistic.
-    // The he errors must be dealt with gracefully and displayed with a helpful message to the user.
+    // in production code – they mean the code is over-optimistic
+    // The he errors must be dealt with gracefully and displayed with a helpful message to the user
     expect(log)
         .withContext(runResult.format('ReferenceError'))
         .not.toContain('ReferenceError');
@@ -117,6 +117,3 @@ await expectAsync(runResult).withKeyValueStore(({ contentType }) => {
     { keyName: 'apify.com-scroll_losless-comp' }
 );
 ```
-
-Make sure you set the test for each of your tasks in as much detail as you can without it randomly failing on predictable change.
-

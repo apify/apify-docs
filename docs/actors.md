@@ -19,7 +19,7 @@ You can use actors [manually in the Apify app](https://my.apify.com/actors), usi
 
 A single isolated actor consists of source code and various settings. You can think of an actor as a cloud app or service that runs on the Apify platform. The run of an actor is not limited to the lifetime of a single HTTP transaction. It can run for as long as necessary, even forever.
 
-## In this section
+## Actors overview
 
 * [Running]({{@link actors/running.md}})
   * [Input]({{@link actors/running/input.md}})
@@ -53,20 +53,18 @@ There are four main stages of building a public actor:
 
 1. [Development]({{@link actors/development.md}}).
 2. [Publication]({{@link actors/publishing.md}}).
-3. [Testing and maintenance]({{@link actors/development/testing_and_maintenance.md}})
-4. [Promotion]({{@link actors/publishing/seo_and_promotion.md}})
+3. [Testing and maintenance]({{@link actors/development/testing_and_maintenance.md}}).
+4. [Promotion]({{@link actors/publishing/seo_and_promotion.md}}).
 
 While you don't have to maintain private actors, public actors are a more long-term project. Be prepared to stick with the project for at least a few months. Ensure you have enough time to maintain the project (~2 hours weekly). With this perspective, you will be able to monetize and promote your actors better.
 
-Code quality is a priority. It is public on [Github](https://github.com), and your actors may be a new user's first and critical contact with Apify.
-
-Code should be open to changes and updates. Don't fear to refactor. Beware of breaking changes, though! If you do a breaking change, communicate it to all existing users with an explanation.
+Code quality is a priority. It is public on [Github](https://github.com), and your actors may be a new user's first and critical contact with Apify. Code should be open to changes and updates – don't fear to refactor. Beware of breaking changes, though! If you do a breaking change, communicate it to all existing users with an explanation.
 
 Documentation is critical (your actor's README). It should be clear, detailed, and readable. Think of the users, who might not be developers, so use simple, easy-to-understand language and avoid technical jargon.
 
 Ensure periodic testing. You can either do yourself or [set up automatic tests]({{@link actors/development/testing_and_maintenance.md}}) / [monitoring](https://apify.com/apify/monitoring). Try to prevent your users from coming to you with the issues.
 
-## Inspiration
+### Inspiration
 
 To come up with ideas for new actors, you can use your own experience with friends, colleagues, customers. Alternatively, you can use SEO tools that might help you to find the right search terms, websites related to web scraping, web automation, or web integrations. [See the SEO article]({{@link actors/publishing/seo_and_promotion.md}}) for more details.
 
