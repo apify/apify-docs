@@ -12,7 +12,7 @@ paths:
 
 Work on your actors does not end when you publish it. Now, it's time to promote your creation and get it to its intended audience. The Apify domain will boost your position with search engines but it won't do all the work. Focus on crafting content according to topics and phrases people search for to give your actor that extra boost.
 
-**The golden rule of SEO:** create quality content that provides value and engagement to your users. [Don't over-optimize SEO](https://seo-hacker.com/over-optimization-penalty/) or you risk being penalized by Google.
+**The golden rule of SEO:** Create quality content that provides value and engagement to your users. [Don't over-optimize SEO](https://seo-hacker.com/over-optimization-penalty/) or you risk being penalized by Google.
 
 Think of it this way: your content, URLs, keywords, titles, links, etc. determine the kind of search queries your page is shown in. The quality of the content determines how high it ranks in those results.
 
@@ -22,14 +22,15 @@ On the other hand, if you precisely address a niche segment of users who will be
 
 ## Keywords
 
-The easiest way to identify phrases to focus on is using [Google's Keyword Planner](https://ads.google.com/aw/keywordplanner/home).
+There are several freemium tools that make it easy to identify the right phrases and keywords:
 
-1. Go to **Discover new keywords**.
-2. Enter the one or more desired phrases or topics (e.g. **facebook scraper**, **web scraping**, **Facebook API**...).
-3. Select **English** language and, ideally, **United States** as the location.
-4. After clicking **Get results**, you can see a list of relevant phrases for your query. They will contain information about **Search volume** and **Competition**.
+- [wordstream.com/keywords](https://www.wordstream.com/keywords)
+- [neilpatel.com/ubersuggest](https://neilpatel.com/ubersuggest/)
+- [keywordtool.io](https://keywordtool.io/)
 
-The best most suitable combination is the high search volume and low competition. Try to find the best keywords (or topics) based on the relevance to your actor, the search volume and the competition.
+Enter the desired phrase or topic (e.g. Facebook scraper, Web scraping, Facebook API...) and set the **language** to **English**. Ideally, set the **location** to **United States**. After submitting the form, you will see a list of relevant phrases for your query with the information about **search volume**  (how many people are searching for this) and **competition** (number of results).
+
+The best combinations are those with **high search volume**  and **low competition**. Try to find keywords (or topics) relevant to your actor based these criteria.
 
 **Use your selected keywords on all the important parts of your actor's page/content**.
 
