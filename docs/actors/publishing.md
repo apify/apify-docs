@@ -15,7 +15,7 @@ Once you have finished coding and testing your actor, it's time to publish it. G
 
 ![Publish your actor in the Apify app]({{@asset actors/publishing/images/publish.png}})
 
-As well as a README, input schema, and a category, you'll need a username. You can set one on your [Profile](https://my.apify.com/account#/profile) page. Choose your username wisely, as changing it at a later stage will break any [integrations]({{@link tutorials/integrations.md}}) that use it.
+As well as a README, input schema, and a category, you'll need a **username**. You can set one on your [Profile](https://my.apify.com/account#/profile) page. Choose your username wisely, as changing it at a later stage will break any [integrations]({{@link tutorials/integrations.md}}) that use it.
 
 ## Private or public?
 
@@ -23,13 +23,13 @@ Actors can be private or public.
 
 Public actors are shown in the [store](https://apify.com/store) and can be run by anyone. Each public actor has a globally unique identifier that consists of the owner's username and the actor name, e.g. [apify/hello-world](https://apify.com/apify/hello-world).
 
-Private actors can only be accessed and started by their owner. To keep your actor private, keep the **Published** box in the **Publication** tab unticked.
+Private actors can only be accessed and started by their owner. To keep your actor private, keep the **Published** switch in the **Publication** tab on **Off**.
 
 ## Title
 
 The title should be simple and clear. Use the official name of the website your actor is for and add its function, e.g. **Scraper** / **Tool** / **Example** to make its function clear to users. Do not use abbreviations, as they might confuse users.
 
-[See our article on naming actors]({{@link actors/publishing/naming_your_actor.md}}).
+[See our tips for naming actors]({{@link actors/publishing/naming_your_actor.md}}).
 
 ## Description
 

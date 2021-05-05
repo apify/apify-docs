@@ -31,9 +31,7 @@ Set a low `maxItem` value for your testing tasks, so that you don't burn your cr
 
 ## Set up a task from the Actor Testing actor
 
-You can [find the setup guide](https://apify.com/pocesar/actor-testing) in the actor's README.
-
-In essence, we recommend testing for the following.
+You can [find the setup guide](https://apify.com/pocesar/actor-testing) in the actor's README. We recommend testing for the following scenarios.
 
 Run status:
 

@@ -19,7 +19,7 @@ You can use actors [manually in the Apify app](https://my.apify.com/actors), usi
 
 A single isolated actor consists of source code and various settings. You can think of an actor as a cloud app or service that runs on the Apify platform. The run of an actor is not limited to the lifetime of a single HTTP transaction. It can run for as long as necessary, even forever.
 
-## Actors overview
+## Section overview
 
 * [Running]({{@link actors/running.md}})
   * [Input]({{@link actors/running/input.md}})
