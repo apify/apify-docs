@@ -60,7 +60,7 @@ While you don't have to maintain private actors, public actors are a more long-t
 
 Code quality is a priority. It is public on [Github](https://github.com), and your actors may be a new user's first and critical contact with Apify. Code should be open to changes and updates – don't fear to refactor. Beware of breaking changes, though! If you do a breaking change, communicate it to all existing users with an explanation.
 
-Documentation is critical (your actor's README). It should be clear, detailed, and readable. Think of the users, who might not be developers, so use simple, easy-to-understand language and avoid technical jargon.
+Documentation is vital (your actor's README). It should be clear, detailed, and readable. Think of the users, who might not be developers, so use simple, easy-to-understand language and avoid technical jargon.
 
 Ensure periodic testing. You can either do yourself or [set up automatic tests]({{@link actors/development/testing_and_maintenance.md}}) / [monitoring](https://apify.com/apify/monitoring). Try to prevent your users from coming to you with the issues.
 

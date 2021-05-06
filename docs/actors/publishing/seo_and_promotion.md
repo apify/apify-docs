@@ -40,7 +40,7 @@ The best combinations are those with **high search volume**  and **low competiti
 - Page body (e.g., README).
 - The texts in your links.
 
-> While crafting your content with keywords, beware of [over-optimizing or keyword stuffing](https://www.notion.so/apify/Public-actor-Guide-7c2ef51d4c9846afa33567dc516cabfa#e53d4d0489964a448a0405fb172cda14) the page. You can use synonyms or related keywords to help this. Google is smart enough to evaluate the page based on how well the whole topic is covered (not just based on keywords), but using them helps.
+> While crafting your content with keywords, beware of [over-optimizing or keyword stuffing](https://yoast.com/over-optimized-website/) the page. You can use synonyms or related keywords to help this. Google is smart enough to evaluate the page based on how well the whole topic is covered (not just based on keywords), but using them helps.
 
 ## Optimizing your actor details
 
@@ -60,9 +60,9 @@ The actor title provides a human-readable name. The title is the most important 
 
 At the same time, it should give your actor a clear name for people who will use it every day. So if you’re working on an "Amazon crawler" or a "Google Places API", use the following formats for your actor's name:
 
-> **GOOD**: Amazon crawler, Google Places API, Kickstarter search.
+> **GOOD**: Crawler for Amazon, API for Google Places, Search in Kickstarter.
 <br/>
-> **AVOID**: Crawler for Amazon, API for Google Places, Search in Kickstarter.
+> **BETTER**: Amazon crawler, Google Places API, Kickstarter search.
 
 ### Description
 
