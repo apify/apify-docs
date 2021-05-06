@@ -9,12 +9,14 @@ paths:
 
 You should make sure your [actors]({{@link actors.md}}) (especially [paid ones]({{@link actors/paid_actors.md}})) are well-maintained. You might not always get feedback from your users, therefore it is crucial that you periodically check if your actors work as expected. You can do this using our [monitoring suite](https://apify.com/apify/monitoring) or by setting up daily runs of the **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) actor.
 
-We recommend using the Actor Testing actor only for specific and advanced use cases. The monitoring suite is sufficient for most general applications and includes automated alerts.
+The monitoring suite is sufficient for most scenarios and includes automated alerts. [See more information](https://apify.com/apify/monitoring) on the suite's page or [check out our tutorials]({{@link monitoring.md}}).
+
+We recommend using the Actor Testing actor for specific and advanced use cases. This guide will help you set it up.
 
 ## Step-by-step guide
 
-1. [Prepare 1-5 separate testing tasks for your actor](#set-up-tasks-you-will-test).
-2. [Set up a task from the Actor Testing actor](#set-up-a-task-from-the-actor-testing-actor).
+1. Prepare 1-5 separate testing tasks for your actor. ([See below](#set-up-tasks-you-will-test)).
+2. Set up a task from the Actor Testing actor. ([See below](#set-up-a-task-from-the-actor-testing-actor)).
 3. Run the test task until all tests succeed (a few times).
 4. Schedule the test to run at the frequency of your choice (recommended daily) and choose a communication channel receiving info about it ([Slack](https://apify.com/katerinahronik/slack-message) or [email](https://apify.com/apify/send-mail)).
 5. Ensure you review and fix any issues on a weekly basis.
@@ -45,7 +47,7 @@ Crash information from the log:
 await expectAsync(runResult).withLog((log) => {
     // Neither ReferenceError or TypeErrors should ever occur
     // in production code – they mean the code is over-optimistic
-    // The he errors must be dealt with gracefully and displayed with a helpful message to the user
+    // The errors must be dealt with gracefully and displayed with a helpful message to the user
     expect(log)
         .withContext(runResult.format('ReferenceError'))
         .not.toContain('ReferenceError');
@@ -65,7 +67,7 @@ await expectAsync(runResult).withStatistics((stats) => {
         .withContext(runResult.format('Request retries'))
         .toBeLessThan(3);
 
-    // What is the expected run time for the number of maxItems?
+    // What is the expected run time for the number of items?
     expect(stats.crawlerRuntimeMillis)
         .withContext(runResult.format('Run time'))
         .toBeWithinRange(1 * 60000, 10 * 60000);
