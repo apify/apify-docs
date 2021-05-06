@@ -125,9 +125,7 @@ For most ongoing monitoring scenarios, we recommend using the [Apify monitoring 
 
 ### Ongoing testing
 
-If you have advanced and specific requirements, you can create your own test actors, which you can [schedule]({{@link schedules.md}}) to regularly run and validate your actors' results. For this, you can use our **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) actor.
+If you have advanced and specific requirements, you can create your own test actors, which you can [schedule]({{@link schedules.md}}) to regularly run and validate your actors' results. For this, you can use our **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) actor ([see the guide]({{@link actors/development/testing_and_maintenance.md}})).
 
 If using this approach, you can set up notifications using the **Send Mail** ([apify/send-mail](https://apify.com/apify/send-mail)) and **Send Slack Message** ([katerinahronik/slack-message](https://apify.com/katerinahronik/slack-message)) actors.
 
-<!-- Uncomment after the Public actor guide is released -->
-<!-- See our [Maintenance and testing] (link later) article.-->
