@@ -72,7 +72,7 @@ When you use datacenter proxy with the `session` [parameter]({{@link proxy.md#se
 
 **Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info]({{@link proxy.md#sessions}})]
 
-This IP/session ID combination persists and expires 24 hours later. Each additional request resets the expiration time to 24 hours.
+This IP/session ID combination persists and expires 26 hours later. Each additional request resets the expiration time to 26 hours.
 
 So, if you use the session at least once a day, it will never expire, with two possible exceptions:
 
