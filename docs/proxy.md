@@ -1,7 +1,7 @@
 ---
 title: Proxy
 description: Learn how to anonymously access websites when running web scraping or automation jobs. Prevent IP address-based blocking using IP address rotation.
-menuWeight: 10
+menuWeight: 11
 category: platform
 paths:
     - proxy
