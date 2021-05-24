@@ -1,6 +1,6 @@
 ---
 title: Proxy
-description: Learn how to anonymously access websites when running web scraping or automation jobs. Improves data throughput and efficiency of bots, and enables access to websites from various geographies.
+description: Learn how to anonymously access websites when running web scraping or automation jobs. Improve data throughput and efficiency of bots, and enable access to websites from various geographies.
 menuWeight: 10
 category: platform
 paths:
