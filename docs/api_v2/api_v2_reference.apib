@@ -26,7 +26,15 @@ from services that can only send GET requests.
 You can find your API token on the
 [Integrations](https://my.apify.com/account#/integrations) page in the Apify app.
 
-Add the token as the `token` parameter to your request URL.
+To use your token in a request, either:
+- Add the token to your request's `Authorization` header as `Bearer <token>`.
+E.g., `Authorization: Bearer y373yssyyT66`.
+[More info](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization). (Recommended).
+- Add it as the `token` parameter to your request URL. (Less secure).
+
+Using your token in the request header is more secure than using it as a URL parameter because URLs are often stored
+in browser history and server logs. This creates a chance for someone unauthorized to access
+your API token.
 
 **Do not share your API token or password with untrusted parties.**
 
@@ -40,7 +48,7 @@ To run an actor, send a POST request to the [Run actor](#reference/actors/run-co
 
 If the actor is not runnable anonymously, you will receive a 401 or 403
 [response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
-This means you need to append your [secret API token](https://my.apify.com/account#/integrations) as a query parameter `?token=[your_token]`.
+This means you need to add your [secret API token](https://my.apify.com/account#/integrations) to the request's `Authorization` header ([recommended](https://docs.apify.com/api/v2#/introduction/authentication)) or as a URL query parameter `?token=[your_token]` (less secure).
 
 Optionally, you can include the query parameters described in the [Run actor](#reference/actors/run-collection/run-actor) section to customize your run.
 
