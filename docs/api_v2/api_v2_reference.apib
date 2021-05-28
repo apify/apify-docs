@@ -28,7 +28,7 @@ You can find your API token on the
 
 To use your token in a request, either:
 - Add the token to your request's `Authorization` header as `Bearer <token>`.
-E.g., `Authorization: Bearer y373yssyyT66`.
+E.g., `Authorization: Bearer xxxxxxx`.
 [More info](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization). (Recommended).
 - Add it as the `token` parameter to your request URL. (Less secure).
 
@@ -48,7 +48,7 @@ To run an actor, send a POST request to the [Run actor](#reference/actors/run-co
 
 If the actor is not runnable anonymously, you will receive a 401 or 403
 [response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
-This means you need to add your [secret API token](https://my.apify.com/account#/integrations) to the request's `Authorization` header ([recommended](https://docs.apify.com/api/v2#/introduction/authentication)) or as a URL query parameter `?token=[your_token]` (less secure).
+This means you need to add your [secret API token](https://my.apify.com/account#/integrations) to the request's `Authorization` header ([recommended](#introduction/authentication)) or as a URL query parameter `?token=[your_token]` (less secure).
 
 Optionally, you can include the query parameters described in the [Run actor](#reference/actors/run-collection/run-actor) section to customize your run.
 
@@ -470,6 +470,8 @@ The response is the full actor object as returned by the
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
 
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+
 + Request (application/json)
 
     + Attributes(ActUpdate)
@@ -616,6 +618,8 @@ passed as JSON in the POST payload.
 If the object does not define a specific property, its value will not be updated.
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
+
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
 The response is the [Version object](#reference/actors/version-object) as returned by the
 [Get version](#reference/actors/version-object/get-version) endpoint.
@@ -1382,6 +1386,8 @@ The response is the full task object as returned by the
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
 
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+
 + Request (application/json)
 
     + Attributes(TaskCreate)
@@ -1420,6 +1426,8 @@ The response is the full task object as returned by the
 [Get task](#reference/tasks/task-object/get-task) endpoint.
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
+
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
 + Request (application/json)
 
@@ -1465,6 +1473,8 @@ The response is the full task input as returned by the
 [Get task](#reference/tasks/task-input-object/get-task-input) endpoint.
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
+
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
 + Request (application/json)
 
@@ -3123,6 +3133,8 @@ The response is the full webhook object as returned by the
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
 
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+
 + Request (application/json)
 
     + Attributes(WebhookUpdate)
@@ -3262,6 +3274,8 @@ The response is the created schedule object.
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
 
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+
 + Request (application/json)
 
     + Attributes(ScheduleCreate)
@@ -3300,6 +3314,8 @@ The response is the full schedule object as returned by the
 [Get schedule](#reference/schedules/schedule-object/get-schedule) endpoint.
 
 **The request needs to specify the `Content-Type: application/json` HTTP header!**
+
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
 + Request (application/json)
 

@@ -157,30 +157,32 @@ For more information on managing your request queues using the JavaScript API cl
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/request-queues) allows you to access your request queues programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your request queues using the **username~store-name** [store ID format]({{@link storage.md#apify-api}}), you will need to append your [secret API token]({{@link tutorials/integrations.md#api-token}}) as a query parameter (see below). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+If you are accessing your datasets using the **username~store-name** [store ID format]({{@link storage.md#apify-api}}), you will need to use your [secret API token]({{@link tutorials/integrations.md#api-token}}). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
 
-To **get a list of your request queues**, send a GET request to the [Get list of request queues](https://docs.apify.com/api/v2#/reference/request-queues/store-collection/get-list-of-request-queues) endpoint, providing your secret API token as a query parameter.
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+
+To **get a list of your request queues**, send a GET request to the [Get list of request queues](https://docs.apify.com/api/v2#/reference/request-queues/store-collection/get-list-of-request-queues) endpoint.
 
 ```text
-https://api.apify.com/v2/request-queues?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/request-queues
 ```
 
 To **get information about a request queue** such as its creation time and item count, send a GET request to the [Get request queue](https://docs.apify.com/api/v2#/reference/request-queues/queue/get-request-queue) endpoint.
 
 ```text
-https://api.apify.com/v2/request-queues/{QUEUE_ID}?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/request-queues/{QUEUE_ID}
 ```
 
 To **get a request from a queue**, send a GET request to the [Get request](https://docs.apify.com/api/v2#/reference/request-queues/request/get-request) endpoint.
 
 ```text
-https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}
 ```
 
 To **add a request to a queue**, send a POST request with the request to be added as a JSON object in the request's payload to the [Add request](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/add-request) endpoint.
 
 ```text
-https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests
 ```
 
 Example payload:
@@ -196,7 +198,7 @@ Example payload:
 To **update a request in a queue**, send a PUT request with the request to update as a JSON object in the request's payload to the [Update request](https://docs.apify.com/api/v2#/reference/request-queues/request/update-request) endpoint. In the payload, specify the request's ID and add the information you want to update.
 
 ```text
-https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}
 ```
 
 Example payload:

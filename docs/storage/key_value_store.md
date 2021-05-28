@@ -151,30 +151,32 @@ For more information on managing your key-value stores using the JavaScript API 
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) allows you to access your key-value stores programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
-If you are accessing your stores using the **username~store-name** [store ID format]({{@link storage.md#apify-api}}), you will need to append your [secret API token]({{@link tutorials/integrations.md#api-token}}) as a query parameter (see below). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+If you are accessing your datasets using the **username~store-name** [store ID format]({{@link storage.md#apify-api}}), you will need to use your [secret API token]({{@link tutorials/integrations.md#api-token}}). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
 
-To **get a list of your key-value stores**, send a GET request to the [Get list of key-value stores](https://docs.apify.com/api/v2#/reference/key-value-stores/store-collection/get-list-of-key-value-stores) endpoint, providing your secret API token as a query parameter.
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+
+To **get a list of your key-value stores**, send a GET request to the [Get list of key-value stores](https://docs.apify.com/api/v2#/reference/key-value-stores/store-collection/get-list-of-key-value-stores) endpoint.
 
 ```text
-https://api.apify.com/v2/key-value-stores?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/key-value-stores
 ```
 
 To **get information about a key-value store** such as its creation time and item count, send a GET request to the [Get store](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/get-store) endpoint.
 
 ```text
-https://api.apify.com/v2/key-value-stores/{STORE_ID}?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/key-value-stores/{STORE_ID}
 ```
 
 To **get a record** (its value) from a key-value store, send a GET request to the [Get record](https://docs.apify.com/api/v2#/reference/key-value-stores/key-collection/get-record) endpoint.
 
 ```text
-https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
 ```
 
 To **add a record** to a specific key in a key-value store, send a PUT request to the [Put record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record) endpoint.
 
 ```text
-https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
 ```
 
 Example payload:
@@ -189,7 +191,7 @@ Example payload:
 To **delete a record**, send a DELETE request specifying the key from a key-value store to the [Delete record](https://docs.apify.com/api/v2#/reference/key-value-stores/record/delete-record) endpoint.
 
 ```text
-https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
 ```
 
 For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/key-value-stores).
