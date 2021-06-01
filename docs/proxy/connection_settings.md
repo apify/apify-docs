@@ -18,7 +18,7 @@ Below are the HTTP proxy connection settings for Apify Proxy.
 | Username       | Specifies the proxy parameters such as groups, [session]({{@link proxy.md#sessions}}) and location. <br/>See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username. |
 | Password       | Proxy password. Your password is displayed on the [Proxy](https://my.apify.com/proxy) page in the Apify app. <br/>In Apify [actors]({{@link actors.md}}), it is passed as the `APIFY_PROXY_PASSWORD` <br/>environment variable.<br/>See the [environment variables docs]({{@link actors/development/environment_variables.md}}) for more details. |
 | Connection URL | `http://<username>:<password>@proxy.apify.com:8000`|
-| Static IP Addresses | `18.208.102.16`, `35.171.134.41` Static IP addresses you can use as alternative to hostname. |
+| Static IP Addresses | `18.208.102.16`, `35.171.134.41` Static IP addresses, that can be used as an alternative to hostname. |
 
 
 **WARNING:** All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks – **the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
