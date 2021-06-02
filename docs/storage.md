@@ -140,7 +140,7 @@ In most cases, when accessing your storages via API, you will need to provide a 
 
 For read (GET) requests, it is enough to use a store's alpha-numerical ID, since the ID is hard to guess and effectively serves as an authentication key.
 
-With other request types and when using the **username~store-name**, however, you will need to provide your secret API token as a query parameter. You can find your token on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+With other request types and when using the **username~store-name**, however, you will need to provide your secret API token in [your request's `Authorization` header](/api/v2#/introduction/authentication) or as a query parameter. You can find your token on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
 
 For more information and a detailed breakdown of each storage API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
 

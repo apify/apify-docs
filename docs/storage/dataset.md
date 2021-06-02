@@ -157,25 +157,27 @@ For more information, see the JavaScript API client [documentation](https://docs
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/datasets) allows you to access your datasets programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
-If you are accessing your datasets using the **username~store-name** [store ID format]({{@link storage.md#apify-api}}), you will need to append your [secret API token]({{@link tutorials/integrations.md#api-token}}) as a query parameter (see below). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+If you are accessing your datasets using the **username~store-name** [store ID format]({{@link storage.md#apify-api}}), you will need to use your [secret API token]({{@link tutorials/integrations.md#api-token}}). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
 
-To **get a list of your datasets**, send a GET request to the [Get list of datasets](https://docs.apify.com/api/v2#/reference/datasets/get-list-of-datasets) endpoint, providing your API token as a query parameter.
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+
+To **get a list of your datasets**, send a GET request to the [Get list of datasets](https://docs.apify.com/api/v2#/reference/datasets/get-list-of-datasets) endpoint.
 
 ```text
-https://api.apify.com/v2/datasets?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/datasets
 ```
 
 To **get information about a dataset** such as its creation time and **item count**, send a GET request to the [Get dataset](https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset) endpoint.
 
 ```text
-https://api.apify.com/v2/datasets/{DATASET_ID}?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/datasets/{DATASET_ID}
 ```
 
 To **view a dataset's data**, send a GET request to the
 [Get dataset items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items) Apify API endpoint.
 
 ```text
-https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
 You can **specify which data are exported** by adding a comma-separated list of fields to the **fields** query parameter. Likewise, you can also omit certain fields using the **omit** parameter.
@@ -187,7 +189,7 @@ In addition, you can set the format in which you retrieve the data using the **?
 To retrieve the **hotel** and **cafe** fields, you would send your GET request to the URL below.
 
 ```text
-https://api.apify.com/v2/datasets/{DATASET_ID}/items?format=json?token={YOUR_API_TOKEN}&fields=hotel%2Ccafe
+https://api.apify.com/v2/datasets/{DATASET_ID}/items?format=json&fields=hotel%2Ccafe
 ```
 
 > Instead of commas, you will need to use the `%2C` code, which represents `,` in URL encoding.<br/>
@@ -196,7 +198,7 @@ https://api.apify.com/v2/datasets/{DATASET_ID}/items?format=json?token={YOUR_API
 To **add data to a dataset**, send a POST request, with a JSON object containing the data you want to add as the payload to the [Put items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items) endpoint.
 
 ```text
-https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
 > Pushing data to dataset via API is limited to **200** requests per second to prevent our servers from being overloaded.

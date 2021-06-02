@@ -55,11 +55,11 @@ If you are an advanced user, you can also add a [webhook](https://docs.apify.com
 
 ### [](#via-api) Via API
 
-To [create a new schedule](https://docs.apify.com/api/v2#/reference/schedules) using the [Apify API](https://docs.apify.com/api/v2#), send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to
+To [create a new schedule](https://docs.apify.com/api/v2#/reference/schedules) using the [Apify API](https://docs.apify.com/api/v2#), send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to the [create schedule](https://docs.apify.com/api/v2#/reference/schedules/schedules-collection/create-schedule) endpoint.
 
-`https://api.apify.com/v2/schedules?token={YOUR_API_TOKEN}`.
+You can find your [secret API token]({{@link tutorials/integrations.md#api-token}}) in your Apify account's [Integrations](https://my.apify.com/account#/integrations) tab. When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](/api/v2#/introduction/authentication)).
 
-You can find your [secret API token]({{@link tutorials/integrations.md#api-token}}) in your Apify account's [Integrations](https://my.apify.com/account#/integrations) tab. In the POST request's payload should be a JSON object specifying the schedule's name, your [user ID](https://my.apify.com/account#/integrations), and the schedule's **actions**.
+In the POST request's payload should be a JSON object specifying the schedule's name, your [user ID](https://my.apify.com/account#/integrations), and the schedule's **actions**.
 
 The below JSON object creates a schedule which runs an SEO audit of the Apify domain once a month.
 

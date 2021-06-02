@@ -40,11 +40,7 @@ To access our API in your integrations, you will need to use your secret API tok
 
 ![Integrations page in the Apify app]({{@asset tutorials/images/api-token.png}})
 
-Add the secret API token to your request URL as the `token` query parameter.
-
-```cURL
-https://api.apify.com/v2/acts?token=[YOUR_TOKEN]
-```
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
 **IMPORTANT**: **Do not share the API token with untrusted parties, or use it directly from client-side code,
 unless you fully understand the consequences!**
