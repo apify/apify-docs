@@ -71,10 +71,10 @@ the [Apify API](/api/v2#/reference/request-queues).
 
 There are four ways to access your storage:
 
-* [Apify app](https://my.apify.com/storage) - provides an easy-to-understand interface [[details](#apify-app)]
-* [Apify (SDK)](https://sdk.apify.com/docs/guides/data-storage) - when building your own Apify actor [[details](#apify-sdk)]
-* [JavaScript API client](/apify-client-js) - to access your storages from any Node.js application [[details](#javascript-api-client)]
-* [Apify API](/api/v2#/reference/key-value-stores) - for accessing your storages programmatically [[details](#apify-api)]
+* [Apify app](https://my.apify.com/storage) - provides an easy-to-understand interface [[details](#apify-app)].
+* [Apify (SDK)](https://sdk.apify.com/docs/guides/data-storage) - when building your own Apify actor [[details](#apify-sdk)].
+* [JavaScript API client](/apify-client-js) - to access your storages from any Node.js application [[details](#javascript-api-client)].
+* [Apify API](/api/v2#/reference/key-value-stores) - for accessing your storages programmatically [[details](#apify-api)].
 
 ### [](#apify-app) Apify app
 
@@ -113,8 +113,8 @@ The [Apify API](/api/v2#/reference/key-value-stores) allows you to access your s
 
 In most cases, when accessing your storages via API, you will need to provide a **store ID**, which you can do in the following formats:
 
-* **WkzbQMuFYuamGv3YF** - the store's alpha-numerical ID if the store is unnamed
-* **username~store-name** - your username and the store's name separated by a tilde (`~`) character (e.g. **janedoe~ecommerce-scraping-results**) if the store is named
+* **WkzbQMuFYuamGv3YF** - the store's alpha-numerical ID if the store is unnamed.
+* **username~store-name** - your username and the store's name separated by a tilde (`~`) character (e.g. **janedoe~ecommerce-scraping-results**) if the store is named.
 
 For read (GET) requests, it is enough to use a store's alpha-numerical ID, since the ID is hard to guess and effectively serves as an authentication key.
 
@@ -172,7 +172,7 @@ You can invite other Apify users to view or modify your storages using the [acce
 
 Any storage can be accessed from any [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) run as long as you know its **name** or **ID**. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
-[Datasets]({{@link storage/dataset.md}}) and [key-value stores]({{@link storage/key_value_store.md}}) can be used concurently by multiple actors. This means that multiple actors or tasks running at the same time can **write** data to a single dataset or key-value store. The same applies for reading data–multiple runs can **read** data from datasets and key-value stores concurrently.
+[Datasets]({{@link storage/dataset.md}}) and [key-value stores]({{@link storage/key_value_store.md}}) can be used concurrently by multiple actors. This means that multiple actors or tasks running at the same time can **write** data to a single dataset or key-value store. The same applies for reading data–multiple runs can **read** data from datasets and key-value stores concurrently.
 
 [Request queues]({{@link storage/request_queue.md}}), on the other hand, only allow multiple runs to **add new data**. A request queue can only be processed by one actor or task run at any one time.
 
