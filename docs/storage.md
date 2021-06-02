@@ -82,7 +82,7 @@ To access your storages from the Apify app, go to the [**Storage** section](http
 
 ![Storages in app]({{@asset storage/images/datasets-app.png}})
 
-> Only named storages are displayed by default. Select the **Include unnamed *store*** checkbox to display all of your storages.
+> Only named storages are displayed by default. Select the **Include unnamed store** checkbox to display all of your storages.
 
 You can edit your stores' names under the **Settings** tab of their detail page. There, you can also grant [access rights](/access-rights) to other Apify users.
 
