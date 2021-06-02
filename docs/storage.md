@@ -50,7 +50,7 @@ To manage your key-value stores, you can use the
 [Apify SDK](https://sdk.apify.com/docs/api/key-value-store), [JavaScript API client](/apify-client-js#keyvaluestoreclient) or
 the [Apify API](/api/v2#/reference/key-value-stores).
 
-For more information, see the [key-value store]({{@link storage/key_value_store.md}}) documentation page.
+[See the key-value store documentation]({{@link storage/key_value_store.md}}) for details.
 
 ## [](#request-queue) Request queue
 
@@ -99,7 +99,7 @@ These URLs provide links to API **endpoints**–the places where your data are s
 
 The [Apify SDK](https://sdk.apify.com) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions. It requires [Node.js](https://nodejs.org/en/) 10.17 or later, with the exception of **Node.js 11**.
 
-For setup instructions and to learn how to build your own actors, visit the [SDK documentation](https://sdk.apify.com/docs/guides/getting-started).
+[See the [SDK documentation](https://sdk.apify.com/docs/guides/getting-started) for setup instructions and to learn how to build your own actors.
 
 ### [](#javascript-api-client) JavaScript API client
 
@@ -166,7 +166,7 @@ For example, the storage names **janedoe~my-storage-1** and **janedoe~web-scrape
 
 ## [](#sharing) Sharing
 
-You can invite other Apify users to view or modify your storages using the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#storage}}).
+You can invite other Apify users to view or modify your storages using the [access rights]({{@link access_rights.md}}) system. [See the full list of permissions]({{@link access_rights/list_of_permissions.md#storage}}).
 
 ### [](#sharing-storages-between-runs) Sharing storages between runs
 
