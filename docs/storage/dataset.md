@@ -100,8 +100,6 @@ const hotelAndCafeData = await dataset.getData({
 
 Apify's [JavaScript API client](/apify-client-js) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
-[See the client's documentation](/apify-client-js#quick-start) for help with setup.
-
 After importing and initiating the client, you can save each dataset to a variable for easier access.
 
 ```js
@@ -112,7 +110,7 @@ You can then use that variable to [access the dataset's items and manage it](/ap
 
 Note: When using the [`.listItems()`](/apify-client-js#datasetclient-listitems) method, if you mention the same field name in the `field` and `omit` parameters, the `omit` parameter will prevail and the field will not be returned.
 
-[See the JavaScript API client documentation](/apify-client-js#datasetclient) for more details.
+[See the JavaScript API client documentation](/apify-client-js#datasetclient) for [help with setup](/apify-client-js#quick-start) and more details.
 
 ### [](#apify-api) Apify API
 

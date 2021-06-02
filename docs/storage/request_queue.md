@@ -112,8 +112,6 @@ await queue.drop();
 
 Apify's [JavaScript API client](/apify-client-js) (`apify-client`) allows you to access your request queues from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
-[See the client's documentation](/apify-client-js#quick-start) for help with setup.
-
 After importing and initiating the client, you can save each request queue to a variable for easier access.
 
 ```js
@@ -122,7 +120,7 @@ const myQueueClient = apifyClient.requestQueue('jane-doe/my-request-queue');
 
 You can then use that variable to [access the request queue's items and manage it](/apify-client-js#requestqueueclient).
 
-[See the JavaScript API client documentation](/apify-client-js#requestqueueclient) for more details.
+[See the JavaScript API client documentation](/apify-client-js#requestqueueclient) for [help with setup](/apify-client-js#quick-start) and more details.
 
 ### [](#apify-api) Apify API
 

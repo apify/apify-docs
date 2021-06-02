@@ -112,8 +112,6 @@ The `Apify.getInput()`method is not only a shortcut to `Apify.getValue('INPUT')`
 
 Apify's [JavaScript API client](/apify-client-js#keyvaluestoreclient) (`apify-client`) allows you to access your key-value stores from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
-[See the client's documentation](/apify-client-js#quick-start) for help with setup.
-
 After importing and initiating the client, you can save each key-value store to a variable for easier access.
 
 ```js
@@ -122,7 +120,7 @@ const myKeyValStoreClient = apifyClient.keyValueStore('jane-doe/my-key-val-store
 
 You can then use that variable to [access the key-value store's items and manage it](/apify-client-js#keyvaluestoreclient).
 
-[See the JavaScript API client documentation](/apify-client-js#keyvaluestoreclient) for more details.
+[See the JavaScript API client documentation](/apify-client-js#keyvaluestoreclient) for [help with setup](/apify-client-js#quick-start) and more details.
 
 ### Apify API
 
