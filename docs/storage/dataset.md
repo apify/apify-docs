@@ -94,7 +94,7 @@ const hotelAndCafeData = await dataset.getData({
 });
 ```
 
-For more information on managing datasets using the Apify SDK, see the [SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset) and the `Dataset` class's [API reference](https://sdk.apify.com/docs/api/dataset#datasetpushdatadata).
+[See the SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset) and the `Dataset` class's [API reference](https://sdk.apify.com/docs/api/dataset#datasetpushdatadata) for more information on managing datasets with the Apify SDK.
 
 ### [](#javascript-api-client) JavaScript API client
 
@@ -180,7 +180,7 @@ Example payload:
 ]
 ```
 
-For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
+[See the API documentation](https://docs.apify.com/api/v2#/reference/datasets) for a detailed breakdown of each API endpoint.
 
 ## [](#hidden-fields) Hidden fields
 
@@ -283,7 +283,7 @@ By default, the whole result is wrapped in an `<items/>` element, while each pag
 
 ## [](#sharing) Sharing
 
-You can invite other Apify users to view or modify your datasets using the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#dataset}}).
+You can invite other Apify users to view or modify your datasets using the [access rights]({{@link access_rights.md}}) system. [See the full list of permissions]({{@link access_rights/list_of_permissions.md#storage}}).
 
 ### [](#sharing-datasets-between-runs) Sharing datasets between runs
 
@@ -303,7 +303,7 @@ const otherDatasetClient = apifyClient.dataset('jane-doe/old-dataset');
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally.
 
-[See the Storage overview page](https://docs.apify.com/storage/#sharing-storages-between-runs) for more information on sharing storages between runs.
+[See the Storage overview](https://docs.apify.com/storage/#sharing-storages-between-runs) for more information on sharing storages between runs.
 
 ## [](#limits) Limits
 
@@ -319,4 +319,4 @@ When pushing data to a dataset via [API](https://docs.apify.com/api/v2#/referenc
 
 All other dataset API [endpoints](https://docs.apify.com/api/v2#/reference/datasets) are limited to **30** requests per second per dataset.
 
-See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details and to learn what to do if you exceed the rate limit.
+[See the API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details and to learn what to do if you exceed the rate limit.

@@ -81,7 +81,7 @@ Apify.main(async () => {
 });
 ```
 
-Once a queue is open, you can manage it using the following methods. For a full list of methods, see the `RequestQueue` class's [API reference](https://sdk.apify.com/docs/api/request-queue#requestqueueaddrequestrequest-options).
+Once a queue is open, you can manage it using the following methods. [See the `RequestQueue` class's API reference](https://sdk.apify.com/docs/api/request-queue#requestqueueaddrequestrequest-options) for the full list.
 
 ```js
 // Enqueue requests
@@ -106,7 +106,7 @@ await queue.reclaimRequest(request2);
 await queue.drop();
 ```
 
-For more information on managing your request queues with the Apify SDK, see the SDK [documentation](https://sdk.apify.com/docs/guides/data-storage#request-queue) and the `RequestQueue` class's [API reference](https://sdk.apify.com/docs/api/request-queue#requestqueueaddrequestrequest-options).
+[See the SDK documentation](https://sdk.apify.com/docs/guides/data-storage#request-queue) and the `RequestQueue` class's [API reference](https://sdk.apify.com/docs/api/request-queue#requestqueueaddrequestrequest-options) for more information on managing your request queues with the Apify SDK.
 
 ### [](#javascript-api-client) JavaScript API client
 
@@ -183,10 +183,10 @@ Example payload:
 }
 ```
 
-> When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](#sharing). If `clientKey` is not provided, the system considers this API call to come from a new client. For details, see the `hadMultipleClients` field returned by the `Get head` [operation](/api/v2#/reference/request-queues/queue-head/get-head). <br/>
+> When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](#sharing). If `clientKey` is not provided, the system considers this API call to come from a new client. [See the `hadMultipleClients` field](/api/v2#/reference/request-queues/queue-head/get-head) returned by the `Get head` operation for details. <br/>
 > Example: client-abc
 
-For a detailed breakdown of each API endpoint, see the [API documentation](/api/v2#/reference/request-queues).
+[See the API documentation](/api/v2#/reference/request-queues) for a detailed breakdown of each API endpoint.
 
 ## [](#sharing) Sharing
 
@@ -210,7 +210,7 @@ const otherQueueClient = apifyClient.requestQueue('jane-doe/old-queue');
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally.
 
-For more information on sharing storages between runs, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs).
+[See the Storage overview](https://docs.apify.com/storage/#sharing-storages-between-runs) for more information on sharing storages between runs.
 
 ## [](#limits) Limits
 
