@@ -24,7 +24,7 @@ There are four ways to access your datasets:
 
 * [Apify app](https://my.apify.com/storage#/datasets) - provides an easy-to-understand interface [[details](#apify-app)].
 * [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor [[details](#apify-sdk)].
-* [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from any Node.js application [[details](#javascript-api-client)].
+* [JavaScript API client](/apify-client-js#datasetclient) - to access your datasets from any Node.js application [[details](#javascript-api-client)].
 * [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically [[details](#apify-api)].
 
 ### [](#apify-app) Apify app
@@ -36,7 +36,7 @@ Only named datasets are displayed by default. Select the **Include unnamed datas
 ![Datasets in app]({{@asset storage/images/datasets-app.png}})
 
 To view or download a dataset in the above mentioned formats, click on its **Dataset ID**\. In the detail page, you can update the dataset's name (and, in turn, its [retention period]({{@link storage.md#data-retention}})) and
-[access rights]({{@link access_rights.md}}) under the **Settings** tab. The API tab allows you to view and test the dataset's [API endpoints](https://docs.apify.com/api/v2#/reference/datasets).
+[access rights]({{@link access_rights.md}}) under the **Settings** tab. The API tab allows you to view and test the dataset's [API endpoints](/api/v2#/reference/datasets).
 
 ![Datasets detail view]({{@asset storage/images/datasets-detail.png}})
 
@@ -98,60 +98,21 @@ For more information on managing datasets using the Apify SDK, see the [SDK docu
 
 ### [](#javascript-api-client) JavaScript API client
 
-Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or elsewhere.
+Apify's [JavaScript API client](/apify-client-js) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
-For help with setting up the client, see the JavaScript API client section on the [overview page](https://docs.apify.com/storage/#javascript-api-client).
+[See the client's documentation](/apify-client-js#quick-start) for help with setup.
 
-After [importing](https://docs.apify.com/storage/#javascript-api-client) the `apify-client` package into your application and creating an instance of it, save it to a variable for easier access.
-
-```js
-// Save your datasets to a variable for easier access
-const { datasets } = apifyClient;
-```
-
-You can then create, update, and delete datasets using the commands below.
+After importing and initiating the client, you can save each dataset to a variable for easier access.
 
 ```js
-// Get the dataset with the name "my-dataset"
-// or create it if it doesn't exist
-const dataset = await datasets.getOrCreateDataset({
-    datasetName: 'my-dataset',
-});
-
-// Set the dataset as the default to be used
-// in the following commands
-apifyClient.setOptions({ datasetId: dataset.id });
-
-// Add an object and and array of objects to the dataset
-await datasets.putItems({
-    data: { foo: 'bar' },
-});
-await datasets.putItems({
-    data: [{ foo: 'hotel' }, { foo: 'cafe' }],
-});
-
-// Get items from a dataset
-const paginationList = await datasets.getItems();
-const { items } = paginationList;
-
-// Delete a dataset
-await datasets.deleteDataset();
+const myDatasetClient = apifyClient.dataset('jane-doe/my-dataset');
 ```
 
-When using the `getItems()` method, you can specify the data you retrieve using the `[fields]` parameter. It should be an array of field names (strings) that will be included in the results. To include all the results, exclude the `[fields]` parameter.
+You can then use that variable to [access the dataset's items and manage it](/apify-client-js#datasetclient).
 
-```js
-// Only get the "hotel" and "cafe" fields
-const hotelAndCafeData = await datasets.getItems({
-    fields: ['hotel', 'cafe'],
-});
-```
+Note: When using the [`.listItems()`](/apify-client-js#datasetclient-listitems) method, if you mention the same field name in the `field` and `omit` parameters, the `omit` parameter will prevail and the field will not be returned.
 
-You can **specify which data are exported** by adding a comma-separated list of fields to the **fields** query parameter. Likewise, you can also omit certain fields using the **omit** parameter.
-
-**If you both specify and omit the same field in a request, the **omit** parameter will prevail and the field will not be returned.**
-
-For more information, see the JavaScript API client [documentation](https://docs.apify.com/apify-client-js#ApifyClient-datasets).
+[See the JavaScript API client documentation](/apify-client-js#datasetclient) for more details.
 
 ### [](#apify-api) Apify API
 
@@ -334,19 +295,15 @@ To access a dataset from another run using the Apify SDK, open it using the `Api
 const otherDataset = await Apify.openDataset('old-dataset');
 ```
 
-To access a dataset using the [JavaScript API client](#javascript-api-client), use the `getOrCreateDataset()` [method](https://docs.apify.com/apify-client-js#ApifyClient-datasets).
+In the [JavaScript API client](/apify-client-js), you can access a dataset using [its client](/apify-client-js#datasetclient). Once you've opened the dataset, read its contents and add new data like you would with a dataset from your current run.
 
 ```js
-const otherDataset = await datasets.getOrCreateDataset({
-    datasetName: 'my-dataset',
-});
+const otherDatasetClient = apifyClient.dataset('jane-doe/old-dataset');
 ```
-
-Once you've opened the dataset, read its contents and add new data like you would with a dataset from your current run.
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally.
 
-For more information on sharing storages between runs, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs).
+[See the Storage overview page](https://docs.apify.com/storage/#sharing-storages-between-runs) for more information on sharing storages between runs.
 
 ## [](#limits) Limits
 

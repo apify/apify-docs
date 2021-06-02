@@ -30,12 +30,12 @@ and general information for using storages with the [Apify API](#apify-api).
 The easiest way to access your datasets is via the
 [Apify app](https://my.apify.com/storage#/datasets), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties.
 
-To add data to your datasets (and for more management options), you can use the
+To manage your datasets, you can use the
 [Apify SDK](https://sdk.apify.com/docs/api/dataset),
-Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) or
-the [Apify API](https://docs.apify.com/api/v2#/reference/datasets).
+[JavaScript API client](/apify-client-js#datasetclient) or
+the [Apify API](/api/v2#/reference/datasets).
 
-For more information, see the [dataset]({{@link storage/dataset.md}}) documentation page.
+[See the dataset documentation]({{@link storage/dataset.md}}) for details.
 
 ## [](#key-value-store) Key-value store
 
@@ -46,9 +46,9 @@ The [key-value store]({{@link storage/key_value_store.md}}) is ideal for saving 
 The easiest way to access your key-value stores is via the
 [Apify app](https://my.apify.com/storage#/keyValueStores), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties.
 
-To manage the data in your key-value stores (and for more access options), you can use the
-[Apify SDK](https://sdk.apify.com/docs/api/key-value-store), Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) or
-the [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores).
+To manage your key-value stores, you can use the
+[Apify SDK](https://sdk.apify.com/docs/api/key-value-store), [JavaScript API client](/apify-client-js#keyvaluestoreclient) or
+the [Apify API](/api/v2#/reference/key-value-stores).
 
 For more information, see the [key-value store]({{@link storage/key_value_store.md}}) documentation page.
 
@@ -61,11 +61,11 @@ For more information, see the [key-value store]({{@link storage/key_value_store.
 The easiest way to access your request queues is via the
 [Apify app](https://my.apify.com/storage#/requestQueues), which provides a user-friendly interface for viewing your request queues and editing your queues' properties.
 
-To manage your request queues, you can use the
-[Apify SDK](https://sdk.apify.com/docs/api/request-queue), Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) or
-the [Apify API](https://docs.apify.com/api/v2#/reference/request-queues).
+You can also manage your request queues using the
+[Apify SDK](https://sdk.apify.com/docs/api/request-queue), [JavaScript API client](/apify-client-js#requestqueueclient) or
+the [Apify API](/api/v2#/reference/request-queues).
 
-For more information, see the [request queue]({{@link storage/request_queue.md}}) documentation page.
+[See the request queue documentation]({{@link storage/request_queue.md}}) for more information.
 
 ## [](#basic-usage) Basic usage
 
@@ -101,33 +101,11 @@ The [Apify SDK](https://sdk.apify.com) is a JavaScript/Node.js library which all
 
 For setup instructions and to learn how to build your own actors, visit the [SDK documentation](https://sdk.apify.com/docs/guides/getting-started).
 
-<!-- This will be included in the new JS API CLIENT docs -->
-<!-- so all we'll have to do is link to the instructions -->
 ### [](#javascript-api-client) JavaScript API client
 
 Apify's [JavaScript API client](https://docs.apify.com/apify-client-js) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
-To use `apify-client` in your application, you will first need to have [Node.js](https://nodejs.org/en/) version 10 or higher installed.
-
-You can then install the `apify-client` package from [NPM](https://www.npmjs.com/package/apify-cli) using the command below in your terminal.
-
-```bash
-npm install apify-client
-```
-
-Once installed, **require** the `apify-client` package in your app and create a new instance of it using your **user ID** and secret [**API token**]({{@link tutorials/integrations.md#api-token}}) (you can find these on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account).
-
-```js
-// Import the `apify-client` package
-const ApifyClient = require('apify-client');
-
-// Create a new instance of the client
-// and configure it to use your credentials
-const apifyClient = new ApifyClient({
-    userId: 'RWnGtczasdwP63Mak',
-    token: 'f5J7XsdaKDyRywwuGGo9',
-});
-```
+[See the client's documentation]({{@link apify_client_js.md#quick-start}}) for help with setup.
 
 ### [](#apify-api) Apify API
 
@@ -142,7 +120,7 @@ For read (GET) requests, it is enough to use a store's alpha-numerical ID, since
 
 With other request types and when using the **username~store-name**, however, you will need to provide your secret API token in [your request's `Authorization` header](/api/v2#/introduction/authentication) or as a query parameter. You can find your token on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
 
-For more information and a detailed breakdown of each storage API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
+[See the API documentation](https://docs.apify.com/api/v2#/reference/datasets) for details and a breakdown of each storage API endpoint.
 
 ## [](#rate-limiting) Rate limiting
 
@@ -166,7 +144,7 @@ If a client sends too many requests, the API endpoints respond with the HTTP sta
 }
 ```
 
-See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details and to learn what to do if you exceed the rate limit.
+[See the API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for details and to learn what to do if you exceed the rate limit.
 
 ## [](#data-retention) Data retention
 
@@ -205,11 +183,11 @@ Any storage can be accessed from any [actor]({{@link actors.md}}) or [task]({{@l
 
 Named storages are only removed when you request it. You can delete storages in the following ways.
 
-* [Apify app](https://my.apify.com/storage) - using the **Actions** button in the store's detail page
+* [Apify app](https://my.apify.com/storage) - using the **Actions** button in the store's detail page.
 * [Apify SDK](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoredrop) - using the `[store].drop()` method, where **[store]** is the type of storage you want to delete.
-* [JavaScript API client](https://docs.apify.com/apify-client-js) - using the
-[`deleteStore()`](https://docs.apify.com/apify-client-js#ApifyClient-datasets),
-[`deleteDataset()`](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores)
-or [`deleteQueue()`](https://docs.apify.com/apify-client-js#ApifyClient-requestQueues) methods
-* [API](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/delete-store) using the - **Delete [store]** endpoint, where **[store]** is the type of storage you want to delete
+* [JavaScript API client](/apify-client-js) - using the `.delete()` method in the
+[dataset](/apify-client-js#datasetclient),
+[key-value store](/apify-client-js#keyvaluestoreclient),
+or [request queue](/apify-client-js#requestqueueclient) clients.
+* [API](/api/v2#/reference/key-value-stores/store-object/delete-store) using the - **Delete [store]** endpoint, where **[store]** is the type of storage you want to delete.
 
