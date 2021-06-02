@@ -9,7 +9,7 @@ paths:
 
 # [](#storage) Storage
 
-The Apify platform includes three types of storage you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](https://docs.apify.com/api/v2#/reference/key-value-stores), the [Apify SDK](https://sdk.apify.com) and Apify's [JavaScript API client](https://docs.apify.com/api/apify-client-js).
+The Apify platform includes three types of storage you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](/api/v2#/reference/key-value-stores), the [Apify SDK](https://sdk.apify.com) and Apify's [JavaScript API client](/api/apify-client-js).
 
 This page contains a brief introduction of the three types of Apify Storage.
 
@@ -73,8 +73,8 @@ There are four ways to access your storage:
 
 * [Apify app](https://my.apify.com/storage) - provides an easy-to-understand interface [[details](#apify-app)]
 * [Apify (SDK)](https://sdk.apify.com/docs/guides/data-storage) - when building your own Apify actor [[details](#apify-sdk)]
-* [JavaScript API client](https://docs.apify.com/apify-client-js) - to access your storages from any Node.js application [[details](#javascript-api-client)]
-* [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) - for accessing your storages programmatically [[details](#apify-api)]
+* [JavaScript API client](/apify-client-js) - to access your storages from any Node.js application [[details](#javascript-api-client)]
+* [Apify API](/api/v2#/reference/key-value-stores) - for accessing your storages programmatically [[details](#apify-api)]
 
 ### [](#apify-app) Apify app
 
@@ -84,13 +84,13 @@ To access your storages from the Apify app, go to the [**Storage** section](http
 
 > Only named storages are displayed by default. Select the **Include unnamed *store*** checkbox to display all of your storages.
 
-You can edit your stores' names under the **Settings** tab of their detail page. There, you can also grant [access rights](https://docs.apify.com/access-rights) to other Apify users.
+You can edit your stores' names under the **Settings** tab of their detail page. There, you can also grant [access rights](/access-rights) to other Apify users.
 
 You can quickly share your storages' contents and details by sharing the URLs you find under the **API** tab in a store's detail page.
 
 ![Storage API]({{@asset storage/images/overview-api.png}})
 
-These URLs provide links to API **endpoints**–the places where your data are stored. Endpoints that allow you to **read** stored information do not require an [authentication token](https://docs.apify.com/api/v2#/introduction/authentication). The calls are authenticated using a hard-to-guess ID, so they can be shared freely. Operations such as **update** or **delete**, however, will need the authentication token.
+These URLs provide links to API **endpoints**–the places where your data are stored. Endpoints that allow you to **read** stored information do not require an [authentication token](/api/v2#/introduction/authentication). The calls are authenticated using a hard-to-guess ID, so they can be shared freely. Operations such as **update** or **delete**, however, will need the authentication token.
 
 > Never share a URL containing your authentication token, as this will compromise your account's security. <br/>
 > If the data you want to share requires a token, first download the data, then share it as a file.
@@ -103,13 +103,13 @@ For setup instructions and to learn how to build your own actors, visit the [SDK
 
 ### [](#javascript-api-client) JavaScript API client
 
-Apify's [JavaScript API client](https://docs.apify.com/apify-client-js) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or elsewhere.
+Apify's [JavaScript API client](/apify-client-js) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
-[See the client's documentation]({{@link apify_client_js.md#quick-start}}) for help with setup.
+[See the client's documentation](/apify-client-js#quick-start) for help with setup.
 
 ### [](#apify-api) Apify API
 
-The [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) allows you to access your storages programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
+The [Apify API](/api/v2#/reference/key-value-stores) allows you to access your storages programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
 In most cases, when accessing your storages via API, you will need to provide a **store ID**, which you can do in the following formats:
 
@@ -120,17 +120,17 @@ For read (GET) requests, it is enough to use a store's alpha-numerical ID, since
 
 With other request types and when using the **username~store-name**, however, you will need to provide your secret API token in [your request's `Authorization` header](/api/v2#/introduction/authentication) or as a query parameter. You can find your token on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
 
-[See the API documentation](https://docs.apify.com/api/v2#/reference/datasets) for details and a breakdown of each storage API endpoint.
+[See the API documentation](/api/v2#/reference/datasets) for details and a breakdown of each storage API endpoint.
 
 ## [](#rate-limiting) Rate limiting
 
 All API endpoints limit their rate of requests to protect Apify servers from overloading. The default rate limit is **30** requests per second per storage object, with a few exceptions, which are limited to **200** requests per second per storage object:
 
-* [Push items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items) to dataset.
-* CRUD ([add](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/add-request),
-[get](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/get-request),
-[update](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/update-request),
-[delete](https://docs.apify.com/api/v2#/reference/request-queues/request-collection/delete-request))
+* [Push items](/api/v2#/reference/datasets/item-collection/put-items) to dataset.
+* CRUD ([add](/api/v2#/reference/request-queues/request-collection/add-request),
+[get](/api/v2#/reference/request-queues/request-collection/get-request),
+[update](/api/v2#/reference/request-queues/request-collection/update-request),
+[delete](/api/v2#/reference/request-queues/request-collection/delete-request))
 operations of **request queue** requests.
 
 If a client sends too many requests, the API endpoints respond with the HTTP status code `429 Too Many Requests` and the following body:
@@ -144,7 +144,7 @@ If a client sends too many requests, the API endpoints respond with the HTTP sta
 }
 ```
 
-[See the API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for details and to learn what to do if you exceed the rate limit.
+[See the API documentation](/api/v2#/introduction/rate-limiting) for details and to learn what to do if you exceed the rate limit.
 
 ## [](#data-retention) Data retention
 
