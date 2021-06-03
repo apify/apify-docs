@@ -9,7 +9,7 @@ paths:
 
 # [](#storage) Storage
 
-The Apify platform includes three types of storage you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](/api/v2#/reference/key-value-stores), the [Apify SDK](https://sdk.apify.com) and Apify's [JavaScript API client](/api/apify-client-js).
+The Apify platform includes three types of storage you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](/api/v2#/), the [Apify SDK](https://sdk.apify.com) and Apify's [JavaScript API client](/api/apify-client-js).
 
 This page contains a brief introduction of the three types of Apify Storage.
 
