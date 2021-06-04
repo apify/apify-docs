@@ -1995,33 +1995,12 @@ parameter. You can also filter runs by status ([available statuses](https://docs
             - count: 2 (number, required)
             - items (array[RunShort1,RunShort2], required)
 
-## Run object [/v2/actor-runs/{runId}{?token,waitForFinish}]
+## Run object [/v2/actor-runs/{runId}{?token,waitForFinish,status}]
 
-### Get run [GET]
-
-Gets an object that contains all the details about a specific run of an actor.
-
-By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the run to finish.
-This is useful to avoid periodic polling when waiting for actor run to complete.
-
-This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the run.
-
-+ Parameters
-
-    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
-    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
-                                                 If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
-                                                 otherwise it will have a transitional status (e.g. `RUNNING`).
-
-+ Response 200 (application/json)
-
-    + Attributes
-        - data (Run, required)
-
-## Run object storages [/v2/actor-runs/{runId}{?token,status}]
+### Run storage endpoints
 
 This is not a single endpoint, but an entire group of endpoints that lets you to
-retrieve the run or any of its default storages.
+retrieve the last run or any of its default storages.
 All the endpoints require an authentication token.
 
 The endpoints accept the same HTTP methods and query parameters as
@@ -2081,6 +2060,26 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
     + status: `SUCCEEDED` (string, optional) - Filter for the run status.
 
+### Get run [GET]
+
+Gets an object that contains all the details about a specific run of an actor.
+
+By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the run to finish.
+This is useful to avoid periodic polling when waiting for actor run to complete.
+
+This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the run.
+
++ Parameters
+
+    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
+    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
+                                                 If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
+                                                 otherwise it will have a transitional status (e.g. `RUNNING`).
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (Run, required)
 
 ## Abort run [/v2/actor-runs/{runId}/abort{?token}]
 
