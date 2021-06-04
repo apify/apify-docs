@@ -1204,9 +1204,9 @@ Only runs that are starting or running are aborted. For runs with status `FINISH
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
-    + gracefully: true (boolean, optional)    - If true passed, the actor run will abort gracefully.
-                                                It will send aborting and persistState event into run and force kill run after 30 seconds.
-                                                It is helpful in a case where you plan to resurrect run.
+    + gracefully: `true` (boolean, optional)    - If true passed, the actor run will abort gracefully.
+                                                It will send `aborting` and `persistState` event into run and force-stop the run after 30 seconds.
+                                                It is helpful in cases where you plan to resurrect the run later.
 
 + Response 200 (application/json)
 
@@ -2032,9 +2032,9 @@ Only runs that are starting or running are aborted. For runs with status `FINISH
 
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
-    + gracefully: true (boolean, optional)    - If true passed, the actor run will abort gracefully.
-                                                It will send aborting and persistState event into run and force kill run after 30 seconds.
-                                                It is helpful in a case where you plan to resurrect run.
+    + gracefully: `true` (boolean, optional)    - If true passed, the actor run will abort gracefully.
+                                                It will send `aborting` and `persistState` event into run and force-stop the run after 30 seconds.
+                                                It is helpful in cases where you plan to resurrect the run later.
 
 + Response 200 (application/json)
 

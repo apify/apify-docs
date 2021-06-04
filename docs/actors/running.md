@@ -71,6 +71,16 @@ Each run starts with the initial status **READY** and goes through one or more t
 |ABORTING|transitional|Being aborted by user|
 |ABORTED|terminal|Aborted by user|
 
+## [](#aborting-run)Aborting run
+
+Each run in statuses **READY**, **RUNNING**, **TIMING-OUT** can be aborted by user. There are two ways how to abort the run.
+
+* Force abort run - The user immediately aborts the actor. The force abort is the default option.
+* Graceful abort run - The actor get the signal about aborting using `aborting` and `persistState` events and after 30 seconds will be force-aborted.
+  It is helpful in cases where you plan to resurrect the run later.
+
+Aborting can be initialized in Apify app using the **Abort** button or via API using the [abort run](https://docs.apify.com/api/v2#/reference/actor-runs/abort-run/abort-run) API endpoint.
+
 ## [](#resurrection-of-finished-run)Resurrection of finished run
 
 Any actor run in terminal state, i.e. run with status **FINISHED**, **FAILED**, **ABORTED** and **TIMED-OUT**, might be resurrected back to a **RUNNING** state. This is helpful in many cases, for example when the timeout for actor run was too low or in case of an unexpected error.
