@@ -9,7 +9,7 @@ paths:
 
 # [](#storage) Storage
 
-The Apify platform includes three types of storage you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](/api/v2#/), the [Apify SDK](https://sdk.apify.com) and Apify's [JavaScript API client](/api/apify-client-js).
+The Apify platform includes three types of storage you can use both in your [actors]({{@link actors.md}}) and outside the Apify platform via [API](/api/v2#/), the [Apify SDK](https://sdk.apify.com) and Apify's [JavaScript API client](/apify-client-js).
 
 This page contains a brief introduction of the three types of Apify Storage.
 
@@ -61,18 +61,18 @@ the [Apify API](/api/v2#/reference/key-value-stores).
 The easiest way to access your request queues is via the
 [Apify app](https://my.apify.com/storage#/requestQueues), which provides a user-friendly interface for viewing your request queues and editing your queues' properties.
 
-You can also manage your request queues using the
+To manage your request queues using the
 [Apify SDK](https://sdk.apify.com/docs/api/request-queue), [JavaScript API client](/apify-client-js#requestqueueclient) or
 the [Apify API](/api/v2#/reference/request-queues).
 
-[See the request queue documentation]({{@link storage/request_queue.md}}) for more information.
+[See the request queue documentation]({{@link storage/request_queue.md}}) for details.
 
 ## [](#basic-usage) Basic usage
 
 There are four ways to access your storage:
 
 * [Apify app](https://my.apify.com/storage) - provides an easy-to-understand interface [[details](#apify-app)].
-* [Apify (SDK)](https://sdk.apify.com/docs/guides/data-storage) - when building your own Apify actor [[details](#apify-sdk)].
+* [Apify SDK](https://sdk.apify.com/docs/guides/data-storage) - when building your own Apify actor [[details](#apify-sdk)].
 * [JavaScript API client](/apify-client-js) - to access your storages from any Node.js application [[details](#javascript-api-client)].
 * [Apify API](/api/v2#/reference/key-value-stores) - for accessing your storages programmatically [[details](#apify-api)].
 

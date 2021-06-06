@@ -94,7 +94,7 @@ const hotelAndCafeData = await dataset.getData({
 });
 ```
 
-[See the SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset) and the `Dataset` class's [API reference](https://sdk.apify.com/docs/api/dataset#datasetpushdatadata) for more information on managing datasets with the Apify SDK.
+[See the SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset) and the `Dataset` class's [API reference](https://sdk.apify.com/docs/api/dataset#datasetpushdatadata) for details on managing datasets with the Apify SDK.
 
 ### [](#javascript-api-client) JavaScript API client
 
@@ -301,7 +301,7 @@ const otherDatasetClient = apifyClient.dataset('jane-doe/old-dataset');
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally.
 
-[See the Storage overview](https://docs.apify.com/storage/#sharing-storages-between-runs) for more information on sharing storages between runs.
+[See the Storage overview](https://docs.apify.com/storage/#sharing-storages-between-runs) for details on sharing storages between runs.
 
 ## [](#limits) Limits
 
@@ -317,4 +317,4 @@ When pushing data to a dataset via [API](https://docs.apify.com/api/v2#/referenc
 
 All other dataset API [endpoints](https://docs.apify.com/api/v2#/reference/datasets) are limited to **30** requests per second per dataset.
 
-[See the API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details and to learn what to do if you exceed the rate limit.
+[See the API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for details and to learn what to do if you exceed the rate limit.

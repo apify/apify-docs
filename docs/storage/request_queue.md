@@ -106,7 +106,7 @@ await queue.reclaimRequest(request2);
 await queue.drop();
 ```
 
-[See the SDK documentation](https://sdk.apify.com/docs/guides/data-storage#request-queue) and the `RequestQueue` class's [API reference](https://sdk.apify.com/docs/api/request-queue#requestqueueaddrequestrequest-options) for more information on managing your request queues with the Apify SDK.
+[See the SDK documentation](https://sdk.apify.com/docs/guides/data-storage#request-queue) and the `RequestQueue` class's [API reference](https://sdk.apify.com/docs/api/request-queue#requestqueueaddrequestrequest-options) for details on managing your request queues with the Apify SDK.
 
 ### [](#javascript-api-client) JavaScript API client
 
@@ -208,7 +208,7 @@ const otherQueueClient = apifyClient.requestQueue('jane-doe/old-queue');
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally.
 
-[See the Storage overview](https://docs.apify.com/storage/#sharing-storages-between-runs) for more information on sharing storages between runs.
+[See the Storage overview](https://docs.apify.com/storage/#sharing-storages-between-runs) for details on sharing storages between runs.
 
 ## [](#limits) Limits
 
@@ -227,4 +227,4 @@ operation requests are limited to **200** per second per request queue. This hel
 
 All other request queue API [endpoints](/api/v2#/reference/request-queues) are limited to **30** requests per second per request queue.
 
-See the [API documentation](/api/v2#/introduction/rate-limiting) for more details and to learn what to do if you exceed the rate limit.
+See the [API documentation](/api/v2#/introduction/rate-limiting) for details and to learn what to do if you exceed the rate limit.
