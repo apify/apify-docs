@@ -46,7 +46,7 @@ To persist state manually, you can use the [Apify.events](https://docs.apify.com
 Apify.events.on('migrating', () => {
     Apify.setValue('my-crawling-state', {
         foo: 'bar',
-    }
+    });
 });
 ```
 
