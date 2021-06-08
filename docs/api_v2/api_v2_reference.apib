@@ -1997,21 +1997,19 @@ parameter. You can also filter runs by status ([available statuses](https://docs
 
 ## Run object and its storages [/v2/actor-runs/{runId}{?token,waitForFinish}]
 
-### Storage endpoints
-
 This is not a single endpoint, but an entire group of endpoints that lets you
 retrieve the run or any of its default storages.
 
 The endpoints accept the same HTTP methods and query parameters as
 the respective storage endpoints.
-The base path that represents the last actor run object is:
+The base path that represents the actor run object is:
 
 `/v2/actor-runs/{runId}{?token}`
 
 In order to access the default storages of the actor run, i.e. log, key-value store, dataset and request queue,
 use the following endpoints:
 
-* `/v2/actor-runs/{runId}/log{?token}`
+* `/v2/actor-runs/{runId}/log`
 * `/v2/actor-runs/{runId}/key-value-store{?token}`
 * `/v2/actor-runs/{runId}/dataset{?token}`
 * `/v2/actor-runs/{runId}/request-queue{?token}`
@@ -2042,7 +2040,7 @@ of the original one:
 * `/v2/actor-runs/{runId}/request-queue/requests/{requestId}{?token}` [Request collection](#reference/request-queues/request)
 * `/v2/actor-runs/{runId}/request-queue/head{?token}` [Queue head](#reference/request-queues/queue-head)
 
-For example, to download data from a dataset of the last succeeded actor run in XML format,
+For example, to download data from a dataset of the actor run in XML format,
 send HTTP GET request to the following URL:
 
 ```
