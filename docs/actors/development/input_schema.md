@@ -113,11 +113,11 @@ Each field of your input is described under its key in `inputSchema.properties` 
 |`sectionDescription`|String|No|If the `sectionCaption` property is set, <br/>then you can use this property to <br/>provide additional description to the section. <br/>The description will be visible right under <br/>the caption when the section is open.|
 
 
-### [](#additional-properties)Additional properties
+## [](#additional-properties)Additional properties
 
 In addition to the properties listed above, most of the types support also additional properties defining, for example, the UI input editor.
 
-#### [](#string)String
+### [](#string)String
 
 Example of a code input:
 
@@ -166,7 +166,7 @@ Properties:
 |`nullable`|Boolean|No|Specifies whether `null` <br/>is an allowed value.|
 
 
-#### [](#boolean)Boolean
+### [](#boolean)Boolean
 
 Beware that the `boolean` input type doesn't support the `prefill` property, since there is no way to display the pre-filled value in the user interface.
 
@@ -206,7 +206,7 @@ Properties:
 |`groupDescription`|String|No|Description displayed as help text <br/>displayed of group title.|
 |`nullable`|Boolean|No|Specifies whether null is <br/>an allowed value.|
 
-#### [](#integer)Integer
+### [](#integer)Integer
 
 Example:
 
@@ -235,7 +235,7 @@ Properties:
 |`unit`|String|No|Unit displayed next to the field in UI, <br/>for example _second_, _MB_, etc.|
 |`nullable`|Boolean|No|Specifies whether null is an allowed value.|
 
-#### [](#object)Object
+### [](#object)Object
 
 Example of proxy configuration:
 
