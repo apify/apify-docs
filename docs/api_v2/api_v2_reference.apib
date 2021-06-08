@@ -1995,9 +1995,9 @@ parameter. You can also filter runs by status ([available statuses](https://docs
             - count: 2 (number, required)
             - items (array[RunShort1,RunShort2], required)
 
-## Run object [/v2/actor-runs/{runId}{?token,waitForFinish}]
+## Run object and its storages [/v2/actor-runs/{runId}{?token,waitForFinish}]
 
-### Run storage endpoints
+### Storage endpoints
 
 This is not a single endpoint, but an entire group of endpoints that lets you
 retrieve the run or any of its default storages.
@@ -2023,6 +2023,9 @@ For example,
 
 Additionally, each of the above API endpoints supports all sub-endpoints
 of the original one:
+
+#### Log
+* `/v2/actor-runs/{runId}/logs` [Log](#reference/log)
 
 #### Key-value store
 
