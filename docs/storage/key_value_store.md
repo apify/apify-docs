@@ -24,7 +24,7 @@ There are four ways to access your key-value stores:
 
 * [Apify app](https://my.apify.com/storage#/keyValueStores) - provides an easy-to-understand interface [[details](#apify-app)].
 * [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#key-value-store) - when building your own Apify actor [[details](#apify-sdk)].
-* [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) - to access your key-value stores from any Node.js application [[details](#javascript-api-client)].
+* [JavaScript API client](/apify-client-js#keyvaluestoreclient) - to access your key-value stores from any Node.js application [[details](#javascript-api-client)].
 * [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically [[details](#apify-api)].
 
 ### Apify app
@@ -63,7 +63,7 @@ You can find INPUT.json and other key-value stores in the location below.
 
 The default key-value store's ID is **default**\. The {KEY} is the record's **key** and {EXT} corresponds to the data value's MIME content type.
 
-To manage your key-value stores, you can use the following methods. For a full list of methods, see the `KeyValueStore` class's [API reference](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoregetvaluekey).
+To manage your key-value stores, you can use the following methods. [See the `KeyValueStore` class's API reference](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoregetvaluekey) for the full list.
 
 ```js
 // Get the default input
@@ -106,46 +106,21 @@ Apify.main(async () => {
 
 The `Apify.getInput()`method is not only a shortcut to `Apify.getValue('INPUT')`- it is also compatible with `Apify.metamorph()` [[docs](https://docs.apify.com/actors/source-code#metamorph)]. This is because a metamorphed actor run's input is stored in the **INPUT-METAMORPH-1** key instead of **INPUT**, which hosts the original input.
 
-For more information on managing your key-value stores with the Apify SDK, see the SDK [documentation](https://sdk.apify.com/docs/guides/data-storage#key-value-store) and the `KeyValueStore` class's [API reference](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoregetvaluekey).
+[See the SDK documentation](https://sdk.apify.com/docs/guides/data-storage#key-value-store) and the `KeyValueStore` class's [API reference](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoregetvaluekey) for details on managing your key-value stores with the Apify SDK.
 
 ### JavaScript API client
 
-Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores) (`apify-client`) allows you to access your key-value stores from any Node.js application, whether it is running on the Apify platform or elsewhere.
+Apify's [JavaScript API client](/apify-client-js#keyvaluestoreclient) (`apify-client`) allows you to access your key-value stores from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
-For help with setting up the client, see the JavaScript API client section on the [overview page](https://docs.apify.com/storage/#javascript-api-client).
-
-After [importing](https://docs.apify.com/storage/#javascript-api-client) the `apify-client` package into your application and creating an instance of it, save it to a variable for easier access.
+After importing and initiating the client, you can save each key-value store to a variable for easier access.
 
 ```js
-// Save your key-value stores to a variable for easier access
-const { keyValueStores } = apifyClient;
+const myKeyValStoreClient = apifyClient.keyValueStore('jane-doe/my-key-val-store');
 ```
 
-You can then access your stores, retrieve records in stores, write new records or delete records.
+You can then use that variable to [access the key-value store's items and manage it](/apify-client-js#keyvaluestoreclient).
 
-```js
-// Get the 'my-store' key-value store or create it
-// if it doesn't exist and set it as the default
-const exampleStore = await keyValueStores.getOrCreateStore({
-    storeName: 'my-store',
-});
-apifyClient.setOptions({ storeId: store.id });
-
-// Get a record from exampleStore
-const record = await keyValueStores.getRecord({ key: 'foo' });
-
-// Write a record to exampleStore
-await keyValueStores.putRecord({
-    key: 'foo',
-    body: 'bar',
-    contentType: 'text/plain; charset=utf-8',
-});
-
-// Delete a record in exampleStore
-await keyValueStores.deleteRecord({ key: 'foo' });
-```
-
-For more information on managing your key-value stores using the JavaScript API client, see its [documentation](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores).
+[See the JavaScript API client documentation](/apify-client-js#keyvaluestoreclient) for [help with setup](/apify-client-js#quick-start) and more details.
 
 ### Apify API
 
@@ -194,7 +169,7 @@ To **delete a record**, send a DELETE request specifying the key from a key-valu
 https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
 ```
 
-For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/key-value-stores).
+[See the API documentation](https://docs.apify.com/api/v2#/reference/key-value-stores) for a detailed breakdown of each API endpoint.
 
 ## Compression
 
@@ -206,7 +181,7 @@ You can compress a record and use the [Content-Encoding request header](https://
 
 ## Sharing
 
-You can invite other Apify users to view or modify your key-value stores using the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#key-value-store}}).
+You can invite other Apify users to view or modify your key-value stores using the [access rights]({{@link access_rights.md}}) system. [See the full list of permissions]({{@link access_rights/list_of_permissions.md#key-value-store}}).
 
 ### Sharing key-value stores between runs
 
@@ -218,19 +193,15 @@ To access a key-value store from another run using the Apify SDK, open it using 
 const otherStore = await Apify.openKeyValueStore('old-store');
 ```
 
-To access a key-value store using the [JavaScript API client](#javascript-api-client), use the `getOrCreateStore()` [method](https://docs.apify.com/apify-client-js#ApifyClient-keyValueStores).
+In the [JavaScript API client](/apify-client-js), you can access a store using [its client](/apify-client-js#keyvaluestoreclient). Once you've opened a store, read and manage its contents like you would with a key-value store from your current run.
 
 ```js
-const otherStore = await keyValueStores.getOrCreateStore({
-    storeName: 'my-store',
-});
+const otherStoreClient = apifyClient.keyValueStore('jane-doe/old-store');
 ```
-
-Once you've opened a store, read and manage its contents like you would with a key-value store from your current run.
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally.
 
-For more information on sharing storages between runs, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs).
+[See the Storage overview](https://docs.apify.com/storage/#sharing-storages-between-runs) for details on sharing storages between runs.
 
 ## Data consistency
 
