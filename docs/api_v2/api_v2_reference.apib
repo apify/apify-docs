@@ -1998,7 +1998,64 @@ parameter. You can also filter runs by status ([available statuses](https://docs
             - count: 2 (number, required)
             - items (array[RunShort1,RunShort2], required)
 
-## Run object [/v2/actor-runs/{runId}{?token,waitForFinish}]
+## Run object and its storages [/v2/actor-runs/{runId}{?token,waitForFinish}]
+
+This is not a single endpoint, but an entire group of endpoints that lets you
+retrieve the run or any of its default storages.
+
+The endpoints accept the same HTTP methods and query parameters as
+the respective storage endpoints.
+The base path that represents the actor run object is:
+
+`/v2/actor-runs/{runId}{?token}`
+
+In order to access the default storages of the actor run, i.e. log, key-value store, dataset and request queue,
+use the following endpoints:
+
+* `/v2/actor-runs/{runId}/log{?token}`
+* `/v2/actor-runs/{runId}/key-value-store{?token}`
+* `/v2/actor-runs/{runId}/dataset{?token}`
+* `/v2/actor-runs/{runId}/request-queue{?token}`
+
+These API endpoints have the same usage as the equivalent storage endpoints.
+For example,
+`/v2/actor-runs/{runId}/key-value-store` has the same HTTP method and parameters as the
+[Key-value store object](#reference/key-value-stores/store-object) endpoint.
+
+Additionally, each of the above API endpoints supports all sub-endpoints
+of the original one:
+
+#### Log
+* `/v2/actor-runs/{runId}/logs` [Log](#reference/log)
+
+#### Key-value store
+
+* `/v2/actor-runs/{runId}/key-value-store/keys{?token}` [Key collection](#reference/key-value-stores/key-collection)
+* `/v2/actor-runs/{runId}/key-value-store/records/{recordKey}{?token}` [Record](#reference/key-value-stores/record)
+
+#### Dataset
+
+* `/v2/actor-runs/{runId}/dataset/items{?token}` [Item collection](#reference/datasets/item-collection)
+
+#### Request queue
+
+* `/v2/actor-runs/{runId}/request-queue/requests{?token}` [Request collection](#reference/request-queues/request-collection)
+* `/v2/actor-runs/{runId}/request-queue/requests/{requestId}{?token}` [Request collection](#reference/request-queues/request)
+* `/v2/actor-runs/{runId}/request-queue/head{?token}` [Queue head](#reference/request-queues/queue-head)
+
+For example, to download data from a dataset of the actor run in XML format,
+send HTTP GET request to the following URL:
+
+```
+https://api.apify.com/v2/actor-runs/{runId}/dataset/items?format=xml
+```
+
+In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
+
++ Parameters
+
+    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get run [GET]
 
