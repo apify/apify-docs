@@ -15,7 +15,7 @@ Aside from [custom environment variables]({{@link actors/development/source_code
 |`APIFY_ACTOR_ID`|ID of the actor.|
 |`APIFY_ACTOR_RUN_ID`|ID of the actor run.|
 |`APIFY_ACTOR_TASK_ID`|ID of the actor task. <br/>It's empty if actor is run outside of any task, <br/>e.g. directly using the API.|
-|`APIFY_ACTOR_EVENTS_WS_URL`|Websocket URL where actor may listen <br/>for events from Actor plaform. <br/>See [documentation](https://sdk.apify.com/docs/api/apify#apifyevents) for more information.|
+|`APIFY_ACTOR_EVENTS_WS_URL`|Websocket URL where actor may listen <br/>for events from Actor platform. <br/>See [documentation](https://sdk.apify.com/docs/api/apify#apifyevents) for more information.|
 |`APIFY_DEFAULT_DATASET_ID`|ID of the dataset where you can <br/>push the data.|
 |`APIFY_DEFAULT_KEY_VALUE_STORE_ID`|ID of the key-value store where <br/>the actor's input and output data <br/>are stored.|
 |`APIFY_DEFAULT_REQUEST_QUEUE_ID`|ID of the request queue that stores <br/>and handles requests that you enqueue.|

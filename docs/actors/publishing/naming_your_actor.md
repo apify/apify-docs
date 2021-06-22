@@ -40,7 +40,7 @@ For example,
 
 ## [](#non-scraping-actors) Non-scraping actors
 
-Naming for non-scraping actors is more liberal. Being creative and considering SEO and user experience are good places to start. Think about what your users will type into a serach engine when looking for your actor. What is your actor's function?
+Naming for non-scraping actors is more liberal. Being creative and considering SEO and user experience are good places to start. Think about what your users will type into a search engine when looking for your actor. What is your actor's function?
 
 If you're having trouble, you can always run your ideas by the Apify team using the chat icon in the bottom-right corner.
 

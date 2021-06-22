@@ -253,10 +253,10 @@ Let's finish the crawler now. This code example will go inside the `else` block 
 
 ```javascript
 const { min, max } = getFiltersFromUrl(request.url);
-// Our generic splitFitler function doesn't account for decimal values so we will have to convert to cents and back to dollars
+// Our generic splitFilter function doesn't account for decimal values so we will have to convert to cents and back to dollars
 const newFilters = splitFilter({ min: min * 100, max: max * 100 });
 
-// And we just enqueue those 2 new filters so the process will recursivelly repeat until all pages get to the PAGINATION phase
+// And we just enqueue those 2 new filters so the process will recursively repeat until all pages get to the PAGINATION phase
 for (const filter of newFilters) {
     await requestQueue.addRequest({
         // Remember that we have to convert back from cents to dollars

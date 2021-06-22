@@ -34,11 +34,11 @@ Note that certain NPM packages need additional tools for their installation, suc
 
 ## [](#multiple-source-files)Multiple source files
 
-If the actor's source code requires the use of multiple files/directories, then it can be hosted on the Apify platform using this option. This is particulary useful when you need to add [**INPUT_SCHEMA.json**]({{@link actors/development/source_code.md#input-schema}}) or **README.md** to your actor, or if you want to create your actor in a language other than JavaScript.
+If the actor's source code requires the use of multiple files/directories, then it can be hosted on the Apify platform using this option. This is particularly useful when you need to add [**INPUT_SCHEMA.json**]({{@link actors/development/source_code.md#input-schema}}) or **README.md** to your actor, or if you want to create your actor in a language other than JavaScript.
 
 The only required file for multifile is **Dockerfile**, and all other files depend on your Dockerfile settings. By default Apify's custom NodeJS Dockerfile is used, which requires a **main.js** file containing your source code and a **package.json** file containing package configurations for [NPM](https://www.npmjs.com/).
 
-Unlike with the [single JavaScript file](#single-javascript-file) option, **package.json** is not automaticaly generated when you use multiple source files, so you need to configure it yourself.
+Unlike with the [single JavaScript file](#single-javascript-file) option, **package.json** is not automatically generated when you use multiple source files, so you need to configure it yourself.
 
 See [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) and [base Docker images]({{@link actors/development/base_docker_images.md}}) for more information about creating your own Dockerfile and using Apify's prepared base images.
 
