@@ -46,13 +46,13 @@ const Apify = require('apify');
 
 Apify.main(async () => {
     // This is a common idiom: we first check if we already have cached data in the store
-    // If we do, it means the run was already restared and we restore the cache
+    // If we do, it means the run was already restarted and we restore the cache
     // If we don't, we just initialize the cache to an empty object
     const cache = (await Apify.getValue('CACHE')) || {};
 
     // Now, we set up the persistence. You can choose between 'migrating' and 'persistState' events
     // 'migrating' only saves on migration, so it is a little "cheaper"
-    // 'persistState' is usually preffered, it will also help if you abort the actor
+    // 'persistState' is usually preferred, it will also help if you abort the actor
     Apify.events.on('persistState', async () => {
         await Apify.setValue('CACHE', cache);
     });

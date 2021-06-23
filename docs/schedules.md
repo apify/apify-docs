@@ -84,7 +84,7 @@ The below JSON object creates a schedule which runs an SEO audit of the Apify do
 }
 ```
 
-If the request is successful, you will receive a 201 [HTTP response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) and a JSON object in the response body containing the details of your new schedue. If you receive an error (`4**` code), you will need to check your API token, user ID, or POST request body.
+If the request is successful, you will receive a 201 [HTTP response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) and a JSON object in the response body containing the details of your new schedule. If you receive an error (`4**` code), you will need to check your API token, user ID, or POST request body.
 
 You can add multiple actor and task runs to a schedule with a single POST request. Simply add another object with the run's details to the **actions** array in your POST request's payload object.
 

@@ -7,7 +7,7 @@ paths:
     - proxy/datacenter-proxy/php-examples
     - proxy/datacenter-proxy/examples
 ---
-<!-- Watch out! This file is hard to read because our own "marked-tabs" language fences aren"t syntax-highlighted -->
+<!-- Watch out! This file is hard to read because our own "marked-tabs" language fences aren't syntax-highlighted -->
 
 # Connect to datacenter proxies
 

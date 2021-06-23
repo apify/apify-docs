@@ -46,7 +46,7 @@ The API tab allows you to view and test a store's [API endpoints](https://docs.a
 
 If you are building an [Apify actor]({{@link actors.md}}), you will be using the [Apify software development kit (SDK)](https://sdk.apify.com).
 In the [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#key-value-store), the key-value store is represented by the
-[`KeyValueStore`](hhttps://sdk.apify.com/docs/api/key-value-store) class.
+[`KeyValueStore`](https://sdk.apify.com/docs/api/key-value-store) class.
 
 You can use the `KeyValueStore` class to specify whether your data is [stored locally or in the Apify cloud](https://sdk.apify.com/docs/api/key-value-store),
 [get](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoregetvaluekey) and
