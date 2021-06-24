@@ -12,7 +12,7 @@
     "lint:md:fix": "./node_modules/.bin/markdownlint '**/*.md' --fix",
     "lint:code": "./node_modules/.bin/eslint . && eslint --ext js,md",
     "lint:code:fix": "./node_modules/.bin/eslint . --ext .js,.jsx --fix && eslint --ext js,md --fix .",
-    "webp-convert": "node ./src/webp_converter.mjs"
+    "webp-convert": "node ./src/webp_converter.js"
   },
   "repository": {
     "type": "git",
@@ -39,7 +39,7 @@
     "@babel/core": "^7.12.3",
     "@babel/eslint-parser": "^7.12.1",
     "@babel/eslint-plugin": "^7.12.1",
-    "imagemin": "^8.0.0",
+    "imagemin": "^7.0.1",
     "imagemin-webp": "^6.0.0",
     "eslint": "^7.12.1",
     "eslint-plugin-markdown": "^2.0.0-rc.0",

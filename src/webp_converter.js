@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 
-import { statSync, readdirSync } from 'fs';
-import imagemin from 'imagemin';
-import imageminWebp from 'imagemin-webp';
-import path from 'path';
+const fs = require('fs');
+const imagemin = require('imagemin');
+const imageminWebp = require('imagemin-webp');
+const path = require('path');
 
 
 // Recursively converts all jpg and png files to webp in docs directory tree
@@ -17,10 +17,10 @@ import path from 'path';
             ],
         });
 
-        const files = readdirSync(dirPath);
+        const files = fs.readdirSync(dirPath);
 
         // Find directories in current directory and convert their images to webp
-        await Promise.all(files.filter(file => statSync(`${path.join(path.resolve(path.dirname('')), dirPath)}/${file}`).isDirectory())
+        await Promise.all(files.filter(file => fs.statSync(`${path.join(path.resolve(path.dirname('')), dirPath)}/${file}`).isDirectory())
             .map(async directory => convertImagesToWebp(`${dirPath}/${directory}`)));
     }
     console.log('Webp conversion START');
