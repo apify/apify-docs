@@ -137,13 +137,13 @@ Avoid HTML in assets or links.
 You can place assets (images for example) in any directory. If you want to obtain a URL, use the following tag:
 
 ```text
-{{@asset actor/images/run-log-2.png}}
+{{@asset actor/images/run-log-2.webp}}
 ```
 
 So to include this image in Markdown use:
 
 ```text
-![Apify actor run log]({{@asset actor/images/run-log-2.png}})
+![Apify actor run log]({{@asset actor/images/run-log-2.webp}})
 ```
 
 ### Linking

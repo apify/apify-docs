@@ -72,7 +72,7 @@ Sometimes having a full Git repository or a hosted Zip file might be overly comp
 
 Then set the **Source Type** to **GitHub Gist** and paste the Gist URL as follows:
 
-![GitHub Gist settings]({{@asset actors/images/gist-settings.png}})
+![GitHub Gist settings]({{@asset actors/images/gist-settings.webp}})
 
 Note that the example actor is available in the Apify Store as [apify/example-github-gist](https://apify.com/apify/example-github-gist).
 
@@ -134,7 +134,7 @@ https://api.apify.com/v2/acts/apify~hello-world/builds?token=<API_TOKEN>&version
 
 Then go to your GitHub repository, click **Settings**, select **Webhooks** tab and click **Add webhook**\. Paste the API URL to the **Payload URL** as follows:
 
-![GitHub integration]({{@asset actors/images/github-integration.png}})
+![GitHub integration]({{@asset actors/images/github-integration.webp}})
 
 And that's it! Now your actor should automatically rebuild on every push to the GitHub repository.
 
@@ -142,7 +142,7 @@ And that's it! Now your actor should automatically rebuild on every push to the 
 
 The actor owner can specify custom environment variables that are set to the actor's process during the run. Sensitive environment variables such as passwords or API tokens can be protected by setting the **Secret** option. With this option enabled, the value of the environment variable is encrypted and it will not be visible in the app or APIs, and the value is redacted from actor logs to avoid the accidental leakage of sensitive data.
 
-![Custom environment variables]({{@asset actors/images/source-env-vars.png}})
+![Custom environment variables]({{@asset actors/images/source-env-vars.webp}})
 
 Note that the custom environment variables are fixed during the build of the actor and cannot be changed later. See the [Builds]({{@link actors/development/builds.md}}) section for details.
 

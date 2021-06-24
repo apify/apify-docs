@@ -33,17 +33,17 @@ In the [Apify app](https://my.apify.com/), click on the [**Schedules**](https://
 
 In the **Settings** tab, give your schedule a memorable name, add a description, and choose how often you would like your actor or task to run using the **Cron expression** field.
 
-![New schedule]({{@asset images/new-schedule-settings.png}})
+![New schedule]({{@asset images/new-schedule-settings.webp}})
 
 Next, you'll need to give the schedule something to run. This is where the actor or task you prepared earlier comes in. Switch to the **Actors** or **Tasks** tab, as appropriate, and click the **Add actor/task button**.
 
 If you're scheduling an actor run, you'll be able to specify the [**build**](https://docs.apify.com/actors/development/builds), **timeout**, **memory**, and **body**\. The **timeout** value is specified in seconds; a value of **0** means there is no timeout and the actor runs until it finishes. The **body** should contain a JSON object with the actor's [input](https://docs.apify.com/actors/running/input-and-output).
 
-![Add actor to schedule]({{@asset images/schedule-actor-run.png}})
+![Add actor to schedule]({{@asset images/schedule-actor-run.webp}})
 
 If you're scheduling a task, just select the task you prepared earlier from the **Task** dropdown. If you need to override the task's input, you can pass it as a JSON object in the **Input JSON overrides** field.
 
-![Add task to schedule]({{@asset images/schedule-add-tasks.png}})
+![Add task to schedule]({{@asset images/schedule-add-tasks.webp}})
 
 To add more actors or tasks, just repeat the process.
 

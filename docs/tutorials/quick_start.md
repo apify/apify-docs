@@ -21,15 +21,15 @@ Once you get to grips with this, [go through our Apify scrapers tutorials]({{@li
 
 **1.** Navigate to [apify.com/store](https://apify.com/store) and pick any actor you like the look of. We'll pick the [Google Search Results Scraper](https://apify.com/apify/google-search-scraper).
 
-![Apify store]({{@asset tutorials/images/apify-store.png}})
+![Apify store]({{@asset tutorials/images/apify-store.webp}})
 
 **2.** On the actor's page, click the **Try for free** button.
 
-![Try for free]({{@asset tutorials/images/try-for-free.png}})
+![Try for free]({{@asset tutorials/images/try-for-free.webp}})
 
 **3**. This will take you to the [Apify app](https://my.apify.com), where you will see the screen below.
 
-![Actor input view]({{@asset tutorials/images/actor-input-view.png}})
+![Actor input view]({{@asset tutorials/images/actor-input-view.webp}})
 
 **4.** Don't be put off by all the boxes - the actor is pre-configured to run without any extra input. Just click the **Run** button in the bottom-left corner and it will start.
 
@@ -41,21 +41,21 @@ Alternatively, you can play around with the settings to make the results more in
 
 Click on the flashing **Results** button.
 
-![Actor successful run view]({{@asset tutorials/images/actor-run-view.png}})
+![Actor successful run view]({{@asset tutorials/images/actor-run-view.webp}})
 
 Then, choose which format you want your data in and check it out.
 
-![Choose the data format]({{@asset tutorials/images/actor-run-results.png}})
+![Choose the data format]({{@asset tutorials/images/actor-run-results.webp}})
 
 Here is a preview of the actor's output as a table.
 
-![Dataset preview]({{@asset tutorials/images/actor-run-dataset.png}})
+![Dataset preview]({{@asset tutorials/images/actor-run-dataset.webp}})
 
 ## Create an actor
 
 **1.** [Go to the **Actors** section](https://my.apify.com/actors) in the Apify app and click on the **Create new** button.
 
-![Create a new actor]({{@asset tutorials/images/create-actor.png}})
+![Create a new actor]({{@asset tutorials/images/create-actor.webp}})
 
 **2.** Go to the **Source** tab and paste the Node.js code below into the **Source code** editor.
 
@@ -69,7 +69,7 @@ Apify.main(async () => {
 
 **3.** Click **▷ Run** in the **Developer console** below to build and run your actor. After the run is finished, you should see something like:
 
-![Apify actor run log]({{@asset tutorials/images/run-log.png}})
+![Apify actor run log]({{@asset tutorials/images/run-log.webp}})
 
 Congratulations, you have successfully created and run your first actor!
 
@@ -102,11 +102,11 @@ Apify.main(async () => {
 { "hello": 123 }
 ```
 
-![Apify actor run log]({{@asset tutorials/images/create-actor-set-input.png}})
+![Apify actor run log]({{@asset tutorials/images/create-actor-set-input.webp}})
 
 **4.** Click **Run**. When the run finishes, you will see something like:
 
-![Apify actor run log]({{@asset tutorials/images/run-log-2.png}})
+![Apify actor run log]({{@asset tutorials/images/run-log-2.webp}})
 
 Excellent, you have just created your first actor that accepts input and stores output! Now you can start adding some magic.
 

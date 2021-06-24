@@ -25,7 +25,7 @@ For this example, we will use an **Instagram Scraper** ([jaroslavhejlek/instagra
 
 Let us say you have created a task named **puppies-from-instagram** and run it regularly (manually or using a [schedule]({{@link schedules.md}})).
 
-![Puppies]({{@asset monitoring/images/puppies-task.png}})
+![Puppies]({{@asset monitoring/images/puppies-task.webp}})
 
 ## [](#create-a-new-monitoring-task) Create a new monitoring task
 
@@ -53,7 +53,7 @@ Next, we will configure the monitoring suite.
 
 The configuration should look like this:
 
-![Task configuration]({{@asset monitoring/images/puppies-config.png}})
+![Task configuration]({{@asset monitoring/images/puppies-config.webp}})
 
 ## [](#validate-data) Validate data
 
@@ -63,11 +63,11 @@ Let's say you need a minimum number of 100 results.
 
 2. In the **Validation options** field, create an [object](https://javascript.info/object) containing a `minItemCount` key with `100` as its value. You can also set this number to `1` if you want to be notified only when there are **no** items.
 
-![Task configuration - schema]({{@asset monitoring/images/puppies-schema.png}})
+![Task configuration - schema]({{@asset monitoring/images/puppies-schema.webp}})
 
 Finally, click the **Save & Run** button and you're done.
 
 From now on, you will get a [notification]({{@link monitoring.md#example-of-a-failed-run}}) to your account's email every time your `puppies-from-instagram` task doesn't succeed or returns fewer than 100 items.
 
-![Failed run example]({{@asset monitoring/images/puppies-failed-run.png}})
+![Failed run example]({{@asset monitoring/images/puppies-failed-run.webp}})
 

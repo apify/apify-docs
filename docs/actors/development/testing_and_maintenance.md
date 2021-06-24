@@ -25,7 +25,7 @@ We recommend using the Actor Testing actor for specific and advanced use cases. 
 
 First, set up [tasks]({{@link actors/tasks.md}}) for all the possible input configurations your actor has. If your actor is has only a couple of configuration options (e.g., it only has **search term** and **proxy configuration** inputs), one task is enough. If you have several options (e.g., **location**/**URL**/**max results**) make sure you prepare tasks for all of them.
 
-![Tasks that test an actor's configurations]({{@asset actors/development/images/testing-tasks.png}})
+![Tasks that test an actor's configurations]({{@asset actors/development/images/testing-tasks.webp}})
 
 We also advise to test your actor's default run – one that uses the pre-filled inputs. It is often the first task your users run and they may be put off if it doesn't work.
 

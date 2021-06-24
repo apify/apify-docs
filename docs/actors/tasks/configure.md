@@ -13,12 +13,12 @@ Once you create the task, you can configure its name and set up options and inpu
 > A task's name should be 3-30 characters long.
 
 *Options configuration*
-![Apify task options]({{@asset actors/tasks/images/options.png}})
+![Apify task options]({{@asset actors/tasks/images/options.webp}})
 
 A Task's input configuration works like an actor's, you can either set up raw input with a configured content type, or, if the actor has a defined input schema, a visual input UI will be visible.
 
 *Raw input UI*
-![Apify task raw input]({{@asset actors/tasks/images/raw-input.png}})
+![Apify task raw input]({{@asset actors/tasks/images/raw-input.webp}})
 
 *Visual input UI*
-![Apify task visual input]({{@asset actors/tasks/images/visual-input.png}})
+![Apify task visual input]({{@asset actors/tasks/images/visual-input.webp}})

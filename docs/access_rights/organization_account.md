@@ -9,7 +9,7 @@ paths:
 # Organization account
 
 > The organization account is only available to accounts using our [new billing system](https://blog.apify.com/launching-new-billing-system-3a26f8384a44). If you see the [migration message](https://blog.apify.com/launching-new-billing-system-3a26f8384a44#92f7) when you [log in](https://my.apify.com), you will need to migrate.
-> ![Migration message]({{@asset access_rights/images/migration-message.png}})
+> ![Migration message]({{@asset access_rights/images/migration-message.webp}})
 
 Organization accounts allow groups to collaborate on projects. It enables you to manage your team members' [permissions]({{@link access_rights/list_of_permissions.md}}) and to centralize your billing without having to share the credentials of a single personal account.
 
@@ -30,7 +30,7 @@ The organization account is available on our Team, Business, and Custom plans. [
 
 You can create a new organization by clicking the **Create new organization** button under the **Organizations** tab in your [account](https://my.apify.com/account#/myorganizations). If you want the organization to have a separate email address (used for notifications), enter it here. Otherwise, leave the **email** field empty and the owner's email will be used for notifications.
 
-![Create a new organization]({{@asset access_rights/images/create-new-org.png}})
+![Create a new organization]({{@asset access_rights/images/create-new-org.webp}})
 
 **You can own up to 5 and be a member of as many organizations as you need.**
 
@@ -48,7 +48,7 @@ An organization can't be a member of other organizations. If you want to convert
 
 Then, under the **Organizations** [tab](https://my.apify.com/account#/myorganizations), click the **Convert this user account to an organization** button.
 
-![Convert your account to an organization]({{@asset access_rights/images/convert-to-organization.png}})
+![Convert your account to an organization]({{@asset access_rights/images/convert-to-organization.webp}})
 
 Next, set the organization's name and click **Convert**.
 
@@ -62,7 +62,7 @@ Actor and task runs are billed to the account they are started from. **Always ma
 
 The Team plan is [restricted to 3 seats](https://apify.com/pricing), while the Business plan comes with 5, which you can increase later. If you are on the Business plan and want to add some more seats to the 5 it comes with, head over to your [Billing page and click on Subscriptions](https://my.apify.com/billing-new#/subscription). Click on **Upgrade**, and, in the **Add-ons** section, and add as many additional seats as you need. Then, just complete the upgrade process, and you're done.
 
-![Adding more teams account seats]({{@asset access_rights/images/upgrade.png}})
+![Adding more teams account seats]({{@asset access_rights/images/upgrade.webp}})
 
 To find out about organization pricing, get in touch at [support@apify.com](mailto:support@apify.com?subject=Organization%20account%20pricing) or [visit the pricing page](https://apify.com/pricing).
 
