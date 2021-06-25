@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 
 const fs = require('fs');
+
+const { readdir } = fs.promises;
 const imagemin = require('imagemin');
 const imageminWebp = require('imagemin-webp');
 const path = require('path');
@@ -17,14 +19,25 @@ const path = require('path');
             ],
         });
 
-        const files = fs.readdirSync(dirPath);
+        const files = await readdir(dirPath);
 
         // Find directories in current directory and convert their images to webp
-        await Promise.all(files.filter(file => fs.statSync(`${path.join(path.resolve(path.dirname('')), dirPath)}/${file}`).isDirectory())
-            .map(async directory => convertImagesToWebp(`${dirPath}/${directory}`)));
+        for (const file of files) {
+            const isDirectory = await fs.statSync(`${path.join(path.resolve(path.dirname('')), dirPath)}/${file}`).isDirectory();
+
+            isDirectory && await convertImagesToWebp(`${dirPath}/${file}`);
+        }
     }
-    console.log('Webp conversion START');
-    // Start converting from docs folder
-    await convertImagesToWebp('docs');
-    console.log('Webp conversion DONE');
+
+    (async function () {
+        try {
+            console.log('Webp conversion START');
+            // Start converting from the Docs folder
+            await convertImagesToWebp('docs');
+            console.log('Webp conversion DONE');
+        } catch (err) {
+            console.error(err, 'Error during conversion of images to webp format.');
+            process.exit(1);
+        }
+    }());
 })();
