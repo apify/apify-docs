@@ -27,6 +27,8 @@ Before setting up a new schedule, you should have the [actor](https://docs.apify
 
 If you are planning to schedule an actor run, you need to use the actor before you can schedule any runs. Navigate to the actor's page in the [Apify Store](https://apify.com/store), click the **Try for free** button, then **Save & run** it with your preferred settings.
 
+> Your schedule's name should be 3-63 characters long.
+
 ### [](#from-the-apify-app) From the Apify app
 
 In the [Apify app](https://my.apify.com/), click on the [**Schedules**](https://my.apify.com/schedules) button in the left side menu, then click the **Create new** button.
