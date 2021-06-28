@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 
-const { readdir } = fs.promises;
+const { readdir, stat } = fs.promises;
 const imagemin = require('imagemin');
 const imageminWebp = require('imagemin-webp');
 const path = require('path');
@@ -23,7 +23,7 @@ const path = require('path');
 
         // Find directories in current directory and convert their images to webp
         for (const file of files) {
-            const isDirectory = await fs.statSync(`${path.join(path.resolve(path.dirname('')), dirPath)}/${file}`).isDirectory();
+            const isDirectory = await (await stat(`${path.join(path.resolve(path.dirname('')), dirPath)}/${file}`)).isDirectory();
 
             isDirectory && await convertImagesToWebp(`${dirPath}/${file}`);
         }
