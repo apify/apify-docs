@@ -18,7 +18,7 @@ While you can't manage an organization account via [API](https://docs.apify.com/
 
 You can switch into **Organization account** view using the account button in the top-left corner.
 
-![Switch to organization account]({{@asset access_rights/images/switch-to-organization.png}})
+![Switch to organization account]({{@asset access_rights/images/switch-to-organization.webp}})
 
 In the menu, the account you are currently using is displayed at the top, with all the accounts you can switch to displayed below. When you need to get back to your personal account, you can just switch right back to it–no need to log in and out.
 
@@ -32,7 +32,7 @@ You can view and manage the organizations you are a member of from the **Organiz
 
 If you want to leave an organization you own, you must first transfer ownership to someone else.
 
-![My organizations]({{@asset access_rights/images/my-organizations.png}})
+![My organizations]({{@asset access_rights/images/my-organizations.webp}})
 
 ### [](#transfer-ownership) Transfer ownership
 
@@ -44,7 +44,7 @@ While you cannot manage an organization account's settings and members via API, 
 
 As a member of an organization, you are assigned an [API token]({{@link tutorials/integrations.md#api-token}}) (under the **Integrations** tab) and proxy password (click the **Proxy** button in the left menu) for accessing the Apify platform via REST API.
 
-![Integration tokens]({{@asset access_rights/images/integrations.png}})
+![Integration tokens]({{@asset access_rights/images/integrations.webp}})
 
 The API tokens' functionality reflects your account's permissions in the organization, so if you only have the **read** and **run** permissions for actors, you will only be able to view and run actors via API. Only you can view your API token and password.
 

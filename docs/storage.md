@@ -25,7 +25,7 @@ and general information for using storages with the [Apify API](#apify-api).
 
 [Dataset]({{@link storage/dataset.md}}) storage allows you to store a series of data objects such as results from web scraping, crawling or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel or HTML formats.
 
-![Dataset graphic]({{@asset images/datasets-overview.png}})
+![Dataset graphic]({{@asset images/datasets-overview.webp}})
 
 The easiest way to access your datasets is via the
 [Apify app](https://my.apify.com/storage#/datasets), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties.
@@ -80,7 +80,7 @@ There are four ways to access your storage:
 
 To access your storages from the Apify app, go to the [**Storage** section](https://my.apify.com/storage) in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, request queues and related API endpoints. To view a storage, click its **ID**.
 
-![Storages in app]({{@asset storage/images/datasets-app.png}})
+![Storages in app]({{@asset storage/images/datasets-app.webp}})
 
 > Only named storages are displayed by default. Select the **Include unnamed store** checkbox to display all of your storages.
 
@@ -88,7 +88,7 @@ You can edit your stores' names under the **Settings** tab of their detail page.
 
 You can quickly share your storages' contents and details by sharing the URLs you find under the **API** tab in a store's detail page.
 
-![Storage API]({{@asset storage/images/overview-api.png}})
+![Storage API]({{@asset storage/images/overview-api.webp}})
 
 These URLs provide links to API **endpoints**–the places where your data are stored. Endpoints that allow you to **read** stored information do not require an [authentication token](/api/v2#/introduction/authentication). The calls are authenticated using a hard-to-guess ID, so they can be shared freely. Operations such as **update** or **delete**, however, will need the authentication token.
 

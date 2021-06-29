@@ -14,7 +14,7 @@ In this article, we demonstrate how you can easily scrape data from a page behin
 
 First, let's find the **login form** and the **submit** button on the Facebook login page using Chrome's DevTools. Right-click on any of the elements in the form and choose **Inspect**.
 
-![Inspect Facebook login with DevTools]({{@asset tutorials/images/facebook-login.png}})
+![Inspect Facebook login with DevTools]({{@asset tutorials/images/facebook-login.webp}})
 
 We can see an HTML **input** element with the IDs `email` for email and `pass` for the password. The form submission button's ID is not very helpful, however we can see it is a **button** element with the name `login` and type `submit`. We will use its ID, which is `u_0_b`.
 

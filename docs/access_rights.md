@@ -40,7 +40,7 @@ If a user runs the actor, it gets billed to their account, and the actor run wil
 
 To publish an actor, open it in the [Apify app](https://my.apify.com), go to the **Publication** tab and follow the instructions below.
 
-![Publishing your actor]({{@asset images/publication.png}})
+![Publishing your actor]({{@asset images/publication.webp}})
 
 ## [](#permissions) Permissions
 

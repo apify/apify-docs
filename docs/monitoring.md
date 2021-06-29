@@ -33,7 +33,7 @@ The monitoring suite is made up of a system of actors: **checkers** and **report
 
 As the names suggest, the checkers make sure your data is up to standard. Reporters create visualizations of how your actors perform over time and send [notifications](#notifications) about failed runs.
 
-![Monitoring dashboard]({{@asset monitoring/images/monitoring-dashboard.png}})
+![Monitoring dashboard]({{@asset monitoring/images/monitoring-dashboard.webp}})
 
 ## [](#how-much-does-it-cost) How much does it cost?
 
@@ -70,7 +70,7 @@ To make any changes to an existing configuration, choose the **Update configurat
 
 On the monitoring suite's [page]((https://apify.com/apify/monitoring)) in [Apify Store](https://apify.com/store), click the **Try for free** button. This will take you to the [Apify app](https://my.apify.com), add the suite to your [list of actors](https://my.apify.com/actors) and create a new [task]({{@link actors/tasks.md}}).
 
-![Monitoring actor in Apify Store]({{@asset monitoring/images/monitoring-in-store.png}})
+![Monitoring actor in Apify Store]({{@asset monitoring/images/monitoring-in-store.webp}})
 
 ## [](#notifications) Notifications
 
@@ -78,7 +78,7 @@ The suite will send notifications to the [email address associated with your acc
 
 You can disable email notifications or change the email address in a task **Input**'s **Email notifications** section.
 
-![Customize notifications]({{@asset monitoring/images/customize-notifications.png}})
+![Customize notifications]({{@asset monitoring/images/customize-notifications.webp}})
 
 If you use [Slack](https://slack.com/), we suggest using Slack notifications instead of email. More details and setup instructions [here](https://apify.com/apify/monitoring#notifications).
 
@@ -86,6 +86,6 @@ If you use [Slack](https://slack.com/), we suggest using Slack notifications ins
 
 Below is an example of an email notification for a task run that did not return enough results.
 
-![Failed run example]({{@asset monitoring/images/puppies-failed-run.png}})
+![Failed run example]({{@asset monitoring/images/puppies-failed-run.webp}})
 
 To see what went wrong, click on the **time** next to **Actor run** to open your task's **Runs** dashboard. When you click on **Details**, you'll find a detailed monitoring report in JSON format.

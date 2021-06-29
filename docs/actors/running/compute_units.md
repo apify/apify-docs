@@ -17,7 +17,7 @@ For example, if you run an actor with 1GB of allocated memory for 1 hour, it wil
 
 You can see each actor run's exact CU usage under the **Info** tab in the run's details.
 
-![An actor run's platform usage]({{@asset actors/images/actor-usage.png}})
+![An actor run's platform usage]({{@asset actors/images/actor-usage.webp}})
 
 You can [find a summary of your overall platform and CU usage](https://my.apify.com/billing-new) in the **Billing** section of the Apify app.
 

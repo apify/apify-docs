@@ -4,14 +4,15 @@
   "description": "This is a home of Apify documentation.",
   "main": "index.js",
   "scripts": {
-    "build": "npm run lint:md && npm run lint:code && node ./src/build.js",
+    "build": "npm run lint:md && npm run lint:code && npm run webp-convert && node ./src/build.js",
     "test": "npm run test",
     "lint": "npm run lint:md && npm run lint:code",
     "lint:fix": "npm run lint:md:fix && npm run lint:code:fix",
     "lint:md": "./node_modules/.bin/markdownlint '**/*.md'",
     "lint:md:fix": "./node_modules/.bin/markdownlint '**/*.md' --fix",
     "lint:code": "./node_modules/.bin/eslint . && eslint --ext js,md",
-    "lint:code:fix": "./node_modules/.bin/eslint . --ext .js,.jsx --fix && eslint --ext js,md --fix ."
+    "lint:code:fix": "./node_modules/.bin/eslint . --ext .js,.jsx --fix && eslint --ext js,md --fix .",
+    "webp-convert": "node ./src/webp_converter.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,8 @@
     "@babel/core": "^7.12.3",
     "@babel/eslint-parser": "^7.12.1",
     "@babel/eslint-plugin": "^7.12.1",
+    "imagemin": "^7.0.1",
+    "imagemin-webp": "^6.0.0",
     "eslint": "^7.12.1",
     "eslint-plugin-markdown": "^2.0.0-rc.0",
     "markdownlint": "^0.21.0",

@@ -79,7 +79,7 @@ The description is used by search engines to understand what the actor is about,
 
 If you’re not sure about similar phrases, check out the Google suggest tool in the search and it will show you some hints and tips. Of course, the description should primarily be about what the actor does, but it’s always a good idea to enrich the text with popular keywords.
 
-![Google suggestions example]({{@asset actors/images/actors-publishing-google.png}})
+![Google suggestions example]({{@asset actors/images/actors-publishing-google.webp}})
 
 ### README
 

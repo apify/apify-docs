@@ -33,12 +33,12 @@ In the [Apify app](https://my.apify.com), you can view your datasets in the [Sto
 
 Only named datasets are displayed by default. Select the **Include unnamed datasets** checkbox to display all of your datasets.
 
-![Datasets in app]({{@asset storage/images/datasets-app.png}})
+![Datasets in app]({{@asset storage/images/datasets-app.webp}})
 
 To view or download a dataset in the above mentioned formats, click on its **Dataset ID**\. In the detail page, you can update the dataset's name (and, in turn, its [retention period]({{@link storage.md#data-retention}})) and
 [access rights]({{@link access_rights.md}}) under the **Settings** tab. The API tab allows you to view and test the dataset's [API endpoints](/api/v2#/reference/datasets).
 
-![Datasets detail view]({{@asset storage/images/datasets-detail.png}})
+![Datasets detail view]({{@asset storage/images/datasets-detail.webp}})
 
 ### [](#apify-sdk) Apify SDK
 

@@ -13,7 +13,7 @@ paths:
 
 Once you have finished coding and testing your actor, it's time to publish it. Go to the **Publication** tab on the actor's detail page and select the **Published** switch.
 
-![Publish your actor in the Apify app]({{@asset actors/publishing/images/publish.png}})
+![Publish your actor in the Apify app]({{@asset actors/publishing/images/publish.webp}})
 
 As well as a README, input schema, and a category, you'll need a **username**. You can set one on your [Profile](https://my.apify.com/account#/profile) page. Choose your username wisely, as changing it at a later stage will break any [integrations]({{@link tutorials/integrations.md}}) that use it.
 

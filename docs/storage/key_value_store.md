@@ -33,14 +33,14 @@ In the [Apify app](https://my.apify.com), you can view your key-value stores in 
 
 Only named key-value stores are displayed by default. Select the **Include unnamed key-value stores** checkbox to display all of your stores.
 
-![Key-value stores in app]({{@asset storage/images/key-value-stores-app.png}})
+![Key-value stores in app]({{@asset storage/images/key-value-stores-app.webp}})
 
 To view a key-value store's content, click on its **Store ID**, then click on a store's **View** button.
 In the detail page, under the **Settings** tab, you can update the store's name (and, in turn, its [retention period]({{@link storage.md#data-retention}})) and
 [access rights]({{@link access_rights.md}}).
 The API tab allows you to view and test a store's [API endpoints](https://docs.apify.com/api/v2#/reference/key-value-stores).
 
-![Key-value stores detail]({{@asset storage/images/key-value-stores-detail.png}})
+![Key-value stores detail]({{@asset storage/images/key-value-stores-detail.webp}})
 
 ### Apify SDK
 
