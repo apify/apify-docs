@@ -31,7 +31,7 @@ In the [Apify app](https://my.apify.com), you can view your request queues in th
 
 Only named request queues are displayed by default. Select the **Include unnamed request queues** checkbox to display all of your queues.
 
-![Request queues in app]({{@asset storage/images/request-queue-app.png}})
+![Request queues in app]({{@asset storage/images/request-queue-app.webp}})
 
 To view a request queue, click on its **Queue ID**\.
 In the detail page, under the **Settings** tab, you can update the queue's name (and, in turn, its
@@ -39,7 +39,7 @@ In the detail page, under the **Settings** tab, you can update the queue's name 
 [access rights]({{@link access_rights.md}}).
 The API tab allows you to view and test a queue's [API endpoints](/api/v2#/reference/request-queues).
 
-![Request queues detail]({{@asset storage/images/request-queue-detail.png}})
+![Request queues detail]({{@asset storage/images/request-queue-detail.webp}})
 
 ### [](#apify-sdk) Apify SDK
 

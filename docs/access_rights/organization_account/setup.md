@@ -18,7 +18,7 @@ You can add members to your organization in the **Members** tab. You can use the
 
 The **Members** tab allows you to view and manage your organization's members and transfer the organization's membership.
 
-![Organization members]({{@asset access_rights/images/members.png}})
+![Organization members]({{@asset access_rights/images/members.webp}})
 
 ## [](#define-roles-and-permissions) Define roles and permissions
 
@@ -26,7 +26,7 @@ Roles allow you to define permissions to your organization's resources by group.
 
 To edit the permissions for each role, click on the **Configure permissions** button in the top-right corner.
 
-![Organization roles]({{@asset access_rights/images/roles.png}})
+![Organization roles]({{@asset access_rights/images/roles.webp}})
 
 > Each member can only have one role to avoid conflicting permissions.
 
@@ -34,7 +34,7 @@ You can configure individual permissions for each resource type such as actors, 
 
 **Some permissions have dependencies**. For example, if someone has the **actor run** permission, it is likely they will also need the **storage write** permission, so they can store the results from their actor runs.
 
-![Configure permissions]({{@asset access_rights/images/configure-permissions.png}})
+![Configure permissions]({{@asset access_rights/images/configure-permissions.webp}})
 
 [See the full list of permissions]({{@link access_rights/list_of_permissions.md}}) that can be granted to Apify resources.
 

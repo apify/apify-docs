@@ -14,7 +14,7 @@ paths:
 [Docker containers](https://www.docker.com/resources/what-container),
 which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memory-and-cpu-limit). When starting, the actor needs to be allocated a certain share of those resources, such as how much CPU "horsepower" it will be able to use.
 
-![Setting an actor's memory]({{@asset actors/images/memory-settings.png}})
+![Setting an actor's memory]({{@asset actors/images/memory-settings.webp}})
 
 By assigning an actor's **memory** capacity, you also assign it a proportional amount of **CPU power**. Every CPU core corresponds to 4 GB of memory. So, 512 MB = 1/8th of a core, 1 GB = 1/4 of core, 8 GB gives you 2 cores, and so on.
 
@@ -48,7 +48,7 @@ In other words, giving a simple, [Cheerio-based crawler](https://apify.com/apify
 
 ## CPU usage spikes
 
-![A usage spike on an actor's start-up]({{@asset actors/images/memory-cpu-usage-spike.png}})
+![A usage spike on an actor's start-up]({{@asset actors/images/memory-cpu-usage-spike.webp}})
 
 Sometimes, you see the actor’s CPU use go over 100%. This is not unusual. To help an actor start up faster, it is allocated a free CPU boost. For example, if an actor is assigned 1GB (25% of a core), it will temporarily be allowed to use 100% of the core so it gets started quicker.
 

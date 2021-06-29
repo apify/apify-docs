@@ -15,7 +15,7 @@ paths:
 
 An Apify actor can be invoked in a number of ways. One option is to start the actor from the **Developer console** in the app:
 
-![Apify developer console]({{@asset actors/images/developer-console.png}})
+![Apify developer console]({{@asset actors/images/developer-console.webp}})
 
 The actor's owner can specify its default settings in the actor's **Settings** tab. If the actor caller does not specify a particular setting either in the **Input** or **Options** tabs, the default value is used.
 
