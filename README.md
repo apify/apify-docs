@@ -68,6 +68,8 @@ echo "Some bash code"
 
 \`\`\`
 
+PHP examples using guzzle live in separate repository: https://github.com/apify/apify-php-examples.
+
 ### Metadata
 
 Each Markdown file here starts with metadata that define the document's menu title, placement, page description, and paths. For example:
