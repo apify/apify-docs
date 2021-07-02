@@ -253,6 +253,22 @@ curl_close($curl);
 echo $response;
 ?>
 </marked-tab>
+
+<marked-tab header="PHP (Guzzle)" lang="php">
+<?php
+require 'vendor/autoload.php';
+
+$client = new \GuzzleHttp\Client([
+    // Replace <YOUR_PROXY_PASSWORD> below with your password
+    // found at https://my.apify.com/proxy
+    'proxy' => 'http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000'
+]);
+
+$response = $client->get("http://www.google.com/search", [
+    'query' => ['q' => 'wikipedia']
+]);
+echo $response->getBody();
+</marked-tab>
 ```
 
 ### [](#html-from-localized-shopping-results) HTML from localized shopping results
@@ -378,5 +394,25 @@ $response = curl_exec($curl);
 curl_close($curl);
 echo $response;
 ?>
+</marked-tab>
+
+
+<marked-tab header="PHP (Guzzle)" lang="php">
+<?php
+require 'vendor/autoload.php';
+
+$client = new \GuzzleHttp\Client([
+    // Replace <YOUR_PROXY_PASSWORD> below with your password
+    // found at https://my.apify.com/proxy
+    'proxy' => 'http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000'
+]);
+
+$response = $client->get("http://www.google.com/search", [
+    'query' => [
+        'q' => 'Apple iPhone XS 64GB',
+        'tbm' => 'shop'
+    ]
+]);
+echo $response->getBody();
 </marked-tab>
 ```
