@@ -383,6 +383,22 @@ curl_close($curl);
 if ($response) echo $response;
 ?>
 </marked-tab>
+
+
+<marked-tab header="PHP (Guzzle)" lang="php">
+<?php
+require 'vendor/autoload.php';
+
+
+$client = new \GuzzleHttp\Client([
+    // Replace <YOUR_PROXY_PASSWORD> below with your password
+    // found at https://my.apify.com/proxy
+    'proxy' => 'http://auto:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000'
+]);
+
+$response = $client->get("http://proxy.apify.com/?format=json");
+echo $response->getBody();
+</marked-tab>
 ```
 
 ### [](#multiple-requests-with-the-same-ip-address) Multiple requests with the same IP address
@@ -521,6 +537,25 @@ echo $response1;
 echo "\nShould return the same clientIp as\n";
 echo $response2;
 ?>
+</marked-tab>
+
+
+<marked-tab header="PHP (Guzzle)" lang="php">
+<?php
+require 'vendor/autoload.php';
+
+$client = new \GuzzleHttp\Client([
+    // Replace <YOUR_PROXY_PASSWORD> below with your password
+    // found at https://my.apify.com/proxy
+    'proxy' => 'http://session-my_session:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000'
+]);
+
+$response = $client->get("https://api.apify.com/v2/browser-info");
+echo $response->getBody();
+
+// Should return the same clientIp as
+$response = $client->get("https://api.apify.com/v2/browser-info");
+echo $response->getBody();
 </marked-tab>
 ```
 
