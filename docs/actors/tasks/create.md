@@ -12,7 +12,7 @@ The way to set up configuration of your Apify Actor for simplified usage.
 
 ## [](#create-a-task-for-your-actor)Create a Task for your actor
 
-Go to the [Actor](https://my.apify.com/actors) section in the app and open the actor for which you want to create a task. Now you should see a console with the option to run the actor or create a task.
+Go to the [Actor](https://console.apify.com/actors) section in the app and open the actor for which you want to create a task. Now you should see a console with the option to run the actor or create a task.
 
 ![Run or create Apify task]({{@asset actors/tasks/images/run-or-create-task.webp}})
 

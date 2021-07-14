@@ -264,7 +264,7 @@ const proxyConfiguration = await Apify.createProxyConfiguration({
 
 ## [](#using-standard-libraries-and-languages) Using standard libraries and languages
 
-You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
+You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of the Apify console.
 
 > The `username` field is **not** your Apify username.<br/>
 > Instead, you specify proxy settings (e.g. `groups-BUYPROXIES94952+GOOGLESERP`, `session-123`).<br/>
@@ -276,7 +276,7 @@ Examples in [Python 2](https://www.python.org/download/releases/2.0/) use the [s
 
 ### [](#use-ip-rotation) Use IP rotation
 
-For each request, a random IP address is chosen from all [available proxy groups](https://my.apify.com/proxy). You can use random IP addresses from proxy groups by specifying the group(s) in the `username` parameter.
+For each request, a random IP address is chosen from all [available proxy groups](https://console.apify.com/proxy). You can use random IP addresses from proxy groups by specifying the group(s) in the `username` parameter.
 
 A random IP address will be used for each request.
 
@@ -289,7 +289,7 @@ const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
     port: "8000",
     // Replace <YOUR_PROXY_PASSWORD> below with your password
-    // found at https://my.apify.com/proxy
+    // found at https://console.apify.com/proxy
     auth: "auto:<YOUR_PROXY_PASSWORD>"
 });
 
@@ -310,7 +310,7 @@ const got = require("got");
 const HttpsProxyAgent = require("https-proxy-agent");
 
 // Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://my.apify.com/proxy
+// found at https://console.apify.com/proxy
 const proxyUrl = "http://auto:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
 async function useProxy() {
@@ -332,7 +332,7 @@ import urllib.request as request
 import ssl
 
 # Replace <YOUR_PROXY_PASSWORD> below with your password
-# found at https://my.apify.com/proxy
+# found at https://console.apify.com/proxy
 password = "<YOUR_PROXY_PASSWORD>"
 proxy_url = f"http://auto:{password}@proxy.apify.com:8000"
 proxy_handler = request.ProxyHandler({
@@ -355,7 +355,7 @@ import six
 from six.moves.urllib import request
 
 # Replace <YOUR_PROXY_PASSWORD> below with your password
-# found at https://my.apify.com/proxy
+# found at https://console.apify.com/proxy
 password = "<YOUR_PROXY_PASSWORD>"
 proxy_url = (
     "http://auto:%s@proxy.apify.com:8000" %
@@ -376,7 +376,7 @@ $curl = curl_init("http://proxy.apify.com/?format=json");
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($curl, CURLOPT_PROXY, "http://proxy.apify.com:8000");
 // Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://my.apify.com/proxy
+// found at https://console.apify.com/proxy
 curl_setopt($curl, CURLOPT_PROXYUSERPWD, "auto:<YOUR_PROXY_PASSWORD>");
 $response = curl_exec($curl);
 curl_close($curl);
@@ -392,7 +392,7 @@ require 'vendor/autoload.php';
 
 $client = new \GuzzleHttp\Client([
     // Replace <YOUR_PROXY_PASSWORD> below with your password
-    // found at https://my.apify.com/proxy
+    // found at https://console.apify.com/proxy
     'proxy' => 'http://auto:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000'
 ]);
 
@@ -416,7 +416,7 @@ const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
     port: "8000",
     // Replace <YOUR_PROXY_PASSWORD> below with your password
-    // found at https://my.apify.com/proxy
+    // found at https://console.apify.com/proxy
     auth: "session-my_session:<YOUR_PROXY_PASSWORD>"
 });
 
@@ -439,7 +439,7 @@ const got = require("got");
 const HttpsProxyAgent = require("https-proxy-agent");
 
 // Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://my.apify.com/proxy
+// found at https://console.apify.com/proxy
 const proxyUrl = "http://session-my_session:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
 async function useProxy() {
@@ -464,7 +464,7 @@ import ssl
 
 def do_request():
     # Replace <YOUR_PROXY_PASSWORD> below with your password
-    # found at https://my.apify.com/proxy
+    # found at https://console.apify.com/proxy
     password = "<YOUR_PROXY_PASSWORD>"
     proxy_url = f"http://session-my_session:{password}@proxy.apify.com:8000"
     proxy_handler = request.ProxyHandler({
@@ -493,7 +493,7 @@ import ssl
 
 def do_request():
     # Replace <YOUR_PROXY_PASSWORD> below with your password
-    # found at https://my.apify.com/proxy
+    # found at https://console.apify.com/proxy
     password = "<YOUR_PROXY_PASSWORD>"
     proxy_url = (
         "http://session-my_session:%s@proxy.apify.com:8000" %
@@ -525,7 +525,7 @@ function doRequest() {
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($curl, CURLOPT_PROXY, "http://proxy.apify.com:8000");
     // Replace <YOUR_PROXY_PASSWORD> below with your password
-    // found at https://my.apify.com/proxy
+    // found at https://console.apify.com/proxy
     curl_setopt($curl, CURLOPT_PROXYUSERPWD, "session-my_session:<YOUR_PROXY_PASSWORD>");
     $response = curl_exec($curl);
     curl_close($curl);
@@ -546,7 +546,7 @@ require 'vendor/autoload.php';
 
 $client = new \GuzzleHttp\Client([
     // Replace <YOUR_PROXY_PASSWORD> below with your password
-    // found at https://my.apify.com/proxy
+    // found at https://console.apify.com/proxy
     'proxy' => 'http://session-my_session:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000'
 ]);
 

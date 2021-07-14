@@ -18,7 +18,7 @@ You can easily and securely share your own resources - actors, tasks, key-value 
 You can also grant permission to update an actor and build a new version.
 [Storages]({{@link storage.md}}) (key-value stores, request queues and datasets) are sharable the same way with, for example, just **read** permission, or a combination of both **read** and **write** permissions.
 
-> To be able to grant access rights to another user you must have a **username** set in [account settings](https://my.apify.com/account#/profile).
+> To be able to grant access rights to another user you must have a **username** set in [account settings](https://console.apify.com/account#/profile).
 
 To share an actor, task, key-value store, request queue or dataset, open its **Settings** tab and at the very bottom you will find the **Access rights** section. You can add a collaborator using their **user ID**, **email** or **username**. Once you have added the collaborator, you can configure their permissions.
 
@@ -38,7 +38,7 @@ However, **without the relevant permissions (e.g. write, build, delete), no one 
 
 If a user runs the actor, it gets billed to their account, and the actor run will be available only to them.
 
-To publish an actor, open it in the [Apify app](https://my.apify.com), go to the **Publication** tab and follow the instructions below.
+To publish an actor, open it in the [Apify console](https://console.apify.com), go to the **Publication** tab and follow the instructions below.
 
 ![Publishing your actor]({{@asset images/publication.webp}})
 

@@ -1,6 +1,6 @@
 ---
 title: Run
-description: Start your actor tasks from the Apify app or via API.
+description: Start your actor tasks from the Apify console or via API.
 paths:
     - tasks/run
     - actors/tasks/run

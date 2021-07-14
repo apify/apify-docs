@@ -1,6 +1,6 @@
 ---
 title: Schedules
-description: Learn how to automatically start your actor and task runs and the basics of *cron* expressions. Set up and manage your schedules from the Apify app or via API.
+description: Learn how to automatically start your actor and task runs and the basics of *cron* expressions. Set up and manage your schedules from the Apify console or via API.
 menuWeight: 8
 category: platform
 paths:
@@ -10,11 +10,11 @@ paths:
 
 # [](#schedules) Schedules
 
-[Schedules](https://my.apify.com/schedules) allow you to run your actors and tasks at specific times. You schedule the run frequency using [cron expressions](#cron-expressions).
+[Schedules](https://console.apify.com/schedules) allow you to run your actors and tasks at specific times. You schedule the run frequency using [cron expressions](#cron-expressions).
 
 > Schedules allow timezone settings and support daylight saving time shifts (DST).
 
-You can set up and manage schedules both from the [Apify app](https://my.apify.com/schedules) and via [API](https://docs.apify.com/api/v2#/reference/schedules). When scheduling a new actor or task run, you can override its input settings using a JSON object similarly to when invoking a schedule using the [Apify API](https://docs.apify.com/api/v2#/reference/schedules/).
+You can set up and manage schedules both from the [Apify console](https://console.apify.com/schedules) and via [API](https://docs.apify.com/api/v2#/reference/schedules). When scheduling a new actor or task run, you can override its input settings using a JSON object similarly to when invoking a schedule using the [Apify API](https://docs.apify.com/api/v2#/reference/schedules/).
 
 > In most cases, scheduled events are fired within one second of their scheduled time. <br/>
 > Occasionally, however, runs can be delayed because of a system overload or a server shutting down.
@@ -29,9 +29,9 @@ If you are planning to schedule an actor run, you need to use the actor before y
 
 > Your schedule's name should be 3-63 characters long.
 
-### [](#from-the-apify-app) From the Apify app
+### [](#from-the-apify-console) From the Apify console
 
-In the [Apify app](https://my.apify.com/), click on the [**Schedules**](https://my.apify.com/schedules) button in the left side menu, then click the **Create new** button.
+In the [Apify console](https://console.apify.com/), click on the [**Schedules**](https://console.apify.com/schedules) button in the left side menu, then click the **Create new** button.
 
 In the **Settings** tab, give your schedule a memorable name, add a description, and choose how often you would like your actor or task to run using the **Cron expression** field.
 
@@ -59,9 +59,9 @@ If you are an advanced user, you can also add a [webhook](https://docs.apify.com
 
 To [create a new schedule](https://docs.apify.com/api/v2#/reference/schedules) using the [Apify API](https://docs.apify.com/api/v2#), send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to the [create schedule](https://docs.apify.com/api/v2#/reference/schedules/schedules-collection/create-schedule) endpoint.
 
-You can find your [secret API token]({{@link tutorials/integrations.md#api-token}}) in your Apify account's [Integrations](https://my.apify.com/account#/integrations) tab. When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](/api/v2#/introduction/authentication)).
+You can find your [secret API token]({{@link tutorials/integrations.md#api-token}}) in your Apify account's [Integrations](https://console.apify.com/account#/integrations) tab. When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](/api/v2#/introduction/authentication)).
 
-In the POST request's payload should be a JSON object specifying the schedule's name, your [user ID](https://my.apify.com/account#/integrations), and the schedule's **actions**.
+In the POST request's payload should be a JSON object specifying the schedule's name, your [user ID](https://console.apify.com/account#/integrations), and the schedule's **actions**.
 
 The below JSON object creates a schedule which runs an SEO audit of the Apify domain once a month.
 

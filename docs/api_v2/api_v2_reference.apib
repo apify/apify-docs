@@ -24,7 +24,7 @@ from services that can only send GET requests.
 ## Authentication
 
 You can find your API token on the
-[Integrations](https://my.apify.com/account#/integrations) page in the Apify app.
+[Integrations](https://console.apify.com/account#/integrations) page in the Apify console.
 
 To use your token in a request, either:
 - Add the token to your request's `Authorization` header as `Bearer <token>`.
@@ -48,11 +48,11 @@ To run an actor, send a POST request to the [Run actor](#reference/actors/run-co
 
 If the actor is not runnable anonymously, you will receive a 401 or 403
 [response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
-This means you need to add your [secret API token](https://my.apify.com/account#/integrations) to the request's `Authorization` header ([recommended](#introduction/authentication)) or as a URL query parameter `?token=[your_token]` (less secure).
+This means you need to add your [secret API token](https://console.apify.com/account#/integrations) to the request's `Authorization` header ([recommended](#introduction/authentication)) or as a URL query parameter `?token=[your_token]` (less secure).
 
 Optionally, you can include the query parameters described in the [Run actor](#reference/actors/run-collection/run-actor) section to customize your run.
 
-If you're using Node.js, the best way to run an actor is using the `Apify.call()` method from the [Apify SDK](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options). It runs the actor using the account you are currently logged into (determined by the [secret API token](https://my.apify.com/account#/integrations)). The result is an [actor run object](https://sdk.apify.com/docs/typedefs/actor-run) and its output (if any).
+If you're using Node.js, the best way to run an actor is using the `Apify.call()` method from the [Apify SDK](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options). It runs the actor using the account you are currently logged into (determined by the [secret API token](https://console.apify.com/account#/integrations)). The result is an [actor run object](https://sdk.apify.com/docs/typedefs/actor-run) and its output (if any).
 
 A typical workflow is as follows:
 

@@ -14,7 +14,7 @@ paths:
 
 These actors start with a pre-defined list of URLs ([start URLs]({{@link tutorials/apify_scrapers/getting_started.md#the-start-url}})), then recursively follow links to find new pages (optional).
 
-![Add Start URLs in Apify app]({{@asset tutorials/images/start-url.webp}})
+![Add Start URLs in Apify console]({{@asset tutorials/images/start-url.webp}})
 
 Let's say you have the start URLs you want to crawl entered in a [Google Sheets](https://www.google.com/sheets/about/) spreadsheet, such as [this one](
 https://docs.google.com/spreadsheets/d/1GA5sSQhQjB_REes8I5IKg31S-TuRcznWOPjcpNqtxmU).
