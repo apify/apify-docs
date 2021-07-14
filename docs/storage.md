@@ -17,7 +17,7 @@ This page contains a brief introduction of the three types of Apify Storage.
 * [Key-value store](#key-value-store) - storage for arbitrary data records such as files, images, and strings.
 * [Request queue](#request-queue) - a queue of URLs for your actors to visit.
 
-You will then find [basic usage](#basic-usage) information relating to all three types of storage. For example, how to manage your storages in the [Apify console](#apify-app), the basics of setting up the [Apify SDK](#apify-sdk) and
+You will then find [basic usage](#basic-usage) information relating to all three types of storage. For example, how to manage your storages in the [Apify console](#apify-console), the basics of setting up the [Apify SDK](#apify-sdk) and
 [JavaScript API client](#javascript-api-client),
 and general information for using storages with the [Apify API](#apify-api).
 
@@ -71,16 +71,16 @@ the [Apify API](/api/v2#/reference/request-queues).
 
 There are four ways to access your storage:
 
-* [Apify console](https://console.apify.com/storage) - provides an easy-to-understand interface [[details](#apify-app)].
+* [Apify console](https://console.apify.com/storage) - provides an easy-to-understand interface [[details](#apify-console)].
 * [Apify SDK](https://sdk.apify.com/docs/guides/data-storage) - when building your own Apify actor [[details](#apify-sdk)].
 * [JavaScript API client](/apify-client-js) - to access your storages from any Node.js application [[details](#javascript-api-client)].
 * [Apify API](/api/v2#/reference/key-value-stores) - for accessing your storages programmatically [[details](#apify-api)].
 
-### [](#apify-app) Apify console
+### [](#apify-console) Apify console
 
 To access your storages from the Apify console, go to the [**Storage** section](https://console.apify.com/storage) in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, request queues and related API endpoints. To view a storage, click its **ID**.
 
-![Storages in app]({{@asset storage/images/datasets-app.webp}})
+![Storages in app]({{@asset storage/images/datasets-console.webp}})
 
 > Only named storages are displayed by default. Select the **Include unnamed store** checkbox to display all of your storages.
 
@@ -152,11 +152,11 @@ Unnamed storages expire after 7 days unless otherwise specified.
 
 Named storages are retained indefinitely.
 
-You can edit your storages' names in the [Apify console](#apify-app) or using the access methods above.
+You can edit your storages' names in the [Apify console](#apify-console) or using the access methods above.
 
 ## [](#named-and-unnamed-storages) Named and unnamed storages
 
-All storages are created without a name (with only an **ID**). This allows them to expire after 7 days and not take up your storage space. If you want to preserve a storage, simply [give it a name](#apify-app) and it will be retained indefinitely.
+All storages are created without a name (with only an **ID**). This allows them to expire after 7 days and not take up your storage space. If you want to preserve a storage, simply [give it a name](#apify-console) and it will be retained indefinitely.
 
 > Storages' names can be up to 63 characters long.
 

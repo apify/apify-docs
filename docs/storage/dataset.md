@@ -22,12 +22,12 @@ Dataset storage is **append-only** - data can only be added and cannot be change
 
 There are four ways to access your datasets:
 
-* [Apify console](https://console.apify.com/storage#/datasets) - provides an easy-to-understand interface [[details](#apify-app)].
+* [Apify console](https://console.apify.com/storage#/datasets) - provides an easy-to-understand interface [[details](#apify-console)].
 * [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor [[details](#apify-sdk)].
 * [JavaScript API client](/apify-client-js#datasetclient) - to access your datasets from any Node.js application [[details](#javascript-api-client)].
 * [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically [[details](#apify-api)].
 
-### [](#apify-app) Apify console
+### [](#apify-console) Apify console
 
 In the [Apify console](https://console.apify.com), you can view your datasets in the [Storage](https://console.apify.com/storage) section under the [Datasets](https://console.apify.com/storage#/datasets) tab.
 

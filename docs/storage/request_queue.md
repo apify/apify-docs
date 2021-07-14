@@ -20,12 +20,12 @@ Request queue storage supports both breadth-first and depth-first crawling order
 
 There are four ways to access your request queues:
 
-* [Apify console](https://console.apify.com/storage#/requestQueues) - provides an easy-to-understand interface [[details](#apify-app)].
+* [Apify console](https://console.apify.com/storage#/requestQueues) - provides an easy-to-understand interface [[details](#apify-console)].
 * [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#request-queue) - when building your own Apify actor [[details](#apify-sdk)].
 * [JavaScript API client](apify-client-js#requestqueueclient) - to access your request queues from any Node.js application [[details](#javascript-api-client)].
 * [Apify API](/api/v2#/reference/request-queues) - for accessing your request queues programmatically [[details](#apify-api)].
 
-### [](#apify-app) Apify console
+### [](#apify-console) Apify console
 
 In the [Apify console](https://console.apify.com), you can view your request queues in the [Storage](https://console.apify.com/storage) section under the [Request queues](https://console.apify.com/storage#/requestQueues) tab.
 

@@ -14,7 +14,7 @@ While you can't manage an organization account via [API](https://docs.apify.com/
 
 **[See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) on organization accounts.**
 
-## [](#in-the-apify-app) In the Apify console
+## [](#in-the-apify-console) In the Apify console
 
 You can switch into **Organization account** view using the account button in the top-left corner.
 

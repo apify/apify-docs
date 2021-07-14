@@ -22,7 +22,7 @@ Key-value stores are mutable–you can both add entries and delete them.
 
 There are four ways to access your key-value stores:
 
-* [Apify console](https://console.apify.com/storage#/keyValueStores) - provides an easy-to-understand interface [[details](#apify-app)].
+* [Apify console](https://console.apify.com/storage#/keyValueStores) - provides an easy-to-understand interface [[details](#apify-console)].
 * [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#key-value-store) - when building your own Apify actor [[details](#apify-sdk)].
 * [JavaScript API client](/apify-client-js#keyvaluestoreclient) - to access your key-value stores from any Node.js application [[details](#javascript-api-client)].
 * [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically [[details](#apify-api)].

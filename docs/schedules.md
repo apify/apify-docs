@@ -29,7 +29,7 @@ If you are planning to schedule an actor run, you need to use the actor before y
 
 > Your schedule's name should be 3-63 characters long.
 
-### [](#from-the-apify-app) From the Apify console
+### [](#from-the-apify-console) From the Apify console
 
 In the [Apify console](https://console.apify.com/), click on the [**Schedules**](https://console.apify.com/schedules) button in the left side menu, then click the **Create new** button.
 

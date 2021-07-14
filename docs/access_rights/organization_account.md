@@ -13,7 +13,7 @@ paths:
 
 Organization accounts allow groups to collaborate on projects. It enables you to manage your team members' [permissions]({{@link access_rights/list_of_permissions.md}}) and to centralize your billing without having to share the credentials of a single personal account.
 
-You can [switch]({{@link access_rights/organization_account/how_to_use.md#in-the-apify-app}}) between your personal and organization accounts in just two clicks: in the [Apify console](https://console.apify.com), click the account button in the top-left corner, then select the organization.
+You can [switch]({{@link access_rights/organization_account/how_to_use.md#in-the-apify-console}}) between your personal and organization accounts in just two clicks: in the [Apify console](https://console.apify.com), click the account button in the top-left corner, then select the organization.
 
 You can set up an organization in two ways.
 
