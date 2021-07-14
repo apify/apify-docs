@@ -15,7 +15,7 @@ In this article, you will find the very basics of using the Apify platform. It s
 
 Once you get to grips with this, [go through our Apify scrapers tutorials]({{@link tutorials/apify_scrapers.md}}) to learn about how our main tools work. If you're comfortable getting your hands into some JavaScript, [check out the Apify SDK](https://sdk.apify.com), which has plenty of [tutorials to get you going](https://sdk.apify.com/docs/guides/quick-start).
 
-**You will need an Apify account to complete this tutorial. If you don't have one, [complete the sign-up process](https://my.apify.com/sign-up) first.**
+**You will need an Apify account to complete this tutorial. If you don't have one, [complete the sign-up process](https://console.apify.com/sign-up) first.**
 
 ## Run an actor
 
@@ -27,7 +27,7 @@ Once you get to grips with this, [go through our Apify scrapers tutorials]({{@li
 
 ![Try for free]({{@asset tutorials/images/try-for-free.webp}})
 
-**3**. This will take you to the [Apify app](https://my.apify.com), where you will see the screen below.
+**3**. This will take you to the [Apify console](https://console.apify.com), where you will see the screen below.
 
 ![Actor input view]({{@asset tutorials/images/actor-input-view.webp}})
 
@@ -53,7 +53,7 @@ Here is a preview of the actor's output as a table.
 
 ## Create an actor
 
-**1.** [Go to the **Actors** section](https://my.apify.com/actors) in the Apify app and click on the **Create new** button.
+**1.** [Go to the **Actors** section](https://console.apify.com/actors) in the Apify console and click on the **Create new** button.
 
 ![Create a new actor]({{@asset tutorials/images/create-actor.webp}})
 

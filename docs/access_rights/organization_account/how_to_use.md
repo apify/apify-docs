@@ -1,6 +1,6 @@
 ---
 title: How to use
-description: Learn to use and manage your organization account using the Apify app or API. View the organizations you are in and manage your memberships.
+description: Learn to use and manage your organization account using the Apify console or API. View the organizations you are in and manage your memberships.
 menuWeight: 2
 paths:
     - access-rights/organization-account/how-to-use
@@ -14,7 +14,7 @@ While you can't manage an organization account via [API](https://docs.apify.com/
 
 **[See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) on organization accounts.**
 
-## [](#in-the-apify-app) In the Apify app
+## [](#in-the-apify-app) In the Apify console
 
 You can switch into **Organization account** view using the account button in the top-left corner.
 
@@ -28,7 +28,7 @@ The resources you can access and account details you can edit will depend on you
 
 ### [](#manage-your-organizations) Manage your organizations
 
-You can view and manage the organizations you are a member of from the **Organizations** tab on your [account page](https://my.apify.com/account#/myorganization).
+You can view and manage the organizations you are a member of from the **Organizations** tab on your [account page](https://console.apify.com/account#/myorganization).
 
 If you want to leave an organization you own, you must first transfer ownership to someone else.
 

@@ -1,6 +1,6 @@
 ---
 title: Dataset
-description: Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in the Apify app or via API.
+description: Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in the Apify console or via API.
 menuWeight: 9.1
 paths:
     - storage/dataset
@@ -22,14 +22,14 @@ Dataset storage is **append-only** - data can only be added and cannot be change
 
 There are four ways to access your datasets:
 
-* [Apify app](https://my.apify.com/storage#/datasets) - provides an easy-to-understand interface [[details](#apify-app)].
+* [Apify console](https://console.apify.com/storage#/datasets) - provides an easy-to-understand interface [[details](#apify-app)].
 * [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor [[details](#apify-sdk)].
 * [JavaScript API client](/apify-client-js#datasetclient) - to access your datasets from any Node.js application [[details](#javascript-api-client)].
 * [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically [[details](#apify-api)].
 
-### [](#apify-app) Apify app
+### [](#apify-app) Apify console
 
-In the [Apify app](https://my.apify.com), you can view your datasets in the [Storage](https://my.apify.com/storage) section under the [Datasets](https://my.apify.com/storage#/datasets) tab.
+In the [Apify console](https://console.apify.com), you can view your datasets in the [Storage](https://console.apify.com/storage) section under the [Datasets](https://console.apify.com/storage#/datasets) tab.
 
 Only named datasets are displayed by default. Select the **Include unnamed datasets** checkbox to display all of your datasets.
 
@@ -116,7 +116,7 @@ Note: When using the [`.listItems()`](/apify-client-js#datasetclient-listitems) 
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/datasets) allows you to access your datasets programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
-If you are accessing your datasets using the **username~store-name** [store ID format]({{@link storage.md#apify-api}}), you will need to use your [secret API token]({{@link tutorials/integrations.md#api-token}}). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+If you are accessing your datasets using the **username~store-name** [store ID format]({{@link storage.md#apify-api}}), you will need to use your [secret API token]({{@link tutorials/integrations.md#api-token}}). You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) page of your Apify account.
 
 > When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
@@ -201,7 +201,7 @@ Below is an example of a dataset record containing hidden fields with an HTTP re
 }
 ```
 
-Data without hidden fields are called "clean" and can be downloaded from the [Apify app](https://my.apify.com/storage#/datasets) using the "Clean items" link or via API using the **clean=true** or **clean=1** [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items).
+Data without hidden fields are called "clean" and can be downloaded from the [Apify console](https://console.apify.com/storage#/datasets) using the "Clean items" link or via API using the **clean=true** or **clean=1** [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items).
 
 ## [](#xml-format-extension) XML format extension
 

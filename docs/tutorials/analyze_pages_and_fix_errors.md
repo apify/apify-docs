@@ -30,7 +30,7 @@ Here are the most common reasons your working solution may break.
 
 - You made a mistake when updating your code.
 
-- The code worked locally but not on the Apify [platform](https://my.apify.com).
+- The code worked locally but not on the Apify [platform](https://console.apify.com).
 
 - You have lost access to [Apify proxy]({{@link proxy.md}}) (your proxy trial is over).
 
@@ -165,7 +165,7 @@ const storeId = Apify.getEnv().defaultKeyValueStoreId;
 // We can also capture actor and run IDs
 // to have easy access in the reporting dataset
 const { actorId, actorRunId } = Apify.getEnv();
-const linkToRun = `https://my.apify.com/actors/actorId#/runs/actorRunId`;
+const linkToRun = `https://console.apify.com/actors/actorId#/runs/actorRunId`;
 
 try {
     // Sensitive code block

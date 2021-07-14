@@ -33,7 +33,7 @@ You don't need a paid plan to start a paid actor's free trial. Just activate the
 
 ## When will I be charged for the actor rental?
 
-You always prepay the actor rental for the following month. The first payment happens when the trial expires, and then recurs monthly. When you open the actor in the Apify app, you will see when the next rental payment is due and you will also receive a notification when it happens.
+You always prepay the actor rental for the following month. The first payment happens when the trial expires, and then recurs monthly. When you open the actor in the Apify console, you will see when the next rental payment is due and you will also receive a notification when it happens.
 
 **Example**: You activate a 7-day trial of an actor at **noon of April 1, 2021**. If you don't turn off auto-renewal, you will be charged at **noon on April 8, 2021**, then **May 8, 2021**, and so on.
 
@@ -55,9 +55,9 @@ During your trial or any time after that, **you can always turn off auto-renewal
 
 Since actor rental fees are paid from platform usage credits, these fees conceptually belong under platform usage.
 
-Hence, you can find the breakdown of how much you have been charged for paid actors on the bottom of the **Platform usage** tab in the [Billing and usage](https://my.apify.com/billing-new) section. The overall sum will also be visible in the usage bar chart and the table on the top of the same tab.
+Hence, you can find the breakdown of how much you have been charged for paid actors on the bottom of the **Platform usage** tab in the [Billing and usage](https://console.apify.com/billing-new) section. The overall sum will also be visible in the usage bar chart and the table on the top of the same tab.
 
-![Paid actors billing in Apify app]({{@asset actors/images/paid-actors-billing.webp}})
+![Paid actors billing in Apify console]({{@asset actors/images/paid-actors-billing.webp}})
 
 ## How do I report issues with an actor?
 
