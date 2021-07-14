@@ -80,7 +80,7 @@ There are four ways to access your storage:
 
 To access your storages from the Apify console, go to the [**Storage** section](https://console.apify.com/storage) in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, request queues and related API endpoints. To view a storage, click its **ID**.
 
-![Storages in app]({{@asset storage/images/datasets-console.webp}})
+![Storages in app]({{@asset storage/images/datasets-app.webp}})
 
 > Only named storages are displayed by default. Select the **Include unnamed store** checkbox to display all of your storages.
 
