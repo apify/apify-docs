@@ -3217,6 +3217,7 @@ Deletes a webhook.
 + Response 204 (application/json)
 
     + Attributes(object)
+
 ## Webhook test [/v2/webhooks/{webhookId}/test{?token}]
 
 + Parameters
@@ -3226,7 +3227,7 @@ Deletes a webhook.
 
 ### Test webhook [POST]
 
-Tests a webhook.
+Tests a webhook. Creates a webhook dispatch with a dummy payload.
 
 + Response 201 (application/json)
     + Attributes
