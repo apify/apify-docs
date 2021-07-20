@@ -3218,6 +3218,21 @@ Deletes a webhook.
 
     + Attributes(object)
 
+## Webhook test [/v2/webhooks/{webhookId}/test{?token}]
+
++ Parameters
+
+    + webhookId: `Zib4xbZsmvZeK55ua`    (string, required) - Webhook ID.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+
+### Test webhook [POST]
+
+Tests a webhook. Creates a webhook dispatch with a dummy payload.
+
++ Response 201 (application/json)
+    + Attributes
+        - data (WebhookDispatch, required)
+
 ### Dispatches collection [/v2/webhooks/{webhookId}/dispatches{?token}]
 
 ## Get collection [GET]
