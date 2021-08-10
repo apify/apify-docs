@@ -39,3 +39,10 @@ To access environment variables in Node.js, use the `process.env` object, for ex
 ```js
 console.log(process.env.APIFY_USER_ID);
 ```
+
+To access environment variables in Python, use the `os.environ` dictionary, for example:
+
+```python
+import os
+print(os.environ['APIFY_USER_ID'])
+```

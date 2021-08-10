@@ -44,6 +44,13 @@ const run = await Apify.call('apify/hello-world', {
 console.dir(run.output);
 ```
 
+Similarly, actors can be invoked programmatically from other actors using the [`call()`](https://docs.apify.com/apify-client-python#actorclient-call) function provided by the [`apify-client`](https://docs.apify.com/apify-client-python) Python package. For example:
+
+```python
+run = apify_client.actor('apify/hello-world').call(run_input={ 'message': 'Hello!' })
+print(run['id'])
+```
+
 The newly started actor runs under the same user account as the initial actor and therefore all resources consumed are charged to the same user account. This allows more complex actors to be built using simpler actors built and owned by other users.
 
 Internally, the `call()` function takes the user's API token from the `APIFY_TOKEN` environment variable, then it invokes the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get record](https://docs.apify.com/api/v2/#/reference/key-value-stores/record/get-record) API endpoint.
