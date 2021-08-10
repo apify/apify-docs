@@ -20,7 +20,7 @@ Integrations use [APIs](https://www.smashingmagazine.com/2018/01/understanding-u
 Our [RESTful API](/api/v2#) allows you to control the Apify platform from any application.
 You can create [actors](/api/v2#/reference/actors/actor-collection/create-actor) and [tasks](/api/v2#/reference/actor-tasks/task-collection/create-task),
 [start and stop your runs](/api/v2#/reference/actor-tasks/run-task-synchronously/run-task-synchronously-(post)),
-and [manage your data](/api/v2#/reference/datasets/item-collection/put-items) using only HTTP requests (or our handy API clients [for Javascript]({{@link apify_client_js.md}}) [for Python]({{@link apify_client_python.md}})).
+and [manage your data](/api/v2#/reference/datasets/item-collection/put-items) using only HTTP requests (or our handy API clients [for Javascript]({{@link apify_client_js.md}}) and [for Python]({{@link apify_client_python.md}})).
 Meanwhile, webhooks allow you to perform tasks like sending HTTP requests or notification on when certain [events]({{@link webhooks/events.md}}) occur.
 
 ## [](#get-started) Get started
