@@ -221,7 +221,7 @@ In the [JavaScript API client](/apify-client-js), you can access a request queue
 const otherQueueClient = apifyClient.requestQueue('jane-doe/old-queue');
 ```
 
-The same works in the [Python API client](/apify-client-python), you can access a request queue using [its client](/apify-client-python#requestqueueclient) again.
+Likewise, in the [Python API client](/apify-client-python), you can access a request queue using [its client](/apify-client-python#requestqueueclient).
 
 ```python
 other_queue_client = apify_client.request_queue('jane-doe/old-queue')

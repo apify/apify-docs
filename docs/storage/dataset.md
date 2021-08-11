@@ -316,7 +316,7 @@ In the [JavaScript API client](/apify-client-js), you can access a dataset using
 const otherDatasetClient = apifyClient.dataset('jane-doe/old-dataset');
 ```
 
-The same works in the [Python API client](/apify-client-python), you can access a dataset using [its client](/apify-client-python#datasetclient) again.
+Likewise, in the [Python API client](/apify-client-python), you can access a dataset using [its client](/apify-client-python#datasetclient).
 
 ```python
 other_dataset_client = apify_client.dataset('jane-doe/old-dataset')

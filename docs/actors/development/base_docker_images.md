@@ -16,7 +16,7 @@ Note that all Apify Docker images are pre-cached on Apify servers in order to sp
 
 ## [](#apify-sdk-actor-images) Images with Apify SDK preinstalled
 
-These images contain the [Apify SDK for Javascript](https://sdk.apify.com/) preinstalled. You can read more about them in the [Apify SDK Docker image guide](https://sdk.apify.com/docs/guides/docker-images).
+The [Apify SDK for JavaScript](https://sdk.apify.com) is preinstalled on these images. You can read more about them in the [Apify SDK Docker image guide](https://sdk.apify.com/docs/guides/docker-images).
 
 - **Node.js 14 on Alpine Linux** ([`apify/actor-node`](https://hub.docker.com/r/apify/actor-node/)) - slim and efficient image, contains only the most elementary tools. Note that headless browsers (Puppeteer, Playwright) are not available in this image.
 
@@ -28,6 +28,6 @@ For a full list of available images, [see the Apify SDK Docker image guide](http
 
 ## [](#python-actor-images) Images with Apify Client for Python preinstalled
 
-These images contain the [Apify API client for Python](https://docs.apify.com/apify-client-python) preinstalled.
+The [Apify API client for Python](https://docs.apify.com/apify-client-python) is preinstalled on these images.
 
 - **Python 3 on Alpine Linux** ([`apify/actor-python`](https://hub.docker.com/r/apify/actor-python/)) - a slim image with Python 3 and the [Apify API client for Python](https://docs.apify.com/apify-client-python) preinstalled. Comes in multiple versions containing Python 3.7, 3.8 or 3.9.

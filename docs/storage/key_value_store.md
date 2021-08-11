@@ -214,7 +214,7 @@ In the [JavaScript API client](/apify-client-js), you can access a store using [
 const otherStoreClient = apifyClient.keyValueStore('jane-doe/old-store');
 ```
 
-The same works in the [Python API client](/apify-client-python), you can access a store using [its client](/apify-client-python#keyvaluestoreclient) again.
+Likewise, in the [Python API client](/apify-client-python), you can access a store using [its client](/apify-client-python#keyvaluestoreclient).
 
 ```python
 other_store_client = apify_client.key_value_store('jane-doe/old-store')

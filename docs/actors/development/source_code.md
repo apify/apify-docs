@@ -100,7 +100,7 @@ For more information about Dockerfile syntax and commands, see the [Dockerfile r
 
 Note that `apify/actor-node-basic` is a base Docker image provided by Apify. There are other base images with other features available. However, you can use arbitrary Docker images as the base for your actors, although using the Apify images has some performance advantages. See [base Docker images]({{@link actors/development/base_docker_images.md}}) for details.
 
-By default, all Apify base Docker images with the Apify SDK start your Node.js application same way as **npm start** does, i.e. by running the command specified in the **package.json** file under the **scripts** - **start** key. The default **package.json** file is similar to the following.
+By default, all Apify base Docker images with the Apify SDK start your Node.js application the same way as **npm start** does, i.e. by running the command specified in the **package.json** file under the **scripts** - **start** key. The default **package.json** file is similar to the following.
 
 ```json
 {
