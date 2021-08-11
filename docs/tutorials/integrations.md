@@ -34,6 +34,8 @@ Below are some examples of the kind of integrations you can set up with Apify.
 
 - [Integromat](https://integromat.com/en/integrations/apify).
 
+- [Airbyte](https://docs.airbyte.io/integrations/sources/apify-dataset).
+
 ## [](#api-token) API token
 
 To access our API in your integrations, you will need to use your secret API token. You can find it on the [Integrations](https://my.apify.com/account#/integrations) page in the Apify app.
