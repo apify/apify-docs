@@ -21,7 +21,7 @@ You can also use our [visual input schema editor](https://apify.github.io/input-
 
 ## [](#example)Example
 
-Imagine you are building a simple crawler whose inputs are an array of start URLs and a Javascript function that will be executed at each page the crawler visits. Then the input schema will look as follows:
+Imagine you are building a simple crawler whose inputs are an array of start URLs and a JavaScript function that will be executed at each page the crawler visits. Then the input schema will look as follows:
 
 ```json
 {

@@ -11,7 +11,9 @@ with a few exceptions that are explicitly described in the reference.
 
 To access the API using [Node.js](https://nodejs.org/en/), we recommend the
 [`apify-client`](https://docs.apify.com/api/apify-client-js/latest) [NPM package](https://www.npmjs.com/package/apify-client).
-The client's functions correspond to the API endpoints and have the same parameters. This simplifies development of apps that depend on the Apify platform.
+To access the API using [Python](https://www.python.org/), we recommend the
+[`apify-client`](https://docs.apify.com/api/apify-client-python/latest) [PyPI package](https://pypi.org/project/apify-client/).
+The clients' functions correspond to the API endpoints and have the same parameters. This simplifies development of apps that depend on the Apify platform.
 
 **Note:** All requests with JSON payloads need to specify the `Content-Type: application/json` HTTP header!
 
@@ -368,8 +370,9 @@ and it can be described using the following pseudo-code:
 If all requests sent by the client implement the above steps,
 the client will automatically use the maximum available bandwidth for its requests.
 
-Note that the <a href="https://docs.apify.com/api/apify-client-js/latest">apify-client</a> NPM package
-uses the exponential backoff algorithm transparently, so that you do not need to worry about it.
+Note that the Apify API clients [for JavaScript](https://docs.apify.com/api/apify-client-js)
+and [for Python](https://docs.apify.com/api/apify-client-python)
+use the exponential backoff algorithm transparently, so that you do not need to worry about it.
 
 
 # Group Actors

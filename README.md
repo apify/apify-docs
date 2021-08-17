@@ -232,4 +232,5 @@ There are, however, a few exceptions, shown below. To make changes to them, you'
 
 * Tutorials for Apify's scrapers (**docs/scraping** directory) are in the [**apify/actor-scraper**](https://github.com/apify/actor-scraper) repository.
 * Apify's API client for JavaScript documentation is in the [**apify-docs/apify-client-js**](https://github.com/apify/apify-client-js) repository.
+* Apify's API client for Python documentation is in the [**apify-docs/apify-client-python**](https://github.com/apify/apify-client-python) repository.
 * Docs for the command-line interface are in the [**apify/apify-cli**](https://github.com/apify/apify-cli) repo.
