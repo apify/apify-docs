@@ -76,7 +76,7 @@ For example, if you are searching for Kaffeine café on [Yelp](https://www.yelp.
 }
 ```
 
-Check out [this tutorial](https://blog.apify.com/web-scraping-in-2018-forget-html-use-xhrs-metadata-or-javascript-variables-8167f252439c) for more information and code examples for scraping with internal Javascript variables.
+Check out [this tutorial](https://blog.apify.com/web-scraping-in-2018-forget-html-use-xhrs-metadata-or-javascript-variables-8167f252439c) for more information and code examples for scraping with internal JavaScript variables.
 
 ## [](#xhrs) XHRs
 

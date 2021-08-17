@@ -20,11 +20,12 @@ Key-value stores are mutable–you can both add entries and delete them.
 
 ## Basic usage
 
-There are four ways to access your key-value stores:
+There are five ways to access your key-value stores:
 
 * [Apify app](https://my.apify.com/storage#/keyValueStores) - provides an easy-to-understand interface [[details](#apify-app)].
 * [Apify software development kit (SDK)](https://sdk.apify.com/docs/guides/data-storage#key-value-store) - when building your own Apify actor [[details](#apify-sdk)].
 * [JavaScript API client](/apify-client-js#keyvaluestoreclient) - to access your key-value stores from any Node.js application [[details](#javascript-api-client)].
+* [Python API client](/apify-client-python#keyvaluestoreclient) - to access your key-value stores from any Python application [[details](#python-api-client)].
 * [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically [[details](#apify-api)].
 
 ### Apify app
@@ -122,6 +123,20 @@ You can then use that variable to [access the key-value store's items and manage
 
 [See the JavaScript API client documentation](/apify-client-js#keyvaluestoreclient) for [help with setup](/apify-client-js#quick-start) and more details.
 
+### Python API client
+
+Apify's [Python API client](/apify-client-python#keyvaluestoreclient) (`apify-client`) allows you to access your key-value stores from any Python application, whether it is running on the Apify platform or elsewhere.
+
+After importing and initiating the client, you can save each key-value store to a variable for easier access.
+
+```python
+my_key_val_store_client = apify_client.key_value_store('jane-doe/my-key-val-store')
+```
+
+You can then use that variable to [access the key-value store's items and manage it](/apify-client-python#keyvaluestoreclient).
+
+[See the Python API client documentation](/apify-client-python#keyvaluestoreclient) for [help with setup](/apify-client-python#quick-start) and more details.
+
 ### Apify API
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/key-value-stores) allows you to access your key-value stores programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
@@ -197,6 +212,12 @@ In the [JavaScript API client](/apify-client-js), you can access a store using [
 
 ```js
 const otherStoreClient = apifyClient.keyValueStore('jane-doe/old-store');
+```
+
+Likewise, in the [Python API client](/apify-client-python), you can access a store using [its client](/apify-client-python#keyvaluestoreclient).
+
+```python
+other_store_client = apify_client.key_value_store('jane-doe/old-store')
 ```
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally.
