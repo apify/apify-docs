@@ -68,13 +68,13 @@ To make any changes to an existing configuration, choose the **Update configurat
 
 ### [](#add-the-monitoring-suite-to-your-account) Add the monitoring suite to your account
 
-On the monitoring suite's [page]((https://apify.com/apify/monitoring)) in [Apify Store](https://apify.com/store), click the **Try for free** button. This will take you to the [Apify app](https://my.apify.com), add the suite to your [list of actors](https://my.apify.com/actors) and create a new [task]({{@link actors/tasks.md}}).
+On the monitoring suite's [page]((https://apify.com/apify/monitoring)) in [Apify Store](https://apify.com/store), click the **Try for free** button. This will take you to the [Apify console](https://console.apify.com), add the suite to your [list of actors](https://console.apify.com/actors) and create a new [task]({{@link actors/tasks.md}}).
 
 ![Monitoring actor in Apify Store]({{@asset monitoring/images/monitoring-in-store.webp}})
 
 ## [](#notifications) Notifications
 
-The suite will send notifications to the [email address associated with your account](https://my.apify.com/account) by default.
+The suite will send notifications to the [email address associated with your account](https://console.apify.com/account) by default.
 
 You can disable email notifications or change the email address in a task **Input**'s **Email notifications** section.
 

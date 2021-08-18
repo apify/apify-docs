@@ -88,7 +88,7 @@ await crawler.run();
 
 ## [](#full-code-example) Full code example
 
-If we create a new actor using the code below on the Apify [platform](https://my.apify.com/actors), it returns a nicely formatted spreadsheet containing a list of breweries with their beers and descriptions.
+If we create a new actor using the code below on the Apify [platform](https://console.apify.com/actors), it returns a nicely formatted spreadsheet containing a list of breweries with their beers and descriptions.
 
 Make sure to select the **Node.js 12 + Chrome on Debian** ([apify/actor-node-chrome](https://hub.docker.com/r/apify/actor-node-chrome/)) [base image]({{@link actors/development/base_docker_images.md}}), otherwise the run will fail.
 

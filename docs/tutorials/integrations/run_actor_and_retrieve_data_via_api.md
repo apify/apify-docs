@@ -29,7 +29,7 @@ To run (or "call" in API language) an actor/task, you will need a few things:
 
 - Name or ID of the actor/task. The name is in the format `username~actorName` or `username~taskName`.
 
-- Your [API token]({{@link tutorials/integrations.md#api-token}}). You can find it on the Integrations page in the Apify [app](https://my.apify.com/account#/integrations) (make sure it does not leak anywhere!).
+- Your [API token]({{@link tutorials/integrations.md#api-token}}). You can find it on the Integrations page in the Apify [app](https://console.apify.com/account#/integrations) (make sure it does not leak anywhere!).
 
 - Possibly an input or other settings if you want to change the default values (e.g. memory or build).
 
@@ -45,7 +45,7 @@ For tasks, we just switch the path from acts to actor-tasks:
 https://api.apify.com/v2/actor-tasks/TASK_NAME_OR_ID/runs?token=YOUR_TOKEN
 ```
 
-If we send a correct POST request to this endpoint, the actor/task will start just as if we had pressed the **Run** button in the Apify [app](https://my.apify.com).
+If we send a correct POST request to this endpoint, the actor/task will start just as if we had pressed the **Run** button in the Apify [app](https://console.apify.com).
 
 ### [](#additional-settings) Additional settings
 
@@ -104,7 +104,7 @@ A simple example of calling a task and logging the dataset items in Node.js.
 const got = require('got');
 
 // Specify your API token
-// (find it at https://my.apify.com/account#/integrations)
+// (find it at https://console.apify.com/account#/integrations)
 const myToken = 'rWLaYmvZeK55uatRrZib4xbZs';
 
 // Start apify/google-search-scraper actor

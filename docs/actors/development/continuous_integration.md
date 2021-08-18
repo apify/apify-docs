@@ -69,7 +69,7 @@ jobs:
 
 You will need an [actor]({{@link tutorials/quick_start.md#create-an-actor}}), a GitHub repo for it, and your Apify token.
 
-[Find your Apify token in the Apify app](https://my.apify.com/account#/integrations).
+[Find your Apify token in the Apify console](https://console.apify.com/account#/integrations).
 
 ![Apify token in app]({{@asset actors/development/images/ci-token.webp}})
 

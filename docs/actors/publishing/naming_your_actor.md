@@ -19,7 +19,7 @@ For actors such as [YouTube Scraper](https://apify.com/bernardo/youtube-scraper)
 
 GOOD:
 
-* Technical name (actor's name in the [Apify app](https://my.apify.com)): **${domain}-scraper**, e.g. **youtube-scraper**.
+* Technical name (actor's name in the [Apify console](https://console.apify.com)): **${domain}-scraper**, e.g. **youtube-scraper**.
 * Publication title for the Apify Store: **${Domain} Scraper**, e.g. **Youtube Scraper**.
 * Name of the GitHub repository: **actor-${domain}-scraper**, e.g. **actor-youtube-scraper**.
 
