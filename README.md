@@ -68,7 +68,7 @@ echo "Some bash code"
 
 \`\`\`
 
-PHP examples using guzzle live in separate repository: https://github.com/apify/apify-php-examples.
+PHP examples using guzzle live in separate repository: <https://github.com/apify/apify-php-examples>.
 
 ### Metadata
 
