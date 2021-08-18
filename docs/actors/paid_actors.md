@@ -21,7 +21,7 @@ Each paid actor has a **free trial,** followed by a flat monthly rental fee that
 
 ## Can I run paid actors via API or the Apify client?
 
-Yes, when you are renting a paid actor, you can run it using either our [API](https://docs.apify.com/api/v2) or [JavaScript](https://docs.apify.com/apify-client-js) or Python clients as you would do with private or free public actors.
+Yes, when you are renting a paid actor, you can run it using either our [API](https://docs.apify.com/api/v2) or [JavaScript](https://docs.apify.com/apify-client-js) or [Python](https://docs.apify.com/apify-client-python) clients as you would do with private or free public actors.
 
 ## Do I pay platform costs for running paid actors?
 

@@ -11,7 +11,9 @@ with a few exceptions that are explicitly described in the reference.
 
 To access the API using [Node.js](https://nodejs.org/en/), we recommend the
 [`apify-client`](https://docs.apify.com/api/apify-client-js/latest) [NPM package](https://www.npmjs.com/package/apify-client).
-The client's functions correspond to the API endpoints and have the same parameters. This simplifies development of apps that depend on the Apify platform.
+To access the API using [Python](https://www.python.org/), we recommend the
+[`apify-client`](https://docs.apify.com/api/apify-client-python/latest) [PyPI package](https://pypi.org/project/apify-client/).
+The clients' functions correspond to the API endpoints and have the same parameters. This simplifies development of apps that depend on the Apify platform.
 
 **Note:** All requests with JSON payloads need to specify the `Content-Type: application/json` HTTP header!
 
@@ -58,7 +60,7 @@ A typical workflow is as follows:
 
 1. Run an actor or task using the [Run actor](#reference/actors/run-collection/run-actor) or [Run task](#reference/actor-tasks/run-collection/run-task) API endpoints.
 
-2. Monitor the actor run by periodically polling its progress using the [Get run](#reference/actors/run-object/get-run) API endpoint.
+2. Monitor the actor run by periodically polling its progress using the [Get run](#reference/actor-runs/run-object-and-its-storages/get-run) API endpoint.
 
 3. Fetch the results from the [Get items](#reference/datasets/item-collection/get-items) API endpoint using the `defaultDatasetId`, which you receive in the Run request response. Additional data may be stored in a key-value store. You can fetch them from the [Get record](#reference/key-value-stores/record/get-record) API endpoint using the `defaultKeyValueStoreId` and the store's `key`.
 
@@ -368,8 +370,9 @@ and it can be described using the following pseudo-code:
 If all requests sent by the client implement the above steps,
 the client will automatically use the maximum available bandwidth for its requests.
 
-Note that the <a href="https://docs.apify.com/api/apify-client-js/latest">apify-client</a> NPM package
-uses the exponential backoff algorithm transparently, so that you do not need to worry about it.
+Note that the Apify API clients [for JavaScript](https://docs.apify.com/api/apify-client-js)
+and [for Python](https://docs.apify.com/api/apify-client-python)
+use the exponential backoff algorithm transparently, so that you do not need to worry about it.
 
 
 # Group Actors
@@ -829,7 +832,8 @@ Runs an actor and immediately returns without waiting for the run to finish.
 The POST payload including its `Content-Type` header is passed as `INPUT` to the actor (usually `application/json`).
 The actor is started with the default options; you can override them using various URL query parameters.
 
-The response is the Run object as returned by the [Get run](#reference/actors/run-object/get-run) API endpoint.
+The response is the Run object as returned by the [Get run](#reference/actor-runs/run-object-and-its-storages/get-run) API endpoint.
+
 If you want to wait for the run to finish and receive the actual output of the actor as the response,
 please use one of the [Run actor synchronously](#reference/actors/run-actor-synchronously) API endpoints instead.
 
@@ -1574,7 +1578,7 @@ and setting the `Content-Type: application/json` HTTP header.
 Note that if the object in the POST payload does not define a particular input property,
 the actor run uses the default value defined by the task (or actor's input schema if not defined by the task).
 
-The response is the actor Run object as returned by the [Get run](#reference/actors/run-object/get-run) endpoint.
+The response is the actor Run object as returned by the [Get run](#reference/actor-runs/run-object-and-its-storages/get-run) endpoint.
 If you want to wait for the run to finish and receive the actual output of the actor run as the response,
 use one of the [Run task synchronously](#reference/actor-tasks/run-task-synchronously) API endpoints instead.
 
@@ -3217,6 +3221,21 @@ Deletes a webhook.
 + Response 204 (application/json)
 
     + Attributes(object)
+
+## Webhook test [/v2/webhooks/{webhookId}/test{?token}]
+
++ Parameters
+
+    + webhookId: `Zib4xbZsmvZeK55ua`    (string, required) - Webhook ID.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+
+### Test webhook [POST]
+
+Tests a webhook. Creates a webhook dispatch with a dummy payload.
+
++ Response 201 (application/json)
+    + Attributes
+        - data (WebhookDispatch, required)
 
 ### Dispatches collection [/v2/webhooks/{webhookId}/dispatches{?token}]
 
