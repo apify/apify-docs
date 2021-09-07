@@ -341,7 +341,7 @@ of endpoints that are rate limited to 200 requests per second:
 
 > For authenticated API endpoints (if you use an [authentication token](#authentication)), the limit is counted per user.
 Storage API endpoints (when a token isn't used) count the limit per store ID.
-Anonymous API endpoints count the limit per client IP adress.
+Anonymous API endpoints count the limit per client IP adress. Each API endpoint returns its rate limit in `X-RateLimit-Limit` header.
 
 If the client is sending too many requests, the API endpoints respond with the HTTP status code `429 Too Many Requests`
 and the following body:
