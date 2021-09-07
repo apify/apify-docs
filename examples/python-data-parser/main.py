@@ -12,11 +12,11 @@ client = ApifyClient(os.environ['APIFY_TOKEN'], api_url=os.environ['APIFY_API_BA
 print('Downloading the weather data...')
 scraper_run = client.actor('~bbc-weather-scraper').call()
 
-# Check if the scraper finished successfully, and raise an error otherwise
+# Check if the scraper finished successfully, otherwise raise an error
 if scraper_run['status'] != ActorJobStatus.SUCCEEDED:
     raise RuntimeError('The weather scraper run has failed')
 
-# Get the resource subclient for working with the dataset with the source data
+# Get the resource sub-client for working with the dataset with the source data
 dataset_client = client.dataset(scraper_run['defaultDatasetId'])
 
 # Load the dataset items into a pandas dataframe
@@ -38,7 +38,7 @@ axes.grid(which='both', linestyle='dotted')
 axes.legend(loc='best')
 axes.figure.tight_layout()
 
-# Get the resource subclient for working with the default key-value store of the run
+# Get the resource sub-client for working with the default key-value store of the run
 key_value_store_client = client.key_value_store(os.environ['APIFY_DEFAULT_KEY_VALUE_STORE_ID'])
 
 # Save the resulting plot to the key-value store through an in-memory buffer

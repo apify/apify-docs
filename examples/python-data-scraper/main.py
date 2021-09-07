@@ -44,7 +44,7 @@ for (location_name, location_id) in LOCATIONS:
             # The times displayed for each day are from 6:00 AM that day to 5:00 AM the next day,
             # so "today" on BBC Weather might actually mean "yesterday" in actual datetime.
             # We have to parse the accessibility label containing the actual date on the header for the first day
-            # and compare it with the current date at the location, and adjust the date accordingly
+            # and compare it with the current date at the location, then adjust the date accordingly
             day_carousel_item = soup.find(class_='wr-day--active')
             day_carousel_title = day_carousel_item.find(class_='wr-day__title')['aria-label']
             website_first_displayed_item_day = int(re.search(r'\d{1,2}', day_carousel_title).group(0))
