@@ -66,6 +66,6 @@ Ensure periodic testing. You can either do yourself or [set up automatic tests](
 
 ### Inspiration
 
-To come up with ideas for new actors, you can use your own experience with friends, colleagues, customers. Alternatively, you can use SEO tools that might help you to find the right search terms, websites related to web scraping, web automation, or web integrations. [See the SEO article]({{@link actors/publishing/seo_and_promotion.md}}) for more details.
+To come up with ideas for new actors, you can use your own experience with friends, colleagues, customers. Alternatively, you can use SEO tools that might help you to find the right search terms, websites related to web scraping, web automation, or web integrations. [See the SEO article]({{@link actors/publishing/seo_and_promotion.md}}) for more details. Finally, you may take a look at our [actor ideas page](https://apify.com/ideas) to find out which actors are most in demand by the Apify community.
 
 To better understand the context and practical usage of public actors, [check out our blog](https://blog.apify.com/). Get familiar with how we think and write about actors, e.g. [Content Checker](https://blog.apify.com/how-to-set-up-a-content-change-watchdog-for-any-website-in-5-minutes-460843b12271) (short), [Kickstarter scraper](https://blog.apify.com/kickstarter-search-actor-create-your-own-kickstarter-api-7672acdb8d77) (mid-size), and [Google Sheets actor](https://blog.apify.com/import-data-easily-to-and-from-google-sheets-with-a-new-apify-actor-43536b719029) (long one).
