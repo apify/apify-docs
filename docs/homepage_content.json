@@ -55,6 +55,14 @@
         {
             "cardItem": "Integrations",
             "href": "/tutorials/integrations"
+        },
+        {
+            "cardItem": "Scrape data in Python with Beautiful&nbsp;Soup",
+            "href": "/tutorials/scrape-data-using-python"
+        },
+        {
+            "cardItem": "Process data in Python with Pandas",
+            "href": "/tutorials/process-data-using-python"
         }
     ],
     "Web scraping": [
