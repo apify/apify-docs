@@ -11,7 +11,7 @@ paths:
     - actors/running
 ---
 
-# [](#running)Running
+# Running
 
 An Apify actor can be invoked in a number of ways. One option is to start the actor from the **Developer console** in the app:
 
@@ -21,7 +21,6 @@ The actor's owner can specify its default settings in the actor's **Settings** t
 
 The following table describes the default actor settings:
 
-|||
 |--- |--- |
 |Build|Tag or number of the build to run (e.g. **latest** or **1.2.34**).|
 |Timeout|Timeout for the actor run in seconds. Zero value means there is no timeout.|
@@ -55,7 +54,7 @@ The newly started actor runs under the same user account as the initial actor an
 
 Internally, the `call()` function takes the user's API token from the `APIFY_TOKEN` environment variable, then it invokes the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get record](https://docs.apify.com/api/v2/#/reference/key-value-stores/record/get-record) API endpoint.
 
-## [](#resource-limits)Resource limits
+## Resource limits
 
 Actors run inside a Docker container whose resources are limited. When invoking the actor, the caller has to specify the amount of memory allocated for the actor. Additionally, each user has a certain total limit of memory for running actors. The sum of memory allocated for all running actors and builds needs to fit into this limit, otherwise the user cannot start a new actor. For more details, see [Limits]({{@link actors/limits.md}}).
 
@@ -63,7 +62,7 @@ The share of CPU is computed automatically from the memory as follows: for each 
 
 The actor has hard disk space limited by twice the amount of memory. For example, an actor with 1024 MB of memory will have 2048 MB of disk available.
 
-## [](#lifecycle)Lifecycle
+## Lifecycle
 
 Each run starts with the initial status **READY** and goes through one or more transitional statuses to one of the terminal statuses.
 
@@ -78,7 +77,7 @@ Each run starts with the initial status **READY** and goes through one or more t
 |ABORTING|transitional|Being aborted by user|
 |ABORTED|terminal|Aborted by user|
 
-## [](#aborting-runs)Aborting runs
+## Aborting runs
 
 You can abort runs with the statuses **READY**, **RUNNING**, or **TIMING-OUT** in two ways:
 
@@ -87,7 +86,7 @@ You can abort runs with the statuses **READY**, **RUNNING**, or **TIMING-OUT** i
 
 You can abort a run in the Apify console using the **Abort** button or via API using the [Abort run](/api/v2#/reference/actor-runs/abort-run/abort-run) endpoint.
 
-## [](#resurrection-of-finished-run)Resurrection of finished run
+## Resurrection of finished run
 
 Any actor run in terminal state, i.e. run with status **FINISHED**, **FAILED**, **ABORTED** and **TIMED-OUT**, might be resurrected back to a **RUNNING** state. This is helpful in many cases, for example when the timeout for actor run was too low or in case of an unexpected error.
 
@@ -100,7 +99,7 @@ The whole process of resurrection looks as follows:
 
 Resurrection can be performed in Apify console using the **resurrect** button or via API using the [resurrect run](https://docs.apify.com/api/v2#/reference/actors/resurrect-run) API endpoint.
 
-## [](#container-web-server)Container web server
+## Container web server
 
 Each actor run is assigned a unique hard-to-guess URL (e.g. `kmdo7wpzlshygi.runs.apify.net`), which enables HTTP access to an optional web server running inside the actor run's Docker container. The URL is available in the following places:
 
@@ -133,10 +132,10 @@ Apify.main(async () => {
 });
 ```
 
-## [](#data-retention)Data retention
+## Data retention
 
-Actor run gets deleted along with its default storages (key-value store, dataset, request queue) after a data retention period which is based on the [subscription plan](https://apify.com/pricing) of a user.
+An actor run is deleted along with its default storages (key-value store, dataset, request queue) after a data retention period which is based on your [subscription plan](https://apify.com/pricing).
 
-## [](#sharing) Sharing
+## Sharing
 
-You share your actor runs with other Apify users via the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md}}).
+You can share your actor runs with other Apify users via the [access rights]({{@link access_rights.md}}) system. [See the full list of permissions]({{@link access_rights/list_of_permissions.md}}).
