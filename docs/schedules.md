@@ -46,7 +46,7 @@ In the **Settings** tab, give your schedule a memorable name, add a description,
 
 Next, you'll need to give the schedule something to run. This is where the actor or task you prepared earlier comes in. Switch to the **Actors** or **Tasks** tab, as appropriate, and click the **Add actor/task button**.
 
-If you're scheduling an actor run, you'll be able to specify the actor's [input](https://docs.apify.com/actors/running/input-and-output) and running options like
+If you're scheduling an actor run, you'll be able to specify the actor's [input]({{@link /actors/running/input.md}}) and running options like
 [**build**]({{@link /actors/development/builds.md}}),
 **timeout**,
 [**memory**]({{@link actors/running/memory_and_cpu.md}}).
