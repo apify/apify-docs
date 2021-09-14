@@ -30,9 +30,9 @@ Each schedule can be associated with a maximum of 10 actors and 10 actor tasks.
 
 ## Setting up a new schedule
 
-Before setting up a new schedule, you should have the [actor](https://docs.apify.com/actors) or [task](https://docs.apify.com/tasks) whose run you want to schedule prepared and tested.
+Before setting up a new schedule, you should have the [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) whose run you want to schedule prepared and tested.
 
-If you are planning to schedule an actor run, you need to use the actor before you can schedule any runs. Navigate to the actor's page in the [Apify Store](https://apify.com/store), click the **Try for free** button, then **Save & run** it with your preferred settings.
+If you are planning to schedule an actor run, you need to use the actor before you can schedule any runs. Navigate to the actor's page in [Apify Store](https://apify.com/store), click the **Try for free** button, then **Run** it with your preferred settings.
 
 > Your schedule's name should be 3-63 characters long.
 
@@ -46,8 +46,8 @@ In the **Settings** tab, give your schedule a memorable name, add a description,
 
 Next, you'll need to give the schedule something to run. This is where the actor or task you prepared earlier comes in. Switch to the **Actors** or **Tasks** tab, as appropriate, and click the **Add actor/task button**.
 
-If you're scheduling an actor run, you'll be able to specify the actor's [input]({{@link /actors/running/input.md}}) and running options like
-[**build**]({{@link /actors/development/builds.md}}),
+If you're scheduling an actor run, you'll be able to specify the actor's [input]({{@link actors/running/input.md}}) and running options like
+[**build**]({{@link actors/development/builds.md}}),
 **timeout**,
 [**memory**]({{@link actors/running/memory_and_cpu.md}}).
 The **timeout** value is specified in seconds; a value of **0** means there is no timeout and the actor runs until it finishes.
