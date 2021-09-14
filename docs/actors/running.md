@@ -13,26 +13,35 @@ paths:
 
 # Running
 
-An Apify actor can be invoked in a number of ways. One option is to start the actor from the **Developer console** in the app:
+You can start an Apify actor in a number of ways. One option is to start an actor from its page in [Apify Console](https://console.apify.com/actors):
 
-![Apify developer console]({{@asset actors/images/developer-console.webp}})
+![Apify developer console]({{@asset actors/images/actor-console.webp}})
 
-The actor's owner can specify its default settings in the actor's **Settings** tab. If the actor caller does not specify a particular setting either in the **Input** or **Options** tabs, the default value is used.
+You can specify options such as [build]({{@link actors/development/builds.md}}), timeout, and [memory]({{@link actors/running/memory_and_cpu.md}}) for your actor run.
 
-The following table describes the default actor settings:
+<!-- Using an HTML table because it doesn't have a header - markdown doesn't allow tables with no headers -->
+<table>
+    <tr>
+        <td>Build</td>
+        <td>Tag or number of the build to run (e.g. **latest** or **1.2.34**).</td>
+    </tr>
+    <tr>
+        <td>Timeout</td>
+        <td>Timeout for the actor run in seconds. Zero value means there is no timeout.</td>
+    </tr>
+    <tr>
+        <td>Memory</td>
+        <td>Amount of memory allocated for the actor run, in megabytes.</td>
+    </tr>
+</table>
 
-|--- |--- |
-|Build|Tag or number of the build to run (e.g. **latest** or **1.2.34**).|
-|Timeout|Timeout for the actor run in seconds. Zero value means there is no timeout.|
-|Memory|Amount of memory allocated for the actor run, in megabytes.|
-
-The actor can also be invoked using the Apify API by sending a HTTP POST request to the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, such as:
+Actors can also be invoked using the Apify API, by sending a HTTP POST request to the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) endpoint, such as:
 
 ```text
 https://api.apify.com/v2/acts/apify~hello-world/runs?token=<YOUR_API_TOKEN>
 ```
 
-The actor's input and its content type can be passed as a payload of the POST request and additional options can be specified using URL query parameters. For more details, see the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
+An actor's input and its content type can be passed as a payload of the POST request and additional options can be specified using URL query parameters. For more details, see the [Run actor](https://docs.apify.com/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
 
 Actors can also be invoked programmatically from other actors using the [`call()`](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options) function provided by the [`apify`](https://sdk.apify.com/) NPM package. For example:
 
