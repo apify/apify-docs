@@ -37,7 +37,7 @@ You can set run options such as timeout and [memory]({{@link actors/running/memo
 
 ### Settings
 
-To make a task easier to identify, you can give it a name and description under the **Settings** tab. **A task's name should be 3-63 characters long**.
+To make a task easier to identify, you can give it a name and description under the **Settings** tab. A task's name should be 3-63 characters long.
 
 ![Apify task settings]({{@asset actors/images/create-task-settings.webp}})
 
@@ -47,7 +47,7 @@ Once you've configured you task, you can run it using the **Run** button in the 
 
 ![Run an Apify task]({{@asset actors/images/create-task-run.webp}})
 
-In addition, you can run a task using:
+You can also run tasks using:
 
 - [Schedules]({{@link schedules.md}}).
 - Directly via the [Apify API](/api/v2#/reference/actor-tasks/run-collection/run-task).
