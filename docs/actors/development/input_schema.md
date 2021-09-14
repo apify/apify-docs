@@ -195,7 +195,7 @@ Example options with group caption:
 
 Rendered input:
 
-![Apify actor input schema options]({{@asset actors/images/development/input-schema-options.webp}})
+![Apify actor input schema options]({{@asset actors/development/images/input-schema-options.webp}})
 
 Properties:
 
