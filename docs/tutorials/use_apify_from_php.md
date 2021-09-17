@@ -1,7 +1,7 @@
 ---
 title: Use Apify from PHP
 description: Learn how to use Apify features via REST API from PHP using guzzle.
-menuWeight: 3.10
+menuWeight: 3.93
 paths:
     - tutorials/use-apify-from-php
 ---

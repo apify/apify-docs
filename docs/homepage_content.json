@@ -55,6 +55,10 @@
         {
             "cardItem": "Integrations",
             "href": "/tutorials/integrations"
+        },
+        {
+            "cardItem": "Use Apify from PHP",
+            "href": "/tutorials/use-apify-from-php"
         }
     ],
     "Web scraping": [
