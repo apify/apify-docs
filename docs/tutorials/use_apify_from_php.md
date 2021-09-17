@@ -205,7 +205,7 @@ $response = $client->get(sprintf('actor-runs/%s/key-value-store/records/OUTPUT',
 file_put_contents(__DIR__ . '/hi-world.pdf', $response->getBody());
 ```
 
-# [](#webhooks) Webhooks
+## [](#webhooks) Webhooks
 
 For actors that take longer to run, we can use [webhooks]({{@link webhooks.md}}). A webhook is an HTML POST request that is sent to a specified URL when an actor's status changes. We can use them as a kind of notification that is sent when your run finishes. You can set them up using query parameters. If we used webhooks in the example above, it would look like this:
 
@@ -230,7 +230,7 @@ $response = $client->post('acts/mhamas~html-string-to-pdf/runs', [
 ]);
 ```
 
-# [](#using-apify-proxy) Using Apify Proxy
+## [](#using-apify-proxy) Using Apify Proxy
 
 There is another important Apify feature you will need: [proxy]({{@link proxy.md}}). Guzzle makes it really easy to use.
 
