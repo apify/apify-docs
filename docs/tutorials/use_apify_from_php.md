@@ -181,7 +181,7 @@ If you open the generated `hello-world.pdf` file, you should see... well, "Hello
 
 If the actor stored the data in a key-value store other than the default, we can use the standalone endpoints, `key-value-stores/<STORE_ID>`, `key-value-stores/<STORE_ID>/keys`, and `key-value-stores/<STORE_ID>/records/<KEY>`. They behave the same way as the default endpoints. [See the full docs](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object).
 
-# [](#when-are-the-data-ready) When are the data ready?
+## [](#when-are-the-data-ready) When are the data ready?
 
 It takes some time for an actor to generate its output. There are even actors that run for days. In the previous examples, we chose actors whose runs only take a few seconds. This meant the runs had enough time to finish before we ran the code to retrieve their dataset or key-value store. If we run the code immediately after, the dataset would probably still be empty.
 
