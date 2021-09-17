@@ -183,7 +183,7 @@ If the actor stored the data in a key-value store other than the default, we can
 
 # [](#when-are-the-data-ready) When are the data ready?
 
-It takes some time for an actor to generate its output. There are even actors that run for days. In the previous examples, we chose actors which run just few seconds. Before we run the dataset and key-value store examples, the actors had enough time to finish. If we run the code immediately after, the dataset would probably still be empty.
+It takes some time for an actor to generate its output. There are even actors that run for days. In the previous examples, we chose actors whose runs only take a few seconds. This meant the runs had enough time to finish before we ran the code to retrieve their dataset or key-value store. If we run the code immediately after, the dataset would probably still be empty.
 
 For actors that are expected to be quick, we can use the `waitForFinish` parameter. Then, the running actor endpoint does not respond immediately but waits until the run finishes (up to the given limit). Let's try this with the HTML String to PDF actor.
 
