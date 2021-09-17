@@ -266,3 +266,7 @@ echo $response->getBody();
 ```
 
 [See the proxy docs]({{@link proxy/connection_settings.md}}) for more details on using specific proxies.
+
+## Feedback
+
+If you would be interested in Apify PHP client or other stuff related to PHP and Apify, feel free to tell us [here](https://apify.typeform.com/to/KqhmiJge#source=tutorial_use_apify_from_php).
