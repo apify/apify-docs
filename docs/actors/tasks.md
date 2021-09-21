@@ -27,7 +27,7 @@ Alternatively, you can navigate to the [**Tasks** section in Apify Console](http
 
 ## Configure
 
-You can set up your task's input under the **Console** tab. A task's input configuration works just like an actor's. After all, it is just a copy of an actor you can pre-configure for a specific scenario. You can use either JSON or the visual input UI.
+You can set up your task's input under the **Input and options** tab. A task's input configuration works just like an actor's. After all, it is just a copy of an actor you can pre-configure for a specific scenario. You can use either JSON or the visual input UI.
 
 ![Apify task configuration]({{@asset actors/images/create-task-configure.webp}})
 
@@ -43,7 +43,7 @@ To make a task easier to identify, you can give it a name and description under 
 
 ## Run
 
-Once you've configured you task, you can run it using the **Run** button in the bottom-left side of the **Console**.
+Once you've configured you task, you can run it using the **Run** button in the bottom-left side of the **Input and options**.
 
 ![Run an Apify task]({{@asset actors/images/create-task-run.webp}})
 
