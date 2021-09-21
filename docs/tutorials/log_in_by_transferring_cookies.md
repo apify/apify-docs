@@ -26,12 +26,8 @@ Click the **EditThisCookie** button next to your URL and click **Export**. Cooki
 
 ## [](#pass-cookies-to-web-scraper) Pass cookies to Web Scraper
 
-The **Initial cookies** field is in the **Proxy and browser configuration** tab in Web Scraper's **Input** section.
+The **Initial cookies** field is in the **Proxy and browser configuration** tab in Web Scraper's **Input** section. Paste the cookies into the field.
 
 ![Web scraper input tab]({{@asset tutorials/images/web-scraper-input.webp}})
-
-Now, simply click on the **Initial cookies** field and paste the cookies.
-
-![Import cookies in web scraper]({{@asset tutorials/images/import-cookies-in-web-scraper.webp}})
 
 And that's it! When you run the scraper, it will start already logged-in. Note that if the cookies are short-lived, this might not work and you will need to [implement login in your code]({{@link tutorials/log_into_a_website_using_puppeteer.md}}).

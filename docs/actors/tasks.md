@@ -43,7 +43,7 @@ To make a task easier to identify, you can give it a name and description under 
 
 ## Run
 
-Once you've configured you task, you can run it using the **Run** button in the bottom-left side of the **Input and options**.
+Once you've configured you task, you can run it using the **Run** button in the bottom-left side of the **Input and options** tab.
 
 ![Run an Apify task]({{@asset actors/images/create-task-run.webp}})
 
