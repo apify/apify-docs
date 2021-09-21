@@ -205,7 +205,7 @@ print(f'Results have been saved to the dataset with ID {os.environ["APIFY_DEFAUL
 
 ### Running the actor
 
-And that's it! Now you can save the changes in the editor, and then click **Build and run** at the bottom of the page. The actor will get built, the built actor image will get saved for future reuse, and then it will be executed. You can follow the actor build's and run's progress in the **Last build** and **Last run** tabs, respectively, in the developer console in the actor source view. Once the actor finishes running, you can view the scraped data in the **Dataset** tab in the actor run view.
+And that's it! Now you can save the changes in the editor, and then click **Build and run** at the bottom of the page. The actor will get built, the built actor image will get saved for future reuse, and then it will be executed. You can follow the progress of the actor build and the actor run in the **Last build** and **Last run** tabs, respectively, in the developer console in the actor source view. Once the actor finishes running, you can view the scraped data in the **Dataset** tab in the actor run view.
 
 ![Building and running the BBC Weather Scraper actor]({{@asset tutorials/images/bbc-weather-scraper-source.webp}})
 
