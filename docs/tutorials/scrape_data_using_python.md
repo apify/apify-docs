@@ -1,6 +1,6 @@
 ---
 title: Scrape data using Python
-description: Learn how to scrape websites using Python and its Beautiful Soup library. Follow along the tutorial for analyzing the target page and creating a Python actor.
+description: Learn how to scrape websites using Python and its Beautiful Soup library. Follow the tutorial to analyze the target page and create a Python actor.
 menuWeight: 3.91
 paths:
     - tutorials/scrape-data-using-python
@@ -9,7 +9,7 @@ paths:
 
 # How to scrape data in Python using Beautiful Soup
 
-Web scraping is not limited only to the JavaScript world. The Python ecosystem contains some pretty powerful scraping tools as well. One of those is [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/), a library for parsing HTML and easy navigation or modification of a DOM tree.
+Web scraping is not limited to the JavaScript world. The Python ecosystem contains some pretty powerful scraping tools as well. One of those is [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/), a library for parsing HTML and easy navigation or modification of a DOM tree.
 
 This tutorial shows you how to write a Python [actor]({{@link actors.md}}) for scraping the weather forecast from [BBC Weather](https://www.bbc.com/weather). We also have an accompanying tutorial for [how to process the scraped data]({{@link tutorials/process_data_using_python.md}}) using [Pandas](https://pandas.pydata.org/).
 
@@ -31,7 +31,7 @@ Combining this information gives us the full format for the URL of a page for a 
 
 ### Determining the forecast's starting date
 
-Looking at the BBC Weather page closer, we can see that it shows the forecast for each day from 6:00 AM to 5:00 AM the next day. But what happens when we view a location where the current time is between midnight and 5 AM? Trying that, we can see that in the day represented by **Tonight**, there are only a few slots for the hours between midnight and 5 AM displayed. This means that the first displayed day can either represent the current date at the location, or the day before the current date. To find out which of these two it is, we will first have to determine the current date and time at the location, and then possibly adjust it by one day based on whether the date matches the first displayed day.
+Looking more closely at the BBC Weather page, we can see that it shows the forecast for each day from 6:00 AM to 5:00 AM the next day. But what happens when we view a location where the current time is between midnight and 5 AM? Trying that, we can see that, in the day represented by **Tonight**, there are only a few slots for the hours between midnight and 5 AM displayed. This means that the first displayed day can either represent the current date at the location, or the day before the current date. To find out which of these two it is, we will first have to determine the current date and time at the location, and then possibly adjust it by one day based on whether the date matches the first displayed day.
 
 ![BBC Weather displaying a location with current time between midnight and 5 AM]({{@asset tutorials/images/bbc-weather-after-midnight.webp}})
 
@@ -55,11 +55,11 @@ Now that we understand the element structure of the page and know where to find 
 
 ### Setting up the actor
 
-First, we need to create a new actor. To do so, go to the [Apify Console](https://console.apify.com/), open the [Actors section](https://console.apify.com/actors), click on the **Create new** button in the top right, and select the **Example: Hello world in Python** actor template.
+First, we need to create a new actor. To do this, go to [Apify Console](https://console.apify.com/), open the [Actors section](https://console.apify.com/actors), click on the **Create new** button in the top right, and select the **Example: Hello world in Python** actor template.
 
-In the page that opened, you can see your newly created actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-scraper`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the actor. There are several of them, but for us only two are important now, `main.py` and `requirements.txt`.
+In the page that opens, you can see your newly created actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-scraper`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the actor. There are several of them, but only two are important for us now, `main.py` and `requirements.txt`.
 
-First we'll start with the `requirements.txt` file. It's purpose is to list all the third-party packages that your actor will use. We will be using the `requests` package for downloading the BBC Weather pages, and the `beautifulsoup4` package for parsing and processing the downloaded pages. We don't particularly care about the specific versions of these packages, so we just list them in the file:
+First we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your actor will use. We will be using the `requests` package for downloading the BBC Weather pages, and the `beautifulsoup4` package for parsing and processing the downloaded pages. We don't particularly care about the specific versions of these packages, so we just list them in the file:
 
 ```python
 # Add your dependencies here.
@@ -118,7 +118,7 @@ for (location_name, location_id) in LOCATIONS:
 
 When scraping a location, we need to know in which timezone it lies, and what date the first displayed day of the forecast represents. We can find that out at the beginning, when scraping the first day of the forecast for that location.
 
-To get the needed data, we will need to find the elements in which it is contained. Let's use the `soup.find(...)` and `soup.findAll(...)` methods, which find elements matching some specified conditions in the parsed HTML.
+To get the necessary data, we will need to find the elements in which it is contained. Let's use the `soup.find(...)` and `soup.findAll(...)` methods, which find elements matching some specified conditions in the parsed HTML.
 
 First, we extract the timezone from the second element with class `wr-c-footer-timezone__item`. The timezone information is described there with a full sentence, but we're only interested in the numerical representation of the timezone offset, so we parse it out using a regular expression. With the timezone offset parsed, we can construct a `timezone` object and from that get the current datetime at the location.
 
@@ -211,4 +211,4 @@ And that's it! Now you can save the changes in the editor, and then click **Buil
 
 ## Processing the results
 
-In this tutorial, you have learned the basics of scraping data in Python using Requests and Beautiful Soup with Apify actors. Scraping data is only one part of the process, though. Head on to our [next tutorial]({{@link tutorials/process_data_using_python.md}}) to learn how to process the data in a dataset using [Pandas](https://pandas.pydata.org/) and visualize it using [Matplotlib](https://matplotlib.org/).
+In this tutorial, you have learned the basics of scraping data in Python using Requests and Beautiful Soup with Apify actors. But scraping data is only one part of the process. Head on to our [next tutorial]({{@link tutorials/process_data_using_python.md}}) to learn how to process the data in a dataset using [Pandas](https://pandas.pydata.org/) and visualize it using [Matplotlib](https://matplotlib.org/).
