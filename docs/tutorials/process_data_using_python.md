@@ -25,9 +25,9 @@ Now, we need to process the scraped data and make a simple visualization that wi
 
 First, we need to create another actor. You can do it the same way as before - go to the [Apify Console](https://console.apify.com/), open the [Actors section](https://console.apify.com/actors), click on the **Create new** button in the top right, and select the **Example: Hello world in Python** actor template.
 
-In the page that opened, you can see your newly created actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-parser`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the actor. There are several of them, but for us only two are important now, `main.py` and `requirements.txt`.
+In the page that opens, you can see your newly created actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-parser`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the actor. There are several of them, but only two are important for us now, `main.py` and `requirements.txt`.
 
-First we'll start with the `requirements.txt` file. It's purpose is to list all the third-party packages that your actor will use. We will be using the `pandas` package for parsing the downloaded weather data, and the `matplotlib` package for visualizing it. We don't particularly care about the specific versions of these packages, so we just list them in the file:
+First, we'll start with the `requirements.txt` file. It's purpose is to list all the third-party packages that your actor will use. We will be using the `pandas` package for parsing the downloaded weather data, and the `matplotlib` package for visualizing it. We don't particularly care about the specific versions of these packages, so we just list them in the file:
 
 ```python
 # Add your dependencies here.
@@ -55,7 +55,7 @@ import pandas
 
 Next, we need to run the weather scraping actor and access its results. We do that through the [Apify API Client for Python]({{@link apify_client_python.md}}), which greatly simplifies working with the Apify platform and allows you to use its functions without having to call the Apify API directly.
 
-First, we initialize an `ApifyClient` instance. All the necessary arguments are automatically provided to the actor process as environment variables accessible in Python through the `os.environ` mapping. We need to run the actor from the previous tutorial, which we have named `bbc-weather-scraper`, and wait for it to finish. So, we create a sub-client for working with that actor and run the actor through it. We then check whether the actor run has succeeded. If so, we create a client for working with its default dataset.
+First, we initialize an `ApifyClient` instance. All the necessary arguments are automatically provided to the actor process as environment variables accessible in Python through the `os.environ` mapping. We need to run the actor from the previous tutorial, which we have named `bbc-weather-scraper`, and wait for it to finish. So, we create a subclient for working with that actor and run the actor through it. We then check whether the actor run has succeeded. If so, we create a client for working with its default dataset.
 
 ```python
 # Initialize the main ApifyClient instance
@@ -108,7 +108,7 @@ axes.legend(loc='best')
 axes.figure.tight_layout()
 ```
 
-As the last step, we need to save the plot to a record in a [key-value store]({{@link storage/key_value_store.md}}) on the Apify platform, to be able to access it later. We save the rendered figure with the plot to an in-memory buffer, and then save the contents of that buffer to the default key-value store of the actor run through its resource sub-client.
+As the last step, we need to save the plot to a record in a [key-value store]({{@link storage/key_value_store.md}}) on the Apify platform, so that we can access it later. We save the rendered figure with the plot to an in-memory buffer, and then save the contents of that buffer to the default key-value store of the actor run through its resource subclient.
 
 ```python
 # Get the resource sub-client for working with the default key-value store of the run
