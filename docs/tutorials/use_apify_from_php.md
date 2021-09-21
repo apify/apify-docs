@@ -1,6 +1,6 @@
 ---
 title: Use Apify from PHP
-description: Learn how to access Apify's REST API endpoints from you PHP using the guzzle package. Follow a tutorial to run an actor and download its data.
+description: Learn how to access Apify's REST API endpoints from your PHP projects using the guzzle package. Follow a tutorial to run an actor and download its data.
 menuWeight: 3.93
 paths:
     - tutorials/use-apify-from-php
