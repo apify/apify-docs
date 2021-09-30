@@ -14,3 +14,4 @@ pids
 yarn.lock
 package-lock.json
 tmp
+.vscode

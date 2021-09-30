@@ -22,4 +22,6 @@ or the [tutorial]({{@link tutorials/apify_scrapers/puppeteer_scraper.md}}) for o
 
 If you're comfortable with JavaScript/Node.js and are looking to build your own [actor]({{@link actors.md}}) from scratch, check out [this guide](https://sdk.apify.com/docs/guides/getting-started) on getting started with the [Apify SDK](https://sdk.apify.com).
 
+To use Apify in your PHP projects, you can check out our [tutorial]({{@link tutorials/use_apify_from_php.md}}).
+
 We're constantly working on extending and improving this section. If you have suggestions or requests for specific tutorials, let us know using the **Feedback** button on the right.
