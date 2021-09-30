@@ -39,10 +39,11 @@
     "@babel/core": "^7.12.3",
     "@babel/eslint-parser": "^7.12.1",
     "@babel/eslint-plugin": "^7.12.1",
+    "eslint": "^7.12.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-markdown": "^2.0.0-rc.0",
     "imagemin": "^7.0.1",
     "imagemin-webp": "^6.0.0",
-    "eslint": "^7.12.1",
-    "eslint-plugin-markdown": "^2.0.0-rc.0",
     "markdownlint": "^0.21.0",
     "markdownlint-cli": "^0.24.0"
   }
