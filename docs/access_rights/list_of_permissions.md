@@ -106,8 +106,8 @@ Permissions that can be granted to members of organizations. To learn about the 
 |View invoices|See the account's invoices.|
 |Manage organization|Change the organization's settings.|
 
-## [](#marketplace) Marketplace
+## [](#Custom Solutions) Custom Solutions
 
 |Permission|Description|
 |---|---|
-|Marketplace|Allow access to Apify Marketplace.|
+|Custom Solutions|Allow access to Custom Solutions.|
