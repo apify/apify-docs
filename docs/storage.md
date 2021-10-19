@@ -57,7 +57,7 @@ or the [Apify API](/api/v2#/reference/key-value-stores).
 
 ## [](#request-queue) Request queue
 
-[Request queues]({{@link storage/request_queue.md}}) allow you to dynamically maintain a queue of URLs of web pages. You can use this in recursively crawling websites: you start from initial URLs and add new links as they are found while skipping duplicates.
+[Request queues]({{@link storage/request_queue.md}}) allow you to dynamically maintain a queue of URLs of web pages. You can use this when recursively crawling websites: you start from initial URLs and add new links as they are found while skipping duplicates.
 
 ![Request queue graphic]({{@asset images/request-queue-overview.svg}})
 
