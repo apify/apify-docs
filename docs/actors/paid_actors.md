@@ -61,7 +61,11 @@ Hence, you can find the breakdown of how much you have been charged for paid act
 
 ## How do I report issues with an actor?
 
-There should be a link to GitHub issues, or a similar link for reporting problems, in the actor's README. Just go there and create a new ticket, if it does not yet exist.  The developer who owns the actor should be in touch with you shortly, as they are responsible for maintaining their paid actors. If you encounter any problems with this system, you can always write to [community@apify.com](mailto:community@apify.com).
+Each actor has an `Issues` tab present in the Apify console. There, you can open an issue (ticket) and chat with the actor's author, platform admins,
+and other users of this actor. Please, feel free to use the tab to ask any questions, request new features or give feedback. Alternatively, you can
+always write to [community@apify.com](mailto:community@apify.com).
+
+![Paid actors issues tab]({{@asset actors/images/paid-actors-issues-tab.webp}})
 
 ## How do I give general feedback on paid actors?
 
