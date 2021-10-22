@@ -33,6 +33,10 @@ While web scraping is a kind of [RPA]({{@link robotic_process_automation.md}}), 
 
 RPA allows you to handle [use cases](https://apify.com/use-cases/rpa) like filling forms or uploading files while you get on with more important tasks. And it's not just simple tasks you can automate. How about [processing your invoices](https://apify.com/katerinahronik/toggl-invoice-download) or automating your sales processes?
 
+## Is web scraping legal?
+
+In a word, yes. Of course, it has a code of ethics and regulations, which you should always adhere to. [Find out more](https://blog.apify.com/is-web-scraping-legal/) over at Apify Blog.
+
 ## [](#additional-resources) Additional resources
 
 If you would like to learn more, check out [The Beginner's Guide to Web Scraping](https://apify.com/web-scraping), which explains the basics of web scraping, why you should do it, and helpful tips on how to get started.
