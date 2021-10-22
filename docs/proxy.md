@@ -25,6 +25,20 @@ You can use proxies in your [actors]({{@link actors.md}}) or any other applicati
 
 **For pricing information, visit [apify.com/proxy](https://apify.com/proxy).**
 
+## Using your own proxies
+
+In addition to our proxies, you can use your own both in Apify Console and SDK.
+
+### [](#console) Custom proxies in console
+
+To use your own proxies with Apify Console, in your actor's **Input and options** tab, scroll down and open the **Proxy and browser configuration** section. Enter your proxy URLs and you're good to go.
+
+![Using custom proxy in Apify Console]({{@asset images/proxy-custom.webp}})
+
+### [](#SDK) Custom proxies in SDK
+
+In the Apify SDK, use the `proxyConfiguration.newUrl([sessionId])` command to add your custom proxy URLs to the proxy configuration. [See the SDK docs](http://username:password@custom-proxy.example.com) for more details.
+
 ## [](#ip-address-rotation) IP address rotation
 
 Web scrapers can rotate the IP addresses they use to access websites. They assign each request a different IP address, which makes it appear like they are all coming from different users. This greatly enhances performance and data throughput.
