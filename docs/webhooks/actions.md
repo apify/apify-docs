@@ -24,7 +24,7 @@ The payload template is a JSON-like string, whose syntax is extended with the us
 
 The variables need to be enclosed in double curly braces and cannot be chosen arbitrarily. A pre-defined list, [that can be found below](#available-variables), shows all the currently available variables. Using any other variable than one of the pre-defined will result in a validation error.
 
-The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`.
+The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`. The variables support accessing nested properties with dot notation: `{{variable.property}}. 
 
 #### Default payload template
 
@@ -58,6 +58,18 @@ The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`.
         "status": "SUCCEEDED",
         ...
     }
+}
+```
+
+#### Payload template example
+
+This example shows how you can use the payload template variables to send a custom object that displays the status of a RUN, its ID and a custom property:
+
+```json
+{
+    "runId": {{resource.id}},
+    "runStatus": {{resource.status}},
+    "myProp": "hello world"
 }
 ```
 
