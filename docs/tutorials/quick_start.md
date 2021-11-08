@@ -27,7 +27,7 @@ Once you get to grips with this, [go through our Apify scrapers tutorials]({{@li
 
 ![Try for free]({{@asset tutorials/images/try-for-free.webp}})
 
-**3**. This will take you to the [Apify console](https://console.apify.com), where you will see the screen below.
+**3**. This will take you to [Apify Console](https://console.apify.com), where you will see the screen below.
 
 ![Actor input view]({{@asset tutorials/images/actor-input-view.webp}})
 
@@ -87,10 +87,6 @@ Apify.main(async () => {
     const input = await Apify.getInput();
     console.log('My input:');
     console.dir(input);
-
-    // Save output
-    const output = { message: 'Hello world!' };
-    await Apify.setValue('OUTPUT', output);
 });
 ```
 
