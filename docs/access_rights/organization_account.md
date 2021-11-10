@@ -20,7 +20,7 @@ You can set up an organization in two ways.
 * [Create a new organization](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
 * [Convert an existing account](#convert-an-existing-account) into an organization. If your actors and [integrations]({{@link tutorials/integrations.md}}) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
 
-**[See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) on organization accounts.**
+> Prefer video to reading? [See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) for organization accounts.
 
 ## [](#availability-and-pricing) Availability and pricing
 

@@ -57,6 +57,10 @@
             "href": "/tutorials/integrations"
         },
         {
+            "cardItem": "Use Apify from PHP",
+            "href": "/tutorials/use-apify-from-php"
+        },
+        {
             "cardItem": "Process data in Python with Pandas",
             "href": "/tutorials/process-data-using-python"
         }

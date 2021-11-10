@@ -26,4 +26,6 @@ If you're a Python developer and would like to build actors in Python,
 check out our guides for [scraping data with Beautiful Soup]({{@link tutorials/scrape_data_using_python.md}})
 and [parsing the results with Pandas]({{@link tutorials/process_data_using_python.md}}).
 
+To use Apify in your PHP projects, you can check out our [tutorial]({{@link tutorials/use_apify_from_php.md}}).
+
 We're constantly working on extending and improving this section. If you have suggestions or requests for specific tutorials, let us know using the **Feedback** button on the right.

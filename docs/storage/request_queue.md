@@ -1,6 +1,6 @@
 ---
 title: Request queue
-description: Queue URLs for an actor to visit in its run. Learn how to share your queues between actor runs. Access and manage request queues from the Apify console or via API.
+description: Queue URLs for an actor to visit in its run. Learn how to share your queues between actor runs. Access and manage request queues from Apify Console or via API.
 menuWeight: 9.3
 paths:
     - storage/request-queue
@@ -20,15 +20,15 @@ Request queue storage supports both breadth-first and depth-first crawling order
 
 There are five ways to access your request queues:
 
-* [Apify console](https://console.apify.com/storage#/requestQueues) - provides an easy-to-understand interface [[details](#apify-console)].
+* [Apify Console](https://console.apify.com/storage#/requestQueues) - provides an easy-to-understand interface [[details](#apify-console)].
 * [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#request-queue) - when building your own Apify actor [[details](#apify-sdk)].
 * [JavaScript API client](apify-client-js#requestqueueclient) - to access your request queues from any Node.js application [[details](#javascript-api-client)].
 * [Python API client](apify-client-python#requestqueueclient) - to access your request queues from any Python application [[details](#python-api-client)].
 * [Apify API](/api/v2#/reference/request-queues) - for accessing your request queues programmatically [[details](#apify-api)].
 
-### [](#apify-console) Apify console
+### [](#apify-console) Apify Console
 
-In the [Apify console](https://console.apify.com), you can view your request queues in the [Storage](https://console.apify.com/storage) section under the [Request queues](https://console.apify.com/storage#/requestQueues) tab.
+In [Apify Console](https://console.apify.com), you can view your request queues in the [Storage](https://console.apify.com/storage) section under the [Request queues](https://console.apify.com/storage#/requestQueues) tab.
 
 Only named request queues are displayed by default. Select the **Include unnamed request queues** checkbox to display all of your queues.
 

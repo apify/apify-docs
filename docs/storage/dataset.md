@@ -1,6 +1,6 @@
 ---
 title: Dataset
-description: Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in the Apify console or via API.
+description: Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in Apify Console or via API.
 menuWeight: 9.1
 paths:
     - storage/dataset
@@ -22,15 +22,15 @@ Dataset storage is **append-only** - data can only be added and cannot be change
 
 There are five ways to access your datasets:
 
-* [Apify console](https://console.apify.com/storage#/datasets) - provides an easy-to-understand interface [[details](#apify-console)].
+* [Apify Console](https://console.apify.com/storage#/datasets) - provides an easy-to-understand interface [[details](#apify-console)].
 * [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor [[details](#apify-sdk)].
 * [JavaScript API client](/apify-client-js#datasetclient) - to access your datasets from any Node.js application [[details](#javascript-api-client)].
 * [Python API client](/apify-client-python#datasetclient) - to access your datasets from any Python application [[details](#python-api-client)].
 * [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically [[details](#apify-api)].
 
-### [](#apify-console) Apify console
+### [](#apify-console) Apify Console
 
-In the [Apify console](https://console.apify.com), you can view your datasets in the [Storage](https://console.apify.com/storage) section under the [Datasets](https://console.apify.com/storage#/datasets) tab.
+In [Apify Console](https://console.apify.com), you can view your datasets in the [Storage](https://console.apify.com/storage) section under the [Datasets](https://console.apify.com/storage#/datasets) tab.
 
 Only named datasets are displayed by default. Select the **Include unnamed datasets** checkbox to display all of your datasets.
 
@@ -218,7 +218,7 @@ Below is an example of a dataset record containing hidden fields with an HTTP re
 }
 ```
 
-Data without hidden fields are called "clean" and can be downloaded from the [Apify console](https://console.apify.com/storage#/datasets) using the "Clean items" link or via API using the **clean=true** or **clean=1** [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items).
+Data without hidden fields are called "clean" and can be downloaded from [Apify Console](https://console.apify.com/storage#/datasets) using the "Clean items" link or via API using the **clean=true** or **clean=1** [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items).
 
 ## [](#xml-format-extension) XML format extension
 
