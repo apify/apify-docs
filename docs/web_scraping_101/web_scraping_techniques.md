@@ -53,8 +53,11 @@ To see if a website uses JSON-LD, check its `<head>` element using your browser'
 Then, you can use the code below in your scraper to extract the data.
 
 ```js
-const jsonLD = $('script[type="application/ld+json"]');
-return JSON.parse(jsonLD.html());
+const pageFunction = (context) => {
+    // other code here
+    const jsonLD = $('script[type="application/ld+json"]');
+    return JSON.parse(jsonLD.html());
+};
 ```
 
 ## [](#internal-javascript-variables) Internal JavaScript variables
