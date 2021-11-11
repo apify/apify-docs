@@ -24,7 +24,7 @@ The payload template is a JSON-like string, whose syntax is extended with the us
 
 The variables need to be enclosed in double curly braces and cannot be chosen arbitrarily. A pre-defined list, [that can be found below](#available-variables), shows all the currently available variables. Using any other variable than one of the pre-defined will result in a validation error.
 
-The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`. The variables support accessing nested properties with dot notation: `{{variable.property}}`. 
+The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`. The variables support accessing nested properties with dot notation: `{{variable.property}}`.
 
 #### Default payload template
 
