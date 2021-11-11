@@ -7,7 +7,6 @@ const imagemin = require('imagemin');
 const imageminWebp = require('imagemin-webp');
 const path = require('path');
 
-
 // Recursively converts all jpg and png files to webp in docs directory tree
 (async () => {
     async function convertImagesToWebp(dirPath) {
