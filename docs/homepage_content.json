@@ -5,6 +5,18 @@
             "href": "/about"
         },
         {
+            "cardItem": "Quick start",
+            "href": "/tutorials/quick-start"
+        },
+        {
+            "cardItem": "Use Apify scrapers",
+            "href": "/tutorials/apify-scrapers/getting-started"
+        },
+        {
+            "cardItem": "Learn to use Web Scraper",
+            "href": "/tutorials/apify-scrapers/web-scraper"
+        },
+        {
             "cardItem": "Take a video tour of the platform",
             "href": "https://www.youtube.com/watch?v=XPF0kbyvoOs",
             "isExternalLink": true
@@ -21,21 +33,9 @@
         {
             "cardItem": "What is web scraping?",
             "href": "/web-scraping-101"
-        },
-        {
-            "cardItem": "Automate repetitive tasks",
-            "href": "/robotic-process-automation"
         }
     ],
     "Guides": [
-        {
-            "cardItem": "Quick start",
-            "href": "/tutorials/quick-start"
-        },
-        {
-            "cardItem": "Use Apify scrapers",
-            "href": "/tutorials/apify-scrapers/getting-started"
-        },
         {
             "cardItem": "Actor tasks",
             "href": "/actors/tasks"
@@ -43,10 +43,6 @@
         {
             "cardItem": "Run an actor and retrieve data via API",
             "href": "/tutorials/integrations/run-actor-and-retrieve-data-via-api"
-        },
-        {
-            "cardItem": "Learn to use Web Scraper",
-            "href": "/tutorials/apify-scrapers/web-scraper"
         },
         {
             "cardItem": "Log into a website",
@@ -59,6 +55,10 @@
         {
             "cardItem": "Use Apify from PHP",
             "href": "/tutorials/use-apify-from-php"
+        },
+        {
+            "cardItem": "Automate repetitive tasks",
+            "href": "/robotic-process-automation"
         }
     ],
     "Web scraping": [
