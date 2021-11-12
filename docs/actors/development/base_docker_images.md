@@ -30,4 +30,4 @@ For a full list of available images, [see the Apify SDK Docker image guide](http
 
 The [Apify API client for Python](https://docs.apify.com/apify-client-python) is preinstalled on these images.
 
-- **Python 3 on Alpine Linux** ([`apify/actor-python`](https://hub.docker.com/r/apify/actor-python/)) - a slim image with Python 3 and the [Apify API client for Python](https://docs.apify.com/apify-client-python) preinstalled. Comes in multiple versions containing Python 3.7, 3.8 or 3.9.
+- **Python 3 on Alpine Linux** ([`apify/actor-python`](https://hub.docker.com/r/apify/actor-python/)) - a slim image with Python 3 and the [Apify API client for Python](https://docs.apify.com/apify-client-python) preinstalled. Comes in multiple versions containing Python 3.7, 3.8, 3.9 or 3.10.
