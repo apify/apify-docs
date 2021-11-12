@@ -59,6 +59,10 @@
         {
             "cardItem": "Automate repetitive tasks",
             "href": "/robotic-process-automation"
+        },
+        {
+            "cardItem": "Process data in Python with Pandas",
+            "href": "/tutorials/process-data-using-python"
         }
     ],
     "Web scraping": [
@@ -84,6 +88,10 @@
         {
             "cardItem": "Analyze pages and fix errors",
             "href": "/tutorials/analyze-pages-and-fix-errors"
+        },
+        {
+            "cardItem": "Scrape data in Python with Beautiful Soup",
+            "href": "/tutorials/scrape-data-using-python"
         }
     ],
     "Platform features": [
