@@ -38,3 +38,5 @@ An easy-to-follow [video](https://www.youtube.com/watch?v=9URSbTOE4YI) on what R
 To learn about RPA in plain English, check out [this](https://enterprisersproject.com/article/2019/5/rpa-robotic-process-automation-how-explain) article.
 
 [This](https://www.cio.com/article/3236451/what-is-rpa-robotic-process-automation-explained.html) article explains what RPA is and discusses both its advantages and disadvantages.
+
+You might also like to check out this article on [12 Steps to Automate Workflows](https://quandarycg.com/automating-workflows/)
