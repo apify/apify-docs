@@ -8,6 +8,7 @@ paths:
 ---
 
 # [](#fundamentals) Fundamentals of data extraction
+
 Every web scraping project starts with some detective work. To a human, it's completely obvious where the data is on the web page. But a computer needs very precise instructions to find the data we want. There are three elementary components of each website that we can leverage to give those instructions. HTML, CSS and JavaScript.
 
 ## [](#html) HTML
@@ -17,14 +18,17 @@ For the browser to be able to show you the web page with all its text and images
 > To learn about HTML, we recommend browsing the [MDN tutorials on HTML](https://developer.mozilla.org/en-US/docs/Web/HTML).
 
 ## [](#css) CSS
+
 CSS (Cascading Style Sheets) is a markup language that is used to give websites their style. It controls shapes, colors, positioning and even animations. The style is then added to the page's HTML and together, they define the page's content and structure. In web scraping, we can leverage CSS to find the data we want using so-called CSS selectors.
 
 > More on CSS and CSS selectors can be found in [MDN tutorials on CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
 
 ## [](#javascript) JavaScript
+
 HTML and CSS give websites their structure and style, but they are static. To be able to meaningfully interact with a website, you need to throw JavaScript into the mix. It is the language of the web and you don't need to be a programmer to learn the basics. You don't even need any special software, because you can try it right now, in your browser.
 
 > If you want to dive deeper into JavaScript, check out [this great tutorial](https://javascript.info/).
 
 ## [](#next) Next up
+
 We will show you how to use the browser DevTools to inspect and interact with a web page.

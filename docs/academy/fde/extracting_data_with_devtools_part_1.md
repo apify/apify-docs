@@ -7,9 +7,11 @@ paths:
 ---
 
 # [](#extracting-data-with-devtools) Extracting data with DevTools - Part 1
+
 We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - extracting data from a website. Let's try extracting the 50 most popular websites in the world from the [Alexa Top Sites index](https://www.alexa.com/topsites). We will use CSS selectors, JavaScript and DevTools to do that.
 
 ## [](#getting-structured-data) Getting structured data from HTML
+
 When you open the [Alexa Top Sites index](https://www.alexa.com/topsites), you'll see that there's a table on the page with names of websites and various data about the websites' traffic. We will now learn how to extract all this information. Open DevTools and select any of the websites with the selector tool.
 
 ![Selecting an element with DevTools]({{@asset academy/fde/images/selecting-first-website.webp}})
@@ -23,6 +25,7 @@ This element is the parent element of all the nested (child) elements and we can
 > Websites change and the structure or the HTML or the CSS selectors can become outdated. We'll try our best to keep this tutorial updated, but if you find that what you see on the website does not match this guide exactly, don't worry. Everything will work exactly the same. You will only have to use whatever you see on your screen and not in the screenshots here.
 
 ## [](#selecting-elements) Selecting elements with JavaScript
+
 We know how to find an element manually using the DevTools, but for automated scraping, we need to tell the computer how to find it as well. We can do that using JavaScript and CSS selectors.
 
 The function to do that is called `document.querySelector('some-selector')` and it will find the first element in the page's HTML matching the provided CSS selector. For example `document.querySelector('div')` will find the first `<div>` element. And `document.querySelector('p.my-class')` will find the first `<p>` element with the class `my-class`.
@@ -32,7 +35,7 @@ The function to do that is called `document.querySelector('some-selector')` and 
 At the time of writing the HTML element that contained all the data we wanted had a `<div>` tag and a `tr site-listing` class. This actually means that there were two classes applied to the element. `tr` and `site-listing`. The `site-listing` class looked like the more reliable pick for targeting the element so we chose that one. We ran this command in the DevTools Console to select the element we wanted.
 
 ```js
-document.querySelector('div.site-listing')
+document.querySelector('div.site-listing');
 ```
 
 ![Query a selector with JavaScript]({{@asset academy/fde/images/query-selector.webp}})
@@ -40,11 +43,12 @@ document.querySelector('div.site-listing')
 > There are always multiple ways how to select an element using CSS selectors. We always try to choose the one that seems the most reliable, precise and unlikely to change with website updates. For example the `site-listing` class looks like the website's programmers deliberately put it there to signify one result and we therefore think it's the best to use.
 
 ## [](#extracting-from-elements) Extracting data from elements
+
 Now that we found the element, we can start poking into it to extract data. First, let's save the element to a variable so that we can work with it repeatedly and then print its text content to the console.
 
 ```js
-const item = document.querySelector('div.site-listing')
-console.log(item.textContent)
+const item = document.querySelector('div.site-listing');
+console.log(item.textContent);
 ```
 
 ![Print text content of an element]({{@asset academy/fde/images/print-text-content.webp}})
@@ -52,6 +56,7 @@ console.log(item.textContent)
 As you can see, we were able to extract the data, but the format is still not very useful. For further processing, for example in a spreadsheet, we would like to have each piece of data as a separate field (column). To do that, we will look at the HTML structure in more detail.
 
 ### [](#selecting-child-elements) Selecting child elements
+
 In the [Getting structured data from HTML](#getting-structured-data-from-html) section, we were hovering over the elements in the Elements tab to find the element that contains all the data. We can use that to find the individual data points as well. After a bit of inspection we find that all the elements with the data we need are `div` with the class `td`.
 
 > Don't forget that the selectors may have changed from `div` and `td`, but the general principle of finding them will always be the same. Use what you see on your screen.
@@ -67,8 +72,8 @@ There's even a similar function called [`querySelectorAll()`](https://javascript
 Don't forget that earlier we saved the parent element into a variable called `item`. We can use that variable to search only within that element.
 
 ```js
-const fields = item.querySelectorAll('div.td')
-console.log(fields)
+const fields = item.querySelectorAll('div.td');
+console.log(fields);
 ```
 
 ![List child elements with JavaScript]({{@asset academy/fde/images/list-child-elements.webp}})
@@ -85,8 +90,8 @@ const result = {
     dailyPageViews: fields[3].textContent.trim(),
     percentFromSearch: fields[4].textContent.trim(),
     totalLinkingSites: fields[5].textContent.trim(),
-}
-console.log(result)
+};
+console.log(result);
 ```
 
 ![Print extracted data to the Console]({{@asset academy/fde/images/print-website-data.webp}})
@@ -94,4 +99,5 @@ console.log(result)
 If you were able to get the same result in your browser console, congratulations! You successfully extracted your first data. If not, don't worry and review your code carefully. You'll crush the bug soon enough.
 
 ## [](#next) Next up
+
 We have learned how to extract information of a single website from the Alexa Top Sites index. In the next chapter we will learn how to extract all of it.
