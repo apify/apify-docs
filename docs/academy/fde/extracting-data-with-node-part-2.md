@@ -12,7 +12,7 @@ The first part of this chapter we downloaded the HTML of [Alexa Top Sites index]
 ## [](#querying-with-cheerio) Querying data with Cheerio
 As a reminder, the data we need from the Top Sites index is available in the 50 `<div>` elements with class `site-listing`. The CSS selector to find those is `div.site-listing`.
 
-[ same screenshot as in the devtools section ]
+![Selecting an element from the Elements tab]({{@asset academy/fde/images/selecting-container-element.webp}})
 
 To get all the elements with that selector using `cheerio` we call the `$` function with the selector.
 
@@ -43,11 +43,12 @@ After you run this script, you should see data of all the 50 sites printed in yo
 ## [](#extracting-data) Extracting final data
 Now we only need to repeat the process from the DevTools chapters and add individual data point extraction to the loop. From those chapters we know that the data are in `<div>` elements with class `td`.
 
-[ screenshot from the DevTools section ]
+![Finding child elements in Elements tab]({{@asset academy/fde/images/find-child-elements.webp}})
 
 We will loop over all the `sites` and extract the data points from each of them using the `array.map()` function. For reference, this is the code from the DevTools chapter, where we extracted the data using a browser.
 
 ```js
+// This is code from the browser Console. It won't work in Node.js
 const results = Array.from(sites).map(site => {
     const fields = site.querySelectorAll('div.td')
     return {
@@ -104,7 +105,7 @@ const results = sites.map(site => {
 console.log(results)
 ```
 
-[ screenshot of extracted data from terminal ]
+![Printing all websites' data to terminal]({{@asset academy/fde/images/terminal-all-websites-data.webp}})
 
 If you were able to get here, run the code, get results and also understand everything, you can pat yourself on the back and congratulate yourself on completing the Fundamentals of data extraction part of the Web Scraping Academy. Great job! 👏🎉
 

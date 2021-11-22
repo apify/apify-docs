@@ -55,7 +55,7 @@ console.log(csv)
 
 And here's our newly created CSV printed to the console after running the script.
 
-[ screenshot of printed CSV ]
+![Printing CSV data to terminal]({{@asset academy/fde/images/terminal-csv.webp}})
 
 ## [](#writing-to-file) Writing the CSV to a file
 The final task that remains is to save our CSV formatted data to a file on our disk, so we can open it or send it to someone. For this we don't need any extra NPM packages, because functions for saving files are included in Node.js.
@@ -104,7 +104,7 @@ writeFileSync('alexa-websites.csv', csv)
 
 Finally, after running it again, we will find the `alexa-websites.csv` file in our project folder. And when we open it with Excel, voila.
 
-[ screenshot of Excel with data ]
+![Displaying CSV data in Excel]({{@asset academy/fde/images/data-in-excel.webp}})
 
 This marks the end of the Fundamentals of data extraction section of the Web Scraping Academy. If you enjoyed the tutorial, give us a thumbs up down below and if you're eager to learn more...
 
