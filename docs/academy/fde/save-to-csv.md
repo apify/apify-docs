@@ -6,10 +6,10 @@ paths:
 - academy/fde/save-to-csv
 ---
 
-# Saving results as a CSV
+# [](#saving-to-csv) Saving results as a CSV
 In the last chapter we were able extract data about all the websites from the [Alexa Top Sites index](https://www.alexa.com/topsites). That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this chapter we'll learn how to save that data into a CSV file which you can then open in Excel or Google Sheets.
 
-## Converting to CSV
+## [](#converting-to-csv) Converting to CSV
 It might look like a big programming challenge to transform a JavaScript object into a CSV, but thanks to NPM, it will be a piece of cake. After googling `json to csv npm` we found that there's a library called [`json2csv`](https://www.npmjs.com/package/json2csv) that can convert a JavaScript object to a CSV with a single function call. Perfect.
 
 First we need to import the `parse()` function from the library.
@@ -57,7 +57,7 @@ And here's our newly created CSV printed to the console after running the script
 
 [ screenshot of printed CSV ]
 
-## Writing the CSV to a file
+## [](#writing-to-file) Writing the CSV to a file
 The final task that remains is to save our CSV formatted data to a file on our disk, so we can open it or send it to someone. For this we don't need any extra NPM packages, because functions for saving files are included in Node.js.
 
 First we import the `writeFileSync` function from the `fs` (file system) package.
@@ -108,5 +108,5 @@ Finally, after running it again, we will find the `alexa-websites.csv` file in o
 
 This marks the end of the Fundamentals of data extraction section of the Web Scraping Academy. If you enjoyed the tutorial, give us a thumbs up down below and if you're eager to learn more...
 
-## Next up
+## [](#next) Next up
 Next up are the Fundamentals of crawling, where we will learn how to move between web pages and scrape data from all of them. We will build a scraper that first collects all the countries of the [Alexa Top Sites by Country index](https://www.alexa.com/topsites/countries) and then crawls each of them to scrape the data for each country separately.

@@ -6,10 +6,10 @@ paths:
 - academy/fde/extracting-data-with-node-part-2
 ---
 
-# Extracting data using Node.js - Part 2
+# [](#extracting-data-with-node) Extracting data with Node.js - Part 2
 The first part of this chapter we downloaded the HTML of [Alexa Top Sites index](https://www.alexa.com/topsites) and parsed it with `cheerio`. Now we will replicate the extraction logic from the [Extracting Data using DevTools]() chapters and finish our scraper.
 
-## Querying data with Cheerio
+## [](#querying-with-cheerio) Querying data with Cheerio
 As a reminder, the data we need from the Top Sites index is available in the 50 `<div>` elements with class `site-listing`. The CSS selector to find those is `div.site-listing`.
 
 [ same screenshot as in the devtools section ]
@@ -40,7 +40,7 @@ sites.forEach(site => {
 
 After you run this script, you should see data of all the 50 sites printed in your terminal.
 
-## Extracting final data
+## [](#extracting-data) Extracting final data
 Now we only need to repeat the process from the DevTools chapters and add individual data point extraction to the loop. From those chapters we know that the data are in `<div>` elements with class `td`.
 
 [ screenshot from the DevTools section ]
@@ -108,5 +108,5 @@ console.log(results)
 
 If you were able to get here, run the code, get results and also understand everything, you can pat yourself on the back and congratulate yourself on completing the Fundamentals of data extraction part of the Web Scraping Academy. Great job! 👏🎉
 
-# Next up
+# [](#next) Next up
 While we were able to extract the data, it's not very useful to have those printed to the console. In the next, bonus chapter, we will learn how to convert the data to a CSV and save it to a file.
