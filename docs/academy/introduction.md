@@ -2,6 +2,7 @@
 title: Introduction
 description: Learn how to develop web scrapers with this comprehensive and practical course. From beginner to expert.
 menuWeight: 18
+category: academy
 paths:
 - academy
 - academy/introduction

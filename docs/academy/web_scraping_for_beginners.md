@@ -2,6 +2,7 @@
 title: Web scraping for beginners
 description: Learn what web scraping and crawling is and how to develop your own simple scraper.
 menuWeight: 19
+category: academy
 paths:
 - academy/web-scraping-for-beginners
 ---

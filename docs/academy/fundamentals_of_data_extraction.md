@@ -2,6 +2,7 @@
 title: Fundamentals of data extraction
 description: Learn about HTML, CSS and JavaScript, the basic building blocks of a website, and how to use them in scraping.
 menuWeight: 20
+category: academy
 paths:
 - academy/fundamentals-of-data-extraction
 - academy/fde
