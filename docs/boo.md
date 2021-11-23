@@ -4,7 +4,7 @@ description: Boo
 menuWeight: 2
 category: guides
 paths:
-    - Boo
+    - boo
 ---
 
 # [](#what-is-apify) Boo
