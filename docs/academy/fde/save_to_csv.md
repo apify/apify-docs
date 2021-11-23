@@ -3,7 +3,7 @@ title: Saving results to CSV
 description: Learn how to save the results of your scraper to a CSV file.
 menuWeight: 20.8
 paths:
-- academy/fde/save-to-csv
+    - academy/fde/save-to-csv
 ---
 
 # [](#saving-to-csv) Saving results as a CSV

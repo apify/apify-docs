@@ -3,7 +3,7 @@ title: Prepare your computer for programming
 description: Set up your computer to be able to code scrapers with Node.js and JavaScript. Download Node.js and NPM and run a Hello World script.
 menuWeight: 20.4
 paths:
-- academy/fde/computer-preparation
+    - academy/fde/computer-preparation
 ---
 
 # [](#prepare) Prepare your computer for programming

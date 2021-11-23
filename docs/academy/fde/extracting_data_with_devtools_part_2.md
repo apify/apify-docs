@@ -3,7 +3,7 @@ title: Extracting data with DevTools - Part 2
 description: Continue learning how to extract data from a website usin browser DevTools, CSS selectors and JavaScript.
 menuWeight: 20.3
 paths:
-- academy/fde/extracting-data-with-devtools-part-2
+    - academy/fde/extracting-data-with-devtools-part-2
 ---
 
 # [](#extracting-data-with-devtools) Extracting data with DevTools - Part 2

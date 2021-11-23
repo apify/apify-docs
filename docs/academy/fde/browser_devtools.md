@@ -3,7 +3,7 @@ title: Browser DevTools
 description: Learn about browser DevTools and how you can use them to extract data from a website.
 menuWeight: 20.1
 paths:
-- academy/fde/browser-devtools
+    - academy/fde/browser-devtools
 ---
 
 # [](#devtools) Browser DevTools

@@ -3,7 +3,7 @@ title: Extracting data with Node.js - Part 1
 description: Learn how to use JavaScript and Node.js to create a web scraper. With the help of the cheerio and got-scraping libraries.
 menuWeight: 20.6
 paths:
-- academy/fde/extracting-data-with-node-part-1
+    - academy/fde/extracting-data-with-node-part-1
 ---
 
 # [](#extracting-data-with-node) Extracting data with Node.js - Part 1

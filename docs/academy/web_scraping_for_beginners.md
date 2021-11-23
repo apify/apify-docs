@@ -4,7 +4,7 @@ description: Learn what web scraping and crawling is and how to develop your own
 menuWeight: 19
 category: academy
 paths:
-- academy/web-scraping-for-beginners
+    - academy/web-scraping-for-beginners
 ---
 
 # [](#web-scraping-for-beginners) Web Scraping for Beginners
