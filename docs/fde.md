@@ -4,8 +4,8 @@ description: Learn about HTML, CSS and JavaScript, the basic building blocks of 
 menuWeight: 20
 category: academy
 paths:
-- academy/fundamentals-of-data-extraction
-- academy/fde
+- fundamentals-of-data-extraction
+- fde
 ---
 
 # [](#fundamentals) Fundamentals of data extraction

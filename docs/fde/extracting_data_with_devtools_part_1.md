@@ -3,7 +3,7 @@ title: Extracting data with DevTools - Part 1
 description: Learn how to use browser DevTools, CSS selectors and JavaScript to extract data from a website.
 menuWeight: 20.2
 paths:
-    - academy/fde/extracting-data-with-devtools-part-1
+    - fde/extracting-data-with-devtools-part-1
 ---
 
 # [](#extracting-data-with-devtools) Extracting data with DevTools - Part 1
@@ -14,11 +14,11 @@ We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try 
 
 When you open the [Alexa Top Sites index](https://www.alexa.com/topsites), you'll see that there's a table on the page with names of websites and various data about the websites' traffic. We will now learn how to extract all this information. Open DevTools and select any of the websites with the selector tool.
 
-![Selecting an element with DevTools]({{@asset academy/fde/images/selecting-first-website.webp}})
+![Selecting an element with DevTools]({{@asset fde/imagesselecting-first-website.webp}})
 
 Now you know where to find the name of the first website in the page's HTML, but we want to find all the website's information. To do that, hover over the elements above the one you just found, until you find the element that contains all the data about the selected website.
 
-![Selecting an element from the Elements tab]({{@asset academy/fde/images/selecting-container-element.webp}})
+![Selecting an element from the Elements tab]({{@asset fde/imagesselecting-container-element.webp}})
 
 This element is the parent element of all the nested (child) elements and we can find it using JavaScript and extract the data. Notice the `class` attribute of the element. This is where CSS selectors become handy, because we can use them to select an element with a specific class.
 
@@ -38,7 +38,7 @@ At the time of writing the HTML element that contained all the data we wanted ha
 document.querySelector('div.site-listing');
 ```
 
-![Query a selector with JavaScript]({{@asset academy/fde/images/query-selector.webp}})
+![Query a selector with JavaScript]({{@asset fde/imagesquery-selector.webp}})
 
 > There are always multiple ways how to select an element using CSS selectors. We always try to choose the one that seems the most reliable, precise and unlikely to change with website updates. For example the `site-listing` class looks like the website's programmers deliberately put it there to signify one result and we therefore think it's the best to use.
 
@@ -51,7 +51,7 @@ const item = document.querySelector('div.site-listing');
 console.log(item.textContent);
 ```
 
-![Print text content of an element]({{@asset academy/fde/images/print-text-content.webp}})
+![Print text content of an element]({{@asset fde/imagesprint-text-content.webp}})
 
 As you can see, we were able to extract the data, but the format is still not very useful. For further processing, for example in a spreadsheet, we would like to have each piece of data as a separate field (column). To do that, we will look at the HTML structure in more detail.
 
@@ -61,7 +61,7 @@ In the [Getting structured data from HTML](#getting-structured-data-from-html) s
 
 > Don't forget that the selectors may have changed from `div` and `td`, but the general principle of finding them will always be the same. Use what you see on your screen.
 
-![Finding child elements in Elements tab]({{@asset academy/fde/images/find-child-elements.webp}})
+![Finding child elements in Elements tab]({{@asset fde/imagesfind-child-elements.webp}})
 
 The `document.querySelector()` function looks for a specific element in the whole HTML `document`, so if we called it with `div.td`, it would find the first `<div class="td ...">` in the `document`. Luckily we can also use this function to look for elements within an element.
 
@@ -76,7 +76,7 @@ const fields = item.querySelectorAll('div.td');
 console.log(fields);
 ```
 
-![List child elements with JavaScript]({{@asset academy/fde/images/list-child-elements.webp}})
+![List child elements with JavaScript]({{@asset fde/imageslist-child-elements.webp}})
 
 ### [](#extracting-data) Extracting data
 
@@ -94,7 +94,7 @@ const result = {
 console.log(result);
 ```
 
-![Print extracted data to the Console]({{@asset academy/fde/images/print-website-data.webp}})
+![Print extracted data to the Console]({{@asset fde/imagesprint-website-data.webp}})
 
 If you were able to get the same result in your browser console, congratulations! You successfully extracted your first data. If not, don't worry and review your code carefully. You'll crush the bug soon enough.
 

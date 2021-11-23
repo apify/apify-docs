@@ -4,7 +4,7 @@ description: Learn what web scraping and crawling is and how to develop your own
 menuWeight: 19
 category: academy
 paths:
-    - academy/web-scraping-for-beginners
+    - web-scraping-for-beginners
 ---
 
 # [](#web-scraping-for-beginners) Web Scraping for Beginners
@@ -15,7 +15,7 @@ Web scraping or crawling? Data extraction, mining or collection? You can find va
 
 For us, data extraction is a process that takes a web page, like an Amazon product page, and extracts useful information from the page, such as the product's name and price. Web pages are an unstructured data source and the goal of data extraction is to make the information structured and readable to computers. The main sources of data on a web page are HTML documents and API calls, but also images, PDFs and so on.
 
-![product data extraction from Amazon]({{@asset academy/images/beginners-data-extraction.webp}})
+![product data extraction from Amazon]({{@asset images/beginners-data-extraction.webp}})
 
 ## [](#crawling) What is crawling?
 
