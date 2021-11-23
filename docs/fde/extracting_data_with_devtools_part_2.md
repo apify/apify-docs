@@ -21,7 +21,7 @@ const sites = document.querySelectorAll('div.site-listing');
 console.log(sites);
 ```
 
-![Print all websites]({{@asset fde/imagesprint-all-websites.webp}})
+![Print all websites]({{@asset fde/images/print-all-websites.webp}})
 
 Second, we will loop over the sites and print their unstructured data. The `forEach` function accepts one argument, which is a function that will be invoked for each element of the `sites` array.
 
@@ -31,7 +31,7 @@ sites.forEach((site) => console.log(site.textContent));
 
 > If you're not familiar with arrow functions (`=>`), visit [this tutorial](https://javascript.info/arrow-functions-basics) to learn more.
 
-![Print all websites' text]({{@asset fde/imagesprint-all-websites-text.webp}})
+![Print all websites' text]({{@asset fde/images/print-all-websites-text.webp}})
 
 ## [](#extracting-data) Extracting data in a loop
 
@@ -58,7 +58,7 @@ We have to admit that we were not honest with you in the previous chapter. The `
 
 With that said, the rest of the code is just copy-pasted from the previous chapter. For each `site` in `sites`, we find all the `fields` with data for that particular `site` and save them to the `results` array by returning the object with the data. When you run the code, you should see all the data neatly structured.
 
-![Print all websites' data]({{@asset fde/imagesprint-all-websites-data.webp}})
+![Print all websites' data]({{@asset fde/images/print-all-websites-data.webp}})
 
 ## [](#next) Next up
 
