@@ -25,7 +25,7 @@ const main = async () => {
     await Promise.all(promises.concat(promises2));
 
     // Remove page content from index.
-    index.pages = _.mapObject(index.pages, (page) => _.omit(page, 'content'));
+    index.pages = _.mapObject(index.pages, page => _.omit(page, 'content'));
     await writeFile(path.join(BUILD_DIR_PATH, 'index.json'), JSON.stringify(index, null, 2));
 };
 
