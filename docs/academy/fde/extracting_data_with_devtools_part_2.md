@@ -26,7 +26,7 @@ console.log(sites);
 Second, we will loop over the sites and print their unstructured data. The `forEach` function accepts one argument, which is a function that will be invoked for each element of the `sites` array.
 
 ```js
-sites.forEach(site => console.log(site.textContent));
+sites.forEach((site) => console.log(site.textContent));
 ```
 
 > If you're not familiar with arrow functions (`=>`), visit [this tutorial](https://javascript.info/arrow-functions-basics) to learn more.
