@@ -29,7 +29,7 @@ Now run the script (using `node main.js`). After a brief moment, you should see 
 
 ## [](#parsing-html) Parsing HTML
 
-Having the HTML printed to the terminal is not very helpful. To extract the data, we first have to parse it. Thanks to parsing, we will be able to query the HTML elements similarly to the way we did it in browser in the [Extracting Data with DevTools]({{@link academy/fde/extracting_data_with_devtools_part_1.md}}) chapters. To parse HTML, we load it into the `cheerio` library.
+Having the HTML printed to the terminal is not very helpful. To extract the data, we first have to parse it. Thanks to parsing, we will be able to query the HTML elements similarly to the way we did it in browser in the [Extracting Data with DevTools]({{@link fde/extracting_data_with_devtools_part_1.md}}) chapters. To parse HTML, we load it into the `cheerio` library.
 
 ```js
 // main.js

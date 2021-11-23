@@ -8,7 +8,7 @@ paths:
 
 # [](#extracting-data-with-node) Extracting data with Node.js - Part 2
 
-The first part of this chapter we downloaded the HTML of [Alexa Top Sites index](https://www.alexa.com/topsites) and parsed it with `cheerio`. Now we will replicate the extraction logic from the [Extracting Data with DevTools]({{@link academy/fde/extracting_data_with_devtools_part_1.md}}) chapters and finish our scraper.
+The first part of this chapter we downloaded the HTML of [Alexa Top Sites index](https://www.alexa.com/topsites) and parsed it with `cheerio`. Now we will replicate the extraction logic from the [Extracting Data with DevTools]({{@link fde/extracting_data_with_devtools_part_1.md}}) chapters and finish our scraper.
 
 ## [](#querying-with-cheerio) Querying data with Cheerio
 

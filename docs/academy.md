@@ -27,8 +27,8 @@ When we set to create the Web Scraping Academy, we wanted to build a complete gu
 
 This is what you'll learn in the Web Scraping Academy:
 
-* [Web scraping for beginners]({{@link academy/web_scraping_for_beginners.md}})
-  * [Fundamentals of data extraction]({{@link academy/fde.md}})
+* [Web scraping for beginners]({{@link web_scraping_for_beginners.md}})
+  * [Fundamentals of data extraction]({{@link fde.md}})
   * Fundamentals of crawling
 * Advanced web scraping
   * Advanced data extraction techniques
