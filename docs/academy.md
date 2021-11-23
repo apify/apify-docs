@@ -4,7 +4,7 @@ description: Learn about what Apify is and how it can help you. Get familiar wit
 menuWeight: 2
 category: guides
 paths:
-    - about
+    - academy
 ---
 
 # Web scraping academy

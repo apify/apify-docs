@@ -4,7 +4,6 @@ description: Learn how to develop web scrapers with this comprehensive and pract
 menuWeight: 18
 category: academy
 paths:
-- academy
 - academy/introduction
 ---
 
