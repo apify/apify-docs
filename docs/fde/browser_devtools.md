@@ -3,7 +3,7 @@ title: Browser DevTools
 description: Learn about browser DevTools and how you can use them to extract data from a website.
 menuWeight: 20.1
 paths:
-    - academy/fde/browser-devtools
+    - fde/browser-devtools
 ---
 
 # [](#devtools) Browser DevTools
@@ -16,13 +16,13 @@ When you first open Chrome DevTools, you will start on the Elements tab (In Fire
 
 At the bottom there's the JavaScript console which you can use to manipulate the website. If the Console is not there, you can press `ESC` to toggle it. At first it looks super complicated, but don't worry, there's no need to understand everything.
 
-![Chrome DevTools with elements tab and console]({{@asset academy/fde/images/browser-devtools.webp}})
+![Chrome DevTools with elements tab and console]({{@asset fde/images/browser-devtools.webp}})
 
 ## [](#select) Selecting an element
 
 In the top left corner of the DevTools, there's a little arrow icon. When you click it and then hover your mouse over the website's content, DevTools will show you information about the HTML elements. And when you click, the element will be selected in the Elements tab.
 
-![Chrome DevTools element selection hover effect]({{@asset academy/fde/images/hover-effect.webp}})
+![Chrome DevTools element selection hover effect]({{@asset fde/images/hover-effect.webp}})
 
 ## [](#interact) Interacting with an element
 
@@ -40,7 +40,7 @@ Or the HTML of the element using this command:
 console.log(temp1.outerHTML);
 ```
 
-![Chrome DevTools JavaScript command execution]({{@asset academy/fde/images/basic-console-commands.webp}})
+![Chrome DevTools JavaScript command execution]({{@asset fde/images/basic-console-commands.webp}})
 
 > You can interact with the page in many more ways using the Console. If you want to dive deeper we recommend this [tutorial on documents](https://javascript.info/document). A web page in a browser is called a document.
 

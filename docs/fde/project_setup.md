@@ -3,7 +3,7 @@ title: Setting up your project
 description: Create a new scraper project with NPM and Node.js, install libraries and test that everything works correctly.
 menuWeight: 20.5
 paths:
-    - academy/fde/project-setup
+    - fde/project-setup
 ---
 
 # [](#setting-up) Setting up your project
