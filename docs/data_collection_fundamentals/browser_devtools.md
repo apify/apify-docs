@@ -16,7 +16,7 @@ When you first open Chrome DevTools, you will start on the Elements tab (In Fire
 
 At the bottom there's the JavaScript console which you can use to manipulate the website. If the Console is not there, you can press `ESC` to toggle it. At first it looks super complicated, but don't worry, there's no need to understand everything.
 
-![Chrome DevTools with elements tab and console]({{@asset data/images/browser-devtools.webp}})
+![Chrome DevTools with elements tab and console]({{@asset data_collection_fundamentals/images/browser-devtools.webp}})
 
 ## [](#select) Selecting an element
 

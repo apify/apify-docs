@@ -8,7 +8,7 @@ paths:
 
 # [](#collecting-data-with-node) Collecting data with Node.js - Part 2
 
-The first part of this chapter we downloaded the HTML of [Alexa Top Sites index](https://www.alexa.com/topsites) and parsed it with `cheerio`. Now we will replicate the collection logic from the [Collecting Data with DevTools]({{@link data_collection_fundamentals/data_collection_devtools.md}}) chapters and finish our scraper.
+The first part of this chapter we downloaded the HTML of [Alexa Top Sites index](https://www.alexa.com/topsites) and parsed it with `cheerio`. Now we will replicate the collection logic from the [Collecting Data with DevTools]({{@link data_collection_fundamentals/using_devtools.md}}) chapters and finish our scraper.
 
 ## [](#querying-with-cheerio) Querying data with Cheerio
 
