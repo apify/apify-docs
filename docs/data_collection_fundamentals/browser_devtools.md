@@ -1,9 +1,9 @@
 ---
 title: Browser DevTools
-description: Learn about browser DevTools and how you can use them to extract data from a website.
+description: Learn about browser DevTools and how you can use them to collect data from a website.
 menuWeight: 20.1
 paths:
-    - data_collection_fundamentals/browser-devtools
+    - data-collection-fundamentals/browser-devtools
 ---
 
 # [](#devtools) Browser DevTools

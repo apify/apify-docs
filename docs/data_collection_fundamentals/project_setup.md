@@ -1,9 +1,9 @@
 ---
-title: Setting up your project
+title: Project setup
 description: Create a new scraper project with NPM and Node.js, install libraries and test that everything works correctly.
 menuWeight: 20.5
 paths:
-    - data_collection_fundamentals/project-setup
+    - data-collection-fundamentals/project-setup
 ---
 
 # [](#setting-up) Setting up your project
@@ -68,4 +68,4 @@ If you see `it works!` printed in your terminal, great job! You set up everythin
 
 ## [](#next) Next up
 
-With the project set up, the next chapter will show you how to use `got-scraping` to download the website's HTML and extract data from it with `cheerio`.
+With the project set up, the next chapter will show you how to use `got-scraping` to download the website's HTML and collect data from it with `cheerio`.

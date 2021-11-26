@@ -1,14 +1,14 @@
 ---
-title: Extracting data with Node.js - Part 2
+title: Node.js continued
 description: Continue learning how to create a web scraper with Node.js and cheerio. Learn how to parse HTML and print results.
 menuWeight: 20.7
 paths:
-    - data_collection_fundamentals/extracting-data-with-node-part-2
+    - data-collection-fundamentals/node-continued
 ---
 
-# [](#extracting-data-with-node) Extracting data with Node.js - Part 2
+# [](#collecting-data-with-node) Collecting data with Node.js - Part 2
 
-The first part of this chapter we downloaded the HTML of [Alexa Top Sites index](https://www.alexa.com/topsites) and parsed it with `cheerio`. Now we will replicate the extraction logic from the [Extracting Data with DevTools]({{@link data_collection_fundamentals/extracting_data_with_devtools_part_1.md}}) chapters and finish our scraper.
+The first part of this chapter we downloaded the HTML of [Alexa Top Sites index](https://www.alexa.com/topsites) and parsed it with `cheerio`. Now we will replicate the collection logic from the [Collecting Data with DevTools]({{@link data_collection_fundamentals/data_collection_devtools.md}}) chapters and finish our scraper.
 
 ## [](#querying-with-cheerio) Querying data with Cheerio
 
@@ -42,13 +42,13 @@ sites.forEach((site) => {
 
 After you run this script, you should see data of all the 50 sites printed in your terminal.
 
-## [](#extracting-data) Extracting final data
+## [](#collecting-data) Collecting final data
 
-Now we only need to repeat the process from the DevTools chapters and add individual data point extraction to the loop. From those chapters we know that the data are in `<div>` elements with class `td`.
+Now we only need to repeat the process from the DevTools chapters and add individual data point collection to the loop. From those chapters we know that the data are in `<div>` elements with class `td`.
 
 ![Finding child elements in Elements tab]({{@asset data_collection_fundamentals/images/find-child-elements.webp}})
 
-We will loop over all the `sites` and extract the data points from each of them using the `array.map()` function. For reference, this is the code from the DevTools chapter, where we extracted the data using a browser.
+We will loop over all the `sites` and collect the data points from each of them using the `array.map()` function. For reference, this is the code from the DevTools chapter, where we collected the data using a browser.
 
 ```js
 // This is code from the browser Console. It won't work in Node.js
@@ -110,8 +110,8 @@ console.log(results);
 
 ![Printing all websites' data to terminal]({{@asset data_collection_fundamentals/images/terminal-all-websites-data.webp}})
 
-If you were able to get here, run the code, get results and also understand everything, you can pat yourself on the back and congratulate yourself on completing the Fundamentals of data extraction part of the Web Scraping Academy. Great job! 👏🎉
+If you were able to get here, run the code, get results and also understand everything, you can pat yourself on the back and congratulate yourself on completing the Fundamentals of data collection part of the Web Scraping Academy. Great job! 👏🎉
 
 # [](#next) Next up
 
-While we were able to extract the data, it's not very useful to have those printed to the console. In the next, bonus chapter, we will learn how to convert the data to a CSV and save it to a file.
+While we were able to collect the data, it's not very useful to have those printed to the console. In the next, bonus chapter, we will learn how to convert the data to a CSV and save it to a file.

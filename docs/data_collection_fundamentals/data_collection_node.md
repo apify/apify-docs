@@ -1,12 +1,12 @@
 ---
-title: Extracting data with Node.js - Part 1
+title: Using Node.js
 description: Learn how to use JavaScript and Node.js to create a web scraper. With the help of the cheerio and got-scraping libraries.
 menuWeight: 20.6
 paths:
-    - data_collection_fundamentals/extracting-data-with-node-part-1
+    - data-collection-fundamentals/using-node-js
 ---
 
-# [](#extracting-data-with-node) Extracting data with Node.js - Part 1
+# [](#collecting-data-with-node) Collecting data with Node.js
 
 Finally we have everything ready to start scraping! Yes, the setup is a bit daunting, but luckily, you only have to do it once. We have our project, we have our `main.js` file, so let's add some code to it.
 
@@ -29,7 +29,7 @@ Now run the script (using `node main.js`). After a brief moment, you should see 
 
 ## [](#parsing-html) Parsing HTML
 
-Having the HTML printed to the terminal is not very helpful. To extract the data, we first have to parse it. Thanks to parsing, we will be able to query the HTML elements similarly to the way we did it in browser in the [Extracting Data with DevTools]({{@link data_collection_fundamentals/extracting_data_with_devtools_part_1.md}}) chapters. To parse HTML, we load it into the `cheerio` library.
+Having the HTML printed to the terminal is not very helpful. To collect the data, we first have to parse it. Thanks to parsing, we will be able to query the HTML elements similarly to the way we did it in browser in the [Collecting Data with DevTools]({{@link data_collection_fundamentals/data_collection_devtools.md}}) chapters. To parse HTML, we load it into the `cheerio` library.
 
 ```js
 // main.js
@@ -45,12 +45,12 @@ const titleText = titleElement.text();
 console.log(titleText);
 ```
 
-When you run the above script `Alexa - Top sites` will be printed to the console. And that's great. It means that we successfully parsed the HTML and extracted the text of the `<title>` element from it using `cheerio`. Let's break it down.
+When you run the above script `Alexa - Top sites` will be printed to the console. And that's great. It means that we successfully parsed the HTML and collected the text of the `<title>` element from it using `cheerio`. Let's break it down.
 
-First we loaded the downloaded `html` into `cheerio` using the `load()` function. This created a new function, conventionally named `$`, which allows us to work with the loaded HTML. Then we called `$('title')`, which found the `<title>` element by using the `title` CSS selector. Finally we extracted the text from the element using the `.text()` function and printed it to the console.
+First we loaded the downloaded `html` into `cheerio` using the `load()` function. This created a new function, conventionally named `$`, which allows us to work with the loaded HTML. Then we called `$('title')`, which found the `<title>` element by using the `title` CSS selector. Finally we collected the text from the element using the `.text()` function and printed it to the console.
 
 > `$('title')` is very similar to calling `document.querySelector('title')` in the browser and `element.text()` is similar to `element.textContent` from the earlier DevTools chapters. To learn more about `cheerio` syntax, which is the same as JQuery syntax, visit the [`cheerio` documentation](https://github.com/cheeriojs/cheerio#readme).
 
 ## [](#next) Next up
 
-In the next part of this chapter we will learn more about `cheerio` and use it to extract all the websites' data from the Alexa Top sites index.
+In the next part of this chapter we will learn more about `cheerio` and use it to collect all the websites' data from the Alexa Top sites index.

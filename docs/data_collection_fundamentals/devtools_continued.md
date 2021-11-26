@@ -1,14 +1,14 @@
 ---
-title: Extracting data with DevTools - Part 2
-description: Continue learning how to extract data from a website usin browser DevTools, CSS selectors and JavaScript.
+title: DevTools continued
+description: Continue learning how to collect data from a website usin browser DevTools, CSS selectors and JavaScript.
 menuWeight: 20.3
 paths:
-    - data_collection_fundamentals/extracting-data-with-devtools-part-2
+    - data-collection-fundamentals/devtools-continued
 ---
 
-# [](#extracting-data-with-devtools) Extracting data with DevTools - Part 2
+# [](#collecting-data-with-devtools) Collecting data with DevTools - Part 2
 
-In the first part of the tutorial, we were able to extract information about a single website from the [Alexa Top Sites index](https://www.alexa.com/topsites). If you missed the previous part, we suggest going through it to understand the basic concepts, but you don't need any of the code from there, we will start from scratch.
+In the first part of the tutorial, we were able to collect information about a single website from the [Alexa Top Sites index](https://www.alexa.com/topsites). If you missed the previous part, we suggest going through it to understand the basic concepts, but you don't need any of the code from there, we will start from scratch.
 
 ## [](#looping) Looping over elements
 
@@ -33,9 +33,9 @@ sites.forEach((site) => console.log(site.textContent));
 
 ![Print all websites' text]({{@asset data_collection_fundamentals/images/print-all-websites-text.webp}})
 
-## [](#extracting-data) Extracting data in a loop
+## [](#collecting-data) Collecting data in a loop
 
-In the previous chapter we created a `result` object that contained data of a single website. Now we'll create an array of those result objects which will contain all the 50 websites' data. To do that, we'll use a function called `map()` and the extraction skills we learned in the previous chapter.
+In the previous chapter we created a `result` object that contained data of a single website. Now we'll create an array of those result objects which will contain all the 50 websites' data. To do that, we'll use a function called `map()` and the collection skills we learned in the previous chapter.
 
 > To learn more about the `array.map()` function, [see this tutorial](https://javascript.info/array-methods#map).
 
@@ -62,4 +62,4 @@ With that said, the rest of the code is just copy-pasted from the previous chapt
 
 ## [](#next) Next up
 
-And that's it. With a bit of trial and error you will be able to extract any data from a webpage that's loaded in your browser. This is a useful skill on its own. It will save you time when you need one-off data for your project. More importantly though, it taught you the basics to start programming your own scrapers. In the next chapters, we will teach you how to create your own data extraction script in JavaScript and Node.js.
+And that's it. With a bit of trial and error you will be able to collect any data from a webpage that's loaded in your browser. This is a useful skill on its own. It will save you time when you need one-off data for your project. More importantly though, it taught you the basics to start programming your own scrapers. In the next chapters, we will teach you how to create your own data collection script in JavaScript and Node.js.

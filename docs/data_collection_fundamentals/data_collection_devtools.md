@@ -1,18 +1,18 @@
 ---
-title: Extracting data with DevTools - Part 1
-description: Learn how to use browser DevTools, CSS selectors and JavaScript to extract data from a website.
+title: Using DevTools
+description: Learn how to use browser DevTools, CSS selectors and JavaScript to collect data from a website.
 menuWeight: 20.2
 paths:
-    - data_collection_fundamentals/extracting-data-with-devtools-part-1
+    - data-collection-fundamentals/using-devtools
 ---
 
-# [](#extracting-data-with-devtools) Extracting data with DevTools - Part 1
+# [](#collecting-data-with-devtools) Collecting data with DevTools - Part 1
 
-We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - extracting data from a website. Let's try extracting the 50 most popular websites in the world from the [Alexa Top Sites index](https://www.alexa.com/topsites). We will use CSS selectors, JavaScript and DevTools to do that.
+We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - collecting data from a website. Let's try collecting the 50 most popular websites in the world from the [Alexa Top Sites index](https://www.alexa.com/topsites). We will use CSS selectors, JavaScript and DevTools to do that.
 
 ## [](#getting-structured-data) Getting structured data from HTML
 
-When you open the [Alexa Top Sites index](https://www.alexa.com/topsites), you'll see that there's a table on the page with names of websites and various data about the websites' traffic. We will now learn how to extract all this information. Open DevTools and select any of the websites with the selector tool.
+When you open the [Alexa Top Sites index](https://www.alexa.com/topsites), you'll see that there's a table on the page with names of websites and various data about the websites' traffic. We will now learn how to collect all this information. Open DevTools and select any of the websites with the selector tool.
 
 ![Selecting an element with DevTools]({{@asset data_collection_fundamentals/images/selecting-first-website.webp}})
 
@@ -20,7 +20,7 @@ Now you know where to find the name of the first website in the page's HTML, but
 
 ![Selecting an element from the Elements tab]({{@asset data_collection_fundamentals/images/selecting-container-element.webp}})
 
-This element is the parent element of all the nested (child) elements and we can find it using JavaScript and extract the data. Notice the `class` attribute of the element. This is where CSS selectors become handy, because we can use them to select an element with a specific class.
+This element is the parent element of all the nested (child) elements and we can find it using JavaScript and collect the data. Notice the `class` attribute of the element. This is where CSS selectors become handy, because we can use them to select an element with a specific class.
 
 > Websites change and the structure or the HTML or the CSS selectors can become outdated. We'll try our best to keep this tutorial updated, but if you find that what you see on the website does not match this guide exactly, don't worry. Everything will work exactly the same. You will only have to use whatever you see on your screen and not in the screenshots here.
 
@@ -42,9 +42,9 @@ document.querySelector('div.site-listing');
 
 > There are always multiple ways how to select an element using CSS selectors. We always try to choose the one that seems the most reliable, precise and unlikely to change with website updates. For example the `site-listing` class looks like the website's programmers deliberately put it there to signify one result and we therefore think it's the best to use.
 
-## [](#extracting-from-elements) Extracting data from elements
+## [](#collecting-from-elements) Collecting data from elements
 
-Now that we found the element, we can start poking into it to extract data. First, let's save the element to a variable so that we can work with it repeatedly and then print its text content to the console.
+Now that we found the element, we can start poking into it to collect data. First, let's save the element to a variable so that we can work with it repeatedly and then print its text content to the console.
 
 ```js
 const item = document.querySelector('div.site-listing');
@@ -53,7 +53,7 @@ console.log(item.textContent);
 
 ![Print text content of an element]({{@asset data_collection_fundamentals/images/print-text-content.webp}})
 
-As you can see, we were able to extract the data, but the format is still not very useful. For further processing, for example in a spreadsheet, we would like to have each piece of data as a separate field (column). To do that, we will look at the HTML structure in more detail.
+As you can see, we were able to collect the data, but the format is still not very useful. For further processing, for example in a spreadsheet, we would like to have each piece of data as a separate field (column). To do that, we will look at the HTML structure in more detail.
 
 ### [](#selecting-child-elements) Selecting child elements
 
@@ -78,7 +78,7 @@ console.log(fields);
 
 ![List child elements with JavaScript]({{@asset data_collection_fundamentals/images/list-child-elements.webp}})
 
-### [](#extracting-data) Extracting data
+### [](#collecting-data) Collecting data
 
 The `fields` array now contains all the elements we need and we can access the data individually. Let's save the results into an [object](https://javascript.info/object). Those of you who know JavaScript will know that this is not the prettiest code ever written, but it is beginner friendly and that's important here. We will also use the `.trim()` function to remove unnecessary whitespace from the results.
 
@@ -94,10 +94,10 @@ const result = {
 console.log(result);
 ```
 
-![Print extracted data to the Console]({{@asset data_collection_fundamentals/images/print-website-data.webp}})
+![Print collected data to the Console]({{@asset data_collection_fundamentals/images/print-website-data.webp}})
 
-If you were able to get the same result in your browser console, congratulations! You successfully extracted your first data. If not, don't worry and review your code carefully. You'll crush the bug soon enough.
+If you were able to get the same result in your browser console, congratulations! You successfully collected your first data. If not, don't worry and review your code carefully. You'll crush the bug soon enough.
 
 ## [](#next) Next up
 
-We have learned how to extract information of a single website from the Alexa Top Sites index. In the next chapter we will learn how to extract all of it.
+We have learned how to collect information of a single website from the Alexa Top Sites index. In the next chapter we will learn how to collect all of it.

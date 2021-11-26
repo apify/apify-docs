@@ -3,12 +3,12 @@ title: Saving results to CSV
 description: Learn how to save the results of your scraper to a CSV file.
 menuWeight: 20.8
 paths:
-    - data_collection_fundamentals/save-to-csv
+    - data-collection-fundamentals/save-to-csv
 ---
 
 # [](#saving-to-csv) Saving results as a CSV
 
-In the last chapter we were able extract data about all the websites from the [Alexa Top Sites index](https://www.alexa.com/topsites). That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this chapter we'll learn how to save that data into a CSV file which you can then open in Excel or Google Sheets.
+In the last chapter we were able collect data about all the websites from the [Alexa Top Sites index](https://www.alexa.com/topsites). That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this chapter we'll learn how to save that data into a CSV file which you can then open in Excel or Google Sheets.
 
 ## [](#converting-to-csv) Converting to CSV
 
@@ -109,7 +109,7 @@ Finally, after running it again, we will find the `alexa-websites.csv` file in o
 
 ![Displaying CSV data in Excel]({{@asset data_collection_fundamentals/images/data-in-excel.webp}})
 
-This marks the end of the Fundamentals of data extraction section of the Web Scraping Academy. If you enjoyed the tutorial, give us a thumbs up down below and if you're eager to learn more...
+This marks the end of the Fundamentals of data collection section of the Web Scraping Academy. If you enjoyed the tutorial, give us a thumbs up down below and if you're eager to learn more...
 
 ## [](#next) Next up
 
