@@ -1,8 +1,8 @@
 ---
-title: Web scraping academy
+title: Introduction
 description: Learn how to develop web scrapers with this comprehensive and practical course. From beginner to expert.
 menuWeight: 18
-category: academy
+category: web scraping academy
 paths:
     - academy
 ---
@@ -28,10 +28,10 @@ When we set to create the Web Scraping Academy, we wanted to build a complete gu
 This is what you'll learn in the Web Scraping Academy:
 
 * [Web scraping for beginners]({{@link web_scraping_for_beginners.md}})
-  * [Fundamentals of data extraction]({{@link fde.md}})
+  * [Fundamentals of data collection]({{@link data_collection_fundamentals.md}})
   * Fundamentals of crawling
 * Advanced web scraping
-  * Advanced data extraction techniques
+  * Advanced data collection techniques
     * API scraping
     * JavaScript rendering and dynamic pages
     * Data in JavaScript objects

@@ -1,14 +1,13 @@
 ---
-title: Fundamentals of data extraction
+title: Fundamentals of data collection
 description: Learn about HTML, CSS and JavaScript, the basic building blocks of a website, and how to use them in scraping.
 menuWeight: 20
-category: academy
+category: web scraping academy
 paths:
-- fundamentals-of-data-extraction
-- fde
+- data-collection-fundamentals
 ---
 
-# [](#fundamentals) Fundamentals of data extraction
+# [](#fundamentals) Fundamentals of data collection
 
 Every web scraping project starts with some detective work. To a human, it's completely obvious where the data is on the web page. But a computer needs very precise instructions to find the data we want. There are three elementary components of each website that we can leverage to give those instructions. HTML, CSS and JavaScript.
 
