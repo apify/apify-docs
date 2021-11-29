@@ -46,4 +46,4 @@ console.log(temp1.outerHTML);
 
 ## [](#next) Next up
 
-In this chapter we learned the absolute basics of interaction with a page using the DevTools. In the next chapter, you will learn how to extract data from it. We will collect the most popular websites on the internet from [Amazon Alexa](https://www.alexa.com/topsites).
+In this chapter we learned the absolute basics of interaction with a page using the DevTools. In the [next chapter]({{@link data_collection_fundamentals/using_devtools.md}}), you will learn how to extract data from it. We will collect the most popular websites on the internet from [Amazon Alexa](https://www.alexa.com/topsites).

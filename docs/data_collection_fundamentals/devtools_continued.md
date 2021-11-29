@@ -6,9 +6,9 @@ paths:
     - data-collection-fundamentals/devtools-continued
 ---
 
-# [](#collecting-data-with-devtools) Collecting data with DevTools - Part 2
+# [](#collecting-data-with-devtools) Collecting data with DevTools - continued
 
-In the first part of the tutorial, we were able to collect information about a single website from the [Alexa Top Sites index](https://www.alexa.com/topsites). If you missed the previous part, we suggest going through it to understand the basic concepts, but you don't need any of the code from there, we will start from scratch.
+In the first part of the DevTools tutorial, we were able to collect information about a single website from the [Alexa Top Sites index](https://www.alexa.com/topsites). If you missed the previous part, we suggest going through it to understand the basic concepts, but you don't need any of the code from there, we will start from scratch.
 
 ## [](#looping) Looping over elements
 
@@ -62,4 +62,4 @@ With that said, the rest of the code is just copy-pasted from the previous chapt
 
 ## [](#next) Next up
 
-And that's it. With a bit of trial and error you will be able to collect any data from a webpage that's loaded in your browser. This is a useful skill on its own. It will save you time when you need one-off data for your project. More importantly though, it taught you the basics to start programming your own scrapers. In the next chapters, we will teach you how to create your own data collection script in JavaScript and Node.js.
+And that's it. With a bit of trial and error you will be able to collect any data from a webpage that's loaded in your browser. This is a useful skill on its own. It will save you time when you need one-off data for your project. More importantly though, it taught you the basics to start programming your own scrapers. In the [next chapters]({{@link data_collection_fundamentals/computer_preparation.md}}), we will teach you how to create your own data collection script in JavaScript and Node.js.

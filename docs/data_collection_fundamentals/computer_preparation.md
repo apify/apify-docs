@@ -47,4 +47,4 @@ You should see **Hello World** printed in your terminal. If you do, congratulati
 
 ## [](#next) Next up
 
-You have your computer set up correctly, and you've run your first script. Great! In the next chapter we'll set up your project to download a website's HTML using Node.js instead of a browser.
+You have your computer set up correctly, and you've run your first script. Great! In the [next chapter]({{@link data_collection_fundamentals/project_setup.md}}) we'll set up your project to download a website's HTML using Node.js instead of a browser.

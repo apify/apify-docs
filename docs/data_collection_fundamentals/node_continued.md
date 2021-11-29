@@ -6,9 +6,9 @@ paths:
     - data-collection-fundamentals/node-continued
 ---
 
-# [](#collecting-data-with-node) Collecting data with Node.js - Part 2
+# [](#collecting-data-with-node) Collecting data with Node.js - continued
 
-In the first part of this chapter we downloaded the HTML of the [Alexa Top Sites index](https://www.alexa.com/topsites) and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link data_collection_fundamentals/using_devtools.md}}) chapters and finish our scraper.
+In the first part of the Node.js tutorial we downloaded the HTML of the [Alexa Top Sites index](https://www.alexa.com/topsites) and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link data_collection_fundamentals/using_devtools.md}}) chapters and finish our scraper.
 
 ## [](#querying-with-cheerio) Querying data with Cheerio
 
@@ -114,4 +114,4 @@ If you were able to get here, run the code, get results and also understand ever
 
 # [](#next) Next up
 
-While we were able to collect the data, it's not very useful to have those printed to the console. In the next, bonus chapter, we will learn how to convert the data to a CSV and save it to a file.
+While we were able to collect the data, it's not very useful to have those printed to the console. In the [next, bonus chapter]({{@link data_collection_fundamentals/save_to_csv.md}}), we will learn how to convert the data to a CSV and save it to a file.

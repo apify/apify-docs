@@ -53,4 +53,4 @@ First, we loaded the downloaded `html` into `cheerio` using the `load()` functio
 
 ## [](#next) Next up
 
-In the next part of this chapter we will learn more about Cheerio and use it to collect all the websites' data from the Alexa Top sites index.
+In the [next chapter]({{@link data_collection_fundamentals/node_continued.md}}) we will learn more about Cheerio and use it to collect all the websites' data from the Alexa Top sites index.

@@ -113,4 +113,4 @@ This marks the end of the **Fundamentals of data collection** section of the Web
 
 ## [](#next) Next up
 
-Next up are the **Fundamentals of crawling**, where we will learn how to move between web pages and scrape data from all of them. We will build a scraper that first collects all the countries of the [Alexa Top Sites by Country index](https://www.alexa.com/topsites/countries) and then crawls each of them to scrape the data for each country separately.
+Next up are the [**Fundamentals of crawling**]({{@link crawling_fundamentals.md}}), where we will learn how to move between web pages and scrape data from all of them. We will build a scraper that first collects all the countries of the [Alexa Top Sites by Country index](https://www.alexa.com/topsites/countries) and then crawls each of them to scrape the data for each country separately.

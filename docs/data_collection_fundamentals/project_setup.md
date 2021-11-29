@@ -68,4 +68,4 @@ If you see **it works!** printed in your terminal, great job! You set up everyth
 
 ## [](#next) Next up
 
-With the project set up, the next chapter will show you how to use **got-scraping** to download the website's HTML and collect data from it with Cheerio.
+With the project set up, the [next chapter]({{@link data_collection_fundamentals/node_js_scraper.md}}) will show you how to use **got-scraping** to download the website's HTML and collect data from it with Cheerio.

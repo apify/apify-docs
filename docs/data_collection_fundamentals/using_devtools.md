@@ -100,4 +100,4 @@ If you were able to get the same result in your browser console, congratulations
 
 ## [](#next) Next up
 
-We have learned how to collect information of a single website from the Alexa Top Sites index. In the next chapter, we will learn how to collect all of it.
+We have learned how to collect information of a single website from the Alexa Top Sites index. In the [next chapter]({{@link data_collection_fundamentals/devtools_continued.md}}), we will learn how to collect all of it.

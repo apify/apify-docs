@@ -39,7 +39,7 @@ This is what you'll learn in the Web Scraping Academy:
     * Navigation with POST requests
     * Emulating API pagination
     * GraphQL scraping
-  * Anti*scraping protection
+  * Anti-scraping protection
     * Proxies and staying anonymous
     * Captchas and human behavior
     * Web application firewalls
@@ -57,6 +57,6 @@ As you progress to the Advanced and Pro sections, the coding will get more chall
 
 ## [](#next) Next up
 
-The course begins with short theory and continues with practical examples of collecting data from the most popular websites on the internet using your browser console. So let's get to it!
+The course begins with short theory and continues with practical examples of collecting data from the most popular websites on the internet using your browser console. So [let's get to it!]({{@link web_scraping_for_beginners.md}})
 
 > If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the Fundamentals of crawling chapter, or even the Advanced Web Scraping section of the course.
