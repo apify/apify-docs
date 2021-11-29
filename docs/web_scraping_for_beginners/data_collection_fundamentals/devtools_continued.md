@@ -1,9 +1,9 @@
 ---
 title: DevTools continued
 description: Continue learning how to collect data from a website usin browser DevTools, CSS selectors and JavaScript.
-menuWeight: 20.3
+menuWeight: 3
 paths:
-    - data-collection-fundamentals/devtools-continued
+    - web-scraping-for-beginners/data-collection-fundamentals/devtools-continued
 ---
 
 # [](#collecting-data-with-devtools) Collecting data with DevTools - Part 2
@@ -12,7 +12,7 @@ In the first part of the tutorial, we were able to collect information about a s
 
 ## [](#looping) Looping over elements
 
-If you're not familiar with the concept of loops in programming, check out [this tutorial](https://javascript.info/while-for). If you're not familiar with functions that iterate over an array, [this tutorial will help](https://javascript.info/array-methods#iterate-foreach).
+If you're not familiar with the concept of loops in programming, [check out this tutorial](https://javascript.info/while-for). If you're not familiar with functions that iterate over an array, [this tutorial will help](https://javascript.info/array-methods#iterate-foreach).
 
 First, we will use the `querySelectorAll()` function from the previous chapter to get an array of all the elements that contain the sites' data.
 
@@ -21,7 +21,7 @@ const sites = document.querySelectorAll('div.site-listing');
 console.log(sites);
 ```
 
-![Print all websites]({{@asset data_collection_fundamentals/images/print-all-websites.webp}})
+![Print all websites]({{@asset web_scraping_for_beginners/data_collection_fundamentals/images/print-all-websites.webp}})
 
 Second, we will loop over the sites and print their unstructured data. The `forEach` function accepts one argument, which is a function that will be invoked for each element of the `sites` array.
 
@@ -31,13 +31,13 @@ sites.forEach((site) => console.log(site.textContent));
 
 > If you're not familiar with arrow functions (`=>`), visit [this tutorial](https://javascript.info/arrow-functions-basics) to learn more.
 
-![Print all websites' text]({{@asset data_collection_fundamentals/images/print-all-websites-text.webp}})
+![Print all websites' text]({{@asset web_scraping_for_beginners/data_collection_fundamentals/images/print-all-websites-text.webp}})
 
 ## [](#collecting-data) Collecting data in a loop
 
 In the previous chapter we created a `result` object that contained data of a single website. Now we'll create an array of those result objects which will contain all the 50 websites' data. To do that, we'll use a function called `map()` and the collection skills we learned in the previous chapter.
 
-> To learn more about the `array.map()` function, [see this tutorial](https://javascript.info/array-methods#map).
+> [Learn more](https://javascript.info/array-methods#map) about the `array.map()` function.
 
 ```js
 const results = Array.from(sites).map((site) => {
@@ -58,7 +58,7 @@ We have to admit that we were not honest with you in the previous chapter. The `
 
 With that said, the rest of the code is just copy-pasted from the previous chapter. For each `site` in `sites`, we find all the `fields` with data for that particular `site` and save them to the `results` array by returning the object with the data. When you run the code, you should see all the data neatly structured.
 
-![Print all websites' data]({{@asset data_collection_fundamentals/images/print-all-websites-data.webp}})
+![Print all websites' data]({{@asset web_scraping_for_beginners/data_collection_fundamentals/images/print-all-websites-data.webp}})
 
 ## [](#next) Next up
 

@@ -9,17 +9,17 @@ paths:
 
 # [](#web-scraping-for-beginners) Web Scraping for Beginners
 
-Web scraping or crawling? Data collection, mining or extraction? You can find various definitions on the web. Let's agree on simple explanations that we will use throughout this beginner tutorial on web scraping.
+Web scraping or crawling? Data collection, mining, or extraction? You can find various definitions on the web. Let's agree on simple explanations that we will use throughout this beginner tutorial on web scraping.
 
 ## [](#data-collection) What is data collection?
 
-For us, data collection is a process that takes a web page, like an Amazon product page, and collects useful information from the page, such as the product's name and price. Web pages are an unstructured data source and the goal of data collection is to make the information structured and readable to computers. The main sources of data on a web page are HTML documents and API calls, but also images, PDFs and so on.
+For us, data collection is a process that takes a web page, like an Amazon product page, and collects useful information from the page, such as the product's name and price. Web pages are an unstructured data source and the goal of data collection is to make the information structured and readable to computers. The main sources of data on a web page are HTML documents and API calls, but also images, PDFs, and so on.
 
 ![product data collection from Amazon]({{@asset images/beginners-data-collection.webp}})
 
 ## [](#crawling) What is crawling?
 
-Where data collection focuses on a single page, web crawling is all about movement between pages or websites. The purpose of crawling is to travel across the website to find pages with the information we want. Crawling and collection can happen simultaneously while moving from page to page, or separately, where one scraper focuses solely on finding pages with data and another scraper collects the data. The main purpose of crawling is to collect URLs or other identifiers that can be used to move around.
+Where data collection focuses on a single page, web crawling is all about movement between pages or websites. The purpose of crawling is to travel across the website to find pages with the information we want. Crawling and collection can happen simultaneously, while moving from page to page, or separately, where one scraper focuses solely on finding pages with data and another scraper collects the data. The main purpose of crawling is to collect URLs or other identifiers that can be used to move around.
 
 <!-- TODO: An illustration of moving between pages -->
 

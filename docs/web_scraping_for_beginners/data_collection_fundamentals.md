@@ -1,15 +1,14 @@
 ---
 title: Fundamentals of data collection
-description: Learn about HTML, CSS and JavaScript, the basic building blocks of a website, and how to use them in scraping.
-menuWeight: 20
-category: web scraping academy
+description: Learn about HTML, CSS, and JavaScript, the basic building blocks of a website, and how to use them in scraping.
+menuWeight: 19.1
 paths:
-- data-collection-fundamentals
+    - web-scraping-for-beginners/data-collection-fundamentals
 ---
 
 # [](#fundamentals) Fundamentals of data collection
 
-Every web scraping project starts with some detective work. To a human, it's completely obvious where the data is on the web page. But a computer needs very precise instructions to find the data we want. There are three elementary components of each website that we can leverage to give those instructions. HTML, CSS and JavaScript.
+Every web scraping project starts with some detective work. To a human, it's completely obvious where the data is on the web page. But a computer needs very precise instructions to find the data we want. There are three elementary components of each website that we can leverage to give those instructions. HTML, CSS, and JavaScript.
 
 ## [](#html) HTML
 
@@ -19,9 +18,9 @@ For the browser to be able to show you the web page with all its text and images
 
 ## [](#css) CSS
 
-CSS (Cascading Style Sheets) is a markup language that is used to give websites their style. It controls shapes, colors, positioning and even animations. The style is then added to the page's HTML and together, they define the page's content and structure. In web scraping, we can leverage CSS to find the data we want using so-called CSS selectors.
+CSS (Cascading Style Sheets) is a markup language that is used to give websites their style. It controls shapes, colors, positioning and even animations. The style is then added to the page's HTML and together, they define the page's content and structure. In web scraping, we can leverage CSS to find the data we want using CSS selectors.
 
-> More on CSS and CSS selectors can be found in [MDN tutorials on CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
+> Find more information on CSS and CSS selectors in the [MDN tutorials on CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
 
 ## [](#javascript) JavaScript
 
