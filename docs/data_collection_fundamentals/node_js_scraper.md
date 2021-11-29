@@ -1,7 +1,7 @@
 ---
 title: Node.js scraper
 description: Learn how to use JavaScript and Node.js to create a web scraper, plus take advantage of the cheerio and got-scraping libraries to make your job easier.
-menuWeight: 19.6
+menuWeight: 20.6
 paths:
     - data-collection-fundamentals/node-js-scraper
 ---

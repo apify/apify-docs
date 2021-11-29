@@ -1,7 +1,7 @@
 ---
 title: Project setup
 description: Create a new scraper project with NPM and Node.js, install libraries, and test that everything works correctly.
-menuWeight: 19.5
+menuWeight: 20.5
 paths:
     - data-collection-fundamentals/project-setup
 ---
