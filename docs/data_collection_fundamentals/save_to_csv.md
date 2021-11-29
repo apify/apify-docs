@@ -1,9 +1,9 @@
 ---
 title: Saving results to CSV
 description: Learn how to save the results of your scraper to a CSV file.
-menuWeight: 8
+menuWeight: 19.8
 paths:
-    - web-scraping-for-beginners/data-collection-fundamentals/save-to-csv
+    - data-collection-fundamentals/save-to-csv
 ---
 
 # [](#saving-to-csv) Saving results as a CSV
@@ -57,7 +57,7 @@ console.log(csv);
 
 And here's our newly created CSV printed to the console after running the script.
 
-![Printing CSV data to terminal]({{@asset web_scraping_for_beginners/data_collection_fundamentals/images/terminal-csv.webp}})
+![Printing CSV data to terminal]({{@asset data_collection_fundamentals/images/terminal-csv.webp}})
 
 ## [](#writing-to-file) Writing the CSV to a file
 
@@ -107,7 +107,7 @@ writeFileSync('alexa-websites.csv', csv);
 
 Finally, after running it again, we will find the `alexa-websites.csv` file in our project folder. And when we open it with Excel – voila!
 
-![Displaying CSV data in Excel]({{@asset web_scraping_for_beginners/data_collection_fundamentals/images/data-in-excel.webp}})
+![Displaying CSV data in Excel]({{@asset data_collection_fundamentals/images/data-in-excel.webp}})
 
 This marks the end of the **Fundamentals of data collection** section of the Web Scraping Academy. If you enjoyed the tutorial, give us a thumbs up down below and if you're eager to learn more...
 

@@ -28,7 +28,7 @@ When we set out to create the Web Scraping Academy, we wanted to build a complet
 This is what you'll learn in the Web Scraping Academy:
 
 * [Web scraping for beginners]({{@link web_scraping_for_beginners.md}})
-  * [Fundamentals of data collection]({{@link web_scraping_for_beginners/data_collection_fundamentals.md}})
+  * [Fundamentals of data collection]({{@link data_collection_fundamentals.md}})
   * Fundamentals of crawling
 * Advanced web scraping
   * Advanced data collection techniques

@@ -1,9 +1,9 @@
 ---
 title: Node.js scraper
 description: Learn how to use JavaScript and Node.js to create a web scraper, plus take advantage of the cheerio and got-scraping libraries to make your job easier.
-menuWeight: 6
+menuWeight: 19.6
 paths:
-    - web-scraping-for-beginners/data-collection-fundamentals/node-js-scraper
+    - data-collection-fundamentals/node-js-scraper
 ---
 
 # [](#collecting-data-with-node) Collecting data with Node.js
@@ -29,7 +29,7 @@ Now run the script (using `node main.js`). After a brief moment, you should see 
 
 ## [](#parsing-html) Parsing HTML
 
-Having the HTML printed to the terminal is not very helpful. To collect the data, we first have to parse it. Thanks to parsing, we will be able to query the HTML elements similarly to the way we did it in browser in the [Collecting Data with DevTools]({{@link web_scraping_for_beginners/data_collection_fundamentals/using_devtools.md}}) chapters. To parse HTML, we load it into the `cheerio` library.
+Having the HTML printed to the terminal is not very helpful. To collect the data, we first have to parse it. Thanks to parsing, we will be able to query the HTML elements similarly to the way we did it in browser in the [Collecting Data with DevTools]({{@link data_collection_fundamentals/using_devtools.md}}) chapters. To parse HTML, we load it into the `cheerio` library.
 
 ```js
 // main.js

@@ -1,9 +1,9 @@
 ---
 title: Fundamentals of data collection
 description: Learn about HTML, CSS, and JavaScript, the basic building blocks of a website, and how to use them in scraping.
-menuWeight: 19.1
+menuWeight: 20
 paths:
-    - web-scraping-for-beginners/data-collection-fundamentals
+    - data-collection-fundamentals
 ---
 
 # [](#fundamentals) Fundamentals of data collection
