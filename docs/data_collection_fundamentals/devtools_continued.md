@@ -6,7 +6,7 @@ paths:
     - data-collection-fundamentals/devtools-continued
 ---
 
-# [](#collecting-data-with-devtools) Collecting data with DevTools - continued
+# [](#devtools) Complete data with DevTools
 
 In the first part of the DevTools tutorial, we were able to collect information about a single website from the [Alexa Top Sites index](https://www.alexa.com/topsites). If you missed the previous part, we suggest going through it to understand the basic concepts, but you don't need any of the code from there, we will start from scratch.
 

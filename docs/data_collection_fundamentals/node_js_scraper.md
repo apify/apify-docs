@@ -6,7 +6,7 @@ paths:
     - data-collection-fundamentals/node-js-scraper
 ---
 
-# [](#collecting-data-with-node) Collecting data with Node.js
+# [](#first-scraper) First Node.js scraper
 
 Finally we have everything ready to start scraping! Yes, the setup is a bit daunting, but luckily, you only have to do it once. We have our project, we have our `main.js` file, so let's add some code to it.
 

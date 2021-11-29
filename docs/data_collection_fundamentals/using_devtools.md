@@ -6,7 +6,7 @@ paths:
     - data-collection-fundamentals/using-devtools
 ---
 
-# [](#collecting-data-with-devtools) Collecting data with DevTools - Part 1
+# [](#devtools-data-collection) Data collection with DevTools
 
 We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - collecting data from a website. Let's try collecting the 50 most popular websites in the world from the [Alexa Top Sites index](https://www.alexa.com/topsites). We will use CSS selectors, JavaScript, and DevTools to do that.
 

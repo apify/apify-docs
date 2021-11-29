@@ -15,7 +15,7 @@ Every web scraping project starts with some detective work. To a human, it's com
 
 For the browser to be able to show you the web page with all its text and images, the data needs to be present somewhere. This data source is called HTML (HyperText Markup Language) and it gets downloaded to your computer whenever you open a website. If you want to extract data from a website, you need to show your computer where to find it in the HTML.
 
-> To learn about HTML, we recommend browsing the [MDN tutorials on HTML](https://developer.mozilla.org/en-US/docs/Web/HTML).
+> To learn about HTML, we recommend browsing the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN tutorials on HTML</a>.
 
 ## [](#css) CSS
 
