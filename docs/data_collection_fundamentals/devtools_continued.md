@@ -1,12 +1,12 @@
 ---
 title: DevTools continued
-description: Continue learning how to collect data from a website usin browser DevTools, CSS selectors and JavaScript.
+description: Continue learning how to collect data from a website using browser DevTools, CSS selectors and JavaScript.
 menuWeight: 20.3
 paths:
     - data-collection-fundamentals/devtools-continued
 ---
 
-# [](#devtools) Complete data with DevTools
+# [](#finish-devtools) Finish with DevTools
 
 In the first part of the DevTools tutorial, we were able to collect information about a single website from the [Alexa Top Sites index](https://www.alexa.com/topsites). If you missed the previous part, we suggest going through it to understand the basic concepts, but you don't need any of the code from there, we will start from scratch.
 

@@ -6,7 +6,7 @@ paths:
     - data-collection-fundamentals/node-continued
 ---
 
-# [](#complete-scraper) Complete Node.js scraper
+# [](#finish-scraper) Finish Node.js scraper
 
 In the first part of the Node.js tutorial we downloaded the HTML of the [Alexa Top Sites index](https://www.alexa.com/topsites) and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link data_collection_fundamentals/using_devtools.md}}) chapters and finish our scraper.
 
