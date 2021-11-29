@@ -12,7 +12,7 @@ In the first part of the DevTools tutorial, we were able to collect information 
 
 ## [](#looping) Looping over elements
 
-If you're not familiar with the concept of loops in programming, <a href="https://javascript.info/while-for" target="_blank">check out this tutorial</a>. If you're not familiar with functions that iterate over an array, <a href="https://javascript.info/array-methods#iterate-foreach" target="_blank">this tutorial will help</a>.
+> If you're not familiar with the concept of loops in programming, <a href="https://javascript.info/while-for" target="_blank">check out this tutorial</a>. If you're not familiar with functions that iterate over an array, <a href="https://javascript.info/array-methods#iterate-foreach" target="_blank">this tutorial will help</a>.
 
 First, we will use the `querySelectorAll()` function from the previous chapter to get an array of all the elements that contain the sites' data.
 

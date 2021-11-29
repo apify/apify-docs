@@ -82,7 +82,7 @@ const results = sites.map((site) => {
 });
 ```
 
-The main difference is that we used the <a href="https://api.jquery.com/find/" target="_blank">`.find()`</a> function to select all the `div.td` elements and also that we need to access the individual fields with<a href="https://api.jquery.com/eq/" target="_blank">`.eq()`</a>. If you find the differences confusing, don't worry about it. It will become very natural once you do it a few times. The final scraper code looks like this:
+The main difference is that we used the <a href="https://api.jquery.com/find/" target="_blank">`.find()`</a> function to select all the `div.td` elements and also that we need to access the individual fields with <a href="https://api.jquery.com/eq/" target="_blank">`.eq()`</a>. If you find the differences confusing, don't worry about it. It will become very natural once you do it a few times. The final scraper code looks like this:
 
 ```js
 // main.js

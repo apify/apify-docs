@@ -45,7 +45,7 @@ const titleText = titleElement.text();
 console.log(titleText);
 ```
 
-When you run the above script, the **Alexa - Top sites** page will be printed to the console. And that's great. It means that we successfully parsed the HTML and collected the text of the `<title>` element from it using Cheerio. Let's break it down.
+When you run the above script, the **Alexa - Top sites** title will be printed to the console. And that's great. It means that we successfully parsed the HTML and collected the text of the `<title>` element from it using Cheerio. Let's break it down.
 
 First, we loaded the downloaded `html` into `cheerio` using the `load()` function. This created a new function, conventionally named `$`, which allows us to work with the loaded HTML. Then we called `$('title')`, which found the `<title>` element by using the `title` CSS selector. Finally, we collected the text from the element using the `.text()` function and printed it to the console.
 
