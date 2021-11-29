@@ -8,11 +8,11 @@ paths:
 
 # [](#finish-devtools) Finish with DevTools
 
-In the first part of the DevTools tutorial, we were able to collect information about a single website from the [Alexa Top Sites index](https://www.alexa.com/topsites). If you missed the previous part, we suggest going through it to understand the basic concepts, but you don't need any of the code from there, we will start from scratch.
+In the first part of the DevTools tutorial, we were able to collect information about a single website from the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>. If you missed the previous part, we suggest going through it to understand the basic concepts, but you don't need any of the code from there, we will start from scratch.
 
 ## [](#looping) Looping over elements
 
-If you're not familiar with the concept of loops in programming, [check out this tutorial](https://javascript.info/while-for). If you're not familiar with functions that iterate over an array, [this tutorial will help](https://javascript.info/array-methods#iterate-foreach).
+If you're not familiar with the concept of loops in programming, <a href="https://javascript.info/while-for" target="_blank">check out this tutorial</a>. If you're not familiar with functions that iterate over an array, <a href="https://javascript.info/array-methods#iterate-foreach" target="_blank">this tutorial will help</a>.
 
 First, we will use the `querySelectorAll()` function from the previous chapter to get an array of all the elements that contain the sites' data.
 
@@ -29,7 +29,7 @@ Second, we will loop over the sites and print their unstructured data. The `forE
 sites.forEach((site) => console.log(site.textContent));
 ```
 
-> If you're not familiar with arrow functions (`=>`), visit [this tutorial](https://javascript.info/arrow-functions-basics) to learn more.
+> If you're not familiar with arrow functions (`=>`), visit <a href="https://javascript.info/arrow-functions-basics" target="_blank">this tutorial</a> to learn more.
 
 ![Print all websites' text]({{@asset data_collection_fundamentals/images/print-all-websites-text.webp}})
 
@@ -37,7 +37,7 @@ sites.forEach((site) => console.log(site.textContent));
 
 In the previous chapter we created a `result` object that contained data of a single website. Now we'll create an array of those result objects which will contain all the 50 websites' data. To do that, we'll use a function called `map()` and the collection skills we learned in the previous chapter.
 
-> [Learn more](https://javascript.info/array-methods#map) about the `array.map()` function.
+> <a href="https://javascript.info/array-methods#map" target="_blank">Learn more</a> about the `array.map()` function.
 
 ```js
 const results = Array.from(sites).map((site) => {

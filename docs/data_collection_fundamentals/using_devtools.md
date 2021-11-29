@@ -8,11 +8,11 @@ paths:
 
 # [](#devtools-data-collection) Data collection with DevTools
 
-We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - collecting data from a website. Let's try collecting the 50 most popular websites in the world from the [Alexa Top Sites index](https://www.alexa.com/topsites). We will use CSS selectors, JavaScript, and DevTools to do that.
+We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - collecting data from a website. Let's try collecting the 50 most popular websites in the world from the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>. We will use CSS selectors, JavaScript, and DevTools to do that.
 
 ## [](#getting-structured-data) Getting structured data from HTML
 
-When you open the [Alexa Top Sites index](https://www.alexa.com/topsites), you'll see that there's a table on the page with names of websites and various data about the websites' traffic. We will now learn how to collect all this information. Open DevTools and select any of the websites with the selector tool.
+When you open the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>, you'll see that there's a table on the page with names of websites and various data about the websites' traffic. We will now learn how to collect all this information. Open DevTools and select any of the websites with the selector tool.
 
 ![Selecting an element with DevTools]({{@asset data_collection_fundamentals/images/selecting-first-website.webp}})
 
@@ -30,7 +30,7 @@ We know how to find an element manually using the DevTools, but for automated sc
 
 The function to do that is called `document.querySelector('some-selector')` and it will find the first element in the page's HTML matching the provided CSS selector. For example `document.querySelector('div')` will find the first `<div>` element. And `document.querySelector('p.my-class')` will find the first `<p>` element with the class `my-class`.
 
-> You can find available CSS selectors and their syntax on the [MDN CSS Selectors page](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
+> You can find available CSS selectors and their syntax on the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors" target="_blank">MDN CSS Selectors page</a>.
 
 At the time of writing, the HTML element that contained all the data we wanted had a `<div>` tag and a `tr site-listing` class. This actually means that there were two classes applied to the element. `tr` and `site-listing`. The `site-listing` class looked like the more reliable pick for targeting the element so we chose that one. We ran this command in the DevTools Console to select the element we wanted.
 
@@ -65,9 +65,9 @@ In the [Getting structured data from HTML](#getting-structured-data-from-html) s
 
 The `document.querySelector()` function looks for a specific element in the whole HTML `document`, so if we called it with `div.td`, it would find the first `<div class="td ...">` in the `document`. Luckily we can also use this function to look for elements within an element.
 
-There's even a similar function called [`querySelectorAll()`](https://javascript.info/searching-elements-dom#querySelectorAll) that returns an array of all the elements matching the selector, not only the first one. We will use that function to get all the fields with data.
+There's even a similar function called <a href="https://javascript.info/searching-elements-dom#querySelectorAll" target="_blank">`querySelectorAll()`</a> that returns an array of all the elements matching the selector, not only the first one. We will use that function to get all the fields with data.
 
-> Learn more about `Arrays` [in this tutorial](https://javascript.info/array).
+> Learn more about `Arrays` <a href="https://javascript.info/array" target="_blank">in this tutorial</a>.
 
 Don't forget that earlier we saved the parent element into a variable called `item`. We can use that variable to search only within that element.
 
@@ -80,7 +80,7 @@ console.log(fields);
 
 ### [](#collecting-data) Collecting data
 
-The `fields` array now contains all the elements we need and we can access the data individually. Let's save the results into an [object](https://javascript.info/object). Those of you who know JavaScript will know that this is not the prettiest code ever written, but it is beginner-friendly and that's important here. We will also use the `.trim()` function to remove unnecessary whitespace from the results.
+The `fields` array now contains all the elements we need and we can access the data individually. Let's save the results into an <a href="https://javascript.info/object" target="_blank">object</a>. Those of you who know JavaScript will know that this is not the prettiest code ever written, but it is beginner-friendly and that's important here. We will also use the `.trim()` function to remove unnecessary whitespace from the results.
 
 ```js
 const result = {

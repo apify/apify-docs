@@ -42,8 +42,8 @@ console.log(temp1.outerHTML);
 
 ![Chrome DevTools JavaScript command execution]({{@asset data_collection_fundamentals/images/basic-console-commands.webp}})
 
-> You can interact with the page in many more ways using the Console. If you want to dive deeper we recommend this [tutorial on documents](https://javascript.info/document). A web page in a browser is called a document.
+> You can interact with the page in many more ways using the Console. If you want to dive deeper we recommend this <a href="https://javascript.info/document" target="_blank">tutorial on documents</a>. A web page in a browser is called a document.
 
 ## [](#next) Next up
 
-In this chapter we learned the absolute basics of interaction with a page using the DevTools. In the [next chapter]({{@link data_collection_fundamentals/using_devtools.md}}), you will learn how to extract data from it. We will collect the most popular websites on the internet from [Amazon Alexa](https://www.alexa.com/topsites).
+In this chapter we learned the absolute basics of interaction with a page using the DevTools. In the [next chapter]({{@link data_collection_fundamentals/using_devtools.md}}), you will learn how to extract data from it. We will collect the most popular websites on the internet from <a href="https://www.alexa.com/topsites" target="_blank">Amazon Alexa</a>.

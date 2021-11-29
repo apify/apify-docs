@@ -12,7 +12,7 @@ Finally we have everything ready to start scraping! Yes, the setup is a bit daun
 
 ## [](#downloading-html) Downloading HTML
 
-We will use the `got-scraping` library to download the HTML of the [Alexa Top Sites index](https://www.alexa.com/topsites). Careful, the `import` statement is a little different than in the previous chapter.
+We will use the `got-scraping` library to download the HTML of the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>. Careful, the `import` statement is a little different than in the previous chapter.
 
 ```js
 // main.js
@@ -25,7 +25,7 @@ console.log(html);
 
 Now run the script (using `node main.js`). After a brief moment, you should see the page's HTML printed in your terminal.
 
-> `gotScraping` is an `async` function and the `await` keyword is used to pause execution of the script until it returns the `response`. [Learn more](https://javascript.info/async-await) about `async` and `await`.
+> `gotScraping` is an `async` function and the `await` keyword is used to pause execution of the script until it returns the `response`. <a href="https://javascript.info/async-await" target="_blank">Learn more</a> about `async` and `await`.
 
 ## [](#parsing-html) Parsing HTML
 
@@ -49,7 +49,7 @@ When you run the above script, the **Alexa - Top sites** page will be printed to
 
 First, we loaded the downloaded `html` into `cheerio` using the `load()` function. This created a new function, conventionally named `$`, which allows us to work with the loaded HTML. Then we called `$('title')`, which found the `<title>` element by using the `title` CSS selector. Finally, we collected the text from the element using the `.text()` function and printed it to the console.
 
-> `$('title')` is very similar to calling `document.querySelector('title')` in the browser and `element.text()` is similar to `element.textContent` from the earlier DevTools chapters. [Visit the cheerio documentation](https://github.com/cheeriojs/cheerio#readme) to learn more about its syntax, which is the same as JQuery syntax.
+> `$('title')` is very similar to calling `document.querySelector('title')` in the browser and `element.text()` is similar to `element.textContent` from the earlier DevTools chapters. <a href="https://github.com/cheeriojs/cheerio#readme" target="_blank">Visit the cheerio documentation</a> to learn more about its syntax, which is the same as JQuery syntax.
 
 ## [](#next) Next up
 

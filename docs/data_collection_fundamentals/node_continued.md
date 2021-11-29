@@ -8,7 +8,7 @@ paths:
 
 # [](#finish-scraper) Finish Node.js scraper
 
-In the first part of the Node.js tutorial we downloaded the HTML of the [Alexa Top Sites index](https://www.alexa.com/topsites) and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link data_collection_fundamentals/using_devtools.md}}) chapters and finish our scraper.
+In the first part of the Node.js tutorial we downloaded the HTML of the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a> and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link data_collection_fundamentals/using_devtools.md}}) chapters and finish our scraper.
 
 ## [](#querying-with-cheerio) Querying data with Cheerio
 
@@ -82,7 +82,7 @@ const results = sites.map((site) => {
 });
 ```
 
-The main difference is that we used the [`.find()`](https://api.jquery.com/find/) function to select all the `div.td` elements and also that we need to access the individual fields with [`.eq()`](https://api.jquery.com/eq/). If you find the differences confusing, don't worry about it. It will become very natural once you do it a few times. The final scraper code looks like this:
+The main difference is that we used the <a href="https://api.jquery.com/find/" target="_blank">`.find()`</a> function to select all the `div.td` elements and also that we need to access the individual fields with<a href="https://api.jquery.com/eq/" target="_blank">`.eq()`</a>. If you find the differences confusing, don't worry about it. It will become very natural once you do it a few times. The final scraper code looks like this:
 
 ```js
 // main.js

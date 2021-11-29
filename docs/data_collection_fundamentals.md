@@ -21,13 +21,13 @@ For the browser to be able to show you the web page with all its text and images
 
 CSS (Cascading Style Sheets) is a markup language that is used to give websites their style. It controls shapes, colors, positioning and even animations. The style is then added to the page's HTML and together, they define the page's content and structure. In web scraping, we can leverage CSS to find the data we want using CSS selectors.
 
-> Find more information on CSS and CSS selectors in the [MDN tutorials on CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
+> Find more information on CSS and CSS selectors in the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN tutorials on CSS</a>.
 
 ## [](#javascript) JavaScript
 
 HTML and CSS give websites their structure and style, but they are static. To be able to meaningfully interact with a website, you need to throw JavaScript into the mix. It is the language of the web and you don't need to be a programmer to learn the basics. You don't even need any special software, because you can try it right now, in your browser.
 
-> If you want to dive deeper into JavaScript, check out [this great tutorial](https://javascript.info/).
+> If you want to dive deeper into JavaScript, check out <a href="https://javascript.info/" target="_blank">this great tutorial</a>.
 
 ## [](#next) Next up
 

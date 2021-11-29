@@ -8,11 +8,11 @@ paths:
 
 # [](#saving-to-csv) Saving results as a CSV
 
-In the last chapter, we were able collect data about all the websites from the [Alexa Top Sites index](https://www.alexa.com/topsites). That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this chapter, we'll learn how to save that data into a CSV file that you can then open in Excel or Google Sheets.
+In the last chapter, we were able collect data about all the websites from the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>. That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this chapter, we'll learn how to save that data into a CSV file that you can then open in Excel or Google Sheets.
 
 ## [](#converting-to-csv) Converting to CSV
 
-It might look like a big programming challenge to transform a JavaScript object into a CSV, but thanks to NPM, it will be a piece of cake. After googling **json to csv npm** we found that there's a library called [`json2csv`](https://www.npmjs.com/package/json2csv) that can convert a JavaScript object to a CSV with a single function call. Perfect.
+It might look like a big programming challenge to transform a JavaScript object into a CSV, but thanks to NPM, it will be a piece of cake. After googling **json to csv npm** we found that there's a library called <a href="https://www.npmjs.com/package/json2csv" target="_blank">`json2csv`</a> that can convert a JavaScript object to a CSV with a single function call. Perfect.
 
 First, we need to import the `parse()` function from the library.
 
@@ -113,4 +113,4 @@ This marks the end of the **Fundamentals of data collection** section of the Web
 
 ## [](#next) Next up
 
-Next up are the [**Fundamentals of crawling**]({{@link crawling_fundamentals.md}}), where we will learn how to move between web pages and scrape data from all of them. We will build a scraper that first collects all the countries of the [Alexa Top Sites by Country index](https://www.alexa.com/topsites/countries) and then crawls each of them to scrape the data for each country separately.
+Next up are the [**Fundamentals of crawling**]({{@link crawling_fundamentals.md}}), where we will learn how to move between web pages and scrape data from all of them. We will build a scraper that first collects all the countries of the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a> and then crawls each of them to scrape the data for each country separately.
