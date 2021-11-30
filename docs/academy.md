@@ -19,7 +19,7 @@ With so many point-and-click tools and no-code software that can help you extrac
 
 Any software can do only what it was programmed to do. If you build your own scraper, it can do anything you want. And you can always quickly change it to do more, less, or the same, but faster or cheaper. The possibilities are endless once you know how scraping really works.
 
-Scraper development is also a fun and challenging way to learn web development, web technologies, and understand the internet. You will reverse-engineer websites and learn how they work internally, what technologies they use and how they communicate with their servers. When you truly understand web scraping, learning other tech like React or Next.js will be a piece of cake.
+Scraper development is a fun and challenging way to learn web development, web technologies, and understand the internet. You will reverse-engineer websites and understand how they work internally, what technologies they use and how they communicate with their servers. You will also master your chosen programming language and core programming concepts. When you truly understand web scraping, learning other technology like React or Next.js will be a piece of cake.
 
 ## [](#summary) Course summary
 

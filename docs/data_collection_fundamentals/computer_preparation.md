@@ -20,30 +20,40 @@ To install Node.js <a href="https://nodejs.org/en/download/" target="_blank">vis
 
 There are many text editors you can choose from for programming. You might already have a preferred one so feel free to use that. Just make sure it has syntax highlighting and support for Node.js. If you don't have any text editor, we suggest starting with VSCode. It's free, very popular, and well maintained. <a href="https://code.visualstudio.com/download" target="_blank">Download it here</a>.
 
+Once you downloaded and installed it, you can open a folder where we will build your scraper. We recommend starting with a new, empty folder.
+
+![Showing how to open a folder in VSCode]({{@asset data_collection_fundamentals/images/vscode-open-folder.webp}})
+
 ## [](#hello-world) Hello World
 
-Before we start, let's confirm that Node.js was successfully installed on your computer. To do that, run those two commands in your terminal and see if they correctly print your Node.js and NPM versions.
+Before we start, let's confirm that Node.js was successfully installed on your computer. To do that, run those two commands in your terminal and see if they correctly print your Node.js and NPM versions. If you installed VSCode in the previous paragraph, you can use the integrated terminal.
+
+![Showing how to open a terminal in VSCode]({{@asset data_collection_fundamentals/images/vscode-open-terminal.webp}})
 
 ```shell
 node -v
 npm -v
 ```
 
-> If you're wondering what a "terminal" is, we suggest googling for a terminal tutorial for your operating system because there are many different terminals.
+> If you're still wondering what a "terminal" is, we suggest googling for a terminal tutorial for your operating system because individual terminals are different. Sometimes a little, sometimes a lot.
 
-Now that we confirmed that `node` is correctly installed on your computer, use your text editor to create a file called `script.js` in some directory, add this piece of code there and save the file.
+When we confirmed that `node` is correctly installed on your computer, use your text editor to create a file called `hello.js` in your folder.
+
+![Showing how to create a file in VSCode]({{@asset data_collection_fundamentals/images/vscode-create-file.webp}})
+
+Now add this piece of code, save the file, and run the below command in your terminal.
 
 ```js
 console.log('Hello World');
 ```
 
-Now, in your terminal and in the directory with the `script.js` file, run this command:
-
 ```shell
-node script.js
+node hello.js
 ```
 
 You should see **Hello World** printed in your terminal. If you do, congratulations, you are now officially a programmer! 🚀
+
+![Showing hello world in VSCode]({{@asset data_collection_fundamentals/images/vscode-hello-world.webp}})
 
 ## [](#next) Next up
 

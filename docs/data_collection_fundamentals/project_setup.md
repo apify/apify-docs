@@ -8,14 +8,14 @@ paths:
 
 # [](#setting-up) Setting up your project
 
-When you open a website in a browser, the browser first downloads the page's initial HTML. To do the same thing with Node.js, we will install a program - an NPM module - to help us with it. NPM modules are installed using `npm`, which is a program automatically installed with Node.js.
+When you open a website in a browser, the browser first downloads the page's initial HTML. To do the same thing with Node.js, we will install a program - an NPM module - to help us with it. NPM modules are installed using `npm`, which is another program, automatically installed with Node.js.
 
 > <a href="https://www.npmjs.com/" target="_blank">NPM</a> has a huge collection of open-source libraries for Node.js. You can (and you should) utilize it to save time and tap into the amazing open-source community around JavaScript and Node.js.
 
 
 ## [](#create-project) Create a new NPM project
 
-Before we can install NPM modules we need to create an NPM project. To do that, create a new directory and from that directory run this command in your terminal:
+Before we can install NPM modules we need to create an NPM project. To do that, create a new directory or use the one that you already have open in VSCode (you can delete the `hello.js` now) and from that directory run this command in your terminal:
 
 ```shell
 npm init -y
@@ -23,19 +23,23 @@ npm init -y
 
 It will set up an empty NPM project for you and create a file called `package.json`. This is a very important file in Node.js programming as it contains information about the project.
 
+![NPM init with VSCode]({{@asset data_collection_fundamentals/images/vscode-npm-init.webp}})
+
 ### [](#modern-javascript) Use modern JavaScript
 
-Node.js and NPM support two types of projects, let's call them legacy and modern. For backwards compatibility, the legacy version is used by default. To switch to the modern version, open your `package.json` and add this line to the end of the JSON object.
+Node.js and NPM support two types of projects, let's call them legacy and modern. For backwards compatibility, the legacy version is used by default. To switch to the modern version, open your `package.json` and add this line to the end of the JSON object. Don't forget to add a comma to the end of the previous line 😉
 
 ```text
 "type": "module"
 ```
 
+![Update package.json with VSCode]({{@asset data_collection_fundamentals/images/vscode-type-module.webp}})
+
 > If you want to learn more about JSON and its syntax, we recommend <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON" target="_blank">this tutorial on MDN</a>.
 
 ## [](#install-libraries) Install the libraries
 
-Now that we have a project set up, we can install NPM modules into the project. We will do that and install a libraries that will help us very easily download and process websites' HTML. In the project directory, run the following command, which will install two libraries into your project. **got-scraping** and Cheerio.
+Now that we have a project set up, we can install NPM modules into the project. We will do that and install libraries that will help us very easily download and process websites' HTML. In the project directory, run the following command, which will install two libraries into your project. **got-scraping** and Cheerio.
 
 ```shell
 npm install --save got-scraping cheerio
@@ -43,7 +47,7 @@ npm install --save got-scraping cheerio
 
 <a href="https://github.com/apify/got-scraping" target="_blank">**got-scraping**</a> is a library that's made especially for scraping and downloading page's HTML. It's based on the<a href="https://github.com/sindresorhus/got" target="_blank">very popular **got**</a> library, which means any features of **got** are also available in **got-scraping**.
 
-> More precisely, **got** and **got-scraping** are HTTP clients. To learn more about HTTP, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP" target="_blank">visit this MDN tutorial</a>. <a href="https://github.com/cheeriojs/cheerio" target="_blank">cheerio</a> is the most popular Node.js library for parsing (processing) HTML. It is a replica of probably the most popular JavaScript library of all time -<a href="https://jquery.com/" target="_blank">JQuery</a>. We can't use JQuery in Node.js because it only works in the browser, so we replace it with Cheerio, which is exactly the same.
+More precisely, **got** and **got-scraping** are HTTP clients. To learn more about HTTP, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP" target="_blank">visit this MDN tutorial</a>. <a href="https://github.com/cheeriojs/cheerio" target="_blank">cheerio</a> is the most popular Node.js library for parsing (processing) HTML. It is a replica of probably the most popular JavaScript library of all time -<a href="https://jquery.com/" target="_blank">JQuery</a>. We can't use JQuery in Node.js because it only works in the browser, so we replace it with Cheerio, which is exactly the same.
 
 ## [](#test) Test everything
 
@@ -62,7 +66,9 @@ Those `import` statements tell Node.js that it should give you access to the **g
 node main.js
 ```
 
-If you see **it works!** printed in your terminal, great job! You set up everything correctly. If you see an error that says `Cannot use import statement outside a module`, go back to the [Use modern JavaScript](#use-modern-javascript) section and add the `type` property to your `package.json`. If you see a different error, try copy pasting it into Google and you'll find a solution soon.
+If you see **it works!** printed in your terminal, great job! You set up everything correctly. If you see an error that says `Cannot use import statement outside a module`, go back to the [Use modern JavaScript](#use-modern-javascript) section and add the `type` property to your `package.json`. If you see a different error, try copying and pasting it into Google, and you'll find a solution soon.
+
+![Update package.json with VSCode]({{@asset data_collection_fundamentals/images/vscode-type-module.webp}})
 
 ## [](#next) Next up
 

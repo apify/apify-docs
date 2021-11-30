@@ -12,7 +12,7 @@ In the first part of the DevTools tutorial, we were able to collect information 
 
 ## [](#looping) Looping over elements
 
-> If you're not familiar with the concept of loops in programming, <a href="https://javascript.info/while-for" target="_blank">check out this tutorial</a>. If you're not familiar with functions that iterate over an array, <a href="https://javascript.info/array-methods#iterate-foreach" target="_blank">this tutorial will help</a>.
+> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" target="_blank">Visit this tutorial</a> if you want to refresh the concept of loops in programming.
 
 First, we will use the `querySelectorAll()` function from the previous chapter to get an array of all the elements that contain the sites' data.
 
@@ -23,40 +23,41 @@ console.log(sites);
 
 ![Print all websites]({{@asset data_collection_fundamentals/images/print-all-websites.webp}})
 
-Second, we will loop over the sites and print their unstructured data. The `forEach` function accepts one argument, which is a function that will be invoked for each element of the `sites` array.
+Second, we will loop over the sites and print their unstructured data. The following `for..of` loop will iterate over all elements of the `sites` array and execute the code provided in curly brackets `{}` for each element. In each iteration, the element is saved into the variable called `site` and we can use the variable to interact with the element.
 
 ```js
-sites.forEach((site) => console.log(site.textContent));
+for (const site of sites) {
+    console.log(site.textContent);
+}
 ```
 
-> If you're not familiar with arrow functions (`=>`), visit <a href="https://javascript.info/arrow-functions-basics" target="_blank">this tutorial</a> to learn more.
+> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of" target="_blank">Find out more</a> about the `for..of` loop.
 
 ![Print all websites' text]({{@asset data_collection_fundamentals/images/print-all-websites-text.webp}})
 
 ## [](#collecting-data) Collecting data in a loop
 
-In the previous chapter we created a `result` object that contained data of a single website. Now we'll create an array of those result objects which will contain all the 50 websites' data. To do that, we'll use a function called `map()` and the collection skills we learned in the previous chapter.
-
-> <a href="https://javascript.info/array-methods#map" target="_blank">Learn more</a> about the `array.map()` function.
+In the previous chapter we created a `result` object that contained data of a single website. Now we'll create an array of those result objects which will contain all the 50 websites' data. To do that, we'll first create an empty array called `results` and then use a `for..of` loop, and the collection skills we learned in the previous chapter.
 
 ```js
-const results = Array.from(sites).map((site) => {
+const results = [];
+
+for (const site of sites) {
     const fields = site.querySelectorAll('div.td');
-    return {
+    results.push({
         rank: fields[0].textContent.trim(),
         site: fields[1].textContent.trim(),
         dailyTimeOnSite: fields[2].textContent.trim(),
         dailyPageViews: fields[3].textContent.trim(),
         percentFromSearch: fields[4].textContent.trim(),
         totalLinkingSites: fields[5].textContent.trim(),
-    };
-});
+    });
+}
+
 console.log(results);
 ```
 
-We have to admit that we were not honest with you in the previous chapter. The `querySelectorAll()` function does not really return an `Array`. It returns a `NodeList`, which is almost the same as an `Array`. One of the differences is that a `NodeList` does not have access to the `map()` function, so we first had to convert it to an `Array` using the `Array.from()` function.
-
-With that said, the rest of the code is just copy-pasted from the previous chapter. For each `site` in `sites`, we find all the `fields` with data for that particular `site` and save them to the `results` array by returning the object with the data. When you run the code, you should see all the data neatly structured.
+The `results.push()` function takes its argument and pushes (adds) it to the `results` array. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank">Learn more about it here</a>. The rest of the code is just copy-pasted from the previous chapter. For each `site` of `sites`, we find all the `fields` with data for that particular `site` and save them to the `results` array by returning the object with the data. When you run the code, you should see all the data neatly structured.
 
 ![Print all websites' data]({{@asset data_collection_fundamentals/images/print-all-websites-data.webp}})
 
