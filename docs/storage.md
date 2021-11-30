@@ -17,7 +17,7 @@ This page contains a brief introduction of the three types of Apify Storage.
 * [Key-value store](#key-value-store) - storage for arbitrary data records such as files, images, and strings.
 * [Request queue](#request-queue) - a queue of URLs for your actors to visit.
 
-You will then find [basic usage](#basic-usage) information relating to all three types of storage. For example, how to manage your storages in the [Apify app](#apify-console), the basics of setting up the [Apify SDK](#apify-sdk),
+You will then find [basic usage](#basic-usage) information relating to all three types of storage. For example, how to manage your storages in [Apify Console](#apify-console), the basics of setting up the [Apify SDK](#apify-sdk),
 the [JavaScript API client](#javascript-api-client) and the [Python API client](/apify-client-python),
 and general information for using storages with the [Apify API](#apify-api).
 
