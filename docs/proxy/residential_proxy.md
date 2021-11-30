@@ -21,6 +21,30 @@ Residential proxies support [IP address rotation]({{@link proxy.md#ip-address-ro
 
 If you would like to use residential proxy or for more information, [contact us](https://apify.com/contact).
 
+## [](#limitations) Limitations
+
+Apify provides 2 levels of residential proxy:
+
+| Level | Availability | Supported domains | Other limitations |
+|-------|--------------|-------------------|-------------------|
+| Restricted residential proxy | Every user | >500 domains | Requires man in the middle access to connection |
+| Full residential proxy | Enterprise level accounts | Entire web| None |
+
+### Restricted residential proxy
+
+Restricted residential proxy is available for all the users with some limitations.
+
+First of restricted residential proxy supports only certain domains and paths. The pool of 500 domains is increased every month and covers the most frequent use cases.
+Any traffic outside this pool of domains will go out thru the [datacenter proxy](https://docs.apify.com/proxy/datacenter-proxy).
+
+The second limitation is that restricted residential proxy uses man in the middle system to monitor the traffic
+and activities and so requires acceptance of SSL certificate. This is automatically handled by [Apify SDK](https://sdk.apify.com/) for both Puppeteer and Playwright.
+
+### Full residential proxy
+
+Full residential proxy neither limits the domains user can access nor requires a man in the middle access to traffic.
+But it's provided only enterprise-level accounts on a request basis under the additional contract.
+
 ## [](#connecting-to-residential-proxy) Connecting to residential proxy
 
 Connecting to residential proxy works the same way as [datacenter proxy]({{@link proxy/datacenter_proxy/examples.md}}), with two differences.
