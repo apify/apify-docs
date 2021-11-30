@@ -45,9 +45,9 @@ Now that we have a project set up, we can install NPM modules into the project. 
 npm install --save got-scraping cheerio
 ```
 
-<a href="https://github.com/apify/got-scraping" target="_blank">**got-scraping**</a> is a library that's made especially for scraping and downloading page's HTML. It's based on the <a href="https://github.com/sindresorhus/got" target="_blank">very popular **got**</a> library, which means any features of **got** are also available in **got-scraping**.
+<a href="https://github.com/apify/got-scraping" target="_blank">**got-scraping**</a> is a library that's made especially for scraping and downloading page's HTML. It's based on the <a href="https://github.com/sindresorhus/got" target="_blank">very popular **got**</a> library, which means any features of **got** are also available in **got-scraping**. More precisely, **got** and **got-scraping** are HTTP clients. To learn more about HTTP, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP" target="_blank">visit this MDN tutorial</a>.
 
-More precisely, **got** and **got-scraping** are HTTP clients. To learn more about HTTP, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP" target="_blank">visit this MDN tutorial</a>. <a href="https://github.com/cheeriojs/cheerio" target="_blank">cheerio</a> is the most popular Node.js library for parsing (processing) HTML. It is a replica of probably the most popular JavaScript library of all time -<a href="https://jquery.com/" target="_blank">JQuery</a>. We can't use JQuery in Node.js because it only works in the browser, so we replace it with Cheerio, which is exactly the same.
+<a href="https://github.com/cheeriojs/cheerio" target="_blank">Cheerio</a> is a very popular Node.js library for parsing (processing) HTML. It is a replica of probably the most popular JavaScript library of all time -<a href="https://jquery.com/" target="_blank">JQuery</a>. We can't use JQuery in Node.js because it only works in the browser, so we replace it with Cheerio, which is exactly the same.
 
 ## [](#test) Test everything
 
