@@ -48,7 +48,7 @@ Now we only need to repeat the process from the DevTools chapters and add indivi
 
 ![Finding child elements in Elements tab]({{@asset data_collection_fundamentals/images/find-child-elements.webp}})
 
-We will loop over all the `sites` and collect the data points from each of them using the `for..of` loop. For reference, this is the code from the DevTools chapter, where we collected the data using a browser.
+We will loop over all the `sites` and collect the data points from each of them using the `for..of` loop. For reference, this is the code from the DevTools chapter, where we collected the data **using a browser**.
 
 ```js
 // This is code from the browser Console. It won't work in Node.js
@@ -69,7 +69,7 @@ for (const site of sites) {
 console.log(results);
 ```
 
-And this is how the code will look like with Node.js and Cheerio.
+And this is how the code will look like with **Node.js and Cheerio**.
 
 ```js
 const results = [];
