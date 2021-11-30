@@ -19,8 +19,6 @@ Residential proxies support [IP address rotation]({{@link proxy.md#ip-address-ro
 
 **Pricing is based on data traffic**. It is measured for each connection made and displayed on your [dashboard](https://console.apify.com) in the Apify console.
 
-If you would like to use residential proxy or for more information, [contact us](https://apify.com/contact).
-
 ## [](#limitations) Limitations
 
 Apify provides 2 levels of residential proxy:
@@ -44,6 +42,8 @@ and activities and so requires acceptance of SSL certificate. This is automatica
 
 Full residential proxy neither limits the domains user can access nor requires a man in the middle access to traffic.
 But it's provided only enterprise-level accounts on a request basis under the additional contract.
+
+If you would like to use full residential proxy or for more information, [contact us](https://apify.com/contact).
 
 ## [](#connecting-to-residential-proxy) Connecting to residential proxy
 
