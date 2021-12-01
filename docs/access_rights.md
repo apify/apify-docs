@@ -38,7 +38,7 @@ However, **without the relevant permissions (e.g. write, build, delete), no one 
 
 If a user runs the actor, it gets billed to their account, and the actor run will be available only to them.
 
-To publish an actor, open it in the [Apify console](https://console.apify.com), go to the **Publication** tab and follow the instructions below.
+To publish an actor, open it in the [Apify Console](https://console.apify.com), go to the **Publication** tab and follow the instructions below.
 
 ![Publishing your actor]({{@asset images/publication.webp}})
 
