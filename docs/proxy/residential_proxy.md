@@ -41,6 +41,8 @@ const proxyUrl = 'http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.co
 
 In the [Apify SDK](https://sdk.apify.com), you set the **group** in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions):
 
+more fallback test
+
 ```js
 const proxyConfiguration = await Apify.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
