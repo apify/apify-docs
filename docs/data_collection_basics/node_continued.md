@@ -98,7 +98,7 @@ const response = await gotScraping('https://www.alexa.com/topsites');
 const html = response.body;
 
 const $ = cheerio.load(html);
-const sites = $('div.site-listing').toArray();
+const sites = $('div.site-listing');
 const results = [];
 
 for (const site of sites) {

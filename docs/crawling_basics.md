@@ -9,9 +9,9 @@ paths:
 
 # [](#basics) Basics of crawling
 
-Basics of crawling is the second part of our web scraping for beginners course. In the [Basics of data collection]({{@link data_collection_basics.md}}) part, we learned how to extract data from a web page. Specifically the [Alexa Top Sites index](https://www.alexa.com/topsites).
+Basics of crawling is the second part of our web scraping for beginners course. In the [Basics of data collection]({{@link data_collection_basics.md}}) part, we learned how to extract data from a web page. Specifically the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>.
 
-In this part we will take a look at moving between web pages which we call crawling. We will collect data for all the countries in the [Alexa Top Sites by Country index](https://www.alexa.com/topsites/countries) and
+In this part we will take a look at moving between web pages which we call crawling. We will collect data for all the countries in the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a> and collect browsing data from all the countries listed there.
 
 ## [](#how-to) How to crawl?
 
@@ -26,4 +26,4 @@ At any point, we can collect URLs, data, or both. Crawling can be separate from 
 
 ## [](#next) Next up
 
-We will review the code we already have from the Basics of data collection section, and we'll start adding more code that will help us move around the website. Let's go 🏃
+To make sure we're on the same page. In the [next chapter]({{@link crawling_basics/recap_collection_basics.md}}) we will review the scraper code we already have from the [Basics of data collection]({{@link data_collection_basics.md}}) section of the Academy.

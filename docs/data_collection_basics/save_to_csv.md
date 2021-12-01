@@ -6,7 +6,7 @@ paths:
     - data-collection-basics/save-to-csv
 ---
 
-# [](#saving-to-csv) Saving results as a CSV
+# [](#saving-to-csv) Saving results to CSV
 
 In the last chapter, we were able collect data about all the websites from the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>. That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this chapter, we'll learn how to save that data into a CSV file that you can then open in Excel or Google Sheets.
 
@@ -32,24 +32,25 @@ The full code including the earlier scraping part now looks like this.
 // main.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
-import { parse } from 'json2csv';
 
 const response = await gotScraping('https://www.alexa.com/topsites');
 const html = response.body;
 
 const $ = cheerio.load(html);
-const sites = $('div.site-listing').toArray();
-const results = sites.map((site) => {
+const sites = $('div.site-listing');
+const results = [];
+
+for (const site of sites) {
     const fields = $(site).find('div.td');
-    return {
+    results.push({
         rank: fields.eq(0).text().trim(),
         site: fields.eq(1).text().trim(),
         dailyTimeOnSite: fields.eq(2).text().trim(),
         dailyPageViews: fields.eq(3).text().trim(),
         percentFromSearch: fields.eq(4).text().trim(),
         totalLinkingSites: fields.eq(5).text().trim(),
-    };
-});
+    });
+}
 
 const csv = parse(results);
 console.log(csv);
@@ -81,25 +82,25 @@ When we complete the code, it looks like this.
 // main.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
-import { parse } from 'json2csv';
-import { writeFileSync } from 'fs';
 
 const response = await gotScraping('https://www.alexa.com/topsites');
 const html = response.body;
 
 const $ = cheerio.load(html);
-const sites = $('div.site-listing').toArray();
-const results = sites.map((site) => {
+const sites = $('div.site-listing');
+const results = [];
+
+for (const site of sites) {
     const fields = $(site).find('div.td');
-    return {
+    results.push({
         rank: fields.eq(0).text().trim(),
         site: fields.eq(1).text().trim(),
         dailyTimeOnSite: fields.eq(2).text().trim(),
         dailyPageViews: fields.eq(3).text().trim(),
         percentFromSearch: fields.eq(4).text().trim(),
         totalLinkingSites: fields.eq(5).text().trim(),
-    };
-});
+    });
+}
 
 const csv = parse(results);
 writeFileSync('alexa-websites.csv', csv);
