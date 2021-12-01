@@ -17,7 +17,7 @@ This page contains a brief introduction of the three types of Apify Storage.
 * [Key-value store](#key-value-store) - storage for arbitrary data records such as files, images, and strings.
 * [Request queue](#request-queue) - a queue of URLs for your actors to visit.
 
-You will then find [basic usage](#basic-usage) information relating to all three types of storage. For example, how to manage your storages in the [Apify app](#apify-console), the basics of setting up the [Apify SDK](#apify-sdk),
+You will then find [basic usage](#basic-usage) information relating to all three types of storage. For example, how to manage your storages in [Apify Console](#apify-console), the basics of setting up the [Apify SDK](#apify-sdk),
 the [JavaScript API client](#javascript-api-client) and the [Python API client](/apify-client-python),
 and general information for using storages with the [Apify API](#apify-api).
 
@@ -27,8 +27,7 @@ and general information for using storages with the [Apify API](#apify-api).
 
 ![Dataset graphic]({{@asset images/datasets-overview.webp}})
 
-The easiest way to access your datasets is via the
-[Apify console](https://console.apify.com/storage#/datasets), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties.
+The easiest way to access your datasets is via [Apify Console](https://console.apify.com/storage#/datasets), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties.
 
 To manage your datasets, you can use the
 [Apify SDK](https://sdk.apify.com/docs/api/dataset),
@@ -44,8 +43,8 @@ The [key-value store]({{@link storage/key_value_store.md}}) is ideal for saving 
 
 ![Key-value store graphic]({{@asset images/key-value-overview.svg}})
 
-The easiest way to access your key-value stores is via the
-[Apify console](https://console.apify.com/storage#/keyValueStores), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties.
+The easiest way to access your key-value stores is via
+[Apify Console](https://console.apify.com/storage#/keyValueStores), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties.
 
 To manage your key-value stores, you can use the
 [Apify SDK](https://sdk.apify.com/docs/api/key-value-store),
@@ -61,8 +60,8 @@ or the [Apify API](/api/v2#/reference/key-value-stores).
 
 ![Request queue graphic]({{@asset images/request-queue-overview.svg}})
 
-The easiest way to access your request queues is via the
-[Apify console](https://console.apify.com/storage#/requestQueues), which provides a user-friendly interface for viewing your request queues and editing your queues' properties.
+The easiest way to access your request queues is via
+[Apify Console](https://console.apify.com/storage#/requestQueues), which provides a user-friendly interface for viewing your request queues and editing your queues' properties.
 
 To manage your request queues, you can use the
 [Apify SDK](https://sdk.apify.com/docs/api/request-queue),
@@ -76,15 +75,15 @@ or the [Apify API](/api/v2#/reference/request-queues).
 
 There are five ways to access your storage:
 
-* [Apify console](https://console.apify.com/storage) - provides an easy-to-understand interface [[details](#apify-console)].
+* [Apify Console](https://console.apify.com/storage) - provides an easy-to-use interface [[details](#apify-console)].
 * [Apify SDK](https://sdk.apify.com/docs/guides/data-storage) - when building your own Apify actor [[details](#apify-sdk)].
 * [JavaScript API client](/apify-client-js) - to access your storages from any Node.js application [[details](#javascript-api-client)].
 * [Python API client](/apify-client-python) - to access your storages from any Python application [[details](#python-api-client)].
 * [Apify API](/api/v2#/reference/key-value-stores) - for accessing your storages programmatically [[details](#apify-api)].
 
-### [](#apify-console) Apify console
+### [](#apify-console) Apify Console
 
-To access your storages from the Apify console, go to the [**Storage** section](https://console.apify.com/storage) in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, request queues and related API endpoints. To view a storage, click its **ID**.
+To access your storages from Apify Console, go to the [**Storage** section](https://console.apify.com/storage) in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, request queues and related API endpoints. To view a storage, click its **ID**.
 
 ![Storages in app]({{@asset storage/images/datasets-app.webp}})
 
@@ -164,7 +163,7 @@ Unnamed storages expire after 7 days unless otherwise specified.
 
 Named storages are retained indefinitely.
 
-You can edit your storages' names in the [Apify console](#apify-console) or using the access methods above.
+You can edit your storages' names in [Apify Console](#apify-console) or using the access methods above.
 
 ## [](#named-and-unnamed-storages) Named and unnamed storages
 
@@ -195,7 +194,7 @@ Any storage can be accessed from any [actor]({{@link actors.md}}) or [task]({{@l
 
 Named storages are only removed when you request it. You can delete storages in the following ways.
 
-* [Apify console](https://console.apify.com/storage) - using the **Actions** button in the store's detail page.
+* [Apify Console](https://console.apify.com/storage) - using the **Actions** button in the store's detail page.
 * [Apify SDK](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoredrop) - using the `[store].drop()` method, where **[store]** is the type of storage you want to delete.
 * [JavaScript API client](/apify-client-js) - using the `.delete()` method in the
 [dataset](/apify-client-js#datasetclient),

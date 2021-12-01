@@ -1,6 +1,6 @@
 ---
 title: Running actors
-description: Start your actors from the Apify console or via API. Learn about actor lifecycles, how to specify settings and version, provide input and resurrect finished runs.
+description: Start your actors from the Apify Console or via API. Learn about actor lifecycles, how to specify settings and version, provide input and resurrect finished runs.
 menuTitle: Running
 menuWeight: 7.1
 paths:
@@ -103,7 +103,7 @@ You can abort runs with the statuses **READY**, **RUNNING**, or **TIMING-OUT** i
 - Abort run - immediately abort the actor run. This is the default option.
 - Gracefully abort run - the actor run receives a signal about aborting via the `aborting` and `persistState` events and is force-aborted after 30 seconds. This is helpful in cases where you plan to resurrect the run later because it saves the actor's state. When resurrected, the actor can re-start where it left off.
 
-You can abort a run in the Apify console using the **Abort** button or via API using the [Abort run](/api/v2#/reference/actor-runs/abort-run/abort-run) endpoint.
+You can abort a run in the Apify Console using the **Abort** button or via API using the [Abort run](/api/v2#/reference/actor-runs/abort-run/abort-run) endpoint.
 
 ## Resurrection of finished run
 
@@ -116,7 +116,7 @@ The whole process of resurrection looks as follows:
 - Updated duration will include the time when actor was not running. This does not affect compute units consumption.
 - Timeout will be counted from the point when this actor run was resurrected.
 
-Resurrection can be performed in Apify console using the **resurrect** button or via API using the [resurrect run](https://docs.apify.com/api/v2#/reference/actors/resurrect-run) API endpoint.
+Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [resurrect run](https://docs.apify.com/api/v2#/reference/actors/resurrect-run) API endpoint.
 
 ## Container web server
 

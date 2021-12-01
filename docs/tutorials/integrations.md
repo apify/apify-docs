@@ -39,9 +39,9 @@ Below are some examples of the kind of integrations you can set up with Apify.
 
 ## [](#api-token) API token
 
-To access our API in your integrations, you will need to use your secret API token. You can find it on the [Integrations](https://console.apify.com/account#/integrations) page in the Apify console.
+To access our API in your integrations, you will need to use your secret API token. You can find it on the [Integrations](https://console.apify.com/account#/integrations) page in the Apify Console.
 
-![Integrations page in the Apify console]({{@asset tutorials/images/api-token.webp}})
+![Integrations page in the Apify Console]({{@asset tutorials/images/api-token.webp}})
 
 > When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
