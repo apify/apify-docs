@@ -4,7 +4,7 @@ description: Learn about what Apify is and how it can help you. Get familiar wit
 menuWeight: 2
 category: guides
 paths:
-    - denky
+    - denky2
 ---
 
 # [](#what-is-apify) Denky
