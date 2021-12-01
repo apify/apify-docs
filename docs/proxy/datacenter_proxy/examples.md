@@ -264,7 +264,7 @@ const proxyConfiguration = await Apify.createProxyConfiguration({
 
 ## [](#using-standard-libraries-and-languages) Using standard libraries and languages
 
-You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of the Apify console.
+You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of the Apify Console.
 
 > The `username` field is **not** your Apify username.<br/>
 > Instead, you specify proxy settings (e.g. `groups-BUYPROXIES94952+GOOGLESERP`, `session-123`).<br/>

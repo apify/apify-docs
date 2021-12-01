@@ -19,7 +19,7 @@ You can see each actor run's exact CU usage under the **Info** tab in the run's 
 
 ![An actor run's platform usage]({{@asset actors/images/actor-usage.webp}})
 
-You can [find a summary of your overall platform and CU usage](https://console.apify.com/billing-new) in the **Billing** section of the Apify console.
+You can [find a summary of your overall platform and CU usage](https://console.apify.com/billing-new) in the **Billing** section of the Apify Console.
 
 ## How are CUs calculated?
 

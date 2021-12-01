@@ -53,7 +53,7 @@ Here is a preview of the actor's output as a table.
 
 ## Create an actor
 
-**1.** [Go to the **Actors** section](https://console.apify.com/actors) in the Apify console and click on the **Create new** button.
+**1.** [Go to the **Actors** section](https://console.apify.com/actors) in the Apify Console and click on the **Create new** button.
 
 ![Create a new actor]({{@asset tutorials/images/create-actor.webp}})
 
