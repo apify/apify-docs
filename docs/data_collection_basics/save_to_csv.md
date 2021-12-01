@@ -3,7 +3,7 @@ title: Saving results to CSV
 description: Learn how to save the results of your scraper to a CSV file.
 menuWeight: 20.8
 paths:
-    - data-collection-fundamentals/save-to-csv
+    - data-collection-basics/save-to-csv
 ---
 
 # [](#saving-to-csv) Saving results as a CSV
@@ -57,7 +57,7 @@ console.log(csv);
 
 And here's our newly created CSV printed to the console after running the script.
 
-![Printing CSV data to terminal]({{@asset data_collection_fundamentals/images/terminal-csv.webp}})
+![Printing CSV data to terminal]({{@asset data_collection_basics/images/terminal-csv.webp}})
 
 ## [](#writing-to-file) Writing the CSV to a file
 
@@ -107,10 +107,10 @@ writeFileSync('alexa-websites.csv', csv);
 
 Finally, after running it again, we will find the `alexa-websites.csv` file in our project folder. And when we open it with Excel – voila!
 
-![Displaying CSV data in Excel]({{@asset data_collection_fundamentals/images/data-in-excel.webp}})
+![Displaying CSV data in Excel]({{@asset data_collection_basics/images/data-in-excel.webp}})
 
-This marks the end of the **Fundamentals of data collection** section of the Web Scraping Academy. If you enjoyed the tutorial, give us a thumbs up down below and if you're eager to learn more...
+This marks the end of the **Basics of data collection** section of the Web Scraping Academy. If you enjoyed the tutorial, give us a thumbs up down below and if you're eager to learn more...
 
 ## [](#next) Next up
 
-Next up are the [**Fundamentals of crawling**]({{@link crawling_fundamentals.md}}), where we will learn how to move between web pages and scrape data from all of them. We will build a scraper that first collects all the countries of the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a> and then crawls each of them to scrape the data for each country separately.
+Next up are the [**Basics of crawling**]({{@link crawling_basics.md}}), where we will learn how to move between web pages and scrape data from all of them. We will build a scraper that first collects all the countries of the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a> and then crawls each of them to scrape the data for each country separately.

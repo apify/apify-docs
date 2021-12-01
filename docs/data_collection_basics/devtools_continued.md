@@ -3,7 +3,7 @@ title: DevTools continued
 description: Continue learning how to collect data from a website using browser DevTools, CSS selectors and JavaScript.
 menuWeight: 20.3
 paths:
-    - data-collection-fundamentals/devtools-continued
+    - data-collection-basics/devtools-continued
 ---
 
 # [](#finish-devtools) Finish with DevTools
@@ -21,7 +21,7 @@ const sites = document.querySelectorAll('div.site-listing');
 console.log(sites);
 ```
 
-![Print all websites]({{@asset data_collection_fundamentals/images/print-all-websites.webp}})
+![Print all websites]({{@asset data_collection_basics/images/print-all-websites.webp}})
 
 Second, we will loop over the sites and print their unstructured data. The following `for..of` loop will iterate over all elements of the `sites` array and execute the code provided in curly brackets `{}` for each element. In each iteration, the element is saved into the variable called `site` and we can use the variable to interact with the element.
 
@@ -33,7 +33,7 @@ for (const site of sites) {
 
 > <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of" target="_blank">Find out more</a> about the `for..of` loop.
 
-![Print all websites' text]({{@asset data_collection_fundamentals/images/print-all-websites-text.webp}})
+![Print all websites' text]({{@asset data_collection_basics/images/print-all-websites-text.webp}})
 
 ## [](#collecting-data) Collecting data in a loop
 
@@ -59,8 +59,8 @@ console.log(results);
 
 The `results.push()` function takes its argument and pushes (adds) it to the `results` array. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank">Learn more about it here</a>. The rest of the code is just copy-pasted from the previous chapter. For each `site` of `sites`, we find all the `fields` with data for that particular `site` and save them to the `results` array by returning the object with the data. When you run the code, you should see all the data neatly structured.
 
-![Print all websites' data]({{@asset data_collection_fundamentals/images/print-all-websites-data.webp}})
+![Print all websites' data]({{@asset data_collection_basics/images/print-all-websites-data.webp}})
 
 ## [](#next) Next up
 
-And that's it. With a bit of trial and error you will be able to collect any data from a webpage that's loaded in your browser. This is a useful skill on its own. It will save you time when you need one-off data for your project. More importantly though, it taught you the basics to start programming your own scrapers. In the [next chapters]({{@link data_collection_fundamentals/computer_preparation.md}}), we will teach you how to create your own data collection script in JavaScript and Node.js.
+And that's it. With a bit of trial and error you will be able to collect any data from a webpage that's loaded in your browser. This is a useful skill on its own. It will save you time when you need one-off data for your project. More importantly though, it taught you the basics to start programming your own scrapers. In the [next chapters]({{@link data_collection_basics/computer_preparation.md}}), we will teach you how to create your own data collection script in JavaScript and Node.js.

@@ -1,13 +1,13 @@
 ---
-title: Fundamentals of data collection
+title: Basics of data collection
 description: Learn about HTML, CSS, and JavaScript, the basic building blocks of a website, and how to use them in scraping.
 menuWeight: 20
 category: web scraping academy
 paths:
-    - data-collection-fundamentals
+    - data-collection-basics
 ---
 
-# [](#fundamentals) Fundamentals of data collection
+# [](#basics) Basics of data collection
 
 Every web scraping project starts with some detective work. To a human, it's completely obvious where the data is on the web page. But a computer needs very precise instructions to find the data we want. There are three elementary components of each website that we can leverage to give those instructions. HTML, CSS, and JavaScript.
 
@@ -31,4 +31,4 @@ HTML and CSS give websites their structure and style, but they are static. To be
 
 ## [](#next) Next up
 
-We will show you [how to use the browser DevTools]({{@link data_collection_fundamentals/browser_devtools.md}}) to inspect and interact with a web page.
+We will show you [how to use the browser DevTools]({{@link data_collection_basics/browser_devtools.md}}) to inspect and interact with a web page.

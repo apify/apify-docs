@@ -28,8 +28,8 @@ When we set out to create the Web Scraping Academy, we wanted to build a complet
 This is what you'll learn in the Web Scraping Academy:
 
 * [Web scraping for beginners]({{@link web_scraping_for_beginners.md}})
-  * [Fundamentals of data collection]({{@link data_collection_fundamentals.md}})
-  * Fundamentals of crawling
+  * [Basics of data collection]({{@link data_collection_basics.md}})
+  * Basics of crawling
 * Advanced web scraping
   * Advanced data collection techniques
     * API scraping
@@ -59,4 +59,4 @@ As you progress to the Advanced and Pro sections, the coding will get more chall
 
 The course begins with short theory and continues with practical examples of collecting data from the most popular websites on the internet using your browser console. So [let's get to it!]({{@link web_scraping_for_beginners.md}})
 
-> If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the Fundamentals of crawling chapter, or even the Advanced Web Scraping section of the course.
+> If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the [Basics of crawling]({{@link crawling_basics.md}}) chapter, or even the Advanced Web Scraping section of the course.
