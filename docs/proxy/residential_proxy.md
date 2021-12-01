@@ -9,7 +9,7 @@ paths:
     - proxy/residential-proxy
 ---
 
-# [](#residential-proxy) Residential proxy
+# [](#residential-proxy) Residential proxy test feature
 
 Residential proxies use IP addresses assigned by Internet Service Providers to the homes and offices of actual users. Unlike [datacenter proxies]({{@link proxy/datacenter_proxy.md}}), traffic from residential proxies is indistiguishable from that of legitimate users.
 
