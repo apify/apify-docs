@@ -28,7 +28,7 @@ Apify provides 2 levels of residential proxy:
 | Restricted residential proxy | Every user | >500 domains | Requires [man-in-the-middle](https://crypto.stanford.edu/ssl-mitm/) access for the connection |
 | Unres residential proxy | Enterprise level accounts | Entire web| None |
 
-### Unrestricted residential proxy
+### [](#restricted-residential-proxy) Restricted residential proxy
 
 Restricted residential proxy is available for all the users with some conditions.
 
@@ -36,9 +36,10 @@ Firstly, restricted residential proxy supports only certain domains and paths. T
 Any traffic outside this pool of domains will go through [datacenter proxy]({{@link proxy/datacenter_proxy.md}}).
 
 The second limitation is that restricted residential proxy uses the man-in-the-middle system to monitor traffic
-and activities and so requires acceptance of an SSL certificate. This is automatically handled by the [Apify SDK](https://sdk.apify.com/) for both Puppeteer and Playwright.
+and activities and so requires acceptance of an SSL <a href="https://apify.com/restricted-residential-proxy-cert.crt">certificate</a>.
+This is automatically handled by the [Apify SDK](https://sdk.apify.com/) for both Puppeteer and Playwright.
 
-### Unrestricted residential proxy
+### [](#unrestricted-residential-proxy) Unrestricted residential proxy
 
 Unrestricted residential proxy neither limits the domains you can access nor requires a man-in-the-middle access to traffic.
 However, it's provided only to enterprise-level accounts on a per-request basis and under an additional contract.
