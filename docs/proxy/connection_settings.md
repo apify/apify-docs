@@ -75,9 +75,9 @@ The table below describes the available parameters.
     </tbody>
 </table>
 
-If you do not want to specify either `groups` or `session` parameters and therefore use **default** behavior for both, set the username to `auto`.
+If you want to specify one parameter and not the others, just provide that parameter and omit the others. To use the default behavior (not specifying either `group`, `session`, or `country`), set the username to **auto**. **auto** serves as a placeholder because the username can't be empty.
 
-To learn more about [sessions]({{@link proxy.md#sessions}}) and [IP address rotation]({{@link proxy.md#ip-address-rotation}}), see the proxy overview [page]({{@link proxy.md}}).
+To learn more about [sessions]({{@link proxy.md#sessions}}) and [IP address rotation]({{@link proxy.md#ip-address-rotation}}), [see the proxy overview page]({{@link proxy.md}}).
 
 ## Code examples
 
