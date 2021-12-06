@@ -19,7 +19,32 @@ Residential proxies support [IP address rotation]({{@link proxy.md#ip-address-ro
 
 **Pricing is based on data traffic**. It is measured for each connection made and displayed on your [dashboard](https://console.apify.com) in the Apify Console.
 
-If you would like to use residential proxy or for more information, [contact us](https://apify.com/contact).
+## [](#limitations) Limitations
+
+Apify provides 2 levels of residential proxy:
+
+| Level | Availability | Supported domains | Other limitations |
+|-------|--------------|-------------------|-------------------|
+| Restricted residential proxy | Every user | >500 domains | Requires [man-in-the-middle](https://crypto.stanford.edu/ssl-mitm/) access for the connection |
+| Unres residential proxy | Enterprise level accounts | Entire web| None |
+
+### [](#restricted-residential-proxy) Restricted residential proxy
+
+Restricted residential proxy is available for all the users with some conditions.
+
+Firstly, restricted residential proxy supports only certain domains and paths. The pool of 500 domains is increased every month and covers the most frequent use cases.
+Any traffic outside this pool of domains will go through [datacenter proxy]({{@link proxy/datacenter_proxy.md}}).
+
+The second limitation is that restricted residential proxy uses the man-in-the-middle system to monitor traffic
+and activities and so requires acceptance of an [SSL certificate](https://apify.com/restricted-residential-proxy-cert.crt).
+This is automatically handled by the [Apify SDK](https://sdk.apify.com/) for both Puppeteer and Playwright. To manually check if a connection is using a man-in-the-middle connection, [head over to the Apify Proxy page](http://proxy.apify.com).
+
+### [](#unrestricted-residential-proxy) Unrestricted residential proxy
+
+Unrestricted residential proxy neither limits the domains you can access nor requires a man-in-the-middle access to traffic.
+However, it's provided only to enterprise-level accounts on a per-request basis and under an additional contract.
+
+[Contact us](https://apify.com/contact) if you would like to use the unrestricted residential proxy or for more information.
 
 ## [](#connecting-to-residential-proxy) Connecting to residential proxy
 
