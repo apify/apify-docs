@@ -26,7 +26,7 @@ Apify provides 2 levels of residential proxy:
 | Level | Availability | Supported domains | Other limitations |
 |-------|--------------|-------------------|-------------------|
 | Restricted residential proxy | Every user | >500 domains | Requires [man-in-the-middle](https://crypto.stanford.edu/ssl-mitm/) access for the connection |
-| Unres residential proxy | Enterprise level accounts | Entire web| None |
+| Unrestricted residential proxy | Enterprise level accounts | Entire web| None |
 
 ### [](#restricted-residential-proxy) Restricted residential proxy
 
