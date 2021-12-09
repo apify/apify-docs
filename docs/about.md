@@ -7,7 +7,7 @@ paths:
     - about
 ---
 
-# [](#what-is-apify) What is Apify?
+# [](#what-is-apify) Hello?
 
 Apify is an online platform specializing in [web scraping]({{@link web_scraping_101.md}}), data processing and [robotic process automation]({{@link robotic_process_automation.md}}).
 
