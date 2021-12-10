@@ -1,7 +1,7 @@
 ---
 title: Scraping dynamic content
 description: Wait for dynamically loaded content when web scraping. See code examples and a detailed breakdown for setting timeouts and custom wait functions.
-menuWeight: 3.4
+menuWeight: 3.5
 paths:
     - tutorials/scraping-dynamic-content
 ---

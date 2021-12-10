@@ -34,6 +34,8 @@ Building your own actors requires some experience with coding. If you're ready, 
 "But wait, I don't speak JavaScript", we hear you say. Worry not! While we currently only have an SDK for JavaScript, you actor can be in any language. If you use Python, you can now [scrape data with Beautiful Soup]({{@link tutorials/scrape_data_using_python.md}})
 and [parse the results with Pandas]({{@link tutorials/process_data_using_python.md}}) on the Apify platform. Prefer PHP? Cool! You can [use Apify in your PHP projects]({{@link tutorials/use_apify_from_php.md}}).
 
+If you're interested in publishing your actors for others to use, check our [building public actors]({{@link tutorials/building_public_actors.md}}) guide. It contains useful information you'll need to make your actor as good as it can be.
+
 ## Advanced use cases
 
 Check out our other tutorials that cover more specific and advanced scenarios such as [scraping dynamic content]({{@link tutorials/scraping_dynamic_content.md}}), [integrating]({{@link tutorials/integrations.md}}) your projects with Apify, [using your actors via API]({{@link tutorials/integrations/run_actor_and_retrieve_data_via_api.md}}), or setting up [monitoring]({{@link monitoring.md}}) for your projects.
