@@ -8,7 +8,7 @@ paths:
     - tutorials
 ---
 
-If you're new to Apify, [check out the Quick Start tutorial]({{@link quick_start.md}}). It will show you how to [run existing actors]({{@link tutorials/quick_start.md#run-an-actor}}) and [create your first Apify actor]({{@link tutorials/quick_start.md#create-an-actor}}).
+If you're new to Apify, [check out the Quick Start tutorial]({{@link tutorials/quick_start.md}}). It will show you how to [run existing actors]({{@link tutorials/quick_start.md#run-an-actor}}) and [create your first Apify actor]({{@link tutorials/quick_start.md#create-an-actor}}).
 
 Next, learn how to [set up your first web scraping job]({{@link tutorials/apify_scrapers/getting_started.md}}) with a step-by-step guide. Then, get familiar with our main tools by following
 the [tutorial]({{@link tutorials/apify_scrapers/web_scraper.md}}) for **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)),
@@ -28,7 +28,7 @@ and [parsing the results with Pandas]({{@link tutorials/process_data_using_pytho
 
 ## Advanced use cases
 
-Check out our other tutorials that cover more specific and advanced scenarios such as [scraping dynamic content]({{@link tutorials/scraping_dynamic_content.md}}), [integrating]({{@link tutorials/integrations.md}}) your projects with Apify, [using your actors via API]({{@link tutorials/integrations/run_actor_and_retrieve_data_via_api.md}}), or setting up [monitoring]({{@link tutorials/monitoring.md}}) for your projects.
+Check out our other tutorials that cover more specific and advanced scenarios such as [scraping dynamic content]({{@link tutorials/scraping_dynamic_content.md}}), [integrating]({{@link tutorials/integrations.md}}) your projects with Apify, [using your actors via API]({{@link tutorials/integrations/run_actor_and_retrieve_data_via_api.md}}), or setting up [monitoring]({{@link monitoring.md}}) for your projects.
 
 If the solution you need is beyond your skillset or schedule, you can always [order a custom solution](https://apify.com/custom-solutions).
 
