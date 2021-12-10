@@ -159,15 +159,24 @@ If a client sends too many requests, the API endpoints respond with the HTTP sta
 
 ## [](#data-retention) Data retention
 
-Unnamed storages expire after 7 days unless otherwise specified.
+Unnamed storages expire after 7 days unless otherwise specified. Named storages are retained indefinitely.
 
-Named storages are retained indefinitely.
+### [](#preserving-storages) Preserving your storages
 
-You can edit your storages' names in [Apify Console](#apify-console) or using the access methods above.
+To preserve your storages indefinitely, give them a name. You can do this in Apify Console or using our API. First, you'll need your store's ID. You can find it the details of the run that created it. In Apify Console, head over to your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate. Check that store's details and among them you will find its ID.
+
+![Finding your store's ID]({{@asset storage/images/find-store-id.webp}})
+
+Then, head over to the **Storage** menu, select the appropriate tab, and tick the **Include unnamed \[stores\]** box. Find and open your store using the ID you just found, select the Settings tab, and enter its new name in the field. Your store will now be preserved indefinitely.
+
+To name your store via API, get its ID from the run that generated it using the [Get run](/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run) endpoint. You can then give it a new name using the **Update \[store\]** endpoint. For example, [Update dataset](/api/v2#/reference/datasets/dataset/update-dataset).
+
+The [Apify SDK](sdk.apify.com) and the [JavaScript]({{@link apify_client_js.md}}) and [Python]({{@link apify_client_python.md}}) clients have their own ways of naming storages - check their docs for details.
+
 
 ## [](#named-and-unnamed-storages) Named and unnamed storages
 
-All storages are created without a name (with only an **ID**). This allows them to expire after 7 days and not take up your storage space. If you want to preserve a storage, simply [give it a name](#apify-console) and it will be retained indefinitely.
+All storages are created without a name (with only an **ID**). This allows them to expire after 7 days and not take up your storage space. If you want to preserve a storage, simply [give it a name](#preserving-storages) and it will be retained indefinitely.
 
 > Storages' names can be up to 63 characters long.
 
