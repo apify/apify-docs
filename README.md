@@ -68,6 +68,8 @@ echo "Some bash code"
 
 \`\`\`
 
+PHP examples using guzzle live in separate repository: <https://github.com/apify/apify-php-examples>.
+
 ### Metadata
 
 Each Markdown file here starts with metadata that define the document's menu title, placement, page description, and paths. For example:
@@ -137,13 +139,13 @@ Avoid HTML in assets or links.
 You can place assets (images for example) in any directory. If you want to obtain a URL, use the following tag:
 
 ```text
-{{@asset actor/images/run-log-2.png}}
+{{@asset actor/images/run-log-2.webp}}
 ```
 
 So to include this image in Markdown use:
 
 ```text
-![Apify actor run log]({{@asset actor/images/run-log-2.png}})
+![Apify actor run log]({{@asset actor/images/run-log-2.webp}})
 ```
 
 ### Linking
@@ -230,4 +232,5 @@ There are, however, a few exceptions, shown below. To make changes to them, you'
 
 * Tutorials for Apify's scrapers (**docs/scraping** directory) are in the [**apify/actor-scraper**](https://github.com/apify/actor-scraper) repository.
 * Apify's API client for JavaScript documentation is in the [**apify-docs/apify-client-js**](https://github.com/apify/apify-client-js) repository.
+* Apify's API client for Python documentation is in the [**apify-docs/apify-client-python**](https://github.com/apify/apify-client-python) repository.
 * Docs for the command-line interface are in the [**apify/apify-cli**](https://github.com/apify/apify-cli) repo.

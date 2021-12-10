@@ -1,6 +1,6 @@
 ---
 title: Dataset
-description: Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in the Apify app or via API.
+description: Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in Apify Console or via API.
 menuWeight: 9.1
 paths:
     - storage/dataset
@@ -20,25 +20,26 @@ Dataset storage is **append-only** - data can only be added and cannot be change
 
 ## [](#basic-usage) Basic usage
 
-There are four ways to access your datasets:
+There are five ways to access your datasets:
 
-* [Apify app](https://my.apify.com/storage#/datasets) - provides an easy-to-understand interface [[details](#apify-app)].
+* [Apify Console](https://console.apify.com/storage#/datasets) - provides an easy-to-understand interface [[details](#apify-console)].
 * [Apify SDK](https://sdk.apify.com/docs/guides/data-storage#dataset) - when building your own Apify actor [[details](#apify-sdk)].
-* [JavaScript API client](https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets) - to access your datasets from any Node.js application [[details](#javascript-api-client)].
+* [JavaScript API client](/apify-client-js#datasetclient) - to access your datasets from any Node.js application [[details](#javascript-api-client)].
+* [Python API client](/apify-client-python#datasetclient) - to access your datasets from any Python application [[details](#python-api-client)].
 * [Apify API](https://docs.apify.com/api/v2#/reference/datasets) - for accessing your datasets programmatically [[details](#apify-api)].
 
-### [](#apify-app) Apify app
+### [](#apify-console) Apify Console
 
-In the [Apify app](https://my.apify.com), you can view your datasets in the [Storage](https://my.apify.com/storage) section under the [Datasets](https://my.apify.com/storage#/datasets) tab.
+In [Apify Console](https://console.apify.com), you can view your datasets in the [Storage](https://console.apify.com/storage) section under the [Datasets](https://console.apify.com/storage#/datasets) tab.
 
 Only named datasets are displayed by default. Select the **Include unnamed datasets** checkbox to display all of your datasets.
 
-![Datasets in app]({{@asset storage/images/datasets-app.png}})
+![Datasets in app]({{@asset storage/images/datasets-app.webp}})
 
 To view or download a dataset in the above mentioned formats, click on its **Dataset ID**\. In the detail page, you can update the dataset's name (and, in turn, its [retention period]({{@link storage.md#data-retention}})) and
-[access rights]({{@link access_rights.md}}) under the **Settings** tab. The API tab allows you to view and test the dataset's [API endpoints](https://docs.apify.com/api/v2#/reference/datasets).
+[access rights]({{@link access_rights.md}}) under the **Settings** tab. The API tab allows you to view and test the dataset's [API endpoints](/api/v2#/reference/datasets).
 
-![Datasets detail view]({{@asset storage/images/datasets-detail.png}})
+![Datasets detail view]({{@asset storage/images/datasets-detail.webp}})
 
 ### [](#apify-sdk) Apify SDK
 
@@ -94,88 +95,65 @@ const hotelAndCafeData = await dataset.getData({
 });
 ```
 
-For more information on managing datasets using the Apify SDK, see the [SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset) and the `Dataset` class's [API reference](https://sdk.apify.com/docs/api/dataset#datasetpushdatadata).
+[See the SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset) and the `Dataset` class's [API reference](https://sdk.apify.com/docs/api/dataset#datasetpushdatadata) for details on managing datasets with the Apify SDK.
 
 ### [](#javascript-api-client) JavaScript API client
 
-Apify's [JavaScript API client](https://docs.apify.com/apify-client-js#ApifyClient-datasets) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or elsewhere.
+Apify's [JavaScript API client](/apify-client-js) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or elsewhere.
 
-For help with setting up the client, see the JavaScript API client section on the [overview page](https://docs.apify.com/storage/#javascript-api-client).
-
-After [importing](https://docs.apify.com/storage/#javascript-api-client) the `apify-client` package into your application and creating an instance of it, save it to a variable for easier access.
+After importing and initiating the client, you can save each dataset to a variable for easier access.
 
 ```js
-// Save your datasets to a variable for easier access
-const { datasets } = apifyClient;
+const myDatasetClient = apifyClient.dataset('jane-doe/my-dataset');
 ```
 
-You can then create, update, and delete datasets using the commands below.
+You can then use that variable to [access the dataset's items and manage it](/apify-client-js#datasetclient).
 
-```js
-// Get the dataset with the name "my-dataset"
-// or create it if it doesn't exist
-const dataset = await datasets.getOrCreateDataset({
-    datasetName: 'my-dataset',
-});
+Note: When using the [`.listItems()`](/apify-client-js#datasetclient-listitems) method, if you mention the same field name in the `field` and `omit` parameters, the `omit` parameter will prevail and the field will not be returned.
 
-// Set the dataset as the default to be used
-// in the following commands
-apifyClient.setOptions({ datasetId: dataset.id });
+[See the JavaScript API client documentation](/apify-client-js#datasetclient) for [help with setup](/apify-client-js#quick-start) and more details.
 
-// Add an object and and array of objects to the dataset
-await datasets.putItems({
-    data: { foo: 'bar' },
-});
-await datasets.putItems({
-    data: [{ foo: 'hotel' }, { foo: 'cafe' }],
-});
+### [](#python-api-client) Python API client
 
-// Get items from a dataset
-const paginationList = await datasets.getItems();
-const { items } = paginationList;
+Apify's [Python API client](/apify-client-python) (`apify-client`) allows you to access your datasets from any Python application, whether it is running on the Apify platform or elsewhere.
 
-// Delete a dataset
-await datasets.deleteDataset();
+After importing and initiating the client, you can save each dataset to a variable for easier access.
+
+```python
+my_dataset_client = apify_client.dataset('jane-doe/my-dataset')
 ```
 
-When using the `getItems()` method, you can specify the data you retrieve using the `[fields]` parameter. It should be an array of field names (strings) that will be included in the results. To include all the results, exclude the `[fields]` parameter.
+You can then use that variable to [access the dataset's items and manage it](/apify-client-python#datasetclient).
 
-```js
-// Only get the "hotel" and "cafe" fields
-const hotelAndCafeData = await datasets.getItems({
-    fields: ['hotel', 'cafe'],
-});
-```
+Note: When using the [`.list_items()`](/apify-client-python#datasetclient-list_items) method, if you mention the same field name in the `field` and `omit` parameters, the `omit` parameter will prevail and the field will not be returned.
 
-You can **specify which data are exported** by adding a comma-separated list of fields to the **fields** query parameter. Likewise, you can also omit certain fields using the **omit** parameter.
-
-**If you both specify and omit the same field in a request, the **omit** parameter will prevail and the field will not be returned.**
-
-For more information, see the JavaScript API client [documentation](https://docs.apify.com/apify-client-js#ApifyClient-datasets).
+[See the Python API client documentation](/apify-client-python#datasetclient) for [help with setup](/apify-client-python#quick-start) and more details.
 
 ### [](#apify-api) Apify API
 
 The [Apify API](https://docs.apify.com/api/v2#/reference/datasets) allows you to access your datasets programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
-If you are accessing your datasets using the **username~store-name** [store ID format]({{@link storage.md#apify-api}}), you will need to append your [secret API token]({{@link tutorials/integrations.md#api-token}}) as a query parameter (see below). You can find the token (and your user ID) on the [Integrations](https://my.apify.com/account#/integrations) page of your Apify account.
+If you are accessing your datasets using the **username~store-name** [store ID format]({{@link storage.md#apify-api}}), you will need to use your [secret API token]({{@link tutorials/integrations.md#api-token}}). You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) page of your Apify account.
 
-To **get a list of your datasets**, send a GET request to the [Get list of datasets](https://docs.apify.com/api/v2#/reference/datasets/get-list-of-datasets) endpoint, providing your API token as a query parameter.
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+
+To **get a list of your datasets**, send a GET request to the [Get list of datasets](https://docs.apify.com/api/v2#/reference/datasets/get-list-of-datasets) endpoint.
 
 ```text
-https://api.apify.com/v2/datasets?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/datasets
 ```
 
 To **get information about a dataset** such as its creation time and **item count**, send a GET request to the [Get dataset](https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset) endpoint.
 
 ```text
-https://api.apify.com/v2/datasets/{DATASET_ID}?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/datasets/{DATASET_ID}
 ```
 
 To **view a dataset's data**, send a GET request to the
 [Get dataset items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items) Apify API endpoint.
 
 ```text
-https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
 You can **specify which data are exported** by adding a comma-separated list of fields to the **fields** query parameter. Likewise, you can also omit certain fields using the **omit** parameter.
@@ -187,7 +165,7 @@ In addition, you can set the format in which you retrieve the data using the **?
 To retrieve the **hotel** and **cafe** fields, you would send your GET request to the URL below.
 
 ```text
-https://api.apify.com/v2/datasets/{DATASET_ID}/items?format=json?token={YOUR_API_TOKEN}&fields=hotel%2Ccafe
+https://api.apify.com/v2/datasets/{DATASET_ID}/items?format=json&fields=hotel%2Ccafe
 ```
 
 > Instead of commas, you will need to use the `%2C` code, which represents `,` in URL encoding.<br/>
@@ -196,7 +174,7 @@ https://api.apify.com/v2/datasets/{DATASET_ID}/items?format=json?token={YOUR_API
 To **add data to a dataset**, send a POST request, with a JSON object containing the data you want to add as the payload to the [Put items](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items) endpoint.
 
 ```text
-https://api.apify.com/v2/datasets/{DATASET_ID}/items/?token={YOUR_API_TOKEN}
+https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
 > Pushing data to dataset via API is limited to **200** requests per second to prevent our servers from being overloaded.
@@ -217,7 +195,7 @@ Example payload:
 ]
 ```
 
-For a detailed breakdown of each API endpoint, see the [API documentation](https://docs.apify.com/api/v2#/reference/datasets).
+[See the API documentation](https://docs.apify.com/api/v2#/reference/datasets) for a detailed breakdown of each API endpoint.
 
 ## [](#hidden-fields) Hidden fields
 
@@ -240,7 +218,7 @@ Below is an example of a dataset record containing hidden fields with an HTTP re
 }
 ```
 
-Data without hidden fields are called "clean" and can be downloaded from the [Apify app](https://my.apify.com/storage#/datasets) using the "Clean items" link or via API using the **clean=true** or **clean=1** [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items).
+Data without hidden fields are called "clean" and can be downloaded from [Apify Console](https://console.apify.com/storage#/datasets) using the "Clean items" link or via API using the **clean=true** or **clean=1** [URL parameters](https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items).
 
 ## [](#xml-format-extension) XML format extension
 
@@ -320,7 +298,7 @@ By default, the whole result is wrapped in an `<items/>` element, while each pag
 
 ## [](#sharing) Sharing
 
-You can invite other Apify users to view or modify your datasets using the [access rights]({{@link access_rights.md}}) system. See the full list of permissions [here]({{@link access_rights/list_of_permissions.md#dataset}}).
+You can invite other Apify users to view or modify your datasets using the [access rights]({{@link access_rights.md}}) system. [See the full list of permissions]({{@link access_rights/list_of_permissions.md#storage}}).
 
 ### [](#sharing-datasets-between-runs) Sharing datasets between runs
 
@@ -332,19 +310,21 @@ To access a dataset from another run using the Apify SDK, open it using the `Api
 const otherDataset = await Apify.openDataset('old-dataset');
 ```
 
-To access a dataset using the [JavaScript API client](#javascript-api-client), use the `getOrCreateDataset()` [method](https://docs.apify.com/apify-client-js#ApifyClient-datasets).
+In the [JavaScript API client](/apify-client-js), you can access a dataset using [its client](/apify-client-js#datasetclient). Once you've opened the dataset, read its contents and add new data like you would with a dataset from your current run.
 
 ```js
-const otherDataset = await datasets.getOrCreateDataset({
-    datasetName: 'my-dataset',
-});
+const otherDatasetClient = apifyClient.dataset('jane-doe/old-dataset');
 ```
 
-Once you've opened the dataset, read its contents and add new data like you would with a dataset from your current run.
+Likewise, in the [Python API client](/apify-client-python), you can access a dataset using [its client](/apify-client-python#datasetclient).
+
+```python
+other_dataset_client = apify_client.dataset('jane-doe/old-dataset')
+```
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally.
 
-For more information on sharing storages between runs, see the Storage [overview page](https://docs.apify.com/storage/#sharing-storages-between-runs).
+[See the Storage overview](https://docs.apify.com/storage/#sharing-storages-between-runs) for details on sharing storages between runs.
 
 ## [](#limits) Limits
 
@@ -360,4 +340,4 @@ When pushing data to a dataset via [API](https://docs.apify.com/api/v2#/referenc
 
 All other dataset API [endpoints](https://docs.apify.com/api/v2#/reference/datasets) are limited to **30** requests per second per dataset.
 
-See the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for more details and to learn what to do if you exceed the rate limit.
+[See the API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting) for details and to learn what to do if you exceed the rate limit.

@@ -5,6 +5,18 @@
             "href": "/about"
         },
         {
+            "cardItem": "Quick start",
+            "href": "/tutorials/quick-start"
+        },
+        {
+            "cardItem": "Start using Apify scrapers",
+            "href": "/tutorials/apify-scrapers/getting-started"
+        },
+        {
+            "cardItem": "Learn to use Web Scraper",
+            "href": "/tutorials/apify-scrapers/web-scraper"
+        },
+        {
             "cardItem": "Take a video tour of the platform",
             "href": "https://www.youtube.com/watch?v=XPF0kbyvoOs",
             "isExternalLink": true
@@ -21,21 +33,9 @@
         {
             "cardItem": "What is web scraping?",
             "href": "/web-scraping-101"
-        },
-        {
-            "cardItem": "Automate repetitive tasks",
-            "href": "/robotic-process-automation"
         }
     ],
     "Guides": [
-        {
-            "cardItem": "Quick start",
-            "href": "/tutorials/quick-start"
-        },
-        {
-            "cardItem": "Use Apify scrapers",
-            "href": "/tutorials/apify-scrapers/getting-started"
-        },
         {
             "cardItem": "Actor tasks",
             "href": "/actors/tasks"
@@ -45,16 +45,24 @@
             "href": "/tutorials/integrations/run-actor-and-retrieve-data-via-api"
         },
         {
-            "cardItem": "Learn to use Web Scraper",
-            "href": "/tutorials/apify-scrapers/web-scraper"
-        },
-        {
             "cardItem": "Log into a website",
             "href": "/tutorials/log-into-a-website-using-puppeteer"
         },
         {
             "cardItem": "Integrations",
             "href": "/tutorials/integrations"
+        },
+        {
+            "cardItem": "Use Apify from PHP",
+            "href": "/tutorials/use-apify-from-php"
+        },
+        {
+            "cardItem": "Automate repetitive tasks",
+            "href": "/robotic-process-automation"
+        },
+        {
+            "cardItem": "Process data in Python with Pandas",
+            "href": "/tutorials/process-data-using-python"
         }
     ],
     "Web scraping": [
@@ -80,6 +88,10 @@
         {
             "cardItem": "Analyze pages and fix errors",
             "href": "/tutorials/analyze-pages-and-fix-errors"
+        },
+        {
+            "cardItem": "Scrape data in Python with Beautiful Soup",
+            "href": "/tutorials/scrape-data-using-python"
         }
     ],
     "Platform features": [

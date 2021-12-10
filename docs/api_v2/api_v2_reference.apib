@@ -11,7 +11,9 @@ with a few exceptions that are explicitly described in the reference.
 
 To access the API using [Node.js](https://nodejs.org/en/), we recommend the
 [`apify-client`](https://docs.apify.com/api/apify-client-js/latest) [NPM package](https://www.npmjs.com/package/apify-client).
-The client's functions correspond to the API endpoints and have the same parameters. This simplifies development of apps that depend on the Apify platform.
+To access the API using [Python](https://www.python.org/), we recommend the
+[`apify-client`](https://docs.apify.com/api/apify-client-python/latest) [PyPI package](https://pypi.org/project/apify-client/).
+The clients' functions correspond to the API endpoints and have the same parameters. This simplifies development of apps that depend on the Apify platform.
 
 **Note:** All requests with JSON payloads need to specify the `Content-Type: application/json` HTTP header!
 
@@ -24,9 +26,17 @@ from services that can only send GET requests.
 ## Authentication
 
 You can find your API token on the
-[Integrations](https://my.apify.com/account#/integrations) page in the Apify app.
+[Integrations](https://console.apify.com/account#/integrations) page in the Apify Console.
 
-Add the token as the `token` parameter to your request URL.
+To use your token in a request, either:
+- Add the token to your request's `Authorization` header as `Bearer <token>`.
+E.g., `Authorization: Bearer xxxxxxx`.
+[More info](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization). (Recommended).
+- Add it as the `token` parameter to your request URL. (Less secure).
+
+Using your token in the request header is more secure than using it as a URL parameter because URLs are often stored
+in browser history and server logs. This creates a chance for someone unauthorized to access
+your API token.
 
 **Do not share your API token or password with untrusted parties.**
 
@@ -40,17 +50,17 @@ To run an actor, send a POST request to the [Run actor](#reference/actors/run-co
 
 If the actor is not runnable anonymously, you will receive a 401 or 403
 [response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
-This means you need to append your [secret API token](https://my.apify.com/account#/integrations) as a query parameter `?token=[your_token]`.
+This means you need to add your [secret API token](https://console.apify.com/account#/integrations) to the request's `Authorization` header ([recommended](#introduction/authentication)) or as a URL query parameter `?token=[your_token]` (less secure).
 
 Optionally, you can include the query parameters described in the [Run actor](#reference/actors/run-collection/run-actor) section to customize your run.
 
-If you're using Node.js, the best way to run an actor is using the `Apify.call()` method from the [Apify SDK](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options). It runs the actor using the account you are currently logged into (determined by the [secret API token](https://my.apify.com/account#/integrations)). The result is an [actor run object](https://sdk.apify.com/docs/typedefs/actor-run) and its output (if any).
+If you're using Node.js, the best way to run an actor is using the `Apify.call()` method from the [Apify SDK](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options). It runs the actor using the account you are currently logged into (determined by the [secret API token](https://console.apify.com/account#/integrations)). The result is an [actor run object](https://sdk.apify.com/docs/typedefs/actor-run) and its output (if any).
 
 A typical workflow is as follows:
 
 1. Run an actor or task using the [Run actor](#reference/actors/run-collection/run-actor) or [Run task](#reference/actor-tasks/run-collection/run-task) API endpoints.
 
-2. Monitor the actor run by periodically polling its progress using the [Get run](#reference/actors/run-object/get-run) API endpoint.
+2. Monitor the actor run by periodically polling its progress using the [Get run](#reference/actor-runs/run-object-and-its-storages/get-run) API endpoint.
 
 3. Fetch the results from the [Get items](#reference/datasets/item-collection/get-items) API endpoint using the `defaultDatasetId`, which you receive in the Run request response. Additional data may be stored in a key-value store. You can fetch them from the [Get record](#reference/key-value-stores/record/get-record) API endpoint using the `defaultKeyValueStoreId` and the store's `key`.
 
@@ -330,8 +340,8 @@ of endpoints that are rate limited to 200 requests per second:
   operations of request queue requests
 
 > For authenticated API endpoints (if you use an [authentication token](#authentication)), the limit is counted per user.
-Storage API endpoints (when a token isn't used) count the limit per storage object.
-Anonymous API endpoints count the limit per client IP adress.
+Storage API endpoints (when a token isn't used) count the limit per store ID.
+Anonymous API endpoints count the limit per client IP adress. Each API endpoint returns its rate limit in `X-RateLimit-Limit` header.
 
 If the client is sending too many requests, the API endpoints respond with the HTTP status code `429 Too Many Requests`
 and the following body:
@@ -360,8 +370,9 @@ and it can be described using the following pseudo-code:
 If all requests sent by the client implement the above steps,
 the client will automatically use the maximum available bandwidth for its requests.
 
-Note that the <a href="https://docs.apify.com/api/apify-client-js/latest">apify-client</a> NPM package
-uses the exponential backoff algorithm transparently, so that you do not need to worry about it.
+Note that the Apify API clients [for JavaScript](https://docs.apify.com/api/apify-client-js)
+and [for Python](https://docs.apify.com/api/apify-client-python)
+use the exponential backoff algorithm transparently, so that you do not need to worry about it.
 
 
 # Group Actors
@@ -461,6 +472,8 @@ The response is the full actor object as returned by the
 [Get actor](#reference/actors/actor-object/get-actor) endpoint.
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
+
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
 + Request (application/json)
 
@@ -608,6 +621,8 @@ passed as JSON in the POST payload.
 If the object does not define a specific property, its value will not be updated.
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
+
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
 The response is the [Version object](#reference/actors/version-object) as returned by the
 [Get version](#reference/actors/version-object/get-version) endpoint.
@@ -817,7 +832,8 @@ Runs an actor and immediately returns without waiting for the run to finish.
 The POST payload including its `Content-Type` header is passed as `INPUT` to the actor (usually `application/json`).
 The actor is started with the default options; you can override them using various URL query parameters.
 
-The response is the Run object as returned by the [Get run](#reference/actors/run-object/get-run) API endpoint.
+The response is the Run object as returned by the [Get run](#reference/actor-runs/run-object-and-its-storages/get-run) API endpoint.
+
 If you want to wait for the run to finish and receive the actual output of the actor as the response,
 please use one of the [Run actor synchronously](#reference/actors/run-actor-synchronously) API endpoints instead.
 
@@ -1180,7 +1196,7 @@ This endpoint does not require the authentication token, the calls are authentic
     + Attributes
         - data (Run, required)
 
-## Abort run [/v2/acts/{actorId}/runs/{runId}/abort{?token}]
+## Abort run [/v2/acts/{actorId}/runs/{runId}/abort{?token,gracefully}]
 
 ### Abort run [POST]
 
@@ -1192,6 +1208,9 @@ Only runs that are starting or running are aborted. For runs with status `FINISH
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + gracefully: `true` (boolean, optional)    - If true passed, the actor run will abort gracefully.
+                                                It will send `aborting` and `persistState` event into run and force-stop the run after 30 seconds.
+                                                It is helpful in cases where you plan to resurrect the run later.
 
 + Response 200 (application/json)
 
@@ -1374,6 +1393,8 @@ The response is the full task object as returned by the
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
 
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+
 + Request (application/json)
 
     + Attributes(TaskCreate)
@@ -1412,6 +1433,8 @@ The response is the full task object as returned by the
 [Get task](#reference/tasks/task-object/get-task) endpoint.
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
+
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
 + Request (application/json)
 
@@ -1457,6 +1480,8 @@ The response is the full task input as returned by the
 [Get task](#reference/tasks/task-input-object/get-task-input) endpoint.
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
+
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
 + Request (application/json)
 
@@ -1553,7 +1578,7 @@ and setting the `Content-Type: application/json` HTTP header.
 Note that if the object in the POST payload does not define a particular input property,
 the actor run uses the default value defined by the task (or actor's input schema if not defined by the task).
 
-The response is the actor Run object as returned by the [Get run](#reference/actors/run-object/get-run) endpoint.
+The response is the actor Run object as returned by the [Get run](#reference/actor-runs/run-object-and-its-storages/get-run) endpoint.
 If you want to wait for the run to finish and receive the actual output of the actor run as the response,
 use one of the [Run task synchronously](#reference/actor-tasks/run-task-synchronously) API endpoints instead.
 
@@ -1977,7 +2002,64 @@ parameter. You can also filter runs by status ([available statuses](https://docs
             - count: 2 (number, required)
             - items (array[RunShort1,RunShort2], required)
 
-## Run object [/v2/actor-runs/{runId}{?token,waitForFinish}]
+## Run object and its storages [/v2/actor-runs/{runId}{?token,waitForFinish}]
+
+This is not a single endpoint, but an entire group of endpoints that lets you
+retrieve the run or any of its default storages.
+
+The endpoints accept the same HTTP methods and query parameters as
+the respective storage endpoints.
+The base path that represents the actor run object is:
+
+`/v2/actor-runs/{runId}{?token}`
+
+In order to access the default storages of the actor run, i.e. log, key-value store, dataset and request queue,
+use the following endpoints:
+
+* `/v2/actor-runs/{runId}/log{?token}`
+* `/v2/actor-runs/{runId}/key-value-store{?token}`
+* `/v2/actor-runs/{runId}/dataset{?token}`
+* `/v2/actor-runs/{runId}/request-queue{?token}`
+
+These API endpoints have the same usage as the equivalent storage endpoints.
+For example,
+`/v2/actor-runs/{runId}/key-value-store` has the same HTTP method and parameters as the
+[Key-value store object](#reference/key-value-stores/store-object) endpoint.
+
+Additionally, each of the above API endpoints supports all sub-endpoints
+of the original one:
+
+#### Log
+* `/v2/actor-runs/{runId}/logs` [Log](#reference/log)
+
+#### Key-value store
+
+* `/v2/actor-runs/{runId}/key-value-store/keys{?token}` [Key collection](#reference/key-value-stores/key-collection)
+* `/v2/actor-runs/{runId}/key-value-store/records/{recordKey}{?token}` [Record](#reference/key-value-stores/record)
+
+#### Dataset
+
+* `/v2/actor-runs/{runId}/dataset/items{?token}` [Item collection](#reference/datasets/item-collection)
+
+#### Request queue
+
+* `/v2/actor-runs/{runId}/request-queue/requests{?token}` [Request collection](#reference/request-queues/request-collection)
+* `/v2/actor-runs/{runId}/request-queue/requests/{requestId}{?token}` [Request collection](#reference/request-queues/request)
+* `/v2/actor-runs/{runId}/request-queue/head{?token}` [Queue head](#reference/request-queues/queue-head)
+
+For example, to download data from a dataset of the actor run in XML format,
+send HTTP GET request to the following URL:
+
+```
+https://api.apify.com/v2/actor-runs/{runId}/dataset/items?format=xml
+```
+
+In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
+
++ Parameters
+
+    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
 
 ### Get run [GET]
 
@@ -2000,7 +2082,7 @@ This endpoint does not require the authentication token, the calls are authentic
     + Attributes
         - data (Run, required)
 
-## Abort run [/v2/actor-runs/{runId}/abort{?token}]
+## Abort run [/v2/actor-runs/{runId}/abort{?token,gracefully}]
 
 ### Abort run [POST]
 
@@ -2011,6 +2093,9 @@ Only runs that are starting or running are aborted. For runs with status `FINISH
 
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + gracefully: `true` (boolean, optional)    - If true passed, the actor run will abort gracefully.
+                                                It will send `aborting` and `persistState` event into run and force-stop the run after 30 seconds.
+                                                It is helpful in cases where you plan to resurrect the run later.
 
 + Response 200 (application/json)
 
@@ -2467,6 +2552,9 @@ If a dataset with the given name already exists then returns its object.
 ### Get dataset [GET]
 
 Returns dataset object for given dataset ID.
+
+**NOTE:** Keep in mind that attributes `itemCount` and `cleanItemCount` are not propagated right away after data are pushed into a dataset.
+There is a short period (up to 5 seconds) during which these counters may not match with exact counts in dataset items.
 
 + Parameters
 
@@ -3115,6 +3203,8 @@ The response is the full webhook object as returned by the
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
 
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+
 + Request (application/json)
 
     + Attributes(WebhookUpdate)
@@ -3131,6 +3221,21 @@ Deletes a webhook.
 + Response 204 (application/json)
 
     + Attributes(object)
+
+## Webhook test [/v2/webhooks/{webhookId}/test{?token}]
+
++ Parameters
+
+    + webhookId: `Zib4xbZsmvZeK55ua`    (string, required) - Webhook ID.
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+
+### Test webhook [POST]
+
+Tests a webhook. Creates a webhook dispatch with a dummy payload.
+
++ Response 201 (application/json)
+    + Attributes
+        - data (WebhookDispatch, required)
 
 ### Dispatches collection [/v2/webhooks/{webhookId}/dispatches{?token}]
 
@@ -3254,6 +3359,8 @@ The response is the created schedule object.
 
 The request needs to specify the `Content-Type: application/json` HTTP header!
 
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+
 + Request (application/json)
 
     + Attributes(ScheduleCreate)
@@ -3292,6 +3399,8 @@ The response is the full schedule object as returned by the
 [Get schedule](#reference/schedules/schedule-object/get-schedule) endpoint.
 
 **The request needs to specify the `Content-Type: application/json` HTTP header!**
+
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
 + Request (application/json)
 

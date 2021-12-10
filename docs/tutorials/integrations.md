@@ -20,7 +20,8 @@ Integrations use [APIs](https://www.smashingmagazine.com/2018/01/understanding-u
 Our [RESTful API](/api/v2#) allows you to control the Apify platform from any application.
 You can create [actors](/api/v2#/reference/actors/actor-collection/create-actor) and [tasks](/api/v2#/reference/actor-tasks/task-collection/create-task),
 [start and stop your runs](/api/v2#/reference/actor-tasks/run-task-synchronously/run-task-synchronously-(post)),
-and [manage your data](/api/v2#/reference/datasets/item-collection/put-items) using only HTTP requests (or our handy [API client]({{@link apify_client_js.md}})). Meanwhile, webhooks allow you to perform tasks like sending HTTP requests or notification on when certain [events]({{@link webhooks/events.md}}) occur.
+and [manage your data](/api/v2#/reference/datasets/item-collection/put-items) using only HTTP requests (or our handy API clients [for JavaScript]({{@link apify_client_js.md}}) and [for Python]({{@link apify_client_python.md}})).
+Meanwhile, webhooks allow you to perform tasks like sending HTTP requests or notifications when certain [events]({{@link webhooks/events.md}}) occur.
 
 ## [](#get-started) Get started
 
@@ -34,17 +35,15 @@ Below are some examples of the kind of integrations you can set up with Apify.
 
 - [Integromat](https://integromat.com/en/integrations/apify).
 
+- [Airbyte](https://docs.airbyte.io/integrations/sources/apify-dataset).
+
 ## [](#api-token) API token
 
-To access our API in your integrations, you will need to use your secret API token. You can find it on the [Integrations](https://my.apify.com/account#/integrations) page in the Apify app.
+To access our API in your integrations, you will need to use your secret API token. You can find it on the [Integrations](https://console.apify.com/account#/integrations) page in the Apify Console.
 
-![Integrations page in the Apify app]({{@asset tutorials/images/api-token.png}})
+![Integrations page in the Apify Console]({{@asset tutorials/images/api-token.webp}})
 
-Add the secret API token to your request URL as the `token` query parameter.
-
-```cURL
-https://api.apify.com/v2/acts?token=[YOUR_TOKEN]
-```
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
 **IMPORTANT**: **Do not share the API token with untrusted parties, or use it directly from client-side code,
 unless you fully understand the consequences!**

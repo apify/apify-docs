@@ -1,7 +1,7 @@
 ---
 title: Proxy
-description: Learn how to anonymously access websites when running web scraping or automation jobs. Prevent IP address-based blocking using IP address rotation.
-menuWeight: 11
+description: Learn how to anonymously access websites when running web scraping or automation jobs. Improve data throughput and efficiency of bots, and enable access to websites from various geographies.
+menuWeight: 10
 category: platform
 paths:
     - proxy
@@ -9,25 +9,39 @@ paths:
 
 # [](./proxy) Proxy
 
-[Apify Proxy](https://apify.com/proxy) allows you to disguise yourself when web scraping to reduce your chance of being [blocked]({{@link web_scraping_101/anti_scraping_techniques.md#ip-address-based-blocking}}).
+[Apify Proxy](https://apify.com/proxy) allows you to change your IP address when web scraping to reduce the chance of being [blocked]({{@link web_scraping_101/anti_scraping_techniques.md#ip-address-based-blocking}}) because of your geographical location.
 
-You can use proxies in your [actors]({{@link actors.md}}) or any other application that supports HTTP, HTTPS and FTP protocols. Apify Proxy monitors the health of your IP pool and intelligently [rotates addresses](#ip-address-rotation) to prevent detection.
+You can use proxies in your [actors]({{@link actors.md}}) or any other application that supports HTTP, HTTPS, and FTP protocols. Apify Proxy monitors the health of your IP pool and intelligently [rotates addresses](#ip-address-rotation) to prevent IP address-based blocking.
 
-**You can view your proxy settings and password on the [Proxy](https://my.apify.com/proxy) page in the Apify app.**
+**You can view your proxy settings and password on the [Proxy](https://console.apify.com/proxy) page in the Apify Console.**
 
 ## [](#our-proxies) Our proxies
 
-[Datacenter proxy]({{@link proxy/datacenter_proxy.md}}) – the fastest and cheapest option, it uses data centers to mask your IP address. Chance of blocking due to other users' activity. [[Code examples]({{@link proxy/datacenter_proxy/examples.md}})]
+[Datacenter proxy]({{@link proxy/datacenter_proxy.md}}) – the fastest and cheapest option, it uses datacenters to change your IP address. Note that there is a chance of being blocked because of the activity of other users. [[Code examples]({{@link proxy/datacenter_proxy/examples.md}})]
 
-[Residential proxy]({{@link proxy/residential_proxy.md}}) – IP addresses located in homes and offices around the world. These IPs have the lowest chance of blocking. [[How to connect]({{@link proxy/residential_proxy.md#connecting-to-residential-proxy}})]
+[Residential proxy]({{@link proxy/residential_proxy.md}}) – IP addresses located in homes and offices around the world. These IPs are the least likely to be blocked. [[How to connect]({{@link proxy/residential_proxy.md#connecting-to-residential-proxy}})]
 
-[Google SERP proxy]({{@link proxy/google_serp_proxy.md}}) – download and extract data from Google Search engine result pages (SERPs). You can select country and language to get localized results. [[Code examples]({{@link proxy/google_serp_proxy/examples.md}})]
+[Google SERP proxy]({{@link proxy/google_serp_proxy.md}}) – download and extract data from Google Search Engine Result Pages (SERPs). You can select country and language to get localized results. [[Code examples]({{@link proxy/google_serp_proxy/examples.md}})]
 
 **For pricing information, visit [apify.com/proxy](https://apify.com/proxy).**
 
+## Using your own proxies
+
+In addition to our proxies, you can use your own both in Apify Console and SDK.
+
+### [](#console) Custom proxies in console
+
+To use your own proxies with Apify Console, in your actor's **Input and options** tab, scroll down and open the **Proxy and browser configuration** section. Enter your proxy URLs and you're good to go.
+
+![Using custom proxy in Apify Console]({{@asset images/proxy-custom.webp}})
+
+### [](#SDK) Custom proxies in SDK
+
+In the Apify SDK, use the `proxyConfiguration.newUrl([sessionId])` command to add your custom proxy URLs to the proxy configuration. [See the SDK docs](http://username:password@custom-proxy.example.com) for more details.
+
 ## [](#ip-address-rotation) IP address rotation
 
-Web scrapers can rotate the IP addresses they use to access websites. They assign each request a different IP address, which makes it appear like they are all coming from different users.
+Web scrapers can rotate the IP addresses they use to access websites. They assign each request a different IP address, which makes it appear like they are all coming from different users. This greatly enhances performance and data throughput.
 
 Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or [HTTP requests](https://apify.com/apify/cheerio-scraper) for your scraping jobs, IP address rotation works differently.
 
@@ -36,7 +50,7 @@ Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or
 
 **You can use [sessions](#sessions) to manage how you rotate and [persist](#session-persistence) IP addresses.**
 
-[Click here]({{@link web_scraping_101/anti_scraping_techniques.md#bypassing-ip-address-based-blocking}}) to learn more about IP address rotation and other ways of bypassing blocking.
+[Click here]({{@link web_scraping_101/anti_scraping_techniques.md#bypassing-ip-address-based-blocking}}) to learn more about IP address rotation and our findings on how blocking works.
 
 ## [](#sessions) Sessions
 
@@ -56,7 +70,7 @@ You can persist your sessions (use the same IP address) by setting the `session`
 
 **Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** In cases where you need to keep the same session (e.g. when you need to log in to a website), it is best to keep the same proxy. By assigning an IP address to a **session ID**, you can use that IP for every request you make.
 
-For datacenter proxies, a session persists for **24 hours** ([more info]({{@link proxy/datacenter_proxy.md#session-persistence}})). For residential proxies, it persists for **1 minute** ([more info]({{@link proxy/residential_proxy.md#session-persistence}})). Using a session resets its expiry timer.
+For datacenter proxies, a session persists for **26 hours** ([more info]({{@link proxy/datacenter_proxy.md#session-persistence}})). For residential proxies, it persists for **1 minute** ([more info]({{@link proxy/residential_proxy.md#session-persistence}})). Using a session resets its expiry timer.
 
 Google SERP proxies do not support sessions.
 

@@ -11,7 +11,7 @@ paths:
 
 Limited pagination is a common practice on e-commerce sites and is becoming more popular over time. It makes sense: a real user will never want to look through more than 200 pages of results – only bots love unlimited pagination. Fortunately, there are ways to overcome this limit while keeping our code clean and generic.
 
-![Pagination in on Google search results page]({{@asset tutorials/images/pagination.png}})
+![Pagination in on Google search results page]({{@asset tutorials/images/pagination.webp}})
 
 > In a rush? Skip the tutorial and [get the full code example](https://github.com/metalwarrior665/apify-utils/tree/master/examples/crawler-with-filters).
 
@@ -53,7 +53,7 @@ This has several benefits:
 
 In the previous section, we analyzed different options to split the pages to overcome the pagination limit. We have chosen range filters as the most reliable way to do that. In this section, we will discuss a generic algorithm to work with ranges, look at a few special cases and then write an example crawler.
 
-![An example of range filters on a website]({{@asset tutorials/images/pagination-filters.png}})
+![An example of range filters on a website]({{@asset tutorials/images/pagination-filters.webp}})
 
 ### [](#the-algorithm) The algorithm
 
@@ -253,10 +253,10 @@ Let's finish the crawler now. This code example will go inside the `else` block 
 
 ```javascript
 const { min, max } = getFiltersFromUrl(request.url);
-// Our generic splitFitler function doesn't account for decimal values so we will have to convert to cents and back to dollars
+// Our generic splitFilter function doesn't account for decimal values so we will have to convert to cents and back to dollars
 const newFilters = splitFilter({ min: min * 100, max: max * 100 });
 
-// And we just enqueue those 2 new filters so the process will recursivelly repeat until all pages get to the PAGINATION phase
+// And we just enqueue those 2 new filters so the process will recursively repeat until all pages get to the PAGINATION phase
 for (const filter of newFilters) {
     await requestQueue.addRequest({
         // Remember that we have to convert back from cents to dollars

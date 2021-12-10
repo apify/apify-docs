@@ -11,17 +11,17 @@ paths:
 
 Paid actors are a new feature in [Apify Store](https://apify.com/store). They're like any other public actors, but with a slight difference. In order to use a paid actor, you **rent** it and pay a monthly fee to the developer. This empowers the developer to dedicate more time and effort to their actors. It ensures that these actors are of the **highest quality** and receive **ongoing maintenance**.
 
-![Paid actors in Apify Store]({{@asset actors/images/paid-actors-store.png}})
+![Paid actors in Apify Store]({{@asset actors/images/paid-actors-store.webp}})
 
 Each paid actor has a **free trial,** followed by a flat monthly rental fee that is automatically charged **from your platform usage credits** in advance for the following month. The trial's length is always shown for each paid actor.
 
-![Paid actors free trial]({{@asset actors/images/paid-actors-trial.png}})
+![Paid actors free trial]({{@asset actors/images/paid-actors-trial.webp}})
 
 <!-- You can read more about why we released paid actors in [this blog post](tbd) from Apify CEO Jan Čurn. -->
 
 ## Can I run paid actors via API or the Apify client?
 
-Yes, when you are renting a paid actor, you can run it using either our [API](https://docs.apify.com/api/v2) or [JavaScript](https://docs.apify.com/apify-client-js) or Python clients as you would do with private or free public actors.
+Yes, when you are renting a paid actor, you can run it using either our [API](https://docs.apify.com/api/v2) or [JavaScript](https://docs.apify.com/apify-client-js) or [Python](https://docs.apify.com/apify-client-python) clients as you would do with private or free public actors.
 
 ## Do I pay platform costs for running paid actors?
 
@@ -33,7 +33,7 @@ You don't need a paid plan to start a paid actor's free trial. Just activate the
 
 ## When will I be charged for the actor rental?
 
-You always prepay the actor rental for the following month. The first payment happens when the trial expires, and then recurs monthly. When you open the actor in the Apify app, you will see when the next rental payment is due and you will also receive a notification when it happens.
+You always prepay the actor rental for the following month. The first payment happens when the trial expires, and then recurs monthly. When you open the actor in the Apify Console, you will see when the next rental payment is due and you will also receive a notification when it happens.
 
 **Example**: You activate a 7-day trial of an actor at **noon of April 1, 2021**. If you don't turn off auto-renewal, you will be charged at **noon on April 8, 2021**, then **May 8, 2021**, and so on.
 
@@ -55,13 +55,17 @@ During your trial or any time after that, **you can always turn off auto-renewal
 
 Since actor rental fees are paid from platform usage credits, these fees conceptually belong under platform usage.
 
-Hence, you can find the breakdown of how much you have been charged for paid actors on the bottom of the **Platform usage** tab in the [Billing and usage](https://my.apify.com/billing-new) section. The overall sum will also be visible in the usage bar chart and the table on the top of the same tab.
+Hence, you can find the breakdown of how much you have been charged for paid actors on the bottom of the **Platform usage** tab in the [Billing and usage](https://console.apify.com/billing-new) section. The overall sum will also be visible in the usage bar chart and the table on the top of the same tab.
 
-![Paid actors billing in Apify app]({{@asset actors/images/paid-actors-billing.png}})
+![Paid actors billing in Apify Console]({{@asset actors/images/paid-actors-billing.webp}})
 
 ## How do I report issues with an actor?
 
-There should be a link to GitHub issues, or a similar link for reporting problems, in the actor's README. Just go there and create a new ticket, if it does not yet exist.  The developer who owns the actor should be in touch with you shortly, as they are responsible for maintaining their paid actors. If you encounter any problems with this system, you can always write to [community@apify.com](mailto:community@apify.com).
+Each actor has an `Issues` tab present in the Apify Console. There, you can open an issue (ticket) and chat with the actor's author, platform admins,
+and other users of this actor. Please, feel free to use the tab to ask any questions, request new features or give feedback. Alternatively, you can
+always write to [community@apify.com](mailto:community@apify.com).
+
+![Paid actors issues tab]({{@asset actors/images/paid-actors-issues-tab.webp}})
 
 ## How do I give general feedback on paid actors?
 

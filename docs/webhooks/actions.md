@@ -24,7 +24,7 @@ The payload template is a JSON-like string, whose syntax is extended with the us
 
 The variables need to be enclosed in double curly braces and cannot be chosen arbitrarily. A pre-defined list, [that can be found below](#available-variables), shows all the currently available variables. Using any other variable than one of the pre-defined will result in a validation error.
 
-The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`.
+The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`. The variables support accessing nested properties with dot notation: `{{variable.property}}`.
 
 #### Default payload template
 
@@ -61,6 +61,18 @@ The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`.
 }
 ```
 
+#### Payload template example
+
+This example shows how you can use the payload template variables to send a custom object that displays the status of a RUN, its ID and a custom property:
+
+```json
+{
+    "runId": {{resource.id}},
+    "runStatus": {{resource.status}},
+    "myProp": "hello world"
+}
+```
+
 You may have noticed that the `eventData` and `resource` properties contain redundant data. This is for backwards compatibility. Feel free to only use `eventData` or `resource` in your templates, depending on your use case.
 
 ### [](#available-variables)Available variables
@@ -76,5 +88,5 @@ You may have noticed that the `eventData` and `resource` properties contain redu
 
 #### [](#resource)Resource
 
-The `resource` variable represents the triggering system resource. For example when using the `ACTOR.RUN.SUCCEEDED` event, the resource is the actor run. The variable will be replaced by an `Object` that one would receive as response from the relevant API at the moment when the webhook is triggered. So for the actor run resource, it would be the response of the [`GET` actor run](https://docs.apify.com/api/v2#/reference/actors/run-object/get-run) API endpoint.
+The `resource` variable represents the triggering system resource. For example when using the `ACTOR.RUN.SUCCEEDED` event, the resource is the actor run. The variable will be replaced by an `Object` that one would receive as response from the relevant API at the moment when the webhook is triggered. So for the actor run resource, it would be the response of the [Get actor run](https://docs.apify.com/api/v2#/reference/actors/actor-object/get-actor) API endpoint.
 

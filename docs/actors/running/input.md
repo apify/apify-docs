@@ -1,6 +1,6 @@
 ---
 title: Input
-description: Configure your actor's input parameters using the Apify app, locally or via API. Access parameters in key-value stores from your actor's code.
+description: Configure your actor's input parameters using the Apify Console, locally or via API. Access parameters in key-value stores from your actor's code.
 menuWeight: 1
 paths:
     - actor/run
@@ -11,7 +11,7 @@ paths:
     - actors/running/input
 ---
 
-# [](#input) Input
+# Input
 
 An Apify actor's input is stored in the **INPUT.json** key-value store in the actor's **apify_storage/key_value_stores/default** directory.
 
@@ -21,11 +21,11 @@ The key-value store associated with an actor run can be conveniently accessed us
 
 > For more details about the key-value stores, visit the [Storage]({{@link storage.md}}) section.
 
-## [](#passing-input) Passing input
+## Passing input
 
 There are three ways to pass input to an actor:
 
-* using the INPUT tab if you are running the actor in the Apify [app](https://my.apify.com).
-* by creating or editing the **INPUT.json** file in the key-value store.
-* using a POST payload when running the actor using the [Apify API](https://docs.apify.com/api).
+* Using the INPUT tab if you are running the actor in [Apify Console](https://console.apify.com).
+* By creating or editing the **INPUT.json** file in the key-value store.
+* Using a POST payload when running the actor using the [Apify API](https://docs.apify.com/api).
 

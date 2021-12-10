@@ -12,5 +12,5 @@ logs
 pids
 .idea
 yarn.lock
-package-lock.json
 tmp
+.vscode

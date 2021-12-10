@@ -34,11 +34,11 @@ Note that certain NPM packages need additional tools for their installation, suc
 
 ## [](#multiple-source-files)Multiple source files
 
-If the actor's source code requires the use of multiple files/directories, then it can be hosted on the Apify platform using this option. This is particulary useful when you need to add [**INPUT_SCHEMA.json**]({{@link actors/development/source_code.md#input-schema}}) or **README.md** to your actor, or if you want to create your actor in a language other than JavaScript.
+If the actor's source code requires the use of multiple files/directories, then it can be hosted on the Apify platform using this option. This is particularly useful when you need to add [**INPUT_SCHEMA.json**]({{@link actors/development/source_code.md#input-schema}}) or **README.md** to your actor, or if you want to create your actor in a language other than JavaScript.
 
 The only required file for multifile is **Dockerfile**, and all other files depend on your Dockerfile settings. By default Apify's custom NodeJS Dockerfile is used, which requires a **main.js** file containing your source code and a **package.json** file containing package configurations for [NPM](https://www.npmjs.com/).
 
-Unlike with the [single JavaScript file](#single-javascript-file) option, **package.json** is not automaticaly generated when you use multiple source files, so you need to configure it yourself.
+Unlike with the [single JavaScript file](#single-javascript-file) option, **package.json** is not automatically generated when you use multiple source files, so you need to configure it yourself.
 
 See [Custom Dockerfile]({{@link actors/development/source_code.md#custom-dockerfile}}) and [base Docker images]({{@link actors/development/base_docker_images.md}}) for more information about creating your own Dockerfile and using Apify's prepared base images.
 
@@ -48,9 +48,9 @@ If the actor's source code is hosted externally in a Git repository, it can cons
 
 To help you get started quickly, you can use the [apify/quick-start](https://apify.com/apify/quick-start) actor which contains all the boilerplate necessary when creating a new actor hosted on Git. The source code is available on [GitHub](https://github.com/apifytech/actor-quick-start).
 
-To specify a Git branch or tag to check out, add a URL fragment to the URL. For example, to check out the **develop** branch, specify a URL such as `github.com/jancurn/some-actor.git#develop`.
+To specify a Git branch or tag to check out, add a URL fragment to the URL. For example, to check out the **develop** branch, specify a URL such as `https://github.com/jancurn/some-actor.git#develop`.
 
-Optionally, the second part of the fragment in the Git URL (separated by a colon) specifies the context directory for the Docker build. For example, `github.com/jancurn/some-actor.git#develop:some/dir` will check out the **develop** branch and set **some/dir** as a context directory for the Docker build.
+Optionally, the second part of the fragment in the Git URL (separated by a colon) specifies the context directory for the Docker build. For example, `https://github.com/jancurn/some-actor.git#develop:some/dir` will check out the **develop** branch and set **some/dir** as a context directory for the Docker build.
 
 Note that you can easily set up an integration where the actor is automatically rebuilt on every commit to the Git repository. For more details, see [GitHub integration]({{@link actors/development/source_code.md#github-integration}}).
 
@@ -72,7 +72,7 @@ Sometimes having a full Git repository or a hosted Zip file might be overly comp
 
 Then set the **Source Type** to **GitHub Gist** and paste the Gist URL as follows:
 
-![GitHub Gist settings]({{@asset actors/images/gist-settings.png}})
+![GitHub Gist settings]({{@asset actors/images/gist-settings.webp}})
 
 Note that the example actor is available in the Apify Store as [apify/example-github-gist](https://apify.com/apify/example-github-gist).
 
@@ -100,7 +100,7 @@ For more information about Dockerfile syntax and commands, see the [Dockerfile r
 
 Note that `apify/actor-node-basic` is a base Docker image provided by Apify. There are other base images with other features available. However, you can use arbitrary Docker images as the base for your actors, although using the Apify images has some performance advantages. See [base Docker images]({{@link actors/development/base_docker_images.md}}) for details.
 
-By default, all Apify base Docker images start your Node.js application same way as **npm start** does, i.e. by running the command specified in the **package.json** file under the **scripts** - **start** key. The default **package.json** file is similar to the following.
+By default, all Apify base Docker images with the Apify SDK start your Node.js application the same way as **npm start** does, i.e. by running the command specified in the **package.json** file under the **scripts** - **start** key. The default **package.json** file is similar to the following.
 
 ```json
 {
@@ -134,7 +134,7 @@ https://api.apify.com/v2/acts/apify~hello-world/builds?token=<API_TOKEN>&version
 
 Then go to your GitHub repository, click **Settings**, select **Webhooks** tab and click **Add webhook**\. Paste the API URL to the **Payload URL** as follows:
 
-![GitHub integration]({{@asset actors/images/github-integration.png}})
+![GitHub integration]({{@asset actors/images/github-integration.webp}})
 
 And that's it! Now your actor should automatically rebuild on every push to the GitHub repository.
 
@@ -142,7 +142,7 @@ And that's it! Now your actor should automatically rebuild on every push to the 
 
 The actor owner can specify custom environment variables that are set to the actor's process during the run. Sensitive environment variables such as passwords or API tokens can be protected by setting the **Secret** option. With this option enabled, the value of the environment variable is encrypted and it will not be visible in the app or APIs, and the value is redacted from actor logs to avoid the accidental leakage of sensitive data.
 
-![Custom environment variables]({{@asset actors/images/source-env-vars.png}})
+![Custom environment variables]({{@asset actors/images/source-env-vars.webp}})
 
 Note that the custom environment variables are fixed during the build of the actor and cannot be changed later. See the [Builds]({{@link actors/development/builds.md}}) section for details.
 

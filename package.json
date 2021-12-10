@@ -4,18 +4,18 @@
   "description": "This is a home of Apify documentation.",
   "main": "index.js",
   "scripts": {
-    "build": "npm run lint:md && npm run lint:code && node ./src/build.js",
-    "test": "npm run test",
+    "build": "npm run lint:md && npm run lint:code && npm run webp-convert && node ./src/build.js",
     "lint": "npm run lint:md && npm run lint:code",
     "lint:fix": "npm run lint:md:fix && npm run lint:code:fix",
     "lint:md": "./node_modules/.bin/markdownlint '**/*.md'",
     "lint:md:fix": "./node_modules/.bin/markdownlint '**/*.md' --fix",
     "lint:code": "./node_modules/.bin/eslint . && eslint --ext js,md",
-    "lint:code:fix": "./node_modules/.bin/eslint . --ext .js,.jsx --fix && eslint --ext js,md --fix ."
+    "lint:code:fix": "./node_modules/.bin/eslint . --ext .js,.jsx --fix && eslint --ext js,md --fix .",
+    "webp-convert": "node ./src/webp_converter.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/apifytech/apify-docs.git"
+    "url": "git+https://github.com/apify/apify-docs.git"
   },
   "keywords": [
     "documentation",
@@ -24,23 +24,26 @@
   "author": "Marek Trunkát",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/apifytech/apify-docs/issues"
+    "url": "https://github.com/apify/apify-docs/issues"
   },
-  "homepage": "https://github.com/apifytech/apify-docs#readme",
+  "homepage": "https://github.com/apify/apify-docs#readme",
   "dependencies": {
-    "@apify/eslint-config": "0.0.2",
-    "apify-shared": "^0.1.55",
-    "fs-extra": "^8.1.0",
-    "markdown-yaml-metadata-parser": "^2.0.1",
-    "underscore": "^1.9.1"
+    "@apify/eslint-config": "0.1.4",
+    "@apify/log": "^1.1.5",
+    "fs-extra": "^10.0.0",
+    "markdown-yaml-metadata-parser": "^3.0.0",
+    "underscore": "^1.13.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/eslint-parser": "^7.12.1",
-    "@babel/eslint-plugin": "^7.12.1",
-    "eslint": "^7.12.1",
-    "eslint-plugin-markdown": "^2.0.0-rc.0",
-    "markdownlint": "^0.21.0",
-    "markdownlint-cli": "^0.24.0"
+    "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.3",
+    "@babel/eslint-plugin": "^7.14.5",
+    "eslint": "^8.2.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-markdown": "^2.2.1",
+    "imagemin": "^7.0.1",
+    "imagemin-webp": "^6.0.0",
+    "markdownlint": "^0.24.0",
+    "markdownlint-cli": "^0.29.0"
   }
 }

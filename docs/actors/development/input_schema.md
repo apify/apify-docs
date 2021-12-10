@@ -9,19 +9,19 @@ paths:
     - actors/development/input-schema
 ---
 
-# [](#actor-input-schema)Actor input schema
+# Actor input schema
 
-## [](#specification-version-1)Specification version 1
+## Specification version 1
 
-Actor input schema defines the input that the actor accepts and the UI components used for input at the Apify platform. Using input schema, you can provide UI to actor users that is easy to use, and also ensure that the input of your actor is valid.
+An actor's input schema defines the input that the actor accepts and the UI components used for input in Apify Console. Using input schema, you can provide and easy-to-use UI for your actor's users and also ensure that the input provided is valid.
 
-Input schema must be stored in a file named **INPUT_SCHEMA.json** in the root directory of the actor. Maximum size of the input schema file is 100 kB. If the input schema is provided, then input is always validated to fulfill the schema when an actor is being started (via API or from a run console at the Apify platform).
+Input schema must be stored in a file named **INPUT_SCHEMA.json** in the actor's root directory. The file's maximum size is 100 kB. If the input schema is provided, then input is always validated to fulfill the schema when an actor is being started (via API or from the console).
 
-You can also use our [visual input schema editor](https://apify.github.io/input-schema-editor-react) to guide you through creation of the **INPUT_SCHEMA.json** file.
+> You can also use our [visual input schema editor](https://apify.github.io/input-schema-editor-react) to guide you through creation of the **INPUT_SCHEMA.json** file.
 
-## [](#example)Example
+## Example
 
-Imagine you are building a simple crawler whose inputs are an array of start URLs and a Javascript function that will be executed at each page the crawler visits. Then the input schema will look as follows:
+Imagine you are building a simple crawler whose inputs are an array of start URLs and a JavaScript function that will be executed at each page the crawler visits. Its input schema will look like this:
 
 ```json
 {
@@ -56,9 +56,9 @@ Imagine you are building a simple crawler whose inputs are an array of start URL
 
 And generated the input UI will be:
 
-![Apify actor input schema example]({{@asset actors/images/input-schema-example.png}})
+![Apify actor input schema example]({{@asset actors/development/images/input-schema-example.webp}})
 
-If you switch the input to **raw** display using the blue toggle, then you will see the entered input stringified to a JSON format as it will be passed to the actor:
+If you switch the input to the **JSON** display using the toggle, then you will see the entered input stringified to JSON, as it will be passed to the actor:
 
 ```json
 {
@@ -74,7 +74,7 @@ If you switch the input to **raw** display using the blue toggle, then you will 
 }
 ```
 
-## [](#structure)Structure
+## Structure
 
 The input schema is a JSON file named **INPUT_SCHEMA.json**, placed in the root directory of an actor with the following structure:
 
@@ -97,7 +97,7 @@ The input schema is a JSON file named **INPUT_SCHEMA.json**, placed in the root 
 |`properties`|Object|Yes|This is an object mapping each field key <br/>to its specification.|
 |`required`|[String]|No|An array of field keys that are required.|
 
-## [](#fields)Fields
+## Fields
 
 Each field of your input is described under its key in `inputSchema.properties` object. The field might have `integer`, `string`, `array`, `object` or `boolean` type and its specification contains the following properties:
 
@@ -113,11 +113,11 @@ Each field of your input is described under its key in `inputSchema.properties` 
 |`sectionDescription`|String|No|If the `sectionCaption` property is set, <br/>then you can use this property to <br/>provide additional description to the section. <br/>The description will be visible right under <br/>the caption when the section is open.|
 
 
-### [](#additional-properties)Additional properties
+## Additional properties
 
 In addition to the properties listed above, most of the types support also additional properties defining, for example, the UI input editor.
 
-#### [](#string)String
+### String
 
 Example of a code input:
 
@@ -133,7 +133,7 @@ Example of a code input:
 
 Rendered input:
 
-![Apify actor input schema page function]({{@asset actors/images/input-schema-page-function.png}})
+![Apify actor input schema page function]({{@asset actors/development/images/input-schema-page-function.webp}})
 
 Example of country selection using a select input:
 
@@ -151,7 +151,7 @@ Example of country selection using a select input:
 
 Rendered input:
 
-![Apify actor input schema - country input]({{@asset actors/images/input-schema-country.png}})
+![Apify actor input schema - country input]({{@asset actors/development/images/input-schema-country.webp}})
 
 Properties:
 
@@ -166,7 +166,7 @@ Properties:
 |`nullable`|Boolean|No|Specifies whether `null` <br/>is an allowed value.|
 
 
-#### [](#boolean)Boolean
+### Boolean
 
 Beware that the `boolean` input type doesn't support the `prefill` property, since there is no way to display the pre-filled value in the user interface.
 
@@ -195,7 +195,7 @@ Example options with group caption:
 
 Rendered input:
 
-![Apify actor input schema options]({{@asset actors/images/input-schema-options.png}})
+![Apify actor input schema options]({{@asset actors/development/images/input-schema-options.webp}})
 
 Properties:
 
@@ -206,7 +206,7 @@ Properties:
 |`groupDescription`|String|No|Description displayed as help text <br/>displayed of group title.|
 |`nullable`|Boolean|No|Specifies whether null is <br/>an allowed value.|
 
-#### [](#integer)Integer
+### [](#integer)Integer
 
 Example:
 
@@ -223,7 +223,7 @@ Example:
 
 Rendered input:
 
-![Apify actor input schema memory]({{@asset actors/images/input-schema-memory.png}})
+![Apify actor input schema memory]({{@asset actors/development/images/input-schema-memory.webp}})
 
 Properties:
 
@@ -235,7 +235,7 @@ Properties:
 |`unit`|String|No|Unit displayed next to the field in UI, <br/>for example _second_, _MB_, etc.|
 |`nullable`|Boolean|No|Specifies whether null is an allowed value.|
 
-#### [](#object)Object
+### [](#object)Object
 
 Example of proxy configuration:
 
@@ -251,7 +251,7 @@ Example of proxy configuration:
 
 Rendered input:
 
-![Apify actor input schema proxy]({{@asset actors/images/input-schema-proxy.png}})
+![Apify actor input schema proxy]({{@asset actors/development/images/input-schema-proxy.webp}})
 
 The object where the proxy configuration is stored has the following structure:
 
@@ -288,7 +288,7 @@ Example of a blackbox object:
 
 Rendered input:
 
-![Apify actor input schema user object]({{@asset actors/images/input-schema-user.png}})
+![Apify actor input schema user object]({{@asset actors/development/images/input-schema-user.webp}})
 
 Properties:
 
@@ -318,7 +318,7 @@ Example of request list sources configuration:
 
 Rendered input:
 
-![Apify actor input schema start urls array]({{@asset actors/images/input-schema-start-urls.png}})
+![Apify actor input schema start urls array]({{@asset actors/development/images/input-schema-start-urls.webp}})
 
 Example of an array:
 
@@ -334,7 +334,7 @@ Example of an array:
 
 Rendered input:
 
-![Apify actor input schema colors array]({{@asset actors/images/input-schema-colors.png}})
+![Apify actor input schema colors array]({{@asset actors/development/images/input-schema-colors.webp}})
 
 Properties:
 

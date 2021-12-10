@@ -1,6 +1,6 @@
 ---
 title: How to use
-description: Learn to use and manage your organization account using the Apify app or API. View the organizations you are in and manage your memberships.
+description: Learn to use and manage your organization account using the Apify Console or API. View the organizations you are in and manage your memberships.
 menuWeight: 2
 paths:
     - access-rights/organization-account/how-to-use
@@ -14,11 +14,11 @@ While you can't manage an organization account via [API](https://docs.apify.com/
 
 **[See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) on organization accounts.**
 
-## [](#in-the-apify-app) In the Apify app
+## [](#in-the-apify-console) In the Apify Console
 
 You can switch into **Organization account** view using the account button in the top-left corner.
 
-![Switch to organization account]({{@asset access_rights/images/switch-to-organization.png}})
+![Switch to organization account]({{@asset access_rights/images/switch-to-organization.webp}})
 
 In the menu, the account you are currently using is displayed at the top, with all the accounts you can switch to displayed below. When you need to get back to your personal account, you can just switch right back to it–no need to log in and out.
 
@@ -28,11 +28,11 @@ The resources you can access and account details you can edit will depend on you
 
 ### [](#manage-your-organizations) Manage your organizations
 
-You can view and manage the organizations you are a member of from the **Organizations** tab on your [account page](https://my.apify.com/account#/myorganization).
+You can view and manage the organizations you are a member of from the **Organizations** tab on your [account page](https://console.apify.com/account#/myorganization).
 
 If you want to leave an organization you own, you must first transfer ownership to someone else.
 
-![My organizations]({{@asset access_rights/images/my-organizations.png}})
+![My organizations]({{@asset access_rights/images/my-organizations.webp}})
 
 ### [](#transfer-ownership) Transfer ownership
 
@@ -44,7 +44,7 @@ While you cannot manage an organization account's settings and members via API, 
 
 As a member of an organization, you are assigned an [API token]({{@link tutorials/integrations.md#api-token}}) (under the **Integrations** tab) and proxy password (click the **Proxy** button in the left menu) for accessing the Apify platform via REST API.
 
-![Integration tokens]({{@asset access_rights/images/integrations.png}})
+![Integration tokens]({{@asset access_rights/images/integrations.webp}})
 
 The API tokens' functionality reflects your account's permissions in the organization, so if you only have the **read** and **run** permissions for actors, you will only be able to view and run actors via API. Only you can view your API token and password.
 

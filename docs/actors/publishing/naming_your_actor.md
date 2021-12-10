@@ -11,7 +11,7 @@ paths:
 
 Naming your actor can be tricky. Especially when you've spent a long time coding and are excited to show your brand new creation to the world. To help users find your actor, we've introduced naming standards. These standards improve your actor's [search engine optimization (SEO)](https://en.wikipedia.org/wiki/Search_engine_optimization) and maintain consistency in the [Apify Store](https://apify.com/store).
 
-> Your actor's name should be 3-30 characters long.
+> Your actor's name should be 3-63 characters long.
 
 ## [](#scrapers) Scrapers
 
@@ -19,7 +19,7 @@ For actors such as [YouTube Scraper](https://apify.com/bernardo/youtube-scraper)
 
 GOOD:
 
-* Technical name (actor's name in the [Apify app](https://my.apify.com)): **${domain}-scraper**, e.g. **youtube-scraper**.
+* Technical name (actor's name in the [Apify Console](https://console.apify.com)): **${domain}-scraper**, e.g. **youtube-scraper**.
 * Publication title for the Apify Store: **${Domain} Scraper**, e.g. **Youtube Scraper**.
 * Name of the GitHub repository: **actor-${domain}-scraper**, e.g. **actor-youtube-scraper**.
 
@@ -40,7 +40,7 @@ For example,
 
 ## [](#non-scraping-actors) Non-scraping actors
 
-Naming for non-scraping actors is more liberal. Being creative and considering SEO and user experience are good places to start. Think about what your users will type into a serach engine when looking for your actor. What is your actor's function?
+Naming for non-scraping actors is more liberal. Being creative and considering SEO and user experience are good places to start. Think about what your users will type into a search engine when looking for your actor. What is your actor's function?
 
 If you're having trouble, you can always run your ideas by the Apify team using the chat icon in the bottom-right corner.
 

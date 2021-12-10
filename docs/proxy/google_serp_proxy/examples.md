@@ -124,7 +124,7 @@ Apify.main(async () => {
 
 ## [](#using-standard-libraries-and-languages) Using standard libraries and languages
 
-You can find your proxy password on the [Proxy page](https://my.apify.com/proxy) of the Apify app.
+You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of the Apify Console.
 
 > The `username` field is **not** your Apify username.<br/>
 > Instead, you specify proxy settings (e.g. `groups-GOOGLE_SERP`).<br/>
@@ -149,7 +149,7 @@ const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
     port: "8000",
     // Replace <YOUR_PROXY_PASSWORD> below with your password
-    // found at https://my.apify.com/proxy
+    // found at https://console.apify.com/proxy
     auth: "groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>"
 });
 
@@ -176,7 +176,7 @@ const got = require("got");
 const HttpsProxyAgent = require("https-proxy-agent");
 
 // Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://my.apify.com/proxy
+// found at https://console.apify.com/proxy
 const proxyUrl = "http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
 async function useProxy() {
@@ -200,7 +200,7 @@ import urllib.request as request
 import urllib.parse as parse
 
 # Replace <YOUR_PROXY_PASSWORD> below with your password
-# found at https://my.apify.com/proxy
+# found at https://console.apify.com/proxy
 password = '<YOUR_PROXY_PASSWORD>'
 proxy_url = f"http://groups-GOOGLE_SERP:{password}@proxy.apify.com:8000"
 
@@ -220,7 +220,7 @@ import six
 from six.moves.urllib import request, urlencode
 
 # Replace <YOUR_PROXY_PASSWORD> below with your password
-# found at https://my.apify.com/proxy
+# found at https://console.apify.com/proxy
 password = '<YOUR_PROXY_PASSWORD>'
 proxy_url = (
     'http://groups-GOOGLE_SERP:%s@proxy.apify.com:8000' %
@@ -246,12 +246,28 @@ $curl = curl_init('http://www.google.com/search?q=' . $query);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($curl, CURLOPT_PROXY, 'http://proxy.apify.com:8000');
 // Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://my.apify.com/proxy
+// found at https://console.apify.com/proxy
 curl_setopt($curl, CURLOPT_PROXYUSERPWD, 'groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>');
 $response = curl_exec($curl);
 curl_close($curl);
 echo $response;
 ?>
+</marked-tab>
+
+<marked-tab header="PHP (Guzzle)" lang="php">
+<?php
+require 'vendor/autoload.php';
+
+$client = new \GuzzleHttp\Client([
+    // Replace <YOUR_PROXY_PASSWORD> below with your password
+    // found at https://console.apify.com/proxy
+    'proxy' => 'http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000'
+]);
+
+$response = $client->get("http://www.google.com/search", [
+    'query' => ['q' => 'wikipedia']
+]);
+echo $response->getBody();
 </marked-tab>
 ```
 
@@ -272,7 +288,7 @@ const httpsAgent = new HttpsProxyAgent({
     host: "proxy.apify.com",
     port: "8000",
     // Replace <YOUR_PROXY_PASSWORD> below with your password
-    // found at https://my.apify.com/proxy
+    // found at https://console.apify.com/proxy
     auth: "groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>"
 });
 
@@ -300,7 +316,7 @@ const got = require("got");
 const HttpsProxyAgent = require("https-proxy-agent");
 
 // Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://my.apify.com/proxy
+// found at https://console.apify.com/proxy
 const proxyUrl = "http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
 
 // Encode your query as a URI parameter
@@ -328,7 +344,7 @@ import urllib.request as request
 import urllib.parse as parse
 
 # Replace <YOUR_PROXY_PASSWORD> below with your password
-# found at https://my.apify.com/proxy
+# found at https://console.apify.com/proxy
 password = '<YOUR_PROXY_PASSWORD>'
 proxy_url = f"http://groups-GOOGLE_SERP:{password}@proxy.apify.com:8000"
 proxy_handler = request.ProxyHandler({
@@ -346,7 +362,7 @@ import six
 from six.moves.urllib import request, urlencode
 
 # Replace <YOUR_PROXY_PASSWORD> below with your password
-# found at https://my.apify.com/proxy
+# found at https://console.apify.com/proxy
 password = '<YOUR_PROXY_PASSWORD>'
 proxy_url = (
     'http://groups-GOOGLE_SERP:%s@proxy.apify.com:8000' %
@@ -372,11 +388,31 @@ $curl = curl_init('http://www.google.co.uk/search?tbm=shop&q=' . $query);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($curl, CURLOPT_PROXY, 'http://proxy.apify.com:8000');
 // Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://my.apify.com/proxy
+// found at https://console.apify.com/proxy
 curl_setopt($curl, CURLOPT_PROXYUSERPWD, 'groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>');
 $response = curl_exec($curl);
 curl_close($curl);
 echo $response;
 ?>
+</marked-tab>
+
+
+<marked-tab header="PHP (Guzzle)" lang="php">
+<?php
+require 'vendor/autoload.php';
+
+$client = new \GuzzleHttp\Client([
+    // Replace <YOUR_PROXY_PASSWORD> below with your password
+    // found at https://console.apify.com/proxy
+    'proxy' => 'http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000'
+]);
+
+$response = $client->get("http://www.google.com/search", [
+    'query' => [
+        'q' => 'Apple iPhone XS 64GB',
+        'tbm' => 'shop'
+    ]
+]);
+echo $response->getBody();
 </marked-tab>
 ```

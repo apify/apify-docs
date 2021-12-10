@@ -69,9 +69,9 @@ jobs:
 
 You will need an [actor]({{@link tutorials/quick_start.md#create-an-actor}}), a GitHub repo for it, and your Apify token.
 
-[Find your Apify token in the Apify app](https://my.apify.com/account#/integrations).
+[Find your Apify token in the Apify Console](https://console.apify.com/account#/integrations).
 
-![Apify token in app]({{@asset actors/development/images/ci-token.png}})
+![Apify token in app]({{@asset actors/development/images/ci-token.webp}})
 
 [Add the token to GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository). Go to **your repo > Settings > Secrets > New repository secret**.
 
@@ -81,7 +81,7 @@ Add the [**build actor** API endpoint URL](/api/v2#/reference/actors/build-colle
 https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=beta&waitForFinish=60
 ```
 
-![Add build actor URL to secrets]({{@asset actors/development/images/ci-add-build-url.png}})
+![Add build actor URL to secrets]({{@asset actors/development/images/ci-add-build-url.webp}})
 
 ## Set up automatic builds
 
@@ -99,7 +99,7 @@ name: Build actor
 
 You can find your builds under the actor's **Builds** section.
 
-![An actor's builds]({{@asset actors/development/images/ci-builds.png}})
+![An actor's builds]({{@asset actors/development/images/ci-builds.webp}})
 
 ## Automate tests
 
@@ -125,9 +125,7 @@ For most ongoing monitoring scenarios, we recommend using the [Apify monitoring 
 
 ### Ongoing testing
 
-If you have advanced and specific requirements, you can create your own test actors, which you can [schedule]({{@link schedules.md}}) to regularly run and validate your actors' results. For this, you can use our **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) actor.
+If you have advanced and specific requirements, you can create your own test actors, which you can [schedule]({{@link schedules.md}}) to regularly run and validate your actors' results. For this, you can use our **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) actor ([see the guide]({{@link actors/development/testing_and_maintenance.md}})).
 
 If using this approach, you can set up notifications using the **Send Mail** ([apify/send-mail](https://apify.com/apify/send-mail)) and **Send Slack Message** ([katerinahronik/slack-message](https://apify.com/katerinahronik/slack-message)) actors.
 
-<!-- Uncomment after the Public actor guide is released -->
-<!-- See our [Maintenance and testing] (link later) article.-->
