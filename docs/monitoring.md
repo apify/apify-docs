@@ -1,7 +1,7 @@
 ---
 title: Monitoring
 description: Learn how to check the performance of your actors, tasks and storages. Validate your data and receive notifications when your jobs succeed or fail.
-menuWeight: 7
+menuWeight: 6
 category: guides
 paths:
     - monitoring
