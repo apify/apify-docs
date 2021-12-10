@@ -19,7 +19,7 @@ When you're done here, [see our Apify scrapers tutorials]({{@link tutorials/apif
 
 ## Run an actor
 
-**1.** Navigate to [Apify Store](hhttps://console.apify.com/actors#/store/) and pick any actor you like the look of. We'll pick the [Google Search Results Scraper](https://apify.com/apify/google-search-scraper).
+**1.** Navigate to [Apify Store](https://console.apify.com/actors#/store/) and pick any actor you like the look of. We'll pick the [Google Search Results Scraper](https://console.apify.com/actors/nFJndFXA5zjCTuudP#/information/latest/readme).
 
 ![Apify store]({{@asset tutorials/images/apify-store.webp}})
 
