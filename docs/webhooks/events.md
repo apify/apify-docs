@@ -39,7 +39,7 @@ Actor run events are triggered when an actor run gets created or transitions int
 
 To fetch the results from the actor run, you can take the `actorRunId` event property and call one of the [Run object and its storages](https://docs.apify.com/api/v2#/reference/actor-runs/run-object-and-its-storages) API endpoints. For example:
 
-```
+```text
 https://api.apify.com/v2/actor-runs/[ACTOR_RUN_ID]/dataset/items?token=[TOKEN]
 ```
 
