@@ -19,25 +19,21 @@ When you're done here, [see our Apify scrapers tutorials]({{@link tutorials/apif
 
 ## Run an actor
 
-**1.** Navigate to [apify.com/store](https://apify.com/store) and pick any actor you like the look of. We'll pick the [Google Search Results Scraper](https://apify.com/apify/google-search-scraper).
+**1.** Navigate to [Apify Store](hhttps://console.apify.com/actors#/store/) and pick any actor you like the look of. We'll pick the [Google Search Results Scraper](https://apify.com/apify/google-search-scraper).
 
 ![Apify store]({{@asset tutorials/images/apify-store.webp}})
 
-**2.** On the actor's page, click the **Try for free** button.
+**2.** On the actor's page, head over to the **Input and options** tab.
 
-![Try for free]({{@asset tutorials/images/try-for-free.webp}})
-
-**3**. This will take you to [Apify Console](https://console.apify.com), where you will see the screen below.
-
-![Actor input view]({{@asset tutorials/images/actor-input-view.webp}})
-
-**4.** Don't be put off by all the boxes - the actor is pre-configured to run without any extra input. Just click the **Run** button in the bottom-left corner and it will start.
+Don't be put off by all the boxes - the actor is pre-configured to run without any extra input. Just click the **Run** button in the bottom-left corner and it will start.
 
 Alternatively, you can play around with the settings to make the results more interesting for you.
 
-**5.** Wait for the actor to run...
+![Actor input view]({{@asset tutorials/images/actor-input-view.webp}})
 
-**6.** Get your results!
+**3.** Wait for the actor to run...
+
+**4.** Get your results!
 
 Click on the flashing **Results** button.
 
