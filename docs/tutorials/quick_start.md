@@ -1,8 +1,7 @@
 ---
 title: Quick start
 description: Learn how to run any actor in Apify Store or create your own. A step-by-step guide through your first steps on the Apify platform.
-menuWeight: 3
-category: guides
+menuWeight: 3.1
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/quick-start
