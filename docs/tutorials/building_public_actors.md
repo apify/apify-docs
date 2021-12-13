@@ -21,7 +21,7 @@ Code quality is a priority. It is public on [Github](https://github.com), and yo
 
 Documentation is vital (your actor's README). It should be clear, detailed, and readable. Think of the users, who might not be developers, so use simple, easy-to-understand language and avoid technical jargon.
 
-Ensure periodic testing. You can either do yourself or [set up automatic tests]({{@link actors/development/testing_and_maintenance.md}}) / [monitoring](https://apify.com/apify/monitoring). Try to prevent your users from coming to you with the issues.
+Ensure periodic testing. You can either do it yourself or [set up automatic tests]({{@link actors/development/testing_and_maintenance.md}}) / [monitoring](https://apify.com/apify/monitoring). Try to prevent your users from coming to you with the issues.
 
 ## Inspiration
 
