@@ -176,7 +176,7 @@ The [Apify SDK](sdk.apify.com) and the [JavaScript]({{@link apify_client_js.md}}
 
 ## [](#named-and-unnamed-storages) Named and unnamed storages
 
-All storages are created without a name (with only an **ID**). This allows them to expire after 7 days and not take up your storage space. If you want to preserve a storage, simply [give it a name](#preserving-storages) and it will be retained indefinitely.
+The default storages for an actor run are created without a name (with only an **ID**). This allows them to expire after 7 days (on the free plan, longer on paid plans) and not take up your storage space. If you want to preserve a storage, simply [give it a name](#preserving-storages) and it will be retained indefinitely.
 
 > Storages' names can be up to 63 characters long.
 
