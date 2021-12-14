@@ -1,7 +1,7 @@
 ---
 title: Scrape data using Python
 description: Learn how to scrape websites using Python and its Beautiful Soup library. Follow the tutorial to analyze the target page and create a Python actor.
-menuWeight: 3.91
+menuWeight: 3.93
 paths:
     - tutorials/scrape-data-using-python
 ---

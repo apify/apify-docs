@@ -1,7 +1,7 @@
 ---
 title: Process scraped data with Python
 description: Learn how to process scraped data in Python using the Pandas library, and how to visualize your data using Matplotlib
-menuWeight: 3.92
+menuWeight: 3.94
 paths:
     - tutorials/process-data-using-python
 ---

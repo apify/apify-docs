@@ -1,7 +1,7 @@
 ---
 title: Scrape paginated sites
 description: Learn how to extract all of a website's listings even if they limit the number of results pages. See code examples for setting up your scraper.
-menuWeight: 3.9
+menuWeight: 3.91
 paths:
     - tutorials/scrape-websites-with-limited-pagination
     - tutorials/scrape-paginated-sites
