@@ -1,7 +1,7 @@
 ---
 title: Log in by transferring cookies
 description: Learn how to transfer cookies from your web browser to your crawlers. Log into websites when web scraping or automating tasks using your existing logins.
-menuWeight: 3.6
+menuWeight: 3.7
 paths:
     - tutorials/log-in-by-transferring-cookies
 ---

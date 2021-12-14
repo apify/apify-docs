@@ -1,7 +1,7 @@
 ---
 title: Scrape websites using the sitemap
 description: The sitemap.xml file is a jackpot for every web scraper. Take advantage of this and learn a much easier way to extract data from websites using the Apify SDK.
-menuWeight: 3.8
+menuWeight: 3.9
 paths:
     - tutorials/scrape-websites-using-the-sitemap
 ---
