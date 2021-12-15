@@ -4,10 +4,10 @@ description: Learn how to build scrapers easier, faster and finish with a better
 menuWeight: 21.7
 category: web scraping academy
 paths:
-- crawling-basics/professional-scraping
+- crawling-basics/pro-scraping
 ---
 
-# [](#) Professional scraping
+# [](#pro) Professional scraping
 
 While it's definitely an interesting exercise to do all the programming manually, and we hope you enjoyed it, it's neither the most effective, nor the most efficient way of scraping websites. Because we scrape for a living at Apify, we've built a library that we use to scrape tens of millions of pages every day.
 
@@ -76,8 +76,8 @@ const crawler = new Apify.CheerioCrawler({
     handlePageFunction: async ({ $, request }) => {
         console.log('URL:', request.url);
         console.log('Title:', $('title').text());
-    }
-})
+    },
+});
 
 await crawler.run();
 ```
@@ -111,8 +111,8 @@ const crawler = new Apify.CheerioCrawler({
     handlePageFunction: async ({ $, request }) => {
         console.log('URL:', request.url);
         console.log('Title:', $('title').text());
-    }
-})
+    },
+});
 
 await crawler.run();
 ```
@@ -135,8 +135,8 @@ await requestQueue.addRequest({
     // By labeling the Request, we can very easily
     // identify it later in the handlePageFunction.
     userData: {
-        label: 'START'
-    }
+        label: 'START',
+    },
 });
 
 const crawler = new Apify.CheerioCrawler({
@@ -154,10 +154,10 @@ const crawler = new Apify.CheerioCrawler({
                 selector: 'ul.countries a[href]',
                 // The baseUrl option automatically resolves relative URLs.
                 baseUrl: request.loadedUrl,
-            })
+            });
         }
-    }
-})
+    },
+});
 
 await crawler.run();
 ```
@@ -182,8 +182,8 @@ const requestQueue = await Apify.openRequestQueue();
 await requestQueue.addRequest({
     url: 'https://www.alexa.com/topsites/countries',
     userData: {
-        label: 'START'
-    }
+        label: 'START',
+    },
 });
 
 const crawler = new Apify.CheerioCrawler({
@@ -197,7 +197,7 @@ const crawler = new Apify.CheerioCrawler({
                 requestQueue,
                 selector: 'ul.countries a[href]',
                 baseUrl: request.loadedUrl,
-            })
+            });
             // When on the START page, we don't want to
             // extract any data after we extract the links.
             return;
@@ -219,8 +219,8 @@ const crawler = new Apify.CheerioCrawler({
                 totalLinkingSites: fields.eq(5).text().trim(),
             });
         }
-    }
-})
+    },
+});
 
 await crawler.run();
 ```

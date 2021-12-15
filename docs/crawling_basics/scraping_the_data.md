@@ -4,7 +4,7 @@ description: Learn how to add data collection logic to your crawler to extract d
 menuWeight: 21.6
 category: web scraping academy
 paths:
-- crawling-basics/scraping-data
+- crawling-basics/scraping-the-data
 ---
 
 # [](#scraping-data) Scraping the data
@@ -65,8 +65,8 @@ for (const link of links) {
 
 for (const url of countryUrls) {
     try {
-        const response = await gotScraping(url);
-        const countryHtml = response.body;
+        const countryResponse = await gotScraping(url);
+        const countryHtml = countryResponse.body;
         const $$ = cheerio.load(countryHtml);
         const pageTitle = $$('title').text();
         console.log(pageTitle);
@@ -198,8 +198,8 @@ const results = [];
 for (const url of countryUrls) {
     try {
         console.log('Scraping', url);
-        const response = await gotScraping(url);
-        const countryHtml = response.body;
+        const countryResponse = await gotScraping(url);
+        const countryHtml = countryResponse.body;
         const $$ = cheerio.load(countryHtml);
 
         const sites = $$('div.site-listing');

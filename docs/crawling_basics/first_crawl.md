@@ -11,7 +11,7 @@ paths:
 
 In the previous chapters we learned what crawling is and how to collect URLs to crawl from pages' HTML. The only thing that remains is to write the code. So let's get to it.
 
-> If the code starts to look too complex for you, don't worry. We're showing it for educational purposes, so that you can learn how crawling works. At the end, we'll show you a much easier and faster way to crawl, using a specialized scraping library. If you want, you can skip the details and [go there now]().
+> If the code starts to look too complex for you, don't worry. We're showing it for educational purposes, so that you can learn how crawling works. At the end, we'll show you a much easier and faster way to crawl, using a specialized scraping library. If you want, you can skip the details and [go there now]({{@link crawling_basics/pro_scraping.md}}).
 
 ## [](#processing-urls) Processing URLs
 
@@ -46,8 +46,8 @@ for (const link of links) {
 // Loop over the stored URLs to process each page individually.
 for (const url of countryUrls) {
     // Download HTML.
-    const response = await gotScraping(url);
-    const countryHtml = response.body;
+    const countryResponse = await gotScraping(url);
+    const countryHtml = countryResponse.body;
 
     // Load into Cheerio to test the HTML.
     // We use $$ not to confuse with $ variable above.
@@ -65,11 +65,12 @@ for (const url of countryUrls) {
 If you run the crawler from your terminal, it should print the titles. Or not? While writing this chapter. The <a href="https://www.alexa.com/topsites/countries/AX" target="_blank">Aland Islands</a> page was not available and therefore the crawler crashed a minute after visiting Afghanistan.
 
 ## [](#handling-errors) Handling errors
+
 Now, the code is correct, but it's not robust. If something goes wrong, it will crash. That something could be a network error, internet connection error, or one of the websites you're trying to reach could simply be experiencing problems at that moment. Any error like that and your crawler would stop, and you would lose the data it collected so far.
 
 In programming, you handle errors by catching them and then doing some action. Typically, printing information that the error occurred and/or retrying. Retrying is out of scope of this tutorial.
 
-> The scraping library we'll [show you later]() will handle errors and retries automatically for you.
+> The scraping library we'll [show you later]({{@link crawling_basics/pro_scraping.md}}) will handle errors and retries automatically for you.
 
 ```js
 // crawler.js
@@ -94,8 +95,8 @@ for (const url of countryUrls) {
     // The try block passes all errors into the catch block.
     // So instead of crashing the crawler, they can be handled.
     try {
-        const response = await gotScraping(url);
-        const countryHtml = response.body;
+        const countryResponse = await gotScraping(url);
+        const countryHtml = countryResponse.body;
 
         const $$ = cheerio.load(countryHtml);
 
@@ -116,4 +117,4 @@ At the time of writing, only one website, the Aland Islands, failed. In your cra
 
 ## [](#next) Next up
 
-In the [final crawling chapter]({{@link crawling_basics/scraping_the_data.md}}) you will complete the scraper. We will use the data collection code from the [Basics of data collection]({{@link data_collection_basics/node_continued.md}}) section and apply it to all the country pages.
+In the [next chapter]({{@link crawling_basics/scraping_the_data.md}}) you will complete the scraper. We will use the data collection code from the [Basics of data collection]({{@link data_collection_basics/node_continued.md}}) section and apply it to all the country pages.

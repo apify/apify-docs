@@ -35,8 +35,8 @@ const requestQueue = await Apify.openRequestQueue();
 await requestQueue.addRequest({
     url: 'https://www.alexa.com/topsites/countries',
     userData: {
-        label: 'START'
-    }
+        label: 'START',
+    },
 });
 
 // Replace CheerioCrawler with PlaywrightCrawler
@@ -71,10 +71,10 @@ const crawler = new Apify.PlaywrightCrawler({
                 requestQueue,
                 selector: 'ul.countries a[href]',
                 baseUrl: request.loadedUrl,
-            })
+            });
         }
-    }
-})
+    },
+});
 
 await crawler.run();
 ```
@@ -113,13 +113,13 @@ const crawler = new Apify.PlaywrightCrawler({
     launchContext: {
         launchOptions: {
             headless: true, // setting headless in code
-        }
+        },
     },
     handlePageFunction: async ({ page, request }) => {
-     // ...
-    }
+        // ...
+    },
     // ...
-})
+});
 ```
 
 `launchContext` and `launchOptions` give you control over launching browsers with the Apify SDK. [Learn more about them in the documentation](https://sdk.apify.com/docs/typedefs/playwright-launch-context).

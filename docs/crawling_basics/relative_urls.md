@@ -91,4 +91,4 @@ Cheerio can't resolve the URL automatically, because until you provide the neces
 
 ## [](#next) Next up
 
-The [next chapter]({{@link crawling_basics/first_crawling.md}}) will teach you how to use the collected URLs to crawl all the country specific pages.
+The [next chapter]({{@link crawling_basics/first_crawl.md}}) will teach you how to use the collected URLs to crawl all the country specific pages.

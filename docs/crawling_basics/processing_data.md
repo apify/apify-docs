@@ -26,7 +26,7 @@ import Apify from 'apify';
 
 const dataset = await Apify.openDataset();
 const { items } = await dataset.getData();
-console.log(items.length)
+console.log(items.length);
 ```
 
 When we ran this code, having the results from our previous chapters in the `apify_storage` folder, it printed `5000` for us. Your number may differ.
@@ -76,7 +76,7 @@ const { items } = await localDataset.getData();
 
 // We will use the Apify API client to access the Apify API.
 const apifyClient = Apify.newClient({
-    token: 'YOUR_API_TOKEN' // Paste your API token here.
+    token: 'YOUR_API_TOKEN', // Paste your API token here.
 });
 
 console.log('Creating a new dataset on the Apify platform');
@@ -109,7 +109,7 @@ const { items } = await localDataset.getData();
 
 // We will use the Apify API client to access the Apify API.
 const apifyClient = Apify.newClient({
-    token: 'FPBbEDSk3g66J7yzJe9XhH9mK' // Paste your API token here.
+    token: 'FPBbEDSk3g66J7yzJe9XhH9mK', // Paste your API token here.
 });
 
 console.log('Creating a new dataset on the Apify platform');
