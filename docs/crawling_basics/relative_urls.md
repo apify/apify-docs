@@ -87,6 +87,8 @@ for (const link of links) {
 }
 ```
 
+Cheerio can't resolve the URL automatically, because until you provide the necessary information, it doesn't know where you originally downloaded the HTML from. The browser always knows which page you're on, so it will do the resolving automatically.
+
 ## [](#next) Next up
 
-The [next chapter]({{@link crawling_basics/relative_urls.md}}) will teach you how to use the collected URLs to crawl all the country specific pages.
+The [next chapter]({{@link crawling_basics/first_crawling.md}}) will teach you how to use the collected URLs to crawl all the country specific pages.
