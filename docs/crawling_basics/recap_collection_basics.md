@@ -1,13 +1,13 @@
 ---
 title: Recap data collection
-description: Look at our Alexa Top Sites scraper and refresh our memory about its code and the programming techniques we used.
+description: Review our Alexa Top Sites scraper and refresh our memory about its code and the programming techniques we used.
 menuWeight: 21.1
 category: web scraping academy
 paths:
 - crawling-basics/recap-collection-basics
 ---
 
-# Recap of data collection basics
+# [](#recap) Recap of data collection basics
 
 We finished the [first part]({{@link data_collection_basics.md}}) of the Web Scraping Academy by creating a web scraper in Node.js. The scraper collected browsing information from the [Alexa Top Sites index](https://www.alexa.com/topsites). Let's see the code with some comments.
 
@@ -22,10 +22,10 @@ const response = await gotScraping('https://www.alexa.com/topsites');
 const html = response.body;
 
 // We used Cheerio, a popular library, to parse (process)
-// the downloaded HTML so that we can manipulate it.
+// the downloaded HTML so that we could manipulate it.
 const $ = cheerio.load(html);
 // Using the div.site-listing CSS selector, we collected
-// all the HTML elements which contain the 50 websites data.
+// all the HTML elements which contained the 50 websites data.
 const sites = $('div.site-listing');
 // Then we prepared a new array to store the results.
 const results = [];
@@ -35,7 +35,7 @@ for (const site of sites) {
     // The data we wanted were in multiple
     // <div> elements with the class="td".
     const fields = $(site).find('div.td');
-    // And we a added all the data to the results array
+    // We added all the data to the results array
     // in the form of an object with keys and values.
     results.push({
         rank: fields.eq(0).text().trim(),
@@ -49,10 +49,10 @@ for (const site of sites) {
 // Finally, we printed the results to the terminal.
 console.log(results);
 // In the bonus chapter, we saved the files to a CSV,
-// but will skip that for now.
+// but we will skip that for now.
 ```
 
-> If some of the code is hard to understand for you, please review the [Basics of data collection]({{@link data_collection_basics.md}}) section again, because we will not go through the details again in this section about crawling.
+> If some of the code is hard to understand for you, please review the [Basics of data collection]({{@link data_collection_basics.md}}) section. We will not go through the details again in this section about crawling.
 
 ## [](#next) Next up
 

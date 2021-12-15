@@ -27,7 +27,7 @@ This short version of the URL is called a relative URL and the full length one i
 
 We'll see why that's important in a minute.
 
-## [](#browser-vs-cheerio)
+## [](#browser-vs-cheerio) Browser and Cheerio differences
 
 Let's update the Node.js code from the [Finding links chapter]({{@link crawling_basics/finding_links.md}}) to see why links with relative URLs can be a problem.
 
@@ -49,7 +49,7 @@ for (const link of links) {
 }
 ```
 
-When you run this code in your terminal, you'll immediately see the difference. Unlike in the browser, where looping over elements produced absolute URLs, here in Node.js it only produces the relative ones. This is bad, because we can't use the relative URLs to crawl. They simply don't have all the necessary information.
+When you run this code in your terminal, you'll immediately see the difference. Unlike in the browser, where looping over elements produced absolute URLs, here in Node.js it only produces the relative ones. This is bad, because we can't use the relative URLs to crawl. They simply don't include all the necessary information.
 
 ## [](#resolve-url) Resolving URLs
 
@@ -87,7 +87,7 @@ for (const link of links) {
 }
 ```
 
-Cheerio can't resolve the URL automatically, because until you provide the necessary information, it doesn't know where you originally downloaded the HTML from. The browser always knows which page you're on, so it will do the resolving automatically.
+Cheerio can't resolve the URL itself, because until you provide the necessary information, it doesn't know where you originally downloaded the HTML from. The browser always knows which page you're on, so it will do the resolving automatically.
 
 ## [](#next) Next up
 

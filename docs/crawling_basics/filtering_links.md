@@ -54,7 +54,7 @@ $('ul.countries a[href]');
 
 We already know both the `ul.countries` and `a[href]` selectors, but their combination is new. It's called a <a href="https://css-tricks.com/almanac/selectors/d/descendant/" target="_blank">descendant selector</a> and it selects all `<a href="...">` elements that are descendants of an `<ul class="countries">` element. A descendant is any element that's nested somewhere inside another element.
 
-![screenshot of nested a tag]()
+![nested HTML tags]({{@asset crawling_basics/images/nested-tag.webp}})
 
 When we print all the URLs in the DevTools console, we'll see that we've correctly filtered only the country links.
 
@@ -64,7 +64,7 @@ for (const a of document.querySelectorAll('ul.countries a[href]')) {
 }
 ```
 
-![screenshot of printed links]()
+![country URLs printed to console]({{@asset crawling_basics/images/nested-tag.webp}})
 
 ## [](#pattern-filter) Filtering with pattern matching
 
@@ -75,6 +75,12 @@ Another common way to filter links (or any text really) is to match patterns wit
 We can inspect the country URLs, and we'll soon find that they all look like the following. That is, they're exactly the same except for the last 2 letters.
 
 ```text
+https://www.alexa.com/topsites/countries/AF
+https://www.alexa.com/topsites/countries/AX
+https://www.alexa.com/topsites/countries/AL
+https://www.alexa.com/topsites/countries/DZ
+https://www.alexa.com/topsites/countries/AR
+...
 https://www.alexa.com/topsites/countries/{2_LETTER_COUNTRY_CODE}
 ```
 

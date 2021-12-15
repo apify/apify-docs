@@ -9,13 +9,13 @@ paths:
 
 # [](#first-crawling) First crawl
 
-In the previous chapters we learned what crawling is and how to collect URLs to crawl from pages' HTML. The only thing that remains is to write the code. So let's get to it.
+In the previous chapters we learned what crawling is and how to collect URLs from pages' HTML. The only thing that remains is to write the code. So let's get to it.
 
 > If the code starts to look too complex for you, don't worry. We're showing it for educational purposes, so that you can learn how crawling works. At the end, we'll show you a much easier and faster way to crawl, using a specialized scraping library. If you want, you can skip the details and [go there now]({{@link crawling_basics/pro_scraping.md}}).
 
 ## [](#processing-urls) Processing URLs
 
-In the previous chapters we collected and filtered all the URLs pointing to individual country lists of the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>. To crawl the URLs, we can't print them to the console, but rather we need save them for future use. Once we do that, we must take this list of URLs and download the HTML of each of the pages. See comments for changes and additions to the code.
+In the previous chapters we collected and filtered all the URLs pointing to individual country lists of the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>. To crawl the URLs, we can't print them to the console, but rather we need to save them for future use. Once we do that, we must take this list of URLs and download the HTML of each of the pages. See comments for changes and additions to the code.
 
 ```js
 // crawler.js
@@ -66,7 +66,7 @@ If you run the crawler from your terminal, it should print the titles. Or not? W
 
 ## [](#handling-errors) Handling errors
 
-Now, the code is correct, but it's not robust. If something goes wrong, it will crash. That something could be a network error, internet connection error, or one of the websites you're trying to reach could simply be experiencing problems at that moment. Any error like that and your crawler would stop, and you would lose the data it collected so far.
+The code above is correct, but it's not robust. If something goes wrong, it will crash. That something could be a network error, internet connection error, or one of the websites you're trying to reach could simply be experiencing problems at that moment. Any error like that and your crawler would stop, and you would lose the data it collected so far.
 
 In programming, you handle errors by catching them and then doing some action. Typically, printing information that the error occurred and/or retrying. Retrying is out of scope of this tutorial.
 
@@ -111,10 +111,10 @@ for (const url of countryUrls) {
 }
 ```
 
-At the time of writing, only one website, the Aland Islands, failed. In your crawling, you might get a different result. The important thing is that the crawler no longer crashes, and that it was able to download the HTML of all the countries except one.
+At the time of writing, only one website failed: the Aland Islands. In your crawling, you might get a different result. The important thing is that the crawler no longer crashes, and that it was able to download the HTML of all the countries except one.
 
-> If you thought that the crawl was taking too long to complete, the scraping library will help once again. It automatically parallelizes the downloads and processing of HTML.
+> If you thought that the crawl was taking too long to complete, the [scraping library]({{@link crawling_basics/pro_scraping.md}}) will help once again. It automatically parallelizes the downloads and processing of HTML, which leads to significant speed improvements.
 
 ## [](#next) Next up
 
-In the [next chapter]({{@link crawling_basics/scraping_the_data.md}}) you will complete the scraper. We will use the data collection code from the [Basics of data collection]({{@link data_collection_basics/node_continued.md}}) section and apply it to all the country pages.
+In the [next chapter]({{@link crawling_basics/scraping_the_data.md}}) we will complete the scraper. We will use the data collection code from the [Basics of data collection]({{@link data_collection_basics/node_continued.md}}) section and apply it to all the country pages.

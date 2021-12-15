@@ -150,7 +150,7 @@ for (const url of countryUrls) {
             const fields = $$(site).find('div.td');
             results.push({
                 // Because we now have all the countries in one array,
-                // we use the two letter country code distinguish the results.
+                // we use the two letter country code to distinguish the results.
                 countryCode: url.slice(-2),
                 rank: fields.eq(0).text().trim(),
                 site: fields.eq(1).text().trim(),
@@ -166,7 +166,7 @@ for (const url of countryUrls) {
 }
 ```
 
-Aside from the `url.slice(-2)` function that we used to get the 2-letter country code from the URL, there's no new code. You already know everything from the previous chapters. When we put it all together, we'll arrive at the final scraper code. It's always a good idea to add some in-progress logging to a scraper. To be able to monitor how it's working. Let's add some now.
+Aside from the [`url.slice(-2)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) function that we used to get the 2-letter country code from the URL, there's no new code. You already know everything from the previous chapters. When we put it all together, we arrive at the final scraper code. It's always a good idea to add some in-progress logging to a scraper. To be able to monitor how it's working. Let's add some now.
 
 ```js
 // final.js
@@ -231,4 +231,4 @@ At the time of writing, we were getting 101 countries and 5000 results. That's b
 
 ## [](#next) Next up
 
-And that's it for the basics of crawling. But don't leave just yet. As promised, in the [next chapter]({{@link crawling_basics/scraping_the_data.md}}) we will rewrite the scraper using a proper scraping library. It will make development much faster and the scraper more robust.
+And that's it for the basics of crawling. But don't leave just yet. As promised, in the [next chapter]({{@link crawling_basics/pro_scraping.md}}) we will rewrite the scraper using a proper scraping library. It will make development much faster and the scraper more robust.

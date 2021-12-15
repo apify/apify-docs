@@ -26,4 +26,4 @@ At any point, we can collect URLs, data, or both. Crawling can be separate from 
 
 ## [](#next) Next up
 
-To make sure we're on the same page. In the [next chapter]({{@link crawling_basics/recap_collection_basics.md}}) we will review the scraper code we already have from the [Basics of data collection]({{@link data_collection_basics.md}}) section of the Academy.
+First, let's make sure we all understand the foundations. In the [next chapter]({{@link crawling_basics/recap_collection_basics.md}}) we will review the scraper code we already have from the [Basics of data collection]({{@link data_collection_basics.md}}) section of the Academy.

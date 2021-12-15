@@ -11,12 +11,12 @@ paths:
 
 While it's definitely an interesting exercise to do all the programming manually, and we hope you enjoyed it, it's neither the most effective, nor the most efficient way of scraping websites. Because we scrape for a living at Apify, we've built a library that we use to scrape tens of millions of pages every day.
 
-It's called <a href="https://sdk.apify.com" target="_blank">Apify SDK</a> and it is and always will be completely open-source and free to use. You don't need to sign-up for an Apify account or use the Apify platform. You can use it on your personal computer, on any server or in any cloud you want.
+It's called <a href="https://sdk.apify.com" target="_blank">Apify SDK</a> and it is - **and always will be** - completely open-source and **free** to use. You don't need to sign-up for an Apify account or use the Apify platform. You can use it on your personal computer, on any server or in any cloud you want.
 
 We mentioned benefits of a dedicated scraping library in the previous chapters, but to recap:
 
 1. **Faster development time**, because you don't have to write boilerplate code.
-2. **Less bugs**. Apify SDK is fully unit-tested and integration tested on millions of scraper runs.
+2. **Less bugs**. Apify SDK is fully unit-tested and battle tested on millions of scraper runs.
 3. **Faster and cheaper scrapers**, because Apify SDK automatically scales based on system resources and is optimized for enterprise-grade performance.
 4. **More robust scrapers**. Annoying details like retries, proxy management, error handling and result storage are all handled automatically by Apify SDK.
 5. **Helpful community**. You can join our Discord or talk to us on GitHub. We're almost always there to talk about scraping.
@@ -34,6 +34,7 @@ npm install --save apify
 In a new file, let's say `apify.js`, add the following code.
 
 ```js
+// apify.js
 import Apify from 'apify';
 
 console.log('Apify works!');
@@ -45,14 +46,14 @@ And run the code using:
 node apify.js
 ```
 
-If you see Apify works! printed to the console, it means you successfully installed Apify SDK.
+If you see **Apify works!** printed to the console, it means you successfully installed Apify SDK.
 
 
 ## [](#coding) Coding the scraper
 
-You probably noticed that we did not `import` Cheerio or got-scraping. That's because they're both already included in a component of the SDK called `CheerioCrawler`. It automatically visits URLs that you feed to it, downloads the HTML and parses it with Cheerio. The benefit over writing the code yourself is that it automatically handles and retries errors, parallelizes the downloads, making it faster, and removes a lot of boilerplate code that you would have to write yourself.
+You probably noticed that we did not `import` Cheerio or got-scraping. That's because they're both already included in a component of the SDK called [`CheerioCrawler`](https://sdk.apify.com/docs/api/cheerio-crawler). It automatically visits URLs that you feed to it, downloads the HTML and parses it with Cheerio. The benefit over writing the code yourself is that it automatically handles and retries errors. It also parallelizes the downloads, making it faster, and removes a lot of boilerplate code that you would have to write yourself.
 
-To feed it with URLs, we need to store them somewhere. This is where `RequestQueue` comes in. It's a persistent storage, which means that if your crawler crashes, you don't have to start over, but you can continue from where you left off. That's also something that you would have to implement yourself.
+To feed it with URLs, we need to store them somewhere. This is where [`RequestQueue`](https://sdk.apify.com/docs/api/request-queue) comes in. It's a persistent storage, which means that if your crawler crashes, it doesn't have to start over, but it can continue from where it left off. That's also something that you would have to implement yourself.
 
 ```js
 // apify.js
@@ -82,7 +83,7 @@ const crawler = new Apify.CheerioCrawler({
 await crawler.run();
 ```
 
-In the background, `CheerioCrawler` automatically takes the first (and only) URL from the `RequestQueue`, downloads its HTML and parses it using Cheerio. `handlePageFunction` is the place to interact with the downloaded page. It gives you access to the parsed HTML in the `$` variable. You can also access the request from the queue using the `request` variable.
+In the background, `CheerioCrawler` automatically takes the first (and only) URL from the `RequestQueue`, downloads its HTML and parses it using Cheerio. [`handlePageFunction`](https://sdk.apify.com/docs/typedefs/cheerio-crawler-options#handlepagefunction) is the place to interact with the downloaded page. It gives you access to the parsed HTML in the [`$`](https://sdk.apify.com/docs/typedefs/cheerio-handle-page-inputs) variable. You can also access the request from the queue using the [`request`](https://sdk.apify.com/docs/typedefs/cheerio-handle-page-inputs#request) variable.
 
 When you run the code above you'll see that it prints various log messages, but among the many you'll find the URL and `<title>` of the web page.
 
@@ -93,7 +94,7 @@ Title: Alexa - Top Sites for Countries
 
 Now, if you run the code again, you'll see that it does not print the title and URL anymore. As we mentioned earlier, the request queue is a persistent storage. It means that the queue remembers that the crawler already processed this URL. When you rerun the code, the queue remembers that this URL was already processed and will not process it again.
 
-Notice the `apify_storage` folder that was created in your project's folder. This is where Apify SDK persists its state. If you delete the folder and rerun the scraper, it will crawl the URL again. But deleting the folder manually is a bit annoying, so we'll automate it.
+Notice the [`apify_storage`](https://sdk.apify.com/docs/guides/request-storage) folder that was created in your project's folder. This is where Apify SDK persists its state. If you delete the folder and rerun the scraper, it will crawl the URL again. But deleting the folder manually is a bit annoying, so we'll automate it.
 
 ```js
 // apify.js
@@ -121,7 +122,7 @@ When you repeatedly run the code now, you'll see that it always prints the expec
 
 ## [](#crawling) Crawling links
 
-The current scraper only visits the first URL, but we want data for all the countries. We can use the `Apify.utils.enqueueLinks()` function to help us with that. The function automatically extracts URLs from the current page, based on a provided CSS selector and adds them to the request queue. Once added, the crawler will automatically crawl them.
+The current scraper only visits the first URL, but we want data for all the countries. We can use the [`Apify.utils.enqueueLinks()`](https://sdk.apify.com/docs/api/utils#utilsenqueuelinksoptions) function to help us with that. The function automatically extracts URLs from the current page, based on a provided CSS selector, and adds them to the request queue. Once added, the crawler will automatically crawl them.
 
 ```js
 // apify.js
@@ -170,7 +171,7 @@ When you run the code, you'll immediately see that it crawls faster than the man
 
 We have the crawler in place, and it's time to collect data. We already have the extraction code from the previous chapters, so we can just copy and paste it into the `handlePageFunction` with tiny changes.
 
-The one small, but important change we did was to use the `Apify.pushData()` function to save the results to the run's default dataset. You will find the results in the `apify_storage` folder, under `datasets/default`.
+The one small, but important change we did was to use the [`Apify.pushData()`](https://sdk.apify.com/docs/api/apify#apifypushdataitem) function to save the results to the run's default dataset. You will find the [results in the `apify_storage`](https://sdk.apify.com/docs/guides/result-storage) folder, under `datasets/default`.
 
 ```js
 // apify.js
@@ -225,8 +226,8 @@ const crawler = new Apify.CheerioCrawler({
 await crawler.run();
 ```
 
-By using the `apify` library, we were able to create a faster and more robust scraper with less code than needed for the simple scraper in earlier chapters. But this only scratches the surface of the Apify SDK's capabilities.
+By using the `apify` library, we were able to create a faster and more robust scraper. With less code than needed for the simple scraper in earlier chapters. But this only scratches the surface of the Apify SDK's capabilities.
 
 ## [](#next) Next up
 
-Apify SDK is a full-featured scraping library. That's why we can use it to scrape any website at any scale. In the [next chapter]({{@link crawling_basics/headless_browser.md}}) we will change only a few lines of code and turn our scraper into a full headless browser.
+Apify SDK is a full-featured scraping library. That's why we can use it to scrape any website at any scale. In the [next chapter]({{@link crawling_basics/headless_browser.md}}) we will change only a few lines of code and turn our scraper into a full **headless browser**.

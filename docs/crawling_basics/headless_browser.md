@@ -9,11 +9,11 @@ paths:
 
 # [](#headless-browser) Headless browser
 
-A headless browser is simply a browser that runs without the user interface. This means that it's normally controlled by automated scripts. Headless browsers are very popular in scraping, because they can help you render JavaScript or behave like a human user to prevent blocking. The two most popular libraries for controlling headless browsers are Puppeteer and Playwright. Apify SDK supports both.
+A headless browser is simply a browser that runs without the user interface. This means that it's normally controlled by automated scripts. Headless browsers are very popular in scraping, because they can help you render JavaScript or behave like a human user to prevent blocking. The two most popular libraries for controlling headless browsers are [Puppeteer](https://pptr.dev/) and [Playwright](https://playwright.dev/). Apify SDK supports both.
 
 ## [](#playwright-scraper) Building a Playwright scraper
 
-Building a Playwright scraper with the Apify SDK is extremely easy. To show you how easy, we'll reuse the Cheerio scraper code from the previous chapter and by changing only a few lines of code, we'll turn it into a full headless scraper.
+Building a Playwright scraper with the Apify SDK is extremely easy. To show you how easy, we'll reuse the Cheerio scraper code from the previous chapter, and by changing only a few lines of code, we'll turn it into a full headless scraper.
 
 First, we must not forget to install Playwright into our project.
 
@@ -81,7 +81,7 @@ await crawler.run();
 
 Yes, that's it. We added 3 lines and changed 1 line of code. The scraper now runs exactly the same as before, but using a full Chromium browser instead of plain HTTP requests and Cheerio. This is the true power of the Apify SDK.
 
-Using Playwright in combination with Cheerio like this is only one of many ways how you can utilize Playwright (and Puppeteer) with the Apify SDK. In the advanced sections of the academy, we will go deeper into using headless browsers for scraping and web automation (RPA) use-cases.
+Using Playwright in combination with Cheerio like this is only one of many ways how you can utilize Playwright (and Puppeteer) with the Apify SDK. In the advanced sections of the Academy, we will go deeper into using headless browsers for scraping and web automation (RPA) use-cases.
 
 ## [](#headless) Running headless
 
@@ -89,7 +89,7 @@ We said that headless browsers didn't have a UI, but while scraping with the abo
 
 ### [](#headless-env-var) Environment variable
 
-This is the programmer's preferred solution, because you don't have to change the source code to change the behavior. All you need to do is set the `APIFY_HEADLESS=1` environment variable when running your scraper, and it will automatically run headless. For example like this:
+This is the programmer's preferred solution, because you don't have to change the source code to change the behavior. All you need to do is set the [`APIFY_HEADLESS=1`](https://sdk.apify.com/docs/guides/environment-variables#apify_headless) environment variable when running your scraper, and it will automatically run headless. For example like this:
 
 ```marked-tabs
 <marked-tab header="MacOS/Linux" lang="shell">
@@ -105,7 +105,7 @@ $env:APIFY_HEADLESS=1; & node apify.js
 
 ### [](#headless-code) Scraper code
 
-If you always want the scraper to run headless, it might be better to hardcode it in the source. To do that, we need to access [Playwright's launch options](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-option-headless). In the Apify SDK we can do that in the `PlaywrightCrawler` constructor.
+If you always want the scraper to run headless, it might be better to hardcode it in the source. To do that, we need to access [Playwright's launch options](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-option-headless). In the Apify SDK we can do that [in the `PlaywrightCrawler` constructor](https://sdk.apify.com/docs/typedefs/playwright-crawler-options#launchcontext).
 
 ```js
 const crawler = new Apify.PlaywrightCrawler({
@@ -122,8 +122,8 @@ const crawler = new Apify.PlaywrightCrawler({
 });
 ```
 
-`launchContext` and `launchOptions` give you control over launching browsers with the Apify SDK. [Learn more about them in the documentation](https://sdk.apify.com/docs/typedefs/playwright-launch-context).
+[`launchContext`](https://sdk.apify.com/docs/typedefs/playwright-launch-context) and [`launchOptions`](https://playwright.dev/docs/api/class-browsertype#browser-type-launch) give you control over launching browsers with the Apify SDK.
 
 ## [](#next) Next up
 
-We learned how to scrape with Cheerio and Playwright, but how do we process the scraped data? Let's learn that in the [final chapter]({{@link crawling_basics/headless_browser.md}}) of the Basics of crawling section of the Web Scraping Academy.
+We learned how to scrape with Cheerio and Playwright, but how do we process the scraped data? Let's learn that in the [final chapter]({{@link crawling_basics/processing_data.md}}) of the Basics of crawling section of the Web Scraping Academy.
