@@ -1,21 +1,20 @@
 ---
 title: First crawl
-description: Learn how to crawl the web using Node.js, Cheerio and an HTTP client. Collect URLs and use them to visit more websites.
+description: Learn how to crawl the web using Node.js, Cheerio and an HTTP client. Collect URLs from pages and use them to visit more websites.
 menuWeight: 21.5
-category: web scraping academy
 paths:
 - crawling-basics/first-crawl
 ---
 
 # [](#first-crawling) First crawl
 
-In the previous chapters we learned what crawling is and how to collect URLs from pages' HTML. The only thing that remains is to write the code. So let's get to it.
+In the previous chapters, we learned what crawling is and how to collect URLs from pages' HTML. The only thing that remains is to write the code. So let's get to it.
 
 > If the code starts to look too complex for you, don't worry. We're showing it for educational purposes, so that you can learn how crawling works. At the end, we'll show you a much easier and faster way to crawl, using a specialized scraping library. If you want, you can skip the details and [go there now]({{@link crawling_basics/pro_scraping.md}}).
 
 ## [](#processing-urls) Processing URLs
 
-In the previous chapters we collected and filtered all the URLs pointing to individual country lists of the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>. To crawl the URLs, we can't print them to the console, but rather we need to save them for future use. Once we do that, we must take this list of URLs and download the HTML of each of the pages. See comments for changes and additions to the code.
+In the previous chapters, we collected and filtered all the URLs pointing to individual country lists of the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>. To crawl the URLs, we can't print them to the console, but rather we need to save them for future use. Once we do that, we must take this list of URLs and download the HTML of each of the pages. See the comments for changes and additions to the code.
 
 ```js
 // crawler.js
@@ -62,7 +61,7 @@ for (const url of countryUrls) {
 }
 ```
 
-If you run the crawler from your terminal, it should print the titles. Or not? While writing this chapter. The <a href="https://www.alexa.com/topsites/countries/AX" target="_blank">Aland Islands</a> page was not available and therefore the crawler crashed a minute after visiting Afghanistan.
+If you run the crawler from your terminal, it should print the titles. Or not? While writing this chapter, the <a href="https://www.alexa.com/topsites/countries/AX" target="_blank">Aland Islands</a> page was not available and therefore the crawler crashed a minute after visiting Afghanistan.
 
 ## [](#handling-errors) Handling errors
 
@@ -93,8 +92,9 @@ for (const url of countryUrls) {
     // Everything else is exactly the same.
     // We only wrapped the code in try/catch blocks.
     // The try block passes all errors into the catch block.
-    // So instead of crashing the crawler, they can be handled.
+    // So, instead of crashing the crawler, they can be handled.
     try {
+        // The try block attempts to execute our code
         const countryResponse = await gotScraping(url);
         const countryHtml = countryResponse.body;
 
@@ -104,7 +104,8 @@ for (const url of countryUrls) {
 
         console.log(pageTitle);
     } catch (error) {
-        // In the catch block we only print
+        // In the catch block, we handle errors.
+        // This time, we will just print
         // the error message and the url.
         console.error(error.message, url);
     }
@@ -117,4 +118,4 @@ At the time of writing, only one website failed: the Aland Islands. In your craw
 
 ## [](#next) Next up
 
-In the [next chapter]({{@link crawling_basics/scraping_the_data.md}}) we will complete the scraper. We will use the data collection code from the [Basics of data collection]({{@link data_collection_basics/node_continued.md}}) section and apply it to all the country pages.
+In the [next chapter]({{@link crawling_basics/scraping_the_data.md}}), we will complete the scraper. We will use the data collection code from the [Basics of data collection]({{@link data_collection_basics/node_continued.md}}) section and apply it to all the country pages.

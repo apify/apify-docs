@@ -1,15 +1,14 @@
 ---
 title: Headless browser
-description: Learn how to scrape the web with a headless browser using only a few lines of code. Chrome, Firefox, Safari, Edge. All are supported.
+description: Learn how to scrape the web with a headless browser using only a few lines of code. Chrome, Firefox, Safari, Edge - all are supported.
 menuWeight: 21.8
-category: web scraping academy
 paths:
 - crawling-basics/headless-browser
 ---
 
 # [](#headless-browser) Headless browser
 
-A headless browser is simply a browser that runs without the user interface. This means that it's normally controlled by automated scripts. Headless browsers are very popular in scraping, because they can help you render JavaScript or behave like a human user to prevent blocking. The two most popular libraries for controlling headless browsers are [Puppeteer](https://pptr.dev/) and [Playwright](https://playwright.dev/). Apify SDK supports both.
+A headless browser is simply a browser that runs without the user interface. This means that it's normally controlled by automated scripts. Headless browsers are very popular in scraping because they can help you render JavaScript or behave like a human user to prevent blocking. The two most popular libraries for controlling headless browsers are [Puppeteer](https://pptr.dev/) and [Playwright](https://playwright.dev/). The Apify SDK supports both.
 
 ## [](#playwright-scraper) Building a Playwright scraper
 

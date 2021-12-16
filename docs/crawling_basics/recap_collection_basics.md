@@ -1,8 +1,7 @@
 ---
 title: Recap data collection
-description: Review our Alexa Top Sites scraper and refresh our memory about its code and the programming techniques we used.
+description: Review our Alexa Top Sites scraper and refresh our memory about its code and the programming techniques we used to collect data.
 menuWeight: 21.1
-category: web scraping academy
 paths:
 - crawling-basics/recap-collection-basics
 ---
@@ -12,12 +11,12 @@ paths:
 We finished the [first part]({{@link data_collection_basics.md}}) of the Web Scraping Academy by creating a web scraper in Node.js. The scraper collected browsing information from the [Alexa Top Sites index](https://www.alexa.com/topsites). Let's see the code with some comments.
 
 ```js
-// First we imported all the libraries we needed to
+// First, we imported all the libraries we needed to
 // download and collect the data we wanted.
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
-// Here we fetched the website's HTML and saved it to a new variable.
+// Here, we fetched the website's HTML and saved it to a new variable.
 const response = await gotScraping('https://www.alexa.com/topsites');
 const html = response.body;
 
@@ -27,7 +26,7 @@ const $ = cheerio.load(html);
 // Using the div.site-listing CSS selector, we collected
 // all the HTML elements which contained the 50 websites data.
 const sites = $('div.site-listing');
-// Then we prepared a new array to store the results.
+// Then, we prepared a new array to store the results.
 const results = [];
 // And looped over all the 50 sites to extract information
 // for the individual websites.
@@ -52,7 +51,7 @@ console.log(results);
 // but we will skip that for now.
 ```
 
-> If some of the code is hard to understand for you, please review the [Basics of data collection]({{@link data_collection_basics.md}}) section. We will not go through the details again in this section about crawling.
+> If some of the code is hard for you to understand, please review the [Basics of data collection]({{@link data_collection_basics.md}}) section. We will not go through the details again in this section about crawling.
 
 ## [](#next) Next up
 

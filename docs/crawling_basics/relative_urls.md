@@ -1,8 +1,7 @@
 ---
 title: Relative URLs
-description: Learn about absolute and relative URLs and how to work with them when parsing HTML with Cheerio.
+description: Learn about absolute and relative URLs used on web pages and how to work with them when parsing HTML with Cheerio in your scraper.
 menuWeight: 21.4
-category: web scraping academy
 paths:
 - crawling-basics/relative-urls
 ---
@@ -21,9 +20,9 @@ But in the Elements tab, when checking the `<a href="...">` attributes, the URLs
 countries/GB
 ```
 
-This short version of the URL is called a relative URL and the full length one is called an absolute URL.
+This short version of the URL is called a **relative URL** and the full length one is called an **absolute URL**.
 
-> <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL#absolute_urls_vs_relative_urls" target="_blank">Learn more</a> about absolute and relative URLs.
+> <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL#absolute_urls_vs_relative_urls" target="_blank">Learn more about absolute and relative URLs</a>.
 
 We'll see why that's important in a minute.
 
@@ -91,4 +90,4 @@ Cheerio can't resolve the URL itself, because until you provide the necessary in
 
 ## [](#next) Next up
 
-The [next chapter]({{@link crawling_basics/first_crawl.md}}) will teach you how to use the collected URLs to crawl all the country specific pages.
+The [next chapter]({{@link crawling_basics/first_crawl.md}}) will teach you how to use the collected URLs to crawl all the country-specific pages.

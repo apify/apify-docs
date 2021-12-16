@@ -2,14 +2,13 @@
 title: Processing data
 description: Learn how to process the data you scraped using the Apify SDK and how to convert JSON to Excel files using the Apify API.
 menuWeight: 21.9
-category: web scraping academy
 paths:
 - crawling-basics/processing-data
 ---
 
 # [](#processing-data) Processing data
 
-From the previous chapters we know two things:
+From the previous chapters, we know two things:
 
 1. We can use `Apify.pushData()` to save data to the default dataset.
 2. The default dataset files are saved in the `apify_storage/datasets/default` folder.
@@ -55,11 +54,11 @@ In our case, in all countries except China, the top site was Google.com. Surpris
 
 ## [](#excel) Converting the dataset to Excel
 
-We promised that you won't need an Apify account for anything in this tutorial, and it's true. You can use the skills learned in the [Save to CSV chapter]({{@link data_collection_basics/save_to_csv.md}}) to save the dataset to a CSV. Just use the loading code from above, plug it in there and then open the CSV in Excel. But, we really want to show you this neat trick. It won't cost you anything, we promise, and it's a cool and fast way to convert datasets to any format.
+We promised that you won't need an Apify account for anything in this tutorial, and it's true. You can use the skills learned in the [Save to CSV chapter]({{@link data_collection_basics/save_to_csv.md}}) to save the dataset to a CSV. Just use the loading code from above, plug it in there and then open the CSV in Excel. However, we really want to show you this neat trick. It won't cost you anything, we promise, and it's a cool and fast way to convert datasets to any format.
 
 ### [](#apify-token) Get an Apify token
 
-First, you need a free Apify account. To get one, head to the [sign-up form](https://console.apify.com/sign-up) and complete the process. Once you have created the account and verified your email, go to the [integration settings](https://console.apify.com/account#/integrations) where you can copy your personal API token. This will give you access to the Apify API.
+First, you need a free Apify account. To get one, head to the [sign-up form](https://console.apify.com/sign-up) and complete the process. Once you have created the account and verified your email, go to the [integration settings](https://console.apify.com/account#/integrations), where you can copy your personal API token. This will give you access to the Apify API.
 
 ![copy personal API token in Apify console]({{@asset crawling_basics/images/api-token.webp}})
 
@@ -123,7 +122,7 @@ const xlsx = await datasetClient.downloadItems('xlsx');
 writeFileSync('dataset.xlsx', xlsx);
 ```
 
-It doesn't even have to be a dataset created by the Apify SDK. You can use this method to convert any JSON array to a CSV, XLSX and so on.
+It doesn't even have to be a dataset created by the Apify SDK. You can use this method to convert any JSON array to a CSV, XLSX, and so on.
 
 ## [](#wrap) Wrap up 💥
 

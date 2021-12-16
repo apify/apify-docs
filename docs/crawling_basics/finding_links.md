@@ -1,8 +1,7 @@
 ---
 title: Finding links
-description: Learn what a link looks like in HTML and how to collect their URLs using both DevTools and Node.js.
+description: Learn what a link looks like in HTML and how to find and collect their URLs when web scraping using both DevTools and Node.js.
 menuWeight: 21.2
-category: web scraping academy
 paths:
 - crawling-basics/finding-links
 ---
@@ -17,11 +16,11 @@ There are many kinds of links on the internet, and we'll cover them in the advan
 
 On a web page, the link above will look like this: <a href="https://example.com" target="_blank">This is a link to example.com</a> and when you click it, your browser will navigate to the provided URL `https://example.com`.
 
-> The URL is in a `href` HTML attribute. It means Hypertext REFerence and you don't need to remember it. Just know that `href` typically means some sort of a link.
+> The URL is in the `href` HTML attribute. It means Hypertext REFerence and you don't need to remember it. Just know that `href` typically means some sort of a link.
 
 ## [](#collect) Collecting links 🔗
 
-So if a link is just an HTML element and the URL is just an attribute, it means that we can collect links exactly the same way as we collected data.💡 Easy.
+So, if a link is just an HTML element and the URL is just an attribute, this means that we can collect links exactly the same way as we collected data.💡 Easy.
 
 To test this in a browser, you can try running this code in your DevTools console, on any website.
 
@@ -55,6 +54,7 @@ const html = response.body;
 const $ = cheerio.load(html);
 
 const links = $('a');
+
 for (const link of links) {
     const url = $(link).attr('href');
     console.log(url);
@@ -65,4 +65,4 @@ Aside from importing libraries and downloading HTML, we loaded the HTML into Che
 
 ## [](#next) Next up
 
-After running the code, you will see quite a lot of links in the terminal. Some of them weird, because they don't start with the regular `https://` protocol. We'll learn what to do with them in the [next chapter]({{@link crawling_basics/filtering_links.md}}).
+After running the code, you will see quite a lot of links in the terminal. Some of them may look weird because they don't start with the regular `https://` protocol. We'll learn what to do with them in the [next chapter]({{@link crawling_basics/filtering_links.md}}).

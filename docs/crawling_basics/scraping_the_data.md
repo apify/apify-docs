@@ -1,15 +1,14 @@
 ---
 title: Scraping the data
-description: Learn how to add data collection logic to your crawler to extract data from all the websites you crawled.
+description: Learn how to add data collection logic to your crawler, which will allow you to extract data from all the websites you crawled.
 menuWeight: 21.6
-category: web scraping academy
 paths:
 - crawling-basics/scraping-the-data
 ---
 
 # [](#scraping-data) Scraping the data
 
-At the [very beginning of the course](({{@link web_scraping_for_beginners.md}})) we learned that the term web scraping usually means a combined process of data collection and crawling. And this is exactly what we'll do in this chapter. We will take the code we built in the previous chapter and in the [Basics of data collection]({{@link data_collection_basics/node_continued.md}}) section, and we will combine that into a web scraper.
+At the [very beginning of the course](({{@link web_scraping_for_beginners.md}})), we learned that the term web scraping usually means a combined process of data collection and crawling. And this is exactly what we'll do in this chapter. We will take the code we built in the previous chapter and in the [Basics of data collection]({{@link data_collection_basics/node_continued.md}}) section, and we will combine that into a web scraper.
 
 ## [](#review-code) Review earlier code
 
@@ -123,7 +122,7 @@ for (const link of links) {
 }
 ```
 
-Now the code starts to differ. We will use the crawling code to visit all the URLs, but we will replace the dummy extraction logic we had there. The dummy logic only read the page's title, but we want data about the top 50 websites in each country.
+Now, the code starts to differ. We will use the crawling code to visit all the URLs but we will replace the placeholder extraction logic we had there. The placeholder logic only read the page's title, but we want data about the top 50 websites in each country.
 
 ```js
 // ...
@@ -150,7 +149,7 @@ for (const url of countryUrls) {
             const fields = $$(site).find('div.td');
             results.push({
                 // Because we now have all the countries in one array,
-                // we use the two letter country code to distinguish the results.
+                // we use the two-letter country code to distinguish the results.
                 countryCode: url.slice(-2),
                 rank: fields.eq(0).text().trim(),
                 site: fields.eq(1).text().trim(),

@@ -2,18 +2,17 @@
 title: Filtering links
 description: When you collect links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.
 menuWeight: 21.3
-category: web scraping academy
 paths:
 - crawling-basics/filtering-links
 ---
 
 # [](#filtering-links) Filtering links
 
-Web pages are full of links and frankly, most of them are useless for us. There are two approaches to this. First tries to target the links we're interested in by using unique CSS selectors. Second collects all links and then uses pattern matching to find the correct URLs. In real scraping scenarios, those two approaches are often combined for the most powerful filtering.
+Web pages are full of links and frankly, most of them are useless for us. There are two approaches to this. The first tries to target the links we're interested in by using unique CSS selectors. The second collects all links and then uses pattern matching to find the correct URLs. In real scraping scenarios, those two approaches are often combined for the most powerful filtering.
 
 ## [](#css-filter) Filtering with unique CSS selectors
 
-In the previous chapter we simply grabbed all the links from the HTML document.
+In the previous chapter, we simply grabbed all the links from the HTML document.
 
 ```marked-tabs
 <marked-tab header="DevTools" lang="javascript">
@@ -37,9 +36,9 @@ $('a[href]');
 </marked-tab>
 ```
 
-Always adding the `[href]` selector will save you from nasty bug hunts on some pages. Next, we can limit the number of results by only targeting the country links. In DevTools we see that all the country links are in an HTML list denoted by `<ul>` and `<li>` tags. And that the `<ul>` element has the class `countries`. We can leverage that.
+Always adding the `[href]` selector will save you from nasty bug hunts on some pages. Next, we can limit the number of results by only targeting the country links. In DevTools, we see that all the country links are in an HTML list denoted by `<ul>` and `<li>` tags. In addition, the `<ul>` element has the class `countries`. We can leverage that.
 
-> <a href="https://www.w3schools.com/html/html_lists_unordered.asp" target="_blank">Learn more</a> about HTML lists and the `<ul` and `<li>` tags.
+> <a href="https://www.w3schools.com/html/html_lists_unordered.asp" target="_blank">Learn more about HTML lists</a> and the `<ul` and `<li>` tags.
 
 ### [](#descendant-selector) Descendant selector
 
@@ -64,13 +63,13 @@ for (const a of document.querySelectorAll('ul.countries a[href]')) {
 }
 ```
 
-![country URLs printed to console]({{@asset crawling_basics/images/nested-tag.webp}})
+![country URLs printed to console]({{@asset crawling_basics/images/country-urls.webp}})
 
 ## [](#pattern-filter) Filtering with pattern matching
 
 Another common way to filter links (or any text really) is to match patterns with regular expressions.
 
-> <a href="https://javascript.info/regexp-introduction" target="_blank">Learn more</a> about regular expressions.
+> <a href="https://javascript.info/regexp-introduction" target="_blank">Learn more about regular expressions</a>.
 
 We can inspect the country URLs, and we'll soon find that they all look like the following. That is, they're exactly the same except for the last 2 letters.
 
@@ -84,7 +83,7 @@ https://www.alexa.com/topsites/countries/AR
 https://www.alexa.com/topsites/countries/{2_LETTER_COUNTRY_CODE}
 ```
 
-Now we create a regular expression that matches those links. There are many ways to do this. For simplicity, let's go with this one:
+Now, we create a regular expression that matches those links. There are many ways to do this. For simplicity, let's go with this one:
 
 ```regexp
 alexa\.com\/topsites\/countries\/[A-Z]{2}
