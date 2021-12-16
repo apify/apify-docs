@@ -11,7 +11,7 @@ paths:
 
 Welcome to the second part of our **Web scraping for beginners** course. In the [Basics of data collection]({{@link data_collection_basics.md}}) part, we learned how to extract data from a web page. Specifically, the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>.
 
-In this part, we will take a look at moving between web pages, which we call **crawling**. We will collect data for all the countries in the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a> and collect browsing data from all the countries listed there.
+In this part, we will take a look at moving between web pages, which we call **crawling**. We will collect browsing data for all the countries in the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>. To do that, we need to crawl the individual country websites.
 
 ## [](#how-to) How to crawl?
 
