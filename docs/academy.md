@@ -30,6 +30,9 @@ This is what you'll learn in the Web Scraping Academy:
 * [Web scraping for beginners]({{@link web_scraping_for_beginners.md}})
   * [Basics of data collection]({{@link data_collection_basics.md}})
   * [Basics of crawling]({{@link crawling_basics.md}})
+
+Coming soon:
+
 * Advanced web scraping
   * Advanced data collection techniques
     * API scraping
