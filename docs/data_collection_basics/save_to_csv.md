@@ -32,6 +32,7 @@ The full code including the earlier scraping part now looks like this.
 // main.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
+import { parse } from 'json2csv';
 
 const response = await gotScraping('https://www.alexa.com/topsites');
 const html = response.body;
@@ -82,6 +83,8 @@ When we complete the code, it looks like this.
 // main.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
+import { parse } from 'json2csv';
+import { writeFileSync } from 'fs';
 
 const response = await gotScraping('https://www.alexa.com/topsites');
 const html = response.body;
