@@ -26,7 +26,7 @@ Once you downloaded and installed it, you can open a folder where we will build 
 
 ## [](#hello-world) Hello World
 
-Before we start, let's confirm that Node.js was successfully installed on your computer. To do that, run those two commands in your terminal and see if they correctly print your Node.js and NPM versions.
+Before we start, let's confirm that Node.js was successfully installed on your computer. To do that, run those two commands in your terminal and see if they correctly print your Node.js and NPM versions. The next chapters **require Node.js version 15.10 or higher**. If you skipped Node.js installation and want to use your existing version of Node.js, make sure that it's 15.10 or higher.
 
 ```shell
 node -v
