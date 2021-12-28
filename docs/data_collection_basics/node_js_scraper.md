@@ -23,7 +23,7 @@ const html = response.body;
 console.log(html);
 ```
 
-Now run the script (using `node main.js`). After a brief moment, you should see the page's HTML printed in your terminal.
+Now run the script (using `node main.js`). After a brief moment, you should see the page's HTML printed to your terminal. If you get an error that says something along the lines of **urlToHttpOptions is not a function**, you need to update Node.js to version 15.10 or higher. If you followed the installation instructions earlier, you don't need to worry about this, because you have the correct version installed.
 
 > `gotScraping` is an `async` function and the `await` keyword is used to pause execution of the script until it returns the `response`. <a href="https://javascript.info/async-await" target="_blank">Learn more</a> about `async` and `await`.
 
