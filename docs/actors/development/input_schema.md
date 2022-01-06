@@ -157,7 +157,7 @@ Properties:
 
 |Property|Value|Required|Description|
 |--- |--- |--- |--- |
-|`editor`|One of `json`, <br/>`textfield`, <br/>`textarea`, <br/>`javascript`, <br/>`select`, <br/>`hidden`|Yes|Visual editor used for <br/>the input field.|
+|`editor`|One of `textfield`, <br/>`textarea`, <br/>`javascript`, <br/>`select`, <br/>`hidden`|Yes|Visual editor used for <br/>the input field.|
 |`pattern`|String|No|Regular expression that will be <br/>used to validate the input.|
 |`minLength`|Integer|No|Minimum length of the string.|
 |`maxLength`|Integer|No|Maximum length of the string.|
