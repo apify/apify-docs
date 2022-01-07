@@ -67,6 +67,14 @@
     ],
     "Web scraping": [
         {
+            "cardItem": "Web scraping academy",
+            "href": "/academy"
+        },
+        {
+            "cardItem": "Basics of data collection",
+            "href": "/data-collection-basics"
+        },
+        {
             "cardItem": "Scrape Twitter",
             "href": "https://blog.apify.com/how-to-scrape-tweets-and-more-on-twitter-59330e6fb522",
             "isExternalLink": true
