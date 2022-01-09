@@ -26,18 +26,24 @@ In the top left corner of the DevTools, there's a little arrow icon. When you cl
 
 ## [](#interact) Interacting with an element
 
-Now that you selected an element, you can right-click it to show many available actions. For now, select **Store as global variable** (**Use in Console** in Firefox). You'll see that a new variable called `temp1` (`temp0` in Firefox) appeared in your DevTools Console. You can now use the console to access the element's properties using JavaScript.
+After you select an element, you can right-click the highlighted element in the Elements tab to show a menu with available actions. For now, select **Store as global variable** (**Use in Console** in Firefox). You'll see that a new variable called `temp1` (`temp0` in Firefox) appeared in your DevTools Console. You can now use the console to access the element's properties using JavaScript.
 
-For example, you can print the text in the element using the following command:
+For example, if you wanted to scrape the text in the element, you could use the `textContent` property to get it. The following command will get the text of your `temp1` element and print it to the console using the `console.log()` function.
 
-```js
+```javascript
 console.log(temp1.textContent);
 ```
 
-Or the HTML of the element using this command:
+You can also get the HTML of the element using this command:
 
-```js
+```javascript
 console.log(temp1.outerHTML);
+```
+
+And you could even change the text of the element, if you wanted to:
+
+```javascript
+temp1.textContent = 'Hello!';
 ```
 
 ![Chrome DevTools JavaScript command execution]({{@asset data_collection_basics/images/basic-console-commands.webp}})
