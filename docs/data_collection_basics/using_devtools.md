@@ -12,11 +12,11 @@ We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try 
 
 ## [](#getting-structured-data) Getting structured data from HTML
 
-When you open the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>, you'll see that there's a table on the page with names of websites and various data about the websites' traffic. We will now learn how to collect all this information. Open DevTools and select any of the websites with the selector tool.
+When you open the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>, you'll see that there's a table on the page with names of websites and various data about the websites' traffic. We will now learn how to collect all this information. Open DevTools and select the first website - in our case Google.com - with the selector tool.
 
 ![Selecting an element with DevTools]({{@asset data_collection_basics/images/selecting-first-website.webp}})
 
-Now you know where to find the name of the first website in the page's HTML, but we want to find all the website's information. To do that, hover over the elements above the one you just found, until you find the element that contains all the data about the selected website.
+Now you know where to find the name of the first website in the page's HTML, but we want to find all information about this first website. To do that, in the Elements tab, hover over the elements above the one you just found, until you find the element that contains all the data about the selected website. Alternatively, you can press the up arrow a few times to get the same result.
 
 ![Selecting an element from the Elements tab]({{@asset data_collection_basics/images/selecting-container-element.webp}})
 
