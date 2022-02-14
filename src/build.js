@@ -54,13 +54,13 @@ const main = async () => {
     });
 
     // Build each content dir
-    sourceDirs.map(async (sourceDir) => {
-        await build(sourceDir);
-    });
+    for (const dir of sourceDirs) {
+        await build(dir);
+    }
 };
 
 main()
-    .then(() => console.log('\n\nDone.\n\n'))
+    .then(() => console.log('Done.\n'))
     .catch((err) => {
         log.exception(err, 'Build process failed.');
         // NOTE: Needs to exit with non-zero exit code otherwise, Github pipeline finishes successfully.

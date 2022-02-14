@@ -36,16 +36,18 @@ const { CONTENT_DIR_NAME } = require('./consts');
      */
     (async function () {
         try {
-            console.log('Webp conversion START');
+            console.log('Webp conversion START\n');
 
             // Get all the content dirs
             const contentDirs = await getDirectoriesInPath(CONTENT_DIR_NAME);
 
             // Call the conversion function for each content dir found
             // It will recursively scan all the files in the given directory and convert them
-            contentDirs.map(async (dir) => {
+            for (const dir of contentDirs) {
                 await convertImagesToWebp(dir);
-            });
+            }
+
+            console.log('\nWebp conversion END\n');
         } catch (err) {
             console.error(err, 'Error during conversion of images to webp format.');
             process.exit(1);
