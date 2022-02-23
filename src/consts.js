@@ -1,8 +1,4 @@
-const path = require('path');
-
-exports.DOCS_PATH = path.join(__dirname, '..', 'docs');
-
-exports.BUILD_DIR_PATH = path.join(__dirname, '..', 'build');
+exports.CONTENT_DIR_NAME = 'content';
 
 exports.PAGE_EXT = 'md';
 
