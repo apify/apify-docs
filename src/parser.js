@@ -5,13 +5,14 @@ const metadataParser = require('markdown-yaml-metadata-parser');
 const _ = require('underscore');
 const crypto = require('crypto');
 
-const { PAGE_EXT, ALLOWED_METADATA_KEYS, DOCS_PATH } = require('./consts');
+const { PAGE_EXT, ALLOWED_METADATA_KEYS } = require('./consts');
 
 const readdirPromised = util.promisify(fs.readdir);
 const lstatPromised = util.promisify(fs.lstat);
 const readFilePromised = util.promisify(fs.readFile);
 
-const readAndParsePage = async (fullPath, shortPath) => {
+// Create the page object that will form the index.json file
+const readAndParsePage = async (fullPath, shortPath, sourceDirName) => {
     const rawPage = (await readFilePromised(fullPath)).toString();
     const { content, metadata } = metadataParser(rawPage);
 
@@ -43,19 +44,19 @@ const readAndParsePage = async (fullPath, shortPath) => {
         menuTitle: metadata.menuTitle || metadata.title,
         content,
         contentHash: crypto.createHash('sha256').update(content).digest('base64'),
-        sourceUrl: `https://apify-docs.s3.amazonaws.com/master/pages/${shortPath}`,
+        sourceUrl: `https://apify-docs.s3.amazonaws.com/master/${sourceDirName}/pages/${shortPath}`,
         path: filenamePath,
         redirectPaths: metadata.paths.filter((p) => p !== filenamePath),
     };
 };
 
-const identifyFilesAndDirectories = async (currentPath, items) => {
+const identifyFilesAndDirectories = async (currentPath, items, sourceDirPath) => {
     const filePaths = [];
     const dirPaths = [];
 
     const promises = items.map(async (item) => {
         const itemPath = currentPath ? path.join(currentPath, item) : item;
-        const itemFullPath = path.join(DOCS_PATH, itemPath);
+        const itemFullPath = path.join(sourceDirPath, itemPath);
         const stat = await lstatPromised(itemFullPath);
 
         if (stat.isDirectory()) dirPaths.push(itemPath);
@@ -66,25 +67,36 @@ const identifyFilesAndDirectories = async (currentPath, items) => {
     return { filePaths, dirPaths };
 };
 
-const traverseAllFiles = async (currentPath = null) => {
-    const currentFullPath = currentPath ? path.join(DOCS_PATH, currentPath) : DOCS_PATH;
+/**
+ * Go through all the files in a path and create the object that is used in the index.json file in build
+ * This is the file that will be fetched when displaying the content
+ * Return an object
+ * @param {string} sourceDirPath
+ * @param {string} sourceDirName
+ * @param {string} currentPath
+ * @returns {object}
+ */
+const traverseAllFiles = async (sourceDirPath, sourceDirName, currentPath = null) => {
+    const currentFullPath = currentPath ? path.join(sourceDirPath, currentPath) : sourceDirPath;
     const directoryContent = await readdirPromised(currentFullPath);
+
     const pages = {};
     const assets = {};
 
-    const { filePaths, dirPaths } = await identifyFilesAndDirectories(currentPath, directoryContent);
+    const { filePaths, dirPaths } = await identifyFilesAndDirectories(currentPath, directoryContent, sourceDirPath);
 
     const filePromises = filePaths.map(async (filePath) => {
         const isPage = filePath.split('.').pop() === PAGE_EXT;
+
         if (isPage) {
-            pages[filePath] = await readAndParsePage(path.join(DOCS_PATH, filePath), filePath);
+            pages[filePath] = await readAndParsePage(path.join(sourceDirPath, filePath), filePath, sourceDirName);
         } else {
-            assets[filePath] = `https://apify-docs.s3.amazonaws.com/master/assets/${filePath}`;
+            assets[filePath] = `https://apify-docs.s3.amazonaws.com/master/${sourceDirName}/assets/${filePath}`;
         }
     });
 
     const dirPromises = dirPaths.map(async (dirPath) => {
-        const { pages: itemPages, assets: itemAssets } = await traverseAllFiles(dirPath);
+        const { pages: itemPages, assets: itemAssets } = await traverseAllFiles(sourceDirPath, sourceDirName, dirPath);
         Object.assign(pages, itemPages);
         Object.assign(assets, itemAssets);
     });
@@ -94,6 +106,7 @@ const traverseAllFiles = async (currentPath = null) => {
     return { pages, assets };
 };
 
+// Check and validate the links to other docs pages and assets on each page
 const replacePaths = (index) => {
     Object.keys(index.pages).forEach((pagePath) => {
         const pageDef = index.pages[pagePath];

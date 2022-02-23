@@ -158,7 +158,7 @@ For links, we use a similar syntax as for assets:
 
 Avoid using HTML.
 
-## Homepage
+## Docs homepage
 
 The homepage menu card items are in the `docs/homepage_content.json` file.
 
@@ -191,11 +191,11 @@ Over time, we should track which items are useful and which don't get any traffi
 
 ## Deployment
 
-On each commit to the `master` branch of this repository, a new version of the Apify documentation gets built and deployed to [docs.apify.com](https://docs.apify.com/).
+On each commit to the `master` branch of this repository, a new version of the Apify documentation gets built and deployed to the appropriate subdomain.
 
-Every other branch can be viewed using the `?version=BRANCH_NAME` parameter, e.g. [https://docs.apify.com?version=feature/new-section].
+Every other branch can be viewed on its respective subdomain using the `?version=BRANCH_NAME` parameter, e.g. [https://docs.apify.com?version=feature/new-section].
 
-Keep in mind that there might be about 2 minute delay before updated documentation gets online (1 minute Github actions build + 1 minute update interval of docs website).
+Keep in mind that there might be about 2 minute delay before updated documentation gets online (1 minute Github actions build + 1 minute update interval of the website).
 
 ## Linting
 
