@@ -741,7 +741,7 @@ The response is the build object as returned by the
         - data (Build, required)
 
 ## Build object - deprecated [/v2/acts/{actorId}/builds/{buildId}{?token,waitForFinish}]
-API endpoints related to build of the actor were moved under new namespace [actor builds](#/reference/actor-builds).
+API endpoints related to build of the actor were moved under new namespace [actor builds](#reference/actor-builds).
 
 + Parameters
 
@@ -1046,7 +1046,7 @@ Runs a specific actor and returns its dataset items.
 The POST payload including its `Content-Type` header is passed as `INPUT` to the actor (usually `application/json`).
 The HTTP response contains the actor's dataset items, while the format of items depends on specifying dataset items' `format` parameter.
 
-You can send all the same options in parameters as the [Get Dataset Items](#/reference/datasets/item-collection/get-items) API endpoint.
+You can send all the same options in parameters as the [Get Dataset Items](#reference/datasets/item-collection/get-items) API endpoint.
 
 The actor is started with the default options; you can override them using URL query parameters.
 If the actor run exceeds 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds,
@@ -1118,7 +1118,7 @@ Runs a specific actor and returns its dataset items.
 The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds otherwise the API endpoint returns a timeout error.
 The actor is not passed any input.
 
-It allows to send all possible options in parameters from [Get Dataset Items](#/reference/datasets/item-collection/get-items) API endpoint.
+It allows to send all possible options in parameters from [Get Dataset Items](#reference/datasets/item-collection/get-items) API endpoint.
 
 Beware that it might be impossible to maintain an idle HTTP connection for a long period of time,
 due to client timeout or network conditions. Make sure your HTTP client is configured to have a long enough connection timeout.
@@ -1172,7 +1172,7 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
             - message: `Actor run exceeded timeout of 60 seconds for this API enpoint` (string, required)
 
 ## Run object - deprecated [/v2/acts/{actorId}/runs/{runId}{?token,waitForFinish}]
-API endpoints related to run of the actor were moved under new namespace [actor runs](#/reference/actor-runs).
+API endpoints related to run of the actor were moved under new namespace [actor runs](#reference/actor-runs).
 
 ### Get run [GET]
 
@@ -1785,7 +1785,7 @@ and setting the `Content-Type: application/json` HTTP header.
 Note that if the object in the POST payload does not define a particular input property,
 the actor run uses the default value defined by the task (or the actor's input schema if not defined by the task).
 
-You can send all the same options in parameters as the [Get Dataset Items](#/reference/datasets/item-collection/get-items) API endpoint.
+You can send all the same options in parameters as the [Get Dataset Items](#reference/datasets/item-collection/get-items) API endpoint.
 
 Beware that it might be impossible to maintain an idle HTTP connection for an extended period,
 due to client timeout or network conditions. Make sure your HTTP client is configured to have a long enough connection timeout.
@@ -1843,7 +1843,7 @@ To run the task asynchronously, use the [Run task](#reference/actor-tasks/run-co
 Run a specific task and return its dataset items.
 The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds otherwise the API endpoint returns a timeout error.
 
-You can send all the same options in parameters as the [Get Dataset Items](#/reference/datasets/item-collection/get-items) API endpoint.
+You can send all the same options in parameters as the [Get Dataset Items](#reference/datasets/item-collection/get-items) API endpoint.
 
 Beware that it might be impossible to maintain an idle HTTP connection for an extended period,
 due to client timeout or network conditions. Make sure your HTTP client is configured to have a long enough connection timeout.
