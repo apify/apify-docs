@@ -3563,6 +3563,10 @@ The user account is identified by the provided authentication token.
 - restartOnError:   false                      (boolean, nullable)
 - versions                                     (array, nullable)
     -                                          (VersionUpdate, nullable)
+- defaultRunOptions                            (object, nullable)
+    - build:            `latest`               (string, nullable)
+    - timeoutSecs:      3600                   (number, nullable)
+    - memoryMbytes:      2048                  (number, nullable)
 
 ## ActUpdate (object)
 - name:             `MyActor`                  (string, required)
@@ -3572,6 +3576,10 @@ The user account is identified by the provided authentication token.
 - restartOnError:   false                      (boolean, nullable)
 - versions                                     (array, required)
     -                                          (VersionUpdate, required)
+- defaultRunOptions                            (object, nullable)
+    - build:            `latest`               (string, nullable)
+    - timeoutSecs:      3600                   (number, nullable)
+    - memoryMbytes:      2048                  (number, nullable)
 
 ## ActorShort1 (object)
 - id:              `br9CKmk457`                (string, required)
