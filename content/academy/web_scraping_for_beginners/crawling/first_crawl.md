@@ -3,14 +3,14 @@ title: First crawl
 description: Learn how to crawl the web using Node.js, Cheerio and an HTTP client. Collect URLs from pages and use them to visit more websites.
 menuWeight: 21.5
 paths:
-- crawling-basics/first-crawl
+- web-scraping-for-beginners/crawling/first-crawl
 ---
 
 # [](#first-crawling) First crawl
 
 In the previous chapters, we learned what crawling is and how to collect URLs from pages' HTML. The only thing that remains is to write the code. So let's get to it.
 
-> If the code starts to look too complex for you, don't worry. We're showing it for educational purposes, so that you can learn how crawling works. At the end, we'll show you a much easier and faster way to crawl, using a specialized scraping library. If you want, you can skip the details and [go there now]({{@link crawling_basics/pro_scraping.md}}).
+> If the code starts to look too complex for you, don't worry. We're showing it for educational purposes, so that you can learn how crawling works. At the end, we'll show you a much easier and faster way to crawl, using a specialized scraping library. If you want, you can skip the details and [go there now]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}).
 
 ## [](#processing-urls) Processing URLs
 
@@ -69,7 +69,7 @@ The code above is correct, but it's not robust. If something goes wrong, it will
 
 In programming, you handle errors by catching them and then doing some action. Typically, printing information that the error occurred and/or retrying. Retrying is out of scope of this tutorial.
 
-> The scraping library we'll [show you later]({{@link crawling_basics/pro_scraping.md}}) will handle errors and retries automatically for you.
+> The scraping library we'll [show you later]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) will handle errors and retries automatically for you.
 
 ```js
 // crawler.js
@@ -114,8 +114,8 @@ for (const url of countryUrls) {
 
 At the time of writing, only one website failed: the Aland Islands. In your crawling, you might get a different result. The important thing is that the crawler no longer crashes, and that it was able to download the HTML of all the countries except one.
 
-> If you thought that the crawl was taking too long to complete, the [scraping library]({{@link crawling_basics/pro_scraping.md}}) will help once again. It automatically parallelizes the downloads and processing of HTML, which leads to significant speed improvements.
+> If you thought that the crawl was taking too long to complete, the [scraping library]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) will help once again. It automatically parallelizes the downloads and processing of HTML, which leads to significant speed improvements.
 
 ## [](#next) Next up
 
-In the [next chapter]({{@link crawling_basics/scraping_the_data.md}}), we will complete the scraper. We will use the data collection code from the [Basics of data collection]({{@link data_collection_basics/node_continued.md}}) section and apply it to all the country pages.
+In the [next chapter]({{@link web_scraping_for_beginners/crawling/scraping_the_data.md}}), we will complete the scraper. We will use the data collection code from the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) section and apply it to all the country pages.

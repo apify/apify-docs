@@ -3,7 +3,7 @@ title: Headless browser
 description: Learn how to scrape the web with a headless browser using only a few lines of code. Chrome, Firefox, Safari, Edge - all are supported.
 menuWeight: 21.8
 paths:
-- crawling-basics/headless-browser
+- web-scraping-for-beginners/crawling/headless-browser
 ---
 
 # [](#headless-browser) Headless browser
@@ -80,7 +80,7 @@ await crawler.run();
 
 Yes, that's it. We added 3 lines and changed 1 line of code. The scraper now runs exactly the same as before, but using a full Chromium browser instead of plain HTTP requests and Cheerio. This is the true power of the Apify SDK.
 
-Using Playwright in combination with Cheerio like this is only one of many ways how you can utilize Playwright (and Puppeteer) with the Apify SDK. In the advanced sections of the Academy, we will go deeper into using headless browsers for scraping and web automation (RPA) use-cases.
+Using Playwright in combination with Cheerio like this is only one of many ways how you can utilize Playwright (and Puppeteer) with the Apify SDK. In the advanced courses of the Academy, we will go deeper into using headless browsers for scraping and web automation (RPA) use-cases.
 
 ## [](#headless) Running headless
 
@@ -125,4 +125,4 @@ const crawler = new Apify.PlaywrightCrawler({
 
 ## [](#next) Next up
 
-We learned how to scrape with Cheerio and Playwright, but how do we process the scraped data? Let's learn that in the [final chapter]({{@link crawling_basics/processing_data.md}}) of the Basics of crawling section of the Web Scraping Academy.
+We learned how to scrape with Cheerio and Playwright, but how do we process the scraped data? Let's learn that in the [next chapter]({{@link web_scraping_for_beginners/crawling/processing_data.md}}).

@@ -3,7 +3,7 @@ title: Computer preparation
 description: Set up your computer to be able to code scrapers with Node.js and JavaScript. Download Node.js and NPM and run a Hello World script.
 menuWeight: 20.4
 paths:
-    - data-collection-basics/computer-preparation
+    - web-scraping-for-beginners/data-collection/computer-preparation
 ---
 
 # [](#prepare) Prepare your computer for programming
@@ -22,7 +22,7 @@ There are many text editors you can choose from for programming. You might alrea
 
 Once you downloaded and installed it, you can open a folder where we will build your scraper. We recommend starting with a new, empty folder.
 
-![Showing how to open a folder in VSCode]({{@asset data_collection_basics/images/vscode-open-folder.webp}})
+![Showing how to open a folder in VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-open-folder.webp}})
 
 ## [](#hello-world) Hello World
 
@@ -35,13 +35,13 @@ npm -v
 
 If you installed VSCode in the previous paragraph, you can use the integrated terminal.
 
-![Showing how to open a terminal in VSCode]({{@asset data_collection_basics/images/vscode-open-terminal.webp}})
+![Showing how to open a terminal in VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-open-terminal.webp}})
 
 > If you're still wondering what a "terminal" is, we suggest googling for a terminal tutorial for your operating system because individual terminals are different. Sometimes a little, sometimes a lot.
 
 After confirming that `node` is correctly installed on your computer, use your text editor to create a file called `hello.js` in your folder.
 
-![Showing how to create a file in VSCode]({{@asset data_collection_basics/images/vscode-create-file.webp}})
+![Showing how to create a file in VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-create-file.webp}})
 
 Now add this piece of code, save the file, and run the below command in your terminal.
 
@@ -55,8 +55,8 @@ node hello.js
 
 You should see **Hello World** printed in your terminal. If you do, congratulations, you are now officially a programmer! 🚀
 
-![Showing hello world in VSCode]({{@asset data_collection_basics/images/vscode-hello-world.webp}})
+![Showing hello world in VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-hello-world.webp}})
 
 ## [](#next) Next up
 
-You have your computer set up correctly, and you've run your first script. Great! In the [next chapter]({{@link data_collection_basics/project_setup.md}}) we'll set up your project to download a website's HTML using Node.js instead of a browser.
+You have your computer set up correctly, and you've run your first script. Great! In the [next chapter]({{@link web_scraping_for_beginners/data_collection/project_setup.md}}) we'll set up your project to download a website's HTML using Node.js instead of a browser.

@@ -3,18 +3,18 @@ title: Node.js continued
 description: Continue learning how to create a web scraper with Node.js and cheerio. Learn how to parse HTML and print results.
 menuWeight: 20.7
 paths:
-    - data-collection-basics/node-continued
+    - web-scraping-for-beginners/data-collection/node-continued
 ---
 
 # [](#finish-scraper) Finish Node.js scraper
 
-In the first part of the Node.js tutorial we downloaded the HTML of the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a> and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link data_collection_basics/using_devtools.md}}) chapters and finish our scraper.
+In the first part of the Node.js tutorial we downloaded the HTML of the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a> and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}) chapters and finish our scraper.
 
 ## [](#querying-with-cheerio) Querying data with Cheerio
 
 As a reminder, the data we need from the Top Sites index is available in the 50 `<div>` elements with class `site-listing`. The CSS selector to find those is `div.site-listing`.
 
-![Selecting an element from the Elements tab]({{@asset data_collection_basics/images/selecting-container-element.webp}})
+![Selecting an element from the Elements tab]({{@asset web_scraping_for_beginners/data_collection/images/selecting-container-element.webp}})
 
 To get all the elements with that CSS selector using Cheerio, we call the `$` function with the selector.
 
@@ -46,7 +46,7 @@ After you run this script, you should see data of all the 50 sites printed in yo
 
 Now we only need to repeat the process from the DevTools chapters and add individual data point collection to the loop. From those chapters we know that the data are in `<div>` elements with class `td`.
 
-![Finding child elements in Elements tab]({{@asset data_collection_basics/images/find-child-elements.webp}})
+![Finding child elements in Elements tab]({{@asset web_scraping_for_beginners/data_collection/images/find-child-elements.webp}})
 
 We will loop over all the `sites` and collect the data points from each of them using the `for..of` loop. For reference, this is the code from the DevTools chapter, where we collected the data **using a browser**.
 
@@ -116,10 +116,10 @@ for (const site of sites) {
 console.log(results);
 ```
 
-![Printing all websites' data to terminal]({{@asset data_collection_basics/images/terminal-all-websites-data.webp}})
+![Printing all websites' data to terminal]({{@asset web_scraping_for_beginners/data_collection/images/terminal-all-websites-data.webp}})
 
-If you were able to get here, run the code, get results and also understand everything, you can pat yourself on the back and congratulate yourself on completing the **Basics of data collection** part of the Web Scraping Academy. Great job! 👏🎉
+If you were able to get here, run the code, get results and also understand everything, you can pat yourself on the back and congratulate yourself on completing the **Basics of data collection** part of the Web Scraping for Beginners course. Great job! 👏🎉
 
 # [](#next) Next up
 
-While we were able to collect the data, it's not very useful to have those printed to the console. In the [next, bonus chapter]({{@link data_collection_basics/save_to_csv.md}}), we will learn how to convert the data to a CSV and save it to a file.
+While we were able to collect the data, it's not very useful to have those printed to the console. In the [next, bonus chapter]({{@link web_scraping_for_beginners/data_collection/save_to_csv.md}}), we will learn how to convert the data to a CSV and save it to a file.

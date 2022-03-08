@@ -3,12 +3,12 @@ title: Recap data collection
 description: Review our Alexa Top Sites scraper and refresh our memory about its code and the programming techniques we used to collect data.
 menuWeight: 21.1
 paths:
-- crawling-basics/recap-collection-basics
+- web-scraping-for-beginners/crawling/recap-collection-basics
 ---
 
 # [](#recap) Recap of data collection basics
 
-We finished the [first part]({{@link data_collection_basics.md}}) of the Web Scraping Academy by creating a web scraper in Node.js. The scraper collected browsing information from the [Alexa Top Sites index](https://www.alexa.com/topsites). Let's see the code with some comments.
+We finished the [first part]({{@link web_scraping_for_beginners/data_collection.md}}) of the Web Scraping for Beginners course by creating a web scraper in Node.js. The scraper collected browsing information from the [Alexa Top Sites index](https://www.alexa.com/topsites). Let's see the code with some comments.
 
 ```js
 // First, we imported all the libraries we needed to
@@ -51,8 +51,8 @@ console.log(results);
 // but we will skip that for now.
 ```
 
-> If some of the code is hard for you to understand, please review the [Basics of data collection]({{@link data_collection_basics.md}}) section. We will not go through the details again in this section about crawling.
+> If some of the code is hard for you to understand, please review the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}}) section. We will not go through the details again in this section about crawling.
 
 ## [](#next) Next up
 
-The [next chapter]({{@link crawling_basics/finding_links.md}}) is all about finding some links to crawl on the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>.
+The [next chapter]({{@link web_scraping_for_beginners/crawling/finding_links.md}}) is all about finding some links to crawl on the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>.
