@@ -3,7 +3,7 @@ title: Processing data
 description: Learn how to process the data you scraped using the Apify SDK and how to convert JSON to Excel files using the Apify API.
 menuWeight: 21.9
 paths:
-- crawling-basics/processing-data
+- web-scraping-for-beginners/crawling/processing-data
 ---
 
 # [](#processing-data) Processing data
@@ -54,13 +54,13 @@ In our case, in all countries except China, the top site was Google.com. Surpris
 
 ## [](#excel) Converting the dataset to Excel
 
-We promised that you won't need an Apify account for anything in this tutorial, and it's true. You can use the skills learned in the [Save to CSV chapter]({{@link data_collection_basics/save_to_csv.md}}) to save the dataset to a CSV. Just use the loading code from above, plug it in there and then open the CSV in Excel. However, we really want to show you this neat trick. It won't cost you anything, we promise, and it's a cool and fast way to convert datasets to any format.
+We promised that you won't need an Apify account for anything in this tutorial, and it's true. You can use the skills learned in the [Save to CSV chapter]({{@link web_scraping_for_beginners/data_collection/save_to_csv.md}}) to save the dataset to a CSV. Just use the loading code from above, plug it in there and then open the CSV in Excel. However, we really want to show you this neat trick. It won't cost you anything, we promise, and it's a cool and fast way to convert datasets to any format.
 
 ### [](#apify-token) Get an Apify token
 
 First, you need a free Apify account. To get one, head to the [sign-up form](https://console.apify.com/sign-up) and complete the process. Once you have created the account and verified your email, go to the [integration settings](https://console.apify.com/account#/integrations), where you can copy your personal API token. This will give you access to the Apify API.
 
-![copy personal API token in Apify console]({{@asset crawling_basics/images/api-token.webp}})
+![copy personal API token in Apify console]({{@asset web_scraping_for_beginners/crawling/images/api-token.webp}})
 
 ### [](#upload-dataset) Upload your dataset to Apify
 
@@ -126,6 +126,6 @@ It doesn't even have to be a dataset created by the Apify SDK. You can use this 
 
 ## [](#wrap) Wrap up 💥
 
-And this is it for the [Basics of crawling section]({{@link crawling_basics.md}}) of the [Web Scraping Academy]({{@link academy.md}}). For now, this is also the last section. If you want to learn more about web scraping, stay tuned. We will keep updating the Academy with more content regularly, until we cover all the advanced and expert topics we promised at the beginning.
+And this is it for the [Basics of crawling section]({{@link web_scraping_for_beginners/crawling.md}}) of the [Web Scraping for Beginners]({{@link web_scraping_for_beginners.md}}) course. For now, this is also the last section. If you want to learn more about web scraping, stay tuned. We will keep updating the Academy with more content regularly, until we cover all the advanced and expert topics we promised at the beginning.
 
-If you're hooked and want to continue learning right away, head to the [getting started section](https://sdk.apify.com/docs/guides/getting-started) of the Apify SDK. It will help you reinforce your learnings from the Academy and also explain the inner workings of the SDK in more detail. See you there 👋
+If you're hooked and want to continue learning right away, head to the [getting started section](https://sdk.apify.com/docs/guides/getting-started) of the Apify SDK. It will help you reinforce your learnings from this course and also explain the inner workings of the SDK in more detail. See you there 👋

@@ -3,7 +3,7 @@ title: Relative URLs
 description: Learn about absolute and relative URLs used on web pages and how to work with them when parsing HTML with Cheerio in your scraper.
 menuWeight: 21.4
 paths:
-- crawling-basics/relative-urls
+- web-scraping-for-beginners/crawling/relative-urls
 ---
 
 # [](#filtering-links) Relative URLs
@@ -28,7 +28,7 @@ We'll see why that's important in a minute.
 
 ## [](#browser-vs-cheerio) Browser and Cheerio differences
 
-Let's update the Node.js code from the [Finding links chapter]({{@link crawling_basics/finding_links.md}}) to see why links with relative URLs can be a problem.
+Let's update the Node.js code from the [Finding links chapter]({{@link web_scraping_for_beginners/crawling/finding_links.md}}) to see why links with relative URLs can be a problem.
 
 ```js
 // crawler.js
@@ -90,4 +90,4 @@ Cheerio can't resolve the URL itself, because until you provide the necessary in
 
 ## [](#next) Next up
 
-The [next chapter]({{@link crawling_basics/first_crawl.md}}) will teach you how to use the collected URLs to crawl all the country-specific pages.
+The [next chapter]({{@link web_scraping_for_beginners/crawling/first_crawl.md}}) will teach you how to use the collected URLs to crawl all the country-specific pages.

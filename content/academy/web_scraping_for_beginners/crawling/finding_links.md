@@ -3,12 +3,12 @@ title: Finding links
 description: Learn what a link looks like in HTML and how to find and collect their URLs when web scraping using both DevTools and Node.js.
 menuWeight: 21.2
 paths:
-- crawling-basics/finding-links
+- web-scraping-for-beginners/crawling/finding-links
 ---
 
 # [](#find) Finding links
 
-There are many kinds of links on the internet, and we'll cover them in the advanced crawling course of the Academy. For now, let's think of links as the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">HTML anchor elements</a> with `<a>` tags. A typical link looks like this:
+There are many kinds of links on the internet, and we'll cover them in the advanced courses of the Academy. For now, let's think of links as the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">HTML anchor elements</a> with `<a>` tags. A typical link looks like this:
 
 ```html
 <a href="https://example.com">This is a link to example.com</a>
@@ -65,4 +65,4 @@ Aside from importing libraries and downloading HTML, we loaded the HTML into Che
 
 ## [](#next) Next up
 
-After running the code, you will see quite a lot of links in the terminal. Some of them may look weird because they don't start with the regular `https://` protocol. We'll learn what to do with them in the [next chapter]({{@link crawling_basics/filtering_links.md}}).
+After running the code, you will see quite a lot of links in the terminal. Some of them may look weird because they don't start with the regular `https://` protocol. We'll learn what to do with them in the [next chapter]({{@link web_scraping_for_beginners/crawling/filtering_links.md}}).

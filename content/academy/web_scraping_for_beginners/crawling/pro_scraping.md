@@ -3,7 +3,7 @@ title: Professional scraping
 description: Learn how to build scrapers easier, faster and finish with a better and a more robust scraper by using the Apify SDK, an open-source library for scraping in Node.js.
 menuWeight: 21.7
 paths:
-- crawling-basics/pro-scraping
+- web-scraping-for-beginners/crawling/pro-scraping
 ---
 
 # [](#pro) Professional scraping
@@ -229,4 +229,4 @@ By using the `apify` library, we were able to create a faster and more robust sc
 
 ## [](#next) Next up
 
-The Apify SDK is a full-featured scraping library. That's why we can use it to scrape any website at any scale. In the [next chapter]({{@link crawling_basics/headless_browser.md}}) we will change only a few lines of code and turn our scraper into a full **headless browser**.
+The Apify SDK is a full-featured scraping library. That's why we can use it to scrape any website at any scale. In the [next chapter]({{@link web_scraping_for_beginners/crawling/headless_browser.md}}) we will change only a few lines of code and turn our scraper into a full **headless browser**.

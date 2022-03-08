@@ -3,12 +3,12 @@ title: Scraping the data
 description: Learn how to add data collection logic to your crawler, which will allow you to extract data from all the websites you crawled.
 menuWeight: 21.6
 paths:
-- crawling-basics/scraping-the-data
+- web-scraping-for-beginners/crawling/scraping-the-data
 ---
 
 # [](#scraping-data) Scraping the data
 
-At the [very beginning of the course](({{@link web_scraping_for_beginners.md}})), we learned that the term web scraping usually means a combined process of data collection and crawling. And this is exactly what we'll do in this chapter. We will take the code we built in the previous chapter and in the [Basics of data collection]({{@link data_collection_basics/node_continued.md}}) section, and we will combine that into a web scraper.
+At the [very beginning of the course](({{@link web_scraping_for_beginners.md}})), we learned that the term web scraping usually means a combined process of data collection and crawling. And this is exactly what we'll do in this chapter. We will take the code we built in the previous chapter and in the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) section, and we will combine that into a web scraper.
 
 ## [](#review-code) Review earlier code
 
@@ -75,7 +75,7 @@ for (const url of countryUrls) {
 }
 ```
 
-We can see that the code is extremely similar. Both scripts download HTML and then process the HTML. To get an idea how to put them together, we'll go back to the [original process of crawling]({{@link crawling_basics.md}}).
+We can see that the code is extremely similar. Both scripts download HTML and then process the HTML. To get an idea how to put them together, we'll go back to the [original process of crawling]({{@link web_scraping_for_beginners/crawling.md}}).
 
 1. Visit the start URL.
 2. Collect next URLs (and data) and save them.
@@ -230,4 +230,4 @@ At the time of writing, we were getting 101 countries and 5000 results. That's b
 
 ## [](#next) Next up
 
-And that's it for the basics of crawling. But don't leave just yet. As promised, in the [next chapter]({{@link crawling_basics/pro_scraping.md}}) we will rewrite the scraper using a proper scraping library. It will make development much faster and the scraper more robust.
+And that's it for the basics of crawling. But don't leave just yet. As promised, in the [next chapter]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) we will rewrite the scraper using a proper scraping library. It will make development much faster and the scraper more robust.

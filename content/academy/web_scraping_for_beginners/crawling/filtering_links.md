@@ -3,7 +3,7 @@ title: Filtering links
 description: When you collect links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.
 menuWeight: 21.3
 paths:
-- crawling-basics/filtering-links
+- web-scraping-for-beginners/crawling/filtering-links
 ---
 
 # [](#filtering-links) Filtering links
@@ -53,7 +53,7 @@ $('ul.countries a[href]');
 
 We already know both the `ul.countries` and `a[href]` selectors, but their combination is new. It's called a <a href="https://css-tricks.com/almanac/selectors/d/descendant/" target="_blank">descendant selector</a> and it selects all `<a href="...">` elements that are descendants of an `<ul class="countries">` element. A descendant is any element that's nested somewhere inside another element.
 
-![nested HTML tags]({{@asset crawling_basics/images/nested-tag.webp}})
+![nested HTML tags]({{@asset web_scraping_for_beginners/crawling/images/nested-tag.webp}})
 
 When we print all the URLs in the DevTools console, we'll see that we've correctly filtered only the country links.
 
@@ -63,7 +63,7 @@ for (const a of document.querySelectorAll('ul.countries a[href]')) {
 }
 ```
 
-![country URLs printed to console]({{@asset crawling_basics/images/country-urls.webp}})
+![country URLs printed to console]({{@asset web_scraping_for_beginners/crawling/images/country-urls.webp}})
 
 ## [](#pattern-filter) Filtering with pattern matching
 
@@ -113,4 +113,4 @@ If you run the code in DevTools, you'll see that it produces exactly the same UR
 
 ## [](#next) Next up
 
-In the [next chapter]({{@link crawling_basics/relative_urls.md}}) we'll see how rewriting this code to Node.js is not so simple and learn about absolute and relative URLs in the process.
+In the [next chapter]({{@link web_scraping_for_beginners/crawling/relative_urls.md}}) we'll see how rewriting this code to Node.js is not so simple and learn about absolute and relative URLs in the process.

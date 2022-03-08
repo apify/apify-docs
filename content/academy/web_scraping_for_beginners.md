@@ -1,34 +1,65 @@
 ---
-title: Web scraping for beginners
-description: Learn what web scraping and crawling is and how to develop your own simple scraper.
-menuWeight: 19
-category: web scraping academy
+title: Web Scraping for Beginners
+description: Learn how to develop web scrapers with this comprehensive and practical course. Go from beginner to expert, all in one place.
+menuWeight: 18
+category: courses
 paths:
     - web-scraping-for-beginners
 ---
 
-# [](#web-scraping-for-beginners) Web Scraping for Beginners
+# [](#introduction) Introduction
 
-Web scraping or crawling? Data collection, mining, or extraction? You can find various definitions on the web. Let's agree on simple explanations that we will use throughout this beginner tutorial on web scraping.
+Welcome to Web Scraping for Beginners. A comprehensive and practical web scraping course that will take you from an absolute beginner to a successful web scraper developer. This course is sponsored by <a href="https://apify.com" target="_blank">Apify</a>, the web scraping and automation platform, but we will use only open-source technologies throughout. This means that the skills you learn will be applicable to any scraping project, and you'll be able to run it on any computer. No Apify account needed.
 
-## [](#data-collection) What is data collection?
+<!--If you would like to learn about the Apify platform and how it can help you build, run and scale your web scraping and automation projects, visit the Apify Academy, where we'll teach you all about our actors, proxies, API, scheduling, webhooks and much more.-->
 
-For us, data collection is a process that takes a web page, like an Amazon product page, and collects useful information from the page, such as the product's name and price. Web pages are an unstructured data source and the goal of data collection is to make the information structured and readable to computers. The main sources of data on a web page are HTML documents and API calls, but also images, PDFs, and so on.
+## [](#why-learn) Why learn scraper development
 
-![product data collection from Amazon]({{@asset images/beginners-data-collection.webp}})
+With so many point-and-click tools and no-code software that can help you extract data from websites, what is the point of learning scraper development? Contrary to what their marketing departments say, a point-and-click or no-code tool will never be as flexible, as powerful, or as optimized as a custom-built scraper.
 
-## [](#crawling) What is crawling?
+Any software can do only what it was programmed to do. If you build your own scraper, it can do anything you want. And you can always quickly change it to do more, less, or the same, but faster or cheaper. The possibilities are endless once you know how scraping really works.
 
-Where data collection focuses on a single page, web crawling (sometimes called spidering 🕷) is all about movement between pages or websites. The purpose of crawling is to travel across the website to find pages with the information we want. Crawling and collection can happen simultaneously, while moving from page to page, or separately, where one scraper focuses solely on finding pages with data and another scraper collects the data. The main purpose of crawling is to collect URLs or other identifiers that can be used to move around.
+Scraper development is a fun and challenging way to learn web development, web technologies, and understand the internet. You will reverse-engineer websites and understand how they work internally, what technologies they use and how they communicate with their servers. You will also master your chosen programming language and core programming concepts. When you truly understand web scraping, learning other technology like React or Next.js will be a piece of cake.
 
-<!-- TODO: An illustration of moving between pages -->
+## [](#summary) Course summary
 
-## [](#web-scraping)What is web scraping?
+When we set out to create the Academy, we wanted to build a complete guide to modern web scraping. A tutorial that a beginner could use to create their first scraper, as well as a resource that professionals will continuously use to learn about advanced and niche web scraping techniques. All chapters include code examples and code-along exercises that you can use to immediately put your scraping skills into action.
 
-We use web scraping as a general term for crawling, collection and all other activities that have the purpose of converting unstructured data from the web to a structured format. In the advanced sections of the course, you'll learn that modern web scraping is about much more than just HTML and URLs.
+This is what you'll learn in the Web Scraping for Beginners course:
 
-<!-- TODO: An illustration of moving between pages and collecting data -->
+* [Web scraping for beginners]({{@link web_scraping_for_beginners.md}})
+  * [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}})
+  * [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}})
+
+Other courses coming soon in the Academy:
+
+* Advanced web scraping
+  * Advanced data collection techniques
+    * API scraping
+    * JavaScript rendering and dynamic pages
+    * Data in JavaScript objects
+  * Advanced crawling techniques
+    * Navigation with POST requests
+    * Emulating API pagination
+    * GraphQL scraping
+  * Anti-scraping protection
+    * Proxies and staying anonymous
+    * Captchas and human behavior
+    * Web application firewalls
+* Expert topics
+  * Mobile app scraping
+  * Overcoming result limits
+
+> We release course content as soon as we write it instead of launching it all at the same time much later. If you want to get notified about new chapters <a href="https://console.apify.com/sign-up" target="_blank">sign up for a free Apify account</a> to get our newsletters.
+
+## [](#requirements) Requirements
+
+You don't need to be a developer or a software engineer to complete this course, but basic programming knowledge is recommended. Don't be afraid, though. We explain everything in great detail in the Web Scraping for Beginners course and provide external references that can help you level up your web scraping and development skills. If you're new to programming, pay very close attention to the instructions and examples. A seemingly insignificant thing like using `[]` instead of `()` can make a lot of difference.
+
+As you progress to the Advanced and Pro courses, the coding will get more challenging, but still manageable to a person with an intermediate level of programming skills.
 
 ## [](#next) Next up
 
-In the [next chapter]({{@link data_collection_basics.md}}), you will learn about the basic building blocks of each web page. HTML, CSS and JavaScript.
+The course begins with short theory and continues with practical examples of collecting data from the most popular websites on the internet using your browser console. So [let's get to it!]({{@link web_scraping_for_beginners/introduction.md}})
+
+> If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}}) chapter. <!--or even the Advanced Web Scraping section of the course.-->

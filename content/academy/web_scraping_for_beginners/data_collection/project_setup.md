@@ -3,7 +3,7 @@ title: Project setup
 description: Create a new scraper project with NPM and Node.js, install libraries, and test that everything works correctly.
 menuWeight: 20.5
 paths:
-    - data-collection-basics/project-setup
+    - web-scraping-for-beginners/data-collection/project-setup
 ---
 
 # [](#setting-up) Setting up your project
@@ -23,7 +23,7 @@ npm init -y
 
 It will set up an empty NPM project for you and create a file called `package.json`. This is a very important file in Node.js programming as it contains information about the project.
 
-![NPM init with VSCode]({{@asset data_collection_basics/images/vscode-npm-init.webp}})
+![NPM init with VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-npm-init.webp}})
 
 ### [](#modern-javascript) Use modern JavaScript
 
@@ -33,7 +33,7 @@ Node.js and NPM support two types of projects, let's call them legacy and modern
 "type": "module"
 ```
 
-![Update package.json with VSCode]({{@asset data_collection_basics/images/vscode-type-module.webp}})
+![Update package.json with VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-type-module.webp}})
 
 > If you want to learn more about JSON and its syntax, we recommend <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON" target="_blank">this tutorial on MDN</a>.
 
@@ -68,8 +68,8 @@ node main.js
 
 If you see **it works!** printed in your terminal, great job! You set up everything correctly. If you see an error that says `Cannot use import statement outside a module`, go back to the [Use modern JavaScript](#use-modern-javascript) section and add the `type` property to your `package.json`. If you see a different error, try copying and pasting it into Google, and you'll find a solution soon.
 
-![Test our setup with VSCode]({{@asset data_collection_basics/images/vscode-test-setup.webp}})
+![Test our setup with VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-test-setup.webp}})
 
 ## [](#next) Next up
 
-With the project set up, the [next chapter]({{@link data_collection_basics/node_js_scraper.md}}) will show you how to use **got-scraping** to download the website's HTML and collect data from it with Cheerio.
+With the project set up, the [next chapter]({{@link web_scraping_for_beginners/data_collection/node_js_scraper.md}}) will show you how to use **got-scraping** to download the website's HTML and collect data from it with Cheerio.

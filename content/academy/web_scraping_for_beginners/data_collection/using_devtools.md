@@ -3,7 +3,7 @@ title: Using DevTools
 description: Learn how to use browser DevTools, CSS selectors, and JavaScript to collect data from a website.
 menuWeight: 20.2
 paths:
-    - data-collection-basics/using-devtools
+    - web-scraping-for-beginners/data-collection/using-devtools
 ---
 
 # [](#devtools-data-collection) Data collection with DevTools
@@ -14,11 +14,11 @@ We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try 
 
 When you open the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>, you'll see that there's a table on the page with names of websites and various data about the websites' traffic. We will now learn how to collect all this information. Open DevTools and select the first website - in our case Google.com - with the selector tool.
 
-![Selecting an element with DevTools]({{@asset data_collection_basics/images/selecting-first-website.webp}})
+![Selecting an element with DevTools]({{@asset web_scraping_for_beginners/data_collection/images/selecting-first-website.webp}})
 
 Now you know where to find the name of the first website in the page's HTML, but we want to find all information about this first website. To do that, in the Elements tab, hover over the elements above the one you just found, until you find the element that contains all the data about the selected website. Alternatively, you can press the up arrow a few times to get the same result.
 
-![Selecting an element from the Elements tab]({{@asset data_collection_basics/images/selecting-container-element.webp}})
+![Selecting an element from the Elements tab]({{@asset web_scraping_for_beginners/data_collection/images/selecting-container-element.webp}})
 
 This element is the parent element of all the nested (child) elements and we can find it using JavaScript and collect the data. Notice the `class` attribute of the element. This is where CSS selectors become handy, because we can use them to select an element with a specific class.
 
@@ -38,7 +38,7 @@ At the time of writing, the HTML element that contained all the data we wanted h
 document.querySelector('div.site-listing');
 ```
 
-![Query a selector with JavaScript]({{@asset data_collection_basics/images/query-selector.webp}})
+![Query a selector with JavaScript]({{@asset web_scraping_for_beginners/data_collection/images/query-selector.webp}})
 
 > There are always multiple ways to select an element using CSS selectors. We always try to choose the one that seems the most reliable, precise, and unlikely to change with website updates. For example the `site-listing` class looks like the website's programmers deliberately put it there to signify one result and we therefore think it's the best to use.
 
@@ -51,7 +51,7 @@ const item = document.querySelector('div.site-listing');
 console.log(item.textContent);
 ```
 
-![Print text content of an element]({{@asset data_collection_basics/images/print-text-content.webp}})
+![Print text content of an element]({{@asset web_scraping_for_beginners/data_collection/images/print-text-content.webp}})
 
 As you can see, we were able to collect the data, but the format is still not very useful. For further processing, for example in a spreadsheet, we would like to have each piece of data as a separate field (column). To do that, we will look at the HTML structure in more detail.
 
@@ -61,7 +61,7 @@ In the [Getting structured data from HTML](#getting-structured-data-from-html) s
 
 > Don't forget that the selectors may have changed from `div` and `td`, but the general principle of finding them will always be the same. Use what you see on your screen.
 
-![Finding child elements in Elements tab]({{@asset data_collection_basics/images/find-child-elements.webp}})
+![Finding child elements in Elements tab]({{@asset web_scraping_for_beginners/data_collection/images/find-child-elements.webp}})
 
 The `document.querySelector()` function looks for a specific element in the whole HTML `document`, so if we called it with `div.td`, it would find the first `<div class="td ...">` in the `document`. Luckily we can also use this function to look for elements within an element.
 
@@ -76,7 +76,7 @@ const fields = item.querySelectorAll('div.td');
 console.log(fields);
 ```
 
-![List child elements with JavaScript]({{@asset data_collection_basics/images/list-child-elements.webp}})
+![List child elements with JavaScript]({{@asset web_scraping_for_beginners/data_collection/images/list-child-elements.webp}})
 
 ### [](#collecting-data) Collecting data
 
@@ -94,10 +94,10 @@ const result = {
 console.log(result);
 ```
 
-![Print collected data to the Console]({{@asset data_collection_basics/images/print-website-data.webp}})
+![Print collected data to the Console]({{@asset web_scraping_for_beginners/data_collection/images/print-website-data.webp}})
 
 If you were able to get the same result in your browser console, congratulations! You successfully collected your first data. If not, don't worry and review your code carefully. You'll crush the bug soon enough.
 
 ## [](#next) Next up
 
-We have learned how to collect information of a single website from the Alexa Top Sites index. In the [next chapter]({{@link data_collection_basics/devtools_continued.md}}), we will learn how to collect all of it.
+We have learned how to collect information of a single website from the Alexa Top Sites index. In the [next chapter]({{@link web_scraping_for_beginners/data_collection/devtools_continued.md}}), we will learn how to collect all of it.
