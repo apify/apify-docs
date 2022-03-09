@@ -12,7 +12,7 @@ A headless browser is simply a browser that runs without the user interface. Thi
 
 ## [](#playwright-scraper) Building a Playwright scraper
 
-Building a Playwright scraper with the Apify SDK is extremely easy. To show you how easy, we'll reuse the Cheerio scraper code from the previous chapter, and by changing only a few lines of code, we'll turn it into a full headless scraper.
+Building a Playwright scraper with the Apify SDK is extremely easy. To show you how easy, we'll reuse the Cheerio scraper code from the previous lesson, and by changing only a few lines of code, we'll turn it into a full headless scraper.
 
 First, we must not forget to install Playwright into our project.
 
@@ -125,4 +125,4 @@ const crawler = new Apify.PlaywrightCrawler({
 
 ## [](#next) Next up
 
-We learned how to scrape with Cheerio and Playwright, but how do we process the scraped data? Let's learn that in the [next chapter]({{@link web_scraping_for_beginners/crawling/processing_data.md}}).
+We learned how to scrape with Cheerio and Playwright, but how do we process the scraped data? Let's learn that in the [next lesson]({{@link web_scraping_for_beginners/crawling/processing_data.md}}).

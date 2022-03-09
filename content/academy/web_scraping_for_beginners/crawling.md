@@ -9,9 +9,9 @@ paths:
 
 # [](#basics) Basics of crawling
 
-Welcome to the second part of our **Web scraping for beginners** course. In the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}}) part, we learned how to extract data from a web page. Specifically, the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>.
+Welcome to the second section of our **Web Scraping for Beginners** course. In the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}}) section, we learned how to extract data from a web page. Specifically, the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>.
 
-In this part, we will take a look at moving between web pages, which we call **crawling**. We will collect browsing data for all the countries in the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>. To do that, we need to crawl the individual country websites.
+In this section, we will take a look at moving between web pages, which we call **crawling**. We will collect browsing data for all the countries in the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>. To do that, we need to crawl the individual country websites.
 
 ## [](#how-to) How to crawl?
 
@@ -26,4 +26,4 @@ At any point, we can collect URLs, data, or both. Crawling can be separate from 
 
 ## [](#next) Next up
 
-First, let's make sure we all understand the foundations. In the [next chapter]({{@link web_scraping_for_beginners/crawling/recap_collection_basics.md}}) we will review the scraper code we already have from the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}}) section of the course.
+First, let's make sure we all understand the foundations. In the [next lesson]({{@link web_scraping_for_beginners/crawling/recap_collection_basics.md}}) we will review the scraper code we already have from the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}}) section of the course.

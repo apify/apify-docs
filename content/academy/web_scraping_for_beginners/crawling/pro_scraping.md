@@ -12,7 +12,7 @@ While it's definitely an interesting exercise to do all the programming manually
 
 It's called the <a href="https://sdk.apify.com" target="_blank">Apify SDK</a> and it is - **and always will be** - completely open-source and **free** to use. You don't need to sign up for an Apify account or use the Apify platform. You can use it on your personal computer, on any server, or in any cloud you want.
 
-We mentioned the benefits of a dedicated scraping library in the previous chapters, but to recap:
+We mentioned the benefits of a dedicated scraping library in the previous lessons, but to recap:
 
 1. **Faster development time** because you don't have to write boilerplate code.
 2. **Fewer bugs**. Apify SDK is fully unit-tested and battle-tested on millions of scraper runs.
@@ -24,7 +24,7 @@ We mentioned the benefits of a dedicated scraping library in the previous chapte
 
 ## [](#installation) Install the Apify SDK
 
-To use Apify SDK we have to install it from NPM. Let's add it to our project from the previous chapters.
+To use Apify SDK we have to install it from NPM. Let's add it to our project from the previous lessons.
 
 ```shell
 npm install --save apify
@@ -164,11 +164,11 @@ await crawler.run();
 
 When you run the code, you'll immediately see that it crawls faster than the manually written code. This is thanks to parallelization. And it can go way faster. We're just keeping the default concurrency values low to be nice to websites.
 
-> If the crawler gets stuck for you at the end, it's ok. It's not actually stuck, but waiting to retry pages that failed. For us, it was retrying the Aland Islands page that was failing for us in the previous chapters as well.
+> If the crawler gets stuck for you at the end, it's ok. It's not actually stuck, but waiting to retry pages that failed. For us, it was retrying the Aland Islands page that was failing for us in the previous lessons as well.
 
 ## [](#collecting-data) Collecting data
 
-We have the crawler in place, and it's time to collect data. We already have the extraction code from the previous chapters, so we can just copy and paste it into the `handlePageFunction` with tiny changes.
+We have the crawler in place, and it's time to collect data. We already have the extraction code from the previous lessons, so we can just copy and paste it into the `handlePageFunction` with tiny changes.
 
 The one small, but important, change we did was to use the [`Apify.pushData()`](https://sdk.apify.com/docs/api/apify#apifypushdataitem) function to save the results to the run's default dataset. You will find the [results in the `apify_storage`](https://sdk.apify.com/docs/guides/result-storage) folder, under `datasets/default`.
 
@@ -203,7 +203,7 @@ const crawler = new Apify.CheerioCrawler({
             return;
         }
 
-        // We copied and pasted the extraction code from previous chapters.
+        // We copied and pasted the extraction code from previous lessons.
         const sites = $('div.site-listing');
         for (const site of sites) {
             const fields = $(site).find('div.td');
@@ -225,8 +225,8 @@ const crawler = new Apify.CheerioCrawler({
 await crawler.run();
 ```
 
-By using the `apify` library, we were able to create a faster and more robust scraper. With less code than was needed for the simple scraper in the earlier chapters. But this only scratches the surface of the Apify SDK's capabilities.
+By using the `apify` library, we were able to create a faster and more robust scraper. With less code than was needed for the simple scraper in the earlier lessons. But this only scratches the surface of the Apify SDK's capabilities.
 
 ## [](#next) Next up
 
-The Apify SDK is a full-featured scraping library. That's why we can use it to scrape any website at any scale. In the [next chapter]({{@link web_scraping_for_beginners/crawling/headless_browser.md}}) we will change only a few lines of code and turn our scraper into a full **headless browser**.
+The Apify SDK is a full-featured scraping library. That's why we can use it to scrape any website at any scale. In the [next lesson]({{@link web_scraping_for_beginners/crawling/headless_browser.md}}) we will change only a few lines of code and turn our scraper into a full **headless browser**.

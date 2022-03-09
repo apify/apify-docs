@@ -8,7 +8,7 @@ paths:
 
 # [](#processing-data) Processing data
 
-From the previous chapters, we know two things:
+From the previous lessons, we know two things:
 
 1. We can use `Apify.pushData()` to save data to the default dataset.
 2. The default dataset files are saved in the `apify_storage/datasets/default` folder.
@@ -28,7 +28,7 @@ const { items } = await dataset.getData();
 console.log(items.length);
 ```
 
-When we ran this code, having the results from our previous chapters in the `apify_storage` folder, it printed `5000` for us. Your number may differ.
+When we ran this code, having the results from our previous lessons in the `apify_storage` folder, it printed `5000` for us. Your number may differ.
 
 ## [](#filtering-data) Filtering data
 
@@ -54,7 +54,7 @@ In our case, in all countries except China, the top site was Google.com. Surpris
 
 ## [](#excel) Converting the dataset to Excel
 
-We promised that you won't need an Apify account for anything in this tutorial, and it's true. You can use the skills learned in the [Save to CSV chapter]({{@link web_scraping_for_beginners/data_collection/save_to_csv.md}}) to save the dataset to a CSV. Just use the loading code from above, plug it in there and then open the CSV in Excel. However, we really want to show you this neat trick. It won't cost you anything, we promise, and it's a cool and fast way to convert datasets to any format.
+We promised that you won't need an Apify account for anything in this course, and it's true. You can use the skills learned in the [Save to CSV lesson]({{@link web_scraping_for_beginners/data_collection/save_to_csv.md}}) to save the dataset to a CSV. Just use the loading code from above, plug it in there and then open the CSV in Excel. However, we really want to show you this neat trick. It won't cost you anything, we promise, and it's a cool and fast way to convert datasets to any format.
 
 ### [](#apify-token) Get an Apify token
 
@@ -128,4 +128,4 @@ It doesn't even have to be a dataset created by the Apify SDK. You can use this 
 
 And this is it for the [Basics of crawling section]({{@link web_scraping_for_beginners/crawling.md}}) of the [Web Scraping for Beginners]({{@link web_scraping_for_beginners.md}}) course. For now, this is also the last section. If you want to learn more about web scraping, stay tuned. We will keep updating the Academy with more content regularly, until we cover all the advanced and expert topics we promised at the beginning.
 
-If you're hooked and want to continue learning right away, head to the [getting started section](https://sdk.apify.com/docs/guides/getting-started) of the Apify SDK. It will help you reinforce your learnings from this course and also explain the inner workings of the SDK in more detail. See you there 👋
+If you're hooked and want to continue learning right away, head to the [getting started guide](https://sdk.apify.com/docs/guides/getting-started) of the Apify SDK. It will help you reinforce your learnings from this course and also explain the inner workings of the SDK in more detail. See you there 👋

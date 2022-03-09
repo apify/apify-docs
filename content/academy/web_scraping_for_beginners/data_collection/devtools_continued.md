@@ -8,13 +8,13 @@ paths:
 
 # [](#finish-devtools) Finish with DevTools
 
-In the first part of the DevTools tutorial, we were able to collect information about a single website from the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>. If you missed the previous part, we suggest going through it to understand the basic concepts, but you don't need any of the code from there, we will start from scratch.
+In the first part of the DevTools lesson, we were able to collect information about a single website from the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>. If you missed the previous part, we suggest going through it to understand the basic concepts, but you don't need any of the code from there, we will start from scratch.
 
 ## [](#looping) Looping over elements
 
 > <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" target="_blank">Visit this tutorial</a> if you want to refresh the concept of loops in programming.
 
-First, we will use the `querySelectorAll()` function from the previous chapter to get an array of all the elements that contain the sites' data.
+First, we will use the `querySelectorAll()` function from the previous lesson to get an array of all the elements that contain the sites' data.
 
 ```js
 const sites = document.querySelectorAll('div.site-listing');
@@ -37,7 +37,7 @@ for (const site of sites) {
 
 ## [](#collecting-data) Collecting data in a loop
 
-In the previous chapter we created a `result` object that contained data of a single website. Now we'll create an array of those result objects which will contain all the 50 websites' data. To do that, we'll first create an empty array called `results` and then use a `for..of` loop, and the collection skills we learned in the previous chapter.
+In the previous lesson we created a `result` object that contained data of a single website. Now we'll create an array of those result objects which will contain all the 50 websites' data. To do that, we'll first create an empty array called `results` and then use a `for..of` loop, and the collection skills we learned in the previous lesson.
 
 ```js
 const results = [];
@@ -57,10 +57,10 @@ for (const site of sites) {
 console.log(results);
 ```
 
-The `results.push()` function takes its argument and pushes (adds) it to the `results` array. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank">Learn more about it here</a>. The rest of the code is just copy-pasted from the previous chapter. For each `site` of `sites`, we find all the `fields` with data for that particular `site` and save them to the `results` array by returning the object with the data. When you run the code, you should see all the data neatly structured.
+The `results.push()` function takes its argument and pushes (adds) it to the `results` array. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank">Learn more about it here</a>. The rest of the code is just copy-pasted from the previous lesson. For each `site` of `sites`, we find all the `fields` with data for that particular `site` and save them to the `results` array by returning the object with the data. When you run the code, you should see all the data neatly structured.
 
 ![Print all websites' data]({{@asset web_scraping_for_beginners/data_collection/images/print-all-websites-data.webp}})
 
 ## [](#next) Next up
 
-And that's it. With a bit of trial and error you will be able to collect any data from a webpage that's loaded in your browser. This is a useful skill on its own. It will save you time when you need one-off data for your project. More importantly though, it taught you the basics to start programming your own scrapers. In the [next chapters]({{@link web_scraping_for_beginners/data_collection/computer_preparation.md}}), we will teach you how to create your own data collection script in JavaScript and Node.js.
+And that's it. With a bit of trial and error you will be able to collect any data from a webpage that's loaded in your browser. This is a useful skill on its own. It will save you time when you need one-off data for your project. More importantly though, it taught you the basics to start programming your own scrapers. In the [next lessons]({{@link web_scraping_for_beginners/data_collection/computer_preparation.md}}), we will teach you how to create your own data collection script in JavaScript and Node.js.

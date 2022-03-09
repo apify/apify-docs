@@ -8,7 +8,7 @@ paths:
 
 # [](#scraping-data) Scraping the data
 
-At the [very beginning of the course](({{@link web_scraping_for_beginners.md}})), we learned that the term web scraping usually means a combined process of data collection and crawling. And this is exactly what we'll do in this chapter. We will take the code we built in the previous chapter and in the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) section, and we will combine that into a web scraper.
+At the [very beginning of the course](({{@link web_scraping_for_beginners.md}})), we learned that the term web scraping usually means a combined process of data collection and crawling. And this is exactly what we'll do in this lesson. We will take the code we built in the previous lesson and in the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) section, and we will combine that into a web scraper.
 
 ## [](#review-code) Review earlier code
 
@@ -165,7 +165,7 @@ for (const url of countryUrls) {
 }
 ```
 
-Aside from the [`url.slice(-2)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) function that we used to get the 2-letter country code from the URL, there's no new code. You already know everything from the previous chapters. When we put it all together, we arrive at the final scraper code. It's always a good idea to add some in-progress logging to a scraper. To be able to monitor how it's working. Let's add some now.
+Aside from the [`url.slice(-2)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) function that we used to get the 2-letter country code from the URL, there's no new code. You already know everything from the previous lessons. When we put it all together, we arrive at the final scraper code. It's always a good idea to add some in-progress logging to a scraper. To be able to monitor how it's working. Let's add some now.
 
 ```js
 // final.js
@@ -230,4 +230,4 @@ At the time of writing, we were getting 101 countries and 5000 results. That's b
 
 ## [](#next) Next up
 
-And that's it for the basics of crawling. But don't leave just yet. As promised, in the [next chapter]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) we will rewrite the scraper using a proper scraping library. It will make development much faster and the scraper more robust.
+And that's it for the basics of crawling. But don't leave just yet. As promised, in the [next lesson]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) we will rewrite the scraper using a proper scraping library. It will make development much faster and the scraper more robust.

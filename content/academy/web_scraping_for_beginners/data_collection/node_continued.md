@@ -8,7 +8,7 @@ paths:
 
 # [](#finish-scraper) Finish Node.js scraper
 
-In the first part of the Node.js tutorial we downloaded the HTML of the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a> and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}) chapters and finish our scraper.
+In the first part of the Node.js lesson we downloaded the HTML of the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a> and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}) lesson and finish our scraper.
 
 ## [](#querying-with-cheerio) Querying data with Cheerio
 
@@ -22,7 +22,7 @@ To get all the elements with that CSS selector using Cheerio, we call the `$` fu
 $('div.site-listing');
 ```
 
-We will use the same approach as in the previous DevTools chapters. Using a `for..of` loop we will iterate over the array of sites we saved in the `sites` variable. The code is a little different from DevTools, because we're using Node.js and Cheerio not a browser.
+We will use the same approach as in the previous DevTools lessons. Using a `for..of` loop we will iterate over the array of sites we saved in the `sites` variable. The code is a little different from DevTools, because we're using Node.js and Cheerio not a browser.
 
 ```js
 // main.js
@@ -44,11 +44,11 @@ After you run this script, you should see data of all the 50 sites printed in yo
 
 ## [](#collecting-data) Collecting final data
 
-Now we only need to repeat the process from the DevTools chapters and add individual data point collection to the loop. From those chapters we know that the data are in `<div>` elements with class `td`.
+Now we only need to repeat the process from the DevTools lessons and add individual data point collection to the loop. From those chapters we know that the data are in `<div>` elements with class `td`.
 
 ![Finding child elements in Elements tab]({{@asset web_scraping_for_beginners/data_collection/images/find-child-elements.webp}})
 
-We will loop over all the `sites` and collect the data points from each of them using the `for..of` loop. For reference, this is the code from the DevTools chapter, where we collected the data **using a browser**.
+We will loop over all the `sites` and collect the data points from each of them using the `for..of` loop. For reference, this is the code from the DevTools lesson, where we collected the data **using a browser**.
 
 ```js
 // This is code from the browser Console. It won't work in Node.js
@@ -118,8 +118,8 @@ console.log(results);
 
 ![Printing all websites' data to terminal]({{@asset web_scraping_for_beginners/data_collection/images/terminal-all-websites-data.webp}})
 
-If you were able to get here, run the code, get results and also understand everything, you can pat yourself on the back and congratulate yourself on completing the **Basics of data collection** part of the Web Scraping for Beginners course. Great job! 👏🎉
+If you were able to get here, run the code, get results and also understand everything, you can pat yourself on the back and congratulate yourself on completing the **Basics of data collection** section of the Web Scraping for Beginners course. Great job! 👏🎉
 
 # [](#next) Next up
 
-While we were able to collect the data, it's not very useful to have those printed to the console. In the [next, bonus chapter]({{@link web_scraping_for_beginners/data_collection/save_to_csv.md}}), we will learn how to convert the data to a CSV and save it to a file.
+While we were able to collect the data, it's not very useful to have those printed to the console. In the [next, bonus lesson]({{@link web_scraping_for_beginners/data_collection/save_to_csv.md}}), we will learn how to convert the data to a CSV and save it to a file.

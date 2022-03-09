@@ -12,7 +12,7 @@ Web pages are full of links and frankly, most of them are useless for us. There 
 
 ## [](#css-filter) Filtering with unique CSS selectors
 
-In the previous chapter, we simply grabbed all the links from the HTML document.
+In the previous lesson, we simply grabbed all the links from the HTML document.
 
 ```marked-tabs
 <marked-tab header="DevTools" lang="javascript">
@@ -113,4 +113,4 @@ If you run the code in DevTools, you'll see that it produces exactly the same UR
 
 ## [](#next) Next up
 
-In the [next chapter]({{@link web_scraping_for_beginners/crawling/relative_urls.md}}) we'll see how rewriting this code to Node.js is not so simple and learn about absolute and relative URLs in the process.
+In the [next lesson]({{@link web_scraping_for_beginners/crawling/relative_urls.md}}) we'll see how rewriting this code to Node.js is not so simple and learn about absolute and relative URLs in the process.

@@ -8,7 +8,7 @@ paths:
 
 # [](#saving-to-csv) Saving results to CSV
 
-In the last chapter, we were able collect data about all the websites from the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>. That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this chapter, we'll learn how to save that data into a CSV file that you can then open in Excel or Google Sheets.
+In the last lesson, we were able collect data about all the websites from the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>. That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this lesson, we'll learn how to save that data into a CSV file that you can then open in Excel or Google Sheets.
 
 ## [](#converting-to-csv) Converting to CSV
 
@@ -20,7 +20,7 @@ First, we need to import the `parse()` function from the library.
 import { parse } from 'json2csv';
 ```
 
-and then we need to parse the `results` from the previous chapter.
+and then we need to parse the `results` from the previous lesson.
 
 ```js
 const csv = parse(results);
