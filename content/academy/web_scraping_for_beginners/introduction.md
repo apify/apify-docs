@@ -7,9 +7,9 @@ paths:
     - web-scraping-for-beginners/introduction
 ---
 
-# [](#web-scraping-for-beginners) Web Scraping for Beginners
+# [](#introduction) Introduction
 
-Web scraping or crawling? Data collection, mining, or extraction? You can find various definitions on the web. Let's agree on simple explanations that we will use throughout this beginner tutorial on web scraping.
+Web scraping or crawling? Data collection, mining, or extraction? You can find various definitions on the web. Let's agree on simple explanations that we will use throughout this beginner course on web scraping.
 
 ## [](#data-collection) What is data collection?
 
@@ -25,10 +25,10 @@ Where data collection focuses on a single page, web crawling (sometimes called s
 
 ## [](#web-scraping) What is web scraping?
 
-We use web scraping as a general term for crawling, collection and all other activities that have the purpose of converting unstructured data from the web to a structured format. In the advanced sections of the course, you'll learn that modern web scraping is about much more than just HTML and URLs.
+We use web scraping as a general term for crawling, collection and all other activities that have the purpose of converting unstructured data from the web to a structured format. In the advanced courses, you'll learn that modern web scraping is about much more than just HTML and URLs.
 
 <!-- TODO: An illustration of moving between pages and collecting data -->
 
 ## [](#next) Next up
 
-In the [next chapter]({{@link web_scraping_for_beginners/data_collection.md}}), you will learn about the basic building blocks of each web page. HTML, CSS and JavaScript.
+In the [next lesson]({{@link web_scraping_for_beginners/data_collection.md}}), you will learn about the basic building blocks of each web page. HTML, CSS and JavaScript.

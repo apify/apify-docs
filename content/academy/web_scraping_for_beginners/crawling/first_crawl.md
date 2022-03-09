@@ -8,13 +8,13 @@ paths:
 
 # [](#first-crawling) First crawl
 
-In the previous chapters, we learned what crawling is and how to collect URLs from pages' HTML. The only thing that remains is to write the code. So let's get to it.
+In the previous lessons, we learned what crawling is and how to collect URLs from pages' HTML. The only thing that remains is to write the code. So let's get to it.
 
 > If the code starts to look too complex for you, don't worry. We're showing it for educational purposes, so that you can learn how crawling works. At the end, we'll show you a much easier and faster way to crawl, using a specialized scraping library. If you want, you can skip the details and [go there now]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}).
 
 ## [](#processing-urls) Processing URLs
 
-In the previous chapters, we collected and filtered all the URLs pointing to individual country lists of the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>. To crawl the URLs, we can't print them to the console, but rather we need to save them for future use. Once we do that, we must take this list of URLs and download the HTML of each of the pages. See the comments for changes and additions to the code.
+In the previous lessons, we collected and filtered all the URLs pointing to individual country lists of the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>. To crawl the URLs, we can't print them to the console, but rather we need to save them for future use. Once we do that, we must take this list of URLs and download the HTML of each of the pages. See the comments for changes and additions to the code.
 
 ```js
 // crawler.js
@@ -61,13 +61,13 @@ for (const url of countryUrls) {
 }
 ```
 
-If you run the crawler from your terminal, it should print the titles. Or not? While writing this chapter, the <a href="https://www.alexa.com/topsites/countries/AX" target="_blank">Aland Islands</a> page was not available and therefore the crawler crashed a minute after visiting Afghanistan.
+If you run the crawler from your terminal, it should print the titles. Or not? While writing this lesson, the <a href="https://www.alexa.com/topsites/countries/AX" target="_blank">Aland Islands</a> page was not available and therefore the crawler crashed a minute after visiting Afghanistan.
 
 ## [](#handling-errors) Handling errors
 
 The code above is correct, but it's not robust. If something goes wrong, it will crash. That something could be a network error, internet connection error, or one of the websites you're trying to reach could simply be experiencing problems at that moment. Any error like that and your crawler would stop, and you would lose the data it collected so far.
 
-In programming, you handle errors by catching them and then doing some action. Typically, printing information that the error occurred and/or retrying. Retrying is out of scope of this tutorial.
+In programming, you handle errors by catching them and then doing some action. Typically, printing information that the error occurred and/or retrying.
 
 > The scraping library we'll [show you later]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) will handle errors and retries automatically for you.
 
@@ -118,4 +118,4 @@ At the time of writing, only one website failed: the Aland Islands. In your craw
 
 ## [](#next) Next up
 
-In the [next chapter]({{@link web_scraping_for_beginners/crawling/scraping_the_data.md}}), we will complete the scraper. We will use the data collection code from the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) section and apply it to all the country pages.
+In the [next lesson]({{@link web_scraping_for_beginners/crawling/scraping_the_data.md}}), we will complete the scraper. We will use the data collection code from the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) section and apply it to all the country pages.

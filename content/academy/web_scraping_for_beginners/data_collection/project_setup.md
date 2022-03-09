@@ -66,10 +66,10 @@ Those `import` statements tell Node.js that it should give you access to the **g
 node main.js
 ```
 
-If you see **it works!** printed in your terminal, great job! You set up everything correctly. If you see an error that says `Cannot use import statement outside a module`, go back to the [Use modern JavaScript](#use-modern-javascript) section and add the `type` property to your `package.json`. If you see a different error, try copying and pasting it into Google, and you'll find a solution soon.
+If you see **it works!** printed in your terminal, great job! You set up everything correctly. If you see an error that says `Cannot use import statement outside a module`, go back to the [Use modern JavaScript](#modern-javascript) paragraph and add the `type` property to your `package.json`. If you see a different error, try copying and pasting it into Google, and you'll find a solution soon.
 
 ![Test our setup with VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-test-setup.webp}})
 
 ## [](#next) Next up
 
-With the project set up, the [next chapter]({{@link web_scraping_for_beginners/data_collection/node_js_scraper.md}}) will show you how to use **got-scraping** to download the website's HTML and collect data from it with Cheerio.
+With the project set up, the [next lesson]({{@link web_scraping_for_beginners/data_collection/node_js_scraper.md}}) will show you how to use **got-scraping** to download the website's HTML and collect data from it with Cheerio.

@@ -52,4 +52,4 @@ temp1.textContent = 'Hello!';
 
 ## [](#next) Next up
 
-In this chapter we learned the absolute basics of interaction with a page using the DevTools. In the [next chapter]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}), you will learn how to extract data from it. We will collect the most popular websites on the internet from <a href="https://www.alexa.com/topsites" target="_blank">Amazon Alexa</a>.
+In this lesson we learned the absolute basics of interaction with a page using the DevTools. In the [next lesson]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}), you will learn how to extract data from it. We will collect the most popular websites on the internet from <a href="https://www.alexa.com/topsites" target="_blank">Amazon Alexa</a>.

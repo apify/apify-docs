@@ -22,7 +22,7 @@ Now you know where to find the name of the first website in the page's HTML, but
 
 This element is the parent element of all the nested (child) elements and we can find it using JavaScript and collect the data. Notice the `class` attribute of the element. This is where CSS selectors become handy, because we can use them to select an element with a specific class.
 
-> Websites change and the structure or their HTML or the CSS selectors can become outdated. We'll try our best to keep this tutorial updated, but if you find that what you see on the website doesn't match this guide exactly, don't worry. Everything will work exactly the same. You will only have to use whatever you see on your screen and not in the screenshots here.
+> Websites change and the structure or their HTML or the CSS selectors can become outdated. We'll try our best to keep this course updated, but if you find that what you see on the website doesn't match this guide exactly, don't worry. Everything will work exactly the same. You will only have to use whatever you see on your screen and not in the screenshots here.
 
 ## [](#selecting-elements) Selecting elements with JavaScript
 
@@ -57,7 +57,7 @@ As you can see, we were able to collect the data, but the format is still not ve
 
 ### [](#selecting-child-elements) Selecting child elements
 
-In the [Getting structured data from HTML](#getting-structured-data-from-html) section, we were hovering over the elements in the **Elements** tab to find the element that contains all the data. We can use that to find the individual data points as well. After a bit of inspection, we find that all the elements with the data we need are `div` with the class `td`.
+In [Getting structured data from HTML](#getting-structured-data-from-html), we were hovering over the elements in the **Elements** tab to find the element that contains all the data. We can use that to find the individual data points as well. After a bit of inspection, we find that all the elements with the data we need are `div` with the class `td`.
 
 > Don't forget that the selectors may have changed from `div` and `td`, but the general principle of finding them will always be the same. Use what you see on your screen.
 
@@ -100,4 +100,4 @@ If you were able to get the same result in your browser console, congratulations
 
 ## [](#next) Next up
 
-We have learned how to collect information of a single website from the Alexa Top Sites index. In the [next chapter]({{@link web_scraping_for_beginners/data_collection/devtools_continued.md}}), we will learn how to collect all of it.
+We have learned how to collect information of a single website from the Alexa Top Sites index. In the [next lesson]({{@link web_scraping_for_beginners/data_collection/devtools_continued.md}}), we will learn how to collect all of it.

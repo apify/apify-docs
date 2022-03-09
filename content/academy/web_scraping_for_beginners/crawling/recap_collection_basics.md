@@ -8,7 +8,7 @@ paths:
 
 # [](#recap) Recap of data collection basics
 
-We finished the [first part]({{@link web_scraping_for_beginners/data_collection.md}}) of the Web Scraping for Beginners course by creating a web scraper in Node.js. The scraper collected browsing information from the [Alexa Top Sites index](https://www.alexa.com/topsites). Let's see the code with some comments.
+We finished the [first section]({{@link web_scraping_for_beginners/data_collection.md}}) of the Web Scraping for Beginners course by creating a web scraper in Node.js. The scraper collected browsing information from the [Alexa Top Sites index](https://www.alexa.com/topsites). Let's see the code with some comments.
 
 ```js
 // First, we imported all the libraries we needed to
@@ -47,7 +47,7 @@ for (const site of sites) {
 }
 // Finally, we printed the results to the terminal.
 console.log(results);
-// In the bonus chapter, we saved the files to a CSV,
+// In the bonus lesson, we saved the files to a CSV,
 // but we will skip that for now.
 ```
 
@@ -55,4 +55,4 @@ console.log(results);
 
 ## [](#next) Next up
 
-The [next chapter]({{@link web_scraping_for_beginners/crawling/finding_links.md}}) is all about finding some links to crawl on the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>.
+The [next lesson]({{@link web_scraping_for_beginners/crawling/finding_links.md}}) is all about finding some links to crawl on the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>.

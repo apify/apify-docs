@@ -7,7 +7,7 @@ paths:
     - web-scraping-for-beginners
 ---
 
-# [](#introduction) Introduction
+# [](#welcome) Web Scraping for Beginners
 
 Welcome to Web Scraping for Beginners. A comprehensive and practical web scraping course that will take you from an absolute beginner to a successful web scraper developer. This course is sponsored by <a href="https://apify.com" target="_blank">Apify</a>, the web scraping and automation platform, but we will use only open-source technologies throughout. This means that the skills you learn will be applicable to any scraping project, and you'll be able to run it on any computer. No Apify account needed.
 
@@ -23,7 +23,7 @@ Scraper development is a fun and challenging way to learn web development, web t
 
 ## [](#summary) Course summary
 
-When we set out to create the Academy, we wanted to build a complete guide to modern web scraping. A tutorial that a beginner could use to create their first scraper, as well as a resource that professionals will continuously use to learn about advanced and niche web scraping techniques. All chapters include code examples and code-along exercises that you can use to immediately put your scraping skills into action.
+When we set out to create the Academy, we wanted to build a complete guide to modern web scraping. A course that a beginner could use to create their first scraper, as well as a resource that professionals will continuously use to learn about advanced and niche web scraping techniques. All lessons include code examples and code-along exercises that you can use to immediately put your scraping skills into action.
 
 This is what you'll learn in the Web Scraping for Beginners course:
 
@@ -50,7 +50,7 @@ Other courses coming soon in the Academy:
   * Mobile app scraping
   * Overcoming result limits
 
-> We release course content as soon as we write it instead of launching it all at the same time much later. If you want to get notified about new chapters <a href="https://console.apify.com/sign-up" target="_blank">sign up for a free Apify account</a> to get our newsletters.
+> We release course content as soon as we write it instead of launching it all at the same time much later. If you want to get notified about new lessons <a href="https://console.apify.com/sign-up" target="_blank">sign up for a free Apify account</a> to get our newsletters.
 
 ## [](#requirements) Requirements
 
@@ -62,4 +62,4 @@ As you progress to the Advanced and Pro courses, the coding will get more challe
 
 The course begins with short theory and continues with practical examples of collecting data from the most popular websites on the internet using your browser console. So [let's get to it!]({{@link web_scraping_for_beginners/introduction.md}})
 
-> If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}}) chapter. <!--or even the Advanced Web Scraping section of the course.-->
+> If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}}) section. <!--or even the Advanced Web Scraping section of the course.-->

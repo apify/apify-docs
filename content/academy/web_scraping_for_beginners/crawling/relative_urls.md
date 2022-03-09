@@ -8,7 +8,7 @@ paths:
 
 # [](#filtering-links) Relative URLs
 
-Maybe you noticed in the previous chapter that while printing URLs to the DevTools console, they would always show in full length, like this:
+Maybe you noticed in the previous lesson that while printing URLs to the DevTools console, they would always show in full length, like this:
 
 ```text
 https://www.alexa.com/topsites/countries/GB
@@ -28,7 +28,7 @@ We'll see why that's important in a minute.
 
 ## [](#browser-vs-cheerio) Browser and Cheerio differences
 
-Let's update the Node.js code from the [Finding links chapter]({{@link web_scraping_for_beginners/crawling/finding_links.md}}) to see why links with relative URLs can be a problem.
+Let's update the Node.js code from the [Finding links lesson]({{@link web_scraping_for_beginners/crawling/finding_links.md}}) to see why links with relative URLs can be a problem.
 
 ```js
 // crawler.js
@@ -90,4 +90,4 @@ Cheerio can't resolve the URL itself, because until you provide the necessary in
 
 ## [](#next) Next up
 
-The [next chapter]({{@link web_scraping_for_beginners/crawling/first_crawl.md}}) will teach you how to use the collected URLs to crawl all the country-specific pages.
+The [next lesson]({{@link web_scraping_for_beginners/crawling/first_crawl.md}}) will teach you how to use the collected URLs to crawl all the country-specific pages.
