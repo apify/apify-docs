@@ -1,7 +1,7 @@
 ---
 title: Saving results to CSV
 description: Learn how to save the results of your scraper to a CSV file.
-menuWeight: 20.8
+menuWeight: 20.9
 paths:
     - data-collection-basics/save-to-csv
 ---
