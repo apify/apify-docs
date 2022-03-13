@@ -54,7 +54,7 @@ These data objects will usually be attached to the window object (often prefixed
 
 ![View the target data in the window object using the console in DevTools]({{@asset data_collection_basics/images/view-object-in-window.png}})
 
-This data object could be parsed directly from the DOM and used within a scraper, however, its existence almost definitely confirms that there is an API endpoint that can be reached.
+This data object could be parsed directly from the DOM and used within a scraper,; however, its existence almost definitely confirms that there is an API endpoint that can be reached.
 
 # [](#sniffing) Sniffing out API endpoints
 
@@ -122,9 +122,9 @@ const HEADERS = {
 }
 ```
 
-However, a better option is to use either a custom implementation of generating random headers for each request, or to use a package such as <a href="https://www.npmjs.com/package/header-generator">`header-generator`</a> to automatically do this.
+However, a much better option is to use either a custom implementation of generating random headers for each request, or to use a package such as <a href="https://www.npmjs.com/package/header-generator">`header-generator`</a> to automatically do this.
 
-For our SoundCloud example, testing the endpoint from the previous section in a tool like <a href="https://www.postman.com/">Postman</a> works perfectly, and returns the data we want; however, when the "`client_id`" parameter is removed, we receive a `401 Unauthorized` error. Luckily, the Client ID is the same for every user, which means that it is not tied to a session or an IP address (this is based on our own observations and tests), so we don't have to scrape the ID from anywhere prior to making any calls to our target API; however, the token changes every few weeks. **A very strange case indeed**.
+For our SoundCloud example, testing the endpoint from the previous section in a tool like <a href="https://www.postman.com/">Postman</a> works perfectly, and returns the data we want; however, when the "`client_id`" parameter is removed, we receive a `401 Unauthorized` error. Luckily, the Client ID is the same for every user, which means that it is not tied to a session or an IP address (this is based on our own observations and tests). The big downfall is that the token being used by SoundCloud changes every few weeks, so it shouldn't be hardcoded. **A very strange case indeed**.
 
 # [](#extra-challenges) Extra challenges
 
@@ -134,7 +134,9 @@ For our SoundCloud example, testing the endpoint from the previous section in a 
 
 APIs come in all different shapes and sizes. That means every API will vary in not only the quality of the data that it returns, but also that format that it is in. The two most common formats are `JSON` and `HTML`.
 
-APIs which ouput HTML are generally returning the raw HTML of a small component of the page which is already hydrated with data. In these cases, it is still worth using the API, as it is still more efficient than making a request to the entire page; however, the data does still need to be parsed from the HTML response.
+JSON responses are the most ideal, as they are easily manipulable in JavaScript code. In general, no serious parsing is necessary, and the data can be easily filtered and formatted to fit a scraper's output schema.
+
+APIs which ouput HTML are generally returning the raw HTML of a small component of the page which is already hydrated with data. In these cases, it is still worth using the API, as it is still more efficient than making a request to the entire page; even though the data does still need to be parsed from the HTML response.
 
 ## 2. Encoded data
 
@@ -147,10 +149,10 @@ Sometimes, a response will look something like this:
 }
 ```
 
-Or some other encoding format. This example example has some data encoded in <a href="https://en.wikipedia.org/wiki/Base64">Base64</a>, which is one of the most common encoding types. For testing out Base64 encoding and decoding, you can use <a href="https://www.base64encode.org/">base64encode.org</a> and <a href="https://www.base64decode.org/">base64decode.org</a>. Within a project, a package such as <a href="https://www.npmjs.com/package/base-64">`base-64`</a> can be used to encode and decode Base64 data within JavaScript code.
+Or some other encoding format. This example's `message` has some data encoded in <a href="https://en.wikipedia.org/wiki/Base64">Base64</a>, which is one of the most common encoding types. For testing out Base64 encoding and decoding, you can use <a href="https://www.base64encode.org/">base64encode.org</a> and <a href="https://www.base64decode.org/">base64decode.org</a>. Within a project where base64 decoding/encoding is necessary, a package such as <a href="https://www.npmjs.com/package/base-64">`base-64`</a> can be used to encode and decode Base64 data within Node.js code.
 
 ## 3. Different types of APIs
 
 The vast majority of APIs our there are standard REST APIs that have different endpoints. Even though this is the case, it is important to be aware that newer API technologies such as <a href="https://graphql.org/">GraphQL</a> are becoming more popular, and therefore more utilized in modern web applications.
 
-GraphQL works differently from a standard API. All requests are `POST` requests to a single endpoint - typically `https://targetdomain.com/graphql`. Queries are passed as a payload, and are very specific (which can be difficult to deal with).
+A GraphQL API works differently from a standard API. All requests are `POST` requests to a single endpoint - typically `https://targetdomain.com/graphql`. Queries are passed as a payload, and are very specific (which can be difficult to deal with). Additionally, GraphQL is a language in of itself; therefore, one must at least skim their documentation for a light understanding of the technology in order to be able to effectively scrape an API that uses it.
