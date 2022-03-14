@@ -113,7 +113,7 @@ Finally, after running it again, we will find the `alexa-websites.csv` file in o
 
 ![Displaying CSV data in Excel]({{@asset web_scraping_for_beginners/data_collection/images/data-in-excel.webp}})
 
-This marks the end of the **Basics of data collection** section of Web Scraping for Beginners. If you enjoyed the course, give us a thumbs up down below and if you're eager to learn more...
+This marks the end of the **Basics of data collection** section of Web scraping for beginners. If you enjoyed the course, give us a thumbs up down below and if you're eager to learn more...
 
 ## [](#next) Next up
 

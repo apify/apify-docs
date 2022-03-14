@@ -1,5 +1,5 @@
 ---
-title: Web Scraping for Beginners
+title: Web scraping for beginners
 description: Learn how to develop web scrapers with this comprehensive and practical course. Go from beginner to expert, all in one place.
 menuWeight: 18
 category: courses
@@ -7,9 +7,9 @@ paths:
     - web-scraping-for-beginners
 ---
 
-# [](#welcome) Web Scraping for Beginners
+# [](#welcome) Web scraping for beginners
 
-Welcome to Web Scraping for Beginners. A comprehensive and practical web scraping course that will take you from an absolute beginner to a successful web scraper developer. This course is sponsored by <a href="https://apify.com" target="_blank">Apify</a>, the web scraping and automation platform, but we will use only open-source technologies throughout. This means that the skills you learn will be applicable to any scraping project, and you'll be able to run it on any computer. No Apify account needed.
+Welcome to **Web scraping for beginners**. A comprehensive and practical web scraping course that will take you from an absolute beginner to a successful web scraper developer. This course is sponsored by <a href="https://apify.com" target="_blank">Apify</a>, the web scraping and automation platform, but we will use only open-source technologies throughout. This means that the skills you learn will be applicable to any scraping project, and you'll be able to run it on any computer. No Apify account needed.
 
 <!--If you would like to learn about the Apify platform and how it can help you build, run and scale your web scraping and automation projects, visit the Apify Academy, where we'll teach you all about our actors, proxies, API, scheduling, webhooks and much more.-->
 
@@ -25,7 +25,7 @@ Scraper development is a fun and challenging way to learn web development, web t
 
 When we set out to create the Academy, we wanted to build a complete guide to modern web scraping. A course that a beginner could use to create their first scraper, as well as a resource that professionals will continuously use to learn about advanced and niche web scraping techniques. All lessons include code examples and code-along exercises that you can use to immediately put your scraping skills into action.
 
-This is what you'll learn in the Web Scraping for Beginners course:
+This is what you'll learn in the **Web scraping for beginners** course:
 
 * [Web scraping for beginners]({{@link web_scraping_for_beginners.md}})
   * [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}})
@@ -54,7 +54,7 @@ Other courses coming soon in the Academy:
 
 ## [](#requirements) Requirements
 
-You don't need to be a developer or a software engineer to complete this course, but basic programming knowledge is recommended. Don't be afraid, though. We explain everything in great detail in the Web Scraping for Beginners course and provide external references that can help you level up your web scraping and development skills. If you're new to programming, pay very close attention to the instructions and examples. A seemingly insignificant thing like using `[]` instead of `()` can make a lot of difference.
+You don't need to be a developer or a software engineer to complete this course, but basic programming knowledge is recommended. Don't be afraid, though. We explain everything in great detail in the Web scraping for beginners course and provide external references that can help you level up your web scraping and development skills. If you're new to programming, pay very close attention to the instructions and examples. A seemingly insignificant thing like using `[]` instead of `()` can make a lot of difference.
 
 As you progress to the Advanced and Pro courses, the coding will get more challenging, but still manageable to a person with an intermediate level of programming skills.
 

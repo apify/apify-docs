@@ -8,7 +8,7 @@ paths:
 
 # [](#recap) Recap of data collection basics
 
-We finished the [first section]({{@link web_scraping_for_beginners/data_collection.md}}) of the Web Scraping for Beginners course by creating a web scraper in Node.js. The scraper collected browsing information from the [Alexa Top Sites index](https://www.alexa.com/topsites). Let's see the code with some comments.
+We finished the [first section]({{@link web_scraping_for_beginners/data_collection.md}}) of the Web scraping for beginners course by creating a web scraper in Node.js. The scraper collected browsing information from the [Alexa Top Sites index](https://www.alexa.com/topsites). Let's see the code with some comments.
 
 ```js
 // First, we imported all the libraries we needed to
