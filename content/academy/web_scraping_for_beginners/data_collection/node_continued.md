@@ -118,7 +118,7 @@ console.log(results);
 
 ![Printing all websites' data to terminal]({{@asset web_scraping_for_beginners/data_collection/images/terminal-all-websites-data.webp}})
 
-If you were able to get here, run the code, get results and also understand everything, you can pat yourself on the back and congratulate yourself on completing the **Basics of data collection** section of the Web Scraping for Beginners course. Great job! 👏🎉
+If you were able to get here, run the code, get results and also understand everything, you can pat yourself on the back and congratulate yourself on completing the **Basics of data collection** section of the Web scraping for beginners course. Great job! 👏🎉
 
 # [](#next) Next up
 

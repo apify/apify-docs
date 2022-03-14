@@ -126,6 +126,6 @@ It doesn't even have to be a dataset created by the Apify SDK. You can use this 
 
 ## [](#wrap) Wrap up 💥
 
-And this is it for the [Basics of crawling section]({{@link web_scraping_for_beginners/crawling.md}}) of the [Web Scraping for Beginners]({{@link web_scraping_for_beginners.md}}) course. For now, this is also the last section. If you want to learn more about web scraping, stay tuned. We will keep updating the Academy with more content regularly, until we cover all the advanced and expert topics we promised at the beginning.
+And this is it for the [Basics of crawling section]({{@link web_scraping_for_beginners/crawling.md}}) of the [Web scraping for beginners]({{@link web_scraping_for_beginners.md}}) course. For now, this is also the last section. If you want to learn more about web scraping, stay tuned. We will keep updating the Academy with more content regularly, until we cover all the advanced and expert topics we promised at the beginning.
 
 If you're hooked and want to continue learning right away, head to the [getting started guide](https://sdk.apify.com/docs/guides/getting-started) of the Apify SDK. It will help you reinforce your learnings from this course and also explain the inner workings of the SDK in more detail. See you there 👋
