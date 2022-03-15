@@ -1,7 +1,7 @@
 ---
 title: Basics of data collection
 description: Learn about HTML, CSS, and JavaScript, the basic building blocks of a website, and how to use them in web scraping and data collection.
-menuWeight: 20
+menuWeight: 2.2
 category: courses
 paths:
     - web-scraping-for-beginners/data-collection

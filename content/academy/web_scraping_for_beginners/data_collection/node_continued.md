@@ -1,7 +1,7 @@
 ---
 title: Node.js continued
 description: Continue learning how to create a web scraper with Node.js and cheerio. Learn how to parse HTML and print results.
-menuWeight: 20.7
+menuWeight: 7
 paths:
     - web-scraping-for-beginners/data-collection/node-continued
 ---

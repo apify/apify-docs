@@ -1,7 +1,7 @@
 ---
 title: Relative URLs
 description: Learn about absolute and relative URLs used on web pages and how to work with them when parsing HTML with Cheerio in your scraper.
-menuWeight: 21.4
+menuWeight: 4
 paths:
 - web-scraping-for-beginners/crawling/relative-urls
 ---

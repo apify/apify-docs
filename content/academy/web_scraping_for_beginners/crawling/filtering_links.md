@@ -1,7 +1,7 @@
 ---
 title: Filtering links
 description: When you collect links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.
-menuWeight: 21.3
+menuWeight: 3
 paths:
 - web-scraping-for-beginners/crawling/filtering-links
 ---
