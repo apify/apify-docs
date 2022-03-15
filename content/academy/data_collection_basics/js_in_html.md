@@ -6,7 +6,7 @@ paths:
     - data-collection-basics/js_in_html
 ---
 
-# [](#what) What is JS in HTML?
+# What is JS in HTML?
 
 Depending on the technology the target website is using, the data to be collected not only can be found within HTML elements, but also in a JSON format within `<script>` tags in the DOM.
 
@@ -14,7 +14,7 @@ The advantages of using these objects instead of parsing the HTML are that parsi
 
 > **Note:** In this tutorial, we'll be using [SoundCloud's website](https://soundcloud.com) as an example target, but the techniques described here can be applied to any site.
 
-## [](#locating) Locating JSON objects within `<script>` tags
+## [](#locating-json-in-html) Locating JSON objects within `<script>` tags
 
 Using our DevTools, we can inspect our <a href="https://soundcloud.com/tiesto/tracks">target page</a>, or right click the page and click "View Page Source" to see the DOM. Next, we'll find a value on the page that we can predict would be in a potential API response. For our page, we'll use the "Tracks" count of `845`. On the "View Page Source" page, we'll do <kbd>⌘</kbd> + <kbd>F</kbd> and type in this value, which will show all matches for it within the DOM. This method can expose `<script>` tag objects which hold the target data.
 
@@ -24,7 +24,7 @@ These data objects will usually be attached to the window object (often prefixed
 
 ![View the target data in the window object using the console in DevTools]({{@asset data_collection_basics/images/view-object-in-window.png}})
 
-## [](#parsing) Parsing
+## [](#parsing-objects) Parsing
 
 There are two ways to go about obtaining these objects to be used and manupulated in JavaScript code:
 
