@@ -1,7 +1,7 @@
 ---
 title: Using DevTools
 description: Learn how to use browser DevTools, CSS selectors, and JavaScript to collect data from a website.
-menuWeight: 20.2
+menuWeight: 2
 paths:
     - web-scraping-for-beginners/data-collection/using-devtools
 ---

@@ -1,7 +1,7 @@
 ---
 title: Scraping the data
 description: Learn how to add data collection logic to your crawler, which will allow you to extract data from all the websites you crawled.
-menuWeight: 21.6
+menuWeight: 6
 paths:
 - web-scraping-for-beginners/crawling/scraping-the-data
 ---

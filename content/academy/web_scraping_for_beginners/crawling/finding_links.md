@@ -1,7 +1,7 @@
 ---
 title: Finding links
 description: Learn what a link looks like in HTML and how to find and collect their URLs when web scraping using both DevTools and Node.js.
-menuWeight: 21.2
+menuWeight: 2
 paths:
 - web-scraping-for-beginners/crawling/finding-links
 ---

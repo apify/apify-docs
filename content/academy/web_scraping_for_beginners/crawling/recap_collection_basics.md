@@ -1,7 +1,7 @@
 ---
 title: Recap data collection
 description: Review our Alexa Top Sites scraper and refresh our memory about its code and the programming techniques we used to collect data.
-menuWeight: 21.1
+menuWeight: 1
 paths:
 - web-scraping-for-beginners/crawling/recap-collection-basics
 ---

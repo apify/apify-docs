@@ -1,7 +1,7 @@
 ---
 title: DevTools continued
 description: Continue learning how to collect data from a website using browser DevTools, CSS selectors and JavaScript.
-menuWeight: 20.3
+menuWeight: 3
 paths:
     - web-scraping-for-beginners/data-collection/devtools-continued
 ---
