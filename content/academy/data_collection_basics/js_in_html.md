@@ -1,5 +1,5 @@
 ---
-title: JavaScript in HTML
+title: JSON data witin HTML
 description: Learn about "hidden" data that can be found within the JavaScript of certain pages.
 menuWeight: 20.9
 paths:

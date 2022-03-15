@@ -46,7 +46,7 @@ After configuring a proxy, the next request sent will attempt to use it. To swit
 
 Postman keeps a cache of the cookies from all previous responses of a certain domain, which can be a blessing, but also a curse. Sometimes, you might notice that a request is going through just fine with Postman, but that your scraper is being blocked.
 
-More often than not in these cases, the reason is because the endpoint being reached requires a valid "`cookie`" header to be present when sending the request, and because of Postman's cache, it is sending a valid cookie within each request's headers, while your scraper is not. Another reason this may happen is because you are sending Postman requests without a proxy (using your local IP address), while your scraper is using a proxy that could potentially be getting blocked.
+More often than not in these cases, the reason is because the endpoint being reached requires a valid `cookie` header to be present when sending the request, and because of Postman's cache, it is sending a valid cookie within each request's headers, while your scraper is not. Another reason this may happen is because you are sending Postman requests without a proxy (using your local IP address), while your scraper is using a proxy that could potentially be getting blocked.
 
 In order to check whether there are any cookies associated with a certain request are cached in Postman, click on the 'Cookies' button in any opened request tab:
 
