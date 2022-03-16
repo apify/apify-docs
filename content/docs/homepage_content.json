@@ -68,7 +68,7 @@
     "Web scraping": [
         {
             "cardItem": "Web scraping academy",
-            "href": "/academy"
+            "href": "https://developers.apify.com/academy"
         },
         {
             "cardItem": "Basics of data collection",
