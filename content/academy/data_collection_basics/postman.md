@@ -1,6 +1,6 @@
 ---
 title: Postman
-description: Learn about Postman, a simple tool for testing requests and proxies
+description: Learn about Postman, a simple yet valuable tool for testing requests and proxies when building scalable web-scrapers.
 menuWeight: 21.0
 paths:
     - data-collection-basics/postman

@@ -1,6 +1,6 @@
 ---
 title: API Scraping
-description: In this API scraping tutorial, you will learn how to leverage website APIs in web scraping and collecting data.
+description: In this API scraping tutorial, you will learn the benefits and drawbacks of API scraping, how to locate an API, how to utilize its potential features, and how to work around some common roadblocks.
 menuWeight: 21.1
 paths:
     - data-collection-basics/api-scraping
@@ -12,9 +12,9 @@ Simply put, API scraping is locating a website's API endpoints, and collecting t
 
 > **Note:** In this tutorial, we'll be using [SoundCloud's website](https://soundcloud.com) as an example target, but the techniques described here can be applied to any site.
 
-## [](#advantages-disadvantages) Advantages of API Scraping
+In this module, we will discuss the benefits and drawbacks of API scraping, how to locate an API, how to utilize its potential features, and how to work around some common roadblocks.
 
-### Advantages
+## [](#advantages) Advantages of API Scraping
 
 1. More reliable
 
@@ -32,7 +32,7 @@ Especially for [dynamic sites](https://blog.apify.com/what-is-a-dynamic-page/), 
 
 Depending on the website, sending large amounts of requests to their pages could result in a slight performance decrase on their end. By using their API instead, not only does your scraper run better, but it is less demanding of the target website.
 
-### Disdvantages
+## [](#disadvantages) Disdvantages of API Scraping
 
 1. Sometimes requires special tokens
 
