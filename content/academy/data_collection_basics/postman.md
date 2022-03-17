@@ -24,7 +24,7 @@ Multiple test endpoints/requests can be opened at one time, each of which will b
 
 2. Address bar
 
-The section in which you select the type of request to send, the URL of the request, and of course, send the request with the "Send Request" button.
+The section in which you select the type of request to send, the URL of the request, and of course, send the request with the **Send Request** button.
 
 3. Request options
 
@@ -32,15 +32,15 @@ This is a very useful section where you can view and edit structured query param
 
 4. Response
 
-After sending a request, the response's body will be found here, along with its cookies and headers. The response body can be viewed in various formats - "Pretty-Print", "Raw", or "Preview".
+After sending a request, the response's body will be found here, along with its cookies and headers. The response body can be viewed in various formats - **Pretty-Print**, **Raw**, or **Preview**.
 
 ## [](#using-proxies) Using and testing proxies
 
-In order to use a proxy, the proxy's server and configuration must be provided in the "Proxy" tab in Postman settings.
+In order to use a proxy, the proxy's server and configuration must be provided in the **Proxy** tab in Postman settings.
 
 ![Proxy configuration in Postman settings]({{@asset data_collection_basics/images/postman-proxy.png}})
 
-After configuring a proxy, the next request sent will attempt to use it. To switch off the proxy, its details don't need to be deleted. The `Add a custom proxy configuration` option in settings just needs to be un-ticked to disable it.
+After configuring a proxy, the next request sent will attempt to use it. To switch off the proxy, its details don't need to be deleted. The **Add a custom proxy configuration** option in settings just needs to be un-ticked to disable it.
 
 ## [](#managing-cookies) Managing the cookies cache
 
@@ -48,11 +48,11 @@ Postman keeps a cache of the cookies from all previous responses of a certain do
 
 More often than not in these cases, the reason is because the endpoint being reached requires a valid `cookie` header to be present when sending the request, and because of Postman's cache, it is sending a valid cookie within each request's headers, while your scraper is not. Another reason this may happen is because you are sending Postman requests without a proxy (using your local IP address), while your scraper is using a proxy that could potentially be getting blocked.
 
-In order to check whether there are any cookies associated with a certain request are cached in Postman, click on the 'Cookies' button in any opened request tab:
+In order to check whether there are any cookies associated with a certain request are cached in Postman, click on the **Cookies** button in any opened request tab:
 
 ![Button to view the cached cookies]({{@asset data_collection_basics/images/postman-cookies-button.png}})
 
-Clicking on this button opens a "MANAGE COOKIES" window, where a list of all cached cookies per domain can be seen. If we had been previously sending multiple requests to `https://github.com/apify`, within this window we would be able to easily find cached cookies associated with github.com. Cookies can also be easily edited (to update some specific values), or deleted (to send a "clean" request without any cached data) here.
+Clicking on this button opens a **MANAGE COOKIES** window, where a list of all cached cookies per domain can be seen. If we had been previously sending multiple requests to **https://github.com/apify**, within this window we would be able to easily find cached cookies associated with github.com. Cookies can also be easily edited (to update some specific values), or deleted (to send a "clean" request without any cached data) here.
 
 ![Managing cookies in Postman with the "MANAGE COOKIES" window]({{@asset data_collection_basics/images/postman-manage-cookies.png}})
 
