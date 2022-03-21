@@ -1,9 +1,9 @@
 ---
 title: Postman
 description: Learn about Postman, a simple yet valuable tool for testing requests and proxies when building scalable web-scrapers.
-menuWeight: 21.0
+menuWeight: 5.1
 paths:
-    - data-collection-basics/postman
+    - glossary/postman
 ---
 
 # What is Postman?
@@ -14,23 +14,23 @@ The desktop app can be downloaded from its [official download page](https://www.
 
 ## [](#understanding-the-interface) Understanding the interface
 
-![A basic outline of Postman's interface]({{@asset data_collection_basics/images/postman-interface.png}})
+![A basic outline of Postman's interface]({{@asset glossary/images/postman-interface.webp}})
 
 There are four main sections to get familiar when starting out with Postman:
 
-1. Tabs
+### 1. Tabs
 
 Multiple test endpoints/requests can be opened at one time, each of which will be held within its own tab.
 
-2. Address bar
+### 2. Address bar
 
 The section in which you select the type of request to send, the URL of the request, and of course, send the request with the **Send Request** button.
 
-3. Request options
+### 3. Request options
 
 This is a very useful section where you can view and edit structured query parameters, as well as specify any authorization parameters, headers, or payloads.
 
-4. Response
+### 4. Response
 
 After sending a request, the response's body will be found here, along with its cookies and headers. The response body can be viewed in various formats - **Pretty-Print**, **Raw**, or **Preview**.
 
@@ -38,7 +38,7 @@ After sending a request, the response's body will be found here, along with its 
 
 In order to use a proxy, the proxy's server and configuration must be provided in the **Proxy** tab in Postman settings.
 
-![Proxy configuration in Postman settings]({{@asset data_collection_basics/images/postman-proxy.png}})
+![Proxy configuration in Postman settings]({{@asset glossary/images/postman-proxy.webp}})
 
 After configuring a proxy, the next request sent will attempt to use it. To switch off the proxy, its details don't need to be deleted. The **Add a custom proxy configuration** option in settings just needs to be un-ticked to disable it.
 
@@ -50,14 +50,14 @@ More often than not in these cases, the reason is because the endpoint being rea
 
 In order to check whether there are any cookies associated with a certain request are cached in Postman, click on the **Cookies** button in any opened request tab:
 
-![Button to view the cached cookies]({{@asset data_collection_basics/images/postman-cookies-button.png}})
+![Button to view the cached cookies]({{@asset glossary/images/postman-cookies-button.webp}})
 
-Clicking on this button opens a **MANAGE COOKIES** window, where a list of all cached cookies per domain can be seen. If we had been previously sending multiple requests to **https://github.com/apify**, within this window we would be able to easily find cached cookies associated with github.com. Cookies can also be easily edited (to update some specific values), or deleted (to send a "clean" request without any cached data) here.
+Clicking on this button opens a **MANAGE COOKIES** window, where a list of all cached cookies per domain can be seen. If we had been previously sending multiple requests to **<https://github.com/apify>**, within this window we would be able to easily find cached cookies associated with github.com. Cookies can also be easily edited (to update some specific values), or deleted (to send a "clean" request without any cached data) here.
 
-![Managing cookies in Postman with the "MANAGE COOKIES" window]({{@asset data_collection_basics/images/postman-manage-cookies.png}})
+![Managing cookies in Postman with the "MANAGE COOKIES" window]({{@asset glossary/images/postman-manage-cookies.webp}})
 
 ### [](#alternatives) Some alternatives to Postman
 
--   [Hoppscotch](https://hoppscotch.io/)
--   [Insomnia](https://insomnia.rest/download)
--   [Testfully](https://testfully.io/)
+- [Hoppscotch](https://hoppscotch.io/)
+- [Insomnia](https://insomnia.rest/download)
+- [Testfully](https://testfully.io/)

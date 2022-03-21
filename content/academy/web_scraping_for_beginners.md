@@ -31,21 +31,18 @@ This is what you'll learn in the **Web scraping for beginners** course:
   * [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}})
   * [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}})
 
-Other courses coming soon in the Academy:
+Other courses and lessons (coming soon) in the Academy:
 
-* Advanced web scraping
-  * Advanced data collection techniques
-    * API scraping
-    * JavaScript rendering and dynamic pages
-    * Data in JavaScript objects
-  * Advanced crawling techniques
-    * Navigation with POST requests
-    * Emulating API pagination
-    * GraphQL scraping
-  * Anti-scraping protection
-    * Proxies and staying anonymous
-    * Captchas and human behavior
-    * Web application firewalls
+* [Advanced web scraping]({{@link advanced_web_scraping.md}})
+  * [API scraping]({{@link advanced_web_scraping/api_scraping.md}})
+  * [Data in JavaScript objects]({{@link advanced_web_scraping/js_in_html.md}})
+  * JavaScript rendering and dynamic pages
+  * Navigation with POST requests
+  * Emulating API pagination
+  * GraphQL scraping
+  * Proxies and staying anonymous
+  * Captchas and human behavior
+  * Web application firewalls
 * Expert topics
   * Mobile app scraping
   * Overcoming result limits

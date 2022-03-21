@@ -1,9 +1,9 @@
 ---
 title: API Scraping
 description: In this API scraping tutorial, you will learn the benefits and drawbacks of API scraping, how to locate an API, how to utilize its potential features, and how to work around some common roadblocks.
-menuWeight: 21.1
+menuWeight: 3.1
 paths:
-    - data-collection-basics/api-scraping
+    - advanced-web-scraping/api-scraping
 ---
 
 # What is API scraping?
@@ -16,29 +16,29 @@ In this module, we will discuss the benefits and drawbacks of API scraping, how 
 
 ## [](#advantages) Advantages of API Scraping
 
-1. More reliable
+### 1. More reliable
 
 Since the data is coming directly from the site's API, as opposed from the parsing of HTML content based on CSS selectors, it can be relied on more, as it is less likely to change. Typically, websites change their APIs much less frequently than they change the structure/selectors of their pages.
 
-2. Configurable
+### 2. Configurable
 
 Most APIs accept query parameters such as `maxPosts` or `fromCountry`. These parameters can be mapped to the configuration options of the scraper, which makes creating a scraper that supports various requirements and use-cases much easier. They can also be utilized to easily filter and/or limit data results.
 
-3. Fast and efficient
+### 3. Fast and efficient
 
 Especially for [dynamic sites](https://blog.apify.com/what-is-a-dynamic-page/), in which a headless browser is required (which can sometimes be slow and cumbersome), scraping their API can prove to be much quicker and more efficient.
 
-4. Easy on the target website
+### 4. Easy on the target website
 
 Depending on the website, sending large amounts of requests to their pages could result in a slight performance decrase on their end. By using their API instead, not only does your scraper run better, but it is less demanding of the target website.
 
 ## [](#disadvantages) Disdvantages of API Scraping
 
-1. Sometimes requires special tokens
+### 1. Sometimes requires special tokens
 
 Many APIs will require the session cookie, an API key, or some other special value to be included within the header of the request in order to receive any data back. For certain projects, this can be a challenge.
 
-2. Potential overhead
+### 2. Potential overhead
 
 For complex APIs that require certain headers and/or payloads in order to make a successful request, return encoded data, have rate limits, or that use modern technologies such as GraphQL, there can be a slight overhead in figuring out how to utilize them in a scraper.
 
@@ -50,7 +50,7 @@ On our target page, we'll open up the Network tab, and filter by request type of
 
 _Here's what we can see see in the Network tab after reloading the page:_
 
-![Network tab results after completing an action on the page which results in the API being called]({{@asset data_collection_basics/images/results-in-network-tab.png}})
+![Network tab results after completing an action on the page which results in the API being called]({{@asset advanced_web_scraping/images/results-in-network-tab.webp}})
 
 Let's say that our target data is a full list of Tiësto's uploaded songs on SoundCloud. We can use the **Filter** option to search for the keyword `tracks`, and see if any endpoints have been hit that include that word. Multiple results may still be in the list when using this feature, so it is important to carefully examine the payloads and responses of each request in order to ensure that the correct one is found.
 
@@ -58,7 +58,7 @@ Let's say that our target data is a full list of Tiësto's uploaded songs on Sou
 
 After a little bit of digging through the different response values of each request in our filtered list within the Network tab, we can discover this endpoint, which returns a JSON list including 20 of Tiësto's latest tracks:
 
-![Endpoint found in the Network tab]({{@asset data_collection_basics/images/endpoint-found.png}})
+![Endpoint found in the Network tab]({{@asset advanced_web_scraping/images/endpoint-found.webp}})
 
 ## [](#learning-the-api) Learning the API
 
@@ -66,19 +66,19 @@ The majority of APIs, especially for popular sites that serve up large amounts o
 
 Here's what our target endpoint's URL looks like coming directly from the Network tab:
 
-```
+```text
 https://api-v2.soundcloud.com/users/141707/tracks?representation=&client_id=zdUqm51WRIAByd0lVLntcaWRKzuEIB4X&limit=20&offset=0&linked_partitioning=1&app_version=1646987254&app_locale=en
 ```
 
 Since our request doesn't have any body/payload, we just need to analyze the URL. We can break this URL down into chunks that help us understand what each value does.
 
-![Breaking down the request url into understandable chunks]({{@asset data_collection_basics/images/analyzing-the-url.png}})
+![Breaking down the request url into understandable chunks]({{@asset advanced_web_scraping/images/analyzing-the-url.webp}})
 
 Understanding an API's various configurations helps with creating a game-plan on how to best scrape it, as many of the parameters can be utilized for easy pagination, or easy data-filtering. Additionally, these values can be mapped to a scraper's configuration options, which overall makes the scraper more versatile.
 
 Let's say we want to receive all of the user's tracks in one request. Based on our observations of the endpoint's different parameters, we can modify the URL and utilize the `limit` option to return more than just twenty songs. The `limit` option is extremely common with most APIs, and allows the person making the request to literally limit the maximum number of results to be returned in the request:
 
-```
+```text
 https://api-v2.soundcloud.com/users/141707/tracks?client_id=zdUqm51WRIAByd0lVLntcaWRKzuEIB4X&limit=99999
 ```
 
@@ -118,10 +118,10 @@ getCookie();
 
 Other APIs may not require a valid cookie header, but instead will require certain headers to be attached to the request which are typically attached when a user makes a "real" request from a browser. The most commonly required headers are:
 
--   `User-Agent`
--   `Referer`
--   `Origin`
--   `Host`
+- `User-Agent`
+- `Referer`
+- `Origin`
+- `Host`
 
 Headers required by the target API can be configured manually in a manner such as this, and attached to every single request the scraper sends:
 
@@ -158,7 +158,7 @@ const response = await gotScraping({
 })
 ```
 
-For our SoundCloud example, testing the endpoint from the previous section in a tool like [Postman](./postman.md) works perfectly, and returns the data we want; however, when the `client_id` parameter is removed, we receive a **401 Unauthorized** error. Luckily, the Client ID is the same for every user, which means that it is not tied to a session or an IP address (this is based on our own observations and tests). The big downfall is that the token being used by SoundCloud changes every few weeks, so it shouldn't be hardcoded. This case is actually quite common, and is not only seen with SoundCloud.
+For our SoundCloud example, testing the endpoint from the previous section in a tool like [Postman]({{@link glossary/postman.md}}) works perfectly, and returns the data we want; however, when the `client_id` parameter is removed, we receive a **401 Unauthorized** error. Luckily, the Client ID is the same for every user, which means that it is not tied to a session or an IP address (this is based on our own observations and tests). The big downfall is that the token being used by SoundCloud changes every few weeks, so it shouldn't be hardcoded. This case is actually quite common, and is not only seen with SoundCloud.
 
 Ideally, this `client_id` should be scraped dynamically, especially since it changes frequently, but unfortunately, the token cannot be found anywhere on SoundCloud's pages. We already know that it's available within the parameters of certain requests though, and luckily, [Puppeteer](https://github.com/puppeteer/puppeteer) offers a simple way to analyze each response when on a page. It's a bit like using browser DevTools, which you are already familiar with by now, but programatically instead.
 
@@ -199,7 +199,7 @@ scrapeClientId();
 
 ## [](#extra-challenges) Extra challenges
 
-1. Different data formats
+### 1. Different data formats
 
 APIs come in all different shapes and sizes. That means every API will vary in not only the quality of the data that it returns, but also that format that it is in. The two most common formats are JSON and HTML.
 
@@ -207,7 +207,7 @@ JSON responses are the most ideal, as they are easily manipulatable in JavaScrip
 
 APIs which ouput HTML are generally returning the raw HTML of a small component of the page which is already hydrated with data. In these cases, it is still worth using the API, as it is still more efficient than making a request to the entire page; even though the data does still need to be parsed from the HTML response.
 
-2. Encoded data
+### 2. Encoded data
 
 Sometimes, a response will look something like this:
 
@@ -228,10 +228,14 @@ const decoded = Buffer.from(value, 'base64').toString('utf-8')
 console.log(decoded)
 ```
 
-3. Different types of APIs
+### 3. Different types of APIs
 
 The vast majority of APIs our there are standard REST APIs that have different endpoints. Even though this is the case, it is important to be aware that newer API technologies such as [GraphQL](https://graphql.org/) are becoming more popular, and therefore more utilized in modern web applications.
 
 A GraphQL API works differently from a standard API. All requests are `POST` requests to a single endpoint - typically `https://targetdomain.com/graphql`. Queries are passed as a payload, and are very specific (which can be difficult to deal with). Additionally, GraphQL is a language in of itself; therefore, one must at least skim their documentation for a light understanding of the technology in order to be able to effectively scrape an API that uses it.
 
 > **Note:** these concepts will be covered more in-depth later on, but it is good to be aware of them now.
+
+## [](#next) Next up
+
+In the next lesson we will look at a great complement to API scraping. Extracting data from JSON objects that were sent along with other resources - like the page's initial HTML. This can often simplify your life and save you from using a browser on a dynamic website. [Let's get to it]({{@link advanced_web_scraping/js_in_html.md}}).
