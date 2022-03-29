@@ -8,11 +8,11 @@ paths:
 
 # [](#finish-scraper) Finish Node.js scraper
 
-In the first part of the Node.js tutorial we downloaded the HTML of the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a> and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link data_collection_basics/using_devtools.md}}) chapters and finish our scraper.
+In the first part of the Node.js tutorial we downloaded the HTML of our <a href="https://commerce-qd83plqbj-mstephen19.vercel.app/" target="_blank">Morgan Webstore e-commerce site</a> and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link data_collection_basics/using_devtools.md}}) chapters and finish our scraper.
 
 ## [](#querying-with-cheerio) Querying data with Cheerio
 
-As a reminder, the data we need from the Top Sites index is available in the 50 `<div>` elements with class `site-listing`. The CSS selector to find those is `div.site-listing`.
+As a reminder, the title data we need for each product on the page is available in each `<h3>` element inside of the container matching `div.grid.gap-6`. Each of these `<a>` elements has a `aria-label` attribute. The CSS selector for each of these elements is `div.grid.gap-6 a[aria-label]`.
 
 ![Selecting an element from the Elements tab]({{@asset data_collection_basics/images/selecting-container-element.webp}})
 
