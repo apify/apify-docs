@@ -37,7 +37,7 @@ for (const product of products) {
 
 > <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of" target="_blank">Find out more</a> about the `for..of` loop.
 
-![Print all websites' text]({{@asset data_collection_basics/images/print-all-products-text.png}})
+![Print all products' text]({{@asset data_collection_basics/images/print-all-products-text.png}})
 
 ## [](#collecting-data) Collecting data in a loop
 
@@ -58,7 +58,7 @@ console.log(results);
 
 The `results.push()` function takes its argument and pushes (adds) it to the `results` array. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank">Learn more about it here</a>. The rest of the code is just copy-pasted from the previous chapter. For each `product` of `products`, we find the `title` and `price`, then save them to the `results` array by pushing the object with the data into it. When you run the code, you should see all the data neatly structured.
 
-![Print all websites' data]({{@asset data_collection_basics/images/print-all-products-data.webp}})
+![Print all products' data]({{@asset data_collection_basics/images/print-all-products-data.webp}})
 
 ## [](#next) Next up
 

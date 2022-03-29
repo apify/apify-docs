@@ -8,115 +8,118 @@ paths:
 
 # [](#finish-scraper) Finish Node.js scraper
 
-In the first part of the Node.js tutorial we downloaded the HTML of our <a href="https://commerce-qd83plqbj-mstephen19.vercel.app/" target="_blank">Morgan Webstore e-commerce site</a> and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link data_collection_basics/using_devtools.md}}) chapters and finish our scraper.
+In the first part of the Node.js tutorial we downloaded the HTML of our <a href="https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale" target="_blank">Morgan Webstore e-commerce site</a> and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link data_collection_basics/using_devtools.md}}) chapters and finish our scraper.
 
 ## [](#querying-with-cheerio) Querying data with Cheerio
 
-As a reminder, the title data we need for each product on the page is available in each `<h3>` element inside of the container matching `div.grid.gap-6`. Each of these `<a>` elements has a `aria-label` attribute. The CSS selector for each of these elements is `div.grid.gap-6 a[aria-label]`.
+As a reminder, the data we need for each product on the page is available in each `a[href*="/product/"]` element.
 
-![Selecting an element from the Elements tab]({{@asset data_collection_basics/images/selecting-container-element.webp}})
+![Selecting an element from the Elements tab]({{@asset data_collection_basics/images/selecting-container-element-new.png}})
 
 To get all the elements with that CSS selector using Cheerio, we call the `$` function with the selector.
 
-```js
-$('div.site-listing');
+```JavaScript
+$('a[href*="/product/"]');
 ```
 
-We will use the same approach as in the previous DevTools chapters. Using a `for..of` loop we will iterate over the array of sites we saved in the `sites` variable. The code is a little different from DevTools, because we're using Node.js and Cheerio not a browser.
+We will use the same approach as in the previous DevTools chapters. Using a `for..of` loop we will iterate over the array of products we saved in the `products` variable. The code is a little different from DevTools, because we're using Node.js and Cheerio (which used jQuery syntax) instead of a browser (using Vanilla JavaScript syntax).
 
-```js
+```JavaScript
 // main.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
-const response = await gotScraping('https://www.alexa.com/topsites');
+const response = await gotScraping('https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale');
 const html = response.body;
 
 const $ = cheerio.load(html);
-const sites = $('div.site-listing');
-for (const site of sites) {
-    const element = $(site);
-    console.log(element.text());
+const products = $('a[href*="/product/"]');
+
+for (const product of products) {
+    const element = $(product);
+
+    console.log(element.textContent);
 }
 ```
 
-After you run this script, you should see data of all the 50 sites printed in your terminal. Don't forget about the `const element = $(site);` line. Without wrapping each `site` with `$()`, we wouldn't be able to call the `.text()` function on it.
+After you run this script, you should see data of all the 32 products printed in your terminal. Don't forget about the `const element = $(product);` line. Without wrapping each `product` with `$()`, we wouldn't be able to call the `.text()` method on it.
 
 ## [](#collecting-data) Collecting final data
 
-Now we only need to repeat the process from the DevTools chapters and add individual data point collection to the loop. From those chapters we know that the data are in `<div>` elements with class `td`.
+Now, we just need to repeat the process from the DevTools modules and add individual data point collection to the loop. From those chapters, we know that each of our product container `<a>` tags includes an `<h3>` element including the title, and a `<div>` price element matching the selector `div[class*="price"]`.
 
 ![Finding child elements in Elements tab]({{@asset data_collection_basics/images/find-child-elements.webp}})
 
-We will loop over all the `sites` and collect the data points from each of them using the `for..of` loop. For reference, this is the code from the DevTools chapter, where we collected the data **using a browser**.
+We will loop over all the `products` and collect the data points from each of them using the `for..of` loop. For reference, this is the code from the DevTools chapter, where we collected the data **using a browser**:
 
-```js
-// This is code from the browser Console. It won't work in Node.js
+```JavaScript
+// This code will only work in the browser, and NOT in Node.js
 const results = [];
 
-for (const site of sites) {
-    const fields = site.querySelectorAll('div.td');
+for (const product of products) {
+    const title = product.querySelector('h3').textContent.trim();
+    const price = product.querySelector('div[class*="price"]').textContent.trim();
+
     results.push({
-        rank: fields[0].textContent.trim(),
-        site: fields[1].textContent.trim(),
-        dailyTimeOnSite: fields[2].textContent.trim(),
-        dailyPageViews: fields[3].textContent.trim(),
-        percentFromSearch: fields[4].textContent.trim(),
-        totalLinkingSites: fields[5].textContent.trim(),
+        title,
+        price,
     });
+};
+
+console.log(results);
+```
+
+And this is how the code will look like when using **Node.js and Cheerio**. Similar, right?!
+
+```JavaScript
+const results = [];
+
+for (const product of products) {
+    const element = $(product);
+
+    const title = element.find('h3').text();
+    const price = element.find('div[class*="price"]').text();
+
+    results.push({
+        title,
+        price,
+    })
 }
 
 console.log(results);
 ```
 
-And this is how the code will look like with **Node.js and Cheerio**.
-
-```js
-const results = [];
-
-for (const site of sites) {
-    const fields = $(site).find('div.td');
-    results.push({
-        rank: fields.eq(0).text().trim(),
-        site: fields.eq(1).text().trim(),
-        dailyTimeOnSite: fields.eq(2).text().trim(),
-        dailyPageViews: fields.eq(3).text().trim(),
-        percentFromSearch: fields.eq(4).text().trim(),
-        totalLinkingSites: fields.eq(5).text().trim(),
-    });
-}
-```
-
-The main difference is that we used the <a href="https://api.jquery.com/find/" target="_blank">`.find()`</a> function to select all the `div.td` elements and also that we need to access the individual fields with <a href="https://api.jquery.com/eq/" target="_blank">`.eq()`</a>. If you find the differences confusing, don't worry about it. It will become very natural once you do it a few times. The final scraper code looks like this:
+The main difference is that we used the <a href="https://api.jquery.com/find/" target="_blank">`.find()`</a> function to select our `h3` and `div[class*="price"]` elements. If you find the differences confusing, don't worry about it. It will begin to feel very natural after a bit of practice. The final scraper code looks like this:
 
 ```js
 // main.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
-const response = await gotScraping('https://www.alexa.com/topsites');
+const response = await gotScraping('https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale');
 const html = response.body;
 
 const $ = cheerio.load(html);
-const sites = $('div.site-listing');
+const products = $('a[href*="/product/"]');
+
 const results = [];
 
-for (const site of sites) {
-    const fields = $(site).find('div.td');
+for (const product of products) {
+    const element = $(product);
+
+    const title = element.find('h3').text();
+    const price = element.find('div[class*="price"]').text();
+
     results.push({
-        rank: fields.eq(0).text().trim(),
-        site: fields.eq(1).text().trim(),
-        dailyTimeOnSite: fields.eq(2).text().trim(),
-        dailyPageViews: fields.eq(3).text().trim(),
-        percentFromSearch: fields.eq(4).text().trim(),
-        totalLinkingSites: fields.eq(5).text().trim(),
-    });
+        title,
+        price,
+    })
 }
 
 console.log(results);
 ```
 
-![Printing all websites' data to terminal]({{@asset data_collection_basics/images/terminal-all-websites-data.webp}})
+![Printing all products' data to terminal]({{@asset data_collection_basics/images/terminal-all-products-data.png}})
 
 If you were able to get here, run the code, get results and also understand everything, you can pat yourself on the back and congratulate yourself on completing the **Basics of data collection** part of the Web Scraping Academy. Great job! 👏🎉
 

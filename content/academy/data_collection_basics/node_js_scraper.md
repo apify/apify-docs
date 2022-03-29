@@ -12,9 +12,9 @@ Finally we have everything ready to start scraping! Yes, the setup is a bit daun
 
 ## [](#downloading-html) Downloading HTML
 
-We will use the `got-scraping` library to download the HTML of <a href="https://commerce-qd83plqbj-mstephen19.vercel.app" target="_blank">this ecommerce site's</a> on sale products page. Careful, the `import` statement is a little different than in the previous chapter.
+We will use the `got-scraping` library to download the HTML of <a href="https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale" target="_blank">Morgan Webstore's</a> on-sale products page. Careful, the `import` statement is a little different than in the previous chapter.
 
-```js
+```JavaScript
 // main.js
 import { gotScraping } from 'got-scraping';
 
@@ -31,7 +31,7 @@ Now run the script (using `node main.js`). After a brief moment, you should see 
 
 Having the HTML printed to the terminal is not very helpful. To collect the data, we first have to parse it. Thanks to parsing, we will be able to query the HTML elements similarly to the way we did it in browser in the [Collecting Data with DevTools]({{@link data_collection_basics/using_devtools.md}}) chapters. To parse HTML, we load it into the `cheerio` library.
 
-```js
+```JavaScript
 // main.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
