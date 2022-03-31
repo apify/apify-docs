@@ -12,31 +12,31 @@ Finally we have everything ready to start scraping! Yes, the setup is a bit daun
 
 ## [](#downloading-html) Downloading HTML
 
-We will use the `got-scraping` library to download the HTML of the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>. Careful, the `import` statement is a little different than in the previous lesson.
+We will use the `got-scraping` library to download the HTML of <a href="https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale" target="_blank">Morgan Webstore's</a> on-sale products page. Careful, the `import` statement is a little different than in the previous lesson.
 
-```js
+```JavaScript
 // main.js
 import { gotScraping } from 'got-scraping';
 
-const response = await gotScraping('https://www.alexa.com/topsites');
+const response = await gotScraping('https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale');
 const html = response.body;
 console.log(html);
 ```
 
 Now run the script (using `node main.js`). After a brief moment, you should see the page's HTML printed to your terminal. If you get an error that says something along the lines of **urlToHttpOptions is not a function**, you need to update Node.js to version 15.10 or higher. If you followed the installation instructions earlier, you don't need to worry about this, because you have the correct version installed.
 
-> `gotScraping` is an `async` function and the `await` keyword is used to pause execution of the script until it returns the `response`. <a href="https://javascript.info/async-await" target="_blank">Learn more</a> about `async` and `await`.
+> `gotScraping` is an `async` function and the `await` keyword is used to pause execution of the script until it returns the `response`. [Learn more about `async` and `await`](https://javascript.info/async-await)
 
 ## [](#parsing-html) Parsing HTML
 
 Having the HTML printed to the terminal is not very helpful. To collect the data, we first have to parse it. Thanks to parsing, we will be able to query the HTML elements similarly to the way we did it in browser in the [Collecting Data with DevTools]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}) lessons. To parse HTML, we load it into the `cheerio` library.
 
-```js
+```JavaScript
 // main.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
-const response = await gotScraping('https://www.alexa.com/topsites');
+const response = await gotScraping('https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale');
 const html = response.body;
 
 const $ = cheerio.load(html);
@@ -45,7 +45,7 @@ const titleText = titleElement.text();
 console.log(titleText);
 ```
 
-When you run the above script, the **Alexa - Top sites** title will be printed to the console. And that's great. It means that we successfully parsed the HTML and collected the text of the `<title>` element from it using Cheerio. Let's break it down.
+When you run the above script, the **Morgan Webstore** title will be printed to the console. And that's great. It means that we successfully parsed the HTML and collected the text of the `<title>` element from it using Cheerio. Let's break it down.
 
 First, we loaded the downloaded `html` into `cheerio` using the `load()` function. This created a new function, conventionally named `$`, which allows us to work with the loaded HTML. Then we called `$('title')`, which found the `<title>` element by using the `title` CSS selector. Finally, we collected the text from the element using the `.text()` function and printed it to the console.
 
@@ -53,4 +53,4 @@ First, we loaded the downloaded `html` into `cheerio` using the `load()` functio
 
 ## [](#next) Next up
 
-In the [next lesson]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) we will learn more about Cheerio and use it to collect all the websites' data from the Alexa Top sites index.
+In the [next lesson]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) we will learn more about Cheerio and use it to collect all the products' data from Morgan Webstore.

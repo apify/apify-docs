@@ -1,6 +1,6 @@
 ---
 title: Using DevTools
-description: Learn how to use browser DevTools, CSS selectors, and JavaScript to collect data from a website.
+description: Learn how to use browser DevTools, CSS selectors, and JavaScript via the DevTools console to collect data from a website.
 menuWeight: 2
 paths:
     - web-scraping-for-beginners/data-collection/using-devtools
@@ -8,19 +8,19 @@ paths:
 
 # [](#devtools-data-collection) Data collection with DevTools
 
-We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - collecting data from a website. Let's try collecting the 50 most popular websites in the world from the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>. We will use CSS selectors, JavaScript, and DevTools to do that.
+We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - collecting data from a website. Let's try collecting the on-sale products from <a href="https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale" target="_blank">this fake e-commerce website</a>. We will use CSS selectors, JavaScript, and DevTools to acheive this task.
 
 ## [](#getting-structured-data) Getting structured data from HTML
 
-When you open the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>, you'll see that there's a table on the page with names of websites and various data about the websites' traffic. We will now learn how to collect all this information. Open DevTools and select the first website - in our case Google.com - with the selector tool.
+When you open up the <a href="https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale" target="_blank">on-sale section of Morgan Webstore</a>, you'll see that there's a grid of products on the page with names and pictures of productsc. We will now learn how to collect all this information. Open DevTools and select the first product with the selector tool.
 
 ![Selecting an element with DevTools]({{@asset web_scraping_for_beginners/data_collection/images/selecting-first-website.webp}})
 
-Now you know where to find the name of the first website in the page's HTML, but we want to find all information about this first website. To do that, in the Elements tab, hover over the elements above the one you just found, until you find the element that contains all the data about the selected website. Alternatively, you can press the up arrow a few times to get the same result.
+Now you know where to find the name of one of the products in the page's HTML, but we want to find all information about this product. To do that, in the **Elements** tab, hover over the elements above the one you just found, until you find the element that contains all the data about the selected product. Alternatively, you can press the up arrow a few times to get the same result.
 
 ![Selecting an element from the Elements tab]({{@asset web_scraping_for_beginners/data_collection/images/selecting-container-element.webp}})
 
-This element is the parent element of all the nested (child) elements and we can find it using JavaScript and collect the data. Notice the `class` attribute of the element. This is where CSS selectors become handy, because we can use them to select an element with a specific class.
+This element is the parent element of all the nested (child) elements, and we can find it using JavaScript and collect the data. Notice that the element has an `aria-label` attribute, as well as multiple `class` attributes. This is where CSS selectors become handy, because we can use them to select an element with a specific class.
 
 > Websites change and the structure or their HTML or the CSS selectors can become outdated. We'll try our best to keep this course updated, but if you find that what you see on the website doesn't match this guide exactly, don't worry. Everything will work exactly the same. You will only have to use whatever you see on your screen and not in the screenshots here.
 
@@ -32,72 +32,76 @@ The function to do that is called `document.querySelector('some-selector')` and 
 
 > You can find available CSS selectors and their syntax on the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors" target="_blank">MDN CSS Selectors page</a>.
 
-At the time of writing, the HTML element that contained all the data we wanted had a `<div>` tag and a `tr site-listing` class. This actually means that there were two classes applied to the element. `tr` and `site-listing`. The `site-listing` class looked like the more reliable pick for targeting the element so we chose that one. We ran this command in the DevTools Console to select the element we wanted.
+At the time of writing, the HTML element that contained all the data we wanted had an `<a>` tag and a `animated fadeIn` class, plus an `aria-label` attribute. This actually means that there were two classes applied to the element - `animated` and `fadeIn`. Neither of these seem reliable classes to go off of; however, each element also includes an `href` attribute which includes `/product/`, which we can use to our advantage.
 
-```js
-document.querySelector('div.site-listing');
+```JavaScript
+document.querySelector('a[aria-label][href*="/product/"]');
 ```
 
 ![Query a selector with JavaScript]({{@asset web_scraping_for_beginners/data_collection/images/query-selector.webp}})
 
-> There are always multiple ways to select an element using CSS selectors. We always try to choose the one that seems the most reliable, precise, and unlikely to change with website updates. For example the `site-listing` class looks like the website's programmers deliberately put it there to signify one result and we therefore think it's the best to use.
+> There are always multiple ways to select an element using CSS selectors. We always try to choose the one that seems the most reliable, precise, and unlikely to change with website updates. For example the `href` attribute can be assumed to always include `/products/`, as this is the path to view a specific product.
 
 ## [](#collecting-from-elements) Collecting data from elements
 
 Now that we found the element, we can start poking into it to collect data. First, let's save the element to a variable so that we can work with it repeatedly and then print its text content to the console.
 
-```js
-const item = document.querySelector('div.site-listing');
-console.log(item.textContent);
+```JavaScript
+const product = document.querySelector('a[href*="/product/"]');
+console.log(product.textContent);
 ```
+
+Here, we are using a special selector. Normally, if you use a selector like `a[href]`, all `<a>` tags with a `href` attribute will be matched. By adding an `=` and a value (`a[href="something"]`), you match all `<a>` elements with the exact `href` value specified. Using the `*` before the `=` allows us to match any elements where the `href` attribute **includes** the specified value, rather than strictly equals it. There are many `<a>` tags on our page, but we only want the ones that lead to a path including `/product/`, which is why we've chosen to use this selector.
 
 ![Print text content of an element]({{@asset web_scraping_for_beginners/data_collection/images/print-text-content.webp}})
 
-As you can see, we were able to collect the data, but the format is still not very useful. For further processing, for example in a spreadsheet, we would like to have each piece of data as a separate field (column). To do that, we will look at the HTML structure in more detail.
+As you can see, we were able to collect the data, but the format is still not very useful - there's a whole lot of weird data there that we probably don't need. For further processing (ex. in a spreadsheet), we would like to have each piece of data as a separate field (column). To do that, we will look at the HTML structure in more detail.
 
 ### [](#selecting-child-elements) Selecting child elements
 
-In [Getting structured data from HTML](#getting-structured-data-from-html), we were hovering over the elements in the **Elements** tab to find the element that contains all the data. We can use that to find the individual data points as well. After a bit of inspection, we find that all the elements with the data we need are `div` with the class `td`.
+In the [Getting structured data from HTML](#getting-structured-data-from-html) section, we were hovering over the elements in the **Elements** tab to find the element that contains all the data. We can use that to find the individual data points as well. After a bit more inspection, we discover that the product's title is a `<span>` tag with a parent `<h3>` element, and the price is held inside a `<div>` with a `class` attribute including the keyword of **price**.
 
-> Don't forget that the selectors may have changed from `div` and `td`, but the general principle of finding them will always be the same. Use what you see on your screen.
+> Don't forget that the selectors may have changed, but the general principle of finding them will always be the same. Use what you see on your screen.
 
 ![Finding child elements in Elements tab]({{@asset web_scraping_for_beginners/data_collection/images/find-child-elements.webp}})
 
-The `document.querySelector()` function looks for a specific element in the whole HTML `document`, so if we called it with `div.td`, it would find the first `<div class="td ...">` in the `document`. Luckily we can also use this function to look for elements within an element.
+The `document.querySelector()` function looks for a specific element in the whole HTML `document`, so if we called it with `h3`, it would find the first `<h3>` node in the `document`. Luckily we can also use this function to look for elements within an element.
 
-There's even a similar function called <a href="https://javascript.info/searching-elements-dom#querySelectorAll" target="_blank">`querySelectorAll()`</a> that returns an array of all the elements matching the selector, not only the first one. We will use that function to get all the fields with data.
+There's a similar method called <a href="https://javascript.info/searching-elements-dom#querySelectorAll" target="_blank">`querySelectorAll()`</a> that returns an array of all the elements matching the selector - not just the first one. We will use this method to grab all the elements holding our sought after data.
 
 > Learn more about `Arrays` <a href="https://javascript.info/array" target="_blank">in this tutorial</a>.
 
-Don't forget that earlier we saved the parent element into a variable called `item`. We can use that variable to search only within that element.
+Let's find the parent element of all of the products, which matches the selector `div.grid.gap-6`, select it with `document.querySelector()`, then find all of the product elements.
 
-```js
-const fields = item.querySelectorAll('div.td');
-console.log(fields);
+```JavaScript
+const grid = document.querySelector('div.grid.gap-6');
+
+const products = grid.querySelectorAll('a[href*="/product/"]')
+
+console.log(products);
 ```
+
+There are 32 products on the page, so if we've done this correctly, a list of 32 product elements should be logged to the console.
 
 ![List child elements with JavaScript]({{@asset web_scraping_for_beginners/data_collection/images/list-child-elements.webp}})
 
 ### [](#collecting-data) Collecting data
 
-The `fields` array now contains all the elements we need and we can access the data individually. Let's save the results into an <a href="https://javascript.info/object" target="_blank">object</a>. Those of you who know JavaScript will know that this is not the prettiest code ever written, but it is beginner-friendly and that's important here. We will also use the `.trim()` function to remove unnecessary whitespace from the results.
+The `products` array now contains all the elements we need, and we can access each one's data individually. Let's save the title and price of the first product into an <a href="https://javascript.info/object" target="_blank">object</a>. Those of you who know JavaScript will know that this is not the prettiest code ever written, but it is beginner-friendly and that's important here. We will also use the `.trim()` method to remove unnecessary whitespace from the results.
 
-```js
+```JavaScript
 const result = {
-    rank: fields[0].textContent.trim(),
-    site: fields[1].textContent.trim(),
-    dailyTimeOnSite: fields[2].textContent.trim(),
-    dailyPageViews: fields[3].textContent.trim(),
-    percentFromSearch: fields[4].textContent.trim(),
-    totalLinkingSites: fields[5].textContent.trim(),
+    title: products[0].querySelector('h3').textContent.trim(),
+    price: products[0].querySelector('div[class*="price"]').textContent.trim(),
 };
+
 console.log(result);
 ```
 
-![Print collected data to the Console]({{@asset web_scraping_for_beginners/data_collection/images/print-website-data.webp}})
+![Print collected data to the Console]({{@asset web_scraping_for_beginners/data_collection/images/print-product-data.webp}})
 
 If you were able to get the same result in your browser console, congratulations! You successfully collected your first data. If not, don't worry and review your code carefully. You'll crush the bug soon enough.
 
 ## [](#next) Next up
 
-We have learned how to collect information of a single website from the Alexa Top Sites index. In the [next lesson]({{@link web_scraping_for_beginners/data_collection/devtools_continued.md}}), we will learn how to collect all of it.
+We have learned how to collect information oabout a few products from an e-commerce website. In the [next lesson]({{@link web_scraping_for_beginners/data_collection/devtools_continued.md}}), we will learn how to collect all of them.
