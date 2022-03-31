@@ -1,6 +1,6 @@
 ---
 title: API Scraping
-description: In this API scraping tutorial, you will learn the benefits and drawbacks of API scraping, how to locate an API, how to utilize its potential features, and how to work around some common roadblocks.
+description: Learn the benefits and drawbacks of API scraping, how to locate an API, how to utilize its features, and how to work around common roadblocks.
 menuWeight: 3.1
 paths:
     - advanced-web-scraping/api-scraping

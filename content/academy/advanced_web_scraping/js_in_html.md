@@ -1,6 +1,6 @@
 ---
 title: JSON data within HTML
-description: Learn about "hidden" data that can be found within the JavaScript of certain pages, which can significantly increase the reliability of your scraper, as well as improve the development experience.
+description: Learn about "hidden" data found within the JavaScript of certain pages, which can increase the scraper reliability and improve your development experience.
 menuWeight: 3.2
 paths:
     - advanced-web-scraping/js-in-html
