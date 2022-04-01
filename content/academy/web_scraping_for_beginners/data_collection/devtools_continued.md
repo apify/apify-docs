@@ -22,7 +22,7 @@ const products = document.querySelectorAll('a[href*="/product/"]')
 console.log(products);
 ```
 
-![Print all websites]({{@asset web_scraping_for_beginners/data_collection/images/print-all-product-elements.webp}})
+![Print all products]({{@asset web_scraping_for_beginners/data_collection/images/print-all-product-elements.webp}})
 
 Second, we will loop over each product and print their unstructured data. The following `for..of` loop will iterate over all elements of the `products` array and execute the code provided in curly brackets `{}` for each element. In each iteration, the element is saved into the variable called `product` and we can use the variable to interact with the element.
 
@@ -37,7 +37,7 @@ for (const product of products) {
 
 > <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of" target="_blank">Find out more</a> about the `for..of` loop.
 
-![Print all websites' text]({{@asset web_scraping_for_beginners/data_collection/images/print-all-products-text.webp}})
+![Print all products' text]({{@asset web_scraping_for_beginners/data_collection/images/print-all-products-text.webp}})
 
 ## [](#collecting-data) Collecting data in a loop
 
@@ -58,7 +58,7 @@ console.log(results);
 
 The `results.push()` function takes its argument and pushes (adds) it to the `results` array. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank">Learn more about it here</a>. The rest of the code is just copy-pasted from the previous lesson. For each `product` of `products`, we find the `title` and `price`, then save them to the `results` array by pushing the object with the data into it. When you run the code, you should see all the data neatly structured.
 
-![Print all websites' data]({{@asset web_scraping_for_beginners/data_collection/images/print-all-products-data.webp}})
+![Print all products' data]({{@asset web_scraping_for_beginners/data_collection/images/print-all-products-data.webp}})
 
 ## [](#next) Next up
 
