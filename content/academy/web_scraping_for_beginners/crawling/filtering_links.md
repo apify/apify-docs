@@ -38,36 +38,34 @@ $('a[href]');
 
 Ensuring to always add the `[href]` part of the selector will save you from nasty bug hunts on certain pages.
 
-Next, we can limit the number of results by only targeting the product links. In DevTools, we see that all the product links are in //WHERE???//
-
-// an HTML list denoted by `<ul>` and `<li>` tags. In addition, the `<ul>` element has the class `countries`. We can leverage that.
-
-> <a href="https://www.w3schools.com/html/html_lists_unordered.asp" target="_blank">Learn more about HTML lists</a> and the `<ul` and `<li>` tags.
+We only want the product links on this page, so we can limit the number of results by only targeting the links within the `main.fit` container to filter out some unwanted links (such as in the navbar), then further select any a tags with a `href` attribute containing `/product/`.
 
 ### [](#descendant-selector) Descendant selector
 
 ```marked-tabs
 <marked-tab header="DevTools" lang="javascript">
-document.querySelectorAll('ul.countries a[href]');
+document.querySelectorAll('main.fit a[href*="/product/"]');
 </marked-tab>
 <marked-tab header="Node.js" lang="javascript">
-$('ul.countries a[href]');
+$('main.fit a[href*="/product/"]');
 </marked-tab>
 ```
 
-We already know both the `ul.countries` and `a[href]` selectors, but their combination is new. It's called a <a href="https://css-tricks.com/almanac/selectors/d/descendant/" target="_blank">descendant selector</a> and it selects all `<a href="...">` elements that are descendants of an `<ul class="countries">` element. A descendant is any element that's nested somewhere inside another element.
+We already know both the `main.fit` and `a[href*="/product/"]` selectors, but their combination is new. It's called a <a href="https://css-tricks.com/almanac/selectors/d/descendant/" target="_blank">descendant selector</a> and it selects all `<a href=".../product/...">` elements that are descendants of a `<main class="fit">` element. A descendant is any element that's nested somewhere inside another element. It does not have to be a direct child of the parent element.
 
-![nested HTML tags]({{@asset web_scraping_for_beginners/crawling/images/nested-tag.webp}})
+![Nested HTML tags]({{@asset web_scraping_for_beginners/crawling/images/nested-tag.webp}})
 
-When we print all the URLs in the DevTools console, we'll see that we've correctly filtered only the country links.
+When we print all the URLs in the DevTools console, we'll see that we've correctly filtered only the featured product links.
 
-```js
-for (const a of document.querySelectorAll('ul.countries a[href]')) {
+```JavaScript
+for (const a of document.querySelectorAll('main.fit a[href*="/product/"]')) {
     console.log(a.href);
 }
 ```
 
-![country URLs printed to console]({{@asset web_scraping_for_beginners/crawling/images/country-urls.webp}})
+![Product URLs printed to console]({{@asset web_scraping_for_beginners/crawling/images/product-urls.webp}})
+
+Notice that we might have some duplicate URLs. These duplicates can be easily filtered. _We will be learning about data filtering/manipulation in future lessons._
 
 ## [](#pattern-filter) Filtering with pattern matching
 
@@ -75,45 +73,41 @@ Another common way to filter links (or any text really) is to match patterns wit
 
 > <a href="https://javascript.info/regexp-introduction" target="_blank">Learn more about regular expressions</a>.
 
-We can inspect the country URLs, and we'll soon find that they all look like the following. That is, they're exactly the same except for the last 2 letters.
+We can inspect the product URLs, and we'll soon find that they all look like the following. That is, they're exactly the same except for the text after the final `/`.
 
 ```text
-https://www.alexa.com/topsites/countries/AF
-https://www.alexa.com/topsites/countries/AX
-https://www.alexa.com/topsites/countries/AL
-https://www.alexa.com/topsites/countries/DZ
-https://www.alexa.com/topsites/countries/AR
+https://demo-webstore.apify.org/product/crystal-chandelier-maria-theresa-for-12-light
+https://demo-webstore.apify.org/product/macbook-pro
+https://demo-webstore.apify.org/product/lightweight-jacket
 ...
-https://www.alexa.com/topsites/countries/{2_LETTER_COUNTRY_CODE}
+https://demo-webstore.apify.org/product/{PRODUCT-NAME}
 ```
 
-Now, we create a regular expression that matches those links. There are many ways to do this. For simplicity, let's go with this one:
+Now, we'll create a regular expression that matches those links. There are many ways to do this. For simplicity, let's go with this one:
 
-```regexp
-alexa\.com\/topsites\/countries\/[A-Z]{2}
+```JavaScript
+/demo-webstore\.apify\.org\/product\/[a-z|-]*/
 ```
 
-This regular expression matches all URLs that include the `alexa.com/topsites/countries/` substring in them and then follow with 2 capital letters.
+This regular expression matches all URLs that include the `demo-webstore.apify.org/product/` substring immediately following with any number of letters or dashes `-`.
 
 > A great way to learn more about regular expression syntax and to test your expressions are tools like <a href="https://regexr.com/" target="_blank">regexr.com</a> or <a href="https://regex101.com/" target="_blank">regex101.com</a>.
 
 To test our regular expression in the DevTools console, we'll first create a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank">`RegExp`</a> object and then test the URLs with the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test" target="_blank">`regExp.test(string)`</a> function.
 
-```js
+```JavaScript
 // To demonstrate pattern matching, we use only the 'a'
 // selector to select all links on the page.
 for (const a of document.querySelectorAll('a')) {
-    const regExp = new RegExp(/alexa\.com\/topsites\/countries\/[A-Z]{2}/);
+    const regExp = new RegExp(/demo-webstore\.apify\.org\/product\/[a-z|-]*/);
     const url = a.href;
-    if (regExp.test(url)) {
-        console.log(url);
-    }
+    if (regExp.test(url)) console.log(url);
 }
 ```
 
 If you run the code in DevTools, you'll see that it produces exactly the same URLs as the CSS filter.
 
-> Yes, filtering with CSS selectors is often the better option. But sometimes it's not enough. Learning regular expressions is a very useful skill in many scenarios.
+> Yes, filtering with CSS selectors is often the better (and just slightly more performant) option. But sometimes it's not enough. Learning regular expressions is a very useful skill in many scenarios.
 
 ## [](#next) Next up
 

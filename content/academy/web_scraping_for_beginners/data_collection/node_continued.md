@@ -119,7 +119,7 @@ for (const product of products) {
 console.log(results);
 ```
 
-![Printing all websites' data to terminal]({{@asset web_scraping_for_beginners/data_collection/images/terminal-all-products-data.webp}})
+![Printing all products' data to terminal]({{@asset web_scraping_for_beginners/data_collection/images/terminal-all-products-data.webp}})
 
 If you were able to get here, run the code, get results and also understand everything, you can give yourself a pat on the back and congratulate yourself on completing the **Basics of data collection** section of the Web scraping for beginners course. Great job! 👏🎉
 
