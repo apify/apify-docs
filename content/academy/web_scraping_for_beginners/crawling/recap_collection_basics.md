@@ -1,6 +1,6 @@
 ---
 title: Recap data collection
-description: Review our Alexa Top Sites scraper and refresh our memory about its code and the programming techniques we used to collect data.
+description: Review our e-commerce website scraper and refresh our memory about its code and the programming techniques we used to collect and save the data.
 menuWeight: 1
 paths:
 - web-scraping-for-beginners/crawling/recap-collection-basics
@@ -8,51 +8,60 @@ paths:
 
 # [](#recap) Recap of data collection basics
 
-We finished the [first section]({{@link web_scraping_for_beginners/data_collection.md}}) of the Web scraping for beginners course by creating a web scraper in Node.js. The scraper collected browsing information from the [Alexa Top Sites index](https://www.alexa.com/topsites). Let's see the code with some comments.
+We finished the [first section]({{@link web_scraping_for_beginners/data_collection.md}}) of the _Web Scraping for Beginners_ course by creating a simple web scraper in Node.js. The scraper collected all of the on-sale products from [our demo webstore](https://demo-webstore.apify.org/search/on-sale). Let's see the code with some comments added.
 
-```js
+```JavaScript
 // First, we imported all the libraries we needed to
-// download and collect the data we wanted.
+// download, collect, and convert the data we wanted
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
+import { parse } from 'json2csv';
+import { writeFileSync } from 'fs';
 
 // Here, we fetched the website's HTML and saved it to a new variable.
-const response = await gotScraping('https://www.alexa.com/topsites');
+const response = await gotScraping('https://demo-webstore.apify.org/search/on-sale');
 const html = response.body;
 
 // We used Cheerio, a popular library, to parse (process)
 // the downloaded HTML so that we could manipulate it.
 const $ = cheerio.load(html);
+
 // Using the div.site-listing CSS selector, we collected
-// all the HTML elements which contained the 50 websites data.
-const sites = $('div.site-listing');
+// all the HTML elements which contained the 32 products' data.
+const products = $('a[href*="/product/"]');
+
 // Then, we prepared a new array to store the results.
 const results = [];
-// And looped over all the 50 sites to extract information
-// for the individual websites.
-for (const site of sites) {
-    // The data we wanted were in multiple
-    // <div> elements with the class="td".
-    const fields = $(site).find('div.td');
-    // We added all the data to the results array
+
+// And looped over all the 32 elements to extract information
+// for the individual products.
+for (const product of products) {
+    const element = $(product);
+
+    // The title data was in an <h3> element
+    const title = element.find('h3').text();
+    // The price data was in a <div> element with a class
+    // including the keyword "price"
+    const price = element.find('div[class*="price"]').text();
+
+    // We added the data to the results array
     // in the form of an object with keys and values.
     results.push({
-        rank: fields.eq(0).text().trim(),
-        site: fields.eq(1).text().trim(),
-        dailyTimeOnSite: fields.eq(2).text().trim(),
-        dailyPageViews: fields.eq(3).text().trim(),
-        percentFromSearch: fields.eq(4).text().trim(),
-        totalLinkingSites: fields.eq(5).text().trim(),
+        title,
+        price,
     });
 }
-// Finally, we printed the results to the terminal.
-console.log(results);
-// In the bonus lesson, we saved the files to a CSV,
-// but we will skip that for now.
+
+// Finally, we parsed the results from JSON format
+// to CSV format 
+const csv = parse(results);
+
+// Then, we wrote the CSV into the filesystem
+writeFileSync('products.csv', csv)
 ```
 
 > If some of the code is hard for you to understand, please review the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}}) section. We will not go through the details again in this section about crawling.
 
 ## [](#next) Next up
 
-The [next lesson]({{@link web_scraping_for_beginners/crawling/finding_links.md}}) is all about finding some links to crawl on the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>.
+The [next lesson]({{@link web_scraping_for_beginners/crawling/finding_links.md}}) is all about finding some links to crawl on <a href="https://demo-webstore.apify.org/" target="_blank">Morgan Webstore</a>.

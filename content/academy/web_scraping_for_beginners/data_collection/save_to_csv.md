@@ -16,13 +16,13 @@ It might look like a big programming challenge to transform a JavaScript object 
 
 First, we need to import the `parse()` function from the library.
 
-```js
+```JavaScript
 import { parse } from 'json2csv';
 ```
 
 Next, we need to parse the `results` array from the previous lesson with the imported function.
 
-```js
+```JavaScript
 const csv = parse(results);
 ```
 
@@ -68,13 +68,13 @@ The final task that remains is to save our CSV formatted data to a file on our d
 
 First, we import the `writeFileSync` function from the `fs` (file system) package.
 
-```js
+```JavaScript
 import { writeFileSync } from 'fs';
 ```
 
 and then call it with a file name and the CSV data.
 
-```js
+```JavaScript
 writeFileSync('products.csv', csv);
 ```
 

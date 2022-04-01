@@ -6,49 +6,49 @@ paths:
 - web-scraping-for-beginners/crawling/finding-links
 ---
 
-# [](#find) Finding links
+# [](#finding-links) Finding links
 
-There are many kinds of links on the internet, and we'll cover them in the advanced courses of the Academy. For now, let's think of links as the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">HTML anchor elements</a> with `<a>` tags. A typical link looks like this:
+There are many kinds of links on the internet, and we'll cover them in the advanced courses of the Academy. For now, let's think of links as <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">HTML anchor elements</a> with `<a>` tags. A typical link looks like this:
 
-```html
+```HTML
 <a href="https://example.com">This is a link to example.com</a>
 ```
 
-On a web page, the link above will look like this: <a href="https://example.com" target="_blank">This is a link to example.com</a> and when you click it, your browser will navigate to the provided URL `https://example.com`.
+On a web page, the link above will look like this: "<a href="https://example.com" target="_blank">This is a link to example.com</a>," and when you click it, your browser will navigate to the URL in the `<a>` tag's `href` attribute (`https://example.com`).
 
-> The URL is in the `href` HTML attribute. It means Hypertext REFerence and you don't need to remember it. Just know that `href` typically means some sort of a link.
+> `href` means **H**ypertext **REF**erence. You don't need to remember this - just know that `href` typically means some sort of link.
 
-## [](#collect) Collecting links 🔗
+## [](#collecting-links) Collecting links 🔗
 
-So, if a link is just an HTML element and the URL is just an attribute, this means that we can collect links exactly the same way as we collected data.💡 Easy.
+So, if a link is just an HTML element, and the URL is just an attribute, this means that we can collect links exactly the same way as we collected data.💡 Easy!
 
-To test this in a browser, you can try running this code in your DevTools console, on any website.
+To test this theory in a browser, we can try running the following code in our DevTools console on any website.
 
-```js
+```JavaScript
 // Select all the <a> elements.
 const links = document.querySelectorAll('a');
 // For each of the links...
 for (const link of links) {
-    // get the value its 'href' attribute...
+    // get the value of its 'href' attribute...
     const url = link.href;
     // and print it to console.
     console.log(url);
 }
 ```
 
-And boom 💥, all the links from the website are now in your Console. Unless you were on example.com, it's usually a lot of links. You can see first-hand, how the Web is inter-connected.
+**_Boom_** 💥, all the links from the website have now been printed to the console. Unless you were on example.com, it's usually a lot of links. By doing this, we can get a first-hand look at how interconnected the web really is.
 
-## [](#node) Collecting links in Node.js
+## [](#collecting-in-node) Collecting links in Node.js
 
-DevTools are fun, but Node.js is way more useful. Let's create a new file in our project called `crawler.js` and start adding some basic crawling code. We'll start the same as with our scraper, but this time we'll download the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>.
+DevTools are fun, but Node.js is way more useful. Let's create a new file in our project called `crawler.js` and start adding some basic crawling code. We'll start with the same boilerplate as with our original scraper, but this time, we'll download the HTML of <a href="https://demo-webstore.apify.org/" target="_blank">the demo site's main page</a>.
 
-```js
+```JavaScript
 // crawler.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
-// This time we open the per-country list of the Alexa Top Sites index
-const response = await gotScraping('https://www.alexa.com/topsites/countries');
+// This time we open main page
+const response = await gotScraping('https://demo-webstore.apify.org/');
 const html = response.body;
 
 const $ = cheerio.load(html);
@@ -61,7 +61,7 @@ for (const link of links) {
 }
 ```
 
-Aside from importing libraries and downloading HTML, we loaded the HTML into Cheerio and then used it to retrieve all the `<a>` elements. After that, we iterated over the collected links and printed their `href` attribute, which we accessed using the <a href="https://api.jquery.com/attr/" target="_blank">`.attr('href')`</a> function. Remember, Cheerio functions are exactly the same as JQuery.
+Aside from importing libraries and downloading HTML, we loaded the HTML into Cheerio and then used it to retrieve all the `<a>` elements. After that, we iterated over the collected links and printed their `href` attributes, which we accessed using the <a href="https://api.jquery.com/attr/" target="_blank">`.attr()`</a> function. Remember, Cheerio functions are exactly the same as they are in jQuery.
 
 ## [](#next) Next up
 

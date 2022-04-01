@@ -8,7 +8,7 @@ paths:
 
 # [](#filtering-links) Filtering links
 
-Web pages are full of links and frankly, most of them are useless for us. There are two approaches to this. The first tries to target the links we're interested in by using unique CSS selectors. The second collects all links and then uses pattern matching to find the correct URLs. In real scraping scenarios, those two approaches are often combined for the most powerful filtering.
+Web pages are full of links, but frankly, most of them are useless to us. There are two approaches to filtering links: Targeting the links we're interested in by using unique CSS selectors, and collecting all linksm then using pattern matching to find the sought after URLs. In real scraping scenarios, these two approaches are often combined for the most effective URL filtering.
 
 ## [](#css-filter) Filtering with unique CSS selectors
 
@@ -25,7 +25,7 @@ $('a');
 
 ### [](#attribute-selector) Attribute selector
 
-But that's not the only way. Since we're interested in the `href` attributes, a first very reasonable filter is to exclusively target the `<a>` tags that have the `href` attribute (yes, anchors without it can exist). You can do that by using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors" target="_blank">CSS attribute selector</a>.
+That's not the only way to do it, however. Since we're interested in the `href` attributes, a first very reasonable filter is to exclusively target the `<a>` tags that have the `href` attribute (yes, anchor tags without the attribute can and do exist). You can do that by using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors" target="_blank">CSS attribute selector</a>.
 
 ```marked-tabs
 <marked-tab header="DevTools" lang="javascript">
@@ -36,7 +36,11 @@ $('a[href]');
 </marked-tab>
 ```
 
-Always adding the `[href]` selector will save you from nasty bug hunts on some pages. Next, we can limit the number of results by only targeting the country links. In DevTools, we see that all the country links are in an HTML list denoted by `<ul>` and `<li>` tags. In addition, the `<ul>` element has the class `countries`. We can leverage that.
+Ensuring to always add the `[href]` part of the selector will save you from nasty bug hunts on certain pages.
+
+Next, we can limit the number of results by only targeting the product links. In DevTools, we see that all the product links are in //WHERE???//
+
+// an HTML list denoted by `<ul>` and `<li>` tags. In addition, the `<ul>` element has the class `countries`. We can leverage that.
 
 > <a href="https://www.w3schools.com/html/html_lists_unordered.asp" target="_blank">Learn more about HTML lists</a> and the `<ul` and `<li>` tags.
 
