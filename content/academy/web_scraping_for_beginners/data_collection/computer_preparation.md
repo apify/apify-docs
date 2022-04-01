@@ -45,7 +45,7 @@ After confirming that `node` is correctly installed on your computer, use your t
 
 Now add this piece of code, save the file, and run the below command in your terminal.
 
-```js
+```JavaScript
 console.log('Hello World');
 ```
 
