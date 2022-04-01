@@ -12,13 +12,13 @@ Finally we have everything ready to start scraping! Yes, the setup is a bit daun
 
 ## [](#downloading-html) Downloading HTML
 
-We will use the `got-scraping` library to download the HTML of <a href="https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale" target="_blank">Morgan Webstore's</a> on-sale products page. Careful, the `import` statement is a little different than in the previous lesson.
+We will use the `got-scraping` library to download the HTML of <a href="https://demo-webstore.apify.org/search/on-sale" target="_blank">Morgan Webstore's on-sale products page</a>. Careful, the `import` statement is a little different than in the previous lesson.
 
 ```JavaScript
 // main.js
 import { gotScraping } from 'got-scraping';
 
-const response = await gotScraping('https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale');
+const response = await gotScraping('https://demo-webstore.apify.org/search/on-sale');
 const html = response.body;
 console.log(html);
 ```
@@ -36,7 +36,7 @@ Having the HTML printed to the terminal is not very helpful. To collect the data
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
-const response = await gotScraping('https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale');
+const response = await gotScraping('https://demo-webstore.apify.org/search/on-sale');
 const html = response.body;
 
 const $ = cheerio.load(html);

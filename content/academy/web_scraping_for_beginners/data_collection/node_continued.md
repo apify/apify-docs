@@ -8,7 +8,7 @@ paths:
 
 # [](#finish-scraper) Finish Node.js scraper
 
-In the first part of the Node.js tutorial we downloaded the HTML of our <a href="https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale" target="_blank">tutorial e-commerce site</a> and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}) lessons and finish our scraper.
+In the first part of the Node.js tutorial we downloaded the HTML of our <a href="https://demo-webstore.apify.org/search/on-sale" target="_blank">tutorial e-commerce site</a> and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}) lessons and finish our scraper.
 
 ## [](#querying-with-cheerio) Querying data with Cheerio
 
@@ -29,7 +29,7 @@ We will use the same approach as in the previous DevTools lessons. Using a `for.
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
-const response = await gotScraping('https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale');
+const response = await gotScraping('https://demo-webstore.apify.org/search/on-sale');
 const html = response.body;
 
 const $ = cheerio.load(html);
@@ -96,7 +96,7 @@ The main difference is that we used the <a href="https://api.jquery.com/find/" t
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
-const response = await gotScraping('https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale');
+const response = await gotScraping('https://demo-webstore.apify.org/search/on-sale');
 const html = response.body;
 
 const $ = cheerio.load(html);

@@ -8,11 +8,11 @@ paths:
 
 # [](#devtools-data-collection) Data collection with DevTools
 
-We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - collecting data from a website. Let's try collecting the on-sale products from <a href="https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale" target="_blank">this fake e-commerce website</a>. We will use CSS selectors, JavaScript, and DevTools to acheive this task.
+We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - collecting data from a website. Let's try collecting the on-sale products from <a href="https://demo-webstore.apify.org/" target="_blank">this fake e-commerce website</a>. We will use CSS selectors, JavaScript, and DevTools to acheive this task.
 
 ## [](#getting-structured-data) Getting structured data from HTML
 
-When you open up the <a href="https://commerce-qd83plqbj-mstephen19.vercel.app/search/on-sale" target="_blank">on-sale section of Morgan Webstore</a>, you'll see that there's a grid of products on the page with names and pictures of productsc. We will now learn how to collect all this information. Open DevTools and select the first product with the selector tool.
+When you open up the <a href="https://demo-webstore.apify.org/search/on-sale" target="_blank">on-sale section of Morgan Webstore</a>, you'll see that there's a grid of products on the page with names and pictures of productsc. We will now learn how to collect all this information. Open DevTools and select the first product with the selector tool.
 
 ![Selecting an element with DevTools]({{@asset web_scraping_for_beginners/data_collection/images/selecting-first-website.webp}})
 
