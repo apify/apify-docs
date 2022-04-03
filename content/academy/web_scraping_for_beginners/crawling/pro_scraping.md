@@ -1,5 +1,5 @@
 ---
-title: Professional scraping
+title: Professional Scraping
 description: Learn how to build scrapers easier, faster and finish with a better and a more robust scraper by using the Apify SDK, an open-source library for scraping in Node.js.
 menuWeight: 7
 paths:

@@ -1,121 +1,121 @@
 ---
-title: First crawl
+title: First Crawl
 description: Learn how to crawl the web using Node.js, Cheerio and an HTTP client. Collect URLs from pages and use them to visit more websites.
 menuWeight: 5
 paths:
-- web-scraping-for-beginners/crawling/first-crawl
+    - web-scraping-for-beginners/crawling/first-crawl
 ---
 
 # [](#first-crawling) First crawl
 
-In the previous lessons, we learned what crawling is and how to collect URLs from pages' HTML. The only thing that remains is to write the code. So let's get to it.
+In the previous lessons, we learned what crawling is and how to collect URLs from pages' HTML. The only thing that remains is to write the code - so let's get right to it!
 
-> If the code starts to look too complex for you, don't worry. We're showing it for educational purposes, so that you can learn how crawling works. At the end, we'll show you a much easier and faster way to crawl, using a specialized scraping library. If you want, you can skip the details and [go there now]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}).
+> If the code starts to look too complex for you, don't worry. We're showing it for educational purposes, so that you can learn how crawling works. Near the end of this module, we'll show you a much easier and faster way to crawl, using a specialized scraping library. If you want, you can skip the details and [go there now]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}).
 
 ## [](#processing-urls) Processing URLs
 
-In the previous lessons, we collected and filtered all the URLs pointing to individual country lists of the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>. To crawl the URLs, we can't print them to the console, but rather we need to save them for future use. Once we do that, we must take this list of URLs and download the HTML of each of the pages. See the comments for changes and additions to the code.
+In the previous lessons, we collected and filtered all the URLs pointing to individual products on our beloved <a href="https://demo-webstore.apify.org/" target="_blank">demo e-commerce site</a>. To crawl the URLs, we can't print them to the console, but rather we need to save them for future use. Once we do that, we must take this list of URLs and download the HTML of each of the pages. See the comments for changes and additions to the code.
 
-```js
+```JavaScript
 // crawler.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
-const websiteUrl = 'https://www.alexa.com/topsites/countries';
+const WEBSITE_URL = 'https://demo-webstore.apify.org/';
 
-const response = await gotScraping(websiteUrl);
+const response = await gotScraping('https://demo-webstore.apify.org/');
 const html = response.body;
 
 const $ = cheerio.load(html);
 
-const links = $('ul.countries a[href]');
+const productLinks = $('a[href*="/product/"]');
 
-// Prepare an empty array to store the URLs.
-const countryUrls = [];
+// Prepare an empty array for our product Urls
+const productsToScrape = [];
 
-for (const link of links) {
+for (const link of productLinks) {
     const relativeUrl = $(link).attr('href');
-    const absoluteUrl = new URL(relativeUrl, websiteUrl);
+    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL);
 
-    // Add the URL to the array.
-    // We'll use the 'href', which is the URL in a string format.
-    countryUrls.push(absoluteUrl.href);
+    // add each product link to our array
+    productsToScrape.push(absoluteUrl.href);
 }
 
-// Loop over the stored URLs to process each page individually.
-for (const url of countryUrls) {
+// Loop over the stored URLs to process each
+// product page individually
+for (const link of productsToScrape) {
     // Download HTML.
-    const countryResponse = await gotScraping(url);
-    const countryHtml = countryResponse.body;
+    const productResponse = await gotScraping(link);
+    const productHTML = productResponse.body;
 
     // Load into Cheerio to test the HTML.
-    // We use $$ not to confuse with $ variable above.
-    const $$ = cheerio.load(countryHtml);
+    // We use $$ to avoid confusion with $ variable above.
+    const $$ = cheerio.load(productHTML);
 
-    // Extract the page's title from the HTML.
-    const pageTitle = $$('title').text();
+    // Extract the product's title from the <h3> tag
+    const productPageTitle = $$('h3').text();
 
     // Print the title to the terminal to see
     // whether we downloaded the correct HTML.
-    console.log(pageTitle);
+    console.log(productPageTitle);
 }
 ```
 
-If you run the crawler from your terminal, it should print the titles. Or not? While writing this lesson, the <a href="https://www.alexa.com/topsites/countries/AX" target="_blank">Aland Islands</a> page was not available and therefore the crawler crashed a minute after visiting Afghanistan.
+If you run the crawler from your terminal, it should print the titles.
 
 ## [](#handling-errors) Handling errors
 
-The code above is correct, but it's not robust. If something goes wrong, it will crash. That something could be a network error, internet connection error, or one of the websites you're trying to reach could simply be experiencing problems at that moment. Any error like that and your crawler would stop, and you would lose the data it collected so far.
+The code above is correct, but it's not robust. If something goes wrong, it will crash. That something could be a network error, an internet connection error, or just that one of the websites you're trying to reach could simply be experiencing problems at that moment. Hitting any error like that would cause our current crawler to stop entirely, which means we would lose all the data it had collected so far.
 
 In programming, you handle errors by catching them and then doing some action. Typically, printing information that the error occurred and/or retrying.
 
 > The scraping library we'll [show you later]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) will handle errors and retries automatically for you.
 
-```js
+```JavaScript
 // crawler.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
-const websiteUrl = 'https://www.alexa.com/topsites/countries';
-const response = await gotScraping(websiteUrl);
+const WEBSITE_URL = 'https://demo-webstore.apify.org/';
+
+const response = await gotScraping('https://demo-webstore.apify.org/');
 const html = response.body;
 const $ = cheerio.load(html);
-const links = $('ul.countries a[href]');
-const countryUrls = [];
-for (const link of links) {
+
+const productLinks = $('a[href*="/product/"]');
+
+const productsToScrape = [];
+for (const link of productLinks) {
     const relativeUrl = $(link).attr('href');
-    const absoluteUrl = new URL(relativeUrl, websiteUrl);
-    countryUrls.push(absoluteUrl.href);
+    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL);
+    productsToScrape.push(absoluteUrl.href);
 }
 
-for (const url of countryUrls) {
+for (const link of productsToScrape) {
     // Everything else is exactly the same.
     // We only wrapped the code in try/catch blocks.
     // The try block passes all errors into the catch block.
     // So, instead of crashing the crawler, they can be handled.
     try {
         // The try block attempts to execute our code
-        const countryResponse = await gotScraping(url);
-        const countryHtml = countryResponse.body;
-
-        const $$ = cheerio.load(countryHtml);
-
-        const pageTitle = $$('title').text();
-
-        console.log(pageTitle);
+        const productResponse = await gotScraping(link);
+        const productHTML = productResponse.body;
+        const $$ = cheerio.load(productHTML);
+        const productPageTitle = $$('h3').text();
+        console.log(productPageTitle);
     } catch (error) {
         // In the catch block, we handle errors.
         // This time, we will just print
         // the error message and the url.
-        console.error(error.message, url);
+        console.error(error.message, link)
     }
 }
 ```
 
-At the time of writing, only one website failed: the Aland Islands. In your crawling, you might get a different result. The important thing is that the crawler no longer crashes, and that it was able to download the HTML of all the countries except one.
+At the time of writing, none of the links have failed; however, in your crawling endeavors, you will surely hit a few errors 😉. The important thing is that the crawler no longer crashes if an error does in fact occur, and that it was able to download the HTML from each product's link.
 
-> If you thought that the crawl was taking too long to complete, the [scraping library]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) will help once again. It automatically parallelizes the downloads and processing of HTML, which leads to significant speed improvements.
+> If you thought that the crawl was taking too long to complete, the [scraping library]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) we keep referring to will help once again. It automatically parallelizes the downloads and processing of HTML, which leads to significant speed improvements.
 
 ## [](#next) Next up
 
-In the [next lesson]({{@link web_scraping_for_beginners/crawling/scraping_the_data.md}}), we will complete the scraper. We will use the data collection code from the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) section and apply it to all the country pages.
+In the [next lesson]({{@link web_scraping_for_beginners/crawling/scraping_the_data.md}}), we will complete the scraper by using the data collection code from the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) section and applying it to all of the product pages.

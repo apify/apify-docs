@@ -1,5 +1,5 @@
 ---
-title: Headless browser
+title: Headless Browser
 description: Learn how to scrape the web with a headless browser using only a few lines of code. Chrome, Firefox, Safari, Edge - all are supported.
 menuWeight: 8
 paths:

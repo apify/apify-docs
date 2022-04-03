@@ -1,5 +1,5 @@
 ---
-title: Recap data collection
+title: Recap of Data Collection
 description: Review our e-commerce website scraper and refresh our memory about its code and the programming techniques we used to collect and save the data.
 menuWeight: 1
 paths:
