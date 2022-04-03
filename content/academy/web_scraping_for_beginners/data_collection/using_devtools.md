@@ -12,7 +12,7 @@ We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try 
 
 ## [](#getting-structured-data) Getting structured data from HTML
 
-When you open up the <a href="https://demo-webstore.apify.org/search/on-sale" target="_blank">on-sale section of Morgan Webstore</a>, you'll see that there's a grid of products on the page with names and pictures of productsc. We will now learn how to collect all this information. Open DevTools and select the first product with the selector tool.
+When you open up the <a href="https://demo-webstore.apify.org/search/on-sale" target="_blank">on-sale section of Fakestore</a>, you'll see that there's a grid of products on the page with names and pictures of productsc. We will now learn how to collect all this information. Open DevTools and select the first product with the selector tool.
 
 ![Selecting an element with DevTools]({{@asset web_scraping_for_beginners/data_collection/images/selecting-first-website.webp}})
 
@@ -67,7 +67,7 @@ In the [Getting structured data from HTML](#getting-structured-data-from-html) s
 
 The `document.querySelector()` function looks for a specific element in the whole HTML `document`, so if we called it with `h3`, it would find the first `<h3>` node in the `document`. Luckily we can also use this function to look for elements within an element.
 
-There's a similar method called <a href="https://javascript.info/searching-elements-dom#querySelectorAll" target="_blank">`querySelectorAll()`</a> that returns an array of all the elements matching the selector - not just the first one. We will use this method to grab all the elements holding our sought after data.
+There's a similar function called <a href="https://javascript.info/searching-elements-dom#querySelectorAll" target="_blank">`querySelectorAll()`</a> that returns an array of all the elements matching the selector - not just the first one. We will use this function to grab all the elements holding our sought after data.
 
 > Learn more about `Arrays` <a href="https://javascript.info/array" target="_blank">in this tutorial</a>.
 
@@ -87,7 +87,7 @@ There are 32 products on the page, so if we've done this correctly, a list of 32
 
 ### [](#collecting-data) Collecting data
 
-The `products` array now contains all the elements we need, and we can access each one's data individually. Let's save the title and price of the first product into an <a href="https://javascript.info/object" target="_blank">object</a>. Those of you who know JavaScript will know that this is not the prettiest code ever written, but it is beginner-friendly and that's important here. We will also use the `.trim()` method to remove unnecessary whitespace from the results.
+The `products` array now contains all the elements we need, and we can access each one's data individually. Let's save the title and price of the first product into an <a href="https://javascript.info/object" target="_blank">object</a>. Those of you who know JavaScript will know that this is not the prettiest code ever written, but it is beginner-friendly and that's important here. We will also use the `.trim()` function to remove unnecessary whitespace from the results.
 
 ```JavaScript
 const result = {
@@ -104,4 +104,4 @@ If you were able to get the same result in your browser console, congratulations
 
 ## [](#next) Next up
 
-We have learned how to collect information oabout a few products from an e-commerce website. In the [next lesson]({{@link web_scraping_for_beginners/data_collection/devtools_continued.md}}), we will learn how to collect all of them.
+We have learned how to collect information about a few products from an e-commerce website. In the [next lesson]({{@link web_scraping_for_beginners/data_collection/devtools_continued.md}}), we will learn how to collect all of them.

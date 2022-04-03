@@ -64,4 +64,4 @@ writeFileSync('products.csv', csv)
 
 ## [](#next) Next up
 
-The [next lesson]({{@link web_scraping_for_beginners/crawling/finding_links.md}}) is all about finding some links to crawl on <a href="https://demo-webstore.apify.org/" target="_blank">Morgan Webstore</a>.
+The [next lesson]({{@link web_scraping_for_beginners/crawling/finding_links.md}}) is all about finding some links to crawl on <a href="https://demo-webstore.apify.org/" target="_blank">Fakestore</a>.
