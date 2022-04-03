@@ -644,6 +644,108 @@ Deletes a specific version of actor's source code.
 
     + Attributes(object)
 
+## Environment variable collection [/v2/acts/{actorId}/versions/{versionNumber}/env-vars{?token}]
++ Parameters
+
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + versionNumber: `0.1` (string, required) - Actor version
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+
+### Get list of environment variables [GET]
+
+Gets the list of environment variables for a specific version of an actor. The response is a JSON object with the list
+of [EnvVar objects](#reference/actors/environment-variable-object), where each
+contains basic information about a single environment variable.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (object, required)
+            - total: 3 (number, required)
+            - items (ListOfEnvVars, required)
+
+### Create environment variable [POST]
+
+Creates an environment variable of an actor using values specified in a [EnvVar object](#reference/actors/environment-variable-object) passed as JSON in the POST payload.
+
+The request must specify `name` and `value` parameters (as strings) in the JSON payload and a `Content-Type: application/json` HTTP header.
+
+```
+{
+    "name": "ENV_VAR_NAME",
+    "value": "my-env-var"
+}
+```
+
+The response is the [EnvVar object](#reference/actors/environment-variable-object) as returned by the
+[Get environment variable](#reference/actors/environment-variable-object/get-environment-variable) endpoint.
+
++ Attributes(EnvVarUpdate)
+
++ Request
+
+        {
+            "name": "ENV_VAR_NAME",
+            "value": "my-env-var"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: https://api.apify.com/v2/acts/zdc3Pyhyz3m8vjDeM/versions/1.0/env-vars/ENV_VAR_NAME
+
+    + Attributes
+        - data (EnvVar, required)
+
+## Environment variable object [/v2/acts/{actorId}/versions/{versionNumber}/env-vars/{envVarName}{?token}]
+
++ Parameters
+
+    + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
+    + versionNumber: `0.1` (string, required) - Actor version
+    + envVarName: `MY_ENV_VAR` (string, required) - The name of the environment variable
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+
+### Get environment variable [GET]
+
+Gets a [EnvVar object](#reference/actors/environment-variable-object) that contains all the details about a specific environment variable of an actor.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (EnvVar, required)
+
+### Update environment variable [PUT]
+
+Updates actor environment variable using values specified by a [EnvVar object](#reference/actors/environment-variable-object)
+passed as JSON in the POST payload.
+If the object does not define a specific property, its value will not be updated.
+
+The request needs to specify the `Content-Type: application/json` HTTP header!
+
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+
+The response is the [EnvVar object](#reference/actors/environment-variable-object) as returned by the
+[Get environment variable](#reference/actors/environment-variable-object/get-environment-variable) endpoint.
+
++ Request (application/json)
+
+    + Attributes(EnvVarUpdate)
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (EnvVar, required)
+
+### Delete environment variable [DELETE]
+
+Deletes a specific environment variable.
+
++ Response 204 (application/json)
+
+    + Attributes(object)
+
 ## Webhook collection [/v2/acts/{actorId}/webhooks{?token,offset,limit,desc}]
 
 + Parameters
@@ -3674,6 +3776,29 @@ The user account is identified by the provided authentication token.
 - applyEnvVarsToBuild:       false                          (boolean, nullable)
 - buildTag:                 `latest`                        (string, required)
 - sourceCode:               `console.log('Hello world!');`  (string, nullable)
+
+## EnvVar (object)
+- name: `MY_ENV_VAR` (string, required)
+- value: `my-value`  (string, required)
+- isSecret: false    (boolean, nullable)
+
+## EnvVarUpdate (object)
+- name: `MY_ENV_VAR`    (string, required)
+- value: `my-new-value` (string, required)
+- isSecret: false       (boolean, nullable)
+
+## ListOfEnvVars (array)
+-                            (object)
+    - name: `MY_ENV_VAR`     (string, required)
+    - value: `my-value`      (string, required)
+    - isSecret: false        (boolean, nullable)
+-                            (object)
+    - name: `ANOTHER_VAR`    (string, required)
+    - value: `123`           (string, required)
+    - isSecret: false        (boolean, nullable)
+-                            (object)
+    - name: `SECRET_ENV_VAR` (string, required)
+    - isSecret: true         (boolean, nullable)
 
 ## ListOfVersions (array)
 -                                                               (object)
