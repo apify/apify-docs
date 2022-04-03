@@ -1,5 +1,5 @@
 ---
-title: Filtering links
+title: Filtering Links
 description: When you collect links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.
 menuWeight: 3
 paths:
@@ -85,13 +85,13 @@ https://demo-webstore.apify.org/product/{PRODUCT-NAME}
 
 Now, we'll create a regular expression that matches those links. There are many ways to do this. For simplicity, let's go with this one:
 
-```JavaScript
-/demo-webstore\.apify\.org\/product\/[a-z|-]*/
+```RegExp
+demo-webstore\.apify\.org\/product\/[a-z|-]*
 ```
 
 This regular expression matches all URLs that include the `demo-webstore.apify.org/product/` substring immediately following with any number of letters or dashes `-`.
 
-> A great way to learn more about regular expression syntax and to test your expressions are tools like <a href="https://regexr.com/" target="_blank">regexr.com</a> or <a href="https://regex101.com/" target="_blank">regex101.com</a>.
+> A great way to learn more about regular expression syntax and to test your expressions are tools like <a href="https://regexr.com/" target="_blank">regexr.com</a> or <a href="https://regex101.com/" target="_blank">regex101.com</a>. It's okay if you don't get the hang of it right away!
 
 To test our regular expression in the DevTools console, we'll first create a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank">`RegExp`</a> object and then test the URLs with the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test" target="_blank">`regExp.test(string)`</a> function.
 
