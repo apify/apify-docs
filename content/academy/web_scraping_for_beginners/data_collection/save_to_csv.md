@@ -8,7 +8,7 @@ paths:
 
 # [](#saving-to-csv) Saving results to CSV
 
-In the last lesson, we were able collect data about all the on-sale products from <a href="https://demo-webstore.apify.org/" target="_blank">our tutorial **Morgan Webstore** website</a>. That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this lesson, we'll learn how to save that data into a CSV file that you can then open in Excel or Google Sheets.
+In the last lesson, we were able collect data about all the on-sale products from <a href="https://demo-webstore.apify.org/" target="_blank">our tutorial **Fakestore** website</a>. That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this lesson, we'll learn how to save that data into a CSV file that you can then open in Excel or Google Sheets.
 
 ## [](#converting-to-csv) Converting to CSV
 

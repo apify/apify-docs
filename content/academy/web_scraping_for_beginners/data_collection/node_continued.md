@@ -22,7 +22,7 @@ To get all the elements with that CSS selector using Cheerio, we call the `$` fu
 $('a[href*="/product/"]');
 ```
 
-We will use the same approach as in the previous DevTools lessons. Using a `for..of` loop we will iterate over the array of products we saved in the `products` variable. The code is a little different from DevTools, because we're using Node.js and Cheerio instead of a browser's native DOM manipulation methods.
+We will use the same approach as in the previous DevTools lessons. Using a `for..of` loop we will iterate over the array of products we saved in the `products` variable. The code is a little different from DevTools, because we're using Node.js and Cheerio instead of a browser's native DOM manipulation functions.
 
 ```JavaScript
 // main.js

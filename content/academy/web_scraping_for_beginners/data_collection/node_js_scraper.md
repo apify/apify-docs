@@ -12,7 +12,7 @@ Finally we have everything ready to start scraping! Yes, the setup is a bit daun
 
 ## [](#downloading-html) Downloading HTML
 
-We will use the `got-scraping` library to download the HTML of <a href="https://demo-webstore.apify.org/search/on-sale" target="_blank">Morgan Webstore's on-sale products page</a>. Careful, the `import` statement is a little different than in the previous lesson.
+We will use the `got-scraping` library to download the HTML of <a href="https://demo-webstore.apify.org/search/on-sale" target="_blank">Fakestore's on-sale products page</a>. Careful, the `import` statement is a little different than in the previous lesson.
 
 ```JavaScript
 // main.js
@@ -45,7 +45,7 @@ const titleText = titleElement.text();
 console.log(titleText);
 ```
 
-When you run the above script, the **Morgan Webstore** title will be printed to the console. And that's great. It means that we successfully parsed the HTML and collected the text of the `<title>` element from it using Cheerio. Let's break it down.
+When you run the above script, the **Fakestore** title will be printed to the console. And that's great. It means that we successfully parsed the HTML and collected the text of the `<title>` element from it using Cheerio. Let's break it down.
 
 First, we loaded the downloaded `html` into `cheerio` using the `load()` function. This created a new function, conventionally named `$`, which allows us to work with the loaded HTML. Then we called `$('title')`, which found the `<title>` element by using the `title` CSS selector. Finally, we collected the text from the element using the `.text()` function and printed it to the console.
 
@@ -53,4 +53,4 @@ First, we loaded the downloaded `html` into `cheerio` using the `load()` functio
 
 ## [](#next) Next up
 
-In the [next lesson]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) we will learn more about Cheerio and use it to collect all the products' data from Morgan Webstore.
+In the [next lesson]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) we will learn more about Cheerio and use it to collect all the products' data from Fakestore.
