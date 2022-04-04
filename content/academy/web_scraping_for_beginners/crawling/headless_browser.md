@@ -12,7 +12,9 @@ A headless browser is simply a browser that runs without the user interface. Thi
 
 ## [](#playwright-scraper) Building a Playwright scraper
 
-Building a Playwright scraper with the Apify SDK is extremely easy. To show you how easy, we'll reuse the Cheerio scraper code from the previous lesson, and by changing only a few lines of code, we'll turn it into a full headless scraper.
+> We'll be focusing on Playwright today, as it was developed by the same team that created Puppeteer, and it is newer with more features and better documentation.
+
+Building a Playwright scraper with the Apify SDK is extremely easy. To show you how easy, we'll reuse the Cheerio scraper code from the previous lesson. By changing only a few lines of code, we'll turn it into a full headless scraper.
 
 First, we must not forget to install Playwright into our project.
 
@@ -22,7 +24,7 @@ npm install --save playwright
 
 After Playwright installs, we can proceed with updating the scraper code. As always, the comments describe changes in the code. Everything else is the same as before.
 
-```js
+```JavaScript
 // apify.js
 import Apify from 'apify';
 // Don't forget to import cheerio, we will need it later.
@@ -32,7 +34,9 @@ await Apify.utils.purgeLocalStorage();
 
 const requestQueue = await Apify.openRequestQueue();
 await requestQueue.addRequest({
-    url: 'https://www.alexa.com/topsites/countries',
+    url: 'https://demo-webstore.apify.org/search/on-sale',
+    // By labeling the Request, we can very easily
+    // identify it later in the handlePageFunction.
     userData: {
         label: 'START',
     },
@@ -42,49 +46,60 @@ await requestQueue.addRequest({
 const crawler = new Apify.PlaywrightCrawler({
     requestQueue,
     handlePageFunction: async ({ page, request }) => {
-        console.log('URL:', request.url);
-
-        // Here we extract the HTML from the browser and parse
+        // Here, we extract the HTML from the browser and parse
         // it with Cheerio. Thanks to that we can use exactly
         // the same code as before, when using CheerioCrawler.
-        const html = await page.content();
-        const $ = cheerio.load(html);
-
-        const sites = $('div.site-listing');
-        for (const site of sites) {
-            const fields = $(site).find('div.td');
-            await Apify.pushData({
-                countryCode: request.url.slice(-2),
-                rank: fields.eq(0).text().trim(),
-                site: fields.eq(1).text().trim(),
-                dailyTimeOnSite: fields.eq(2).text().trim(),
-                dailyPageViews: fields.eq(3).text().trim(),
-                percentFromSearch: fields.eq(4).text().trim(),
-                totalLinkingSites: fields.eq(5).text().trim(),
-            });
-        }
+        const $ = cheerio.load(await page.content());
 
         if (request.userData.label === 'START') {
             await Apify.utils.enqueueLinks({
                 $,
                 requestQueue,
-                selector: 'ul.countries a[href]',
-                baseUrl: request.loadedUrl,
+                selector: 'a[href*="/product/"]',
+                baseUrl: new URL(request.url).origin,
             });
+
+            // When on the START page, we don't want to
+            // extract any data after we extract the links.
+            return;
         }
+
+        // We copied and pasted the extraction code
+        // from the previous lesson
+        const title = $('h3').text().trim();
+        const price = $('h3 + div').text().trim();
+        const description = $('div[class*="Text_body"]').text().trim();
+
+        // Because we're using a browser, we can now access
+        // dynamically loaded data. Our target site has
+        // dynamically loaded images.
+        const imageRelative = $('img[alt="Product Image"]').attr('src');
+        const base = new URL(request.url).origin;
+        const image = new URL(imageRelative, base).href;
+
+        // Instead of saving the data to a variable,
+        // we immediately save everything to a file.
+        await Apify.pushData({
+            title,
+            description,
+            price,
+            image,
+        });
     },
 });
 
 await crawler.run();
 ```
 
-Yes, that's it. We added 3 lines and changed 1 line of code. The scraper now runs exactly the same as before, but using a full Chromium browser instead of plain HTTP requests and Cheerio. This is the true power of the Apify SDK.
+Yup, that's it. We added 2 lines, and changed 1 line of code. The scraper now runs exactly the same as before, but using a full Chromium browser instead of plain HTTP requests and Cheerio. This is the true power of the Apify SDK.
+
+Notice that we are also scraping a new piece of data - `image`. We were unable to access this content before with Cheerio, as it is dynamically loaded in. If you're confused about the differences between PlaywrightCrawler/PuppeteerCrawler and CheerioCrawler, and why one might choose one over the other, give [this short article](https://blog.apify.com/what-is-a-dynamic-page/) about dynamic pages a quick readover.
 
 Using Playwright in combination with Cheerio like this is only one of many ways how you can utilize Playwright (and Puppeteer) with the Apify SDK. In the advanced courses of the Academy, we will go deeper into using headless browsers for scraping and web automation (RPA) use-cases.
 
 ## [](#headless) Running headless
 
-We said that headless browsers didn't have a UI, but while scraping with the above scraper, we're sure your screen was full of browser tabs. That's because in the Apify SDK, browsers run **headful** (with UI) by default. This is useful for debugging and seeing what's going on in the browser. Once the scraper is complete, we switch to **headless**. There are two ways to do it.
+We said that headless browsers didn't have a UI, but while scraping with the above scraper code, we're sure your screen was full of browser tabs. That's because in the Apify SDK, browsers run **headful** (with a UI) by default. This is useful for debugging and seeing what's going on in the browser. Once the scraper is complete, we switch it to **headless** mode using one of two methods:
 
 ### [](#headless-env-var) Environment variable
 
@@ -106,7 +121,7 @@ $env:APIFY_HEADLESS=1; & node apify.js
 
 If you always want the scraper to run headless, it might be better to hardcode it in the source. To do that, we need to access [Playwright's launch options](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-option-headless). In the Apify SDK we can do that [in the `PlaywrightCrawler` constructor](https://sdk.apify.com/docs/typedefs/playwright-crawler-options#launchcontext).
 
-```js
+```JavaScript
 const crawler = new Apify.PlaywrightCrawler({
     requestQueue,
     launchContext: {
