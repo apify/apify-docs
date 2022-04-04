@@ -223,6 +223,6 @@ At the time of writing, we were getting 32 product results. Our demo site is bou
 
 ![Results in Terminal]({{@asset web_scraping_for_beginners/crawling/images/final-results.webp}})
 
-## [](#next) Next up...
+## [](#next) Next up
 
 And that's it for the basics of crawling. But don't leave just yet. As promised, in the [next lesson]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) we will rewrite the scraper using a proper scraping library. It will make development much faster and the scraper more robust.

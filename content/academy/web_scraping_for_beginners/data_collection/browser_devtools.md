@@ -50,6 +50,6 @@ temp1.textContent = 'Hello!';
 
 > You can interact with the page in many more ways using the Console. If you want to dive deeper we recommend this <a href="https://javascript.info/document" target="_blank">tutorial on documents</a>. A web page in a browser is called a document.
 
-## [](#next) Next up...
+## [](#next) Next up
 
 In this lesson, we learned the absolute basics of interaction with a page using the DevTools. In the [next lesson]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}), you will learn how to extract data from it. We will collect data about the on-sale products on <a href="https://demo-webstore.apify.org/" target="_blank">this e-commerce website</a>. This isn't a real website, just a demo site for the Academy which uses the latest technologies that a real-world modern e-commerce web-application would use.

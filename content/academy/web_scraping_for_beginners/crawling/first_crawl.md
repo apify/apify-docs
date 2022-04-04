@@ -116,6 +116,6 @@ At the time of writing, none of the links have failed; however, in your crawling
 
 > If you thought that the crawl was taking too long to complete, the [scraping library]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) we keep referring to will help once again. It automatically parallelizes the downloads and processing of HTML, which leads to significant speed improvements.
 
-## [](#next) Next up...
+## [](#next) Next up
 
 In the [next lesson]({{@link web_scraping_for_beginners/crawling/scraping_the_data.md}}), we will complete the scraper by using the data collection code from the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) section and applying it to all of the product pages.

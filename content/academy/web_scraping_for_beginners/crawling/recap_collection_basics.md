@@ -62,6 +62,6 @@ writeFileSync('products.csv', csv)
 
 > If some of the code is hard for you to understand, please review the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}}) section. We will not go through the details again in this section about crawling.
 
-## [](#next) Next up...
+## [](#next) Next up
 
 The [next lesson]({{@link web_scraping_for_beginners/crawling/finding_links.md}}) is all about finding some links to crawl on <a href="https://demo-webstore.apify.org/" target="_blank">Fakestore</a>.

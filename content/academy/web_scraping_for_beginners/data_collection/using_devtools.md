@@ -102,6 +102,6 @@ console.log(result);
 
 If you were able to get the same result in your browser console, congratulations! You successfully collected your first data. If not, don't worry and review your code carefully. You'll crush the bug soon enough.
 
-## [](#next) Next up...
+## [](#next) Next up
 
 We have learned how to collect information about a few products from an e-commerce website. In the [next lesson]({{@link web_scraping_for_beginners/data_collection/devtools_continued.md}}), we will learn how to collect all of them.

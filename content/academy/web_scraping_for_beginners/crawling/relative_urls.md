@@ -89,6 +89,6 @@ for (const link of productLinks) {
 
 Cheerio can't resolve the URL itself, because until you provide the necessary information - it doesn't know where you originally downloaded the HTML from. The browser always knows which page you're on, so it will resolve the absolute URLs automatically.
 
-## [](#next) Next up...
+## [](#next) Next up
 
 The [next lesson]({{@link web_scraping_for_beginners/crawling/first_crawl.md}}) will teach you how to use the collected URLs to crawl all the individual product pages.

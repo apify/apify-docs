@@ -109,6 +109,6 @@ If you run this code in DevTools, you'll see that it produces exactly the same U
 
 > Yes, filtering with CSS selectors is often the better (and just slightly more performant) option. But sometimes, it's not enough. Learning regular expressions is a very useful skill in many scenarios.
 
-## [](#next) Next Up...
+## [](#next) Next Up
 
 In the [next lesson]({{@link web_scraping_for_beginners/crawling/relative_urls.md}}) we'll see how rewriting this code to Node.js is not so simple and learn about absolute and relative URLs in the process.

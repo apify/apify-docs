@@ -70,6 +70,6 @@ If you see **it works!** printed in your terminal, great job! You set up everyth
 
 ![Test your setup with VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-test-setup.webp}})
 
-## [](#next) Next up...
+## [](#next) Next up
 
 With the project set up, the [next lesson]({{@link web_scraping_for_beginners/data_collection/node_js_scraper.md}}) will show you how to use **got-scraping** to download the website's HTML and collect data from it with Cheerio.

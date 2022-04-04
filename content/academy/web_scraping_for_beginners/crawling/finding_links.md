@@ -63,6 +63,6 @@ for (const link of links) {
 
 Aside from importing libraries and downloading HTML, we loaded the HTML into Cheerio and then used it to retrieve all the `<a>` elements. After that, we iterated over the collected links and printed their `href` attributes, which we accessed using the <a href="https://api.jquery.com/attr/" target="_blank">`.attr()`</a> function. Remember, Cheerio functions are exactly the same as they are in jQuery.
 
-## [](#next) Next Up...
+## [](#next) Next Up
 
 After running the code, you will see quite a lot of links in the terminal. Some of them may look weird because they don't start with the regular `https://` protocol. We'll learn what to do with them in the [next lesson]({{@link web_scraping_for_beginners/crawling/filtering_links.md}}).

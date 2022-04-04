@@ -3,7 +3,7 @@ title: JS Rendering and Dynamic Pages
 description: Learn about dynamic pagees. What are they? How can we find out if a page is dynamic? How do we scrape dynamic content?
 menuWeight: 3.3
 paths:
-    - advanced-web-scraping/js_rendering_and_dynamic_pages
+    - advanced-web-scraping/js-rendering-and-dynamic-pages
 ---
 
 # [](#rendering-and-dynamic-pages) JS Rendering and Dynamic Pages
@@ -118,7 +118,7 @@ After running it, you might say, "Great! It works!" **But wait...** What are tho
 
 Every single image seems to have the same exact "URL," but they are most definitely not the image URLs we are looking for. This is strange, because in the browser, we were getting URLs that looked like this:
 
-```
+```text
 https://demo-webstore.apify.org/_next/image?url=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81ywGFOb0eL._AC_UL1500_.jpg&w=3840&q=85
 ```
 
@@ -228,7 +228,7 @@ await crawler.run();
 
 Let's run this and check our dataset results...
 
-```JSON
+```json
 {
   "title": "women's shoes",
   "price": "$40.00 USD",
@@ -244,8 +244,8 @@ We've learned about the important concept of **Dynamic Pages**, which affects no
 
 The loading process of a webpage can be split into three main events: `DOMContentLoaded`, `load`, and `networkidle`.
 
-Making static HTTP requests only downloads the HTML content from the `DOMContentLoaded` event. We must use a browser to allow dynamic code to load, or find different means altogether of scraping the data (see [API Scraping]({{@link web_scraping_for_beginners/crawling/api_scraping.md}}))
+Making static HTTP requests only downloads the HTML content from the `DOMContentLoaded` event. We must use a browser to allow dynamic code to load, or find different means altogether of scraping the data (see [API Scraping]({{@link advanced_web_scraping/api_scraping.md}}))
 
-## [](#next) Next up...
+## [](#next) Next up
 
 So far, this is the last lesson of the Advanced web scraping course, but stay tuned! We will keep adding more lessons as we go.

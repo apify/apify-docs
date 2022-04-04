@@ -57,6 +57,6 @@ You should see **Hello World** printed in your terminal. If you do, congratulati
 
 ![Hello world in VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-hello-world.webp}})
 
-## [](#next) Next up...
+## [](#next) Next up
 
 You have your computer set up correctly, and you've run your first script. Great! In the [next lesson]({{@link web_scraping_for_beginners/data_collection/project_setup.md}}) we'll set up your project to download a website's HTML using Node.js instead of a browser.
