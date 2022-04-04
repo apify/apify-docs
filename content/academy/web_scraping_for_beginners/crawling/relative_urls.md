@@ -8,7 +8,7 @@ paths:
 
 # [](#filtering-links) Relative URLs
 
-Maybe you noticed in the previous lesson that while printing URLs to the DevTools console, they would always show in full length, like this:
+You might have noticed in the previous lesson that while printing URLs to the DevTools console, they would always show in full length, like this:
 
 ```text
 https://demo-webstore.apify.org/product/macbook-pro

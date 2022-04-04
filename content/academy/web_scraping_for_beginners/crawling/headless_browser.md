@@ -8,13 +8,13 @@ paths:
 
 # [](#headless-browser) Headless browser
 
-A headless browser is simply a browser that runs without the user interface. This means that it's normally controlled by automated scripts. Headless browsers are very popular in scraping because they can help you render JavaScript or behave like a human user to prevent blocking. The two most popular libraries for controlling headless browsers are [Puppeteer](https://pptr.dev/) and [Playwright](https://playwright.dev/). The Apify SDK supports both.
+A headless browser is simply a browser that runs without a user interface (UI). This means that it's normally controlled by automated scripts. Headless browsers are very popular in scraping because they can help you render JavaScript or programmatically behave like a human user to prevent blocking. The two most popular libraries for controlling headless browsers are [Puppeteer](https://pptr.dev/) and [Playwright](https://playwright.dev/). The Apify SDK supports both.
 
 ## [](#playwright-scraper) Building a Playwright scraper
 
 > We'll be focusing on Playwright today, as it was developed by the same team that created Puppeteer, and it is newer with more features and better documentation.
 
-Building a Playwright scraper with the Apify SDK is extremely easy. To show you how easy, we'll reuse the Cheerio scraper code from the previous lesson. By changing only a few lines of code, we'll turn it into a full headless scraper.
+Building a Playwright scraper with the Apify SDK is extremely easy. To show you how easy it really is, we'll reuse the Cheerio scraper code from the previous lesson. By changing only a few lines of code, we'll turn it into a full headless scraper.
 
 First, we must not forget to install Playwright into our project.
 
