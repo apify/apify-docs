@@ -34,8 +34,8 @@ This is what you'll learn in the **Web scraping for beginners** course:
 Other courses and lessons (coming soon) in the Academy:
 
 * [Advanced web scraping]({{@link advanced_web_scraping.md}})
-  * [API scraping]({{@link advanced_web_scraping/api_scraping.md}})
-  * [Data in JavaScript objects]({{@link advanced_web_scraping/js_in_html.md}})
+  * [API scraping]({{@link advanced_web_scraping/advanced_data_collection/api_scraping.md}})
+  * [Data in JavaScript objects]({{@link advanced_web_scraping/advanced_data_collection/js_in_html.md}})
   * JavaScript rendering and dynamic pages
   * Navigation with POST requests
   * Emulating API pagination

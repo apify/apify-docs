@@ -1,9 +1,9 @@
 ---
 title: JS Rendering and Dynamic Pages
-description: Learn about dynamic pagees. What are they? How can we find out if a page is dynamic? How do we scrape dynamic content?
-menuWeight: 3.3
+description: Learn about dynamic pagees and dynamic content. What are they? How can we find out if a page is dynamic? How do we scrape dynamic content?
+menuWeight: 3
 paths:
-    - advanced-web-scraping/js-rendering-and-dynamic-pages
+    - advanced-web-scraping/advanced-data-collection/js-rendering-and-dynamic-pages
 ---
 
 # [](#rendering-and-dynamic-pages) JS Rendering and Dynamic Pages
@@ -37,11 +37,11 @@ Here, it's very clear that new content is being generated. As we scroll down the
 
 Other times, it's less obvious though. Content can appear to be static (non-dynamic) when it is not, or even sometimes the other way around. We'll see an example of that in the next sections.
 
-# [](#quick-experiment) A quick experiment
+## [](#quick-experiment) A quick experiment
 
 From our adored and beloved [Fakestore](https://demo-webstore.apify.org/), we have been tasked to scrape each product's title, price, and image from the [new arrivals](https://demo-webstore.apify.org/search/new-arrivals) page. Easy enough! We did something very similar in the previous modules.
 
-![New arrival products in Fakestore]({{@asset advanced_web_scraping/images/new-arrivals.webp}})
+![New arrival products in Fakestore]({{@asset advanced_web_scraping/advanced_data_collection/images/new-arrivals.webp}})
 
 In your project from the previous lessons, or in a new project, create a file called `dynamic.js` and copy-paste the following boiler plate code into it:
 
@@ -114,7 +114,7 @@ await crawler.run();
 
 After running it, you might say, "Great! It works!" **But wait...** What are those results being logged to console?
 
-![Bad results in console]({{@asset advanced_web_scraping/images/bad-results.webp}})
+![Bad results in console]({{@asset advanced_web_scraping/advanced_data_collection/images/bad-results.webp}})
 
 Every single image seems to have the same exact "URL," but they are most definitely not the image URLs we are looking for. This is strange, because in the browser, we were getting URLs that looked like this:
 
@@ -126,7 +126,7 @@ The reason this is happening is because CheerioCrawler makes static HTTP request
 
 So, what's the solution? We need to use something that is able to allow the page to follow through with the entire load process - a headless browser.
 
-# [](#scraping-dynamic-content) Scraping dynamic content
+## [](#scraping-dynamic-content) Scraping dynamic content
 
 Let's change a few lines of our code to switch the crawler type from CheerioCrawler to PuppeteerCrawler, which will run a headless browser, allowing the `load` and `networkidle` events to fire:
 
@@ -177,7 +177,7 @@ await crawler.run();
 
 After running this one, we can see that our results look different from before. We're getting the image links!
 
-![Not perfect results]({{@asset advanced_web_scraping/images/almost-there.webp}})
+![Not perfect results]({{@asset advanced_web_scraping/advanced_data_collection/images/almost-there.webp}})
 
 Well... Not quite. It seems that the only images which we got the full links to were the ones that were being displayed within the view of the browser. This means that the images are lazy-loaded. **Lazy-loading** is a common technique used across the web to improve performance. Lazy-loaded items allow the user to load content incrementally, as they perform some action. In most cases, including our current one, this action is scrolling.
 
@@ -244,7 +244,7 @@ We've learned about the important concept of **Dynamic Pages**, which affects no
 
 The loading process of a webpage can be split into three main events: `DOMContentLoaded`, `load`, and `networkidle`.
 
-Making static HTTP requests only downloads the HTML content from the `DOMContentLoaded` event. We must use a browser to allow dynamic code to load, or find different means altogether of scraping the data (see [API Scraping]({{@link advanced_web_scraping/api_scraping.md}}))
+Making static HTTP requests only downloads the HTML content from the `DOMContentLoaded` event. We must use a browser to allow dynamic code to load, or find different means altogether of scraping the data (see [API Scraping]({{@link advanced_web_scraping/advanced_data_collection/api_scraping.md}}))
 
 ## [](#next) Next up
 
