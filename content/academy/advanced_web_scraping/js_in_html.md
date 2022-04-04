@@ -53,7 +53,7 @@ console.log(data)
 
 Which of these methods you use totally depends on the type of crawler you are using. Grabbing the data directly from the `window` object within the context of the browser using Puppeteer is of course the most reliable solution; however, it is less performant than making a static HTTP request and parsing the object directly from the downloaded HTML.
 
-## [](#next) Next up...
+## [](#next) Next up
 
 In our [next lesson]({{@link advanced_web_scraping/js_rendering_and_dynamic_pages.md}}), we'll be taking an in-depth look at what dynamic content is, and how to scrape it reliably.
 

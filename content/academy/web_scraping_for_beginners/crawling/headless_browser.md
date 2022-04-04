@@ -138,6 +138,6 @@ const crawler = new Apify.PlaywrightCrawler({
 
 [`launchContext`](https://sdk.apify.com/docs/typedefs/playwright-launch-context) and [`launchOptions`](https://playwright.dev/docs/api/class-browsertype#browser-type-launch) give you control over launching browsers with the Apify SDK.
 
-## [](#next) Next up...
+## [](#next) Next up
 
 We learned how to scrape with Cheerio and Playwright, but how do we process the scraped data? Let's learn that in the [next lesson]({{@link web_scraping_for_beginners/crawling/processing_data.md}}).

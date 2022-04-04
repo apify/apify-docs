@@ -117,6 +117,6 @@ Finally, after running it again, we will find the `products.csv` file in our pro
 
 This marks the end of the **Basics of data collection** section of Web scraping for beginners. If you enjoyed the course, give us a thumbs up down below and if you're eager to learn more...
 
-## [](#next) Next up...
+## [](#next) Next up
 
 Next up are the [**Basics of crawling**]({{@link web_scraping_for_beginners/crawling.md}}), where we will learn how to move between web pages and scrape data from all of them. We will build a scraper that first collects all the countries of the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a> and then crawls each of them to scrape the data for each country separately.

@@ -60,6 +60,6 @@ The `results.push()` function takes its argument and pushes (adds) it to the `re
 
 ![Print all products' data]({{@asset web_scraping_for_beginners/data_collection/images/print-all-products-data.webp}})
 
-## [](#next) Next up...
+## [](#next) Next up
 
 And that's it! With a bit of trial and error, you will be able to collect any data from a webpage that's loaded in your browser. This is a useful skill on its own. It will save you time when you need one-off data for your project. More importantly though, it taught you the basics to start programming your own scrapers. In the [next lessons]({{@link web_scraping_for_beginners/data_collection/computer_preparation.md}}), we will teach you how to create your own data collection script in JavaScript and Node.js.

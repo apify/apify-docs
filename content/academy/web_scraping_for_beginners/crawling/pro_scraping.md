@@ -229,6 +229,6 @@ await crawler.run();
 
 By using the `apify` library, we were able to create a faster and more robust scraper, but with less code than what was needed for the simple scraper in the earlier lessons. What we've learned so far only scratches the surface of the Apify SDK's full capabilities.
 
-## [](#next) Next up...
+## [](#next) Next up
 
 The Apify SDK is a full-featured scraping library. That's why we can use it to scrape any website at any scale. In the [next lesson]({{@link web_scraping_for_beginners/crawling/headless_browser.md}}) we will change only a few lines of code and turn our scraper into a full **headless browser**.
