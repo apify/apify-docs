@@ -1,9 +1,9 @@
 ---
 title: API Scraping
 description: Learn the benefits and drawbacks of API scraping, how to locate an API, how to utilize its features, and how to work around common roadblocks.
-menuWeight: 3.1
+menuWeight: 1
 paths:
-    - advanced-web-scraping/api-scraping
+    - advanced-web-scraping/advanced-data-collection/api-scraping
 ---
 
 # What is API scraping?
@@ -50,7 +50,7 @@ On our target page, we'll open up the Network tab, and filter by request type of
 
 _Here's what we can see see in the Network tab after reloading the page:_
 
-![Network tab results after completing an action on the page which results in the API being called]({{@asset advanced_web_scraping/images/results-in-network-tab.webp}})
+![Network tab results after completing an action on the page which results in the API being called]({{@asset advanced_web_scraping/advanced_data_collection/images/results-in-network-tab.webp}})
 
 Let's say that our target data is a full list of Tiësto's uploaded songs on SoundCloud. We can use the **Filter** option to search for the keyword `tracks`, and see if any endpoints have been hit that include that word. Multiple results may still be in the list when using this feature, so it is important to carefully examine the payloads and responses of each request in order to ensure that the correct one is found.
 
@@ -58,7 +58,7 @@ Let's say that our target data is a full list of Tiësto's uploaded songs on Sou
 
 After a little bit of digging through the different response values of each request in our filtered list within the Network tab, we can discover this endpoint, which returns a JSON list including 20 of Tiësto's latest tracks:
 
-![Endpoint found in the Network tab]({{@asset advanced_web_scraping/images/endpoint-found.webp}})
+![Endpoint found in the Network tab]({{@asset advanced_web_scraping/advanced_data_collection/images/endpoint-found.webp}})
 
 ## [](#learning-the-api) Learning the API
 
@@ -72,7 +72,7 @@ https://api-v2.soundcloud.com/users/141707/tracks?representation=&client_id=zdUq
 
 Since our request doesn't have any body/payload, we just need to analyze the URL. We can break this URL down into chunks that help us understand what each value does.
 
-![Breaking down the request url into understandable chunks]({{@asset advanced_web_scraping/images/analyzing-the-url.webp}})
+![Breaking down the request url into understandable chunks]({{@asset advanced_web_scraping/advanced_data_collection/images/analyzing-the-url.webp}})
 
 Understanding an API's various configurations helps with creating a game-plan on how to best scrape it, as many of the parameters can be utilized for easy pagination, or easy data-filtering. Additionally, these values can be mapped to a scraper's configuration options, which overall makes the scraper more versatile.
 
@@ -238,4 +238,4 @@ A GraphQL API works differently from a standard API. All requests are `POST` req
 
 ## [](#next) Next up
 
-In the next lesson we will look at a great complement to API scraping. Extracting data from JSON objects that were sent along with other resources - like the page's initial HTML. This can often simplify your life and save you from using a browser on a dynamic website. [Let's get to it]({{@link advanced_web_scraping/js_in_html.md}}).
+In the next lesson we will look at a great complement to API scraping. Extracting data from JSON objects that were sent along with other resources - like the page's initial HTML. This can often simplify your life and save you from using a browser on a dynamic website. [Let's get to it]({{@link advanced_web_scraping/advanced_data_collection/js_in_html.md}}).
