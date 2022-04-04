@@ -8,7 +8,7 @@ paths:
 
 # [](#filtering-links) Filtering links
 
-Web pages are full of links, but frankly, most of them are useless to us. There are two approaches to filtering links: Targeting the links we're interested in by using unique CSS selectors, and collecting all linksm then using pattern matching to find the sought after URLs. In real scraping scenarios, these two approaches are often combined for the most effective URL filtering.
+Web pages are full of links, but frankly, most of them are useless to us. There are two approaches to filtering links: Targeting the links we're interested in by using unique CSS selectors, and collecting all links and then using pattern matching to find the sought after URLs. In real scraping scenarios, both of these two approaches are often combined for the most effective URL filtering.
 
 ## [](#css-filter) Filtering with unique CSS selectors
 
@@ -51,11 +51,11 @@ $('main.fit a[href*="/product/"]');
 </marked-tab>
 ```
 
-We already know both the `main.fit` and `a[href*="/product/"]` selectors, but their combination is new. It's called a <a href="https://css-tricks.com/almanac/selectors/d/descendant/" target="_blank">descendant selector</a> and it selects all `<a href=".../product/...">` elements that are descendants of a `<main class="fit">` element. A descendant is any element that's nested somewhere inside another element. It does not have to be a direct child of the parent element.
+We already know both the `main.fit` and `a[href*="/product/"]` selectors and how they work on their own, but their combination is new. It's called a <a href="https://css-tricks.com/almanac/selectors/d/descendant/" target="_blank">descendant selector</a>, and it selects all `<a href=".../product/...">` elements that are descendants of a `<main class="fit">` element. A descendant is any element that's nested somewhere inside another element. It does not have to be a direct child of the specified parent element.
 
 ![Nested HTML tags]({{@asset web_scraping_for_beginners/crawling/images/nested-tag.webp}})
 
-When we print all the URLs in the DevTools console, we'll see that we've correctly filtered only the featured product links.
+When we print all the URLs in the DevTools console, we can see that we've correctly filtered only the featured product links.
 
 ```JavaScript
 for (const a of document.querySelectorAll('main.fit a[href*="/product/"]')) {
@@ -65,11 +65,11 @@ for (const a of document.querySelectorAll('main.fit a[href*="/product/"]')) {
 
 ![Product URLs printed to console]({{@asset web_scraping_for_beginners/crawling/images/product-urls.webp}})
 
-Notice that we might have some duplicate URLs. These duplicates can be easily filtered. _We will be learning about data filtering/manipulation in future lessons._
+Notice that we might have some duplicate URLs. These duplicates can be easily filtered out. _We will be learning about data filtering/manipulation in future lessons._
 
 ## [](#pattern-filter) Filtering with pattern matching
 
-Another common way to filter links (or any text really) is to match patterns with regular expressions.
+Another common way to filter links (or any text, really) is by matching patterns with regular expressions.
 
 > <a href="https://javascript.info/regexp-introduction" target="_blank">Learn more about regular expressions</a>.
 
@@ -105,9 +105,9 @@ for (const a of document.querySelectorAll('a')) {
 }
 ```
 
-If you run the code in DevTools, you'll see that it produces exactly the same URLs as the CSS filter.
+If you run this code in DevTools, you'll see that it produces exactly the same URLs as the CSS filter did.
 
-> Yes, filtering with CSS selectors is often the better (and just slightly more performant) option. But sometimes it's not enough. Learning regular expressions is a very useful skill in many scenarios.
+> Yes, filtering with CSS selectors is often the better (and just slightly more performant) option. But sometimes, it's not enough. Learning regular expressions is a very useful skill in many scenarios.
 
 ## [](#next) Next up
 

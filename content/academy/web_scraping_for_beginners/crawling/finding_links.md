@@ -8,13 +8,13 @@ paths:
 
 # [](#finding-links) Finding links
 
-There are many kinds of links on the internet, and we'll cover them in the advanced courses of the Academy. For now, let's think of links as <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">HTML anchor elements</a> with `<a>` tags. A typical link looks like this:
+There are many kinds of links on the internet, which we'll cover in the advanced Academy courses. For now, let's think of links as <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">HTML anchor elements</a> with `<a>` tags. A typical link looks like this:
 
 ```HTML
 <a href="https://example.com">This is a link to example.com</a>
 ```
 
-On a web page, the link above will look like this: "<a href="https://example.com" target="_blank">This is a link to example.com</a>," and when you click it, your browser will navigate to the URL in the `<a>` tag's `href` attribute (`https://example.com`).
+On a webpage, the link above will look like this: "<a href="https://example.com" target="_blank">This is a link to example.com</a>". When you click it, your browser will navigate to the URL in the `<a>` tag's `href` attribute (`https://example.com`).
 
 > `href` means **H**ypertext **REF**erence. You don't need to remember this - just know that `href` typically means some sort of link.
 
@@ -22,7 +22,7 @@ On a web page, the link above will look like this: "<a href="https://example.com
 
 So, if a link is just an HTML element, and the URL is just an attribute, this means that we can collect links exactly the same way as we collected data.💡 Easy!
 
-To test this theory in a browser, we can try running the following code in our DevTools console on any website.
+To test this theory in the browser, we can try running the following code in our DevTools console on any website.
 
 ```JavaScript
 // Select all the <a> elements.
@@ -40,7 +40,7 @@ for (const link of links) {
 
 ## [](#collecting-in-node) Collecting links in Node.js
 
-DevTools are fun, but Node.js is way more useful. Let's create a new file in our project called `crawler.js` and start adding some basic crawling code. We'll start with the same boilerplate as with our original scraper, but this time, we'll download the HTML of <a href="https://demo-webstore.apify.org/" target="_blank">the demo site's main page</a>.
+DevTools is a fun playground, but Node.js is way more useful. Let's create a new file in our project called `crawler.js` and start adding some basic crawling code. We'll start with the same boilerplate as with our original scraper, but this time, we'll download the HTML of <a href="https://demo-webstore.apify.org/" target="_blank">the demo site's main page</a>.
 
 ```JavaScript
 // crawler.js

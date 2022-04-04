@@ -8,7 +8,7 @@ paths:
 
 # [](#first-crawling) First crawl
 
-In the previous lessons, we learned what crawling is and how to collect URLs from pages' HTML. The only thing that remains is to write the code - so let's get right to it!
+In the previous lessons, we learned what crawling is and how to collect URLs from a page's HTML. The only thing that remains is to write the code - so let's get right to it!
 
 > If the code starts to look too complex for you, don't worry. We're showing it for educational purposes, so that you can learn how crawling works. Near the end of this module, we'll show you a much easier and faster way to crawl, using a specialized scraping library. If you want, you can skip the details and [go there now]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}).
 

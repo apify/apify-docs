@@ -17,9 +17,9 @@ But when we look inside the folder, we see that there's A LOT of files, and we d
 
 ## [](#loading-data) Loading dataset data
 
-To access the default dataset, we first have to open it by calling the [`Apify.openDataset()`](https://sdk.apify.com/docs/api/apify#opendataset) function. We can then easily work with all the items in the dataset. Let's put the processing into a separate file in our project: `dataset.js`
+To access the default dataset, we first have to open it by calling the [`Apify.openDataset()`](https://sdk.apify.com/docs/api/apify#opendataset) function. We can then easily work with all the items in the dataset. Let's put the processing into a separate file in our project called `dataset.js`.
 
-```js
+```JavaScript
 // dataset.js
 import Apify from 'apify';
 
@@ -28,29 +28,35 @@ const { items } = await dataset.getData();
 console.log(items.length);
 ```
 
-When we ran this code, having the results from our previous lessons in the `apify_storage` folder, it printed `5000` for us. Your number may differ.
+When we ran this code, having the results from our previous lessons in the `apify_storage` folder, it printed `32` for us. Your number may differ.
 
 ## [](#filtering-data) Filtering data
 
-Let's say we wanted to print the top site for each country. There are no specific functions to do that. We'll use plain JavaScript.
+Let's say we wanted to print the title for each product that is more expensive than $50. We'll also keep track of the products by price, and find out the most expensive one. There are no specific functions to do that, so we'll use plain JavaScript.
 
-```js
+```JavaScript
 // dataset.js
 import Apify from 'apify';
 
 const dataset = await Apify.openDataset();
 const { items } = await dataset.getData();
 
-console.log('The most visited site in:');
-for (const item of items) {
-    const { countryCode, rank, site } = item;
-    if (rank === '1') {
-        console.log(`${countryCode} is ${site}.`);
-    }
+let mostExpensive;
+
+console.log('All items over $50 USD:');
+for (const { title, price } of items) {
+    // Use a regular expression to filter out the
+    // non-number and non-decimal characters
+    const numPrice = +price.replace(/[^0-9.]/g, '');
+    if (numPrice > 50) console.table({ title, price });
+    if (numPrice > mostExpensive.price) mostExpensive = { title, price };
 }
+
+console.log('Most expensive product:');
+console.table(mostExpensive);
 ```
 
-In our case, in all countries except China, the top site was Google.com. Surprising? Probably not 😅 It will be more exciting in the second spot, but we'll leave that change to you.
+In our case, the most expensive product was the Macbook Pro. Surprising? Heh, not really 😅
 
 ## [](#excel) Converting the dataset to Excel
 
@@ -66,7 +72,7 @@ First, you need a free Apify account. To get one, head to the [sign-up form](htt
 
 Now that you have a token, you can upload your local dataset to the Apify platform. It's super easy. Let's reuse some of our earlier code and add more.
 
-```js
+```JavaScript
 // dataset.js
 import Apify from 'apify';
 
@@ -90,7 +96,7 @@ await datasetClient.pushItems(items);
 
 When we have the dataset uploaded on the Apify platform, we can easily download it in any format including JSON, CSV, Excel and others.
 
-```js
+```JavaScript
 console.log('Downloading an Excel file and saving it to disk');
 const xlsx = await datasetClient.downloadItems('xlsx');
 writeFileSync('dataset.xlsx', xlsx);
@@ -98,7 +104,7 @@ writeFileSync('dataset.xlsx', xlsx);
 
 The full code, to do this in one go, looks like this:
 
-```js
+```JavaScript
 // dataset.js
 import Apify from 'apify';
 import { writeFileSync } from 'fs';
