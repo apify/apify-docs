@@ -6,7 +6,7 @@ paths:
 - web-scraping-for-beginners/crawling/processing-data
 ---
 
-# [](#processing-data) Processing data
+# [](#processing-data) Processing Data
 
 From the previous lessons, we know two things:
 
@@ -15,7 +15,7 @@ From the previous lessons, we know two things:
 
 But when we look inside the folder, we see that there's A LOT of files, and we don't want to work with those manually. Fortunately, we can use the dataset itself to process the data.
 
-## [](#loading-data) Loading dataset data
+## [](#loading-data) Loading Dataset Data
 
 To access the default dataset, we first have to open it by calling the [`Apify.openDataset()`](https://sdk.apify.com/docs/api/apify#opendataset) function. We can then easily work with all the items in the dataset. Let's put the processing into a separate file in our project called `dataset.js`.
 
@@ -30,7 +30,7 @@ console.log(items.length);
 
 When we ran this code, having the results from our previous lessons in the `apify_storage` folder, it printed `32` for us. Your number may differ.
 
-## [](#filtering-data) Filtering data
+## [](#filtering-data) Filtering Data
 
 Let's say we wanted to print the title for each product that is more expensive than $50. We'll also keep track of the products by price, and find out the most expensive one. There are no specific functions to do that, so we'll use plain JavaScript.
 
@@ -58,11 +58,11 @@ console.table(mostExpensive);
 
 In our case, the most expensive product was the Macbook Pro. Surprising? Heh, not really 😅
 
-## [](#excel) Converting the dataset to Excel
+## [](#converting-to-excel) Converting the dataset to Excel
 
 We promised that you won't need an Apify account for anything in this course, and it's true. You can use the skills learned in the [Save to CSV lesson]({{@link web_scraping_for_beginners/data_collection/save_to_csv.md}}) to save the dataset to a CSV. Just use the loading code from above, plug it in there and then open the CSV in Excel. However, we really want to show you this neat trick. It won't cost you anything, we promise, and it's a cool and fast way to convert datasets to any format.
 
-### [](#apify-token) Get an Apify token
+### [](#get-apify-token) Getting an Apify Token
 
 First, you need a free Apify account. To get one, head to the [sign-up form](https://console.apify.com/sign-up) and complete the process. Once you have created the account and verified your email, go to the [integration settings](https://console.apify.com/account#/integrations), where you can copy your personal API token. This will give you access to the Apify API.
 
@@ -92,7 +92,7 @@ console.log('Uploading dataset items to the newly created dataset');
 await datasetClient.pushItems(items);
 ```
 
-### [](#download-excel) Download and save the Excel file
+### [](#download-to-excel) Download and save the Excel file
 
 When we have the dataset uploaded on the Apify platform, we can easily download it in any format including JSON, CSV, Excel and others.
 
@@ -130,7 +130,7 @@ writeFileSync('dataset.xlsx', xlsx);
 
 It doesn't even have to be a dataset created by the Apify SDK. You can use this method to convert any JSON array to a CSV, XLSX, and so on.
 
-## [](#wrap) Wrap up 💥
+## [](#wrap-up) Wrap up 💥
 
 And this is it for the [Basics of crawling section]({{@link web_scraping_for_beginners/crawling.md}}) of the [Web scraping for beginners]({{@link web_scraping_for_beginners.md}}) course. For now, this is also the last section. If you want to learn more about web scraping, stay tuned. We will keep updating the Academy with more content regularly, until we cover all the advanced and expert topics we promised at the beginning.
 

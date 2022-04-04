@@ -44,7 +44,7 @@ for (const product of products) {
 
 After you run this script, you should see data of all the 32 products printed in your terminal. Don't forget about the `const element = $(product);` line. Without wrapping each `product` with `$()`, we wouldn't be able to call the `.text()` function on it.
 
-## [](#collecting-data) Collecting final data
+## [](#collecting-data) Collecting Final Data
 
 Now, we just need to repeat the process from the DevTools modules and add individual data point collection to the loop. From those lessons, we know that each of our product container `<a>` tags includes an `<h3>` element including the title, and a `<div>` price element matching the selector `div[class*="price"]`.
 
@@ -123,6 +123,6 @@ console.log(results);
 
 If you were able to get here, run the code, get results and also understand everything, you can give yourself a pat on the back and congratulate yourself on completing the **Basics of data collection** section of the Web scraping for beginners course. Great job! 👏🎉
 
-# [](#next) Next up
+# [](#next) Next up...
 
 While we were able to collect the data, it's not very useful to have those printed to the console. In the [next, bonus lesson]({{@link web_scraping_for_beginners/data_collection/save_to_csv.md}}), we will learn how to convert the data to a CSV and save it to a file.

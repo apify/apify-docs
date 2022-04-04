@@ -6,11 +6,11 @@ paths:
 - web-scraping-for-beginners/crawling/filtering-links
 ---
 
-# [](#filtering-links) Filtering links
+# [](#filtering-links) Filtering Links
 
 Web pages are full of links, but frankly, most of them are useless to us. There are two approaches to filtering links: Targeting the links we're interested in by using unique CSS selectors, and collecting all links and then using pattern matching to find the sought after URLs. In real scraping scenarios, both of these two approaches are often combined for the most effective URL filtering.
 
-## [](#css-filter) Filtering with unique CSS selectors
+## [](#css-filtering) Filtering With Unique CSS Selectors
 
 In the previous lesson, we simply grabbed all the links from the HTML document.
 
@@ -23,7 +23,7 @@ $('a');
 </marked-tab>
 ```
 
-### [](#attribute-selector) Attribute selector
+### [](#attribute-selector) Attribute Selector
 
 That's not the only way to do it, however. Since we're interested in the `href` attributes, a first very reasonable filter is to exclusively target the `<a>` tags that have the `href` attribute (yes, anchor tags without the attribute can and do exist). You can do that by using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors" target="_blank">CSS attribute selector</a>.
 
@@ -40,7 +40,7 @@ Ensuring to always add the `[href]` part of the selector will save you from nast
 
 We only want the product links on this page, so we can limit the number of results by only targeting the links within the `main.fit` container to filter out some unwanted links (such as in the navbar), then further select any a tags with a `href` attribute containing `/product/`.
 
-### [](#descendant-selector) Descendant selector
+### [](#descendant-selector) Descendant Selector
 
 ```marked-tabs
 <marked-tab header="DevTools" lang="javascript">
@@ -67,7 +67,7 @@ for (const a of document.querySelectorAll('main.fit a[href*="/product/"]')) {
 
 Notice that we might have some duplicate URLs. These duplicates can be easily filtered out. _We will be learning about data filtering/manipulation in future lessons._
 
-## [](#pattern-filter) Filtering with pattern matching
+## [](#pattern-matching-filter) Filtering with pattern-matching
 
 Another common way to filter links (or any text, really) is by matching patterns with regular expressions.
 
@@ -109,6 +109,6 @@ If you run this code in DevTools, you'll see that it produces exactly the same U
 
 > Yes, filtering with CSS selectors is often the better (and just slightly more performant) option. But sometimes, it's not enough. Learning regular expressions is a very useful skill in many scenarios.
 
-## [](#next) Next up
+## [](#next) Next Up...
 
 In the [next lesson]({{@link web_scraping_for_beginners/crawling/relative_urls.md}}) we'll see how rewriting this code to Node.js is not so simple and learn about absolute and relative URLs in the process.
