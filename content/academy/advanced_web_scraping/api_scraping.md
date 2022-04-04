@@ -236,6 +236,6 @@ A GraphQL API works differently from a standard API. All requests are `POST` req
 
 > **Note:** these concepts will be covered more in-depth later on, but it is good to be aware of them now.
 
-## [](#next) Next up
+## [](#next) Next up...
 
 In the next lesson we will look at a great complement to API scraping. Extracting data from JSON objects that were sent along with other resources - like the page's initial HTML. This can often simplify your life and save you from using a browser on a dynamic website. [Let's get to it]({{@link advanced_web_scraping/js_in_html.md}}).

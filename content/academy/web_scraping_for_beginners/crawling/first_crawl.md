@@ -6,7 +6,7 @@ paths:
     - web-scraping-for-beginners/crawling/first-crawl
 ---
 
-# [](#first-crawling) First crawl
+# [](#your-first-crawl) First Crawl
 
 In the previous lessons, we learned what crawling is and how to collect URLs from a page's HTML. The only thing that remains is to write the code - so let's get right to it!
 
@@ -63,7 +63,7 @@ for (const link of productsToScrape) {
 
 If you run the crawler from your terminal, it should print the titles.
 
-## [](#handling-errors) Handling errors
+## [](#handling-errors) Handling Errors
 
 The code above is correct, but it's not robust. If something goes wrong, it will crash. That something could be a network error, an internet connection error, or just that one of the websites you're trying to reach could simply be experiencing problems at that moment. Hitting any error like that would cause our current crawler to stop entirely, which means we would lose all the data it had collected so far.
 
@@ -116,6 +116,6 @@ At the time of writing, none of the links have failed; however, in your crawling
 
 > If you thought that the crawl was taking too long to complete, the [scraping library]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) we keep referring to will help once again. It automatically parallelizes the downloads and processing of HTML, which leads to significant speed improvements.
 
-## [](#next) Next up
+## [](#next) Next up...
 
 In the [next lesson]({{@link web_scraping_for_beginners/crawling/scraping_the_data.md}}), we will complete the scraper by using the data collection code from the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) section and applying it to all of the product pages.

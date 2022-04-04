@@ -13,7 +13,7 @@ When you open a website in a browser, the browser first downloads the page's ini
 > <a href="https://www.npmjs.com/" target="_blank">NPM</a> has a huge collection of open-source libraries for Node.js. You can (and you should) utilize it to save time and tap into the amazing open-source community around JavaScript and Node.js.
 
 
-## [](#create-project) Create a new NPM project
+## [](#creating-a-project) Create a new NPM project
 
 Before we can install NPM modules we need to create an NPM project. To do that, create a new directory or use the one that you already have open in VSCode (you can delete the `hello.js` now) and from that directory run this command in your terminal:
 
@@ -37,7 +37,7 @@ Node.js and NPM support two types of projects, let's call them legacy and modern
 
 > If you want to learn more about JSON and its syntax, we recommend <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON" target="_blank">this tutorial on MDN</a>.
 
-## [](#install-libraries) Install the libraries
+## [](#install-libraries) Installing necessary libraries
 
 Now that we have a project set up, we can install NPM modules into the project. We will do that and install libraries that will help us very easily download and process websites' HTML. In the project directory, run the following command, which will install two libraries into your project. **got-scraping** and Cheerio.
 
@@ -49,7 +49,7 @@ npm install --save got-scraping cheerio
 
 <a href="https://github.com/cheeriojs/cheerio" target="_blank">Cheerio</a> is a very popular Node.js library for parsing (processing) HTML. It is a replica of probably the most popular JavaScript library of all time -<a href="https://jquery.com/" target="_blank">JQuery</a>. We can't use JQuery in Node.js because it only works in the browser, so we replace it with Cheerio, which is exactly the same.
 
-## [](#test) Test everything
+## [](#testing) Test everything
 
 With the libraries installed, create a new file in the project's folder called `main.js`. This is where we will put all our code. Before we start scraping, though, let's do a simple check that everything installed correctly. Inside `main.js` add this piece of code.
 
@@ -70,6 +70,6 @@ If you see **it works!** printed in your terminal, great job! You set up everyth
 
 ![Test your setup with VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-test-setup.webp}})
 
-## [](#next) Next up
+## [](#next) Next up...
 
 With the project set up, the [next lesson]({{@link web_scraping_for_beginners/data_collection/node_js_scraper.md}}) will show you how to use **got-scraping** to download the website's HTML and collect data from it with Cheerio.

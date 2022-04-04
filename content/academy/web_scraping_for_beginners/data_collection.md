@@ -9,7 +9,7 @@ paths:
 
 # [](#basics) Basics of data collection
 
-Every web scraping project starts with some detective work. To a human, it's completely obvious where the data is on the web page. But a computer needs very precise instructions to find the data we want. There are three elementary components of each website that we can leverage to give those instructions. HTML, CSS, and JavaScript.
+Every web scraping project starts with some detective work. To a human, it's completely obvious where the data is on the web page, but a computer needs very precise instructions to find the data we want. There are three elementary components of each website that we can leverage to give those instructions: HTML, CSS, and JavaScript.
 
 ## [](#html) HTML
 

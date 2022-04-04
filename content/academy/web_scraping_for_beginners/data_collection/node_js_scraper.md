@@ -51,6 +51,6 @@ First, we loaded the downloaded `html` into `cheerio` using the `load()` functio
 
 > `$('title')` is very similar to calling `document.querySelector('title')` in the browser and `element.text()` is similar to `element.textContent` from the earlier DevTools lessons. <a href="https://github.com/cheeriojs/cheerio#readme" target="_blank">Visit the cheerio documentation</a> to learn more about its syntax, which is the same as JQuery syntax.
 
-## [](#next) Next up
+## [](#next) Next up...
 
 In the [next lesson]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) we will learn more about Cheerio and use it to collect all the products' data from Fakestore.

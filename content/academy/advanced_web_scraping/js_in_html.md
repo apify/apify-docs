@@ -31,7 +31,8 @@ There are two ways to go about obtaining these objects to be used and manupulate
 ### 1. Parsing them directly from the HTML
 
 ```JavaScript
-const html = $.html() // same as "document.querySelector('html').innerHTML"
+// same as "document.querySelector('html').innerHTML"
+const html = $.html()
 
 const string = html.split('window.__sc_hydration = ')[1].split(';</script>')[0]
 
@@ -50,6 +51,9 @@ const data = await page.evaluate(() => window.__sc_hydration)
 console.log(data)
 ```
 
-## [](#next) Next up
+Which of these methods you use totally depends on the type of crawler you are using. Grabbing the data directly from the `window` object within the context of the browser using Puppeteer is of course the most reliable solution; however, it is less performant than making a static HTTP request and parsing the object directly from the downloaded HTML.
 
-So far, this is the last lesson of the Advanced web scraping course, but stay tuned, we will keep adding more lessons as we go.
+## [](#next) Next up...
+
+In our [next lesson]({{@link advanced_web_scraping/js_rendering_and_dynamic_pages.md}}), we'll be taking an in-depth look at what dynamic content is, and how to scrape it reliably.
+

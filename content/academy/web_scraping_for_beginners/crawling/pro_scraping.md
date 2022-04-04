@@ -6,7 +6,7 @@ paths:
 - web-scraping-for-beginners/crawling/pro-scraping
 ---
 
-# [](#pro) Professional scraping
+# [](#pro-scraping) Professional Scraping 💪
 
 While it's definitely an interesting exercise to do all the programming manually, and we hope you enjoyed it, it's neither the most effective, nor the most efficient way of scraping websites. Because we scrape for a living at Apify, we've built a library that we use to scrape tens of millions of pages every day.
 
@@ -22,7 +22,7 @@ We mentioned the benefits of developing with a dedicated scraping library in the
 
 > If you're still not convinced, <a href="https://apify.com/success-stories/daltix-analytics-scrapy-python-to-apify" target="_blank">read this story</a> how a data analytics company saved 90% of scraping costs by switching from Scrapy (a scraping library for Python) to the Apify SDK. To be honest, it shocked even us! 💪
 
-## [](#installation) Install the Apify SDK
+## [](#sdk-installation) Install the Apify SDK
 
 To use the Apify SDK, we have to install it from NPM. Let's add it to our project from the previous lessons.
 
@@ -48,7 +48,7 @@ node apify.js
 If you see **Apify works!** printed to the console, it means you successfully installed Apify SDK.
 
 
-## [](#coding) Coding the scraper
+## [](#coding-the-scraper) Coding the Scraper
 
 You probably noticed that we did not `import` Cheerio or got-scraping. That's because they're both already included in a component of the SDK called [`CheerioCrawler`](https://sdk.apify.com/docs/api/cheerio-crawler). It automatically visits URLs that you feed to it, downloads the HTML, and parses it with Cheerio. The benefit of this over writing the code yourself is that it automatically handles errors and retries the request when one occurs. It also parallelizes the downloads, making them faster, and removes a lot of boilerplate code that you would have to write yourself.
 
@@ -123,7 +123,7 @@ await crawler.run();
 
 When you repeatedly run the code now, you'll see that it always prints the expected log messages.
 
-## [](#crawling) Crawling links
+## [](#crawling-links) Crawling Links
 
 The current scraper only visits the on-sale products URL, but we want data for all the countries. We can use the [`Apify.utils.enqueueLinks()`](https://sdk.apify.com/docs/api/utils#utilsenqueuelinksoptions) function to help us with that. The function automatically extracts URLs from the current page, based on a provided CSS selector, and adds them to the request queue. Once added, the crawler will automatically crawl them.
 
@@ -170,7 +170,7 @@ When you run the code, you'll immediately see that it crawls faster than the man
 
 > If the crawler gets stuck for you at the end, it's ok. It's not actually stuck, but waiting to retry any pages that potentially failed.
 
-## [](#collecting-data) Collecting data
+## [](#collecting-data) Collecting Data
 
 We have the crawler in place, and it's time to collect data. We already have the extraction code from the previous lesson, so we can just copy and paste it into the `handlePageFunction` with tiny changes.
 
@@ -229,6 +229,6 @@ await crawler.run();
 
 By using the `apify` library, we were able to create a faster and more robust scraper, but with less code than what was needed for the simple scraper in the earlier lessons. What we've learned so far only scratches the surface of the Apify SDK's full capabilities.
 
-## [](#next) Next up
+## [](#next) Next up...
 
 The Apify SDK is a full-featured scraping library. That's why we can use it to scrape any website at any scale. In the [next lesson]({{@link web_scraping_for_beginners/crawling/headless_browser.md}}) we will change only a few lines of code and turn our scraper into a full **headless browser**.
