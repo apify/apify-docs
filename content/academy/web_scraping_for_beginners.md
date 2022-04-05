@@ -1,7 +1,7 @@
 ---
 title: Web scraping for beginners
 description: Learn how to develop web scrapers with this comprehensive and practical course. Go from beginner to expert, all in one place.
-menuWeight: 2
+menuWeight: 1
 category: courses
 paths:
     - web-scraping-for-beginners
@@ -9,11 +9,11 @@ paths:
 
 # [](#welcome) Web scraping for beginners
 
-Welcome to **Web scraping for beginners**. A comprehensive and practical web scraping course that will take you from an absolute beginner to a successful web scraper developer. This course is sponsored by <a href="https://apify.com" target="_blank">Apify</a>, the web scraping and automation platform, but we will use only open-source technologies throughout. This means that the skills you learn will be applicable to any scraping project, and you'll be able to run it on any computer. No Apify account needed.
+Welcome to **Web scraping for beginners**, a comprehensive and practical web scraping course that will take you from an absolute beginner to a successful web scraper developer. This course is sponsored by <a href="https://apify.com" target="_blank">Apify</a>, the web scraping and automation platform, but we will use only open-source technologies throughout all academy lessons. This means that the skills you learn will be applicable to any scraping project, and you'll be able to run your scrapers on any computer. No Apify account needed.
 
-<!--If you would like to learn about the Apify platform and how it can help you build, run and scale your web scraping and automation projects, visit the Apify Academy, where we'll teach you all about our actors, proxies, API, scheduling, webhooks and much more.-->
+<!--If you would like to learn about the Apify platform and how it can help you build, run and scale your web scraping and automation projects, visit the Apify Academy, where we'll teach you all about our actors, proxies, API, scheduling, webhooks and much more. ONCE IT'S AVAILABLE-->
 
-## [](#why-learn) Why learn scraper development
+## [](#why-learn) Why learn scraper development?
 
 With so many point-and-click tools and no-code software that can help you extract data from websites, what is the point of learning scraper development? Contrary to what their marketing departments say, a point-and-click or no-code tool will never be as flexible, as powerful, or as optimized as a custom-built scraper.
 
@@ -21,9 +21,9 @@ Any software can do only what it was programmed to do. If you build your own scr
 
 Scraper development is a fun and challenging way to learn web development, web technologies, and understand the internet. You will reverse-engineer websites and understand how they work internally, what technologies they use and how they communicate with their servers. You will also master your chosen programming language and core programming concepts. When you truly understand web scraping, learning other technology like React or Next.js will be a piece of cake.
 
-## [](#summary) Course summary
+## [](#summary) Course Summary
 
-When we set out to create the Academy, we wanted to build a complete guide to modern web scraping. A course that a beginner could use to create their first scraper, as well as a resource that professionals will continuously use to learn about advanced and niche web scraping techniques. All lessons include code examples and code-along exercises that you can use to immediately put your scraping skills into action.
+When we set out to create the Academy, we wanted to build a complete guide to modern web scraping - a course that a beginner could use to create their first scraper, as well as a resource that professionals will continuously use to learn about advanced and niche web scraping techniques and technologies. All lessons include code examples and code-along exercises that you can use to immediately put your scraping skills into action.
 
 This is what you'll learn in the **Web scraping for beginners** course:
 
@@ -33,13 +33,16 @@ This is what you'll learn in the **Web scraping for beginners** course:
 
 Other courses and lessons (coming soon) in the Academy:
 
-* [Advanced web scraping]({{@link advanced_web_scraping.md}})
-  * [API scraping]({{@link advanced_web_scraping/advanced_data_collection/api_scraping.md}})
-  * [Data in JavaScript objects]({{@link advanced_web_scraping/advanced_data_collection/js_in_html.md}})
-  * JavaScript rendering and dynamic pages
-  * Navigation with POST requests
-  * Emulating API pagination
-  * GraphQL scraping
+* [API scraping]({{@link api_scraping.md}})
+  * [General API Scraping]({{@link api_scraping/general_api_scraping.md}})
+    * [Locating API Endpoints]({{@link api_scraping/general_api_scraping/locating_and_learning.md}})
+    * [Cookies, Headers, and Tokens]({{@link api_scraping/general_api_scraping/cookies_headers_tokens.md}})
+    * Emulating API pagination
+  * GraphQL Scraping **_(SOON)_**
+* [Dynamic Pages and SPAs]({{@link dynamic_pages_and_spas.md}})
+  * [Data in JavaScript objects]({{@link dynamic_pages_and_spas/js_in_html.md}})
+  * [Dynamic Content]({{@link dynamic_pages_and_spas/js_rendering_and_dynamic_pages.md}})
+* Anti-Scraping Protection
   * Proxies and staying anonymous
   * Captchas and human behavior
   * Web application firewalls
@@ -59,4 +62,4 @@ As you progress to the Advanced and Pro courses, the coding will get more challe
 
 The course begins with short theory and continues with practical examples of collecting data from the most popular websites on the internet using your browser console. So [let's get to it!]({{@link web_scraping_for_beginners/introduction.md}})
 
-> If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}}) section. <!--or even the Advanced Web Scraping section of the course.-->
+> If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}}) section.

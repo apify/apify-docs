@@ -1,7 +1,7 @@
 ---
 title: Introduction
 description: Start learning about web scraping, web crawling, data collection, and popular tools to start developing your own scraper.
-menuWeight: 2.1
+menuWeight: 1.1
 category: courses
 paths:
     - web-scraping-for-beginners/introduction
