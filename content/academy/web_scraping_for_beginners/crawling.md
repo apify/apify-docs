@@ -1,7 +1,7 @@
 ---
 title: Basics of crawling
 description: Learn how to crawl the web with your scraper. How to extract links and URLs from web pages and how to manage the collected links to crawl the web.
-menuWeight: 2.3
+menuWeight: 1.3
 category: courses
 paths:
 - web-scraping-for-beginners/crawling
