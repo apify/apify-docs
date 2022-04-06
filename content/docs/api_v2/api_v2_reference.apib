@@ -711,6 +711,8 @@ The response is the [EnvVar object](#reference/actors/environment-variable-objec
 
 Gets a [EnvVar object](#reference/actors/environment-variable-object) that contains all the details about a specific environment variable of an actor.
 
+If `isSecret` is set to `true`, then `value` will never be returned.
+
 + Response 200 (application/json)
 
     + Attributes
