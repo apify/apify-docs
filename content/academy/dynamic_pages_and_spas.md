@@ -1,5 +1,5 @@
 ---
-title: API Scraping
+title: Dynamic pages and SPAs
 description: Learn all about how the professionals scrape various types of APIs with various configurations, parameters, and requirements.
 menuWeight: 3
 category: courses
@@ -7,7 +7,7 @@ paths:
 - dynamic-pages-and-spas
 ---
 
-# [](#dynamic-pages-and-spas) Dynamic Pages and Single-Page Applications (SPAs)
+# [](#dynamic-pages-and-spas) Dynamic pages and single-page applications
 
 In the modern web, single-page applications (SPAs) are becoming increasingly popular, especially due to JavaScript libraries like [React.js](https://reactjs.org/) and [Vue.js](https://vuejs.org/) pushing their development to the mainstream. Often times, single-page applications (and loads of non-SPAs too) have dynamic content. As you progress in your scraping journey, you'll quickly realize that different websites load their content and populate their pages with data in different ways. Some pages are rendered entirely on the server, some retrieve the data dynamically, and some use a combination of both those methods.
 
