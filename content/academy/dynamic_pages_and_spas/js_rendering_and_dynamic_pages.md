@@ -1,6 +1,6 @@
 ---
 title: JS Rendering and Dynamic Pages
-description: Learn about dynamic pagees and dynamic content. What are they? How can we find out if a page is dynamic? How do we scrape dynamic content?
+description: Learn about dynamic pages and dynamic content. How can we find out if a page is dynamic? How do we programmatically scrape dynamic content?
 menuWeight: 2
 paths:
     - dynamic-pages-and-spas/js-rendering-and-dynamic-pages
