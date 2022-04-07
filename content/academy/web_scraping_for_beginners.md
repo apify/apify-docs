@@ -42,8 +42,8 @@ Other courses and lessons (coming soon) in the Academy:
 * [Dynamic Pages and SPAs]({{@link dynamic_pages_and_spas.md}})
   * [Data in JavaScript objects]({{@link dynamic_pages_and_spas/js_in_html.md}})
   * [Dynamic Content]({{@link dynamic_pages_and_spas/js_rendering_and_dynamic_pages.md}})
-* Anti-Scraping Protection
-  * Proxies and staying anonymous
+* [Anti-Scraping Protection]({{@link anti_scraping.md}})
+  * [Proxies]({{@link anti_scraping/proxies.md}})
   * Captchas and human behavior
   * Web application firewalls
 * Expert topics

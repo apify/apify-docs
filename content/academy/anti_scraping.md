@@ -51,6 +51,8 @@ One of the most successful methods is collecting the browser's "fingerprint", wh
 
 By definition, this is not an anti-scraping method, but it can heavily affect the reliability of a scraper. If your target website drastically changes its CSS selectors, and your scraper is heavily reliant on selectors, it could break. In principle, websites using this method change their HTML structure or CSS selectors randomly and frequently, making the parsing of the data harder, and requiring more maintenance of the bot.
 
+One of the best ways of avoiding the possible breaking of your scraper due to website structure changes is to limit your reliance on data from HTML elements as much as possible (see [API Scraping]({{@link api_scraping.md}}) and [JavaScript objects within HTML]({{@link dynamic_pages_and_spas/js_in_html.md}}))
+
 ### 3. Interval analysis
 
 This technique is based on analyzing the time intervals of the visit of a website. If the times are very similar, the entity is added to the greylist. This method’s premise is that the bot runs in regular intervals by, for example, a CRON job that starts every Monday. It is a long-term strategy, so it should be used as an extension. This technique needs only the information from the HTTP request to identify the frequency of the visits.

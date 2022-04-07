@@ -1,5 +1,5 @@
 ---
-title: JSON data within HTML
+title: JavaScript objects within HTML
 description: Learn about "hidden" data found within the JavaScript of certain pages, which can increase the scraper reliability and improve your development experience.
 menuWeight: 1
 paths:
