@@ -13,7 +13,7 @@ If at any point in time you've strayed away from the Academy's demo content, and
 
 This section covers the essentials of mitigating anti-scraping protections, such as proxies, HTTP headers and cookies, and a few other things to consider when working on a reliable and scalable crawler. Proper usage of the methods taught in the next lessons will allow you to collect data which is specific to a certain location, enable your crawler to browse websites as a logged-in user, and more.
 
-In development, is is crucial to check and adjust the configurations related to our next lessons' topics, as simply doing this can fix blocking issues on the majority of websites.
+In development, it is crucial to check and adjust the configurations related to our next lessons' topics, as simply doing this can fix blocking issues on the majority of websites.
 
 ## [](#the-principles) The principles of anti-scraping protections
 
@@ -24,8 +24,8 @@ Anti-scraping protections can work on many different layers and use a large amou
 
 Once a bot is detected, there are some countermeasures a website takes to prevent it from reaccessing it. The protection techniques are divided into two main categories:
 
-1. Uses only the information provided within the HTTP request, such as headers and IP addresses.
-2. Uses JavaScript evaluation to collect browser fingerprint, or even track the entity behavior on the website. These JavaScript evaluations usually track mouse movement, key presses, and based on that but not limited to this information, they can decide if the entity is a bot or a valid user. This method is often paired with the first one.
+1. Uses only the information provided within the HTTP request, such as headers, IP addresses, TLC versions, ciphers, etc.
+2. Uses JavaScript evaluation to collect browser fingerprint, or even track the entity behavior on the website. These JavaScript evaluations can also track mouse movement, key pressed. Based on the information gathered, they can decide if the entity is a bot or a valid user. This method is often paired with the first one.
 
 Once one of these methods detects that the entity is a bot, it will take countermeasures depending on how advanced its techniques are.
 
@@ -35,7 +35,9 @@ A common workflow of a website after it has detected a bot goes as follows:
 2. A [Turing test](https://en.wikipedia.org/wiki/Turing_test) is provided to the bot (captcha). If the bot succeeds, it is added to the whitelist.
 3. If the captcha is failed, the bot is added to the blacklist.
 
-One thing to keep in mind while navigating through this course is that dvanced scraping methods are able to identify non-humans not only by one value (such as a single header value, or IP address), but are able to identify them through more complex things such as header combinations.
+One thing to keep in mind while navigating through this course is that advanced scraping methods are able to identify non-humans not only by one value (such as a single header value, or IP address), but are able to identify them through more complex things such as header combinations.
+
+> For a visual + auditory in-depth explanation of anti-scraping, and how to fix issues caused by it, check out [this talk](https://www.youtube.com/watch?v=aXil0K-M-Vs) from Ondra Urban.
 
 ## [](#common-measures) Common Anti-Scraping Measures
 

@@ -9,11 +9,11 @@ paths:
 
 # [](#proxies) Proxies
 
-A proxy server provides a gateway between users and the internet, to be more specific in our case - between the crawler and the target website. Using a proxy in a crawler is important for a couple of main reasons:
+A proxy server provides a gateway between users and the internet, to be more specific in our case - between the crawler and the target website.
 
-1. Many websites have [rate-limiting]({{@link glossary/rate_limiting.md}}) set up, which is when a website **limits** the **rate** at which requests can be sent from a single IP address. In cases when a higher number of requests is expected for the crawler - using a proxy is essential to let the crawler run as smoothly as possible and avoid being blocked.
+Many websites have [rate-limiting]({{@link glossary/rate_limiting.md}}) set up, which is when a website **limits** the **rate** at which requests can be sent from a single IP address. In cases when a higher number of requests is expected for the crawler - using a proxy is essential to let the crawler run as smoothly as possible and avoid being blocked.
 
-2. If the crawler is used on the Apify platform without a proxy and it's sending too many requests to the target website, the website owner could complain to AWS (where the Apify platform is running), from which it could be easily tracked to us. We want to avoid AWS abuse reports for obvious reasons, and thus, as a rule of a thumb, proxies should always be used on **all** crawlers running on the platform _(no matter what)_.
+Fixing rate-limiting issues is only the tip of the iceberg of what proxies can do for your scrapers, though. By implementing proxies properly, you can successfuly avoid the majority of anti-scraping measures listed in the [previous lesson]({{@link anti_scraping.md}}).
 
 ## [](#understanding-proxy-links) A bit about proxy links
 
@@ -31,6 +31,10 @@ If authentication (a username and a password) is required, the format will look 
 http://USERNAME:PASSWORD@proxy.example.com:8080
 ```
 
+## [](#proxy-rotation) Proxy Rotation
+
+Web-scrapers can implement a method called "proxy rotation" to **rotate** the IP addresses they use to access websites. Each request can be assigned a different IP address, which makes it appear as if they are all coming from different users in different location. This greatly enhances performance, and is a major factor when it comes to making a web-scraper appear more human.
+
 ## [](#next) Next up
 
-This module's first lesson will be teaching you how to configure your crawler in the Apify SDK to use and automatically roatate proxies. [Let's get right into it!]({{@link anti_scraping/proxies/using_proxies.md}})
+This module's first lesson will be teaching you how to configure your crawler in the Apify SDK to use and automatically rotate proxies. [Let's get right into it!]({{@link anti_scraping/proxies/using_proxies.md}})
