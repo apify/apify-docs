@@ -68,7 +68,8 @@
     "Web scraping": [
         {
             "cardItem": "Web scraping academy",
-            "href": "https://developers.apify.com/academy/web-scraping-for-beginners"
+            "href": "https://developers.apify.com/academy/web-scraping-for-beginners",
+            "isExternalLink": true
         },
         {
             "cardItem": "Basics of data collection",
