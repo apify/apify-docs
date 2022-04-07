@@ -55,7 +55,7 @@ Many APIs will require the session cookie, an API key, or some other special val
 
 For complex APIs that require certain headers and/or payloads in order to make a successful request, return encoded data, have rate limits, or that use modern technologies such as GraphQL, there can be a slight overhead in figuring out how to utilize them in a scraper.
 
-<!-- These will be lessons in the future -->
+<!-- These will be articles in the future -->
 ## [](#extra-challenges) Extra challenges
 
 ### 1. Different data formats
