@@ -4,6 +4,7 @@ description: Learn how to develop web scrapers with this comprehensive and pract
 menuWeight: 1
 category: courses
 paths:
+    - academy
     - web-scraping-for-beginners
 ---
 
