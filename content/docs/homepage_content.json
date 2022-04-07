@@ -73,7 +73,8 @@
         },
         {
             "cardItem": "Basics of data collection",
-            "href": "/data-collection-basics"
+            "href": "https://developers.apify.com/academy/web-scraping-for-beginners/data-collection",
+            "isExternalLink": true
         },
         {
             "cardItem": "Scrape Twitter",
