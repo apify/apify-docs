@@ -219,4 +219,4 @@ Making static HTTP requests only downloads the HTML content from the `DOMContent
 
 ## [](#next) Next up
 
-So far, this is the last lesson of the Advanced web scraping course, but stay tuned! We will keep adding more lessons as we go.
+So far, this is the last lesson of this course, but stay tuned! We will be frequently adding more lessons, so stay tuned!
