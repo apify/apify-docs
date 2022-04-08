@@ -2,7 +2,6 @@
 title: Using proxies
 description: Learn how to use and automagically rotate proxies in your scrapers by using the Apify SDK, and a bit about how to easily obtain pools of proxies.
 menuWeight: 1
-category: courses
 paths:
 - anti-scraping/proxies/using-proxies
 ---
