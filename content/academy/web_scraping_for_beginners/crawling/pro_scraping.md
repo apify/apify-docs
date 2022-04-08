@@ -1,12 +1,12 @@
 ---
-title: Professional Scraping
+title: Professional scraping
 description: Learn how to build scrapers quicker and get better and more robust results by using the Apify SDK, an open-source library for scraping in Node.js.
 menuWeight: 7
 paths:
 - web-scraping-for-beginners/crawling/pro-scraping
 ---
 
-# [](#pro-scraping) Professional Scraping 💪
+# [](#pro-scraping) Professional scraping 💪
 
 While it's definitely an interesting exercise to do all the programming manually, and we hope you enjoyed it, it's neither the most effective, nor the most efficient way of scraping websites. Because we scrape for a living at Apify, we've built a library that we use to scrape tens of millions of pages every day.
 
@@ -48,7 +48,7 @@ node apify.js
 If you see **Apify works!** printed to the console, it means you successfully installed Apify SDK.
 
 
-## [](#coding-the-scraper) Coding the Scraper
+## [](#coding-the-scraper) Coding the scraper
 
 You probably noticed that we did not `import` Cheerio or got-scraping. That's because they're both already included in a component of the SDK called [`CheerioCrawler`](https://sdk.apify.com/docs/api/cheerio-crawler). It automatically visits URLs that you feed to it, downloads the HTML, and parses it with Cheerio. The benefit of this over writing the code yourself is that it automatically handles errors and retries the request when one occurs. It also parallelizes the downloads, making them faster, and removes a lot of boilerplate code that you would have to write yourself.
 
@@ -123,7 +123,7 @@ await crawler.run();
 
 When you repeatedly run the code now, you'll see that it always prints the expected log messages.
 
-## [](#crawling-links) Crawling Links
+## [](#crawling-links) Crawling links
 
 The current scraper only visits the on-sale products URL, but we want data for all the countries. We can use the [`Apify.utils.enqueueLinks()`](https://sdk.apify.com/docs/api/utils#utilsenqueuelinksoptions) function to help us with that. The function automatically extracts URLs from the current page, based on a provided CSS selector, and adds them to the request queue. Once added, the crawler will automatically crawl them.
 
@@ -170,7 +170,7 @@ When you run the code, you'll immediately see that it crawls faster than the man
 
 > If the crawler gets stuck for you at the end, it's ok. It's not actually stuck, but waiting to retry any pages that potentially failed.
 
-## [](#collecting-data) Collecting Data
+## [](#collecting-data) Collecting data
 
 We have the crawler in place, and it's time to collect data. We already have the extraction code from the previous lesson, so we can just copy and paste it into the `handlePageFunction` with tiny changes.
 

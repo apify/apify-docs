@@ -1,12 +1,12 @@
 ---
-title: Finding Links
+title: Finding links
 description: Learn what a link looks like in HTML and how to find and collect their URLs when web scraping using both DevTools and Node.js.
 menuWeight: 2
 paths:
 - web-scraping-for-beginners/crawling/finding-links
 ---
 
-# [](#finding-links) Finding Links
+# [](#finding-links) Finding links
 
 There are many kinds of links on the internet, which we'll cover in the advanced Academy courses. For now, let's think of links as <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">HTML anchor elements</a> with `<a>` tags. A typical link looks like this:
 
@@ -18,7 +18,7 @@ On a webpage, the link above will look like this: "<a href="https://example.com"
 
 > `href` means **H**ypertext **REF**erence. You don't need to remember this - just know that `href` typically means some sort of link.
 
-## [](#collecting-links) Collecting Links 🔗
+## [](#collecting-links) Collecting links 🔗
 
 So, if a link is just an HTML element, and the URL is just an attribute, this means that we can collect links exactly the same way as we collected data.💡 Easy!
 
@@ -38,7 +38,7 @@ for (const link of links) {
 
 **_Boom_** 💥, all the links from the website have now been printed to the console. Unless you were on example.com, it's usually a lot of links. By doing this, we can get a first-hand look at how interconnected the web really is.
 
-## [](#collecting-links-in-node) Collecting Links in Node.js
+## [](#collecting-links-in-node) Collecting links in Node.js
 
 DevTools is a fun playground, but Node.js is way more useful. Let's create a new file in our project called `crawler.js` and start adding some basic crawling code. We'll start with the same boilerplate as with our original scraper, but this time, we'll download the HTML of <a href="https://demo-webstore.apify.org/" target="_blank">the demo site's main page</a>.
 

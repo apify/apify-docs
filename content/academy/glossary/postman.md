@@ -1,6 +1,6 @@
 ---
 title: Postman
-description: Learn about Postman, a simple yet super valuable tool for testing requests and proxies when building scalable web-scrapers.
+description: Learn about Postman, a simple yet super valuable tool for testing requests and proxies when building scalable web scrapers.
 menuWeight: 6.1
 paths:
     - glossary/postman
@@ -18,19 +18,19 @@ The desktop app can be downloaded from its [official download page](https://www.
 
 There are four main sections to get familiar when starting out with Postman:
 
-### 1. Tabs
+### Tabs
 
 Multiple test endpoints/requests can be opened at one time, each of which will be held within its own tab.
 
-### 2. Address bar
+### Address bar
 
 The section in which you select the type of request to send, the URL of the request, and of course, send the request with the **Send Request** button.
 
-### 3. Request options
+### Request options
 
 This is a very useful section where you can view and edit structured query parameters, as well as specify any authorization parameters, headers, or payloads.
 
-### 4. Response
+### Response
 
 After sending a request, the response's body will be found here, along with its cookies and headers. The response body can be viewed in various formats - **Pretty-Print**, **Raw**, or **Preview**.
 

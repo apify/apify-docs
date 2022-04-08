@@ -1,12 +1,12 @@
 ---
-title: JS Rendering and Dynamic Pages
-description: Learn about dynamic pagees and dynamic content. What are they? How can we find out if a page is dynamic? How do we scrape dynamic content?
+title: JS rendering and dynamic pages
+description: Learn about dynamic pages and dynamic content. How can we find out if a page is dynamic? How do we programmatically scrape dynamic content?
 menuWeight: 2
 paths:
     - dynamic-pages-and-spas/js-rendering-and-dynamic-pages
 ---
 
-# [](#rendering-and-dynamic-pages) JS Rendering and Dynamic Pages
+# [](#rendering-and-dynamic-pages) JS rendering and dynamic pages
 
 In the [final lessons]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) of the _Web Scraping for Beginners_ module, we learned about the Apify SDK, which is a powerful library for writing reliable and efficient scrapers. We recommend reading up on those last two lessons in order to install the `apify` package and familiarize yourself with it before moving forward with this lesson.
 
