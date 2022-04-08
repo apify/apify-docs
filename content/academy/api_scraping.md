@@ -1,5 +1,5 @@
 ---
-title: API Scraping
+title: API scraping
 description: Learn all about how the professionals scrape various types of APIs with various configurations, parameters, and requirements.
 menuWeight: 2
 category: courses
@@ -7,7 +7,7 @@ paths:
 - api-scraping
 ---
 
-# API Scraping
+# API scraping
 
 API scraping is locating a website's API endpoints, and collecting the desired data directly from their API, as opposed to parsing the data from their rendered HTML pages.
 
@@ -27,7 +27,7 @@ A GraphQL API works differently from a standard API. All requests are `POST` req
 
 > **Note:** these concepts will be covered more in-depth later on, but it is good to be aware of them now.
 
-## [](#advantages) Advantages of API Scraping
+## [](#advantages) Advantages of API scraping
 
 ### 1. More reliable
 

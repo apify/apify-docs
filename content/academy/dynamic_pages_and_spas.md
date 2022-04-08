@@ -1,5 +1,5 @@
 ---
-title: Dynamic Pages and SPAs
+title: Dynamic pages and SPAs
 description: Learn all about how the professionals scrape various types of APIs with various configurations, parameters, and requirements.
 menuWeight: 3
 category: courses
