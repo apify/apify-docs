@@ -1,17 +1,17 @@
 ---
-title: Using Proxies
-description: Learn how to use and automagically rotate proxies in your scrapers by using the Apify SDK.
+title: Using proxies
+description: Learn how to use and automagically rotate proxies in your scrapers by using the Apify SDK, and a bit about how to easily obtain pools of proxies.
 menuWeight: 1
 category: courses
 paths:
 - anti-scraping/proxies/using-proxies
 ---
 
-# [](#using-proxies) Using Proxies
+# [](#using-proxies) Using proxies
 
-In the [Web-Scraping for Beginners]({{@link web_scraping_for_beginners.md}}) course, we learned about the power of the Apify SDK, and how it can streamline the development process of web-crawlers. You've already seen how powerful the `apify` package is; however, what you've been exposed to thus far is only the tip of the iceberg.
+In the [**Web scraping for beginners**]({{@link web_scraping_for_beginners.md}}) course, we learned about the power of the Apify SDK, and how it can streamline the development process of web crawlers. You've already seen how powerful the `apify` package is; however, what you've been exposed to thus far is only the tip of the iceberg.
 
-Because proxies are so widely used in the scraping world, we at Apify have equipped our SDK with features which make it easy to implement them in an effective way. One of the main functionalities that comes baked into the SDK is proxy rotation, which is when each request is sent through a different proxy from a proxy-pool.
+Because proxies are so widely used in the scraping world, we at Apify have equipped our SDK with features which make it easy to implement them in an effective way. One of the main functionalities that comes baked into the SDK is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
 
 ## [](#implementing-proxies) Implementing proxies in a scraper
 
@@ -59,7 +59,7 @@ const crawler = new Apify.CheerioCrawler({
 await crawler.run();
 ```
 
-In order to implement a proxy-pool, we will first need some proxies. We'll quickly use the free [proxy scraper](https://apify.com/mstephen190/proxy-scraper) on the Apify platform to get our hands on some quality proxies. Next, we'll need to set up a [`proxyConfiguration`](https://sdk.apify.com/docs/api/proxy-configuration#docsNav) and configure it with our custom proxies, like so:
+In order to implement a proxy pool, we will first need some proxies. We'll quickly use the free [proxy scraper](https://apify.com/mstephen190/proxy-scraper) on the Apify platform to get our hands on some quality proxies. Next, we'll need to set up a [`proxyConfiguration`](https://sdk.apify.com/docs/api/proxy-configuration#docsNav) and configure it with our custom proxies, like so:
 
 ```JavaScript
 const proxyConfiguration = await Apify.createProxyConfiguration({
@@ -103,7 +103,7 @@ That's it! The crawler will now automatically rotate through the proxies we prov
 
 ## [](#debugging-proxies) A bit about debugging proxies
 
-At the time of writing, our above scraper utilizing our custom proxy-pool is working just fine. But how can we check that the scraper is for sure using the proxies we provided it, and more importantly, how can we debug proxies within our scraper? Luckily, within the same `context` object we've been destructuring `$` and `request` out of, there is a `proxyInfo` key as well. `proxyInfo` is an object which includes useful data about the proxy which was used to make the request.
+At the time of writing, our above scraper utilizing our custom proxy pool is working just fine. But how can we check that the scraper is for sure using the proxies we provided it, and more importantly, how can we debug proxies within our scraper? Luckily, within the same `context` object we've been destructuring `$` and `request` out of, there is a `proxyInfo` key as well. `proxyInfo` is an object which includes useful data about the proxy which was used to make the request.
 
 ```JavaScript
 const crawler = new Apify.CheerioCrawler({
@@ -125,7 +125,7 @@ After modifying your code to log `proxyInfo` to the console and running the scra
 
 These logs confirm that our proxies are being used and rotated successfully by the Apify SDK, and can also be used to debug slow or broken proxies.
 
-## [](#higher-level-proxy-scraper) Higher level proxy scraping
+## [](#higher-level-proxy-scraping) Higher level proxy scraping
 
 Though we will discuss it more in-depth in future courses, it is still important to mention that the Apify SDK has integrated support for [Apify Proxy](https://apify.com/proxy), which is a service that provides access to pools of both residential and datacenter IP addresses. A `proxyConfiguration` using Apify Proxy might look something like this:
 
@@ -136,7 +136,7 @@ const proxyConfiguration = await Apify.createProxyConfiguration({
 });
 ```
 
-Notice that we didn't provide it a list of proxy URLs. This is because the `SHADER` group already serves as our proxy-pool (courtesy of Apify Proxy).
+Notice that we didn't provide it a list of proxy URLs. This is because the `SHADER` group already serves as our proxy pool (courtesy of Apify Proxy).
 
 ## More lessons to come
 

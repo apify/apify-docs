@@ -7,7 +7,7 @@ paths:
 - anti-scraping/proxies
 ---
 
-# [](#proxies) Proxies
+# [](#about-proxies) Proxies
 
 A proxy server provides a gateway between users and the internet, to be more specific in our case - between the crawler and the target website.
 
@@ -31,9 +31,9 @@ If authentication (a username and a password) is required, the format will look 
 http://USERNAME:PASSWORD@proxy.example.com:8080
 ```
 
-## [](#proxy-rotation) Proxy Rotation
+## [](#proxy-rotation) Proxy rotation
 
-Web-scrapers can implement a method called "proxy rotation" to **rotate** the IP addresses they use to access websites. Each request can be assigned a different IP address, which makes it appear as if they are all coming from different users in different location. This greatly enhances performance, and is a major factor when it comes to making a web-scraper appear more human.
+Web scrapers can implement a method called "proxy rotation" to **rotate** the IP addresses they use to access websites. Each request can be assigned a different IP address, which makes it appear as if they are all coming from different users in different location. This greatly enhances performance, and is a major factor when it comes to making a web scraper appear more human.
 
 ## [](#next) Next up
 

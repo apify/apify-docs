@@ -1,5 +1,5 @@
 ---
-title: Cookies, Headers, and Tokens
+title: Cookies, headers, and tokens
 description: Learn about how some APIs require certain cookies, headers, and/or tokens to be present in a request in order for data to be received.
 menuWeight: 2
 paths:

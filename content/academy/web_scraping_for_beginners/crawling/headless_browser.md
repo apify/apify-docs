@@ -1,12 +1,12 @@
 ---
-title: Headless Browser
+title: Headless browsers
 description: Learn how to scrape the web with a headless browser using only a few lines of code. Chrome, Firefox, Safari, Edge - all are supported.
 menuWeight: 8
 paths:
 - web-scraping-for-beginners/crawling/headless-browser
 ---
 
-# [](#headless-browser) Headless Browser
+# [](#headless-browser) Headless browsers
 
 A headless browser is simply a browser that runs without a user interface (UI). This means that it's normally controlled by automated scripts. Headless browsers are very popular in scraping because they can help you render JavaScript or programmatically behave like a human user to prevent blocking. The two most popular libraries for controlling headless browsers are [Puppeteer](https://pptr.dev/) and [Playwright](https://playwright.dev/). The Apify SDK supports both.
 
@@ -97,7 +97,7 @@ Notice that we are also scraping a new piece of data - `image`. We were unable t
 
 Using Playwright in combination with Cheerio like this is only one of many ways how you can utilize Playwright (and Puppeteer) with the Apify SDK. In the advanced courses of the Academy, we will go deeper into using headless browsers for scraping and web automation (RPA) use-cases.
 
-## [](#running-headless) Running in Headless Mode
+## [](#running-headless) Running in headless mode
 
 We said that headless browsers didn't have a UI, but while scraping with the above scraper code, we're sure your screen was full of browser tabs. That's because in the Apify SDK, browsers run **headful** (with a UI) by default. This is useful for debugging and seeing what's going on in the browser. Once the scraper is complete, we switch it to **headless** mode using one of two methods:
 
@@ -117,7 +117,7 @@ $env:APIFY_HEADLESS=1; & node apify.js
 </marked-tab>
 ```
 
-### [](#headless-code) Scraper Code
+### [](#headless-code) Scraper code
 
 If you always want the scraper to run headless, it might be better to hardcode it in the source. To do that, we need to access [Playwright's launch options](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-option-headless). In the Apify SDK we can do that [in the `PlaywrightCrawler` constructor](https://sdk.apify.com/docs/typedefs/playwright-crawler-options#launchcontext).
 

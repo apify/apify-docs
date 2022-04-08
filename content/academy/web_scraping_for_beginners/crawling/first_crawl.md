@@ -1,12 +1,12 @@
 ---
-title: First Crawl
+title: First crawl
 description: Learn how to crawl the web using Node.js, Cheerio and an HTTP client. Collect URLs from pages and use them to visit more websites.
 menuWeight: 5
 paths:
     - web-scraping-for-beginners/crawling/first-crawl
 ---
 
-# [](#your-first-crawl) First Crawl
+# [](#your-first-crawl) First crawl
 
 In the previous lessons, we learned what crawling is and how to collect URLs from a page's HTML. The only thing that remains is to write the code - so let's get right to it!
 
@@ -63,7 +63,7 @@ for (const link of productsToScrape) {
 
 If you run the crawler from your terminal, it should print the titles.
 
-## [](#handling-errors) Handling Errors
+## [](#handling-errors) Handling errors
 
 The code above is correct, but it's not robust. If something goes wrong, it will crash. That something could be a network error, an internet connection error, or just that one of the websites you're trying to reach could simply be experiencing problems at that moment. Hitting any error like that would cause our current crawler to stop entirely, which means we would lose all the data it had collected so far.
 

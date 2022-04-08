@@ -1,16 +1,16 @@
 ---
-title: Filtering Links
+title: Filtering links
 description: When you collect links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.
 menuWeight: 3
 paths:
 - web-scraping-for-beginners/crawling/filtering-links
 ---
 
-# [](#filtering-links) Filtering Links
+# [](#filtering-links) Filtering links
 
 Web pages are full of links, but frankly, most of them are useless to us. There are two approaches to filtering links: Targeting the links we're interested in by using unique CSS selectors, and collecting all links and then using pattern matching to find the sought after URLs. In real scraping scenarios, both of these two approaches are often combined for the most effective URL filtering.
 
-## [](#css-filtering) Filtering With Unique CSS Selectors
+## [](#css-filtering) Filtering with unique CSS selectors
 
 In the previous lesson, we simply grabbed all the links from the HTML document.
 
@@ -23,7 +23,7 @@ $('a');
 </marked-tab>
 ```
 
-### [](#attribute-selector) Attribute Selector
+### [](#attribute-selector) Attribute selector
 
 That's not the only way to do it, however. Since we're interested in the `href` attributes, a first very reasonable filter is to exclusively target the `<a>` tags that have the `href` attribute (yes, anchor tags without the attribute can and do exist). You can do that by using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors" target="_blank">CSS attribute selector</a>.
 
@@ -40,7 +40,7 @@ Ensuring to always add the `[href]` part of the selector will save you from nast
 
 We only want the product links on this page, so we can limit the number of results by only targeting the links within the `main.fit` container to filter out some unwanted links (such as in the navbar), then further select any a tags with a `href` attribute containing `/product/`.
 
-### [](#descendant-selector) Descendant Selector
+### [](#descendant-selector) Descendant selector
 
 ```marked-tabs
 <marked-tab header="DevTools" lang="javascript">

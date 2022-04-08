@@ -1,14 +1,16 @@
 ---
-title: Rate-Limiting
-description: Learn about rate-limiting, a common tactic used by websites to avoid a large rate of requests from a single IP address.
+title: Rate-limiting
+description: Learn about rate-limiting, a common tactic used by websites to avoid a large and non-human rate of requests coming from a single IP address.
 menuWeight: 6.2
 paths:
     - glossary/rate-limiting
 ---
 
-# [](#rate-limiting) Rate-Limiting
+# [](#rate-limiting) Rate-limiting
 
-In the past, most websites had their own anti-scraping solutions, the most common of which was **IP address rate-limiting**. In recent years, the popularity of third-party specialized anti-scraping providers has dramatically increased, but a lot of websites still use rate-limiting to only allow a certain number of requests per second/minute/hour to be sent from a single IP; therefore, crawler requests have the potential of being blocked entirely quite quickly. Thus, in cases when a higher number of requests is expected for the crawler, using a proxy and rotating the IPs is essential to let the crawler run as smoothly as possible and avoid being blocked.
+When crawling a website, a web scraping bot will typically send many more requests from a single IP address than a human user could generate over the same period. Websites can easily monitor how many requests they receive from a single IP address, and block it or require a CAPTCHA test to continue making requests.
+
+In the past, most websites had their own anti-scraping solutions, the most common of which was IP address rate-limiting. In recent years, the popularity of third-party specialized anti-scraping providers has dramatically increased, but a lot of websites still use rate-limiting to only allow a certain number of requests per second/minute/hour to be sent from a single IP; therefore, crawler requests have the potential of being blocked entirely quite quickly. Thus, in cases when a higher number of requests is expected for the crawler, using a proxy and rotating the IPs is essential to let the crawler run as smoothly as possible and avoid being blocked.
 
 ## [](#beyond-rate-limiting) Beyond rate-limiting
 

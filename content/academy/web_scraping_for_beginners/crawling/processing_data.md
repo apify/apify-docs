@@ -1,12 +1,12 @@
 ---
-title: Processing Data
+title: Processing data
 description: Learn how to process the data you scraped using the Apify SDK and how to convert JSON to Excel files using the Apify API.
 menuWeight: 9
 paths:
 - web-scraping-for-beginners/crawling/processing-data
 ---
 
-# [](#processing-data) Processing Data
+# [](#processing-data) Processing data
 
 From the previous lessons, we know two things:
 
@@ -15,7 +15,7 @@ From the previous lessons, we know two things:
 
 But when we look inside the folder, we see that there's A LOT of files, and we don't want to work with those manually. Fortunately, we can use the dataset itself to process the data.
 
-## [](#loading-data) Loading Dataset Data
+## [](#loading-data) Loading dataset data
 
 To access the default dataset, we first have to open it by calling the [`Apify.openDataset()`](https://sdk.apify.com/docs/api/apify#opendataset) function. We can then easily work with all the items in the dataset. Let's put the processing into a separate file in our project called `dataset.js`.
 
@@ -30,7 +30,7 @@ console.log(items.length);
 
 When we ran this code, having the results from our previous lessons in the `apify_storage` folder, it printed `32` for us. Your number may differ.
 
-## [](#filtering-data) Filtering Data
+## [](#filtering-data) Filtering data
 
 Let's say we wanted to print the title for each product that is more expensive than $50. We'll also keep track of the products by price, and find out the most expensive one. There are no specific functions to do that, so we'll use plain JavaScript.
 
@@ -62,13 +62,13 @@ In our case, the most expensive product was the Macbook Pro. Surprising? Heh, no
 
 We promised that you won't need an Apify account for anything in this course, and it's true. You can use the skills learned in the [Save to CSV lesson]({{@link web_scraping_for_beginners/data_collection/save_to_csv.md}}) to save the dataset to a CSV. Just use the loading code from above, plug it in there and then open the CSV in Excel. However, we really want to show you this neat trick. It won't cost you anything, we promise, and it's a cool and fast way to convert datasets to any format.
 
-### [](#get-apify-token) Getting an Apify Token
+### [](#get-apify-token) Getting an Apify token
 
 First, you need a free Apify account. To get one, head to the [sign-up form](https://console.apify.com/sign-up) and complete the process. Once you have created the account and verified your email, go to the [integration settings](https://console.apify.com/account#/integrations), where you can copy your personal API token. This will give you access to the Apify API.
 
 ![copy personal API token in Apify console]({{@asset web_scraping_for_beginners/crawling/images/api-token.webp}})
 
-### [](#upload-dataset) Upload your dataset to Apify
+### [](#upload-dataset) Uploading your dataset to Apify
 
 Now that you have a token, you can upload your local dataset to the Apify platform. It's super easy. Let's reuse some of our earlier code and add more.
 
