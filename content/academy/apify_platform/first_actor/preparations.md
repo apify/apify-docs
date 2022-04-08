@@ -8,7 +8,7 @@ paths:
 
 # [](#preparations) Preparations
 
-Before developing your first actor, ....
+Before developing your first actor, there are some things....
 
 <!-- Preparing your mind -->
 
