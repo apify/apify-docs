@@ -2,7 +2,6 @@
 title: Using proxies
 description: Learn how to use and automagically rotate proxies in your scrapers by using the Apify SDK, and a bit about how to easily obtain pools of proxies.
 menuWeight: 1
-category: courses
 paths:
 - anti-scraping/proxies/using-proxies
 ---
@@ -15,7 +14,7 @@ Because proxies are so widely used in the scraping world, we at Apify have equip
 
 ## [](#implementing-proxies) Implementing proxies in a scraper
 
-Let's borrow some scraper code from the end of the [pro-scraping]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) lesson in our _Web Scraping for Beginners_ course and paste it into a new file called `proxies.js`. This code enqueues all of the product links on [demo-webstore.apify.org](https://demo-webstore.apify.org)'s on-sale page, then makes a request to each product page and scrapes data about each one:
+Let's borrow some scraper code from the end of the [pro-scraping]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) lesson in our **Web Scraping for Beginners** course and paste it into a new file called `proxies.js`. This code enqueues all of the product links on [demo-webstore.apify.org](https://demo-webstore.apify.org)'s on-sale page, then makes a request to each product page and scrapes data about each one:
 
 ```JavaScript
 // proxies.js

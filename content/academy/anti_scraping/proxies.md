@@ -2,7 +2,6 @@
 title: Proxies
 description: Learn all about proxies, how they work, and how they can be leveraged in a scraper to avoid blocking and other anti-scraping tactics.
 menuWeight: 4.1
-category: courses
 paths:
 - anti-scraping/proxies
 ---
