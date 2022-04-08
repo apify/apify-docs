@@ -1,5 +1,5 @@
 ---
-title: Locating API Endpoints
+title: Locating API endpoints
 description: Learn how to effectively locate a website's API endpoints, and learn how to use them to get the data you want faster and more reliably.
 menuWeight: 1
 paths:

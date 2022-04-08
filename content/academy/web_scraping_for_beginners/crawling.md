@@ -13,7 +13,7 @@ Welcome to the second section of our **Web scraping for beginners** course. In t
 
 In this section, we will take a look at moving between web pages, which we call **crawling**. We will collect browsing data for all the countries in the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>. To do that, we need to crawl the individual country websites.
 
-## [](#how-to) How to crawl?
+## [](#how-to-crawl) How do you crawl?
 
 Crawling websites is a fairly straightforward process. We'll start by opening the first web page and collecting all the links (URLs) that lead to the other pages we want to visit. To do that, we'll use the skills learned in the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}}) course. We'll add some extra filtering to make sure we only get the correct URLs. Then, we'll save those URLs, so in case something happens to our scraper, we won't have to collect them again. And, finally, we will visit those URLs one by one.
 

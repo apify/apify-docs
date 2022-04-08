@@ -44,7 +44,7 @@ for (const product of products) {
 
 After you run this script, you should see data of all the 32 products printed in your terminal. Don't forget about the `const element = $(product);` line. Without wrapping each `product` with `$()`, we wouldn't be able to call the `.text()` function on it.
 
-## [](#collecting-data) Collecting Final Data
+## [](#collecting-data) Collecting final data
 
 Now, we just need to repeat the process from the DevTools modules and add individual data point collection to the loop. From those lessons, we know that each of our product container `<a>` tags includes an `<h3>` element including the title, and a `<div>` price element matching the selector `div[class*="price"]`.
 
