@@ -1,6 +1,6 @@
 ---
 title: Organization account
-description: Create a specialized account for your organization to encourage collaboration and manage permissions efficiently. Convert an existing account or create one from scratch.
+description: Create a specialized account for your organization to encourage collaboration and manage permissions. Convert an existing account, or create one from scratch.
 menuWeight: 12.1
 paths:
     - access-rights/organization-account

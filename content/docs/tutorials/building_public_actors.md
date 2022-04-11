@@ -1,6 +1,6 @@
 ---
 title: Building public actors
-description: Find out the flow for building, publishing, and maintaining public actors on the Apify platform.
+description: Learn about the flow for building, publishing, and maintaining public actors that on the Apify platform. Also learn about how to monetize your actors.
 menuWeight: 3.3
 paths:
     - tutorials/building-public-actors

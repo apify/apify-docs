@@ -1,6 +1,6 @@
 ---
 title: Running actors
-description: Start your actors from the Apify Console or via API. Learn about actor lifecycles, how to specify settings and version, provide input and resurrect finished runs.
+description: Start an actor from the Apify Console or via API. Learn about actor lifecycles, how to specify settings and version, provide input and resurrect finished runs.
 menuTitle: Running
 menuWeight: 7.1
 paths:
