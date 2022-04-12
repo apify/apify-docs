@@ -26,7 +26,7 @@ This will install the CLI via NPM.
 
 After the CLI has finished installing, navigate to the [Apify console](https://console.apify.com) and click on **Settings**. Then, within your account settings, click **Integrations**. The page should look like this:
 
-![Actor logs]({{@asset apify_platform/images/settings-integrations.webp}})
+![Integrations tab on the Apify Platform]({{@asset apify_platform/images/settings-integrations.webp}})
 
 > We've censored out the **User ID** in the image because it is private information which should not be shared with anyone who is not trusted. The same goes for your **Personal API Token**.
 

@@ -46,6 +46,10 @@ We'll be using the [`cheerio`](https://www.npmjs.com/package/cheerio) package a 
 
 In one of the later lessons, we'll be learning how to integrate our actor on the Apify platform with a Github repository. For this, you'll need to understand at least the basics of [Git](https://git-scm.com/docs). Here's a [great tutorial](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners) to help you get started with Git.
 
+## [](#docker) Docker
+
+Docker is a massive topic on its own, but don't be worried! We only expect you to know and understand the very basics of it, which can be learned about in [this short article](https://docs.docker.com/get-started/overview/) (10 minute read).
+
 ## [](#next) Next up
 
 [Next up]({{@link apify_platform/first_actor/apify_sdk.md}}), we'll be learning about the most important tool in your actor-developemt toolbelt: The **Apify SDK**.
