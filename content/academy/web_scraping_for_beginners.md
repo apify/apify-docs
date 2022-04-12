@@ -9,7 +9,7 @@ paths:
 
 # [](#welcome) Web scraping for beginners
 
-Welcome to **Web scraping for beginners**, a comprehensive and practical web scraping course that will take you from an absolute beginner to a successful web scraper developer. This course is sponsored by <a href="https://apify.com" target="_blank">Apify</a>, the web scraping and automation platform, but we will use only open-source technologies throughout all academy lessons. This means that the skills you learn will be applicable to any scraping project, and you'll be able to run your scrapers on any computer. No Apify account needed.
+Welcome to **Web scraping for beginners**, a comprehensive and practical web scraping course that will take you from an absolute beginner to a successful web scraper developer. This course is sponsored by [Apify](https://apify.com), the web scraping and automation platform, but we will use only open-source technologies throughout all academy lessons. This means that the skills you learn will be applicable to any scraping project, and you'll be able to run your scrapers on any computer. No Apify account needed.
 
 <!--If you would like to learn about the Apify platform and how it can help you build, run and scale your web scraping and automation projects, visit the Apify Academy, where we'll teach you all about our actors, proxies, API, scheduling, webhooks and much more. ONCE IT'S AVAILABLE-->
 
@@ -53,7 +53,7 @@ Other courses and lessons (coming soon) in the Academy:
   * Mobile app scraping
   * Overcoming result limits
 
-> We release course content as soon as we write it instead of launching it all at the same time much later. If you want to get notified about new lessons <a href="https://console.apify.com/sign-up" target="_blank">sign up for a free Apify account</a> to get our newsletters.
+> We release course content as soon as we write it instead of launching it all at the same time much later. If you want to get notified about new lessons [sign up for a free Apify account](https://console.apify.com/sign-up) to get our newsletters.
 
 ## [](#requirements) Requirements
 
