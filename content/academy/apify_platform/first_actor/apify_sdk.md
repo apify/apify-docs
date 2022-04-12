@@ -3,7 +3,7 @@ title: Apify SDK
 description: Learn about the Apify SDK, as well as some semi-advanced topics which will be important throughout the next lessons in this section of the course.
 menuWeight: 2
 paths:
-- apify-platform/first-actor/apify-sdk
+    - apify-platform/first-actor/apify-sdk
 ---
 
 ## [](#the-apify-sdk) The Apify SDK
@@ -55,7 +55,7 @@ Each lesson in this section will have a short quiz to help you test your knowled
 
 1. When using Puppeteer or Playwright, how can you still use jQuery with the SDK?
 2. What is the main difference between Cheerio and jQuery?
-3. In which situations would you use CheerioCrawler? What are its limitations?
+3. In which situations would you use CheerioCrawler? What are its limitations
 4. Using Puppeteer, how can you extract data from a page without using jQuery/Cheerio?
 5. What is the default concurrency the SDK uses? Why this number?
 6. What is the difference between the RequestList and the RequestQueue?
@@ -86,28 +86,28 @@ In the end, we'd like our final output to look something like this:
 ```JSON
 [
     {
-		"title": "Apple iPhone 6 a1549 16GB Space Gray Unlocked (Certified Refurbished)",
-		"asin": "B07P6Y7954",
-		"itemUrl": "https://www.amazon.com/Apple-iPhone-Unlocked-Certified-Refurbished/dp/B00YD547Q6/ref=sr_1_2?s=wireless&ie=UTF8&qid=1539772626&sr=1-2&keywords=iphone",
-		"description" : "What's in the box: Certified Refurbished iPhone 6 Space Gray 16GB Unlocked , USB Cable/Adapter. Comes in a Generic Box with a 1 Year Limited Warranty.",
-		"keyword": "iphone",
+        "title": "Apple iPhone 6 a1549 16GB Space Gray Unlocked (Certified Refurbished)",
+        "asin": "B07P6Y7954",
+        "itemUrl": "https://www.amazon.com/Apple-iPhone-Unlocked-Certified-Refurbished/dp/B00YD547Q6/ref=sr_1_2?s=wireless&ie=UTF8&qid=1539772626&sr=1-2&keywords=iphone",
+        "description": "What's in the box: Certified Refurbished iPhone 6 Space Gray 16GB Unlocked , USB Cable/Adapter. Comes in a Generic Box with a 1 Year Limited Warranty.",
+        "keyword": "iphone",
         "seller name": "Blutek Intl",
-		"offer": "$162.97",
-
+        "offer": "$162.97"
     },
-	{
-		"title": "Apple iPhone 6 a1549 16GB Space Gray Unlocked (Certified Refurbished)",
-		"asin": "B07P6Y7954",
-		"itemUrl": "https://www.amazon.com/Apple-iPhone-Unlocked-Certified-Refurbished/dp/B00YD547Q6/ref=sr_1_2?s=wireless&ie=UTF8&qid=1539772626&sr=1-2&keywords=iphone",
-		"description" : "What's in the box: Certified Refurbished iPhone 6 Space Gray 16GB Unlocked , USB Cable/Adapter. Comes in a Generic Box with a 1 Year Limited Warranty.",
-		"keyword": "iphone",
-		"sellerName": "PLATINUM DEALS",
-		"offer": "$169.98",
+    {
+        "title": "Apple iPhone 6 a1549 16GB Space Gray Unlocked (Certified Refurbished)",
+        "asin": "B07P6Y7954",
+        "itemUrl": "https://www.amazon.com/Apple-iPhone-Unlocked-Certified-Refurbished/dp/B00YD547Q6/ref=sr_1_2?s=wireless&ie=UTF8&qid=1539772626&sr=1-2&keywords=iphone",
+        "description": "What's in the box: Certified Refurbished iPhone 6 Space Gray 16GB Unlocked , USB Cable/Adapter. Comes in a Generic Box with a 1 Year Limited Warranty.",
+        "keyword": "iphone",
+        "sellerName": "PLATINUM DEALS",
+        "offer": "$169.98"
     },
-	{
-		"...": "..."
-	}
+    {
+        "...": "..."
+    }
 ]
+
 ```
 
 > The `asin` is the ID of the product, which is data available on the Amazon website.
