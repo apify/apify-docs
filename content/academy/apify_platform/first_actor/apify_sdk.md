@@ -6,7 +6,7 @@ paths:
     - apify-platform/first-actor/apify-sdk
 ---
 
-## [](#the-apify-sdk) The Apify SDK
+# [](#the-apify-sdk) The Apify SDK
 
 The SDK is the most fundamental part to developing for the Apify platform. It is an open-source JavaScript library built on top of these technologies:
 
@@ -115,10 +115,6 @@ In the end, we'd like our final output to look something like this:
 Each of the items in the dataset will represent a scraped offer, and will have the same `title`, `asin`, `itemUrl`, and `description`. The offer-specific fields will be `sellerName` and `offer`.
 
 After the scrape has completed, we'll programmatically call a [public actor which sends emails](https://apify.com/apify/send-mail) to send ourselves an email with a publicly viewable link to the actor's final dataset.
-
-## [](#quick-note) Quick note
-
-When you're locally test-running your code in the next lesson, always be sure to use the `apify run` command with the `-p` flag. This `-p` stands for **Purge**, which will automatically purge all storages before running the actor again.
 
 ## [](#next) Next up
 

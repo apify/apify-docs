@@ -44,7 +44,9 @@ Success: You are logged in to Apify as YOUR_USERNAME!
 
 You've successfully logged in!
 
-<!-- Talk about important commands inside of the first_actor lessons like apify run, and what's the -p flag etc. -->
+## [](#quick-note) Quick note
+
+When you're locally test-running your code in the next lessons, always be sure to use the `apify run` command with the `-p` flag. This `-p` stands for **Purge**, which will automatically purge all storages before running the actor again. Now that you have the Apify CLI, you should no longer be using `node FILENAME.js` to run your projects with the Apify SDK.
 
 ## [](#next) Next up
 
