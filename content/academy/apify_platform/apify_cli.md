@@ -8,7 +8,7 @@ paths:
 
 # [](#the-cli) Apify CLI
 
-The Apify CLI helps you create, develop, build and run Apify actors, and manage the Apify cloud platform from any computer. It can be used to automatically generate the boilerplate for different types of projects, remotely call actors on the platform, and run your own projects. The Apify CLI will become your best friend while developing locally with the [Apify SDK](https://sdk.apify.com/).
+The <a href="https://docs.apify.com/cli" target="_blank">Apify CLI</a> helps you create, develop, build and run Apify actors, and manage the Apify cloud platform from any computer. It can be used to automatically generate the boilerplate for different types of projects, remotely call actors on the platform, and run your own projects. The Apify CLI will become your best friend while developing locally with the [Apify SDK](https://sdk.apify.com/).
 
 ## [](#installing) Installing
 
@@ -24,7 +24,7 @@ This will install the CLI via NPM.
 
 ## [](#logging-in) Logging in
 
-After the CLI has finished installing, navigate to the [Apify console](https://console.apify.com) and click on **Settings**. Then, within your account settings, click **Integrations**. The page should look like this:
+After the CLI has finished installing, navigate to the [Apify Console](https://console.apify.com) and click on **Settings**. Then, within your account settings, click **Integrations**. The page should look like this:
 
 ![Integrations tab on the Apify Platform]({{@asset apify_platform/images/settings-integrations.webp}})
 
