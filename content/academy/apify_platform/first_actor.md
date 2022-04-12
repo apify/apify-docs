@@ -1,6 +1,6 @@
 ---
 title: First actor
-description: What is an actor? How do we create them? In this section, learn how to create a scalable actor from scratch and publish it to the Apify platform where it can be available to the world.
+description: What is an actor? How do we create them? Learn how to create an actor from scratch and publish it to the Apify platform, available to the world.
 menuWeight: 5.3
 paths:
 - apify-platform/first-actor

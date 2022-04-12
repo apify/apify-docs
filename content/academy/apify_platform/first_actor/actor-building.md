@@ -254,7 +254,7 @@ The `asin` parameter matches up with our product's ASIN, which means we can use 
 
 Here's what this page looks like:
 
-![View offers page]({{@asset apify_platform/first_actor/images/view-offers-page.webp}})
+![View offers page]({{@asset apify_platform/first_actor/images/offers-page.webp}})
 
 Wow, that's ugly. But for our scenario, this is really great. When we click the **View offers** button, we usually have to wait for the offers to load and render, which would mean we could have to switch our entire crawler to a **PuppeteerCrawler** or **PlaywrightCrawler**. The data on this page we've just found appears to be loaded statically, which means we can still use CheerioCrawler and keep the scraper as efficient as possible 😎
 
