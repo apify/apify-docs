@@ -1,5 +1,5 @@
 ---
-title: Apify SDK
+title: Apify SDK introduction
 description: Learn about the Apify SDK, as well as some semi-advanced topics which will be important throughout the next lessons in this section of the course.
 menuWeight: 2
 paths:
@@ -122,4 +122,4 @@ When you're locally test-running your code in the next lesson, always be sure to
 
 ## [](#next) Next up
 
-In the next lesson, we'll be solely focusing on tackling the task outlined above. It's a large task, but don't worry, we'll be doing it together! This is the largest part of the **First actor** section, so after you complete this, you'll be a total rockstar! 🎸
+In the [next lesson]({{@link apify_platform/first_actor/actor_building.md}}), we'll be solely focusing on tackling the task outlined above. It's a large task, but don't worry, we'll be doing it together! This is the largest part of the **First actor** section, so after you complete this, you'll be a total rockstar! 🎸
