@@ -1,6 +1,6 @@
 ---
 title: Actor building
-description: Start building your very first actor. With all of the code provided right within the lesson, you can learn advanced scraping techniques by coding along!
+description: Build your very first actor. With all of the code provided right within the lesson, you can learn advanced scraping techniques by coding along!
 menuWeight: 3
 paths:
     - apify-platform/first-actor/actor-building
@@ -455,6 +455,7 @@ If you remember from our project's requirements outlined in the previous lesson,
 Let's add a bit of code to the end of our actor to send this email:
 
 ```JavaScript
+// ...
 log.info('Starting the crawl.');
 await crawler.run();
 log.info('Crawl finished.');
@@ -470,21 +471,22 @@ await Apify.call('apify/send-mail', {
 });
 
 log.info('Finished.');
+//...
 ```
 
-> Refer to <a href="https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset" target="_blank">this section</a> of the API documentation to understand how we came up with this public dataset URL
+> Refer to [this section](https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset) of the API documentation to understand how we came up with this public dataset URL
 
 `Apify.openDataset()` with no arguments passed to it opens up the default dataset, which we've been using. In future lessons, we'll be discussing the differences between named and unnamed storage.
 
 ## [](#pushing-to-the-platform) Pushing to the platform
 
-You can push your actor to the platform by running `apify push` in terminal. Once it says it's completed, return back to the **Actors** section in your [Apify Console](https://console.apify.com). You should see that **demo-actor** is now apart of the list. The only problem is that when we click on it, it doesn't seem to support a **keyword** input! Instead, we seen this:
+You can push your actor to the platform by running `apify push` in terminal. Once it says it's completed, return back to the **Actors** section in your [Apify Console](https://console.apify.com). You should see that **demo-actor** is now apart of the list. The only problem is that when we click on it, it doesn't seem to support a **keyword** input! Instead, we see this:
 
 ![Forgot to configure input schema]({{@asset apify_platform/first_actor/images/bad-schema.webp}})
 
 This is problematic, because our actor is expecting an input value specifically with the key of `keyword`.
 
-The reason this has happened is because we forgot to configure our <a href="https://docs.apify.com/actors/development/input-schema" target="_blank">input schema</a>. Heading back to our project, let's open up the **INPUT_SCHEMA.json** file and modify it to look like this:
+The reason this has happened is because we forgot to configure our [input schema](https://docs.apify.com/actors/development/input-schema). Heading back to our project, let's open up the **INPUT_SCHEMA.json** file and modify it to look like this:
 
 ```JSON
 {
@@ -513,4 +515,4 @@ Let's try it out now! Input **iphone** into the box labeled **keyword**, click *
 
 ## [](#next) Next up
 
-Whew, that was quite the lesson!
+Whew, that was quite the lesson! If you've made it up to this point, you're a total rockstart! In the [next one]({{@link apify_platform/first_actor/actor_building.md}}), you'll be learning some more advanced details about actors, as well as how to utilize webhooks.
