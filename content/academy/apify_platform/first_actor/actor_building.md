@@ -6,7 +6,7 @@ paths:
     - apify-platform/first-actor/actor-building
 ---
 
-## [](#setup) Setup
+# [](#setup) Setup
 
 The Apify CLI makes it extremely easy for us to set up a project and hit the ground running. Navigate to the directory you'd like your project's folder to live, then open up a terminal instance and run the following command:
 
