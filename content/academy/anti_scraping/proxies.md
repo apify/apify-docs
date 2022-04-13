@@ -10,7 +10,7 @@ paths:
 
 A proxy server provides a gateway between users and the internet, to be more specific in our case - between the crawler and the target website.
 
-Many websites have [rate-limiting]({{@link glossary/concepts/rate_limiting.md}}) set up, which is when a website **limits** the **rate** at which requests can be sent from a single IP address. In cases when a higher number of requests is expected for the crawler - using a proxy is essential to let the crawler run as smoothly as possible and avoid being blocked.
+Many websites have [rate-limiting]({{@link glossary/rate_limiting.md}}) set up, which is when a website **limits** the **rate** at which requests can be sent from a single IP address. In cases when a higher number of requests is expected for the crawler - using a proxy is essential to let the crawler run as smoothly as possible and avoid being blocked.
 
 Fixing rate-limiting issues is only the tip of the iceberg of what proxies can do for your scrapers, though. By implementing proxies properly, you can successfuly avoid the majority of anti-scraping measures listed in the [previous lesson]({{@link anti_scraping.md}}).
 
