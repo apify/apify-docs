@@ -10,7 +10,7 @@ paths:
 
 When you open a website in a browser, the browser first downloads the page's initial HTML. To do the same thing with Node.js, we will install a program - an NPM module - to help us with it. NPM modules are installed using `npm`, which is another program, automatically installed with Node.js.
 
-> <a href="https://www.npmjs.com/" target="_blank">NPM</a> has a huge collection of open-source libraries for Node.js. You can (and you should) utilize it to save time and tap into the amazing open-source community around JavaScript and Node.js.
+> [NPM](https://www.npmjs.com/) has a huge collection of open-source libraries for Node.js. You can (and you should) utilize it to save time and tap into the amazing open-source community around JavaScript and Node.js.
 
 
 ## [](#creating-a-project) Create a new NPM project
@@ -35,7 +35,7 @@ Node.js and NPM support two types of projects, let's call them legacy and modern
 
 ![Update package.json with VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-type-module.webp}})
 
-> If you want to learn more about JSON and its syntax, we recommend <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON" target="_blank">this tutorial on MDN</a>.
+> If you want to learn more about JSON and its syntax, we recommend [this tutorial on MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON).
 
 ## [](#install-libraries) Installing necessary libraries
 
@@ -45,9 +45,9 @@ Now that we have a project set up, we can install NPM modules into the project. 
 npm install --save got-scraping cheerio
 ```
 
-<a href="https://github.com/apify/got-scraping" target="_blank">**got-scraping**</a> is a library that's made especially for scraping and downloading page's HTML. It's based on the <a href="https://github.com/sindresorhus/got" target="_blank">very popular **got**</a> library, which means any features of **got** are also available in **got-scraping**. More precisely, **got** and **got-scraping** are HTTP clients. To learn more about HTTP, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP" target="_blank">visit this MDN tutorial</a>.
+[**got-scraping**](https://github.com/apify/got-scraping) is a library that's made especially for scraping and downloading page's HTML. It's based on the very popular [**got** library](https://github.com/sindresorhus/got), which means any features of **got** are also available in **got-scraping**. More precisely, **got** and **got-scraping** are HTTP clients. To learn more about HTTP, [visit this MDN tutorial](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP).
 
-<a href="https://github.com/cheeriojs/cheerio" target="_blank">Cheerio</a> is a very popular Node.js library for parsing (processing) HTML. It is a replica of probably the most popular JavaScript library of all time -<a href="https://jquery.com/" target="_blank">JQuery</a>. We can't use JQuery in Node.js because it only works in the browser, so we replace it with Cheerio, which is exactly the same.
+[Cheerio](https://github.com/cheeriojs/cheerio) is a very popular Node.js library for parsing (processing) HTML. It is a replica of probably the most popular JavaScript library of all time - [jQuery](https://jquery.com/). We can't use jQuery in Node.js because it only works in the browser, so we replace it with Cheerio, which is exactly the same.
 
 ## [](#testing) Test everything
 

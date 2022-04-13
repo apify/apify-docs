@@ -12,7 +12,7 @@ Finally we have everything ready to start scraping! Yes, the setup is a bit daun
 
 ## [](#downloading-html) Downloading HTML
 
-We will use the `got-scraping` library to download the HTML of <a href="https://demo-webstore.apify.org/search/on-sale" target="_blank">Fakestore's on-sale products page</a>. Careful, the `import` statement is a little different than in the previous lesson.
+We will use the `got-scraping` library to download the HTML of [Fakestore's on-sale products page](https://demo-webstore.apify.org/search/on-sale). Careful, the `import` statement is a little different than in the previous lesson.
 
 ```JavaScript
 // main.js
@@ -49,7 +49,7 @@ When you run the above script, the **Fakestore** title will be printed to the co
 
 First, we loaded the downloaded `html` into `cheerio` using the `load()` function. This created a new function, conventionally named `$`, which allows us to work with the loaded HTML. Then we called `$('title')`, which found the `<title>` element by using the `title` CSS selector. Finally, we collected the text from the element using the `.text()` function and printed it to the console.
 
-> `$('title')` is very similar to calling `document.querySelector('title')` in the browser and `element.text()` is similar to `element.textContent` from the earlier DevTools lessons. <a href="https://github.com/cheeriojs/cheerio#readme" target="_blank">Visit the cheerio documentation</a> to learn more about its syntax, which is the same as JQuery syntax.
+> `$('title')` is very similar to calling `document.querySelector('title')` in the browser and `element.text()` is similar to `element.textContent` from the earlier DevTools lessons. [Visit the cheerio documentation](https://github.com/cheeriojs/cheerio#readme) to learn more about its syntax, which is the same as JQuery syntax.
 
 ## [](#next) Next up
 

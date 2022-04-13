@@ -8,7 +8,7 @@ paths:
 
 # [](#finish-scraper) Finish Node.js scraper
 
-In the first part of the Node.js tutorial we downloaded the HTML of our <a href="https://demo-webstore.apify.org/search/on-sale" target="_blank">tutorial e-commerce site</a> and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}) lessons and finish our scraper.
+In the first part of the Node.js tutorial we downloaded the HTML of our [tutorial e-commerce site](https://demo-webstore.apify.org/search/on-sale) and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}) lessons and finish our scraper.
 
 ## [](#querying-with-cheerio) Querying data with Cheerio
 
@@ -89,7 +89,7 @@ for (const product of products) {
 console.log(results);
 ```
 
-The main difference is that we used the <a href="https://api.jquery.com/find/" target="_blank">`.find()`</a> function to select our `h3` and `div[class*="price"]` elements. If you find the differences confusing, don't worry about it. It will begin to feel very natural after a bit of practice. The final scraper code looks like this:
+The main difference is that we used the [`.find()`](https://api.jquery.com/find/) function to select our `h3` and `div[class*="price"]` elements. If you find the differences confusing, don't worry about it. It will begin to feel very natural after a bit of practice. The final scraper code looks like this:
 
 ```JavaScript
 // main.js
