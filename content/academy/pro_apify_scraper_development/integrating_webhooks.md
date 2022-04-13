@@ -177,8 +177,6 @@ Additionally, we should be able to see that our **filter-actor** was run, and ha
 
 ![Dataset preview]({{@asset pro_apify_scraper_development/images/dataset-preview.webp}})
 
-## [](#wrap-up) Wrap up
+## [](#next) Next up
 
-In the past few lessons, you've learned how to build an actor from scratch, how to publish an actor, and how to integrate webhooks into your actor. You've also learned about the two main ways to call actors programmatically - through the Apify API, and through the Apify SDK (with `Apify.call()`).
-
-That's all the lessons within this module for now, but more will come very soon!
+This course's [next lesson]({{@link pro_apify_scraper_development/managing_source_code.md}}) is brief, but discusses a very important topic: managing your code, and storing it in a safe place.
