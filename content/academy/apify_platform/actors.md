@@ -1,12 +1,12 @@
 ---
-title: First actor
-description: What is an actor? How do we create them? Learn how to create an actor from scratch and publish it to the Apify platform, available to the world.
+title: Actors
+description: What is an actor? How do we create them? Learn the basics of what actors are, how they work, and try out an actor yourself right on the Apify platform!
 menuWeight: 5.3
 paths:
-- apify-platform/first-actor
+- apify-platform/actors
 ---
 
-# [](#first-actor) First actor
+# [](#actors) Actors
 
 After you've followed the **Getting started** and **Apify CLI** lessons, and familiarized yourself with the Apify SDK in [**Web scraping for beginners**]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}), you're ready to start writing actors! But first, let's discuss what an actor is, and a bit about how they work.
 
@@ -38,8 +38,8 @@ While still on the platform, click on the tab with the **< >** icon which says *
 
 ![The "Actors" tab on the Apify platform]({{@asset apify_platform/images/actors-tab.webp}})
 
-Now that you know the basics of what actors are and how to use them, it's time to develop **an actor of your own**!
+Now that you know the basics of what actors are and how to use them, it's almost time to develop **an actor of your own**!
 
 ## [](#next) Next up
 
-Our [first lesson]({{@link apify_platform/first_actor/preparations.md}}) will prepare your knowledge for actor development to ensure that the development process will go as smoothly as possible.
+In future lessons, we will be learning about how to easily build an actor on the Apify platform from templates, as well as how to quickly turn your existing code on Github or Gitlab into a monetizable actor!

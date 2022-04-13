@@ -50,4 +50,4 @@ When you're locally test-running your code in the next lessons, always be sure t
 
 ## [](#next) Next up
 
-In our next section, we'll learn about something super exciting - **actors**. Actors are the living and breathing core of the Apify platform, and are an extremely powerful concept. What are you waiting for? Let's jump [right into the next lesson]({{@link apify_platform/first_actor.md}})!
+In our next section, we'll learn about something super exciting - **actors**. Actors are the living and breathing core of the Apify platform, and are an extremely powerful concept. What are you waiting for? Let's jump [right into the next lesson]({{@link apify_platform/actors.md}})!

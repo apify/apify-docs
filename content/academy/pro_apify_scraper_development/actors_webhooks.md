@@ -1,9 +1,9 @@
 ---
 title: Webhooks & advanced actor overview
-description: Learn more advanced details about actors, how they work, and the default configurations they can take. Also learn how to integrate your 
-menuWeight: 4
+description: Learn more advanced details about actors, how they work, and the default configurations they can take. Also learn how to integrate your actor with webhooks.
+menuWeight: 6.3
 paths:
-    - apify-platform/first-actor/actors-webhooks
+    - pro-apify-scraper-development/actors-webhooks
 ---
 
 # [](#advanced-actors) Advanced actor overview
@@ -36,4 +36,4 @@ Once our Amazon actor has completed its run, we will, rather than sending an ema
 
 ## [](#next) Next up
 
-[Next up]({{@link apify_platform/first_actor/integrating_webhooks.md}}), we'll be building the actor described above, and integrating it with the actor we built last lesson with webhooks (don't worry, on the Apify platform, integrations are a walk in the park!).
+[Next up]({{@link pro_apify_scraper_development/integrating_webhooks.md}}), we'll be building the actor described above, and integrating it with the actor we built last lesson with webhooks (don't worry, on the Apify platform, integrations are a walk in the park!).
