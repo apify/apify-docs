@@ -6,7 +6,7 @@ paths:
     - pro-apify-scraper-development/actor-building
 ---
 
-# [](#setup) Setup
+# [](#actor-building) Actor building
 
 The Apify CLI makes it extremely easy for us to set up a project in the SDK and hit the ground running. Navigate to the directory you'd like your project's folder to live, then open up a terminal instance and run the following command:
 

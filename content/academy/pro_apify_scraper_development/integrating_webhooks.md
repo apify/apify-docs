@@ -6,7 +6,7 @@ paths:
     - pro-apify-scraper-development/integrating-webhooks
 ---
 
-# [](#setup) Setup
+# [](#integrating-webhooks) Integrating webhooks
 
 In this lesson we'll be writing a new actor and integrating it with our beloved Amazon scraping actor, but first, let's remove the code which sends ourselves an email so that we don't end up spamming ourselves when testing:
 
