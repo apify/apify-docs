@@ -8,7 +8,7 @@ paths:
 
 # [](#advanced-actors) Advanced actor overview
 
-Thus far, you've run actors on the platform, and written an actor of your own, which you published to the platform yourself using the Apify CLI; therefore, it's fair to say that you are becoming more familiar and comfortable with the concept of **actors**. Within this lesson, we'll take a more in-depth look at actors.
+Thus far, you've run actors on the platform and written an actor of your own, which you published to the platform yourself using the Apify CLI; therefore, it's fair to say that you are becoming more familiar and comfortable with the concept of **actors**. Within this lesson, we'll take a more in-depth look at actors.
 
 Take another look at the files within your project from the previous lesson. You'll notice that there is a **Dockerfile**. Every single actor has a Dockerfile (the actor's **Image**) which tells Docker how to spin up a container on the Apify platform which can successfully run the actor's code. "Apify Actors" is basically just a serverless platform that is running multiple Docker containers. For a deeper understanding of actor Dockerfiles, refer to the [Apify actor Dockerfile docs](https://sdk.apify.com/docs/guides/docker-images#example-dockerfile).
 
