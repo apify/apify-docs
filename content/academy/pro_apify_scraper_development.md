@@ -2,6 +2,7 @@
 title: Pro Apify scraper development
 description: After learning the basics of actors, learn to develop pro scrapers on the Apify platform with this advanced course, which covers what it takes to become a pro.
 menuWeight: 6
+category: courses
 paths:
 - pro-apify-scraper-development
 ---
