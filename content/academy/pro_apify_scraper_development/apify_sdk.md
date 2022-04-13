@@ -1,9 +1,9 @@
 ---
 title: Apify SDK introduction
 description: Learn about the Apify SDK, as well as some semi-advanced topics which will be important throughout the next lessons in this section of the course.
-menuWeight: 2
+menuWeight: 6.1
 paths:
-    - apify-platform/first-actor/apify-sdk
+    - pro-apify-scraper-development/apify-sdk
 ---
 
 # [](#the-apify-sdk) The Apify SDK
@@ -79,7 +79,7 @@ Our actor's input will look like this:
 
 The goal at hand is to scrape all of the products from the first page of results for whatever keyword was provided (for our test case, it will be **iphone**), then to scrape each offer of each product, and push the results to the dataset. For context, the offers for a product look like this:
 
-![Amazon product offers]({{@asset apify_platform/first_actor/images/product-offers.webp}})
+![Amazon product offers]({{@asset pro_apify_scraper_development/images/product-offers.webp}})
 
 In the end, we'd like our final output to look something like this:
 
@@ -118,4 +118,4 @@ After the scrape has completed, we'll programmatically call a [public actor whic
 
 ## [](#next) Next up
 
-In the [next lesson]({{@link apify_platform/first_actor/actor_building.md}}), we'll be solely focusing on tackling the task outlined above. It's a large task, but don't worry, we'll be doing it together! This is the largest part of the **First actor** section, so after you complete this, you'll be a total rockstar! 🎸
+In the [next lesson]({{@link pro_apify_scraper_development/actor_building.md}}), we'll be solely focusing on tackling the task outlined above. It's a large task, but don't worry, we'll be doing it together! This is the largest part of the **Pro Apify scraper development** section, so after you complete this, you'll be a total rockstar! 🎸

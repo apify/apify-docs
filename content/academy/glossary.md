@@ -1,7 +1,7 @@
 ---
 title: Web scraping glossary
 description: Browse important web scraping concepts, tools and topics in succinct articles that explain common web development terms in a web scraping context.
-menuWeight: 6
+menuWeight: 7
 category: glossary
 paths:
 - glossary
