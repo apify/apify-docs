@@ -8,4 +8,8 @@ paths:
 
 # [](#concepts) Concepts
 
-some common terms and concepts that will be used frequently throughout this course, so we decided to create easy access to a reference to them
+There are some terms and concepts you'll see frequently repeated throughout various courses in the academy. Many of these concepts are common, and even fundamantal in the scraping world, which makes it necessary to explain them to our course-takers; however it would be inconvenient for our readers to explain these terms each time they appear in a lesson.
+
+Because of this slight dilemma, and because there are no outside resources which compile all of these concepts into an educational and digestible form, we've decided to do just that. So, welcome to the **Concepts** section of the Apify Scraping Academy's **Glossary**!
+
+> It's important to note that there is no specific order to these concepts. All of them range in their relevance and importance in your every day scraping endeavors.
