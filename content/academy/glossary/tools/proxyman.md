@@ -3,12 +3,12 @@ title: Proxyman
 description: Learn about Proxyman, a tool for viewing all network requests that are coming through your system. Filter by response type, by a keyword, or by application.
 menuWeight: 6.3
 paths:
-    - glossary/proxyman
+    - glossary/tools/proxyman
 ---
 
 # [](#what-is-proxyman) What's Proxyman?
 
-Though the name sounds very similar to [Postman]({{@link glossary/postman.md}}), [**Proxyman**](https://proxyman.io/) is used for a different purpose. Rather than for manually sending and analyzing the responses of requests, Proxyman is a tool for macOS that allows you to view and analyze the HTTP/HTTPS requests that are going through your device. This is done by routing all of your requests through a proxy, which intercepts them and allows you to view data about them. Because it's just a proxy, the HTTP/HTTPS requests going through iOS devices, Android devices, and even iOS simulators can also be viewed with Proxyman.
+Though the name sounds very similar to [Postman]({{@link glossary/tools/postman.md}}), [**Proxyman**](https://proxyman.io/) is used for a different purpose. Rather than for manually sending and analyzing the responses of requests, Proxyman is a tool for macOS that allows you to view and analyze the HTTP/HTTPS requests that are going through your device. This is done by routing all of your requests through a proxy, which intercepts them and allows you to view data about them. Because it's just a proxy, the HTTP/HTTPS requests going through iOS devices, Android devices, and even iOS simulators can also be viewed with Proxyman.
 
 If you've already gone through the [**Locating and learning** lesson]({{@link api_scraping/general_api_scraping/locating_and_learning.md}}) in the **API scraping** section, you can think of Proxyman as an advanced Network Tab, where you can see requests that you sometimes can't see in regular browser DevTools.
 
@@ -20,23 +20,23 @@ Though the application offers a whole lot of advanced features, there are only a
 
 The **Apps** tab allows you to both view all of the applications on your machine which are sending requests, as well as filter requests based on application.
 
-![Apps tab in Proxyman]({{@asset glossary/images/proxyman-apps-tab.webp}})
+![Apps tab in Proxyman]({{@asset glossary/tools/images/proxyman-apps-tab.webp}})
 
 ### Results
 
 Let's open up Safari and visit **apify.com**, then check back in Proxyman to see all of the requests Safari has made when visiting the website.
 
-![Results in Proxyman]({{@asset glossary/images/proxyman-results.webp}})
+![Results in Proxyman]({{@asset glossary/tools/images/proxyman-results.webp}})
 
 We can see all of the requests related to us visiting **apify.com**. Then, by clicking a request, we can see a whole lot of information about it. The most important information for you, however, will usually be the request and response **headers** and **body**.
 
-![View a request]({{@asset glossary/images/proxyman-view-request.webp}})
+![View a request]({{@asset glossary/tools/images/proxyman-view-request.webp}})
 
 ### Filtering
 
 Sometimes, there can be hundreds (or even thousands) of requests that appear in the list. Rather than spending your time rooting through all of them, you can use the plethora of filtering methods that Proxyman offers to find exactly what you are looking for.
 
-![Filter requests with the filter options]({{@asset glossary/images/proxyman-filter.webp}})
+![Filter requests with the filter options]({{@asset glossary/tools/images/proxyman-filter.webp}})
 
 ## [](#alternatives) Alternatives
 
