@@ -25,7 +25,7 @@ $('a');
 
 ### [](#attribute-selector) Attribute selector
 
-That's not the only way to do it, however. Since we're interested in the `href` attributes, a first very reasonable filter is to exclusively target the `<a>` tags that have the `href` attribute (yes, anchor tags without the attribute can and do exist). You can do that by using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors" target="_blank">CSS attribute selector</a>.
+That's not the only way to do it, however. Since we're interested in the `href` attributes, a first very reasonable filter is to exclusively target the `<a>` tags that have the `href` attribute (yes, anchor tags without the attribute can and do exist). You can do that by using the [CSS attribute selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors).
 
 ```marked-tabs
 <marked-tab header="DevTools" lang="javascript">
@@ -51,7 +51,7 @@ $('main.fit a[href*="/product/"]');
 </marked-tab>
 ```
 
-We already know both the `main.fit` and `a[href*="/product/"]` selectors and how they work on their own, but their combination is new. It's called a <a href="https://css-tricks.com/almanac/selectors/d/descendant/" target="_blank">descendant selector</a>, and it selects all `<a href=".../product/...">` elements that are descendants of a `<main class="fit">` element. A descendant is any element that's nested somewhere inside another element. It does not have to be a direct child of the specified parent element.
+We already know both the `main.fit` and `a[href*="/product/"]` selectors and how they work on their own, but their combination is new. It's called a [descendant selector](https://css-tricks.com/almanac/selectors/d/descendant/), and it selects all `<a href=".../product/...">` elements that are descendants of a `<main class="fit">` element. A descendant is any element that's nested somewhere inside another element. It does not have to be a direct child of the specified parent element.
 
 ![Nested HTML tags]({{@asset web_scraping_for_beginners/crawling/images/nested-tag.webp}})
 
@@ -71,7 +71,7 @@ Notice that we might have some duplicate URLs. These duplicates can be easily fi
 
 Another common way to filter links (or any text, really) is by matching patterns with regular expressions.
 
-> <a href="https://javascript.info/regexp-introduction" target="_blank">Learn more about regular expressions</a>.
+> [Learn more about regular expressions](https://javascript.info/regexp-introduction)
 
 We can inspect the product URLs, and we'll soon find that they all look like the following. That is, they're exactly the same except for the text after the final `/`.
 
@@ -91,9 +91,9 @@ demo-webstore\.apify\.org\/product\/[a-z|-]*
 
 This regular expression matches all URLs that include the `demo-webstore.apify.org/product/` substring immediately following with any number of letters or dashes `-`.
 
-> A great way to learn more about regular expression syntax and to test your expressions are tools like <a href="https://regexr.com/" target="_blank">regexr.com</a> or <a href="https://regex101.com/" target="_blank">regex101.com</a>. It's okay if you don't get the hang of it right away!
+> A great way to learn more about regular expression syntax and to test your expressions are tools like [regexr.com](https://regexr.com/) or [regex101.com](https://regex101.com/). It's okay if you don't get the hang of it right away!
 
-To test our regular expression in the DevTools console, we'll first create a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank">`RegExp`</a> object and then test the URLs with the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test" target="_blank">`regExp.test(string)`</a> function.
+To test our regular expression in the DevTools console, we'll first create a [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) object and then test the URLs with the [`regExp.test(string)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) function.
 
 ```JavaScript
 // To demonstrate pattern matching, we use only the 'a'

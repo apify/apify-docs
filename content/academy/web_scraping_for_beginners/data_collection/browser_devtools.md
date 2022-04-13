@@ -14,7 +14,7 @@ Even though DevTools stands for developer tools, everyone can use them to inspec
 
 When you first open Chrome DevTools, you will start on the Elements tab (In Firefox it's called the **Inspector**). You can use this tab to inspect the page's HTML on the left hand side, and its CSS on the right. The items in the HTML view are called **elements** or **nodes**. Each element is enclosed in an HTML tag. For example `<div>`, `<p>`, and `<span>` are all tags. When you add something inside of those tags, like `<p>Hello!</p>` you create an element. You can also see elements inside other elements in the **Elements** tab. This is called nesting, and it gives the page its structure.
 
-At the bottom, there's the **JavaScript console**, which is a powerful tool which can be used to manipulate the website. If the console is not there, you can press <kbd>ESC</kbd> to toggle it. All of this might look super complicated at first, but don't worry, there's no need to understand everything just yet - we'll be walking you through all the important things you need to know.
+At the bottom, there's the **JavaScript console**, which is a powerful tool which can be used to manipulate the website. If the console is not there, you can press <p><kbd>ESC</kbd></p> to toggle it. All of this might look super complicated at first, but don't worry, there's no need to understand everything just yet - we'll be walking you through all the important things you need to know.
 
 ![Chrome DevTools with elements tab and console]({{@asset web_scraping_for_beginners/data_collection/images/browser-devtools.webp}})
 
@@ -48,8 +48,8 @@ temp1.textContent = 'Hello!';
 
 ![Chrome DevTools JavaScript command execution]({{@asset web_scraping_for_beginners/data_collection/images/basic-console-commands.webp}})
 
-> You can interact with the page in many more ways using the Console. If you want to dive deeper we recommend this <a href="https://javascript.info/document" target="_blank">tutorial on documents</a>. A web page in a browser is called a document.
+> You can interact with the page in many more ways using the Console. If you want to dive deeper we recommend this [tutorial on documents](https://javascript.info/document). A web page in a browser is called a document.
 
 ## [](#next) Next up
 
-In this lesson, we learned the absolute basics of interaction with a page using the DevTools. In the [next lesson]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}), you will learn how to extract data from it. We will collect data about the on-sale products on <a href="https://demo-webstore.apify.org/" target="_blank">this e-commerce website</a>. This isn't a real website, just a demo site for the Academy which uses the latest technologies that a real-world modern e-commerce web-application would use.
+In this lesson, we learned the absolute basics of interaction with a page using the DevTools. In the [next lesson]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}), you will learn how to extract data from it. We will collect data about the on-sale products on [this e-commerce website](this e-commerce website). This isn't a real website, just a demo site for the Academy which uses the latest technologies that a real-world modern e-commerce web-application would use.

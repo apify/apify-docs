@@ -8,11 +8,11 @@ paths:
 
 # [](#saving-to-csv) Saving results to CSV
 
-In the last lesson, we were able collect data about all the on-sale products from <a href="https://demo-webstore.apify.org/" target="_blank">our tutorial **Fakestore** website</a>. That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this lesson, we'll learn how to save that data into a CSV file that you can then open in Excel or Google Sheets.
+In the last lesson, we were able collect data about all the on-sale products from [our tutorial **Fakestore** website](https://demo-webstore.apify.org/). That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this lesson, we'll learn how to save that data into a CSV file that you can then open in Excel or Google Sheets.
 
 ## [](#converting-to-csv) Converting to CSV
 
-It might look like a big programming challenge to transform a JavaScript object into a CSV, but thanks to NPM, this is going to be a walk in the park. After googling **json to csv npm** we found that there's a library called <a href="https://www.npmjs.com/package/json2csv" target="_blank">`json2csv`</a> that can convert a JavaScript object to CSV format with a single function call. _Perfect!_
+It might look like a big programming challenge to transform a JavaScript object into a CSV, but thanks to NPM, this is going to be a walk in the park. After googling **json to csv npm** we found that there's a library called [`json2csv`](https://www.npmjs.com/package/json2csv) that can convert a JavaScript object to CSV format with a single function call. _Perfect!_
 
 First, we need to import the `parse()` function from the library.
 
@@ -119,4 +119,4 @@ This marks the end of the **Basics of data collection** section of Web scraping 
 
 ## [](#next) Next up
 
-Next up are the [**Basics of crawling**]({{@link web_scraping_for_beginners/crawling.md}}), where we will learn how to move between web pages and scrape data from all of them. We will build a scraper that first collects all the countries of the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a> and then crawls each of them to scrape the data for each country separately.
+Next up are the [**Basics of crawling**]({{@link web_scraping_for_beginners/crawling.md}}), where we will learn how to move between web pages and scrape data from all of them. We will build a scraper that first collects all the products on [Fakestore](https://demo-webstore.apify.org/), and then crawls each of them to scrape the data for each product separately.

@@ -22,7 +22,7 @@ But in the Elements tab, when checking the `<a href="...">` attributes, the URLs
 
 What's up with that?! This short version of the URL is called a **relative URL**, and the full length one is called an **absolute URL**.
 
-> <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL#absolute_urls_vs_relative_urls" target="_blank">Learn more about absolute and relative URLs</a>.
+> [Learn more about absolute and relative URLs](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL#absolute_urls_vs_relative_urls).
 
 We'll see why the difference between relative URLs and absolute URLs is important a bit later in this lesson.
 

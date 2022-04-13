@@ -156,7 +156,7 @@ After running this one, we can see that our results look different from before. 
 
 Well... Not quite. It seems that the only images which we got the full links to were the ones that were being displayed within the view of the browser. This means that the images are lazy-loaded. **Lazy-loading** is a common technique used across the web to improve performance. Lazy-loaded items allow the user to load content incrementally, as they perform some action. In most cases, including our current one, this action is scrolling.
 
-So, we've gotta scroll down the page to load these images. Luckily, because we're using the Apify SDK, we don't have to write the logic that will achieve that, because a utility function specifically for Puppeteer called <a href="https://sdk.apify.com/docs/api/puppeteer#puppeteerinfinitescroll" target="_blank">`infiniteScroll`</a> already exists right in the library, and can be accessed through `Apify.utils.puppeteer`. Let's add it to our code now:
+So, we've gotta scroll down the page to load these images. Luckily, because we're using the Apify SDK, we don't have to write the logic that will achieve that, because a utility function specifically for Puppeteer called [`infiniteScroll`](https://sdk.apify.com/docs/api/puppeteer#puppeteerinfinitescroll) already exists right in the library, and can be accessed through `Apify.utils.puppeteer`. Let's add it to our code now:
 
 ```JavaScript
 import Apify from 'apify';
@@ -219,4 +219,4 @@ Making static HTTP requests only downloads the HTML content from the `DOMContent
 
 ## [](#next) Next up
 
-So far, this is the last lesson of the Advanced web scraping course, but stay tuned! We will keep adding more lessons as we go.
+So far, this is the last lesson of this course, but stay tuned! We will be frequently adding more lessons!
