@@ -40,7 +40,7 @@ Cool! Now, we're ready to get started.
 
 ## [](#building-the-new-actor) Building the new actor
 
-First of all, we should clear out any of the boilerplate code within the **main.js** to get a clean slate:
+First of all, we should clear out any of the boilerplate code within **main.js** to get a clean slate:
 
 ```JavaScript
 // main.js

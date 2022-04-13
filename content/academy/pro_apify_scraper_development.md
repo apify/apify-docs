@@ -7,7 +7,7 @@ paths:
 - pro-apify-scraper-development
 ---
 
-## [](#pro-scraper-development) Pro Apify scraper development
+# [](#pro-scraper-development) Pro Apify scraper development
 
 This course will teach you the nitty gritty of what it takes to become a pro Apify scraper.
 
@@ -15,7 +15,7 @@ This course will teach you the nitty gritty of what it takes to become a pro Api
 
 Before developing a pro Apify scraper, there are some important things you should be have at least a bit of knowledge about (knowing the basics of each is enough to continue through this section), as well as some things that you should have installed on your system.
 
-> If you've already gone through the [Web scraping for beginners course]({{@link web_scraping_for_beginners.md}}) and the first lessons of the [Apify platform course]({{@link apify_platform.md}}), you will be more than well equipped to continue on with the next few lessons.
+> If you've already gone through the [Web scraping for beginners course]({{@link web_scraping_for_beginners.md}}) and the first lessons of the [Apify platform course]({{@link apify_platform.md}}), you will be more than well equipped to continue on with the lessons in this course.
 
 ### [](#javascript-and-node) JavaScript + Node.js
 

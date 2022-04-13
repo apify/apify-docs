@@ -8,7 +8,7 @@ paths:
 
 # [](#actors) Actors
 
-After you've followed the **Getting started** and **Apify CLI** lessons, and familiarized yourself with the Apify SDK in [**Web scraping for beginners**]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}), you're ready to start writing actors! But first, let's discuss what an actor is, and a bit about how they work.
+After you've followed the **Getting started** and **Apify CLI** lessons, and familiarized yourself with the Apify SDK in [**Web scraping for beginners**]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}), you're almost ready to start creating actors! But before we get into that, let's discuss what an actor is, and a bit about how they work.
 
 ## [](#what-is-an-actor) What's an actor?
 
@@ -38,7 +38,7 @@ While still on the platform, click on the tab with the **< >** icon which says *
 
 ![The "Actors" tab on the Apify platform]({{@asset apify_platform/images/actors-tab.webp}})
 
-Now that you know the basics of what actors are and how to use them, it's almost time to develop **an actor of your own**!
+Now that you know the basics of what actors are and how to use them, it's time to develop **an actor of your own**!
 
 ## [](#next) Next up
 

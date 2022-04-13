@@ -8,15 +8,15 @@ paths:
 
 # [](#setup) Setup
 
-The Apify CLI makes it extremely easy for us to set up a project and hit the ground running. Navigate to the directory you'd like your project's folder to live, then open up a terminal instance and run the following command:
+The Apify CLI makes it extremely easy for us to set up a project in the SDK and hit the ground running. Navigate to the directory you'd like your project's folder to live, then open up a terminal instance and run the following command:
 
 ```shell
 apify create demo-actor
 ```
 
-You don't have to call it **demo-actor**, but that's what we'll be calling it within this tutorial.
+> You don't have to call it **demo-actor**, but that's what we'll be calling it within this tutorial.
 
-Once you run this command, you'll get prompted into a menu which you can navigate using your arrow keys. Each of these options will generate different boilerplate code when selected. We're going to work with CheerioCrawler today, so we'll select that one, then press <kbd>Enter</kbd>.
+Once you run this command, you'll get prompted into a menu which you can navigate using your arrow keys. Each of these options will generate different boilerplate code when selected. We're going to work with CheerioCrawler today, so we'll select that one, then press <p><kbd>Enter</kbd><p>.
 
 ![apify create command]({{@asset pro_apify_scraper_development/images/apify-create.webp}})
 
@@ -89,7 +89,7 @@ Now that we've gotten our first request going, the first challenge is going to b
 
 ## [](#modularity) Quick break to chat about modularity
 
-But, before we start scraping, let's pause to talk a bit about modularity. You may have noticed the **src** folder inside of your project, which by default has a **routes.js** file in it. We're going to use this to create modularized functions which we can then import and call in our main file.
+But, before we start scraping, let's pause to talk a bit about the important concept of **modularity**. You may have noticed the **src** folder inside of your project, which by default has a **routes.js** file in it. We're going to use this to create modularized functions which we can then import and call in our main file.
 
 ```JavaScript
 // src/routes.js

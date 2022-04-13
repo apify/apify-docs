@@ -8,7 +8,7 @@ paths:
 
 # [](#the-apify-sdk) The Apify SDK
 
-The SDK is the most fundamental part to developing for the Apify platform. It is an open-source JavaScript library built on top of these technologies:
+The SDK is one of the most fundamental parts of developing for the Apify platform. It is an open-source JavaScript library built on top of these technologies:
 
 - Apify actors (which run the Node.js app built with the SDK inside a Docker container)
 - The Apify API/Apify Client (on the Apify platform)
@@ -26,7 +26,7 @@ The SDK factors away and manages the hard parts of the scraping/automation devel
 - Puppeteer/Playwright setup overhead
 - Plus much more!
 
-As a developer, your goal is to take the Apify SDK, which is quite generic on its own, and write website-specific or use-case specific actors.
+As a developer, your goal is to take the Apify SDK, which is quite generic on its own, and write website-specific or use-case-specific actors.
 
 ## [](#docs) Docs, docs, docs
 
@@ -44,7 +44,7 @@ The Apify SDK and its resources can be found in various different places:
 Before continuing, it is highly recommended to do the following:
 
 - Look over [the SDK guide](https://sdk.apify.com/docs/guides/motivation) and ideally **code along**
-- Read [this short article](https://help.apify.com/en/articles/1829103-request-labels-and-how-to-pass-data-to-other-requests) about **request labels** and [`userData`](https://sdk.apify.com/docs/api/request#requestuserdata)
+- Read [this short article](https://help.apify.com/en/articles/1829103-request-labels-and-how-to-pass-data-to-other-requests) about **request labels** and [`userData`](https://sdk.apify.com/docs/api/request#requestuserdata) (this will be extremely useful later on)
 - Check out [this article](https://blog.apify.com/what-is-a-dynamic-page/) about dynamic pages
 - Quickly skim the [SDK examples](https://sdk.apify.com/docs/examples/cheerio-crawler)
 - Read about the [RequestList](https://sdk.apify.com/docs/api/request-list) and [RequestQueue](https://sdk.apify.com/docs/api/request-queue)
@@ -63,7 +63,7 @@ Each lesson in this section will have a short quiz to help you test your knowled
 
 ## [](#our-task) Our task
 
-With Amazon, we can use this link to get to the results page of any product we want:
+On Amazon, we can use this link to get to the results page of any product we want:
 
 ```text
 https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=KEYWORD
@@ -110,7 +110,7 @@ In the end, we'd like our final output to look something like this:
 
 ```
 
-> The `asin` is the ID of the product, which is data available on the Amazon website.
+> The `asin` is the ID of the product, which is data present on the Amazon website.
 
 Each of the items in the dataset will represent a scraped offer, and will have the same `title`, `asin`, `itemUrl`, and `description`. The offer-specific fields will be `sellerName` and `offer`.
 
@@ -118,4 +118,4 @@ After the scrape has completed, we'll programmatically call a [public actor whic
 
 ## [](#next) Next up
 
-In the [next lesson]({{@link pro_apify_scraper_development/actor_building.md}}), we'll be solely focusing on tackling the task outlined above. It's a large task, but don't worry, we'll be doing it together! This is the largest part of the **Pro Apify scraper development** section, so after you complete this, you'll be a total rockstar! 🎸
+In the [next lesson]({{@link pro_apify_scraper_development/actor_building.md}}), we'll be solely focusing on tackling the task outlined above. It's a large task, but don't worry, we'll be doing it together! This is the largest part of the **Pro Apify scraper development** section, so after you complete this, you'll be a total rockstar and ready to move into some even more advanced topics! 🎸
