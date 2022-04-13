@@ -1,18 +1,18 @@
 ---
 title: Actors
 description: What is an actor? How do we create them? Learn the basics of what actors are, how they work, and try out an actor yourself right on the Apify platform!
-menuWeight: 5.3
+menuWeight: 5.2
 paths:
 - apify-platform/actors
 ---
 
 # [](#actors) Actors
 
-After you've followed the **Getting started** and **Apify CLI** lessons, and familiarized yourself with the Apify SDK in [**Web scraping for beginners**]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}), you're almost ready to start creating actors! But before we get into that, let's discuss what an actor is, and a bit about how they work.
+After you've followed the **Getting started** lesson, you're almost ready to start creating some actors! But before we get into that, let's discuss what an actor is, and a bit about how they work.
 
 ## [](#what-is-an-actor) What's an actor?
 
-When you deploy your script to the Apify platform, it is then called an **actor**, which is simply a serverless microservice that accepts an input and produces an output. Actors can run for a few seconds, hours or even infinitely. An actor can perform anything from a simple action such as filling out a web form or sending an email, to complex operations such as crawling an entire website and removing duplicates from a large dataset.
+When you deploy your script to the Apify platform, it is then called an **actor**, which is simply a [serverless microservice](https://www.datadoghq.com/knowledge-center/serverless-architecture/serverless-microservices/#:~:text=Serverless%20microservices%20are%20cloud-based,suited%20for%20microservice-based%20architectures.) that accepts an input and produces an output. Actors can run for a few seconds, hours or even infinitely. An actor can perform anything from a simple action such as filling out a web form or sending an email, to complex operations such as crawling an entire website and removing duplicates from a large dataset.
 
 Once an actor has been pushed to the Apify platform, they can be shared to the world through the [Apify Store](https://apify.com/store), and even monetized after going public.
 
@@ -20,7 +20,7 @@ Once an actor has been pushed to the Apify platform, they can be shared to the w
 
 ## [](#actors-on-platform) Actors on the Apify platform
 
-For a super quick and dirty understanding of what a publicized actor looks like, and how it works, let's run an SEO audit of **apify.com** using the [SEO audit actor](https://apify.com/drobnikj/seo-audit-tool).
+For a super quick and dirty understanding of what a published actor looks like, and how it works, let's run an SEO audit of **apify.com** using the [SEO audit actor](https://apify.com/drobnikj/seo-audit-tool).
 
 On the front page of the actor, click the green **Try for free** button. If you're logged into your Apify account which you created during the [Getting started]({{@link apify_platform/getting_started.md}}), you'll be taken to the Apify Console and greeted with a page that looks like this:
 
@@ -42,4 +42,4 @@ Now that you know the basics of what actors are and how to use them, it's time t
 
 ## [](#next) Next up
 
-In future lessons, we will be learning about how to easily build an actor on the Apify platform from templates, as well as how to quickly turn your existing code on Github or Gitlab into a monetizable actor!
+[Next up]({{@link apify_platform/apify_cli.md}}), you'll be learning about the super cool sidekick to the Apify platform - the Apify CLI. If you've been using `node FILENAME.js` to run your projects, you'll be excited to learn that the Apify CLI allows you to run your Apify SDK projects with some useful flags (such as to purge storage), push and download datasets to and from the cloud, publish your projects to the platform, generate boilerplate code for your new projects, and more!

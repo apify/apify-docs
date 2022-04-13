@@ -1,7 +1,7 @@
 ---
 title: Apify CLI
 description: Learn about and install an important tool for communicating with your Apify SDK projects and the Apify Platform from your terminal - the Apify CLI.
-menuWeight: 5.2
+menuWeight: 5.3
 paths:
 - apify-platform/apify-cli
 ---
@@ -50,4 +50,4 @@ When you're locally test-running your code in the next lessons, always be sure t
 
 ## [](#next) Next up
 
-In our next section, we'll learn about something super exciting - **actors**. Actors are the living and breathing core of the Apify platform, and are an extremely powerful concept. What are you waiting for? Let's jump [right into the next lesson]({{@link apify_platform/actors.md}})!
+In future lessons, we will be learning about how to easily build an actor on the Apify platform from templates, as well as how to quickly turn your existing code on Github or Gitlab into a monetizable actor!
