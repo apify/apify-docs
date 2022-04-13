@@ -8,4 +8,6 @@ paths:
 
 # [](#tools) Tools
 
-a compiled list of some of the best tools that can aid you in your scraper development process
+Here at Apify, we've found many tools, some quite popular and well-known and some niche, which can aid any developer in their scraper development proccess. Each tool featured in this section serves a specific purpose, if not multiple purposes, which are directly relevant to web-scraping.
+
+In any lesson in the academy where a tool which was not already discussed in the course is being used, the tool will be featured in the **Tools** section right here in the Apify Academy's **Glossary**, and referenced with a link right in the lesson.
