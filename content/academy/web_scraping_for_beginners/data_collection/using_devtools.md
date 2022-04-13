@@ -8,11 +8,11 @@ paths:
 
 # [](#devtools-data-collection) Data collection with DevTools
 
-We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - collecting data from a website. Let's try collecting the on-sale products from <a href="https://demo-webstore.apify.org/" target="_blank">this fake e-commerce website</a>. We will use CSS selectors, JavaScript, and DevTools to acheive this task.
+We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - collecting data from a website. Let's try collecting the on-sale products from [this fake e-commerce website](https://demo-webstore.apify.org/). We will use CSS selectors, JavaScript, and DevTools to acheive this task.
 
 ## [](#getting-structured-data) Getting structured data from HTML
 
-When you open up the <a href="https://demo-webstore.apify.org/search/on-sale" target="_blank">on-sale section of Fakestore</a>, you'll see that there's a grid of products on the page with names and pictures of productsc. We will now learn how to collect all this information. Open DevTools and select the first product with the selector tool.
+When you open up the [on-sale section of Fakestore](https://demo-webstore.apify.org/search/on-sale), you'll see that there's a grid of products on the page with names and pictures of productsc. We will now learn how to collect all this information. Open DevTools and select the first product with the selector tool.
 
 ![Selecting an element with DevTools]({{@asset web_scraping_for_beginners/data_collection/images/selecting-first-website.webp}})
 
@@ -30,7 +30,7 @@ We know how to find an element manually using the DevTools, but for automated sc
 
 The function to do that is called `document.querySelector('some-selector')` and it will find the first element in the page's HTML matching the provided CSS selector. For example `document.querySelector('div')` will find the first `<div>` element. And `document.querySelector('p.my-class')` will find the first `<p>` element with the class `my-class`.
 
-> You can find available CSS selectors and their syntax on the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors" target="_blank">MDN CSS Selectors page</a>.
+> You can find available CSS selectors and their syntax on the [MDN CSS Selectors page](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
 
 At the time of writing, the HTML element that contained all the data we wanted had an `<a>` tag and a `animated fadeIn` class, plus an `aria-label` attribute. This actually means that there were two classes applied to the element - `animated` and `fadeIn`. Neither of these seem reliable classes to go off of; however, each element also includes an `href` attribute which includes `/product/`, which we can use to our advantage.
 
@@ -67,9 +67,9 @@ In the [Getting structured data from HTML](#getting-structured-data-from-html) s
 
 The `document.querySelector()` function looks for a specific element in the whole HTML `document`, so if we called it with `h3`, it would find the first `<h3>` node in the `document`. Luckily we can also use this function to look for elements within an element.
 
-There's a similar function called <a href="https://javascript.info/searching-elements-dom#querySelectorAll" target="_blank">`querySelectorAll()`</a> that returns an array of all the elements matching the selector - not just the first one. We will use this function to grab all the elements holding our sought after data.
+There's a similar function called [`querySelectorAll()`](https://javascript.info/searching-elements-dom#querySelectorAll) that returns an array of all the elements matching the selector - not just the first one. We will use this function to grab all the elements holding our sought after data.
 
-> Learn more about `Arrays` <a href="https://javascript.info/array" target="_blank">in this tutorial</a>.
+> Learn more about `Arrays` in [this tutorial](https://javascript.info/array).
 
 Let's find the parent element of all of the products, which matches the selector `div.grid.gap-6`, select it with `document.querySelector()`, then find all of the product elements.
 
@@ -87,7 +87,7 @@ There are 32 products on the page, so if we've done this correctly, a list of 32
 
 ### [](#collecting-data) Collecting data
 
-The `products` array now contains all the elements we need, and we can access each one's data individually. Let's save the title and price of the first product into an <a href="https://javascript.info/object" target="_blank">object</a>. Those of you who know JavaScript will know that this is not the prettiest code ever written, but it is beginner-friendly and that's important here. We will also use the `.trim()` function to remove unnecessary whitespace from the results.
+The `products` array now contains all the elements we need, and we can access each one's data individually. Let's save the title and price of the first product into an [object](https://javascript.info/object). Those of you who know JavaScript will know that this is not the prettiest code ever written, but it is beginner-friendly and that's important here. We will also use the `.trim()` function to remove unnecessary whitespace from the results.
 
 ```JavaScript
 const result = {

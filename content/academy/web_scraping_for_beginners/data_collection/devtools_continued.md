@@ -8,11 +8,11 @@ paths:
 
 # [](#finish-devtools) Finish with DevTools
 
-In the first part of the DevTools tutorial, we were able to collect information about a single website from our super-legit <a href="https://demo-webstore.apify.org/" target="_blank">"Fakestore" e-commerce site</a>. If you missed the previous part, we suggest going through it to understand the basic concepts, but you don't need any of the code from there, we will start from scratch.
+In the first part of the DevTools tutorial, we were able to collect information about a single website from our super-legit ["Fakestore" e-commerce site](https://demo-webstore.apify.org/). If you missed the previous part, we suggest going through it to understand the basic concepts, but you don't need any of the code from there, we will start from scratch.
 
 ## [](#looping-over-elements) Looping over elements
 
-> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" target="_blank">Visit this tutorial</a> if you want to refresh the concept of loops in programming.
+> [Visit this tutorial](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration) if you want to refresh the concept of loops in programming.
 
 First, we will use the `querySelectorAll()` function from the previous lesson to get an array of all the product elements.
 
@@ -35,7 +35,7 @@ for (const product of products) {
 }
 ```
 
-> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of" target="_blank">Find out more</a> about the `for..of` loop.
+> [Find out more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) about the `for..of` loop.
 
 ![Print all products' text]({{@asset web_scraping_for_beginners/data_collection/images/print-all-products-text.webp}})
 
@@ -56,7 +56,7 @@ for (const product of products) {
 console.log(results);
 ```
 
-The `results.push()` function takes its argument and pushes (adds) it to the `results` array. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank">Learn more about it here</a>. The rest of the code is just copy-pasted from the previous lesson. For each `product` of `products`, we find the `title` and `price`, then save them to the `results` array by pushing the object with the data into it. When you run the code, you should see all the data neatly structured.
+The `results.push()` function takes its argument and pushes (adds) it to the `results` array. [Learn more about it here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push). The rest of the code is just copy-pasted from the previous lesson. For each `product` of `products`, we find the `title` and `price`, then save them to the `results` array by pushing the object with the data into it. When you run the code, you should see all the data neatly structured.
 
 ![Print all products' data]({{@asset web_scraping_for_beginners/data_collection/images/print-all-products-data.webp}})
 
