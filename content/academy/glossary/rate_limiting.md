@@ -3,7 +3,7 @@ title: Rate-limiting
 description: Learn about rate-limiting, a common tactic used by websites to avoid a large and non-human rate of requests coming from a single IP address.
 menuWeight: 6.2
 paths:
-    - glossary/concepts/rate-limiting
+    - glossary/rate-limiting
 ---
 
 # [](#rate-limiting) Rate-limiting

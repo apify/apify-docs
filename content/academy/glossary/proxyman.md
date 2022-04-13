@@ -3,7 +3,7 @@ title: Proxyman
 description: Learn about Proxyman, a tool for viewing all network requests that are coming through your system. Filter by response type, by a keyword, or by application.
 menuWeight: 6.3
 paths:
-    - glossary/tools/proxyman
+    - glossary/proxyman
 ---
 
 # [](#what-is-proxyman) What's Proxyman?
@@ -20,23 +20,23 @@ Though the application offers a whole lot of advanced features, there are only a
 
 The **Apps** tab allows you to both view all of the applications on your machine which are sending requests, as well as filter requests based on application.
 
-![Apps tab in Proxyman]({{@asset glossary/tools/images/proxyman-apps-tab.webp}})
+![Apps tab in Proxyman]({{@asset glossary/images/proxyman-apps-tab.webp}})
 
 ### Results
 
 Let's open up Safari and visit **apify.com**, then check back in Proxyman to see all of the requests Safari has made when visiting the website.
 
-![Results in Proxyman]({{@asset glossary/tools/images/proxyman-results.webp}})
+![Results in Proxyman]({{@asset glossary/images/proxyman-results.webp}})
 
 We can see all of the requests related to us visiting **apify.com**. Then, by clicking a request, we can see a whole lot of information about it. The most important information for you, however, will usually be the request and response **headers** and **body**.
 
-![View a request]({{@asset glossary/tools/images/proxyman-view-request.webp}})
+![View a request]({{@asset glossary/images/proxyman-view-request.webp}})
 
 ### Filtering
 
 Sometimes, there can be hundreds (or even thousands) of requests that appear in the list. Rather than spending your time rooting through all of them, you can use the plethora of filtering methods that Proxyman offers to find exactly what you are looking for.
 
-![Filter requests with the filter options]({{@asset glossary/tools/images/proxyman-filter.webp}})
+![Filter requests with the filter options]({{@asset glossary/images/proxyman-filter.webp}})
 
 ## [](#alternatives) Alternatives
 
