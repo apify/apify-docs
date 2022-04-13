@@ -20,4 +20,4 @@ Now that you have an account, you have access to the [Apify Console](https://con
 
 ## [](#next) Next up
 
-[Next up]({{@link apify_platform/apify_cli.md}}), you'll be learning about the super cool sidekick to the Apify platform - the Apify CLI. If you've been using `node FILENAME.js` to run your projects, you'll be excited to learn that the Apify CLI allows you to run your Apify SDK projects with some useful flags (such as to purge storage), push and download datasets to and from the cloud, publish your projects to the platform, generate boilerplate code for your new projects, and more!
+In our next lesson, we'll learn about something super exciting - **actors**. Actors are the living and breathing core of the Apify platform, and are an extremely powerful concept. What are you waiting for? Let's jump [right into the next lesson]({{@link apify_platform/actors.md}})!
