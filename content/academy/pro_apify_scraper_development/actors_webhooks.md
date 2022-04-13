@@ -16,8 +16,8 @@ Take another look at the files within your project from the previous lesson. You
 
 Prior to moving forward, please read over these resources:
 
-- Read about [running actors, handling actor inputs, memory and CPU](https://docs.apify.com/actors/running)
-- Learn about [actor webhooks](https://docs.apify.com/webhooks), which we will implement in the next lesson
+- Read about [running actors, handling actor inputs, memory and CPU](https://docs.apify.com/actors/running).
+- Learn about [actor webhooks](https://docs.apify.com/webhooks), which we will implement in the next lesson.
 - Learn [how to run actors](https://docs.apify.com/tutorials/integrations/run-actor-and-retrieve-data-via-api#run-an-actor-or-task) using Apify's REST API.
 
 ## [](#quiz) Knowledge check 📝
