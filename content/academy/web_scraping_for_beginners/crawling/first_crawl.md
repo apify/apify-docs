@@ -14,7 +14,7 @@ In the previous lessons, we learned what crawling is and how to collect URLs fro
 
 ## [](#processing-urls) Processing URLs
 
-In the previous lessons, we collected and filtered all the URLs pointing to individual products on our beloved <a href="https://demo-webstore.apify.org/" target="_blank">demo e-commerce site</a>. To crawl the URLs, we can't print them to the console, but rather we need to save them for future use. Once we do that, we must take this list of URLs and download the HTML of each of the pages. See the comments for changes and additions to the code.
+In the previous lessons, we collected and filtered all the URLs pointing to individual products on our beloved [demo e-commerce site](https://demo-webstore.apify.org/). To crawl the URLs, we can't print them to the console, but rather we need to save them for future use. Once we do that, we must take this list of URLs and download the HTML of each of the pages. See the comments for changes and additions to the code.
 
 ```JavaScript
 // crawler.js

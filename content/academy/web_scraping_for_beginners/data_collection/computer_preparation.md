@@ -14,11 +14,11 @@ Before you can start writing scraper code, you need to have your computer set up
 
 Let's start with installation of Node.js. Node.js is an engine for running JavaScript, quite similar to the browser console we used in the previous lessons. You feed it JavaScript code, and it executes it for you. Why not just use the browser console? Simply put, because it's limited in its capabilities. Node.js is way more powerful and is much better suited for coding scrapers.
 
-To install Node.js <a href="https://nodejs.org/en/download/" target="_blank">visit the official Node.js website</a>, download the installer, and follow the instructions.
+To install Node.js [visit the official Node.js website](https://nodejs.org/en/download/), download the installer, and follow the instructions.
 
 ## [](#install-an-editor) Install a text editor
 
-There are many text editors you can choose from for programming. You might already have a preferred one so feel free to use that. Just make sure it has syntax highlighting and support for Node.js. If you don't have any text editor, we suggest starting with VSCode. It's free, very popular, and well maintained. <a href="https://code.visualstudio.com/download" target="_blank">Download it here</a>.
+There are many text editors you can choose from for programming. You might already have a preferred one so feel free to use that. Just make sure it has syntax highlighting and support for Node.js. If you don't have any text editor, we suggest starting with VSCode. It's free, very popular, and well maintained. [Download it here](https://code.visualstudio.com/download).
 
 Once you downloaded and installed it, you can open a folder where we will build your scraper. We recommend starting with a new, empty folder.
 

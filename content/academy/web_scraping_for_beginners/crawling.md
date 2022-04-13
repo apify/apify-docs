@@ -9,9 +9,9 @@ paths:
 
 # [](#basics) Basics of crawling
 
-Welcome to the second section of our **Web scraping for beginners** course. In the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}}) section, we learned how to extract data from a web page. Specifically, the <a href="https://www.alexa.com/topsites" target="_blank">Alexa Top Sites index</a>.
+Welcome to the second section of our **Web scraping for beginners** course. In the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}}) section, we learned how to extract data from a web page. Specifically, our demo e-commerce site, which we'll call [Fake Webstore](https://demo-webstore.apify.org).
 
-In this section, we will take a look at moving between web pages, which we call **crawling**. We will collect browsing data for all the countries in the <a href="https://www.alexa.com/topsites/countries" target="_blank">Alexa Top Sites by Country index</a>. To do that, we need to crawl the individual country websites.
+In this section, we will take a look at moving between web pages, which we call **crawling**. We will collect data about all of the on-sale products on [Fake Webstore](https://demo-webstore.apify.org/search/on-sale). To do that, we will need to crawl the individual product pages.
 
 ## [](#how-to-crawl) How do you crawl?
 
