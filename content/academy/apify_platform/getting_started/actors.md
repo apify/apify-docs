@@ -42,4 +42,4 @@ Now that you know the basics of what actors are and how to use them, it's time t
 
 ## [](#next) Next up
 
-In future lessons, we will be learning about how to easily build an actor on the Apify platform from templates, as well as how to quickly turn your existing code on Github or Gitlab into a monetizable actor!
+Get ready, because in the [next lesson]({{@link apify_platform/getting_started/creating_actors.md}}), you'll be writing your very own actor!
