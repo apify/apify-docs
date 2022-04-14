@@ -55,6 +55,8 @@ The new actor should take the following input values, which be mapped to paramet
 }
 ```
 
+[**Solution**]({{@link pro_apify_scraper_development/solutions/using_api_and_client.md}})
+
 ## [](#next) Next up
 
-In the next lesson, we'll become more familiar and comfortable with interacting with the Apify API by tackling the above task. Let's do it together!
+Wow, you've learned a whole lot so far. The next lesson will surely be released soon, as we release new lessons as we write them, so stay tuned!
