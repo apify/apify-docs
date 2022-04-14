@@ -9,7 +9,7 @@ paths:
 
 # [](#about-the-platform) Apify platform
 
-The [Apify platform](https://apify.com) was built to serve large-scale and high-performance web scraping and automation needs. It provides easy access to compute instances ([actors]({{@link apify_platform/actors.md}})), convenient request and result storages, proxies, scheduling, webhooks and more - all accessible through the **Console** web interface, [Apify's API](https://docs.apify.com/api/v2), or our [JavaScript](https://docs.apify.com/apify-client-js) and [Python](https://docs.apify.com/apify-client-python) API clients.
+The [Apify platform](https://apify.com) was built to serve large-scale and high-performance web scraping and automation needs. It provides easy access to compute instances ([actors]({{@link apify_platform/getting_started/actors.md}})), convenient request and result storages, proxies, scheduling, webhooks and more - all accessible through the **Console** web interface, [Apify's API](https://docs.apify.com/api/v2), or our [JavaScript](https://docs.apify.com/apify-client-js) and [Python](https://docs.apify.com/apify-client-python) API clients.
 
 ## [](#this-course) Course outline
 
