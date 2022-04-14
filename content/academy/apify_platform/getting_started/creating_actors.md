@@ -28,7 +28,7 @@ After clicking on **Use template**, you should be brought to a page that looks l
 
 ![Multifile editor]({{@asset apify_platform/getting_started/images/multifile-editor.webp}})
 
-The area where you can see some code and files is the called the **Multifile editor**, and it is your gateway to writing actor directly on the Apify platform.
+The area where you can see some code and files is the called the **multifile editor**, and it is your gateway to writing actor directly on the Apify platform.
 
 Go ahead and delete the three lines of code in the **main.js**  file that look like this:
 
@@ -76,10 +76,10 @@ Click **Start** and wait a few seconds... Do you see something that looks like t
 
 ![Build the actor]({{@asset apify_platform/getting_started/images/hello-world-run.webp}})
 
-If so, it worked!
+If so, it worked! 🥳
 
 Later on, we'll be working on some more complex actors - this was just a fun and quick exercise to get your toes wet.
 
 ## [](#next) Next up
 
-Be on the lookout for more lessons very soon!
+So we've created an actor, but how can we give it some input, then make it do stuff based on that input? This is exactly what we'll be discussing in the [next lesson]({{@link apify_platform/getting_started/inputs_outputs.md}})'s activity.
