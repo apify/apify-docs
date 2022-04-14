@@ -41,4 +41,4 @@ Finally, we'll create a task for the actor that saves the configuration with the
 
 ## [](#next) Next up
 
-In the next lesson, we'll be learning how to use the different storage options available on with Apify, the two different types of storages, as well as how to create tasks for actors.
+In the [next lesson]({{@link pro_apify_scraper_development/using_storage_creating_tasks.md}})), you'll be learning how to use the different storage options available on with Apify, the two different types of storages, as well as how to create tasks for actors.

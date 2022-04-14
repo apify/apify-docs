@@ -62,10 +62,6 @@ A great way to think about it is that, by doing this, you are combining two step
 
 It's also important to know that Github/Gitlab repository integration is standard practice. As projects grow, and the number of contributors and maintainers grows, it only makes sense to have a Github repository integrated with the project's actor. For the remainder of this course, all actors created will be integrated with a Github repository.
 
-## [](#wrap-up) Wrap up
+## [](#next) Next up
 
-You're already so far along in your pro-level scraper development journey!
-
-In the past few lessons, you've learned how to build an actor from scratch, how to publish an actor, and how to integrate webhooks into your actor. You've also learned about the two main ways to call actors programmatically - through the Apify API, and through the Apify SDK (with `Apify.call()`).
-
-That's all the lessons within this module for now, but more will come very soon.
+[Next up]({{@link pro_apify_scraper_development/tasks_and_storage.md}})), you'll learn about the different ways to store scraped data, as well as how to utilize a cool feature to run pre-configured actors.
