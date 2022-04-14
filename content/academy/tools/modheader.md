@@ -1,6 +1,6 @@
 ---
 title: ModHeader
-description: Learn about Postman, a simple yet super valuable tool for testing requests and proxies when building scalable web scrapers.
+description: Discover a super useful Chrome extension called ModHeader, which allows you to modify your browser's HTTP request headers.
 menuWeight: 7.3
 paths:
     - tools/modheader
