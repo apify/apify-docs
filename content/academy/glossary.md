@@ -1,13 +1,13 @@
 ---
-title: Glossary
-description: Browse important web scraping concepts, tools and topics in succinct articles that explain common web development terms in a web scraping and automation context.
+title: Why a glossary?
+description: Browse important web scraping concepts, tools and topics in succinct articles explaining common web development terms in a web scraping and automation context.
 menuWeight: 7
 category: glossary
 paths:
 - glossary
 ---
 
-# Glossary
+# [](#why-a-glossary) Why a glossary?
 
 Web scraping comes with a lot of terms that are specific to the area. Some of them are libraries, like Puppeteer or Playwright. Some are general topics that have a special place in web scraping, like headless browsers or browser fingerprints. And some topics are related to all web development, but play a special role in web scraping, like cookies.
 
