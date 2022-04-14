@@ -1,9 +1,9 @@
 ---
 title: Using storage & creating tasks
 description: Follow along with step-by-step instructions on how to complete the task outlined in the previous lesson. Use different storage types, and create a task.
-menuWeight: 6.7
+menuWeight: 3
 paths:
-    - pro-apify-scraper-development/using-storage-creating-tasks
+    - pro-apify-scraper-development/solutions/using-storage-creating-tasks
 ---
 
 # [](#using-storage-creating-tasks) Using storage & creating tasks
@@ -84,7 +84,7 @@ const cheapest = items.reduce((prev, curr) => {
 await Apify.setValue(CHEAPEST_ITEM, cheapest);
 ```
 
-You might have noticed that we are using a variable instead of a string for the key name in the key-value store. This is because we're using an exported variable from **constants.js** (which is best practice, as discussed in the [**Actor building** lesson]({{@link pro_apify_scraper_development/actor_building.md}})). Here is what our **constants.js** file looks like:
+You might have noticed that we are using a variable instead of a string for the key name in the key-value store. This is because we're using an exported variable from **constants.js** (which is best practice, as discussed in the [**Actor building** solution]({{@link pro_apify_scraper_development/solutions/actor_building.md}})). Here is what our **constants.js** file looks like:
 
 ```JavaScript
 // constants.js
@@ -255,16 +255,16 @@ Don't forget to push your changes to Github using `git push origin MAIN_BRANCH_N
 
 Back on the platform, on your actor's page, you can see a button in the top right hand corner that says **Create new task**:
 
-![Create new task button]({{@asset pro_apify_scraper_development/images/create-new-task.webp}})
+![Create new task button]({{@asset pro_apify_scraper_development/solutions/images/create-new-task.webp}})
 
 Then, configure the task to use **google pixel** as a keyword and click **Save**.
 
 > You can also add a custom name and description for the task in the **Settings** tab!
 
-![Creating a task]({{@asset pro_apify_scraper_development/images/creating-task.webp}})
+![Creating a task]({{@asset pro_apify_scraper_development/solutions/images/creating-task.webp}})
 
 After saving it, you'll be able to see the newly created task in the **Tasks** tab on the Apify Console. Go ahead and run it. Did it work?
 
-## [](#next) Next up
+## [](#wrap-up) Wrap up
 
-The [next lesson]({{@link pro_apify_scraper_development/apify_api_and_client.md}})) is very exciting, as it will unlock the ability to seamlessly integrate your Apify actors into your own external projects and applications with the Apify API.
+You've learned how to use the different storage options available on with Apify, the two different types of storages, as well as how to create tasks for actors.

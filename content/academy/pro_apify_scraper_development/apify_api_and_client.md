@@ -1,7 +1,7 @@
 ---
 title: Apify API & client
 description: Gain an in-depth understanding of the two main ways of programmatically interacting with the Apify platform - throught the API, and through a client.
-menuWeight: 6.8
+menuWeight: 6.5
 paths:
     - pro-apify-scraper-development/apify-api-and-client
 ---
