@@ -1,6 +1,6 @@
 ---
 title: Managing source code
-description: Learn how to manage your actor's source code more efficiently by integrating it with a Github repository.
+description: Learn how to manage your actor's source code more efficiently by integrating it with a Github repository. This is the standard on the Apify platform.
 menuWeight: 6.5
 paths:
     - pro-apify-scraper-development/managing-source-code
