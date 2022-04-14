@@ -1,0 +1,21 @@
+---
+title: ModHeader
+description: Learn about Postman, a simple yet super valuable tool for testing requests and proxies when building scalable web scrapers.
+menuWeight: 7.3
+paths:
+    - tools/modheader
+---
+
+# [](#what-is-modheader) What is ModHeader?
+
+If you read about [Postman]({{@link tools/postman.md}}), you might remember that you can use it to modify request headers before sending a request. This is great, but the main problem is that Postman can only make static requests - meaning, it is unable to load JavaScript or any [dynamic content]({{@link dynamic_pages_and_spas.md}}).
+
+[ModHeader](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj?hl=en) is a Chrome extension which can be used to modify the HTTP headers of the requests you make with your browser. This means that, for example, if your scraper using a headless browser Puppeteer is being blocked due to an improper **User-Agent** header, you can use ModHeader to test the target website and quickly solve the issue.
+
+## [](#interface) The ModHeader interface
+
+After you install the ModHeader extension, you should see in pinned in Chrome's task bar. When you click it, you'll see an interface like this pop up:
+
+![Modheader's simple interface]({{@asset tools/images/modheader.webp}})
+
+Here, you can add headers, remove headers, and even save multiple collections of headers that you can easily toggle between.
