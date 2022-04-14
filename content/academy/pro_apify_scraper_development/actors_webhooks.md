@@ -1,7 +1,7 @@
 ---
 title: Webhooks & advanced actor overview
 description: Learn more advanced details about actors, how they work, and the default configurations they can take. Also learn how to integrate your actor with webhooks.
-menuWeight: 6.3
+menuWeight: 6.2
 paths:
     - pro-apify-scraper-development/actors-webhooks
 ---
@@ -40,6 +40,8 @@ In this task, we'll be building on top of what we already created in the previou
 
 Once our Amazon actor has completed its run, we will, rather than sending an email to ourselves, call an actor through a webhook. The actor called will be a new actor that we will create together, which will take the dataset ID as input, then subsequently filter through all of the results and return only the cheapest one for each product. All of the results of the actor will be pushed to its default dataset.
 
+[**Solution**]({{@link pro_apify_scraper_development/solutions/integrating_webhooks.md}})
+
 ## [](#next) Next up
 
-[Next up]({{@link pro_apify_scraper_development/integrating_webhooks.md}}), we'll be building the actor described above, and integrating it with the actor we built last lesson with webhooks (don't worry, on the Apify platform, integrations are a walk in the park!).
+This course's [next lesson]({{@link pro_apify_scraper_development/managing_source_code.md}}) is brief, but discusses a very important topic: managing your code, and storing it in a safe place.

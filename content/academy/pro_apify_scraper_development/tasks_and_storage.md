@@ -1,7 +1,7 @@
 ---
 title: Tasks & storage
 description: Understand how to save the configurations for actors with actor tasks. Also, learn about storage and the different types Apify offers.
-menuWeight: 6.6
+menuWeight: 6.4
 paths:
     - pro-apify-scraper-development/tasks-and-storage
 ---
@@ -39,6 +39,8 @@ We have decided that we want to retain the data scraped by the actor for a long 
 
 Finally, we'll create a task for the actor that saves the configuration with the **keyword** set to be **google pixel**.
 
+[**Solution**]({{@link pro_apify_scraper_development/solutions/using_storage_creating_tasks.md}})
+
 ## [](#next) Next up
 
-In the [next lesson]({{@link pro_apify_scraper_development/using_storage_creating_tasks.md}})), you'll be learning how to use the different storage options available on with Apify, the two different types of storages, as well as how to create tasks for actors.
+The [next lesson]({{@link pro_apify_scraper_development/apify_api_and_client.md}})) is very exciting, as it will unlock the ability to seamlessly integrate your Apify actors into your own external projects and applications with the Apify API.
