@@ -265,10 +265,6 @@ Then, configure the task to use **google pixel** as a keyword and click **Save**
 
 After saving it, you'll be able to see the newly created task in the **Tasks** tab on the Apify Console. Go ahead and run it. Did it work?
 
-## [](#wrap-up) Wrap up
+## [](#next) Next up
 
-You're already so far along in your pro-level scraper development journey!
-
-In the past few lessons, you've learned how to build an actor from scratch, how to publish an actor, and how to integrate webhooks into your actor. You've also learned about the two main ways to call actors programmatically - through the Apify API, and through the Apify SDK (with `Apify.call()`).
-
-That's all the lessons within this module for now, but more will come very soon.
+The [next lesson]({{@link pro_apify_scraper_development/apify_api_and_client.md}})) is very exciting, as it will unlock the ability to seamlessly integrate your Apify actors into your own external projects and applications with the Apify API.
