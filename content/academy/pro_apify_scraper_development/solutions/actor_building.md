@@ -240,7 +240,7 @@ exports.handleProduct = ({ $, crawler: { requestQueue }, request }) => {
 
 > If you are sometimes getting an error along the lines of **RequestError: Proxy responded with 407**, don't worry, this is totally normal. The proxy being used for the request was probably dead, so the request failed, but CheerioCrawler will automatically retry the request.
 
-Great! But wait, where do we go from here? We need to go to the offers page next and scrape each offer, but how can we do that? Let's take a small break from writing the scraper and open up [Proxyman]({{@link glossary/proxyman.md}}) to analyze requests which we can't see inside the network tab, then we'll click the button on the product page that loads up all of the product offers:
+Great! But wait, where do we go from here? We need to go to the offers page next and scrape each offer, but how can we do that? Let's take a small break from writing the scraper and open up [Proxyman]({{@link tools/proxyman.md}}) to analyze requests which we can't see inside the network tab, then we'll click the button on the product page that loads up all of the product offers:
 
 ![View offers button]({{@asset pro_apify_scraper_development/solutions/images/view-offers-button.webp}})
 
