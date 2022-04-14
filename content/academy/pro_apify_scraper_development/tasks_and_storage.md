@@ -20,16 +20,16 @@ Storage allows us to save persistent data for further processing. As you'll lear
 
 ## [](#learning) Learning 🧠
 
-- Check out [the docs about actor tasks](https://docs.apify.com/actors/tasks)
+- Check out [the docs about actor tasks](https://docs.apify.com/actors/tasks).
 - Read about the [two main storage options](https://docs.apify.com/storage#dataset) on the Apify platform.
-- Understand the [crucial differences between named and unnamed storages](https://docs.apify.com/storage#named-and-unnamed-storages)
-- Learn about the [`Dataset`](https://sdk.apify.com/docs/api/dataset) and [`KeyValueStore`](https://sdk.apify.com/docs/api/key-value-store) objects in the Apify SDK
+- Understand the [crucial differences between named and unnamed storages](https://docs.apify.com/storage#named-and-unnamed-storages).
+- Learn about the [`Dataset`](https://sdk.apify.com/docs/api/dataset) and [`KeyValueStore`](https://sdk.apify.com/docs/api/key-value-store) objects in the Apify SDK.
 
 ## [](#quiz) Knowledge check 📝
 
 1. What is the relationship between actors and tasks?
 2. What are the differences between default (unnamed) and named storage? Which one would you use for everyday usage?
-3. What is data retention and how does it work for all types of storages (default and named)?
+3. What is data retention, and how does it work for all types of storages (default and named)?
 
 ## [](#our-task) Our task
 

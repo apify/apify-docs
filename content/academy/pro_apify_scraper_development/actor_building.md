@@ -511,7 +511,7 @@ We've also replaced the default `title` and `description` with our own custom on
 
 ## [](#running-on-the-platform) Running the actor on the platform
 
-Let's try it out now! Input **iphone** into the box labeled **keyword**, click **Start** and see the sparks fly!
+Let's try it out now! Input **iphone** into the box labeled **keyword**, click **Start**, and see the sparks fly!
 
 ## [](#next) Next up
 
