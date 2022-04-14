@@ -1,6 +1,6 @@
 ---
 title: Creating actors
-description: In this lesson, build and run your very first actor right on the Apify platform from a template.
+description: Build and run your very first actor right on the Apify platform from a template. This lesson provides a hands-on experience with building and running an actor.
 menuWeight: 2
 paths:
 - apify-platform/getting-started/creating-actors
