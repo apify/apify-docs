@@ -71,7 +71,7 @@ This technique is commonly uses to entirely block the bot from accessing the web
 
 This is the most straightforward and standard protection, which is mainly implemented to prevent DDOS attacks, but it also works for blocking scrapers. Websites using rating don't allow to more than some defined number of requests from one IP address in a certain time span. If the max-request number is low, then there is a high potential for false-positive due to IP address uniqueness, such as in large companies where hundreds of employees can share the same IP address.
 
-> Learn more about rate limiting [here]({{@link glossary/rate_limiting.md}})
+> Learn more about rate limiting [here]({{@link concepts/rate_limiting.md}})
 
 ### Header checking
 
