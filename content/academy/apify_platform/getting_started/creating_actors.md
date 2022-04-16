@@ -30,6 +30,8 @@ After clicking on **Use template**, you should be brought to a page that looks l
 
 The area where you can see some code and files is the called the **multifile editor**, and it is your gateway to writing actor directly on the Apify platform.
 
+> It is also possible to deploy code to the platform from a Github repo or from your local environment, which we will be getting into in some of this course's future lessons
+
 Go ahead and delete the three lines of code in the **main.js**  file that look like this:
 
 ```JavaScript
@@ -74,7 +76,7 @@ This beautiful button's presence means we can now run the actor!
 
 Click **Start** and wait a few seconds... Do you see something that looks like this?:
 
-![Build the actor]({{@asset apify_platform/getting_started/images/hello-world-run.webp}})
+![Actor run logs]({{@asset apify_platform/getting_started/images/hello-world-run.webp}})
 
 If so, it worked! 🥳
 

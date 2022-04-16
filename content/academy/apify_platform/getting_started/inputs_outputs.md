@@ -35,6 +35,8 @@ Apify.main(async () => {
 
 Then, replace everything in **INPUT_SCHEMA.json**  with this:
 
+> This step isn't necessary, as the actor will still be able to take input in JSON format without it; however, we are providing the content for this actor's input schema in this lesson, as it will give the Apify platform a blueprint off of which it can generate a nice UI for your inputs, as well as validate their values.
+
 ```JSON
 {
     "title": "Number adder",
@@ -80,7 +82,9 @@ On the results tab, there are a whole lot of options for which format to view/do
 
 ![Dataset preview]({{@asset apify_platform/getting_started/images/dataset-preview.webp}})
 
-There's our solution! Did it work for you as well?
+There's our solution! Did it work for you as well? Now, we can download the data right from the results tab to be used elsewhere, or even programmatically retrieve it by using [Apify's API](https://docs.apify.com/api/v2) (we'll be discussing how to do this in the next lesson).
+
+It's important to note that the default dataset of the actor, which we pushed our solution to, will be retained for 7 days. If we wanted the data to be retained for an indefinite period of time, we'd have to use a named dataset. For more information about named storages vs unnamed storages, read a bit about [data retention on the Apify platform](https://docs.apify.com/storage#data-retention).
 
 ## [](#next) Next up
 
