@@ -19,3 +19,7 @@ After you install the ModHeader extension, you should see in pinned in Chrome's 
 ![Modheader's simple interface]({{@asset tools/images/modheader.webp}})
 
 Here, you can add headers, remove headers, and even save multiple collections of headers that you can easily toggle between (which are called **Profiles** within the extension itself).
+
+## [](#use-cases) Use cases
+
+When scraping dynamic websites, sometimes some specific headers are required to access certain pages. The most popularly required headers are geneerally `User-Agent` and `referer`. ModHeader, and other tools like it, make it easy to test requests to these websites right in your browser before writing logic for your scraper.
