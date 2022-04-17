@@ -1,9 +1,9 @@
 ---
 title: Actors
 description: What is an actor? How do we create them? Learn the basics of what actors are, how they work, and try out an actor yourself right on the Apify platform!
-menuWeight: 5.2
+menuWeight: 1
 paths:
-- apify-platform/actors
+- apify-platform/getting-started/actors
 ---
 
 # [](#actors) Actors
@@ -24,11 +24,11 @@ For a super quick and dirty understanding of what a published actor looks like, 
 
 On the front page of the actor, click the green **Try for free** button. If you're logged into your Apify account which you created during the [Getting started]({{@link apify_platform/getting_started.md}}), you'll be taken to the Apify Console and greeted with a page that looks like this:
 
-![Actor configuration]({{@asset apify_platform/images/seo-actor-config.webp}})
+![Actor configuration]({{@asset apify_platform/getting_started/images/seo-actor-config.webp}})
 
 This is where we can provide input to the actor. The defaults here are just fine, so we'll just leave it as is and click the green **Start** button to run it. While the actor is running, you'll see it log some information about itself.
 
-![Actor logs]({{@asset apify_platform/images/actor-logs.webp}})
+![Actor logs]({{@asset apify_platform/getting_started/images/actor-logs.webp}})
 
 After the actor has completed its run (you'll know this when you see **SEO audit for apify.com finished.** in the logs), the results of the run can be viewed by clicking the **Results** tab, then subsequently the **View in another tab** option under **Export**.
 
@@ -36,10 +36,10 @@ After the actor has completed its run (you'll know this when you see **SEO audit
 
 While still on the platform, click on the tab with the **< >** icon which says **Actors**. This tab is your one-stop-shop for seeing which actors you've used recently, and which ones you've developed yourself. You will be frequently using this tab when developing and testing on the Apify platform.
 
-![The "Actors" tab on the Apify platform]({{@asset apify_platform/images/actors-tab.webp}})
+![The "Actors" tab on the Apify platform]({{@asset apify_platform/getting_started/images/actors-tab.webp}})
 
 Now that you know the basics of what actors are and how to use them, it's time to develop **an actor of your own**!
 
 ## [](#next) Next up
 
-[Next up]({{@link apify_platform/apify_cli.md}}), you'll be learning about the super cool sidekick to the Apify platform - the Apify CLI. If you've been using `node FILENAME.js` to run your projects, you'll be excited to learn that the Apify CLI allows you to run your Apify SDK projects with some useful flags (such as to purge storage), push and download datasets to and from the cloud, publish your projects to the platform, generate boilerplate code for your new projects, and more!
+Get ready, because in the [next lesson]({{@link apify_platform/getting_started/creating_actors.md}}), you'll be writing your very own actor!
