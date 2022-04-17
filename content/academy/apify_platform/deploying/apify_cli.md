@@ -1,9 +1,9 @@
 ---
 title: Apify CLI
 description: Learn about and install an important tool for communicating with your Apify SDK projects and the Apify Platform from your terminal - the Apify CLI.
-menuWeight: 5.3
+menuWeight: 1
 paths:
-- apify-platform/apify-cli
+- apify-platform/deploying/apify-cli
 ---
 
 # [](#the-cli) Apify CLI
@@ -26,7 +26,7 @@ This will install the CLI via NPM.
 
 After the CLI has finished installing, navigate to the [Apify Console](https://console.apify.com) and click on **Settings**. Then, within your account settings, click **Integrations**. The page should look like this:
 
-![Integrations tab on the Apify Platform]({{@asset apify_platform/images/settings-integrations.webp}})
+![Integrations tab on the Apify Platform]({{@asset apify_platform/deploying/images/settings-integrations.webp}})
 
 > We've censored out the **User ID** in the image because it is private information which should not be shared with anyone who is not trusted. The same goes for your **Personal API Token**.
 
@@ -50,4 +50,4 @@ When you're locally test-running your code in the next lessons, always be sure t
 
 ## [](#next) Next up
 
-In future lessons, we will be learning about how to easily build an actor on the Apify platform from templates, as well as how to quickly turn your existing code on Github or Gitlab into a monetizable actor!
+Be on the lookout for more lessons very soon!
