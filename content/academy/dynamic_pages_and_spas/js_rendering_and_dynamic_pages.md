@@ -8,7 +8,7 @@ paths:
 
 # [](#rendering-and-dynamic-pages) JS rendering and dynamic pages
 
-In the [final lessons]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) of the _Web Scraping for Beginners_ module, we learned about the Apify SDK, which is a powerful library for writing reliable and efficient scrapers. We recommend reading up on those last two lessons in order to install the `apify` package and familiarize yourself with it before moving forward with this lesson.
+In the [final lessons]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) of the **Web Scraping for Beginners** module, we learned about the Apify SDK, which is a powerful library for writing reliable and efficient scrapers. We recommend reading up on those last two lessons in order to install the `apify` package and familiarize yourself with it before moving forward with this lesson.
 
 In this lesson, we'll be discussing dynamic content and how to scrape it.
 
