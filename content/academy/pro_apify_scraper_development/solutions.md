@@ -1,6 +1,6 @@
 ---
 title: Solutions
-description: In this course learn how to take an existing project of yours and deploy it to the Apify platform as an actor in just a few minutes!
+description: View all of the solutions for all of the activities and tasks of this course. Please try to complete each task on your own before reading the solution!
 menuWeight: 6.6
 paths:
 - pro-apify-scraper-development/solutions
