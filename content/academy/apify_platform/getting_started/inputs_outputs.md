@@ -88,5 +88,4 @@ It's important to note that the default dataset of the actor, which we pushed ou
 
 ## [](#next) Next up
 
-Be on the lookout for more lessons about the Apify platform very soon!
-
+In [next lesson]({{@link apify_platform/getting_started/apify_api.md}})'s fun activity, you'll learn how to call the actor we created in this lesson programmatically using one of Apify's most powerful tools - the Apify API.
