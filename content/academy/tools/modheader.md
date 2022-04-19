@@ -1,7 +1,7 @@
 ---
 title: ModHeader
 description: Discover a super useful Chrome extension called ModHeader, which allows you to modify your browser's HTTP request headers.
-menuWeight: 7.3
+menuWeight: 7.4
 paths:
     - tools/modheader
 ---
@@ -22,4 +22,4 @@ Here, you can add headers, remove headers, and even save multiple collections of
 
 ## [](#use-cases) Use cases
 
-When scraping dynamic websites, sometimes some specific headers are required to access certain pages. The most popularly required headers are geneerally `User-Agent` and `referer`. ModHeader, and other tools like it, make it easy to test requests to these websites right in your browser before writing logic for your scraper.
+When scraping dynamic websites, sometimes some specific headers are required to access certain pages. The most popularly required headers are geneerally `User-Agent` and `referer`. ModHeader, and other tools like it, make it easy to test requests to these websites right in your browser before writing logic for your scraper
