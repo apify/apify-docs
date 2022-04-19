@@ -6,7 +6,7 @@ paths:
     - tools/postman
 ---
 
-# What is Postman?
+# [](#what-is-postman) What is Postman?
 
 [Postman](https://www.postman.com/) is a powerful collaboration platform for API development and testing. For scraping use-cases, it's mainly used to test requests and proxies (such as checking the response body of a raw request, without loading any additional resources such as JavaScript or CSS). This tool can do much more than that, but we will not be discussing all of its capabilities here. Postman allows us to easily test requests with cookies, headers, and payloads so that we can be entirely sure what the response looks like for a request URL we plan to eventually use in a scraper.
 

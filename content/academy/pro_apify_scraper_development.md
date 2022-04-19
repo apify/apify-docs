@@ -37,7 +37,7 @@ Throughout the next lessons, we will sometimes use certain technologies and term
 
 If you're feeling ambitious, you don't need to have any prior experience with the Apify SDK to get started with this course; however, at least 5-10 minutes of exposure is recommended. If you haven't yet tried out the Apify SDK, you can refer to [this lesson]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) in the **Web scraping for beginners** course (and ideally follow along).
 
-The Apify CLI will play a core role in the running and testing of the actor you will build, so if you haven't gotten it installed already, please follow along with [this short lesson]({{@link apify_platform/apify_cli.md}}).
+The Apify CLI will play a core role in the running and testing of the actor you will build, so if you haven't gotten it installed already, please follow along with [this short lesson]({{@link apify_platform/deploying/apify_cli.md}}).
 
 ### [](#puppeteer-playwright) Puppeteer/Playwright
 
@@ -57,7 +57,7 @@ Docker is a massive topic on its own, but don't be worried! We only expect you t
 
 ### [](#actor-basics) The basics of actors
 
-Part of this course will be learning more in-depth about actors; however, some basic knowledge is already assumed. If you haven't yet read the [actors]({{@link apify_platform/actors.md}}) lesson of the **Apify platform** course, it's highly recommended to give it a glance before moving forward.
+Part of this course will be learning more in-depth about actors; however, some basic knowledge is already assumed. If you haven't yet read the [actors]({{@link apify_platform/getting_started/actors.md}}) lesson of the **Apify platform** course, it's highly recommended to give it a glance before moving forward.
 
 ## [](#next) Next up
 
