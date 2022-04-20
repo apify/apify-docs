@@ -233,4 +233,3 @@ Keep in mind that you can get a maximum of 1000 keys per request, so you will ne
 ```cURL
 https://api.apify.com/v2/key-value-stores/STORE_ID/keys?exclusiveStartKey=myLastRecordKey
 ```
-
