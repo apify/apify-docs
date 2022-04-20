@@ -59,4 +59,4 @@ The new actor should take the following input values, which be mapped to paramet
 
 ## [](#next) Next up
 
-Wow, you've learned a whole lot so far. The next lesson will surely be released soon, as we release new lessons as we write them, so stay tuned!
+Wow, you've learned a whole lot so far. The next lesson will be released as soon as it's written, so stay tuned!

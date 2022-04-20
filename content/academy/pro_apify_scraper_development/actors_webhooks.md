@@ -16,7 +16,7 @@ Take another look at the files within your project from the previous lesson. You
 
 ## [](#webhooks) Webhooks
 
-Webhooks are a powerful tool that can be used for just about anything. You can set up actions to be taken for when an actor reaches a certain state _(started, failed, succeeded, etc)_. These actions usually take the form of an API call _(generally a POST request)_.
+Webhooks are a powerful tool that can be used for just about anything. You can set up actions to be taken for when an actor reaches a certain state (started, failed, succeeded, etc). These actions usually take the form of an API call (generally a POST request).
 
 ## [](#learning) Learning 🧠
 
@@ -44,4 +44,4 @@ Once our Amazon actor has completed its run, we will, rather than sending an ema
 
 ## [](#next) Next up
 
-This course's [next lesson]({{@link pro_apify_scraper_development/managing_source_code.md}}) is brief, but discusses a very important topic: managing your code, and storing it in a safe place.
+This course's [next lesson]({{@link pro_apify_scraper_development/managing_source_code.md}}) is brief, but discusses a very important topic: managing your code and storing it in a safe place.
