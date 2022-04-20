@@ -196,7 +196,7 @@ The **run info** JSON also contains the IDs of the default [dataset]({{@link sto
 
 #### [](#retrieve-a-dataset) Retrieving a dataset
 
-> If you are scraping products, or any list of items with similar fields, the **dataset** should be your storage of choice. Don't forget though, that dataset items are immutable. This means that you can only add to the dataset, and not change the content that is already inside of it.
+> If you are scraping products, or any list of items with similar fields, the [dataset](https://docs.apify.com/storage/dataset) should be your storage of choice. Don't forget though, that dataset items are immutable. This means that you can only add to the dataset, and not change the content that is already inside of it.
 
 Retrieving the data from a dataset is simple. Just send a GET request to the [**Get items**](/api/v2#/reference/datasets/item-collection/get-items) endpoint and pass the `defaultDatasetId` into the URL. For a GET request to the default dataset, no token is needed.
 
