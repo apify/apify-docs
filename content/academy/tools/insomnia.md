@@ -8,13 +8,13 @@ paths:
 
 # [](#what-is-insomnia) What is Insomnia?
 
-Despite its name, the [Insomnia](https://insomnia.rest/download) desktop application has absolutely nothing to do with a lack of sleep. Rather, it is a tool to build and test APIs. If you've already read about [Postman]({{@link tools/postman.md}}), you already know what Insomnia can be used for, as they both do practically the same exact things. There are some small differences between them, though. Like Postman, Insomnia allows you to send requests with specific headers and cookies, to add a requesst payload, etc. One difference is that Insomnia also allows you to see the whole timeline of the request.
+Despite its name, the [Insomnia](https://insomnia.rest/download) desktop application has absolutely nothing to do with having a lack of sleep. Rather, it is a tool to build and test APIs. If you've already read about [Postman]({{@link tools/postman.md}}), you already know what Insomnia can be used for, as they both do practically the same exact things. There are some small differences between them, though. Like Postman, Insomnia allows you to send requests with specific headers and cookies, to add a request payload, etc. One difference is that Insomnia also allows you to see the whole timeline of the request.
 
 Insomnia can be downloaded from its [official website](https://insomnia.rest/download), and its features can be read about in the [official documentation](https://docs.insomnia.rest/).
 
 ## [](#insomnia-interface) The Insomnia interface
 
-After open the app, you'll first need to create a new request. After creating the request, you'll see an interface that looks like this:
+After opening the app, you'll first need to create a new request. After creating the request, you'll see an interface that looks like this:
 
 ![Insomnia interface]({{@asset tools/images/insomnia-interface.webp}})
 
@@ -46,7 +46,7 @@ This feature allows you to see information about the request that is not present
 
 ## [](#using-proxies) Using proxies in Insomnia
 
-In order to use a proxy, you need to specify the proxy's parameters in Insomnia's preferences. In preferences, scroll down to the **HTTP Network Proxy** section under the **General** tab a specify the full proxy URL there:
+In order to use a proxy, you need to specify the proxy's parameters in Insomnia's preferences. In preferences, scroll down to the **HTTP Network Proxy** section under the **General** tab and specify the full proxy URL there:
 
 ![Configuring a proxy]({{@asset tools/images/insomnia-proxy.webp}})
 

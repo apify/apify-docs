@@ -59,5 +59,5 @@ Clicking on this button opens a **MANAGE COOKIES** window, where a list of all c
 ### [](#alternatives) Some alternatives to Postman
 
 - [Hoppscotch](https://hoppscotch.io/)
-- [Insomnia]({{@link tools/postman.md}})
+- [Insomnia]({{@link tools/insomnia.md}})
 - [Testfully](https://testfully.io/)
