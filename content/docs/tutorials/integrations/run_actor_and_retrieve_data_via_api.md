@@ -82,7 +82,7 @@ If we press **Send**, it will immediately return some info about the run. The `s
 
 ![Actor run info in Postman]({{@asset tutorials/images/run-info-postman.webp}})
 
-We will later use this run info JSON to retrieve the run's output data. This info about the run can also be retrived with another call to the [**Get run**](https://apify.com/docs/api/v2#/reference/actors/run-object/get-run) endpoint.
+We will later use this **run info** JSON to retrieve the run's output data. This info about the run can also be retrived with another call to the [**Get run**](https://apify.com/docs/api/v2#/reference/actors/run-object/get-run) endpoint.
 
 ## [](#synchronous-flow) Synchronous flow
 
@@ -192,7 +192,7 @@ Once a status of `SUCCEEDED` or `FAILED` has been received, we know the run has
 
 Unless you used the [synchronous call](#synchronous-flow) mentioned above, you will have to make one additional request to the API to retrieve the data.
 
-The run info JSON also contains IDs of the default [dataset]({{@link storage/dataset.md}}) and [key-value store]({{@link storage/key_value_store.md}}) that are allocated separately for each run, which is usually everything you need. The fields are called `defaultDatasetId` and `defaultKeyValueStoreId`.
+The **run info** JSON also contains the IDs of the default [dataset]({{@link storage/dataset.md}}) and [key-value store]({{@link storage/key_value_store.md}}) that are allocated separately for each run, which is usually everything you need. The fields are called `defaultDatasetId` and `defaultKeyValueStoreId`.
 
 #### [](#retrieve-a-dataset) Retrieving a dataset
 
