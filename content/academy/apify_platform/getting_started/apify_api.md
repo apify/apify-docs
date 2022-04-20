@@ -14,6 +14,20 @@ In this lesson, we'll be learning how to use the Apify API to call an actor and 
 
 ## [](#finding-your-endpoint) Finding your endpoint
 
+Within one of your actors on the [Apify Console](https://console.apify.com), click on the **API** button in the top right-hand corner:
+
+![The "API" button on an actor's page on the Apify Console]({{@asset apify_platform/getting_started/images/api-tab.webp}})
+
+
+
+<!-- Note: From the previous version of this lesson, some now unused but useful images still remain.
+
+- actor-settings-id.webp
+- api-error.webp
+- api-csv-response.webp
+
+ -->
+
 So, we want to run our **adding-actor** via API and view its results in CSV format at the end. After looking through the [Apify API reference](https://docs.apify.com/api/v2#/reference), we've found that we can in fact [run an actor synchronously and get its dataset items](https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items). The endpoint looks like this:
 
 ```text
