@@ -16,7 +16,7 @@ Tasks are a very useful feature which allow us to save pre-configured inputs for
 
 ## [](#storage) Storage
 
-Storage allows us to save persistent data for further processing. As you'll learn, there are two main storage options on the Apify platform, as well as two main storage types _(**named** and **unnamed**)_ with one big difference between them.
+Storage allows us to save persistent data for further processing. As you'll learn, there are two main storage options on the Apify platform, as well as two main storage types (**named** and **unnamed**) with one big difference between them.
 
 ## [](#learning) Learning 🧠
 
@@ -43,4 +43,4 @@ Finally, we'll create a task for the actor that saves the configuration with the
 
 ## [](#next) Next up
 
-The [next lesson]({{@link pro_apify_scraper_development/apify_api_and_client.md}})) is very exciting, as it will unlock the ability to seamlessly integrate your Apify actors into your own external projects and applications with the Apify API.
+The [next lesson]({{@link pro_apify_scraper_development/apify_api_and_client.md}}) is very exciting, as it will unlock the ability to seamlessly integrate your Apify actors into your own external projects and applications with the Apify API.

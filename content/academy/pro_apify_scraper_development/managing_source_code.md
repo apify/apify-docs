@@ -8,7 +8,7 @@ paths:
 
 # [](#managing-source-code) Managing source code
 
-In this brief lesson, we'll discuss how to better manage an actor's source code. Up 'til now, you've been developing your scripts locally, then pushing the code directly to the actor on the Apify platform; however, there is a much more optimal _(and standard)_ way.
+In this brief lesson, we'll discuss how to better manage an actor's source code. Up 'til now, you've been developing your scripts locally, then pushing the code directly to the actor on the Apify platform; however, there is a much more optimal (and standard) way.
 
 ## [](#learning) Learning 🧠
 
@@ -32,7 +32,7 @@ First, we must initialize a Github repository (you can use Gitlab if you'd like,
 
 ## [](#integrating-github) Integrating Github source code
 
-First, let's create a repository. This can be done [in a number of ways](https://kbroman.org/github_tutorial/pages/init.html), but the way we'll do it is by creating the remote repository on Github's website:
+First, let's create a repository. This can be done [in a number of ways](https://kbroman.org/github_tutorial/pages/init.html), but in this lesson we'll do it by creating the remote repository on Github's website:
 
 ![Create a new Github repo]({{@asset pro_apify_scraper_development/images/github-new-repo.webp}})
 
@@ -64,4 +64,4 @@ It's also important to know that Github/Gitlab repository integration is standar
 
 ## [](#next) Next up
 
-[Next up]({{@link pro_apify_scraper_development/tasks_and_storage.md}})), you'll learn about the different ways to store scraped data, as well as how to utilize a cool feature to run pre-configured actors.
+[Next up]({{@link pro_apify_scraper_development/tasks_and_storage.md}}), you'll learn about the different ways to store scraped data, as well as how to utilize a cool feature to run pre-configured actors.
