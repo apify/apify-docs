@@ -25,7 +25,7 @@ There are two main ways to programmatically interact with the Apify platform: By
 2. How do you pass input when running actor or task via API?
 3. Do you need to install the `apify-client` NPM package when already using the `apify` package?
 
-## [](#our-task) Our task
+## Our task
 
 In the previous lesson, we created a **task** for the Amazon actor we build in the first two lessons of this course. Now, we'll be creating another new actor, which will have two jobs:
 
