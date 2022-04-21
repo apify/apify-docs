@@ -116,6 +116,8 @@ Each of the items in the dataset will represent a scraped offer, and will have t
 
 After the scrape has completed, we'll programmatically call a [public actor which sends emails](https://apify.com/apify/send-mail) to send ourselves an email with a publicly viewable link to the actor's final dataset.
 
+[**Solution**]({{@link pro_apify_scraper_development/solutions/actor_building.md}})
+
 ## [](#next) Next up
 
-In the [next lesson]({{@link pro_apify_scraper_development/actor_building.md}}), we'll be solely focusing on tackling the task outlined above. It's a large task, but don't worry, we'll be doing it together! This is the largest part of the **Pro Apify scraper development** section, so after you complete this, you'll be a total rockstar and ready to move into some even more advanced topics! 🎸
+This was the largest part of the **Pro Apify scraper development** section, so since you've complete this, you're a total rockstar and ready to move into some even more advanced topics! 🎸 In the [next lesson]({{@link pro_apify_scraper_development/actors_webhooks.md}}), you'll be learning some more advanced details about actors, as well as how to utilize webhooks.
