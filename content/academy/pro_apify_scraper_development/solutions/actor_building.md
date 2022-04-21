@@ -96,11 +96,9 @@ But, before we start scraping, let's pause to talk a bit about the important con
 const { BASE_URL } = require('./constants');
 
 // export our function, which expects the "context" object to be passed to it
-exports.handleStart = ({ $, crawler: { requestQueue }, request }) => {
+exports.handleStart = async ({ $, crawler: { requestQueue }, request }) => {
     const { keyword } = request.userData;
 
-    // create an array for our promises
-    const promises = [];
     const products = $('div > div[data-asin]:not([data-asin=""])');
 
     // loop through the resulting products
@@ -110,28 +108,23 @@ exports.handleStart = ({ $, crawler: { requestQueue }, request }) => {
 
         const url = `${BASE_URL}${titleElement.attr('href')}`;
 
-        // scrape some data from each and add a promise for
-        // adding its page to the request list
-        promises.push(
-            requestQueue.addRequest({
-                url,
-                userData: {
-                    label: 'PRODUCT',
-                    // Pass the scraped data about the product to the next
-                    // request so that it can be used there
-                    data: {
-                        title: titleElement.first().text().trim(),
-                        asin: element.attr('data-asin'),
-                        itemUrl: url,
-                        keyword,
-                    },
+        // scrape some data from each and to a request
+        // to the request list for its page
+        await requestQueue.addRequest({
+            url,
+            userData: {
+                label: labels.PRODUCT,
+                // Pass the scraped data about the product to the next
+                // request so that it can be used there
+                data: {
+                    title: titleElement.first().text().trim(),
+                    asin: element.attr('data-asin'),
+                    itemUrl: url,
+                    keyword,
                 },
-            }),
-        );
+            },
+        });
     }
-
-    // return all of our promises inside of a Promise.all
-    return Promise.all(promises);
 };
 ```
 
@@ -187,7 +180,8 @@ Apify.main(async () => {
                     return log.info('Unable to handle this request');
                 case 'START': {
                     // Use our imported function here
-                    return handleStart(context);
+                    await handleStart(context);
+                    break;
                 }
                 case 'PRODUCT': {
                     console.log('on a product page!');
@@ -227,7 +221,7 @@ This is not necessary, but it is best practice, as it can prevent dumb typos tha
 In our quick chat about modularity, we finished the code for the results page, and added a request to the `requestQueue` for each product. Here, we just need to scrape the description, so it shouldn't be too hard:
 
 ```JavaScript
-exports.handleProduct = ({ $, crawler: { requestQueue }, request }) => {
+exports.handleProduct = async ({ $, crawler: { requestQueue }, request }) => {
     const { data } = request.userData;
 
     const element = $('div#productDescription');
@@ -267,13 +261,13 @@ const OFFERS_URL = (asin) => `${BASE_URL}/gp/aod/ajax/ref=auto_load_aod?asin=${a
 Then, we'll import and use that function to create a request for each product's offers page:
 
 ```JavaScript
-exports.handleProduct = ({ $, crawler: { requestQueue }, request }) => {
+exports.handleProduct = async ({ $, crawler: { requestQueue }, request }) => {
     const { data } = request.userData;
 
     const element = $('div#productDescription');
 
-    // Return our promise
-    return requestQueue.addRequest({
+    // Add to the request queue
+    await requestQueue.addRequest({
         url: OFFERS_URL(data.asin),
         userData: {
             label: labels.OFFERS,
@@ -345,11 +339,14 @@ Apify.main(async () => {
                 default:
                     return log.info('Unable to handle this request');
                 case labels.START:
-                    return handleStart(context);
+                    await handleStart(context);
+                    break;
                 case labels.PRODUCT:
-                    return handleProduct(context);
+                    await handleProduct(context);
+                    break;
                 case labels.OFFERS:
-                    return handleOffers(context);
+                    await handleOffers(context);
+                    break;
             }
         },
     });
@@ -365,10 +362,9 @@ Apify.main(async () => {
 const Apify = require('apify');
 const { BASE_URL, OFFERS_URL, labels } = require('./constants');
 
-exports.handleStart = ({ $, crawler: { requestQueue }, request }) => {
+exports.handleStart = async ({ $, crawler: { requestQueue }, request }) => {
     const { keyword } = request.userData;
 
-    const promises = [];
     const products = $('div > div[data-asin]:not([data-asin=""])');
 
     for (const product of products) {
@@ -377,31 +373,27 @@ exports.handleStart = ({ $, crawler: { requestQueue }, request }) => {
 
         const url = `${BASE_URL}${titleElement.attr('href')}`;
 
-        promises.push(
-            requestQueue.addRequest({
-                url,
-                userData: {
-                    label: labels.PRODUCT,
-                    data: {
-                        title: titleElement.first().text().trim(),
-                        asin: element.attr('data-asin'),
-                        itemUrl: url,
-                        keyword,
-                    },
+        await requestQueue.addRequest({
+            url,
+            userData: {
+                label: labels.PRODUCT,
+                data: {
+                    title: titleElement.first().text().trim(),
+                    asin: element.attr('data-asin'),
+                    itemUrl: url,
+                    keyword,
                 },
-            }),
-        );
+            },
+        });
     }
-
-    return Promise.all(promises);
 };
 
-exports.handleProduct = ({ $, crawler: { requestQueue }, request }) => {
+exports.handleProduct = async ({ $, crawler: { requestQueue }, request }) => {
     const { data } = request.userData;
 
     const element = $('div#productDescription');
 
-    return requestQueue.addRequest({
+    await requestQueue.addRequest({
         url: OFFERS_URL(data.asin),
         userData: {
             label: labels.OFFERS,
@@ -413,24 +405,19 @@ exports.handleProduct = ({ $, crawler: { requestQueue }, request }) => {
     });
 };
 
-exports.handleOffers = ({ $, request }) => {
+exports.handleOffers = async ({ $, request }) => {
     const { data } = request.userData;
-
-    const promises = [];
 
     for (const offer of $('#aod-offer')) {
         const element = $(offer);
 
-        promises.push(
-            Apify.pushData({
-                ...data,
-                sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
-                offer: element.find('.a-price .a-offscreen').text().trim(),
-            }),
-        );
-    }
+        await Apify.pushData({
+            ...data,
+            sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
+            offer: element.find('.a-price .a-offscreen').text().trim(),
+        })
 
-    return Promise.all(promises);
+    }
 };
 ```
 
