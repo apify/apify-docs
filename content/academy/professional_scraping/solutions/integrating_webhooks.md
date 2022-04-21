@@ -177,6 +177,28 @@ Additionally, we should be able to see that our **filter-actor** was run, and ha
 
 ![Dataset preview]({{@asset professional_scraping/solutions/images/dataset-preview.webp}})
 
+## [](#quiz-answeers) Quiz answers 📝
+
+- How do you allocate more CPU for an actor's run?
+
+On the platform, more memory can be allocated in the actor's input configuration, and the default allocated CPU can be changed in the actor's **Settings** tab. When running locally, you can used the **APIFY_MEMORY_MBYTES** environment variable to set allocated CPU.
+
+- Within itself, can you get the exact time that an actor was started?
+
+Yes. The time the actor was started can be retrieved through the `startedAt` property from the `Apify.getEnv()` function, or directly from `process.env.APIFY_STARTED_AT`
+
+- What are the types of default storages connected to an actor's run?
+
+Every actor's run is given a default key-value store, and a default dataset. The defauly key value store by default has the `INPUT` and `OUTPUT` keys.
+
+- Can you change the allocated memory of an actor while it's running?
+
+Not while it's running. You'd need to stop it and run a new one.
+
+- How can you run an actor with Puppeteer on the Apify platform with headless mode set to `false`?
+
+This can be done by using the `actor-node-puppeteer-chrome` Docker image and making sure that `launchContext.launchOptions.headless` in `PuppeteerCrawlerOptions` is set to `false`.
+
 ## [](#wrap-up) Next up
 
 See that?! Integrating webhooks is a piece of cake on the Apify platform! You'll soon discover that the platform factors away a lot of complex things and allows you to focus on what's most important - developing and releasing actors.

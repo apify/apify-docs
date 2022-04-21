@@ -522,13 +522,15 @@ One should use CheerioCrawler when scraping any non-dynamic content. For scrapin
 
 > Learn more about dynamic pages in our [dynamic pages]({{@link dynamic_pages_and_spas/js_rendering_and_dynamic_pages.md}}) lesson.
 
+Additionally, if the job being done requires some sort of interaction with the page, PlaywrightCrawler/PuppeteerCrawler should be used, as CheerioCrawler runs out of the context of the browser.
+
 - Using Puppeteer, how can you extract data from a page without using jQuery/Cheerio?
 
 You can use functions such as `page.evaluate()` and `page.$$eval()` to run data collection code in the context of the browser and return it so that it can be used back in the Node.js context.
 
 - What is the default concurrency the SDK uses? Why this number?
 
-The default value for `maxConcurrency` is set to **1000**, which allows the crawler to scale up automatically to this threshold.
+The default value for `maxConcurrency` is set to **1000**, which allows the crawler to scale up automatically to this threshold. Concurrency in the SDK is managed by the `AutoscaledPool`, which uses snapshots of the environment the actor is running in to see if it can launch more tasks than are already running (AKA **scale up**).
 
 - What is the difference between the RequestList and the RequestQueue?
 
