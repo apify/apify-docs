@@ -1,7 +1,7 @@
 ---
 title: Using storage & creating tasks
 description: Follow along with step-by-step instructions on how to complete the task outlined in the previous lesson. Use different storage types, and create a task.
-menuWeight: 3
+menuWeight: 4
 paths:
     - professional-scraping/solutions/using-storage-creating-tasks
 ---

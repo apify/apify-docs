@@ -21,8 +21,10 @@ Also, try to explore the **Multifile editor** in one of the actors you developed
 ## [](#quiz) Knowledge check 📝
 
 1. Do you have to rebuild an actor each time the source code is changed?
-2. In git, what is the difference between **pushing** changes and making a **pull request**?
+2. In Git, what is the difference between **pushing** changes and making a **pull request**?
 3. Based on your knowledge and experience, is the `apify push` command worth using (in your opinion)?
+
+[**Answers**]({{@link professional_scraping/solutions/managing_source.md}})
 
 ## [](#our-task) Our task
 
