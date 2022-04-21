@@ -30,7 +30,8 @@ If we remember correctly, we are pushing data to the dataset in the `handleOffer
 ```JavaScript
 // ...
 case labels.OFFERS:
-    return handleOffers(context, dataset);
+    await handleOffers(context, dataset);
+    break;
 }
 // ...
 ```
@@ -39,26 +40,20 @@ Finally, let's modify the function to use the new `dataset` variable being passe
 
 ```JavaScript
 // Expect a second parameter, which will be a dataset
-exports.handleOffers = ({ $, request }, dataset) => {
+exports.handleOffers = async ({ $, request }, dataset) => {
     const { data } = request.userData;
-
-    const promises = [];
 
     for (const offer of $('#aod-offer')) {
         const element = $(offer);
 
-        promises.push(
-            // Replace "Apify" with the name of the second
-            // parameter, in this case we called it "dataset"
-            dataset.pushData({
-                ...data,
-                sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
-                offer: element.find('.a-price .a-offscreen').text().trim(),
-            }),
-        );
+        // Replace "Apify" with the name of the second
+        // parameter, in this case we called it "dataset"
+        await dataset.pushData({
+            ...data,
+            sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
+            offer: element.find('.a-price .a-offscreen').text().trim(),
+        });
     }
-
-    return Promise.all(promises);
 };
 ```
 
@@ -149,11 +144,14 @@ Apify.main(async () => {
                 default:
                     return log.info('Unable to handle this request');
                 case labels.START:
-                    return handleStart(context);
+                    await handleStart(context);
+                    break;
                 case labels.PRODUCT:
-                    return handleProduct(context);
+                    await handleProduct(context);
+                    break;
                 case labels.OFFERS:
-                    return handleOffers(context, dataset);
+                    await handleOffers(context, dataset);
+                    break;
             }
         },
     });
@@ -180,10 +178,9 @@ And here is **routes.js**:
 // routes.js
 const { BASE_URL, OFFERS_URL, labels } = require('./constants');
 
-exports.handleStart = ({ $, crawler: { requestQueue }, request }) => {
+exports.handleStart = async ({ $, crawler: { requestQueue }, request }) => {
     const { keyword } = request.userData;
 
-    const promises = [];
     const products = $('div > div[data-asin]:not([data-asin=""])');
 
     for (const product of products) {
@@ -192,31 +189,27 @@ exports.handleStart = ({ $, crawler: { requestQueue }, request }) => {
 
         const url = `${BASE_URL}${titleElement.attr('href')}`;
 
-        promises.push(
-            requestQueue.addRequest({
-                url,
-                userData: {
-                    label: labels.PRODUCT,
-                    data: {
-                        title: titleElement.first().text().trim(),
-                        asin: element.attr('data-asin'),
-                        itemUrl: url,
-                        keyword,
-                    },
+        await requestQueue.addRequest({
+            url,
+            userData: {
+                label: labels.PRODUCT,
+                data: {
+                    title: titleElement.first().text().trim(),
+                    asin: element.attr('data-asin'),
+                    itemUrl: url,
+                    keyword,
                 },
-            }),
-        );
+            },
+        });
     }
-
-    return Promise.all(promises);
 };
 
-exports.handleProduct = ({ $, crawler: { requestQueue }, request }) => {
+exports.handleProduct = async ({ $, crawler: { requestQueue }, request }) => {
     const { data } = request.userData;
 
     const element = $('div#productDescription');
 
-    return requestQueue.addRequest({
+    await requestQueue.addRequest({
         url: OFFERS_URL(data.asin),
         userData: {
             label: labels.OFFERS,
@@ -228,24 +221,18 @@ exports.handleProduct = ({ $, crawler: { requestQueue }, request }) => {
     });
 };
 
-exports.handleOffers = ({ $, request }, dataset) => {
+exports.handleOffers = async ({ $, request }, dataset) => {
     const { data } = request.userData;
-
-    const promises = [];
 
     for (const offer of $('#aod-offer')) {
         const element = $(offer);
 
-        promises.push(
-            dataset.pushData({
-                ...data,
-                sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
-                offer: element.find('.a-price .a-offscreen').text().trim(),
-            }),
-        );
+        await dataset.pushData({
+            ...data,
+            sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
+            offer: element.find('.a-price .a-offscreen').text().trim(),
+        });
     }
-
-    return Promise.all(promises);
 };
 ```
 
