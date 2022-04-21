@@ -3,7 +3,7 @@ title: Solutions
 description: View all of the solutions for all of the activities and tasks of this course. Please try to complete each task on your own before reading the solution!
 menuWeight: 6.6
 paths:
-- pro-apify-scraper-development/solutions
+- professional-scraping/solutions
 ---
 
 # Solutions
