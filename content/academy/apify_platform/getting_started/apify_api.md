@@ -44,6 +44,8 @@ https://api.apify.com/v2/acts/2bmkwWmp8fJkYzxqp/run-sync-get-dataset-items?token
 
 There are many more parameters which can be passed to this endpoint. You can learn about them [here](https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items)
 
+> Note: It is safer to put your API token in the **Authorization** header like so: `Authorization: Bearer YOUR_TOKEN`.
+
 ## [](#sending-the-request) Sending the request
 
 Finally, we'll send the request:
@@ -58,7 +60,7 @@ What we've done in this lesson only scratches the surface of what the Apify API 
 
 ## [](#next) Next up
 
-Next up, we'll be learning about how to use Apify's JavaScript and Python clients to easily interact with the API.
+[Next up]({{@link apify_platform/getting_started/apify_client.md}}), we'll be learning about how to use Apify's JavaScript and Python clients to easily interact with the API right within our code.
 
 <!-- Note: From the previous version of this lesson, some now unused but useful images still remain.
 
