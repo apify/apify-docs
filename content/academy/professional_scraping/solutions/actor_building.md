@@ -500,6 +500,44 @@ We've also replaced the default `title` and `description` with our own custom on
 
 Let's try it out now! Input **iphone** into the box labeled **keyword**, click **Start**, and see the sparks fly!
 
+## [](#quiz-answers) Quiz answers 📝
+
+- When using Puppeteer or Playwright, how can you still use jQuery with the SDK?
+
+There are two ways. You can either use the [injectJQuery](https://sdk.apify.com/docs/api/puppeteer#puppeteerinjectjquerypage) utility function which will enable you to use jQuery inside of `page.evalute()`, or you can use Cheerio to load the page's content like this:
+
+```JavaScript
+const $ = cheerio.load(await page.content());
+```
+
+Which will allow you to use jQuery syntax outside of Puppeteer/Playwright page evaluation functions.
+
+- What is the main difference between Cheerio and jQuery?
+
+Though they share the same syntax, and therefore look quite similar, Cheerio and jQuery are designed for different purposes. jQuery is a frontend library for manipulating the DOM, making AJAX calls, etc. while Cheerio is a backend library exclusively for Node.js built for the purpose of intuitively parsing HTML on the server-side.
+
+- In which situations would you use CheerioCrawler? What are its limitations?
+
+One should use CheerioCrawler when scraping any non-dynamic content. For scraping any content that doesn't require the loading of JavaScript in order to receive all of the data (such as with server-side rendered HTML pages and APIs), CheerioCrawler should be used. It is limited though, as it can only make static requests. This means that if a piece of data is loaded using JavaScript from an API call that the page makes, CheerioCrawler will never see that piece of data.
+
+> Learn more about dynamic pages in our [dynamic pages]({{@link dynamic_pages_and_spas/js_rendering_and_dynamic_pages.md}}) lesson.
+
+- Using Puppeteer, how can you extract data from a page without using jQuery/Cheerio?
+
+You can use functions such as `page.evaluate()` and `page.$$eval()` to run data collection code in the context of the browser and return it so that it can be used back in the Node.js context.
+
+- What is the default concurrency the SDK uses? Why this number?
+
+The default value for `maxConcurrency` is set to **1000**, which allows the crawler to scale up automatically to this threshold.
+
+- What is the difference between the RequestList and the RequestQueue?
+
+The main differece is that once a request list has been created, no more requests can be dynamically added to it. When you want to dynamically add (or  remove) requests, a requst queue must be used.
+
+- How can we send data between requests?
+
+We can use the `userData` key to pass data into a requests, access it when handling the request, then pass it along to another request through the `userData` key once again.
+
 ## [](#wrap-up) Wrap up
 
 Whew, that was quite a large task! If you've made it up to this point, you're a total rockstar!
