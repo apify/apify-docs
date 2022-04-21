@@ -16,7 +16,7 @@ The advantages of using these objects instead of parsing the HTML are that parsi
 
 ## [](#locating-json-in-html) Locating JSON objects within `<script>` tags
 
-Using our DevTools, we can inspect our [target page](https://soundcloud.com/tiesto/tracks), or right click the page and click **View Page Source** to see the DOM. Next, we'll find a value on the page that we can predict would be in a potential API response. For our page, we'll use the **Tracks** count of `845`. On the **View Page Source** page, we'll do <kbd>⌘</kbd> + <kbd>F</kbd> and type in this value, which will show all matches for it within the DOM. This method can expose `<script>` tag objects which hold the target data.
+Using our DevTools, we can inspect our [target page](https://soundcloud.com/tiesto/tracks), or right click the page and click **View Page Source** to see the DOM. Next, we'll find a value on the page that we can predict would be in a potential API response. For our page, we'll use the **Tracks** count of `845`. On the **View Page Source** page, we'll do **⌘** + **F** and type in this value, which will show all matches for it within the DOM. This method can expose `<script>` tag objects which hold the target data.
 
 ![Find the value within the DOM using CMD + F]({{@asset dynamic_pages_and_spas/images/view-845.webp}})
 

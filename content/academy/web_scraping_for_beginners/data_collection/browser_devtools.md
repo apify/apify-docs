@@ -14,7 +14,7 @@ Even though DevTools stands for developer tools, everyone can use them to inspec
 
 When you first open Chrome DevTools, you will start on the Elements tab (In Firefox it's called the **Inspector**). You can use this tab to inspect the page's HTML on the left hand side, and its CSS on the right. The items in the HTML view are called **elements** or **nodes**. Each element is enclosed in an HTML tag. For example `<div>`, `<p>`, and `<span>` are all tags. When you add something inside of those tags, like `<p>Hello!</p>` you create an element. You can also see elements inside other elements in the **Elements** tab. This is called nesting, and it gives the page its structure.
 
-At the bottom, there's the **JavaScript console**, which is a powerful tool which can be used to manipulate the website. If the console is not there, you can press <p><kbd>ESC</kbd></p> to toggle it. All of this might look super complicated at first, but don't worry, there's no need to understand everything just yet - we'll be walking you through all the important things you need to know.
+At the bottom, there's the **JavaScript console**, which is a powerful tool which can be used to manipulate the website. If the console is not there, you can press **ESC** to toggle it. All of this might look super complicated at first, but don't worry, there's no need to understand everything just yet - we'll be walking you through all the important things you need to know.
 
 ![Chrome DevTools with elements tab and console]({{@asset web_scraping_for_beginners/data_collection/images/browser-devtools.webp}})
 
