@@ -55,7 +55,7 @@ Each lesson in this section will have a short quiz to help you test your knowled
 
 1. When using Puppeteer or Playwright, how can you still use jQuery with the SDK?
 2. What is the main difference between Cheerio and jQuery?
-3. In which situations would you use CheerioCrawler? What are its limitations
+3. In which situations would you use CheerioCrawler? What are its limitations?
 4. Using Puppeteer, how can you extract data from a page without using jQuery/Cheerio?
 5. What is the default concurrency the SDK uses? Why this number?
 6. What is the difference between the RequestList and the RequestQueue?
