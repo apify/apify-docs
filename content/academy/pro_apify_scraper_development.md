@@ -13,7 +13,7 @@ This course will teach you the nitty gritty of what it takes to build pro-level 
 
 ## [](#preparations) Preparations
 
-Before developing a pro-level Apify scraper, there are some important things you should be have at least a bit of knowledge about (knowing the basics of each is enough to continue through this section), as well as some things that you should have installed on your system.
+Before developing a pro-level Apify scraper, there are some important things you should have at least a bit of knowledge about (knowing the basics of each is enough to continue through this section), as well as some things that you should have installed on your system.
 
 > If you've already gone through the [Web scraping for beginners course]({{@link web_scraping_for_beginners.md}}) and the first lessons of the [Apify platform course]({{@link apify_platform.md}}), you will be more than well equipped to continue on with the lessons in this course.
 
