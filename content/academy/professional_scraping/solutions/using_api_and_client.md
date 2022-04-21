@@ -232,6 +232,20 @@ Apify.main(async () => {
 });
 ```
 
+## [](#quiz-answers) Quiz answers 📝
+
+- What is the relationship between the Apify API and Apify client? Are there any significant differences?
+
+The Apify client mimics the Apify API, so their shouldn't be any significant differences. It's super handy as it helps with managing the API calls (parsing, error handling, retries, etc) and even adds convenience functions.
+
+- How do you pass input when running actor or task via API?
+
+The input should be passed into the **body** of the request when running an actor/task via API.
+
+- Do you need to install the `apify-client` NPM package when already using the `apify` package?
+
+No. The Apify client is available right in the sdk with the `Apify.newClient()` function.
+
 ## [](#wrap-up) Wrap up
 
 That's it! Now, if you want to go above and beyond, you should create a Github repository for this actor, integrate it with a new actor on the Apify platform, and test if it works there as well (with multiple input configurations).
