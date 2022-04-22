@@ -1,6 +1,6 @@
 ---
 title: Apify client
-description: Interact with the Apify API in your code without an HTTP client using the apify-client package, which is available for both JavaScript and Python.
+description: Interact with the Apify API in your code by using the apify-client package, which is available for both JavaScript and Python.
 menuWeight: 5
 paths:
     - apify-platform/getting-started/apify-client
@@ -58,7 +58,7 @@ client = ApifyClient(token='YOUR_TOKEN')
 
 > If you are planning on publishing your code to a public Github/Gitlab repository or anywhere else online, be sure to set your API token as en environment variable, and never hardcode it directly into your script.
 
-Now that we've got our instance, we can point to an actor using the `client.actor()` function, then call the actor with some input with the `.call()` function.
+Now that we've got our instance, we can point to an actor using the `client.actor()` function, then call the actor with some input with the `.call()` function - the first parameter of which is the input for the actor.
 
 ```marked-tabs
 <marked-tab header="Node.js" lang="javascript">
@@ -74,6 +74,8 @@ run = client.actor('YOUR_USERNAME/adding-actor').call(run_input={
 })
 </marked-tab>
 ```
+
+> Learn more about the `.call()` function [here](https://docs.apify.com/apify-client-js#actorclient-call).
 
 ## [](#collecting-dataset-items) Collecting dataset items
 
@@ -92,13 +94,13 @@ dataset = client.dataset(run['defaultDatasetId'])
 </marked-tab>
 ```
 
-Finally, we can collect the items in the dataset by using the `dataset.downloadItems()` function in Node.js, and the `dataset.list_items()` function in Python, then log them to the console.
+Finally, we can collect the items in the dataset by using the **list items** function, then log them to the console.
 
 ```marked-tabs
 <marked-tab header="Node.js" lang="javascript">
-const items = await dataset.downloadItems('json');
+const { items } = await dataset.listItems();
 
-console.log(JSON.parse(Buffer.from(items).toString('utf-8')));
+console.log(items);
 </marked-tab>
 <marked-tab header="Python" lang="python">
 items = dataset.list_items().items
@@ -127,9 +129,9 @@ const run = await client.actor('YOUR_USERNAME/adding-actor').call({
 
 const dataset = client.dataset(run['defaultDatasetId'])
 
-const items = dataset.downloadItems('json');
+const { items } = await dataset.listItems();
 
-console.log(JSON.parse(Buffer.from(items).toString('utf-8')));
+console.log(items);
 </marked-tab>
 <marked-tab header="Python" lang="python">
 # client.py
@@ -154,7 +156,9 @@ print(items)
 
 If you check the **Settings** tab within your **adding-actor**, you'll notice that the default memory being allocated to the actor is **2048 MB**. This is a bit overkill considering the fact that the actor is only adding two numbers together - **256 MB** would be much more reasonable. Also, we can safely say that the run should never take more than 20 seconds (even this is a generous number), and that the default of 3600 seconds is also overkill.
 
-Let's change these two actor settings via the Apify client using the `actor.update()` function! First, we'll create a pointer to our actor, similar to as before (except this time, we won't be using `.call()` at the end):
+Let's change these two actor settings via the Apify client using the `actor.update()` function. This function will call the [**update actor**](https://docs.apify.com/api/v2#/reference/actors/actor-object/update-actor) endpoint, which can take `defaultRunOptions` as an input property. Perfect!
+
+First, we'll create a pointer to our actor, similar to as before (except this time, we won't be using `.call()` at the end):
 
 ```marked-tabs
 <marked-tab header="Node.js" lang="javascript">

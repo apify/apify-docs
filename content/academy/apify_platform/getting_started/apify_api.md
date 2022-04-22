@@ -26,7 +26,7 @@ https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync?token=YOUR_TOK
 
 > In this lesson, we'll only be focusing on this one endpoint, as it is the most popularly used one; however, don't let this limit your curiosity! Take a look at the other endpoints in the **API** window to learn about everything you can do to your actor programmatically.
 
-Now, let's move over to [Insomnia]({{@link tools/insomnia.md}}) in order to prepare the request, then send it.
+Now, let's move over to our favorite HTTP client (in this lesson we'll use [Insomnia]({{@link tools/insomnia.md}}) in order to prepare and send the request.
 
 ## [](#providing-input) Providing input
 
@@ -44,11 +44,17 @@ https://api.apify.com/v2/acts/2bmkwWmp8fJkYzxqp/run-sync-get-dataset-items?token
 
 There are many more parameters which can be passed to this endpoint. You can learn about them [here](https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items)
 
-> Note: It is safer to put your API token in the **Authorization** header like so: `Authorization: Bearer YOUR_TOKEN`.
+> Note: It is safer to put your API token in the **Authorization** header like so: `Authorization: Bearer YOUR_TOKEN`. This is very easy to configure in [Postman]({{@link tools/postman.md}}), [Insomnia]({{@link tools/insomnia.md}}), or any other modern HTTP client.
 
 ## [](#sending-the-request) Sending the request
 
-Finally, we'll send the request:
+If you're not using an HTTP client, you can send the request through your terminal with this command:
+
+```curl
+curl -d '{"num1":1, "num2":8}' -H "Content-Type: application/json" -X POST "https://api.apify.com/v2/acts/2bmkwWmp8fJkYzxqp/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv"
+```
+
+Here's the response we got:
 
 ![API response]({{@asset apify_platform/getting_started/images/api-csv-response.webp}})
 
