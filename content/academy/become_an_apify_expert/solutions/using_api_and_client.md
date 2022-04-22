@@ -234,19 +234,19 @@ Apify.main(async () => {
 
 ## [](#quiz-answers) Quiz answers 📝
 
-- What is the relationship between the Apify API and Apify client? Are there any significant differences?
+**Q: What is the relationship between the Apify API and Apify client? Are there any significant differences?**
 
-The Apify client mimics the Apify API, so there aren't any super significant differences. It's super handy as it helps with managing the API calls (parsing, error handling, retries, etc) and even adds convenience functions.
+_A:_ The Apify client mimics the Apify API, so there aren't any super significant differences. It's super handy as it helps with managing the API calls (parsing, error handling, retries, etc) and even adds convenience functions.
 
 The one main difference is that the Apify client automatically uses [**exponential backoff**](https://docs.apify.com/apify-client-js#retries-with-exponential-backoff) to deal with errors.
 
-- How do you pass input when running actor or task via API?
+**Q: How do you pass input when running actor or task via API?**
 
-The input should be passed into the **body** of the request when running an actor/task via API.
+_A:_ The input should be passed into the **body** of the request when running an actor/task via API.
 
-- Do you need to install the `apify-client` NPM package when already using the `apify` package?
+**Q: Do you need to install the `apify-client` NPM package when already using the `apify` package?**
 
-No. The Apify client is available right in the sdk with the `Apify.newClient()` function.
+_A:_ No. The Apify client is available right in the sdk with the `Apify.newClient()` function.
 
 ## [](#wrap-up) Wrap up
 

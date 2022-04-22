@@ -66,7 +66,7 @@ Most actors would not be much use if input could not be passed into them to chan
 
 > The input can technically be any [JSON object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON), and will vary depending on the actor being run. Ensure that you are familiar with the actor's input schema while writing the body of the request.
 
-Good actors have reasonable defaults for most input fields, so if you want to run one of the major actors from [Apify Store](https://apify.com/store), you usually do not need to provide all possible fields. 
+Good actors have reasonable defaults for most input fields, so if you want to run one of the major actors from [Apify Store](https://apify.com/store), you usually do not need to provide all possible fields.
 
 Via API, let's quickly try to run [Web Scraper](https://apify.com/apify/web-scraper), which is the most popular actor on the Apify Store at the moment. The full input with all possible fields is [pretty long and ugly](https://apify.com/apify/web-scraper?section=example-run), so we will not show it here. Because it has default values for most fields, we can provide a simple JSON input containing the only the fields we'd like to customize. We will send a POST request to the endpoint below and add the JSON as the **body** of the request:
 
@@ -132,6 +132,7 @@ items.forEach((item) => {
 [Key-value stores]({{@link storage/key_value_store.md}}) are useful for storing files like images, HTML snapshots, or JSON data. The Apify API provides **run-sync** endpoints for [actors](/api/v2#/reference/actors/run-actor-synchronously/with-input) and [tasks](/api/v2#/reference/actor-tasks/run-task-synchronously/run-task-synchronously), which allow you to run a specific task and receive the output. By default, they return the `OUTPUT` record from the default key-value store.
 
 > For more detailed information, check the [API reference](/api/v2#/reference/actors/run-actor-synchronously-with-input-and-get-dataset-items).
+
 ## [](#asynchronous-flow) Asynchronous flow
 
 For runs longer than 5 minutes, the process consists of three steps:
