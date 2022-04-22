@@ -252,6 +252,23 @@ Then, configure the task to use **google pixel** as a keyword and click **Save**
 
 After saving it, you'll be able to see the newly created task in the **Tasks** tab on the Apify Console. Go ahead and run it. Did it work?
 
+## [](#quiz-answers) Quiz answers 📝
+
+- What is the relationship between actors and tasks?
+
+Tasks are pre-configured runs of actors. The configurations of an actor can be saved as a task so that it doesn't have to be manually configured every single time.
+
+- What are the differences between default (unnamed) and named storage? Which one would you use for everyday usage?
+
+Unnamed storage is persisted for only 7 days, while named storage is persisted indefinitely. For everyday usage, it is best to use default unnamed storages unless the data should explicitly be persisted for more than 7 days.
+
+> With named storages, it's easier to verify that you're using the correct store, as they can be referred to by name rather than by an ID.
+
+- What is data retention, and how does it work for all types of storages (default and named)?
+
+Default/unnamed storages expire after 7 days unless otherwise specified. Named storages are retained indefinitely.
+
+
 ## [](#wrap-up) Wrap up
 
 You've learned how to use the different storage options available on with Apify, the two different types of storages, as well as how to create tasks for actors.

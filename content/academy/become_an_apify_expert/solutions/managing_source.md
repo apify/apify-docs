@@ -14,7 +14,9 @@ Yes. It needs to be built into an image, saved in a registry, and later on run i
 
 - In Git, what is the difference between **pushing** changes and making a **pull request**?
 
-The pushing of code changes is usually made to a branch parallel to the one you want to eventually push it to. When creating a pull request, the code is meant to be reviewed, or at least pass all the test suites before being merged into the target branch.
+Pushing changes the remote branch based on the content on the local branch. The pushing of code changes is usually made to a branch parallel to the one you want to eventually push it to.
+
+When creating a pull request, the code is meant to be reviewed, or at least pass all the test suites before being merged into the target branch.
 
 - Based on your knowledge and experience, is the `apify push` command worth using (in your opinion)?
 
