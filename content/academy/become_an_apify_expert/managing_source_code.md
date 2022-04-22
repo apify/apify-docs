@@ -3,7 +3,7 @@ title: III - Managing source code
 description: Learn how to manage your actor's source code more efficiently by integrating it with a Github repository. This is the standard on the Apify platform.
 menuWeight: 6.3
 paths:
-    - professional-scraping/managing-source-code
+    - become-an-apify-expert/managing-source-code
 ---
 
 # [](#managing-source-code) Managing source code
@@ -24,7 +24,7 @@ Also, try to explore the **Multifile editor** in one of the actors you developed
 2. In Git, what is the difference between **pushing** changes and making a **pull request**?
 3. Based on your knowledge and experience, is the `apify push` command worth using (in your opinion)?
 
-[**Answers**]({{@link professional_scraping/solutions/managing_source.md}})
+[**Answers**]({{@link become_an_apify_expert/solutions/managing_source.md}})
 
 ## [](#our-task) Our task
 
@@ -36,23 +36,23 @@ First, we must initialize a Github repository (you can use Gitlab if you'd like,
 
 First, let's create a repository. This can be done [in a number of ways](https://kbroman.org/github_tutorial/pages/init.html), but in this lesson we'll do it by creating the remote repository on Github's website:
 
-![Create a new Github repo]({{@asset professional_scraping/images/github-new-repo.webp}})
+![Create a new Github repo]({{@asset become_an_apify_expert/images/github-new-repo.webp}})
 
 Then, we'll run the commands it tells us in our terminal (while within the **demo-actor** directory) to initialize the repository locally, then push all of the files to the remote one.
 
 After you've created your repo, navigate on the Apify platform to the actor we called **demo-actor**. In the **Source** tab, click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Multiple source files**, which is what we've been using so far.
 
-![Select source code location]({{@asset professional_scraping/images/select-source-location.webp}})
+![Select source code location]({{@asset become_an_apify_expert/images/select-source-location.webp}})
 
 Then, go ahead and paste the link to your repository into the **Git URL** text field and click **Save**.
 
 The final step is to click on **API** in the top right corner of your actor's page:
 
-![API button]({{@asset professional_scraping/images/api-button.webp}})
+![API button]({{@asset become_an_apify_expert/images/api-button.webp}})
 
 And scroll through all of the links until you find the **Build actor** API endpoint. Copy this endpoint's URL, then head back over to your Github repository and navigate to **Settings > Webhooks > Add webhook**. The final thing to do is to paste the URL and save the webhook.
 
-![Adding a webhook to your Github repo]({{@asset professional_scraping/images/github-integration.webp}})
+![Adding a webhook to your Github repo]({{@asset become_an_apify_expert/images/github-integration.webp}})
 
 And you're done! 🎉
 
@@ -66,4 +66,4 @@ It's also important to know that Github/Gitlab repository integration is standar
 
 ## [](#next) Next up
 
-[Next up]({{@link professional_scraping/tasks_and_storage.md}}), you'll learn about the different ways to store scraped data, as well as how to utilize a cool feature to run pre-configured actors.
+[Next up]({{@link become_an_apify_expert/tasks_and_storage.md}}), you'll learn about the different ways to store scraped data, as well as how to utilize a cool feature to run pre-configured actors.
