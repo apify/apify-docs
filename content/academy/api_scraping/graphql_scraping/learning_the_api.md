@@ -12,6 +12,16 @@ Just like when working with regular RESTful APIs in the [**General API scraping*
 
 Not only does becoming comfortable with and understanding the ins and outs of using the API make the development process easier, but it can also sometimes expose features which will return data you'd otherwise be scraping from a different location.
 
+## [](#introspection) Introspection
+
+Introspection is when you make a query to the target GraphQL API requesting information about its schema. When done properly, this can provide a whole lot of information about the API and the different **queries** and **mutations** it supports.
+
+<!-- talk about how to do introspection -->
+
+<!--  -->
+
+If the target website is smart though, they will have introspection disabled. In these cases, it is still possible to get some information about the API when using POSTMAN OR INSOMNIA THEY GIVE AUTOCOMPLETE SUGGESTIONS AND TYPO FIX SUGGESTIONS
+
 <!-- show the endpoint -->
 
 <!-- literally copy the json payload and test it in postman, oops we need the x-app-token header, add that -->

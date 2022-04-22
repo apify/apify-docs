@@ -12,7 +12,7 @@ paths:
 
 ## [](#graphql-endpoints) How do I know if it's a GraphQL API?
 
-In this section, we'll be scraping [cheddar.com](https://cheddar.com)'s GraphQL API. When you visit the website and make a search with your **Network Tab** open, you'll see a request that has been sent to the endpoint **api.cheddar.com/graphql**.
+In this section, we'll be scraping [cheddar.com](https://cheddar.com)'s GraphQL API. When you visit the website and make a search for anything while your **Network Tab** is open, you'll see a request that has been sent to the endpoint **api.cheddar.com/graphql**.
 
 ![GraphQL endpoint]({{@asset api_scraping/images/graphql-endpoint.webp}})
 
