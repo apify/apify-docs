@@ -12,8 +12,6 @@ This section will teach you everything you should know about API scraping before
 
 Each lesson will prepare you for real-world API scraping, and will help put yet another data-collection technique into your scraping toolbelt.
 
-<!-- A bit more content here -->
-
 ## [](#next) Next up
 
 In our [first lesson]({{@link api_scraping/general_api_scraping/locating_and_learning.md}}), we will take a look at how to locate a website's API endpoints with DevTools, and how to use them. This is your entrypoint into learning how to scrape APIs.
