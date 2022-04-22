@@ -502,9 +502,9 @@ Let's try it out now! Input **iphone** into the box labeled **keyword**, click *
 
 ## [](#quiz-answers) Quiz answers 📝
 
-- When using Puppeteer or Playwright, how can you still use jQuery with the SDK?
+**Q: When using Puppeteer or Playwright, how can you still use jQuery with the SDK?**
 
-There are two ways. You can either use the [injectJQuery](https://sdk.apify.com/docs/api/puppeteer#puppeteerinjectjquerypage) utility function which will enable you to use jQuery inside of `page.evalute()`, or you can use Cheerio to load the page's content like this:
+_A:_ There are two ways. You can either use the [injectJQuery](https://sdk.apify.com/docs/api/puppeteer#puppeteerinjectjquerypage) utility function which will enable you to use jQuery inside of `page.evalute()`, or you can use Cheerio to load the page's content like this:
 
 ```JavaScript
 const $ = cheerio.load(await page.content());
@@ -512,23 +512,23 @@ const $ = cheerio.load(await page.content());
 
 Which will allow you to use jQuery syntax outside of Puppeteer/Playwright page evaluation functions.
 
-- What is the main difference between Cheerio and jQuery?
+**Q: What is the main difference between Cheerio and jQuery?**
 
-Though they share the same syntax, and therefore look quite similar, Cheerio and jQuery are designed for different purposes. jQuery is a frontend library for manipulating the DOM, making AJAX calls, etc. while Cheerio is a backend library exclusively for Node.js built for the purpose of intuitively parsing HTML on the server-side.
+_A:_ Though they share the same syntax, and therefore look quite similar, Cheerio and jQuery are designed for different purposes. jQuery is a frontend library for manipulating the DOM, making AJAX calls, etc. while Cheerio is a backend library exclusively for Node.js built for the purpose of intuitively parsing HTML on the server-side.
 
 Some specific functionality of jQuery is not available with Cheerio. Follow official documentation if you run into one of these cases.
 
-- In which situations would you use CheerioCrawler? What are its limitations?
+**Q: In which situations would you use CheerioCrawler? What are its limitations?**
 
-One should use CheerioCrawler when scraping any non-dynamic content. For scraping any content that doesn't require the loading of JavaScript in order to receive all of the data (such as with server-side rendered HTML pages and APIs), CheerioCrawler should be used. It is limited though, as it can only make static requests. This means that if a piece of data is loaded using JavaScript from an API call that the page makes, CheerioCrawler will never see that piece of data.
+_A:_ One should use CheerioCrawler when scraping any non-dynamic content. For scraping any content that doesn't require the loading of JavaScript in order to receive all of the data (such as with server-side rendered HTML pages and APIs), CheerioCrawler should be used. It is limited though, as it can only make static requests. This means that if a piece of data is loaded using JavaScript from an API call that the page makes, CheerioCrawler will never see that piece of data.
 
 > Learn more about dynamic pages in our [**dynamic pages**]({{@link dynamic_pages_and_spas/js_rendering_and_dynamic_pages.md}}) lesson, and learn how to overcome their challenges in the [**API scraping**]({{@link api_scraping.md}}) course and the [**JSON in HTML**]({{@link dynamic_pages_and_spas/js_in_html.md}}) lesson.
 
 Additionally, if the job being done requires some sort of interaction with the page, PlaywrightCrawler/PuppeteerCrawler should be used, as CheerioCrawler runs out of the context of the browser.
 
-- Using Puppeteer, how can you extract data from a page without using jQuery/Cheerio?
+**Q: Using Puppeteer, how can you extract data from a page without using jQuery/Cheerio?**
 
-You can use functions such as `page.evaluate()` and `page.$$eval()` to run data collection code in the context of the browser and return it so that it can be used back in the Node.js context.
+_A:_ You can use functions such as `page.evaluate()` and `page.$$eval()` to run data collection code in the context of the browser and return it so that it can be used back in the Node.js context.
 
 Though this is possible:
 
@@ -550,19 +550,19 @@ await Apify.utils.puppeteer.injectJQuery(page);
 const title = await page.evaluate(() => $('title').text());
 ```
 
-- What is the default concurrency the SDK uses? Why this number?
+**Q: What is the default concurrency the SDK uses? Why this number?**
 
-The default value for `maxConcurrency` is set to **1000**, which allows the crawler to scale up automatically to this threshold. Concurrency in the SDK is managed by the `AutoscaledPool`, which uses snapshots of the environment the actor is running in to see if it can launch more tasks than are already running (AKA **scale up**).
+_A:_ The default value for `maxConcurrency` is set to **1000**, which allows the crawler to scale up automatically to this threshold. Concurrency in the SDK is managed by the `AutoscaledPool`, which uses snapshots of the environment the actor is running in to see if it can launch more tasks than are already running (AKA **scale up**).
 
-- What is the difference between the RequestList and the RequestQueue?
+**Q: What is the difference between the RequestList and the RequestQueue?**
 
 The main differece is that once a request list has been created, no more requests can be dynamically added to it. When you want to dynamically add (or  remove) requests, a requst queue must be used.
 
 Request lists are better when adding a large batch of requests, as the RequestQueue is not optimized to handle the mass adding of requests. Additionally, the RequestList doesn't consume any platform credits.
 
-- How can we send data between requests?
+**Q: How can we send data between requests?**
 
-We can use the `userData` key to pass data into a requests, access it when handling the request, then pass it along to another request through the `userData` key once again.
+_A:_ We can use the `userData` key to pass data into a requests, access it when handling the request, then pass it along to another request through the `userData` key once again.
 
 ## [](#wrap-up) Wrap up
 
