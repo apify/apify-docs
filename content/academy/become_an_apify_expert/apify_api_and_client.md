@@ -3,7 +3,7 @@ title: V - Apify API & client
 description: Gain an in-depth understanding of the two main ways of programmatically interacting with the Apify platform - throught the API, and through a client.
 menuWeight: 6.5
 paths:
-    - professional-scraping/apify-api-and-client
+    - become-an-apify-expert/apify-api-and-client
 ---
 
 # [](#api-and-client) Apify API & client
@@ -55,7 +55,7 @@ The new actor should take the following input values, which be mapped to paramet
 }
 ```
 
-[**Solution**]({{@link professional_scraping/solutions/using_api_and_client.md}})
+[**Solution**]({{@link become_an_apify_expert/solutions/using_api_and_client.md}})
 
 ## [](#next) Next up
 

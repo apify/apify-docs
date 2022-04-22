@@ -3,7 +3,7 @@ title: Managing source code quiz answers
 description: View in-depth answers for all three of the quiz questions that were provided in the corresponding lesson about managing source code.
 menuWeight: 3
 paths:
-    - professional-scraping/solutions/managing-source
+    - become-an-apify-expert/solutions/managing-source
 ---
 
 ## [](#quiz-answers) Quiz answers
