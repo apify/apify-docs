@@ -10,12 +10,20 @@ paths:
 
 [GraphQL](https://graphql.org/) APIs different from the regular [REST](https://www.redhat.com/en/topics/api/what-is-a-rest-api)ful APIs you're likely familiar with, which means that different methods and tooling are used to scrape them. This course will teach you everything you need to know about GraphQL to scrape an API built with it.
 
-## [](#graphql-endpoints) How do I know if it's GraphQL?
+## [](#graphql-endpoints) How do I know if it's a GraphQL API?
 
-<!-- show making a request in network tab, link to devtools again -->
+In this section, we'll be scraping [cheddar.com](https://cheddar.com)'s GraphQL API. When you visit the website and make a search with your **Network Tab** open, you'll see a request that has been sent to the endpoint **api.cheddar.com/graphql**.
 
-<!-- show that the endpoint is always example.com/graphql and it's always POST -->
+![GraphQL endpoint]({{@asset api_scraping/images/graphql-endpoint.webp}})
+
+As a rule of thumb, when the endpoint ends with **/graphql** and it's a **POST** request, it's a 99.99% bulleproof indicator that the target site is using GraphQL. If you want to be 100% certain though, taking a look at the request payload will most definitely give it away.
+
+![GraphQL payload]({{@asset api_scraping/images/graphql-payload.webp}})
+
+Every GraphQL payload will be a JSON object with a **query** property, and a **variables** property if any variables were provided. If you take a closer look at the full **query** property of this request, you'll notice that it's stringified GraphQL language content.
+
+![Taking a closer look at the payload]({{@asset api_scraping/images/stringified-syntax.webp}})
 
 ## [](#next) Next up
 
-This course section's first lesson will be walking you through the basics of a GraphQL queries.
+This course section's [first lesson]({{@link api_scraping/graphql_scraping/learning_the_api.md}}) will be walking you through the basics of GraphQL queries, as well as how to learn about an API before scraping it.
