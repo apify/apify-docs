@@ -51,7 +51,7 @@ There are many more parameters which can be passed to this endpoint. You can lea
 If you're not using an HTTP client, you can send the request through your terminal with this command:
 
 ```curl
-curl -d '{"num1":1, "num2":8}' -H "Content-Type: application/json" -X POST "https://api.apify.com/v2/acts/2bmkwWmp8fJkYzxqp/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv"
+curl -d '{"num1":1, "num2":8}' -H "Content-Type: application/json" -X POST "https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv"
 ```
 
 Here's the response we got:
