@@ -39,7 +39,7 @@ Our **adding-actor** takes in two input values (`num1` and `num2`). When using t
 Let's say we want to run our **adding-actor** via API and view its results in CSV format at the end. We'll achieve this by simply passing the **format** parameter with a value of **csv** to change the output format:
 
 ```text
-https://api.apify.com/v2/acts/2bmkwWmp8fJkYzxqp/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv
+https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv
 ```
 
 There are many more parameters which can be passed to this endpoint. You can learn about them [here](https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items)
