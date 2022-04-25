@@ -1,7 +1,7 @@
 ---
 title: Proxyman
 description: Learn about Proxyman, a tool for viewing all network requests that are coming through your system. Filter by response type, by a keyword, or by application.
-menuWeight: 7.2
+menuWeight: 7.3
 paths:
     - tools/proxyman
 ---
