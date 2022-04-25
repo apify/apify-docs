@@ -21,8 +21,102 @@ In order to perform introspection on our [target website](https://cheddar.com), 
 > To make a GraphQL query in Insomnia, make sure you've set the HTTP method to **POST** and the request body type to **GraphQL Query**.
 
 ```GraphQL
-query
-{__schema{queryType{name}mutationType{name}subscriptionType{name}types{...FullType}directives{name description locations args{...InputValue}}}}fragment FullType on __Type{kind name description fields(includeDeprecated:true){name description args{...InputValue}type{...TypeRef}isDeprecated deprecationReason}inputFields{...InputValue}interfaces{...TypeRef}enumValues(includeDeprecated:true){name description isDeprecated deprecationReason}possibleTypes{...TypeRef}}fragment InputValue on __InputValue{name description type{...TypeRef}defaultValue}fragment TypeRef on __Type{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name}}}}}}}}
+query {
+  __schema {
+    queryType {
+      name
+    }
+    mutationType {
+      name
+    }
+    subscriptionType {
+      name
+    }
+    types {
+      ...FullType
+    }
+    directives {
+      name
+      description
+      locations
+      args {
+        ...InputValue
+      }
+    }
+  }
+}
+fragment FullType on __Type {
+  kind
+  name
+  description
+  fields(includeDeprecated: true) {
+    name
+    description
+    args {
+      ...InputValue
+    }
+    type {
+      ...TypeRef
+    }
+    isDeprecated
+    deprecationReason
+  }
+  inputFields {
+    ...InputValue
+  }
+  interfaces {
+    ...TypeRef
+  }
+  enumValues(includeDeprecated: true) {
+    name
+    description
+    isDeprecated
+    deprecationReason
+  }
+  possibleTypes {
+    ...TypeRef
+  }
+}
+fragment InputValue on __InputValue {
+  name
+  description
+  type {
+    ...TypeRef
+  }
+  defaultValue
+}
+fragment TypeRef on __Type {
+  kind
+  name
+  ofType {
+    kind
+    name
+    ofType {
+      kind
+      name
+      ofType {
+        kind
+        name
+        ofType {
+          kind
+          name
+          ofType {
+            kind
+            name
+            ofType {
+              kind
+              name
+              ofType {
+                kind
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 ```
 
 Here's what we got back from the request:
@@ -59,7 +153,7 @@ Cool. So now we know we need to access **media** through the **organization** qu
 
 While writing our query, we've hit a slight roadblock - the **media** type doesn't seem to be accepting a **title** field; however, we are being suggested an **edges** field. This signifies that Cheddar is using [cursor-based relay pagination](https://relay.dev/graphql/connections.htm#relay-style-cursor-pagination), and that what is returned from media is actually a **Connection** type with multiple properties. The **edges** property contains the list of results we're after, and each result lies within a **Node** type accessible within **edges** as **node**. With this knowledge, we can finish writing our query:
 
-```graphql
+```GraphQL
 query {
     organization {
         media(first: 1000) {
@@ -82,11 +176,11 @@ Let's send it!
 
 Oh, okay. So that didn't work. But **why**?
 
-Be rest assured, nothing is wrong with our query. We are most likely just missing an authorization token/parameter. Let's check back on the Cheddar website within our browser to see what types of headers are being sent with the requests there:
+Rest assured, nothing is wrong with our query. We are most likely just missing an authorization token/parameter. Let's check back on the Cheddar website within our browser to see what types of headers are being sent with the requests there:
 
 ![Request headers back on the Cheddar website]({{@asset api_scraping/graphql_scraping/images/cheddar-headers.webp}})
 
-The **Authorization** and **X-App-Token** headers seem to be our culprits. Of course these values are dynamic, but for testing purposes we can copy them right from the **Network tab** and use them for our request in Insomnia.
+The **Authorization** and **X-App-Token** headers seem to be our culprits. Of course these values are dynamic, but for testing purposes we can copy them right from the **Network** tab and use them for our request in Insomnia.
 
 ![Successful request]({{@asset api_scraping/graphql_scraping/images/successful-request.webp}})
 
