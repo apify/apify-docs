@@ -181,11 +181,11 @@ Additionally, we should be able to see that our **filter-actor** was run, and ha
 
 **Q: How do you allocate more CPU for an actor's run?**
 
-_A:_ On the platform, more memory can be allocated in the actor's input configuration, and the default allocated CPU can be changed in the actor's **Settings** tab. When running locally, you can used the **APIFY_MEMORY_MBYTES** environment variable to set allocated CPU. 4GB is equal to 1 CPU core on the Apify platform.
+**A:** On the platform, more memory can be allocated in the actor's input configuration, and the default allocated CPU can be changed in the actor's **Settings** tab. When running locally, you can used the **APIFY_MEMORY_MBYTES** environment variable to set allocated CPU. 4GB is equal to 1 CPU core on the Apify platform.
 
 **Q: Within itself, can you get the exact time that an actor was started?**
 
-_A:_ Yes. The time the actor was started can be retrieved through the `startedAt` property from the `Apify.getEnv()` function, or directly from `process.env.APIFY_STARTED_AT`
+**A:** Yes. The time the actor was started can be retrieved through the `startedAt` property from the `Apify.getEnv()` function, or directly from `process.env.APIFY_STARTED_AT`
 
 **Q: What are the types of default storages connected to an actor's run?**
 
@@ -193,11 +193,11 @@ Every actor's run is given a default key-value store and a default dataset. The 
 
 **Q: Can you change the allocated memory of an actor while it's running?**
 
-_A:_ Not while it's running. You'd need to stop it and run a new one. However, there is an option to soft abort an actor, then resurrect then run with a different memory configuration.
+**A:** Not while it's running. You'd need to stop it and run a new one. However, there is an option to soft abort an actor, then resurrect then run with a different memory configuration.
 
 **Q: How can you run an actor with Puppeteer on the Apify platform with headless mode set to `false`?**
 
-_A:_ This can be done by using the `actor-node-puppeteer-chrome` Docker image and making sure that `launchContext.launchOptions.headless` in `PuppeteerCrawlerOptions` is set to `false`.
+**A:** This can be done by using the `actor-node-puppeteer-chrome` Docker image and making sure that `launchContext.launchOptions.headless` in `PuppeteerCrawlerOptions` is set to `false`.
 
 ## [](#wrap-up) Next up
 
