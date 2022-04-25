@@ -3,7 +3,7 @@ title: Using storage & creating tasks
 description: Follow along with step-by-step instructions on how to complete the task outlined in the previous lesson. Use different storage types, and create a task.
 menuWeight: 4
 paths:
-    - become-an-apify-expert/solutions/using-storage-creating-tasks
+    - expert-scraping-with-apify/solutions/using-storage-creating-tasks
 ---
 
 # [](#using-storage-creating-tasks) Using storage & creating tasks
@@ -79,7 +79,7 @@ const cheapest = items.reduce((prev, curr) => {
 await Apify.setValue(CHEAPEST_ITEM, cheapest);
 ```
 
-You might have noticed that we are using a variable instead of a string for the key name in the key-value store. This is because we're using an exported variable from **constants.js** (which is best practice, as discussed in the [**Actor building** solution]({{@link become_an_apify_expert/solutions/actor_building.md}})). Here is what our **constants.js** file looks like:
+You might have noticed that we are using a variable instead of a string for the key name in the key-value store. This is because we're using an exported variable from **constants.js** (which is best practice, as discussed in the [**Actor building** solution]({{@link expert_scraping_with_apify/solutions/actor_building.md}})). Here is what our **constants.js** file looks like:
 
 ```JavaScript
 // constants.js
@@ -242,13 +242,13 @@ Don't forget to push your changes to Github using `git push origin MAIN_BRANCH_N
 
 Back on the platform, on your actor's page, you can see a button in the top right hand corner that says **Create new task**:
 
-![Create new task button]({{@asset become_an_apify_expert/solutions/images/create-new-task.webp}})
+![Create new task button]({{@asset expert_scraping_with_apify/solutions/images/create-new-task.webp}})
 
 Then, configure the task to use **google pixel** as a keyword and click **Save**.
 
 > You can also add a custom name and description for the task in the **Settings** tab!
 
-![Creating a task]({{@asset become_an_apify_expert/solutions/images/creating-task.webp}})
+![Creating a task]({{@asset expert_scraping_with_apify/solutions/images/creating-task.webp}})
 
 After saving it, you'll be able to see the newly created task in the **Tasks** tab on the Apify Console. Go ahead and run it. Did it work?
 

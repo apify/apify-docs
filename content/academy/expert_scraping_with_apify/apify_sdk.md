@@ -3,7 +3,7 @@ title: I - Apify SDK introduction
 description: Learn about the Apify SDK, as well as some semi-advanced topics which will be important throughout the next lessons in this section of the course.
 menuWeight: 6.1
 paths:
-    - become-an-apify-expert/apify-sdk
+    - expert-scraping-with-apify/apify-sdk
 ---
 
 # [](#the-apify-sdk) The Apify SDK
@@ -79,7 +79,7 @@ Our actor's input will look like this:
 
 The goal at hand is to scrape all of the products from the first page of results for whatever keyword was provided (for our test case, it will be **iphone**), then to scrape each offer of each product, and push the results to the dataset. For context, the offers for a product look like this:
 
-![Amazon product offers]({{@asset become_an_apify_expert/images/product-offers.webp}})
+![Amazon product offers]({{@asset expert_scraping_with_apify/images/product-offers.webp}})
 
 In the end, we'd like our final output to look something like this:
 
@@ -116,8 +116,8 @@ Each of the items in the dataset will represent a scraped offer, and will have t
 
 After the scrape has completed, we'll programmatically call a [public actor which sends emails](https://apify.com/apify/send-mail) to send ourselves an email with a publicly viewable link to the actor's final dataset.
 
-[**Solution**]({{@link become_an_apify_expert/solutions/actor_building.md}})
+[**Solution**]({{@link expert_scraping_with_apify/solutions/actor_building.md}})
 
 ## [](#next) Next up
 
-This was the largest part of the **Pro Apify scraper development** section, so since you've complete this, you're a total rockstar and ready to move into some even more advanced topics! 🎸 In the [next lesson]({{@link become_an_apify_expert/actors_webhooks.md}}), you'll be learning some more advanced details about actors, as well as how to utilize webhooks.
+This was the largest part of the **Pro Apify scraper development** section, so since you've complete this, you're a total rockstar and ready to move into some even more advanced topics! 🎸 In the [next lesson]({{@link expert_scraping_with_apify/actors_webhooks.md}}), you'll be learning some more advanced details about actors, as well as how to utilize webhooks.

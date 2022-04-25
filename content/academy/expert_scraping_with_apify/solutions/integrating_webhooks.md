@@ -3,7 +3,7 @@ title: Integrating webooks
 description: Learn how to integrate webhooks into your actors. Webhooks are a super powerful tool, and can be used to do almost anything!
 menuWeight: 2
 paths:
-    - become-an-apify-expert/solutions/integrating-webhooks
+    - expert-scraping-with-apify/solutions/integrating-webhooks
 ---
 
 # [](#integrating-webhooks) Integrating webhooks
@@ -34,7 +34,7 @@ log.info('Crawl finished.');
 
 Next, we'll navigate to the same directory our **demo-actor** folder lives, and run `apify create filter-actor` _(once again, you can name the actor whatever you want, but for this lesson, we'll be calling the new actor **filter-actor**)_. When prompted for which type of boilerplate to start out with, select **Empty**.
 
-![Selecting an empty template to start with]({{@asset become_an_apify_expert/solutions/images/select-empty.webp}})
+![Selecting an empty template to start with]({{@asset expert_scraping_with_apify/solutions/images/select-empty.webp}})
 
 Cool! Now, we're ready to get started.
 
@@ -143,7 +143,7 @@ Now we're done, and we can push it up to the Apify platform with the `apify push
 
 Since we'll be calling the actor via the [Apify API](https://docs.apify.com/tutorials/integrations/run-actor-and-retrieve-data-via-api#run-an-actor-or-task), we'll need to grab hold of the ID of the actor we just created and pushed to the platform. The ID is always accessible through the **Settings** page of the actor.
 
-![Actor ID in actor settings]({{@asset become_an_apify_expert/solutions/images/actor-settings.webp}})
+![Actor ID in actor settings]({{@asset expert_scraping_with_apify/solutions/images/actor-settings.webp}})
 
 With this `actorId`, and our `token`, which is retrievable through **Settings > Integrations** on the Apify Console, we can construct a link which will call the actor:
 
@@ -161,7 +161,7 @@ Whichever one you choose is totally up to preference.
 
 Next, within the actor, we will click the **Integrations** tab and choose **Webhook**, then fill out the details to look like this:
 
-![Configuring a webhook]({{@asset become_an_apify_expert/solutions/images/adding-webhook.webp}})
+![Configuring a webhook]({{@asset expert_scraping_with_apify/solutions/images/adding-webhook.webp}})
 
 We have chosen to run the webhook once the actor has succeeded, which means that its default dataset will surely be populated. Since the filtering actor is expecting the default dataset ID of the Amazon actor, we use the `resource` variable to grab hold of the `defaultDatasetId`.
 
@@ -171,11 +171,11 @@ Click **Save**, then run the Amazon **demo-actor** again.
 
 If everything worked, then at the end of the **demo-actor**'s run, we should see this within the **Integrations** tab:
 
-![Webhook succeeded]({{@asset become_an_apify_expert/solutions/images/webhook-succeeded.webp}})
+![Webhook succeeded]({{@asset expert_scraping_with_apify/solutions/images/webhook-succeeded.webp}})
 
 Additionally, we should be able to see that our **filter-actor** was run, and have access to its dataset:
 
-![Dataset preview]({{@asset become_an_apify_expert/solutions/images/dataset-preview.webp}})
+![Dataset preview]({{@asset expert_scraping_with_apify/solutions/images/dataset-preview.webp}})
 
 ## [](#quiz-answers) Quiz answers 📝
 

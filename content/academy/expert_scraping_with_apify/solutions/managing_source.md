@@ -3,7 +3,7 @@ title: Managing source
 description: View in-depth answers for all three of the quiz questions that were provided in the corresponding lesson about managing source code.
 menuWeight: 3
 paths:
-    - become-an-apify-expert/solutions/managing-source
+    - expert-scraping-with-apify/solutions/managing-source
 ---
 
 # Managing source
