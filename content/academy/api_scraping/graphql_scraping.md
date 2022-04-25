@@ -26,4 +26,4 @@ Every GraphQL payload will be a JSON object with a **query** property, and a **v
 
 ## [](#next) Next up
 
-This course section's [first lesson]({{@link api_scraping/graphql_scraping/introspection.md}}) will be walking you through how to learn about a GraphQL API before scraping it by using **introspection** (don't worry - it's a fancy word, but a simple concept).
+This course section's [first lesson]({{@link api_scraping/graphql_scraping/modifying_variables.md}}) will be discussing how to customize GraphQL queries without ever having to write any GraphQL language.

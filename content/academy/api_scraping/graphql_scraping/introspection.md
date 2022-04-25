@@ -1,7 +1,7 @@
 ---
 title: Introspection
 description: Understand what introspection is, and how it can help you understand a GraphQL API to take advantage the features it has to offer before writing any code.
-menuWeight: 1
+menuWeight: 2
 paths:
     - api-scraping/graphql-scraping/introspection
 ---
