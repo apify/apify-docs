@@ -14,13 +14,33 @@ Not only does becoming comfortable with and understanding the ins and outs of us
 
 ## [](#introspection) Introspection
 
-Introspection is when you make a query to the target GraphQL API requesting information about its schema. When done properly, this can provide a whole lot of information about the API and the different **queries** and **mutations** it supports.
+[Introspection](https://graphql.org/learn/introspection/) is when you make a query to the target GraphQL API requesting information about its schema. When done properly, this can provide a whole lot of information about the API and the different **queries** and **mutations** it supports.
+
+In order to perform introspection on our [target website](https://cheddar.com), we just need to make a request to their GraphQL API with this introspection query using [Insomnia]({{@link tools/insomnia.md}}) or another HTTP client that supports GraphQL:
+
+> To make a GraphQL query in Insomnia, make sure you've set the HTTP method to **POST** and the request body type to **GraphQL Query**.
+
+```GraphQL
+query
+{__schema{queryType{name}mutationType{name}subscriptionType{name}types{...FullType}directives{name description locations args{...InputValue}}}}fragment FullType on __Type{kind name description fields(includeDeprecated:true){name description args{...InputValue}type{...TypeRef}isDeprecated deprecationReason}inputFields{...InputValue}interfaces{...TypeRef}enumValues(includeDeprecated:true){name description isDeprecated deprecationReason}possibleTypes{...TypeRef}}fragment InputValue on __InputValue{name description type{...TypeRef}defaultValue}fragment TypeRef on __Type{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name}}}}}}}}
+```
+
+Here's what we got back:
+
+![GraphQL payload]({{@asset api_scraping/graphql_scraping/images/introspection.webp}})
 
 <!-- talk about how to do introspection -->
-
+show the query
+show image
+insomnia supports graphql queries and automatically fetches the schema if it's available
+show how to use introspection to your advantage
+difficult to sift through the json so use https://apis.guru/graphql-voyager/
 <!--  -->
 
 If the target website is smart though, they will have introspection disabled. In these cases, it is still possible to get some information about the API when using POSTMAN OR INSOMNIA THEY GIVE AUTOCOMPLETE SUGGESTIONS AND TYPO FIX SUGGESTIONS
+
+show introspection disabled image
+show autocomplete
 
 <!-- show the endpoint -->
 
