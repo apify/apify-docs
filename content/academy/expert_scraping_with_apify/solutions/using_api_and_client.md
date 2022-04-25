@@ -3,14 +3,14 @@ title: Using the Apify API & JavaScript client
 description: Learn how to interact with the Apify API directly through the well-documented RESTful routes, or by using the proprietary Apify JavaScript client.
 menuWeight: 4
 paths:
-    - become-an-apify-expert/solutions/using-api-and-client
+    - expert-scraping-with-apify/solutions/using-api-and-client
 ---
 
 # [](#using-api-and-client) Using the Apify API & JavaScript client
 
 Since we need to create another actor, we'll once again use the `apify create` command and start from an empty template.
 
-![Selecting an empty template to start with]({{@asset become_an_apify_expert/solutions/images/select-empty.webp}})
+![Selecting an empty template to start with]({{@asset expert_scraping_with_apify/solutions/images/select-empty.webp}})
 
 This time, let's call our project **actor-caller**.
 

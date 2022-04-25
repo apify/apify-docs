@@ -3,7 +3,7 @@ title: II - Webhooks & advanced actor overview
 description: Learn more advanced details about actors, how they work, and the default configurations they can take. Also learn how to integrate your actor with webhooks.
 menuWeight: 6.2
 paths:
-    - become-an-apify-expert/actors-webhooks
+    - expert-scraping-with-apify/actors-webhooks
 ---
 
 # [](#webhooks-and-advanced-actors) Webhooks & advanced actor overview
@@ -40,8 +40,8 @@ In this task, we'll be building on top of what we already created in the previou
 
 Once our Amazon actor has completed its run, we will, rather than sending an email to ourselves, call an actor through a webhook. The actor called will be a new actor that we will create together, which will take the dataset ID as input, then subsequently filter through all of the results and return only the cheapest one for each product. All of the results of the actor will be pushed to its default dataset.
 
-[**Solution**]({{@link become_an_apify_expert/solutions/integrating_webhooks.md}})
+[**Solution**]({{@link expert_scraping_with_apify/solutions/integrating_webhooks.md}})
 
 ## [](#next) Next up
 
-This course's [next lesson]({{@link become_an_apify_expert/managing_source_code.md}}) is brief, but discusses a very important topic: managing your code and storing it in a safe place.
+This course's [next lesson]({{@link expert_scraping_with_apify/managing_source_code.md}}) is brief, but discusses a very important topic: managing your code and storing it in a safe place.
