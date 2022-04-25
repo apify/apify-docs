@@ -1,7 +1,7 @@
 ---
 title: Polishing
 description: description
-menuWeight: 3
+menuWeight: 4
 paths:
 - apify-platform/deploying/polishing
 ---
