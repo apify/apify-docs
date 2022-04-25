@@ -1,7 +1,7 @@
 ---
 title: Apify CLI
 description: Learn about and install an important tool for communicating with your Apify SDK projects and the Apify Platform from your terminal - the Apify CLI.
-menuWeight: 1
+menuWeight: 5
 paths:
 - apify-platform/deploying/apify-cli
 ---
