@@ -24,6 +24,24 @@ Every GraphQL payload will be a JSON object with a **query** property, and a **v
 
 ![Taking a closer look at the payload]({{@asset api_scraping/images/stringified-syntax.webp}})
 
+## [](#advantages-disadvantages) Advantages & disadvantages
+
+We already discussed the advantages and disadvantages of API scraping in general in this course's introduction, but because GraphQL is such a different technology, scraping an API built with it comes with its own pros and cons.
+
+### Advantages
+
+1. GraphQL allows you as the developer to choose which fields you'd like to be returned back to you. Not only does this leave you with only the data you want and no extra unwanted fields, but it is also easier on the target.
+
+2. Allows access to data that is not readily available natively through the website.
+
+3. Queries are heavily customizable due to features like **fragments**.
+
+### Disadvantages
+
+1. Though it's a fantastic technology with lots of awesome features, it is also more complex to understand.
+
+2. GraphQL [introspection]({{@link api_scraping/graphql_scraping/introspection.md}}) is disabled on many sites, which makes it more difficult to reap the full benefits of GraphQL.
+
 ## [](#next) Next up
 
 This course section's [first lesson]({{@link api_scraping/graphql_scraping/modifying_variables.md}}) will be discussing how to customize GraphQL queries without ever having to write any GraphQL language.
