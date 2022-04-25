@@ -1,9 +1,9 @@
 ---
 title: Using storage & creating tasks
 description: Follow along with step-by-step instructions on how to complete the task outlined in the previous lesson. Use different storage types, and create a task.
-menuWeight: 3
+menuWeight: 4
 paths:
-    - pro-apify-scraper-development/solutions/using-storage-creating-tasks
+    - expert-scraping-with-apify/solutions/using-storage-creating-tasks
 ---
 
 # [](#using-storage-creating-tasks) Using storage & creating tasks
@@ -30,7 +30,8 @@ If we remember correctly, we are pushing data to the dataset in the `handleOffer
 ```JavaScript
 // ...
 case labels.OFFERS:
-    return handleOffers(context, dataset);
+    await handleOffers(context, dataset);
+    break;
 }
 // ...
 ```
@@ -39,26 +40,20 @@ Finally, let's modify the function to use the new `dataset` variable being passe
 
 ```JavaScript
 // Expect a second parameter, which will be a dataset
-exports.handleOffers = ({ $, request }, dataset) => {
+exports.handleOffers = async ({ $, request }, dataset) => {
     const { data } = request.userData;
-
-    const promises = [];
 
     for (const offer of $('#aod-offer')) {
         const element = $(offer);
 
-        promises.push(
-            // Replace "Apify" with the name of the second
-            // parameter, in this case we called it "dataset"
-            dataset.pushData({
-                ...data,
-                sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
-                offer: element.find('.a-price .a-offscreen').text().trim(),
-            }),
-        );
+        // Replace "Apify" with the name of the second
+        // parameter, in this case we called it "dataset"
+        await dataset.pushData({
+            ...data,
+            sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
+            offer: element.find('.a-price .a-offscreen').text().trim(),
+        });
     }
-
-    return Promise.all(promises);
 };
 ```
 
@@ -84,7 +79,7 @@ const cheapest = items.reduce((prev, curr) => {
 await Apify.setValue(CHEAPEST_ITEM, cheapest);
 ```
 
-You might have noticed that we are using a variable instead of a string for the key name in the key-value store. This is because we're using an exported variable from **constants.js** (which is best practice, as discussed in the [**Actor building** solution]({{@link pro_apify_scraper_development/solutions/actor_building.md}})). Here is what our **constants.js** file looks like:
+You might have noticed that we are using a variable instead of a string for the key name in the key-value store. This is because we're using an exported variable from **constants.js** (which is best practice, as discussed in the [**Actor building** solution]({{@link expert_scraping_with_apify/solutions/actor_building.md}})). Here is what our **constants.js** file looks like:
 
 ```JavaScript
 // constants.js
@@ -149,11 +144,14 @@ Apify.main(async () => {
                 default:
                     return log.info('Unable to handle this request');
                 case labels.START:
-                    return handleStart(context);
+                    await handleStart(context);
+                    break;
                 case labels.PRODUCT:
-                    return handleProduct(context);
+                    await handleProduct(context);
+                    break;
                 case labels.OFFERS:
-                    return handleOffers(context, dataset);
+                    await handleOffers(context, dataset);
+                    break;
             }
         },
     });
@@ -180,10 +178,9 @@ And here is **routes.js**:
 // routes.js
 const { BASE_URL, OFFERS_URL, labels } = require('./constants');
 
-exports.handleStart = ({ $, crawler: { requestQueue }, request }) => {
+exports.handleStart = async ({ $, crawler: { requestQueue }, request }) => {
     const { keyword } = request.userData;
 
-    const promises = [];
     const products = $('div > div[data-asin]:not([data-asin=""])');
 
     for (const product of products) {
@@ -192,31 +189,27 @@ exports.handleStart = ({ $, crawler: { requestQueue }, request }) => {
 
         const url = `${BASE_URL}${titleElement.attr('href')}`;
 
-        promises.push(
-            requestQueue.addRequest({
-                url,
-                userData: {
-                    label: labels.PRODUCT,
-                    data: {
-                        title: titleElement.first().text().trim(),
-                        asin: element.attr('data-asin'),
-                        itemUrl: url,
-                        keyword,
-                    },
+        await requestQueue.addRequest({
+            url,
+            userData: {
+                label: labels.PRODUCT,
+                data: {
+                    title: titleElement.first().text().trim(),
+                    asin: element.attr('data-asin'),
+                    itemUrl: url,
+                    keyword,
                 },
-            }),
-        );
+            },
+        });
     }
-
-    return Promise.all(promises);
 };
 
-exports.handleProduct = ({ $, crawler: { requestQueue }, request }) => {
+exports.handleProduct = async ({ $, crawler: { requestQueue }, request }) => {
     const { data } = request.userData;
 
     const element = $('div#productDescription');
 
-    return requestQueue.addRequest({
+    await requestQueue.addRequest({
         url: OFFERS_URL(data.asin),
         userData: {
             label: labels.OFFERS,
@@ -228,24 +221,18 @@ exports.handleProduct = ({ $, crawler: { requestQueue }, request }) => {
     });
 };
 
-exports.handleOffers = ({ $, request }, dataset) => {
+exports.handleOffers = async ({ $, request }, dataset) => {
     const { data } = request.userData;
-
-    const promises = [];
 
     for (const offer of $('#aod-offer')) {
         const element = $(offer);
 
-        promises.push(
-            dataset.pushData({
-                ...data,
-                sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
-                offer: element.find('.a-price .a-offscreen').text().trim(),
-            }),
-        );
+        await dataset.pushData({
+            ...data,
+            sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
+            offer: element.find('.a-price .a-offscreen').text().trim(),
+        });
     }
-
-    return Promise.all(promises);
 };
 ```
 
@@ -255,15 +242,31 @@ Don't forget to push your changes to Github using `git push origin MAIN_BRANCH_N
 
 Back on the platform, on your actor's page, you can see a button in the top right hand corner that says **Create new task**:
 
-![Create new task button]({{@asset pro_apify_scraper_development/solutions/images/create-new-task.webp}})
+![Create new task button]({{@asset expert_scraping_with_apify/solutions/images/create-new-task.webp}})
 
 Then, configure the task to use **google pixel** as a keyword and click **Save**.
 
 > You can also add a custom name and description for the task in the **Settings** tab!
 
-![Creating a task]({{@asset pro_apify_scraper_development/solutions/images/creating-task.webp}})
+![Creating a task]({{@asset expert_scraping_with_apify/solutions/images/creating-task.webp}})
 
 After saving it, you'll be able to see the newly created task in the **Tasks** tab on the Apify Console. Go ahead and run it. Did it work?
+
+## [](#quiz-answers) Quiz answers 📝
+
+**Q: What is the relationship between actors and tasks?**
+
+**A:** Tasks are pre-configured runs of actors. The configurations of an actor can be saved as a task so that it doesn't have to be manually configured every single time.
+
+**Q: What are the differences between default (unnamed) and named storage? Which one would you use for everyday usage?**
+
+**A:** Unnamed storage is persisted for only 7 days, while named storage is persisted indefinitely. For everyday usage, it is best to use default unnamed storages unless the data should explicitly be persisted for more than 7 days.
+
+> With named storages, it's easier to verify that you're using the correct store, as they can be referred to by name rather than by an ID.
+
+**Q: What is data retention, and how does it work for all types of storages (default and named)?**
+
+**A:** Default/unnamed storages expire after 7 days unless otherwise specified. Named storages are retained indefinitely.
 
 ## [](#wrap-up) Wrap up
 
