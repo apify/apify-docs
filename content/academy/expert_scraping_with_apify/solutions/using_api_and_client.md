@@ -3,14 +3,14 @@ title: Using the Apify API & JavaScript client
 description: Learn how to interact with the Apify API directly through the well-documented RESTful routes, or by using the proprietary Apify JavaScript client.
 menuWeight: 4
 paths:
-    - pro-apify-scraper-development/solutions/using-api-and-client
+    - expert-scraping-with-apify/solutions/using-api-and-client
 ---
 
 # [](#using-api-and-client) Using the Apify API & JavaScript client
 
 Since we need to create another actor, we'll once again use the `apify create` command and start from an empty template.
 
-![Selecting an empty template to start with]({{@asset pro_apify_scraper_development/solutions/images/select-empty.webp}})
+![Selecting an empty template to start with]({{@asset expert_scraping_with_apify/solutions/images/select-empty.webp}})
 
 This time, let's call our project **actor-caller**.
 
@@ -231,6 +231,22 @@ Apify.main(async () => {
     else await withAPI();
 });
 ```
+
+## [](#quiz-answers) Quiz answers 📝
+
+**Q: What is the relationship between the Apify API and Apify client? Are there any significant differences?**
+
+**A:** The Apify client mimics the Apify API, so there aren't any super significant differences. It's super handy as it helps with managing the API calls (parsing, error handling, retries, etc) and even adds convenience functions.
+
+The one main difference is that the Apify client automatically uses [**exponential backoff**](https://docs.apify.com/apify-client-js#retries-with-exponential-backoff) to deal with errors.
+
+**Q: How do you pass input when running actor or task via API?**
+
+**A:** The input should be passed into the **body** of the request when running an actor/task via API.
+
+**Q: Do you need to install the `apify-client` NPM package when already using the `apify` package?**
+
+**A:** No. The Apify client is available right in the sdk with the `Apify.newClient()` function.
 
 ## [](#wrap-up) Wrap up
 
