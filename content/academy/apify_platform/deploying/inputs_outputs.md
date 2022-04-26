@@ -10,6 +10,12 @@ paths:
 
 Most of the time when you're creating a project, you are expecting some sort of input off of which your software will run off of. Often times as well, you want to provide some sort of output once your software has completed running. With Apify, it is extremely easy to take in inputs and deliver outputs.
 
+An important thing to understand regarding inputs and outputs is that they are read/written differently depending on where the actor is running:
+
+- If your actor is running locally, the inputs/outputs are usually provided in the filesystem, and environment variables are injected either by you, the developer, and by the Apify CLI by running the project with the `apify run` command.
+
+- While running in a Docker container on the platform, environment variables are automatically injected, and inputs & outputs are provided and modified using Apify's REST API.
+
 ## [](#accepting-input) Accepting input
 
 There are multiple ways to accept input into your project. The option you go with depends on the language you have written your project in. If you are using Node.js for your repo's code, you can use the [Apify SDK](https://www.npmjs.com/package/apify). Otherwise, you can use the useful environment variables automatically set up for you by Apify to write utility functions which read the actor's input and return it.
@@ -228,6 +234,8 @@ pub fn set_output (data: String) {
 }
 </marked-tab>
 ```
+
+> For the full context of the Rust examples, take a look at the codebase [here](https://github.com/metalwarrior665/apify-client-rs).
 
 ## [](#next) Next up
 
