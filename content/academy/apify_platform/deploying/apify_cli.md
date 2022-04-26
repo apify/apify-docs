@@ -73,12 +73,11 @@ It should look like this:
 
 You might notice that two other files have been generated as well: a **.gitignore** file and an **apify_storage** folder. The **apify_storage** folder is where all of our new actor's outputs will be stored.
 
-![New project filestructure]({{@asset apify_platform/deploying/images/filestructure.webp}})
+![New project file structure]({{@asset apify_platform/deploying/images/filestructure.webp}})
 
-<!-- Should we still have this? -->
-<!-- ## [](#quick-note) Quick note
+## [](#quick-note) Quick note
 
-When you're locally test-running your code in the next lessons, always be sure to use the `apify run` command with the `-p` flag. This `-p` stands for **purge**, which will automatically purge all storages before running the actor again. Now that you have the Apify CLI, you should no longer be using `node FILENAME.js` to run your projects with the Apify SDK. -->
+When you're locally test-running your code in the next lessons, always be sure to use the `apify run` command with the `-p` flag. This `-p` stands for **purge**, which will automatically purge all storages before running the actor again. Now that you have the Apify CLI, you should no longer be using `node FILENAME.js` to run your projects with Apify.
 
 ## [](#next) Next up
 
