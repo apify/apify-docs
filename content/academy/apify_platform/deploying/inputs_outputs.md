@@ -1,6 +1,6 @@
 ---
 title: Inputs & outputs
-description: Understand how to 
+description: Learn to accept input into your actor, do something with it, then return output. Actors can be written in any language, so this concept is language agnostic.
 menuWeight: 3
 paths:
 - apify-platform/deploying/inputs-outputs
@@ -128,6 +128,8 @@ pub fn get_input () -> Input {
 }
 </marked-tab>
 ```
+
+> For a better understanding of API endpoints reading and modifying key-value stores, check the [official API reference](https://docs.apify.com/api/v2#/reference/key-value-stores).
 
 ## [](#writing-output) Writing output
 
