@@ -232,3 +232,5 @@ pub fn set_output (data: String) {
 ## [](#next) Next up
 
 That's it! We've now added all of the files and code necessary to convert our software into an actor. In the [next lesson]({{@link apify_platform/deploying/pushing.md}}), we'll be learning how to create and integrate a new actor on the Apify platform with our project's Github repository.
+
+<!-- TODO: Talk about input schema -->
