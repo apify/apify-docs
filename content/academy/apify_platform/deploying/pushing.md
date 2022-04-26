@@ -1,7 +1,7 @@
 ---
 title: Pushing
 description: description
-menuWeight: 5
+menuWeight: 4
 paths:
 - apify-platform/deploying/pushing
 ---
