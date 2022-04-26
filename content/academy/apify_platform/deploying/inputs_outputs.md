@@ -14,7 +14,7 @@ Most of the time when you're creating a project, you are expecting some sort of 
 
 There are multiple ways to accept input into your project. The option you go with depends on the language you have written your project in. If you are using Node.js for your repo's code, you can use the [Apify SDK](https://www.npmjs.com/package/apify). Otherwise, you can use the useful environment variables automatically set up for you by Apify to write utility functions which read the actor's input and return it.
 
-### With the Apify SDK
+### Accepting input with the Apify SDK
 
 Since we're using Node.js, let's install the **apify** package by running the following command:
 
@@ -47,7 +47,7 @@ Before running this though, let's modify the **INPUT.json** file within **apify_
 
 Cool! When we run `node index.js`, we see **20**.
 
-### Without the Apify SDK
+### Accepting input without the Apify SDK
 
 Alternatively, if you don't want to use the Apify SDK (or you're writing in a language other than JavaScript), you can create your own `getInput()` function.
 
@@ -133,7 +133,7 @@ pub fn get_input () -> Input {
 
 Similarly to reading input, you can write the actor's output either by using the Apify SDK in Node.js, or by manually writing a utility function to do so.
 
-### With the Apify SDK
+### Writing output with the Apify SDK
 
 In the SDK, we can write to the key-value store with the  `Apify.setValue()` function. Let's go ahead and write the solution of the `addAllNumbers()` function to the key-value store using it:
 
@@ -150,7 +150,7 @@ const solution = addAllNumbers(...numbers);
 await Apify.setValue('OUTPUT', { solution });
 ```
 
-## Without the Apify SDK
+## Writing output without the Apify SDK
 
 Just as with the custom `getInput()` utility function, you can write a custom `setOutput()` function as well if you cannot use the Apify SDK.
 
