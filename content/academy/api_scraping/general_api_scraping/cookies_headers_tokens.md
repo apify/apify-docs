@@ -25,7 +25,7 @@ const setCookieParser = require('set-cookie-parser');
 
 const getCookie = async () => {
     // make a request to the target site
-    const response = await axios.get('https://www.zillow.com/');
+    const response = await axios.get('https://www.example.com/');
 
     // parse the cookies from the response
     const cookies = setCookieParser.parse(response);
