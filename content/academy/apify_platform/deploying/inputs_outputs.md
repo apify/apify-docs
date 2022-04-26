@@ -235,7 +235,7 @@ pub fn set_output (data: String) {
 </marked-tab>
 ```
 
-> For the full context of the Rust examples, take a look at the codebase [here](https://github.com/metalwarrior665/apify-client-rs).
+> For the full context of the Rust examples, take a look at the codebase [here](https://github.com/metalwarrior665/rust-apify-actor-example).
 
 ## [](#next) Next up
 
