@@ -12,6 +12,8 @@ paths:
 
 The **Dockerfile** is a file which gives the Apify platform (or Docker, more specifically) instructions on how to create an environment for your code to run in. Every actor must have a Dockerfile, as actors run in Docker containers. Docker isolates your code so it can be safely run on the Apify platform. `docker build` is run when you press the **Build** button on an actor's page, while `docker run` happens when (you guessed it) you run the actor.
 
+> Actors on the platform are always run in Docker containers; however, they can also be run in local Docker containers. This is not common pracice though, as it requires more setup and a deeper understanding of Docker. For testing, it's best to just run the actor on the local OS (this requires you to have the underlying runtime installed, such as Node.js, Rust, GO, etc).
+
 ## [](#base-images) Base images
 
 If your project doesn’t already contain a Dockerfile, don’t worry! [Docker Hub](https://hub.docker.com/) provides a ton of free Docker images for most use-cases, upon which you can create your own images. At the base level, each Docker image contains a Linux OS distribution and usually also a programming language runtime (such as Node.js). You can also find images with preinstalled libraries or just install them yourself during the build step.
@@ -86,6 +88,9 @@ COPY Cargo* ./
 RUN mkdir src && echo "fn main() {}" > src/main.rs
 
 # Build dependencies only
+# Since we do this before copying  the rest of the files,
+# the dependencies will be cached by Docker, allowing fast
+# build times for new code changes
 RUN cargo build --release
 
 # Delete dummy main.rs
