@@ -42,4 +42,4 @@ That's it! the actor should now pull its source code from the repo and automatic
 
 ## [](#next) Next up
 
-We release new lessons as we write them, so keep your eyes peeled for new content coming very soon!
+In our next [exciting lesson]({{@link apify_platform/deploying/monetizing.md}}), we'll be learning how to publish our actor to the rest of the world, then monetize it.

@@ -1,7 +1,7 @@
 ---
 title: Inputs & outputs
 description: Learn to accept input into your actor, do something with it, then return output. Actors can be written in any language, so this concept is language agnostic.
-menuWeight: 3
+menuWeight: 2
 paths:
 - apify-platform/deploying/inputs-outputs
 ---
@@ -57,8 +57,8 @@ Cool! When we run `node index.js`, we see **20**.
 
 Alternatively, if you don't want to use the Apify SDK (or you're writing in a language other than JavaScript), you can create your own `getInput()` function.
 
-```marked-tabs
-<marked-tab header="Node.js" lang="javascript">
+```JavaScript
+// utils.js
 import * as fs from 'fs/promises';
 import path from 'path';
 import axios from 'axios';
@@ -92,47 +92,6 @@ const getInput = async () => {
         throw new Error(err.message);
     }
 };
-</marked-tab>
-<marked-tab header="Rust" lang="rust">
-use std::env;
-use std::fs;
-use crate::Input;
-use crate::reqwest;
-use serde_json::{from_str};
-
-/// Returns true if we are running on Apify platform
-pub fn is_on_apify() -> bool {
-    match env::var("APIFY_IS_AT_HOME") {
-        Ok(ref x) if x == "1"  => true,
-        _ => false
-    }
-}
-
-pub fn http_request_get(url: &str) -> String {
-    reqwest::blocking::get(url)
-        .expect("Didn't get response")
-        .text()
-        .expect("Response doesn't contain content")
-}
-
-pub fn get_input () -> Input {
-    let is_on_apify = is_on_apify();
-
-    let json = if is_on_apify {
-        let default_kv = env::var("APIFY_DEFAULT_KEY_VALUE_STORE_ID").unwrap();
-        let input_url = format!("https://api.apify.com/v2/key-value-stores/{}/records/INPUT", default_kv);
-        let val = http_request_get(&input_url);
-        val
-    } else {
-        // Standard path where local INPUT is stored
-        fs::read_to_string("apify_storage/key_value_stores/default/INPUT.json")
-            .expect("INPUT.json was not found on your local path apify_storage/key_value_stores/default/INPUT.json")
-    };
-
-    // Convert JSON string into Input and return
-    from_str(&json).expect("INPUT.json is not a valid JSON")
-}
-</marked-tab>
 ```
 
 > For a better understanding of API endpoints reading and modifying key-value stores, check the [official API reference](https://docs.apify.com/api/v2#/reference/key-value-stores).
@@ -162,13 +121,15 @@ await Apify.setValue('OUTPUT', { solution });
 
 Just as with the custom `getInput()` utility function, you can write a custom `setOutput()` function as well if you cannot use the Apify SDK.
 
-```marked-tabs
-<marked-tab header="Node.js" lang="javascript">
+```JavaScript
+// utils.js
 import * as fs from 'fs/promises';
 import path from 'path';
 import axios from 'axios';
 
 const onPlatform = () => !!process.env.APIFY_IS_AT_HOME;
+
+// getInput function here...
 
 const setOutput = async (data) => {
     // If running locally, write directly to the filesystem
@@ -192,53 +153,10 @@ const setOutput = async (data) => {
         throw new Error(err.message);
     }
 };
-</marked-tab>
-<marked-tab header="Rust" lang="rust">
-use std::env;
-use std::fs;
-use crate::Input;
-use crate::reqwest;
-use serde_json::{from_str};
-
-/// Returns true if we are running on Apify platform
-pub fn is_on_apify() -> bool {
-    match env::var("APIFY_IS_AT_HOME") {
-        Ok(ref x) if x == "1"  => true,
-        _ => false
-    }
-}
-
-fn http_request_put(url: &str, payload: String) {
-    // Put request requires building a HTTP client variable
-    let client = reqwest::blocking::Client::new();
-    client.put(url)
-        .header(reqwest::header::CONTENT_TYPE, "application/json")
-        .body(payload)
-        .send()
-        .expect("Put request failed");
-}
-
-pub fn set_output (data: String) {
-    let is_on_apify = is_on_apify();
-
-   if is_on_apify {
-        let default_kv = env::var("APIFY_DEFAULT_KEY_VALUE_STORE_ID").unwrap();
-        let token = env::var("APIFY_TOKEN").unwrap();
-        let output_url = format!("https://api.apify.com/v2/key-value-stores/{}/records/OUTPUT?token={}", default_kv, token);
-        http_request_put(&output_url, data);
-    } else {
-        // Standard path where local INPUT is stored
-        fs::write("apify_storage/key_value_stores/default/OUTPUT.json", data)
-            .expect("OUTPUT.json cannot be saved to your local path apify_storage/key_value_stores/default/OUTPUT.json")
-    };
-}
-</marked-tab>
 ```
 
 > For the full context of the Rust examples, take a look at the codebase [here](https://github.com/metalwarrior665/rust-apify-actor-example).
 
 ## [](#next) Next up
 
-That's it! We've now added all of the files and code necessary to convert our software into an actor. In the [next lesson]({{@link apify_platform/deploying/pushing.md}}), we'll be learning how to create and integrate a new actor on the Apify platform with our project's Github repository.
-
-<!-- TODO: Talk about input schema -->
+That's it! We've now added all of the files and code necessary to convert our software into an actor. In the [next lesson]({{@link apify_platform/deploying/input_schema.md}}), we'll be learning how to easily generate a user interface for our actor's input so that users don't have to provide the input in raw JSON format.
