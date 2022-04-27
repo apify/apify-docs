@@ -118,4 +118,4 @@ CMD ["julia", "main.jl"]
 
 ## [](#next) Next up
 
-[Next lesson]({{@link apify_platform/deploying/apify_cli.md}}) will be all about the super cool sidekick to the Apify platform - the Apify CLI. The Apify CLI is your key to accessing the Apify platform right through your terminal, and the best way to initialize an an Apify project within an existing project.
+[Next up]({{@link apify_platform/deploying/inputs_outputs.md}}), you'll be learning how to accept input into your actor, as well as return output.
