@@ -37,7 +37,7 @@ Throughout the next lessons, we will sometimes use certain technologies and term
 
 If you're feeling ambitious, you don't need to have any prior experience with the Apify SDK to get started with this course; however, at least 5-10 minutes of exposure is recommended. If you haven't yet tried out the Apify SDK, you can refer to [this lesson]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) in the **Web scraping for beginners** course (and ideally follow along).
 
-The Apify CLI will play a core role in the running and testing of the actor you will build, so if you haven't gotten it installed already, please follow along with [this short lesson]({{@link apify_platform/deploying/apify_cli.md}}).
+The Apify CLI will play a core role in the running and testing of the actor you will build, so if you haven't gotten it installed already, please refer to [the documentation](https://docs.apify.com/cli).
 
 ### [](#puppeteer-playwright) Puppeteer/Playwright
 
