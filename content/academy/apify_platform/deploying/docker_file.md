@@ -8,13 +8,9 @@ paths:
 
 # [](#dockerfile) Dockerfile
 
-> It is recommended to learn about [Dockerfiles](https://docs.docker.com/engine/reference/builder/) on the official Docker website, but it is not required in order to continue with this section.
+The **Dockerfile** is a file which gives the Apify platform (or Docker, more specifically) instructions on how to create an environment for your code to run in. Every actor must have a Dockerfile, as actors run in Docker containers.
 
-The **Dockerfile** is a file which gives the Apify platform (or Docker, more specifically) instructions on how to create an environment for your code to run in. Every actor must have a Dockerfile, as actors run in Docker containers. Docker isolates your code so it can be safely run on the Apify platform. `docker build` is run when you press the **Build** button on an actor's page, while `docker run` happens when (you guessed it) you run the actor.
-
-> Actors on the platform are always run in Docker containers; however, they can also be run in local Docker containers. This is not common pracice though, as it requires more setup and a deeper understanding of Docker. For testing, it's best to just run the actor on the local OS (this requires you to have the underlying runtime installed, such as Node.js, Rust, GO, etc).
-
-<!-- Link to SDK docs dockerfile -->
+> Actors on the platform are always run in Docker containers; however, they can also be run in local Docker containers. This is not common pracice though, as it requires more setup and a deeper understanding of Docker. For testing, it's best to just run the actor on the local OS (this requires you to have the underlying runtime installed, such as Node.js, Python, Rust, GO, etc).
 
 ## [](#base-images) Base images
 
