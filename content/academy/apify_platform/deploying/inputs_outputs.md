@@ -1,9 +1,9 @@
 ---
 title: Inputs & outputs
 description: Learn to accept input into your actor, do something with it, then return output. Actors can be written in any language, so this concept is language agnostic.
-menuWeight: 2
+menuWeight: 1
 paths:
-- apify-platform/deploying/inputs-outputs
+    - apify-platform/deploying/inputs-outputs
 ---
 
 # [](#inputs-outputs) Inputs & outputs
@@ -34,6 +34,24 @@ Now, let's import `Apify` and use the `Apify.getInput()` function to grab our in
 // index.js
 import Apify from 'apify';
 
+const input = await Apify.getInput();
+console.log(input);
+```
+
+If we run this right now, we'll see **null** in our terminal - this is because we never provided any sort of test input, which should be provided in the default key-value store. The `Apify.getInput()` function has detected that there is no **apify_storage** folder and generated one for us. We'll now add an **INPUT.json** file within **apify_storage/key_value_stores/default** to match what we're expecting in our code.
+
+```JSON
+{
+    "numbers": [5, 5, 5, 5]
+}
+```
+
+Then we can modify our code to grab the input and use it to generate a solution which is logged to the console.
+
+```JavaScript
+// index.js
+import Apify from 'apify';
+
 const { numbers } = await Apify.getInput();
 
 const addAllNumbers = (...nums) => nums.reduce((total, curr) => (total += curr));
@@ -43,55 +61,47 @@ const solution = addAllNumbers(...numbers);
 console.log(solution);
 ```
 
-Before running this though, let's modify the **INPUT.json** file within **apify_storage/key_value_stores/default** to match what we're expecting in our code.
-
-```JSON
-{
-    "numbers": [5, 5, 5, 5]
-}
-```
-
 Cool! When we run `node index.js`, we see **20**.
 
 ### Accepting input without the Apify SDK
 
-Alternatively, if you don't want to use the Apify SDK (or you're writing in a language other than JavaScript), you can create your own `getInput()` function.
+Alternatively, when writing in a language other than JavaScript, we can create our own `get_input()` function which utilizes the Apify API. For this example, we are using the [Apify Client]({{@link apify_platform/getting_started/apify_client.md}}) for Python to access the API.
 
-```JavaScript
-// utils.js
-import * as fs from 'fs/promises';
-import path from 'path';
-import axios from 'axios';
+```Python
+# index.py
+from apify_client import ApifyClient
+from os import environ
+import json
 
-// If being run on the platform, the "APIFY_IS_AT_HOME"
-// environment variable will be "1". Otherwise, it will
-// be undefined.
-const onPlatform = () => !!process.env.APIFY_IS_AT_HOME;
+client = ApifyClient(token='YOUR_TOKEN')
 
-const getInput = async () => {
-    // If we are running locally, read the file from the filesystem
-    // and return it in JSON format.
-    if (!onPlatform()) {
-        try {
-            const input = await fs.readFile(path.join(path.resolve(), 'apify_storage/key_value_stores/default/INPUT.json'));
-            return JSON.parse(Buffer.from(input).toString('utf-8'));
-        } catch (err) {
-            throw new Error(err.message);
-        }
-    }
+# If being run on the platform, the "APIFY_IS_AT_HOME" environment variable
+# will be "1". Otherwise, it will be undefined/None
+def is_on_apify ():
+    if (environ.get('APIFY_IS_AT_HOME')):
+        return True
+    return False
 
-    // Otherwise, grab the actor's default key-value store data from
-    // the Apify API.
-    const defaultKvStore = process.env.APIFY_DEFAULT_KEY_VALUE_STORE_ID;
-    const uri = `https://api.apify.com/v2/key-value-stores/${defaultKvStore}/records/INPUT`;
+# Get the input
+def get_input ():
+    if (not is_on_apify()):
+        input = open('./apify_storage/key_value_stores/default/INPUT.json')
+        return json.load(input)
 
-    try {
-        const { data } = await axios.get(uri);
-        return data;
-    } catch (err) {
-        throw new Error(err.message);
-    }
-};
+    kv_store = client.key_value_store(environ.get('APIFY_DEFAULT_KEY_VALUE_STORE_ID'))
+    kv_store.get_record('INPUT', format='json')
+
+def add_all_numbers (nums):
+    total = 0
+
+    for num in nums:
+        total += num
+
+    return total
+
+solution = add_all_numbers(get_input()['numbers'])
+
+print(solution)
 ```
 
 > For a better understanding of API endpoints reading and modifying key-value stores, check the [official API reference](https://docs.apify.com/api/v2#/reference/key-value-stores).
@@ -102,7 +112,7 @@ Similarly to reading input, you can write the actor's output either by using the
 
 ### Writing output with the Apify SDK
 
-In the SDK, we can write to the key-value store with the  `Apify.setValue()` function. Let's go ahead and write the solution of the `addAllNumbers()` function to the key-value store using it:
+In the SDK, we can write to the key-value store with the `Apify.setValue()` function. Let's go ahead and write the solution of the `addAllNumbers()` function to the key-value store using it:
 
 ```JavaScript
 // index.js
@@ -121,41 +131,62 @@ await Apify.setValue('OUTPUT', { solution });
 
 Just as with the custom `getInput()` utility function, you can write a custom `setOutput()` function as well if you cannot use the Apify SDK.
 
-```JavaScript
-// utils.js
-import * as fs from 'fs/promises';
-import path from 'path';
-import axios from 'axios';
+> You can read and write your output anywhere; however, it is standard practice to use a folder named **apify_storage**.
 
-const onPlatform = () => !!process.env.APIFY_IS_AT_HOME;
+```Python
+# index.py
+from apify_client import ApifyClient
+from os import environ
+import json
 
-// getInput function here...
+client = ApifyClient(token='YOUR_TOKEN')
 
-const setOutput = async (data) => {
-    // If running locally, write directly to the filesystem
-    if (!onPlatform()) {
-        try {
-            await fs.writeFile(path.join(path.resolve(), 'apify_storage/key_value_stores/default/OUTPUT.json'), JSON.stringify(data));
-            return;
-        } catch (err) {
-            throw new Error(err.message);
-        }
-    }
+def is_on_apify ():
+    if (environ.get('APIFY_IS_AT_HOME')):
+        return True
+    return False
 
-    // Otherwise, use the Apify API to write the actor's output
-    const defaultKvStore = process.env.APIFY_DEFAULT_KEY_VALUE_STORE_ID;
-    const apiToken = process.env.APIFY_TOKEN;
-    const uri = `https://api.apify.com/v2/key-value-stores/${defaultKvStore}/records/OUTPUT?token=${apiToken}`;
+def get_input ():
+    if (not is_on_apify()):
+        input = open('./apify_storage/key_value_stores/default/INPUT.json')
+        return json.load(input)
 
-    try {
-        await axios.put(uri, { data });
-    } catch (err) {
-        throw new Error(err.message);
-    }
-};
+    kv_store = client.key_value_store(environ.get('APIFY_DEFAULT_KEY_VALUE_STORE_ID'))
+    kv_store.get_record('INPUT', format='json')
+
+# Set the OUTPUT.json in the kv-store
+def set_output (data):
+    if (not is_on_apify()):
+        output = open('./apify_storage/key_value_stores/default/OUTPUT.json', 'w')
+        return output.write(json.dumps(data, indent=4))
+
+    kv_store = client.key_value_store(environ.get('APIFY_DEFAULT_KEY_VALUE_STORE_ID'))
+    kv_store.set_record('OUTPUT', format='json', data=json.dumps(data, indent=4))
+
+def add_all_numbers (nums):
+    total = 0
+
+    for num in nums:
+        total += num
+
+    return total
+
+solution = add_all_numbers(get_input()['numbers'])
+
+set_output({ 'solution': solution })
 ```
 
-> For the full context of the Rust examples, take a look at the codebase [here](https://github.com/metalwarrior665/rust-apify-actor-example).
+## [](#testing-locally) Testing locally
+
+Since we've changed our code a lot from the way it originally was by wrapping it in the Apify SDK to accept inputs and return outputs, we most definitely should test it locally before worrying about pushing it to the Apify platform.
+
+After running our script, the an **OUTPUT.json** that looks like this should be written to the default key-value store:
+
+```JSON
+{
+    "solution": 20
+}
+```
 
 ## [](#next) Next up
 

@@ -1,7 +1,7 @@
 ---
 title: Dockerfile
 description: Understand how to write a Dockerfile (Docker image blueprint) for your project so that it can be run within a Docker container on the Apify platform.
-menuWeight: 1
+menuWeight: 3
 paths:
 - apify-platform/deploying/docker-file
 ---
@@ -13,6 +13,8 @@ paths:
 The **Dockerfile** is a file which gives the Apify platform (or Docker, more specifically) instructions on how to create an environment for your code to run in. Every actor must have a Dockerfile, as actors run in Docker containers. Docker isolates your code so it can be safely run on the Apify platform. `docker build` is run when you press the **Build** button on an actor's page, while `docker run` happens when (you guessed it) you run the actor.
 
 > Actors on the platform are always run in Docker containers; however, they can also be run in local Docker containers. This is not common pracice though, as it requires more setup and a deeper understanding of Docker. For testing, it's best to just run the actor on the local OS (this requires you to have the underlying runtime installed, such as Node.js, Rust, GO, etc).
+
+<!-- Link to SDK docs dockerfile -->
 
 ## [](#base-images) Base images
 
@@ -118,4 +120,4 @@ CMD ["julia", "main.jl"]
 
 ## [](#next) Next up
 
-[Next up]({{@link apify_platform/deploying/inputs_outputs.md}}), you'll be learning how to accept input into your actor, as well as return output.
+In the [next lesson]({{@link apify_platform/deploying/deploying.md}}), we'll be push our code directly to the Apify platform, or create and integrate a new actor on the Apify platform with our project's Github repository.

@@ -14,33 +14,33 @@ Because actors are basically just chunks of code running in Docker containers, y
 
 ## Our example project
 
-For this section, we'll be turning our example Node.js project into an actor. The example project looks like this:
+For this section, we'll be turning this example project into an actor:
 
-```JavaScript
+```marked-tabs
+<marked-tab header="JavaScript" lang="javascript">
 // index.js
 const addAllNumbers = (...nums) => nums.reduce((total, curr) => (total += curr));
 
 console.log(addAllNumbers(1, 2, 3, 4)) // -> 10
+</marked-tab>
+<marked-tab header="Python" lang="python">
+# index.py
+def add_all_numbers (nums):
+    total = 0
+
+    for num in nums:
+        total += num
+
+    return total
+
+print(add_all_numbers([1, 2, 3, 4])) # -> 10
+</marked-tab>
 ```
 
-```JSON
-// package.json
-{
-  "name": "number-adder",
-  "version": "1.0.0",
-  "description": "Add numbers",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "me",
-  "license": "MIT"
-}
-```
+> For all sections
 
 We've pushed this code to Github and are ready to turn it into an actor.
 
 ## [](#next) Next up
 
-[Next lesson]({{@link apify_platform/deploying/docker_file.md}}) will be all about Dockerfiles for actors and how to write them.
+[Next lesson]({{@link apify_platform/deploying/inputs_outputs.md}}), we'll be learning how to accept input into our actor as well as return output.
