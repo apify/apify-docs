@@ -3,7 +3,7 @@ title: Deploying your code
 description: In this course learn how to take an existing project of yours and deploy it to the Apify platform as an actor in just a few minutes!
 menuWeight: 5.2
 paths:
-- apify-platform/deploying
+- apify-platform/deploying-your-code
 ---
 
 # [](#deploying) Deploying your code to Apify
@@ -22,10 +22,10 @@ Actors are language agnostic, which means that the language your project is writ
 
 There are four main steps to turning a piece of code into an actor:
 
-1. Handle [accepting inputs and writing outputs]({{@link apify_platform/deploying/inputs_outputs.md}})
-2. Create an [input schema]({{@link apify_platform/deploying/input_schema.md}}) **(optional)**
-3. Add a [Dockerfile]({{@link apify_platform/deploying/docker_file.md}})
-4. [Deploy]({{@link apify_platform/deploying/deploying.md}}) to the Apify platform!
+1. Handle [accepting inputs and writing outputs]({{@link apify_platform/deploying_your_code/inputs_outputs.md}})
+2. Create an [input schema]({{@link apify_platform/deploying_your_code/input_schema.md}}) **(optional)**
+3. Add a [Dockerfile]({{@link apify_platform/deploying_your_code/docker_file.md}})
+4. [Deploy]({{@link apify_platform/deploying_your_code/deploying.md}}) to the Apify platform!
 
 ## Our example project
 
@@ -58,4 +58,4 @@ print(add_all_numbers([1, 2, 3, 4])) # -> 10
 
 ## [](#next) Next up
 
-[Next lesson]({{@link apify_platform/deploying/inputs_outputs.md}}), we'll be learning how to accept input into our actor as well as deliver output.
+[Next lesson]({{@link apify_platform/deploying_your_code/inputs_outputs.md}}), we'll be learning how to accept input into our actor as well as deliver output.

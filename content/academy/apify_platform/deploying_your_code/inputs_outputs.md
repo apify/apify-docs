@@ -3,7 +3,7 @@ title: Inputs & outputs
 description: Learn to accept input into your actor, do something with it, then return output. Actors can be written in any language, so this concept is language agnostic.
 menuWeight: 1
 paths:
-    - apify-platform/deploying/inputs-outputs
+    - apify-platform/deploying-your-code/inputs-outputs
 ---
 
 # [](#inputs-outputs) Inputs & outputs
@@ -46,7 +46,7 @@ console.log(input);
 
 If we run this right now, we'll see **null** in our terminal - this is because we never provided any sort of test input, which should be provided in the default key-value store. The `Apify.getInput()` function has detected that there is no **apify_storage** folder and generated one for us.
 
-![Default key-value store filepath]({{@asset apify_platform/deploying/images/filepath.webp}})
+![Default key-value store filepath]({{@asset apify_platform/deploying_your_code/images/filepath.webp}})
 
 We'll now add an **INPUT.json** file within **apify_storage/key_value_stores/default** to match what we're expecting in our code.
 
@@ -204,4 +204,4 @@ After running our script, there should be a single item in the default dataset t
 
 ## [](#next) Next up
 
-That's it! We've now added all of the files and code necessary to convert our software into an actor. In the [next lesson]({{@link apify_platform/deploying/input_schema.md}}), we'll be learning how to easily generate a user interface for our actor's input so that users don't have to provide the input in raw JSON format.
+That's it! We've now added all of the files and code necessary to convert our software into an actor. In the [next lesson]({{@link apify_platform/deploying_your_code/input_schema.md}}), we'll be learning how to easily generate a user interface for our actor's input so that users don't have to provide the input in raw JSON format.

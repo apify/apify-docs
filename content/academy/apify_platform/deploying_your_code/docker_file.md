@@ -3,7 +3,7 @@ title: Dockerfile
 description: Understand how to write a Dockerfile (Docker image blueprint) for your project so that it can be run within a Docker container on the Apify platform.
 menuWeight: 3
 paths:
-- apify-platform/deploying/docker-file
+- apify-platform/deploying-your-code/docker-file
 ---
 
 # [](#dockerfile) Dockerfile
@@ -151,4 +151,4 @@ CMD ["julia", "main.jl"]
 
 ## [](#next) Next up
 
-In the [next lesson]({{@link apify_platform/deploying/deploying.md}}), we'll be push our code directly to the Apify platform, or create and integrate a new actor on the Apify platform with our project's GitHub repository.
+In the [next lesson]({{@link apify_platform/deploying_your_code/deploying.md}}), we'll be push our code directly to the Apify platform, or create and integrate a new actor on the Apify platform with our project's GitHub repository.
