@@ -14,9 +14,11 @@ The **Dockerfile** is a file which gives the Apify platform (or Docker, more spe
 
 ## [](#base-images) Base images
 
-If your project doesn’t already contain a Dockerfile, don’t worry! Apify offers many base images that are optimized for building and running actors on the platform, which can be found [here](https://hub.docker.com/u/apify). It's important to note that these premade images from Apify currently only support Node.js. When using another language, [Docker Hub](https://hub.docker.com/) provides a ton of free Docker images for most use-cases, upon which you can create your own images.
+If your project doesn’t already contain a Dockerfile, don’t worry! Apify offers [many base images](https://sdk.apify.com/docs/guides/docker-images) that are optimized for building and running actors on the platform, which can be found [here](https://hub.docker.com/u/apify). When using a language for which Apify doesn't provide a base image, [Docker Hub](https://hub.docker.com/) provides a ton of free Docker images for most use-cases, upon which you can create your own images.
 
-At the base level, each Docker image contains a base operating system and usually also a programming language runtime (such as Node.js). You can also find images with preinstalled libraries or just install them yourself during the build step.
+> Tip: You can see all of Apify's Docker images [on DockerHub](https://hub.docker.com/r/apify/).
+
+At the base level, each Docker image contains a base operating system and usually also a programming language runtime (such as Node.js or Python). You can also find images with preinstalled libraries or just install them yourself during the build step.
 
 Once you find the base image you need, you can add it as the initial `FROM` statement:
 
@@ -24,7 +26,7 @@ Once you find the base image you need, you can add it as the initial `FROM` stat
 FROM apify/actor-node:16
 ```
 
-> For syntax highlighting in your Dockerfiles, download the **Docker** VSCode extension.
+> For syntax highlighting in your Dockerfiles, download the [**Docker** VSCode extension](https://code.visualstudio.com/docs/containers/overview#_installation).
 
 ## [](#writing-the-file) Writing the file
 
@@ -34,7 +36,8 @@ The rest of the Dockerfile is about copying the source code from the local files
 
 Here's the Dockerfile for our Node.js example project's actor:
 
-```Dockerfile
+```marked-tabs
+<marked-tab header="Node.js Dockerfile" lang="Dockerfile">
 FROM apify/actor-node:16
 
 # Second, copy just package.json and package-lock.json since they are the only files
@@ -56,11 +59,43 @@ RUN npm --quiet set progress=false \
 # Since we do this after NPM install, quick build will be really fast
 # for simple source file changes.
 COPY . ./
+</marked-tab>
+<marked-tab header="Python Dockerfile" lang="Dockerfile">
+# First, specify the base Docker image.
+# You can also use any other image from Docker Hub.
+FROM apify/actor-python:3.9
+
+# Second, copy just requirements.txt into the actor image,
+# since it should be the only file that affects "pip install" in the next step,
+# in order to speed up the build
+COPY requirements.txt ./
+
+# Install the packages specified in requirements.txt,
+# Print the installed Python version, pip version
+# and all installed packages with their versions for debugging
+RUN echo "Python version:" \
+ && python --version \
+ && echo "Pip version:" \
+ && pip --version \
+ && echo "Installing dependencies from requirements.txt:" \
+ && pip install -r requirements.txt \
+ && echo "All installed Python packages:" \
+ && pip freeze
+
+# Next, copy the remaining files and directories with the source code.
+# Since we do this after installing the dependencies, quick build will be really fast
+# for most source file changes.
+COPY . ./
+
+# Specify how to launch the source code of your actor.
+# By default, the main.py file is run
+CMD python3 main.py
+</marked-tab>
 ```
 
 ## [](#examples) Examples
 
-The example we just showed was for Node.js, however, to drive home the fact that actors can be written in any language, here are some examples of some Dockerfiles for actors written in different programming languages:
+The examples we just showed were for Node.js and Python, however, to drive home the fact that actors can be written in any language, here are some examples of some Dockerfiles for actors written in different programming languages:
 
 ```marked-tabs
 <marked-tab header="GO actor Dockerfile" lang="Dockerfile">
@@ -116,4 +151,4 @@ CMD ["julia", "main.jl"]
 
 ## [](#next) Next up
 
-In the [next lesson]({{@link apify_platform/deploying/deploying.md}}), we'll be push our code directly to the Apify platform, or create and integrate a new actor on the Apify platform with our project's Github repository.
+In the [next lesson]({{@link apify_platform/deploying/deploying.md}}), we'll be push our code directly to the Apify platform, or create and integrate a new actor on the Apify platform with our project's GitHub repository.

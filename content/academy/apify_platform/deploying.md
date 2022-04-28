@@ -22,7 +22,7 @@ Actors are language agnostic, which means that the language your project is writ
 
 There are four main steps to turning a piece of code into an actor:
 
-1. Handle [acceptng inputs and writing outputs]({{@link apify_platform/deploying/inputs_outputs.md}})
+1. Handle [accepting inputs and writing outputs]({{@link apify_platform/deploying/inputs_outputs.md}})
 2. Create an [input schema]({{@link apify_platform/deploying/input_schema.md}}) **(optional)**
 3. Add a [Dockerfile]({{@link apify_platform/deploying/docker_file.md}})
 4. [Deploy]({{@link apify_platform/deploying/deploying.md}}) to the Apify platform!
@@ -52,9 +52,9 @@ print(add_all_numbers([1, 2, 3, 4])) # -> 10
 </marked-tab>
 ```
 
-> For all lessons in thi sectiom, we'll have examples for both Node.js and Python so that you can follow along in either language.
+> For all lessons in this section, we'll have examples for both Node.js and Python so that you can follow along in either language.
 
-We've pushed this code to Github and are ready to turn it into an actor that takes any number of integers as input, adds them all up, then stores the solution as its output.
+<!-- We've pushed this code to GitHub and are ready to turn it into an actor that takes any number of integers as input, adds them all up, then stores the solution as its output. -->
 
 ## [](#next) Next up
 
