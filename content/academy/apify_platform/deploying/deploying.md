@@ -1,6 +1,6 @@
 ---
 title: Deploying
-description: Push your code from your local environment to the platform, or create a new actor on the console and integrate it with a Github repository to automatically rebuild any new changes.
+description: Push your local code to the platform, or create a new actor on the console and integrate it with a Github repo to automatically rebuild any new changes.
 menuWeight: 4
 paths:
 - apify-platform/deploying/deploying
@@ -46,46 +46,12 @@ That's it! the actor should now pull its source code from the repo and automatic
 
 ## [](#with-apify-cli) Without a Github repository (using the Apify CLI)
 
-The [Apify CLI](https://docs.apify.com/cli) helps you create, develop, build and run Apify actors, and manage the Apify cloud platform from any computer. It can be used to automatically generate the boilerplate for different types of projects, initialize projects, remotely call actors on the platform, and run your own projects.
+> If you don't yet have the Apify CLI, learn how to install it and log in by following along with [this brief lesson]([Apify CLI]({{@link tools/apify_cli.md}})) about it.
 
-### [](#installing-cli) Installing
+If you're logged in to the Apify CLI, the `apify push` command can be used to push the code straight onto the Apify platform from your local machine (no Github repository required), where it will automatically be built for you. Prior to running this command, make sure that you have an **apify.json** file at the root of the project. If you don't already have one, you can use `apify init PROJECT_NAME` to automatically generate one for you.
 
-To install the Apfiy CLI, you'll first need NPM, which comes preinstalled with Node.js. If you haven't yet installed Node, learn how to do that [here]({{@link web_scraping_for_beginners/data_collection/computer_preparation.md}}). Additionally, make sure you've got an Apify account, as you will need to log in to the CLI to gain access to its full potential.
+## [](#next) Wrap up
 
-Open up a terminal instance and run the following command:
+That's it! In this short section, you've learned how to take your code written in any programming language and turn it into a usable actor that can run on the Apify platform!
 
-```shell
-npm i -g apify-cli
-```
-
-This will install the CLI via NPM.
-
-### [](#logging-into-cli) Logging in
-
-After the CLI has finished installing, navigate to the [Apify Console](https://console.apify.com) and click on **Settings**. Then, within your account settings, click **Integrations**. The page should look like this:
-
-![Integrations tab on the Apify Platform]({{@asset apify_platform/deploying/images/settings-integrations.webp}})
-
-> We've censored out the **User ID** in the image because it is private information which should not be shared with anyone who is not trusted. The same goes for your **Personal API Token**.
-
-Copy the **Personal API Token** and return to your terminal, entering this command:
-
-```shell
-apify login -t YOUR_TOKEN_HERE
-```
-
-If you see a log which looks like this,
-
-```text
-Success: You are logged in to Apify as YOUR_USERNAME!
-```
-
-If you see a log which looks like **Success: You are logged in to Apify as YOUR_USERNAME!**, you're in!
-
-### [](#push-command) The push command
-
-If you're logged in, the `apify push` command can be used to push the code straight onto the Apify platform from your local machine (no Github repository required), where it will automatically be built for you. Prior to running this command, make sure that you have an **apify.json** file at the root of the project. If you don't already have one, you can use `apify init PROJECT_NAME` to automatically generate one for you.
-
-## [](#next) Next up
-
-We release new lessons as we write them, so keep your eyes peeled for new content coming very soon!
+The next step is to test your actor and experiment with the vast amount of features the platform has to offer.

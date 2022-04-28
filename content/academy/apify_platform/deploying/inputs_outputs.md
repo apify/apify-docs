@@ -16,6 +16,12 @@ An important thing to understand regarding inputs and outputs is that they are r
 
 - While running in a Docker container on the platform, environment variables are automatically injected, and inputs & outputs are provided and modified using Apify's REST API.
 
+## [](#about-storage) A bit about storage
+
+There are two different places you can read/write your inputs/outputs: to the [key-value store](https://docs.apify.com/storage/key-value-store), or to the [dataset](https://docs.apify.com/storage/dataset). They key-value store can be used to store any sort of unorganized/unrelated data in any formats, while the data pushed to a dataset generally has the same fields/is of the same (or similar) schema. Each actor's run is allocated both a default dataset and key-value store.
+
+When running locally, these storages are accessible through the **apify_storage** folder within your project's root directory, while on the platform they are accessible via Apify's API.
+
 ## [](#accepting-input) Accepting input
 
 There are multiple ways to accept input into your project. The option you go with depends on the language you have written your project in. If you are using Node.js for your repo's code, you can use the [Apify SDK](https://www.npmjs.com/package/apify). Otherwise, you can use the useful environment variables automatically set up for you by Apify to write utility functions which read the actor's input and return it.
@@ -38,7 +44,11 @@ const input = await Apify.getInput();
 console.log(input);
 ```
 
-If we run this right now, we'll see **null** in our terminal - this is because we never provided any sort of test input, which should be provided in the default key-value store. The `Apify.getInput()` function has detected that there is no **apify_storage** folder and generated one for us. We'll now add an **INPUT.json** file within **apify_storage/key_value_stores/default** to match what we're expecting in our code.
+If we run this right now, we'll see **null** in our terminal - this is because we never provided any sort of test input, which should be provided in the default key-value store. The `Apify.getInput()` function has detected that there is no **apify_storage** folder and generated one for us.
+
+![Default key-value store filepath]({{@asset apify_platform/deploying/images/filepath.webp}})
+
+We'll now add an **INPUT.json** file within **apify_storage/key_value_stores/default** to match what we're expecting in our code.
 
 ```JSON
 {
@@ -46,7 +56,7 @@ If we run this right now, we'll see **null** in our terminal - this is because w
 }
 ```
 
-Then we can modify our code to grab the input and use it to generate a solution which is logged to the console.
+Then we can add our example project code from earlier. It will grab the input and use it to generate a solution which is logged to the console.
 
 ```JavaScript
 // index.js
@@ -65,7 +75,7 @@ Cool! When we run `node index.js`, we see **20**.
 
 ### Accepting input without the Apify SDK
 
-Alternatively, when writing in a language other than JavaScript, we can create our own `get_input()` function which utilizes the Apify API. For this example, we are using the [Apify Client]({{@link apify_platform/getting_started/apify_client.md}}) for Python to access the API.
+Alternatively, when writing in a language other than JavaScript, we can create our own `get_input()` function which utilizes the Apify API when the actor is running on the platform. For this example, we are using the [Apify Client]({{@link apify_platform/getting_started/apify_client.md}}) for Python to access the API.
 
 ```Python
 # index.py
@@ -104,7 +114,7 @@ solution = add_all_numbers(get_input()['numbers'])
 print(solution)
 ```
 
-> For a better understanding of API endpoints reading and modifying key-value stores, check the [official API reference](https://docs.apify.com/api/v2#/reference/key-value-stores).
+> For a better understanding of the API endpoints for reading and modifying key-value stores, check the [official API reference](https://docs.apify.com/api/v2#/reference/key-value-stores).
 
 ## [](#writing-output) Writing output
 
@@ -112,10 +122,13 @@ Similarly to reading input, you can write the actor's output either by using the
 
 ### Writing output with the Apify SDK
 
-In the SDK, we can write to the key-value store with the `Apify.setValue()` function. Let's go ahead and write the solution of the `addAllNumbers()` function to the key-value store using it:
+In the SDK, we can write to the dataset with the `Apify.pushData()` function. Let's go ahead and write the solution of the `addAllNumbers()` function to the dataset store using this function:
 
 ```JavaScript
 // index.js
+
+// This is our example project code from earlier.
+// We will use the Apify input as its input.
 import Apify from 'apify';
 
 const { numbers } = await Apify.getInput();
@@ -124,7 +137,8 @@ const addAllNumbers = (...nums) => nums.reduce((total, curr) => (total += curr))
 
 const solution = addAllNumbers(...numbers);
 
-await Apify.setValue('OUTPUT', { solution });
+// And save its output to the default dataset
+await Apify.pushData({ solution });
 ```
 
 ### Writing output without the Apify SDK
@@ -154,14 +168,14 @@ def get_input ():
     kv_store = client.key_value_store(environ.get('APIFY_DEFAULT_KEY_VALUE_STORE_ID'))
     kv_store.get_record('INPUT', format='json')
 
-# Set the OUTPUT.json in the kv-store
+# Push the solution to the dataset
 def set_output (data):
     if (not is_on_apify()):
-        output = open('./apify_storage/key_value_stores/default/OUTPUT.json', 'w')
-        return output.write(json.dumps(data, indent=4))
-
-    kv_store = client.key_value_store(environ.get('APIFY_DEFAULT_KEY_VALUE_STORE_ID'))
-    kv_store.set_record('OUTPUT', format='json', data=json.dumps(data, indent=4))
+        output = open('./apify_storage/datasets/default/solution.json', 'w')
+        return output.write(json.dumps(data, indent=2))
+    
+    kv_store = client.dataset(environ.get('APIFY_DEFAULT_DATASET_ID'))
+    kv_store.push_items('OUTPUT', format='json', data=[json.dumps(data, indent=4)])
 
 def add_all_numbers (nums):
     total = 0
@@ -180,7 +194,7 @@ set_output({ 'solution': solution })
 
 Since we've changed our code a lot from the way it originally was by wrapping it in the Apify SDK to accept inputs and return outputs, we most definitely should test it locally before worrying about pushing it to the Apify platform.
 
-After running our script, the an **OUTPUT.json** that looks like this should be written to the default key-value store:
+After running our script, there should be a single item in the default dataset that looks like this:
 
 ```JSON
 {
