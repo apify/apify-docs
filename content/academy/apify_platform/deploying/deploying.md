@@ -24,7 +24,7 @@ Before anything can be integrated, we've gotta create a new actor. Luckily, this
 
 Easy peasy!
 
-### Changing source code location
+### [](#change-source-code) Changing source code location
 
 In the **Source** tab on the new actor's page, we'll click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Multiple source files**.
 
@@ -32,7 +32,7 @@ In the **Source** tab on the new actor's page, we'll click the dropdown menu und
 
 Now we'll paste the link to our Github repository into the **Git URL** text field and click **Save**.
 
-### Adding the webhook to the repository
+### [](#adding-repo-webhook) Adding the webhook to the repository
 
 The final step is to click on **API** in the top right corner of our actor's page:
 
@@ -48,7 +48,7 @@ That's it! the actor should now pull its source code from the repo and automatic
 
 The [Apify CLI](https://docs.apify.com/cli) helps you create, develop, build and run Apify actors, and manage the Apify cloud platform from any computer. It can be used to automatically generate the boilerplate for different types of projects, initialize projects, remotely call actors on the platform, and run your own projects.
 
-### Installing
+### [](#installing-cli) Installing
 
 To install the Apfiy CLI, you'll first need NPM, which comes preinstalled with Node.js. If you haven't yet installed Node, learn how to do that [here]({{@link web_scraping_for_beginners/data_collection/computer_preparation.md}}). Additionally, make sure you've got an Apify account, as you will need to log in to the CLI to gain access to its full potential.
 
@@ -60,7 +60,7 @@ npm i -g apify-cli
 
 This will install the CLI via NPM.
 
-### Logging in
+### [](#logging-into-cli) Logging in
 
 After the CLI has finished installing, navigate to the [Apify Console](https://console.apify.com) and click on **Settings**. Then, within your account settings, click **Integrations**. The page should look like this:
 
@@ -82,7 +82,7 @@ Success: You are logged in to Apify as YOUR_USERNAME!
 
 If you see a log which looks like **Success: You are logged in to Apify as YOUR_USERNAME!**, you're in!
 
-## [](#push-command) The push command
+### [](#push-command) The push command
 
 If you're logged in, the `apify push` command can be used to push the code straight onto the Apify platform from your local machine (no Github repository required), where it will automatically be built for you. Prior to running this command, make sure that you have an **apify.json** file at the root of the project. If you don't already have one, you can use `apify init PROJECT_NAME` to automatically generate one for you.
 
