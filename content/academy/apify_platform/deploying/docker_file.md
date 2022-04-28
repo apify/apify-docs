@@ -14,9 +14,9 @@ The **Dockerfile** is a file which gives the Apify platform (or Docker, more spe
 
 ## [](#base-images) Base images
 
-If your project doesn’t already contain a Dockerfile, don’t worry! [Docker Hub](https://hub.docker.com/) provides a ton of free Docker images for most use-cases, upon which you can create your own images. At the base level, each Docker image contains a Linux OS distribution and usually also a programming language runtime (such as Node.js). You can also find images with preinstalled libraries or just install them yourself during the build step.
+If your project doesn’t already contain a Dockerfile, don’t worry! Apify offers many base images that are optimized for building and running actors on the platform, which can be found [here](https://hub.docker.com/u/apify). It's important to note that these premade images from Apify currently only support Node.js. When using another language, [Docker Hub](https://hub.docker.com/) provides a ton of free Docker images for most use-cases, upon which you can create your own images.
 
-> Apify offers many base images for building actors, which can be found [here](https://hub.docker.com/u/apify)
+At the base level, each Docker image contains a base operating system and usually also a programming language runtime (such as Node.js). You can also find images with preinstalled libraries or just install them yourself during the build step.
 
 Once you find the base image you need, you can add it as the initial `FROM` statement:
 

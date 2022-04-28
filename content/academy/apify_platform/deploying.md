@@ -12,6 +12,21 @@ This section will discuss how to use your newfound knowledge of the Apify platfo
 
 Because actors are basically just chunks of code running in Docker containers, you're able to **_Actorify_** just about anything!
 
+Actors are language agnostic, which means that the language your project is written in does not affect your ability to actorify it. Though the majority of actors currently on the platform were written in Node.js, there are a few examples in other languages:
+
+- [Actor written in Rust](https://apify.com/lukaskrivka/rust-actor-example)
+- [GO actor](https://apify.com/jirimoravcik/go-actor-example)
+- [Actor written with Julia](https://apify.com/jirimoravcik/julia-actor-example)
+
+## [](#workflow) The "actorification" workflow
+
+There are four main steps to turning a piece of code into an actor:
+
+1. Handle [acceptng inputs and writing outputs]({{@link apify_platform/deploying/inputs_outputs.md}})
+2. Create an [input schema]({{@link apify_platform/deploying/input_schema.md}}) **(optional)**
+3. Add a [Dockerfile]({{@link apify_platform/deploying/docker_file.md}})
+4. [Deploy]({{@link apify_platform/deploying/deploying.md}}) to the Apify platform!
+
 ## Our example project
 
 For this section, we'll be turning this example project into an actor:
@@ -37,9 +52,9 @@ print(add_all_numbers([1, 2, 3, 4])) # -> 10
 </marked-tab>
 ```
 
-> For all sections, we'll have examples for both Node.js and Python.
+> For all lessons in thi sectiom, we'll have examples for both Node.js and Python so that you can follow along in either language.
 
-We've pushed this code to Github and are ready to turn it into an actor, so let's get to it!
+We've pushed this code to Github and are ready to turn it into an actor that takes any number of integers as input, adds them all up, then stores the solution as its output.
 
 ## [](#next) Next up
 
