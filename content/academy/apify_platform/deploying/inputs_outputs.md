@@ -129,7 +129,7 @@ await Apify.setValue('OUTPUT', { solution });
 
 ### Writing output without the Apify SDK
 
-Just as with the custom `getInput()` utility function, you can write a custom `setOutput()` function as well if you cannot use the Apify SDK.
+Just as with the custom `get_input()` utility function, you can write a custom `set_output()` function as well if you cannot use the Apify SDK.
 
 > You can read and write your output anywhere; however, it is standard practice to use a folder named **apify_storage**.
 

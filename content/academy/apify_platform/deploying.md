@@ -37,10 +37,10 @@ print(add_all_numbers([1, 2, 3, 4])) # -> 10
 </marked-tab>
 ```
 
-> For all sections
+> For all sections, we'll have examples for both Node.js and Python.
 
-We've pushed this code to Github and are ready to turn it into an actor.
+We've pushed this code to Github and are ready to turn it into an actor, so let's get to it!
 
 ## [](#next) Next up
 
-[Next lesson]({{@link apify_platform/deploying/inputs_outputs.md}}), we'll be learning how to accept input into our actor as well as return output.
+[Next lesson]({{@link apify_platform/deploying/inputs_outputs.md}}), we'll be learning how to accept input into our actor as well as deliver output.

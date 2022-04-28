@@ -32,7 +32,7 @@ The rest of the Dockerfile is about copying the source code from the local files
 
 > If you are not using a base image from Apify, then you should specify how to launch the source code of your actor with the `CMD` instruction.
 
-Here's the Dockerfile for our example project's actor:
+Here's the Dockerfile for our Node.js example project's actor:
 
 ```Dockerfile
 FROM apify/actor-node:16
