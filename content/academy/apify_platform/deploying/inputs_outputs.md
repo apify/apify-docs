@@ -88,18 +88,16 @@ client = ApifyClient(token='YOUR_TOKEN')
 # If being run on the platform, the "APIFY_IS_AT_HOME" environment variable
 # will be "1". Otherwise, it will be undefined/None
 def is_on_apify ():
-    if (environ.get('APIFY_IS_AT_HOME')):
-        return True
-    return False
+    return 'APIFY_IS_AT_HOME' in environ
 
 # Get the input
 def get_input ():
-    if (not is_on_apify()):
-        input = open('./apify_storage/key_value_stores/default/INPUT.json')
-        return json.load(input)
-
+    if not is_on_apify():
+        with open('./apify_storage/key_value_stores/default/INPUT.json') as actor_input:
+            return json.load(actor_input)
+    
     kv_store = client.key_value_store(environ.get('APIFY_DEFAULT_KEY_VALUE_STORE_ID'))
-    kv_store.get_record('INPUT', format='json')
+    return kv_store.get_record('INPUT')['value']
 
 def add_all_numbers (nums):
     total = 0
@@ -109,7 +107,9 @@ def add_all_numbers (nums):
 
     return total
 
-solution = add_all_numbers(get_input()['numbers'])
+actor_input = get_input()['numbers']
+
+solution = add_all_numbers(actor_input)
 
 print(solution)
 ```
@@ -156,26 +156,24 @@ import json
 client = ApifyClient(token='YOUR_TOKEN')
 
 def is_on_apify ():
-    if (environ.get('APIFY_IS_AT_HOME')):
-        return True
-    return False
+    return 'APIFY_IS_AT_HOME' in environ
 
 def get_input ():
-    if (not is_on_apify()):
-        input = open('./apify_storage/key_value_stores/default/INPUT.json')
-        return json.load(input)
-
+    if not is_on_apify():
+        with open('./apify_storage/key_value_stores/default/INPUT.json') as actor_input:
+            return json.load(actor_input)
+    
     kv_store = client.key_value_store(environ.get('APIFY_DEFAULT_KEY_VALUE_STORE_ID'))
-    kv_store.get_record('INPUT', format='json')
+    return kv_store.get_record('INPUT')['value']
 
 # Push the solution to the dataset
 def set_output (data):
-    if (not is_on_apify()):
-        output = open('./apify_storage/datasets/default/solution.json', 'w')
-        return output.write(json.dumps(data, indent=2))
+    if not is_on_apify():
+        with open('./apify_storage/datasets/default/solution.json', 'w') as output:
+            return output.write(json.dumps(data, indent=2))
     
-    kv_store = client.dataset(environ.get('APIFY_DEFAULT_DATASET_ID'))
-    kv_store.push_items('OUTPUT', format='json', data=[json.dumps(data, indent=4)])
+    dataset = client.dataset(environ.get('APIFY_DEFAULT_DATASET_ID'))
+    dataset.push_items('OUTPUT', value=[json.dumps(data, indent=4)])
 
 def add_all_numbers (nums):
     total = 0
@@ -185,7 +183,9 @@ def add_all_numbers (nums):
 
     return total
 
-solution = add_all_numbers(get_input()['numbers'])
+actor_input = get_input()['numbers']
+
+solution = add_all_numbers(actor_input)
 
 set_output({ 'solution': solution })
 ```
