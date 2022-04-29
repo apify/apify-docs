@@ -1,6 +1,6 @@
 ---
 title: Deploying
-description: Push your local code to the platform, or create a new actor on the console and integrate it with a GitHub repo to optionally automatically rebuild any new changes.
+description: Push local code to the platform, or create a new actor on the console and integrate it with a GitHub repo to optionally automatically rebuild any new changes.
 menuWeight: 4
 paths:
 - apify-platform/deploying-your-code/deploying
