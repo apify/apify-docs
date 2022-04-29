@@ -214,6 +214,28 @@ Apify.main(async () => {
 
 That's everything! Now, even if the actor migrates (or is gracefully aborted then resurrected), this `state` object will always be persisted.
 
+## [](#quiz-answers) Quiz answers 📝
+
+**Q: Actors have an option the Settings tab to Restart on error. Would you use this feature for regular actors? When would you use this feature?**
+
+**A:** It's not best to use this option by default. If it fails, there must be reason, which would need to be thought through first - meaning that the edge case of failing should be handled when resurecting the actor. State should be persisted beforehand.
+
+**Q: Migrations happen randomly, but by setting Restart on error and then throwing an error in the actor's main process, you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted actor's run?**
+
+**A:** After aborting or throwing an error mid-process, it manages to start back from where it was upon ressurrection.
+
+**Q: Why don't you (usually) need to add any special migration handling code for a standard crawling/scraping actor? Are there any features in the Apify SDK that handle this under the hood?**
+
+**A:** Because Apify SDK handles all of the migration handling code for us. If you want to add custom migration-handling code, you can use `Apify.events` to listen for the `migrating` or `persistState` events to save the current state in key-value store (or elsewhere).
+
+**Q: How can you intercept the migration event? How much time do you have after this event happens and before the actor migrates?**
+
+**A:** By using the `Apify.events.on` function. You have a maximum of a few seconds before shutdown after the `migrating` event has been fired.
+
+**Q: When would you persist data to the default key-value store instead of to a named key-value store?**
+
+**A:** Persisting data to the default key-vsalue store would help when handling an actor's run state or with storing metadata about the run (suchs results, miscellaneous files, or logs). Using a named key-value store allows you to persist data at the account level to handle data across multiple actor runs.
+
 ## [](#wrap-up) Wrap up
 
 In this activity, we learned how to persist custom values on an interval as well as after actor migrations by using the `persistState` event and the key-value store. With this knowledge, you can safely increase your actor's performance by storing data in variables then pushing them to the dataset periodically/at the end of the actor's run as opposed to pushing data immediately after it's been collected.
