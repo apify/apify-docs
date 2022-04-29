@@ -19,3 +19,29 @@ When a migration happens, you want to do a so-called "state transition", which m
 Before moving forward, read about actor [events](https://sdk.apify.com/docs/api/apify#apifyevents) and how to listen for them.
 
 ## [](#quiz) Knowledge check 📝
+
+1. Actors have an option the **Settings** tab to **Restart on error**. Would you use this feature for regular actors? When would you use this feature?
+2. Migrations happen randomly, but by setting **Restart on error** and then throwing an error in the actor's main process, you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted actor's run?
+3. Why don't you (usually) need to add any special migration handling code for a standard crawling/scraping actor? Are there any features in the Apify SDK that handle this under the hood?
+4. How can you intercept the migration event? How much time do you have after this event happens and before the actor migrates?
+5. When would you persist data to the default key-value store instead of to a named key-value store?
+
+## Our task
+
+Once again returning to our Amazon **demo-actor**, let's say that we need to store an object in memory (as a variable) containing all of the scraped ASINs as keys and the number of offers scraped from each ASIN as values. The object should follow this format:
+
+```JSON
+{
+    "B079ZJ1BPR": 3,
+    "B07D4R4258": 21
+}
+```
+
+Every 10 seconds, we should log the most up-to-date version of this object to the console. Additionally, the object should be able to solve actor migrations, which means that even if the actor were to migrate, its data would not be lost upon resurrection.
+
+<!-- CHANGE SOLUTION LINK -->
+[**Solution**]({{@link expert_scraping_with_apify/solutions/using_api_and_client.md}})
+
+## [](#next) Next up
+
+Wow, you've learned a whole lot so far. The next lesson will be released as soon as it's written, so stay tuned!
