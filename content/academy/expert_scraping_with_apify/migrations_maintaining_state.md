@@ -39,8 +39,7 @@ Once again returning to our Amazon **demo-actor**, let's say that we need to sto
 
 Every 10 seconds, we should log the most up-to-date version of this object to the console. Additionally, the object should be able to solve actor migrations, which means that even if the actor were to migrate, its data would not be lost upon resurrection.
 
-<!-- CHANGE SOLUTION LINK -->
-[**Solution**]({{@link expert_scraping_with_apify/solutions/using_api_and_client.md}})
+[**Solution**]({{@link expert_scraping_with_apify/solutions/handling_migrations.md}})
 
 ## [](#next) Next up
 
