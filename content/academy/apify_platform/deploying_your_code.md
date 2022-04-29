@@ -22,9 +22,9 @@ Actors are language agnostic, which means that the language your project is writ
 
 There are four main steps to turning a piece of code into an actor:
 
-1. Handle [accepting inputs and writing outputs]({{@link apify_platform/deploying_your_code/inputs_outputs.md}})
-2. Create an [input schema]({{@link apify_platform/deploying_your_code/input_schema.md}}) **(optional)**
-3. Add a [Dockerfile]({{@link apify_platform/deploying_your_code/docker_file.md}})
+1. Handle [accepting inputs and writing outputs]({{@link apify_platform/deploying_your_code/inputs_outputs.md}}).
+2. Create an [input schema]({{@link apify_platform/deploying_your_code/input_schema.md}}) **(optional)**.
+3. Add a [Dockerfile]({{@link apify_platform/deploying_your_code/docker_file.md}}).
 4. [Deploy]({{@link apify_platform/deploying_your_code/deploying.md}}) to the Apify platform!
 
 ## Our example project
