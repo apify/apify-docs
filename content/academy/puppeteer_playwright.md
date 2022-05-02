@@ -9,16 +9,38 @@ paths:
 
 # [](#puppeteer-playwright-course) Puppeteer/Playwright course
 
-<!-- Talk a bit about puppeteer and playwright -->
-<!-- talk about headless browsers -->
-<!-- ADD HEADLESS BROWSERS TO CONCEPTS -->
-<!-- talk about what they're useful for in contrast to raw HTTP requests -->
-<!-- Talk about dynamic pages -->
-<!-- ADD DYNAMIC PAGES TO CONCEPTS? -->
+[Puppeteeer](https://pptr.dev/) and [Playwright](https://playwright.dev/) are both libraries which allow you to write code in Node.js which automates a headless browser.
 
-<!-- They're both extremely similar libraries, which is why we're combining their courses into one -->
-<!-- explain why they're so similar (same team made them both) -->
-<!-- There will be examples for both libraries, but we recommend using the newer Playwright as it has more features and better documentation -->
+> A headless browser is just a regular browser like the one you're using right now, but without the user-interface
+
+Both packages were developed by the same team and are very similar, which is why we have combined the Puppeteer course and the Playwright course into one super-course that shows code examples for both technologies. There are some small differences between the two, which will be highlighted in the examples.
+
+> Each lesson's activity will contain examples for both libraries, but we recommend using Playwright, as it is newer and has more features and better [documentation](https://playwright.dev/docs/intro)
+
+## [](#advantages-of-headless-browsers) Advantages of using a headless browser
+
+When automating a headless browser, you can do a whole lot more in comparison to just making static HTTP requests. In fact, you can programmatically do pretty much anything a human could do with a browser, such as clicking elements, taking screenshots, typing into text areas, etc.
+
+Additionally, since the requests aren't static, [dynamic content]({{@link dynamic_pages_and_spas.md}}) can be rendered and interacted with (or, data from the dynamic content can be scraped).
+
+## [](#setup) Setup
+
+For this course, we'll be jumping right into the features of these awesome libraries and expecting you to already have an environment set up. Here's how we set up our environment:
+
+1. Make sure you've installed [Node.js](https://nodejs.org/en/)
+2. Create a new folder called **puppeteer-playwright** (or whatever you want to call it)
+3. Run the command `npm init -y` within your new folder to automatically initialize the project
+4. Create a new file named **index.js**
+5. Install the library you're going to be using during this course:
+
+```marked-tabs
+<marked-tab header="Install Playwright" lang="shell">
+npm install playwright
+</marked-tab>
+<marked-tab header="Install Puppeteer" lang="shell">
+npm install puppeteer
+</marked-tab>
+```
 
 ## [](#course-overview) Course overview
 
@@ -31,3 +53,5 @@ paths:
 <!-- 4. Modifying headers, geolocation, adding proxies, etc. -->
 
 <!-- Don't forget: In each lesson, have marked tabs examples for both puppeteer and playwright -->
+
+## [](#next) Next up
