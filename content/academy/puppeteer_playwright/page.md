@@ -314,6 +314,4 @@ Once again, we've only covered a few of the methods the **Page** object has to o
 
 ## [](#next) Next up
 
-Next up something else
-
-<!-- next lessons, talk about 1. running code in the context of the browser -> simple filter algorithm running in page.eval then another running in the context of Node.js,2. browser contexts, 3. parsing with cheerio instead, 4. setting up proxies with puppeteer. -->
+In the [next exciting lesson]({{@link puppeteer_playwright/executing_scripts.md}}), we'll gain a solid understanding of the two different contexts we can run our code in when using Puppeteer and Playwright, and how to run code in the context of the browser.

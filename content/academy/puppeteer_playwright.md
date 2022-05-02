@@ -44,6 +44,10 @@ npm install puppeteer
 
 ## [](#course-overview) Course overview
 
+1. [Browser]({{@link puppeteer_playwright/browser.md}})
+2. [Page]({{@link puppeteer_playwright/page.md}})
+3. [Executing scripts]({{@link puppeteer_playwright/executing_scripts.md}})
+
 <!-- Everything that will be learned in the course -->
 
 <!-- Will be scraping fake-webstore -->
