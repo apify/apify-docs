@@ -1,194 +1,33 @@
 {
-    "Get started": [
+    "Beginner courses": [
         {
-            "cardItem": "What is Apify?",
-            "href": "/about"
-        },
-        {
-            "cardItem": "Quick start",
-            "href": "/tutorials/quick-start"
-        },
-        {
-            "cardItem": "Start using Apify scrapers",
-            "href": "/tutorials/apify-scrapers/getting-started"
-        },
-        {
-            "cardItem": "Learn to use Web Scraper",
-            "href": "/tutorials/apify-scrapers/web-scraper"
-        },
-        {
-            "cardItem": "Take a video tour of the platform",
-            "href": "https://www.youtube.com/watch?v=XPF0kbyvoOs",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Apify vocabulary",
-            "href": "https://help.apify.com/en/articles/3408158-apify-vocabulary",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "What is an actor?",
-            "href": "/actors"
-        },
-        {
-            "cardItem": "What is web scraping?",
-            "href": "/web-scraping-101"
+            "title": "Web scraping for beginners",
+            "link": "web-scraping-for-beginners",
+            "description": "Learn how to develop web scrapers on your own computer with open-source tools. This web scraping course teaches you all the basics a scraper developer needs to know.",
+            "imageUrl": "/img/use-cases/product-development/intro.svg"
+        }, {
+            "title": "Apify platform",
+            "link": "apify-platform",
+            "description": "Apify platform is the best place to run your scrapers and automations in the cloud. Learn what an actor is, how to turn your program into an actor and how to deploy it.",
+            "imageUrl": "/img/homepage-vid-cover.webp"
         }
     ],
-    "Guides": [
+    "Advanced web scraping courses": [
         {
-            "cardItem": "Actor tasks",
-            "href": "/actors/tasks"
-        },
-        {
-            "cardItem": "Run an actor and retrieve data via API",
-            "href": "/tutorials/integrations/run-actor-and-retrieve-data-via-api"
-        },
-        {
-            "cardItem": "Log into a website",
-            "href": "/tutorials/log-into-a-website-using-puppeteer"
-        },
-        {
-            "cardItem": "Integrations",
-            "href": "/tutorials/integrations"
-        },
-        {
-            "cardItem": "Use Apify from PHP",
-            "href": "/tutorials/use-apify-from-php"
-        },
-        {
-            "cardItem": "Automate repetitive tasks",
-            "href": "/robotic-process-automation"
-        },
-        {
-            "cardItem": "Process data in Python with Pandas",
-            "href": "/tutorials/process-data-using-python"
-        }
-    ],
-    "Web scraping": [
-        {
-            "cardItem": "Web scraping academy",
-            "href": "https://developers.apify.com/academy/web-scraping-for-beginners",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Basics of data collection",
-            "href": "https://developers.apify.com/academy/web-scraping-for-beginners/data-collection",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Scrape Twitter",
-            "href": "https://blog.apify.com/how-to-scrape-tweets-and-more-on-twitter-59330e6fb522",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Scrape Facebook",
-            "href": "https://blog.apify.com/how-to-scrape-facebook-pages-posts-comments-photos-and-more-425ebef352d8",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Scrape Amazon",
-            "href": "https://blog.apify.com/step-by-step-guide-to-scraping-amazon-c3c8b481333",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Analyze page content before scraping",
-            "href": "/web-scraping-101/web-scraping-techniques"
-        },
-        {
-            "cardItem": "Analyze pages and fix errors",
-            "href": "/tutorials/analyze-pages-and-fix-errors"
-        },
-        {
-            "cardItem": "Scrape data in Python with Beautiful Soup",
-            "href": "/tutorials/scrape-data-using-python"
-        }
-    ],
-    "Platform features": [
-        {
-            "cardItem": "Proxy",
-            "href": "/proxy"
-        },
-        {
-            "cardItem": "API Docs",
-            "href": "/api/v2"
-        },
-        {
-            "cardItem": "Integrate with the Apify platform",
-            "href": "/tutorials/integrations"
-        },
-        {
-            "cardItem": "Manage data",
-            "href": "/storage"
-        },
-        {
-            "cardItem": "Schedule actor runs",
-            "href": "/schedules"
-        },
-        {
-            "cardItem": "Monitor actor and task runs",
-            "href": "/monitoring"
-        }
-    ],
-    "Reduce blocking": [
-        {
-            "cardItem": "Connect to Apify Proxy",
-            "href": "/proxy/connection-settings"
-        },
-        {
-            "cardItem": "Bypass anti-scraping techniques",
-            "href": "/web-scraping-101/anti-scraping-techniques"
-        },
-        {
-            "cardItem": "Use a proxy in your browser",
-            "href": "https://help.apify.com/en/articles/3858935-how-to-use-a-proxy-in-your-browser",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Manage proxies in Apify SDK",
-            "href": "https://sdk.apify.com/docs/guides/proxy-management",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Reduce blocking using sessions in SDK",
-            "href": "https://sdk.apify.com/docs/guides/session-management",
-            "isExternalLink": true
-        }
-    ],
-    "Build actors": [
-        {
-            "cardItem": "Meet the Apify SDK",
-            "href": "https://sdk.apify.com",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Build your first actor",
-            "href": "https://sdk.apify.com/docs/guides/quick-start",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Publish your actor",
-            "href": "/actors/publishing"
-        },
-        {
-            "cardItem": "Apify SDK API reference",
-            "href": "https://sdk.apify.com/docs/api/apify",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Actor code examples",
-            "href": "https://sdk.apify.com/docs/examples/basic-crawler",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Crawl a site using Cheerio Scraper",
-            "href": "https://sdk.apify.com/docs/examples/cheerio-crawler",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Manage data in SDK",
-            "href": "https://sdk.apify.com/docs/guides/data-storage",
-            "isExternalLink": true
+            "title": "API scraping",
+            "link": "api-scraping",
+            "description": "Learn all about how the professionals scrape various types of APIs with various configurations, parameters, and requirements.",
+            "imageUrl": "/img/actors/actors-01.svg"
+        }, {
+            "title": "Anti-scraping protections",
+            "link": "anti-scraping",
+            "description": "Understand the various anti-scraping measures different sites use to prevent bots from accessing them, and how to appear more human to fix these issues.",
+            "imageUrl": "/img/proxy/proxy-01.svg"
+        }, {
+            "title":"Expert scraping with Apify",
+            "link":"expert-scraping-with-apify",
+            "description":"After learning the basics of actors, learn to develop pro-level scrapers on the Apify platform with this advanced course.",
+            "imageUrl":"/img/enterprise/enterprise-01.svg"
         }
     ]
 }
