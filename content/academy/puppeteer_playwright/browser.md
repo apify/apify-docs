@@ -8,18 +8,24 @@ paths:
 
 # [](#browser) Browser
 
-In order to automate a browser in Playwright or Puppeteer, we need to open one up programmatically. We'll start by using the `launch()` function in the **index.js** file we created in the intro to this course:
+In order to automate a browser in Playwright or Puppeteer, we need to open one up programmatically. Playwright supports Chromium, Firefox, and Webkit (Safari), while Puppeteer only supports Chromium based browsers. For ease of understanding, we've chosen to use Chromium in the Playwright examples to keep things working on the same plane.
+
+Let's start by using the `launch()` function in the **index.js** file we created in the intro to this course:
 
 ```marked-tabs
 <marked-tab header="Playwright" lang="javascript">
 import { chromium } from 'playwright';
 
 await chromium.launch();
-</marked-tab>
-<marked-tab header="Puppeteeer" lang="javascript">
-import { chromium } from 'playwright';
 
-await chromium.launch();
+console.log('launched!');
+</marked-tab>
+<marked-tab header="Puppeteer" lang="javascript">
+import puppeteer from 'puppeteer';
+
+await puppeteer.launch();
+
+console.log('launched!');
 </marked-tab>
 ```
 
@@ -37,14 +43,12 @@ import { chromium } from 'playwright';
 
 await chromium.launch({ headless: false });
 </marked-tab>
-<marked-tab header="Puppeteeer" lang="javascript">
-import { chromium } from 'playwright';
+<marked-tab header="Puppeteer" lang="javascript">
+import puppeteer from 'puppeteer';
 
-await chromium.launch({ headless: false });
+await puppeteer.launch({ headless: false });
 </marked-tab>
 ```
-
-> Playwright also supports Firefox and Webkit (Safari), while Puppeteer only supports Chromium based browsers. For ease of understanding, we've chosen to use Chromium in the Playwright examples to keep things working on the same plane.
 
 Now we'll actually see a browser open up.
 
@@ -66,7 +70,7 @@ const browser = await chromium.launch({ headless: false });
 
 await browser.close();
 </marked-tab>
-<marked-tab header="Puppeteeer" lang="javascript">
+<marked-tab header="Puppeteer" lang="javascript">
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });

@@ -166,26 +166,22 @@ When we run it, we leave off on the results page:
 
 ### Waiting for elements/events
 
-In a perfect world, every piece of content served on a website would be loaded instantly. We don't live in a perfect world though, and often times it can take anywhere 1/10th of a second to a few seconds to load some content onto a page. Puppeteer and Playwright don't sit around waiting for the pages to load though - if we tell it to do something with an element that hasn't rendered yet, it'll start trying to do it (which will result in nasty errors). We've got to tell it to wait.
+In a perfect world, every piece of content served on a website would be loaded instantly. We don't live in a perfect world though, and often times it can take anywhere between 1/10th of a second to a few seconds to load some content onto a page. Puppeteer and Playwright don't sit around waiting for the pages to load though - if we tell it to do something with an element that hasn't rendered yet, it'll start trying to do it (which will result in nasty errors). We've got to tell it to wait.
 
-Different events can be waited for using the various `waitFor...` methods offered, while elements can be waited for with `page.waitForSelector()` in both Playwright and Puppeteer. In Playwright you can also create a locator for an element and use the `locator.waitFor()` function.
+Different events can be waited for using the various `waitFor...` methods offered, while elements can be waited for with `page.waitForSelector()` in both Playwright and Puppeteer. In Playwright you can also create a locator for an element and use the `locator.waitFor()` function. Luckily, we'll only have to use `page.waitForSelector()` before clicking the first result in our Puppeteer code, because Playwright automatically waits for the element to appear before clicking.
 
 ```marked-tabs
 <marked-tab header="Playwright" lang="javascript">
-// Create a pointer for the first result element
-const firstResult = page.locator(':nth-match(.g a, 1)');
-
-// Wait for the first result element to be visible
-await firstResult.waitFor();
-
-// or just
-// await page.waitForSelector('.g a');
+// You don't need to add any fancy code to wait for
+// an element before clicking it in Playwright!
 </marked-tab>
 <marked-tab header="Puppeteeer" lang="javascript">
 // Wait for the first result element to be visible
 await page.waitForSelector('.g a');
 </marked-tab>
 ```
+
+> If we were to omit the `page.waitForSelector()` before `page.click()` in Puppeteer, an error would be thrown.
 
 ### Getting general page data
 
@@ -199,7 +195,7 @@ For our case, we'll click on the first result, then utilize `page.title()` to gr
 ```marked-tabs
 <marked-tab header="Playwright" lang="javascript">
 // Click the first result
-await firstResult.click();
+await page.click(':nth-match(.g a, 1)');
 
 // Grab hold of the page's title
 const title = await page.title();
@@ -208,6 +204,9 @@ const title = await page.title();
 console.log(title);
 </marked-tab>
 <marked-tab header="Puppeteeer" lang="javascript">
+// Wait for the first result element to be visible
+await page.waitForSelector('.g a');
+
 // Click the first result
 await page.click('.g a');
 
@@ -225,15 +224,13 @@ The `page.screenshot()` will return a buffer which can be written to the filesys
 
 ```JavaScript
 import * as fs from 'fs/promises';
-import path from 'path';
-
 // ...
 
 // Take the screenshot
 const screenshot = await page.screenshot();
 
 // Write it to the filesystem
-await fs.writeFile(path.join(path.resolve(), 'screenshot.jpg'), screenshot);
+await fs.writeFile('screenshot.png', screenshot);
 ```
 
 ## [](#final-code) Final code
@@ -244,7 +241,6 @@ Here's what our final code looks like:
 <marked-tab header="Playwright" lang="javascript">
 import { chromium } from 'playwright';
 import * as fs from 'fs/promises';
-import path from 'path';
 
 const browser = await chromium.launch({ headless: false });
 
@@ -252,28 +248,32 @@ const page = await browser.newPage();
 
 await page.goto('https://google.com/');
 
-// Searching logic
+// 1. Click on the button which accepts Google's cookies policy
 await page.click('button + button:nth-child(2)');
+
+// 2. Type "hello world" into the search bar
 await page.type('input[title]', 'hello world');
+
+// 3. Press Enter
 await page.keyboard.press('Enter');
 
-// Getting first result's title
-const firstResult = page.locator(':nth-match(.g a, 1)');
-await firstResult.waitFor();
-await firstResult.click();
+// 4. Wait for the first result to load
+// 5. Click on the first result
+await page.click(':nth-match(.g a, 1)');
+
+// 6. Grab the title of the result's page
 const title = await page.title();
 console.log(title);
 
-// Saving a screenshot
+// 7. Screenshot the page
 const screenshot = await page.screenshot();
-await fs.writeFile(path.join(path.resolve(), 'screenshot.jpg'), screenshot);
+await fs.writeFile('screenshot.png', screenshot);
 
 await browser.close();
 </marked-tab>
 <marked-tab header="Puppeteeer" lang="javascript">
 import puppeteer from 'puppeteer';
 import * as fs from 'fs/promises';
-import path from 'path';
 
 const browser = await puppeteer.launch({ headless: false });
 
@@ -281,20 +281,28 @@ const page = await browser.newPage();
 
 await page.goto('https://google.com/');
 
-// Searching logic
+// 1. Click on the button which accepts Google's cookies policy
 await page.click('button + button:nth-child(2)');
+
+// 2. Type "hello world" into the search bar
 await page.type('input[title]', 'hello world');
+
+// 3. Press Enter
 await page.keyboard.press('Enter');
 
-// Getting first result's title
+// 4. Wait for the first result to load
 await page.waitForSelector('.g a');
+
+// 5. Click on the first result
 await page.click('.g a');
+
+// 6. Grab the title of the result's page
 const title = await page.title();
 console.log(title);
 
-// Saving a screenshot
+// 7. Screenshot the page
 const screenshot = await page.screenshot();
-await fs.writeFile(path.join(path.resolve(), 'screenshot.jpg'), screenshot);
+await fs.writeFile('screenshot.png', screenshot);
 
 await browser.close();
 </marked-tab>
