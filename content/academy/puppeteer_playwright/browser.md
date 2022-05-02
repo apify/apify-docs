@@ -3,7 +3,7 @@ title: I - Browser
 description: description
 menuWeight: 7.1
 paths:
-    - puppeteer_playwright/browser
+    - puppeteer-playwright/browser
 ---
 
 # [](#browser) Browser
@@ -48,7 +48,7 @@ await chromium.launch({ headless: false });
 
 Now we'll actually see a browser open up.
 
-![Chromium browser opened by Puppeteer/Playwright]({{@asset puppteer_playwright/images/chromium.webp}})
+![Chromium browser opened by Puppeteer/Playwright]({{@asset puppeteer_playwright/images/chromium.webp}})
 
 There are a whole lot more options that we can pass into the `launch()` function, which we'll be getting into a little bit later on.
 
@@ -77,9 +77,11 @@ await browser.close();
 </marked-tab>
 ```
 
+In a few lessons from now, we'll be discussing the `browser.contexts()` (Playwright)/`browser.browserContexts()` (Puppeteer) functions and how to create **browser contexts** with another function on the **Browser** object.
+
 ## [](#next) Next up
 
-Now that we can open a browser, let's move onto the [next lesson]({{@link }}) where we will learn how to create pages and visit websites programmatically.
+Now that we can open a browser, let's move onto the [next lesson]({{@link puppeteer_playwright/page.md}}) where we will learn how to create pages and visit websites programmatically.
 
 <!-- Talk about browser context later, it doesn't make sense to show it until we're actually creating pages -->
 
