@@ -8,7 +8,7 @@
         }, {
             "title": "Apify platform",
             "link": "apify-platform",
-            "description": "Apify platform is the best place to run your scrapers and automations in the cloud. Learn what an actor is, how to turn your program into an actor and how to deploy it.",
+            "description": "The Apify platform is the best place to run your scrapers and automations in the cloud. Learn what an actor is, how to turn your program into an actor, and how to deploy it.",
             "imageUrl": "/img/homepage-vid-cover.webp"
         }
     ],
