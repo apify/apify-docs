@@ -1,6 +1,6 @@
 ---
 title: Puppeteer/Playwright course
-description: description
+description: Learn in-depth how to use two of the most popular Node.js libraries for controlling a headless browser - Puppeteer and Playwright.
 menuWeight: 7
 category: courses
 paths:

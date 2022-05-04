@@ -1,6 +1,6 @@
 ---
 title: I - Browser
-description: description
+description: Understand what the Browser object is in Puppeteer/Playwright, how to create one, and a bit about how to interact with one.
 menuWeight: 7.1
 paths:
     - puppeteer-playwright/browser

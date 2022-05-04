@@ -1,6 +1,6 @@
 ---
 title: II - Page
-description: description
+description: Learn how to create a Page object on a Browser object, and how to use it to visit and programmatically interact with a website.
 menuWeight: 7.2
 paths:
     - puppeteer-playwright/page
