@@ -23,13 +23,14 @@ class ASINTracker {
         setInterval(() => console.log(this.state), 10000);
     }
 
-    // Add a new ASIN to the list
-    addASIN(asin) {
-        this.state[asin] = 0;
-    }
-
     // Add an offer to the ASIN's offer count
-    addToASIN(asin) {
+    // If ASIN doesn't exist yet, set it to 0
+    incrementASIN(asin) {
+        if (!this.state[asin]) {
+            this.state[asin] = 0;
+            return;
+        }
+
         this.state[asin]++;
     }
 }
@@ -62,7 +63,7 @@ exports.handleStart = async ({ $, crawler: { requestQueue }, request }) => {
 
         // For each product, add it to the ASIN tracker
         // and initialize its collected offers count to 0
-        tracker.addASIN(element.attr('data-asin'));
+        tracker.incrementASIN(element.attr('data-asin'));
 
         await requestQueue.addRequest({
             url,
@@ -104,7 +105,7 @@ exports.handleOffers = async ({ $, request }, dataset) => {
     for (const offer of $('#aod-offer')) {
         // For each offer, add 1 to the ASIN's
         // offer count
-        tracker.addToASIN(asin);
+        tracker.incrementASIN(asin);
 
         const element = $(offer);
 
@@ -141,11 +142,12 @@ class ASINTracker {
         setInterval(() => console.log(this.state), 10000);
     }
 
-    addASIN(asin) {
-        this.state[asin] = 0;
-    }
+    incrementASIN(asin) {
+        if (!this.state[asin]) {
+            this.state[asin] = 0;
+            return;
+        }
 
-    addToASIN(asin) {
         this.state[asin]++;
     }
 }
@@ -157,7 +159,7 @@ module.exports = new ASINTracker();
 
 Great! So now our state will be persisted every 60 seconds in the key-value store. However, we're not done. Let's say that the actor migrates and is resurrected. We never actually update the `state` variable of our `ASINTracker` class with the state stored in the key-value store, so as our code currently stands, we still don't support state-persistence on migrations.
 
-In order to fix this, let's create a method called `checkStore` which will be called at the very beginning of the actor's run, and will check the key-value store for a previous state under the key **ASIN-TRACKER**. If a previous state does live there, then it will update the class' `state` variable with the value read from the key-value store:
+In order to fix this, let's create a method called `initialize` which will be called at the very beginning of the actor's run, and will check the key-value store for a previous state under the key **ASIN-TRACKER**. If a previous state does live there, then it will update the class' `state` variable with the value read from the key-value store:
 
 ```JavaScript
 // asinTracker.js
@@ -175,7 +177,7 @@ class ASINTracker {
         setInterval(() => console.log(this.state), 10000);
     }
 
-    async checkStore() {
+    async initialize() {
         // Read the data from the key-value store. If it
         // doesn't exist, it will be undefined
         const data = await Apify.getValue(ASIN_TRACKER);
@@ -185,11 +187,12 @@ class ASINTracker {
         if (data) this.state = data;
     }
 
-    addASIN(asin) {
-        this.state[asin] = 0;
-    }
+    incrementASIN(asin) {
+        if (!this.state[asin]) {
+            this.state[asin] = 0;
+            return;
+        }
 
-    addToASIN(asin) {
         this.state[asin]++;
     }
 }
@@ -208,7 +211,7 @@ const tracker = require('./src/asinTracker');
 const { log } = Apify.utils;
 
 Apify.main(async () => {
-    await tracker.checkStore();
+    await tracker.initialize();
 // ...
 ```
 
@@ -220,7 +223,7 @@ That's everything! Now, even if the actor migrates (or is gracefully aborted the
 
 **A:** It's not best to use this option by default. If it fails, there must be reason, which would need to be thought through first - meaning that the edge case of failing should be handled when resurecting the actor. State should be persisted beforehand.
 
-**Q: Migrations happen randomly, but by setting Restart on error and then throwing an error in the actor's main process, you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted actor's run?**
+**Q: Migrations happen randomly, but by aborting gracefully, you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted actor's run?**
 
 **A:** After aborting or throwing an error mid-process, it manages to start back from where it was upon ressurrection.
 
