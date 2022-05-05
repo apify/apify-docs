@@ -197,6 +197,8 @@ Every other branch can be viewed on its respective subdomain using the `?version
 
 Keep in mind that there might be about 2 minute delay before updated documentation gets online (1 minute Github actions build + 1 minute update interval of the website).
 
+> Please don't use a `+` sign in your branch name, as the deployment will not work. Stick to dashes and slashes.
+
 ## Linting
 
 The **apify-docs** repo contains both Markdown and JavaScript files. Several Markdown files, such as [dataset docs]({{@link docs/storage/dataset.md}}) contain code examples. Because of this, we have two commands for linting.
