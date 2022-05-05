@@ -59,7 +59,7 @@ await page.waitForTimeout(10000)
 
 await browser.close();
 </marked-tab>
-<marked-tab header="Puppeteeer" lang="javascript">
+<marked-tab header="Puppeteer" lang="javascript">
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -112,7 +112,7 @@ await page.waitForTimeout(10000)
 
 await browser.close();
 </marked-tab>
-<marked-tab header="Puppeteeer" lang="javascript">
+<marked-tab header="Puppeteer" lang="javascript">
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });

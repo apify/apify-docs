@@ -20,7 +20,7 @@ const page = await browser.newPage();
 
 await browser.close();
 </marked-tab>
-<marked-tab header="Puppeteeer" lang="javascript">
+<marked-tab header="Puppeteer" lang="javascript">
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -48,7 +48,7 @@ await page.waitForTimeout(10000)
 
 await browser.close();
 </marked-tab>
-<marked-tab header="Puppeteeer" lang="javascript">
+<marked-tab header="Puppeteer" lang="javascript">
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -129,7 +129,7 @@ await page.keyboard.press('Enter');
 await page.waitForTimeout(10000)
 await browser.close();
 </marked-tab>
-<marked-tab header="Puppeteeer" lang="javascript">
+<marked-tab header="Puppeteer" lang="javascript">
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -167,7 +167,7 @@ Different events can be waited for using the various `waitFor...` methods offere
 // You don't need to add any fancy code to wait for
 // an element before clicking it in Playwright!
 </marked-tab>
-<marked-tab header="Puppeteeer" lang="javascript">
+<marked-tab header="Puppeteer" lang="javascript">
 // Wait for the first result element to be visible
 await page.waitForSelector('.g a');
 </marked-tab>
@@ -195,7 +195,7 @@ const title = await page.title();
 // Log the title to the console
 console.log(title);
 </marked-tab>
-<marked-tab header="Puppeteeer" lang="javascript">
+<marked-tab header="Puppeteer" lang="javascript">
 // Wait for the first result element to be visible
 await page.waitForSelector('.g a');
 
@@ -263,7 +263,7 @@ await fs.writeFile('screenshot.png', screenshot);
 
 await browser.close();
 </marked-tab>
-<marked-tab header="Puppeteeer" lang="javascript">
+<marked-tab header="Puppeteer" lang="javascript">
 import puppeteer from 'puppeteer';
 import * as fs from 'fs/promises';
 
