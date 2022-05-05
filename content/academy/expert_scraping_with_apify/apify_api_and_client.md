@@ -59,4 +59,4 @@ The new actor should take the following input values, which be mapped to paramet
 
 ## [](#next) Next up
 
-Wow, you've learned a whole lot so far. The next lesson will be released as soon as it's written, so stay tuned!
+[Lesson VI]({{@link expert_scraping_with_apify/migrations_maintaining_state.md}}) will teach us everything we need to know about migrations and how to handle them properly to avoid losing any state; therefore, increasing the reliability of our **demo-actor** Amazon scraper.
