@@ -31,13 +31,11 @@ await browser.close();
 </marked-tab>
 ```
 
-Then, we can visit a website with the `page.goto()` method. Let's go to [Google](https://google.com) for now. We'll also create a custom function called `sleep`, which will force the program to wait for a number of seconds before moving quitting (otherwise, everything will just flash before our eyes and we won't really tell what's going on):
+Then, we can visit a website with the `page.goto()` method. Let's go to [Google](https://google.com) for now. We'll also use the `page.waitForTimeout()` function, which will force the program to wait for a number of seconds before moving quitting (otherwise, everything will just flash before our eyes and we won't really tell what's going on):
 
 ```marked-tabs
 <marked-tab header="Playwright" lang="javascript">
 import { chromium } from 'playwright';
-
-const sleep = (secs) => new Promise((r) => setTimeout(r, secs * 1000));
 
 const browser = await chromium.launch({ headless: false });
 
@@ -46,14 +44,12 @@ const page = await browser.newPage();
 await page.goto('https://google.com')
 
 // wait for 10 seconds before shutting down
-await sleep(10);
+await page.waitForTimeout(10000)
 
 await browser.close();
 </marked-tab>
 <marked-tab header="Puppeteeer" lang="javascript">
 import puppeteer from 'puppeteer';
-
-const sleep = (secs) => new Promise((r) => setTimeout(r, secs * 1000));
 
 const browser = await puppeteer.launch({ headless: false });
 
@@ -62,7 +58,7 @@ const page = await browser.newPage();
 await page.goto('https://google.com');
 
 // wait for 10 seconds before shutting down
-await sleep(10);
+await page.waitForTimeout(10000)
 
 await browser.close();
 </marked-tab>
@@ -115,8 +111,6 @@ So far, we've got this:
 <marked-tab header="Playwright" lang="javascript">
 import { chromium } from 'playwright';
 
-const sleep = (secs) => new Promise((r) => setTimeout(r, secs * 1000));
-
 const browser = await chromium.launch({ headless: false });
 
 const page = await browser.newPage();
@@ -132,13 +126,11 @@ await page.type('input[title]', 'hello world');
 // Press enter
 await page.keyboard.press('Enter');
 
-await sleep(10);
+await page.waitForTimeout(10000)
 await browser.close();
 </marked-tab>
 <marked-tab header="Puppeteeer" lang="javascript">
 import puppeteer from 'puppeteer';
-
-const sleep = (secs) => new Promise((r) => setTimeout(r, secs * 1000));
 
 const browser = await puppeteer.launch({ headless: false });
 
@@ -155,7 +147,7 @@ await page.type('input[title]', 'hello world');
 // Press enter
 await page.keyboard.press('Enter');
 
-await sleep(10);
+await page.waitForTimeout(10000)
 await browser.close();
 </marked-tab>
 ```

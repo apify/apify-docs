@@ -16,8 +16,6 @@ Here is an example of a common mistake made by beginners to Puppeteer/Playwright
 // THIS IS INCORRECT CODE
 import { chromium } from 'playwright';
 
-const sleep = (secs) => new Promise((r) => setTimeout(r, secs * 1000));
-
 const browser = await chromium.launch({ headless: false });
 const page = await browser.newPage();
 
@@ -27,7 +25,7 @@ await page.goto('https://google.com/');
 // change background to green
 document.body.style.background = 'green';
 
-await sleep(10);
+await page.waitForTimeout(10000)
 
 await browser.close();
 ```
@@ -48,8 +46,6 @@ We should use `page.evaluate()` to run our code in the browser. This method take
 <marked-tab header="Playwright" lang="javascript">
 import { chromium } from 'playwright';
 
-const sleep = (secs) => new Promise((r) => setTimeout(r, secs * 1000));
-
 const browser = await chromium.launch({ headless: false });
 const page = await browser.newPage();
 
@@ -59,14 +55,12 @@ await page.evaluate(() => {
     document.body.style.background = 'green';
 });
 
-await sleep(10);
+await page.waitForTimeout(10000)
 
 await browser.close();
 </marked-tab>
 <marked-tab header="Puppeteeer" lang="javascript">
 import puppeteer from 'puppeteer';
-
-const sleep = (secs) => new Promise((r) => setTimeout(r, secs * 1000));
 
 const browser = await puppeteer.launch({ headless: false });
 const page = await browser.newPage();
@@ -77,7 +71,7 @@ await page.evaluate(() => {
     document.body.style.background = 'green';
 });
 
-await sleep(10);
+await page.waitForTimeout(10000)
 
 await browser.close();
 </marked-tab>
@@ -86,8 +80,6 @@ await browser.close();
 Here's what we see in the automated browser when we run this code:
 
 ![Google with the background color changed to green]({{@asset puppeteer_playwright/images/green-google.webp}})
-
-<!-- passing variables to page.evaluate -->
 
 ## [](#using-variables-in-page-evaluate) Using variables in `page.evaluate()`
 
@@ -105,8 +97,6 @@ Now, let's say we want to change the title of the document to be this random str
 <marked-tab header="Playwright" lang="javascript">
 import { chromium } from 'playwright';
 
-const sleep = (secs) => new Promise((r) => setTimeout(r, secs * 1000));
-
 const browser = await chromium.launch({ headless: false });
 const page = await browser.newPage();
 
@@ -118,14 +108,12 @@ await page.evaluate(({ randomString }) => {
     document.querySelector('title').textContent = randomString;
 }, { randomString });
 
-await sleep(20);
+await page.waitForTimeout(10000)
 
 await browser.close();
 </marked-tab>
 <marked-tab header="Puppeteeer" lang="javascript">
 import puppeteer from 'puppeteer';
-
-const sleep = (secs) => new Promise((r) => setTimeout(r, secs * 1000));
 
 const browser = await puppeteer.launch({ headless: false });
 const page = await browser.newPage();
@@ -138,7 +126,7 @@ await page.evaluate(({ randomString }) => {
     document.querySelector('title').textContent = randomString;
 }, { randomString });
 
-await sleep(10);
+await page.waitForTimeout(10000)
 
 await browser.close();
 </marked-tab>
