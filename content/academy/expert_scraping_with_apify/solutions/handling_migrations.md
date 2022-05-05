@@ -223,7 +223,7 @@ That's everything! Now, even if the actor migrates (or is gracefully aborted the
 
 **A:** It's not best to use this option by default. If it fails, there must be reason, which would need to be thought through first - meaning that the edge case of failing should be handled when resurecting the actor. State should be persisted beforehand.
 
-**Q: Migrations happen randomly, but by aborting gracefully, you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted actor's run?**
+**Q: Migrations happen randomly, but by [aborting gracefully](https://docs.apify.com/actors/running#aborting-runs), you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted actor's run?**
 
 **A:** After aborting or throwing an error mid-process, it manages to start back from where it was upon ressurrection.
 
