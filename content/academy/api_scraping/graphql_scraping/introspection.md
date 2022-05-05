@@ -198,4 +198,4 @@ In these cases, it is still possible to get some information about the API when 
 
 ## [](#next) Next up
 
-We are actively working on writing the GraphQL scraping guide, so stay tuned!
+[Next lesson]({{@link api_scraping/graphql_scraping/custom_queries.md}})'s code-along project will walk you through how to  construct a custom GraphQL query for scraping purposes, how to accept input into it, and how to retrieve and output the data.
