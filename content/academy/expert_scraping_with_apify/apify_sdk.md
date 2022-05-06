@@ -8,7 +8,7 @@ paths:
 
 # [](#the-apify-sdk) The Apify SDK
 
-The SDK is one of the most fundamental parts of developing for the Apify platform. It is an open-source JavaScript library built on top of these technologies:
+The **Apify SDK** is one of the most fundamental parts of developing for the Apify platform. It is an open-source JavaScript library built on top of these technologies:
 
 - Apify actors (which run the Node.js app built with the SDK inside a Docker container)
 - The Apify API/Apify Client (on the Apify platform)
@@ -26,7 +26,7 @@ The SDK factors away and manages the hard parts of the scraping/automation devel
 - Puppeteer/Playwright setup overhead
 - Plus much more!
 
-As a developer, your goal is to take the Apify SDK, which is quite generic on its own, and write website-specific or use-case-specific actors.
+As a developer, your goal is to take the Apify SDK, which is quite generic on its own, and write website-specific or use-case-specific [actors]({{@link apify_platform/getting_started/actors.md}}).
 
 ## [](#docs) Docs, docs, docs
 
