@@ -228,7 +228,7 @@ Here's what our final project looks like:
 // index.js
 import { gql, } from 'graphql-tag';
 import scrapeAppToken from './scrapeAppToken.mjs';
-import { got, gotScraping } from 'got-scraping';
+import { gotScraping } from 'got-scraping';
 
 // Scrape the token
 const token = await scrapeAppToken();
