@@ -30,25 +30,16 @@ In this lesson, we're building a scraper which expects a single number (in **hou
 To make sure we're all on the same page, we're going to set up the project together by first creating a folder named **graphql-scraper**. Once navigated to the folder within your terminal, run the following command:
 
 ```shell
-npm init -y && npm install graphql-request puppeteer
+npm init -y && npm install graphql-tag puppeteer got-scraping
 ```
 
-This command will first initialize the project with NPM, then will install the `puppeteer` and `graphql-request` packages, which we will need in this lesson.
+This command will first initialize the project with NPM, then will install the `puppeteer`, `graphql-tag`, and `got-scraping` packages, which we will need in this lesson.
 
 Finally, create a file called **index.js**. This is the file we will be working in for the rest of the lesson.
 
 ## [](#preparations) Preparations
 
-In the `graphql-request` package, you can create an instance of the **GraphQLClient** class which will hold the GraphQL endpoint URL and some headers you'd like to send a long with every request.
-
-```JavaScript
-// index.js
-import { GraphQLClient } from 'graphql-request';
-
-const client = new GraphQLClient('https://api.cheddar.com/graphql', { headers: { /* We need an X-App-Token header! */ } });
-```
-
-If we remember from the last lesson though, we need to pass a valid "app token" within the **X-App-Token** header of every single request we make, or else we will be blocked. When testing queries, we just copied this value straight from the **Network** tab; however, since this is a dynamic value, we should farm it.
+If we remember from the last lesson, we need to pass a valid "app token" within the **X-App-Token** header of every single request we make, or else we will be blocked. When testing queries, we just copied this value straight from the **Network** tab; however, since this is a dynamic value, we should farm it.
 
 Since we know requests with this header are sent right when the front page is loaded, it can be farmed by simply visiting thee page and intercepting requests in Puppeteer like so:
 
@@ -92,17 +83,15 @@ With this code, we're doing the same exact thing as we did in the previous lesso
 
 > To learn more about this method of scraping headers and tokens, refer to the [Cookies, headers, and tokens]({{@link api_scraping/general_api_scraping/cookies_headers_tokens.md}}) lesson of the **General API scraping** section.
 
-Now, we can import this function into our **index.js** and use it to set the **X-App-Token** header when creating the client:
+Now, we can import this function into our **index.js** and use it to create a `token` variable which will be passed as our **X-App-Token** header when scraping:
 
 ```JavaScript
 // index.js
-import { GraphQLClient } from 'graphql-request';
+
 // import the function
 import scrapeAppToken from './scrapeAppToken.mjs';
 
 const token = await scrapeAppToken();
-
-const client = new GraphQLClient('https://api.cheddar.com/graphql', { headers: { 'X-App-Token': token } });
 ```
 
 ## [](#building-the-query) Building the query
@@ -167,16 +156,14 @@ query SearchQuery($query: String!) {
 
 ## [](#making-the-request) Making the request
 
-Back in our code, we can import `gql` from `graphql-request` and use it to store our query:
+Back in our code, we can import `gql` from `graphql-tag` and use it to store our query:
 
 ```JavaScript
 // index.js
-import { gql, GraphQLClient } from 'graphql-request';
+import { gql, } from 'graphql-tag';
 import scrapeAppToken from './scrapeAppToken.mjs';
 
 const token = await scrapeAppToken();
-
-const client = new GraphQLClient('https://api.cheddar.com/graphql', { headers: { 'X-App-Token': token } });
 
 const GET_LATEST = gql`
     query SearchQuery($query: String!, $max_age: Int!) {
@@ -199,6 +186,8 @@ const GET_LATEST = gql`
     }
 `;
 ```
+
+Alternatively, if you don't want to write your GraphQL queries right within your Javascript code, you can write them in files using the **.graphql** format, then read them from the filesystem or import them.
 
 > In order to receive nice GraphQL syntax highlighting in these template literals, download the [GraphQL VSCode extension](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql)
 
@@ -214,10 +203,19 @@ const testInput = { hours: 48, query: 'stocks' };
 const variables = { query: testInput.query, max_age: Math.round(testInput.hours) * 60 ** 2 };
 ```
 
-The final step is to take the query and variable and marry them within a `client.request()` call, which will return the API response:
+The final step is to take the query and variable and marry them within a `gotScraping()` call, which will return the API response:
 
 ```JavaScript
-const data = await client.request(GET_LATEST, variables);
+const data = await gotScraping('https://api.cheddar.com/graphql', {
+    // we are expecting a JSON response back
+    responseType: 'json',
+    // we must use a post request
+    method: 'POST',
+    // this is where we pass in our token
+    headers: { 'X-App-Token': token, 'Content-Type': 'application/json' },
+    // here is our query with our variables
+    body: JSON.stringify({ query: GET_LATEST.loc.source.body, variables }),
+});
 ```
 
 The final step after making the query is to format the data to match the expected output schema.
@@ -228,13 +226,14 @@ Here's what our final project looks like:
 
 ```JavaScript
 // index.js
-import { gql, GraphQLClient } from 'graphql-request';
+import { gql, } from 'graphql-tag';
 import scrapeAppToken from './scrapeAppToken.mjs';
+import { got, gotScraping } from 'got-scraping';
 
+// Scrape the token
 const token = await scrapeAppToken();
 
-const client = new GraphQLClient('https://api.cheddar.com/graphql', { headers: { 'X-App-Token': token } });
-
+// Define our query
 const GET_LATEST = gql`
     query SearchQuery($query: String!, $max_age: Int!) {
         organization {
@@ -256,18 +255,28 @@ const GET_LATEST = gql`
     }
 `;
 
+// Grab our input
 const testInput = { hours: 48, query: 'stocks' };
 
+// Calculate and prepare our variables
 const variables = { query: testInput.query, max_age: Math.round(testInput.hours) * 60 ** 2 };
 
-const { organization: { media } } = await client.request(GET_LATEST, variables);
+// Make the request 
+const { body: { data: { organization } } } = await gotScraping('https://api.cheddar.com/graphql', {
+    responseType: 'json',
+    method: 'POST',
+    headers: { 'X-App-Token': token, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query: GET_LATEST.loc.source.body, variables }),
+});
 
-const result = media.edges.map(({ node }) => ({
+// Format the data
+const result = organization.media.edges.map(({ node }) => ({
     title: node?.title,
     publishDate: node?.public_at,
     videoUrl: node?.hero_video ? node.hero_video.video_urls[0].url : null,
 }));
 
+// Log the result
 console.log(result);
 ```
 
@@ -282,10 +291,8 @@ const scrapeAppToken = async () => {
     let appToken = null;
 
     page.on('response', async (res) => {
-        // grab the token from the request headers
         const token = res.request().headers()?.['x-app-token'];
 
-        // if there is a token, grab it and close the browser
         if (token) {
             appToken = token;
             await browser.close();
@@ -296,11 +303,8 @@ const scrapeAppToken = async () => {
 
     await page.waitForNetworkIdle();
 
-    // otherwise, just close the browser after networkidle
-    // has been fired
     await browser.close();
 
-    // return the apptoken (or null)
     return appToken;
 };
 
