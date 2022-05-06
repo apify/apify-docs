@@ -7,7 +7,7 @@ paths:
 - expert-scraping-with-apify
 ---
 
-# [](#pro-scraping) Professional scraping
+# [](#expert-scraping) Expert scraping with Apify
 
 This course will teach you the nitty gritty of what it takes to build pro-level scrapers with Apify.
 

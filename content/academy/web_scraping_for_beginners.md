@@ -38,7 +38,9 @@ Other courses and lessons (coming soon) in the Academy:
     * [Locating API Endpoints]({{@link api_scraping/general_api_scraping/locating_and_learning.md}})
     * [Cookies, Headers, and Tokens]({{@link api_scraping/general_api_scraping/cookies_headers_tokens.md}})
     * Emulating API pagination
-  * GraphQL Scraping **_(SOON)_**
+  * [GraphQL Scraping]({{@link api_scraping/graphql_scraping.md}})
+    * [Introspection]({{@link api_scraping/graphql_scraping/introspection.md}})
+    * [Modifying variables]({{@link api_scraping/graphql_scraping/modifying_variables.md}})
 * [Dynamic Pages and SPAs]({{@link dynamic_pages_and_spas.md}})
   * [Data in JavaScript objects]({{@link dynamic_pages_and_spas/js_in_html.md}})
   * [Dynamic Content]({{@link dynamic_pages_and_spas/js_rendering_and_dynamic_pages.md}})
