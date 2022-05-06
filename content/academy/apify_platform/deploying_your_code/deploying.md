@@ -46,7 +46,7 @@ That's it! the actor should now pull its source code from the repo and automatic
 
 ## [](#with-apify-cli) Without a GitHub repository (using the Apify CLI)
 
-> If you don't yet have the Apify CLI, learn how to install it and log in by following along with [this brief lesson]([Apify CLI]({{@link tools/apify_cli.md}})) about it.
+> If you don't yet have the Apify CLI, learn how to install it and log in by following along with [this brief lesson]({{@link tools/apify_cli.md}}) about it.
 
 If you're logged in to the Apify CLI, the `apify push` command can be used to push the code straight onto the Apify platform from your local machine (no GitHub repository required), where it will automatically be built for you. Prior to running this command, make sure that you have an **apify.json** file at the root of the project. If you don't already have one, you can use `apify init .` to automatically generate one for you.
 
