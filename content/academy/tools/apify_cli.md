@@ -24,7 +24,7 @@ This will install the CLI via NPM.
 
 ## [](#logging-in) Logging in
 
-After the CLI has finished installing, navigate to the [Apify Console](https://console.apify.com) and click on **Settings**. Then, within your account settings, click **Integrations**. The page should look like this:
+After the CLI has finished installing, navigate to the [Apify Console](https://console.apify.com?asrc=developers_portal) and click on **Settings**. Then, within your account settings, click **Integrations**. The page should look like this:
 
 ![Integrations tab on the Apify Platform]({{@asset tools/images/settings-integrations.webp}})
 

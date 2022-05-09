@@ -53,7 +53,7 @@ Other courses and lessons (coming soon) in the Academy:
   * Mobile app scraping
   * Overcoming result limits
 
-> We release course content as soon as we write it instead of launching it all at the same time much later. If you want to get notified about new lessons [sign up for a free Apify account](https://console.apify.com/sign-up) to get our newsletters.
+> We release course content as soon as we write it instead of launching it all at the same time much later. If you want to get notified about new lessons [sign up for a free Apify account](https://console.apify.com/sign-up?asrc=developers_portal) to get our newsletters.
 
 ## [](#requirements) Requirements
 
