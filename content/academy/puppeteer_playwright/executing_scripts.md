@@ -36,11 +36,11 @@ When we try and run this, we get this error:
 ReferenceError: document is not defined
 ```
 
-The reason this is happening is because we're trying to run browser-side code on the server-side where it is not supported. Node.js itself has no idea what `document` even is, so how are we supposed to run code within the context of the browser?
+The reason this is happening is because we're trying to run browser-side code on the server-side where it is not supported. [`document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) is a property of the browser [**Window**](https://developer.mozilla.org/en-US/docs/Web/API/Window) instance that holds the rendered website; therefore, this API is not available in Node.js. So how are we supposed to run code within the context of the browser?
 
 ## [](#running-in-browser-context) Running code in the context of the browser
 
-We should use `page.evaluate()` to run our code in the browser. This method takes in a callback function as its first paremeter, which will be executed within the browser.
+We will use `page.evaluate()` to run our code in the browser. This method takes a callback as its first parameter, which will be executed within the browser.
 
 ```marked-tabs
 <marked-tab header="Playwright" lang="javascript">

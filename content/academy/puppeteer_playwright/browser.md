@@ -1,5 +1,5 @@
 ---
-title: I - Browser
+title: I - Launching a browser
 description: Understand what the Browser object is in Puppeteer/Playwright, how to create one, and a bit about how to interact with one.
 menuWeight: 7.1
 paths:
@@ -58,7 +58,7 @@ There are a whole lot more options that we can pass into the `launch()` function
 
 ## [](#browser-methods) Browser methods
 
-Not only does the `launch()` function open up a browser for us, but it also returns an object representation of the browser that can be manipulated and used to interact with it in our code. This **Browser** object ([Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v13.7.0&show=api-class-browser), [Playwright](https://playwright.dev/docs/api/class-browser)) has many functions which make it easy to do so. One of these functions is `close()`. Until now, we've been using **control^** + **C** to force quit the process, but with this function, we'll no longer have to do that.
+The `launch()` function also returns an object representation of the browser that we can use to interact with the browser right from our code. This **Browser** object ([Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v13.7.0&show=api-class-browser), [Playwright](https://playwright.dev/docs/api/class-browser)) has many functions which make it easy to do this. One of these functions is `close()`. Until now, we've been using **control^** + **C** to force quit the process, but with this function, we'll no longer have to do that.
 
 ```marked-tabs
 <marked-tab header="Playwright" lang="javascript">

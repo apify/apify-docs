@@ -1,5 +1,5 @@
 ---
-title: Puppeteer/Playwright course
+title: Puppeteer & Playwright
 description: Learn in-depth how to use two of the most popular Node.js libraries for controlling a headless browser - Puppeteer and Playwright.
 menuWeight: 7
 category: courses
@@ -7,7 +7,7 @@ paths:
     - puppeteer-playwright
 ---
 
-# [](#puppeteer-playwright-course) Puppeteer/Playwright course
+# [](#puppeteer-playwright-course) Puppeteer & Playwright course
 
 [Puppeteeer](https://pptr.dev/) and [Playwright](https://playwright.dev/) are both libraries which allow you to write code in Node.js which automates a headless browser.
 
@@ -30,8 +30,9 @@ For this course, we'll be jumping right into the features of these awesome libra
 1. Make sure you've installed [Node.js](https://nodejs.org/en/)
 2. Create a new folder called **puppeteer-playwright** (or whatever you want to call it)
 3. Run the command `npm init -y` within your new folder to automatically initialize the project
-4. Create a new file named **index.js**
-5. Install the library you're going to be using during this course:
+4. Add `"type": "module"` to the **package.json** file
+5. Create a new file named **index.js**
+6. Install the library you're going to be using during this course:
 
 ```marked-tabs
 <marked-tab header="Install Playwright" lang="shell">
@@ -42,11 +43,14 @@ npm install puppeteer
 </marked-tab>
 ```
 
+> For a more in-depth guide on how to set up the basic environment we'll be using in this tutorial, check out the [**Computer preparation**]({{@link web_scraping_for_beginners/data_collection/computer_preparation.md}}) lesson in the **Web scraping for beginners** course
+
 ## [](#course-overview) Course overview
 
-1. [Browser]({{@link puppeteer_playwright/browser.md}})
-2. [Page]({{@link puppeteer_playwright/page.md}})
+1. [Launching a browser]({{@link puppeteer_playwright/browser.md}})
+2. [Opening a page]({{@link puppeteer_playwright/page.md}})
 3. [Executing scripts]({{@link puppeteer_playwright/executing_scripts.md}})
+4. [Collecting data]({{@link puppeteer_playwright/collecting_data.md}})
 
 <!-- Everything that will be learned in the course -->
 
@@ -59,3 +63,5 @@ npm install puppeteer
 <!-- Don't forget: In each lesson, have marked tabs examples for both puppeteer and playwright -->
 
 ## [](#next) Next up
+
+In the [first lesson]({{@link puppeteer_playwright/browser.md}}) of this course, we'll be learning a bit about how to create and use the **Browser** object.

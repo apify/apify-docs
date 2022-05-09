@@ -32,7 +32,7 @@ const page = await browser.newPage();
 
 await page.goto('https://demo-webstore.apify.org/search/on-sale');
 
-await page.waitForLoadState('networkidle');
+await page.waitForLoadState('DOMContentLoaded');
 
 // code will go here
 
@@ -48,7 +48,7 @@ const page = await browser.newPage();
 
 await page.goto('https://demo-webstore.apify.org/search/on-sale');
 
-await page.waitForNetworkIdle();
+await page.waitForNavigation({ waitUntil: 'DOMContentLoaded' });
 
 // code will go here
 
@@ -58,23 +58,27 @@ await browser.close();
 </marked-tab>
 ```
 
-> Notice the slightly different syntax between Playwright and Puppeteer with `waitForLoadState('networkidle')` and `waitForNetworkIdle()`. Sometimes, the differences are fairly subtle like this, but later on we'll run into some more significant differences.
+> Notice the slightly different syntax between Playwright and Puppeteer with `waitForLoadState('DOMContentLoaded')` and `waitForNavigation({ waitUntil: 'DOMContentLoaded' })`. Sometimes, the differences are fairly subtle like this, but later on we'll run into some more significant differences.
 
 ## [](#collecting-in-page-evaluate) Collecting in the browser context
 
 Whatever is returned from the callback function in `page.evaluate()` will be returned by the evaluate function, which means that we can set it to a variable like so:
 
 ```JavaScript
-const products = await page.evaluate(() => {});
+const products = await page.evaluate(() => { foo: 'bar' });
+
+console.log(products) // -> { foo: 'bar' }
 ```
 
 We'll be returning a bunch of product objects from this function, which will be accessible back in our Node.js context after the promise has resolved. Let's now go ahead and write some data collection code to collect each product:
 
 ```JavaScript
 const products = await page.evaluate(() => {
-    return [...document.querySelectorAll('a[class*="ProductCard_root"]')].map((elem) => {
-        const name = elem.querySelector('h3[class*="ProductCard_name"]').textContent;
-        const price = elem.querySelector('div[class*="ProductCard_price"]').textContent;
+    const productCards = Array.from(document.querySelectorAll('a[class*="ProductCard_root"]'));
+
+    return productCards.map((element) => {
+        const name = element.querySelector('h3[class*="ProductCard_name"]').textContent;
+        const price = element.querySelector('div[class*="ProductCard_price"]').textContent;
 
         return {
             name,
@@ -92,11 +96,13 @@ When we run this code, we see this logged to our console:
 
 ## [](#using-jquery) Using jQuery
 
-With the `page.addScriptTag()` function and the latest [jQuery CDN link](https://releases.jquery.com/), we can inject jQuery into the current page:
+Working with document.querySelector is cumbersome and quite verbose, but with the `page.addScriptTag()` function and the latest [jQuery CDN link](https://releases.jquery.com/), we can inject jQuery into the current page to gain access to its syntactical sweetness:
 
 ```JavaScript
 await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.6.0.min.js' });
 ```
+
+This function will literally append a `<script>` tag to the `<head>` element of the current page, allowing access to jQuery's API when using `page.evaluate()` to run code in the browser context.
 
 Now, since we're able to use jQuery, let's translate our vanilla JavaScript code within the `page.evaluate()` function to jQuery:
 
@@ -104,17 +110,19 @@ Now, since we're able to use jQuery, let's translate our vanilla JavaScript code
 await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.6.0.min.js' });
 
 const products = await page.evaluate(() => {
-    return [...$('a[class*="ProductCard_root"]')].map((elem) => {
-        const card = $(elem);
+    const productCards = Array.from($('a[class*="ProductCard_root"]'))
 
-        const name = card.find('h3[class*="ProductCard_name"]').text();
-        const price = card.find('div[class*="ProductCard_price"]').text();
+    return productCards.map((element) => {
+    const card = $(element);
 
-        return {
-            name,
-            price,
-        };
-    });
+    const name = card.find('h3[class*="ProductCard_name"]').text();
+    const price = card.find('div[class*="ProductCard_price"]').text();
+
+    return {
+        name,
+        price,
+    };
+});
 });
 
 console.log(products);
@@ -162,7 +170,7 @@ const page = await browser.newPage();
 
 await page.goto('https://demo-webstore.apify.org/search/on-sale');
 
-await page.waitForLoadState('networkidle');
+await page.waitForLoadState('DOMContentLoaded');
 
 const $ = load(await page.content());
 
@@ -179,7 +187,7 @@ const page = await browser.newPage();
 
 await page.goto('https://demo-webstore.apify.org/search/on-sale');
 
-await page.waitForNetworkIdle();
+await page.waitForNavigation({ waitUntil: 'DOMContentLoaded' });
 
 const $ = load(await page.content());
 
@@ -194,8 +202,10 @@ Now, to loop through all of the products, we'll make use of the `$` object and l
 ```JavaScript
 const $ = load(await page.content());
 
-const products = [...$('a[class*="ProductCard_root"]')].map((elem) => {
-    const card = $(elem);
+const productCards = Array.from($('a[class*="ProductCard_root"]'))
+
+const products = productCards.map((element) => {
+    const card = $(element);
 
     const name = card.find('h3[class*="ProductCard_name"]').text();
     const price = card.find('div[class*="ProductCard_price"]').text();
@@ -203,7 +213,6 @@ const products = [...$('a[class*="ProductCard_root"]')].map((elem) => {
     return {
         name,
         price,
-        image: `https://demo-webstore.apify.org${image}`,
     };
 });
 
@@ -224,12 +233,14 @@ const page = await browser.newPage();
 
 await page.goto('https://demo-webstore.apify.org/search/on-sale');
 
-await page.waitForLoadState('networkidle');
+await page.waitForLoadState('DOMContentLoaded');
 
 const $ = load(await page.content());
 
-const products = [...$('a[class*="ProductCard_root"]')].map((elem) => {
-    const card = $(elem);
+const productCards = Array.from($('a[class*="ProductCard_root"]'))
+
+const products = productCards.map((element) => {
+    const card = $(element);
 
     const name = card.find('h3[class*="ProductCard_name"]').text();
     const price = card.find('div[class*="ProductCard_price"]').text();
@@ -253,12 +264,14 @@ const page = await browser.newPage();
 
 await page.goto('https://demo-webstore.apify.org/search/on-sale');
 
-await page.waitForNetworkIdle();
+await page.waitForNavigation({ waitUntil: 'DOMContentLoaded' });
 
 const $ = load(await page.content());
 
-const products = [...$('a[class*="ProductCard_root"]')].map((elem) => {
-    const card = $(elem);
+const productCards = Array.from($('a[class*="ProductCard_root"]'))
+
+const products = productCards.map((element) => {
+    const card = $(element);
 
     const name = card.find('h3[class*="ProductCard_name"]').text();
     const price = card.find('div[class*="ProductCard_price"]').text();
