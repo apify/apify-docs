@@ -43,7 +43,7 @@ from apify_client import ApifyClient
 
 In the last lesson, we ran the **adding-actor** and retrieved its dataset items. That's exactly what we're going to do now; however, by using the Apify client instead.
 
-Before we can use the client though, we must create a new instance of the `ApifyClient` class and pass it our API token from the [**Integrations** page](https://console.apify.com/account?tab=integrations) on the Apify Console:
+Before we can use the client though, we must create a new instance of the `ApifyClient` class and pass it our API token from the [**Integrations** page](https://console.apify.com/account?tab=integrations&asrc=developers_portal) on the Apify Console:
 
 ```marked-tabs
 <marked-tab header="Node.js" lang="javascript">
