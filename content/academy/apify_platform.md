@@ -17,4 +17,4 @@ In this course, you'll be learning how to become an Apify platform developer fro
 
 ## [](#next) Next up
 
-We'll start off this course light, by showing you how to create and Apify account and get everything ready for development with the platform. [Let's go!]({{@link apify_platform/getting_started.md}})
+We'll start off this course light, by showing you how to create an Apify account and get everything ready for development with the platform. [Let's go!]({{@link apify_platform/getting_started.md}})
