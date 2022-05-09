@@ -18,7 +18,7 @@ Before we deploy our project onto the Apify platform, let's ensure that we've pu
 
 ### Creating the actor
 
-Before anything can be integrated, we've gotta create a new actor. Luckily, this is super easy to do. Let's head over to our [Apify Console](https://console.apify.com) and click on the **New** button, then select the **Empty** template.
+Before anything can be integrated, we've gotta create a new actor. Luckily, this is super easy to do. Let's head over to our [Apify Console](https://console.apify.com?asrc=developers_portal) and click on the **New** button, then select the **Empty** template.
 
 ![Create new button]({{@asset apify_platform/getting_started/images/create-new-actor.webp}})
 

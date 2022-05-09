@@ -467,7 +467,7 @@ log.info('Finished.');
 
 ## [](#pushing-to-the-platform) Pushing to the platform
 
-You can push your actor to the platform by running `apify push` in terminal. Once it says it's completed, return back to the **Actors** section in your [Apify Console](https://console.apify.com). You should see that **demo-actor** is now apart of the list. The only problem is that when we click on it, it doesn't seem to support a **keyword** input! Instead, we see this:
+You can push your actor to the platform by running `apify push` in terminal. Once it says it's completed, return back to the **Actors** section in your [Apify Console](https://console.apify.com?asrc=developers_portal). You should see that **demo-actor** is now apart of the list. The only problem is that when we click on it, it doesn't seem to support a **keyword** input! Instead, we see this:
 
 ![Forgot to configure input schema]({{@asset expert_scraping_with_apify/solutions/images/bad-schema.webp}})
 

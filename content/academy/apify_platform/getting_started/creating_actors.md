@@ -12,7 +12,7 @@ Creating an actor is so easy to do, we'll show you right in this lesson how to g
 
 ## [](#choose-your-template) Choose your template
 
-On the [Apify Console](https://console.apify.com), click on the **Actors** tab we visited in the previous lesson. In the top right-hand corner, you should see a **Create new** button.
+On the [Apify Console](https://console.apify.com?asrc=developers_portal), click on the **Actors** tab we visited in the previous lesson. In the top right-hand corner, you should see a **Create new** button.
 
 ![Create new button]({{@asset apify_platform/getting_started/images/create-new-actor.webp}})
 
