@@ -149,7 +149,7 @@ Right now, our goal is to fetch the 1000 most recent articles on [Cheddar](https
 
 Cool. So now we know we need to access **media** through the **organization** query. The **media** field also takes in some arguments, of which we will be using the **first** parameter set to **1000**. Let's start writing our query in Insomnia!
 
-![Receiving a suggestion for a field titled edges]({{@asset api_scraping/graphql_scraping/images/pasting-introspection.webp}})
+![Receiving a suggestion for a field titled edges]({{@asset api_scraping/graphql_scraping/images/edges-suggested.webp}})
 
 While writing our query, we've hit a slight roadblock - the **media** type doesn't seem to be accepting a **title** field; however, we are being suggested an **edges** field. This signifies that Cheddar is using [cursor-based relay pagination](https://relay.dev/graphql/connections.htm#relay-style-cursor-pagination), and that what is returned from media is actually a **Connection** type with multiple properties. The **edges** property contains the list of results we're after, and each result lies within a **Node** type accessible within **edges** as **node**. With this knowledge, we can finish writing our query:
 
@@ -192,10 +192,10 @@ Cool, it worked! Now we know that if we want to scrape this API, we'll likely ha
 
 If the target website is smart, they will have introspection disabled. One of the most widely used GraphQL development tools is [ApolloServer](https://www.apollographql.com/docs/apollo-server/), which automatically disables introspection, so these cases are actually quite common.
 
-![Introspection disabled]({{@asset api_scraping/graphql_scraping/images/successful-request.webp}})
+![Introspection disabled]({{@asset api_scraping/graphql_scraping/images/introspection-disabled.webp}})
 
 In these cases, it is still possible to get some information about the API when using [Insomnia]({{@link tools/insomnia.md}}) or [Postman]({{@link tools/postman.md}}), due to the autocomplete that they provide. If we remember from the [Building a query](#building-a-query) section of this lesson, we were able to receive autocomplete suggestions when we entered a non-existent field into the query. Though this is not as great as seeing an entire visualization of the API in GraphQL Voyager, it can still be quite helpful.
 
 ## [](#next) Next up
 
-We are actively working on writing the GraphQL scraping guide, so stay tuned!
+[Next lesson]({{@link api_scraping/graphql_scraping/custom_queries.md}})'s code-along project will walk you through how to  construct a custom GraphQL query for scraping purposes, how to accept input into it, and how to retrieve and output the data.
