@@ -17,8 +17,6 @@ There are two main ways to collect data with Playwright and Puppeteer:
 1. Directly in `page.evaluate()` and other evaluate functions such as `page.$$eval()`.
 2. In the Node.js context using a parsing library such as [Cheerio](https://www.npmjs.com/package/cheerio)
 
-<!-- Understanding the two different contexts your code is running is  -->
-
 ## Setup
 
 Here is the base set up for our code, upon which we'll be building off of in this lesson:
@@ -31,8 +29,6 @@ const browser = await chromium.launch({ headless: false });
 const page = await browser.newPage();
 
 await page.goto('https://demo-webstore.apify.org/search/on-sale');
-
-await page.waitForLoadState('DOMContentLoaded');
 
 // code will go here
 
@@ -48,8 +44,6 @@ const page = await browser.newPage();
 
 await page.goto('https://demo-webstore.apify.org/search/on-sale');
 
-await page.waitForNavigation({ waitUntil: 'DOMContentLoaded' });
-
 // code will go here
 
 await page.waitForTimeout(10000)
@@ -58,7 +52,7 @@ await browser.close();
 </marked-tab>
 ```
 
-> Notice the slightly different syntax between Playwright and Puppeteer with `waitForLoadState('DOMContentLoaded')` and `waitForNavigation({ waitUntil: 'DOMContentLoaded' })`. Sometimes, the differences are fairly subtle like this, but later on we'll run into some more significant differences.
+<!-- > Notice the slightly different syntax between Playwright and Puppeteer with `waitForLoadState('DOMContentLoaded')` and `waitForNavigation({ waitUntil: 'DOMContentLoaded' })`. Sometimes, the differences are fairly subtle like this, but later on we'll run into some more significant differences. -->
 
 ## [](#collecting-in-page-evaluate) Collecting in the browser context
 
@@ -170,8 +164,6 @@ const page = await browser.newPage();
 
 await page.goto('https://demo-webstore.apify.org/search/on-sale');
 
-await page.waitForLoadState('DOMContentLoaded');
-
 const $ = load(await page.content());
 
 // code will go here
@@ -186,8 +178,6 @@ const browser = await puppeteer.launch({ headless: false });
 const page = await browser.newPage();
 
 await page.goto('https://demo-webstore.apify.org/search/on-sale');
-
-await page.waitForNavigation({ waitUntil: 'DOMContentLoaded' });
 
 const $ = load(await page.content());
 
@@ -233,8 +223,6 @@ const page = await browser.newPage();
 
 await page.goto('https://demo-webstore.apify.org/search/on-sale');
 
-await page.waitForLoadState('DOMContentLoaded');
-
 const $ = load(await page.content());
 
 const productCards = Array.from($('a[class*="ProductCard_root"]'))
@@ -263,8 +251,6 @@ const browser = await puppeteer.launch({ headless: false });
 const page = await browser.newPage();
 
 await page.goto('https://demo-webstore.apify.org/search/on-sale');
-
-await page.waitForNavigation({ waitUntil: 'DOMContentLoaded' });
 
 const $ = load(await page.content());
 
