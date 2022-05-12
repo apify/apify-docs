@@ -30,12 +30,11 @@ Let's first focus on the first 3 steps listed above. By using `page.click()` and
 <marked-tab header="Playwright" lang="JavaScript">
 // Click the "I agree" button
 await page.click('button:has-text("I agree")');
-<marked-tab>
+</marked-tab>
 <marked-tab header="Puppeteer" lang="JavaScript">
 // Click the "I agree" button
 await page.click('button + button:nth-child(2)');
-<marked-tab>
-```
+</marked-tab>
 
 > Notice that in the Playwright example, we are using a different selector than in the Puppeteer example. This is because Playwright supports [many custom CSS selectors](https://playwright.dev/docs/selectors#text-selector), such as the **has-text** pseudo class.
 
