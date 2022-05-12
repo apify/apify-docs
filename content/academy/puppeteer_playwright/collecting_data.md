@@ -110,19 +110,19 @@ Now, since we're able to use jQuery, let's translate our vanilla JavaScript code
 await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.6.0.min.js' });
 
 const products = await page.evaluate(() => {
-    const productCards = Array.from($('a[class*="ProductCard_root"]'))
+        const productCards = Array.from($('a[class*="ProductCard_root"]'))
 
-    return productCards.map((element) => {
-    const card = $(element);
+        return productCards.map((element) => {
+        const card = $(element);
 
-    const name = card.find('h3[class*="ProductCard_name"]').text();
-    const price = card.find('div[class*="ProductCard_price"]').text();
+        const name = card.find('h3[class*="ProductCard_name"]').text();
+        const price = card.find('div[class*="ProductCard_price"]').text();
 
-    return {
-        name,
-        price,
-    };
-});
+        return {
+            name,
+            price,
+        };
+    });
 });
 
 console.log(products);
