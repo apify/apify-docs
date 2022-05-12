@@ -74,4 +74,4 @@ await browser.close();
 
 ## [](#next) Next up
 
-Now that we know how to open up a page, [let's learn]({{@link puppeteer_playwright/page/interacting-with-a-page.md}}) how to automate page interaction, such as clicking, typing, and pressing keys.
+Now that we know how to open up a page, [let's learn]({{@link puppeteer_playwright/page/interacting_with_a_page.md}}) how to automate page interaction, such as clicking, typing, and pressing keys.
