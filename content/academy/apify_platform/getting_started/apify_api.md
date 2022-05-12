@@ -8,13 +8,13 @@ paths:
 
 # [](#the-apify-api) The Apify API
 
-[Apify's API](https://docs.apify.com/api/v2#/reference) is your ticket to the Apify platform without even needing to access the [Apify Console](https://console.apify.com) web-interface. The API is organized around RESTful HTTP endpoints.
+[Apify's API](https://docs.apify.com/api/v2#/reference) is your ticket to the Apify platform without even needing to access the [Apify Console](https://console.apify.com?asrc=developers_portal) web-interface. The API is organized around RESTful HTTP endpoints.
 
 In this lesson, we'll be learning how to use the Apify API to call an actor and view its results. We'll be using the actor we created in the previous lesson, so if you haven't already gotten that one set up, go ahead do that before moving forward if you'd like to follow along.
 
 ## [](#finding-your-endpoint) Finding your endpoint
 
-Within one of your actors on the [Apify Console](https://console.apify.com) (we'll use the **adding-actor** from the previous lesson), click on the **API** button in the top right-hand corner:
+Within one of your actors on the [Apify Console](https://console.apify.com?asrc=developers_portal) (we'll use the **adding-actor** from the previous lesson), click on the **API** button in the top right-hand corner:
 
 ![The "API" button on an actor's page on the Apify Console]({{@asset apify_platform/getting_started/images/api-tab.webp}})
 

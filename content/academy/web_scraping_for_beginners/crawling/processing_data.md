@@ -64,7 +64,7 @@ We promised that you won't need an Apify account for anything in this course, an
 
 ### [](#get-apify-token) Getting an Apify token
 
-First, you need a free Apify account. To get one, head to the [sign-up form](https://console.apify.com/sign-up) and complete the process. Once you have created the account and verified your email, go to the [integration settings](https://console.apify.com/account#/integrations), where you can copy your personal API token. This will give you access to the Apify API.
+First, you need a free Apify account. To get one, head to the [sign-up form](https://console.apify.com/sign-up?asrc=developers_portal) and complete the process. Once you have created the account and verified your email, go to the [integration settings](https://console.apify.com/account#/integrations), where you can copy your personal API token. This will give you access to the Apify API.
 
 ![copy personal API token in Apify console]({{@asset web_scraping_for_beginners/crawling/images/api-token.webp}})
 
