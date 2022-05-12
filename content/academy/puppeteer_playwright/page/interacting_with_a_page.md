@@ -3,7 +3,7 @@ title: Interacting with a page
 description: Learn how to programmatically do actions on a page such as clicking, typing, and pressing keys. Also, discover a common roadblock that comes up when automating. 
 menuWeight: 1
 paths:
-    - puppeteer-playwright/page/interacting
+    - puppeteer-playwright/page/interacting-with-a-page
 ---
 
 # [](#interacting-with-a-page) Interacting with a page
