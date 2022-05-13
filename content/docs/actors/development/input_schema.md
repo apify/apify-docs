@@ -19,6 +19,8 @@ Input schema must be stored in a file named **INPUT_SCHEMA.json** in the actor's
 
 > You can also use our [visual input schema editor](https://apify.github.io/input-schema-editor-react) to guide you through creation of the **INPUT_SCHEMA.json** file.
 
+> If you need to validate your input schemas, you can use the [`apify vis`]({{@link cli.md#apify-vis-path}}) command in the Apify CLI.
+
 ## Example
 
 Imagine you are building a simple crawler whose inputs are an array of start URLs and a JavaScript function that will be executed at each page the crawler visits. Its input schema will look like this:
