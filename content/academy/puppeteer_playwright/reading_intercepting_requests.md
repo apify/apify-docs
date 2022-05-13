@@ -303,8 +303,6 @@ Here's what we see when we run `node index.js`:
 
 ![Request intercepted and sent to Mesto's page instead]({{@asset puppeteer_playwright/images/mesto-following.webp}})
 
-## Wrap up
+## [](#next) Next up
 
-So far in this course, you've learned how to launch a browser, open a page, run scripts on a page, collect data from a page, and intercept requests made on the page after its initial load. In future lessons, you'll be learning about managing multiple pages, browser contexts, configuring proxies, and more.
-
-Stay tuned for new lessons!
+The [next lesson]({{@link puppeteer_playwright/proxies.md}}) will teach you how to use proxies in Playwright and Puppeteer in order to avoid blocking or appear as if you are requesting from a different location.
