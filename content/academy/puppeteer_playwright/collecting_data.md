@@ -274,10 +274,6 @@ await browser.close();
 </marked-tab>
 ```
 
-## Wrap up
+## [](#next) Next up
 
-So far in this course, you've learned how to launch a browser, open a page, run scripts on a page, and collect data from a page. In future lessons, you'll be learning about managing multiple pages, browser contexts, configuring proxies, and more.
-
-Stay tuned for new lessons!
-
-<!-- next lessons, talk about 1. running code in the context of the browser -> simple filter algorithm running in page.eval then another running in the context of Node.js, 2. Collecting data, 3. browser contexts, 4. parsing with cheerio instead, 5. setting up proxies with puppeteer. -->
+Our [next lesson]({{@link puppeteer_playwright/reading_intercepting_requests.md}}) will be discussing something super cool - request interception and reading data from requests and responses. It's just like using DevTools, except programmatically!
