@@ -18,11 +18,12 @@ Different events and elements can be waited for using the various `waitFor...` m
 
 ## [](#waiting-for-elements) Elements
 
-In the previous lesson, we ran into an error with Puppeteer due to the fact that we weren't waiting for the `.g a` selector to be present on the page before clicking it. The same error didn't ooccur in Playwright, because `page.click()` [automatically waits](https://playwright.dev/docs/actionability) for the element to be visible on the page before clicking it.
+In the previous lesson, we ran into an error with Puppeteer due to the fact that we weren't waiting for the `.g a` selector to be present on the page before clicking it. The same error didn't occur in Playwright, because `page.click()` [automatically waits](https://playwright.dev/docs/actionability) for the element to be visible on the page before clicking it.
 
 Elements with specific selectors can be waited for by using the `page.waitForSelector()` function. Let's use this knowledge to wait for the first result to be present on the page prior to clicking on it:
 
 ```JavaScript
+// This example is relevant for Puppeteer only!
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -30,7 +31,7 @@ const browser = await puppeteer.launch({ headless: false });
 const page = await browser.newPage();
 await page.goto('https://google.com/');
 
-await page.click('button + button:nth-child(2)');
+await page.click('button + button');
 
 await page.type('input[title="Search"]', 'hello world');
 await page.keyboard.press('Enter');
@@ -44,6 +45,8 @@ await browser.close();
 ```
 
 Now, we won't see the error message anymore, and the first result will be successfully clicked by Puppeteer.
+
+> Playwright also has a `page.waitForSelector()` function and it's useful in other scenarios than clicking, or for more granular control over the waiting process.
 
 ## [](#waiting-for-navigation) Navigation
 
@@ -84,7 +87,7 @@ const page = await browser.newPage();
 await page.goto('https://google.com');
 
 // Agree to the cookies policy
-await page.click('button + button:nth-child(2)');
+await page.click('button + button');
 
 // Type the query and visit the results page
 await page.type('input[title="Search"]', 'hello world');

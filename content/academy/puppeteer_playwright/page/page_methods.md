@@ -62,7 +62,7 @@ const page = await browser.newPage();
 await page.goto('https://google.com');
 
 // Agree to the cookies policy
-await page.click('button + button:nth-child(2)');
+await page.click('button + button');
 
 // Type the query and visit the results page
 await page.type('input[title="Search"]', 'hello world');

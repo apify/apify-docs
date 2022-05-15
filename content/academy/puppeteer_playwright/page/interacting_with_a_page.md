@@ -17,7 +17,7 @@ Let's say that we want to automate searching for **hello world** on Google, then
 3. Press **Enter**
 4. Wait for the results page to load
 5. Click on the first result
-6. Read the title of the result's page
+6. Read the title of the clicked result's loaded page
 7. Screenshot the page
 
 Though it seems complex, the wonderful **Page** API makes all of these actions extremely easy to perform.
@@ -33,10 +33,15 @@ await page.click('button:has-text("I agree")');
 </marked-tab>
 <marked-tab header="Puppeteer" lang="JavaScript">
 // Click the "I agree" button
-await page.click('button + button:nth-child(2)');
+await page.click('button + button');
 </marked-tab>
+```
 
-> Notice that in the Playwright example, we are using a different selector than in the Puppeteer example. This is because Playwright supports [many custom CSS selectors](https://playwright.dev/docs/selectors#text-selector), such as the **has-text** pseudo class.
+With `page.click()`, Puppeteer and Playwright actually drag the mouse and click, allowing the bot to act more human-like. This is different from programmatically clicking with `Element.click()` in vanilla client-side JavaScript.
+
+> If you're not already familiar with CSS selectors and how to find them, we recommend referring to [this lesson]({{@link web_scraping_for_beginners/using_devtools.md}}) in the **Web scraping for beginners** course.
+
+Notice that in the Playwright example, we are using a different selector than in the Puppeteer example. This is because Playwright supports [many custom CSS selectors](https://playwright.dev/docs/selectors#text-selector), such as the **has-text** pseudo class. As a rule of thumb, using text selectors is much more preferable to using regular selectors, as they are much less likely to break. If Google makese the sibling above the **I agree** button a `<div>` element instead of a `<button>` element, our `button + button` selector will break. However, the button will always have the text **I agree**; therefore, `button:has-text("I agree")` is more reliable.
 
 Then, we can type some text into an input field with `page.type()`; passing a CSS selector as the first, and the string to input as the second parameter:
 
@@ -86,7 +91,7 @@ const page = await browser.newPage();
 await page.goto('https://google.com/');
 
 // Click the "I agree" button
-await page.click('button + button:nth-child(2)');
+await page.click('button + button');
 
 // Type the query into the search box
 await page.type('input[title="Search"]', 'hello world');
@@ -103,7 +108,7 @@ When we run it, we leave off on the results page:
 
 ![Google results page reached by headless browser]({{@asset puppeteer_playwright/page/images/google-results.webp}})
 
-Great! So now all we have to do is click the first result, which matches the selector `.g a`:
+Great! So now all we have to do is click the first result which matches the CSS selector `.g a`:
 
 ```marked-tabs
 <marked-tab header="Playwright" lang="javascript">
@@ -137,7 +142,7 @@ const page = await browser.newPage();
 
 await page.goto('https://google.com/');
 
-await page.click('button + button:nth-child(2)');
+await page.click('button + button');
 
 await page.type('input[title="Search"]', 'hello world');
 
@@ -152,6 +157,8 @@ await browser.close();
 ```
 
 But wait, when we try to run the Puppeteer code, we run into this nasty error:
+
+> The following error won't be present if you're following the Playwright examples. You'll learn why in the next lesson.
 
 ```text
 /Users/me/Desktop/playwright-puppeteer/node_modules/puppeteer/lib/cjs/puppeteer/common/assert.js:26
