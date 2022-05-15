@@ -1,6 +1,6 @@
 ---
 title: II - Opening a page
-description: Learn how to create an open a Page with a Browser, and how to use it to visit and programmatically interact with a website.
+description: Learn how to create and open a Page with a Browser, and how to use it to visit and programmatically interact with a website.
 menuWeight: 7.2
 paths:
     - puppeteer-playwright/page
