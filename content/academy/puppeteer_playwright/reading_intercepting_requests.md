@@ -69,7 +69,7 @@ page.on('request', (req) => {
     // If the URL doesn't include our keyword, ignore it
     if (!req.url().includes('followings')) return;
 
-    console.log('Request was made!')
+    console.log('Request for followers was made!')
 });
 </marked-tab>
 ```
