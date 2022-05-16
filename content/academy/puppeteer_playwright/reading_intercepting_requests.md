@@ -79,7 +79,7 @@ page.on('request', (req) => {
 Cool! So now when we run our code, we'll see this logged to the console:
 
 ```text
-Request was made!
+Request for followers was made!
 ```
 
 This request includes some useful query parameters, namely the `client_id`. Let's go ahead and grab these values from the request URL and print them to the console:
