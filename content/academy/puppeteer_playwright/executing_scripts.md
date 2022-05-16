@@ -10,10 +10,12 @@ paths:
 
 An important concept to understand when dealing with headless browsers is the **context** in which your code is being run. For example, if you try to use the native `fs` Node.js module (used in the previous lesson) while running code in the context of the browser, errors will be thrown saying that it is undefined. Similarly, if you are trying to use `document.querySelector()` or other browser-specific functions in the server-side Node.js context, errors will also be thrown.
 
+![Diagram explaining the two different contexts your code can be run in]({{@asset puppeteer_playwright/images/context-diagram.webp}});
+
 Here is an example of a common mistake made by beginners to Puppeteer/Playwright:
 
 ```JavaScript
-// THIS IS INCORRECT CODE
+// This code is incorrect!
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -138,6 +140,4 @@ Now, when we run this code, we can see the title change on the page's tab:
 
 ## [](#next) Next up
 
-Next, we'll be learning a bit about how to collect data using Playwright/Puppeteer. There are two main ways to do this, so [next exciting lesson]({{@link puppeteer_playwright/collecting_data.md}}) will be about both of them!
-
-<!-- next lessons, talk about 1. running code in the context of the browser -> simple filter algorithm running in page.eval then another running in the context of Node.js, 2. Collecting data, 3. browser contexts, 4. parsing with cheerio instead, 5. setting up proxies with puppeteer. -->
+The [next lesson]({{@link puppeteer_playwright/executing_scripts/injecting_code.md}}) will be a short one discussing two different ways of executing scripts on a page.

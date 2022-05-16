@@ -1,9 +1,9 @@
 ---
-title: IV - Collecting data
+title: Collecting data
 description: Learn how to collect data from a page with evaluate functions, then how to safely collect it by using a second library called Cheerio.
-menuWeight: 7.4
+menuWeight: 2
 paths:
-    - puppeteer-playwright/collecting-data
+    - puppeteer-playwright/executing-scripts/collecting-data
 ---
 
 # [](#collecting-data) Collecting data
@@ -86,7 +86,7 @@ console.log(products);
 
 When we run this code, we see this logged to our console:
 
-![Products logged to the console]({{@asset puppeteer_playwright/images/log-products.webp}})
+![Products logged to the console]({{@asset puppeteer_playwright/executing_scripts/images/log-products.webp}})
 
 ## [](#using-jquery) Using jQuery
 

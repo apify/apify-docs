@@ -49,8 +49,14 @@ npm install puppeteer
 
 1. [Launching a browser]({{@link puppeteer_playwright/browser.md}})
 2. [Opening a page]({{@link puppeteer_playwright/page.md}})
+    - [Interacting with a page]({{@link puppeteer_playwright/page/interacting_with_a_page.md}})
+    - [Waiting for content & events]({{@link puppeteer_playwright/page/waiting.md}})
+    - [Page methods]({{@link puppeteer_playwright/page/page_methods.md}})
 3. [Executing scripts]({{@link puppeteer_playwright/executing_scripts.md}})
-4. [Collecting data]({{@link puppeteer_playwright/collecting_data.md}})
+    - [Injecting code]({{@link puppeteer_playwright/executing_scripts/injecting_code.md}})
+    - [Collecting data]({{@link puppeteer_playwright/executing_scripts/collecting_data.md}})
+4. [Reading & intercepting requests]({{@link puppeteer_playwright/reading_intercepting_requests.md}})
+5. [Using proxies]({{@link puppeteer_playwright/proxies.md}})
 
 <!-- Everything that will be learned in the course -->
 
