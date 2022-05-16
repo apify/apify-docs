@@ -50,7 +50,9 @@ Now, we won't see the error message anymore, and the first result will be succes
 
 ## [](#waiting-for-navigation) Navigation
 
-If we remember properly, after clicking the first result, we want to console log the title of the result's page and save a screenshot into the filesystem. In order to grab a solid screenshot of the loaded page though, we should **wait for navigation**  before snapping the image. This can be done with `page.waitForNavigation()`.
+If we remember properly, after clicking the first result, we want to console log the title of the result's page and save a screenshot into the filesystem. In order to grab a solid screenshot of the loaded page though, we should **wait for navigation**  before snapping the image. This can be done with [`page.waitForNavigation()`](https://pptr.dev/#?product=Puppeteer&version=v14.1.0&show=api-pagewaitfornavigationoptions).
+
+> A navigation is simply when a new [page load]({{@link dynamic_pages_and_spas.md}}) happens. First, the `domcontentloaded` event is fired, then the `load` event. `page.waitForNavigation()` will wait for the `load` event to fire.
 
 Naively, you might immediately think that this is the way we should wait for navigation after clicking the first result:
 
@@ -59,10 +61,17 @@ await page.click('.g a');
 await page.waitForNavigation();
 ```
 
-Though in theory this is correct, it can result in a race condition in which the page navigates quickly before the `page.waitForNavigation()` function is ever run, which means that once it is finally called, it will hang and wait forever for the `domcontentloaded` event to fire even though it already fired. To solve this, we can stick the waiting logic and the clicking logic into a `Promise.all()` call (placing `page.waitForNavigation()` first).
+Though in theory this is correct, it can result in a race condition in which the page navigates quickly before the `page.waitForNavigation()` function is ever run, which means that once it is finally called, it will hang and wait forever for the [`load` event](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event) event to fire even though it already fired. To solve this, we can stick the waiting logic and the clicking logic into a `Promise.all()` call (placing `page.waitForNavigation()` first).
 
 ```JavaScript
 await Promise.all([page.waitForNavigation(), page.click('.g a')]);
+```
+
+Though the line of cod above is also valid in Playwright, it is recommended to use [`page.waitForLoadState('load')`](https://playwright.dev/docs/api/class-page#page-wait-for-load-state) instead of `page.waitForNavigaton()`, as it automatically handles the issues being solved in by using `Promise.all()`.
+
+```JavaScript
+await page.click('.g a');
+await page.waitForLoadState('load');
 ```
 
 This implementation will do the following:
@@ -96,7 +105,8 @@ await page.keyboard.press('Enter');
 // Wait for the first result to appear on the page,
 // then click on it
 await page.waitForSelector('.g a');
-await Promise.all([page.waitForNavigation(), page.click('.g a')]);
+await page.click('.g a');
+await page.waitForLoadState('load');
 
 // Our title collecting and screenshotting logic
 // will go here
