@@ -47,7 +47,7 @@ await browser.close();
 </marked-tab>
 ```
 
-For both Puppeteer and Playwright, the proxy's server URL should be passed into the options of the `launch()` function; however, it's done a bit differently depending on which library you're using.
+For both Puppeteer and Playwright, the proxy server's URL should be passed into the options of the `launch()` function; however, it's done a bit differently depending on which library you're using.
 
 In Puppeteer, the server must be passed within the **--proxy-server** [Chromium command line argument](https://peter.sh/experiments/chromium-command-line-switches/), while in Playwright, it can be passed into the **proxy** option.
 
