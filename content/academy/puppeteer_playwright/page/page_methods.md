@@ -122,7 +122,7 @@ When you run this code, you should see this logged to console:
 "Hello, World!" program - Wikipedia
 ```
 
-Additionally, you should see a new image named **screenshot.png** that looks something like this:
+Additionally, you should see a new image named **screenshot.png** in your project's folder that looks something like this:
 
 ![Screenshot from Playwright/Puppeteer]({{@asset puppeteer_playwright/page/images/wikipedia-screenshot.webp}})
 
