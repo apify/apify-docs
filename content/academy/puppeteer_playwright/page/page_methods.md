@@ -48,7 +48,7 @@ await fs.writeFile('screenshot.png', screenshot);
 
 ## [](#final-code) Final code
 
-Here's our final code:
+Here's our final code which extracts the page's title, takes a screenshot and saves it to our project's folder as `screenshot.png`:
 
 ```marked-tabs
 <marked-tab header="Playwright" lang="javascript">
