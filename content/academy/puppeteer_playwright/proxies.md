@@ -79,7 +79,10 @@ const proxy = '103.214.9.13:3128';
 
 // Using the "args" option, which is an array of Chromium command
 // line switches, we pass the server URL in with "--proxy-server"
-const browser = await puppeteer.launch({ headless: false, args: [`--proxy-server=${proxy}`] });
+const browser = await puppeteer.launch({
+    headless: false,
+    args: [`--proxy-server=${proxy}`]
+});
 const page = await browser.newPage();
 await page.goto('https://google.com');
 
