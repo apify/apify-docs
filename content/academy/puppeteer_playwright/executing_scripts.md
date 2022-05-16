@@ -138,6 +138,6 @@ Now, when we run this code, we can see the title change on the page's tab:
 
 ## [](#next) Next up
 
-Next, we'll be learning a bit about how to collect data using Playwright/Puppeteer. There are two main ways to do this, so [next exciting lesson]({{@link puppeteer_playwright/collecting_data.md}}) about both of them!
+Next, we'll be learning a bit about how to collect data using Playwright/Puppeteer. There are two main ways to do this, so [next exciting lesson]({{@link puppeteer_playwright/collecting_data.md}}) will be about both of them!
 
 <!-- next lessons, talk about 1. running code in the context of the browser -> simple filter algorithm running in page.eval then another running in the context of Node.js, 2. Collecting data, 3. browser contexts, 4. parsing with cheerio instead, 5. setting up proxies with puppeteer. -->
