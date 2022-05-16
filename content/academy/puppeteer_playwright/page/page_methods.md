@@ -52,6 +52,37 @@ Here's our final code which extracts the page's title, takes a screenshot and sa
 
 ```marked-tabs
 <marked-tab header="Playwright" lang="javascript">
+import { chromium } from 'playwright';
+import * as fs from 'fs/promises';
+
+const browser = await chromium.launch({ headless: false });
+
+// Create a page and visit Google
+const page = await browser.newPage();
+await page.goto('https://google.com');
+
+// Agree to the cookies policy
+await page.click('button:has-text("I agree")');
+
+// Type the query and visit the results page
+await page.type('input[title="Search"]', 'hello world');
+await page.keyboard.press('Enter');
+
+// Click on the first result
+await page.click('.g a');
+await page.waitForLoadState('load');
+
+// Grab the page's title and log it to the console
+const title = await page.title();
+console.log(title);
+
+// Take a screenshot and write it to the filesystem
+const screenshot = await page.screenshot();
+await fs.writeFile('screenshot.png', screenshot);
+
+await browser.close();
+</marked-tab>
+<marked-tab header="Puppeteer" lang="javascript">
 import puppeteer from 'puppeteer';
 import * as fs from 'fs/promises';
 
@@ -71,36 +102,6 @@ await page.keyboard.press('Enter');
 // Wait for the first result to appear on the page,
 // then click on it
 await page.waitForSelector('.g a');
-await Promise.all([page.waitForNavigation(), page.click('.g a')]);
-
-// Grab the page's title and log it to the console
-const title = await page.title();
-console.log(title);
-
-// Take a screenshot and write it to the filesystem
-const screenshot = await page.screenshot();
-await fs.writeFile('screenshot.png', screenshot);
-
-await browser.close();
-</marked-tab>
-<marked-tab header="Puppeteer" lang="javascript">
-import { chromium } from 'playwright';
-import * as fs from 'fs/promises';
-
-const browser = await chromium.launch({ headless: false });
-
-// Create a page and visit Google
-const page = await browser.newPage();
-await page.goto('https://google.com');
-
-// Agree to the cookies policy
-await page.click('button:has-text("I agree")');
-
-// Type the query and visit the results page
-await page.type('input[title="Search"]', 'hello world');
-await page.keyboard.press('Enter');
-
-// Click on the first result
 await Promise.all([page.waitForNavigation(), page.click('.g a')]);
 
 // Grab the page's title and log it to the console

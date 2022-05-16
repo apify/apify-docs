@@ -150,8 +150,6 @@ After running this code, we can see this logged to the console:
 
 Listening for and reading responses is very similar to reading requests. The only difference is that we need to listen for the **response** event instead of **request**. Additionally, the object passed into the callback function represents the response instead of the request.
 
-<!-- To access the response object from **Route** in Playwright, we need to wait for it with `await route.request().response()`. Nothing else needs to change. -->
-
 This time, instead of grabbing the query parameters of the request URL, let's grab hold of the response body and print it to the console in JSON format:
 
 ```marked-tabs
@@ -248,6 +246,52 @@ Here's what we see when we run this logic:
 ![SoundCloud with no CSS or image resources loaded]({{@asset puppeteer_playwright/images/ugly-soundcloud.webp}})
 
 This confirms that we've successfully blocked the CSS and image resources from loading.
+
+#### [](#quick-note) Quick note about resource blocking
+
+Something **very** important to note is that by using request interception, the browser's cache is turned **off**. This means that resources on websites that would normally be cached (and pulled from the cache instead on the next request for those resources) will not be cached, which can have varying negative effects on performance, especially when making multiple requests to the same page.
+
+To block resources, it is better to use a CDP (Chrome DevTools Protocol) Session ([Playwright](https://playwright.dev/docs/api/class-cdpsession)/[Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v14.1.0&show=api-class-cdpsession)) to set the blocked URLs. Here is an implementation that achieves the same goal as our above example above; however, the browser's cache remains enabled.
+
+```marked-tabs
+<marked-tab header="Playwright" lang="javascript">
+// Note, you can't use CDP session in other browsers!
+// Only in Chromium.
+import { chromium } from 'playwright';
+
+const browser = await chromium.launch({ headless: false });
+const page = await browser.newPage();
+
+// Define our blocked extensions
+const blockedExtensions = ['.png', '.css', '.jpg', '.jpeg', '.pdf', '.svg'];
+
+// Use CDP session to block resources
+const client = await page.context().newCDPSession();
+await client.send('Network.setBlockedURLs', { urls: blockedExtensions });
+
+await page.goto('https://soundcloud.com/tiesto/following');
+
+await page.waitForTimeout(10000);
+await browser.close();
+</marked-tab>
+<marked-tab header="Puppeteer" lang="javascript">
+import puppeteer from 'puppeteer';
+
+const browser = await puppeteer.launch({ headless: false });
+const page = await browser.newPage();
+
+// Define our blocked extensions
+const blockedExtensions = ['.png', '.css', '.jpg', '.jpeg', '.pdf', '.svg'];
+
+// Use CDP session to block resources
+await page.client().send('Network.setBlockedURLs', { urls: blockedExtensions });
+
+await page.goto('https://soundcloud.com/tiesto/following');
+
+await page.waitForTimeout(10000);
+await browser.close();
+</marked-tab>
+```
 
 ### [](#modifyng-the-request) Modifying the request
 
