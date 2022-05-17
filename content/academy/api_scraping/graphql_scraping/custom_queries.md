@@ -311,6 +311,13 @@ const scrapeAppToken = async () => {
 export default scrapeAppToken;
 ```
 
-## [](#next) Next up
+## Wrap up
 
-We are actively working on writing the GraphQL scraping guide, so stay tuned!
+We are actively working on writing the GraphQL scraping guide, so stay tuned for more content here! In the meantime, take a moment to review the skills you learned in this section:
+
+1. Modifying the variables of copied GraphQL queries
+2. Introspecting a GraphQL API
+3. Visualizing and understanding a GraphQL API introspection
+4. Writing custom queries
+5. Dealing with cursor-based relay pagination
+6. Writing a GraphQL scraper with custom queries
