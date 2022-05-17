@@ -12,6 +12,8 @@ A proxy server provides a gateway between users and the internet, to be more spe
 
 Many websites have [rate-limiting]({{@link anti_scraping/techniques/rate_limiting.md}}) set up, which is when a website **limits** the **rate** at which requests can be sent from a single IP address. In cases when a higher number of requests is expected for the crawler - using a proxy is essential to let the crawler run as smoothly as possible and avoid being blocked.
 
+Although IP quality is still the most important factor when it comes to using proxies and avoiding anti-scraping measures, nowadays it's not just about avoiding rate-limiting, which brings new challenges for scrapers that can no longer just rely on simple IP rotation. Anti-scraping software providers, such as CloudFlare, have global databases of "suspicious" IP addresses. If you are unlucky, your newly bought IP might be blocked even before you use it. If the previous owners overused it, it might have already been marked as suspicious in many databases, or even (very likely) was blocked altogether. If you care about the quality of your IPs, use them as a real user, and any website will have a hard time banning them completely.
+
 Fixing rate-limiting issues is only the tip of the iceberg of what proxies can do for your scrapers, though. By implementing proxies properly, you can successfully avoid the majority of anti-scraping measures listed in the [previous lesson]({{@link anti_scraping.md}}).
 
 ## [](#understanding-proxy-links) A bit about proxy links

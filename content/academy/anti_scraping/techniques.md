@@ -44,4 +44,4 @@ The website responds with data, but the data is totally fake, which is very diff
 
 ## [](#next) Next up
 
-In the [first lesson]({{@link anti_scraping/techniques/rate_limiting}}) of this course, you'll be learning about **rate limiting**, which is a technique used to prevent a large amount of requests from being sent from one user.
+In the [first lesson]({{@link anti_scraping/techniques/rate_limiting.md}}) of this course, you'll be learning about **rate limiting**, which is a technique used to prevent a large amount of requests from being sent from one user.
