@@ -39,8 +39,8 @@ const x = (y) => (y - 32) * (5 / 9);
 That is quite confusing due to the undescriptive naming and the magic numbers. Do this instead:
 
 ```JavaScript
-// Converts a fahrenheit value to celcius
-const fahrenheitToCelcius = (celcius) => (celcius - 32) * (5 / 9);
+// Converts a fahrenheit value to celsius
+const fahrenheitToCelsius = (celsius) => (celsius - 32) * (5 / 9);
 ```
 
 > Additionally, try to make values for options such as `maxRequestRetries` in the Apify SDK configurable via input. If they absolutely must be a strict value, make them a constant variable.
