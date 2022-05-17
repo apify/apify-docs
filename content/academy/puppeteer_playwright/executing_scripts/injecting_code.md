@@ -16,7 +16,7 @@ We'll be covering both of these cases in this brief lesson.
 
 Sometimes, you need your custom code to run before any other code is run on the page. Perhaps you need to modify an object's prototype, or even re-define certain global variables before they are used by the page's native scripts.
 
-Luckily, Puppeteer and Playwright both have functions for this. In Puppeteer, we use  the [`page.evaluateOnNewDocument()`](https://puppeteer.github.io/puppeteer/docs/puppeteer.page.evaluateonnewdocument/) function, while in Playwright we use [`page.addInitScript()`](https://playwright.dev/docs/api/class-page#page-add-init-script). We'll use these functions to override the native `addEventListener` function, setting it to `null`. This will prevent event listeners from being added to elements.
+Luckily, Puppeteer and Playwright both have functions for this. In Puppeteer, we use  the [`page.evaluateOnNewDocument()`](https://puppeteer.github.io/puppeteer/docs/puppeteer.page.evaluateonnewdocument/) function, while in Playwright we use [`page.addInitScript()`](https://playwright.dev/docs/api/class-page#page-add-init-script). We'll use these functions to override the native `addEventListener` function, setting it to a function that does nothing. This will prevent event listeners from being added to elements.
 
 ```marked-tabs
 <marked-tab header="Playwright" lang="javascript">
@@ -27,7 +27,7 @@ const page = await browser.newPage();
 
 await page.addInitScript(() => {
     // Override the prototype
-    Node.prototype.addEventListener = null;
+    Node.prototype.addEventListener = () => { /* do nothing */ };
 });
 
 await page.goto('https://google.com');
