@@ -1,7 +1,7 @@
 ---
 title: Proxies
 description: Learn all about proxies, how they work, and how they can be leveraged in a scraper to avoid blocking and other anti-scraping tactics.
-menuWeight: 4.1
+menuWeight: 4.2
 paths:
 - anti-scraping/proxies
 ---
@@ -10,9 +10,9 @@ paths:
 
 A proxy server provides a gateway between users and the internet, to be more specific in our case - between the crawler and the target website.
 
-Many websites have [rate-limiting]({{@link concepts/rate_limiting.md}}) set up, which is when a website **limits** the **rate** at which requests can be sent from a single IP address. In cases when a higher number of requests is expected for the crawler - using a proxy is essential to let the crawler run as smoothly as possible and avoid being blocked.
+Many websites have [rate-limiting]({{@link anti_scraping/techniques/rate_limiting.md}}) set up, which is when a website **limits** the **rate** at which requests can be sent from a single IP address. In cases when a higher number of requests is expected for the crawler - using a proxy is essential to let the crawler run as smoothly as possible and avoid being blocked.
 
-Fixing rate-limiting issues is only the tip of the iceberg of what proxies can do for your scrapers, though. By implementing proxies properly, you can successfuly avoid the majority of anti-scraping measures listed in the [previous lesson]({{@link anti_scraping.md}}).
+Fixing rate-limiting issues is only the tip of the iceberg of what proxies can do for your scrapers, though. By implementing proxies properly, you can successfully avoid the majority of anti-scraping measures listed in the [previous lesson]({{@link anti_scraping.md}}).
 
 ## [](#understanding-proxy-links) A bit about proxy links
 

@@ -1,9 +1,9 @@
 ---
 title: Geolocation
 description: Learn about the geolocation techniques to determine where requests are coming from, and a bit about how to avoid being blocked based on geolocation.
-menuWeight: 8.3
+menuWeight: 3
 paths:
-    - concepts/geolocation
+    - anti-scraping/techniques/geolocation
 ---
 
 # [](#geolocation) Geolocation
