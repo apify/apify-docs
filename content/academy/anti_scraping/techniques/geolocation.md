@@ -12,7 +12,7 @@ Geolocation is yet another way websites can detect and block access or show limi
 
 ## [](#cookies-headers) Cookies & headers
 
-Certain websites might use certain location-specific/language-specific headers/cookies to geolocate a user. Some examples of these headers are `Accept-Language` and `CloudFront-Viewer-Country` (which is a non-native HTTP header from [CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-cloudfront-headers.html)).
+Certain websites might use certain location-specific/language-specific [headers]({{@link concepts/http_headers.md}})/[cookies]({{@link concepts/http_cookies.md}}) to geolocate a user. Some examples of these headers are `Accept-Language` and `CloudFront-Viewer-Country` (which is a custom HTTP header from [CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-cloudfront-headers.html)).
 
 On targets which are just utilizing cookies and headers to identify the location from which a request is coming from, it is pretty straightforward to make requests which appear they are coming from somewhere else.
 

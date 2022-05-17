@@ -59,7 +59,9 @@ Here is an example of what a browser fingerprint might look like:
 
 ## [](#how-it-works) How it works
 
-There are multiple levels and different approaches sites take to collect browser fingerprints; however, they all have one thing in common: they are using a script written in JavaScript to evaluate the target browser's context and collect information about it (often times also storing it in their database, or in a cookie). These scripts are often obfuscated and difficult to track down and understand, especially if they are anti-bot scripts. There are multiple levels of script obfuscation that are used to make fingerprinting scripts unreadable and hard to find.
+There are multiple levels and different approaches sites take to collect browser fingerprints; however, they all have one thing in common: they are using a script written in JavaScript to evaluate the target browser's context and collect information about it (often times also storing it in their database, or in a cookie). These scripts are often obfuscated and difficult to track down and understand, especially if they are anti-bot scripts.
+
+There are multiple levels of script obfuscation that are used to make fingerprinting scripts unreadable and hard to find:
 
 ### Randomization
 
@@ -80,6 +82,10 @@ Built-in JavaScript encoding functions are used to transform the code into, for 
 
 ## [](#anti-bot-fingerprinting) Anti-bot fingerprinting
 
-On websites which implement advanced fingerprinting techniques, they will tie the fingerprint and certain headers (such as the **User-Agent** haeder) to the IP address of the user. These sites will block a user (or scraper) if it made a request with one fingerprint and set of headers, then tries to make another request on the same proxy but with a different fingerprint.
+On websites which implement advanced fingerprinting techniques, they will tie the fingerprint and certain headers (such as the **User-Agent** header) to the IP address of the user. These sites will block a user (or scraper) if it made a request with one fingerprint and set of headers, then tries to make another request on the same proxy but with a different fingerprint.
 
 When dealing with these cases, it's important to sync the generation of headers and fingerprints with the rotation of proxies (this is known as session rotation).
+
+## [](#next) Next up
+
+[Next up]({{@link anti_scraping/techniques/geolocation.md}}), we'll be covering **geolocation** methods that websites use to grab the location from which a request has been made, and how they relate to anti-scraping.
