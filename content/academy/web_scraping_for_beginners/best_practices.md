@@ -39,7 +39,7 @@ const x = (y) => (y - 32) * (5 / 9);
 That is quite confusing due to the undescriptive naming and the magic numbers. Do this instead:
 
 ```JavaScript
-// Converts a fahrenheit value to celcius
+// Converts a fahrenheit value to celsius
 const fahrenheitToCelcius = (celcius) => (celcius - 32) * (5 / 9);
 ```
 
