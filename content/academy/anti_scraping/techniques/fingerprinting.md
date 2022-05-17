@@ -1,9 +1,9 @@
 ---
 title: Fingerprinting
 description: Understand browser fingerprinting, an advanced technique used by browsers to track user data and even block bots from accessing them.
-menuWeight: 8.2
+menuWeight: 2
 paths:
-    - concepts/fingerprinting
+    - anti-scraping/techniques/fingerprinting
 ---
 
 # [](#fingerprinting) Fingerprinting

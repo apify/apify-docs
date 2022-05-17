@@ -71,11 +71,11 @@ This technique is commonly uses to entirely block the bot from accessing the web
 
 This is the most straightforward and standard protection, which is mainly implemented to prevent DDOS attacks, but it also works for blocking scrapers. Websites using rating don't allow to more than some defined number of requests from one IP address in a certain time span. If the max-request number is low, then there is a high potential for false-positive due to IP address uniqueness, such as in large companies where hundreds of employees can share the same IP address.
 
-> Learn more about rate limiting [here]({{@link concepts/rate_limiting.md}})
+> Learn more about rate limiting [here]({{@link anti_scraping/techniques/rate_limiting.md}})
 
 ### Header checking
 
-This type of bot identification is based on the given fact that humans are accessing web pages through browsers, which have specific header sets which they send along with every request. The most commonly known header that helps to detect bots is the `user-agent` header, which holds a value that identifies which browser is being used, and what version it's running. Though `user-agent` is the most commonly used header for the **Header checking** method, other headers are sometimes used as well. The evaluation is often also run based on the header consistency, and includes a known combination of browser headers.
+This type of bot identification is based on the given fact that humans are accessing web pages through browsers, which have specific [header]({{@link concepts/http_headers.md}}) sets which they send along with every request. The most commonly known header that helps to detect bots is the `user-agent` header, which holds a value that identifies which browser is being used, and what version it's running. Though `user-agent` is the most commonly used header for the **Header checking** method, other headers are sometimes used as well. The evaluation is often also run based on the header consistency, and includes a known combination of browser headers.
 
 ## [](#next) Next up
 
