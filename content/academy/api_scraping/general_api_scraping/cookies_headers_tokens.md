@@ -127,4 +127,12 @@ scrapeClientId();
 
 ## [](#next) Next up
 
-This is the last lesson in the API scraping tutorial for now, but be on the lookout for more lessons soon to come!
+This is the last lesson in the API scraping tutorial for now, but be on the lookout for more lessons soon to come! So far, you've learned how to:
+
+1. Locate API endpoints
+2. Understand located API endpoints and their parameters
+3. Parse and modify cookies
+4. Modify/set headers
+5. Farm API tokens using Puppeteer
+
+If you'd still like to read more API scraping, check out the [**GraphQL scraping**]({{@link api_scraping/graphql_scraping.md}}) course! GraphQL is the king of API scraping.
