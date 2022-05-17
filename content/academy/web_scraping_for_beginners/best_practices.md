@@ -10,7 +10,7 @@ paths:
 
 Every developer has their own style, which evolves as they grow and learn. While one dev might prefer a more  [functional](https://en.wikipedia.org/wiki/Functional_programming) style, another might find an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) approach to be more intuitive. We at Apify understand this, and have written this best practices lesson with that in mind.
 
-The goal of this lesson is not to force you into a specifc paradigm or to make you think that you're doing things wrong, but instead to provide you some insight into the standards and best practices that we at Apify follow to ensure readable, mantainable, scalable code.
+The goal of this lesson is not to force you into a specific paradigm or to make you think that you're doing things wrong, but instead to provide you some insight into the standards and best practices that we at Apify follow to ensure readable, maintainable, scalable code.
 
 ## [](#code-style) Code style
 
