@@ -216,6 +216,8 @@ Then, the labels can be used by importing `labels` and doing `labels.START`, `la
 
 This is not necessary, but it is best practice, as it can prevent dumb typos that can cause nasty bugs 🐞 For the rest of this lesson, all of the examples using labels will be using the imported versions.
 
+> If you haven't already read the **Best practices** lesson in the **Web scraping for beginners** course, please [give it a read]({{@link web_scraping_for_beginners/best_practices.md}}).
+
 ## [](#continue) Let's continue
 
 In our quick chat about modularity, we finished the code for the results page, and added a request to the `requestQueue` for each product. Here, we just need to scrape the description, so it shouldn't be too hard:
