@@ -26,6 +26,12 @@ Define any [constant variables](https://softwareengineering.stackexchange.com/qu
 
 > If you have a whole lot of constant variables, they can be in a folder named **constant** organized into different files.
 
+### [](#use-es6) Use modern ES6 JavaScript
+
+If you're writing your scraper in JavaScript, use [ES6](https://www.w3schools.com/js/js_es6.asp) features and ditch the old ones which they replace. This means using `const` and `let` instead of `var`, `includes` instead of `indexOf`, etc.
+
+> To learn more about some of the most popular (and awesome) ES6+ features, check out [this](https://medium.com/@matthiasvstephens/why-is-es6-so-awesome-88bff6857849) article.
+
 ### [](#no-magic-numbers) No magic numbers
 
 Avoid using [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)) as much as possible. Either declare them as a **constant** variable in your **constants.js** file, or if they are only used once, add a comment explaining what the number is.
@@ -50,12 +56,6 @@ const fahrenheitToCelsius = (celsius) => (celsius - 32) * (5 / 9);
 Don't be shy to add comments to your code! Even when using descriptive function and variable naming, it might still be a good idea to add a comment in places where you had to make a tough decision or chose an unusual choice.
 
 > If you're a true pro, use [JSDoc](https://jsdoc.app/) to comment and document your code.
-
-### [](#use-es6) Use modern ES6 JavaScript
-
-If you're writing your scraper in JavaScript, use [ES6](https://www.w3schools.com/js/js_es6.asp) features and ditch the old ones which they replace. This means using `const` and `let` instead of `var`, `includes` instead of `indexOf`, etc.
-
-> To learn more about some of the most popular (and awesome) ES6+ features, check out [this](https://medium.com/@matthiasvstephens/why-is-es6-so-awesome-88bff6857849) article.
 
 ## [](#logging) Logging
 
