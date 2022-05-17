@@ -73,7 +73,7 @@ const browser = await chromium.launch({ headless: false });
 const page = await browser.newPage();
 await page.goto('https://google.com');
 
-const returnMessage = () => 'Hello world!';
+const returnMessage = () => 'Apify academy!';
 
 await page.exposeFunction(returnMessage.name, returnMessage);
 
@@ -91,7 +91,7 @@ const browser = await puppeteer.launch({ headless: false });
 const page = await browser.newPage();
 await page.goto('https://google.com');
 
-const returnMessage = () => 'Hello world!';
+const returnMessage = () => 'Apify academy!';
 
 await page.exposeFunction(returnMessage.name, returnMessage);
 
