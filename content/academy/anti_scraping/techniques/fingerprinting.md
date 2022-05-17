@@ -86,6 +86,39 @@ On websites which implement advanced fingerprinting techniques, they will tie th
 
 When dealing with these cases, it's important to sync the generation of headers and fingerprints with the rotation of proxies (this is known as session rotation).
 
+## [](#generating-fingerprints) Generating fingerprints
+
+With the [Fingerprint generator](https://github.com/apify/fingerprint-generator) NPM package, you can easily generate a browser fingerprint.
+
+> It is crucial to generate fingerprints for the specific browser and operating system being used to trick the protections successfully. For example, if you are trying to overcome protection locally with Firefox on a macOS system, you should generate fingerprints for Firefox and macOS to achieve the best results.
+
+```JavaScript
+const FingerprintGenerator = require('fingerprint-generator');
+
+const fingerprintGenerator = new FingerprintGenerator({
+        browsers: [
+            {name: "firefox", minVersion: 80},
+            {name: "chrome", minVersion: 87},
+            "safari"
+        ],
+        devices: [
+            "desktop"
+        ],
+        operatingSystems: [
+            "windows"
+        ]
+});
+
+const { fingerprint, headers } = fingerprintGenerator.getFingerprint({
+        operatingSystems: [
+            "linux"
+        ],
+        locales: ["en-US", "en"]
+});
+```
+
+Once you've generated a fingerprint, it can be injected into the browser using the [Fingerprint injector](https://github.com/apify/fingerprint-injector) package. This tool allows you to inject fingerprints to browsers automated by Playwright or Puppeteer.
+
 ## [](#next) Next up
 
 [Next up]({{@link anti_scraping/techniques/geolocation.md}}), we'll be covering **geolocation** methods that websites use to grab the location from which a request has been made, and how they relate to anti-scraping.
