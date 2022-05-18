@@ -1,6 +1,6 @@
 ---
 title: Deploying
-description: Push local code to the platform, or create a new actor on the console and integrate it with a GitHub repo to optionally automatically rebuild any new changes.
+description: Push local code to the platform, or create a new actor on the console and integrate it with a Git repo to optionally automatically rebuild any new changes.
 menuWeight: 4
 paths:
 - apify-platform/deploying-your-code/deploying
@@ -10,11 +10,11 @@ paths:
 
 Once you've **actorified** your code, there are two ways to deploy your it to the Apify platform. You can either push the code directly from your local machine onto the platform, or you can create a blank actor in the web-interface, then integrate its source code with a GitHub repository.
 
-## [](#with-git-repository) With a GitHub repository
+## [](#with-git-repository) With a Git repository
 
 Before we deploy our project onto the Apify platform, let's ensure that we've pushed the changes we made in the last 3 lessons into our remote GitHub repository.
 
-> The benefit of using this method is that any time you push to the GitHub repo, the code on the platform is also updated and the actor is automatically rebuilt.
+> The benefit of using this method is that any time you push to the Git repo, the code on the platform is also updated and the actor is automatically rebuilt. Also, you don't have to use a GitHub repository - you can use GitLab or any other service you'd like.
 
 ### Creating the actor
 
