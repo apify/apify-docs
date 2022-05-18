@@ -433,6 +433,7 @@ The HTTP request must have the `Content-Type: application/json` HTTP header!
 The actor needs to define at least one version of the source code.
 For more information, see [Version object](#reference/actors/version-object).
 
+If you want to make your actor public using `isRequired: true`, you will need to provide the `categories` under which that actor will be classified in Apify Store. [Visit the Store](https://apify.com/store) to see list of available categories. You will also need to add the actor's [`title`](https://docs.apify.com/actors/publishing#title).
 
 + Request (application/json)
 
@@ -474,6 +475,8 @@ The response is the full actor object as returned by the
 The request needs to specify the `Content-Type: application/json` HTTP header!
 
 When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+
+If you want to make your actor public using `isRequired: true`, you will need to provide the `categories` under which that actor will be classified in Apify Store. [Visit the Store](https://apify.com/store) to see list of available categories. You will also need to add the actor's [`title`](https://docs.apify.com/actors/publishing#title).
 
 + Request (application/json)
 
@@ -3662,8 +3665,13 @@ The user account is identified by the provided authentication token.
 ## ActCreate (object)
 - name:             `MyActor`                  (string, nullable)
 - description:      `My favourite actor!`      (string, nullable)
+- title:            `My actor`                 (string, nullable)
 - isPublic:         false                      (boolean, nullable)
-- title:            `My Actor`                 (string, nullable)
+- categories        []                         (array, nullable)
+- seoTitle          `My actor`                 (string, nullable)
+- seoDescription    `My actor is the best`     (string, nullable)
+- isAnonymouslyRunnable  false                 (boolean, nullable)
+- issuesEnabled     true                       (boolean, nullable)
 - restartOnError:   false                      (boolean, nullable)
 - versions                                     (array, nullable)
     -                                          (VersionUpdate, nullable)
@@ -3676,6 +3684,11 @@ The user account is identified by the provided authentication token.
 - name:             `MyActor`                  (string, required)
 - description:      `My favourite actor!`      (string, nullable)
 - isPublic:         false                      (boolean, required)
+- categories        []                         (array, nullable)
+- seoTitle          `My actor`                 (string, nullable)
+- seoDescription    `My actor is the best`     (string, nullable)
+- isAnonymouslyRunnable  false                 (boolean, nullable)
+- issuesEnabled     true                       (boolean, nullable)
 - title:            `My Actor`                 (string, nullable)
 - restartOnError:   false                      (boolean, nullable)
 - versions                                     (array, required)
