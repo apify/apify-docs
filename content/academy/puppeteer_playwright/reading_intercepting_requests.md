@@ -159,8 +159,12 @@ page.on('response', async (res) => {
     if (!res.request().url().includes('followings')) return;
 
     // Grab the response body in JSON format
-    const json = await res.json();
-    console.log(json);
+    try {
+        const json = await res.json();
+        console.log(json);
+    } catch (err) {
+        console.error('Response wasn't JSON or failed to parse response.')
+    }
 });
 </marked-tab>
 <marked-tab header="Puppeteer" lang="javascript">
@@ -169,11 +173,17 @@ page.on('response', async (res) => {
     if (!res.request().url().includes('followings')) return;
 
     // Grab the response body in JSON format
-    const json = await res.json();
-    console.log(json);
+    try {
+        const json = await res.json();
+        console.log(json);
+    } catch (err) {
+        console.error('Response wasn't JSON or failed to parse response.')
+    }
 });
 </marked-tab>
 ```
+
+> Take notice of our usage of a `try...catch` block. This is because if the response is not JSON, the `res.json()` function will fail and throw an error, which we must handle to prevent any unexpected crashes.
 
 Upon running this code, we'll see the API response logged into the console:
 
