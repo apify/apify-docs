@@ -24,7 +24,7 @@ Praise [clean code](https://blog.risingstack.com/javascript-clean-coding-best-pr
 
 Define any [constant variables](https://softwareengineering.stackexchange.com/questions/250619/best-practices-reasons-for-string-constants-in-javascript) that globally apply to the scraper in a single file named **constants.js**, from where they will all be imported. Constant variable names should be in `UPPERCASE_WITH_UNDERSCORES` style.
 
-> If you have a whole lot of constant variables, they can be in a folder named **constant** organized into different files.
+> If you have a whole lot of constant variables, they can be in a folder named **constants** organized into different files.
 
 ### [](#use-es6) Use modern ES6 JavaScript
 
@@ -36,7 +36,7 @@ If you're writing your scraper in JavaScript, use [ES6](https://www.w3schools.co
 
 Avoid using [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)) as much as possible. Either declare them as a **constant** variable in your **constants.js** file, or if they are only used once, add a comment explaining what the number is.
 
-Don't write code lke this:
+Don't write code like this:
 
 ```JavaScript
 const x = (y) => (y - 32) * (5 / 9);
@@ -49,7 +49,7 @@ That is quite confusing due to the undescriptive naming and the magic numbers. D
 const fahrenheitToCelsius = (celsius) => (celsius - 32) * (5 / 9);
 ```
 
-> Additionally, try to make values for options such as `maxRequestRetries` in the Apify SDK configurable via input. If they absolutely must be a strict value, make them a constant variable.
+<!-- > Additionally, try to make values for options such as `maxRequestRetries` in the Apify SDK configurable via input. If they absolutely must be a strict value, make them a constant variable. -->
 
 ### [](#use-comments) Use comments!
 
@@ -89,6 +89,8 @@ When allowing your users to pass input properties which could break the scraper 
 
 Validate the input provided by the user! This should be the very first thing your scraper does. If the fields in the input are missing or in an incorrect type/format, either parse the value and correct it programmatically or throw an informative error telling the user how to fix the error.
 
+> On the Apify platform, you can use the [input schema]({{@link apify_platform/deploying_your_code/input_schema.md}}) both easily validate inputs and generate a clean UI for users.
+
 ## [](#error-handling) Error handling
 
 Errors are bound to occur in scrapers. Perhaps it got blocked, or perhaps the data scraped was corrupted in some way.
@@ -111,11 +113,13 @@ This doesn't mean that you should absolutely litter your code with `try...catch`
 
 > If the error that has occurred renders that run of the scraper completely useless, exit the process immediately.
 
-Logging is the minimum you should be doing though. For example, if you have an entire object of scraped data and just the **price** field fails to be parsed, that object should not be thrown away. Rather, it should still be pushed to the output and a log message like this should appear:
+Logging is the minimum you should be doing though. For example, if you have an entire object of scraped data and just the **price** field fails to be parsed, you might not want to throw away the rest of that data. Rather, it could still be pushed to the output and a log message like this could appear:
 
 ```text
 We could not parse the price of product: Men's Trainers Orange, pushing anyways.
 ```
+
+This really depends on your use case though. If you want 100% clean data, you might not want to push incomplete objects and just retry (ideally) or log an error message instead.
 
 ## [](#recap) Recap
 
