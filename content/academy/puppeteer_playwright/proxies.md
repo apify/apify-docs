@@ -14,7 +14,7 @@ In this lesson, we'll be learning how to use proxies with Playwright and Puppete
 
 ## [](#adding-a-proxy) Adding a proxy
 
-First, let's go ahead and create a variable called `proxy` which will point to our proxy server:
+First, let's add our familiar boilerplate code for visiting Google and also create a variable called `proxy` which will point to our proxy server:
 
 > Note that this proxy may no longer be working at the time of reading. If you don't have a proxy to use during this lesson, we recommend using Proxy Scraper for a list of free ones, or checking out [Apify proxy](https://apify.com/proxy)
 
