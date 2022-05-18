@@ -52,6 +52,8 @@ If you're logged in to the Apify CLI, the `apify push` command can be used to pu
 
 One important thing to note is that you can use a `.gitignore` file to exclude files from being pushed. When you use `apify push` without a `.gitignore`, the full folder contents will be pushed, meaning that even the even **apify_storage** and **node_modules** will be pushed. These files are unnecessary to push, as they are both generated on the platform.
 
+> The `apify push` command should only really be used for quickly pushing and testing actors on the platform during development. If you are ready to make your actor public, use a Git repository instead, as you will reap the benefits of using Git and others will be able to contribute to the project.
+
 ## [](#deployed) Deployed!
 
 Great! Once you've pushed your actor to the platform, you should see it in the list of actors under the **Actors** tab. If you used `apify push`, you'll have access to the **multifile editor** (discussed [here]({{@link apify_platform/getting_started/creating_actors.md}})).

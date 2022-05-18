@@ -12,6 +12,8 @@ This section will discuss how to use your newfound knowledge of the Apify platfo
 
 Because actors are basically just chunks of code running in Docker containers, you're able to **_Actorify_** just about anything!
 
+![The deployment workflow]({{@asset apify_platform/images/deployment-workflow.webp}})
+
 Actors are language agnostic, which means that the language your project is written in does not affect your ability to actorify it. Though the majority of actors currently on the platform were written in Node.js, there are a few examples in other languages:
 
 - [Actor written in Rust](https://apify.com/lukaskrivka/rust-actor-example)
