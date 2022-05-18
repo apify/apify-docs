@@ -1,7 +1,7 @@
 ---
 title: IV - Reading & intercepting requests
 description: You can use DevTools, but did you know that you can do all the same stuff (plus more) programmatically? Read and intercept requests in Puppeteer/Playwright.
-menuWeight: 7.5
+menuWeight: 7.4
 paths:
     - puppeteer-playwright/reading-intercepting-requests
 ---
