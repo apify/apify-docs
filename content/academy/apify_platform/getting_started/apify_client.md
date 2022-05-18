@@ -201,4 +201,4 @@ For a more in-depth understanding of the Apify API client, give these a quick lo
 
 ## [](#next) Next up
 
-Be on the lookout for new lessons coming very soon!
+Now that you're familiar and a bit more comfortable with the Apify platform, you're ready to start deploying your code to Apify! In the [next section]({{@link apify_platform/deploying_your_code.md}}), you'll learn how to take any project written in any programming language and turn it into an actor.
