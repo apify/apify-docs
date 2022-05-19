@@ -19,25 +19,25 @@ In development, it is crucial to check and adjust the configurations related to 
 
 Anti-scraping protections can work on many different layers and use a large amount of bot-identification techniques. There are two main ways a bot can be detected, which follow two different types of web scraping:
 
-1. Crawlers using HTTP requests
-2. Crawlers using browser automation (usually with a headless browser)
+1. Crawlers using **HTTP requests**
+2. Crawlers using **browser automation** (usually with a headless browser)
 
 Once a bot is detected, there are some countermeasures a website takes to prevent it from reaccessing it. The protection techniques are divided into two main categories:
 
-1. Uses only the information provided within the HTTP request, such as headers, IP addresses, TLC versions, ciphers, etc.
-2. Uses JavaScript evaluation to collect browser fingerprint, or even track the entity behavior on the website. These JavaScript evaluations can also track mouse movement, key pressed. Based on the information gathered, they can decide if the entity is a bot or a valid user. This method is often paired with the first one.
+1. Uses only the **information provided within the HTTP request**, such as headers, IP addresses, TLS versions, ciphers, etc.
+2. Uses **JavaScript evaluation to collect browser fingerprint**, or even track the user behavior on the website. These JavaScript evaluations can also track mouse movement or keys pressed. Based on the information gathered, they can decide if the user is a bot or a human. This method is often paired with the first one.
 
-Once one of these methods detects that the entity is a bot, it will take countermeasures depending on how advanced its techniques are.
+Once one of these methods detects that the user is a bot, it will take countermeasures depending on how advanced its techniques are.
 
 A common workflow of a website after it has detected a bot goes as follows:
 
-1. The bot is added to the "greylist" (a list of suspicious IP addresses, or any other value that can be used to uniquely identify the bot).
-2. A [Turing test](https://en.wikipedia.org/wiki/Turing_test) is provided to the bot (captcha). If the bot succeeds, it is added to the whitelist.
+1. The bot is added to the "greylist" (a list of suspicious IP addresses, fingerprints or any other value that can be used to uniquely identify the bot).
+2. A [Turing test](https://en.wikipedia.org/wiki/Turing_test) is provided to the bot. Typically a **captcha**. If the bot succeeds, it is added to the whitelist.
 3. If the captcha is failed, the bot is added to the blacklist.
 
 One thing to keep in mind while navigating through this course is that advanced scraping methods are able to identify non-humans not only by one value (such as a single header value, or IP address), but are able to identify them through more complex things such as header combinations.
 
-> For a visual + auditory in-depth explanation of anti-scraping, and how to fix issues caused by it, check out [this talk](https://www.youtube.com/watch?v=aXil0K-M-Vs) from [Ondra Urban](https://github.com/mnmkng).
+> For an in-depth video explanation of anti-scraping, and how to fix issues caused by it, check out [this talk](https://www.youtube.com/watch?v=aXil0K-M-Vs) from [Ondra Urban](https://github.com/mnmkng).
 
 ## [](#common-measures) Common anti-scraping measures
 
@@ -45,9 +45,9 @@ Because we here at Apify scrape for a living, we have discovered many popular an
 
 ### Browser fingerprinting
 
-One of the most successful methods is collecting the browser's "fingerprint", which is a fancy name for information such as fonts, audio codecs, canvas fingerprint, graphics card, and more. Browser fingerprints are highly unique, so they are a reliable means of identifying a specific user (or bot). If the fingerprint provides different/inconsistent information, the entity is added to the greylist.
+One of the most successful methods is collecting the browser's "fingerprint", which is a fancy name for information such as fonts, audio codecs, canvas fingerprint, graphics card, and more. Browser fingerprints are highly unique, so they are a reliable means of identifying a specific user (or bot). If the fingerprint provides different/inconsistent information, the user is added to the greylist.
 
-> It's important to note that this method also blocks all entities that cannot evaluate JavaScript (such as bots sending only static HTTP requests), and combines both of the fundamental methods mentioned earlier.
+> It's important to note that this method also blocks all users that cannot evaluate JavaScript (such as bots sending only static HTTP requests), and combines both of the fundamental methods mentioned earlier.
 
 ### Regular structure changes
 
@@ -65,7 +65,7 @@ Solely based on the way how the bots operate. It comperes data-rich pages visits
 
 ### IP session consistency
 
-This technique is commonly uses to entirely block the bot from accessing the website altogether. It works on the principle that every entity that accesses the site gets a token. This token is then saved together with the IP address and HTTP request information such as user-agent and other specific headers. If the entity makes another request, but without the session cookie, the IP address is added on the grey list.
+This technique is commonly uses to entirely block the bot from accessing the website altogether. It works on the principle that every entity that accesses the site gets a token. This token is then saved together with the IP address and HTTP request information such as user-agent and other specific headers. If the entity makes another request, but without the session token, the IP address is added on the grey list.
 
 ### IP rate-limiting
 
