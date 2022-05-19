@@ -39,9 +39,9 @@ await page.click('button + button');
 
 With `page.click()`, Puppeteer and Playwright actually drag the mouse and click, allowing the bot to act more human-like. This is different from programmatically clicking with `Element.click()` in vanilla client-side JavaScript.
 
-> If you're not already familiar with CSS selectors and how to find them, we recommend referring to [this lesson]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}) in the **Web scraping for beginners** course.
-
 Notice that in the Playwright example, we are using a different selector than in the Puppeteer example. This is because Playwright supports [many custom CSS selectors](https://playwright.dev/docs/selectors#text-selector), such as the **has-text** pseudo class. As a rule of thumb, using text selectors is much more preferable to using regular selectors, as they are much less likely to break. If Google makes the sibling above the **I agree** button a `<div>` element instead of a `<button>` element, our `button + button` selector will break. However, the button will always have the text **I agree**; therefore, `button:has-text("I agree")` is more reliable.
+
+> If you're not already familiar with CSS selectors and how to find them, we recommend referring to [this lesson]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}) in the **Web scraping for beginners** course.
 
 Then, we can type some text into an input field with `page.type()`; passing a CSS selector as the first, and the string to input as the second parameter:
 
