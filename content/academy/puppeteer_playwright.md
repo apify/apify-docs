@@ -59,6 +59,7 @@ npm install puppeteer
 5. [Using proxies]({{@link puppeteer_playwright/proxies.md}})
 6. [Creating multiple browser contexts]({{@link puppeteer_playwright/browser_contexts.md}})
 
+
 ## [](#next) Next up
 
 In the [first lesson]({{@link puppeteer_playwright/browser.md}}) of this course, we'll be learning a bit about how to create and use the **Browser** object.
