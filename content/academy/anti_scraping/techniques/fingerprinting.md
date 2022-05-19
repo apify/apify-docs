@@ -93,26 +93,75 @@ With the [Fingerprint generator](https://github.com/apify/fingerprint-generator)
 > It is crucial to generate fingerprints for the specific browser and operating system being used to trick the protections successfully. For example, if you are trying to overcome protection locally with Firefox on a macOS system, you should generate fingerprints for Firefox and macOS to achieve the best results.
 
 ```JavaScript
-const FingerprintGenerator = require('fingerprint-generator');
+import FingerprintGenerator from 'fingerprint-generator';
 
+// Instantiate the fingerprint generator with
+// configuration options
 const fingerprintGenerator = new FingerprintGenerator({
-        browsers: [
-            { name: "firefox", minVersion: 80 },
-        ],
-        devices: [
-            "desktop"
-        ],
-        operatingSystems: [
-            "windows"
-        ]
+  browsers: [
+      { name: "firefox", minVersion: 80 },
+  ],
+  devices: [
+      "desktop"
+  ],
+  operatingSystems: [
+      "windows"
+  ]
 });
 
-const { fingerprint, headers } = fingerprintGenerator.getFingerprint({
-        locales: ["en-US", "en"]
+// Grab a fingerprint
+const { fingerprint } = fingerprintGenerator.getFingerprint({
+  locales: ["en-US", "en"]
 });
 ```
 
-Once you've generated a fingerprint, it can be injected into the browser using the [Fingerprint injector](https://github.com/apify/fingerprint-injector) package. This tool allows you to inject fingerprints to browsers automated by Playwright or Puppeteer.
+Once you've generated a fingerprint, it can be injected into the browser using the [Fingerprint injector](https://github.com/apify/fingerprint-injector) package. This tool allows you to inject fingerprints to browsers automated by Playwright or Puppeteer:
+
+```JavaScript
+import FingerprintGenerator from 'fingerprint-generator';
+import { FingerprintInjector } from 'fingerprint-injector';
+import { chromium } from 'playwright';
+
+// Instantiate a fingerprint injector
+const fingerprintInjector = new FingerprintInjector();
+
+// Launch a browser in Playwright
+const browser = await chromium.launch();
+
+// Instantiate the fingerprint generator with
+// configuration options
+const fingerprintGenerator = new FingerprintGenerator({
+  browsers: [
+      { name: "firefox", minVersion: 80 },
+  ],
+  devices: [
+      "desktop"
+  ],
+  operatingSystems: [
+      "windows"
+  ]
+});
+
+// Grab a fingerprint
+const { fingerprint } = fingerprintGenerator.getFingerprint({
+  locales: ["en-US", "en"]
+});
+
+// Create a new browser context, plugging in
+// some values from the fingerprint
+const context = await browser.newContext({
+  userAgent: fingerprint.userAgent,
+  locale: fingerprint.navigator.language,
+});
+
+// Attach the fingerprint to the newly created
+// browser context
+await fingerprintInjector.attachFingerprintToPlaywright(context, fingerprint);
+
+// Create a new page and go to Google
+const page = await context.newPage();
+await page.goto('https://google.com');
+```
 
 ## [](#next) Next up
 
