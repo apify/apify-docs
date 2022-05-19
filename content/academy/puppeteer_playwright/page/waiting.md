@@ -146,4 +146,4 @@ await browser.close();
 
 ## [](#next) Next up
 
-In the [final lesson]({{@link puppeteer_playwright/page/page_methods.md}}) of the **Opening a page** section of this course, we'll be learning about various methods on **Page** which aren't related to directly interacting with a page or waiting for stuff, as well as finally adding the final touches to our mini-project (page title grabbing and screenshotting).
+In the [final lesson]({{@link puppeteer_playwright/page/page_methods.md}}) of the **Opening & controlling a page** section of this course, we'll be learning about various methods on **Page** which aren't related to directly interacting with a page or waiting for stuff, as well as finally adding the final touches to our mini-project (page title grabbing and screenshotting).
