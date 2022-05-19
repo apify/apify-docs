@@ -58,16 +58,6 @@ npm install puppeteer
 4. [Reading & intercepting requests]({{@link puppeteer_playwright/reading_intercepting_requests.md}})
 5. [Using proxies]({{@link puppeteer_playwright/proxies.md}})
 
-<!-- Everything that will be learned in the course -->
-
-<!-- Will be scraping fake-webstore -->
-<!-- 1. opening a page (talk about what is browsercontext, what is a page, what is headless vs headful - it's headless by default) -->
-<!-- 2. interacting with a page (talk about page.evaluate, page.click, page.type, etc.) -->
-<!-- 3. collecting data from a page (using page.evaluate, or also using cheerio (better option) - but with cheerio it's running in a different context) -->
-<!-- 4. Modifying headers, geolocation, adding proxies, etc. -->
-
-<!-- Don't forget: In each lesson, have marked tabs examples for both puppeteer and playwright -->
-
 ## [](#next) Next up
 
 In the [first lesson]({{@link puppeteer_playwright/browser.md}}) of this course, we'll be learning a bit about how to create and use the **Browser** object.
