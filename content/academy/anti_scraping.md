@@ -79,4 +79,4 @@ This type of bot identification is based on the given fact that humans are acces
 
 ## [](#next) Next up
 
-In our [first section]({{@link anti_scraping/proxies.md}}), we'll be discussing about one of the most crucial parts of web scraping and web-automation: how to properly leverage proxies to avoid many of the anti-scraping techniques listed above.
+In our [first section]({{@link anti_scraping/techniques.md}}), we'll be discussing more in-depth about the various anti-scraping methods and techniques websites use, as well as how to mitigate these protections.

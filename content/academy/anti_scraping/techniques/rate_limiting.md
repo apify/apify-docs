@@ -18,6 +18,8 @@ In cases when a higher number of requests is expected for the crawler, using a [
 
 In the Apify SDK, you can use [`browserPoolOptions.retireBrowserAfterPageCount`](https://github.com/apify/browser-pool#features) for browser-based crawlers (Puppeteer/Playwright) to retire a browser instance after a certain number of requests have been sent from it. In request-based crawlers, the [Session Pool](https://sdk.apify.com/docs/api/session-pool) can be leveraged.
 
+<!-- Add more here -->
+
 ## [](#next) Next up
 
 Though rate limiting is still common today, a lot of sites have improved over the years to use more complicated techniques such as **browser fingerprinting**, which is covered in the [next lesson]({{@link anti_scraping/techniques/fingerprinting.md}}).
