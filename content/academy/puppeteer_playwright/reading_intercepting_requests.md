@@ -191,7 +191,7 @@ Upon running this code, we'll see the API response logged into the console:
 
 ## [](#intercepting-requests) Intercepting requests
 
-One of the most popular ways of speeding up website loading in Puppeteer and Playwright is by blocking certain resources from loading. These resources are usually CSS files, images, and other miscellanous resources that aren't super necessary (mainly because the computer doesn't have eyes - it doesn't care how the website looks!).
+One of the most popular ways of speeding up website loading in Puppeteer and Playwright is by blocking certain resources from loading. These resources are usually CSS files, images, and other miscellaneous resources that aren't super necessary (mainly because the computer doesn't have eyes - it doesn't care how the website looks!).
 
 In Puppeteer, we must first enable request interception with the `page.setRequestInterception()` function. Then, we can check whether or not the request's resource ends with one of our blocked extensions. If so, we'll abort the request. Otherwise, we'll let it continue. All of this logic will still be within the `page.on()` method.
 
@@ -204,6 +204,8 @@ We'll first create an array of some file extensions that we'd like to block:
 ```JavaScript
 const blockedExtensions = ['.png', '.css', '.jpg', '.jpeg', '.pdf', '.svg'];
 ```
+
+Then, we'll `abort()` all requests that end with any of these extensions.
 
 ```marked-tabs
 <marked-tab header="Playwright" lang="javascript">
