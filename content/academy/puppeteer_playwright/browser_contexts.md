@@ -13,3 +13,4 @@ A [**BrowserContext**](https://playwright.dev/docs/api/class-browsercontext) is 
 When we create a **Browser** object by using the `launch()` function, a single [browser context](https://playwright.dev/docs/browser-contexts) is automatically created. In order to create more, we use the [`browser.newContext()`](https://playwright.dev/docs/api/class-browser#browser-new-context) function in Playwright, and [`browser.createIncognitoBrowserContext`](https://pptr.dev/#?product=Puppeteer&version=v14.1.0&show=api-browsercreateincognitobrowsercontextoptions) in Puppeteer.
 
 <!-- for the example create two different contexts, one with iPhone config. Then go to a website like what's my device or something and show the double results. -->
+<!-- Mention playwright.devices or puppeteer.devices -->
