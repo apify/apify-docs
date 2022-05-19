@@ -38,4 +38,4 @@ Another popular captcha is the [Geetest slider captcha](https://www.geetest.com/
 
 ## Wrap up
 
-In this course, you've learned about some of the most common (and some of the most advanced) anti-scraping techniques. Keep in mind that as the web (and technology in general) evolves, this section of the **Anti scraping** course will evolve as well.
+In this course, you've learned about some of the most common (and some of the most advanced) anti-scraping techniques. Keep in mind that as the web (and technology in general) evolves, this section of the **Anti scraping** course will evolve as well. In the [next section]({{@link anti_scraping/proxies.md}}), we'll be discussing one of the most crucial parts of web scraping and web-automation: how to properly leverage proxies to avoid many of the anti-scraping techniques that were discussed in this section.
