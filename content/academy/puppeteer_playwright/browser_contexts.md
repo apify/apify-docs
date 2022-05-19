@@ -95,7 +95,7 @@ We see that **deviceinfo.me** detects both contexts as using different devices, 
 
 ## [](#accessing-browser-contexts) Accessing browser contexts
 
-When working with multiple browser contexts, it can be difficult to keep track of all of them and repetitive when making changes to all of them. This is why the **Browser** instance returned from the `launch()` function also has a `contexts()` function (`newContexts()` in Puppeteer). This function returns an array of all the contexts that are currently attached to the browser.
+When working with multiple browser contexts, it can be difficult to keep track of all of them and repetitive when making changes to all of them. This is why the **Browser** instance returned from the `launch()` function also has a `contexts()` function (`browserContexts()` in Puppeteer). This function returns an array of all the contexts that are currently attached to the browser.
 
 Let's go ahead and use this function to loop through all of our browser contexts and make them log **Site visited** to the console whenever the website is visited:
 
