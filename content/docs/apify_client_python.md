@@ -1,6 +1,6 @@
 ---
 title: Python API client
-description: Simplified access to the Apify API from any Python application. Manage your actors, tasks and storage via API with the apify_client PyPI package.
+description: Simplified access to the Apify API from any Python application. Manage your actors, tasks and storage via API with the [apify_client PyPI package](https://pypi.org/project/apify-client/).
 category: developer tools
 menuWeight: 15
 paths:
