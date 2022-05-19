@@ -97,9 +97,7 @@ const FingerprintGenerator = require('fingerprint-generator');
 
 const fingerprintGenerator = new FingerprintGenerator({
         browsers: [
-            {name: "firefox", minVersion: 80},
-            {name: "chrome", minVersion: 87},
-            "safari"
+            { name: "firefox", minVersion: 80 },
         ],
         devices: [
             "desktop"
