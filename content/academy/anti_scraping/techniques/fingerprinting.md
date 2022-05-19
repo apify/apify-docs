@@ -108,9 +108,6 @@ const fingerprintGenerator = new FingerprintGenerator({
 });
 
 const { fingerprint, headers } = fingerprintGenerator.getFingerprint({
-        operatingSystems: [
-            "linux"
-        ],
         locales: ["en-US", "en"]
 });
 ```
