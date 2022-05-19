@@ -16,9 +16,40 @@ In cases when a higher number of requests is expected for the crawler, using a [
 
 ## [](#handling-rate-limiting) Dealing with sites which have rate-limiting
 
-In the Apify SDK, you can use [`browserPoolOptions.retireBrowserAfterPageCount`](https://github.com/apify/browser-pool#features) for browser-based crawlers (Puppeteer/Playwright) to retire a browser instance after a certain number of requests have been sent from it. In request-based crawlers, the [Session Pool](https://sdk.apify.com/docs/api/session-pool) can be leveraged.
+In the Apify SDK, you can use [`browserPoolOptions.retireBrowserAfterPageCount`](https://github.com/apify/browser-pool#features) for browser-based crawlers (Puppeteer/Playwright) to retire a browser instance after a certain number of requests have been sent from it. This will prevent the browser instance from sending too many requests to the page, avoiding the potential of hitting rate-limiting issues:
 
-<!-- Add more here -->
+```JavaScript
+import Apify from 'apify';
+
+const myCrawler = new Apify.PuppeteerCrawler({
+    browserPoolOptions: {
+        // Let's say the website starts blocking requests after
+        // 20 requests have been sent in the span of 1 minute from
+        // a single user.
+        // We can stay on the safe side and retire the browser
+        // after 15 pages (requests) have been opened.
+        retireBrowserAfterPageCount: 15,
+    },
+    // ...
+});
+```
+
+In request-based crawlers, the [Session Pool](https://sdk.apify.com/docs/api/session-pool) or a similar implementation of it can be leveraged:
+
+```JavaScript
+import Apify from 'apify';
+
+const myCrawler = new Apify.PuppeteerCrawler({
+    sessionPoolOptions: {
+        sessionOptions: {
+            maxUsageCount: 15,
+        },
+    },
+    // ...
+});
+```
+
+Often times though, as mentioned in the previous section of this lesson, rate-limiting is based on IP address. This calls for the need to not only use [proxies]({{@link anti_scraping/proxies.md}}), but also a proxy-rotation implementation in tandem with the methods mentioned above. Take a look at the [**Using proxies**]({{@link anti_scraping/proxies/using_proxies.md}}) lesson to learn more about how to use proxies and rotate them in the Apify SDK.
 
 ## [](#next) Next up
 
