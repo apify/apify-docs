@@ -67,7 +67,7 @@ const identifyFilesAndDirectories = async (currentPath, items, sourceDirPath) =>
                 && item !== 'api_v2'
                 && !items.includes(`${item}.md`)
             ) {
-                throw new Error(`The directory ${item} doesn't have a corresponding overview file ${item}.md. This will break the menu.`
+                throw new Error(`The directory "${item}" doesn't have a corresponding overview file "${item}.md". This will break the menu.`
                     + `\nPlease, add an overview for this section.`);
             }
 
