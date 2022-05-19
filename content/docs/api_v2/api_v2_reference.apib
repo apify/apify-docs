@@ -433,7 +433,7 @@ The HTTP request must have the `Content-Type: application/json` HTTP header!
 The actor needs to define at least one version of the source code.
 For more information, see [Version object](#reference/actors/version-object).
 
-If you want to make your actor public using `isRequired: true`, you will need to provide the `categories` under which that actor will be classified in Apify Store. [Visit the Store](https://apify.com/store) to see list of available categories. You will also need to add the actor's [`title`](https://docs.apify.com/actors/publishing#title).
+If you want to make your actor public using `isRequired: true`, you will need to provide the actor's [`title`](https://docs.apify.com/actors/publishing#title) and the `categories` under which that actor will be classified in Apify Store. For this, it's best to use the [constants from our `apify-shared-js` package](https://github.com/apify/apify-shared-js/blob/2d43ebc41ece9ad31cd6525bd523fb86939bf860/packages/consts/src/consts.ts#L452-L471).
 
 + Request (application/json)
 
@@ -476,7 +476,7 @@ The request needs to specify the `Content-Type: application/json` HTTP header!
 
 When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
-If you want to make your actor public using `isRequired: true`, you will need to provide the `categories` under which that actor will be classified in Apify Store. [Visit the Store](https://apify.com/store) to see list of available categories. You will also need to add the actor's [`title`](https://docs.apify.com/actors/publishing#title).
+If you want to make your actor public using `isRequired: true`, you will need to provide the actor's [`title`](https://docs.apify.com/actors/publishing#title) and the `categories` under which that actor will be classified in Apify Store. For this, it's best to use the [constants from our `apify-shared-js` package](https://github.com/apify/apify-shared-js/blob/2d43ebc41ece9ad31cd6525bd523fb86939bf860/packages/consts/src/consts.ts#L452-L471).
 
 + Request (application/json)
 
