@@ -1,6 +1,6 @@
 ---
 title: VI - Creating multiple browser contexts
-description: description
+description: Learn what a browser context is, how to create one, how to emulate devices, and how to use browser contexts to automate multiple sessions at one time.
 menuWeight: 7.6
 paths:
     - puppeteer-playwright/browser-contexts
@@ -8,9 +8,127 @@ paths:
 
 # [](#creating-browser-contexts) Creating multiple browser contexts
 
-A [**BrowserContext**](https://playwright.dev/docs/api/class-browsercontext) is an isolated session within a **Browser** instance. This means that contexts can have different device/screen size configurations, different language and color scheme settings, etc. It is useful to use multiple browser instances when dealing with automating logging into multiple accounts simultaneously (therefore requiring multiple sessions), or in any cases where multiple sessions are required.
+A [**BrowserContext**](https://playwright.dev/docs/api/class-browsercontext) is an isolated incognito session within a **Browser** instance. This means that contexts can have different device/screen size configurations, different language and color scheme settings, etc. It is useful to use multiple browser instances when dealing with automating logging into multiple accounts simultaneously (therefore requiring multiple sessions), or in any cases where multiple sessions are required.
 
-When we create a **Browser** object by using the `launch()` function, a single [browser context](https://playwright.dev/docs/browser-contexts) is automatically created. In order to create more, we use the [`browser.newContext()`](https://playwright.dev/docs/api/class-browser#browser-new-context) function in Playwright, and [`browser.createIncognitoBrowserContext`](https://pptr.dev/#?product=Puppeteer&version=v14.1.0&show=api-browsercreateincognitobrowsercontextoptions) in Puppeteer.
+When we create a **Browser** object by using the `launch()` function, a single [browser context](https://playwright.dev/docs/browser-contexts) is automatically created (only in Puppeteer). In order to create more, we use the [`browser.newContext()`](https://playwright.dev/docs/api/class-browser#browser-new-context) function in Playwright, and [`browser.createIncognitoBrowserContext`](https://pptr.dev/#?product=Puppeteer&version=v14.1.0&show=api-browsercreateincognitobrowsercontextoptions) in Puppeteer.
 
-<!-- for the example create two different contexts, one with iPhone config. Then go to a website like what's my device or something and show the double results. -->
-<!-- Mention playwright.devices or puppeteer.devices -->
+
+```marked-tabs
+<marked-tab header="Playwright" lang="javascript">
+const myNewContext = await browser.newContext();
+</marked-tab>
+<marked-tab header="Puppeteer" lang="javascript">
+const myNewContext = await browser.createIncognitoBrowserContext();
+</marked-tab>
+```
+
+## [](#using-browser-contexts) Using browser contexts
+
+In both Playwright and Puppeteer, various devices (iPhones, iPads, Androids, etc.) can be emulated by using [`playwright.devices`](https://playwright.dev/docs/api/class-playwright#playwright-devices) or [`puppeteer.devices`](https://pptr.dev/#?product=Puppeteer&version=v14.1.0&show=api-puppeteerdevices). We'll be using this to create two different browser contexts, one emulating an iPhone, and one emulating an Android:
+
+```marked-tabs
+<marked-tab header="Playwright" lang="javascript">
+import { chromium, devices } from 'playwright';
+
+// Launch the browser
+const browser = await chromium.launch({ headless: false });
+
+const iPhone = devices['iPhone 11 Pro'];
+// Create a new context for our iPhone emulation
+const iPhoneContext = await browser.newContext({ ...iPhone });
+// Open a page on the newly created iPhone context
+const iPhonePage = await iPhoneContext.newPage();
+
+const android = devices['Galaxy Note 3'];
+// Create a new context for our Android emulation
+const androidContext = await browser.newContext({ ...android });
+// Open a page on the newly created Android context
+const androidPage = await androidContext.newPage();
+
+// The code in the next step will go here
+
+await browser.close();
+</marked-tab>
+<marked-tab header="Puppeteer" lang="javascript">
+import puppeteer from 'puppeteer';
+
+// Launch the browser
+const browser = await puppeteer.launch({ headless: false });
+
+const iPhone = puppeteer.devices['iPhone 11 Pro'];
+// Create a new context for our iPhone emulation
+const iPhoneContext = await browser.createIncognitoBrowserContext();
+// Open a page on the newly created iPhone context
+const iPhonePage = await iPhoneContext.newPage();
+// Emulate the device
+await iPhonePage.emulate(iPhone);
+
+const android = puppeteer.devices['Galaxy Note 3'];
+// Create a new context for our Android emulation
+const androidContext = await browser.createIncognitoBrowserContext();
+// Open a page on the newly created Android context
+const androidPage = await androidContext.newPage();
+// Emulate the device
+await androidPage.emulate(android);
+
+// The code in the next step will go here
+
+await browser.close();
+</marked-tab>
+```
+
+Then, we'll make both `iPhonePage` and `androidPage` visit [deviceinfo.me](https://www.deviceinfo.me/), which is a website that  displays the type of device you have, the operating system you're using, and more device and location-specific information.
+
+```JavaScript
+// Go to deviceinfo.me on both at the same time
+await Promise.all([iPhonePage.goto('https://www.deviceinfo.me/'), androidPage.goto('https://www.deviceinfo.me/')]);
+
+// Wait for 10 seconds on both before shutting down
+await Promise.all([iPhonePage.waitForTimeout(10000), androidPage.waitForTimeout(10000)]);
+```
+
+Let's go ahead and run our code and analyze the data on each **deviceinfo.me** page. Here's what we see:
+
+![deviceinfo.me results for both browser contexts]({{@asset puppeteer_playwright/images/dual-contexts.jpg}})
+
+We see that **deviceinfo.me** detects both contexts as using different devices, despite the fact they're visiting the same page at the same time.  This shows firsthand that different browser contexts can have totally different configurations, as they all have separate sessions.
+
+## [](#accessing-browser-contexts) Accessing browser contexts
+
+When working with multiple browser contexts, it can be difficult to keep track of all of them and repetitive when making changes to all of them. This is why the **Browser** instance returned from the `launch()` function also has a `contexts()` function (`newContexts()` in Puppeteer). This function returns an array of all the contexts that are currently attached to the browser.
+
+Let's go ahead and use this function to loop through all of our browser contexts and make them log **Site visited** to the console whenever the website is visited:
+
+```marked-tabs
+<marked-tab header="Playwright" lang="javascript">
+for (const context of browser.contexts()) {
+    // In Playwright, lots of events are supported in the "on" function of
+    // a BrowserContext instance
+    context.on('request', (req) => req.url() === 'https://www.deviceinfo.me/' && console.log('Site visited'));
+}
+</marked-tab>
+<marked-tab header="Puppeteer" lang="javascript">
+for (const context of browser.browserContexts()) {
+    // In Puppeteer, only three events are supported in the "on" function
+    // of a BrowserContext instance
+    context.on('targetchanged', () => console.log('Site visited'));
+}
+</marked-tab>
+```
+
+After adding this above our `page.goto`s and running the code once again, we see this logged to the console:
+
+```text
+Site visited
+Site visited
+```
+
+Cool! So we've modified both our `iPhoneContext` and `androidContext`, as well as our default context (in Puppeteer), to log the message.
+
+> Note that the Puppeteer code and Playwright code are slightly different in the examples above. The Playwright code will log **Site visited** any time the specific URL is visited, while the Puppeteer code will log any time the target URL is changed to anything.
+
+Finally, in Puppeteer, you can use the `browser.defaultBrowserContext()` function to grab hold of the default context at any point.
+
+## Wrap up
+
+So far in this course, you've learned how to launch a browser, open a page, run scripts on a page, collect data from a page, intercept requests made on the page, use proxies, and use multiple browser contexts. Stay tuned for new lessons!
