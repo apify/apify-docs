@@ -1,7 +1,7 @@
 ---
 title: SwitchyOmega
 description: Discover SwitchyOmega, a Chrome extension to manage and switch between proxies, which is extremely useful when testing proxies for a scraper.
-menuWeight: 7.5
+menuWeight: 7.6
 paths:
     - tools/switchyomega
 ---
