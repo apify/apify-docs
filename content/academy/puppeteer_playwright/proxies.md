@@ -178,4 +178,4 @@ await page.authenticate({ username, password });
 
 ## [](#next) Next up
 
-something
+You already know how to launch a browser with various configurations, which means you're ready to [learn about browser contexts]({{@link puppeteer_playwright/browser_contexts.md}}). Browser contexts can be used to automate multiple sessions at once with completely different configurations. You'll also learn how to emulate different devices, such as iPhones, iPads, and Androids.
