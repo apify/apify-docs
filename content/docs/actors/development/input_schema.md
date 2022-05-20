@@ -18,7 +18,7 @@ An actor's input schema defines the input that the actor accepts and the UI comp
 Input schema must be stored in a file named **INPUT_SCHEMA.json** in the actor's root directory. The file's maximum size is 100 kB. If the input schema is provided, then input is always validated to fulfill the schema when an actor is being started (via API or from the console).
 
 > You can also use our [visual input schema editor](https://apify.github.io/input-schema-editor-react) to guide you through creation of the **INPUT_SCHEMA.json** file.
-<!-- -->
+
 > If you need to validate your input schemas, you can use the [`apify vis`]({{@link cli.md#apify-vis-path}}) command in the Apify CLI.
 
 ## Example
@@ -160,13 +160,14 @@ Properties:
 |Property|Value|Required|Description|
 |--- |--- |--- |--- |
 |`editor`|One of `textfield`, <br/>`textarea`, <br/>`javascript`, <br/>`select`, <br/>`hidden`|Yes|Visual editor used for <br/>the input field.|
-|`pattern`|String|No|Regular expression that will be <br/>used to validate the input.|
+|`pattern`|String|No|Regular expression that will be <br/>used to validate the input. <br/> If validation fails, <br/>the actor will not run.|
 |`minLength`|Integer|No|Minimum length of the string.|
 |`maxLength`|Integer|No|Maximum length of the string.|
 |`enum`|[String]|Required if <br/>`editor` <br/>is `select`|Using this field, you can limit values <br/>to the given array of strings. <br/>Input will be displayed as select box.|
 |`enumTitles`|[String]|No|Titles for the `enum` keys described.|
 |`nullable`|Boolean|No|Specifies whether `null` <br/>is an allowed value.|
 
+> When using escape characters `\` for the regular expression in the `pattern` field, be sure to escape them to avoid invalid JSON issues. For example, the regular expression `https:\/\/(www\.)?apify\.com\/.+` would become `https:\\/\\/(www\\.)?apify\\.com\\/.+`.
 
 ### Boolean
 
