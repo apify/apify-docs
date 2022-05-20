@@ -24,7 +24,7 @@ const myNewContext = await browser.createIncognitoBrowserContext();
 
 ## [](#persistent-vs-non-persistent) Persistent vs non-persistent browser contexts
 
-In both examples above, we are creating a new **non-persistent** browser context, which means that once it closes, all of its cookies, cache, etc. will be lost. For some cases, that's okay, but in most situations the performance hit from this is too large. This is why we have **persistent** browser contexts. Persistent browser contexts open up much quicker, as well as store all their cache, cookies, session storage, and local storage in a file on disk.
+In both examples above, we are creating a new **non-persistent** browser context, which means that once it closes, all of its cookies, cache, etc. will be lost. For some cases, that's okay, but in most situations the performance hit from this is too large. This is why we have **persistent** browser contexts. Persistent browser contexts open up a bit slower and they store all their cache, cookies, session storage, and local storage in a file on disk.
 
 In Puppeteer, the **default** browser context is the persistent one, while in Playwright we have to use use [`BrowserType.launchPersistentContext()`](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context) instead of `BrowserType.launch()` in order for the default context to be persistent.
 
