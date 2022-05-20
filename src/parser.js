@@ -59,8 +59,20 @@ const identifyFilesAndDirectories = async (currentPath, items, sourceDirPath) =>
         const itemFullPath = path.join(sourceDirPath, itemPath);
         const stat = await lstatPromised(itemFullPath);
 
-        if (stat.isDirectory()) dirPaths.push(itemPath);
-        else filePaths.push(itemPath);
+        if (stat.isDirectory()) {
+            // Check if the directory has a corresponding overview (.md) file and exit with error if not
+            // This does not apply to the `images` or `api_v2` dirs
+            if (
+                item !== 'images'
+                && item !== 'api_v2'
+                && !items.includes(`${item}.md`)
+            ) {
+                throw new Error(`The directory "${item}" doesn't have a corresponding overview file "${item}.md". This will break the menu.`
+                    + `\nPlease, add an overview for this section.`);
+            }
+
+            dirPaths.push(itemPath);
+        } else filePaths.push(itemPath);
     });
     await Promise.all(promises);
 
