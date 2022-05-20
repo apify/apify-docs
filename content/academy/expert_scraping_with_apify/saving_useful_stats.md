@@ -53,7 +53,7 @@ Also, an object including these values should be persisted during the run in th 
 }
 ```
 
-[Solution]({{@link expert_scraping_with_apify/solutions/saving_stats.md}})
+[**Solution**]({{@link expert_scraping_with_apify/solutions/saving_stats.md}})
 
 ## Wrap up
 
