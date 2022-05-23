@@ -13,26 +13,7 @@ paths:
 
 The **Source type** setting determines the location of the source code for the actor. It can have one of the following values: [Single JavaScript file](#single-javascript-file), [Multiple source files](#multiple-source-files), [Git repository](#git-repository), [Zip file](#zip-file) or [GitHub Gist](#github-gist).
 
-## [](#single-javascript-file)Single JavaScript file
-
-The source code of the actor can be hosted directly on Apify. All the code needs to be in a single file and written in JavaScript / Node.js. The version of Node.js is determined by the **Base image** setting - see [base Docker images]({{@link actors/development/base_docker_images.md}}) for the description of possible options.
-
-The hosted source is especially useful for simple actors. The source code can require arbitrary NPM packages. For example:
-
-```js
-const _ = require('underscore');
-const request = require('request');
-```
-
-During the build process, the source code is scanned for occurrences of the `require()` function and the corresponding NPM dependencies are automatically added to the **package.json** file by running:
-
-```bash
-npm install underscore request --save --only=prod --no-optional
-```
-
-Note that certain NPM packages need additional tools for their installation, such as a C compiler or Python interpreter. If these tools are not available in the base Docker image, the build will fail. If that happens, try to change the base image to **Node.js 10 + Puppeteer on Debian**, because it contains much more tools than other images. Alternatively, you can use switch to the [multifile editor](#custom-dockerfile) and create your own docker image configuration.
-
-## [](#multiple-source-files)Multiple source files
+## [](#multiple-source-files) Multiple source files
 
 If the actor's source code requires the use of multiple files/directories, then it can be hosted on the Apify platform using this option. This is particularly useful when you need to add [**INPUT_SCHEMA.json**]({{@link actors/development/source_code.md#input-schema}}) or **README.md** to your actor, or if you want to create your actor in a language other than JavaScript.
 
