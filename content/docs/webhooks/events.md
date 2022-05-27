@@ -10,7 +10,7 @@ paths:
 
 An event is represented by a **type** and related **data**. The type is a `string` that shows the event's name and its hierarchy in the tree of available events, e.g.: `ACTOR.RUN.SUCCEEDED`. The data are an `Object` with variable properties. See documentation of individual events for examples of data.
 
-> Currently, webhooks are only available for actor run events, with new types in the pipeline.
+> Currently, webhooks are only available for actor run and build events, with new types in the pipeline.
 
 ## [](#actor-run)Actor run
 
@@ -42,4 +42,27 @@ To fetch the results from the actor run, you can take the `actorRunId` event pro
 ```text
 https://api.apify.com/v2/actor-runs/[ACTOR_RUN_ID]/dataset/items?token=[TOKEN]
 ```
+
+
+## [](#actor-build)Actor build
+
+Actor build events are triggered when an actor build gets created or transitions into a new state. Webhook can be defined for all builds of an [actor]({{@link actors.md}}) at its detail page.
+
+### Event types
+
+* `ACTOR.BUILD.CREATED` - new actor build has been created.
+* `ACTOR.BUILD.SUCCEEDED` - actor build finished with status `SUCCEEDED`.
+* `ACTOR.BUILD.FAILED` - actor build finished with status `FAILED`.
+* `ACTOR.BUILD.ABORTED` - actor build finished with status `ABORTED`.
+* `ACTOR.BUILD.TIMED_OUT` - actor build finished with status `TIMED-OUT`.
+
+### Event data
+
+```json
+{
+    "actorId": "ID of the triggering actor.",
+    "actorBuildId": "ID of the triggering actor build.",
+}
+```
+
 
