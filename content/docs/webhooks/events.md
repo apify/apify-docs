@@ -10,13 +10,13 @@ paths:
 
 An event is represented by a **type** and related **data**. The type is a `string` that shows the event's name and its hierarchy in the tree of available events, e.g.: `ACTOR.RUN.SUCCEEDED`. The data are an `Object` with variable properties. See documentation of individual events for examples of data.
 
-> Currently, webhooks are only available for actor run events, with new types in the pipeline.
+> Currently, webhooks are only available for actor run and build events, with new types in the pipeline.
 
 ## [](#actor-run)Actor run
 
 Actor run events are triggered when an actor run gets created or transitions into a new state. Webhook can be defined for all runs of an [actor]({{@link actors.md}}) at its detail page or for a specific [actor task]({{@link actors/tasks.md}}) at its detail page. In that case, the webhook is invoked only for runs started for that task.
 
-### Event types
+### Run event types
 
 * `ACTOR.RUN.CREATED` - new actor run has been created.
 * `ACTOR.RUN.SUCCEEDED` - actor run finished with status `SUCCEEDED`.
@@ -25,7 +25,7 @@ Actor run events are triggered when an actor run gets created or transitions int
 * `ACTOR.RUN.TIMED_OUT` - actor run finished with status `TIMED-OUT`.
 * `ACTOR.RUN.RESURRECTED` - actor run has been resurrected.
 
-### Event data
+### Run event data
 
 ```json
 {
@@ -41,5 +41,27 @@ To fetch the results from the actor run, you can take the `actorRunId` event pro
 
 ```text
 https://api.apify.com/v2/actor-runs/[ACTOR_RUN_ID]/dataset/items?token=[TOKEN]
+```
+
+
+## [](#actor-build)Actor build
+
+Actor build events are triggered when an actor build is created or transitions into a new state. Webhooks can be defined for all of an [actor]({{@link actors.md}})'s builds on its detail page.
+
+### Build event types
+
+* `ACTOR.BUILD.CREATED` - new actor build has been created.
+* `ACTOR.BUILD.SUCCEEDED` - actor build finished with the status `SUCCEEDED`.
+* `ACTOR.BUILD.FAILED` - actor build finished with the status `FAILED`.
+* `ACTOR.BUILD.ABORTED` - actor build finished with the status `ABORTED`.
+* `ACTOR.BUILD.TIMED_OUT` - actor build finished with the status `TIMED-OUT`.
+
+### Build event data
+
+```json
+{
+    "actorId": "ID of the triggering actor.",
+    "actorBuildId": "ID of the triggering actor build.",
+}
 ```
 
