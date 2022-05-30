@@ -90,5 +90,5 @@ You may have noticed that the `eventData` and `resource` properties contain redu
 
 The `resource` variable represents the triggering system resource. For example when using the `ACTOR.RUN.SUCCEEDED` event, the resource is the actor run. The variable will be replaced by an `Object` that one would receive as response from the relevant API at the moment when the webhook is triggered. So for the actor run resource, it would be the response of the [Get actor run](https://docs.apify.com/api/v2#/reference/actors/actor-object/get-actor) API endpoint.
 
-If addition to actor runs webhooks also support various events of actor builds. In such case the resource object will look as the response of the
+In addition to actor runs, webhooks also support various events related to actor builds. In such cases, the resource object will look like the response of the
 [Get actor build](https://docs.apify.com/api/v2#/reference/actor-builds/build-object/get-build) API endpoint.
