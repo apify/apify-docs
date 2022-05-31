@@ -12,7 +12,7 @@ We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try 
 
 ## [](#getting-structured-data) Getting structured data from HTML
 
-When you open up the [on-sale section of Fakestore](https://demo-webstore.apify.org/search/on-sale), you'll see that there's a grid of products on the page with names and pictures of productsc. We will now learn how to collect all this information. Open DevTools and select the first product with the selector tool.
+When you open up the [on-sale section of Fakestore](https://demo-webstore.apify.org/search/on-sale), you'll see that there's a grid of products on the page with names and pictures of products. We will now learn how to collect all this information. Open DevTools and select the first product with the selector tool.
 
 ![Selecting an element with DevTools]({{@asset web_scraping_for_beginners/data_collection/images/selecting-first-website.webp}})
 
@@ -67,7 +67,7 @@ In the [Getting structured data from HTML](#getting-structured-data-from-html) s
 
 The `document.querySelector()` function looks for a specific element in the whole HTML `document`, so if we called it with `h3`, it would find the first `<h3>` node in the `document`. Luckily we can also use this function to look for elements within an element.
 
-There's a similar function called [`querySelectorAll()`](https://javascript.info/searching-elements-dom#querySelectorAll) that returns an array of all the elements matching the selector - not just the first one. We will use this function to grab all the elements holding our sought after data.
+There's a similar function called [`querySelectorAll()`](https://javascript.info/searching-elements-dom#querySelectorAll) that returns collection of all the elements matching the selector - not just the first one. We will use this function to grab all the elements holding our sought after data.
 
 > Learn more about `Arrays` in [this tutorial](https://javascript.info/array).
 
