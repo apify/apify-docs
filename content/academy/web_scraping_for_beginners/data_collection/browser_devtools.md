@@ -52,4 +52,4 @@ temp1.textContent = 'Hello!';
 
 ## [](#next) Next up
 
-In this lesson, we learned the absolute basics of interaction with a page using the DevTools. In the [next lesson]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}), you will learn how to extract data from it. We will collect data about the on-sale products on [this e-commerce website](this e-commerce website). This isn't a real website, just a demo site for the Academy which uses the latest technologies that a real-world modern e-commerce web-application would use.
+In this lesson, we learned the absolute basics of interaction with a page using the DevTools. In the [next lesson]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}), you will learn how to extract data from it. We will collect data about the on-sale products on [this e-commerce website](https://demo-webstore.apify.org). This isn't a real website, just a demo site for the Academy which uses the latest technologies that a real-world modern e-commerce web-application would use.

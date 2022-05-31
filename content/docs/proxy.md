@@ -37,7 +37,7 @@ To use your own proxies with Apify Console, in your actor's **Input and options*
 
 ### [](#SDK) Custom proxies in SDK
 
-In the Apify SDK, use the `proxyConfiguration.newUrl([sessionId])` command to add your custom proxy URLs to the proxy configuration. [See the SDK docs](http://username:password@custom-proxy.example.com) for more details.
+In the Apify SDK, use the `proxyConfiguration.newUrl([sessionId])` command to add your custom proxy URLs to the proxy configuration. [See the SDK docs](https://sdk.apify.com/docs/api/proxy-configuration#newurl) for more details.
 
 ## [](#ip-address-rotation) IP address rotation
 
