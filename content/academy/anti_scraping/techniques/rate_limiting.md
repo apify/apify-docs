@@ -22,6 +22,9 @@ In the Apify SDK, you can use [`browserPoolOptions.retireBrowserAfterPageCount`]
 import Apify from 'apify';
 
 const myCrawler = new Apify.PuppeteerCrawler({
+    proxyConfiguration: await Apify.createProxyConfiguration({
+        groups: ['RESIDENTIAL'],
+    }),
     browserPoolOptions: {
         // Let's say the website starts blocking requests after
         // 20 requests have been sent in the span of 1 minute from
@@ -29,6 +32,11 @@ const myCrawler = new Apify.PuppeteerCrawler({
         // We can stay on the safe side and retire the browser
         // after 15 pages (requests) have been opened.
         retireBrowserAfterPageCount: 15,
+    },
+    sessionPoolOptions: {
+        sessionOptions: {
+            maxUsageCount: 15,
+        },
     },
     // ...
 });
