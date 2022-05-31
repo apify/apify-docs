@@ -14,9 +14,13 @@ In the past, most websites had their own anti-scraping solutions, the most commo
 
 In cases when a higher number of requests is expected for the crawler, using a [proxy]({{@link anti_scraping/proxies.md}}) and rotating the IPs is essential to let the crawler run as smoothly as possible and avoid being blocked.
 
-## [](#handling-rate-limiting) Dealing with sites which have rate-limiting
+## [](#dealing-with-rate-limiting) Dealing rate limiting with proxy/session rotating
 
-In the Apify SDK, you can use [`browserPoolOptions.retireBrowserAfterPageCount`](https://github.com/apify/browser-pool#features) for browser-based crawlers (Puppeteer/Playwright) to retire a browser instance after a certain number of requests have been sent from it. This will prevent the browser instance from sending too many requests to the page, avoiding the potential of hitting rate-limiting issues:
+The most popular and effective way of avoiding rate-limiting issues is by rotating [proxies]({{@link anti_scraping/proxies.md}}) after every **n** number of requests, which makes your scraper appear as if it is making requests from various different places. Since the majority of rate-limiting solutions are based on IP addresses, rotating IPs allows a scraper to make large amounts to a website without getting restricted.
+
+In the Apify SDK, proxies are automatically rotated for you when you use `proxyConfiguration` and a [**SessionPool**]((https://sdk.apify.com/docs/api/session-pool)) within a crawler. The SessionPool handles a lot of the nitty gritty of proxy rotating, especially with [browser based crawlers]({{@link puppeteer_playwright.md}}) by retiring a browser instance after a certain number of requests have been sent from it in order to use a new proxy (a browser instance must be retired in order to use a new proxy).
+
+Here is an example of these features being used in a **PuppeteerCrawler** instance:
 
 ```JavaScript
 import Apify from 'apify';
@@ -25,16 +29,14 @@ const myCrawler = new Apify.PuppeteerCrawler({
     proxyConfiguration: await Apify.createProxyConfiguration({
         groups: ['RESIDENTIAL'],
     }),
-    browserPoolOptions: {
-        // Let's say the website starts blocking requests after
-        // 20 requests have been sent in the span of 1 minute from
-        // a single user.
-        // We can stay on the safe side and retire the browser
-        // after 15 pages (requests) have been opened.
-        retireBrowserAfterPageCount: 15,
-    },
     sessionPoolOptions: {
+        // Note that a proxy is tied to a session
         sessionOptions: {
+            // Let's say the website starts blocking requests after
+            // 20 requests have been sent in the span of 1 minute from
+            // a single user.
+            // We can stay on the safe side and retire the browser
+            // and rotate proxies after 15 pages (requests) have been opened.
             maxUsageCount: 15,
         },
     },
@@ -42,22 +44,15 @@ const myCrawler = new Apify.PuppeteerCrawler({
 });
 ```
 
-In request-based crawlers, the [Session Pool](https://sdk.apify.com/docs/api/session-pool) or a similar implementation of it can be leveraged:
+> Take a look at the [**Using proxies**]({{@link anti_scraping/proxies/using_proxies.md}}) lesson to learn more about how to use proxies and rotate them in the Apify SDK.
 
-```JavaScript
-import Apify from 'apify';
+### [](#configuring-session-pool) Configuring a session pool
 
-const myCrawler = new Apify.PuppeteerCrawler({
-    sessionPoolOptions: {
-        sessionOptions: {
-            maxUsageCount: 15,
-        },
-    },
-    // ...
-});
-```
+There are various configuration options available in `sessionPoolOptions` that can be used to set up the SessionPool for different rate-limiting scenarios. In the example above, we used `maxUsageCount` within `sessionOptions` to prevent more than 15 requests from being sent using a session before it was thrown away; however, a maximum age can also be set using `maxAgeSecs`.
 
-Often times though, as mentioned in the previous section of this lesson, rate-limiting is based on IP address. This calls for the need to not only use [proxies]({{@link anti_scraping/proxies.md}}), but also a proxy-rotation implementation in tandem with the methods mentioned above. Take a look at the [**Using proxies**]({{@link anti_scraping/proxies/using_proxies.md}}) lesson to learn more about how to use proxies and rotate them in the Apify SDK.
+When dealing with frequent and unpredictable blockage, the `maxErrorScore` option can be set to trash a session after it's hit a certain number of errors.
+
+To learn more about all configurations available in `sessionPoolOptions`, refer to the [SDK documentation](https://sdk.apify.com/docs/typedefs/session-pool-options).
 
 ## [](#next) Next up
 
