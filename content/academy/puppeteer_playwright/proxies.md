@@ -1,7 +1,7 @@
 ---
 title: V - Using proxies
 description: Understand how to use proxies in your Puppeteer and Playwright requests, as well as a couple of the most common use cases for proxies.
-menuWeight: 7.6
+menuWeight: 7.5
 paths:
     - puppeteer-playwright/proxies
 ---
@@ -176,8 +176,6 @@ await page.authenticate({ username, password });
 </marked-tab>
 ```
 
-## Wrap up
+## [](#next) Next up
 
-So far in this course, you've learned how to launch a browser, open a page, run scripts on a page, collect data from a page, intercept requests made on the page, and use proxies. In future lessons, you'll be learning about managing multiple pages, browser contexts, configuring proxies, and more.
-
-Stay tuned for new lessons!
+You already know how to launch a browser with various configurations, which means you're ready to [learn about browser contexts]({{@link puppeteer_playwright/browser_contexts.md}}). Browser contexts can be used to automate multiple sessions at once with completely different configurations. You'll also learn how to emulate different devices, such as iPhones, iPads, and Androids.

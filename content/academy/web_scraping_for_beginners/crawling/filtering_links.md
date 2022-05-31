@@ -86,7 +86,7 @@ https://demo-webstore.apify.org/product/{PRODUCT-NAME}
 Now, we'll create a regular expression that matches those links. There are many ways to do this. For simplicity, let's go with this one:
 
 ```RegExp
-demo-webstore\.apify\.org\/product\/[a-z|-]*
+demo-webstore\.apify\.org\/product\/[a-z|0-9|-]*
 ```
 
 This regular expression matches all URLs that include the `demo-webstore.apify.org/product/` substring immediately following with any number of letters or dashes `-`.
@@ -99,7 +99,7 @@ To test our regular expression in the DevTools console, we'll first create a [`R
 // To demonstrate pattern matching, we use only the 'a'
 // selector to select all links on the page.
 for (const a of document.querySelectorAll('a')) {
-    const regExp = new RegExp(/demo-webstore\.apify\.org\/product\/[a-z|-]*/);
+    const regExp = /demo-webstore\.apify\.org\/product\/[a-z|0-9|-]*/;
     const url = a.href;
     if (regExp.test(url)) console.log(url);
 }
