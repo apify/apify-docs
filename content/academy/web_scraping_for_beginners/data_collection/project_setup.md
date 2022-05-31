@@ -42,7 +42,7 @@ Node.js and NPM support two types of projects, let's call them legacy and modern
 Now that we have a project set up, we can install NPM modules into the project. We will do that and install libraries that will help us very easily download and process websites' HTML. In the project directory, run the following command, which will install two libraries into your project. **got-scraping** and Cheerio.
 
 ```shell
-npm install --save got-scraping cheerio
+npm install got-scraping cheerio
 ```
 
 [**got-scraping**](https://github.com/apify/got-scraping) is a library that's made especially for scraping and downloading page's HTML. It's based on the very popular [**got** library](https://github.com/sindresorhus/got), which means any features of **got** are also available in **got-scraping**. More precisely, **got** and **got-scraping** are HTTP clients. To learn more about HTTP, [visit this MDN tutorial](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP).

@@ -38,7 +38,7 @@ const products = $('a[href*="/product/"]');
 for (const product of products) {
     const element = $(product);
 
-    console.log(element.textContent);
+    console.log(element.text());
 }
 ```
 

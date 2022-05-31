@@ -28,7 +28,7 @@ After clicking on **Use template**, you should be brought to a page that looks l
 
 ![Multifile editor]({{@asset apify_platform/getting_started/images/multifile-editor.webp}})
 
-The area where you can see some code and files is the called the **multifile editor**, and it is your gateway to writing actor directly on the Apify platform.
+The area where you can see some code and files is called the **multifile editor**, and it is your gateway to writing actor directly on the Apify platform.
 
 > It is also possible to deploy code to the platform from a Github repo or from your local environment, which we will be getting into in some of this course's future lessons
 
