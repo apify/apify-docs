@@ -82,11 +82,11 @@ We can see that the code is extremely similar. Both scripts download HTML and th
 1. Visit the start URL.
 2. Collect next URLs (and data) and save them.
 3. Visit one of the collected URLs and save data and/or more URLs.
-4. Repeat 2 and 3 until you have everything you needed.
+4. Repeat step 3 until you have everything you needed.
 
 Using this flow as guidance, we should be able to connect the pieces of code together to build a scraper which crawls through the products found on the on-sale page of Fakestore, then scrapes the title, description, and price of each of them.
 
-> We will be using slightly new code to write the new scraper, but the flow and logic will be the same as the two code snippets above. First, we'll visit the on-sale products, page, scrape each product's link, then download each product page's HTML and finally scrape the data from each product.
+> We will be using slightly new code to write the new scraper, but the flow and logic will be the same as the two code snippets above. First, we'll visit the on-sale products page, scrape each product's link, then download each product page's HTML and finally scrape the data from each product.
 
 ## [](#building-scraper) Building the scraper
 
