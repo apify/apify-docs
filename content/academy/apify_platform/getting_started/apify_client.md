@@ -83,7 +83,7 @@ Once an actor's run has completed, it will return a **run info** object that loo
 
 ![Run info object]({{@asset apify_platform/getting_started/images/run-info.webp}})
 
-The `run` variable we created in the last section points to the **run info** object of the run we created with the `.call()` function, which means tha through this variable, we can access the run's `defaultDatasetId`. This ID can then be passed into the `client.dataset()` function.
+The `run` variable we created in the last section points to the **run info** object of the run we created with the `.call()` function, which means that through this variable, we can access the run's `defaultDatasetId`. This ID can then be passed into the `client.dataset()` function.
 
 ```marked-tabs
 <marked-tab header="Node.js" lang="javascript">

@@ -61,7 +61,7 @@ Don't be shy to add comments to your code! Even when using descriptive function 
 
 Logging helps you understand exact what your scraper is doing. Generally, having more logs is better than having less. Especially make sure to log your `catch` blocks - no error should pass unseen unless there is a good reason.
 
-For scrapers than will run longer than usual, keep track of some useful stats (such as **itemsScraped** or **errorsHit**) and log them to the console on an interval.
+For scrapers that will run longer than usual, keep track of some useful stats (such as **itemsScraped** or **errorsHit**) and log them to the console on an interval.
 
 The meaning of your log messages should make sense to an outsider who is not familiar with the inner workings of your scraper. Avoid log lines with just numbers or just URLs - always identify what the number/string means.
 
@@ -89,7 +89,7 @@ When allowing your users to pass input properties which could break the scraper 
 
 Validate the input provided by the user! This should be the very first thing your scraper does. If the fields in the input are missing or in an incorrect type/format, either parse the value and correct it programmatically or throw an informative error telling the user how to fix the error.
 
-> On the Apify platform, you can use the [input schema]({{@link apify_platform/deploying_your_code/input_schema.md}}) both easily validate inputs and generate a clean UI for users.
+> On the Apify platform, you can use the [input schema]({{@link apify_platform/deploying_your_code/input_schema.md}}) to both easily validate inputs and generate a clean UI for users.
 
 ## [](#error-handling) Error handling
 

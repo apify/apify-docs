@@ -14,6 +14,8 @@ In the last lesson, we were able collect data about all the on-sale products fro
 
 It might look like a big programming challenge to transform a JavaScript object into a CSV, but thanks to NPM, this is going to be a walk in the park. After googling **json to csv npm** we found that there's a library called [`json2csv`](https://www.npmjs.com/package/json2csv) that can convert a JavaScript object to CSV format with a single function call. _Perfect!_
 
+> To install `json2csv`, run `npm i json2csv` in your project
+
 First, we need to import the `parse()` function from the library.
 
 ```JavaScript
