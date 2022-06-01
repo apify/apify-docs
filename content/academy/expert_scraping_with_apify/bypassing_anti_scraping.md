@@ -35,7 +35,7 @@ You might have already noticed that we've been using the **RESIDENTIAL** proxy g
 
 ## Our task
 
-This time, we're going to build a trivial proxy-session manager for our Amazon scraping actor. A session should be used a maximum of 5 times prior to being rotated; however, if a request fails, the IP should be rotated immediately.
+This time, we're going to build a trivial proxy-session manager for our Amazon scraping actor. A session should be used a maximum of 5 times before being rotated; however, if a request fails, the IP should be rotated immediately.
 
 Additionally, the proxies used by our scraper should now only be from the US.
 
