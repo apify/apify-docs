@@ -98,7 +98,7 @@ const proxyConfiguration = await Apify.createProxyConfiguration({
 
 **A:** No, because most websites tie an IP address to a session. If you start making requests with cookies used with a different IP address, the website might see it as unusual activity and either block the scraper or automatically log out.
 
-**Q: Construct a proxy URL that will select proxies only from the US**
+**Q: Construct a proxy URL that will select proxies only from the US.**
 
 **A:** `http://country-US:<proxy_password>@proxy.apify.com:8000`
 
