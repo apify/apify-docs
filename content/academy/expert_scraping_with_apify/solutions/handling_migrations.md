@@ -26,12 +26,12 @@ class ASINTracker {
     // Add an offer to the ASIN's offer count
     // If ASIN doesn't exist yet, set it to 0
     incrementASIN(asin) {
-        if (!this.state[asin]) {
+        if (this.state[asin] === undefined) {
             this.state[asin] = 0;
             return;
         }
 
-        this.state[asin]++;
+        this.state[asin]+= 1;
     }
 }
 
@@ -143,12 +143,12 @@ class ASINTracker {
     }
 
     incrementASIN(asin) {
-        if (!this.state[asin]) {
+        if (this.state[asin] === undefined) {
             this.state[asin] = 0;
             return;
         }
 
-        this.state[asin]++;
+        this.state[asin]+= 1;
     }
 }
 
@@ -188,12 +188,12 @@ class ASINTracker {
     }
 
     incrementASIN(asin) {
-        if (!this.state[asin]) {
+        if (this.state[asin] === undefined) {
             this.state[asin] = 0;
             return;
         }
 
-        this.state[asin]++;
+        this.state[asin]+= 1;
     }
 }
 
