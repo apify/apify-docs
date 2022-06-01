@@ -102,7 +102,7 @@ These URLs provide links to API **endpoints**–the places where your data are s
 
 ### [](#apify-sdk) Apify SDK
 
-The [Apify SDK](https://sdk.apify.com) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions. It requires [Node.js](https://nodejs.org/en/) 10.17 or later, with the exception of **Node.js 11**.
+The [Apify SDK](https://sdk.apify.com) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions. It requires [Node.js](https://nodejs.org/en/) 14.19.3 or later.
 
 [See the SDK documentation](https://sdk.apify.com/docs/guides/getting-started) for setup instructions and to learn how to build your own actors.
 
