@@ -1,6 +1,6 @@
 ---
 title: VII - Bypassing anti-scraping methods
-description: description
+description: Learn about bypassing anti-scraping methods with proxies, proxy rotation, and session rotation. Use the Apify SDK to your advantage to abstract away the overheads that come with these concepts.
 menuWeight: 6.7
 paths:
     - expert-scraping-with-apify/bypassing-anti-scraping

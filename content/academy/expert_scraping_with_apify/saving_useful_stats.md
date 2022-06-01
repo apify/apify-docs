@@ -1,6 +1,6 @@
 ---
 title: VIII - Saving useful run statistics
-description: description
+description: Understand how to save statistics about an actor's run, and why you might want to do so.
 menuWeight: 6.8
 paths:
     - expert-scraping-with-apify/saving-useful-stats
@@ -23,7 +23,7 @@ Before moving on, give these valuable resources a quick lookover:
 ## [](#quiz) Knowledge check 📝
 
 1. Why might you want to store statistics about an actor's run (or a specific request)?
-2. In our Amazon scraper, we are trying to store the number of retries of a request once its data is pushed to the dataset. Where would you get this information? Where would you store it? Why?
+2. In our Amazon scraper, we are trying to store the number of retries of a request once its data is pushed to the dataset. Where would you get this information? Where would you store it?
 3. We are building a new imaginary scraper for a website that sometimes displays captchas at unexpected times, rather than displaying the content we want. How would you keep a count of the total number of captchas hit for the entire run? Where would you store this data? Why?
 4. Is storing these types of values necessary for every single actor?
 
