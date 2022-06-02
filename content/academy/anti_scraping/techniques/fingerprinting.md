@@ -163,6 +163,8 @@ const page = await context.newPage();
 await page.goto('https://google.com');
 ```
 
+> Note that the Apify SDK automatically applies wide variety fingerprints by default, so it is not required to do this unless you need a super specific custom fingerprint to scrape with.
+
 ## [](#next) Next up
 
 [Next up]({{@link anti_scraping/techniques/geolocation.md}}), we'll be covering **geolocation** methods that websites use to grab the location from which a request has been made, and how they relate to anti-scraping.
