@@ -91,7 +91,7 @@ const proxyConfiguration = await Apify.createProxyConfiguration({
 
 **Q: How can you prevent an error from occurring if one of the proxy groups that a user has is removed? What are the best practices for these scenarios?**
 
-**A:** By making the proxy for the scraper to use be configurable by the user through the actor's input. That way, they can easily switch proxies if the actor stop working due to proxy-related issues. It can als be done by using the **AUTO** proxy instead of specific groups.
+**A:** By making the proxy for the scraper to use be configurable by the user through the actor's input. That way, they can easily switch proxies if the actor stop working due to proxy-related issues. It can also be done by using the **AUTO** proxy instead of specific groups.
 
 **Q: Does it make sense to rotate proxies when you are logged into a website?**
 
