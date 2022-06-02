@@ -9,7 +9,7 @@ paths:
 
 # [](#expert-scraping) Expert scraping with Apify
 
-This course will teach you the nitty gritty of what it takes to build pro-level scrapers with Apify.
+This course will teach you the nitty gritty of what it takes to build pro-level scrapers with Apify. We recommend that you've at least looked through all of the other courses in the academy prior to taking this one on.
 
 ## [](#preparations) Preparations
 
