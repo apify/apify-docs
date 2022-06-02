@@ -32,9 +32,9 @@ There are tons of different types of captchas, but one of the most popular is Go
 
 ![Google's reCAPTCHA](https://miro.medium.com/max/1400/1*4NhFKMxr-qXodjYpxtiE0w.gif)
 
-**reCAPTCHA**s can be solved using the [Anti Captcha Recaptcha](https://apify.com/petr_cermak/anti-captcha-recaptcha) actor on the Apify platform.
+**reCAPTCHA**s can be solved using the [Anti Captcha Recaptcha](https://apify.com/petr_cermak/anti-captcha-recaptcha) actor on the Apify platform (note that this method requires an account on [anti-captcha.com](https://anti-captcha.com)).
 
-Another popular captcha is the [Geetest slider captcha](https://www.geetest.com/en/demo). You can find a guide for solving these types of captchas in Puppeteer [here](https://scraperbox.com/blog/solving-a-geetest-slider-captcha-with-puppeteer).
+Another popular captcha is the [Geetest slider captcha](https://www.geetest.com/en/demo). You can find a guide for solving these types of captchas in Puppeteer [here](https://scraperbox.com/blog/solving-a-geetest-slider-captcha-with-puppeteer). Amazon's captcha can similarly also be solved programmatically.
 
 ## Wrap up
 

@@ -54,6 +54,8 @@ When dealing with frequent and unpredictable blockage, the `maxErrorScore` optio
 
 To learn more about all configurations available in `sessionPoolOptions`, refer to the [SDK documentation](https://sdk.apify.com/docs/typedefs/session-pool-options).
 
+> Don't worry too much about these configurations. The Apify SDK's defaults are usually good enough for the majority of use cases.
+
 ## [](#next) Next up
 
 Though rate limiting is still common today, a lot of sites have improved over the years to use more complicated techniques such as **browser fingerprinting**, which is covered in the [next lesson]({{@link anti_scraping/techniques/fingerprinting.md}}).

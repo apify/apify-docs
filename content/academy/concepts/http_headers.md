@@ -22,6 +22,12 @@ Some websites will require certain default browser headers to work properly, suc
 
 Another example of such a "default" header is **Referer**. Some e-commerce websites might share the same platform, and data is loaded through XMLHttpRequests to that platform, which simply would not know which data to return without knowing which exact website is requesting it.
 
+## [](#needs-custom-headers) Custom headers required
+
+A custom header is a non-standard HTTP header used for a specific website. For example, an imaginary website of **cool-stuff.com** might have a header with the name **X_Cool_Stuff_Token** which is required for every single request to a product page.
+
+Dealing with cases like these usually isn't difficult, but can sometimes be tedious.
+
 ## [](#needs-specific-headers) Very specific headers required
 
 The most challenging websites to scrape are the ones that require a full set of site-specific headers to be included with the request. For example, not only would they potentially require proper **User-Agent** and **Referer** headers mentioned above, but also **Accept**, **Accept-Language**, **Accept-Encoding**, etc. with specific values.

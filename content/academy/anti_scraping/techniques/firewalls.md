@@ -30,9 +30,10 @@ Since there are multiple providers, it is essential to say that the challenges a
 
 ## [](#bypassing-firewalls) Bypassing web-application firewalls
 
-- Using [proxies]({{@link anti_scraping/proxies.md}})
-- Mocking [headers]({{@link concepts/http_headers.md}})
-- Overriding the browser's [fingerprint]({{@link anti_scraping/techniques/fingerprinting.md}}) (most effective)
+- Using [proxies]({{@link anti_scraping/proxies.md}}).
+- Mocking [headers]({{@link concepts/http_headers.md}}).
+- Overriding the browser's [fingerprint]({{@link anti_scraping/techniques/fingerprinting.md}}) (most effective).
+- Farming the [cookies]({{@link concepts/http_cookies}}) from a website with a headless browser, then using the farmed cookies to do HTTP based scraping (most performant).
 
 As you likely already know, there is no solution that fits all. If you are struggling to get past a WAP provider, you can try using Firefox with Playwright.
 
