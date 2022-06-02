@@ -38,7 +38,7 @@ class Stats {
         this.state.errors[url].push(errorMessage);
     }
 
-    increment() {
+    success() {
         this.state.totalSaved += 1;
     }
 }
@@ -116,7 +116,7 @@ exports.handleOffers = async ({ $, request }, dataset) => {
     for (const offer of $('#aod-offer')) {
         tracker.incrementASIN(asin);
         // Add 1 to totalSaved for every offer
-        Stats.increment();
+        Stats.success();
 
         const element = $(offer);
 
@@ -142,7 +142,7 @@ exports.handleOffers = async ({ $, request, crawler: { requestQueue } }, dataset
     for (const offer of $('#aod-offer')) {
         tracker.incrementASIN(asin);
         // Add 1 to totalSaved for every offer
-        Stats.increment();
+        Stats.success();
 
         const element = $(offer);
 
@@ -177,4 +177,4 @@ exports.handleOffers = async ({ $, request, crawler: { requestQueue } }, dataset
 
 **Q: Is storing these types of values necessary for every single actor?**
 
-**A:** For small actors, it might be a waste of time to do this. For large-scale actors, it can be extremely helpful when debugging and most definitely worth the extra 10-20 minutes of development time.
+**A:** For small actors, it might be a waste of time to do this. For large-scale actors, it can be extremely helpful when debugging and most definitely worth the extra 10-20 minutes of development time. Usually though, the default statistics from the SDK might be enough for simple run stats.

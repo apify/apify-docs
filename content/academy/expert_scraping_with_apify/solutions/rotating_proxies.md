@@ -47,7 +47,7 @@ const crawler = new Apify.CheerioCrawler({
 });
 ```
 
-Now, we'll use the **maxUsageCount** key to force each session to be thrown away after 5 uses, and **maxErrorScore** to trash a session once it receives an error. Then, we'll use **persistStateKey** back in **sessionPoolOptions** to persist the session pool's state, therefore handling migrations:
+Now, we'll use the **maxUsageCount** key to force each session to be thrown away after 5 uses, and **maxErrorScore** to trash a session once it receives an error.
 
 ```JavaScript
 const crawler = new Apify.CheerioCrawler({
@@ -56,7 +56,6 @@ const crawler = new Apify.CheerioCrawler({
     proxyConfiguration,
     useSessionPool: true,
     sessionPoolOptions: {
-        persistStateKey: 'AMAZON-SESSIONS',
         sessionOptions: {
             maxUsageCount: 5,
             maxErrorScore: 1,
@@ -92,7 +91,7 @@ const proxyConfiguration = await Apify.createProxyConfiguration({
 
 **Q: How can you prevent an error from occurring if one of the proxy groups that a user has is removed? What are the best practices for these scenarios?**
 
-**A:** By making the proxy for the scraper to use be configurable by the user through the actor's input. That way, they can easily switch proxies if the actor stop working due to proxy-related issues.
+**A:** By making the proxy for the scraper to use be configurable by the user through the actor's input. That way, they can easily switch proxies if the actor stop working due to proxy-related issues. It can als be done by using the **AUTO** proxy instead of specific groups.
 
 **Q: Does it make sense to rotate proxies when you are logged into a website?**
 
@@ -104,7 +103,7 @@ const proxyConfiguration = await Apify.createProxyConfiguration({
 
 **Q: What do you need to do to rotate a proxy (one proxy usually has one IP)? How does this differ for CheerioCrawler and PuppeteerCrawler?**
 
-**A:** Simply making a new request with the proxy endpoint above will automatically rotate it. Sessions can also be used to automatically do this. While proxy rotation is fairly straightforward for Cheerio, it's more complex in Puppeteer, as you have to retire the browser each time a new proxy is rotated in.
+**A:** Simply making a new request with the proxy endpoint above will automatically rotate it. Sessions can also be used to automatically do this. While proxy rotation is fairly straightforward for Cheerio, it's more complex in Puppeteer, as you have to retire the browser each time a new proxy is rotated in. The SessionPool will automatically retire a browser when a session is retired. Sessions can be manually retired with `session.retire()`.
 
 **Q: Name a few different ways of how a website can prevent you from scraping it.**
 
