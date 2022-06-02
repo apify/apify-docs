@@ -41,8 +41,6 @@ Every 10 seconds, we should log the most up-to-date version of this object to th
 
 [**Solution**]({{@link expert_scraping_with_apify/solutions/handling_migrations.md}})
 
-## Wrap up
+## [](#next) Next up
 
-Wow, you've learned a whole lot in this course, so give yourself the pat on the back that you deserve! If you were able to follow along with this course, that means that you're officially an **Apify pro**, and that you're equipped with all of the knowledge and tools you need to build awesome scalable web-scrapers for the Apify platform.
-
-Congratulations! 🎉
+You might have already noticed that we've been using the **RESIDENTIAL** proxy group in the `proxyConfiguration` within our Amazon scraping actor. But what does that mean? Learn why we've used this group, about proxies, and about avoiding anti-scraping measures in the [next lesson]({{@link expert_scraping_with_apify.md}}).
