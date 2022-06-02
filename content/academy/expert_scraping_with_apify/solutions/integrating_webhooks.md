@@ -199,6 +199,6 @@ Every actor's run is given a default key-value store and a default dataset. The 
 
 **A:** This can be done by using the `actor-node-puppeteer-chrome` Docker image and making sure that `launchContext.launchOptions.headless` in `PuppeteerCrawlerOptions` is set to `false`.
 
-## [](#wrap-up) Next up
+## [](#wrap-up) Wrap up
 
 See that?! Integrating webhooks is a piece of cake on the Apify platform! You'll soon discover that the platform factors away a lot of complex things and allows you to focus on what's most important - developing and releasing actors.

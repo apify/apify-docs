@@ -26,12 +26,12 @@ class ASINTracker {
     // Add an offer to the ASIN's offer count
     // If ASIN doesn't exist yet, set it to 0
     incrementASIN(asin) {
-        if (!this.state[asin]) {
+        if (this.state[asin] === undefined) {
             this.state[asin] = 0;
             return;
         }
 
-        this.state[asin]++;
+        this.state[asin]+= 1;
     }
 }
 
@@ -143,12 +143,12 @@ class ASINTracker {
     }
 
     incrementASIN(asin) {
-        if (!this.state[asin]) {
+        if (this.state[asin] === undefined) {
             this.state[asin] = 0;
             return;
         }
 
-        this.state[asin]++;
+        this.state[asin]+= 1;
     }
 }
 
@@ -188,12 +188,12 @@ class ASINTracker {
     }
 
     incrementASIN(asin) {
-        if (!this.state[asin]) {
+        if (this.state[asin] === undefined) {
             this.state[asin] = 0;
             return;
         }
 
-        this.state[asin]++;
+        this.state[asin]+= 1;
     }
 }
 
@@ -221,11 +221,11 @@ That's everything! Now, even if the actor migrates (or is gracefully aborted the
 
 **Q: Actors have an option the Settings tab to Restart on error. Would you use this feature for regular actors? When would you use this feature?**
 
-**A:** It's not best to use this option by default. If it fails, there must be reason, which would need to be thought through first - meaning that the edge case of failing should be handled when resurecting the actor. State should be persisted beforehand.
+**A:** It's not best to use this option by default. If it fails, there must be reason, which would need to be thought through first - meaning that the edge case of failing should be handled when resurrecting the actor. State should be persisted beforehand.
 
 **Q: Migrations happen randomly, but by [aborting gracefully](https://docs.apify.com/actors/running#aborting-runs), you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted actor's run?**
 
-**A:** After aborting or throwing an error mid-process, it manages to start back from where it was upon ressurrection.
+**A:** After aborting or throwing an error mid-process, it manages to start back from where it was upon resurrection.
 
 **Q: Why don't you (usually) need to add any special migration handling code for a standard crawling/scraping actor? Are there any features in the Apify SDK that handle this under the hood?**
 
@@ -237,7 +237,7 @@ That's everything! Now, even if the actor migrates (or is gracefully aborted the
 
 **Q: When would you persist data to the default key-value store instead of to a named key-value store?**
 
-**A:** Persisting data to the default key-vsalue store would help when handling an actor's run state or with storing metadata about the run (suchs results, miscellaneous files, or logs). Using a named key-value store allows you to persist data at the account level to handle data across multiple actor runs.
+**A:** Persisting data to the default key-value store would help when handling an actor's run state or with storing metadata about the run (such as results, miscellaneous files, or logs). Using a named key-value store allows you to persist data at the account level to handle data across multiple actor runs.
 
 ## [](#wrap-up) Wrap up
 
