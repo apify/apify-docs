@@ -8,7 +8,7 @@ paths:
 
 # [](#using-proxies) Using proxies
 
-[Proxies]({{@link anti_scraping/proxies.md}}) are a great way of appearing as if you are making requests from a different location. A common use case for proxies is to avoid [geolocation]({{@link concepts/geolocation.md}}) restrictions. For example your favorite TV show might not be available on Netflix in your country, but it might be available for Vietnamese Netflix watchers.
+[Proxies]({{@link anti_scraping/proxies.md}}) are a great way of appearing as if you are making requests from a different location. A common use case for proxies is to avoid [geolocation]({{@link anti_scraping/techniques/geolocation.md}}) restrictions. For example your favorite TV show might not be available on Netflix in your country, but it might be available for Vietnamese Netflix watchers.
 
 In this lesson, we'll be learning how to use proxies with Playwright and Puppeteer. This will be demonstrated with a Vietnamese proxy that we got by running [this](https://apify.com/mstephen190/proxy-scraper) proxy-scraping actor on the Apify platform.
 
