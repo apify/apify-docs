@@ -3192,7 +3192,7 @@ Deletes given request from queue.
 
 ### Prolong request lock [PUT]
 
-Prolongs request lock. The request lock can be prolonged only by the client that has locked it.
+Prolongs request lock. The request lock can be prolonged only by the client that has locked it using [Get and lock head operation](#reference/request-queues/queue-head-with-locks).
 
 + Parameters
 
@@ -3208,7 +3208,7 @@ Prolongs request lock. The request lock can be prolonged only by the client that
 
 ### Delete request lock [DELETE]
 
-Deletes request the lock. The request lock can be deleted only by the client that has locked it using Get and lock head operation.
+Deletes request the lock. The request lock can be deleted only by the client that has locked it using [Get and lock head operation](#reference/request-queues/queue-head-with-locks).
 
 + Parameters
 
@@ -3270,8 +3270,7 @@ This field is used by [Apify SDK](https://sdk.apify.com) to determine whether th
     + lockSecs: 60 (Number, required) - For how long second request will be locked.
     + limit:    100 (Number, optional) - How many items from queue should be returned.
     + token:    `soSkq9ekdmfOslopH` (string, required) - API authentication token.
-    + clientKey: `client-abc` (string, optional) - A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided,
-        the system considers this API call to come from a new client. For details, see the `hadMultipleClients` field returned by the [Get head](#reference/request-queues/queue-head) operation.
+    + clientKey: `client-abc` (string, optional) - A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long.
 
 ### Get head and lock [POST]
 
@@ -3324,7 +3323,7 @@ The response contains the `hadMultipleClients` boolean field which indicates tha
 Adds requests to the queue in batch. The maximum requests in batch is limit to 25. The response contains an array of unprocessed and processed requests.
 If any add operation fails because the request queue rate limit is exceeded or an internal failure occurs,
 the failed request is returned in the unprocessedRequests response parameter.
-You can resend these requests to add. It is recommended to use exponential backoff for these retries.
+You can resend these requests to add. It is recommended to use exponential backoff algorithm for these retries.
 If a request with the same `uniqueKey` was already present in the queue, then it returns an ID of the existing request.
 
 + Parameters
@@ -3349,14 +3348,12 @@ If a request with the same `uniqueKey` was already present in the queue, then it
 Deletes given requests from queue in batch. The maximum requests in batch is limit to 25. The response contains an array of unprocessed and processed requests.
 If any delete operation fails because the request queue rate limit is exceeded or an internal failure occurs,
 the failed request is returned in the unprocessedRequests response parameter.
-You can resend these requests to add. It is recommended to use exponential backoff for these retries.
+You can resend these requests to delete. It is recommended to use exponential backoff algorithm for these retries.
 Each request is identified by its ID or uniqueKey parameter. You can use either of them to identify the request.
 
 + Parameters
 
     + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
-    + clientKey: `client-abc` (string, optional) - A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided,
-    the system considers this API call to come from a new client. For details, see the `hadMultipleClients` field returned by the [Get head](#reference/request-queues/queue-head) operation.
 
 + Request (application/json)
 
