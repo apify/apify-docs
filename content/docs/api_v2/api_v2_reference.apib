@@ -3074,15 +3074,36 @@ Deletes given queue.
 
 + Response 204 (application/json)
 
-## Request collection [/v2/request-queues/{queueId}/requests{?forefront,token,clientKey}]
+## Request collection [/v2/request-queues/{queueId}/requests{?forefront,token,clientKey,limit,exclusiveStartId}]
 
 + Parameters
 
     + queueId:   `WkzbQMuFYuamGv3YF` (string, required) - Queue ID or `username~queue-name`.
-    + forefront:   false (string, optional) - Determines if request should be added to the head of the queue or to the end. Default value is `false` (end of queue).
     + token:   `soSkq9ekdmfOslopH` (string, optional) - API authentication token. It is required only when using the `username~queue-name` format for `queueId`.
     + clientKey: `client-abc` (string, optional) - A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided,
     the system considers this API call to come from a new client. For details, see the `hadMultipleClients` field returned by the [Get head](#reference/request-queues/queue-head) operation.
+
+### List requests [GET]
+
+Returns a list of requests. This endpoint is paginated using exclusiveStartId and limit parameters.
+
++ Parameters
+
+    + queueId: `WkzbQMuFYuamGv3YF` (string, required) - Request queue ID or `username~queue-name`.
+    + exclusiveStartId: `Ihnsp8YrvJ8102Kj` (string, optional) - All requests up to this one (including) are skipped from the result.
+    + limit: 100 (number, optional) - Number of keys to be returned. Maximum value is `10000`.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (object, required)
+            - items (array, required)
+                - (Request1)
+                - (Request1)
+            - count: 2 (number, required)
+            - limit: 2 (number, required)
+            - exclusiveStartId: `Ihnsp8YrvJ8102Kj` (string)
 
 ### Add request [POST]
 
@@ -3092,7 +3113,9 @@ If request with same `uniqueKey` was already present in the queue then returns a
 
 + Parameters
 
-    + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+    + token:     `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+    + forefront: false (string, optional) - Determines if request should be added to the head of the queue or to the end. Default value is `false` (end of queue).
+
 
 + Request (application/json)
 
@@ -3200,6 +3223,64 @@ This field is used by [Apify SDK](https://sdk.apify.com) to determine whether th
                   - uniqueKey:  `http://example.com/c/d` (string, required)
                   - url:        `http://example.com/c/d` (string, required)
                   - method:     `GET`                    (string, required)
+
+## Batch request operations [/v2/request-queues/{queueId}/requests/batch{?forefront,token,clientKey}]
+
++ Parameters
+
+    + queueId:   `WkzbQMuFYuamGv3YF` (string, required) - Queue ID or `username~queue-name`.
+    + clientKey: `client-abc` (string, optional) - A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long
+    + token:     `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+
+### Add requests [GET]
+
+Adds requests to the queue in batch. The maximum requests in batch is limit to 25. The response contains an array of unprocessed and processed requests.
+If any add operation fails because the request queue rate limit is exceeded or an internal failure occurs,
+the failed request is returned in the unprocessedRequests response parameter.
+You can resend these requests to add. It is recommended to use exponential backoff for these retries.
+If a request with the same `uniqueKey` was already present in the queue, then it returns an ID of the existing request.
+
++ Parameters
+
+    + token:     `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+    + forefront: false (string, optional) - Determines if request should be added to the head of the queue or to the end. Default value is `false` (end of queue).
+
+
++ Request (application/json)
+
+    + Attributes(array[RequestWithoutId, RequestWithoutId2])
+
++ Response 201 (application/json)
+
+    + Attributes
+        - data
+            - processedRequests (array[RequestOperationInfo])
+            - unprocessedRequests (array[RequestWithoutId2])
+
+### Delete requests [DELETE]
+
+Deletes given requests from queue in batch. The maximum requests in batch is limit to 25. The response contains an array of unprocessed and processed requests.
+If any delete operation fails because the request queue rate limit is exceeded or an internal failure occurs,
+the failed request is returned in the unprocessedRequests response parameter.
+You can resend these requests to add. It is recommended to use exponential backoff for these retries.
+Each request is identified by its ID or uniqueKey parameter. You can use either of them to identify the request.
+
++ Parameters
+
+    + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+    + clientKey: `client-abc` (string, optional) - A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long. This identifier is used to determine whether the queue was accessed by multiple clients. If `clientKey` is not provided,
+    the system considers this API call to come from a new client. For details, see the `hadMultipleClients` field returned by the [Get head](#reference/request-queues/queue-head) operation.
+
++ Request (application/json)
+
+    + Attributes(array[RequestBatchDelete, RequestBatchDelete2])
+
++ Response 204 (application/json)
+
+    + Attributes
+        - data
+            - processedRequests (array[RequestBatchDelete])
+            - unprocessedRequests (array[RequestBatchDelete2])
 
 # Group Webhooks
 
@@ -4286,6 +4367,17 @@ The user account is identified by the provided authentication token.
 - uniqueKey:        `http://example.com`       (string, required)
 - url:              `http://example.com`       (string, required)
 - method:           `GET`                      (string, required)
+
+## RequestWithoutId2 (object)
+- uniqueKey:        `http://example.com/2`       (string, required)
+- url:              `http://example.com/2`       (string, required)
+- method:           `GET`                        (string, required)
+
+## RequestBatchDelete (object)
+- uniqueKey:        `http://example.com`       (string, required)
+
+## RequestBatchDelete2 (object)
+- id:               `sbJ7klsdf7ujN9l`           (string, required)
 
 ## Request1 (object)
 - id:               `dnjkDMKLmdlkmlkmld`       (string, required)
