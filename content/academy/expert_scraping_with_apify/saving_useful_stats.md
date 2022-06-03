@@ -1,6 +1,6 @@
 ---
 title: VIII - Saving useful run statistics
-description: Understand how to save statistics about an actor's run, and why you might want to do so.
+description: Understand how to save statistics about an actor's run, what types of statistics you can save, and why you might want to save them for a large-scale scraper.
 menuWeight: 6.8
 paths:
     - expert-scraping-with-apify/saving-useful-stats
