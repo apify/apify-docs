@@ -1,7 +1,7 @@
 ---
 title: Anti-scraping protections
 description: Understand the various anti-scraping measures different sites use to prevent bots from accessing them, and how to appear more human to fix these issues.
-menuWeight: 4
+menuWeight: 3
 category: courses
 paths:
 - anti-scraping
@@ -73,7 +73,7 @@ Solely based on the way how the bots operate. It comperes data-rich pages visits
 
 By definition, this is not an anti-scraping method, but it can heavily affect the reliability of a scraper. If your target website drastically changes its CSS selectors, and your scraper is heavily reliant on selectors, it could break. In principle, websites using this method change their HTML structure or CSS selectors randomly and frequently, making the parsing of the data harder, and requiring more maintenance of the bot.
 
-One of the best ways of avoiding the possible breaking of your scraper due to website structure changes is to limit your reliance on data from HTML elements as much as possible (see [API Scraping]({{@link api_scraping.md}}) and [JavaScript objects within HTML]({{@link dynamic_pages_and_spas/js_in_html.md}}))
+One of the best ways of avoiding the possible breaking of your scraper due to website structure changes is to limit your reliance on data from HTML elements as much as possible (see [API Scraping]({{@link api_scraping.md}}) and [JavaScript objects within HTML]({{@link web_scraping_for_beginners/data_collection/js_in_html.md}}))
 
 ### IP session consistency
 
