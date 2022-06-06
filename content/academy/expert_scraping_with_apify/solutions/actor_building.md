@@ -524,7 +524,7 @@ Some specific functionality of jQuery is not available with Cheerio. Follow offi
 
 **A:** One should use CheerioCrawler when scraping any non-dynamic content. For scraping any content that doesn't require the loading of JavaScript in order to receive all of the data (such as with server-side rendered HTML pages and APIs), CheerioCrawler should be used. It is limited though, as it can only make static requests. This means that if a piece of data is loaded using JavaScript from an API call that the page makes, CheerioCrawler will never see that piece of data.
 
-> Learn more about dynamic pages in our [**dynamic pages**]({{@link dynamic_pages_and_spas/js_rendering_and_dynamic_pages.md}}) lesson, and learn how to overcome their challenges in the [**API scraping**]({{@link api_scraping.md}}) course and the [**JSON in HTML**]({{@link dynamic_pages_and_spas/js_in_html.md}}) lesson.
+> Learn more about dynamic pages in the [**dynamic pages**]({{@link concepts/dynamic_pages.md}}) lesson, and learn how to overcome their challenges in the [**API scraping**]({{@link api_scraping.md}}) course and the [**JSON in HTML**]({{@link web_scraping_for_beginners/data_collection/js_in_html.md}}) lesson.
 
 Additionally, if the job being done requires some sort of interaction with the page, PlaywrightCrawler/PuppeteerCrawler should be used, as CheerioCrawler runs out of the context of the browser.
 

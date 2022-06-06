@@ -1,5 +1,5 @@
 ---
-title: Scraping the Data
+title: Scraping the data
 description: Learn how to add data collection logic to your crawler, which will allow you to extract data from all the websites you crawled.
 menuWeight: 6
 paths:
