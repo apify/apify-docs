@@ -8,4 +8,6 @@ paths:
 
 # [](#using-api-filters) Using API filters
 
-content
+<!-- We already learned a bit about API filters in the Locating and learning lesson -->
+
+
