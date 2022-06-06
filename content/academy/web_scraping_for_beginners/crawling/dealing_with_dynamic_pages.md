@@ -1,22 +1,22 @@
 ---
-title: JS rendering and dynamic pages
+title: Dealing with dynamic pages
 description: Learn about dynamic pages and dynamic content. How can we find out if a page is dynamic? How do we programmatically scrape dynamic content?
-menuWeight: 3.2
+menuWeight: 10
 paths:
-    - dynamic-pages-and-spas/js-rendering-and-dynamic-pages
+- web-scraping-for-beginners/crawling/dealing-with-dynamic-pages
 ---
 
-# [](#rendering-and-dynamic-pages) JS rendering and dynamic pages
+# [](#dealing-with-dynamic-pages) Dealing with dynamic pages
 
-In the [final lessons]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) of the **Web Scraping for Beginners** module, we learned about the Apify SDK, which is a powerful library for writing reliable and efficient scrapers. We recommend reading up on those last two lessons in order to install the `apify` package and familiarize yourself with it before moving forward with this lesson.
+In the last few lessons, we learned about the Apify SDK, which is a powerful library for writing reliable and efficient scrapers. We recommend reading up on those last two lessons in order to install the `apify` package and familiarize yourself with it before moving forward with this lesson.
 
-In this lesson, we'll be discussing dynamic content and how to scrape it.
+In this lesson, we'll be discussing dynamic content and how to scrape it while utilizing the Apify SDK.
 
 ## [](#quick-experiment) A quick experiment
 
 From our adored and beloved [Fakestore](https://demo-webstore.apify.org/), we have been tasked to scrape each product's title, price, and image from the [new arrivals](https://demo-webstore.apify.org/search/new-arrivals) page. Easy enough! We did something very similar in the previous modules.
 
-![New arrival products in Fakestore]({{@asset dynamic_pages_and_spas/images/new-arrivals.webp}})
+![New arrival products in Fakestore]({{@asset web_scraping_for_beginners/crawling/images/new-arrivals.webp}})
 
 In your project from the previous lessons, or in a new project, create a file called `dynamic.js` and copy-paste the following boiler plate code into it:
 
@@ -89,7 +89,7 @@ await crawler.run();
 
 After running it, you might say, "Great! It works!" **But wait...** What are those results being logged to console?
 
-![Bad results in console]({{@asset dynamic_pages_and_spas/images/bad-results.webp}})
+![Bad results in console]({{@asset web_scraping_for_beginners/crawling/images/bad-results.webp}})
 
 Every single image seems to have the same exact "URL," but they are most definitely not the image URLs we are looking for. This is strange, because in the browser, we were getting URLs that looked like this:
 
@@ -152,7 +152,7 @@ await crawler.run();
 
 After running this one, we can see that our results look different from before. We're getting the image links!
 
-![Not perfect results]({{@asset dynamic_pages_and_spas/images/almost-there.webp}})
+![Not perfect results]({{@asset web_scraping_for_beginners/crawling/images/almost-there.webp}})
 
 Well... Not quite. It seems that the only images which we got the full links to were the ones that were being displayed within the view of the browser. This means that the images are lazy-loaded. **Lazy-loading** is a common technique used across the web to improve performance. Lazy-loaded items allow the user to load content incrementally, as they perform some action. In most cases, including our current one, this action is scrolling.
 
@@ -217,6 +217,6 @@ Each product looks like this, and each image is a valid link that can be visited
 
 Making static HTTP requests only downloads the HTML content from the `DOMContentLoaded` event. We must use a browser to allow dynamic code to load, or find different means altogether of scraping the data (see [API Scraping]({{@link api_scraping.md}}))
 
-## [](#next) Next up
+## [](#wrap-up) Wrap up 💥
 
-So far, this is the last lesson of this course, but stay tuned! We will be frequently adding more lessons!
+And this is it for the [Basics of crawling section]({{@link web_scraping_for_beginners/crawling.md}}) of the [Web scraping for beginners]({{@link web_scraping_for_beginners.md}}) course. For now, this is also the last section of the **Web scraping for beginners** course. If you want to learn more about web scraping, we recommend checking venturing out and following the other lessons in the Academy. We will keep updating the Academy with more content regularly, until we cover all the advanced and expert topics we promised at the beginning.
