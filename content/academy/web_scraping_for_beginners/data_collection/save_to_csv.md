@@ -121,4 +121,4 @@ This marks the end of the **Basics of data collection** section of Web scraping 
 
 ## [](#next) Next up
 
-[Next lesson]({{@link web_scraping_for_beginners/data_collection/js_in_html.md}}) will be all about finding JavaScript objects inside HTML documents, and scraping the data from there instead of from HTML elements.
+The [next lesson]({{@link web_scraping_for_beginners/data_collection/js_in_html.md}}) will be all about finding JavaScript objects inside HTML documents, and scraping the data from there instead of from HTML elements.
