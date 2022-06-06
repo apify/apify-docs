@@ -8,11 +8,11 @@ paths:
 
 # [](#waiting-for-elements-and-events) Waiting for elements and events
 
-In a perfect world, every piece of content served on a website would be loaded instantaneously. We don't live in a perfect world though, and often times it can take anywhere between 1/10th of a second to a few seconds to load some content onto a page. Certain elements are also [generated dynamically]({{@link dynamic_pages_and_spas.md}}), which means that they are not present in the initial HTML, and that they are created by scripts or data from API calls.
+In a perfect world, every piece of content served on a website would be loaded instantaneously. We don't live in a perfect world though, and often times it can take anywhere between 1/10th of a second to a few seconds to load some content onto a page. Certain elements are also [generated dynamically]({{@link concepts/dynamic_pages.md}}), which means that they are not present in the initial HTML, and that they are created by scripts or data from API calls.
 
 Puppeteer and Playwright don't sit around waiting for a page (or specific elements) to load though - if we tell it to do something with an element that hasn't rendered yet, it'll start trying to do it (which will result in nasty errors). We've got to tell it to wait.
 
-> For a thorough explanation on how dynamic rendering works, give the [**Dynamic pages & SPAs**]({{@link dynamic_pages_and_spas.md}}) course a quick readover, and check out the examples.
+> For a thorough explanation on how dynamic rendering works, give [**Dynamic pages**]({{@link concepts/dynamic_pages.md}}) a quick readover, and check out the examples.
 
 Different events and elements can be waited for using the various `waitFor...` methods offered.
 
@@ -52,7 +52,7 @@ Now, we won't see the error message anymore, and the first result will be succes
 
 If we remember properly, after clicking the first result, we want to console log the title of the result's page and save a screenshot into the filesystem. In order to grab a solid screenshot of the loaded page though, we should **wait for navigation**  before snapping the image. This can be done with [`page.waitForNavigation()`](https://pptr.dev/#?product=Puppeteer&version=v14.1.0&show=api-pagewaitfornavigationoptions).
 
-> A navigation is simply when a new [page load]({{@link dynamic_pages_and_spas.md}}) happens. First, the `domcontentloaded` event is fired, then the `load` event. `page.waitForNavigation()` will wait for the `load` event to fire.
+> A navigation is simply when a new [page load]({{@link concepts/dynamic_pages.md}}) happens. First, the `domcontentloaded` event is fired, then the `load` event. `page.waitForNavigation()` will wait for the `load` event to fire.
 
 Naively, you might immediately think that this is the way we should wait for navigation after clicking the first result:
 
