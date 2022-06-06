@@ -1,15 +1,16 @@
 ---
-title: Dynamic pages and SPAs
-description: Learn all about how the professionals scrape various types of APIs with various configurations, parameters, and requirements.
-menuWeight: 3
-category: courses
+title: Dynamic pages
+description: Understand what makes a page dynamic, and how a page being dynamic might change your approach when writing a scraper for it.
+menuWeight: 8.3
 paths:
-- dynamic-pages-and-spas
+- concepts/dynamic-pages
 ---
 
-# [](#dynamic-pages-and-spas) Dynamic pages and single-page applications (SPAs)
+# [](#dynamic-pages) Dynamic pages and single-page applications (SPAs)
 
-In the modern web, single-page applications (SPAs) are becoming increasingly popular, especially due to JavaScript libraries like [React.js](https://reactjs.org/) and [Vue.js](https://vuejs.org/) pushing their development to the mainstream. Often times, single-page applications (and loads of non-SPAs too) have dynamic content. As you progress in your scraping journey, you'll quickly realize that different websites load their content and populate their pages with data in different ways. Some pages are rendered entirely on the server, some retrieve the data dynamically, and some use a combination of both those methods.
+In the modern web, single-page applications (SPAs) are becoming increasingly popular, especially due to JavaScript libraries like [React.js](https://reactjs.org/) and [Vue.js](https://vuejs.org/) pushing their development to the mainstream. Often times, single-page applications (and loads of non-SPAs too) have dynamic content.
+
+As you progress in your scraping journey, you'll quickly realize that different websites load their content and populate their pages with data in different ways. Some pages are rendered entirely on the server, some retrieve the data dynamically, and some use a combination of both those methods.
 
 ## [](#about-page-loading) How page loading works
 
@@ -34,8 +35,4 @@ Sometimes, it can be quite obvious when content is dynamically being rendered. F
 
 Here, it's very clear that new content is being generated. As we scroll down the Twitter feed, we can see the scroll bar jumping back up, signifying that more elements have been created using Javascript.
 
-Other times, it's less obvious though. Content can appear to be static (non-dynamic) when it is not, or even sometimes the other way around. We'll see an example of that in the next sections.
-
-## [](#next) Next up
-
-This section's [first lesson]({{@link dynamic_pages_and_spas/js_in_html.md}}) will be all about finding JavaScript objects inside HTML documents, and scraping the data from there instead of from HTML elements.
+Other times, it's less obvious though. Content can appear to be static (non-dynamic) when it is not, or even sometimes the other way around.
