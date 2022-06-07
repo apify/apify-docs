@@ -17,7 +17,7 @@ This article shows you the very basics of using the Apify platform. It shows you
 
 ## Run an actor
 
-**1.** Navigate to [Apify Store](https://console.apify.com/actors#/store/) and pick any actor you like the look of. We'll pick the [Google Search Results Scraper](https://console.apify.com/actors/nFJndFXA5zjCTuudP#/information/latest/readme).
+**1.** Navigate to [Apify Store](https://console.apify.com/actors?tab=store) and pick any actor you like the look of. We'll pick the [Google Search Results Scraper](https://console.apify.com/actors/nFJndFXA5zjCTuudP#/information/latest/readme).
 
 ![Apify store]({{@asset tutorials/images/apify-store.webp}})
 
