@@ -95,6 +95,8 @@ And that's it! Now, when we visit Google, it's in Vietnamese. Depending on the c
 
 ![Vietnamese Google]({{@asset puppeteer_playwright/images/vietnamese-google.webp}})
 
+> Note that in order to rotate through multiple proxies, you must retire a browser instance then create a new one to continue automating with a new proxy.
+
 ## [](#authenticating-a-proxy) Authenticating a proxy
 
 The proxy in the last activity didn't require a username and password, but let's say that this one does:

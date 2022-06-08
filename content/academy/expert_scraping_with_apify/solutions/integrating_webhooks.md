@@ -1,5 +1,5 @@
 ---
-title: II - Integrating webooks
+title: II - Integrating webhooks
 description: Learn how to integrate webhooks into your actors. Webhooks are a super powerful tool, and can be used to do almost anything!
 menuWeight: 2
 paths:
@@ -73,7 +73,7 @@ const filtered = items.reduce((acc, curr) => {
     // Grab the price of the item matching our current
     // item's ASIN in the map. If it doesn't exist, set
     // "prevPrice" to null
-    const prevPrive = acc?.[curr.asin] ? +acc[curr.asin].offer.slice(1) : null;
+    const prevPrice = acc?.[curr.asin] ? +acc[curr.asin].offer.slice(1) : null;
 
     // Grab the price of our current offer
     const price = +curr.offer.slice(1);
@@ -81,7 +81,7 @@ const filtered = items.reduce((acc, curr) => {
     // If the item doesn't yet exist in the map, add it.
     // Or, if the current offer's price is less than the
     // saved one, replace the saved one
-    if (!acc[curr.asin] || prevPrive > price) acc[curr.asin] = curr;
+    if (!acc[curr.asin] || prevPrice > price) acc[curr.asin] = curr;
 
     // Return the map
     return acc;
@@ -106,10 +106,10 @@ Apify.main(async () => {
     const { items } = await dataset.getData();
 
     const filtered = items.reduce((acc, curr) => {
-        const prevPrive = acc?.[curr.asin] ? +acc[curr.asin].offer.slice(1) : null;
+        const prevPrice = acc?.[curr.asin] ? +acc[curr.asin].offer.slice(1) : null;
         const price = +curr.offer.slice(1);
 
-        if (!acc[curr.asin] || prevPrive > price) acc[curr.asin] = curr;
+        if (!acc[curr.asin] || prevPrice > price) acc[curr.asin] = curr;
 
         return acc;
     }, {});

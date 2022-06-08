@@ -1,12 +1,12 @@
 ---
-title: Scraping the data
+title: Scraping data
 description: Learn how to add data collection logic to your crawler, which will allow you to extract data from all the websites you crawled.
 menuWeight: 6
 paths:
     - web-scraping-for-beginners/crawling/scraping-the-data
 ---
 
-# [](#scraping-data) Scraping the data
+# [](#scraping-data) Scraping data
 
 At the [very beginning of the course](({{@link web_scraping_for_beginners.md}})), we learned that the term web scraping usually means a combined process of data collection and crawling. And this is exactly what we'll do in this lesson. We will take the code we built in the previous lesson and in the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) section, and we will combine that into a web scraper.
 
