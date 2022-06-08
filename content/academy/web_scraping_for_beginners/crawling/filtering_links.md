@@ -91,7 +91,7 @@ demo-webstore\.apify\.org\/product\/[a-z|0-9|-]*
 
 This regular expression matches all URLs that include the `demo-webstore.apify.org/product/` substring immediately following with any number of letters or dashes `-`.
 
-> A great way to learn more about regular expression syntax and to test your expressions are tools like [regexr.com](https://regexr.com/) or [regex101.com](https://regex101.com/). It's okay if you don't get the hang of it right away!
+> A great way to learn more about regular expression syntax and to test your expressions are tools like [regex101.com](https://regex101.com/) or [regexr.com](https://regexr.com/). It's okay if you don't get the hang of it right away!
 
 To test our regular expression in the DevTools console, we'll first create a [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) object and then test the URLs with the [`regExp.test(string)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) function.
 

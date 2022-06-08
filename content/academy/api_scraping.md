@@ -43,7 +43,7 @@ Especially for [dynamic sites](https://blog.apify.com/what-is-a-dynamic-page/), 
 
 ### 4. Easy on the target website
 
-Depending on the website, sending large amounts of requests to their pages could result in a slight performance decrase on their end. By using their API instead, not only does your scraper run better, but it is less demanding of the target website.
+Depending on the website, sending large amounts of requests to their pages could result in a slight performance decrease on their end. By using their API instead, not only does your scraper run better, but it is less demanding of the target website.
 
 ## [](#disadvantages) Disdvantages of API Scraping
 
@@ -65,7 +65,7 @@ APIs come in all different shapes and sizes. That means every API will vary in n
 
 JSON responses are the most ideal, as they are easily manipulatable in JavaScript code. In general, no serious parsing is necessary, and the data can be easily filtered and formatted to fit a scraper's output schema.
 
-APIs which ouput HTML are generally returning the raw HTML of a small component of the page which is already hydrated with data. In these cases, it is still worth using the API, as it is still more efficient than making a request to the entire page; even though the data does still need to be parsed from the HTML response.
+APIs which output HTML are generally returning the raw HTML of a small component of the page which is already hydrated with data. In these cases, it is still worth using the API, as it is still more efficient than making a request to the entire page; even though the data does still need to be parsed from the HTML response.
 
 ### 2. Encoded data
 
