@@ -9,7 +9,7 @@ paths:
 
 # [](#puppeteer-playwright-course) Puppeteer & Playwright course
 
-[Puppeteeer](https://pptr.dev/) and [Playwright](https://playwright.dev/) are both libraries which allow you to write code in Node.js which automates a headless browser.
+[Puppeteer](https://pptr.dev/) and [Playwright](https://playwright.dev/) are both libraries which allow you to write code in Node.js which automates a headless browser.
 
 > A headless browser is just a regular browser like the one you're using right now, but without the user-interface. Because they don't have a UI, they generally perform faster as they don't render any visual content. For an in-depth understanding of headless browsers, check out [this short article](https://blog.arhg.net/2009/10/what-is-headless-browser.html) about them.
 

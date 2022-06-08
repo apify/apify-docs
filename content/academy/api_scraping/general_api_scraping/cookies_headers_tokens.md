@@ -10,7 +10,7 @@ paths:
 
 Unfortunately, most APIs will require a valid cookie to be included in the `cookie` field within a request's headers in order to be authorized. Other APIs may require special tokens, or other data that validates the request.
 
-Luckily, there are ways to retrive and set cookies for requests prior to sending them, which will be covered more in-depth within future Scraping Academy modules. The most important things to know at the moment are:
+Luckily, there are ways to retrieve and set cookies for requests prior to sending them, which will be covered more in-depth within future Scraping Academy modules. The most important things to know at the moment are:
 
 ## [](#cookies) Cookies
 
@@ -88,7 +88,7 @@ const response = await gotScraping({
 
 For our SoundCloud example, testing the endpoint from the previous section in a tool like [Postman]({{@link tools/postman.md}}) works perfectly, and returns the data we want; however, when the `client_id` parameter is removed, we receive a **401 Unauthorized** error. Luckily, the Client ID is the same for every user, which means that it is not tied to a session or an IP address (this is based on our own observations and tests). The big downfall is that the token being used by SoundCloud changes every few weeks, so it shouldn't be hardcoded. This case is actually quite common, and is not only seen with SoundCloud.
 
-Ideally, this `client_id` should be scraped dynamically, especially since it changes frequently, but unfortunately, the token cannot be found anywhere on SoundCloud's pages. We already know that it's available within the parameters of certain requests though, and luckily, [Puppeteer](https://github.com/puppeteer/puppeteer) offers a simple way to analyze each response when on a page. It's a bit like using browser DevTools, which you are already familiar with by now, but programatically instead.
+Ideally, this `client_id` should be scraped dynamically, especially since it changes frequently, but unfortunately, the token cannot be found anywhere on SoundCloud's pages. We already know that it's available within the parameters of certain requests though, and luckily, [Puppeteer](https://github.com/puppeteer/puppeteer) offers a simple way to analyze each response when on a page. It's a bit like using browser DevTools, which you are already familiar with by now, but programmatically instead.
 
 Here is a way you could dynamically scrape the `client_id` using Puppeteer:
 
