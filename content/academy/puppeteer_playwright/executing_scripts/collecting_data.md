@@ -150,7 +150,7 @@ Finally, we can create a `Cheerio` object based on our page's current content li
 const $ = load(await page.content());
 ```
 
-> It's important to note that this `$` object is static. If any content on the page changes, the `$` variable will not automatically be updated. It will need to be redeclared or redefined.
+> It's important to note that this `$` object is static. If any content on the page changes, the `$` variable will not automatically be updated. It will need to be re-declared or re-defined.
 
 Here's our full code so far:
 
