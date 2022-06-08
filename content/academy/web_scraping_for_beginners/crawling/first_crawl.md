@@ -1,12 +1,12 @@
 ---
-title: First crawl
+title: Your first crawl
 description: Learn how to crawl the web using Node.js, Cheerio and an HTTP client. Collect URLs from pages and use them to visit more websites.
 menuWeight: 5
 paths:
     - web-scraping-for-beginners/crawling/first-crawl
 ---
 
-# [](#your-first-crawl) First crawl
+# [](#your-first-crawl) Your first crawl
 
 In the previous lessons, we learned what crawling is and how to collect URLs from a page's HTML. The only thing that remains is to write the code - so let's get right to it!
 

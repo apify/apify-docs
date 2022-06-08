@@ -1,12 +1,12 @@
 ---
-title: JavaScript objects within HTML
+title: JavaScript objects in HTML
 description: Learn about "hidden" data found within the JavaScript of certain pages, which can increase the scraper reliability and improve your development experience.
 menuWeight: 9
 paths:
     - web-scraping-for-beginners/data-collection/js-in-html
 ---
 
-# What is JS in HTML?
+# [](#what-is-js-in-html) What is JS in HTML?
 
 Depending on the technology the target website is using, the data to be collected not only can be found within HTML elements, but also in a JSON format within `<script>` tags in the DOM.
 

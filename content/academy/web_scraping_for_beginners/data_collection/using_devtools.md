@@ -1,5 +1,5 @@
 ---
-title: Using DevTools
+title: Browser DevTools - II
 description: Learn how to use browser DevTools, CSS selectors, and JavaScript via the DevTools console to collect data from a website.
 menuWeight: 2
 paths:
