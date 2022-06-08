@@ -31,7 +31,7 @@ This is what you'll learn in the **Web scraping for beginners** course:
   * [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}})
   * [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}})
 
-Other courses and lessons (coming soon) in the Academy:
+<!-- Other courses and lessons (coming soon) in the Academy:
 
 * [API scraping]({{@link api_scraping.md}})
   * [General API Scraping]({{@link api_scraping/general_api_scraping.md}})
@@ -42,7 +42,7 @@ Other courses and lessons (coming soon) in the Academy:
     * [Introspection]({{@link api_scraping/graphql_scraping/introspection.md}})
     * [Modifying variables]({{@link api_scraping/graphql_scraping/modifying_variables.md}})
 * [Anti-scraping protections]({{@link anti_scraping.md}})
-  * [Proxies]({{@link anti_scraping/proxies.md}})
+  * [Proxies]({{@link anti_scraping/mitigation/proxies.md}})
   * Captchas and human behavior
   * Web application firewalls
 * Apify Platform
@@ -50,9 +50,9 @@ Other courses and lessons (coming soon) in the Academy:
   * Apify CLI
 * Expert topics
   * Mobile app scraping
-  * Overcoming result limits
+  * Overcoming result limits -->
 
-> We release course content as soon as we write it instead of launching it all at the same time much later. If you want to get notified about new lessons [sign up for a free Apify account](https://console.apify.com/sign-up?asrc=developers_portal) to get our newsletters.
+> We release course content as soon as we write it instead of launching it all at the same time much later. If you want to get notified about new lessons in the academy, [sign up for a free Apify account](https://console.apify.com/sign-up?asrc=developers_portal) to get our newsletters.
 
 ## [](#requirements) Requirements
 

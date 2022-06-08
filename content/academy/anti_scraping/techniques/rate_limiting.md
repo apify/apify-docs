@@ -12,11 +12,11 @@ When crawling a website, a web scraping bot will typically send many more reques
 
 In the past, most websites had their own anti-scraping solutions, the most common of which was IP address rate-limiting. In recent years, the popularity of third-party specialized anti-scraping providers has dramatically increased, but a lot of websites still use rate-limiting to only allow a certain number of requests per second/minute/hour to be sent from a single IP; therefore, crawler requests have the potential of being blocked entirely quite quickly.
 
-In cases when a higher number of requests is expected for the crawler, using a [proxy]({{@link anti_scraping/proxies.md}}) and rotating the IPs is essential to let the crawler run as smoothly as possible and avoid being blocked.
+In cases when a higher number of requests is expected for the crawler, using a [proxy]({{@link anti_scraping/mitigation/proxies.md}}) and rotating the IPs is essential to let the crawler run as smoothly as possible and avoid being blocked.
 
 ## [](#dealing-with-rate-limiting) Dealing rate limiting with proxy/session rotating
 
-The most popular and effective way of avoiding rate-limiting issues is by rotating [proxies]({{@link anti_scraping/proxies.md}}) after every **n** number of requests, which makes your scraper appear as if it is making requests from various different places. Since the majority of rate-limiting solutions are based on IP addresses, rotating IPs allows a scraper to make large amounts to a website without getting restricted.
+The most popular and effective way of avoiding rate-limiting issues is by rotating [proxies]({{@link anti_scraping/mitigation/proxies.md}}) after every **n** number of requests, which makes your scraper appear as if it is making requests from various different places. Since the majority of rate-limiting solutions are based on IP addresses, rotating IPs allows a scraper to make large amounts to a website without getting restricted.
 
 In the Apify SDK, proxies are automatically rotated for you when you use `proxyConfiguration` and a [**SessionPool**]((https://sdk.apify.com/docs/api/session-pool)) within a crawler. The SessionPool handles a lot of the nitty gritty of proxy rotating, especially with [browser based crawlers]({{@link puppeteer_playwright.md}}) by retiring a browser instance after a certain number of requests have been sent from it in order to use a new proxy (a browser instance must be retired in order to use a new proxy).
 
@@ -44,7 +44,7 @@ const myCrawler = new Apify.PuppeteerCrawler({
 });
 ```
 
-> Take a look at the [**Using proxies**]({{@link anti_scraping/proxies/using_proxies.md}}) lesson to learn more about how to use proxies and rotate them in the Apify SDK.
+> Take a look at the [**Using proxies**]({{@link anti_scraping/mitigation/using_proxies.md}}) lesson to learn more about how to use proxies and rotate them in the Apify SDK.
 
 ### [](#configuring-session-pool) Configuring a session pool
 

@@ -1,9 +1,9 @@
 ---
 title: Using proxies
 description: Learn how to use and automagically rotate proxies in your scrapers by using the Apify SDK, and a bit about how to easily obtain pools of proxies.
-menuWeight: 1
+menuWeight: 2
 paths:
-- anti-scraping/proxies/using-proxies
+- anti-scraping/mitigation/using-proxies
 ---
 
 # [](#using-proxies) Using proxies
@@ -120,7 +120,7 @@ const crawler = new Apify.CheerioCrawler({
 
 After modifying your code to log `proxyInfo` to the console and running the scraper, you're going to see some logs which look like this:
 
-![proxyInfo being logged by the scraper]({{@asset anti_scraping/proxies/images/proxy-info-logs.webp}})
+![proxyInfo being logged by the scraper]({{@asset anti_scraping/mitigation/images/proxy-info-logs.webp}})
 
 These logs confirm that our proxies are being used and rotated successfully by the Apify SDK, and can also be used to debug slow or broken proxies.
 
@@ -137,10 +137,6 @@ const proxyConfiguration = await Apify.createProxyConfiguration({
 
 Notice that we didn't provide it a list of proxy URLs. This is because the `SHADER` group already serves as our proxy pool (courtesy of Apify Proxy).
 
-## More lessons to come
+## [](#next) Next up
 
-That's it for the proxy course for now, but be on the lookout for future lessons! We release lessons as we write them, and will be updating the Academy frequently, so be sure to check back every once in a while for new content! Alternatively, you can subscribe to our mailing list to get periodic updates on the Academy, as well as what Apify is up to.
-
-<!-- ## [](#next) Next up
-
-Smth -->
+That's it for the **Mitigation** course for now, but be on the lookout for future lessons! We release lessons as we write them, and will be updating the Academy frequently, so be sure to check back every once in a while for new content! Alternatively, you can subscribe to our mailing list to get periodic updates on the Academy, as well as what Apify is up to.
