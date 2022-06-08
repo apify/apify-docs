@@ -71,7 +71,7 @@ Within our new **numbers** property, there are two more fields we must specify. 
 
 ## [](#required-fields) Required fields
 
-The great thing about building an input schema is that it will automatically validate your inputs based on their type, maximum value, minumum value, etc. Sometimes, you want to ensure that the user will always provide input for certain fields, as they are crucial to the actor's run. This can be done by using the **required** field, and passing in the names of the fields you'd like to require.
+The great thing about building an input schema is that it will automatically validate your inputs based on their type, maximum value, minimum value, etc. Sometimes, you want to ensure that the user will always provide input for certain fields, as they are crucial to the actor's run. This can be done by using the **required** field, and passing in the names of the fields you'd like to require.
 
 ```JSON
 {
@@ -99,7 +99,7 @@ Here is what the output schema we wrote will render on the platform:
 
 ![Rendered UI from input schema]({{@asset apify_platform/deploying_your_code/images/rendered-ui.webp}})
 
-Later on, we'll be buildng more complex input schemas, as well as discussing how to write quality input schemas that allow the user to easily understand the actor and not become overwhelmed.
+Later on, we'll be building more complex input schemas, as well as discussing how to write quality input schemas that allow the user to easily understand the actor and not become overwhelmed.
 
 It is not expected to memorize all of the fields that properties can take, or the different editor types available, which is why it's always good to reference the [input schema documentation](https://docs.apify.com/actors/development/input-schema) when writing a schema.
 

@@ -61,6 +61,6 @@ Part of this course will be learning more in-depth about actors; however, some b
 
 ## [](#next) Next up
 
-[Next up]({{@link expert_scraping_with_apify/apify_sdk.md}}), we'll be learning in-depth about the most important tool in your actor-developemt toolbelt: The **Apify SDK**.
+[Next up]({{@link expert_scraping_with_apify/apify_sdk.md}}), we'll be learning in-depth about the most important tool in your actor-development toolbelt: The **Apify SDK**.
 
 > Each lesson will have a short _(and optional)_ quiz that you can take at home to test your skills and knowledge related to the lesson's content. Some questions have straight factual answers, but some others can have varying opinionated answers.
