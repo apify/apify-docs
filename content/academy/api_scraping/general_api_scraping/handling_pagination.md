@@ -36,6 +36,8 @@ If we were to make a request with the **limit** set to **5** and the **offset** 
 
 Becoming more and more common is cursor-based pagination. Like with offset-based pagination, a **limit** parameter is usually present; however, instead of **offset**, **cursor** is used instead. A cursor is just a marker (sometimes a token, a date, or just a number) for an item in the dataset. All results returned back from the API will be records that come after the item matching the **cursor** parameter provided.
 
+One of the most painful things about scraping APIs with cursor pagination is that you can't skip to, for example, the 5th page. You have to paginate through each page one by one.
+
 > Note: SoundCloud [migrated](https://developers.soundcloud.com/blog/pagination-updates-on-our-api) over to using cursor-based pagination; however, they did not change the parameter name from **offset** to **cursor**. Always be on the lookout for this type of stuff!
 
 ## [](#using-next-page) Using "next page"
@@ -134,7 +136,9 @@ while (items.flat().length < 100) {
 }
 ```
 
-All that's left to do now is flesh out this `while` loop with pagination logic and finally return the **items** array once the loop has finished.:
+All that's left to do now is flesh out this `while` loop with pagination logic and finally return the **items** array once the loop has finished.
+
+> Note that it's better to add requests to a requests queue rather than processing them in memory. The crawlers offered by the [Apify SDK](https://sdk.apify.com) provide this functionality out of the box.
 
 ```JavaScript
 // index.js
@@ -187,6 +191,10 @@ Here's what the output of this code looks like:
 ```text
 105
 ```
+
+## [](#final-note) Final note
+
+Sometimes, APIs have limited pagination. That means that they limit the total number of results that can appear for a set of pages, or that they limit the pages to a certain number. To learn how to handle these cases, take a look at [this short article](https://docs.apify.com/tutorials/scrape-paginated-sites).
 
 ## [](#next) Next up
 
