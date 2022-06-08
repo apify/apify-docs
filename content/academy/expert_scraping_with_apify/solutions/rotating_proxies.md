@@ -16,7 +16,7 @@ const proxyConfiguration = await Apify.createProxyConfiguration({
 });
 ```
 
-We didn't provide much explanation for this initially, as it was not directly relevant to the lesson at hand. When you [create a **ProxyConfiguration**]({{@link anti_scraping/proxies/using_proxies.md}}) and pass it to a crawler, the SDK will make the crawler automatically rotate through the proxies. This entire time, we've been using the **RESIDENTIAL** proxy group to avoid being blocked by Amazon.
+We didn't provide much explanation for this initially, as it was not directly relevant to the lesson at hand. When you [create a **ProxyConfiguration**]({{@link anti_scraping/mitigation/using_proxies.md}}) and pass it to a crawler, the SDK will make the crawler automatically rotate through the proxies. This entire time, we've been using the **RESIDENTIAL** proxy group to avoid being blocked by Amazon.
 
 > Go ahead and try commenting out the proxy configuration code then running the scraper. What happens?
 
