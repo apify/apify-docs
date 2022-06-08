@@ -67,7 +67,7 @@ Though in theory this is correct, it can result in a race condition in which the
 await Promise.all([page.waitForNavigation(), page.click('.g a')]);
 ```
 
-Though the line of cod above is also valid in Playwright, it is recommended to use [`page.waitForLoadState('load')`](https://playwright.dev/docs/api/class-page#page-wait-for-load-state) instead of `page.waitForNavigaton()`, as it automatically handles the issues being solved in by using `Promise.all()`.
+Though the line of cod above is also valid in Playwright, it is recommended to use [`page.waitForLoadState('load')`](https://playwright.dev/docs/api/class-page#page-wait-for-load-state) instead of `page.waitForNavigation()`, as it automatically handles the issues being solved in by using `Promise.all()`.
 
 ```JavaScript
 await page.click('.g a');

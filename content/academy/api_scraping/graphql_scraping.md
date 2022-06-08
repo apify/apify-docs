@@ -16,7 +16,7 @@ In this section, we'll be scraping [cheddar.com](https://cheddar.com)'s GraphQL 
 
 ![GraphQL endpoint]({{@asset api_scraping/images/graphql-endpoint.webp}})
 
-As a rule of thumb, when the endpoint ends with **/graphql** and it's a **POST** request, it's a 99.99% bulleproof indicator that the target site is using GraphQL. If you want to be 100% certain though, taking a look at the request payload will most definitely give it away.
+As a rule of thumb, when the endpoint ends with **/graphql** and it's a **POST** request, it's a 99.99% bulletproof indicator that the target site is using GraphQL. If you want to be 100% certain though, taking a look at the request payload will most definitely give it away.
 
 ![GraphQL payload]({{@asset api_scraping/images/graphql-payload.webp}})
 

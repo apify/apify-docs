@@ -439,7 +439,7 @@ If Amazon hasn't changed any of their selectors or significantly updated any of 
 
 ## [](#calling-another-actor) Calling another actor
 
-If you remember from our project's requirements outlined in the previous lesson, once the crawler has finished running, we have to email ourselves a public link to the dataset by using a [public actor which sends emails](https://console.apify.com/actors/e643gqfZae2TfQEbA/?addFromActorId=e643gqfZae2TfQEbA#/console). Luckily, the ability to do this programmatically is avaialable right within the Apify SDK with the [`Apify.call()`](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options) function.
+If you remember from our project's requirements outlined in the previous lesson, once the crawler has finished running, we have to email ourselves a public link to the dataset by using a [public actor which sends emails](https://console.apify.com/actors/e643gqfZae2TfQEbA/?addFromActorId=e643gqfZae2TfQEbA#/console). Luckily, the ability to do this programmatically is available right within the Apify SDK with the [`Apify.call()`](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options) function.
 
 Let's add a bit of code to the end of our actor to send this email:
 
@@ -506,7 +506,7 @@ Let's try it out now! Input **iphone** into the box labeled **keyword**, click *
 
 **Q: When using Puppeteer or Playwright, how can you still use jQuery with the SDK?**
 
-**A:** There are two ways. You can either use the [injectJQuery](https://sdk.apify.com/docs/api/puppeteer#puppeteerinjectjquerypage) utility function which will enable you to use jQuery inside of `page.evalute()`, or you can use Cheerio to load the page's content like this:
+**A:** There are two ways. You can either use the [injectJQuery](https://sdk.apify.com/docs/api/puppeteer#puppeteerinjectjquerypage) utility function which will enable you to use jQuery inside of `page.evaluate()`, or you can use Cheerio to load the page's content like this:
 
 ```JavaScript
 const $ = cheerio.load(await page.content());
@@ -558,7 +558,7 @@ const title = await page.evaluate(() => $('title').text());
 
 **Q: What is the difference between the RequestList and the RequestQueue?**
 
-The main differece is that once a request list has been created, no more requests can be dynamically added to it. When you want to dynamically add (or  remove) requests, a requst queue must be used.
+The main difference is that once a request list has been created, no more requests can be dynamically added to it. When you want to dynamically add (or  remove) requests, a request queue must be used.
 
 Request lists are better when adding a large batch of requests, as the RequestQueue is not optimized to handle the mass adding of requests. Additionally, the RequestList doesn't consume any platform credits.
 
