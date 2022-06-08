@@ -157,7 +157,7 @@ const scrape100Items = async () => {
 
         // make the paginated request and push its results
         // into the in-memory "items" array
-        const res = await gotScraping(nextURL.toString());
+        const res = await gotScraping(nextURL);
         const json = JSON.parse(res.body);
         items.push(json.collection);
 
