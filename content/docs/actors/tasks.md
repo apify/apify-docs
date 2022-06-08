@@ -13,13 +13,13 @@ Tasks let you create multiple re-usable configurations of a single actor that ar
 
 All your tasks are listed at [https://console.apify.com/actors/tasks](https://console.apify.com/actors/tasks).
 
-You can create tasks both for your personal actors and for those made by someone else. Just [search Apify Store](https://console-securitybyobscurity.apify.com/actors#/store/) to find an actor you want to use and click the **Create new task** button.
+You can create tasks both for your personal actors and for those made by someone else. Just [search Apify Store](https://console.apify.com/actors?tab=store) to find an actor you want to use and click the **Create new task** button.
 
 Like any other resource, you can share your actor tasks with other Apify users via the [access rights]({{@link access_rights.md}}) system.
 
 ## Create
 
-Open any actor from [Apify Store](https://console-securitybyobscurity.apify.com/actors#/store/) or your list of [actors](https://console.apify.com/actors) in Apify Console. In the top-right section of the page, click the **Create new task** button.
+Open any actor from [Apify Store](https://console.apify.com/actors?tab=store) or your list of [actors](https://console.apify.com/actors) in Apify Console. In the top-right section of the page, click the **Create new task** button.
 
 ![Create a new Apify task]({{@asset actors/images/create-task.webp}})
 
