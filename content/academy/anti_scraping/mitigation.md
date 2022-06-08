@@ -10,7 +10,7 @@ paths:
 
 In the [techniques]({{@link anti_scraping/techniques.md}}) section of this course, you learned about multiple methods websites use to prevent bots from accessing their content. This **Mitigation** section will be all about how to circumvent these protections using various different techniques.
 
-<!-- Here there should  -->
+<!-- Here there should be a bit of an outline of what mitigation techniques they'll be learning -->
 
 ## [](#next) Next up
 

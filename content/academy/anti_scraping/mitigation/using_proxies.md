@@ -139,4 +139,4 @@ Notice that we didn't provide it a list of proxy URLs. This is because the `SHAD
 
 ## [](#next) Next up
 
-That's it for the **Mitigation** course for now, but be on the lookout for future lessons! We release lessons as we write them, and will be updating the Academy frequently, so be sure to check back every once in a while for new content! Alternatively, you can subscribe to our mailing list to get periodic updates on the Academy, as well as what Apify is up to.
+[Next up]({{@link anti_scraping/mitigation/generating_fingerprints.md}}), we'll be checking out how to use two NPM packages to generate and inject [browser fingerprints]({{@link anti_scraping/techniques/fingerprinting.md}}).
