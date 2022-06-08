@@ -1,5 +1,5 @@
 ---
-title: DevTools (continued)
+title: Browser DevTools - III
 description: Continue learning how to collect data from a website using browser DevTools, CSS selectors, and JavaScript via the DevTools console.
 menuWeight: 3
 paths:
