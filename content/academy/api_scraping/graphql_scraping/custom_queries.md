@@ -313,13 +313,15 @@ export default scrapeAppToken;
 
 ## Wrap up
 
-<!-- We are actively working on writing the GraphQL scraping guide, so stay tuned for more content here! In the meantime, take a moment to review the skills you learned in this section:
+<!-- We are actively working on writing the GraphQL scraping guide, so stay tuned for more content here! -->
+
+If you've made it this far, that means that you've conquered the king of API scraping - GraphQL, and that you're ready to take on writing scrapers for the majority of websites out there. Nice work!
+
+Take a moment to review the skills you learned in this section:
 
 1. Modifying the variables of copied GraphQL queries
 2. Introspecting a GraphQL API
 3. Visualizing and understanding a GraphQL API introspection
 4. Writing custom queries
 5. Dealing with cursor-based relay pagination
-6. Writing a GraphQL scraper with custom queries -->
-
-If you've made it this far, that means that you've conquered the king of API scraping - GraphQL, and that you're ready to take on writing scrapers for the majority of websites out there. Nice work!
+6. Writing a GraphQL scraper with custom queries

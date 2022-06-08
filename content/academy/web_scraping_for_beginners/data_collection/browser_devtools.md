@@ -1,5 +1,5 @@
 ---
-title: Browser DevTools
+title: Browser DevTools - I
 description: Learn about browser DevTools, a valuable tool in the world of web scraping , and how you can use them to collect data from a website.
 menuWeight: 1
 paths:

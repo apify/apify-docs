@@ -1,5 +1,5 @@
 ---
-title: Project Setup
+title: Project setup
 description: Create a new project with NPM and Node.js. Install necessary libraries, and test that everything works before starting the next modules.
 menuWeight: 5
 paths:
