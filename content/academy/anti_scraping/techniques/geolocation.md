@@ -20,7 +20,7 @@ On targets which are just utilizing cookies and headers to identify the location
 
 The oldest (and still most common) way of geolocating is based on the IP address used to make the request. Sometimes, country-specific sites block themselves from being accessed from any other country (some Chinese, Indian, Israeli, and Japanese websites do this).
 
-[Proxies]({{@link anti_scraping/proxies.md}}) can be used in a scraper to bypass restrictions for make requests from a different location. Often times, proxies need to be used in combination with location-specific cookies/headers.
+[Proxies]({{@link anti_scraping/mitigation/proxies.md}}) can be used in a scraper to bypass restrictions for make requests from a different location. Often times, proxies need to be used in combination with location-specific [cookies]({{@link concepts/http_cookies.md}})/headers({{@link concepts/http_headers.md}}).
 
 ## [](#override-emulate-geolocation) Override/emulate geolocation when using a browser-based scraper
 

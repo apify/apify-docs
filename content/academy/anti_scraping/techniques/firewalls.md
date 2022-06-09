@@ -30,7 +30,7 @@ Since there are multiple providers, it is essential to say that the challenges a
 
 ## [](#bypassing-firewalls) Bypassing web-application firewalls
 
-- Using [proxies]({{@link anti_scraping/proxies.md}}).
+- Using [proxies]({{@link anti_scraping/mitigation/proxies.md}}).
 - Mocking [headers]({{@link concepts/http_headers.md}}).
 - Overriding the browser's [fingerprint]({{@link anti_scraping/techniques/fingerprinting.md}}) (most effective).
 - Farming the [cookies]({{@link concepts/http_cookies.md}}) from a website with a headless browser, then using the farmed cookies to do HTTP based scraping (most performant).
