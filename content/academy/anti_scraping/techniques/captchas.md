@@ -19,7 +19,7 @@ When you've hit a captcha, your first thought should not be how to programmatica
 
 Have you expended all of the possible options to make your scraper appear more human-like? Are you:
 
-- Using [proxies]({{@link anti_scraping/proxies.md}})?
+- Using [proxies]({{@link anti_scraping/mitigation/proxies.md}})?
 - Making the request with the proper [headers]({{@link concepts/http_headers.md}}) and [cookies]({{@link concepts/http_cookies.md}})?
 - Generating and using a custom [browser fingerprint]({{@link anti_scraping/techniques/fingerprinting.md}})?
 - Trying different general scraping methods (HTTP scraping, browser scraping)? If you are using browser scraping, have you tried using a different browser?
@@ -38,4 +38,4 @@ Another popular captcha is the [Geetest slider captcha](https://www.geetest.com/
 
 ## Wrap up
 
-In this course, you've learned about some of the most common (and some of the most advanced) anti-scraping techniques. Keep in mind that as the web (and technology in general) evolves, this section of the **Anti scraping** course will evolve as well. In the [next section]({{@link anti_scraping/proxies.md}}), we'll be discussing one of the most crucial parts of web scraping and web-automation: how to properly leverage proxies to avoid many of the anti-scraping techniques that were discussed in this section.
+In this course, you've learned about some of the most common (and some of the most advanced) anti-scraping techniques. Keep in mind that as the web (and technology in general) evolves, this section of the **Anti scraping** course will evolve as well. In the [next section]({{@link anti_scraping/mitigation.md}}), we'll be discussing how to mitigate the anti-scraping techniques you learned about in this section.

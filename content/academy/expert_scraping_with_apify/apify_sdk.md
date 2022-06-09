@@ -22,7 +22,7 @@ The SDK factors away and manages the hard parts of the scraping/automation devel
 - Request concurrency
 - Queueing requests
 - Data storage
-- Using and rotating [proxies]({{@link anti_scraping/proxies.md}})
+- Using and rotating [proxies]({{@link anti_scraping/mitigation/proxies.md}})
 - Puppeteer/Playwright setup overhead
 - Plus much more!
 

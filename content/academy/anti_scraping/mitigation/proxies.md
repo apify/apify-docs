@@ -1,9 +1,9 @@
 ---
 title: Proxies
 description: Learn all about proxies, how they work, and how they can be leveraged in a scraper to avoid blocking and other anti-scraping tactics.
-menuWeight: 4.2
+menuWeight: 1
 paths:
-- anti-scraping/proxies
+- anti-scraping/mitigation/proxies
 ---
 
 # [](#about-proxies) Proxies
@@ -45,4 +45,4 @@ Web scrapers can implement a method called "proxy rotation" to **rotate** the IP
 
 ## [](#next) Next up
 
-This module's first lesson will be teaching you how to configure your crawler in the Apify SDK to use and automatically rotate proxies. [Let's get right into it!]({{@link anti_scraping/proxies/using_proxies.md}})
+Proxies are one of the most important things to understand when it comes to mitigating anti-scraping techniques in a scraper. Now that you're familiar with what they are, the next lesson will be teaching you how to configure your crawler in the Apify SDK to use and automatically rotate proxies. [Let's get right into it!]({{@link anti_scraping/mitigation/using_proxies.md}})
