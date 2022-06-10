@@ -1,7 +1,7 @@
 ---
 title: Anti-scraping techniques
 description: Understand the various common (and obscure) anti-scraping techniques used by websites to prevent bots from accessing their content.
-menuWeight: 4.1
+menuWeight: 3.1
 paths:
 - anti-scraping/techniques
 ---

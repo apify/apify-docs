@@ -1,7 +1,7 @@
 ---
 title: GraphQL scraping
 description: Dig into the topic of scraping APIs which use the latest and greatest API technology - GraphQL. GraphQL APIs are very different from regular REST APIs.
-menuWeight: 2.2
+menuWeight: 4.2
 paths:
     - api-scraping/graphql-scraping
 ---
