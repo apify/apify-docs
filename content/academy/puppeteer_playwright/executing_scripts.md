@@ -1,7 +1,7 @@
 ---
 title: III - Executing scripts
 description: Understand the two different contexts which your code can be run in, and how to run custom scripts in the context of the browser.
-menuWeight: 7.3
+menuWeight: 2.3
 paths:
     - puppeteer-playwright/executing-scripts
 ---
