@@ -1,7 +1,7 @@
 ---
 title: ModHeader
 description: Discover a super useful Chrome extension called ModHeader, which allows you to modify your browser's HTTP request headers.
-menuWeight: 7.5
+menuWeight: 9.5
 paths:
     - tools/modheader
 ---

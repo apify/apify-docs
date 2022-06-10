@@ -1,7 +1,7 @@
 ---
 title: Insomnia
 description: Learn about Insomnia, a simple yet super valuable tool for testing requests and proxies when building scalable web scrapers.
-menuWeight: 7.2
+menuWeight: 9.2
 paths:
     - tools/insomnia
 ---
