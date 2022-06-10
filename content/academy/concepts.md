@@ -1,7 +1,7 @@
 ---
 title: Concepts
 description: Learn about some common yet tricky concepts and terms that are used frequently within the academy, as well as in the world of scraper development.
-menuWeight: 8
+menuWeight: 9
 category: glossary
 paths:
     - concepts
