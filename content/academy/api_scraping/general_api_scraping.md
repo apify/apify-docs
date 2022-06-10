@@ -1,7 +1,7 @@
 ---
 title: General API scraping
 description: Learn the benefits and drawbacks of API scraping, how to locate an API, how to utilize its features, and how to work around common roadblocks.
-menuWeight: 2.1
+menuWeight: 4.1
 paths:
     - api-scraping/general-api-scraping
 ---

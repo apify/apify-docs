@@ -1,7 +1,7 @@
 ---
 title: Mitigation
 description: After learning about the various different anti-scraping techniques websites use, learn how to mitigate them with a few different techniques.
-menuWeight: 4.2
+menuWeight: 3.2
 paths:
 - anti-scraping/mitigation
 ---
