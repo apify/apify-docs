@@ -1,6 +1,6 @@
 ---
-title: Logging into a website
-description: description
+title: Paginating through results
+description: Learn how to paginate through websites that use either page number-based pagination or lazy-loading pagination.
 menuWeight: 2
 paths:
     - puppeteer-playwright/common-use-cases/paginating-through-results
@@ -230,7 +230,7 @@ console.log(repositories.length);
 
 > **IMPORTANT!** Usually, within the map function's callback you'd want to add the requests to a request queue, especially when paginating through hundreds (or even thousands) of pages. But since we know that we have 4 pages and only 3 left to go through, it is totally safe to use `Promise.all()` for this specific use-case.
 
-### [](#final-code) Final code
+### [](#final-pagination-code) Final code
 
 After all is said and done, here's what our final code looks like:
 
@@ -360,7 +360,273 @@ If we remember correctly, Facebook has 115 Github repositories (at the time of w
 115
 ```
 
-<!-- ## [](#lazy-loading-pagination) Lazy loading pagination -->
+## [](#lazy-loading-pagination) Lazy-loading pagination
+
+Though page number-based pagination is quite straightforward to automate the pagination process with, and though it is still an extremely common implementation, [lazy-loading](https://en.wikipedia.org/wiki/Lazy_loading) is becoming extremely popular on the modern web, which makes it an important and relevant topic to discuss.
+
+> Note that on websites with lazy-loading pagination, [API scraping]({{@link api_scraping.md}}) is usually a viable option, and a much better one due to reliability and performance.
+
+Take a moment to look at and scroll through the women's clothing section [on About You's website](https://www.aboutyou.com/c/women/clothing-20204). Notice that the items are loaded as you scroll, and that there are no page numbers. Because of how drastically different this pagination implementation is from the previous one, it also requires a different workflow to scrape.
+
+We're going to scrape the brand and price from the first 75 results on the **About You** page linked above. Here's our basic setup:
+
+```marked-tabs
+<marked-tab header="Playwright" lang="javascript">
+import { chromium } from 'playwright';
+import { load } from 'cheerio';
+
+// Create an array where all scraped products will
+// be pushed to
+const products = [];
+
+const browser = await chromium.launch({ headless: false });
+const page = await browser.newPage();
+
+await page.goto('https://www.aboutyou.com/c/women/clothing-20204');
+
+await browser.close();
+</marked-tab>
+<marked-tab header="Puppeteer" lang="javascript">
+import puppeteer from 'puppeteer';
+import { load } from 'cheerio';
+
+// Create an array where all scraped products will
+// be pushed to
+const products = [];
+
+const browser = await puppeteer.launch({ headless: false });
+const page = await browser.newPage();
+
+await page.goto('https://www.aboutyou.com/c/women/clothing-20204');
+
+await browser.close();
+</marked-tab>
+```
+
+### [](#auto-scrolling) Auto scrolling
+
+Now, what we'll do is grab the height in pixels of a result item to have somewhat of a reference to how much we should scroll each time, as well as create a variable for keeping track of how many pixels have been scrolled.
+
+```JavaScript
+// Grab the height of result item in pixels, which will be used to scroll down
+const itemHeight = await page.$eval('a[data-testid*="productTile"]', (elem) => elem.clientHeight);
+
+// Keep track of how many pixels have been scrolled down
+let totalScrolled = 0;
+```
+
+Then, within a `while` loop that ends once the length of the **products** array has reached 75, we'll run some logic that scrolls down the page and waits 1 second before running again.
+
+```marked-tabs
+<marked-tab header="Playwright" lang="javascript">
+while (products.length < 75) {
+    await page.mouse.wheel(0, itemHeight * 3);
+    totalScrolled += itemHeight * 3;
+    // Allow the products 1 second to load
+    await page.waitForTimeout(1000);
+}
+</marked-tab>
+<marked-tab header="Puppeteer" lang="javascript">
+while (products.length < 75) {
+    await page.mouse.wheel({ deltaY: itemHeight * 3 });
+    totalScrolled += itemHeight * 3;
+    // Allow the products 1 second to load
+    await page.waitForTimeout(1000);
+}
+</marked-tab>
+```
+
+This will work; however, what if we reach the bottom of the page and there are say, only 55 total products on the page? That would result in an infinite loop. Because of this edge case, we have to keep track of the constantly changing available scroll height on the page.
+
+```marked-tabs
+<marked-tab header="Playwright" lang="javascript">
+while (products.length < 75) {
+    const scrollHeight = await page.evaluate(() => document.body.scrollHeight);
+
+    await page.mouse.wheel(0, itemHeight * 3);
+    totalScrolled += itemHeight * 3;
+    // Allow the products 1 second to load
+    await page.waitForTimeout(1000);
+
+    // Data collection login will go here
+
+    const innerHeight = await page.evaluate(() => window.innerHeight);
+
+    // if the total pixels scrolled is equal to the true available scroll
+    // height of the page, we've reached the end and should stop scraping.
+    // even if we haven't reach our goal of 75 products.
+    if (totalScrolled >= scrollHeight - innerHeight) {
+        break;
+    }
+}
+</marked-tab>
+<marked-tab header="Puppeteer" lang="javascript">
+while (products.length < 75) {
+    const scrollHeight = await page.evaluate(() => document.body.scrollHeight);
+
+    await page.mouse.wheel({ deltaY: itemHeight * 3 });
+    totalScrolled += itemHeight * 3;
+    // Allow the products 1 second to load
+    await page.waitForTimeout(1000);
+
+    // Data collection login will go here
+
+    const innerHeight = await page.evaluate(() => window.innerHeight);
+
+    // if the total pixels scrolled is equal to the true available scroll
+    // height of the page, we've reached the end and should stop scraping.
+    // even if we haven't reach our goal of 75 products.
+    if (totalScrolled >= scrollHeight - innerHeight) {
+        break;
+    }
+}
+</marked-tab>
+```
+
+Now, the `while` loop will exit out if we've reached the bottom of the page.
+
+### [](#collecting-data) Collecting data
+
+Within the loop, we can grab hold of the total number of items on the page. To avoid collecting and pushing duplicate items to the **products** array, we can use the `.slice()` method to cut out the items we've already scraped.
+
+```JavaScript
+const $ = load(await page.content());
+
+// Grab the newly loaded items
+const items = [...$('a[data-testid*="productTile"]')].slice(products.length);
+
+const newItems = items.map((item) => {
+    const elem = $(item);
+
+    return {
+        brand: elem.find('p[data-testid="brandName"]').text().trim(),
+        price: elem.find('span[data-testid="finalPrice"]').text().trim(),
+    };
+});
+
+products.push(...newItems);
+```
+
+### [](#final-lazy-loading-code) Final code
+
+With everything completed, this is what we're left with:
+
+```marked-tabs
+<marked-tab header="Playwright" lang="javascript">
+import { chromium } from 'playwright';
+import { load } from 'cheerio';
+
+const products = [];
+
+const browser = await chromium.launch({ headless: false });
+const page = await browser.newPage();
+
+await page.goto('https://www.aboutyou.com/c/women/clothing-20204');
+
+// Grab the height of result item in pixels, which will be used to scroll down
+const itemHeight = await page.$eval('a[data-testid*="productTile"]', (elem) => elem.clientHeight);
+
+// Keep track of how many pixels have been scrolled down
+let totalScrolled = 0;
+
+while (products.length < 75) {
+    const scrollHeight = await page.evaluate(() => document.body.scrollHeight);
+
+    await page.mouse.wheel(0, itemHeight * 3);
+    totalScrolled += itemHeight * 3;
+    // Allow the products 1 second to load
+    await page.waitForTimeout(1000);
+
+    const $ = load(await page.content());
+
+    // Grab the newly loaded items
+    const items = [...$('a[data-testid*="productTile"]')].slice(products.length);
+
+    const newItems = items.map((item) => {
+        const elem = $(item);
+
+        return {
+            brand: elem.find('p[data-testid="brandName"]').text().trim(),
+            price: elem.find('span[data-testid="finalPrice"]').text().trim(),
+        };
+    });
+
+    products.push(...newItems);
+
+    const innerHeight = await page.evaluate(() => window.innerHeight);
+
+    // if the total pixels scrolled is equal to the true available scroll
+    // height of the page, we've reached the end and should stop scraping.
+    // even if we haven't reach our goal of 75 products.
+    if (totalScrolled >= scrollHeight - innerHeight) {
+        break;
+    }
+}
+
+console.log(products.slice(0, 75));
+
+await browser.close();
+</marked-tab>
+<marked-tab header="Puppeteer" lang="javascript">
+import puppeteer from 'puppeteer';
+import { load } from 'cheerio';
+
+const products = [];
+
+const browser = await puppeteer.launch({ headless: false });
+const page = await browser.newPage();
+
+await page.goto('https://www.aboutyou.com/c/women/clothing-20204');
+
+// Grab the height of result item in pixels, which will be used to scroll down
+const itemHeight = await page.$eval('a[data-testid*="productTile"]', (elem) => elem.clientHeight);
+
+// Keep track of how many pixels have been scrolled down
+let totalScrolled = 0;
+
+while (products.length < 75) {
+    const scrollHeight = await page.evaluate(() => document.body.scrollHeight);
+
+    await page.mouse.wheel({ deltaY: itemHeight * 3 });
+    totalScrolled += itemHeight * 3;
+    // Allow the products 1 second to load
+    await page.waitForTimeout(1000);
+
+    const $ = load(await page.content());
+
+    // Grab the newly loaded items
+    const items = [...$('a[data-testid*="productTile"]')].slice(products.length);
+
+    const newItems = items.map((item) => {
+        const elem = $(item);
+
+        return {
+            brand: elem.find('p[data-testid="brandName"]').text().trim(),
+            price: elem.find('span[data-testid="finalPrice"]').text().trim(),
+        };
+    });
+
+    products.push(...newItems);
+
+    const innerHeight = await page.evaluate(() => window.innerHeight);
+
+    // if the total pixels scrolled is equal to the true available scroll
+    // height of the page, we've reached the end and should stop scraping.
+    // even if we haven't reach our goal of 75 products.
+    if (totalScrolled >= scrollHeight - innerHeight) {
+        break;
+    }
+}
+
+console.log(products.slice(0, 75));
+
+await browser.close();
+</marked-tab>
+```
+
+## [](#quick-note) Quick note
+
+The examples shown in this lesson are not the only ways to paginate through websites. They are here to serve as solid examples, but don't view them as the end-all be-all of scraping paginated websites. The methods you use and algorithms you write might differ to various degrees based on what pages you're scraping and how your specific target website implemented pagination.
 
 ## [](#next) Next up
 
