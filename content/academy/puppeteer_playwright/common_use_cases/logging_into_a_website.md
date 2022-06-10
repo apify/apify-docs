@@ -393,4 +393,4 @@ await browser.close();
 
 ## [](#next) Next up
 
-We're actively working in expanding this section of the course, so stay tuned!
+In the [next lesson]({{@link puppeteer_playwright/common_use_cases/paginating_through_results.md}}), you'll learn how to paginate through results on a website.
