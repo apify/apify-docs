@@ -1,7 +1,7 @@
 ---
 title: The Apify CLI
 description: Learn about, install, and log into the Apify CLI - your best friend for interacting with the Apify platform via your terminal.
-menuWeight: 7.1
+menuWeight: 9.1
 paths:
     - tools/apify-cli
 ---
