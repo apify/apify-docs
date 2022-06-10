@@ -485,6 +485,8 @@ while (products.length < 75) {
 
 Now, the `while` loop will exit out if we've reached the bottom of the page.
 
+> Generally, you'd want to create a utility function that handles this scrolling logic instead of putting all of the code directly into the while loop.
+
 ### [](#collecting-data) Collecting data
 
 Within the loop, we can grab hold of the total number of items on the page. To avoid collecting and pushing duplicate items to the **products** array, we can use the `.slice()` method to cut out the items we've already scraped.
