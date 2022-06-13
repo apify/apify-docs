@@ -1,6 +1,6 @@
 ---
 title: Enums
-description: description
+description: Learn how to easily define, use, and manage constant values using this epic feature called "enums" that TypeScript brings to the table.
 menuWeight: 7.4
 paths:
     - switching-to-typescript/enums
@@ -46,6 +46,8 @@ const fileExtensions: {
     PYTHON: '.py',
 };
 ```
+
+> Using an actual concrete value such as `'.js'` or `24` or something else instead of a type name is called a [literal type](https://www.typescriptlang.org/docs/handbook/literal-types.html)
 
 And now we'll create a variable with a hacky custom type that points to the values in the `fileExtensions` object:
 
@@ -120,4 +122,4 @@ We don't get autocomplete, but the `extension` parameter is now restricted to th
 
 ## [](#next) Next up
 
-something
+The `enum` keyword is just the tip of the iceberg of the exclusive features TypeScript has to offer. Let's now [learn about]({{@link switching_to_typescript/type_aliases.md}}) type aliases (custom types!) with the `type` keyword.

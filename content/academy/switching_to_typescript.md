@@ -4,12 +4,14 @@ description: In this course, learn what TypeScript is, why you should use it ins
 menuWeight: 7
 category: courses
 paths:
-- switching-to-typescript
+    - switching-to-typescript
 ---
 
 # [](#switching-to-typescript) Switching to TypeScript
 
 As the world of JavaScript moves forward, [TypeScript](https://www.typescriptlang.org/) continues to become more popular. More companies than ever before are using TypeScript in their codebases, and are heavily preferring it over vanilla JavaScript. But why? What is TypeScript, and why is is so great for developers?
+
+![TypeScript logo](https://wallpaperaccess.com/full/7990029.png)
 
 ## [](#what-is-typescript) What is TypeScript?
 
