@@ -47,7 +47,7 @@ const fileExtensions: {
 };
 ```
 
-> Using an actual concrete value such as `'.js'` or `24` or something else instead of a type name is called a [literal type](https://www.typescriptlang.org/docs/handbook/literal-types.html)
+> Using an actual concrete value such as `'.js'` or `24` or something else instead of a type name is called a [literal type](https://www.typescriptlang.org/docs/handbook/literal-types.html).
 
 And now we'll create a variable with a hacky custom type that points to the values in the `fileExtensions` object:
 
