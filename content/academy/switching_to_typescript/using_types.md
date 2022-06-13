@@ -1,7 +1,7 @@
 ---
-title: Using types
+title: Using types - I
 description: Dip your toes into using types with TypeScript by learning about the core types offered by the language, and how to define variables and functions with them.
-menuWeight: 7.1
+menuWeight: 7.2
 paths:
     - switching-to-typescript/using-types
 ---
@@ -42,7 +42,7 @@ value = 10;
 
 TypeScript can't automatically infer the type of the variable when we don't provide it an initial value, so it automatically uses the `any` type.
 
-> Note: Avoid using the `any` type as much as possible. It completely defeats the purpose of using TypeScript in the first place.
+> Note: Avoid using the `any` type as much as possible. It completely defeats the purpose of using TypeScript in the first place, as it removes the benefits of TS.
 
 Because of this, we can set `value` to be absolutely anything without receiving any compiler errors.
 
@@ -120,4 +120,4 @@ function totalLengthIsGreaterThan10(string1: string, string2: string): boolean {
 
 ## [](#next) Next up
 
-something
+[Next up]({{@link switching_to_typescript/using_types_continued.md}}), we'll discuss a few more basic types supported in TypeScript and how to use them.
