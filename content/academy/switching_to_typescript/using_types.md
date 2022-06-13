@@ -10,7 +10,7 @@ paths:
 
 In the previous lesson, we got a rough idea of how types are used by utilizing the `number` type in a function's parameters. The `number` type is one of TypeScript's three core types.
 
-**Core types**
+## Core types
 
 | Name      | Example                 | Description                                                  |
 | --------- | ----------------------- | ------------------------------------------------------------ |
