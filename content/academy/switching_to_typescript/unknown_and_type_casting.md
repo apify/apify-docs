@@ -8,6 +8,4 @@ paths:
 
 ## [](#unknown-and-type-casting) Unknown & type casting
 
-talk about unknown type
-
-talk about type casting
+In the first [**Using types**]({{@link switching_to_typescript/using_types.md}}) lesson, you were briefly exposed to the `any` type. 
