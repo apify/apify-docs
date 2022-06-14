@@ -1,5 +1,5 @@
 ---
-title: "unknown" and type casting
+title: Unknown & type casting
 description: Create your own custom types using the "type" keyword, understand the "void" type, and learn how to write custom function types.
 menuWeight: 7.6
 paths:

@@ -53,9 +53,9 @@ And now we'll create a variable with a hacky custom type that points to the valu
 
 ![TypeScript autofilling the values of the fileExtensions object]({{@asset switching_to_typescript/images/constant-autofill.webp}})
 
-Because of the custom type definition for `fileExtensions` and the type annotation used for the `values` variable, we are getting some autofill for the variable, and the variable can only be set to values within the `fileExtensions` object. Though this implementation might be useful in somewhere in another dimension, it kind of sucks in TypeScript. We had to write our `fileExtensions` property twice (once for TypeScript, and another time to actually initialize the object), and had to use a weird type definition for `values`.
+Because of the custom type definition for `fileExtensions` and the type annotation used for the `values` variable, we are getting some autofill for the variable, and the variable can only be set to values within the `fileExtensions` object. Though this implementation might be useful somewhere, it kind of sucks for a few reasons. We had to write our `fileExtensions` property twice (once for TypeScript, and another time to actually initialize the object), and had to use a weird type definition for `values`.
 
-Don't worry, there's a better way! Enter `enum`s.
+Don't worry, there's a better way! Enter **enums**.
 
 ## [](#creating-enums) Creating enums
 

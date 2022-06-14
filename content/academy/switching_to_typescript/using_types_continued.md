@@ -30,7 +30,7 @@ This inference from TypeScript is totally valid and correct; however, what if we
 
 ![Error adding a new property to the object]({{@asset switching_to_typescript/images/object-type-error.webp}})
 
-So what's the problem? The problem is that we didn't tell TypeScript that the `course` object can have a property called `learningBasicTypes` of a boolean type the variable's initial state, which is what TypeScript's inference is based off of. Because of this, we have to write our own custom object type.
+So what's the problem? The problem is that we didn't tell TypeScript that the `course` object can have a property called `learningBasicTypes` of a boolean type in the variable's initial state, which is what TypeScript's inference is based off of. Because of this, we have to write our own custom object type.
 
 Just as we did before when assigning types like `number` and `string` to variables, we'll annotate the variable's type with a colon (`:`) followed by the type. However, instead of using a basic type name such as `boolean` or `number`, we'll put a custom object type there instead.
 
@@ -48,7 +48,7 @@ const course: {
 
 ### [](#optional-properties) Optional properties
 
-Finally, we'll add an optional property to our object type with a key of `learningBasicTypes` and a type of `boolean`. Optional properties are added by adding a question mark (`?`) before the colon (`?`) after the property name.
+Finally, we'll add an optional property to our object type with a key of `learningBasicTypes` and a type of `boolean`. Properties become optional by adding a question mark (`?`) before the colon (`?`) after the property name.
 
 ```TypeScript
 // Initialize the object without the "learningBasicTypes" property
@@ -106,7 +106,7 @@ Nice!
 
 ## [](#tuples) Tuples
 
-The **Tuple** type is a special type that is not in vanilla JavaScript, but is supported in TypeScript. It is almost the same thing as an array; however tuples have a fixed length that cannot be changed, and each element at each index has a specific type. Don't worry, this type is much easier to understand in practice.
+The **Tuple** type is a special type that is not in vanilla JavaScript, but is supported in other programming languages - including TypeScript. It is almost the same thing as an array; however tuples have a fixed length that cannot be changed, and each element at each index has a specific type. Don't worry, this type is much easier to understand in practice.
 
 Let's add a final property to our epic `course` object called `courseInfo`. This property will hold an array where the first value corresponds to this course's number in the Apify academy, and the value in the second position describes the level of this course.
 
@@ -137,7 +137,7 @@ const course: {
 };
 ```
 
-This is actually how TypeScript infers type of `courseInfo` as well. It tells the compiler that `courseInfo` is an array of any length that can hold both numbers and strings. However, we want to be more specific than that in this case. The length of `courseInfo` should always going to be 2, the first value should always be a number, and second one always a string. We should use a tuple instead.
+This is actually how TypeScript infers the type of `courseInfo` as well. It tells the compiler that `courseInfo` is an array of any length that can hold both numbers and strings. However, we want to be more specific than that in this case. The length of `courseInfo` should always going to be 2, the first value should always be a number, and second one always a string. We should use a tuple instead.
 
 ```TypeScript
 const course: {
