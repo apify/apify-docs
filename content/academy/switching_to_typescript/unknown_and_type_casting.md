@@ -100,4 +100,4 @@ Often times, these features are used in tandem.
 
 ## [](#next) Next up
 
-some content
+We've now got all the knowledge we need to build a real project in TypeScript, which we're going to do very soon. But, there's one important thing we have to do before writing the code for our project - configure the compiler and understand watch mode. Learn all this in the [next lesson]({{@link switching_to_typescript/watch_mode_and_tsconfig.md}})!
