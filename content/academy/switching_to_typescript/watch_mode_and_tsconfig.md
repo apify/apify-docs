@@ -291,4 +291,4 @@ And our files in **src** will automatically compile into a folder named **dist**
 
 ## [](#next) Next up
 
-something
+[something]({{@link switching_to_typescript/interfaces.md}})
