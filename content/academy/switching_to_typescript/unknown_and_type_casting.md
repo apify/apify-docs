@@ -1,6 +1,6 @@
 ---
 title: Unknown, any, type guards & type casting
-description: Create your own custom types using the "type" keyword, understand the "void" type, and learn how to write custom function types.
+description: Understand the "unknown" and "any" types, as well as how to use type guards to make your code safer and type casting to avoid common TypeScript compiler errors.
 menuWeight: 7.6
 paths:
     - switching-to-typescript/unknown-and-type-casting
