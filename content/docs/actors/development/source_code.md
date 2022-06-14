@@ -135,6 +135,8 @@ console.log(process.env.SMTP_HOST);
 
 The actor runtime sets additional environment variables for the actor process during the run. See [Environment variables]({{@link actors/development/environment_variables.md}}) for details.
 
+The environment variables can also be used for the build process. In this case, the variables are treated as [Docker build arguments](https://docs.docker.com/engine/reference/builder/#arg). Meaning that they should not be used for secrets and in order to access them in Dockerfile, you have to use `ARG variable_name` instruction.
+
 ## [](#versioning)Versioning
 
 In order to enable active development, the actor can have multiple versions of the source code and associated settings, such as the **Base image** and **Environment**. Each version is denoted by a version number of the form `MAJOR.MINOR`; the version numbers should adhere to the [Semantic Versioning](http://semver.org/) logic.
