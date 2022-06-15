@@ -6,7 +6,7 @@ paths:
     - switching-to-typescript/unknown-and-type-casting
 ---
 
-## [](#unknown-and-type-casting) Unknown & type casting
+# [](#unknown-and-type-casting) Unknown & type casting
 
 There are two types we haven't discussed yet - `any` and `unknown`.
 

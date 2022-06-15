@@ -6,7 +6,7 @@ paths:
     - switching-to-typescript/using-types-continued
 ---
 
-## [](#using-types-continued) Using types (continued)
+# [](#using-types-continued) Using types (continued)
 
 Now that you're (hopefully) fairly comfortable with strings, booleans, and numbers in TypeScript, we can start discussing the more complex types supported by the language.
 
