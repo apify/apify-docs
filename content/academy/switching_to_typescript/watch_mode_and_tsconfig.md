@@ -278,6 +278,28 @@ TypeScript has [multiple options](https://learntypescript.dev/11/l6-strictness) 
 }
 ```
 
+#### [](#module-resolution) Setting module resolution & type
+
+By default, TypeScript doesn't know how to handle or recognize modules imported into our projects. We'll tell the compiler it's a Node.js project with the **moduleResolution** option set to **node**, and that we are using CommonJS for the module type.
+
+```JSON
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "lib": ["ES2015", "ES2016", "ES2018", "ES2019.Object", "ES2018.AsyncIterable", "ES2020.String", "ES2019.Array"],
+        "outDir": "dist/",
+        "removeComments": true,
+        "noEmitOnError": true,
+        "strict": true,
+        "moduleResolution": "node",
+        "skipLibCheck": true, /* this will prevent TS errors from happening due to library errors */
+        "module": "commonjs",
+    },
+    "exclude": ["node_modules"],
+    "include": ["src/"]
+}
+```
+
 ## [](#watch-mode) Watch mode
 
 Now that you've finished configuring the **tsconfig.json** file, go ahead and create an **index.ts** file in the **src** folder. Because we've configured this project with TypeScript, we can just run this command:
