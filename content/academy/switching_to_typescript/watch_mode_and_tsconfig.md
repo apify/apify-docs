@@ -291,4 +291,4 @@ And our files in **src** will automatically compile into a folder named **dist**
 
 ## [](#next) Next up
 
-[something]({{@link switching_to_typescript/interfaces.md}})
+Now that we're all set up, we can move forward and start building our mini-project. But first, [let's learn]({{@link switching_to_typescript/interfaces.md}}) about the `interface` keyword!
