@@ -563,13 +563,6 @@ on its value the Version object has the following additional property:
 
 <table>
   <tr>
-    <td><code>"SOURCE_CODE"</code></td>
-    <td>
-        Source code is a single JavaScript/Node.js file whose content is in the <code>sourceCode</code> field,
-        and uses a base Docker image specified in <code>baseDockerImage</code>.
-    </td>
-  </tr>
-  <tr>
     <td><code>"SOURCE_FILES"</code></td>
     <td>
         Source code is comprised of multiple files specified in the <code>sourceFiles</code> array.
@@ -3786,7 +3779,7 @@ The user account is identified by the provided authentication token.
 
 ## Version (object)
 - versionNumber:            `0.0`                           (string, required)
-- sourceType:               `SOURCE_CODE`                   (VersionSourceType, required)
+- sourceType:               `SOURCE_FILES`                  (VersionSourceType, required)
 - envVars                                                   (array, nullable)
     -                                                       (object)
         - name:             `DOMAIN`                        (string, required)
@@ -3795,10 +3788,25 @@ The user account is identified by the provided authentication token.
     -                                                       (object)
         - name:              `SECRET_PASSWORD`              (string, required)
         - isSecret:         true                            (boolean, nullable)
-- baseDockerImage:          `apify/actor-node-basic`        (string, nullable)
 - applyEnvVarsToBuild:       false                          (boolean, nullable)
 - buildTag:                 `latest`                        (string, required)
-- sourceCode:               `console.log('Hello world!');`  (string, nullable)
+- sourceFiles                                                   (array)
+    -(object)
+        - name: `src/main.js`                                   (string, required)
+        - format: `TEXT`                                        (string, required)
+        - content: `console.log('This is the main.js file');`   (string, required)
+    -(object)
+        - name: `package.json`                                  (string, required)
+        - format: `TEXT`                                        (string, required)
+        - content: `name: "My Scraper"`                         (string, required)
+    -(object)
+        - name: `Dockerfile`                                    (string, required)
+        - format: `TEXT`                                        (string, required)
+        - content: ` # Dockerfile contains instructions ...`                 (string, required)
+        -(object)
+        - name: `README.md`                                     (string, required)
+        - format: `TEXT`                                        (string, required)
+        - content: `My Actor scrapes the web`                   (string, required)
 
 ## EnvVar (object)
 - name: `MY_ENV_VAR` (string, required)
@@ -3825,25 +3833,9 @@ The user account is identified by the provided authentication token.
 
 ## ListOfVersions (array)
 -                                                               (object)
-    - versionNumber:            `0.0`                           (string, required)
-    - sourceType:               `SOURCE_CODE`                   (VersionSourceType, required)
-    - envVars                                                   (array, nullable)
-        -                                                       (object)
-            - name:             `DOMAIN`                        (string, required)
-            - value:            `http://example.com`            (string, required)
-            - isSecret:         false                           (boolean, nullable)
-        -                                                       (object)
-            - name:              `SECRET_PASSWORD`              (string, required)
-            - isSecret:         true                            (boolean, nullable)
-    - baseDockerImage:          `apify/actor-node-basic`        (string, nullable)
-    - applyEnvVarsToBuild:       false                          (boolean, nullable)
-    - buildTag:                 `latest`                        (string, required)
-    - sourceCode:               `console.log('Hello world!');`  (string, nullable)
--                                                               (object)
     - versionNumber:            `0.1`                           (string, required)
     - envVars:                  []                              (array, nullable)
     - sourceType:               `SOURCE_FILES`                  (VersionSourceType, required)
-    - sourceCode:               `console.log('Hello world!');`  (string, nullable)
     - applyEnvVarsToBuild:       false                          (boolean, nullable)
     - buildTag:                 `latest`                        (string, required)
     - sourceFiles                                                   (array)
@@ -3888,7 +3880,7 @@ The user account is identified by the provided authentication token.
 
 ## VersionUpdate (object)
 - versionNumber:            `0.0`                                (string, nullable)
-- sourceType:               `SOURCE_CODE`                        (VersionSourceType, nullable)
+- sourceType:               `SOURCE_FILES`                       (VersionSourceType, nullable)
 - envVars                                                        (array, nullable)
     -                                                            (object)
         - name:             `DOMAIN`                             (string, nullable)
@@ -3898,13 +3890,27 @@ The user account is identified by the provided authentication token.
         - name:              `SECRET_PASSWORD`                   (string, nullable)
         - value:            `MyTopSecretPassword123`             (string, nullable)
         - isSecret:         true                                 (boolean, nullable)
-- baseDockerImage:          `apify/actor-node-basic`             (string, nullable)
 - applyEnvVarsToBuild:       false                               (boolean, nullable)
 - buildTag:                 `latest`                             (string, nullable)
-- sourceCode:               `console.log('Hello world!');`       (string, nullable)
+- sourceFiles                                                   (array)
+    -(object)
+        - name: `src/main.js`                                   (string, required)
+        - format: `TEXT`                                        (string, required)
+        - content: `console.log('This is the main.js file');`   (string, required)
+    -(object)
+        - name: `package.json`                                  (string, required)
+        - format: `TEXT`                                        (string, required)
+        - content: `name: "My Scraper"`                         (string, required)
+    -(object)
+        - name: `Dockerfile`                                    (string, required)
+        - format: `TEXT`                                        (string, required)
+        - content: ` # Dockerfile contains instructions ...`                 (string, required)
+        -(object)
+        - name: `README.md`                                     (string, required)
+        - format: `TEXT`                                        (string, required)
+        - content: `My Actor scrapes the web`                   (string, required)
 
 ## VersionSourceType (enum)
-+ `SOURCE_CODE`
 + `SOURCE_FILES`
 + `GIT_REPO`
 + `TARBALL`
