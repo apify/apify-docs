@@ -35,7 +35,7 @@ Note that you can easily set up an integration where the actor is automatically 
 
 ### [](#private-repositories)Private repositories
 
-If your source code is hosted in a private Git repository then you need to configure deployment key. Deployment key is different for each actor and might be used only once at Git hosting of your choice (Github, Bitbucket, Gitlab, etc.).
+If your source code is hosted in a private Git repository then you need to configure deployment key. Deployment key is different for each actor and might be used only once at Git hosting of your choice (GitHub, Bitbucket, GitLab, etc.).
 
 To obtain the key click at the **deployment key** link under the **Git URL** text input and follow the instructions there.
 
