@@ -220,7 +220,7 @@ The build script contained in the **apify-docs/src** folder automatically upload
 ### Local testing
 
 1. Install Apiary gem `gem install apiaryio`
-2. After that, you can open the generated doc with the command: `apiary preview --path="./docs/api_v2/api-v2-reference.apib"`
+2. After that, you can open the generated doc with the command: `apiary preview --path="./content/docs/api_v2/api_v2_reference.apib"`
 
 ### Test
 
