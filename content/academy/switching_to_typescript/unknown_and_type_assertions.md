@@ -1,12 +1,12 @@
 ---
-title: Unknown, any, type guards & type casting
-description: Understand the "unknown" and "any" types, as well as how to use type guards to make your code safer and type casting to avoid common TypeScript compiler errors.
+title: Unknown, any, type guards & type assertions
+description: Understand the "unknown" and "any" types, as well as how to use type guards to make your code safer and type assertions to avoid common TypeScript compiler errors.
 menuWeight: 7.6
 paths:
-    - switching-to-typescript/unknown-and-type-casting
+    - switching-to-typescript/unknown-and-type-assertions
 ---
 
-# [](#unknown-and-type-casting) Unknown & type casting
+# [](#unknown-and-type-assertions) Unknown & type assertions
 
 There are two types we haven't discussed yet - `any` and `unknown`.
 
@@ -70,11 +70,11 @@ if (typeof userInput === 'string') {
 }
 ```
 
-This works, and in fact, it's the most optimal solution for this use case. But what if we were 100% sure that the value stored in `userInput` was a string? Thats when **type casting** comes in handy.
+This works, and in fact, it's the most optimal solution for this use case. But what if we were 100% sure that the value stored in `userInput` was a string? Thats when **type assertions** comes in handy.
 
-## [](#type-casting) Type casting
+## [](#type-assertions) Type assertions
 
-Despite the fancy name, [type casting](https://www.typescripttutorial.net/typescript-tutorial/type-casting/) is a simple concept based around a single keyword: `as`. We usually use this on values that we can't control the return type of, or values that we're sure have a certain type, but TypeScript needs a bit of help understanding that.
+Despite the fancy name, [type assertions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions) is a simple concept based around a single keyword: `as`. We usually use this on values that we can't control the return type of, or values that we're sure have a certain type, but TypeScript needs a bit of help understanding that.
 
 ```TypeScript
 let userInput: unknown;
@@ -88,13 +88,35 @@ userInput = 'hello world!';
 savedInput = userInput as string;
 ```
 
+## [](#non-null-assertion) Non-null assertion
+
+You might already be familiar with [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) in JavaScript (`?.` syntax). TypeScript adds a new operator with a similar syntax that uses an exclamation mark instead (`!.`), which automatically removes `null` and `undefined` from a value's type - essentially asserting that you are certain it will never be `null` or `undefined`.
+
+Consider this snippet:
+
+```TypeScript
+let job: undefined | string;
+
+const chars = job.split('');
+```
+
+TypeScript will yell at you when trying to compile this code, stating that **Object is possibly 'undefined'**, which is true. In order to assert that `job` will not be `undefined` in this case, we can simply add an exclamation mark before the dot.
+
+```TypeScript
+let job: undefined | string;
+
+const chars = job.split('');
+```
+
+This operator is called the [non-null assertion operator](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-).
+
 ## [](#final-thoughts) Final thoughts
 
-Even though you've learned about them in the same lesson, type guards and type casting are inherently very different things with different use cases.
+Even though you've learned about them in the same lesson, type guards and type assertions are inherently very different things with different use cases.
 
 **Type guards** make a runtime check of whether or not a value passes a check that determines that it can be safely used as a certain type. They are great when dealing with values that might hold inconsistent data types (such as user input) where you aren't 100% sure if a certain property will exist.
 
-**Type casting** tells TypeScript to take a value of one type and to treat it as if it were another type. No runtime checks are made. A common use case is casting the response body of an API call (usually has the `any` type depending on what you're using to fetch the data) to a custom type to receive TypeScript support on the data.
+**Type assertions** tells TypeScript to take a value of one type and to treat it as if it were another type. No runtime checks are made. A common use case is asserting the response body of an API call (usually has the `any` type depending on what you're using to fetch the data) to a custom type to receive TypeScript support on the data.
 
 Often times, these features are used in tandem.
 
