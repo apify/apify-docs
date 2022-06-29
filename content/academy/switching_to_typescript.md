@@ -38,7 +38,7 @@ console.log(addAges(bob.age, john.age));
 
 This code doesn't actually throw an error, but it does output `27undefined`. That's not good. The first issue is that `john.age` is **undefined**, and the second issue is that `bob.age` is a string and must be converted to a number to work properly in the `addAges` function. Despite these two significant mistakes, JavaScript doesn't tell us at all about them and lets the code run with bugs.
 
-With TypeScript, these types of issues stick out like a sore thumb, and depending on your configurations, the compiler will refuse to compile it until they have been fixed.
+With TypeScript, these types of issues stick out like a sore thumb, and depending on your configurations, the [compiler](https://www.techtarget.com/whatis/definition/compiler#:~:text=A%20compiler%20is%20a%20special,as%20Java%20or%20C%2B%2B.) will refuse to compile it until they have been fixed.
 
 ![]({{@asset switching_to_typescript/images/typescript-error.webp}})
 

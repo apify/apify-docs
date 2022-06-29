@@ -205,7 +205,7 @@ Easy enough, right? Well, not really. Let's take a look at how TypeScript interp
 
 ![Promise of any type]({{@asset switching_to_typescript/images/promise-any.webp}})
 
-We're returning a promise of any type out of this function. This is where we can use [type casting]({{@link switching_to_typescript/unknown_and_type_casting.md}}) to help TypeScript understand that this response takes the shape of our `ResponseData` type.
+We're returning a promise of any type out of this function. This is where we can use [type assertions]({{@link switching_to_typescript/unknown_and_type_assertions.md}}) to help TypeScript understand that this response takes the shape of our `ResponseData` type.
 
 ```TypeScript
 // index.ts
