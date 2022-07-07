@@ -25,11 +25,9 @@ const fileExtensions = {
 };
 ```
 
-No problem, this will totally work; however, the issue is that TypeScript doesn't know what these values are, but it infers them to just be strings. We can solve this by adding a type annotation with a custom type definition:
+No problem, this will totally work; however, the issue is that TypeScript doesn't know what these values are - it infers them to just be strings. We can solve this by adding a type annotation with a custom type definition:
 
 ```TypeScript
-// DON'T DO THIS! Use enums instead!
-
 // Since TypeScript infers these values to be just strings,
 // we have to create a type definition telling it that these
 // properties hold super specific strings.
@@ -45,6 +43,14 @@ const fileExtensions: {
     RUST: '.rs',
     PYTHON: '.py',
 };
+
+// Or, we can just do this
+const fileExtensions = {
+    JAVASCRIPT: '.js',
+    TYPESCRIPT: '.ts',
+    RUST: '.rs',
+    PYTHON: '.py',
+} as const;
 ```
 
 > Using an actual concrete value such as `'.js'` or `24` or something else instead of a type name is called a [literal type](https://www.typescriptlang.org/docs/handbook/literal-types.html).
@@ -53,9 +59,7 @@ And now we'll create a variable with a hacky custom type that points to the valu
 
 ![TypeScript autofilling the values of the fileExtensions object]({{@asset switching_to_typescript/images/constant-autofill.webp}})
 
-Because of the custom type definition for `fileExtensions` and the type annotation used for the `values` variable, we are getting some autofill for the variable, and the variable can only be set to values within the `fileExtensions` object. Though this implementation might be useful somewhere, it kind of sucks for a few reasons. We had to write our `fileExtensions` property twice (once for TypeScript, and another time to actually initialize the object), and had to use a weird type definition for `values`.
-
-Don't worry, there's a better way! Enter **enums**.
+Because of the custom type definition for `fileExtensions` and the type annotation used for the `values` variable, we are getting some autofill for the variable, and the variable can only be set to values within the `fileExtensions` object. Though this implementation works, TypeScript offers a unique new feature called **enums** that was designed just for these use cases.
 
 ## [](#creating-enums) Creating enums
 
