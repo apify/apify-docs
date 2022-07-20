@@ -1,6 +1,6 @@
 ---
 title: Paginating through results
-description: Learn how to paginate through websites that use either page number-based pagination or lazy-loading pagination.
+description: Learn how to paginate through results on websites that use either page number-based pagination or dynamic lazy-loading pagination.
 menuWeight: 2
 paths:
     - puppeteer-playwright/common-use-cases/paginating-through-results
