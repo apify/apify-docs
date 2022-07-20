@@ -16,6 +16,8 @@ When a migration happens, you want to do a so-called "state transition", which m
 
 ## [](#learning) Learning 🧠
 
+Read this [article](https://docs.apify.com/actors/development/state-persistence) on migrations and dealing with state transitions.
+
 Before moving forward, read about actor [events](https://sdk.apify.com/docs/api/apify#apifyevents) and how to listen for them.
 
 ## [](#quiz) Knowledge check 📝
