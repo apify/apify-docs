@@ -105,7 +105,7 @@ TypeScript will yell at you when trying to compile this code, stating that **Obj
 ```TypeScript
 let job: undefined | string;
 
-const chars = job.split('');
+const chars = job!.split('');
 ```
 
 This operator is called the [non-null assertion operator](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-).
