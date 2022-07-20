@@ -42,6 +42,7 @@ If needed, the limits shown below can be increased on paid accounts. For details
 |Maximum number of tasks per user|1000<!-- DEFAULT_PLATFORM_LIMITS.MAX_TASKS_PER_USER -->|
 |Maximum number of schedules per user|100<!-- DEFAULT_PLATFORM_LIMITS.MAX_SCHEDULES_PER_USER -->|
 |Maximum number of webhooks per user|100<!-- DEFAULT_PLATFORM_LIMITS.MAX_TASKS_PER_USER -->|
-|Maximum number of concurrent actor runs per user|250<!-- DEFAULT_PLATFORM_LIMITS.MAX_CONCURRENT_ACTOR_RUNS_PER_USER -->|
+|Maximum number of concurrent actor runs per user for free accounts|25<!-- DEFAULT_PLATFORM_LIMITS.FREE_ACCOUNT_MAX_CONCURRENT_ACTOR_RUNS_PER_USER -->|
+|Maximum number of concurrent actor runs per user for paid accounts|250<!-- DEFAULT_PLATFORM_LIMITS.PAID_ACCOUNT_MAX_CONCURRENT_ACTOR_RUNS_PER_USER -->|
 |Maximum number of actors per schedule|10<!-- DEFAULT_PLATFORM_LIMITS.MAX_ACTORS_PER_SCHEDULER -->|
 |Maximum number of tasks per schedule|10<!-- DEFAULT_PLATFORM_LIMITS.MAX_TASKS_PER_SCHEDULER -->|
