@@ -1,10 +1,9 @@
-﻿---
+---
 title: Monetizing your actor
 description: Learn how you can use Apify to monetize your web scraping and automation projects.
 menuWeight: 1
-category: courses
 paths:
-  - monetizing-your-actor
+  - apify_platform/publishing_your_actor/monetizing_your_actor
 ---
 
 # [](#monetizing-your-actor) Monetizing your actor
