@@ -3,7 +3,7 @@ title: Publishing your actor
 description: Prepare your actor for Apify Store with a description and README file and learn how to make your actor available to the public.
 menuWeight: 5.1
 paths:
-  - apify_platform/publishing_your_actor
+  - apify-platform/publishing-your-actor
 ---
 
 # [](#publishing-actor) Publishing your actor
