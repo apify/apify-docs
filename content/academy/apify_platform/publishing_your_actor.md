@@ -3,7 +3,7 @@ title: Publishing your actor
 description: Prepare your actor for Apify Store with a description and README file and learn how to make your actor available to the public.
 menuWeight: 5.1
 paths:
-  - apify-platform/publishing_your_actor
+  - apify_platform/publishing_your_actor
 ---
 
 # [](#publishing-actor) Publishing your actor
@@ -64,4 +64,4 @@ Then, click on your actor’s card and you will see your dedicated actor’s pag
 
 ## [](#next) Next up
 
-Congratulations! Now, your actor is available to the public in the Apify Store. In the [next lesson]({{@link apify_platform/publishing_your_actor/monetizing-your-actor.md}})!, we'll learn how you can monetize your actors to start making money on the Apify platform.
+Congratulations! Now, your actor is available to the public in the Apify Store. In the [next lesson]({{@link apify_platform/publishing_your_actor/monetizing_your_actor.md}})!, we'll learn how you can monetize your actors to start making money on the Apify platform.
