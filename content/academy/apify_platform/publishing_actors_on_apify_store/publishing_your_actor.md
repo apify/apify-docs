@@ -64,4 +64,4 @@ Then, click on your actor’s card and you will see your dedicated actor’s pag
 
 ## [](#next) Next up
 
-Congratulations! Now, your actor is available to the public in the Apify Store. In the [next lesson]({{@link apify_platform/publishing-actors-on-apify-store/monetizing_your_actor.md}})!, we'll learn how you can monetize your actors to start making money on the Apify platform.
+Congratulations! Now, your actor is available to the public in the Apify Store. In the [next lesson]({{@link apify_platform/publishing_actors_on_apify_store/monetizing_your_actor.md}})!, we'll learn how you can monetize your actors to start making money on the Apify platform.
