@@ -1,4 +1,4 @@
-﻿---
+---
 title: Publishing your actor
 description: Prepare your actor for Apify Store with a description and README file and learn how to make your actor available to the public.
 menuWeight: 1
