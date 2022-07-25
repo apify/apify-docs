@@ -18,4 +18,4 @@ In this section, we will go over the practical steps you should take before publ
 
 ## [](#next) Next up
 
-Excited to publish your first actor? So, without further ado, let's jump [right into the next lesson]({{@link apify_platform/publishing_your_actor/publishing_your_actor.md}})!
+Excited to publish your first actor? So, without further ado, let's jump [right into the next lesson]({{@link apify_platform/publishing_actors_on_apify_store/publishing_your_actor.md}})!
