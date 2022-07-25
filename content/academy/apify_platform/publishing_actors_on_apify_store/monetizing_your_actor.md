@@ -58,7 +58,7 @@ Getting new users can be an art in itself, but there are **two simple steps** yo
 
     While there are various ways to effectively promote your tool, it is usually best to share it on multiple channels. So, here are a few suggestions of channels you can use to promote your actor:
 
-    - **Reddit** **and Quora**
+    - **Reddit and Quora**
 
     Find subreddits and Quora topics where the audience might be interested in the tool you developed, for example, the subreddit [r/webscraping](https://www.reddit.com/r/webscraping/). Here you can check an [example](https://www.quora.com/How-do-you-use-TikTok-to-market-your-business/answer/Theo-Vasilis?ch=10&oid=352266072&share=42bb7fae&srid=uFNdtn&target_type=answer) of how you can structure your posts on these social media to promote your actor.
 
