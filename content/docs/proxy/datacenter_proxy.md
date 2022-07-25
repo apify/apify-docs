@@ -32,7 +32,7 @@ Datacenter proxies allow you to mask and [rotate]({{@link proxy.md#ip-address-ro
 
 Each user has access to a selected number of proxy servers from a shared pool. These servers are spread into groups (called proxy groups). Each group shares a common feature (location, provider, speed and so on).
 
-The number of proxy servers available depends on your subscription plan. When you first sign up to the Apify platform, you start a 30-day trial of the "[Freelancer](https://apify.com/pricing)" plan. Proxy servers are allocated accordingly. After the trial, you must subscribe to a paid plan to continue using Apify Proxy.
+The number of proxy servers available depends on your subscription plan. When you first sign up to the Apify platform, you get a 30-day free trial of Apify Proxy. After the trial, you must subscribe to a paid plan to continue using Apify Proxy.
 
 For a full list of plans and number of allocated proxy servers for each plan, see our [pricing](https://apify.com/pricing).
 
