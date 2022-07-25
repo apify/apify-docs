@@ -1,6 +1,6 @@
 ---
 title: Unknown, any, type guards & type assertions
-description: Understand the "unknown" and "any" types, as well as how to use type guards to make your code safer and type assertions to avoid common TypeScript compiler errors.
+description: Understand the "unknown" and "any" types, as well as using type guards to make your code safer and type assertions to avoid common TypeScript compiler errors.
 menuWeight: 7.6
 paths:
     - switching-to-typescript/unknown-and-type-assertions
