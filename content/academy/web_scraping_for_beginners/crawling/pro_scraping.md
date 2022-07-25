@@ -27,7 +27,7 @@ We mentioned the benefits of developing with a dedicated scraping library in the
 To use the Apify SDK, we have to install it from NPM. Let's add it to our project from the previous lessons.
 
 ```shell
-npm install --save apify
+npm install apify@2
 ```
 
 In a new file we'll call `apify.js`, add the following code:
