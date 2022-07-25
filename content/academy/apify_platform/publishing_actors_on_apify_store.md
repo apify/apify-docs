@@ -1,7 +1,7 @@
 ---
 title: Publishing actors on Apify Store
 description: Learn how to publish actors on Apify Store and monetize them by renting your actor to other platform users.
-menuWeight: 5.1
+menuWeight: 5.3
 paths:
 - apify-platform/publishing-actors-on-apify-store
 ---
