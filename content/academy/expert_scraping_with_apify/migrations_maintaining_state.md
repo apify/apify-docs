@@ -43,4 +43,4 @@ Every 10 seconds, we should log the most up-to-date version of this object to th
 
 ## [](#next) Next up
 
-You might have already noticed that we've been using the **RESIDENTIAL** proxy group in the `proxyConfiguration` within our Amazon scraping actor. But what does that mean? Learn why we've used this group, about proxies, and about avoiding anti-scraping measures in the [next lesson]({{@link expert_scraping_with_apify.md}}).
+You might have already noticed that we've been using the **RESIDENTIAL** proxy group in the `proxyConfiguration` within our Amazon scraping actor. But what does that mean? Learn why we've used this group, about proxies, and about avoiding anti-scraping measures in the [next lesson]({{@link expert_scraping_with_apify/bypassing_anti_scraping.md}}).
