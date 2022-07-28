@@ -19,18 +19,18 @@ class Stats {
             errors: {},
             totalSaved: 0,
         };
-
-        Apify.events.on('persistState', async () => {
-            await Apify.setValue('STATS', this.state);
-        });
-
-        setInterval(() => console.log(this.state), 10000);
     }
 
     async initialize() {
         const data = await Apify.getValue('STATS');
 
         if (data) this.state = data;
+
+        Apify.events.on('persistState', async () => {
+            await Apify.setValue('STATS', this.state);
+        });
+
+        setInterval(() => console.log(this.state), 10000);
     }
 
     addError(url, errorMessage) {
