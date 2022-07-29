@@ -138,7 +138,7 @@ while (items.flat().length < 100) {
 
 All that's left to do now is flesh out this `while` loop with pagination logic and finally return the **items** array once the loop has finished.
 
-> Note that it's better to add requests to a requests queue rather than processing them in memory. The crawlers offered by the [Apify SDK](https://sdk.apify.com) provide this functionality out of the box.
+> Note that it's better to add requests to a requests queue rather than processing them in memory. The crawlers offered by [Crawlee](https://crawlee.dev/docs/) provide this functionality out of the box.
 
 ```JavaScript
 // index.js

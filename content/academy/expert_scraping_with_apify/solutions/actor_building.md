@@ -8,7 +8,7 @@ paths:
 
 # [](#actor-building) Actor building
 
-The Apify CLI makes it extremely easy for us to set up a project in the SDK and hit the ground running. Navigate to the directory you'd like your project's folder to live, then open up a terminal instance and run the following command:
+The Apify CLI makes it extremely easy for us to set up an Apify project in Crawlee and hit the ground running. Navigate to the directory you'd like your project's folder to live, then open up a terminal instance and run the following command:
 
 ```shell
 apify create demo-actor
@@ -506,7 +506,7 @@ Let's try it out now! Input **iphone** into the box labeled **keyword**, click *
 
 **Q: When using Puppeteer or Playwright, how can you still use jQuery with the SDK?**
 
-**A:** There are two ways. You can either use the [injectJQuery](https://sdk.apify.com/docs/api/puppeteer#puppeteerinjectjquerypage) utility function which will enable you to use jQuery inside of `page.evaluate()`, or you can use Cheerio to load the page's content like this:
+**A:** There are two ways. You can either use the [injectJQuery](https://crawlee.dev/api/playwright-crawler/namespace/playwrightUtils#injectJQuery) utility function which will enable you to use jQuery inside of `page.evaluate()`, or you can use Cheerio to load the page's content like this:
 
 ```JavaScript
 const $ = cheerio.load(await page.content());
@@ -552,9 +552,9 @@ await Apify.utils.puppeteer.injectJQuery(page);
 const title = await page.evaluate(() => $('title').text());
 ```
 
-**Q: What is the default concurrency the SDK uses? Why this number?**
+**Q: What is the default concurrency Crawlee uses? Why this number?**
 
-**A:** The default value for `maxConcurrency` is set to **1000**, which allows the crawler to scale up automatically to this threshold. Concurrency in the SDK is managed by the `AutoscaledPool`, which uses snapshots of the environment the actor is running in to see if it can launch more tasks than are already running (AKA **scale up**).
+**A:** The default value for `maxConcurrency` is set to **1000**, which allows the crawler to scale up automatically to this threshold. Concurrency in Crawlee is managed by the [`AutoscaledPool`](https://crawlee.dev/api/core/class/AutoscaledPool), which uses snapshots of the environment the actor is running in to see if it can launch more tasks than are already running (AKA **scale up**).
 
 **Q: What is the difference between the RequestList and the RequestQueue?**
 

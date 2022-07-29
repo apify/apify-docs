@@ -1,6 +1,6 @@
 ---
 title: Using proxies
-description: Learn how to use and automagically rotate proxies in your scrapers by using the Apify SDK, and a bit about how to easily obtain pools of proxies.
+description: Learn how to use and automagically rotate proxies in your scrapers by using Crawlee, and a bit about how to easily obtain pools of proxies.
 menuWeight: 2
 paths:
 - anti-scraping/mitigation/using-proxies
@@ -8,9 +8,9 @@ paths:
 
 # [](#using-proxies) Using proxies
 
-In the [**Web scraping for beginners**]({{@link web_scraping_for_beginners.md}}) course, we learned about the power of the Apify SDK, and how it can streamline the development process of web crawlers. You've already seen how powerful the `apify` package is; however, what you've been exposed to thus far is only the tip of the iceberg.
+In the [**Web scraping for beginners**]({{@link web_scraping_for_beginners.md}}) course, we learned about the power of Crawlee, and how it can streamline the development process of web crawlers. You've already seen how powerful the `crawlee` package is; however, what you've been exposed to thus far is only the tip of the iceberg.
 
-Because proxies are so widely used in the scraping world, we at Apify have equipped our SDK with features which make it easy to implement them in an effective way. One of the main functionalities that comes baked into the SDK is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
+Because proxies are so widely used in the scraping world, we at Apify have equipped Crawlee with features which make it easy to implement them in an effective way. One of the main functionalities that comes baked into Crawlee is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
 
 ## [](#implementing-proxies) Implementing proxies in a scraper
 
@@ -58,7 +58,7 @@ const crawler = new Apify.CheerioCrawler({
 await crawler.run();
 ```
 
-In order to implement a proxy pool, we will first need some proxies. We'll quickly use the free [proxy scraper](https://apify.com/mstephen190/proxy-scraper) on the Apify platform to get our hands on some quality proxies. Next, we'll need to set up a [`proxyConfiguration`](https://sdk.apify.com/docs/api/proxy-configuration#docsNav) and configure it with our custom proxies, like so:
+In order to implement a proxy pool, we will first need some proxies. We'll quickly use the free [proxy scraper](https://apify.com/mstephen190/proxy-scraper) on the Apify platform to get our hands on some quality proxies. Next, we'll need to set up a [`proxyConfiguration`](https://crawlee.dev/api/core/class/ProxyConfiguration) and configure it with our custom proxies, like so:
 
 ```JavaScript
 const proxyConfiguration = await Apify.createProxyConfiguration({
@@ -122,11 +122,11 @@ After modifying your code to log `proxyInfo` to the console and running the scra
 
 ![proxyInfo being logged by the scraper]({{@asset anti_scraping/mitigation/images/proxy-info-logs.webp}})
 
-These logs confirm that our proxies are being used and rotated successfully by the Apify SDK, and can also be used to debug slow or broken proxies.
+These logs confirm that our proxies are being used and rotated successfully by Crawlee, and can also be used to debug slow or broken proxies.
 
 ## [](#higher-level-proxy-scraping) Higher level proxy scraping
 
-Though we will discuss it more in-depth in future courses, it is still important to mention that the Apify SDK has integrated support for [Apify Proxy](https://apify.com/proxy), which is a service that provides access to pools of both residential and datacenter IP addresses. A `proxyConfiguration` using Apify Proxy might look something like this:
+Though we will discuss it more in-depth in future courses, it is still important to mention that Crawlee has integrated support for [Apify Proxy](https://apify.com/proxy), which is a service that provides access to pools of both residential and datacenter IP addresses. A `proxyConfiguration` using Apify Proxy might look something like this:
 
 ```JavaScript
 const proxyConfiguration = await Apify.createProxyConfiguration({
