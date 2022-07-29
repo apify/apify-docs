@@ -246,7 +246,7 @@ The one main difference is that the Apify client automatically uses [**exponenti
 
 **Q: Do you need to install the `apify-client` NPM package when already using the `apify` package?**
 
-**A:** No. The Apify client is available right in the sdk with the `Apify.newClient()` function.
+**A:** No. The Apify client is available right in the SDK with the `Apify.newClient()` function.
 
 ## [](#wrap-up) Wrap up
 

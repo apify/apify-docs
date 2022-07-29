@@ -10,19 +10,21 @@ paths:
 
 While it's definitely an interesting exercise to do all the programming manually, and we hope you enjoyed it, it's neither the most effective, nor the most efficient way of scraping websites. Because we scrape for a living at Apify, we've built a library that we use to scrape tens of millions of pages every day.
 
-It's called the [Apify SDK](https://sdk.apify.com) and it is, **and always will be**, completely open-source and **free** to use. You don't need to sign up for an Apify account or use the Apify platform. You can use it on your personal computer, on any server, or in any cloud you want.
+It's called [Crawlee](https://crawlee.dev/) and it is, **and always will be**, completely open-source and **free** to use. You don't need to sign up for an Apify account or use the Apify platform. You can use it on your personal computer, on any server, or in any cloud environment you want.
 
 We mentioned the benefits of developing with a dedicated scraping library in the previous lessons, but to recap:
 
 1. **Faster development time** because you don't have to write boilerplate code.
-2. **Fewer bugs**. Apify SDK is fully unit-tested and battle-tested on millions of scraper runs.
-3. **Faster and cheaper scrapers** because the Apify SDK automatically scales based on system resources and is optimized for enterprise-grade performance.
-4. **More robust scrapers**. Annoying details like retries, proxy management, error handling, and result storage are all handled automatically by the Apify SDK.
+2. **Fewer bugs**. Crawlee is fully unit-tested and battle-tested on millions of scraper runs.
+3. **Faster and cheaper scrapers** because Crawlee automatically scales based on system resources and is optimized for enterprise-grade performance.
+4. **More robust scrapers**. Annoying details like retries, proxy management, error handling, and result storage are all handled automatically by Crawlee.
 5. **Helpful community**. You can join our Discord or talk to us on GitHub. We're almost always there to talk about scraping.
 
-> If you're still not convinced, [read this story](https://apify.com/success-stories/daltix-analytics-scrapy-python-to-apify) how a data analytics company saved 90% of scraping costs by switching from Scrapy (a scraping library for Python) to the Apify SDK. To be honest, it shocked even us! 💪
+> If you're still not convinced, [read this story](https://apify.com/success-stories/daltix-analytics-scrapy-python-to-apify) how a data analytics company saved 90% of scraping costs by switching from Scrapy (a scraping library for Python) to Crawlee. To be honest, it shocked even us! 💪
 
-## [](#sdk-installation) Install the Apify SDK
+## [](#sdk-installation) Install Crawlee
+
+<!-- We use new Apify SDK and Crawlee here, so we should mention that they're two separate things -->
 
 To use the Apify SDK, we have to install it from NPM. Let's add it to our project from the previous lessons.
 
