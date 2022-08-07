@@ -10,7 +10,7 @@ paths:
 
 When publishing your actor on the Apify platform you have the choice to make it a **Paid actor** and get paid by the users benefiting from your tool.
 
-![Paid actor example](https://i.postimg.cc/k5VHybtm/scraper-example.png)
+![Paid actor example]({{@asset apify_platform/publishing_actors_on_apify_store/images/scraper-example.webp}})
 
 Paid actor users pay a monthly rental fee to use the tool, which is **paid in full to the actor’s developer.** This means that, in the example above, the developer would get the full $45 monthly rent paid by each actor’s user.
 
@@ -18,13 +18,13 @@ Paid actor users pay a monthly rental fee to use the tool, which is **paid in fu
 
 While on your actor settings page, scroll down to the actor’s **Monetization** section and click on **Request Monetization.**
 
-![Request monetization](https://i.postimg.cc/CLF6QtfJ/actor-monetization.png)
+![Request monetization]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-monetization.webp}})
 
 Our support team will be notified about your request and promptly contact you to discuss the price and trial length details for your paid actor.
 
 You will be asked to fill in your billing details. So, if you didn’t do it already, you can go ahead and fill it in by going to **Settings** → **Usage and billing** → **Subscription** → **Billing details**
 
-![Apify billing](https://i.postimg.cc/NMqd7Pc6/Apify-Billing.jpg)
+![Apify billing]({{@asset apify_platform/publishing_actors_on_apify_store/images/Apify-Billing.webp}})
 
 ## [](#price-and-trial-length) **Price and trial length**
 
@@ -36,7 +36,7 @@ Inside the Apify Console, go to **Actors → Earnings.**
 
 Here you have access to a table detailing all the relevant information about your paid actor, including the estimated revenue and number of paying users.
 
-![Scraper earnings](https://i.postimg.cc/RVVXRHjD/scraper-earnings-example.png)
+![Scraper earnings]({{@asset apify_platform/publishing_actors_on_apify_store/images/scraper-earnings-example.webp}})
 
 ## [](#promote-your-actor) Promote your actor
 
@@ -66,7 +66,7 @@ Getting new users can be an art in itself, but there are **two simple steps** yo
 
     Don’t underestimate your own network! Your social media connections can be a valuable ally in promoting your actor. Not only can they use your tool to enrich their own professional activities, but also support your work by helping you promote your actor to their network.
 
-    For inspiration, you can check Apify’s [Twitter](https://twitter.com/apify), [Facebook](https://www.facebook.com/apifytech/), and [LinkedIn](https://cz.linkedin.com/company/apifytech) pages, and **don’t forget to tag Apify on your posts** we will retweet and share your posts to help you reach an even broader audience.
+    For inspiration, you can check Apify’s [Twitter](https://twitter.com/apify), [Facebook](https://www.facebook.com/apifytech/), and [LinkedIn](https://linkedin.com/company/apifytech) pages, and **don’t forget to tag Apify on your posts** we will retweet and share your posts to help you reach an even broader audience.
 
     - **YouTube**
 
@@ -82,6 +82,6 @@ Getting new users can be an art in itself, but there are **two simple steps** yo
 
     Once your article is ready, you can check this list of relevant websites where you can publish your article: [hackernoon.com](https://hackernoon.com/), [techcrunch.com](https://techcrunch.com/), [news.ycombinator.com](https://news.ycombinator.com/), [dev.to](https://dev.to/), [producthunt.com,](https://www.producthunt.com/) [indiehackers.com](https://www.indiehackers.com/)
 
-**Don’t overlook promoting your actor**. This is arguably the most important step after publishing your tool. Taking advantage of all the possible mediums for promotion is what often differentiates very successful actors with dozens of paid users from actors with few to no users at all.
+**Don’t overlook promoting your actor**. This is arguably the most important step after publishing your tool. Taking advantage of all the possible channels for promotion is what often differentiates very successful actors with dozens of paid users from actors with few to no users at all.
 
 Finally, don’t forget to check our [pro-tips](https://docs.apify.com/actors/publishing/seo-and-promotion#promotion) to take your actor promotion efforts to the next level.
