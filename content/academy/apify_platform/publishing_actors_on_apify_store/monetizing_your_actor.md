@@ -12,7 +12,7 @@ When publishing your actor on the Apify platform you have the choice to make it 
 
 ![Paid actor example](https://i.postimg.cc/k5VHybtm/scraper-example.png)
 
-Paid actor users pay a monthly rental fee to use the tool, which \***\*is **paid 100% to the actor’s developer.\*\* This means that, in the example above, the developer would get the full $45 monthly rent paid by each actor’s user.
+Paid actor users pay a monthly rental fee to use the tool, which is **paid in full to the actor’s developer.** This means that, in the example above, the developer would get the full $45 monthly rent paid by each actor’s user.
 
 ## [](#request-monetization) Request monetization
 
