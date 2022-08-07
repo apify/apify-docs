@@ -12,11 +12,11 @@ Before you make your actor public, it is important to write a good **Description
 
 You can find the Title and description configurations by going to **Apify Console** → **Actors** → **My Actors** → **your-actor** → **Settings → Publication**
 
-![Actor publication settings](https://i.postimg.cc/hvQf0M1B/Untitled.png)
+![Actor publication settings]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-publication-settings.webp}})
 
-By optimizing your actor’s description and README for SEO, you can significantly increase the traffic of users to your actor’s page and, consequently, improve your chances of getting more users.
+Writing a complete and descriptive README can significantly increase your chances of convincing users to give your actors a try. Not only that, but you can also include popular keywords in text to increase the traffic to your actor's page. For more information on how you can **fine-tune your actor’s title, description, and Readme**, check our in-depth [SEO guide](https://docs.apify.com/actors/publishing/seo-and-promotion).
 
-We know this can be a daunting task to take on your own, so we prepared an in-depth [SEO guide](https://docs.apify.com/actors/publishing/seo-and-promotion) to help you **fine-tune your actor’s title, description, and Readme.**
+Now, let’s move on to understand exactly how to add a description and README to your Apify actors.
 
 Now, let’s move on to understand exactly how to add a description and README to your Apify actors.
 
@@ -24,11 +24,11 @@ Now, let’s move on to understand exactly how to add a description and README t
 
 The actor’s description is a short paragraph describing the actor’s purpose. It will be displayed on the actor’s page right below its title.
 
-![Actor title and description](https://i.postimg.cc/NFbBmHWc/actor-title-description.png)
+![Actor title and description]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-title-description.webp}})
 
 While writing your actor’s description you also have the option to write an SEO title and description. The SEO title and description are used in place of the actor name and description on search engine results pages. Good SEO titles and descriptions utilize popular keywords, summarize the actor functionality, and are between 40-50 and 140-156 characters long, respectively.
 
-![SEO title and description](https://i.postimg.cc/HL0KrgGG/actor-SEO.png)
+![SEO title and description]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-SEO.webp}})
 
 ## [](#readme) README
 
@@ -48,19 +48,19 @@ Once you have finished coding and testing your actor, it's time to publish it.
 
 From your actor’s page in Apify Console, go to **Settings,** and \***\*scroll down to the **Public Information\*\* section.
 
-![Actor settings](https://i.postimg.cc/qRz5jChr/actor-settings.png)
+![Actor settings]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-settings.webp}})
 
 Select the **Published** switch, and your actor should now be available to the public on Apify Store.
 
-![Publish your actor](https://i.postimg.cc/fT20htkp/publish-actor.png)
+![Publish your actor]({{@asset apify_platform/publishing_actors_on_apify_store/images/publish-actor.webp}})
 
 To check if everything went smoothly, you can go to [Apify Store](https://apify.com/store) and search for your actor’s name.
 
-![Apify Store](https://i.postimg.cc/02TPmP4r/Apify-Store.jpg)
+![Apify Store]({{@asset apify_platform/publishing_actors_on_apify_store/images/Apify-Store.webp}})
 
 Then, click on your actor’s card and you will see your dedicated actor’s page. This is the page where users will most likely have their first contact with your actor, so make sure to carefully review it and check if everything is set up correctly.
 
-![Actor page](https://i.postimg.cc/BQKGJRv3/actor-page.png)
+![Actor page]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-page.webp}})
 
 ## [](#next) Next up
 
