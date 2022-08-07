@@ -8,7 +8,7 @@ paths:
 
 # [](#publishing-actors-on-apify-store) Publishing actors on Apify Store
 
-[Apify Store](https://apify.com/store) is home to hundreds of public actors available to the Apify community. Anyone is welcome to publish actors in the store, and you can even [monetize your actors](https://get.apify.com/monetize-your-code) by renting it to users in the platform. 
+[Apify Store](https://apify.com/store) is home to hundreds of public actors available to the Apify community. Anyone is welcome to publish actors in the store, and you can even [monetize your actors](https://get.apify.com/monetize-your-code) by renting them to users of the platform. 
 
 In this section, we will go over the practical steps you should take before publishing your actor. You will learn: 
 
