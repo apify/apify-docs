@@ -13,21 +13,21 @@ When you open a website in a browser, the browser first downloads the page's ini
 > [NPM](https://www.npmjs.com/) has a huge collection of open-source libraries for Node.js. You can (and you should) utilize it to save time and tap into the amazing open-source community around JavaScript and Node.js.
 
 
-## [](#creating-a-project) Create a new NPM project
+## [](#creating-a-project) Creating a new project with NPM
 
-Before we can install NPM modules we need to create an NPM project. To do that, create a new directory or use the one that you already have open in VSCode (you can delete the `hello.js` now) and from that directory run this command in your terminal:
+Before we can install NPM modules, we need to create an NPM project. To do that, you can create a new directory or use the one that you already have open in VSCode (you can delete the **hello.js** file now) and from that directory run this command in your terminal:
 
 ```shell
 npm init -y
 ```
 
-It will set up an empty NPM project for you and create a file called `package.json`. This is a very important file in Node.js programming as it contains information about the project.
+It will set up an empty NPM project for you and create a file called **package.json**. This is a very important file in Node.js programming as it contains information about the project.
 
 ![NPM init with VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-npm-init.webp}})
 
 ### [](#modern-javascript) Use modern JavaScript
 
-Node.js and NPM support two types of projects, let's call them legacy and modern. For backwards compatibility, the legacy version is used by default. To switch to the modern version, open your `package.json` and add this line to the end of the JSON object. Don't forget to add a comma to the end of the previous line 😉
+Node.js and NPM support two types of projects, let's call them legacy and modern. For backwards compatibility, the legacy version is used by default. To switch to the modern version, open your **package.json** and add this line to the end of the JSON object. Don't forget to add a comma to the end of the previous line 😉
 
 ```text
 "type": "module"
@@ -51,7 +51,7 @@ npm install got-scraping cheerio
 
 ## [](#testing) Test everything
 
-With the libraries installed, create a new file in the project's folder called `main.js`. This is where we will put all our code. Before we start scraping, though, let's do a simple check that everything installed correctly. Inside `main.js` add this piece of code.
+With the libraries installed, create a new file in the project's folder called **main.js**. This is where we will put all our code. Before we start scraping, though, let's do a simple check that everything installed correctly. Inside **main.js** add this piece of code.
 
 ```JavaScript
 import gotScraping from 'got-scraping';
@@ -66,7 +66,7 @@ Those `import` statements tell Node.js that it should give you access to the **g
 node main.js
 ```
 
-If you see **it works!** printed in your terminal, great job! You set up everything correctly. If you see an error that says `Cannot use import statement outside a module`, go back to the [Use modern JavaScript](#modern-javascript) paragraph and add the `type` property to your `package.json`. If you see a different error, try copying and pasting it into Google, and you'll find a solution soon.
+If you see **it works!** printed in your terminal, great job! You set up everything correctly. If you see an error that says **Cannot use import statement outside a module**, go back to the [Use modern JavaScript](#modern-javascript) paragraph and add the `type` property to your **package.json**. If you see a different error, try copying and pasting it into Google, and you'll find a solution soon.
 
 ![Test your setup with VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-test-setup.webp}})
 

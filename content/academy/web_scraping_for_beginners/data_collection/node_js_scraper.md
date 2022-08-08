@@ -8,7 +8,7 @@ paths:
 
 # [](#first-scraper) First Node.js scraper
 
-Finally we have everything ready to start scraping! Yes, the setup is a bit daunting, but luckily, you only have to do it once. We have our project, we have our `main.js` file, so let's add some code to it.
+Finally we have everything ready to start scraping! Yes, the setup is a bit daunting, but luckily, you only have to do it once. We have our project, we have our **main.js** file, so let's add some code to it.
 
 ## [](#downloading-html) Downloading HTML
 
