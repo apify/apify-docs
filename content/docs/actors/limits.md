@@ -22,7 +22,7 @@ If needed, the limits shown below can be increased on paid accounts. For details
 
 |Description|Value|
 |--- |--- |
-|Build memory size|1,024 MB <!-- ACTOR_LIMITS.BUILD_DEFAULT_MEMORY_MBYTES -->|
+|Build memory size|2,048 MB <!-- ACTOR_LIMITS.BUILD_DEFAULT_MEMORY_MBYTES -->|
 |Run minimum memory|128 MB<!-- ACTOR_LIMITS.MIN_RUN_MEMORY_MBYTES -->|
 |Run maximum memory|32,768 MB<!-- ACTOR_LIMITS.MAX_RUN_MEMORY_MBYTES -->|
 |Maximum combined memory of all running jobs <br/>(free accounts)|8,192 MB<!-- ACTOR_LIMITS.FREE_ACCOUNT_MAX_MEMORY_MBYTES -->|
