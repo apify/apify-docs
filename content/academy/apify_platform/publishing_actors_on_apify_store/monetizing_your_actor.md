@@ -44,7 +44,7 @@ Your paid actors’ earnings are directly related to the amount of paying users 
 
 Getting new users can be an art in itself, but there are **two simple steps** you can take to ensure your actor is getting the attention it deserves.
 
-1.  **SEO-optimized description and README**
+1. **SEO-optimized description and README**
 
     Search engine optimization (SEO) is the process of improving the quality and quantity of traffic from search engines to your actor’s page.
 
@@ -52,7 +52,7 @@ Getting new users can be an art in itself, but there are **two simple steps** yo
 
     This can be a daunting task to take on your own, so we prepared an in-depth [SEO guide](https://docs.apify.com/actors/publishing/seo-and-promotion) to help you **fine-tune your actor’s title, description, and Readme.**
 
-2.  **Promoting your actor**
+2. **Promoting your actor**
 
     Promoting your actor on the right channels can be the deciding factor in successfully attracting users.
 
