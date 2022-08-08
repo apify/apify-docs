@@ -1,6 +1,6 @@
 ---
 title: Professional scraping
-description: Learn how to build scrapers quicker and get better and more robust results by using the Apify SDK, an open-source library for scraping in Node.js.
+description: Learn how to build scrapers quicker and get better and more robust results by using Crawlee, an open-source library for scraping in Node.js.
 menuWeight: 7
 paths:
 - web-scraping-for-beginners/crawling/pro-scraping
@@ -29,68 +29,59 @@ We mentioned the benefits of developing with a dedicated scraping library in the
 To use the Apify SDK, we have to install it from NPM. Let's add it to our project from the previous lessons.
 
 ```shell
-npm install apify@2
+npm install crawlee@latest
 ```
 
-In a new file we'll call `apify.js`, add the following code:
+In a new file we'll call **crawlee.js**, add the following code:
 
 ```JavaScript
-// apify.js
-import Apify from 'apify';
+// crawlee.js
+import Crawlee from 'apify';
 
-console.log('Apify works!');
+console.log('Crawlee works!');
 ```
 
 Then, run the code using this command:
 
 ```shell
-node apify.js
+node crawlee.js
 ```
 
-If you see **Apify works!** printed to the console, it means you successfully installed Apify SDK.
-
+If you see **Crawlee works!** printed to the console, it means you successfully installed the Crawlee library.
 
 ## [](#coding-the-scraper) Coding the scraper
 
-You probably noticed that we did not `import` Cheerio or got-scraping. That's because they're both already included in a component of the SDK called [`CheerioCrawler`](https://sdk.apify.com/docs/api/cheerio-crawler). It automatically visits URLs that you feed to it, downloads the HTML, and parses it with Cheerio. The benefit of this over writing the code yourself is that it automatically handles errors and retries the request when one occurs. It also parallelizes the downloads, making them faster, and removes a lot of boilerplate code that you would have to write yourself.
-
-To feed it with URLs, we need to store them somewhere. This is where the [`RequestQueue`](https://sdk.apify.com/docs/api/request-queue) comes in. It's a persistent storage, which means that if your crawler crashes, it doesn't have to start over, but it can continue from where it left off (which is also something that you would normally have to implement yourself).
+You probably noticed that we did not `import` Cheerio or got-scraping. That's because they're both already included in a component of Crawlee called [`CheerioCrawler`](https://crawlee.dev/docs/guides/cheerio-crawler-guide). It automatically visits URLs that you feed to it, downloads the HTML, and parses it with Cheerio. The benefit of this over writing the code yourself is that it automatically handles errors and retries the request when one occurs. It also parallelizes the downloads, making them faster, and removes a lot of boilerplate code that you would have to write yourself.
 
 ```JavaScript
-// apify.js
-import Apify from 'apify';
+import Crawlee from 'crawlee';
 
-const requestQueue = await Apify.openRequestQueue();
-await requestQueue.addRequest({ url: 'https://demo-webstore.apify.org/search/on-sale' });
+const crawler = new Crawlee.CheerioCrawler({
+    requestHandler: async ({ $, request }) => {
+        console.log('URL: ', request.url);
+        console.log('Title: ', $('title').text());
+    },
+});
 ```
 
-Here, we created a new request queue and added the first request to it - the first page we want to visit. Let's build the crawler now.
+To feed it with URLs, we need to store them somewhere. This is where the [`RequestQueue`](https://crawlee.dev/api/core/class/RequestQueue) comes in. It's a persistent storage, which means that if your crawler crashes, it doesn't have to start over, but it can continue from where it left off (which is also something that you would normally have to implement yourself). `CheerioCrawler` automatically opens a request queue for you and assigns it to itself, so all you have to do is use the [`addRequests`](https://crawlee.dev/docs/upgrading/upgrading-to-v3#crawleraddrequests) function to add new requests to the queue.
 
 ```JavaScript
-// apify.js
-import Apify from 'apify';
+import Crawlee from 'crawlee';
 
-const requestQueue = await Apify.openRequestQueue();
-await requestQueue.addRequest({ url: 'https://demo-webstore.apify.org/search/on-sale' });
-
-// Instantiate our crawler
-const crawler = new Apify.CheerioCrawler({
-    // Pass the Request Queue into the options
-    requestQueue,
-    // Pass in a function to be ran for every request
-    handlePageFunction: async ({ $, request }) => {
+const crawler = new Crawlee.CheerioCrawler({
+    requestHandler: async ({ $, request }) => {
         console.log('URL: ', request.url);
         console.log('Title: ', $('title').text());
     },
 });
 
-// Run the crawler
-await crawler.run();
+crawler.addRequests([{ url: 'https://demo-webstore.apify.org/search/on-sale' }]);
 ```
 
-In the background, `CheerioCrawler` automatically takes the first (and only) URL from the `RequestQueue`, downloads its HTML, and parses it using Cheerio. The [`handlePageFunction`](https://sdk.apify.com/docs/typedefs/cheerio-crawler-options#handlepagefunction) is the place where we can interact with the downloaded page and collect its data. It gives you access to the parsed HTML in the [`$`](https://sdk.apify.com/docs/typedefs/cheerio-handle-page-inputs) variable. You can also access various data about the request from the queue using the [`request`](https://sdk.apify.com/docs/typedefs/cheerio-handle-page-inputs#request) variable.
+Here, we created a new request queue and added the first request to it - the first page we want to visit. Behind the scenes, `CheerioCrawler` will automatically take the first (and currently only) URL from the `RequestQueue`, download its HTML, and parse it using Cheerio. The [`requestHandler`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlerOptions#requestHandler) is the place where we can interact with the downloaded page and collect its data. It gives you access to the parsed HTML in the [`$`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext) variable. You can also access various data about the request from the queue using the [`request`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext#request) variable.
 
-When you run the code above you'll see that it prints various log messages. Among the many you'll find the URL and `<title>` of the web page, which we printed out ourselves in the `handlePageFunction`.
+When you run the code above you'll see that it prints various log messages. Among the many you'll find the URL and `<title>` of the web page, which we printed out ourselves in the `requestHandler`.
 
 ```text
 URL: https://demo-webstore.apify.org/search/on-sale
@@ -99,7 +90,9 @@ Title: Fakestore
 
 Now, if you run the code again, you'll see that it does not print the title and URL anymore. As we mentioned earlier, the request queue is a persistent storage. It means that the queue remembers that the crawler already processed this URL. When you rerun the code, the queue remembers that this URL was already processed and will not process it again.
 
-Notice the [`apify_storage`](https://sdk.apify.com/docs/guides/request-storage) folder that was created in your project's folder. This is where Apify SDK persists its state. If you delete the folder and rerun the scraper, it will crawl the URL again. But deleting the folder manually is a bit annoying, so we'll automate it.
+Notice the **crawlee_storage** folder that was created in your project's folder. This is where Apify SDK persists its state. If you delete the folder and rerun the scraper, it will crawl the URL again. But deleting the folder manually is a bit annoying, so we'll automate it.
+
+<!-- ! Note for Andrey: this is where I left off. - Matt -->
 
 ```JavaScript
 // apify.js
