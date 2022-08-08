@@ -26,11 +26,11 @@ You will be asked to fill in your billing details. So, if you didn’t do it alr
 
 ![Apify billing]({{@asset apify_platform/publishing_actors_on_apify_store/images/Apify-Billing.webp}})
 
-## [](#price-and-trial-length) **Price and trial length**
+## [](#price-and-trial-length) Price and trial length
 
 **You choose the price and free trial length of your actor.** Apify can give you advice about the best practices of the most successful actors, but at the end of the day, we give developers full control over the pricing strategy of their tools.
 
-## **Where can I keep track of my paid actor’s users and earnings on the Apify Platform?**
+### Where can I keep track of my paid actor’s users and earnings on the Apify Platform?
 
 Inside the Apify Console, go to **Actors → Earnings.**
 
