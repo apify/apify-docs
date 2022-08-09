@@ -118,7 +118,7 @@ const withAPI = async () => {
 
         return Apify.setValue('OUTPUT', data, { contentType: 'text/csv' });
     } catch (error) {
-        throw new Error(error?.message);
+        throw new Error(`Failed to run actor and set value: ${error?.message}`);
     }
 };
 ```
