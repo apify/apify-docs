@@ -74,7 +74,7 @@ const crawler = new CheerioCrawler({
     },
 });
 
-crawler.addRequests([{ url: 'https://demo-webstore.apify.org/search/on-sale' }]);
+await crawler.addRequests([{ url: 'https://demo-webstore.apify.org/search/on-sale' }]);
 ```
 
 Here, we added the first request to the crawler - the first page we want to visit. Behind the scenes, `CheerioCrawler` will automatically create a `RequestQueue`, take the first (and currently only) URL from it, download its HTML, and parse it using Cheerio. The [`requestHandler`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlerOptions#requestHandler) is the place where we can interact with the downloaded page and collect its data. It gives you access to the parsed HTML in the [`$`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext) variable. You can also access various data about the request from the queue using the [`request`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext#request) variable.
@@ -111,7 +111,7 @@ const crawler = new CheerioCrawler({
     },
 });
 
-crawler.addRequests([{
+await crawler.addRequests([{
     url: 'https://demo-webstore.apify.org/search/on-sale',
     // By labeling the Request, we can very easily
     // identify it later in the requestHandler.
@@ -166,7 +166,7 @@ const crawler = new CheerioCrawler({
     },
 });
 
-crawler.addRequests([{
+await crawler.addRequests([{
     url: 'https://demo-webstore.apify.org/search/on-sale',
     // By labeling the Request, we can very easily
     // identify it later in the requestHandler.
