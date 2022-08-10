@@ -10,25 +10,24 @@ paths:
 
 From the previous lessons, we know two things:
 
-1. We can use `Apify.pushData()` to save data to the default dataset.
-2. The default dataset files are saved in the `apify_storage/datasets/default` folder.
+1. We can use `Dataset.pushData()` to save data to the default dataset.
+2. The default dataset files are saved in the **storage/datasets/default** folder.
 
 But when we look inside the folder, we see that there's A LOT of files, and we don't want to work with those manually. Fortunately, we can use the dataset itself to process the data.
 
 ## [](#loading-data) Loading dataset data
 
-To access the default dataset, we first have to open it by calling the [`Apify.openDataset()`](https://sdk.apify.com/docs/api/apify#opendataset) function. We can then easily work with all the items in the dataset. Let's put the processing into a separate file in our project called `dataset.js`.
+To access the default dataset, we can use the  [`Dataset`](https://crawlee.dev/api/types/interface/Dataset) class exported from `crawlee`. We can then easily work with all the items in the dataset. Let's put the processing into a separate file in our project called `dataset.js`.
 
 ```JavaScript
 // dataset.js
-import Apify from 'apify';
+import { Dataset } from 'crawlee';
 
-const dataset = await Apify.openDataset();
-const { items } = await dataset.getData();
+const { items } = await Dataset.getData();
 console.log(items.length);
 ```
 
-When we ran this code, having the results from our previous lessons in the `apify_storage` folder, it printed `32` for us. Your number may differ.
+When we ran this code, having the results from our previous lessons in the **storage** folder, it printed **32** for us. Your number may differ.
 
 ## [](#filtering-data) Filtering data
 
@@ -36,10 +35,9 @@ Let's say we wanted to print the title for each product that is more expensive t
 
 ```JavaScript
 // dataset.js
-import Apify from 'apify';
+import { Dataset } from 'crawlee';
 
-const dataset = await Apify.openDataset();
-const { items } = await dataset.getData();
+const { items } = await Dataset.getData();
 
 let mostExpensive;
 
@@ -70,17 +68,17 @@ First, you need a free Apify account. To get one, head to the [sign-up form](htt
 
 ### [](#upload-dataset) Uploading your dataset to Apify
 
-Now that you have a token, you can upload your local dataset to the Apify platform. It's super easy. Let's reuse some of our earlier code and add more.
+Now that you have a token, you can upload your local dataset to the Apify platform. It's super easy with the [`apify-client`](https://www.npmjs.com/package/apify-client) NPM package. Let's reuse some of our earlier code and add more.
 
 ```JavaScript
 // dataset.js
-import Apify from 'apify';
+import { Dataset } from 'crawlee';
+import { ApifyClient } from 'apify-client';
 
-const localDataset = await Apify.openDataset();
-const { items } = await localDataset.getData();
+const { items } = await Dataset.getData();
 
 // We will use the Apify API client to access the Apify API.
-const apifyClient = Apify.newClient({
+const apifyClient = new ApifyClient({
     token: 'YOUR_API_TOKEN', // Paste your API token here.
 });
 
@@ -106,13 +104,13 @@ The full code, to do this in one go, looks like this:
 
 ```JavaScript
 // dataset.js
-import Apify from 'apify';
+import { Dataset } from 'crawlee';
+import { ApifyClient } from 'apify-client';
 import { writeFileSync } from 'fs';
 
-const localDataset = await Apify.openDataset();
-const { items } = await localDataset.getData();
+const { items } = await Dataset.getData();
 
-const apifyClient = Apify.newClient({
+const apifyClient = new ApifyClient({
     token: 'YOUR_API_TOKEN', // Paste your API token here.
 });
 
@@ -128,7 +126,7 @@ const xlsx = await datasetClient.downloadItems('xlsx');
 writeFileSync('dataset.xlsx', xlsx);
 ```
 
-It doesn't even have to be a dataset created by the Apify SDK. You can use this method to convert any JSON array to a CSV, XLSX, and so on.
+It doesn't even have to be a dataset created by Crawlee. You can use this method to convert any JSON array to a CSV, XLSX, and so on.
 
 # [](#next) Next up
 
