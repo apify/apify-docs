@@ -24,8 +24,6 @@ We mentioned the benefits of developing with a dedicated scraping library in the
 
 ## [](#sdk-installation) Install Crawlee
 
-<!-- We use new Apify SDK and Crawlee here, so we should mention that they're two separate things -->
-
 To use the Apify SDK, we have to install it from NPM. Let's add it to our project from the previous lessons.
 
 ```shell
@@ -36,7 +34,7 @@ In a new file we'll call **crawlee.js**, add the following code:
 
 ```JavaScript
 // crawlee.js
-import Crawlee from 'apify';
+import { CheerioCrawler } from 'crawlee';
 
 console.log('Crawlee works!');
 ```
@@ -54,9 +52,9 @@ If you see **Crawlee works!** printed to the console, it means you successfully 
 You probably noticed that we did not `import` Cheerio or got-scraping. That's because they're both already included in a component of Crawlee called [`CheerioCrawler`](https://crawlee.dev/docs/guides/cheerio-crawler-guide). It automatically visits URLs that you feed to it, downloads the HTML, and parses it with Cheerio. The benefit of this over writing the code yourself is that it automatically handles errors and retries the request when one occurs. It also parallelizes the downloads, making them faster, and removes a lot of boilerplate code that you would have to write yourself.
 
 ```JavaScript
-import Crawlee from 'crawlee';
+import { CheerioCrawler } from 'crawlee';
 
-const crawler = new Crawlee.CheerioCrawler({
+const crawler = new CheerioCrawler({
     requestHandler: async ({ $, request }) => {
         console.log('URL: ', request.url);
         console.log('Title: ', $('title').text());
@@ -67,9 +65,9 @@ const crawler = new Crawlee.CheerioCrawler({
 To feed it with URLs, we need to store them somewhere. This is where the [`RequestQueue`](https://crawlee.dev/api/core/class/RequestQueue) comes in. It's a persistent storage, which means that if your crawler crashes, it doesn't have to start over, but it can continue from where it left off (which is also something that you would normally have to implement yourself). `CheerioCrawler` automatically opens a request queue for you and assigns it to itself, so all you have to do is use the [`addRequests`](https://crawlee.dev/docs/upgrading/upgrading-to-v3#crawleraddrequests) function to add new requests to the queue.
 
 ```JavaScript
-import Crawlee from 'crawlee';
+import { CheerioCrawler } from 'crawlee';
 
-const crawler = new Crawlee.CheerioCrawler({
+const crawler = new CheerioCrawler({
     requestHandler: async ({ $, request }) => {
         console.log('URL: ', request.url);
         console.log('Title: ', $('title').text());
@@ -79,7 +77,7 @@ const crawler = new Crawlee.CheerioCrawler({
 crawler.addRequests([{ url: 'https://demo-webstore.apify.org/search/on-sale' }]);
 ```
 
-Here, we created a new request queue and added the first request to it - the first page we want to visit. Behind the scenes, `CheerioCrawler` will automatically take the first (and currently only) URL from the `RequestQueue`, download its HTML, and parse it using Cheerio. The [`requestHandler`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlerOptions#requestHandler) is the place where we can interact with the downloaded page and collect its data. It gives you access to the parsed HTML in the [`$`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext) variable. You can also access various data about the request from the queue using the [`request`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext#request) variable.
+Here, we added the first request to the crawler - the first page we want to visit. Behind the scenes, `CheerioCrawler` will automatically create a `RequestQueue`, take the first (and currently only) URL from it, download its HTML, and parse it using Cheerio. The [`requestHandler`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlerOptions#requestHandler) is the place where we can interact with the downloaded page and collect its data. It gives you access to the parsed HTML in the [`$`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext) variable. You can also access various data about the request from the queue using the [`request`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext#request) variable.
 
 When you run the code above you'll see that it prints various log messages. Among the many you'll find the URL and `<title>` of the web page, which we printed out ourselves in the `requestHandler`.
 
@@ -88,67 +86,22 @@ URL: https://demo-webstore.apify.org/search/on-sale
 Title: Fakestore
 ```
 
-Now, if you run the code again, you'll see that it does not print the title and URL anymore. As we mentioned earlier, the request queue is a persistent storage. It means that the queue remembers that the crawler already processed this URL. When you rerun the code, the queue remembers that this URL was already processed and will not process it again.
-
-Notice the **crawlee_storage** folder that was created in your project's folder. This is where Apify SDK persists its state. If you delete the folder and rerun the scraper, it will crawl the URL again. But deleting the folder manually is a bit annoying, so we'll automate it.
-
-<!-- ! Note for Andrey: this is where I left off. - Matt -->
-
-```JavaScript
-// apify.js
-import Apify from 'apify';
-
-// This clears our local storage and every run will start from scratch.
-// NOTE: We don't recommend using this in production :)
-await Apify.utils.purgeLocalStorage();
-
-const requestQueue = await Apify.openRequestQueue();
-await requestQueue.addRequest({ url: 'https://demo-webstore.apify.org/search/on-sale' });
-
-const crawler = new Apify.CheerioCrawler({
-    requestQueue,
-    handlePageFunction: async ({ $, request }) => {
-        console.log('URL: ', request.url);
-        console.log('Title: ', $('title').text());
-    },
-});
-
-await crawler.run();
-```
-
-When you repeatedly run the code now, you'll see that it always prints the expected log messages.
-
 ## [](#crawling-links) Crawling links
 
-The current scraper only visits the on-sale products URL, but we want data for all the countries. We can use the [`Apify.utils.enqueueLinks()`](https://sdk.apify.com/docs/api/utils#utilsenqueuelinksoptions) function to help us with that. The function automatically extracts URLs from the current page, based on a provided CSS selector, and adds them to the request queue. Once added, the crawler will automatically crawl them.
+The current scraper only visits the on-sale products URL, but we want data for all the countries. We can use the [`enqueueLinks()`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext#enqueueLinks) function to help us with that. The function automatically extracts URLs from the current page based on a provided CSS selector and adds them to the request queue. Once added, the crawler will automatically crawl them.
 
 ```JavaScript
-// apify.js
-import Apify from 'apify';
+// crawlee.js
+import { CheerioCrawler } from 'crawlee';
 
-await Apify.utils.purgeLocalStorage();
-
-const requestQueue = await Apify.openRequestQueue();
-await requestQueue.addRequest({
-    url: 'https://demo-webstore.apify.org/search/on-sale',
-    // By labeling the Request, we can very easily
-    // identify it later in the handlePageFunction.
-    userData: {
-        label: 'START',
-    },
-});
-
-const crawler = new Apify.CheerioCrawler({
-    requestQueue,
-    handlePageFunction: async ({ $, request }) => {
+const crawler = new CheerioCrawler({
+    requestHandler: async ({ $, request, enqueueLinks }) => {
         console.log('URL: ', request.url);
         console.log('Title: ', $('title').text());
 
         // We only want to enqueue the URLs from the first page.
-        if (request.userData.label === 'START') {
-            await Apify.utils.enqueueLinks({
-                $,
-                requestQueue,
+        if (request.label === 'START') {
+            await enqueueLinks({
                 // The selector is from our earlier code.
                 selector: 'a[href*="/product/"]',
                 // The baseUrl option automatically resolves relative URLs.
@@ -157,6 +110,15 @@ const crawler = new Apify.CheerioCrawler({
         }
     },
 });
+
+crawler.addRequests([{
+    url: 'https://demo-webstore.apify.org/search/on-sale',
+    // By labeling the Request, we can very easily
+    // identify it later in the requestHandler.
+    userData: {
+        label: 'START',
+    },
+}]);
 
 await crawler.run();
 ```
@@ -167,33 +129,18 @@ When you run the code, you'll immediately see that it crawls faster than the man
 
 ## [](#collecting-data) Collecting data
 
-We have the crawler in place, and it's time to collect data. We already have the extraction code from the previous lesson, so we can just copy and paste it into the `handlePageFunction` with tiny changes.
+We have the crawler in place, and it's time to collect data. We already have the extraction code from the previous lesson, so we can just copy and paste it into the `requestHandler` with tiny changes.
 
-The one small, but important, change we did was to use the [`Apify.pushData()`](https://sdk.apify.com/docs/api/apify#apifypushdataitem) function to save the results to the run's default dataset. You will find the [results in the `apify_storage`](https://sdk.apify.com/docs/guides/result-storage) folder, under `datasets/default`.
+The one small, but important, change we did was to use the [`Dataset.pushData()`](https://crawlee.dev/docs/introduction/saving-data#whats-datasetpushdata) function to save the results to the run's default dataset. You will find the results in the **storage** folder, under **datasets/default**.
 
 ```JavaScript
-// apify.js
-import Apify from 'apify';
+// crawlee.js
+import { CheerioCrawler, Dataset } from 'crawlee';
 
-await Apify.utils.purgeLocalStorage();
-
-const requestQueue = await Apify.openRequestQueue();
-await requestQueue.addRequest({
-    url: 'https://demo-webstore.apify.org/search/on-sale',
-    // By labeling the Request, we can very easily
-    // identify it later in the handlePageFunction.
-    userData: {
-        label: 'START',
-    },
-});
-
-const crawler = new Apify.CheerioCrawler({
-    requestQueue,
-    handlePageFunction: async ({ $, request }) => {
-        if (request.userData.label === 'START') {
-            await Apify.utils.enqueueLinks({
-                $,
-                requestQueue,
+const crawler = new CheerioCrawler({
+    requestHandler: async ({ $, request, enqueueLinks }) => {
+        if (request.label === 'START') {
+            await enqueueLinks({
                 selector: 'a[href*="/product/"]',
                 baseUrl: new URL(request.url).origin,
             });
@@ -211,7 +158,7 @@ const crawler = new Apify.CheerioCrawler({
 
         // Instead of saving the data to a variable,
         // we immediately save everything to a file.
-        await Apify.pushData({
+        await Dataset.pushData({
             title,
             description,
             price,
@@ -219,11 +166,20 @@ const crawler = new Apify.CheerioCrawler({
     },
 });
 
+crawler.addRequests([{
+    url: 'https://demo-webstore.apify.org/search/on-sale',
+    // By labeling the Request, we can very easily
+    // identify it later in the requestHandler.
+    userData: {
+        label: 'START',
+    },
+}]);
+
 await crawler.run();
 ```
 
-By using the `apify` library, we were able to create a faster and more robust scraper, but with less code than what was needed for the simple scraper in the earlier lessons. What we've learned so far only scratches the surface of the Apify SDK's full capabilities.
+By using the `crawlee` library, we were able to create a faster and more robust scraper, but with less code than what was needed for the simple scraper in the earlier lessons. What we've learned so far only scratches the surface of Crawlee's full capabilities.
 
 ## [](#next) Next up
 
-The Apify SDK is a full-featured scraping library. That's why we can use it to scrape any website at any scale. In the [next lesson]({{@link web_scraping_for_beginners/crawling/headless_browser.md}}) we will change only a few lines of code and turn our scraper into a full **headless browser**.
+Crawlee is a full-featured scraping library. That's why we can use it to scrape any website at any scale. In the [next lesson]({{@link web_scraping_for_beginners/crawling/headless_browser.md}}) we will change only a few lines of code and turn our scraper into a full **headless browser**.
