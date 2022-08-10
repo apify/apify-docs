@@ -34,14 +34,8 @@ console.log(title);
 The `page.screenshot()` function will return a buffer which can be written to the filesystem as an image:
 
 ```JavaScript
-import * as fs from 'fs/promises';
-// ...
-
-// Take the screenshot
-const screenshot = await page.screenshot();
-
-// Write the image to the filesystem
-await fs.writeFile('screenshot.png', screenshot);
+// Take the screenshot and write it to the filesystem
+await page.screenshot({ path: 'screenshot.png' });
 ```
 
 > The image will by default be **.png**. To change the image to **.jpeg** type, set the (optional) `type` option to **jpeg**.
@@ -53,7 +47,6 @@ Here's our final code which extracts the page's title, takes a screenshot and sa
 ```marked-tabs
 <marked-tab header="Playwright" lang="javascript">
 import { chromium } from 'playwright';
-import * as fs from 'fs/promises';
 
 const browser = await chromium.launch({ headless: false });
 
@@ -77,14 +70,12 @@ const title = await page.title();
 console.log(title);
 
 // Take a screenshot and write it to the filesystem
-const screenshot = await page.screenshot();
-await fs.writeFile('screenshot.png', screenshot);
+await page.screenshot({ path: 'screenshot.png' });
 
 await browser.close();
 </marked-tab>
 <marked-tab header="Puppeteer" lang="javascript">
 import puppeteer from 'puppeteer';
-import * as fs from 'fs/promises';
 
 const browser = await puppeteer.launch({ headless: false });
 
@@ -109,8 +100,7 @@ const title = await page.title();
 console.log(title);
 
 // Take a screenshot and write it to the filesystem
-const screenshot = await page.screenshot();
-await fs.writeFile('screenshot.png', screenshot);
+await page.screenshot({ path: 'screenshot.png' });
 
 await browser.close();
 </marked-tab>
