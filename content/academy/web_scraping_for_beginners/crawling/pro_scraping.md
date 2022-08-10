@@ -22,9 +22,9 @@ We mentioned the benefits of developing with a dedicated scraping library in the
 
 > If you're still not convinced, [read this story](https://apify.com/success-stories/daltix-analytics-scrapy-python-to-apify) how a data analytics company saved 90% of scraping costs by switching from Scrapy (a scraping library for Python) to Crawlee. To be honest, it shocked even us! 💪
 
-## [](#sdk-installation) Install Crawlee
+## [](#crawlee-installation) Install Crawlee
 
-To use the Apify SDK, we have to install it from NPM. Let's add it to our project from the previous lessons.
+To use Crawlee, we have to install it from NPM. Let's add it to our project from the previous lessons.
 
 ```shell
 npm install crawlee@latest
