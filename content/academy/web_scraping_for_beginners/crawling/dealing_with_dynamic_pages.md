@@ -8,9 +8,9 @@ paths:
 
 # [](#dealing-with-dynamic-pages) Dealing with dynamic pages
 
-In the last few lessons, we learned about the Apify SDK, which is a powerful library for writing reliable and efficient scrapers. We recommend reading up on those last two lessons in order to install the `apify` package and familiarize yourself with it before moving forward with this lesson.
+In the last few lessons, we learned about Crawlee, which is a powerful library for writing reliable and efficient scrapers. We recommend reading up on those last two lessons in order to install the `crawlee` package and familiarize yourself with it before moving forward with this lesson.
 
-In this lesson, we'll be discussing dynamic content and how to scrape it while utilizing the Apify SDK.
+In this lesson, we'll be discussing dynamic content and how to scrape it while utilizing Crawlee.
 
 ## [](#quick-experiment) A quick experiment
 
@@ -21,20 +21,15 @@ From our adored and beloved [Fakestore](https://demo-webstore.apify.org/), we ha
 In your project from the previous lessons, or in a new project, create a file called `dynamic.js` and copy-paste the following boiler plate code into it:
 
 ```JavaScript
-import Apify from 'apify';
+import { CheerioCrawler } from 'crawlee';
 
-await Apify.utils.purgeLocalStorage();
-
-const requestQueue = await Apify.openRequestQueue();
-await requestQueue.addRequest({ url: 'https://demo-webstore.apify.org/search/new-arrivals' });
-
-const crawler = new Apify.CheerioCrawler({
-    requestQueue,
-    handlePageFunction: async ({ $, request }) => {
-
-        // We'll put our logic in here later
+const crawler = new CheerioCrawler({
+    requestHandler: async ({ $, request }) => {
+        // We'll put our logic here in a minute
     },
 });
+
+await crawler.addRequests([{ url: 'https://demo-webstore.apify.org/search/new-arrivals' }]);
 
 await crawler.run();
 ```
@@ -43,25 +38,19 @@ If you're in a brand new project, don't forget to initialize your project, then 
 
 ```shell
 # this command will initialize your project
-# and install the "apify" and "cheerio" packages
-npm init -y && npm i apify cheerio
+# and install the "crawlee" and "cheerio" packages
+npm init -y && npm i crawlee cheerio
 ```
 
 Now, let's write some data collection code to collect each product's data. This should look familiar if you went through the [Data Collection]({{@link web_scraping_for_beginners/data_collection.md}}) lessons:
 
 ```JavaScript
-import Apify from 'apify';
-
-await Apify.utils.purgeLocalStorage();
-
-const requestQueue = await Apify.openRequestQueue();
-await requestQueue.addRequest({ url: 'https://demo-webstore.apify.org/search/new-arrivals' });
+import { CheerioCrawler } from 'crawlee';
 
 const BASE_URL = 'https://demo-webstore.apify.org';
 
-const crawler = new Apify.CheerioCrawler({
-    requestQueue,
-    handlePageFunction: async ({ $, request }) => {
+const crawler = new CheerioCrawler({
+    requestHandler: async ({ $, request }) => {
         const products = $('a[href*="/product/"]');
 
         const results = [...products].map((product) => {
@@ -81,6 +70,8 @@ const crawler = new Apify.CheerioCrawler({
         console.log(results);
     },
 });
+
+await crawler.addRequests([{ url: 'https://demo-webstore.apify.org/search/new-arrivals' }]);
 
 await crawler.run();
 ```
@@ -108,22 +99,16 @@ Let's change a few lines of our code to switch the crawler type from CheerioCraw
 > Also, don't forget to run `npm i puppeteer` in order to install the `puppeteer` package!
 
 ```JavaScript
-import Apify from 'apify';
+import { PuppeteerCrawler } from 'crawlee';
 // Add cheerio import
 import cheerio from 'cheerio';
-
-await Apify.utils.purgeLocalStorage();
-
-const requestQueue = await Apify.openRequestQueue();
-await requestQueue.addRequest({ url: 'https://demo-webstore.apify.org/search/new-arrivals' });
 
 const BASE_URL = 'https://demo-webstore.apify.org';
 
 // Switch CheerioCrawler to PuppeteerCrawler
-const crawler = new Apify.PuppeteerCrawler({
-    requestQueue,
+const crawler = new PuppeteerCrawler({
     // Replace "$" with "page"
-    handlePageFunction: async ({ page, request }) => {
+    requestHandler: async ({ page, request }) => {
         // Create the $ object based on the page's content
         const $ = cheerio.load(await page.content());
 
@@ -147,6 +132,8 @@ const crawler = new Apify.PuppeteerCrawler({
     },
 });
 
+await crawler.addRequests([{ url: 'https://demo-webstore.apify.org/search/new-arrivals' }])
+
 await crawler.run();
 ```
 
@@ -156,24 +143,18 @@ After running this one, we can see that our results look different from before. 
 
 Well... Not quite. It seems that the only images which we got the full links to were the ones that were being displayed within the view of the browser. This means that the images are lazy-loaded. **Lazy-loading** is a common technique used across the web to improve performance. Lazy-loaded items allow the user to load content incrementally, as they perform some action. In most cases, including our current one, this action is scrolling.
 
-So, we've gotta scroll down the page to load these images. Luckily, because we're using the Apify SDK, we don't have to write the logic that will achieve that, because a utility function specifically for Puppeteer called [`infiniteScroll`](https://sdk.apify.com/docs/api/puppeteer#puppeteerinfinitescroll) already exists right in the library, and can be accessed through `Apify.utils.puppeteer`. Let's add it to our code now:
+So, we've gotta scroll down the page to load these images. Luckily, because we're using Crawlee, we don't have to write the logic that will achieve that, because a utility function specifically for Puppeteer called [`infiniteScroll`](https://crawlee.dev/api/puppeteer-crawler/namespace/puppeteerUtils#infiniteScroll) already exists right in the library, and can be accessed through `utils.puppeteer`. Let's add it to our code now:
 
 ```JavaScript
-import Apify from 'apify';
+import { PuppeteerCrawler, utils, Dataset } from 'crawlee';
 import cheerio from 'cheerio';
-
-await Apify.utils.purgeLocalStorage();
-
-const requestQueue = await Apify.openRequestQueue();
-await requestQueue.addRequest({ url: 'https://demo-webstore.apify.org/search/new-arrivals' });
 
 const BASE_URL = 'https://demo-webstore.apify.org';
 
-const crawler = new Apify.PuppeteerCrawler({
-    requestQueue,
-    handlePageFunction: async ({ page, request }) => {
+const crawler = new PuppeteerCrawler({
+    requestHandler: async ({ page, request }) => {
         // Add the utility function
-        await Apify.utils.puppeteer.infiniteScroll(page);
+        await utils.puppeteer.infiniteScroll(page);
 
         const $ = cheerio.load(await page.content());
 
@@ -194,9 +175,11 @@ const crawler = new Apify.PuppeteerCrawler({
         });
 
         // Push our results to the dataset
-        await Apify.pushData(results);
+        await Dataset.pushData(results);
     },
 });
+
+await crawler.addRequests([{ url: 'https://demo-webstore.apify.org/search/new-arrivals' }])
 
 await crawler.run();
 ```
