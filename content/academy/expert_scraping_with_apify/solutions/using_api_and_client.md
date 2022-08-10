@@ -56,18 +56,14 @@ const withClient = async () => {
 
     const dataset = client.run(id).dataset();
 
-    try {
-        const items = await dataset.downloadItems('csv', {
-            limit: maxItems,
-            fields,
-        });
+    const items = await dataset.downloadItems('csv', {
+        limit: maxItems,
+        fields,
+    });
 
-        // If the content type is anything other than JSON, it must
-        // be specified within the third options parameter
-        return Apify.setValue('OUTPUT', items, { contentType: 'text/csv' });
-    } catch (error) {
-        throw new Error(error?.message);
-    }
+    // If the content type is anything other than JSON, it must
+    // be specified within the third options parameter
+    return Apify.setValue('OUTPUT', items, { contentType: 'text/csv' });
 };
 ```
 
@@ -113,13 +109,9 @@ const withAPI = async () => {
         token: process.env.APIFY_TOKEN,
     });
 
-    try {
-        const { data } = await axios.post(url.toString());
+    const { data } = await axios.post(url.toString());
 
-        return Apify.setValue('OUTPUT', data, { contentType: 'text/csv' });
-    } catch (error) {
-        throw new Error(error?.message);
-    }
+    return Apify.setValue('OUTPUT', data, { contentType: 'text/csv' });
 };
 ```
 
@@ -194,16 +186,12 @@ Apify.main(async () => {
 
         const dataset = client.run(id).dataset();
 
-        try {
-            const items = await dataset.downloadItems('csv', {
-                limit: maxItems,
-                fields,
-            });
+        const items = await dataset.downloadItems('csv', {
+            limit: maxItems,
+            fields,
+        });
 
-            return Apify.setValue('OUTPUT', items, { contentType: 'text/csv' });
-        } catch (error) {
-            throw new Error(error?.message);
-        }
+        return Apify.setValue('OUTPUT', items, { contentType: 'text/csv' });
     };
 
     const withAPI = async () => {
@@ -218,13 +206,9 @@ Apify.main(async () => {
             token: process.env.APIFY_TOKEN,
         });
 
-        try {
-            const { data } = await axios.post(url.toString());
+        const { data } = await axios.post(url.toString());
 
-            return Apify.setValue('OUTPUT', data, { contentType: 'text/csv' });
-        } catch (error) {
-            throw new Error(error?.message);
-        }
+        return Apify.setValue('OUTPUT', data, { contentType: 'text/csv' });
     };
 
     if (useClient) await withClient();
