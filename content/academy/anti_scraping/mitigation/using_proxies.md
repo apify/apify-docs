@@ -10,7 +10,7 @@ paths:
 
 In the [**Web scraping for beginners**]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) course, we learned about the power of Crawlee, and how it can streamline the development process of web crawlers. You've already seen how powerful the `crawlee` package is; however, what you've been exposed to thus far is only the tip of the iceberg.
 
-Because proxies are so widely used in the scraping world, we at Apify have equipped Crawlee with features which make it easy to implement them in an effective way. One of the main functionalities that comes baked into Crawlee is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
+Because proxies are so widely used in the scraping world, Crawlee as been equipped with features which make it easy to implement them in an effective way. One of the main functionalities that comes baked into Crawlee is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
 
 ## [](#implementing-proxies) Implementing proxies in a scraper
 
@@ -89,7 +89,7 @@ const crawler = new CheerioCrawler({
         const price = $('h3 + div').text().trim();
         const description = $('div[class*="Text_body"]').text().trim();
 
-        await Apify.pushData({
+        await Dataset.pushData({
             title,
             description,
             price,
