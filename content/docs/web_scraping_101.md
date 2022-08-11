@@ -19,13 +19,13 @@ The primary function of web scraping is the extraction of data.
 
 It is about gathering information, which you can then use to make informed decisions in how to [price](https://apify.com/use-cases/price-comparison) or [market](https://apify.com/use-cases/market-research) your product, [find new customers](https://apify.com/use-cases/lead-generation) and make decisions that enable you to [grow your business](https://apify.com/use-cases).
 
-To see examples of organizations that have already benefitted from web scraping, check out our [success stories](https://apify.com/success-stories).
+To see examples of organizations that have already benefited from web scraping, check out our [success stories](https://apify.com/success-stories).
 
 ## [](#how-does-web-scraping-work) How does web scraping work?
 
 1. The scraper [requests](https://www.codecademy.com/articles/http-requests) the contents of a particular page from a website (e.g. this week's Top 10 singles on Spotify). The site returns it in [HTML](https://en.wikipedia.org/wiki/HTML) format.
 2. It [parses](https://en.wikipedia.org/wiki/Parsing) (splits up the data and converts it to the required format) the HTML and extracts the data it's been programmed to extract (e.g. the song title and artist name).
-3. The scraper stores the data in the specified format so you can use it manually or in a program.
+3. The scraper stores the data in the specified format, so you can use it manually or in a program.
 
 ## [](#is-web-scraping-the-same-as-robotic-process-automation-rpa) Is web scraping the same as robotic process automation (RPA)?
 

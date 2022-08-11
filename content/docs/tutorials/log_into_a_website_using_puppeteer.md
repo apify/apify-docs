@@ -23,36 +23,38 @@ We can see an HTML **input** element with the IDs `email` for email and `pass` f
 Our actor will use the Puppeteer API to fill in the **username** and **password** and click the **submit** button.
 
 ```javascript
-const Apify = require('apify');
-const { log } = Apify.utils;
+import { Actor } from 'apify';
+import { launchPuppeteer, log } from 'crawlee';
 
-Apify.main(async () => {
-    // Get the username and password inputs
-    const input = await Apify.getValue('INPUT');
+await Actor.init();
 
-    const browser = await Apify.launchPuppeteer();
-    const page = await browser.newPage();
-    await page.goto('https://facebook.com');
+// Get the username and password inputs
+const input = await Actor.getInput();
 
-    // Login
-    await page.type('#email', input.username);
-    await page.type('#pass', input.password);
-    await page.click('#u_0_b');
-    await page.waitForNavigation();
+const browser = await launchPuppeteer();
+const page = await browser.newPage();
+await page.goto('https://facebook.com');
 
-    // Get cookies
-    const cookies = await page.cookies();
+// Login
+await page.type('#email', input.username);
+await page.type('#pass', input.password);
+await page.click('#u_0_b');
+await page.waitForNavigation();
 
-    // Use cookies in another tab or browser
-    const page2 = await browser.newPage();
-    await page2.setCookie(...cookies);
-    // Open the page as a logged-in user
-    await page2.goto('https://facebook.com');
+// Get cookies
+const cookies = await page.cookies();
 
-    await browser.close();
+// Use cookies in another tab or browser
+const page2 = await browser.newPage();
+await page2.setCookie(...cookies);
+// Open the page as a logged-in user
+await page2.goto('https://facebook.com');
 
-    log.info('Done.');
-});
+await browser.close();
+
+log.info('Done.');
+
+await Actor.exit();
 ```
 
 Now, you can run the actor and pass the login credentials as an [input JSON object](https://sdk.apify.com/docs/examples/accept-user-input#docsNav).
@@ -71,8 +73,10 @@ For most pages, you need to save cookies and reuse then in following runs. You c
 The example below uses a [named key-value store]({{@link storage.md#named-and-unnamed-storages}}) to save cookies for upcoming runs.
 
 ```javascript
-const Apify = require('apify');
-const { log } = Apify.utils;
+import { Actor } from 'apify';
+import { launchPuppeteer, log } from 'crawlee';
+
+await Actor.init();
 
 const loggedCheck = async (page) => {
     try {
@@ -83,52 +87,52 @@ const loggedCheck = async (page) => {
     }
 };
 
-Apify.main(async () => {
-    // Get the username and password inputs
-    const input = await Apify.getValue('INPUT');
+// Get the username and password inputs
+const input = await Actor.getInput();
 
-    const fcbCacheStore = await Apify.openKeyValueStore('fcb-cache');
-    const cookiesStoreKey = input.username.replace('@', '(at)');
+const fcbCacheStore = await Actor.openKeyValueStore('fcb-cache');
+const cookiesStoreKey = input.username.replace('@', '(at)');
 
-    const browser = await Apify.launchPuppeteer();
-    const page = await browser.newPage();
+const browser = await launchPuppeteer();
+const page = await browser.newPage();
 
-    let isLogged = false;
-    let userCookies = await fcbCacheStore.getValue(cookiesStoreKey);
-    if (userCookies) {
-        log.info('Trying to use cached cookies...')
-        await page.setCookie(...userCookies);
-        await page.goto('https://facebook.com');
-        isLogged = await loggedCheck(page);
-    }
+let isLogged = false;
+let userCookies = await fcbCacheStore.getValue(cookiesStoreKey);
+if (userCookies) {
+    log.info('Trying to use cached cookies...')
+    await page.setCookie(...userCookies);
+    await page.goto('https://facebook.com');
+    isLogged = await loggedCheck(page);
+}
 
-    if (!isLogged) {
-        log.info(`Cookies from the cache didn't work. Try to log in.`);
-        await page.goto('https://facebook.com');
-        await page.type('#email', input.username);
-        await page.type('#pass', input.password);
-        await page.click('#u_0_b');
-        await page.waitForNavigation();
-        isLogged = await loggedCheck(page);
-    }
+if (!isLogged) {
+    log.info(`Cookies from the cache didn't work. Try to log in.`);
+    await page.goto('https://facebook.com');
+    await page.type('#email', input.username);
+    await page.type('#pass', input.password);
+    await page.click('#u_0_b');
+    await page.waitForNavigation();
+    isLogged = await loggedCheck(page);
+}
 
-    if (!isLogged) {
-        throw new Error('Incorrect username or password.')
-    }
+if (!isLogged) {
+    throw new Error('Incorrect username or password.')
+}
 
-    // Get cookies and refresh them in store cache
-    log.info(`Saving new cookies to cache...`);
-    const cookies = await page.cookies();
-    await fcbCacheStore.setValue(cookiesStoreKey, cookies);
+// Get cookies and refresh them in store cache
+log.info(`Saving new cookies to cache...`);
+const cookies = await page.cookies();
+await fcbCacheStore.setValue(cookiesStoreKey, cookies);
 
-    // Use cookies in another tab or browser
-    const page2 = await browser.newPage();
-    await page2.setCookie(...cookies);
-    // Opens thepage as a logged-in user
-    await page2.goto('https://facebook.com');
+// Use cookies in another tab or browser
+const page2 = await browser.newPage();
+await page2.setCookie(...cookies);
+// Opens thepage as a logged-in user
+await page2.goto('https://facebook.com');
 
-    await browser.close();
+await browser.close();
 
-    log.info('Done.');
-});
+log.info('Done.');
+
+await Actor.exit();
 ```

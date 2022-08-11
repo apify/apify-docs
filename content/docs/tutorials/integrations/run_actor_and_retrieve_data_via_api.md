@@ -98,7 +98,7 @@ Here is a simple Node.js example of calling a task via the API and logging the d
 
 ```javascript
 // Use your favorite HTTP client
-const got = require('got');
+import got from 'got';
 
 // Specify your API token
 // (find it at https://console.apify.com/account#/integrations)

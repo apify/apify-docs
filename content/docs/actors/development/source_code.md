@@ -168,28 +168,30 @@ To make you actor compatible with metamorph operation use `Apify.getInput()` ins
 For example, imagine you have an actor that accepts a hotel URL on input and then internally uses the [apify/web-scraper](https://www.apify.com/apify/web-scraper) actor to scrape all the hotel reviews. The metamorphing code would look as follows:
 
 ```js
-const Apify = require('apify');
+import { Actor } from 'apify';
 
-Apify.main(async () => {
-    // Get input of your actor.
-    const { hotelUrl } = await Apify.getInput();
+await Actor.init();
 
-    // Create input for apify/web-scraper
-    const newInput = {
-        startUrls: [{ url: hotelUrl }],
-        pageFunction: () => {
-            // Here you pass the page function that
-            // scrapes all the reviews ...
-        },
-        // ... and here would be all the additional
-        // input parameters.
-    };
+// Get input of your actor.
+const { hotelUrl } = await Actor.getInput();
 
-    // Transform the actor run to apify/web-scraper
-    // with the new input.
-    await Apify.metamorph('apify/web-scraper', newInput);
+// Create input for apify/web-scraper
+const newInput = {
+    startUrls: [{ url: hotelUrl }],
+    pageFunction: () => {
+        // Here you pass the page function that
+        // scrapes all the reviews ...
+    },
+    // ... and here would be all the additional
+    // input parameters.
+};
 
-    // The line here will never be reached, because the
-    // actor run will be interrupted.
-});
+// Transform the actor run to apify/web-scraper
+// with the new input.
+await Actor.metamorph('apify/web-scraper', newInput);
+
+// The line here will never be reached, because the
+// actor run will be interrupted.
+
+await Actor.exit();
 ```

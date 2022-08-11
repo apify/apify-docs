@@ -23,7 +23,7 @@ This article shows you the very basics of using the Apify platform. It shows you
 
 **2.** On the actor's page, head over to the **Input and options** tab.
 
-Don't be put off by all the boxes - the actor is pre-configured to run without any extra input. Just click the **Run** button in the bottom-left corner and it will start.
+Don't be put off by all the boxes - the actor is pre-configured to run without any extra input. Just click the **Run** button in the bottom-left corner, and it will start.
 
 Alternatively, you can play around with the settings to make the results more interesting for you.
 
@@ -54,11 +54,13 @@ Here is a preview of the actor's output as a table.
 **2.** Go to the **Source** tab and paste the Node.js code below into the **Source code** editor.
 
 ```js
-const Apify = require('apify');
+import { Actor } from 'apify';
 
-Apify.main(async () => {
-    console.log('Hello world from Actor!');
-});
+await Actor.init();
+
+console.log('Hello world from Actor!');
+
+await Actor.exit();
 ```
 
 **3.** Click **▷ Run** in the **Developer console** below to build and run your actor. After the run is finished, you should see something like:
@@ -74,14 +76,16 @@ Let's try something little more advanced. We will enable the actor to accept inp
 **1.** Paste the code below into the **Source code** editor.
 
 ```js
-const Apify = require('apify');
+import { Actor } from 'apify';
 
-Apify.main(async () => {
-    // Get input and print it
-    const input = await Apify.getInput();
-    console.log('My input:');
-    console.dir(input);
-});
+await Actor.init();
+
+// Get input and print it
+const input = await Actor.getInput();
+console.log('My input:');
+console.dir(input);
+
+await Actor.exit();
 ```
 
 **2.** Save your actor by clicking **Save** and then rebuild it by clicking **Build**.
