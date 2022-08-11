@@ -35,7 +35,7 @@ The area where you can see some code and files is called the **multifile editor*
 Go ahead and delete the three lines of code in the **main.js**  file that look like this:
 
 ```JavaScript
-const input = await Apify.getInput();
+const input = await Actor.getInput();
 console.log('Input:');
 console.dir(input);
 ```
@@ -51,11 +51,13 @@ console.log('Hello World!')
 The final code should look like this:
 
 ```JavaScript
-const Apify = require('apify');
+import { Actor } from 'apify';
 
-Apify.main(async () => {
-    console.log('Hello World!')
-});
+await Actor.init();
+
+console.log('Hello World!')
+
+await Actor.exit();
 ```
 
 To save your changes, click on the blue **Save** button.
