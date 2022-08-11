@@ -269,7 +269,7 @@ const newFilters = splitFilter({ min: min * 100, max: max * 100 });
 // And we just enqueue those 2 new filters so the process will recursively repeat until all pages get to the PAGINATION phase
 const requestsToEnqueue = [];
 for (const filter of newFilters) {
-    await requestsToEnqueue.push({
+    requestsToEnqueue.push({
         // Remember that we have to convert back from cents to dollars
         url: createFilterUrl({ min: filter.min / 100, max: filter.max / 100 }),
         label: 'FILTER',
