@@ -19,18 +19,20 @@ Let's first create another new actor using the same template as before. Feel fre
 Replace all of the code in **main.js** with this code snippet:
 
 ```JavaScript
-const Apify = require('apify');
+import { Actor } from 'apify';
 
-Apify.main(async () => {
-    // Grab our numbers which were inputted
-    const { num1, num2 } = await Apify.getInput();
-    
-    // Calculate the solution
-    const solution = num1 + num2;
+await Actor.init();
 
-    // Push the solution to the dataset
-    await Apify.pushData({ solution })
-});
+// Grab our numbers which were inputted
+const { num1, num2 } = await Actor.getInput();
+
+// Calculate the solution
+const solution = num1 + num2;
+
+// Push the solution to the dataset
+await Actor.pushData({ solution })
+
+await Actor.exit();
 ```
 
 Then, replace everything in **INPUT_SCHEMA.json**  with this:
