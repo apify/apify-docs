@@ -116,8 +116,11 @@ When **building your own actors** with [Puppeteer](https://pptr.dev) or the [Api
 ```javascript
 import { Actor } from 'apify';
 
+await Actor.init();
 // ...
 await Actor.setValue('SNAPSHOT', html, { contentType: 'text/html' });
+// ...
+await Actor.exit();
 ```
 
 #### [](#when-to-save-snapshots) When to save snapshots
@@ -128,6 +131,7 @@ The most common approach is to save on error. We can enhance our previous try/ca
 import { Actor } from 'apify';
 import { puppeteerUtils } from 'crawlee';
 
+await Actor.init();
 // ...
 // storeId is ID of current key value store, where we save snapshots
 const storeId = Actor.getEnv().defaultKeyValueStoreId;
@@ -145,6 +149,8 @@ try {
     console.error(`Request failed during login with an error. Screenshot: ${screenshotLink}`);
     throw error;
 }
+// ...
+await Actor.exit();
 ```
 
 To make the error snapshot descriptive, we name it `ERROR-LOGIN`. We add a random number so the next `ERROR-LOGIN`s would not overwrite this one and we can see all the snapshots. If you can use an ID of some sort, it is even better.
@@ -165,6 +171,7 @@ This example extends our [previous snapshot solution](#when-to-save-snapshots) b
 import { Actor } from 'apify';
 import { puppeteerUtils } from 'crawlee';
 
+await Actor.init();
 // ...
 // Let's create reporting dataset
 // If you already have one, this will continue adding to it
@@ -209,4 +216,6 @@ try {
     );
     throw error;
 }
+// ...
+await Actor.exit();
 ```

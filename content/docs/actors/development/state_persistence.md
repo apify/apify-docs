@@ -45,11 +45,15 @@ To persist state manually, you can use the [Apify.events](https://docs.apify.com
 ```javascript
 import { Actor } from 'apify';
 
+await Actor.init();
+// ...
 Actor.on('migrating', () => {
     Actor.setValue('my-crawling-state', {
         foo: 'bar',
     });
 });
+// ...
+await Actor.exit();
 ```
 
 To check for state saved in a previous run, use:
@@ -57,7 +61,11 @@ To check for state saved in a previous run, use:
 ```javascript
 import { Actor } from 'apify';
 
+await Actor.init();
+// ...
 const previousCrawlingState = await Actor.getValue('my-crawling-state') || {};
+// ...
+await Actor.exit();
 ```
 
 To improve your actor's performance, you can also [cache repeated page data]({{@link tutorials/cache_data_to_improve_performance.md}}).

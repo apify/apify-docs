@@ -69,9 +69,13 @@ In the [Apify SDK](https://sdk.apify.com), you set the **group** in your [proxy 
 ```js
 import { Actor } from 'apify';
 
+await Actor.init();
+// ...
 const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
 });
+// ...
+await Actor.exit();
 ```
 
 ### [](#how-to-set-a-proxy-country) How to set a proxy country
@@ -89,10 +93,14 @@ In the [Apify SDK](https://sdk.apify.com), you set the country in your [proxy co
 ```js
 import { Actor } from 'apify';
 
+await Actor.init();
+// ...
 const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
     countryCode: 'FR',
 });
+// ...
+await Actor.exit();
 ```
 
 ### [](#username-examples) Username examples

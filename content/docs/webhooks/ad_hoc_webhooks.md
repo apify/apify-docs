@@ -37,10 +37,14 @@ You can also create a webhook dynamically from the code of your actor using the 
 ```js
 import { Actor } from 'apify';
 
+await Actor.init();
+// ...
 await Actor.addWebhook({
     eventTypes: ['ACTOR.RUN.CREATED'],
     requestUrl: 'https://example.com/run-created',
 });
+// ...
+await Actor.exit();
 ```
 
 To learn more, see the [Apify SDK documentation](https://apify.github.io/apify-sdk-js/api/apify/class/Actor#addWebhook).
@@ -50,9 +54,13 @@ To ensure that duplicate ad hoc webhooks won't get created in a case of actor re
 ```js
 import { Actor } from 'apify';
 
+await Actor.init();
+// ...
 await Actor.addWebhook({
     eventTypes: ['ACTOR.RUN.CREATED'],
     requestUrl: 'https://example.com/run-created',
     idempotencyKey: process.env.APIFY_ACTOR_RUN_ID,
 });
+// ...
+await Actor.exit();
 ```

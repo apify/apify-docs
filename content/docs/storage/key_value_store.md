@@ -69,7 +69,9 @@ To manage your key-value stores, you can use the following methods. [See the `Ke
 ```js
 import { Actor } from 'apify';
 
+await Actor.init();
 // ...
+
 // Get the default input
 const input = await Actor.getInput();
 
@@ -84,6 +86,9 @@ await exampleStore.setValue('some-key', { foo: 'bar' });
 
 // Delete a record in exampleStore
 await exampleStore.setValue('some-key', null);
+
+// ...
+await Actor.exit();
 ```
 
 > Note that JSON is automatically parsed to a JavaScript object, text data returned as a string and other data is returned as binary buffer.
@@ -91,7 +96,9 @@ await exampleStore.setValue('some-key', null);
 ```js
 import { Actor } from 'apify';
 
+await Actor.init();
 // ...
+
 // Get input of your actor
 const input = await Actor.getInput();
 const value = await Actor.getValue('my-key');
@@ -102,6 +109,9 @@ await Actor.setValue(
     imageBuffer,
     { contentType: 'image/jpeg' },
 );
+
+// ...
+await Actor.exit();
 ```
 
 The `Apify.getInput()`method is not only a shortcut to `Apify.getValue('INPUT')`- it is also compatible with `Apify.metamorph()` [[docs](https://docs.apify.com/actors/source-code#metamorph)]. This is because a metamorphed actor run's input is stored in the **INPUT-METAMORPH-1** key instead of **INPUT**, which hosts the original input.

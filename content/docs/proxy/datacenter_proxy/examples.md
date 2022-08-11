@@ -251,9 +251,13 @@ to `createProxyConfiguration()` and specify the group names. For example:
 ```js
 import { Actor } from 'apify';
 
+await Actor.init();
+// ...
 const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['GROUP_NAME_1', 'GROUP_NAME_2'],
 });
+// ...
+await Actor.exit();
 ```
 
 ## [](#using-standard-libraries-and-languages) Using standard libraries and languages

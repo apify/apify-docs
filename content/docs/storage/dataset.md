@@ -63,12 +63,17 @@ To add data to the default dataset, you can use the example below, however using
 // Import the Apify SDK into your project
 import { Actor } from 'apify';
 
+await Actor.init();
 // ...
+
 // Add one item to the default dataset
 await Actor.pushData({ foo: 'bar' });
 
 // Add multiple items to the default dataset
 await Actor.pushData([{ foo: 'hotel' }, { foo: 'cafe' }]);
+
+// ...
+await Actor.exit();
 ```
 
 > Make sure to use the `await` keyword when calling `pushData()`, otherwise the actor process might finish before the data are stored.
@@ -78,12 +83,17 @@ If you want to use something other than the default dataset, e.g. a dataset that
 ```js
 import { Actor } from 'apify';
 
+await Actor.init();
 // ...
+
 // Save a named dataset to a variable
 const dataset = await Actor.openDataset('some-name');
 
 // Add data to the named dataset
 await dataset.pushData({ foo: 'bar' });
+
+// ...
+await Actor.exit();
 ```
 
 When using the `getData()` method, you can specify the data you retrieve using the `[fields]` parameter. It should be an array of field names (strings) that will be included in the results. To include all the results, exclude the `[fields]` parameter.
@@ -91,13 +101,18 @@ When using the `getData()` method, you can specify the data you retrieve using t
 ```js
 import { Actor } from 'apify';
 
+await Actor.init();
 // ...
+
 const dataset = await Actor.openDataset();
 
 // Only get the "hotel" and "cafe" fields
 const hotelAndCafeData = await dataset.getData({
     fields: ['hotel', 'cafe'],
 });
+
+// ...
+await Actor.exit();
 ```
 
 [See the SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset) and the `Dataset` class's [API reference](https://sdk.apify.com/docs/api/dataset#datasetpushdatadata) for details on managing datasets with the Apify SDK.
