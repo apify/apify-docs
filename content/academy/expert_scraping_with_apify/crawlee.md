@@ -6,9 +6,9 @@ paths:
     - expert-scraping-with-apify/crawlee
 ---
 
-# [](#the-apify-sdk) The Apify SDK
+# [](#crawlee) Crawlee and the Apify SDK
 
-[**Crawlee**](https://crawlee.dev/) is one of the most fundamental parts of developing for the Apify platform. It is an open-source JavaScript library built on top of these technologies:
+[**Crawlee**](https://crawlee.dev/) is an open source web-automation library developed by Apify, and the Apify SDK one of the most fundamental parts of developing for the Apify platform. Both are built on top of these technologies:
 
 - Apify actors (which run the Node.js app built with the Crawlee inside a Docker container)
 - The Apify API/Apify Client (on the Apify platform)
@@ -16,7 +16,7 @@ paths:
 - Puppeteer + Playwright (as headless browser managers)
 - Request + Cheerio (for downloading and parsing HTML)
 
-This library factors away and manages the hard parts of the scraping/automation development under the hood, such as:
+The Crawlee library factors away and manages the hard parts of the scraping/automation development under the hood, such as:
 
 - Autoscaling
 - Request concurrency
@@ -30,12 +30,13 @@ As a developer, your goal is to take Crawlee, which is quite generic on its own,
 
 ## [](#docs) Docs, docs, docs
 
-Crawlee and its resources can be found in various different places:
+Crawlee + the Apify SDK and their resources can be found in various different places:
 
-1. [Official documentation](https://crawlee.dev/)
-2. [Github repository (source code, issues)](https://github.com/apify/apify-js)
-3. [NPM](https://www.npmjs.com/package/crawlee)
-4. [Help articles](https://help.apify.com/)
+1. [Official Crawlee documentation](https://crawlee.dev/)
+2. [Crawlee Github repository (source code, issues)](https://github.com/apify/crawlee)
+3. [Crawlee on NPM](https://www.npmjs.com/package/crawlee)
+4. [Apify SDK on NPM](https://www.npmjs.com/package/apify)
+<!-- 4. [Help articles](https://help.apify.com/) -->
 
 ## [](#learning) Learning 🧠
 
