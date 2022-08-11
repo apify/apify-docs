@@ -295,26 +295,6 @@ console.log(data);
 </marked-tab>
 
 
-<marked-tab header="Node.js (got)" lang="javascript">
-import got from 'got';
-import { HttpsProxyAgent } from 'hpagent';
-
-const agent = {
-    https: new HttpsProxyAgent({
-        // Replace <YOUR_PROXY_PASSWORD> below with your password
-        // found at https://console.apify.com/proxy
-        proxy: 'http://auto:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000',
-    }),
-};
-
-const url = 'https://api.apify.com/v2/browser-info';
-
-const { body } = await got(url, { agent });
-
-console.log(body);
-</marked-tab>
-
-
 <marked-tab header="Python 3" lang="python">
 import urllib.request as request
 import ssl
@@ -414,28 +394,6 @@ const response2 = await axiosWithProxy.get(url);
 // Should return the same clientIp for both requests
 console.log('clientIp1:', response1.data.clientIp);
 console.log('clientIp2:', response2.data.clientIp);
-</marked-tab>
-
-
-<marked-tab header="Node.js (got)" lang="javascript">
-import got from 'got';
-import { HttpsProxyAgent } from 'hpagent';
-
-const agent = {
-    https: new HttpsProxyAgent({
-        // Replace <YOUR_PROXY_PASSWORD> below with your password
-        // found at https://console.apify.com/proxy
-        proxy: 'http://session-my_session:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000',
-    }),
-};
-
-const url = 'https://api.apify.com/v2/browser-info';
-
-const response1 = await got(url, { agent, responseType: 'json' });
-const response2 = await got(url, { agent, responseType: 'json' });
-// Should return the same clientIp for both requests
-console.log('clientIp1:', response1.body.clientIp);
-console.log('clientIp2:', response2.body.clientIp);
 </marked-tab>
 
 

@@ -165,27 +165,6 @@ console.log(data);
 </marked-tab>
 
 
-<marked-tab header="Node.js (got)" lang="javascript">
-import got from 'got';
-import { HttpsProxyAgent } from 'hpagent';
-
-const agent = {
-    https: new HttpsProxyAgent({
-        // Replace <YOUR_PROXY_PASSWORD> below with your password
-        // found at https://console.apify.com/proxy
-        proxy: 'http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000',
-    }),
-};
-
-const url = 'http://www.google.com/search';
-const searchParams = { q: 'wikipedia' };
-
-const { body } = await got(url, { agent, searchParams });
-
-console.log(body);
-</marked-tab>
-
-
 <marked-tab header="Python 3" lang="python">
 import urllib.request as request
 import urllib.parse as parse
@@ -289,27 +268,6 @@ const params = { q: 'Apple iPhone XS 64GB', tbm: 'shop' }
 const { data } = await axios.get(url, { proxy, params });
 
 console.log(data);
-</marked-tab>
-
-
-<marked-tab header="Node.js (got)" lang="javascript">
-import got from 'got';
-import { HttpsProxyAgent } from 'hpagent';
-
-const agent = {
-    https: new HttpsProxyAgent({
-        // Replace <YOUR_PROXY_PASSWORD> below with your password
-        // found at https://console.apify.com/proxy
-        proxy: 'http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000',
-    }),
-};
-
-const url = 'http://www.google.co.uk/search';
-const searchParams = { q: 'Apple iPhone XS 64GB', tbm: 'shop' };
-
-const { body } = await got(url, { agent, searchParams });
-
-console.log(body);
 </marked-tab>
 
 
