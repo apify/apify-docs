@@ -20,35 +20,41 @@ An important thing to understand regarding inputs and outputs is that they are r
 
 There are two different places you can read/write your inputs/outputs: to the [key-value store](https://docs.apify.com/storage/key-value-store), or to the [dataset](https://docs.apify.com/storage/dataset). They key-value store can be used to store any sort of unorganized/unrelated data in any formats, while the data pushed to a dataset typically resembles a table with columns (fields) and rows (items). Each actor's run is allocated both a default dataset and key-value store.
 
-When running locally, these storages are accessible through the **apify_storage** folder within your project's root directory, while on the platform they are accessible via Apify's API.
+When running locally, these storages are accessible through the **storage** folder within your project's root directory, while on the platform they are accessible via Apify's API.
 
 ## [](#accepting-input) Accepting input
 
-There are multiple ways to accept input into your project. The option you go with depends on the language you have written your project in. If you are using Node.js for your repo's code, you can use the [Apify SDK](https://www.npmjs.com/package/apify). Otherwise, you can use the useful environment variables automatically set up for you by Apify to write utility functions which read the actor's input and return it.
+There are multiple ways to accept input into your project. The option you go with depends on the language you have written your project in. If you are using Node.js for your repo's code, you can use the [`apify`](https://www.npmjs.com/package/apify) package. Otherwise, you can use the useful environment variables automatically set up for you by Apify to write utility functions which read the actor's input and return it.
 
 ### Accepting input with the Apify SDK
 
-Since we're using Node.js, let's install the **apify** package by running the following command:
+Since we're using Node.js, let's install the `apify` package by running the following command:
 
 ```shell
 npm install apify
 ```
 
-Now, let's import `Apify` and use the `Apify.getInput()` function to grab our input.
+Now, let's import `Actor` from `apify` and use the `Actor.getInput()` function to grab our input.
 
 ```JavaScript
 // index.js
-import Apify from 'apify';
+import { Actor } from 'apify';
 
-const input = await Apify.getInput();
+// We must initialize and exit the actor. The rest of our code
+// goes in between these two.
+await Actor.init();
+
+const input = await Actor.getInput();
 console.log(input);
+
+await Actor.exit();
 ```
 
-If we run this right now, we'll see **null** in our terminal - this is because we never provided any sort of test input, which should be provided in the default key-value store. The `Apify.getInput()` function has detected that there is no **apify_storage** folder and generated one for us.
+If we run this right now, we'll see **null** in our terminal - this is because we never provided any sort of test input, which should be provided in the default key-value store. The `Actor.getInput()` function has detected that there is no **storage** folder and generated one for us.
 
 ![Default key-value store filepath]({{@asset apify_platform/deploying_your_code/images/filepath.webp}})
 
-We'll now add an **INPUT.json** file within **apify_storage/key_value_stores/default** to match what we're expecting in our code.
+We'll now add an **INPUT.json** file within **storage/key_value_stores/default** to match what we're expecting in our code.
 
 ```JSON
 {
@@ -60,15 +66,19 @@ Then we can add our example project code from earlier. It will grab the input an
 
 ```JavaScript
 // index.js
-import Apify from 'apify';
+import { Actor } from 'apify';
 
-const { numbers } = await Apify.getInput();
+await Actor.init();
+
+const { numbers } = await Actor.getInput();
 
 const addAllNumbers = (...nums) => nums.reduce((total, curr) => (total += curr));
 
 const solution = addAllNumbers(...numbers);
 
 console.log(solution);
+
+await Actor.exit();
 ```
 
 Cool! When we run `node index.js`, we see **20**.
@@ -122,30 +132,34 @@ Similarly to reading input, you can write the actor's output either by using the
 
 ### Writing output with the Apify SDK
 
-In the SDK, we can write to the dataset with the `Apify.pushData()` function. Let's go ahead and write the solution of the `addAllNumbers()` function to the dataset store using this function:
+In the SDK, we can write to the dataset with the `Actor.pushData()` function. Let's go ahead and write the solution of the `addAllNumbers()` function to the dataset store using this function:
 
 ```JavaScript
 // index.js
 
 // This is our example project code from earlier.
 // We will use the Apify input as its input.
-import Apify from 'apify';
+import { Actor } from 'apify';
 
-const { numbers } = await Apify.getInput();
+await Actor.init();
+
+const { numbers } = await Actor.getInput();
 
 const addAllNumbers = (...nums) => nums.reduce((total, curr) => (total += curr));
 
 const solution = addAllNumbers(...numbers);
 
 // And save its output to the default dataset
-await Apify.pushData({ solution });
+await Actor.pushData({ solution });
+
+await Actor.exit();
 ```
 
 ### Writing output without the Apify SDK
 
 Just as with the custom `get_input()` utility function, you can write a custom `set_output()` function as well if you cannot use the Apify SDK.
 
-> You can read and write your output anywhere; however, it is standard practice to use a folder named **apify_storage**.
+> You can read and write your output anywhere; however, it is standard practice to use a folder named **storage**.
 
 ```Python
 # index.py
