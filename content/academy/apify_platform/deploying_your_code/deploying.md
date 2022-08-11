@@ -50,7 +50,7 @@ That's it! the actor should now pull its source code from the repo and automatic
 
 If you're logged in to the Apify CLI, the `apify push` command can be used to push the code straight onto the Apify platform from your local machine (no GitHub repository required), where it will automatically be built for you. Prior to running this command, make sure that you have an **apify.json** file at the root of the project. If you don't already have one, you can use `apify init .` to automatically generate one for you.
 
-One important thing to note is that you can use a `.gitignore` file to exclude files from being pushed. When you use `apify push` without a `.gitignore`, the full folder contents will be pushed, meaning that even the even **apify_storage** and **node_modules** will be pushed. These files are unnecessary to push, as they are both generated on the platform.
+One important thing to note is that you can use a `.gitignore` file to exclude files from being pushed. When you use `apify push` without a `.gitignore`, the full folder contents will be pushed, meaning that even the even **storage** and **node_modules** will be pushed. These files are unnecessary to push, as they are both generated on the platform.
 
 > The `apify push` command should only really be used for quickly pushing and testing actors on the platform during development. If you are ready to make your actor public, use a Git repository instead, as you will reap the benefits of using Git and others will be able to contribute to the project.
 
