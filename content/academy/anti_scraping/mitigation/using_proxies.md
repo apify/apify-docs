@@ -76,7 +76,7 @@ Awesome, so there's our proxy pool! Usually, a proxy pool is much larger than th
 const crawler = new CheerioCrawler({
     proxyConfiguration,
     requestHandler: async ({ $, request, enqueueLinks }) => {
-        if (request.userData.label === 'START') {
+        if (request.label === 'START') {
             await enqueueLinks({
                 selector: 'a[href*="/product/"]',
                 baseUrl: new URL(request.url).origin,
