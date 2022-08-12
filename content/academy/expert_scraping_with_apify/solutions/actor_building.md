@@ -110,8 +110,8 @@ router.addHandler('START', async ({ $, crawler, request }) => {
         // to the crawler for its page
         await crawler.addRequests([{
             url,
+            label: labels.PRODUCT,
             userData: {
-                label: labels.PRODUCT,
                 // Pass the scraped data about the product to the next
                 // request so that it can be used there
                 data: {
@@ -250,8 +250,8 @@ router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
     // Add to the request queue
     await crawler.addRequests([{
         url: OFFERS_URL(data.asin),
+        label: labels.OFFERS,
         userData: {
-            label: labels.OFFERS,
             data: {
                 ...data,
                 description: element.text().trim(),
@@ -339,8 +339,8 @@ router.addHandler(labels.START, async ({ $, crawler, request }) => {
 
         await crawler.addRequests([{
             url,
+            label: labels.PRODUCT,
             userData: {
-                label: labels.PRODUCT,
                 data: {
                     title: titleElement.first().text().trim(),
                     asin: element.attr('data-asin'),
@@ -359,8 +359,8 @@ router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
 
     await crawler.addRequests([{
         url: OFFERS_URL(data.asin),
+        label: labels.OFFERS,
         userData: {
-            label: labels.OFFERS,
             data: {
                 ...data,
                 description: element.text().trim(),

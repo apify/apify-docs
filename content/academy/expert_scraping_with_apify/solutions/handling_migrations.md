@@ -71,8 +71,8 @@ router.addHandler(labels.START, async ({ $, crawler, request }) => {
 
         await crawler.addRequest([{
             url,
+            label: labels.PRODUCT,
             userData: {
-                label: labels.PRODUCT,
                 data: {
                     title: titleElement.first().text().trim(),
                     asin: element.attr('data-asin'),
@@ -91,8 +91,8 @@ router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
 
     await crawler.addRequests([{
         url: OFFERS_URL(data.asin),
+        label: labels.OFFERS,
         userData: {
-            label: labels.OFFERS,
             data: {
                 ...data,
                 description: element.text().trim(),
