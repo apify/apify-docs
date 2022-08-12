@@ -39,7 +39,7 @@ Most APIs accept query parameters such as `maxPosts` or `fromCountry`. These par
 
 ### 3. Fast and efficient
 
-Especially for [dynamic sites](https://blog.apify.com/what-is-a-dynamic-page/), in which a headless browser is required (which can sometimes be slow and cumbersome), scraping their API can prove to be much quicker and more efficient.
+Especially for [dynamic sites](https://blog.apify.com/what-is-a-dynamic-page/), in which a headless browser would otherwise be required (it can sometimes be slow and cumbersome), scraping their API can prove to be much quicker and more efficient.
 
 ### 4. Easy on the target website
 
