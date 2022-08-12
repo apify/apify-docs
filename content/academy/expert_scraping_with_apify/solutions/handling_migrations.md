@@ -232,7 +232,7 @@ That's everything! Now, even if the actor migrates (or is gracefully aborted the
 
 **A:** After aborting or throwing an error mid-process, it manages to start back from where it was upon resurrection.
 
-**Q: Why don't you (usually) need to add any special migration handling code for a standard crawling/scraping actor? Are there any features in the Crawlee/Apify SDK that handle this under the hood?**
+**Q: Why don't you (usually) need to add any special migration handling code for a standard crawling/scraping actor? Are there any features in Crawlee or Apify SDK that handle this under the hood?**
 
 **A:** Because Apify SDK handles all of the migration handling code for us. If you want to add custom migration-handling code, you can use `Actor.events` to listen for the `migrating` or `persistState` events to save the current state in key-value store (or elsewhere).
 
