@@ -8,7 +8,7 @@ paths:
 
 # [](#savings-useful-run-statistics) Saving useful run statistics
 
-Using the Apify SDK, we are now able to collect and format data coming directly from websites and save it into a Key-Value store or Dataset. This is great, but sometimes, we want to store some extra data about the run itself, or about each request. We might want to store some extra general run information separately from our results, or potentially include statistics about each request within its corresponding dataset item.
+Using Crawlee and the Apify SDK, we are now able to collect and format data coming directly from websites and save it into a Key-Value store or Dataset. This is great, but sometimes, we want to store some extra data about the run itself, or about each request. We might want to store some extra general run information separately from our results, or potentially include statistics about each request within its corresponding dataset item.
 
 The types of values that are saved are totally up to you, but the most common are error scores, number of total saved items, number of request retries, number of captchas hit, etc. Storing these values is not always necessary, but can be valuable when debugging and maintaining an actor. As your projects scale, this will become more and more useful and important.
 
@@ -16,8 +16,8 @@ The types of values that are saved are totally up to you, but the most common ar
 
 Before moving on, give these valuable resources a quick lookover:
 
-- Refamiliarize with the various available data on the [Request object](https://sdk.apify.com/docs/api/request).
-- Learn about the [`handleFailedRequest` function](https://sdk.apify.com/docs/typedefs/cheerio-crawler-options#handlefailedrequestfunction).
+- Refamiliarize with the various available data on the [Request object](https://crawlee.dev/api/core/class/Request).
+- Learn about the [`failedRequestHandler` function](https://crawlee.dev/api/browser-crawler/interface/BrowserCrawlerOptions#failedRequestHandler).
 - Ensure you are comfortable using [key-value stores](https://sdk.apify.com/docs/guides/data-storage#key-value-store) and [datasets](https://sdk.apify.com/docs/api/dataset#__docusaurus), and understand the differences between the two storage types.
 
 ## [](#quiz) Knowledge check 📝
