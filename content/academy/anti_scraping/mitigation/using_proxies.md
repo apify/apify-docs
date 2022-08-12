@@ -24,8 +24,7 @@ const crawler = new CheerioCrawler({
     requestHandler: async ({ $, request, enqueueLinks }) => {
         if (request.label === 'START') {
             await enqueueLinks({
-                selector: 'a[href*="/product/"]',
-                baseUrl: new URL(request.url).origin,
+                selector: 'a[href*="/product/"]'
             });
 
             // When on the START page, we don't want to
