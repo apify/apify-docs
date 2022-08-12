@@ -79,7 +79,6 @@ const crawler = new CheerioCrawler({
         if (request.label === 'START') {
             await enqueueLinks({
                 selector: 'a[href*="/product/"]',
-                baseUrl: new URL(request.url).origin,
             });
             return;
         }
