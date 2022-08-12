@@ -100,8 +100,6 @@ Let's change a few lines of our code to switch the crawler type from CheerioCraw
 
 ```JavaScript
 import { PuppeteerCrawler } from 'crawlee';
-// Add cheerio import
-import cheerio from 'cheerio';
 
 const BASE_URL = 'https://demo-webstore.apify.org';
 
