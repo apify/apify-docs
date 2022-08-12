@@ -468,10 +468,10 @@ Let's try it out now! Input **iphone** into the box labeled **keyword**, click *
 
 **Q: When using Puppeteer or Playwright, how can you still use jQuery with Crawlee?**
 
-**A:** There are two ways. You can either use the [injectJQuery](https://crawlee.dev/api/playwright-crawler/namespace/playwrightUtils#injectJQuery) utility function which will enable you to use jQuery inside of `page.evaluate()`, or you can use Cheerio to load the page's content like this:
+**A:** There are two ways. You can either use the [injectJQuery](https://crawlee.dev/api/playwright-crawler/namespace/playwrightUtils#injectJQuery) utility function which will enable you to use jQuery inside of `page.evaluate()`, or you can use Cheerio to load the page's content with the [`parseWithCheerio`](https://crawlee.dev/api/playwright-crawler/namespace/playwrightUtils#parseWithCheerio) function:
 
 ```JavaScript
-const $ = cheerio.load(await page.content());
+const $ = await parseWithCheerio();
 ```
 
 Which will allow you to use jQuery syntax outside of Puppeteer/Playwright page evaluation functions.
@@ -503,7 +503,7 @@ const title = await page.evaluate(() => document.querySelector('title').textCont
 It is still much more preferred to go with this option:
 
 ```JavaScript
-const $ = cheerio.load(await page.content());
+const $ = await parseWithCheerio();
 const title = $('title').text();
 ```
 
