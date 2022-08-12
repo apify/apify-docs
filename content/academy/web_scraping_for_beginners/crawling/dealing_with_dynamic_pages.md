@@ -39,7 +39,7 @@ If you're in a brand new project, don't forget to initialize your project, then 
 ```shell
 # this command will initialize your project
 # and install the "crawlee" and "cheerio" packages
-npm init -y && npm i crawlee cheerio
+npm init -y && npm i crawlee
 ```
 
 Now, let's write some data collection code to collect each product's data. This should look familiar if you went through the [Data Collection]({{@link web_scraping_for_beginners/data_collection.md}}) lessons:
