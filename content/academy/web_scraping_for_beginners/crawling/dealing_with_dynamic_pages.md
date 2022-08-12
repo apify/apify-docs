@@ -106,9 +106,9 @@ const BASE_URL = 'https://demo-webstore.apify.org';
 // Switch CheerioCrawler to PuppeteerCrawler
 const crawler = new PuppeteerCrawler({
     // Replace "$" with "page"
-    requestHandler: async ({ page, request }) => {
-        // Create the $ object based on the page's content
-        const $ = cheerio.load(await page.content());
+    requestHandler: async ({ parseWithCheerio, request }) => {
+        // Create the $ Cheerio object based on the page's content
+        const $ = await parseWithCheerio();
 
         const products = $('a[href*="/product/"]');
 
@@ -150,11 +150,11 @@ import cheerio from 'cheerio';
 const BASE_URL = 'https://demo-webstore.apify.org';
 
 const crawler = new PuppeteerCrawler({
-    requestHandler: async ({ page, request }) => {
+    requestHandler: async ({ parseWithCheerio, request }) => {
         // Add the utility function
         await utils.puppeteer.infiniteScroll(page);
 
-        const $ = cheerio.load(await page.content());
+        const $ = await parseWithCheerio();
 
         const products = $('a[href*="/product/"]');
 
