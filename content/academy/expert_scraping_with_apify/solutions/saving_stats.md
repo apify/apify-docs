@@ -11,7 +11,7 @@ paths:
 The code in this solution will be similar to what we already did in the **Handling migrations** solution; however, we'll be storing and logging different data. First, let's create a new file called **Stats.js** and write a utility class for storing our run stats:
 
 ```JavaScript
-const Apify = require('apify');
+import Actor from 'apify';
 
 class Stats {
     constructor() {
@@ -22,12 +22,12 @@ class Stats {
     }
 
     async initialize() {
-        const data = await Apify.getValue('STATS');
+        const data = await Actor.getValue('STATS');
 
         if (data) this.state = data;
 
-        Apify.events.on('persistState', async () => {
-            await Apify.setValue('STATS', this.state);
+        Actor.on('persistState', async () => {
+            await Actor.setValue('STATS', this.state);
         });
 
         setInterval(() => console.log(this.state), 10000);
@@ -50,24 +50,20 @@ Cool, very similar to the **AsinTracker** class we wrote earlier. We'll now impo
 
 ```JavaScript
 // ...
-const Stats = require('./src/Stats');
+import Stats from './Stats.js';
 
-const { log } = Apify.utils;
-
-Apify.main(async () => {
-    await asinTracker.initialize();
-    await Stats.initialize();
+await Actor.init();
+await asinTracker.initialize();
+await Stats.initialize();
 // ...
 ```
 
 ## [](#tracking-errors) Tracking errors
 
-In order to keep track of errors, we must write a new function within the crawler's configuration called **handleFailedRequestFunction**. Passed into this function is an object containing an **Error** object for the error which occurred and the **Request** object, as well as information about the session and proxy which were used for the request.
+In order to keep track of errors, we must write a new function within the crawler's configuration called **failedRequestHandler**. Passed into this function is an object containing an **Error** object for the error which occurred and the **Request** object, as well as information about the session and proxy which were used for the request.
 
 ```JavaScript
-const crawler = new Apify.CheerioCrawler({
-    requestList,
-    requestQueue,
+const crawler = new CheerioCrawler({
     proxyConfiguration,
     useSessionPool: true,
     sessionPoolOptions: {
@@ -78,25 +74,9 @@ const crawler = new Apify.CheerioCrawler({
         },
     },
     maxConcurrency: 50,
-    handlePageFunction: async (context) => {
-        const { label } = context.request.userData;
-
-        switch (label) {
-            default:
-                return log.info('Unable to handle this request');
-            case labels.START:
-                await handleStart(context);
-                break;
-            case labels.PRODUCT:
-                await handleProduct(context);
-                break;
-            case labels.OFFERS:
-                await handleOffers(context, dataset);
-                break;
-        }
-    },
+    requestHandler: router,
     // Handle all failed requests
-    handleFailedRequestFunction: async ({ error, request }) => {
+    failedRequestHandler: async ({ error, request }) => {
         // Add an error for this url to our error tracker
         Stats.addError(request.url, error?.message);
     },
@@ -108,7 +88,7 @@ const crawler = new Apify.CheerioCrawler({
 Now, we'll just increment our **totalSaved** count for every offer added to the dataset.
 
 ```JavaScript
-exports.handleOffers = async ({ $, request }, dataset) => {
+router.addHandler(labels.OFFERS, async ({ $, request }) => {
     const { data } = request.userData;
 
     const { asin } = data;
@@ -126,15 +106,15 @@ exports.handleOffers = async ({ $, request }, dataset) => {
             offer: element.find('.a-price .a-offscreen').text().trim(),
         });
     }
-};
+});
 ```
 
 ## [](#saving-stats-with-dataset-items) Saving stats with dataset items
 
-Still in the **handleOffers** function, we need to add a few extra keys to the items which are pushed to the dataset. Luckily, all of the data required by the task is easily accessible in the context object.
+Still in the **OFFERS** handler, we need to add a few extra keys to the items which are pushed to the dataset. Luckily, all of the data required by the task is easily accessible in the context object.
 
 ```JavaScript
-exports.handleOffers = async ({ $, request, crawler: { requestQueue } }, dataset) => {
+router.addHandler(labels.OFFERS, async ({ $, request }) => {
     const { data } = request.userData;
 
     const { asin } = data;
@@ -158,7 +138,7 @@ exports.handleOffers = async ({ $, request, crawler: { requestQueue } }, dataset
             currentPendingRequests: (await requestQueue.getInfo()).pendingRequestCount,
         });
     }
-};
+});
 ```
 
 ## [](#quiz-answers) Quiz answers
@@ -177,4 +157,4 @@ exports.handleOffers = async ({ $, request, crawler: { requestQueue } }, dataset
 
 **Q: Is storing these types of values necessary for every single actor?**
 
-**A:** For small actors, it might be a waste of time to do this. For large-scale actors, it can be extremely helpful when debugging and most definitely worth the extra 10-20 minutes of development time. Usually though, the default statistics from the SDK might be enough for simple run stats.
+**A:** For small actors, it might be a waste of time to do this. For large-scale actors, it can be extremely helpful when debugging and most definitely worth the extra 10-20 minutes of development time. Usually though, the default statistics from the Crawlee and the SDK might be enough for simple run stats.
