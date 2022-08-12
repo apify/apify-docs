@@ -19,10 +19,10 @@ log.info('Crawl finished.');
 // We don't need the code below anymore!
 
 // log.info('Sending dataset link...');
-// const dataset = await Apify.openDataset();
+// const dataset = await Actor.openDataset();
 // const { id } = await dataset.getInfo();
 
-// await Apify.call('apify/send-mail', {
+// await Actor.call('apify/send-mail', {
 //     to: 'youremail@gmail.com',
 //     subject: 'Amazon Dataset',
 //     text: `https://api.apify.com/v2/datasets/${id}/items?clean=true&format=json`,
@@ -44,19 +44,20 @@ First of all, we should clear out any of the boilerplate code within **main.js**
 
 ```JavaScript
 // main.js
-const Apify = require('apify');
+import { Actor } from 'apify';
 
-Apify.main(async () => {
+await Actor.init();
 
-});
+// ...
+
+await Actor.exit();
 ```
 
 We'll be passing the ID of the Amazon actor's default dataset along to the new actor, so we can expect that as an input:
 
 ```JavaScript
-Apify.main(async () => {
-    const { datasetId } = await Apify.getInput();
-    const dataset = await Apify.openDataset(datasetId);
+const { datasetId } = await Actor.getInput();
+const dataset = await Actor.openDataset(datasetId);
 // ...
 ```
 
@@ -91,31 +92,33 @@ const filtered = items.reduce((acc, curr) => {
 The results should be an array, so finally, we can take the map we just created and push an array of all of its values to the actor's default dataset:
 
 ```JavaScript
-await Apify.pushData(Object.values(filtered));
+await Actor.pushData(Object.values(filtered));
 ```
 
 Our final code looks like this:
 
 ```JavaScript
-const Apify = require('apify');
+import { Actor } from 'apify';
 
-Apify.main(async () => {
-    const { datasetId } = await Apify.getInput();
-    const dataset = await Apify.openDataset(datasetId);
+await Actor.init();
 
-    const { items } = await dataset.getData();
+const { datasetId } = await Actor.getInput();
+const dataset = await Actor.openDataset(datasetId);
 
-    const filtered = items.reduce((acc, curr) => {
-        const prevPrice = acc?.[curr.asin] ? +acc[curr.asin].offer.slice(1) : null;
-        const price = +curr.offer.slice(1);
+const { items } = await dataset.getData();
 
-        if (!acc[curr.asin] || prevPrice > price) acc[curr.asin] = curr;
+const filtered = items.reduce((acc, curr) => {
+    const prevPrice = acc?.[curr.asin] ? +acc[curr.asin].offer.slice(1) : null;
+    const price = +curr.offer.slice(1);
 
-        return acc;
-    }, {});
+    if (!acc[curr.asin] || prevPrice > price) acc[curr.asin] = curr;
 
-    await Apify.pushData(Object.values(filtered));
-});
+    return acc;
+}, {});
+
+await Actor.pushData(Object.values(filtered));
+
+await Actor.exit();
 ```
 
 Cool! But **wait**, don't forget to configure the **INPUT_SCHEMA.json** file as well! It's not necessary to do this step, as we'll be calling the actor through Apify's API within a webhook, but it's still good to get into the habit of writing quality input schemas that describe the input values your actors are expecting.
@@ -185,7 +188,7 @@ Additionally, we should be able to see that our **filter-actor** was run, and ha
 
 **Q: Within itself, can you get the exact time that an actor was started?**
 
-**A:** Yes. The time the actor was started can be retrieved through the `startedAt` property from the `Apify.getEnv()` function, or directly from `process.env.APIFY_STARTED_AT`
+**A:** Yes. The time the actor was started can be retrieved through the `startedAt` property from the `Actor.getEnv()` function, or directly from `process.env.APIFY_STARTED_AT`
 
 **Q: What are the types of default storages connected to an actor's run?**
 
