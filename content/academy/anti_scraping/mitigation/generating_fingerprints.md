@@ -85,7 +85,7 @@ const page = await context.newPage();
 await page.goto('https://google.com');
 ```
 
-> Note that [Crawlee](https://crawlee.dev) automatically applies wide variety fingerprints by default, so it is not required to do this unless you aren't using Crawlee or if you need a super specific custom fingerprint to scrape with.
+> Note that [Crawlee](https://crawlee.dev) automatically applies wide variety of fingerprints by default, so it is not required to do this unless you aren't using Crawlee or if you need a super specific custom fingerprint to scrape with.
 
 ## Wrap up
 
