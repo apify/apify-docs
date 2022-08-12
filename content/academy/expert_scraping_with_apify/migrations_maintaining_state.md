@@ -8,7 +8,7 @@ paths:
 
 # [](#migrations-maintaining-state) Migrations & maintaining state
 
-We already know that actors are basically just Docker containers that can be run on any server. This means that they can be allocated anywhere there is space available, making them very efficient. Unfortunately, there is one big caveat: actors move - a lot. When an actor moves, it is called **migration**.
+We already know that actors are basically just Docker containers that can be run on any server. This means that they can be allocated anywhere there is space available, making them very efficient. Unfortunately, there is one big caveat: actors move - a lot. When an actor moves, it is called a **migration**.
 
 On migration, the process inside of an actor is completely restarted and everything in its memory is lost, meaning that any values stored within variables or classes are lost.
 
@@ -24,7 +24,7 @@ Before moving forward, read about actor [events](https://sdk.apify.com/docs/api/
 
 1. Actors have an option the **Settings** tab to **Restart on error**. Would you use this feature for regular actors? When would you use this feature?
 2. Migrations happen randomly, but by [aborting **gracefully**](https://docs.apify.com/actors/running#aborting-runs), you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted actor's run?
-3. Why don't you (usually) need to add any special migration handling code for a standard crawling/scraping actor? Are there any features in the Apify SDK that handle this under the hood?
+3. Why don't you (usually) need to add any special migration handling code for a standard crawling/scraping actor? Are there any features in the Crawlee/Apify SDK that handle this under the hood?
 4. How can you intercept the migration event? How much time do you have after this event happens and before the actor migrates?
 5. When would you persist data to the default key-value store instead of to a named key-value store?
 
