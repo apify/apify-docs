@@ -131,7 +131,6 @@ Though we will discuss it more in-depth in future courses, it is still important
 import { Actor } from 'apify';
 
 const proxyConfiguration = await  Actor.createProxyConfiguration({
-    groups: ['SHADER'],
     countryCode: 'US'
 });
 ```
