@@ -135,8 +135,8 @@ const crawler = new Actor.CheerioCrawler({
 await crawler.addRequests([
     {
         url: `${BASE_URL}/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=${keyword}`,
+        label: 'START',
         userData: {
-            label: 'START',
             keyword,
         },
     },
@@ -182,8 +182,8 @@ router.addHandler(labels.START, async ({ $, crawler, request }) => {
 
         await crawler.addRequests([{
             url,
+            label: labels.PRODUCT,
             userData: {
-                label: labels.PRODUCT,
                 data: {
                     title: titleElement.first().text().trim(),
                     asin: element.attr('data-asin'),
@@ -202,8 +202,8 @@ router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
 
     await crawler.addRequests([{
         url: OFFERS_URL(data.asin),
+        label: labels.OFFERS,
         userData: {
-            label: labels.OFFERS,
             data: {
                 ...data,
                 description: element.text().trim(),

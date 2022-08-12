@@ -52,9 +52,7 @@ await crawler.addRequests([{
     url: 'https://demo-webstore.apify.org/search/on-sale',
     // By labeling the Request, we can very easily
     // identify it later in the requestHandler.
-    userData: {
-        label: 'START',
-    },
+    label: 'START',
 }]);
 
 await crawler.run();
