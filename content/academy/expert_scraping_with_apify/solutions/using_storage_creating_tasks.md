@@ -119,7 +119,7 @@ await Actor.init();
 
 const { keyword } = await Actor.getInput();
 
-const dataset = await Actor.openDataset(`amazon-offers-${keyword.replace(' ', '-')}`);
+export const dataset = await Actor.openDataset(`amazon-offers-${keyword.replace(' ', '-')}`);
 
 const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
