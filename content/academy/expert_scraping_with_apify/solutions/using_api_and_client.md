@@ -212,8 +212,11 @@ const withAPI = async () => {
     return Actor.setValue('OUTPUT', data, { contentType: 'text/csv' });
 };
 
-if (useClient) await withClient();
-else await withAPI();
+if (useClient) {
+    await withClient();
+} else {
+    await withAPI();
+}
 
 await Actor.exit();
 ```
