@@ -158,3 +158,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 **Q: Is storing these types of values necessary for every single actor?**
 
 **A:** For small actors, it might be a waste of time to do this. For large-scale actors, it can be extremely helpful when debugging and most definitely worth the extra 10-20 minutes of development time. Usually though, the default statistics from the Crawlee and the SDK might be enough for simple run stats.
+
+**Q: What is the difference between the `failedRequestHandler` and `errorHandler`?**
+
+**A:** `failedRequestHandler` runs after a request has failed and reached it's `maxRetries` count. `errorHandler` runs on every failure and retry.
