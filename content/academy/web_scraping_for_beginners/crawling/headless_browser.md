@@ -19,7 +19,7 @@ Building a Playwright scraper with Crawlee is extremely easy. To show you how ea
 First, we must not forget to install Playwright into our project.
 
 ```shell
-npm install --save playwright
+npm install playwright
 ```
 
 After Playwright installs, we can proceed with updating the scraper code. As always, the comments describe changes in the code. Everything else is the same as before.

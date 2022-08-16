@@ -90,7 +90,7 @@ Using this flow as guidance, we should be able to connect the pieces of code tog
 
 ## [](#building-scraper) Building the scraper
 
-Let's create a brand new file called `final.js` and write our scraper there. Then, we'll put our imports at the top of the file:
+Let's create a brand new file called **final.js** and write our scraper there. Then, we'll put our imports at the top of the file:
 
 ```JavaScript
 // final.js
@@ -107,7 +107,7 @@ const response = await gotScraping(`${BASE_URL}/search/on-sale`);
 const $ = cheerio.load(response.body);
 ```
 
-Next, we need to **collect the next URLs** we want to visit (the product URLs). So far, the code is nearly exactly the same as the `crawler.js` code.
+Next, we need to **collect the next URLs** we want to visit (the product URLs). So far, the code is nearly exactly the same as the **crawler.js** code.
 
 ```JavaScript
 const BASE_URL = 'https://demo-webstore.apify.org';

@@ -18,7 +18,7 @@ From our adored and beloved [Fakestore](https://demo-webstore.apify.org/), we ha
 
 ![New arrival products in Fakestore]({{@asset web_scraping_for_beginners/crawling/images/new-arrivals.webp}})
 
-In your project from the previous lessons, or in a new project, create a file called `dynamic.js` and copy-paste the following boiler plate code into it:
+In your project from the previous lessons, or in a new project, create a file called **dynamic.js** and copy-paste the following boiler plate code into it:
 
 ```JavaScript
 import { CheerioCrawler } from 'crawlee';
