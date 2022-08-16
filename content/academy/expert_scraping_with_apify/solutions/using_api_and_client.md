@@ -17,28 +17,29 @@ This time, let's call our project **actor-caller**.
 Let's also set up some boilerplate, grabbing our inputs and creating a constant variable for the task:
 
 ```JavaScript
-const Apify = require('apify');
-const axios = require('axios');
-const { URLSearchParams } = require('url');
+import { Actor } from 'apify';
+import axios from 'axios';
 
-Apify.main(async () => {
-    const { useClient, memory, fields, maxItems } = await Apify.getInput();
+await Actor.init();
 
-    const TASK = 'YOUR_USERNAME~demo-actor-task';
+const { useClient, memory, fields, maxItems } = await Actor.getInput();
 
-    // our future code will go here
-});
+const TASK = 'YOUR_USERNAME~demo-actor-task';
+
+// our future code will go here
+
+await Actor.exit();
 ```
 
 ## [](#calling-a-task-via-client) Calling a task via JavaScript client
 
-When using the `apify-client` package, you can create a new client instance by using `new ApifyClient()`. Within the Apify SDK however, it is not necessary to even install the `apify-client` package, as the `Apify.newClient()` function is available for use.
+When using the `apify-client` package, you can create a new client instance by using `new ApifyClient()`. Within the Apify SDK however, it is not necessary to even install the `apify-client` package, as the `Actor.newClient()` function is available for use.
 
 We'll start by creating a function called `withClient()` and creating a new client, then calling the task:
 
 ```JavaScript
 const withClient = async () => {
-    const client = Apify.newClient();
+    const client = Actor.newClient();
     const task = client.task(TASK);
 
     const { id } = await task.call({ memory });
@@ -49,7 +50,7 @@ After the task has run, we'll grab hold of its dataset, then attempt to download
 
 ```JavaScript
 const withClient = async () => {
-    const client = Apify.newClient();
+    const client = Actor.newClient();
     const task = client.task(TASK);
 
     const { id } = await task.call({ memory });
@@ -63,7 +64,7 @@ const withClient = async () => {
 
     // If the content type is anything other than JSON, it must
     // be specified within the third options parameter
-    return Apify.setValue('OUTPUT', items, { contentType: 'text/csv' });
+    return Actor.setValue('OUTPUT', items, { contentType: 'text/csv' });
 };
 ```
 
@@ -111,7 +112,7 @@ const withAPI = async () => {
 
     const { data } = await axios.post(url.toString());
 
-    return Apify.setValue('OUTPUT', data, { contentType: 'text/csv' });
+    return Actor.setValue('OUTPUT', data, { contentType: 'text/csv' });
 };
 ```
 
@@ -169,51 +170,55 @@ And before we push to the platform, let's not forget to write an input schema in
 To ensure we're on the same page, here is what the final code looks like:
 
 ```JavaScript
-const Apify = require('apify');
-const axios = require('axios');
-const { URLSearchParams } = require('url');
+import { Actor } from 'apify';
+import axios from 'axios';
 
-Apify.main(async () => {
-    const { useClient, memory, fields, maxItems } = await Apify.getInput();
+await Actor.init();
 
-    const TASK = 'YOUR_USERNAME~demo-actor-task';
+const { useClient, memory, fields, maxItems } = await Actor.getInput();
 
-    const withClient = async () => {
-        const client = Apify.newClient();
-        const task = client.task(TASK);
+const TASK = 'YOUR_USERNAME~demo-actor-task';
 
-        const { id } = await task.call({ memory });
+const withClient = async () => {
+    const client = Actor.newClient();
+    const task = client.task(TASK);
 
-        const dataset = client.run(id).dataset();
+    const { id } = await task.call({ memory });
 
-        const items = await dataset.downloadItems('csv', {
-            limit: maxItems,
-            fields,
-        });
+    const dataset = client.run(id).dataset();
 
-        return Apify.setValue('OUTPUT', items, { contentType: 'text/csv' });
-    };
+    const items = await dataset.downloadItems('csv', {
+        limit: maxItems,
+        fields,
+    });
 
-    const withAPI = async () => {
-        const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
-        const url = new URL(uri);
+    return Actor.setValue('OUTPUT', items, { contentType: 'text/csv' });
+};
 
-        url.search = new URLSearchParams({
-            memory,
-            format: 'csv',
-            limit: maxItems,
-            fields: fields.join(','),
-            token: process.env.APIFY_TOKEN,
-        });
+const withAPI = async () => {
+    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
+    const url = new URL(uri);
 
-        const { data } = await axios.post(url.toString());
+    url.search = new URLSearchParams({
+        memory,
+        format: 'csv',
+        limit: maxItems,
+        fields: fields.join(','),
+        token: process.env.APIFY_TOKEN,
+    });
 
-        return Apify.setValue('OUTPUT', data, { contentType: 'text/csv' });
-    };
+    const { data } = await axios.post(url.toString());
 
-    if (useClient) await withClient();
-    else await withAPI();
-});
+    return Actor.setValue('OUTPUT', data, { contentType: 'text/csv' });
+};
+
+if (useClient) {
+    await withClient();
+} else {
+    await withAPI();
+}
+
+await Actor.exit();
 ```
 
 ## [](#quiz-answers) Quiz answers 📝
@@ -230,7 +235,7 @@ The one main difference is that the Apify client automatically uses [**exponenti
 
 **Q: Do you need to install the `apify-client` NPM package when already using the `apify` package?**
 
-**A:** No. The Apify client is available right in the sdk with the `Apify.newClient()` function.
+**A:** No. The Apify client is available right in the SDK with the `Actor.newClient()` function.
 
 ## [](#wrap-up) Wrap up
 

@@ -1,22 +1,22 @@
 ---
-title: I - Apify SDK introduction
-description: Learn about the Apify SDK, as well as some semi-advanced topics which will be important throughout the next lessons in this section of the course.
+title: I - Crawlee introduction
+description: Learn about Crawlee, as well as some semi-advanced topics which will be important throughout the next lessons in this section of the course.
 menuWeight: 6.1
 paths:
-    - expert-scraping-with-apify/apify-sdk
+    - expert-scraping-with-apify/crawlee
 ---
 
-# [](#the-apify-sdk) The Apify SDK
+# [](#crawlee) Crawlee and the Apify SDK
 
-The **Apify SDK** is one of the most fundamental parts of developing for the Apify platform. It is an open-source JavaScript library built on top of these technologies:
+[**Crawlee**](https://crawlee.dev/) is an open source web-automation library developed by Apify, and the Apify SDK one of the most fundamental parts of developing for the Apify platform. Both are built on top of these technologies:
 
-- Apify actors (which run the Node.js app built with the SDK inside a Docker container)
+- Apify actors (which run the Node.js app built with the Crawlee inside a Docker container)
 - The Apify API/Apify Client (on the Apify platform)
 - Your local operating system (for local development)
 - Puppeteer + Playwright (as headless browser managers)
 - Request + Cheerio (for downloading and parsing HTML)
 
-The SDK factors away and manages the hard parts of the scraping/automation development under the hood, such as:
+The Crawlee library factors away and manages the hard parts of the scraping/automation development under the hood, such as:
 
 - Autoscaling
 - Request concurrency
@@ -26,38 +26,36 @@ The SDK factors away and manages the hard parts of the scraping/automation devel
 - Puppeteer/Playwright setup overhead
 - Plus much more!
 
-As a developer, your goal is to take the Apify SDK, which is quite generic on its own, and write website-specific or use-case-specific [actors]({{@link apify_platform/getting_started/actors.md}}).
+As a developer, your goal is to take Crawlee, which is quite generic on its own, and write website-specific or use-case-specific [actors]({{@link apify_platform/getting_started/actors.md}}).
 
 ## [](#docs) Docs, docs, docs
 
-The Apify SDK and its resources can be found in various different places:
+Crawlee + the Apify SDK and their resources can be found in various different places:
 
-1. [Official documentation](https://sdk.apify.com/)
-2. [Apify SDK guide](https://sdk.apify.com/docs/guides/motivation)
-3. [SDK implementation examples](https://sdk.apify.com/docs/examples/cheerio-crawler)
-4. [Github repository (source code, issues)](https://github.com/apify/apify-js)
-5. [NPM](https://www.npmjs.com/package/apify)
-6. [Help articles](https://help.apify.com/)
+1. [Official Crawlee documentation](https://crawlee.dev/)
+2. [Crawlee Github repository (source code, issues)](https://github.com/apify/crawlee)
+3. [Crawlee on NPM](https://www.npmjs.com/package/crawlee)
+4. [Apify SDK on NPM](https://www.npmjs.com/package/apify)
+<!-- 4. [Help articles](https://help.apify.com/) -->
 
 ## [](#learning) Learning 🧠
 
 Before continuing, it is highly recommended to do the following:
 
-- Look over [the SDK guide](https://sdk.apify.com/docs/guides/motivation) and ideally **code along**
-- Read [this short article](https://help.apify.com/en/articles/1829103-request-labels-and-how-to-pass-data-to-other-requests) about **request labels** and [`userData`](https://sdk.apify.com/docs/api/request#requestuserdata) (this will be extremely useful later on)
+- Look over [how to build a crawler in Crawlee](https://crawlee.dev/docs/introduction/first-crawler) and ideally **code along**
+- Read [this short article](https://help.apify.com/en/articles/1829103-request-labels-and-how-to-pass-data-to-other-requests) about **request labels** and [`userData`](https://crawlee.dev/api/core/class/Request#userData) (this will be extremely useful later on)
 - Check out [this article](https://blog.apify.com/what-is-a-dynamic-page/) about dynamic pages
-- Quickly skim the [SDK examples](https://sdk.apify.com/docs/examples/cheerio-crawler)
-- Read about the [RequestList](https://sdk.apify.com/docs/api/request-list) and [RequestQueue](https://sdk.apify.com/docs/api/request-queue)
+- Read about the [RequestList](https://crawlee.dev/api/core/class/RequestList) and [RequestQueue](https://crawlee.dev/api/core/class/RequestQueue)
 
 ## [](#quiz) Knowledge check 📝
 
 Each lesson in this section will have a short quiz to help you test your knowledge of the topics discussed before moving onto implementing them.
 
-1. When using Puppeteer or Playwright, how can you still use jQuery with the SDK?
+1. When using Puppeteer or Playwright, how can you still use jQuery with Crawlee?
 2. What is the main difference between Cheerio and jQuery?
 3. In which situations would you use CheerioCrawler? What are its limitations?
 4. Using Puppeteer, how can you extract data from a page without using jQuery/Cheerio?
-5. What is the default concurrency the SDK uses? Why this number?
+5. What is the default concurrency Crawlee uses? Why this number?
 6. What is the difference between the RequestList and the RequestQueue?
 7. How can we send data between requests?
 

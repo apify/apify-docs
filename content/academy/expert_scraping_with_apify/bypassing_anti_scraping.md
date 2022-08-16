@@ -1,6 +1,6 @@
 ---
 title: VII - Bypassing anti-scraping methods
-description: Learn about bypassing anti-bot methods with proxies and proxy/session rotation. Use the Apify SDK to abstract away the overheads that come with these concepts.
+description: Learn about bypassing anti-bot methods with proxies and proxy/session rotation. Use Crawlee and the Apify SDK to abstract away the overheads that come with these concepts.
 menuWeight: 6.7
 paths:
     - expert-scraping-with-apify/bypassing-anti-scraping
@@ -20,7 +20,7 @@ You might have already noticed that we've been using the **RESIDENTIAL** proxy g
 - Give the [proxy documentation](https://docs.apify.com/proxy#our-proxies) a solid readover (feel free to skip most of the examples).
 - Read about our [proxy trial](https://help.apify.com/en/articles/2108625-free-trial-of-apify-proxy).
 - Check out [this](https://help.apify.com/en/articles/1961361-several-tips-on-how-to-bypass-website-anti-scraping-protections) article about bypassing anti-scraping measures.
-- Gain a solid understanding of the [SessionPool](https://sdk.apify.com/docs/api/session-pool).
+- Gain a solid understanding of the [SessionPool](https://crawlee.dev/api/core/class/SessionPool).
 - Look at a few actors on the [Apify store](https://apify.com/store). How are they utilizing proxies?
 
 ## [](#quiz) Knowledge check 📝

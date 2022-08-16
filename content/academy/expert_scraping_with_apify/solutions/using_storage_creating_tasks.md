@@ -12,49 +12,50 @@ Last lesson, our task was outlined for us. In this lesson, we'll be completing t
 
 ## [](#using-named-dataset) Using a named dataset
 
-Something important to understand is that, in the Apify SDK, when you use `Apify.pushData()`, the data will always be pushed to the default dataset. To open up a named dataset, we'll use the `Apify.openDataset()` function:
+Something important to understand is that, in the Apify SDK, when you use `Actor.pushData()`, the data will always be pushed to the default dataset. To open up a named dataset, we'll use the `Actor.openDataset()` function:
 
 ```JavaScript
 // main.js
-Apify.main(async () => {
-    const { keyword } = await Apify.getInput();
+// ...
 
-    // Open a dataset with a custom named based on the
-    // keyword which was inputted by the user
-    const dataset = await Apify.openDataset(`amazon-offers-${keyword.replace(' ', '-')}`);
+await Actor.init()
+
+const { keyword } = await Actor.getInput();
+
+// Open a dataset with a custom named based on the
+// keyword which was inputted by the user
+const dataset = await Actor.openDataset(`amazon-offers-${keyword.replace(' ', '-')}`);
 // ...
 ```
 
-If we remember correctly, we are pushing data to the dataset in the `handleOffers()` function we created in **routes.js**. Let's pass the `dataset` variable pointing to our named dataset into `handleOffers()` as an argument:
+If we remember correctly, we are pushing data to the dataset in the `labels.OFFERS` handler we created in **routes.js**. Let's export the `dataset` variable pointing to our named dataset so we can import it in **routes.js** and use it in the handler:
 
 ```JavaScript
-// ...
-case labels.OFFERS:
-    await handleOffers(context, dataset);
-    break;
-}
-// ...
+export const dataset = await Actor.openDataset(`amazon-offers-${keyword.replace(' ', '-')}`);
 ```
 
-Finally, let's modify the function to use the new `dataset` variable being passed to it rather than the `Apify` class:
+Finally, let's modify the function to use the new `dataset` variable rather than the `Actor` class:
 
 ```JavaScript
-// Expect a second parameter, which will be a dataset
-exports.handleOffers = async ({ $, request }, dataset) => {
+// Import the dataset pointer
+import { dataset } from './main.js';
+
+// ...
+
+router.addHandler(labels.OFFERS, async ({ $, request }) => {
     const { data } = request.userData;
 
     for (const offer of $('#aod-offer')) {
         const element = $(offer);
 
-        // Replace "Apify" with the name of the second
-        // parameter, in this case we called it "dataset"
+        // Replace "Actor" with "dataset"
         await dataset.pushData({
             ...data,
             sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
             offer: element.find('.a-price .a-offscreen').text().trim(),
         });
     }
-};
+});
 ```
 
 That's it! Now, our actor will push its data to a dataset named **amazon-offers-KEYWORD**!
@@ -66,6 +67,8 @@ We now want to store the cheapest item in the default key-value store under a ke
 Let's add the following code to the bottom of the actor, after **Crawl finished.** is logged to the console:
 
 ```Javascript
+// ...
+
 const cheapest = items.reduce((prev, curr) => {
     // If there is no previous offer price, or the previous is more
     // expensive, set the cheapest to our current item
@@ -76,7 +79,9 @@ const cheapest = items.reduce((prev, curr) => {
 
 // Set the "CHEAPEST-ITEM" key in the key-value store to be the
 // newly discovered cheapest item
-await Apify.setValue(CHEAPEST_ITEM, cheapest);
+await Actor.setValue(CHEAPEST_ITEM, cheapest);
+
+await Actor.exit();
 ```
 
 > If you start receiving a linting error after adding the following code to your  **main.js** file, add `"parserOptions": { "ecmaVersion": "latest" }` to the **.eslintrc** file in the root directory of your project.
@@ -85,19 +90,17 @@ You might have noticed that we are using a variable instead of a string for the 
 
 ```JavaScript
 // constants.js
-const BASE_URL = 'https://www.amazon.com';
+export const BASE_URL = 'https://www.amazon.com';
 
-const OFFERS_URL = (asin) => `${BASE_URL}/gp/aod/ajax/ref=auto_load_aod?asin=${asin}&pc=dp`;
+export const OFFERS_URL = (asin) => `${BASE_URL}/gp/aod/ajax/ref=auto_load_aod?asin=${asin}&pc=dp`;
 
-const labels = {
+export const labels = {
     START: 'START',
     PRODUCT: 'PRODUCT',
     OFFERS: 'OFFERS',
 };
 
-const CHEAPEST_ITEM = 'CHEAPEST-ITEM';
-
-module.exports = { BASE_URL, OFFERS_URL, labels, CHEAPEST_ITEM };
+export const CHEAPEST_ITEM = 'CHEAPEST-ITEM';
 ```
 
 ## [](#code-check-in) Code check-in
@@ -106,81 +109,67 @@ Just to ensure we're all on the same page, here is what the **main.js** file loo
 
 ```JavaScript
 // main.js
-const Apify = require('apify');
+import { Actor } from 'apify';
+import { CheerioCrawler, log } from '@crawlee/cheerio';
 
-const { handleStart, handleProduct, handleOffers } = require('./src/routes');
-const { BASE_URL, labels, CHEAPEST_ITEM } = require('./src/constants');
+import { router } from './routes.js';
+import { BASE_URL, CHEAPEST_ITEM } from './constants';
 
-const { log } = Apify.utils;
+await Actor.init();
 
-Apify.main(async () => {
-    const { keyword } = await Apify.getInput();
+const { keyword } = await Actor.getInput();
 
-    const dataset = await Apify.openDataset(`amazon-offers-${keyword.replace(' ', '-')}`);
+export const dataset = await Actor.openDataset(`amazon-offers-${keyword.replace(' ', '-')}`);
 
-    const requestList = await Apify.openRequestList('start-urls', [
-        {
-            url: `${BASE_URL}/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=${keyword}`,
-            userData: {
-                label: 'START',
-                keyword,
-            },
-        },
-    ]);
-
-    const requestQueue = await Apify.openRequestQueue();
-    const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: ['RESIDENTIAL'],
-    });
-
-    const crawler = new Apify.CheerioCrawler({
-        requestList,
-        requestQueue,
-        proxyConfiguration,
-        useSessionPool: true,
-        maxConcurrency: 50,
-        handlePageFunction: async (context) => {
-            const { label } = context.request.userData;
-
-            switch (label) {
-                default:
-                    return log.info('Unable to handle this request');
-                case labels.START:
-                    await handleStart(context);
-                    break;
-                case labels.PRODUCT:
-                    await handleProduct(context);
-                    break;
-                case labels.OFFERS:
-                    await handleOffers(context, dataset);
-                    break;
-            }
-        },
-    });
-
-    log.info('Starting the crawl.');
-    await crawler.run();
-    log.info('Crawl finished.');
-
-    const { items } = await dataset.getData();
-
-    const cheapest = items.reduce((prev, curr) => {
-        if (!prev?.offer) return curr;
-        if (+prev.offer.slice(1) > +curr.offer.slice(1)) return curr;
-        return prev;
-    });
-
-    await Apify.setValue(CHEAPEST_ITEM, cheapest);
+const proxyConfiguration = await Actor.createProxyConfiguration({
+    groups: ['RESIDENTIAL'],
 });
+
+const crawler = new Actor.CheerioCrawler({
+    proxyConfiguration,
+    useSessionPool: true,
+    maxConcurrency: 50,
+    requestHandler: router,
+});
+
+await crawler.addRequests([
+    {
+        url: `${BASE_URL}/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=${keyword}`,
+        label: 'START',
+        userData: {
+            keyword,
+        },
+    },
+])
+
+log.info('Starting the crawl.');
+await crawler.run();
+log.info('Crawl finished.');
+
+const { items } = await dataset.getData();
+
+const cheapest = items.reduce((prev, curr) => {
+    if (!prev?.offer) return curr;
+    if (+prev.offer.slice(1) > +curr.offer.slice(1)) return curr;
+    return prev;
+});
+
+await Actor.setValue(CHEAPEST_ITEM, cheapest);
+
+await Actor.exit();
 ```
 
 And here is **routes.js**:
 
 ```JavaScript
 // routes.js
-const { BASE_URL, OFFERS_URL, labels } = require('./constants');
+import { dataset } from './main.js';
+import { BASE_URL, OFFERS_URL, labels } from './constants';
+import { createCheerioRouter } from '@crawlee/cheerio';
 
-exports.handleStart = async ({ $, crawler: { requestQueue }, request }) => {
+export const router = createCheerioRouter();
+
+router.addHandler(labels.START, async ({ $, crawler, request }) => {
     const { keyword } = request.userData;
 
     const products = $('div > div[data-asin]:not([data-asin=""])');
@@ -191,10 +180,10 @@ exports.handleStart = async ({ $, crawler: { requestQueue }, request }) => {
 
         const url = `${BASE_URL}${titleElement.attr('href')}`;
 
-        await requestQueue.addRequest({
+        await crawler.addRequests([{
             url,
+            label: labels.PRODUCT,
             userData: {
-                label: labels.PRODUCT,
                 data: {
                     title: titleElement.first().text().trim(),
                     asin: element.attr('data-asin'),
@@ -202,28 +191,28 @@ exports.handleStart = async ({ $, crawler: { requestQueue }, request }) => {
                     keyword,
                 },
             },
-        });
+        }]);
     }
-};
+});
 
-exports.handleProduct = async ({ $, crawler: { requestQueue }, request }) => {
+router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
     const { data } = request.userData;
 
     const element = $('div#productDescription');
 
-    await requestQueue.addRequest({
+    await crawler.addRequests([{
         url: OFFERS_URL(data.asin),
+        label: labels.OFFERS,
         userData: {
-            label: labels.OFFERS,
             data: {
                 ...data,
                 description: element.text().trim(),
             },
         },
-    });
-};
+    }]);
+});
 
-exports.handleOffers = async ({ $, request }, dataset) => {
+router.addHandler(labels.OFFERS, async ({ $, request }) => {
     const { data } = request.userData;
 
     for (const offer of $('#aod-offer')) {
@@ -235,7 +224,7 @@ exports.handleOffers = async ({ $, request }, dataset) => {
             offer: element.find('.a-price .a-offscreen').text().trim(),
         });
     }
-};
+});
 ```
 
 Don't forget to push your changes to Github using `git push origin MAIN_BRANCH_NAME` to see them on the Apify platform!

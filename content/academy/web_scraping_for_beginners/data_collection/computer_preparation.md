@@ -39,7 +39,7 @@ If you installed VSCode in the previous paragraph, you can use the integrated te
 
 > If you're still wondering what a "terminal" is, we suggest googling for a terminal tutorial for your operating system because individual terminals are different. Sometimes a little, sometimes a lot.
 
-After confirming that `node` is correctly installed on your computer, use your text editor to create a file called `hello.js` in your folder.
+After confirming that `node` is correctly installed on your computer, use your text editor to create a file called **hello.js** in your folder.
 
 ![How to create a file in VSCode]({{@asset web_scraping_for_beginners/data_collection/images/vscode-create-file.webp}})
 
@@ -59,4 +59,4 @@ You should see **Hello World** printed in your terminal. If you do, congratulati
 
 ## [](#next) Next up
 
-You have your computer set up correctly, and you've run your first script. Great! In the [next lesson]({{@link web_scraping_for_beginners/data_collection/project_setup.md}}) we'll set up your project to download a website's HTML using Node.js instead of a browser.
+You have your computer set up correctly for development and you've run your first script. Great! In the [next lesson]({{@link web_scraping_for_beginners/data_collection/project_setup.md}}) we'll set up your project to download a website's HTML using Node.js instead of a browser.

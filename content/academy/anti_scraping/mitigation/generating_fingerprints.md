@@ -85,8 +85,8 @@ const page = await context.newPage();
 await page.goto('https://google.com');
 ```
 
-> Note that the Apify SDK automatically applies wide variety fingerprints by default, so it is not required to do this unless you aren't using the Apify SDK or if you need a super specific custom fingerprint to scrape with.
+> Note that [Crawlee](https://crawlee.dev) automatically applies wide variety of fingerprints by default, so it is not required to do this unless you aren't using Crawlee or if you need a super specific custom fingerprint to scrape with.
 
-## [](#next) Next up
+## Wrap up
 
 That's it for the **Mitigation** course for now, but be on the lookout for future lessons! We release lessons as we write them, and will be updating the Academy frequently, so be sure to check back every once in a while for new content! Alternatively, you can subscribe to our mailing list to get periodic updates on the Academy, as well as what Apify is up to.

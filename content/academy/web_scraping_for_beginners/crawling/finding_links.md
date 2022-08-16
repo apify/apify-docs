@@ -61,8 +61,8 @@ for (const link of links) {
 }
 ```
 
-Aside from importing libraries and downloading HTML, we loaded the HTML into Cheerio and then used it to retrieve all the `<>` elements. After that, we iterated over the collected links and printed their `href` attributes, which we accessed using the [`.attr()`](https://api.jquery.com/attr/) function. Remember, Cheerio functions are exactly the same as they are in jQuery.
+Aside from importing libraries and downloading HTML, we loaded the HTML into Cheerio and then used it to retrieve all the `<a>` elements. After that, we iterated over the collected links and printed their `href` attributes, which we accessed using the [`.attr()`](https://api.jquery.com/attr/) function. Remember, Cheerio functions are exactly the same as they are in jQuery.
 
 ## [](#next) Next Up
 
-After running the code, you will see quite a lot of links in the terminal. Some of them may look weird because they don't start with the regular `https://` protocol. We'll learn what to do with them in the [next lesson]({{@link web_scraping_for_beginners/crawling/filtering_links.md}}).
+After running the code, you will see quite a lot of links in the terminal. Some of them may look weird because they don't start with the regular **https://** protocol. We'll learn what to do with them in the [next lesson]({{@link web_scraping_for_beginners/crawling/filtering_links.md}}).
