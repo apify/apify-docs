@@ -40,13 +40,13 @@ To save some time when writing an actor’s README, we recommend using the templ
 
 [https://github.com/zpelechova/readme-template](https://github.com/zpelechova/readme-template)
 
-Note that the complexity of the README should match the actor’s complexity. This means that the template above is not immutable and that you can adapt it to fit the particularities of your actor. You can check our guide, \***\*[How to write great README for your actors](https://help.apify.com/en/articles/2912548-how-to-write-great-readme-for-your-actors)\*\***, for more examples of README files.
+Note that the complexity of the README should match the actor’s complexity. This means that the template above is not immutable and that you can adapt it to fit the particularities of your actor. You can check our guide, **[How to write great README for your actors](https://help.apify.com/en/articles/2912548-how-to-write-great-readme-for-your-actors)**, for more examples of README files.
 
 ## [](#make-your-actor-public) Make your actor Public
 
 Once you have finished coding and testing your actor, it's time to publish it.
 
-From your actor’s page in Apify Console, go to **Settings,** and \***\*scroll down to the **Public Information\*\* section.
+From your actor’s page in Apify Console, go to **Settings,** and scroll down to the **Public Information** section.
 
 ![Actor settings]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-settings.webp}})
 
