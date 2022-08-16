@@ -32,101 +32,98 @@ IP addresses for each request are selected at random from all available proxy se
 
 ```marked-tabs
 <marked-tab header="PuppeteerCrawler" lang="javascript">
-const Apify = require("apify");
+import { Actor } from 'apify';
+import { PuppeteerCrawler } from 'crawlee';
 
-Apify.main(async () => {
-    const requestList = await Apify.openRequestList(
-        "my-list", ["http://proxy.apify.com/?format=json"]
-    );
-    const proxyConfiguration = await Apify.createProxyConfiguration();
+await Actor.init();
 
-    const crawler = new Apify.PuppeteerCrawler({
-        requestList,
-        proxyConfiguration,
-        handlePageFunction: async ({ page, request, proxyInfo }) => {
-            console.log(await page.content())
-        },
-    });
+const proxyConfiguration = await Actor.createProxyConfiguration();
 
-    await crawler.run();
+const crawler = new PuppeteerCrawler({
+    proxyConfiguration,
+    async requestHandler({ page }) {
+        console.log(await page.content())
+    },
 });
+
+await crawler.run(['https://proxy.apify.com/?format=json']);
+
+await Actor.exit();
 </marked-tab>
 
 
 <marked-tab header="CheerioCrawler" lang="javascript">
-const Apify = require('apify');
+import { Actor } from 'apify';
+import { CheerioCrawler } from 'crawlee';
 
-Apify.main(async() => {
-    const proxyConfiguration = await Apify.createProxyConfiguration();
+await Actor.init();
 
-    const requestList = await Apify.openRequestList(
-        "my-list", [
-            "http://proxy.apify.com",
-        ]
-    );
+const proxyConfiguration = await Actor.createProxyConfiguration();
 
-    const crawler = new Apify.CheerioCrawler({
-        requestList,
-        proxyConfiguration,
-        handlePageFunction: async ({ request, response, body }) => {
-            // ...
-            console.log(await body);
-        },
-    });
-
-    await crawler.run();
+const crawler = new CheerioCrawler({
+    proxyConfiguration,
+    async requestHandler({ body }) {
+        // ...
+        console.log(body);
+    },
 });
+
+await crawler.run(['https://proxy.apify.com']);
+
+await Actor.exit();
 </marked-tab>
 
 
 <marked-tab header="launchPuppeteer()" lang="javascript">
-const Apify = require("apify");
+import { Actor } from 'apify';
+import { launchPuppeteer } from 'crawlee';
 
-Apify.main(async () => {
-    const proxyConfiguration = await Apify.createProxyConfiguration();
+await Actor.init();
 
-    const browser = await Apify.launchPuppeteer({
-        proxyUrl: proxyConfiguration.newUrl(),
-    });
+const proxyConfiguration = await Actor.createProxyConfiguration();
+const proxyUrl = await proxyConfiguration.newUrl();
 
-    const page = await browser.newPage();
+const browser = await launchPuppeteer({ proxyUrl });
+const page = await browser.newPage();
+await page.goto('https://www.example.com');
+const html = await page.content();
+await browser.close();
 
-    await page.goto("http://www.example.com");
+console.log('HTML:');
+console.log(html);
 
-    const html = await page.content();
-
-    console.log("HTML:");
-    console.log(html);
-});
+await Actor.exit();
 </marked-tab>
 
 
-<marked-tab header="requestAsBrowser()" lang="javascript">
-const Apify = require("apify");
+<marked-tab header="gotScraping()" lang="javascript">
+import { Actor } from 'apify';
+import { gotScraping } from 'got-scraping';
 
-Apify.main(async () => {
-    const proxyConfiguration = await Apify.createProxyConfiguration();
+await Actor.init();
 
-    const proxyUrl = proxyConfiguration.newUrl();
+const proxyConfiguration = await Actor.createProxyConfiguration();
+const proxyUrl = await proxyConfiguration.newUrl();
 
-    const url = "https://api.apify.com/v2/browser-info";
+const url = 'https://api.apify.com/v2/browser-info';
 
-    const response1 = await Apify.utils.requestAsBrowser({
-        url,
-        proxyUrl,
-        json: true
-    });
-
-    const response2 = await Apify.utils.requestAsBrowser({
-        url,
-        proxyUrl,
-        json: true
-    });
-
-    console.log(response1.body.clientIp);
-    console.log("Should be different than");
-    console.log(response2.body.clientIp);
+const response1 = await gotScraping({
+    url,
+    proxyUrl,
+    responseType: 'json',
 });
+
+const response2 = await gotScraping({
+    url,
+    proxyUrl,
+    responseType: 'json',
+});
+
+console.log(response1.body.clientIp);
+console.log('Should be different than');
+console.log(response2.body.clientIp);
+
+await Actor.exit();
 </marked-tab>
 ```
 
@@ -138,114 +135,109 @@ The `maxPoolSize: 1` configuration in [PuppeteerCrawler](https://sdk.apify.com/d
 
 ```marked-tabs
 <marked-tab header="PuppeteerCrawler" lang="javascript">
-const Apify = require("apify");
+import { Actor } from 'apify';
+import { PuppeteerCrawler } from 'crawlee';
 
-Apify.main(async () => {
-    const requestList = await Apify.openRequestList(
-        "my-list", [
-            "http://proxy.apify.com/?format=json",
-            "http://proxy.apify.com",
-        ]
-    );
+await Actor.init();
 
-    const proxyConfiguration = await Apify.createProxyConfiguration();
+const proxyConfiguration = await Actor.createProxyConfiguration();
 
-    const crawler = new Apify.PuppeteerCrawler({
-        requestList,
-        proxyConfiguration,
-        useSessionPool: true,
-        sessionPoolOptions: {
-            sessionOptions: { maxPoolSize: 1 },
-        },
-        handlePageFunction: async ({ page, request, proxyInfo }) => {
-            console.log(await page.content());
-        },
-    });
-
-    await crawler.run();
+const crawler = new PuppeteerCrawler({
+    proxyConfiguration,
+    sessionPoolOptions: { maxPoolSize: 1 },
+    async requestHandler({ page}) {
+        console.log(await page.content());
+    },
 });
+
+await crawler.run([
+    'https://proxy.apify.com/?format=json',
+    'https://proxy.apify.com',
+]);
+
+await Actor.exit();
 </marked-tab>
 
 
 <marked-tab header="CheerioCrawler" lang="javascript">
-const Apify = require('apify');
+import { Actor } from 'apify';
+import { CheerioCrawler } from 'crawlee';
 
-Apify.main(async() => {
-    const proxyConfiguration = await Apify.createProxyConfiguration();
+await Actor.init();
 
-    const requestList = await Apify.openRequestList(
-        "my-list", [
-            "https://api.apify.com/v2/browser-info",
-            "http://proxy.apify.com/?format=json",
-        ]
-    );
+const proxyConfiguration = await Actor.createProxyConfiguration();
 
-    const crawler = new Apify.CheerioCrawler({
-        requestList,
-        proxyConfiguration,
-        // Make CheerioCrawler process JSON
-        additionalMimeTypes: ["application/json"],
-        useSessionPool: true,
-        sessionPoolOptions: {
-            sessionOptions: { maxPoolSize: 1 },
-        },
-        handlePageFunction: async ({ request, response, body, json }) => {
-            // ...
-            console.log(await json);
-        },
-    });
-
-    await crawler.run();
+const crawler = new CheerioCrawler({
+    proxyConfiguration,
+    sessionPoolOptions: { maxPoolSize: 1 },
+    async requestHandler({ json }) {
+        // ...
+        console.log(json);
+    },
 });
+
+await crawler.run([
+    'https://api.apify.com/v2/browser-info',
+    'https://proxy.apify.com/?format=json',
+]);
+
+await Actor.exit();
 </marked-tab>
 
 
 <marked-tab header="launchPuppeteer()" lang="javascript">
-const Apify = require("apify");
+import { Actor } from 'apify';
+import { launchPuppeteer } from 'crawlee';
 
-Apify.main(async () => {
-    const proxyConfiguration = await Apify.createProxyConfiguration();
-    const browser = await Apify.launchPuppeteer({
-        proxyUrl: proxyConfiguration.newUrl("my_session"),
-    });
-    const page = await browser.newPage();
+await Actor.init();
 
-    await page.goto("http://proxy.apify.com/?format=json");
-    const html = await page.content();
+const proxyConfiguration = await Actor.createProxyConfiguration();
+const proxyUrl = await proxyConfiguration.newUrl('my_session');
+const browser = await launchPuppeteer({ proxyUrl });
+const page = await browser.newPage();
 
-    await page.goto("http://proxy.apify.com");
-    const html2 = await page.content();
+await page.goto('https://proxy.apify.com/?format=json');
+const html = await page.content();
 
-    console.log(html);
-    console.log("Should display the same clientIp as");
-    console.log(html2);
-});
+await page.goto('https://proxy.apify.com');
+const html2 = await page.content();
+
+await browser.close();
+
+console.log(html);
+console.log('Should display the same clientIp as');
+console.log(html2);
+
+await Actor.exit();
 </marked-tab>
 
 
-<marked-tab header="requestAsBrowser()" lang="javascript">
-const Apify = require("apify");
+<marked-tab header="gotScraping()" lang="javascript">
+import { Actor } from 'apify';
+import { gotScraping } from 'got-scraping';
 
-Apify.main(async () => {
-    const proxyConfiguration = await Apify.createProxyConfiguration();
-    const proxyUrl = proxyConfiguration.newUrl("my_session");
+await Actor.init();
 
-    const response1 = await Apify.utils.requestAsBrowser({
-        url: "https://api.apify.com/v2/browser-info",
-        proxyUrl,
-        json: true
-    });
+const proxyConfiguration = await Actor.createProxyConfiguration();
+const proxyUrl = await proxyConfiguration.newUrl('my_session');
 
-    const response2 = await Apify.utils.requestAsBrowser({
-        url: "https://api.apify.com/v2/browser-info",
-        proxyUrl,
-        json: true
-    });
-
-    console.log(response1.body.clientIp);
-    console.log("Should be the same as");
-    console.log(response2.body.clientIp);
+const response1 = await gotScraping({
+    url: 'https://api.apify.com/v2/browser-info',
+    proxyUrl,
+    responseType: 'json',
 });
+
+const response2 = await gotScraping({
+    url: 'https://api.apify.com/v2/browser-info',
+    proxyUrl,
+    responseType: 'json',
+});
+
+console.log(response1.body.clientIp);
+console.log("Should be the same as");
+console.log(response2.body.clientIp);
+
+await Actor.exit();
 </marked-tab>
 ```
 
@@ -257,9 +249,15 @@ To use IP addresses from specific proxy groups, add a `groups` [property](https:
 to `createProxyConfiguration()` and specify the group names. For example:
 
 ```js
-const proxyConfiguration = await Apify.createProxyConfiguration({
+import { Actor } from 'apify';
+
+await Actor.init();
+// ...
+const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['GROUP_NAME_1', 'GROUP_NAME_2'],
 });
+// ...
+await Actor.exit();
 ```
 
 ## [](#using-standard-libraries-and-languages) Using standard libraries and languages
@@ -282,48 +280,22 @@ A random IP address will be used for each request.
 
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
-const HttpsProxyAgent = require("https-proxy-agent");
-const axios = require("axios");
+import axios from 'axios';
 
-const httpsAgent = new HttpsProxyAgent({
-    host: "proxy.apify.com",
-    port: "8000",
+const proxy = {
+    protocol: 'http',
+    host: 'proxy.apify.com',
+    port: 8000,
     // Replace <YOUR_PROXY_PASSWORD> below with your password
     // found at https://console.apify.com/proxy
-    auth: "auto:<YOUR_PROXY_PASSWORD>"
-});
-
-const axiosWithProxy = axios.create({ httpsAgent });
-
-async function useProxy() {
-    const response = await axiosWithProxy.get("http://proxy.apify.com/?format=json");
-    console.log(response.data);
+    auth: { username: 'auto', password: <YOUR_PROXY_PASSWORD> },
 };
 
-useProxy();
+const url = 'http://proxy.apify.com/?format=json';
 
-</marked-tab>
+const { data } = await axios.get(url, { proxy });
 
-
-<marked-tab header="Node.js (got)" lang="javascript">
-const got = require("got");
-const HttpsProxyAgent = require("https-proxy-agent");
-
-// Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://console.apify.com/proxy
-const proxyUrl = "http://auto:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
-
-async function useProxy() {
-    const response = await got("http://proxy.apify.com/?format=json", {
-        agent: {
-            https: new HttpsProxyAgent(proxyUrl),
-        }
-    });
-    console.log(response.body);
-};
-
-useProxy();
-
+console.log(data);
 </marked-tab>
 
 
@@ -409,52 +381,23 @@ To use this option, set a session name in the `username` parameter.
 
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
-const HttpsProxyAgent = require("https-proxy-agent");
-const axios = require("axios");
+import axios from 'axios';
+import { HttpsProxyAgent } from 'hpagent';
 
 const httpsAgent = new HttpsProxyAgent({
-    host: "proxy.apify.com",
-    port: "8000",
     // Replace <YOUR_PROXY_PASSWORD> below with your password
     // found at https://console.apify.com/proxy
-    auth: "session-my_session:<YOUR_PROXY_PASSWORD>"
+    proxy: 'http://session-my_session:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000',
 });
-
 const axiosWithProxy = axios.create({ httpsAgent });
 
-async function useProxy() {
-    const response = await axiosWithProxy.get("https://api.apify.com/v2/browser-info");
-    console.log(response.data);
-};
+const url = 'https://api.apify.com/v2/browser-info';
 
-useProxy();
-// Should return the same clientIp as
-useProxy();
-
-</marked-tab>
-
-
-<marked-tab header="Node.js (got)" lang="javascript">
-const got = require("got");
-const HttpsProxyAgent = require("https-proxy-agent");
-
-// Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://console.apify.com/proxy
-const proxyUrl = "http://session-my_session:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
-
-async function useProxy() {
-    const response = await got("https://api.apify.com/v2/browser-info", {
-        agent: {
-            https: new HttpsProxyAgent(proxyUrl),
-        }
-    });
-    console.log(response.body);
-};
-
-useProxy();
-// Should return the same clientIp as
-useProxy();
-
+const response1 = await axiosWithProxy.get(url);
+const response2 = await axiosWithProxy.get(url);
+// Should return the same clientIp for both requests
+console.log('clientIp1:', response1.data.clientIp);
+console.log('clientIp2:', response2.data.clientIp);
 </marked-tab>
 
 
@@ -573,10 +516,10 @@ Use a randomly allocated IP address for multiple requests:
 session-new_job_123
 ```
 
-Use the same IP address from the `GOOGLESERP` and `BUYPROXIES94952` groups for multiple requests:
+Use the same IP address from the `SHADER` and `BUYPROXIES94952` groups for multiple requests:
 
 ```text
-groups-GOOGLESERP+BUYPROXIES94952,session-new_job_123
+groups-SHADER+BUYPROXIES94952,session-new_job_123
 ```
 
 Set a session and select an IP from the `BUYPROXIES94952` group geolocated in the USA:

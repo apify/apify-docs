@@ -51,12 +51,16 @@ Actors can also be invoked programmatically from other actors:
 ```marked-tabs
 
 <marked-tab header="NodeJS" lang="javascript">
+import { Actor } from 'apify';
 
-const run = await Apify.call('apify/hello-world', {
+await Actor.init();
+// ...
+const run = await Actor.call('apify/hello-world', {
     message: 'Hello!',
 });
 console.dir(run.output);
-
+// ...
+await Actor.exit();
 </marked-tab>
 
 
@@ -133,8 +137,10 @@ The web server running inside the container must listen at the port defined by t
 The following example demonstrates how to start a simple web server in your actor:
 
 ```js
-const Apify = require('apify');
-const express = require('express');
+import { Actor } from 'apify';
+import express from 'express';
+
+await Actor.init();
 
 const app = express();
 const port = process.env.APIFY_CONTAINER_PORT;
@@ -147,10 +153,10 @@ app.listen(port, () => console.log(`Web server is listening
     and can be accessed at
     ${process.env.APIFY_CONTAINER_URL}!`));
 
-Apify.main(async () => {
-    // Let the actor run for an hour.
-    await Apify.utils.sleep(60 * 60 * 1000);
-});
+// Let the actor run for an hour.
+await new Promise(r => setTimeout(r, 60 * 60 * 1000));
+
+await Actor.exit();
 ```
 
 ## Data retention

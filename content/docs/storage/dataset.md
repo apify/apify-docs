@@ -61,17 +61,19 @@ To add data to the default dataset, you can use the example below, however using
 
 ```js
 // Import the Apify SDK into your project
-const Apify = require('apify');
+import { Actor } from 'apify';
 
-// The optional Apify.main() function performs the
-// actor's job and terminates the process when it is finished
-Apify.main(async () => {
-    // Add one item to the default dataset
-    await Apify.pushData({ foo: 'bar' });
+await Actor.init();
+// ...
 
-    // Add multiple items to the default dataset
-    await Apify.pushData([{ foo: 'hotel' }, { foo: 'cafe' }]);
-});
+// Add one item to the default dataset
+await Actor.pushData({ foo: 'bar' });
+
+// Add multiple items to the default dataset
+await Actor.pushData([{ foo: 'hotel' }, { foo: 'cafe' }]);
+
+// ...
+await Actor.exit();
 ```
 
 > Make sure to use the `await` keyword when calling `pushData()`, otherwise the actor process might finish before the data are stored.
@@ -79,20 +81,38 @@ Apify.main(async () => {
 If you want to use something other than the default dataset, e.g. a dataset that you share between actors or between actor runs, you can use the [Apify.openDataset()](https://sdk.apify.com/docs/api/apify#apifyopendatasetdatasetidorname-options) method.
 
 ```js
+import { Actor } from 'apify';
+
+await Actor.init();
+// ...
+
 // Save a named dataset to a variable
-const dataset = await Apify.openDataset('some-name');
+const dataset = await Actor.openDataset('some-name');
 
 // Add data to the named dataset
 await dataset.pushData({ foo: 'bar' });
+
+// ...
+await Actor.exit();
 ```
 
 When using the `getData()` method, you can specify the data you retrieve using the `[fields]` parameter. It should be an array of field names (strings) that will be included in the results. To include all the results, exclude the `[fields]` parameter.
 
 ```js
+import { Actor } from 'apify';
+
+await Actor.init();
+// ...
+
+const dataset = await Actor.openDataset();
+
 // Only get the "hotel" and "cafe" fields
 const hotelAndCafeData = await dataset.getData({
     fields: ['hotel', 'cafe'],
 });
+
+// ...
+await Actor.exit();
 ```
 
 [See the SDK documentation](https://sdk.apify.com/docs/guides/data-storage#dataset) and the `Dataset` class's [API reference](https://sdk.apify.com/docs/api/dataset#datasetpushdatadata) for details on managing datasets with the Apify SDK.
@@ -307,7 +327,7 @@ You can access a dataset from any [actor]({{@link actors.md}}) or [task]({{@link
 To access a dataset from another run using the Apify SDK, open it using the `Apify.openDataset([datasetIdOrName])` [method](https://sdk.apify.com/docs/api/apify#apifyopendatasetdatasetidorname-options) like you would any other dataset.
 
 ```js
-const otherDataset = await Apify.openDataset('old-dataset');
+const otherDataset = await Actor.openDataset('old-dataset');
 ```
 
 In the [JavaScript API client](/apify-client-js), you can access a dataset using [its client](/apify-client-js#datasetclient). Once you've opened the dataset, read its contents and add new data like you would with a dataset from your current run.

@@ -27,47 +27,48 @@ Get a list of search results for the keyword **wikipedia** from the USA (`google
 
 ```marked-tabs
 <marked-tab header="CheerioCrawler" lang="javascript">
-const Apify = require('apify');
+import { Actor } from 'apify';
+import { CheerioCrawler } from 'crawlee';
 
-Apify.main(async() => {
-    const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: ['GOOGLE_SERP'],
-    });
-    const url = 'http://www.google.co.uk/search?q=wikipedia';
+await Actor.init();
 
-    const requestList = await Apify.openRequestList('my-list', [url]);
-
-    const crawler = new Apify.CheerioCrawler({
-        requestList,
-        proxyConfiguration,
-        handlePageFunction: async ({ request, response, body }) => {
-            // ...
-            console.log(body)
-        },
-    });
-
-    await crawler.run();
+const proxyConfiguration = await Actor.createProxyConfiguration({
+    groups: ['GOOGLE_SERP'],
 });
+
+const crawler = new CheerioCrawler({
+    proxyConfiguration,
+    async requestHandler({ body }) {
+        // ...
+        console.log(body)
+    },
+});
+
+await crawler.run(['http://www.google.co.uk/search?q=wikipedia']);
+
+await Actor.exit();
 </marked-tab>
 
 
-<marked-tab header="requestAsBrowser()" lang="javascript">
-const Apify = require('apify');
+<marked-tab header="gotScraping()" lang="javascript">
+import { Actor } from 'apify';
+import { gotScraping } from 'got-scraping';
 
-Apify.main(async () => {
-    const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: ['GOOGLE_SERP'],
-    });
+await Actor.init();
 
-    const proxyUrl = proxyConfiguration.newUrl();
-
-    const { body } = await Apify.utils.requestAsBrowser({
-        url: 'http://www.google.com/search?q=wikipedia',
-        proxyUrl,
-     });
-
-    console.log(body);
+const proxyConfiguration = await Actor.createProxyConfiguration({
+    groups: ['GOOGLE_SERP'],
 });
+const proxyUrl = await proxyConfiguration.newUrl();
+
+const { body } = await gotScraping({
+    url: 'http://www.google.com/search?q=wikipedia',
+    proxyUrl,
+});
+
+console.log(body);
+
+await Actor.exit();
 </marked-tab>
 ```
 
@@ -78,47 +79,49 @@ Get a list of shopping results for the query **Apple iPhone XS 64GB** from Great
 
 ```marked-tabs
 <marked-tab header="CheerioCrawler" lang="javascript">
-const Apify = require('apify');
+import { Actor } from 'apify';
+import { CheerioCrawler } from 'crawlee';
 
-Apify.main(async() => {
-    const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: ['GOOGLE_SERP'],
-    });
-    const query = encodeURI('Apple iPhone XS 64GB');
-    const url = `http://www.google.co.uk/search?q=${query}&tbm=shop`;
+await Actor.init();
 
-    const requestList = await Apify.openRequestList('my-list', [url]);
-
-    const crawler = new Apify.CheerioCrawler({
-        requestList,
-        proxyConfiguration,
-        handlePageFunction: async ({ request, response, body }) => {
-            // ...
-            console.log(body)
-        },
-    });
-
-    await crawler.run();
+const proxyConfiguration = await Actor.createProxyConfiguration({
+    groups: ['GOOGLE_SERP'],
 });
+
+const crawler = new CheerioCrawler({
+    proxyConfiguration,
+    async requestHandler({ body }) {
+        // ...
+        console.log(body)
+    },
+});
+
+const query = encodeURI('Apple iPhone XS 64GB');
+await crawler.run([`http://www.google.co.uk/search?q=${query}&tbm=shop`]);
+
+await Actor.exit();
 </marked-tab>
 
-<marked-tab header="requestAsBrowser()" lang="javascript">
-const Apify = require('apify');
+<marked-tab header="gotScraping()" lang="javascript">
+import { Actor } from 'apify';
+import { gotScraping } from 'got-scraping';
 
-Apify.main(async () => {
-    const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: ['GOOGLE_SERP'],
-    });
-    const proxyUrl = proxyConfiguration.newUrl();
-    const query = encodeURI('Apple iPhone XS 64GB');
+await Actor.init();
 
-    const { body } = await Apify.utils.requestAsBrowser({
-        url: `http://www.google.co.uk/search?tbm=shop&q=${query}`,
-        proxyUrl,
-    });
-
-    console.log(body);
+const proxyConfiguration = await Actor.createProxyConfiguration({
+    groups: ['GOOGLE_SERP'],
 });
+const proxyUrl = await proxyConfiguration.newUrl();
+
+const query = encodeURI('Apple iPhone XS 64GB');
+const { body } = await gotScraping({
+    url: `http://www.google.co.uk/search?tbm=shop&q=${query}`,
+    proxyUrl,
+});
+
+console.log(body);
+
+await Actor.exit();
 </marked-tab>
 ```
 
@@ -142,56 +145,23 @@ Select this option by setting the `username` parameter to `groups-GOOGLE_SERP`. 
 
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
-const HttpsProxyAgent = require("https-proxy-agent");
-const axios = require("axios");
+import axios from 'axios';
 
-const httpsAgent = new HttpsProxyAgent({
-    host: "proxy.apify.com",
-    port: "8000",
+const proxy = {
+    protocol: 'http',
+    host: 'proxy.apify.com',
+    port: 8000,
     // Replace <YOUR_PROXY_PASSWORD> below with your password
     // found at https://console.apify.com/proxy
-    auth: "groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>"
-});
-
-const axiosWithProxy = axios.create({ httpsAgent });
-
-async function useProxy() {
-    const response = await axiosWithProxy.get(
-      `http://www.google.com/search`,
-      {
-        params: {
-          query: 'wikipedia',
-        },
-      }
-    );
-    console.log(response.data)
+    auth: { username: 'groups-GOOGLE_SERP', password: <YOUR_PROXY_PASSWORD> },
 };
 
-useProxy();
-</marked-tab>
+const url = 'http://www.google.com/search';
+const params = { q: 'wikipedia' };
 
+const { data } = await axios.get(url, { proxy, params });
 
-<marked-tab header="Node.js (got)" lang="javascript">
-const got = require("got");
-const HttpsProxyAgent = require("https-proxy-agent");
-
-// Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://console.apify.com/proxy
-const proxyUrl = "http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
-
-async function useProxy() {
-    const response = await got(`http://www.google.com/search`, {
-        searchParams: {
-          query: 'wikipedia',
-        },
-        agent: {
-            https: new HttpsProxyAgent(proxyUrl),
-        }
-    });
-    console.log(response.body);
-};
-
-useProxy();
+console.log(data);
 </marked-tab>
 
 
@@ -281,61 +251,23 @@ Set the domain (your country of choice) in the URL (in the `response` variable).
 
 ```marked-tabs
 <marked-tab header="Node.js (axios)" lang="javascript">
-const HttpsProxyAgent = require("https-proxy-agent");
-const axios = require("axios");
+import axios from 'axios';
 
-const httpsAgent = new HttpsProxyAgent({
-    host: "proxy.apify.com",
-    port: "8000",
+const proxy = {
+    protocol: 'http',
+    host: 'proxy.apify.com',
+    port: 8000,
     // Replace <YOUR_PROXY_PASSWORD> below with your password
     // found at https://console.apify.com/proxy
-    auth: "groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>"
-});
-
-const axiosWithProxy = axios.create({ httpsAgent });
-
-async function useProxy() {
-    const response = await axiosWithProxy.get(
-      `http://www.google.com/search`,
-      {
-        params: {
-          query: 'Apple iPhone XS 64GB',
-          tbm: 'shop',
-        },
-      }
-    );
-    console.log(response.data)
+    auth: { username: 'groups-GOOGLE_SERP', password: <YOUR_PROXY_PASSWORD> },
 };
 
-useProxy();
-</marked-tab>
+const url = 'http://www.google.com/search';
+const params = { q: 'Apple iPhone XS 64GB', tbm: 'shop' }
 
+const { data } = await axios.get(url, { proxy, params });
 
-<marked-tab header="Node.js (got)" lang="javascript">
-const got = require("got");
-const HttpsProxyAgent = require("https-proxy-agent");
-
-// Replace <YOUR_PROXY_PASSWORD> below with your password
-// found at https://console.apify.com/proxy
-const proxyUrl = "http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000"
-
-// Encode your query as a URI parameter
-const query = `q=${encodeURIComponent('Apple iPhone XS 64GB')}`;
-
-async function useProxy() {
-    const response = await got(`http://www.google.co.uk/search`, {
-        searchParams: {
-          query: 'iApple iPhone XS 64GB',
-          tmb: 'shop',
-        },
-        agent: {
-            https: new HttpsProxyAgent(proxyUrl),
-        }
-    });
-    console.log(response.body);
-};
-
-useProxy();
+console.log(data);
 </marked-tab>
 
 

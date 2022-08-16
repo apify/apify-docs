@@ -135,7 +135,10 @@ First, let's define our imaginary site:
 This step is not necessary but it is useful. The algorithm doesn't start with splitting over too large or too small values.
 
 ```javascript
-const Apify = require('apify');
+import { Actor } from 'apify';
+import { CheerioCrawler } from 'crawlee';
+
+await Actor.init();
 
 const MAX_PRODUCTS_PAGINATION = 1000;
 
@@ -165,31 +168,38 @@ const getFiltersFromUrl = (url) => {
     return { min, max };
 }
 
-Apify.main(async () => {
-    // Actor setup things here
-    // ...
-    const requestQueue = await Apify.openRequestQueue();
-    // And let's enqueue the pivot requests
-    for (const { min, max } of PIVOT_PRICE_RANGES) {
-        await requestQueue.addRequest({
-            url: createFilterUrl({ min, max }),
-            userData: { label: 'FILTER' },
-        });
-    }
-
-    // To be continued...
+// Actor setup things here
+const crawler = new CheerioCrawler({
+    async requestHandler(context) {
+        // ...
+    },
 });
+
+// Let's create the pivot requests
+const initialRequests = [];
+for (const { min, max } of PIVOT_PRICE_RANGES) {
+    initialRequests.push({
+        url: createFilterUrl({ min, max }),
+        label: 'FILTER',
+    });
+}
+// Let's start the crawl
+await crawler.run(initialRequests);
+
+await Actor.exit();
 ```
 
 #### [](#define-the-logic-for-the-filter-page) Define the logic for the `FILTER` page
 
 ```javascript
+import { CheerioCrawler } from 'crawlee';
+
 // Doesn't matter what Crawler class we choose
-const crawler = new Apify.CheerioCrawler({
+const crawler = new CheerioCrawler({
     // Crawler options here
     // ...
-    handlePageFunction: async ({ request, $ }) => {
-        const { label } = request.userData;
+    async requestHandler({ request, $ }) {
+        const { label } = request;
         if (label === 'FILTER') {
             // Of course, change the selectors and make it more robust
             const numberOfProducts = Number($('.product-count').text());
@@ -197,10 +207,10 @@ const crawler = new Apify.CheerioCrawler({
             // The filter is either good enough of we have to split it
             if (numberOfProducts <= MAX_PRODUCTS_PAGINATION) {
                 // We just pass the URL for scraping, we could optimize it so the page is not opened again
-                await requestQueue.addRequest({
+                await crawler.addRequests([{
                     url: `${request.url}&page=1`,
                     userData: { label: 'PAGINATION' },
-                });
+                }]);
             } else {
                 // Here we have to split the filter
                 // To be continued...
@@ -257,13 +267,16 @@ const { min, max } = getFiltersFromUrl(request.url);
 const newFilters = splitFilter({ min: min * 100, max: max * 100 });
 
 // And we just enqueue those 2 new filters so the process will recursively repeat until all pages get to the PAGINATION phase
+const requestsToEnqueue = [];
 for (const filter of newFilters) {
-    await requestQueue.addRequest({
+    requestsToEnqueue.push({
         // Remember that we have to convert back from cents to dollars
         url: createFilterUrl({ min: filter.min / 100, max: filter.max / 100 }),
-        userData: { label: 'FILTER' },
+        label: 'FILTER',
     });
 }
+
+await crawler.addRequests(requestsToEnqueue);
 ```
 
 ## [](#summary) Summary

@@ -99,7 +99,8 @@ Now we simply pass it to `waitForFunction`:
 
 ```javascript
 // In Puppeteer you need to inject JQuery with
-// await Apify.utils.Puppeteer.injectJQuery(page);
+// await puppeteerUtils.injectJQuery(page);
+// imported from 'crawlee' package
 await page.waitForFunction(has24Products);
 ```
 

@@ -67,11 +67,16 @@ The default key-value store's ID is **default**\. The {KEY} is the record's **ke
 To manage your key-value stores, you can use the following methods. [See the `KeyValueStore` class's API reference](https://sdk.apify.com/docs/api/key-value-store#keyvaluestoregetvaluekey) for the full list.
 
 ```js
+import { Actor } from 'apify';
+
+await Actor.init();
+// ...
+
 // Get the default input
-const input = await Apify.getInput();
+const input = await Actor.getInput();
 
 // Open a named key-value store
-const exampleStore = await Apify.openKeyValueStore('my-store');
+const exampleStore = await Actor.openKeyValueStore('my-store');
 
 // Read a record in the exampleStore storage
 const value = await exampleStore.getValue('some-key');
@@ -81,28 +86,32 @@ await exampleStore.setValue('some-key', { foo: 'bar' });
 
 // Delete a record in exampleStore
 await exampleStore.setValue('some-key', null);
+
+// ...
+await Actor.exit();
 ```
 
 > Note that JSON is automatically parsed to a JavaScript object, text data returned as a string and other data is returned as binary buffer.
 
 ```js
-const Apify = require('apify');
+import { Actor } from 'apify';
 
-// The optional Apify.main() function performs the
-// actor's job and terminates the process when it is finished
-Apify.main(async () => {
-    // Get input of your actor
-    const input = await Apify.getInput();
-    const value = await Apify.getValue('my-key');
+await Actor.init();
+// ...
 
-    // ...
+// Get input of your actor
+const input = await Actor.getInput();
+const value = await Actor.getValue('my-key');
 
-    await Apify.setValue(
-        'OUTPUT',
-        imageBuffer,
-        { contentType: 'image/jpeg' },
-    );
-});
+// ...
+await Actor.setValue(
+    'OUTPUT',
+    imageBuffer,
+    { contentType: 'image/jpeg' },
+);
+
+// ...
+await Actor.exit();
 ```
 
 The `Apify.getInput()`method is not only a shortcut to `Apify.getValue('INPUT')`- it is also compatible with `Apify.metamorph()` [[docs](https://docs.apify.com/actors/source-code#metamorph)]. This is because a metamorphed actor run's input is stored in the **INPUT-METAMORPH-1** key instead of **INPUT**, which hosts the original input.
@@ -205,7 +214,7 @@ You can access a key-value store from any [actor]({{@link actors.md}}) or [task]
 To access a key-value store from another run using the Apify SDK, open it using the `Apify.openDataset([store])` [method](https://sdk.apify.com/docs/api/apify#openkeyvaluestore) like you would any other store.
 
 ```js
-const otherStore = await Apify.openKeyValueStore('old-store');
+const otherStore = await Actor.openKeyValueStore('old-store');
 ```
 
 In the [JavaScript API client](/apify-client-js), you can access a store using [its client](/apify-client-js#keyvaluestoreclient). Once you've opened a store, read and manage its contents like you would with a key-value store from your current run.

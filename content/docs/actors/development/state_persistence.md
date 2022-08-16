@@ -43,17 +43,29 @@ The [Apify SDK](https://sdk.apify.com) persists its state automatically, using t
 To persist state manually, you can use the [Apify.events](https://docs.apify.com/actors/development/state-persistence) method in the Apify SDK.
 
 ```javascript
-Apify.events.on('migrating', () => {
-    Apify.setValue('my-crawling-state', {
+import { Actor } from 'apify';
+
+await Actor.init();
+// ...
+Actor.on('migrating', () => {
+    Actor.setValue('my-crawling-state', {
         foo: 'bar',
     });
 });
+// ...
+await Actor.exit();
 ```
 
 To check for state saved in a previous run, use:
 
 ```javascript
-const previousCrawlingState = await Apify.getValue('my-crawling-state') || {};
+import { Actor } from 'apify';
+
+await Actor.init();
+// ...
+const previousCrawlingState = await Actor.getValue('my-crawling-state') || {};
+// ...
+await Actor.exit();
 ```
 
 To improve your actor's performance, you can also [cache repeated page data]({{@link tutorials/cache_data_to_improve_performance.md}}).
