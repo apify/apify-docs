@@ -67,9 +67,15 @@ const proxyUrl = 'http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.co
 In the [Apify SDK](https://sdk.apify.com), you set the **group** in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions):
 
 ```js
-const proxyConfiguration = await Apify.createProxyConfiguration({
+import { Actor } from 'apify';
+
+await Actor.init();
+// ...
+const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
 });
+// ...
+await Actor.exit();
 ```
 
 ### [](#how-to-set-a-proxy-country) How to set a proxy country
@@ -85,10 +91,16 @@ username = "groups-RESIDENTIAL,session-my_session,country-JP"
 In the [Apify SDK](https://sdk.apify.com), you set the country in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `countryCode` parameter.
 
 ```js
-const proxyConfiguration = await Apify.createProxyConfiguration({
+import { Actor } from 'apify';
+
+await Actor.init();
+// ...
+const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
     countryCode: 'FR',
 });
+// ...
+await Actor.exit();
 ```
 
 ### [](#username-examples) Username examples

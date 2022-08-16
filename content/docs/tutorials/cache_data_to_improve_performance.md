@@ -42,23 +42,24 @@ Because [all objects in JavaScript are just references](https://www.freecodecamp
 The cache lives only in memory. This is the easiest and fastest way to use a cache. One disadvantage is that if the actor run [migrates to a new server]({{@link actors/development/state_persistence.md}}), is aborted or crashes, we lose the cached data. That is not a tragedy but repopulating the cache will waste some resources. Fortunately, this has a simple solution in actors: we can persist arbitrary data into the [key-value store]({{@link storage/key_value_store.md}}).
 
 ```javascript
-const Apify = require('apify');
+import { Actor } from 'apify';
 
-Apify.main(async () => {
-    // This is a common idiom: we first check if we already have cached data in the store
-    // If we do, it means the run was already restarted and we restore the cache
-    // If we don't, we just initialize the cache to an empty object
-    const cache = (await Apify.getValue('CACHE')) || {};
+await Actor.init();
 
-    // Now, we set up the persistence. You can choose between 'migrating' and 'persistState' events
-    // 'migrating' only saves on migration, so it is a little "cheaper"
-    // 'persistState' is usually preferred, it will also help if you abort the actor
-    Apify.events.on('persistState', async () => {
-        await Apify.setValue('CACHE', cache);
-    });
+// This is a common idiom: we first check if we already have cached data in the store
+// If we do, it means the run was already restarted and we restore the cache
+// If we don't, we just initialize the cache to an empty object
+const cache = (await Actor.getValue('CACHE')) || {};
 
-    // We have secured the persistence and can now pass on the cache and use it like we want
-})
+// Now, we set up the persistence. You can choose between 'migrating' and 'persistState' events
+// 'migrating' only saves on migration, so it is a little "cheaper"
+// 'persistState' is usually preferred, it will also help if you abort the actor
+Actor.on('persistState', async () => {
+    await Actor.setValue('CACHE', cache);
+});
+// We have secured the persistence and can now pass on the cache and use it like we want
+
+await Actor.exit();
 ```
 
 Another advantage of persisting data is that you can open the key-value store and check what they look like at any time.
@@ -107,85 +108,83 @@ Our cache will be an object where the **keys** will be the seller IDs (imagine a
 ### [](#crawler-example) Crawler example
 
 ```javascript
-const Apify = require('apify');
+import { Actor } from 'apify';
+import { CheerioCrawler } from 'crawlee';
 
 // Let's imagine we defined the extractor functions in the extractors.js file
-const { extractProductData, extractSellerData } = require('./extractors');
+import { extractProductData, extractSellerData } from './extractors.js';
 
-Apify.main(async () => {
-    const cache = (await Apify.getValue('CACHE')) || {};
+await Actor.init();
 
-    Apify.events.on('persistState', async () => {
-        await Apify.setValue('CACHE', cache);
-    });
+const cache = (await Actor.getValue('CACHE')) || {};
 
-    const requestQueue = await Apify.openRequestQueue();
+Actor.on('persistState', async () => {
+    await Actor.setValue('CACHE', cache);
+});
 
-    await requestQueue.addRequest({
-        url: 'https://marketplace.com',
-        userData: { label: 'START' },
-    });
+// Other crawler setup
+// ...
 
-    // Other crawler setup
+// It doesn't matter what crawler class we choose
+const crawler = new CheerioCrawler({
+    // Other crawler options
     // ...
+    async requestHandler({ request, $ }) {
+        const { label } = request;
+        if (label === 'START') {
+            // Enqueue categories etc...
+        } else if (label === 'CATEGORY') {
+            // Enqueue products and paginate...
+        } else if (label === 'PRODUCT') {
+            // Here is where our example begins
+            const productData = extractProductData($);
+            const sellerId = $('#seller-id').text().trim();
 
-    // It doesn't matter what crawler class we choose
-    const crawler = new Apify.CheerioCrawler({
-        // Other crawler configs
-        // ...
-        requestQueue,
-        handlePageFunction: async ({ request, $ }) => {
-            const { label } = request.userData;
-            if (label === 'START') {
-                // Enqueue categories etc...
-            } else if (label === 'CATEGORY') {
-                // Enqueue products and paginate...
-            } else if (label === 'PRODUCT') {
-                // Here is where our example begins
-                const productData = extractProductData($);
-                const sellerId = $('#seller-id').text().trim();
-
-                // We have all we need from the product page
-                // Now we check the cache if we already scraped this seller
-                if (cache[sellerId]) {
-                    // If yes, we just merge the data and we are done
-                    const result = {
-                        ...productData,
-                        ...cache[sellerId],
-                    };
-                    await Apify.pushData(result);
-                } else {
-                    // If the cache doesn't have this seller, we have to go to their page
-                    await requestQueue.addRequest({
-                        url: `https://marketplace.com/seller/${sellerId}`,
-                        userData: {
-                            label: 'SELLER',
-                            // We also have to pass the product data along
-                            // so we can merge and push them from the seller page
-                            productData,
-                        },
-                    });
-                }
-            } else if (label === 'SELLER') {
-                // And finally we handle the seller page
-                // We scrape the seller data
-                const sellerData = extractSellerData($);
-
-                // We populate the cache so we can access all of this seller's other products from there
-                cache[sellerData.sellerId] = sellerData;
-
-                // We merge seller and product data and push
+            // We have all we need from the product page
+            // Now we check the cache if we already scraped this seller
+            if (cache[sellerId]) {
+                // If yes, we just merge the data and we are done
                 const result = {
-                    ...request.userData.productData,
-                    ...sellerData,
+                    ...productData,
+                    ...cache[sellerId],
                 };
-                await Apify.pushData(result);
+                await Actor.pushData(result);
+            } else {
+                // If the cache doesn't have this seller, we have to go to their page
+                await crawler.addRequests([{
+                    url: `https://marketplace.com/seller/${sellerId}`,
+                    label: 'SELLER',
+                    userData: {
+                        // We also have to pass the product data along
+                        // so we can merge and push them from the seller page
+                        productData,
+                    },
+                }]);
             }
-        },
-    });
+        } else if (label === 'SELLER') {
+            // And finally we handle the seller page
+            // We scrape the seller data
+            const sellerData = extractSellerData($);
 
-    await crawler.run();
-})
+            // We populate the cache so we can access all of this seller's other products from there
+            cache[sellerData.sellerId] = sellerData;
+
+            // We merge seller and product data and push
+            const result = {
+                ...request.userData.productData,
+                ...sellerData,
+            };
+            await Actor.pushData(result);
+        }
+    },
+});
+
+await crawler.run([{
+    url: 'https://marketplace.com',
+    userData: { label: 'START' },
+}]);
+
+await Actor.exit();
 ```
 
 [See the full code example](https://github.com/metalwarrior665/apify-utils/blob/master/examples/caching-page-data.js).

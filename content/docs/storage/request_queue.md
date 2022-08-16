@@ -68,28 +68,39 @@ To **open a request queue**, use the `Apify.openRequestQueue()` [method](https:/
 
 ```js
 // Import the Apify SDK into your project
-const Apify = require('apify');
+import { Actor } from 'apify';
 
-// The optional Apify.main() function performs the
-// actor's job and terminates the process when it is finished
-Apify.main(async () => {
-    // Open the default request queue associated with
-    // the actor run
-    const queue = await Apify.openRequestQueue();
+await Actor.init();
+// ...
 
-    // Open the 'my-queue' request queue
-    const queueWithName = await Apify.openRequestQueue('my-queue');
-});
+// Open the default request queue associated with
+// the actor run
+const queue = await Actor.openRequestQueue();
+
+// Open the 'my-queue' request queue
+const queueWithName = await Actor.openRequestQueue('my-queue');
+
+// ...
+await Actor.exit();
 ```
 
 Once a queue is open, you can manage it using the following methods. [See the `RequestQueue` class's API reference](https://sdk.apify.com/docs/api/request-queue#requestqueueaddrequestrequest-options) for the full list.
 
 ```js
+// Import the Apify SDK into your project
+import { Actor } from 'apify';
+
+await Actor.init();
+// ...
+
+const queue = await Actor.openRequestQueue();
+
 // Enqueue requests
-await queue.addRequest({ url: 'http://example.com/aaa' });
-await queue.addRequest(
-    { url: 'http://example.com/foo/bar' },
-    { forefront: true },
+await queue.addRequests([{ url: 'http://example.com/aaa' }]);
+await queue.addRequests([
+    'http://example.com/foo',
+    'http://example.com/bar'
+    ], { forefront: true },
 );
 
 // Get the next request from queue
@@ -105,6 +116,9 @@ await queue.reclaimRequest(request2);
 
 // Remove a queue
 await queue.drop();
+
+// ...
+await Actor.exit();
 ```
 
 [See the SDK documentation](https://sdk.apify.com/docs/guides/data-storage#request-queue) and the `RequestQueue` class's [API reference](https://sdk.apify.com/docs/api/request-queue#requestqueueaddrequestrequest-options) for details on managing your request queues with the Apify SDK.
@@ -212,7 +226,7 @@ You can access a request queue from any [actor]({{@link actors.md}}) or [task]({
 To access a request queue from another run using the Apify SDK, open it using the `Apify.openRequestQueue([queueIdOrName])` [method]((https://sdk.apify.com/docs/api/apify#apifyopenrequestqueuequeueidorname-options)) like you would any other queue.
 
 ```js
-const otherQueue = await Apify.openRequestQueue('old-queue');
+const otherQueue = await Actor.openRequestQueue('old-queue');
 ```
 
 In the [JavaScript API client](/apify-client-js), you can access a request queue using [its client](/apify-client-js#requestqueueclient). Once you've opened the request queue, you can use it in your crawl or add new requests like you would with a queue from your current run.

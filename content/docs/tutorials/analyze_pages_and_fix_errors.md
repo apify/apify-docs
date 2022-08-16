@@ -109,12 +109,18 @@ Snapshots can tell you if:
 
 In Apify scrapers (**Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)), **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)) and **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper))), you can use their built-in `context.saveSnapshot()` function. Once called, it saves a screenshot and HTML into the run's **key-value store**.
 
-When **building your own actors** with [Puppeteer](https://pptr.dev) or the the [Apify SDK](https://sdk.apify.com) package, you can use the powerful `utils.puppeteer.saveSnapshot()` [function](https://sdk.apify.com/docs/api/puppeteer#puppeteersavesnapshot). It allows you name the screenshot, so you can identify it later.
+When **building your own actors** with [Puppeteer](https://pptr.dev) or the [Apify SDK](https://sdk.apify.com) package, you can use the powerful `utils.puppeteer.saveSnapshot()` [function](https://sdk.apify.com/docs/api/puppeteer#puppeteersavesnapshot). It allows you name the screenshot, so you can identify it later.
 
 [Cheerio](https://cheerio.js.org)-based actors do not have a helper function because they allow taking snapshots with a single line of code. Just save the HTML with the correct content type.
 
 ```javascript
-await Apify.setValue('SNAPSHOT', html, { contentType: 'text/html' });
+import { Actor } from 'apify';
+
+await Actor.init();
+// ...
+await Actor.setValue('SNAPSHOT', html, { contentType: 'text/html' });
+// ...
+await Actor.exit();
 ```
 
 #### [](#when-to-save-snapshots) When to save snapshots
@@ -122,8 +128,13 @@ await Apify.setValue('SNAPSHOT', html, { contentType: 'text/html' });
 The most common approach is to save on error. We can enhance our previous try/catch block like this:
 
 ```javascript
+import { Actor } from 'apify';
+import { puppeteerUtils } from 'crawlee';
+
+await Actor.init();
+// ...
 // storeId is ID of current key value store, where we save snapshots
-const storeId = Apify.getEnv().defaultKeyValueStoreId;
+const storeId = Actor.getEnv().defaultKeyValueStoreId;
 try {
     // Sensitive code block
     // ...
@@ -131,13 +142,15 @@ try {
     // Change the way you save it depending on what tool you use
     const randomNumber = Math.random();
     const key = `ERROR-LOGIN-${randomNumber}`;
-    await Apify.utils.puppeteer.saveSnapshot(page, { key });
+    await puppeteerUtils.saveSnapshot(page, { key });
     const screenshotLink = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.jpg`
 
     // You know where the code crashed so you can explain here
     console.error(`Request failed during login with an error. Screenshot: ${screenshotLink}`);
     throw error;
 }
+// ...
+await Actor.exit();
 ```
 
 To make the error snapshot descriptive, we name it `ERROR-LOGIN`. We add a random number so the next `ERROR-LOGIN`s would not overwrite this one and we can see all the snapshots. If you can use an ID of some sort, it is even better.
@@ -155,16 +168,21 @@ Logging and snapshotting are great tools but once you reach a certain run size, 
 This example extends our [previous snapshot solution](#when-to-save-snapshots) by creating a [named dataset]({{@link storage.md#named-and-unnamed-storages}}) (named datasets have infinite retention), where we will accumulate error reports. Those reports will explain what happened and will link to a saved snapshot, so we can do a quick visual check.
 
 ```javascript
+import { Actor } from 'apify';
+import { puppeteerUtils } from 'crawlee';
+
+await Actor.init();
+// ...
 // Let's create reporting dataset
 // If you already have one, this will continue adding to it
-const reportingDataset = await Apify.openDataset('REPORTING');
+const reportingDataset = await Actor.openDataset('REPORTING');
 
 // storeId is ID of current key-value store, where we save snapshots
-const storeId = Apify.getEnv().defaultKeyValueStoreId;
+const storeId = Actor.getEnv().defaultKeyValueStoreId;
 
 // We can also capture actor and run IDs
 // to have easy access in the reporting dataset
-const { actorId, actorRunId } = Apify.getEnv();
+const { actorId, actorRunId } = Actor.getEnv();
 const linkToRun = `https://console.apify.com/actors/actorId#/runs/actorRunId`;
 
 try {
@@ -174,7 +192,7 @@ try {
     // Change the way you save it depending on what tool you use
     const randomNumber = Math.random();
     const key = `ERROR-LOGIN-${randomNumber}`;
-    await Apify.utils.puppeteer.saveSnapshot(page, { key });
+    await puppeteerUtils.saveSnapshot(page, { key });
 
     const screenshotLink = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.jpg?disableRedirect=true`;
 
@@ -198,4 +216,6 @@ try {
     );
     throw error;
 }
+// ...
+await Actor.exit();
 ```
