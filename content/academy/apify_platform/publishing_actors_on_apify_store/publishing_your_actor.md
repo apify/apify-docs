@@ -18,8 +18,6 @@ Writing a complete and descriptive README can significantly increase your chance
 
 Now, let’s move on to understand exactly how to add a description and README to your Apify actors.
 
-Now, let’s move on to understand exactly how to add a description and README to your Apify actors.
-
 ## [](#description) Description
 
 The actor’s description is a short paragraph describing the actor’s purpose. It will be displayed on the actor’s page right below its title.
