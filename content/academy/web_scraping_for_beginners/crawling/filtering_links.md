@@ -18,7 +18,7 @@ In the previous lesson, we simply grabbed all the links from the HTML document.
 <marked-tab header="DevTools" lang="javascript">
 document.querySelectorAll('a');
 </marked-tab>
-<marked-tab header="Node.js" lang="javascript">
+<marked-tab header="Node.js with Cheerio" lang="javascript">
 $('a');
 </marked-tab>
 ```

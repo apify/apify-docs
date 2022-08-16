@@ -113,7 +113,7 @@ const csv = parse(results);
 writeFileSync('products.csv', csv);
 ```
 
-Finally, after running it again, we will find the `products.csv` file in our project folder. And when we open it with Excel/Google Sheets – voila!
+Finally, after running it again, we will find the **products.csv** file in our project folder. And when we open it with Excel/Google Sheets – voila!
 
 ![Displaying CSV data in Google Sheets]({{@asset web_scraping_for_beginners/data_collection/images/data-in-sheets.webp}})
 

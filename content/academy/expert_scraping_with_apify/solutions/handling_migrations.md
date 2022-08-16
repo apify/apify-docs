@@ -47,10 +47,14 @@ Here is our updated **routes.js** file which is now utilizing this utility class
 
 ```JavaScript
 // routes.js
-const { BASE_URL, OFFERS_URL, labels } = require('./constants');
-const tracker = require('./asinTracker');
+import { createCheerioRouter } from '@crawlee/cheerio';
+import { BASE_URL, OFFERS_URL, labels } from './constants';
+import tracker from './asinTracker';
+import { dataset } from './main.js';
 
-exports.handleStart = async ({ $, crawler: { requestQueue }, request }) => {
+export const router = createCheerioRouter();
+
+router.addHandler(labels.START, async ({ $, crawler, request }) => {
     const { keyword } = request.userData;
 
     const products = $('div > div[data-asin]:not([data-asin=""])');
@@ -65,10 +69,10 @@ exports.handleStart = async ({ $, crawler: { requestQueue }, request }) => {
         // and initialize its collected offers count to 0
         tracker.incrementASIN(element.attr('data-asin'));
 
-        await requestQueue.addRequest({
+        await crawler.addRequest([{
             url,
+            label: labels.PRODUCT,
             userData: {
-                label: labels.PRODUCT,
                 data: {
                     title: titleElement.first().text().trim(),
                     asin: element.attr('data-asin'),
@@ -76,28 +80,28 @@ exports.handleStart = async ({ $, crawler: { requestQueue }, request }) => {
                     keyword,
                 },
             },
-        });
+        }]);
     }
-};
+});
 
-exports.handleProduct = async ({ $, crawler: { requestQueue }, request }) => {
+router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
     const { data } = request.userData;
 
     const element = $('div#productDescription');
 
-    await requestQueue.addRequest({
+    await crawler.addRequests([{
         url: OFFERS_URL(data.asin),
+        label: labels.OFFERS,
         userData: {
-            label: labels.OFFERS,
             data: {
                 ...data,
                 description: element.text().trim(),
             },
         },
-    });
-};
+    }]);
+});
 
-exports.handleOffers = async ({ $, request }, dataset) => {
+router.addHandler(labels.OFFERS, async ({ $, request }) => {
     const { data } = request.userData;
 
     const { asin } = data;
@@ -115,18 +119,18 @@ exports.handleOffers = async ({ $, request }, dataset) => {
             offer: element.find('.a-price .a-offscreen').text().trim(),
         });
     }
-};
+});
 ```
 
 ## [](#persisting-state) Persisting state
 
 The **persistState** event is automatically fired (by default) every 60 seconds by the Apify SDK while the actor is running, and is also fired when the **migrating** event occurs.
 
-In order to persist our ASIN tracker object, let's use the `Apify.events.on` function to listen for the **persistState** event and store it in the key-value store each time it is emitted.
+In order to persist our ASIN tracker object, let's use the `Actor.on` function to listen for the **persistState** event and store it in the key-value store each time it is emitted.
 
 ```JavaScript
 // asinTracker.js
-const Apify = require('apify');
+import { Actor } from 'apify';
 // We've updated our constants.js file to include the name
 // of this new key in the key-value store
 const { ASIN_TRACKER } = require('./constants');
@@ -135,8 +139,8 @@ class ASINTracker {
     constructor() {
         this.state = {};
 
-        Apify.events.on('persistState', async () => {
-            await Apify.setValue(ASIN_TRACKER, this.state);
+        Actor.on('persistState', async () => {
+            await Actor.setValue(ASIN_TRACKER, this.state);
         });
 
         setInterval(() => console.log(this.state), 10000);
@@ -163,15 +167,15 @@ In order to fix this, let's create a method called `initialize` which will be ca
 
 ```JavaScript
 // asinTracker.js
-const Apify = require('apify');
-const { ASIN_TRACKER } = require('./constants');
+import { Actor } from 'apify';
+import { ASIN_TRACKER } from './constants';
 
 class ASINTracker {
     constructor() {
         this.state = {};
 
-        Apify.events.on('persistState', async () => {
-            await Apify.setValue(ASIN_TRACKER, this.state);
+        Actor.on('persistState', async () => {
+            await Actor.setValue(ASIN_TRACKER, this.state);
         });
 
         setInterval(() => console.log(this.state), 10000);
@@ -180,7 +184,7 @@ class ASINTracker {
     async initialize() {
         // Read the data from the key-value store. If it
         // doesn't exist, it will be undefined
-        const data = await Apify.getValue(ASIN_TRACKER);
+        const data = await Actor.getValue(ASIN_TRACKER);
 
         // If the data does exist, replace the current state
         // (initialized as an empty object) with the data
@@ -200,18 +204,19 @@ class ASINTracker {
 module.exports = new ASINTracker();
 ```
 
-We'll now call this function at the top level of the `Apify.main` function in **main.js** to ensure it is the first thing that gets called when the actor starts up:
+We'll now call this function at the top level of the **main.js** file to ensure it is the first thing that gets called when the actor starts up:
 
 ```JavaScript
 // main.js
 
 // ...
-const tracker = require('./src/asinTracker');
+import tracker from './asinTracker';
 
-const { log } = Apify.utils;
+// The Actor.init() function should be executed before
+// the tracker's initialization
+await Actor.init();
 
-Apify.main(async () => {
-    await tracker.initialize();
+await tracker.initialize();
 // ...
 ```
 
@@ -227,13 +232,13 @@ That's everything! Now, even if the actor migrates (or is gracefully aborted the
 
 **A:** After aborting or throwing an error mid-process, it manages to start back from where it was upon resurrection.
 
-**Q: Why don't you (usually) need to add any special migration handling code for a standard crawling/scraping actor? Are there any features in the Apify SDK that handle this under the hood?**
+**Q: Why don't you (usually) need to add any special migration handling code for a standard crawling/scraping actor? Are there any features in Crawlee or Apify SDK that handle this under the hood?**
 
-**A:** Because Apify SDK handles all of the migration handling code for us. If you want to add custom migration-handling code, you can use `Apify.events` to listen for the `migrating` or `persistState` events to save the current state in key-value store (or elsewhere).
+**A:** Because Apify SDK handles all of the migration handling code for us. If you want to add custom migration-handling code, you can use `Actor.events` to listen for the `migrating` or `persistState` events to save the current state in key-value store (or elsewhere).
 
 **Q: How can you intercept the migration event? How much time do you have after this event happens and before the actor migrates?**
 
-**A:** By using the `Apify.events.on` function. You have a maximum of a few seconds before shutdown after the `migrating` event has been fired.
+**A:** By using the `Actor.on` function. You have a maximum of a few seconds before shutdown after the `migrating` event has been fired.
 
 **Q: When would you persist data to the default key-value store instead of to a named key-value store?**
 

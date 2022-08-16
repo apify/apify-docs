@@ -11,23 +11,23 @@ paths:
 If you take a look at our current code for the Amazon scraping actor, you might notice this snippet:
 
 ```JavaScript
-const proxyConfiguration = await Apify.createProxyConfiguration({
+const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
 });
 ```
 
-We didn't provide much explanation for this initially, as it was not directly relevant to the lesson at hand. When you [create a **ProxyConfiguration**]({{@link anti_scraping/mitigation/using_proxies.md}}) and pass it to a crawler, the SDK will make the crawler automatically rotate through the proxies. This entire time, we've been using the **RESIDENTIAL** proxy group to avoid being blocked by Amazon.
+We didn't provide much explanation for this initially, as it was not directly relevant to the lesson at hand. When you [create a **ProxyConfiguration**]({{@link anti_scraping/mitigation/using_proxies.md}}) and pass it to a crawler, Crawlee will make the crawler automatically rotate through the proxies. This entire time, we've been using the **RESIDENTIAL** proxy group to avoid being blocked by Amazon.
 
 > Go ahead and try commenting out the proxy configuration code then running the scraper. What happens?
 
-In order to rotate sessions, we must utilize the [**SessionPool**](https://sdk.apify.com/docs/guides/session-management), which we've actually also already been using by setting the **useSessionPool** option in our crawler's configuration to **true**. The SessionPool advances the concept of proxy rotation by tying proxies to user-like sessions and rotating those instead. In addition to a proxy, each user-like session has cookies attached to it (and potentially a browser-fingerprint as well).
+In order to rotate sessions, we must utilize the [**SessionPool**](https://crawlee.dev/api/core/class/AutoscaledPool), which we've actually also already been using by setting the **useSessionPool** option in our crawler's configuration to **true**. The SessionPool advances the concept of proxy rotation by tying proxies to user-like sessions and rotating those instead. In addition to a proxy, each user-like session has cookies attached to it (and potentially a browser-fingerprint as well).
 
 ## [](#configuring-session-pool) Configuring SessionPool
 
 Let's go ahead and add a **sessionPoolOptions** key to our crawler's configuration so that we can modify the default settings:
 
 ```JavaScript
-const crawler = new Apify.CheerioCrawler({
+const crawler = new CheerioCrawler({
     requestList,
     requestQueue,
     proxyConfiguration,
@@ -50,7 +50,7 @@ const crawler = new Apify.CheerioCrawler({
 Now, we'll use the **maxUsageCount** key to force each session to be thrown away after 5 uses, and **maxErrorScore** to trash a session once it receives an error.
 
 ```JavaScript
-const crawler = new Apify.CheerioCrawler({
+const crawler = new CheerioCrawler({
     requestList,
     requestQueue,
     proxyConfiguration,
@@ -73,7 +73,7 @@ And that's it! We've successfully configured the session pool to match the task'
 The final requirement was to only use proxies from the US. Back in our **ProxyConfiguration**, we just need to add the **countryCode** key and set it to **US**:
 
 ```JavaScript
-const proxyConfiguration = await Apify.createProxyConfiguration({
+const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
     countryCode: 'US',
 });
