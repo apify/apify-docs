@@ -30,7 +30,7 @@ To edit the permissions for each role, click on the **Configure permissions** bu
 
 > Each member can only have one role to avoid conflicting permissions.
 
-You can configure individual permissions for each resource type such as actors, actor tasks or storage. Bear in mind that if a user has the **read** permission for [storages]({{@link storage.md}}), you cannot prevent them from accessing a particular storage (e.g. a certain [dataset]({{@link storage.md}})) - they will have access to all of the organization's storages.
+You can configure individual permissions for each resource type such as actors, actor tasks or storage. Bear in mind that if a user has the **read** permission for [storages]({{@link storage.md}}), you cannot prevent them from accessing a particular storage (e.g. a certain [dataset]({{@link storage.md}})) - they will have access to all the organization's storages.
 
 **Some permissions have dependencies**. For example, if someone has the **actor run** permission, it is likely they will also need the **storage write** permission, so they can store the results from their actor runs.
 

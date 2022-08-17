@@ -20,7 +20,7 @@ You can switch into **Organization account** view using the account button in th
 
 ![Switch to organization account]({{@asset access_rights/images/switch-to-organization.webp}})
 
-In the menu, the account you are currently using is displayed at the top, with all the accounts you can switch to displayed below. When you need to get back to your personal account, you can just switch right back to it–no need to log in and out.
+In the menu, the account you are currently using is displayed at the top, with all the accounts you can switch to displayed below. When you need to get back to your personal account, you can just switch right back to it – no need to log in and out.
 
 The resources you can access and account details you can edit will depend on your [permissions]({{@link access_rights/list_of_permissions.md#user-permissions}}) in the organization.
 
