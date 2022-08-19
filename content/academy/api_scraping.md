@@ -30,6 +30,7 @@ A GraphQL API works differently from a standard API. All requests are `POST` req
 ## [](#advantages) Advantages of API scraping
 
 <br/>
+
 ### 1. More reliable
 
 Since the data is coming directly from the site's API, as opposed from the parsing of HTML content based on CSS selectors, it can be relied on more, as it is less likely to change. Typically, websites change their APIs much less frequently than they change the structure/selectors of their pages.
@@ -49,6 +50,7 @@ Depending on the website, sending large amounts of requests to their pages could
 ## [](#disadvantages) Disdvantages of API Scraping
 
 <br/>
+
 ### 1. Sometimes requires special tokens
 
 Many APIs will require the session cookie, an API key, or some other special value to be included within the header of the request in order to receive any data back. For certain projects, this can be a challenge.
@@ -62,6 +64,7 @@ For complex APIs that require certain headers and/or payloads in order to make a
 ## [](#extra-challenges) Extra challenges
 
 <br/>
+
 ### 1. Different data formats
 
 APIs come in all different shapes and sizes. That means every API will vary in not only the quality of the data that it returns, but also that format that it is in. The two most common formats are JSON and HTML.
