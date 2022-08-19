@@ -17,7 +17,7 @@ But when we look inside the folder, we see that there's A LOT of files, and we d
 
 ## [](#loading-data) Loading dataset data
 
-To access the default dataset, we can use the  [`Dataset`](https://crawlee.dev/api/types/interface/Dataset) class exported from `crawlee`. We can then easily work with all the items in the dataset. Let's put the processing into a separate file in our project called `dataset.js`.
+To access the default dataset, we can use the  [`Dataset`](https://crawlee.dev/api/types/interface/Dataset) class exported from `crawlee`. We can then easily work with all the items in the dataset. Let's put the processing into a separate file in our project called **dataset.js**.
 
 ```JavaScript
 // dataset.js

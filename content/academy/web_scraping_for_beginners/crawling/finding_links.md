@@ -40,7 +40,7 @@ for (const link of links) {
 
 ## [](#collecting-links-in-node) Collecting links in Node.js
 
-DevTools is a fun playground, but Node.js is way more useful. Let's create a new file in our project called `crawler.js` and start adding some basic crawling code. We'll start with the same boilerplate as with our original scraper, but this time, we'll download the HTML of [the demo site's main page](https://demo-webstore.apify.org/).
+DevTools is a fun playground, but Node.js is way more useful. Let's create a new file in our project called **crawler.js** and start adding some basic crawling code. We'll start with the same boilerplate as with our original scraper, but this time, we'll download the HTML of [the demo site's main page](https://demo-webstore.apify.org/).
 
 ```JavaScript
 // crawler.js
