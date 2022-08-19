@@ -25,15 +25,15 @@ Yes, when you are renting a paid actor, you can run it using either our [API](ht
 
 ## Do I pay platform costs for running paid actors?
 
-Yes, you will pay normal [platform usage costs](https://apify.com/pricing/actors) on top of the monthly actor rental fee. The platform costs work exactly the same way as for free public actors or your private actors. You should find estimates of the cost of usage in each individual paid actor's README ([see an example](https://apify.com/drobnikj/crawler-google-places#compute-unit-consumption)).
+Yes, you will pay normal [platform usage costs](https://apify.com/pricing/actors) on top of the monthly actor rental fee. The platform costs work exactly the same way as for free public actors or your private actors. You should find estimates of the cost of usage in each individual paid actor's README ([see an example](https://apify.com/drobnikj/crawler-google-places#how-much-will-it-cost)).
 
 ## Do I need an Apify paid plan to use paid actors?
 
-You don't need a paid plan to start a paid actor's free trial. Just activate the trial and you are good to go. After that, you will need to subscribe to one of [Apify's paid plans](https://apify.com/pricing) in order to keep renting the actor and continue using it.
+You don't need a paid plan to start a paid actor's free trial. Just activate the trial, and you are good to go. After that, you will need to subscribe to one of [Apify's paid plans](https://apify.com/pricing) in order to keep renting the actor and continue using it.
 
 ## When will I be charged for the actor rental?
 
-You always prepay the actor rental for the following month. The first payment happens when the trial expires, and then recurs monthly. When you open the actor in the Apify Console, you will see when the next rental payment is due and you will also receive a notification when it happens.
+You always prepay the actor rental for the following month. The first payment happens when the trial expires, and then recurs monthly. When you open the actor in the Apify Console, you will see when the next rental payment is due, and you will also receive a notification when it happens.
 
 **Example**: You activate a 7-day trial of an actor at **noon of April 1, 2021**. If you don't turn off auto-renewal, you will be charged at **noon on April 8, 2021**, then **May 8, 2021**, and so on.
 
@@ -43,7 +43,7 @@ The rental fee for an actor is automatically subtracted from your platform usage
 
 ## Will I be automatically charged at the end of the free trial?
 
-If you have an [Apify paid plan](https://apify.com/pricing), you will be automatically charged the monthly rental fee at the end of your free trial and you will be able to run the actor for another month. If you aren't subscribed to an Apify plan, you will need to subscribe to one of [Apify's paid plans](https://apify.com/pricing) in order to continue using the actor after the trial has ended.
+If you have an [Apify paid plan](https://apify.com/pricing), you will be automatically charged the monthly rental fee at the end of your free trial, and you will be able to run the actor for another month. If you aren't subscribed to an Apify plan, you will need to subscribe to one of [Apify's paid plans](https://apify.com/pricing) in order to continue using the actor after the trial has ended.
 
 Apart from the monthly rental fee, you will be charged standard platform costs for running the actor (this is why you need to be subscribed), as you would be for any other actor, including your private ones.
 
@@ -55,7 +55,7 @@ During your trial or any time after that, **you can always turn off auto-renewal
 
 Since actor rental fees are paid from platform usage credits, these fees conceptually belong under platform usage.
 
-Hence, you can find the breakdown of how much you have been charged for paid actors on the bottom of the **Platform usage** tab in the [Billing and usage](https://console.apify.com/billing-new) section. The overall sum will also be visible in the usage bar chart and the table on the top of the same tab.
+Hence, you can find the breakdown of how much you have been charged for paid actors on the bottom of the **Platform usage** tab in the [Billing](https://console.apify.com/billing) section. The overall sum will also be visible in the usage bar chart and the table on the top of the same tab.
 
 ![Paid actors billing in Apify Console]({{@asset actors/images/paid-actors-billing.webp}})
 
@@ -69,4 +69,4 @@ always write to [community@apify.com](mailto:community@apify.com).
 
 ## How do I give general feedback on paid actors?
 
-Paid actors are still in **beta** stage and you will likely be one of this feature's very first users. So, if you have any feedback which is not actor-specific, but relates more to the experience of renting an actor or similar topics, please let us know at [community@apify.com](mailto:community@apify.com). Thank you!
+Paid actors are still in **beta** stage, and you will likely be one of this feature's very first users. So, if you have any feedback which is not actor-specific, but relates more to the experience of renting an actor or similar topics, please let us know at [community@apify.com](mailto:community@apify.com). Thank you!

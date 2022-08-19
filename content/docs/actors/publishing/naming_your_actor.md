@@ -9,7 +9,7 @@ paths:
 
 # [](#naming-your-actor) Naming your actor
 
-Naming your actor can be tricky. Especially when you've spent a long time coding and are excited to show your brand new creation to the world. To help users find your actor, we've introduced naming standards. These standards improve your actor's [search engine optimization (SEO)](https://en.wikipedia.org/wiki/Search_engine_optimization) and maintain consistency in the [Apify Store](https://apify.com/store).
+Naming your actor can be tricky. Especially when you've spent a long time coding and are excited to show your brand-new creation to the world. To help users find your actor, we've introduced naming standards. These standards improve your actor's [search engine optimization (SEO)](https://en.wikipedia.org/wiki/Search_engine_optimization) and maintain consistency in the [Apify Store](https://apify.com/store).
 
 > Your actor's name should be 3-63 characters long.
 
@@ -20,13 +20,13 @@ For actors such as [YouTube Scraper](https://apify.com/bernardo/youtube-scraper)
 GOOD:
 
 * Technical name (actor's name in the [Apify Console](https://console.apify.com)): **${domain}-scraper**, e.g. **youtube-scraper**.
-* Publication title for the Apify Store: **${Domain} Scraper**, e.g. **Youtube Scraper**.
+* Publication title for the Apify Store: **${Domain} Scraper**, e.g. **YouTube Scraper**.
 * Name of the GitHub repository: **actor-${domain}-scraper**, e.g. **actor-youtube-scraper**.
 
 AVOID:
 
 * Technical name: **the-scraper-of-${domain}**, e.g. **the-scraper-of-youtube**.
-* Publication title: **The Scraper of ${Domain}**, e.g. **The Scraper of Youtube**.
+* Publication title: **The Scraper of ${Domain}**, e.g. **The Scraper of YouTube**.
 * GitHub repository: **actor-the-scraper-of-${domain}**, e.g. **actor-the-scraper-of-youtube**.
 
 If your actor only caters to a specific service on a domain (and you don't plan on extending it), add the service to the actor's name.

@@ -25,22 +25,22 @@ To set a tag for builds of a specific actor version, set the **Build tag** prope
 
 ## [](#cache)Cache
 
-By default, the build process pulls latest copies of all necessary Docker images and builds each new layer of Docker image from scratch. To speedup the builds triggered via API you can add **useCache=1** parameter. See API reference for more details.
+By default, the build process pulls the latest copies of all necessary Docker images and builds each new layer of Docker image from scratch. To speed up the builds triggered via API you can add **useCache=1** parameter. See API reference for more details.
 
 ## [](#lifecycle)Lifecycle
 
 Each build starts with the initial status **READY** and goes through one or more transitional statuses to one of the terminal statuses.
 
-|Status|Type|Description|
-|--- |--- |--- |
-|`READY`|initial|Started but not allocated to any worker yet|
-|`RUNNING`|transitional|Executing on a worker|
-|`SUCCEEDED`|terminal|Finished successfully|
-|`FAILED`|terminal|Build failed|
-|`TIMING-OUT`|transitional|Timing out now|
-|`TIMED-OUT`|terminal|Timed out|
-|`ABORTING`|transitional|Being aborted by user|
-|`ABORTED`|terminal|Aborted by user|
+| Status       | Type         | Description                                 |
+|--------------|--------------|---------------------------------------------|
+| `READY`      | initial      | Started but not allocated to any worker yet |
+| `RUNNING`    | transitional | Executing on a worker                       |
+| `SUCCEEDED`  | terminal     | Finished successfully                       |
+| `FAILED`     | terminal     | Build failed                                |
+| `TIMING-OUT` | transitional | Timing out now                              |
+| `TIMED-OUT`  | terminal     | Timed out                                   |
+| `ABORTING`   | transitional | Being aborted by user                       |
+| `ABORTED`    | terminal     | Aborted by user                             |
 
 ## [](#sharing) Sharing
 

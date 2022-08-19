@@ -10,7 +10,7 @@ paths:
 
 # SEO and promotion
 
-Work on your actors does not end when you publish it. Now, it's time to promote your creation and get it to its intended audience. The Apify domain will boost your position with search engines but it won't do all the work. Focus on crafting content according to topics and phrases people search for to give your actor that extra boost.
+Work on your actors does not end when you publish it. Now, it's time to promote your creation and get it to its intended audience. The Apify domain will boost your position with search engines, but it won't do all the work. Focus on crafting content according to topics and phrases people search for to give your actor that extra boost.
 
 **The golden rule of SEO:** Create quality content that provides value and engagement to your users. [Don't over-optimize SEO](https://seo-hacker.com/over-optimization-penalty/) or you risk being penalized by Google.
 
@@ -30,7 +30,7 @@ There are several freemium tools that make it easy to identify the right phrases
 
 Enter the desired phrase or topic (e.g. Facebook scraper, Web scraping, Facebook API...) and set the **language** to **English**. Ideally, set the **location** to **United States**. After submitting the form, you will see a list of relevant phrases for your query with the information about **search volume**  (how many people are searching for this) and **competition** (number of results).
 
-The best combinations are those with **high search volume**  and **low competition**. Try to find keywords (or topics) relevant to your actor based these criteria.
+The best combinations are those with **high search volume**  and **low competition**. Try to find keywords (or topics) relevant to your actor based on these criteria.
 
 **Use your selected keywords on all the important parts of your actor's page/content**.
 
@@ -77,7 +77,7 @@ The description is used by search engines to understand what the actor is about,
 <br/>
 > **AVOID**: This crawler will search through results in Amazon and offers you...
 
-If you’re not sure about similar phrases, check out the Google suggest tool in the search and it will show you some hints and tips. Of course, the description should primarily be about what the actor does, but it’s always a good idea to enrich the text with popular keywords.
+If you’re not sure about similar phrases, check out the Google suggest tool in the search, and it will show you some hints and tips. Of course, the description should primarily be about what the actor does, but it’s always a good idea to enrich the text with popular keywords.
 
 ![Google suggestions example]({{@asset actors/images/actors-publishing-google.webp}})
 

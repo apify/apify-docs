@@ -38,6 +38,8 @@ Below are a few example use cases for what you can do with actors. The [Apify SD
 - [Process data](https://sdk.apify.com/docs/examples/map-and-reduce).
 - [Use other actors in yours](https://sdk.apify.com/docs/examples/call-actor).
 
+[//]: # (TODO: the last example above is not there for v3 anymore. Remove or update link)
+
 ## Language support
 
 While most actors are written in JavaScript, this does not have to be the case. You can write Apify actors in any language.
