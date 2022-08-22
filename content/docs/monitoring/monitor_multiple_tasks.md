@@ -60,7 +60,7 @@ Next, we will configure the monitoring suite.
 
 Now let's ensure that your data have the correct format.
 
-We have used four actors from [Apify Store](https://apify.com/store). Each actor will return a differently structured [dataset]({{@link storage/dataset.md}}), so we need to validate them using a different schema. To do this, you can use the tasks' IDs or filter the them by their names.
+We have used four actors from [Apify Store](https://apify.com/store). Each actor will return a differently structured [dataset]({{@link storage/dataset.md}}), so we need to validate them using a different schema. To do this, you can use the tasks' IDs or filter them by their names.
 
 1. Open the **Validating by a schema** section and select the **Enable schema validation** option.
 
