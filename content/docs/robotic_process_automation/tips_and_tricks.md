@@ -25,15 +25,15 @@ await page.waitForFunction(function, options, args);
 
 // Good:
 await page.waitForFunction(() => {
-    window.location.href.includes('path'));
-};
+    return window.location.href.includes('path');
+});
 
 // Good:
-await page.waitForFunction(selector => {
+await page.waitForFunction(selector =>
     document.querySelector(selector).innerText,
-    {polling: 'mutation'},
-    '[data-qa="btnAppleSignUp"]');
-};
+    { polling: 'mutation' },
+    '[data-qa="btnAppleSignUp"]',
+);
 ```
 
 ## [](#proofs-and-verification) Proofs and verification
@@ -89,7 +89,8 @@ await Promise.all([
 try {
     await page.waitForFunction(selector =>
         document.querySelector(selector).innerText.includes('Payment Success'),
-        {polling: 'mutation'}, '#PaymentOutcome');
+        { polling: 'mutation' },
+        '#PaymentOutcome');
 } catch (error) {
     return OUTPUT.paymentFailure;
 };
