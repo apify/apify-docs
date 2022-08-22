@@ -13,7 +13,7 @@ paths:
 
 Residential proxy is priced by data traffic used. Thus, it's easy to quickly use up all your prepaid traffic. In particular, when accessing websites with large files loaded on every page.
 
-To reduce your traffic use, we recommend using the Apify SDK's `Apify.utils.puppeteer.blockRequests()` [function](https://sdk.apify.com/docs/api/puppeteer#puppeteerblockrequestspage-options).
+To reduce your traffic use, we recommend using the `blockRequests()` function of [`playwrightUtils`](https://crawlee.dev/api/playwright-crawler/namespace/playwrightUtils#blockRequests)/[`puppeteerUtils`](https://crawlee.dev/api/puppeteer-crawler/namespace/puppeteerUtils#blockRequests) (depending on the library used).
 
 ## [](#connected-proxy-speed-variation) Connected proxy speed variation
 
@@ -25,4 +25,4 @@ If your solution requires quickly loaded content, the best option is to set a [s
 
 While sessions are persistent, they can be destroyed at any time if the host devices are turned off or disconnected.
 
-For this problem there is no easy solution. One option is to not use residential proxy for larger requests (instead use [datacenter]({{@link proxy/datacenter_proxy.md}}) proxy). If you have no other choice, expect that interruptions might happen and write your solution with this in mind.
+For this problem there is no easy solution. One option is to not use residential proxy for larger requests (and use [datacenter]({{@link proxy/datacenter_proxy.md}}) proxy instead). If you have no other choice, expect that interruptions might happen and write your solution with this in mind.

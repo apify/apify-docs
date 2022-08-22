@@ -32,7 +32,7 @@ Datacenter proxies allow you to mask and [rotate]({{@link proxy.md#ip-address-ro
 
 Each user has access to a selected number of proxy servers from a shared pool. These servers are spread into groups (called proxy groups). Each group shares a common feature (location, provider, speed and so on).
 
-The number of proxy servers available depends on your subscription plan. When you first sign up to the Apify platform, you get a 30-day free trial of Apify Proxy. After the trial, you must subscribe to a paid plan to continue using Apify Proxy.
+The number of proxy servers available depends on your subscription plan. When you first sign up to Apify platform, you get a 30-day free trial of Apify Proxy. After the trial, you must subscribe to a paid plan to continue using Apify Proxy.
 
 For a full list of plans and number of allocated proxy servers for each plan, see our [pricing](https://apify.com/pricing).
 
@@ -40,7 +40,7 @@ To access more servers or to use Apify Proxy without other parts of the Apify pl
 
 ## [](#dedicated-proxy-groups) Dedicated proxy groups
 
-When you purchase access to dedicated proxy groups, they are assigned to you and only you can use them. You gain access to a range of static IP addresses from these groups.
+When you purchase access to dedicated proxy groups, they are assigned to you, and only you can use them. You gain access to a range of static IP addresses from these groups.
 
 This feature is useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation]({{@link proxy.md#ip-address-rotation}}), [persistent sessions](#session-persistence), and health checking).
 
@@ -72,7 +72,7 @@ When you use datacenter proxy with the `session` [parameter]({{@link proxy.md#se
 
 **Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info]({{@link proxy.md#sessions}})]
 
-This IP/session ID combination persists and expires 26 hours later. Each additional request resets the expiration time to 26 hours.
+This IP/session ID combination is persisted and expires 26 hours later. Each additional request resets the expiration time to 26 hours.
 
 So, if you use the session at least once a day, it will never expire, with two possible exceptions:
 
@@ -81,5 +81,5 @@ So, if you use the session at least once a day, it will never expire, with two p
 
 If the session is discarded due to the reasons above, it is assigned a new IP address.
 
-To learn more about [sessions]({{@link proxy.md#sessions}}) and [IP address rotation]({{@link proxy.md#ip-address-rotation}}), see the proxy [overview page]({{@link proxy.md}}).
+To learn more about [sessions]({{@link proxy.md#sessions}}) and [IP address rotation]({{@link proxy.md#ip-address-rotation}}), see the [proxy overview page]({{@link proxy.md}}).
 

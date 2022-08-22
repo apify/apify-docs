@@ -1,6 +1,6 @@
 ---
 title: Examples
-description: Learn how to connect to Google SERP proxies from your applications with Node.js (axios and got), Python 2 and 3 and PHP using code examples.
+description: Learn how to connect to Google SERP proxies from your applications with Node.js (axios and got-scraping), Python 2 and 3 and PHP using code examples.
 paths:
     - proxy/google-serp-proxy/nodejs-examples
     - proxy/google-serp-proxy/python-examples
@@ -17,9 +17,9 @@ See the [connection settings]({{@link proxy/connection_settings.md}}) page for c
 
 ## [](#using-the-apify-sdk) Using the Apify SDK
 
-If you are developing your own Apify [actor]({{@link actors.md}}) using the [Apify SDK](https://sdk.apify.com), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://sdk.apify.com/docs/api/cheerio-crawler). This is because Google SERP proxy [only returns a page's HTML]({{@link proxy/google_serp_proxy.md#connecting-to-google-serp-proxy}}). Alternatively, you can use the [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
+If you are developing your own Apify [actor]({{@link actors.md}}) using the [Apify SDK](https://sdk.apify.com) and [Crawlee](https://crawlee.dev/), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler). This is because Google SERP proxy [only returns a page's HTML]({{@link proxy/google_serp_proxy.md#connecting-to-google-serp-proxy}}). Alternatively, you can use the [got-scraping](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying proxy URL in the options.
 
-Apify Proxy also works with [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav) and [launchPuppeteer()](https://sdk.apify.com/docs/typedefs/launch-puppeteer#docsNav). However, it is not efficient to load a full browser just to retrieve HTML.
+Apify Proxy also works with [PuppeteerCrawler](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler), [launchPuppeteer()](https://crawlee.dev/api/puppeteer-crawler/function/launchPuppeteer), [PlaywrightCrawler](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler), [launchPlaywright()](https://crawlee.dev/api/playwright-crawler/function/launchPlaywright) and [JSDOMCrawler](https://crawlee.dev/api/jsdom-crawler/class/JSDOMCrawler). However, `CheerioCrawler` is simply the most efficient solution for this use case.
 
 ### [](#get-a-list-of-search-results) Get a list of search results
 
@@ -44,7 +44,7 @@ const crawler = new CheerioCrawler({
     },
 });
 
-await crawler.run(['http://www.google.co.uk/search?q=wikipedia']);
+await crawler.run(['http://www.google.com/search?q=wikipedia']);
 
 await Actor.exit();
 </marked-tab>
@@ -262,7 +262,7 @@ const proxy = {
     auth: { username: 'groups-GOOGLE_SERP', password: <YOUR_PROXY_PASSWORD> },
 };
 
-const url = 'http://www.google.com/search';
+const url = 'http://www.google.co.uk/search';
 const params = { q: 'Apple iPhone XS 64GB', tbm: 'shop' }
 
 const { data } = await axios.get(url, { proxy, params });
@@ -339,7 +339,7 @@ $client = new \GuzzleHttp\Client([
     'proxy' => 'http://groups-GOOGLE_SERP:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000'
 ]);
 
-$response = $client->get("http://www.google.com/search", [
+$response = $client->get("http://www.google.co.uk/search", [
     'query' => [
         'q' => 'Apple iPhone XS 64GB',
         'tbm' => 'shop'
