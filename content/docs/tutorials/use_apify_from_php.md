@@ -14,7 +14,7 @@ Apify does not have an official PHP client (yet), so we are going to use [guzzle
 
 ## Before you start
 
-Make sure you have an Apify account and API token. You will find the token in the [Integrations]([https://console.apify.com/account#/integrations](https://console.apify.com/account#/integrations)) section in Apify Console.
+Make sure you have an Apify account and API token. You will find the token in the [Integrations](https://console.apify.com/account?tab=integrations) section in Apify Console.
 
 If you don't already have guzzle installed in your project (or just want to try out the code examples), run `composer require guzzlehttp/guzzle` to install it in the current directory.
 
@@ -110,7 +110,7 @@ $data = \json_decode($response->getBody(), true);
 echo \json_encode($data, JSON_PRETTY_PRINT);
 ```
 
-Some of the actors write to datasets other than the default. In these cases, you need to have the dataset ID and call the `datasets/<DATASET_ID>` and `datasets/<DATASET_ID>/items` endpoints instead.
+Some actors write to datasets other than the default. In these cases, you need to have the dataset ID and call the `datasets/<DATASET_ID>` and `datasets/<DATASET_ID>/items` endpoints instead.
 
 For larger datasets, you can paginate through the results by passing query parameters.
 
@@ -125,7 +125,7 @@ $parsedResponse = \json_decode($response->getBody(), true);
 echo \json_encode($parsedResponse, JSON_PRETTY_PRINT);
 ```
 
-All the available parameters are described in [our API reference](/api/v2#/reference/datasets/item-collection/get-items) and work both for all datasets.
+All the available parameters are described in our [API reference](/api/v2#/reference/datasets/item-collection/get-items) and work both for all datasets.
 
 ## [](#getting-key-value-store) Getting the results from key-value stores
 
@@ -178,7 +178,7 @@ file_put_contents(__DIR__ . '/hello-world.pdf', $response->getBody());
 
 If you open the generated `hello-world.pdf` file, you should see... well, "Hello World".
 
-If the actor stored the data in a key-value store other than the default, we can use the standalone endpoints, `key-value-stores/<STORE_ID>`, `key-value-stores/<STORE_ID>/keys`, and `key-value-stores/<STORE_ID>/records/<KEY>`. They behave the same way as the default endpoints. [See the full docs](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object).
+If the actor stored the data in a key-value store other than the default, we can use the standalone endpoints, `key-value-stores/<STORE_ID>`, `key-value-stores/<STORE_ID>/keys`, and `key-value-stores/<STORE_ID>/records/<KEY>`. They behave the same way as the default endpoints. See the [full docs](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object).
 
 ## When are the data ready?
 
@@ -264,7 +264,7 @@ $response = $client->get("https://api.apify.com/v2/browser-info");
 echo $response->getBody();
 ```
 
-[See the proxy docs]({{@link proxy/connection_settings.md}}) for more details on using specific proxies.
+See the [proxy docs]({{@link proxy/connection_settings.md}}) for more details on using specific proxies.
 
 ## Feedback
 

@@ -8,7 +8,7 @@ paths:
 
 # Log into a website using Puppeteer
 
-In this article, we demonstrate how you can easily scrape data from a page behind a login using an Apify [actor]({{@link actors.md}}) with [Puppeteer](https://pptr.dev/). For this example, we will use [https://facebook.com](https://www.facebook.com/).
+In this article, we demonstrate how you can easily scrape data from a page behind a login using an [Apify actor]({{@link actors.md}}) with [Puppeteer](https://pptr.dev/). For this example, we will use [https://facebook.com](https://www.facebook.com/).
 
 ## [](#find-the-login-form) Find the login form
 
