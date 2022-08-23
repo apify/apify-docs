@@ -43,7 +43,7 @@ To fetch the results from the actor run, you can take the `actorRunId` event pro
 https://api.apify.com/v2/actor-runs/[ACTOR_RUN_ID]/dataset/items?token=[TOKEN]
 ```
 
-Note that apart from event data, actions also have the `resource` object available, which can provide more details about the object that triggered the event. Therefore for example for the `ACTOR.RUN.SUCCEEDED` event, the provided resource is info about the successful run, which contains the `defaultDatasetId` property that you can also use to fetch the dataset contents. For more information about the `resource` objects, see the [Webhooks Actions page](https://docs.apify.com/webhooks/actions#resource).
+Note that apart from event data, actions also have the `resource` object available, which can provide more details about the object that triggered the event. Therefore, for example, for the `ACTOR.RUN.SUCCEEDED` event, the provided resource is info about the successful run, which contains the `defaultDatasetId` property that you can also use to fetch the dataset contents. For more information about the `resource` objects, see the [Webhooks Actions page](https://docs.apify.com/webhooks/actions#resource).
 
 ## [](#actor-build)Actor build
 

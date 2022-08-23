@@ -14,7 +14,7 @@ Currently, the only available action is to send an HTTP POST request to a URL sp
 
 This action sends an HTTP POST request to the provided URL with a JSON payload. The payload is defined using a payload template, a JSON-like syntax that extends JSON with the use of variables enclosed in double curly braces `{{variable}}`. This enables the payload to be dynamically injected with data at the time when the webhook is triggered.
 
-The response to the POST request must have an HTTP status code in the `2XX` range. Otherwise it is considered an error and the request is periodically retried with an exponential back-off: first retry happens after roughly 1 minute, second after 2 minutes, third after 4 minutes etc. After 11 such retries which take around 32 hours, the system gives up and stops retrying the requests.
+The response to the POST request must have an HTTP status code in the `2XX` range. Otherwise, it is considered an error and the request is periodically retried with an exponential back-off: first retry happens after roughly 1 minute, second after 2 minutes, third after 4 minutes etc. After 11 such retries which take around 32 hours, the system gives up and stops retrying the requests.
 
 For safety reasons, the webhook URL should contain a secret token to ensure only Apify can invoke it. To test your endpoint, you can use the _Test_ button in the user interface. The timeout of the webhook HTTP request is 30 seconds. If your endpoint performs a time-consuming operation, you should respond to the request immediately so that it does not time out before Apify receives the response. To ensure that the time-consuming operation is reliably finished, you can internally use a message queue to retry the operation on internal failure. In rare circumstances, the webhook might be invoked more than once, you should design your code to be idempotent to duplicate calls.
 
@@ -77,13 +77,13 @@ You may have noticed that the `eventData` and `resource` properties contain redu
 
 ### [](#available-variables)Available variables
 
-|Variable|Type|Description|
-|--- |--- |--- |
-|`userId`|string|ID of the user who owns the webhook.|
-|`createdAt`|string|ISO string date of the webhook's trigger event.|
-|`eventType`|string|Type of the trigger event, [see Events]({{@link webhooks/events.md}}).|
-|`eventData`|Object|Data associated with the trigger event, [see Events]({{@link webhooks/events.md}}).|
-|`resource`|Object|The resource that caused the trigger event, [see below](#resource).|
+| Variable    | Type   | Description                                                                         |
+|-------------|--------|-------------------------------------------------------------------------------------|
+| `userId`    | string | ID of the user who owns the webhook.                                                |
+| `createdAt` | string | ISO string date of the webhook's trigger event.                                     |
+| `eventType` | string | Type of the trigger event, [see Events]({{@link webhooks/events.md}}).              |
+| `eventData` | Object | Data associated with the trigger event, [see Events]({{@link webhooks/events.md}}). |
+| `resource`  | Object | The resource that caused the trigger event, [see below](#resource).                 |
 
 
 #### [](#resource)Resource
