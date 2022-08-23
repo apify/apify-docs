@@ -153,7 +153,7 @@ app.listen(port, () => console.log(`Web server is listening
     ${process.env.APIFY_CONTAINER_URL}!`));
 
 // Let the actor run for an hour.
-await new Promise(r => setTimeout(r, 60 * 60 * 1000));
+await new Promise((r) => setTimeout(r, 60 * 60 * 1000));
 
 await Actor.exit();
 ```
