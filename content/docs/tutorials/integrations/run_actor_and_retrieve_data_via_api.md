@@ -52,7 +52,7 @@ If we send a correct POST request to one of these endpoints, the actor/actor-tas
 
 ### [](#additional-settings) Additional settings
 
-We can also add settings for the actor (which will override the default settings) as additional query parameters. For example, if we would want to change how much memory the actor's run should be allocated and which build to run, we could simply add the `memory` and `build` parameters separated by `&`.
+We can also add settings for the actor (which will override the default settings) as additional query parameters. For example, if we wanted to change how much memory the actor's run should be allocated and which build to run, we could simply add the `memory` and `build` parameters separated by `&`.
 
 ```cURL
 https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN&memory=8192&build=beta
