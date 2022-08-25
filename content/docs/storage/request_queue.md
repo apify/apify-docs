@@ -59,7 +59,7 @@ If you are storing your data locally, you can find your request queue at the fol
 {APIFY_LOCAL_STORAGE_DIR}/request_queues/{QUEUE_ID}/{ID}.json
 ```
 
-The default request queue's ID is **default**. Each request in the queue is stored as a separate JSON file, where {ID} is a request id.
+The default request queue's ID is **default**. Each request in the queue is stored as a separate JSON file, where {ID} is a request ID.
 
 To **open a request queue**, use the [`Actor.openRequestQueue()`](https://sdk.apify.com/api/apify/class/Actor#openRequestQueue) method.
 
