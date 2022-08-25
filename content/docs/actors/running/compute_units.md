@@ -45,7 +45,7 @@ All the use cases below (and many more) are measured with the same predictable u
 
 - Running a one-page scraper every 5 seconds.
 
-- A complex system with many different actors integrated and producing high value data combined from many sources.
+- A complex system with many different actors integrated and producing high-value data combined from many sources.
 
 - Running an actor as a server.
 
