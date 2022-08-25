@@ -27,7 +27,7 @@ First, set up [tasks]({{@link actors/tasks.md}}) for all the possible input conf
 
 ![Tasks that test an actor's configurations]({{@asset actors/development/images/testing-tasks.webp}})
 
-We also advise to test your actor's default run – one that uses the pre-filled inputs. It is often the first task your users run, and they may be put off if it doesn't work.
+We also advise to test your actor's default run – one that uses the pre-filled inputs. It is often the first task your users run and they may be put off if it doesn't work.
 
 Set a low `maxItem` value for your testing tasks, so that you don't burn your credit. If you need to test your actor with a large amount of data, set the scheduler to run less frequently.
 

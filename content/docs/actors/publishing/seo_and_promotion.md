@@ -10,7 +10,7 @@ paths:
 
 # SEO and promotion
 
-Work on your actors does not end when you publish it. Now, it's time to promote your creation and get it to its intended audience. The Apify domain will boost your position with search engines, but it won't do all the work. Focus on crafting content according to topics and phrases people search for to give your actor that extra boost.
+Work on your actors does not end when you publish it. Now, it's time to promote your creation and get it to its intended audience. The Apify domain will boost your position with search engines but it won't do all the work. Focus on crafting content according to topics and phrases people search for to give your actor that extra boost.
 
 **The golden rule of SEO:** Create quality content that provides value and engagement to your users. [Don't over-optimize SEO](https://seo-hacker.com/over-optimization-penalty/) or you risk being penalized by Google.
 

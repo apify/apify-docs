@@ -45,7 +45,7 @@ If you haven't already, [add the monitoring suite to your account]({{@link monit
 
 If you have already added the task, under its **Settings** tab, give it a name. For example, **monitoring-jokes**.
 
-> We recommend prefixing your monitoring task names with `monitoring-` so you could identify them easier.
+> We recommend prefixing your monitoring task names with **monitoring-** so you could identify them easier.
 
 Next, we will configure the monitoring suite.
 
