@@ -17,7 +17,7 @@ If your needs are more specific, you can order a [custom solution](https://apify
 
 ## [](#get-started) Get started
 
-Check out [this video](https://www.youtube.com/watch?v=BsidLZKdYWQ&t=115s) on how to use our **Amazon Scraper** ([vaclavrut/amazon-crawler](https://apify.com/vaclavrut/amazon-crawler)). It introduces how web scraping can help your business and serves as a foundation on how to start using other ready-made actors.
+Check out [this video](https://www.youtube.com/watch?v=BsidLZKdYWQ) on how to use our **Amazon Scraper** ([vaclavrut/amazon-crawler](https://apify.com/vaclavrut/amazon-crawler)). It introduces how web scraping can help your business and serves as a foundation on how to start using other ready-made actors.
 
 For an overview of all of Apify's features, take a [tour of the platform](https://www.youtube.com/watch?v=nn-bCRvhNUM).
 

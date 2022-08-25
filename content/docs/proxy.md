@@ -31,13 +31,13 @@ In addition to our proxies, you can use your own both in Apify Console and SDK.
 
 ### [](#console) Custom proxies in console
 
-To use your own proxies with Apify Console, in your actor's **Input and options** tab, scroll down and open the **Proxy and browser configuration** section. Enter your proxy URLs and you're good to go.
+To use your own proxies with Apify Console, in your actor's **Input and options** tab, scroll down and open the **Proxy and browser configuration** section. Enter your proxy URLs, and you're good to go.
 
 ![Using custom proxy in Apify Console]({{@asset images/proxy-custom.webp}})
 
 ### [](#SDK) Custom proxies in SDK
 
-In the Apify SDK, use the `proxyConfiguration.newUrl([sessionId])` command to add your custom proxy URLs to the proxy configuration. [See the SDK docs](https://sdk.apify.com/docs/api/proxy-configuration#newurl) for more details.
+In the Apify SDK, use the `proxyConfiguration.newUrl(sessionId)` command to add your custom proxy URLs to the proxy configuration. See the [SDK docs](https://sdk.apify.com/api/apify/class/ProxyConfiguration#newUrl) for more details.
 
 ## [](#ip-address-rotation) IP address rotation
 
@@ -56,7 +56,7 @@ Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or
 
 Sessions allow you to use the same IP address for multiple connections.
 
-To set a new session, pass the `session` [parameter]({{@link proxy/connection_settings.md#username-parameters}}) in your [username]({{@link proxy/connection_settings.md#username-parameters}}) field when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To [use that IP address in other requests]({{@link proxy/datacenter_proxy/examples.md#multiple-requests-with-the-same-ip-address}}), pass that same session ID in the username field.
+To set a new session, pass the [`session`]({{@link proxy/connection_settings.md#username-parameters}}) parameter in your [username]({{@link proxy/connection_settings.md#username-parameters}}) field when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To [use that IP address in other requests]({{@link proxy/datacenter_proxy/examples.md#multiple-requests-with-the-same-ip-address}}), pass that same session ID in the username field.
 
 The created session will store information such as cookies and can be used to generate [browser fingerprints](https://pixelprivacy.com/resources/browser-fingerprinting/). You can also assign custom user data such as authorization tokens and specific headers.
 
@@ -78,4 +78,4 @@ Google SERP proxies do not support sessions.
 
 Our health check performs an HTTP and HTTPS request with each proxy server every few hours. If a server fails both requests 3 times in a row, it's marked as dead and all user sessions with this server are discarded.
 
-Banned proxies are not considered dead, since they become useable after a while.
+Banned proxies are not considered dead, since they become usable after a while.
