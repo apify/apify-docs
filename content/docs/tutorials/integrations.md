@@ -1,6 +1,6 @@
 ---
 title: Integrations
-description: Learn how to connect the Apify platform with your projects. You can use our tools in cloud services like Zapier, Integromat, Keboola, and many more.
+description: Learn how to connect the Apify platform with your projects. You can use our tools in cloud services like Zapier, Make (formerly Integromat), Keboola, and many more.
 menuWeight: 3.4
 paths:
     - tutorials/integrations
@@ -33,13 +33,13 @@ Below are some examples of the kind of integrations you can set up with Apify.
 
 - [Keboola](https://components.keboola.com/components/apify.apify). See the [tutorial](https://help.apify.com/en/articles/2003234-keboola-integration).
 
-- [Integromat](https://integromat.com/en/integrations/apify).
+- [Make](https://www.make.com/en/integrations/apify) (formerly Integromat).
 
 - [Airbyte](https://docs.airbyte.io/integrations/sources/apify-dataset).
 
 ## [](#api-token) API token
 
-To access our API in your integrations, you will need to use your secret API token. You can find it on the [Integrations](https://console.apify.com/account#/integrations) page in the Apify Console.
+To access our API in your integrations, you will need to use your secret API token. You can find it on the [Integrations](https://console.apify.com/account?tab=integrations) page in the Apify Console.
 
 ![Integrations page in the Apify Console]({{@asset tutorials/images/api-token.webp}})
 

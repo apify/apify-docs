@@ -8,9 +8,6 @@ paths:
 
 # Organization account
 
-> The organization account is only available to accounts using our [new billing system](https://blog.apify.com/launching-new-billing-system-3a26f8384a44). If you see the [migration message](https://blog.apify.com/launching-new-billing-system-3a26f8384a44#92f7) when you [log in](https://console.apify.com), you will need to migrate.
-> ![Migration message]({{@asset access_rights/images/migration-message.webp}})
-
 Organization accounts allow groups to collaborate on projects. It enables you to manage your team members' [permissions]({{@link access_rights/list_of_permissions.md}}) and to centralize your billing without having to share the credentials of a single personal account.
 
 You can [switch]({{@link access_rights/organization_account/how_to_use.md#in-the-apify-console}}) between your personal and organization accounts in just two clicks: in the [Apify Console](https://console.apify.com), click the account button in the top-left corner, then select the organization.
@@ -24,7 +21,7 @@ You can set up an organization in two ways.
 
 ## [](#availability-and-pricing) Availability and pricing
 
-The organization account is available on our Team, Business, and Custom plans. [Visit our pricing page](https://apify.com/pricing) for more information.
+The organization account is available on all our plans. [Visit our pricing page](https://apify.com/pricing) for more information.
 
 ## [](#create-a-new-organization) Create a new organization
 
@@ -52,7 +49,7 @@ Then, under the **Organizations** [tab](https://console.apify.com/account#/myorg
 
 Next, set the organization's name and click **Convert**.
 
-And that's it! Your personal account becomes the organization and you will be logged out automatically. You can now log into your new personal account with the same credentials as you are currently logged in with. This applies to both **password** and **OAuth** methods.
+And that's it! Your personal account becomes the organization, and you will be logged out automatically. You can now log into your new personal account with the same credentials as you are currently logged in with. This applies to both **password** and **OAuth** methods.
 
 For information on [adding members and assigning roles]({{@link access_rights/organization_account/setup.md}}), see the Setup page.
 
@@ -60,7 +57,7 @@ For information on [adding members and assigning roles]({{@link access_rights/or
 
 Actor and task runs are billed to the account they are started from. **Always make sure you start your runs from the correct account** to avoid having an organization's runs billed to your personal account.
 
-The Team plan is [restricted to 3 seats](https://apify.com/pricing), while the Business plan comes with 5, which you can increase later. If you are on the Business plan and want to add some more seats to the 5 it comes with, head over to your [Billing page and click on Subscriptions](https://console.apify.com/billing-new#/subscription). Click on **Upgrade**, and, in the **Add-ons** section, and add as many additional seats as you need. Then, just complete the upgrade process, and you're done.
+The Free and Personal plans are [restricted to 9 seats](https://apify.com/pricing), while the Team plan comes with 9, which you can increase later. If you are on the Team plan and want to add some more seats to the 9 it comes with, head over to your [Billing page and click on Subscriptions](https://console.apify.com/billing-new#/subscription). Click on **Upgrade**, and, in the **Add-ons** section, and add as many additional seats as you need. Then, just complete the upgrade process, and you're done.
 
 ![Adding more teams account seats]({{@asset access_rights/images/upgrade.webp}})
 

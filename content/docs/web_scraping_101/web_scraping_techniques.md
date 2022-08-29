@@ -10,7 +10,7 @@ paths:
 
 This article provides a quick summary of ways websites structure and send their information. Knowing these techniques will help you extract data quicker and more efficiently.
 
-You can find more in-depth discussion and code examples for all of the techniques in [this](https://blog.apify.com/web-scraping-in-2018-forget-html-use-xhrs-metadata-or-javascript-variables-8167f252439c) article.
+You can find more in-depth discussion and code examples for all the techniques in [this](https://blog.apify.com/web-scraping-in-2018-forget-html-use-xhrs-metadata-or-javascript-variables-8167f252439c) article.
 
 ## [](#css-selectors) CSS selectors
 
@@ -64,7 +64,7 @@ const pageFunction = (context) => {
 
 You can find internal JavaScript variables in a `<script>` tag in a web page's `<head>` element. These variables contain custom data that is set when the page loads.
 
-To use internal variables, first load the page using [headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) (usually with [Puppeteer](https://github.com/GoogleChrome/puppeteer)). Once it is loaded, you can return the variable that contains it using `return {variable_name}` (within the page context).
+To use internal variables, first load the page using [headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) (usually with [Puppeteer](https://github.com/puppeteer/puppeteer)). Once it is loaded, you can return the variable that contains it using `return {variable_name}` (within the page context).
 
 For example, if you are searching for Kaffeine café on [Yelp](https://www.yelp.co.uk/search?find_desc=kaffeine&find_loc=London), search for the café's name in the page's HTML using developer tools. The data you would receive would look something like the example below.
 

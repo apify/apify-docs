@@ -8,7 +8,7 @@ paths:
 
 # Scrape websites using the sitemap
 
-Let's say we want to scrape a database of craft beers ([brewbound.com](https://www.brewbound.com)) before the summer season starts. If we are lucky, the website will contain a sitemap at [https://www.brewbound.com/sitemap.xml](https://www.brewbound.com/sitemap.xml).
+Let's say we want to scrape a database of craft beers ([brewbound.com](https://www.brewbound.com)) before summer starts. If we are lucky, the website will contain a sitemap at [https://www.brewbound.com/sitemap.xml](https://www.brewbound.com/sitemap.xml).
 
 > Check out [Sitemap Sniffer](https://apify.com/vaclavrut/sitemap-sniffer) tool, which can discover sitemaps in hidden locations.
 
@@ -48,11 +48,11 @@ They can be matched with the following regular expression (regex).
 
 Note the two parts of the regular expression `[^\/<]` containing `<`. This is because we want to exclude the `</loc>` tag, which closes each URL.
 
-## [](#using-the-sitemap-in-apify-sdk) Using the sitemap in Apify SDK
+## [](#using-the-sitemap-in-apify-sdk) Using the sitemap in Apify SDK and Crawlee
 
-Our [web scraping and automation library](https://sdk.apify.com) is well-suited for scraping with sitemaps.
+Our [web scraping and automation library](https://crawlee.dev/) is well-suited for scraping with sitemaps.
 
-First, let's import the beer URLs from the sitemap to [RequestList](https://sdk.apify.com/docs/api/request-list#docsNav) using our regular expression to match only the (craft!) beer URLs and not pages of breweries, contact page, etc.
+First, let's import the beer URLs from the sitemap to [RequestList](https://crawlee.dev/api/core/class/RequestList) using our regular expression to match only the (craft!) beer URLs and not pages of breweries, contact page, etc.
 
 ```javascript
 const requestList = await RequestList.open(null, [{
@@ -61,7 +61,7 @@ const requestList = await RequestList.open(null, [{
 }]);
 ```
 
-Now, let's use [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav) to scrape the created [RequestList](https://sdk.apify.com/docs/api/request-list#docsNav) with [Puppeteer](https://pptr.dev) and push it to the final dataset.
+Now, let's use [PuppeteerCrawler](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler) to scrape the created [RequestList](hhttps://crawlee.dev/api/core/class/RequestList) with [Puppeteer](https://pptr.dev) and push it to the final dataset.
 
 ```javascript
 const crawler = new PuppeteerCrawler({
@@ -87,9 +87,9 @@ const crawler = new PuppeteerCrawler({
 
 ## [](#full-code-example) Full code example
 
-If we create a new actor using the code below on the Apify [platform](https://console.apify.com/actors), it returns a nicely formatted spreadsheet containing a list of breweries with their beers and descriptions.
+If we create a new actor using the code below on the [Apify platform](https://console.apify.com/actors), it returns a nicely formatted spreadsheet containing a list of breweries with their beers and descriptions.
 
-Make sure to select the **Node.js 12 + Chrome on Debian** ([apify/actor-node-chrome](https://hub.docker.com/r/apify/actor-node-chrome/)) [base image]({{@link actors/development/base_docker_images.md}}), otherwise the run will fail.
+Make sure to use the [`apify/actor-node-puppeteer-chrome`](https://hub.docker.com/r/apify/actor-node-puppeteer-chrome) [image]({{@link actors/development/base_docker_images.md}}) for your Dockerfile, otherwise the run will fail.
 
 ```javascript
 import { Actor } from 'apify';

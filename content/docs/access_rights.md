@@ -13,12 +13,12 @@ By default, each system resource (actor, key-value store, run, ...) you create i
 
 ## [](#granting-access-rights) Granting access rights
 
-You can easily and securely share your own resources - actors, tasks, key-value stores, datasets and request queues using a [granular](https://www.google.com/search?client=firefox-b-d&q=define+granular+permissions) permissions system. This enables you to, for example, allow your colleague to run an [actor]({{@link actors.md}}) or view a [dataset]({{@link storage/dataset.md}}) but not to modify them.
+You can easily and securely share your own resources - actors, tasks, key-value stores, datasets and request queues using a [granular](https://www.google.com/search?client=firefox-b-d&q=define+granular+permissions) permissions system. This enables you to, for example, allow your colleague to run an [actor]({{@link actors.md}}) or view a [dataset]({{@link storage/dataset.md}}), but not to modify them.
 
 You can also grant permission to update an actor and build a new version.
 [Storages]({{@link storage.md}}) (key-value stores, request queues and datasets) are sharable the same way with, for example, just **read** permission, or a combination of both **read** and **write** permissions.
 
-> To be able to grant access rights to another user you must have a **username** set in [account settings](https://console.apify.com/account#/profile).
+> To be able to grant access rights to another user you must have a **username** set in [account settings](https://console.apify.com/account?tab=settings).
 
 To share an actor, task, key-value store, request queue or dataset, open its **Settings** tab and at the very bottom you will find the **Access rights** section. You can add a collaborator using their **user ID**, **email** or **username**. Once you have added the collaborator, you can configure their permissions.
 

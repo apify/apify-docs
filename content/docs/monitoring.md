@@ -17,13 +17,13 @@ You can use data you gain from monitoring to optimize your software and maximize
 
 In essence, monitoring gives you more time. It allows you to automate processes that are complicated or tedious if you have to do them manually.
 
-If you are [scraping your competitor's website](https://www.youtube.com/watch?v=BsidLZKdYWQ&t=95s) every day, you have already automated a part of the process. With monitoring, you can save even more time and ensure all your results are useable even before you need them.
+If you are [scraping your competitor's website](https://www.youtube.com/watch?v=BsidLZKdYWQ) every day, you have already automated a part of the process. With monitoring, you can save even more time and ensure all your results are usable even before you need them.
 
 And if the scraping job fails, you will receive a notification, so there will be no unpleasant surprises.
 
 ## [](#what-is-the-apify-monitoring-suite) What is the Apify monitoring suite?
 
-The [monitoring suite](https://apify.com/apify/monitoring) is a collection of Apify [actors]({{@link actors.md}}) that allows you to automate the monitoring of jobs you have running on the Apify [platform](https://apify.com).
+The [monitoring suite](https://apify.com/apify/monitoring) is a collection of [Apify actors]({{@link actors.md}}) that allows you to automate the monitoring of jobs you have running on the [Apify platform](https://apify.com).
 
 You can use it to monitor anything from a single actor to complex projects spanning multiple actors, [tasks]({{@link actors/tasks.md}}) or [storages]({{@link storage.md}}).
 

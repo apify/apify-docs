@@ -388,7 +388,7 @@ username of the actor owner and the actor name (e.g. `janedoe~my-actor`).
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 
 ### Get list of actors [GET]
@@ -453,7 +453,7 @@ If you want to make your actor public using `isRequired: true`, you will need to
 + Parameters
 
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get actor [GET]
 
@@ -500,7 +500,7 @@ Deletes an actor.
 + Parameters
 
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get list of versions [GET]
 
@@ -599,7 +599,7 @@ For more information about source code and actor versions, see [Source code](htt
 
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + versionNumber: `1.0` (string, required) - Actor major and minor version of the actor.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get version [GET]
 
@@ -645,7 +645,7 @@ Deletes a specific version of actor's source code.
 
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + versionNumber: `0.1` (string, required) - Actor version
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get list of environment variables [GET]
 
@@ -701,7 +701,7 @@ The response is the [EnvVar object](#reference/actors/environment-variable-objec
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + versionNumber: `0.1` (string, required) - Actor version
     + envVarName: `MY_ENV_VAR` (string, required) - The name of the environment variable
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get environment variable [GET]
 
@@ -749,7 +749,7 @@ Deletes a specific environment variable.
 + Parameters
 
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get list of webhooks [GET]
 
@@ -763,7 +763,7 @@ to sort the records in descending order, use the `desc=1` parameter.
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + offset: 10 (number, optional) - Number of array elements that should be skipped at the start. The default value is `0`.
     + limit: 99 (number, optional) - Maximum number of array elements to return. The default value as well as the maximum is `1000`.
     + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `createdAt` field in descending order. By default, they are sorted in ascending order.
@@ -784,7 +784,7 @@ to sort the records in descending order, use the `desc=1` parameter.
 + Parameters
 
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get list of builds [GET]
 
@@ -856,11 +856,11 @@ This is useful to avoid periodic polling when waiting for an actor build to fini
 
 + Parameters
 
-    + buildId: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
+    + buildId: `soSkq9ekdmfOslopH` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
     + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
                                              If the build finishes in time then the returned build object will have a terminal status (e.g. `SUCCEEDED`),
                                              otherwise it will have a transitional status (e.g. `RUNNING`).
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token. It is only required for private actors.
+    + token: `soSkq9ekdmfOslopH` (string, optional) - API authentication token. It is only required for private actors.
         Builds of public actors can be queried without any token.
 
 + Response 200 (application/json)
@@ -880,7 +880,7 @@ Only builds that are starting or running are aborted. For builds with status `FI
 
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + buildId: `3KH8gEpp4d8uQSe8T` (string, required) - Build ID.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 + Response 200 (application/json)
 
@@ -908,7 +908,7 @@ parameter. You can also filter runs by status ([available statuses](https://docs
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + offset: 10 (number, optional) - Number of array elements that should be skipped at the start. The default value is `0`.
     + limit: 99 (number, optional) - Maximum number of array elements to return. The default value as well as the maximum is `1000`.
     + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `startedAt` field in descending order. By default, they are sorted in ascending order.
@@ -943,7 +943,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token. Public actors that are configured to be anonymously runnable do not require the token.
+    + token: `soSkq9ekdmfOslopH` (string, optional) - API authentication token. Public actors that are configured to be anonymously runnable do not require the token.
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the default run configuration for the actor.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the default run configuration for the actor.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
@@ -977,7 +977,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
 + Parameters
 
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token. Public actors that are configured to be anonymously runnable do not require token parameter.
+    + token: `soSkq9ekdmfOslopH` (string, optional) - API authentication token. Public actors that are configured to be anonymously runnable do not require token parameter.
     + outputRecordKey: `OUTPUT` (string, optional) - Key of the record from run's default key-value store to be returned
                                                      in the response. By default, it is `OUTPUT`.
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the default run configuration for the actor.
@@ -1096,7 +1096,7 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
 + Parameters
 
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token. Public actors that are configured to be anonymously runnable do not require token parameter.
+    + token: `soSkq9ekdmfOslopH` (string, optional) - API authentication token. Public actors that are configured to be anonymously runnable do not require token parameter.
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the default run configuration for the actor.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the default run configuration for the actor.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
@@ -1307,7 +1307,7 @@ Only runs that are starting or running are aborted. For runs with status `FINISH
 
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + gracefully: `true` (boolean, optional)    - If true passed, the actor run will abort gracefully.
                                                 It will send `aborting` and `persistState` event into run and force-stop the run after 30 seconds.
                                                 It is helpful in cases where you plan to resurrect the run later.
@@ -1336,7 +1336,7 @@ For more information, see [Actor docs](https://docs.apify.com/actors/development
 
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Actor run ID.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + targetActorId: `HDSasDasz78YcAPEB` (string, required) - ID of a target actor that the run should be transformed into.
     + build: `beta` (string, optional) - Optional build of the target actor.
       It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the target actor (typically `latest`).
@@ -1361,7 +1361,7 @@ For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrec
 
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the run that is being resurrected (typically `latest`).
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the run that is being resurrected.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the run that is being resurrected.
@@ -1430,7 +1430,7 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 + Parameters
 
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + status: `SUCCEEDED` (string, optional) - Filter for the run status.
 
 ### Get last run [GET]
@@ -1453,7 +1453,7 @@ username of the task's owner and the task's name (e.g. `janedoe~my-task`).
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 
 ### Get list of tasks [GET]
@@ -1513,7 +1513,7 @@ When providing your API authentication token, we recommend using the request's `
 + Parameters
 
     + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get task [GET]
 
@@ -1558,7 +1558,7 @@ Delete the task specified through the `actorTaskId` parameter.
 + Parameters
 
     + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get task input [GET]
 
@@ -1600,7 +1600,7 @@ When providing your API authentication token, we recommend using the request's `
 + Parameters
 
     + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get list of webhooks [GET]
 
@@ -1614,7 +1614,7 @@ to sort the records in descending order, use the `desc=1` parameter.
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + offset: 10 (number, optional) - Number of array elements that should be skipped at the start. The default value is `0`.
     + limit: 99 (number, optional) - Maximum number of array elements to return. The default value as well as the maximum is `1000`.
     + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `createdAt` field in descending order. By default, they are sorted in ascending order.
@@ -1652,7 +1652,7 @@ parameter. You can also filter runs by status ([available statuses](https://docs
 + Parameters
 
     + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + offset: 10 (number, optional) - Number of array elements that should be skipped at the start. The default value is `0`.
     + limit: 99 (number, optional) - Maximum number of array elements to return. The default value as well as the maximum is `1000`.
     + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `startedAt` field in descending order. By default, they are sorted in ascending order.
@@ -1689,7 +1689,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
 + Parameters
 
     + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, optional) - API authentication token.
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the task settings.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the task settings.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the task settings (typically `latest`).
@@ -1725,7 +1725,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
 + Parameters
 
     + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, optional) - API authentication token.
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the task settings.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the task settings.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the task settings (typically `latest`).
@@ -1832,7 +1832,7 @@ To run the Task asynchronously, use the [Run task asynchronously](#reference/act
 + Parameters
 
     + actorTaskId: `janedoe~my-task` (string, required) - Task ID or a tilde-separated owner's username and task's name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, optional) - API authentication token.
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the task settings.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the task settings.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the task settings (typically `latest`).
@@ -2054,7 +2054,7 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 + Parameters
 
     + actorTaskId: `janedoe~my-task` (string, required) - Actor ID or a tilde-separated owner's username and actor task name.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + status: `SUCCEEDED` (string, optional) - Filter for the run status.
 
 ### Get last run [GET]
@@ -2085,7 +2085,7 @@ parameter. You can also filter runs by status ([available statuses](https://docs
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + offset: 10 (number, optional) - Number of array elements that should be skipped at the start. The default value is `0`.
     + limit: 99 (number, optional) - Maximum number of array elements to return. The default value (as well as the maximum) is `1000`.
     + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `startedAt` field in descending order. By default, they are sorted in ascending order.
@@ -2159,7 +2159,7 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 + Parameters
 
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get run [GET]
 
@@ -2192,7 +2192,7 @@ Only runs that are starting or running are aborted. For runs with status `FINISH
 + Parameters
 
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + gracefully: `true` (boolean, optional)    - If true passed, the actor run will abort gracefully.
                                                 It will send `aborting` and `persistState` event into run and force-stop the run after 30 seconds.
                                                 It is helpful in cases where you plan to resurrect the run later.
@@ -2220,7 +2220,7 @@ For more information, see [Actor docs](https://docs.apify.com/actors/development
 + Parameters
 
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Actor run ID.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + targetActorId: `HDSasDasz78YcAPEB` (string, required) - ID of a target actor that the run should be transformed into.
     + build: `beta` (string, optional) - Optional build of the target actor.
       It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the target actor (typically `latest`).
@@ -2244,7 +2244,7 @@ For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrec
 + Parameters
 
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the run that is being resurrected (typically `latest`).
     + timeout: 60 (number, optional) - Optional timeout for the run, in seconds. By default, the run uses a timeout specified in the run that is being resurrected.
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the run that is being resurrected.
@@ -2262,7 +2262,7 @@ The API endpoints described in this section enable you to manage Apify actor bui
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get user builds list [GET]
 
@@ -2304,11 +2304,11 @@ This is useful to avoid periodic polling when waiting for an actor build to fini
 
 + Parameters
 
-    + buildId: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
+    + buildId: `soSkq9ekdmfOslopH` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
     + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
                                              If the build finishes in time then the returned build object will have a terminal status (e.g. `SUCCEEDED`),
                                              otherwise it will have a transitional status (e.g. `RUNNING`).
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, optional) - API authentication token. It is only required for private actors.
+    + token: `soSkq9ekdmfOslopH` (string, optional) - API authentication token. It is only required for private actors.
         Builds of public actors can be queried without any token.
 
 + Response 200 (application/json)
@@ -2327,7 +2327,7 @@ Only builds that are starting or running are aborted. For builds with status `FI
 + Parameters
 
     + buildId: `3KH8gEpp4d8uQSe8T` (string, required) - Build ID.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 + Response 200 (application/json)
 
@@ -2350,7 +2350,7 @@ are authenticated using a hard-to-guess ID of the key-value store.
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get list of key-value stores [GET]
 
@@ -2394,7 +2394,7 @@ If there is another store with the same name, the endpoint does not create a new
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + name: `eshop-values` (string, optional) - Custom unique name to easily identify the store in the future.
 
 + Response 201 (application/json)
@@ -2608,7 +2608,7 @@ array elements.
     + limit: 99 (number, optional) - Maximum number of array elements to return. The default value as well as the maximum is `1000`.
     + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `startedAt` field in descending order. By default, they are sorted in ascending order.
     + unnamed: true (boolean, optional) - If `true` or `1` then all the datasets are returned. By default only named datasets are returned.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 + Response 200 (application/json)
 
@@ -2631,7 +2631,7 @@ If a dataset with the given name already exists then returns its object.
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
     + name: `eshop-items` (string, optional) - Custom unique name to easily identify the dataset in the future.
 
 + Response 201 (application/json)
@@ -2980,7 +2980,7 @@ array elements.
     + limit: 99 (number, optional) - Maximum number of array elements to return. The default value as well as the maximum is `1000`.
     + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `startedAt` field in descending order. By default, they are sorted in ascending order.
     + unnamed: true (boolean, optional) - If `true` or `1` then all the queues are returned. By default only named queues are returned.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 + Response 200 (application/json)
 
@@ -3004,7 +3004,7 @@ its object.
 + Parameters
 
     + name: `example-com` (string, required) - Custom unique name to easily identify the queue in the future.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 + Response 201 (application/json)
 
@@ -3207,7 +3207,7 @@ For more information see <a href="https://docs.apify.com/webhooks">Webhooks docu
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get list of webhooks [GET]
 
@@ -3282,7 +3282,7 @@ To assign the new webhook to an actor or task, the request body must contain `re
 + Parameters
 
     + webhookId: `Zib4xbZsmvZeK55ua`    (string, required) - Webhook ID.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get webhook [GET]
 
@@ -3327,7 +3327,7 @@ Deletes a webhook.
 + Parameters
 
     + webhookId: `Zib4xbZsmvZeK55ua`    (string, required) - Webhook ID.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Test webhook [POST]
 
@@ -3346,7 +3346,7 @@ Gets a given webhook's list of dispatches.
 + Parameters
 
     + webhookId: `pVJtoTelgYUq4qJOt`     (string, required) - ID number of the webhook.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 + Response 200 (application/json)
 
@@ -3367,7 +3367,7 @@ This section describes API endpoints to get webhook dispatches.
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get list of webhook dispatches [GET]
 
@@ -3399,7 +3399,7 @@ parameter.
 + Parameters
 
     + dispatchId: `Zib4xbZsmvZeK55ua`         (string, required) - Webhook dispacth ID.
-    + token:      `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token:      `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get webhook dispatch [GET]
 
@@ -3425,7 +3425,7 @@ Each schedule is assigned actions for it to perform. Actions can be of two types
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get list of schedules [GET]
 
@@ -3479,7 +3479,7 @@ When providing your API authentication token, we recommend using the request's `
 + Parameters
 
     + scheduleId: `asdLZtadYvn4mBZmm`    (string, required) - Schedule ID.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get schedule [GET]
 
@@ -3524,7 +3524,7 @@ Deletes a schedule.
 + Parameters
 
     + scheduleId: `asdLZtadYvn4mBZmm`    (string, required) - Schedule ID.
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get schedule log [GET]
 
@@ -3603,7 +3603,7 @@ This operation requires no authentication token.
 
 + Parameters
 
-    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 
 ### Get private user data [GET]

@@ -64,7 +64,7 @@ Let's say you need each item to always have properties such as `title`, `ASIN`, 
 
 The monitoring suite uses the [ow](https://www.npmjs.com/package/ow) library for type validation. Make sure to import the library using `/* global ow */`.
 
-> Validation is done after the each run finishes.
+> Validation is done after each run finishes.
 
 ## [](#check-for-duplicates) Check for duplicates
 
