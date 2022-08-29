@@ -9,21 +9,19 @@ paths:
 
 # Actor tasks
 
-Tasks let you create multiple re-usable configurations of a single actor that are adapted for specific use cases. For example, you can create one **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)) configuration (task) that scrapes the lastest reviews from imdb.com, another that scrapes nike.com for the latest sneakers, and a third that scrapes your competitor's e-shop. You can then use and reuse these configurations directly from [Apify Console](https://console.apify.com/actors/tasks), [schedules]({{@link schedules.md}}), or [API](/api/v2#/reference/actor-tasks/run-collection/run-task).
+Tasks let you create multiple re-usable configurations of a single actor that are adapted for specific use cases. For example, you can create one **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)) configuration (task) that scrapes the latest reviews from imdb.com, another that scrapes nike.com for the latest sneakers, and a third that scrapes your competitor's e-shop. You can then use and reuse these configurations directly from [Apify Console](https://console.apify.com/actors/tasks), [schedules]({{@link schedules.md}}), or [API](/api/v2#/reference/actor-tasks/run-collection/run-task).
 
 All your tasks are listed at [https://console.apify.com/actors/tasks](https://console.apify.com/actors/tasks).
 
-You can create tasks both for your personal actors and for those made by someone else. Just [search Apify Store](https://console.apify.com/actors?tab=store) to find an actor you want to use and click the **Create new task** button.
+You can create tasks both for your personal actors and for those made by someone else. Just [search Apify Store](https://console.apify.com/store) to find an actor you want to use and click the **Create new task** button.
 
 Like any other resource, you can share your actor tasks with other Apify users via the [access rights]({{@link access_rights.md}}) system.
 
 ## Create
 
-Open any actor from [Apify Store](https://console.apify.com/actors?tab=store) or your list of [actors](https://console.apify.com/actors) in Apify Console. In the top-right section of the page, click the **Create new task** button.
+Open any actor from [Apify Store](https://console.apify.com/store) or your list of [actors](https://console.apify.com/actors) in Apify Console. In the top-right section of the page, click the **Create empty task** button.
 
 ![Create a new Apify task]({{@asset actors/images/create-task.webp}})
-
-Alternatively, you can navigate to the [**Tasks** section in Apify Console](https://console.apify.com/actors/tasks) and select **Create a new task** in the top-right corner. This will take you to Apify Store, where you can choose an actor to create a task from.
 
 ## Configure
 

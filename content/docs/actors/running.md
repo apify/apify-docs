@@ -35,7 +35,7 @@ You can specify options such as [build]({{@link actors/development/builds.md}}),
     </tr>
 </table>
 
-Actors can also be invoked using the Apify API, by sending a HTTP POST request to the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) endpoint, such as:
+Actors can also be invoked using the Apify API, by sending an HTTP POST request to the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) endpoint, such as:
 
 ```text
 https://api.apify.com/v2/acts/apify~hello-world/runs?token=<YOUR_API_TOKEN>
@@ -45,7 +45,7 @@ An actor's input and its content type can be passed as a payload of the POST req
 
 Actors can also be invoked programmatically from other actors:
 
-- JavaScript: using the [`call()`](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options) function provided by the [`apify`](https://sdk.apify.com/) NPM package.
+- JavaScript: using the [`call()`](https://sdk.apify.com/api/apify/class/Actor#call) function of [`Actor`](https://sdk.apify.com/api/apify/class/Actor) class provided by the [`apify`](https://sdk.apify.com/) NPM package.
 - Python: using the [`call()`](https://docs.apify.com/apify-client-python#actorclient-call) function provided by the [`apify-client`](https://docs.apify.com/apify-client-python) Python package.
 
 ```marked-tabs
@@ -91,16 +91,16 @@ The actor has hard disk space limited by twice the amount of memory. For example
 
 Each run starts with the initial status **READY** and goes through one or more transitional statuses to one of the terminal statuses.
 
-|Status|Type|Description|
-|--- |--- |--- |
-|READY|initial|Started but not allocated to any worker yet|
-|RUNNING|transitional|Executing on a worker|
-|SUCCEEDED|terminal|Finished successfully|
-|FAILED|terminal|Run failed|
-|TIMING-OUT|transitional|Timing out now|
-|TIMED-OUT|terminal|Timed out|
-|ABORTING|transitional|Being aborted by user|
-|ABORTED|terminal|Aborted by user|
+| Status     | Type         | Description                                 |
+|------------|--------------|---------------------------------------------|
+| READY      | initial      | Started but not allocated to any worker yet |
+| RUNNING    | transitional | Executing on a worker                       |
+| SUCCEEDED  | terminal     | Finished successfully                       |
+| FAILED     | terminal     | Run failed                                  |
+| TIMING-OUT | transitional | Timing out now                              |
+| TIMED-OUT  | terminal     | Timed out                                   |
+| ABORTING   | transitional | Being aborted by user                       |
+| ABORTED    | terminal     | Aborted by user                             |
 
 ## Aborting runs
 
@@ -118,11 +118,10 @@ Any actor run in terminal state, i.e. run with status **FINISHED**, **FAILED**, 
 The whole process of resurrection looks as follows:
 
 - Run status will be updated to **RUNNING** and its container will be restarted with the same storages (the same behavior as when the run gets migrated to the new server).
-- Existing run log will be discarded. If you need to backup it then please download it before you resurrect this run.
 - Updated duration will include the time when actor was not running. This does not affect compute units consumption.
 - Timeout will be counted from the point when this actor run was resurrected.
 
-Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [resurrect run](https://docs.apify.com/api/v2#/reference/actors/resurrect-run) API endpoint.
+Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](https://docs.apify.com/api/v2#/reference/actors/resurrect-run) API endpoint.
 
 ## Container web server
 
@@ -154,7 +153,7 @@ app.listen(port, () => console.log(`Web server is listening
     ${process.env.APIFY_CONTAINER_URL}!`));
 
 // Let the actor run for an hour.
-await new Promise(r => setTimeout(r, 60 * 60 * 1000));
+await new Promise((r) => setTimeout(r, 60 * 60 * 1000));
 
 await Actor.exit();
 ```

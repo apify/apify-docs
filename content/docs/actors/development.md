@@ -17,7 +17,7 @@ In this section, you can find documentation on creating your own actors using th
 
 Here are some resources that will help you go from beginner to pro. If you have any questions, join other devs on our [Discord server](https://discord.gg/jyEM2PRvMU) or contact us at [community@apify.com](mailto:community@apify.com).
 
-- Get familiar with [the Apify platform](https://www.youtube.com/watch?v=XPF0kbyvoOs) and [actors]({{@link actors.md}}).
+- Get familiar with [the Apify platform](https://www.youtube.com/watch?v=nn-bCRvhNUM) and [actors]({{@link actors.md}}).
 - [Check out our public wiki](https://gitlab.com/apify-public/wiki/-/wikis/home). It contains key information, best practices, and advice for building actors.
 - [How to and how not to write an actor](https://gitlab.com/apify-public/wiki/-/wikis/writing-actors/how-to-write-and-not-write-an-actor).
 - [Actor performance and optimization](https://gitlab.com/apify-public/wiki/-/wikis/writing-actors/actor-performance-and-optimization).

@@ -25,7 +25,7 @@ You need:
 
 For this use case, we will imagine you want to scrape fresh jokes from two websites and [store them in a single named dataset]({{@link storage/dataset.md#sharing-datasets-between-runs}}) daily.
 
-You created two tasks from **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)) and set them to save the results in the desired dataset. Next, you need to test (validate / verify) your data to make sure it fits your needs. To avoid creating separate software that will do this, you can use our [monitoring suite](https://apify.com/apify/monitoring).
+You created two tasks from **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)) and set them to save the results in the desired dataset. Next, you need to test (validate/verify) your data to make sure it fits your needs. To avoid creating separate software that will do this, you can use our [monitoring suite](https://apify.com/apify/monitoring).
 
 ![Joke tasks]({{@asset monitoring/images/joke-scraper-tasks.webp}})
 
@@ -37,7 +37,7 @@ The two extraction tasks are [scheduled]({{@link schedules.md}}) to run every da
 
 ![Joke storage]({{@asset monitoring/images/joke-storage.webp}})
 
-Now, to the monitoring part. For this tutorial, let's skip the monitoring of the tasks and jump right to the the dataset.
+Now, to the monitoring part. For this tutorial, let's skip the monitoring of the tasks and jump right to the dataset.
 
 ## [](#create-a-new-monitoring-task) Create a new monitoring task
 

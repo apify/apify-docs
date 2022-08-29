@@ -13,7 +13,7 @@ Limited pagination is a common practice on e-commerce sites and is becoming more
 
 ![Pagination in on Google search results page]({{@asset tutorials/images/pagination.webp}})
 
-> In a rush? Skip the tutorial and [get the full code example](https://github.com/metalwarrior665/apify-utils/tree/master/examples/crawler-with-filters).
+> In a rush? Skip the tutorial and get the [full code example](https://github.com/metalwarrior665/apify-utils/tree/master/examples/crawler-with-filters).
 
 ## [](#how-to-overcome-the-limit) How to overcome the limit
 
@@ -28,7 +28,7 @@ This is usually the first solution that comes to mind. You traverse the smallest
 1. Any subcategory might be bigger than the pagination limit.
 2. Some listings from the parent category might not be present in any subcategory.
 
-While you can often manually test if the second problem is true on the site, the first problem is a hard blocker. You might be just lucky and it may work on this site but usually, traversing subcategories is just not enough. It can be used as a first step of the solution but not as the solution itself.
+While you can often manually test if the second problem is true on the site, the first problem is a hard blocker. You might be just lucky, and it may work on this site but usually, traversing subcategories is just not enough. It can be used as a first step of the solution but not as the solution itself.
 
 ### [](#using-filters) Using filters
 
@@ -41,7 +41,7 @@ At first, it might seem as an easy solution. Enqueue all possible filter combina
 
 ### [](#using-filter-ranges) Using filter ranges
 
-The best option is to use only a specific type of filter that can be used as a range. The most common one is **price range** but there may be others like the apartment size, etc. You can split the pagination pages to only contain listings within that range, eg. products costing between $10 and $20.
+The best option is to use only a specific type of filter that can be used as a range. The most common one is **price range** but there may be others like the apartment size, etc. You can split the pagination pages to only contain listings within that range, e.g. products costing between $10 and $20.
 
 This has several benefits:
 
@@ -67,7 +67,7 @@ Because the algorithm is recursive, we don't need to think about how big the fin
 
 ### [](#special-cases-to-look-for) Special cases to look for
 
-We have the base algorithm but before we start coding let's answer a few questions to get more insight.
+We have the base algorithm, but before we start coding, let's answer a few questions to get more insight.
 
 #### [](#can-the-ranges-overlap) Can the ranges overlap?
 
@@ -105,14 +105,14 @@ Logically, every full (price) range starts at 0 and ends at infinity. But the wa
 
 Most sites will let you start with 0 (there might be exceptions, where you will have make the start open), so we can use just that. The high end is more complicated. Because you don't know the biggest price, it is best to leave it open and handle it specially. Internally you can just assign `null` to the value.
 
-Here are few examples of a query parameter with an open and closed high end range:
+Here are few examples of a query parameter with an open and closed high-end range:
 
 - Open: `p:100-` (higher than 100), Closed: `p:100-200` (between 100 and 200)
 - Open: `min_price=100`, Closed: `min_price=100&max_price=200`
 
 #### [](#can-the-range-exceed-the-limit-on-a-single-value) Can the range exceed the limit on a single value?
 
-In very rare cases, a site will have so many listings that a single value (e.g. **$100** or **$4.99**) will include a number of listings over the limit. [The basic algorithm](#the-algorithm) will recurse until the **min** value equals the **max** value and then stop because it cannot split that single value any more.
+In very rare cases, a site will have so many listings that a single value (e.g. **$100** or **$4.99**) will include a number of listings over the limit. [The basic algorithm](#the-algorithm) will recurse until the **min** value equals the **max** value and then stop because it cannot split that single value anymore.
 
 In this rare case, you will need to add another range or other filters to combine it to get an even deeper split.
 
@@ -231,7 +231,7 @@ We have the base of the crawler set up. The last part we are missing is the pric
 
 ```javascript
 // utils.js
-module.exports.splitFilter = (filter) => {
+export function splitFilter(filter) {
     const { min, max } = filter;
     // Don't forget that max can be null and we have to handle that situation
     if (max && min > max) {
@@ -254,7 +254,7 @@ module.exports.splitFilter = (filter) => {
     };
     // We return 2 new filters
     return [filterMin, filterMax];
-};
+}
 ```
 
 #### [](#enqueue-the-filters) Enqueue the filters
@@ -283,4 +283,4 @@ await crawler.addRequests(requestsToEnqueue);
 
 And that's it. We have an elegant and simple solution for a complicated problem. In a real project, you would want to make this a bit more robust, [use logs]({{@link tutorials/analyze_pages_and_fix_errors.md#logging}}), and save analytics data. This will let you know what filters you went through and how many products each of them had.
 
-[Check out the full code example](https://github.com/metalwarrior665/apify-utils/tree/master/examples/crawler-with-filters).
+Check out the [full code example](https://github.com/metalwarrior665/apify-utils/tree/master/examples/crawler-with-filters).

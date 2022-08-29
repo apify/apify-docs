@@ -26,13 +26,13 @@ Each use case has its own minimum memory requirements. The larger and more compl
 
 - Actors using [Puppeteer](https://pptr.dev/): at least 1GB of memory.
 
-- Large and complex sites like [Google Maps](https://apify.com/drobnikj/crawler-google-places): at least 4GB for optimal speed and [concurrency](https://sdk.apify.com/docs/api/autoscaled-pool#autoscaledpoolminconcurrency).
+- Large and complex sites like [Google Maps](https://apify.com/drobnikj/crawler-google-places): at least 4GB for optimal speed and [concurrency](https://crawlee.dev/api/core/class/AutoscaledPool#minConcurrency).
 
 - Working with a large amount of data in memory.
 
 ## How much memory should you allocate?
 
-Actors built on top of the [Apify SDK](https://sdk.apify.com) use autoscaling. This means that they will always run as efficiently as they can with the memory they have allocated. So, if you allocate 2 times more memory, the run should be 2 times faster and consume the same amount of compute units ( 1 * 1 = 0.5 * 2).
+Actors built on top of the [Apify SDK](https://sdk.apify.com) and [Crawlee](https://crawlee.dev/) use autoscaling. This means that they will always run as efficiently as they can with the memory they have allocated. So, if you allocate 2 times more memory, the run should be 2 times faster and consume the same amount of compute units (1 * 1 = 0.5 * 2).
 
 A good middle ground to start is 4096 MB. If you need the results faster, increase the memory (bear in mind the [next point](#maximum-memory), though). You can also try decreasing it to lower the pressure on the target site.
 
@@ -42,7 +42,7 @@ Autoscaling only applies to solutions that run multiple tasks (URLs) for at leas
 
 Apify actors are most commonly written in [Node.js](https://nodejs.org/en/), which uses a [single process thread](https://betterprogramming.pub/is-node-js-really-single-threaded-7ea59bcc8d64). Unless you use external binaries such as the Chrome browser, Puppeteer, or other multi-threaded libraries you will not gain more CPU power from assigning your actor more than 4 GB of memory because Node.js cannot use more than 1 core.
 
-In other words, giving a simple, [Cheerio-based crawler](https://apify.com/apify/cheerio-scraper) 16GB of memory (4 CPU cores) will not make it faster because these crawlers simply cannot use more than 1 CPU core.
+In other words, giving a simple [Cheerio-based crawler](https://apify.com/apify/cheerio-scraper) 16GB of memory (4 CPU cores) will not make it faster because these crawlers simply cannot use more than 1 CPU core.
 
 > It is possible to [use multiple threads in Node.js-based actor](https://dev.to/reevranj/multiple-threads-in-nodejs-how-and-what-s-new-b23) with some configuration. This can be useful if you need to offload a part of your workload.
 
@@ -50,7 +50,8 @@ In other words, giving a simple, [Cheerio-based crawler](https://apify.com/apify
 
 ![A usage spike on an actor's start-up]({{@asset actors/images/memory-cpu-usage-spike.webp}})
 
-Sometimes, you see the actor’s CPU use go over 100%. This is not unusual. To help an actor start up faster, it is allocated a free CPU boost. For example, if an actor is assigned 1GB (25% of a core), it will temporarily be allowed to use 100% of the core so it gets started quicker.
+[//]: # (Is it still relevant though? Does it still get CPU boost?)
+Sometimes, you see the actor’s CPU use go over 100%. This is not unusual. To help an actor start up faster, it is allocated a free CPU boost. For example, if an actor is assigned 1GB (25% of a core), it will temporarily be allowed to use 100% of the core, so it gets started quicker.
 
 ## Limits
 

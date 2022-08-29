@@ -17,7 +17,7 @@ An Apify actor's input is stored in the **INPUT.json** key-value store in the ac
 
 > Note that the actor can store other values such as crawling results or screenshots of web pages under arbitrary keys.
 
-The key-value store associated with an actor run can be conveniently accessed using the [`getValue()`](https://sdk.apify.com/docs/api/apify#apifygetvaluekey) and [`setValue()`](https://sdk.apify.com/docs/api/apify#apifysetvaluekey-value-options) functions provided by the `apify` [NPM package](https://www.npmjs.com/package/apify). Internally, these functions read the ID of the key-value store from the **APIFY_DEFAULT_KEY_VALUE_STORE_ID** environment variable. They then access the key-value store using the [Apify API](https://docs.apify.com/api).
+The key-value store associated with an actor run can be conveniently accessed using the [`getValue()`](https://sdk.apify.com/api/apify/class/Actor#getValue) and [`setValue()`](https://sdk.apify.com/api/apify/class/Actor#setValue) functions of [`Actor`](https://sdk.apify.com/api/apify/class/Actor) class provided by the `apify` [NPM package](https://www.npmjs.com/package/apify). Internally, these functions read the ID of the key-value store from the **APIFY_DEFAULT_KEY_VALUE_STORE_ID** environment variable. They then access the key-value store using the [Apify API](https://docs.apify.com/api).
 
 > For more details about the key-value stores, visit the [Storage]({{@link storage.md}}) section.
 

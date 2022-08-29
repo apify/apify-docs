@@ -17,13 +17,13 @@ This article shows you the very basics of using the Apify platform. It shows you
 
 ## Run an actor
 
-**1.** Navigate to [Apify Store](https://console.apify.com/actors?tab=store) and pick any actor you like the look of. We'll pick the [Google Search Results Scraper](https://console.apify.com/actors/nFJndFXA5zjCTuudP#/information/latest/readme).
+**1.** Navigate to [Apify Store](https://console.apify.com/store) and pick any actor you like the look of. We'll pick the [Google Search Results Scraper](https://console.apify.com/actors/nFJndFXA5zjCTuudP#/information/latest/readme).
 
 ![Apify store]({{@asset tutorials/images/apify-store.webp}})
 
-**2.** On the actor's page, head over to the **Input and options** tab.
+**2.** On the actor's page, head over to the **Input** tab.
 
-Don't be put off by all the boxes - the actor is pre-configured to run without any extra input. Just click the **Run** button in the bottom-left corner, and it will start.
+Don't be put off by all the boxes - the actor is pre-configured to run without any extra input. Just click the **Start** button in the bottom-left corner.
 
 Alternatively, you can play around with the settings to make the results more interesting for you.
 
@@ -63,7 +63,9 @@ console.log('Hello world from Actor!');
 await Actor.exit();
 ```
 
-**3.** Click **▷ Run** in the **Developer console** below to build and run your actor. After the run is finished, you should see something like:
+Click **Save**.
+
+**3.** Click **Build** in the **Developer console** below to build your actor. After the build is finished, click **▷ Start** to run your actor. After the run is finished, you should see something like:
 
 ![Apify actor run log]({{@asset tutorials/images/run-log.webp}})
 
@@ -98,20 +100,21 @@ await Actor.exit();
 
 ![Apify actor run log]({{@asset tutorials/images/create-actor-set-input.webp}})
 
-**4.** Click **Run**. When the run finishes, you will see something like:
+**4.** Click **▷ Start**. When the run finishes, you will see something like:
 
 ![Apify actor run log]({{@asset tutorials/images/run-log-2.webp}})
 
-Excellent, you have just created your first actor that accepts input and stores output! Now you can start adding some magic.
+Excellent, you have just created your first actor that accepts input and logs output! Now you can start adding some magic.
 
 You can program an Apify actor to do anything one can do in the browser, from sending emails to processing vast amounts of data. For examples and inspiration, [visit Apify Store](https://apify.com/store).
 
 ### Building more advanced actors
 
-The above actor (and many others) uses the `apify` [NPM package](https://www.npmjs.com/package/apify), which simplifies the development of actors. The Apify SDK has tutorials on how you can [get started](https://sdk.apify.com/docs/guides/getting-started).
+The above actor (and many others) uses the `apify` [NPM package](https://www.npmjs.com/package/apify), which simplifies the development of actors. The Apify SDK has tutorials on how you can [get started](https://sdk.apify.com/docs/guides/getting-started). Also make sure to check out [`Crawlee`](https://crawlee.dev/) - the library containing crawling and scraping-related tools, which previously were a part of Apify SDK.
 
 If you are building your own actors, you'll probably prefer to host the source code on Git. To do that, follow these steps:
 
+[//]: # (TODO: Repo below is outdated, we should probably update the actor there too)
 1. Create a new Git repository.
 2. Copy the boilerplate actor code from the [apify/quick-start](https://github.com/apify/actor-quick-start) actor.
 3. Set **Source type** to **Git repository** for your actor in the app.
@@ -122,7 +125,7 @@ For more information, see the [Git repository]({{@link actors/development/source
 
 ## What's next?
 
-* [Try some other actors from Apify Store](https://apify.com/store).
+* Try some other actors from [Apify Store](https://apify.com/store).
 * Learn to use our main scrapers: [Web Scraper]({{@link tutorials/apify_scrapers/web_scraper.md}}), [Cheerio Scraper]({{@link tutorials/apify_scrapers/cheerio_scraper.md}}), and [Puppeteer Scraper]({{@link tutorials/apify_scrapers/puppeteer_scraper.md}}).
-* Learn more about using actors: [tasks]({{@link actors/tasks.md}}), [storages]({{@link storage.md}}), and [proxies]({{@link proxy.md}}).
-* [Set up the `apify` package on your computer](https://sdk.apify.com/docs/guides/getting-started) and [build your own actors](https://sdk.apify.com/docs/guides/quick-start) with the Apify SDK.
+* Learn more about using actors and the Apify platform: [tasks]({{@link actors/tasks.md}}), [storages]({{@link storage.md}}), and [proxies]({{@link proxy.md}}).
+* Set up the [`apify`](https://sdk.apify.com/docs/guides/getting-started) and [`crawlee`](https://crawlee.dev/docs/quick-start) packages on your computer, and build your own actors with the Apify SDK and Crawlee.

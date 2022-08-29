@@ -10,7 +10,7 @@ paths:
 
 Long-running [actor]({{@link actors.md}}) jobs may need to migrate from one server to another. Unless you save your job's progress, it will be lost during the migration. The actor will re-start from scratch on the new server, which can be costly.
 
-To avoid this, long-running actors should save (persist) their state periodically and listen for [migration events](https://sdk.apify.com/docs/api/apify#apifyevents). On start, these actors should [check for persisted state](#code-examples), so they can continue where they left off.
+To avoid this, long-running actors should save (persist) their state periodically and listen for [migration events](https://sdk.apify.com/api/apify/class/PlatformEventManager). On start, these actors should [check for persisted state](#code-examples), so they can continue where they left off.
 
 For short-running actors, the chance of a restart and the cost of repeated runs are low, so restarts can be ignored.
 
@@ -36,11 +36,11 @@ Unless instructed to save its output or state to a [storage]({{@link storage.md}
 
 ## [](#how-to-persist-state)How to persist state
 
-The [Apify SDK](https://sdk.apify.com) persists its state automatically, using the `migrating` and `persistState` [events](https://sdk.apify.com/docs/api/apify#apifyevents). `persistState` notifies SDK components to persist their state at regular intervals in case a migration happens. The `migrating` event is emitted just before a migration.
+The [Apify SDK](https://sdk.apify.com) persists its state automatically, using the `migrating` and `persistState` [events](https://sdk.apify.com/api/apify/class/PlatformEventManager). `persistState` notifies SDK components to persist their state at regular intervals in case a migration happens. The `migrating` event is emitted just before a migration.
 
 ### [](#code-examples)Code examples
 
-To persist state manually, you can use the [Apify.events](https://docs.apify.com/actors/development/state-persistence) method in the Apify SDK.
+To persist state manually, you can use the [`Actor.on`](https://sdk.apify.com/api/apify/class/Actor#on) method in the Apify SDK.
 
 ```javascript
 import { Actor } from 'apify';

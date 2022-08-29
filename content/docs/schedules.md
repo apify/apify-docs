@@ -32,13 +32,13 @@ Each schedule can be associated with a maximum of 10 actors and 10 actor tasks.
 
 Before setting up a new schedule, you should have the [actor]({{@link actors.md}}) or [task]({{@link actors/tasks.md}}) whose run you want to schedule prepared and tested.
 
-If you are planning to schedule an actor run, you need to use the actor before you can schedule any runs. Navigate to the actor's page in [Apify Store](https://apify.com/store), click the **Try for free** button, then **Run** it with your preferred settings.
+If you are planning to schedule an actor run, you need to use the actor before you can schedule any runs. Navigate to the actor's page in [Apify Store](https://apify.com/store), click the **Try for free** button, then **Start** it with your preferred settings.
 
 > Your schedule's name should be 3-63 characters long.
 
 ### From Apify Console
 
-In [Apify Console](https://console.apify.com/schedules), click on the **Schedules** button in the left side menu, then click the **Create new** button.
+In [Apify Console](https://console.apify.com/schedules), click on the **Schedules** button in the left-side menu, then click the **Create new** button.
 
 In the **Settings** tab, give your schedule a memorable name, add a description, and choose how often you would like your actor or task to run using the **Cron expression** field.
 
@@ -68,9 +68,9 @@ For integrations, you can also add a [webhook](https://docs.apify.com/webhooks) 
 
 ### Via API
 
-To [create a new schedule](https://docs.apify.com/api/v2#/reference/schedules) using the [Apify API](https://docs.apify.com/api/v2#), send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to the [create schedule](https://docs.apify.com/api/v2#/reference/schedules/schedules-collection/create-schedule) endpoint.
+To create a new [schedule](https://docs.apify.com/api/v2#/reference/schedules) using the [Apify API](https://docs.apify.com/api/v2#), send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to the [create schedule](https://docs.apify.com/api/v2#/reference/schedules/schedules-collection/create-schedule) endpoint.
 
-You can find your [secret API token]({{@link tutorials/integrations.md#api-token}}) in your Apify account's [Integrations](https://console.apify.com/account#/integrations) tab. When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](/api/v2#/introduction/authentication)).
+You can find your [secret API token]({{@link tutorials/integrations.md#api-token}}) in your Apify account's [Integrations](https://console.apify.com/account?tab=integrations) tab. When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](/api/v2#/introduction/authentication)).
 
 In the POST request's payload should be a JSON object specifying the schedule's name, your [user ID](https://console.apify.com/account#/integrations), and the schedule's **actions**.
 
@@ -107,13 +107,13 @@ For more information, see the [schedules section](https://docs.apify.com/api/v2#
 
 Schedules use [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to specify run times. A cron expression has the following structure:
 
-| Position | Field        | Values                   | Wildcards | Optional |
-| -------- | ------------ | ------------------------ | --------- | -------- |
-| 1        | second       | 0 - 59                   | , - * /   | yes      |
-| 2        | minute       | 0 - 59                   | , - * /   | no       |
-| 3        | hour         | 0 - 23                   | , - * /   | no       |
-| 4        | day of month | 1 - 31                   | , - * /   | no       |
-| 5        | month        | 1 - 12                   | , - * /   | no       |
+| Position | Field        | Values                         | Wildcards | Optional |
+|----------|--------------|--------------------------------|-----------|----------|
+| 1        | second       | 0 - 59                         | , - * /   | yes      |
+| 2        | minute       | 0 - 59                         | , - * /   | no       |
+| 3        | hour         | 0 - 23                         | , - * /   | no       |
+| 4        | day of month | 1 - 31                         | , - * /   | no       |
+| 5        | month        | 1 - 12                         | , - * /   | no       |
 | 6        | day of week  | 0 - 7 <br/> (0 or 7 is Sunday) | , - * /   | no       |
 
 For example, the expression `30 5 16 * * 1` will start an actor at 16:05:30 every Monday.
@@ -139,4 +139,4 @@ You can find more information and examples of cron expressions on [crontab.guru]
 
 ## Sharing
 
-You can invite other Apify users to view or modify your schedules using the [access rights]({{@link access_rights.md}}) system. [See the full list of permissions]({{@link access_rights/list_of_permissions.md#schedules}}).
+You can invite other Apify users to view or modify your schedules using the [access rights]({{@link access_rights.md}}) system. See the [full list of permissions]({{@link access_rights/list_of_permissions.md#schedules}}).

@@ -11,11 +11,12 @@ paths:
 
 # Publishing your actor
 
+[//]: # (TODO: This section is pretty outdated)
 Once you have finished coding and testing your actor, it's time to publish it. Go to the **Publication** tab on the actor's detail page and select the **Published** switch.
 
 ![Publish your actor in the Apify Console]({{@asset actors/publishing/images/publish.webp}})
 
-As well as a README, input schema, and a category, you'll need a **username**. You can set one on your [Profile](https://console.apify.com/account#/profile) page. Choose your username wisely, as changing it at a later stage will break any [integrations]({{@link tutorials/integrations.md}}) that use it.
+As well as a README, input schema, and a category, you'll need a **username**. You can set one on your [Account](https://console.apify.com/account?tab=settings) page. Choose your username wisely, as changing it at a later stage will break any [integrations]({{@link tutorials/integrations.md}}) that use it.
 
 ## Private or public?
 
@@ -47,5 +48,5 @@ If you leave these blank, the actor's regular title and description will be used
 
 ## Running costs when making an actor public
 
-**IMPORTANT:** Note that if you make an actor publicly available and it's used by other people, their usage is not charged towards your account. The user running the actor is always the one who pays for the computational resources consumed by an actor's execution.
+**IMPORTANT:** Note that if you make an actor publicly available, and it's used by other people, their usage is not charged towards your account. The user running the actor is always the one who pays for the computational resources consumed by an actor's execution.
 

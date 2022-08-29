@@ -18,7 +18,7 @@
         },
         {
             "cardItem": "Take a video tour of the platform",
-            "href": "https://www.youtube.com/watch?v=XPF0kbyvoOs",
+            "href": "https://www.youtube.com/watch?v=nn-bCRvhNUM",
             "isExternalLink": true
         },
         {
@@ -162,8 +162,13 @@
             "isExternalLink": true
         },
         {
-            "cardItem": "Build your first actor",
-            "href": "https://sdk.apify.com/docs/guides/quick-start",
+            "cardItem": "Meet Crawlee",
+            "href": "https://crawlee.dev/docs",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Build your first crawler",
+            "href": "https://crawlee.dev/docs/quick-start",
             "isExternalLink": true
         },
         {
@@ -172,22 +177,27 @@
         },
         {
             "cardItem": "Apify SDK API reference",
-            "href": "https://sdk.apify.com/docs/api/apify",
+            "href": "https://sdk.apify.com/api/apify",
             "isExternalLink": true
         },
         {
             "cardItem": "Actor code examples",
-            "href": "https://sdk.apify.com/docs/examples/basic-crawler",
+            "href": "https://crawlee.dev/docs/examples/basic-crawler",
             "isExternalLink": true
         },
         {
             "cardItem": "Crawl a site using Cheerio Scraper",
-            "href": "https://sdk.apify.com/docs/examples/cheerio-crawler",
+            "href": "https://crawlee.dev/docs/examples/cheerio-crawler",
             "isExternalLink": true
         },
         {
-            "cardItem": "Manage data in SDK",
-            "href": "https://sdk.apify.com/docs/guides/data-storage",
+            "cardItem": "Manage requests in SDK",
+            "href": "https://sdk.apify.com/docs/guides/request-storage",
+            "isExternalLink": true
+        },
+        {
+            "cardItem": "Manage results in SDK",
+            "href": "https://sdk.apify.com/docs/guides/result-storage",
             "isExternalLink": true
         }
     ]

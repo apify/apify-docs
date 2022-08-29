@@ -30,7 +30,7 @@ Here are the most common reasons your working solution may break.
 
 - You made a mistake when updating your code.
 
-- The code worked locally but not on the Apify [platform](https://console.apify.com).
+- The code worked locally but not on the [Apify platform](https://console.apify.com).
 
 - You have lost access to [Apify proxy]({{@link proxy.md}}) (your proxy trial is over).
 
@@ -68,11 +68,11 @@ General rules for logging:
 [CATEGORY]: Products: 20, Unique products: 4, Next page: true --- https://apify.com/store
 ```
 
-The log begins with the **page type**. Usually, we use labels such as **[CATEGORY]** and **[DETAIL]**. Then, we log important numbers and other information. Finally, we add the page's URL so we can check if the log is correct.
+The log begins with the **page type**. Usually, we use labels such as **[CATEGORY]** and **[DETAIL]**. Then, we log important numbers and other information. Finally, we add the page's URL, so we can check if the log is correct.
 
 #### [](#errors) Errors
 
-Errors require a different approach because, if your code crashes, you usual logs will not be called. Instead, exception handlers will print your error, but these are usually ugly messages with a [stack trace](https://en.wikipedia.org/wiki/Stack_trace) that only Apify experts will understand.
+Errors require a different approach because, if your code crashes, your usual logs will not be called. Instead, exception handlers will print the error, but these are usually ugly messages with a [stack trace](https://en.wikipedia.org/wiki/Stack_trace) that only Apify experts will understand.
 
 You can overcome this by adding [try/catch blocks](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch) into your code. In the catch block, explain what happened and re-throw the error (so the request is automatically retried).
 
@@ -91,7 +91,7 @@ Read more information about logging and error handling in our public wiki about 
 
 ### [](#saving-snapshots) Saving snapshots
 
-By snapshots, we mean **screenshots** if you use a [browser/Puppeteer](https://sdk.apify.com/docs/examples/screenshots) and **HTML** saved into a [key-value store]({{@link storage/key_value_store.md}}) that you can easily display in your browser. Snapshots are useful throughout your code but especially important in error handling.
+By snapshots, we mean **screenshots** if you use a [browser + Puppeteer/Playwright](https://sdk.apify.com/docs/examples/capture-screenshot) and **HTML** saved into a [key-value store]({{@link storage/key_value_store.md}}) that you can easily display in your browser. Snapshots are useful throughout your code but especially important in error handling.
 
 Note that an error can happen only in a few pages out of a thousand and look completely random. There is not much you can do other than save and analyze a snapshot.
 
@@ -107,9 +107,9 @@ Snapshots can tell you if:
 
 #### [](#how-to-save-a-snapshot) How to save a snapshot
 
-In Apify scrapers (**Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)), **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)) and **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper))), you can use their built-in `context.saveSnapshot()` function. Once called, it saves a screenshot and HTML into the run's **key-value store**.
+In Apify scrapers (**Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)), **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)), **Playwright Scraper** ([apify/playwright-scraper](https://apify.com/apify/playwright-scraper))) and **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper))), you can use their built-in `context.saveSnapshot()` function. Once called, it saves a screenshot and HTML into the run's **key-value store**.
 
-When **building your own actors** with [Puppeteer](https://pptr.dev) or the [Apify SDK](https://sdk.apify.com) package, you can use the powerful `utils.puppeteer.saveSnapshot()` [function](https://sdk.apify.com/docs/api/puppeteer#puppeteersavesnapshot). It allows you name the screenshot, so you can identify it later.
+When **building your own actors** with [Puppeteer](https://pptr.dev) or the [Apify SDK](https://sdk.apify.com) and [Crawlee](https://crawlee.dev/) packages, you can use the powerful [`puppeteerUtils.saveSnapshot()`](https://crawlee.dev/api/puppeteer-crawler/namespace/puppeteerUtils#saveSnapshot) function. It allows you to name the screenshot, so you can identify it later.
 
 [Cheerio](https://cheerio.js.org)-based actors do not have a helper function because they allow taking snapshots with a single line of code. Just save the HTML with the correct content type.
 
@@ -118,6 +118,7 @@ import { Actor } from 'apify';
 
 await Actor.init();
 // ...
+const html = $('html').html();
 await Actor.setValue('SNAPSHOT', html, { contentType: 'text/html' });
 // ...
 await Actor.exit();

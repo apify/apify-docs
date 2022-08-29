@@ -11,9 +11,9 @@ paths:
 
 # [](#residential-proxy) Residential proxy
 
-Residential proxies use IP addresses assigned by Internet Service Providers to the homes and offices of actual users. Unlike [datacenter proxies]({{@link proxy/datacenter_proxy.md}}), traffic from residential proxies is indistiguishable from that of legitimate users.
+Residential proxies use IP addresses assigned by Internet Service Providers to the homes and offices of actual users. Unlike [datacenter proxies]({{@link proxy/datacenter_proxy.md}}), traffic from residential proxies is indistinguishable from that of legitimate users.
 
-This solution allows you access to a larger pool of servers than datacenter proxy. This makes it a better option in cases when you need a large number of different IP addresses.
+This solution allows you to access a larger pool of servers than datacenter proxy. This makes it a better option in cases when you need a large number of different IP addresses.
 
 Residential proxies support [IP address rotation]({{@link proxy.md#ip-address-rotation}}) and [sessions](#session-persistence).
 
@@ -23,10 +23,10 @@ Residential proxies support [IP address rotation]({{@link proxy.md#ip-address-ro
 
 Apify provides 2 levels of residential proxy:
 
-| Level | Availability | Supported domains | Other limitations |
-|-------|--------------|-------------------|-------------------|
-| Restricted residential proxy | Every user | >500 domains | Requires [man-in-the-middle](https://crypto.stanford.edu/ssl-mitm/) access for the connection |
-| Unrestricted residential proxy | Enterprise level accounts | Entire web| None |
+| Level                          | Availability              | Supported domains   | Other limitations                                                                             |
+|--------------------------------|---------------------------|---------------------|-----------------------------------------------------------------------------------------------|
+| Restricted residential proxy   | Every user                | >500 domains        | Requires [man-in-the-middle](https://crypto.stanford.edu/ssl-mitm/) access for the connection |
+| Unrestricted residential proxy | Enterprise level accounts | Entire web          | None                                                                                          |
 
 ### [](#restricted-residential-proxy) Restricted residential proxy
 
@@ -37,7 +37,7 @@ Any traffic outside this pool of domains will go through [datacenter proxy]({{@l
 
 The second limitation is that restricted residential proxy uses the man-in-the-middle system to monitor traffic
 and activities and so requires acceptance of an [SSL certificate](https://apify.com/restricted-residential-proxy-cert.crt).
-This is automatically handled by the [Apify SDK](https://sdk.apify.com/) for both Puppeteer and Playwright. To manually check if a connection is using a man-in-the-middle connection, [head over to the Apify Proxy page](http://proxy.apify.com).
+This is automatically handled by [Apify SDK](https://sdk.apify.com/) and [Crawlee](https://crawlee.dev/) for both Puppeteer and Playwright. To manually check if a connection is using a man-in-the-middle connection, [head over to the Apify Proxy page](http://proxy.apify.com).
 
 ### [](#unrestricted-residential-proxy) Unrestricted residential proxy
 
@@ -58,13 +58,13 @@ Connecting to residential proxy works the same way as [datacenter proxy]({{@link
 
 When using [standard libraries and languages]({{@link proxy/datacenter_proxy/examples.md#using-standard-libraries-and-languages}}), specify the `groups` parameter in the [username]({{@link proxy/connection_settings.md#username-parameters}}) as `groups-RESIDENTIAL`.
 
-For example, your **proxy URL** when using the [got](https://www.npmjs.com/package/got) JavaScript library will look like this:
+For example, your **proxy URL** when using the [got-scraping](https://www.npmjs.com/package/got-scraping) JavaScript library will look like this:
 
 ```js
 const proxyUrl = 'http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000';
 ```
 
-In the [Apify SDK](https://sdk.apify.com), you set the **group** in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions):
+In the [Apify SDK](https://sdk.apify.com), you set the **group** in your [proxy configuration](https://sdk.apify.com/api/apify/interface/ProxyConfigurationOptions#groups):
 
 ```js
 import { Actor } from 'apify';
@@ -88,7 +88,7 @@ For example, your `username` parameter when using [Python 3](https://docs.python
 username = "groups-RESIDENTIAL,session-my_session,country-JP"
 ```
 
-In the [Apify SDK](https://sdk.apify.com), you set the country in your [proxy configuration](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `countryCode` parameter.
+In the [Apify SDK](https://sdk.apify.com), you set the country in your [proxy configuration](https://sdk.apify.com/api/apify/interface/ProxyConfigurationOptions#countryCode) using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `countryCode` parameter.
 
 ```js
 import { Actor } from 'apify';
@@ -130,7 +130,7 @@ When using residential proxy with the `session` [parameter]({{@link proxy.md#ses
 
 **Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info]({{@link proxy.md#sessions}})]
 
-This IP/session ID combination persists for 1 minute. Each subsequent request resets the expiration time to 1 minute.
+This IP/session ID combination is persisted for 1 minute. Each subsequent request resets the expiration time to 1 minute.
 
 If the proxy server becomes unresponsive or the session expires, a new IP address is selected for the next request.
 

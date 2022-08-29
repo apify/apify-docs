@@ -27,7 +27,7 @@ First, we need to create another actor. You can do it the same way as before - g
 
 In the page that opens, you can see your newly created actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-parser`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the actor. There are several of them, but only two are important for us now, `main.py` and `requirements.txt`.
 
-First, we'll start with the `requirements.txt` file. It's purpose is to list all the third-party packages that your actor will use. We will be using the `pandas` package for parsing the downloaded weather data, and the `matplotlib` package for visualizing it. We don't particularly care about the specific versions of these packages, so we just list them in the file:
+First, we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your actor will use. We will be using the `pandas` package for parsing the downloaded weather data, and the `matplotlib` package for visualizing it. We don't particularly care about the specific versions of these packages, so we just list them in the file:
 
 ```python
 # Add your dependencies here.
@@ -55,7 +55,7 @@ import pandas
 
 Next, we need to run the weather scraping actor and access its results. We do that through the [Apify API Client for Python]({{@link apify_client_python.md}}), which greatly simplifies working with the Apify platform and allows you to use its functions without having to call the Apify API directly.
 
-First, we initialize an `ApifyClient` instance. All the necessary arguments are automatically provided to the actor process as environment variables accessible in Python through the `os.environ` mapping. We need to run the actor from the previous tutorial, which we have named `bbc-weather-scraper`, and wait for it to finish. So, we create a subclient for working with that actor and run the actor through it. We then check whether the actor run has succeeded. If so, we create a client for working with its default dataset.
+First, we initialize an `ApifyClient` instance. All the necessary arguments are automatically provided to the actor process as environment variables accessible in Python through the `os.environ` mapping. We need to run the actor from the previous tutorial, which we have named `bbc-weather-scraper`, and wait for it to finish. So, we create a sub-client for working with that actor and run the actor through it. We then check whether the actor run has succeeded. If so, we create a client for working with its default dataset.
 
 ```python
 # Initialize the main ApifyClient instance

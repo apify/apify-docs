@@ -35,7 +35,7 @@ When crawling a website, a web scraping bot will typically send many more reques
 
 We found that two ways are used to work around rate limiting. One method is to limit how many pages on a single site are scraped concurrently, with delays possibly even being intentionally introduced (after reaching the original limit). The other method is to use proxy servers and rotate IP addresses after a certain number of requests.
 
-Apify actors are designed to reduce the workload on websites being scraped. To lower the concurrency when using the [Apify SDK](https://sdk.apify.com/docs/typedefs/basic-crawler-options#maxconcurrency), just pass the `maxConcurrency` option to your crawler's setup. If you use actors from [Apify Store](https://apify.com/store), you can usually set the maximum concurrency in the actor's input.
+Apify actors are designed to reduce the workload on websites being scraped. To lower the concurrency when using the [Apify SDK](https://sdk.apify.com/) and [Crawlee](https://crawlee.dev/api/basic-crawler/interface/BasicCrawlerOptions#maxConcurrency), just pass the `maxConcurrency` option to your crawler's setup. If you use actors from [Apify Store](https://apify.com/store), you can usually set the maximum concurrency in the actor's input.
 
 ## [](#http-request-analysis) HTTP request analysis
 
@@ -52,7 +52,7 @@ A straightforward method frequently used to circumvent HTTP request analysis is 
 
 A more efficient method used is to emulate browser HTTP request signatures even when using a low-level HTTP request library. This makes the scripted HTTP request look like a real web browser, but is much faster and more efficient. Note that we found that this method only works in situations where the page content is served directly in the first HTML response and not loaded later using [AJAX](https://en.wikipedia.org/wiki/Ajax_(programming)).
 
-To test this, we used [Apify SDK](https://sdk.apify.com), which provides a [`requestAsBrowser()` function](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) that emulates the Firefox browser's HTTP headers.
+To test this, we used [got-scraping](https://github.com/apify/got-scraping), which is sending browser-like requests out of the box.
 
 ## [](#user-behavior-analysis) User behavior analysis
 
@@ -62,7 +62,7 @@ Such data can contain the order in which pages are visited, how long the user st
 
 ## [](#browser-fingerprinting) Browser fingerprinting
 
-Websites can also use various techniques to test whether a client's web browser is being used by a human user or a robot, and even identify repeated visits of the same web browser. This is known as [browser fingerprinting](https://pixelprivacy.com/resources/browser-fingerprinting/) and it can range from very primitive JavaScript challenges to state-of-the-art browser integrity tests and behavioral analyses.
+Websites can also use various techniques to test whether a client's web browser is being used by a human user or a robot, and even identify repeated visits of the same web browser. This is known as [browser fingerprinting](https://pixelprivacy.com/resources/browser-fingerprinting/), and it can range from very primitive JavaScript challenges to state-of-the-art browser integrity tests and behavioral analyses.
 
 The tests look for things like information about your browser type and version, operating system, installed browser extensions, available fonts, timezone, among others. Combined, all this information forms a browser's “fingerprint”.
 
@@ -82,7 +82,7 @@ For example, requests from mobile devices are usually only routed through a hand
 
 To make it work, a single user session has to always be routed via the same IP address. A website can identify such user sessions based on cookies, authentication tokens or a browser HTTP signature/fingerprint.
 
-Our research into this was assisted by the [Apify SDK](https://sdk.apify.com)'s [`SessionPool`](https://sdk.apify.com/docs/api/session-pool#docsNav) class. This can be added to other Apify tools such as [actors]({{@link actors.md}}) or [proxy]({{@link proxy.md}}) but it also works outside of the Apify ecosystem.
+Our research into this was assisted by the [Crawlee](https://sdk.apify.com)'s [`SessionPool`](https://crawlee.dev/api/core/class/SessionPool) class. This can be added to other Apify tools such as [actors]({{@link actors.md}}) or [proxy]({{@link proxy.md}}), but it also works outside the Apify ecosystem.
 
 ## [](#comparing-ways-of-bypassing-scraping-protection) Comparing ways of bypassing scraping protection
 

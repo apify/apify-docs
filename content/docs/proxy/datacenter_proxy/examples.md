@@ -1,6 +1,6 @@
 ---
 title: Examples
-description: Learn how to connect to Apify's datacenter proxies from your application with Node.js (axios and got), Python 2 and 3 and PHP using code examples.
+description: Learn how to connect to Apify's datacenter proxies from your application with Node.js (axios and got-scraping), Python 2 and 3 and PHP using code examples.
 paths:
     - proxy/datacenter-proxy/nodejs-examples
     - proxy/datacenter-proxy/python-examples
@@ -15,16 +15,19 @@ This page contains code examples for connecting to [datacenter proxies]({{@link 
 
 See the [connection settings]({{@link proxy/connection_settings.md}}) page for connection parameters.
 
-## [](#using-the-apify-sdk) Using the Apify SDK
+## [](#using-the-apify-sdk-and-crawlee) Using the Apify SDK and Crawlee
 
-If you are developing your own Apify [actor]({{@link actors.md}}) using the [Apify SDK](https://sdk.apify.com), you can use Apify Proxy in:
+If you are developing your own Apify [actor]({{@link actors.md}}) using the [Apify SDK](https://sdk.apify.com) and [Crawlee](https://crawlee.dev/), you can use Apify Proxy in:
 
-* [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav) using the [createProxyConfiguration()](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) function.
-* [CheerioCrawler](https://sdk.apify.com/docs/api/cheerio-crawler#docsNav) using the [createProxyConfiguration()](https://sdk.apify.com/docs/api/apify#apifycreateproxyconfigurationproxyconfigurationoptions) function.
-* [requestAsBrowser()](https://sdk.apify.com/docs/api/utils#utilsrequestasbrowseroptions) function by specifying proxy configuration in the options.
-* [launchPuppeteer()](https://sdk.apify.com/docs/typedefs/launch-puppeteer#docsNav) by specifying the configuration in the function's options.
+* [`CheerioCrawler`](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler) by using the [`Actor.createProxyConfiguration()`](https://sdk.apify.com/api/apify/class/Actor#createProxyConfiguration) function.
+* [`PlaywrightCrawler`](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler) by using the [`Actor.createProxyConfiguration()`](https://sdk.apify.com/api/apify/class/Actor#createProxyConfiguration) function.
+* [`PuppeteerCrawler`](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler) by using the [`Actor.createProxyConfiguration()`](https://sdk.apify.com/api/apify/class/Actor#createProxyConfiguration) function.
+* [`JSDOMCrawler`](https://crawlee.dev/api/jsdom-crawler/class/JSDOMCrawler) by using the [`Actor.createProxyConfiguration()`](https://sdk.apify.com/api/apify/class/Actor#createProxyConfiguration) function.
+* [`launchPlaywright()`](https://crawlee.dev/api/playwright-crawler/function/launchPlaywright) by specifying the proxy configuration in the function's options.
+* [`launchPuppeteer()`](https://crawlee.dev/api/puppeteer-crawler/function/launchPuppeteer) by specifying the proxy configuration in the function's options.
+* [`got-scraping`](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying proxy URL in the options.
 
-The Apify SDK's [ProxyConfiguration](https://sdk.apify.com/docs/api/proxy-configuration) enables you to choose which proxies you use for all connections. You can inspect the current proxy's URL and other attributes using the [ProxyInfo](https://sdk.apify.com/docs/typedefs/proxy-info) property in your crawler's [page function](https://sdk.apify.com/docs/typedefs/cheerio-crawler-options#handlepagefunction).
+The Apify SDK's [ProxyConfiguration](https://sdk.apify.com/api/apify/class/ProxyConfiguration) enables you to choose which proxies you use for all connections. You can inspect the current proxy's URL and other attributes using the [proxyInfo](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext#proxyInfo) property of [crawling context](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext) of your crawler's [requestHandler](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlerOptions#requestHandler).
 
 ### [](#rotate-ip-addresses) Rotate IP addresses
 
@@ -131,7 +134,7 @@ await Actor.exit();
 
 Use a single IP address until it fails (gets retired).
 
-The `maxPoolSize: 1` configuration in [PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler#docsNav) means that a single IP will be used by all browsers until it fails. Then, all running browsers are retired, a new IP is selected and new browsers opened. The browsers all use the new IP.
+The `maxPoolSize: 1` specified in `sessionPoolOptions` of [PuppeteerCrawler](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler) (works the same with other crawler classes) means that a single IP will be used by all browsers until it fails. Then, all running browsers are retired, a new IP is selected and new browsers opened. The browsers all use the new IP.
 
 ```marked-tabs
 <marked-tab header="PuppeteerCrawler" lang="javascript">
@@ -243,10 +246,10 @@ await Actor.exit();
 
 ### [](#how-to-use-proxy-groups) How to use proxy groups
 
-For simplicity, the examples above use the `auto` proxy group, which selects IP addresses from all available groups.
+For simplicity, the examples above use the automatic proxy configuration (no specific proxy groups are specified), which selects IP addresses from all available groups.
 
-To use IP addresses from specific proxy groups, add a `groups` [property](https://sdk.apify.com/docs/api/proxy-configuration#docsNav)
-to `createProxyConfiguration()` and specify the group names. For example:
+To use IP addresses from specific proxy groups, add the `groups` [property](https://sdk.apify.com/api/apify/interface/ProxyConfigurationOptions#groups)
+to [`Actor.createProxyConfiguration()`](https://sdk.apify.com/api/apify/class/Actor#createProxyConfiguration) and specify the group names. For example:
 
 ```js
 import { Actor } from 'apify';
@@ -265,7 +268,7 @@ await Actor.exit();
 You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of the Apify Console.
 
 > The `username` field is **not** your Apify username.<br/>
-> Instead, you specify proxy settings (e.g. `groups-BUYPROXIES94952+GOOGLESERP`, `session-123`).<br/>
+> Instead, you specify proxy settings (e.g. `groups-BUYPROXIES94952`, `session-123`).<br/>
 > Use `auto` for default settings.
 
 For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
@@ -504,7 +507,7 @@ echo $response->getBody();
 
 ## [](#username-examples) Username examples
 
-Use randomly allocated IP addresses from the BUYPROXIES94952 group:
+Use randomly allocated IP addresses from the `BUYPROXIES94952` group:
 
 ```text
 groups-BUYPROXIES94952
@@ -522,7 +525,7 @@ Use the same IP address from the `SHADER` and `BUYPROXIES94952` groups for multi
 groups-SHADER+BUYPROXIES94952,session-new_job_123
 ```
 
-Set a session and select an IP from the `BUYPROXIES94952` group geolocated in the USA:
+Set a session and select an IP from the `BUYPROXIES94952` group located in the USA:
 
 ```text
 groups-BUYPROXIES94952,session-new_job_123,country-US

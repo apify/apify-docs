@@ -11,7 +11,7 @@ paths:
 
 Opening a page is by far the most expensive operation a scraper does. Each request has to use a precious IP address to route the traffic, then download a large HTML document (and a lot of other resources, if you use a browser) over the network (and pay for data transfer), and finally spend CPU time on parsing that HTML. Compared to that, the code you write inside the scraper itself is essentially free.
 
-If you want to reduce your scraping costs, not re-scraping certain pages is one of the best ways to do that. The number of use cases where this is possible might be quite low but you should always look for and take advantage of such situations. In this article, we will go through one typical scraping scenario and apply caching in a simple and effective way.
+If you want to reduce your scraping costs, not re-scraping certain pages is one of the best ways to do that. The number of use cases where this is possible might be quite low, but you should always look for and take advantage of such situations. In this article, we will go through one typical scraping scenario and apply caching in a simple and effective way.
 
 > In a rush? Skip the tutorial and [see the full code example](https://github.com/metalwarrior665/apify-utils/blob/master/examples/caching-page-data.js).
 
@@ -66,7 +66,7 @@ Another advantage of persisting data is that you can open the key-value store an
 
 ## [](#how-to-use-caching-in-an-e-commerce-project) How to use caching in an e-commerce project
 
-Now we have covered the base theory, we can look into applying caching to help us avoid re-scraping pages. This approach is very helpful with e-commerce marketplaces. Let's define our imaginary example project:
+Now we have covered the base theory, so we can look into applying caching to help us avoid re-scraping pages. This approach is very helpful with e-commerce marketplaces. Let's define our imaginary example project:
 
 - We need to scrape all products from an imaginary `https://marketplace.com` website.
 - Each product is offered by one seller and the product page links to the seller page.

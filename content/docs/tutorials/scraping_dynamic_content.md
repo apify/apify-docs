@@ -8,28 +8,28 @@ paths:
 
 # Scraping dynamic content
 
-Many websites load data in the background via [XHR requests]({{@link web_scraping_101/web_scraping_techniques.md#xhrs}}). These are usually tracking data, ads and other content that may not be essential for the website to load or is useful to collect periodically. Sometimes, though it may contain actual core page data that you need.
+Many websites load data in the background via [XHR requests]({{@link web_scraping_101/web_scraping_techniques.md#xhrs}}). These are usually tracking data, ads and other content that may not be essential for the website to load or is useful to collect periodically. Sometimes though, it may contain actual core page data that you need.
 
 ## [](#quick-summary) Quick summary
 
-Use these helper functions to wait for data. Pass in time in milliseconds or the [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) to wait for.
+Use these helper functions to wait for the data. Pass in time in milliseconds or the [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) to wait for.
 
-* `page.waitForTimeout` or `page.waitForSelector` in [Puppeteer](https://pptr.dev) (or **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper))).
+* `page.waitForTimeout` or `page.waitForSelector` in [Puppeteer](https://pptr.dev) (or **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper))).
 E.g. `await page.waitForTimeout(10000)` - waits for 10 seconds.
 
 * `context.waitFor` in **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)).
-E.g. `await context.waitFor('my-selector')` - waits for `my-selector`  to appear on the page.
+E.g. `await context.waitFor('my-selector')` - waits for `my-selector` to appear on the page.
 
 ## [](#how-page-loading-works) How page loading works
 
 Before looking at code examples that solve this problem, let's review what the page loading process looks like.
 
-1. **HTML document is loaded** (`domcontentloaded` event). This document contains the HTML as it was rendered on the website server. It also includes all the JavaScript that is executed and rendered in the next step. This HTML is what you get when you use [http-request](https://www.npmjs.com/package/@apify/http-request) or **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)) ([CheerioCrawler](https://sdk.apify.com/docs/api/cheerio-crawler) class).
+1. **HTML document is loaded** (`domcontentloaded` event). This document contains the HTML as it was rendered on the website server. It also includes all the JavaScript that is executed and rendered in the next step. This HTML is what you get when you use [got-scraping](https://www.npmjs.com/package/got-scraping) or **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)) ([CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler) class).
 
-2. **JavaScript is executed and rendered** (`load` event). The page is fully rendered, but may still lack dynamically loaded data.
+2. **JavaScript is executed and rendered** (`load` event). The page is fully rendered, but may still lack dynamically loaded data.
 
-3. **Network XHR requests are loaded and rendered** (`networkidle0` or `networkidle2` events). Some websites load essential data this way. The execution of these requests may depend on user behavior like in [infinite scroll](https://www.smashingmagazine.com/2013/05/infinite-scrolling-lets-get-to-the-bottom-of-this/).
-This is when you use Web Scraper or Puppeteer Scraper ([PuppeteerCrawler](https://sdk.apify.com/docs/api/puppeteer-crawler) class) to get the page. Be careful that pages often track you with additional requests and the load may never end.
+3. **Network XHR requests are loaded and rendered** (`networkidle0` or `networkidle2` events). Some websites load essential data this way. The execution of these requests may depend on user behavior like in [infinite scroll](https://www.smashingmagazine.com/2013/05/infinite-scrolling-lets-get-to-the-bottom-of-this/).
+This is when you use Web Scraper or Puppeteer Scraper ([PuppeteerCrawler](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler) class) to get the page. Be careful that pages often track you with additional requests and the load may never end.
 
 ## [](#how-to-wait-for-dynamic-content) How to wait for dynamic content
 
@@ -43,19 +43,19 @@ But even if data are rendered via JavaScript or loaded dynamically, there are ad
 
 ### [](#web-scraper-puppeteer-scraper-puppeteer) Web Scraper / Puppeteer Scraper / Puppeteer
 
-In 95% of cases, the JavaScript-rendered page that you get with Puppeteer is enough. If you actually need to wait for the dynamic content, Puppeteer has [several helper functions](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagewaitforselectororfunctionortimeout-options-args), of which the most important are: `page.waitForTimeout`, `page.waitForSelector`, `page.waitForResponse`, `page.waitForNavigation` and `page.waitForFunction`.
+In 95% of cases, the JavaScript-rendered page that you get with Puppeteer is enough. If you actually need to wait for the dynamic content, Puppeteer has several helper functions, of which the most important are: [`page.waitForTimeout`](https://pptr.dev/api/puppeteer.page.waitfortimeout), [`page.waitForSelector`](https://pptr.dev/api/puppeteer.page.waitforselector), [`page.waitForResponse`](https://pptr.dev/api/puppeteer.page.waitforresponse), [`page.waitForNavigation`](https://pptr.dev/api/puppeteer.page.waitfornavigation) and [`page.waitForFunction`](https://pptr.dev/api/puppeteer.page.waitforfunction).
 
 ### [](#waitfor-function) waitFor function
 
-This function can be found as `context.waitFor` in [Web Scraper](https://apify.com/apify/web-scraper#page-function) where it is a generic function that has three possible arguments.
+This function can be found as `context.waitFor` in [Web Scraper](https://apify.com/apify/web-scraper#page-function) where it is a generic function that has three possible arguments.
 
 * **Number of milliseconds** - `await context.waitFor(10000)`. The same as `page.waitForTimeout` (will wait for 10 seconds).
 
-* **Selector string** - `await context.waitFor('my-selector')`. The same as `page.waitForSelector` (will wait until that selector appears on the page but timeouts after 30 seconds with an error).
+* **Selector string** - `await context.waitFor('my-selector')`. The same as `page.waitForSelector` (will wait until that selector appears on the page but timeouts after 30 seconds with an error).
 
 * **Predicate function** - `await context.waitFor(functionThatReturnsTrueOrFalse)`. The same as `page.waitForFunction` (you can pass an arbitrary function that is executed periodically and the code waits until it returns `true`).
 
-With newer versions of [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pagewaitforselectorselector-options) you have to use dedicated functions like `page.waitForTimeout`, `page.waitForSelector` or `page.waitForFunction`.
+With Puppeteer, you have to use dedicated functions like `page.waitForTimeout`, `page.waitForSelector` or `page.waitForFunction`.
 
 ### [](#testing-it) Testing it
 
@@ -69,7 +69,7 @@ By default, `waitFor` times out after 30 seconds with an error. Usually, this me
 
 Most of the time, if the selector doesn't load in the first 5 seconds, it won't load at all. You can prevent wasteful waiting by changing the timeout to `await context.waitFor('my-selector', { timeout: 10000 })`.
 
-The `waitFor` (the selector version) will throw an error once it reaches the timeout. That is usually a good thing because you don't want this to go unnoticed. But if the data are not too important or you want to fall back to some other solution, you can easily catch the waiting error:
+The `waitFor` (the selector version) will throw an error once it reaches the timeout. That is usually a good thing because you don't want this to go unnoticed. But if the data are not too important, or you want to fall back to some other solution, you can easily catch the waiting error:
 
 ```javascript
 await page.waitForSelector('my-selector', { timeout: 10000 })
@@ -112,11 +112,11 @@ Sometimes, it may be handy to work directly with the XHR request's response.
 
 * It may contain nicely structured [JSON data]({{@link web_scraping_101/web_scraping_techniques.md#xhrs}}).
 
-Keep in mind that `waitForResponse` is not included in `waitFor` cases, so it does not work in Web Scraper. If you are interested in exploring the responses, you can look through them in your browser's developer console. In Firefox and Chrome, it is the **Network** tab with the **XHR** filter selected.
+Keep in mind that `waitForResponse` is not included in `waitFor` cases, so it does not work in Web Scraper. If you are interested in exploring the responses, you can look through them in your browser's developer console. In Firefox and Chrome, it is the **Network** tab with the **XHR** filter selected.
 
 ![The Network tab in a browser]({{@asset tutorials/images/network-tab.webp}})
 
-We can catch this response by checking for its URL and method (we have to do it since the same URL is included in the OPTIONS method). We return `true` or `false` depending if it is the response we want. `waitForResponse` will even give us the response back.
+We can catch this response by checking for its URL and method (we have to do it since the same URL is included in the OPTIONS method). We return `true` or `false` depending on whether it is the response we want. `waitForResponse` will even give us the response back.
 
 ```javascript
 const responseChooser = async (response) => {
@@ -130,7 +130,7 @@ const responseChooser = async (response) => {
 const correctResponse = await page.waitForResponse(responseChooser);
 ```
 
- Now, we simply extract the JSON.
+Now, we simply extract the JSON.
 
 ```javascript
 const data = await correctResponse.json();

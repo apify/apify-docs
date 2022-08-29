@@ -19,7 +19,7 @@ You can see each actor run's exact CU usage under the **Info** tab in the run's 
 
 ![An actor run's platform usage]({{@asset actors/images/actor-usage.webp}})
 
-You can [find a summary of your overall platform and CU usage](https://console.apify.com/billing-new) in the **Billing** section of the Apify Console.
+You can [find a summary of your overall platform and CU usage](https://console.apify.com/billing) in the **Billing** section of the Apify Console.
 
 ## How are CUs calculated?
 
@@ -37,7 +37,7 @@ For running actors, you are charged for each CU you use. The amount charged depe
 
 ## Example use cases
 
-All of the use cases below (and many more) are measured with the same predictable unit - the CU.
+All the use cases below (and many more) are measured with the same predictable unit - the CU.
 
 - Scraping 10 million pages with a one week-long scrape every month.
 
@@ -45,7 +45,7 @@ All of the use cases below (and many more) are measured with the same predictabl
 
 - Running a one-page scraper every 5 seconds.
 
-- A complex system with many different actors integrated and produce high value data combined from many sources.
+- A complex system with many different actors integrated and producing high-value data combined from many sources.
 
 - Running an actor as a server.
 
@@ -77,8 +77,9 @@ The factors, in order of importance, are:
 
 Most actors in [Apify Store](https://apify.com/store) have some information in their README about how many CUs they consume per certain amount of data scraped.
 
-If you read that you can scrape 1000 pages of data for 1 CU and you want to scrape approximately 2 million of them monthly, that means you need 2000 CUs monthly and should [subscribe to the Business plan](https://console.apify.com/billing-new#/subscription).
+[//]: # (TODO: It's pretty outdated, we now have platform credits in pricing)
+[//]: # (If you read that you can scrape 1000 pages of data for 1 CU and you want to scrape approximately 2 million of them monthly, that means you need 2000 CUs monthly and should [subscribe to the Business plan]&#40;https://console.apify.com/billing-new#/subscription&#41;.)
 
-If the actor doesn't have this information, or you want to use your own solution, just run your solution like you want to use it long term. Let's say that you want to scrape the data **every hour for the whole month**. You set up a reasonable memory allocation like 4096 MB and the whole run takes 15 minutes. That should consume 1 CU (4 * 0.25 = 1). Now, you just need to multiply that by the number of hours in the day and by the number of days in the month and you get an estimated usage of 720 (1 * 24 * 30) CUs monthly.
+If the actor doesn't have this information, or you want to use your own solution, just run your solution like you want to use it long term. Let's say that you want to scrape the data **every hour for the whole month**. You set up a reasonable memory allocation like 4096 MB and the whole run takes 15 minutes. That should consume 1 CU (4 * 0.25 = 1). Now, you just need to multiply that by the number of hours in the day and by the number of days in the month, and you get an estimated usage of 720 (1 * 24 * 30) CUs monthly.
 
 **[See our article on estimating consumption](https://help.apify.com/en/articles/3470975-how-to-estimate-compute-unit-usage-for-your-project) for more details.**

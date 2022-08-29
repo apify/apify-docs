@@ -13,7 +13,7 @@ Web scraping is not limited to the JavaScript world. The Python ecosystem contai
 
 This tutorial shows you how to write a Python [actor]({{@link actors.md}}) for scraping the weather forecast from [BBC Weather](https://www.bbc.com/weather). We also have an accompanying tutorial for [how to process the scraped data]({{@link tutorials/process_data_using_python.md}}) using [Pandas](https://pandas.pydata.org/).
 
-> In a rush? Skip this tutorial and [get the full code example](https://github.com/apify/apify-docs/tree/master/examples/python-data-scraper/).
+> In a rush? Skip this tutorial and get the [full code example](https://github.com/apify/apify-docs/tree/master/examples/python-data-scraper/).
 
 ## Exploring the BBC Weather page
 
@@ -23,7 +23,7 @@ BBC Weather offers you the weather forecast for the upcoming 14 days for a large
 
 First, we need to look around the BBC Weather page and understand how the weather data is being retrieved and presented. If we open the [BBC Weather](https://www.bbc.com/weather) page and search for Prague, we can see that it opened a page with a URL ending in a seven-digit number, which we can assume is the ID of the displayed location BBC Weather uses internally. Opening a different location changes only that number in the URL, confirming our assumptions.
 
-The page shows the weather forecast for the upcoming 14 days. If we hover over the days in the displayed carousel, we can see that the link for each day leads to an URL ending with `/day{X}`, with `{X}` representing how many days in the future the specific day is.
+The page shows the weather forecast for the upcoming 14 days. If we hover over the days in the displayed carousel, we can see that the link for each day leads to a URL ending with `/day{X}`, with `{X}` representing how many days in the future the specific day is.
 
 Combining this information gives us the full format for the URL of a page for a given location and day: `https://www.bbc.com/weather/{LOCATION_ID}/day{DAY_OFFSET}`.
 
@@ -122,7 +122,7 @@ To get the necessary data, we will need to find the elements in which it is cont
 
 First, we extract the timezone from the second element with class `wr-c-footer-timezone__item`. The timezone information is described there with a full sentence, but we're only interested in the numerical representation of the timezone offset, so we parse it out using a regular expression. With the timezone offset parsed, we can construct a `timezone` object and from that get the current datetime at the location.
 
-Afterwards, we can figure out which date is represented by the first displayed day. We find the element with the class `wr-day--active` containing the header for the currently displayed day, In it we find the element with the title of that day, which has the class `wr-day__title`. This element has the accessibility label containing the actual date of the day in its `aria-label` attribute, but it contains only the day and month and not the year, so we can't use it directly. Instead, to get the full date of the first displayed day, we compare the day from the accessibility label and the day from the current datetime at the location. If they match, we know the first displayed date is the current date at the location. If they don't, we know the first displayed date is the day before the current date at the location.
+Afterwards, we can figure out which date is represented by the first displayed day. We find the element with the class `wr-day--active` containing the header for the currently displayed day. Inside it, we find the element with the title of that day, which has the class `wr-day__title`. This element has the accessibility label containing the actual date of the day in its `aria-label` attribute, but it contains only the day and month and not the year, so we can't use it directly. Instead, to get the full date of the first displayed day, we compare the day from the accessibility label and the day from the current datetime at the location. If they match, we know the first displayed date is the current date at the location. If they don't, we know the first displayed date is the day before the current date at the location.
 
 ```python
         # When parsing the first day, find out what day it represents,
@@ -188,7 +188,7 @@ Finally, we can put all the extracted information together and push them to the 
 
 As the last step, we need to store the scraped data in a dataset on the Apify platform, so that we can access it later. We do that through the [Apify API Client for Python]({{@link apify_client_python.md}}), which greatly simplifies working with the Apify platform and allows you to use its functions without having to call the Apify API directly.
 
-First, we initialize an `ApifyClient` instance. All the necessary arguments are automatically provided to the actor process as environment variables accessible in Python through through the `os.environ` mapping. We will save the data into the default dataset belonging to the actor run, so we create a subclient for working with that dataset, and push the data into it using its `.push_items(...)` method.
+First, we initialize an `ApifyClient` instance. All the necessary arguments are automatically provided to the actor process as environment variables accessible in Python through the `os.environ` mapping. We will save the data into the default dataset belonging to the actor run, so we create a sub-client for working with that dataset, and push the data into it using its `.push_items(...)` method.
 
 ```python
 # Initialize the main ApifyClient instance
