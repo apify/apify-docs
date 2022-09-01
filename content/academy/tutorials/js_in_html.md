@@ -14,15 +14,15 @@ The advantages of using these objects instead of parsing the HTML are that parsi
 
 > **Note:** In this tutorial, we'll be using [SoundCloud's website](https://soundcloud.com) as an example target, but the techniques described here can be applied to any site.
 
-## [](#locating-json-in-html) Locating JSON objects within `<script>` tags
+## [](#locating-json-in-html) Locating JSON objects within script tags
 
 Using our DevTools, we can inspect our [target page](https://soundcloud.com/tiesto/tracks), or right click the page and click **View Page Source** to see the DOM. Next, we'll find a value on the page that we can predict would be in a potential API response. For our page, we'll use the **Tracks** count of `845`. On the **View Page Source** page, we'll do **⌘** + **F** and type in this value, which will show all matches for it within the DOM. This method can expose `<script>` tag objects which hold the target data.
 
-![Find the value within the DOM using CMD + F]({{@asset web_scraping_for_beginners/data_collection/images/view-845.webp}})
+![Find the value within the DOM using CMD + F]({{@asset tutorials/images/view-845.webp}})
 
 These data objects will usually be attached to the window object (often prefixed with two underscores - `__`). When scrolling to the beginning of the script tag on our **View Page Source** page, we see that the name of our target object is `__sc_hydration`. Heading back to DevTools and typing this into the console, the object is displayed.
 
-![View the target data in the window object using the console in DevTools]({{@asset web_scraping_for_beginners/data_collection/images/view-object-in-window.webp}})
+![View the target data in the window object using the console in DevTools]({{@asset tutorials/images/view-object-in-window.webp}})
 
 ## [](#parsing-objects) Parsing
 
@@ -52,7 +52,3 @@ console.log(data)
 ```
 
 Which of these methods you use totally depends on the type of crawler you are using. Grabbing the data directly from the `window` object within the context of the browser using Puppeteer is of course the most reliable solution; however, it is less performant than making a static HTTP request and parsing the object directly from the downloaded HTML.
-
-## [](#next) Next up
-
-Next up are the [**Basics of crawling**]({{@link web_scraping_for_beginners/crawling.md}}), where we will learn how to move between web pages and scrape data from all of them. We will build a scraper that first collects all the products on [Fakestore](https://demo-webstore.apify.org/), and then crawls each of them to scrape the data for each product separately.
