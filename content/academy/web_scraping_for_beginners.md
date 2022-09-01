@@ -42,6 +42,28 @@ You don't need to be a developer or a software engineer to complete this course,
 
 As you progress to the more advanced courses, the coding will get more challenging, but will still be manageable to a person with an intermediate level of programming skills.
 
+Ideally, you should have at least a moderate understanding of the following concepts:
+
+### [](#javascript-and-node) JavaScript + Node.js
+
+It is recommended to understand at least the fundamentals of JavaScript and be proficient with Node.js prior to developing an actor on the Apify platform. If you are not yet comfortable with asynchronous programming (with promises and `async...await`), loops (and the different types of loops in JavaScript), modularity, or working with external packages, we would recommend studying the following resources before coming back and continuing this section:
+
+* [`async...await` (YouTube)](https://www.youtube.com/watch?v=vn3tm0quoqE&ab_channel=Fireship)
+* [JavaScript loops (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+* [Modularity in Node.js](https://www.section.io/engineering-education/how-to-use-modular-patterns-in-nodejs/)
+
+### [](#general-web-development) General web development
+
+Throughout the next lessons, we will sometimes use certain technologies and terms related to the web without explaining them. This is because the knowledge of them will be **assumed** (unless we're showing something out of the ordinary).
+
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [HTTP protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP)
+* [DevTools]({{@link web_scraping_for_beginners/data_collection/browser_devtools.md}})
+
+### [](#jquery-or-cheerio) jQuery or Cheerio
+
+We'll be using the [`cheerio`](https://www.npmjs.com/package/cheerio) package a whole lot to parse data from HTML. This package provides a simple API using jQuery syntax to help traverse downloaded HTML within Node.js.
+
 ## [](#next) Next up
 
 The course begins with a small bit of theory and moves into some realistic and practical examples of collecting data from the most popular websites on the internet using your browser console. So [let's get to it!]({{@link web_scraping_for_beginners/introduction.md}})
