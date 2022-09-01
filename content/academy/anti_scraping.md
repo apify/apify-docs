@@ -89,6 +89,6 @@ One of the most successful and advanced methods is collecting the browser's "fin
 
 > It's important to note that this method also blocks all users that cannot evaluate JavaScript (such as bots sending only static HTTP requests), and combines both of the fundamental methods mentioned earlier.
 
-## [](#next) Next up
+## [](#first) First up
 
 In our [first section]({{@link anti_scraping/techniques.md}}), we'll be discussing more in-depth about the various anti-scraping methods and techniques websites use, as well as how to mitigate these protections.
