@@ -41,6 +41,6 @@ Part of this course will be learning more in-depth about actors; however, some b
 
 ## [](#next) Next up
 
-[Next up]({{@link expert_scraping_with_apify/crawlee.md}}), we'll be learning in-depth about the most important tool in your actor-development toolbelt: The **Crawlee**.
+[Next up]({{@link expert_scraping_with_apify/actors_webhooks.md}}), we'll be learning in-depth about integrating actors with each other using webhooks.
 
 > Each lesson will have a short _(and optional)_ quiz that you can take at home to test your skills and knowledge related to the lesson's content. Some questions have straight factual answers, but some others can have varying opinionated answers.

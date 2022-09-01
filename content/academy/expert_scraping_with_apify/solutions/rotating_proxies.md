@@ -1,7 +1,7 @@
 ---
-title: VII - Rotating proxies/sessions
+title: VI - Rotating proxies/sessions
 description: Learn first hand how to rotate proxies and sessions in order to avoid the majority of the most common anti-scraping protections.
-menuWeight: 7
+menuWeight: 6
 paths:
     - expert-scraping-with-apify/solutions/rotating-proxies
 ---

@@ -1,7 +1,7 @@
 ---
-title: II - Webhooks & advanced actor overview
+title: I - Webhooks & advanced actor overview
 description: Learn more advanced details about actors, how they work, and the default configurations they can take. Also learn how to integrate your actor with webhooks.
-menuWeight: 6.2
+menuWeight: 6.1
 paths:
     - expert-scraping-with-apify/actors-webhooks
 ---
@@ -12,7 +12,9 @@ Thus far, you've run actors on the platform and written an actor of your own, wh
 
 ## [](#advanced-actors) Advanced actor overview
 
-Take another look at the files within your project from the previous lesson. You'll notice that there is a **Dockerfile**. Every single actor has a Dockerfile (the actor's **Image**) which tells Docker how to spin up a container on the Apify platform which can successfully run the actor's code. "Apify Actors" is basically just a serverless platform that is running multiple Docker containers. For a deeper understanding of actor Dockerfiles, refer to the [Apify actor Dockerfile docs](https://sdk.apify.com/docs/guides/docker-images#example-dockerfile).
+In this course, we'll be working out of the Amazon scraper project from the **Web scraping for beginners** course. If you haven't already built that project, you can do it in three short lessons [here]({{@link web_scraping_for_beginners/challenge.md}}).
+
+Take another look at the files within your Amazon scraper project. You'll notice that there is a **Dockerfile**. Every single actor has a Dockerfile (the actor's **Image**) which tells Docker how to spin up a container on the Apify platform which can successfully run the actor's code. "Apify Actors" is basically just a serverless platform that is running multiple Docker containers. For a deeper understanding of actor Dockerfiles, refer to the [Apify actor Dockerfile docs](https://sdk.apify.com/docs/guides/docker-images#example-dockerfile).
 
 ## [](#webhooks) Webhooks
 
