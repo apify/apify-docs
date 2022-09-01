@@ -94,6 +94,6 @@ const decoded = Buffer.from(value, 'base64').toString('utf-8')
 console.log(decoded)
 ```
 
-## [](#next) Next up
+## [](#first) First up
 
 Get started with this course by learning some general knowledge about API scraping in the [General API Scraping]({{@link api_scraping/general_api_scraping.md}}) section! This section will teach you everything you need to know about scraping APIs before moving into more complex sections.
