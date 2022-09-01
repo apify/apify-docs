@@ -17,37 +17,15 @@ Before developing a pro-level Apify scraper, there are some important things you
 
 > If you've already gone through the [Web scraping for beginners course]({{@link web_scraping_for_beginners.md}}) and the first lessons of the [Apify platform course]({{@link apify_platform.md}}), you will be more than well equipped to continue on with the lessons in this course.
 
-### [](#javascript-and-node) JavaScript + Node.js
+<!-- ### [](#puppeteer-playwright) Puppeteer/Playwright
 
-It is recommended to understand at least the fundamentals of JavaScript and be proficient with Node.js prior to developing an actor on the Apify platform. If you are not yet comfortable with asynchronous programming (with promises and `async...await`), loops (and the different types of loops in JavaScript), modularity, or working with external packages, we would recommend studying the following resources before coming back and continuing this section:
-
-- [`async...await` (YouTube)](https://www.youtube.com/watch?v=vn3tm0quoqE&ab_channel=Fireship)
-- [JavaScript loops (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
-- [Modularity in Node.js](https://www.section.io/engineering-education/how-to-use-modular-patterns-in-nodejs/)
-
-### [](#general-web-development) General web development
-
-Throughout the next lessons, we will sometimes use certain technologies and terms related to the web without explaining them. This is because the knowledge of them will be **assumed** (unless we're showing something out of the ordinary).
-
-- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- [HTTP protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP)
-- [DevTools]({{@link web_scraping_for_beginners/data_collection/browser_devtools.md}})
-
-### [](#jquery-or-cheerio) jQuery or Cheerio
-
-We'll be using the [`cheerio`](https://www.npmjs.com/package/cheerio) package a whole lot to parse data from HTML. This package provides a simple API using jQuery syntax to help traverse downloaded HTML within Node.js.
-
-### [](#puppeteer-playwright) Puppeteer/Playwright
-
-[Puppeteer](https://pptr.dev/) is a library for running and controlling a [headless browser]({{@link web_scraping_for_beginners/crawling/headless_browser.md}}) in Node.js, and was developed at Google. The team working on it was hired by Microsoft to work on the [Playwright](https://playwright.dev/) project; therefore, many parallels can be seen between both the `puppeteer` and `playwright` packages. Proficiency in at least one of these will be good enough.
+[Puppeteer](https://pptr.dev/) is a library for running and controlling a [headless browser]({{@link web_scraping_for_beginners/crawling/headless_browser.md}}) in Node.js, and was developed at Google. The team working on it was hired by Microsoft to work on the [Playwright](https://playwright.dev/) project; therefore, many parallels can be seen between both the `puppeteer` and `playwright` packages. Proficiency in at least one of these will be good enough. -->
 
 ### [](#crawlee-apify-sdk-and-cli) Crawlee, Apify SDK, and the Apify CLI
 
 If you're feeling ambitious, you don't need to have any prior experience with Crawlee to get started with this course; however, at least 5-10 minutes of exposure is recommended. If you haven't yet tried out Crawlee, you can refer to [this lesson]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) in the **Web scraping for beginners** course (and ideally follow along). To familiarize with the Apify SDK,you can refer to the [Apify Platform]({{@link apify_platform.md}}) course.
 
 The Apify CLI will play a core role in the running and testing of the actor you will build, so if you haven't gotten it installed already, please refer to [this short lesson]({{@link tools/apify_cli.md}}).
-
-<!-- todo: remove all requirements up to this point -->
 
 ### [](#git) Git
 
