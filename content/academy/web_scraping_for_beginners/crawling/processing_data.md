@@ -128,6 +128,6 @@ writeFileSync('dataset.xlsx', xlsx);
 
 It doesn't even have to be a dataset created by Crawlee. You can use this method to convert any JSON array to a CSV, XLSX, and so on.
 
-# [](#next) Next up
+## [](#wrap-up) Wrap up 💥
 
-In our [next lesson]({{@link web_scraping_for_beginners/crawling/dealing_with_dynamic_pages.md}}), we'll be taking an in-depth look at what dynamic content is, and how to scrape it reliably.
+And this is it for the [Basics of crawling section]({{@link web_scraping_for_beginners/crawling.md}}) of the [Web scraping for beginners]({{@link web_scraping_for_beginners.md}}) course. For now, this is also the last section of the **Web scraping for beginners** course. If you want to learn more about web scraping, we recommend checking venturing out and following the other lessons in the Academy. We will keep updating the Academy with more content regularly until we cover all the advanced and expert topics we promised at the beginning.

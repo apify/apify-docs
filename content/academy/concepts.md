@@ -7,7 +7,7 @@ paths:
     - concepts
 ---
 
-# [](#concepts) Concepts
+# [](#concepts) Concepts 🤔
 
 There are some terms and concepts you'll see frequently repeated throughout various courses in the academy. Many of these concepts are common, and even fundamental in the scraping world, which makes it necessary to explain them to our course-takers; however it would be inconvenient for our readers to explain these terms each time they appear in a lesson.
 

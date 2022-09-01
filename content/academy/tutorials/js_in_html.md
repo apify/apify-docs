@@ -1,9 +1,9 @@
 ---
 title: JavaScript objects in HTML
 description: Learn about "hidden" data found within the JavaScript of certain pages, which can increase the scraper reliability and improve your development experience.
-menuWeight: 9
+menuWeight: 2
 paths:
-    - web-scraping-for-beginners/data-collection/js-in-html
+    - tutorials/js-in-html
 ---
 
 # [](#what-is-js-in-html) What is JS in HTML?

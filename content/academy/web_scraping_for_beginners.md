@@ -32,39 +32,18 @@ This is what you'll learn in the **Web scraping for beginners** course:
   * [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}})
   * [Best practices]({{@link web_scraping_for_beginners/best_practices.md}})
 
-<!-- Other courses and lessons (coming soon) in the Academy:
-
-* [API scraping]({{@link api_scraping.md}})
-  * [General API Scraping]({{@link api_scraping/general_api_scraping.md}})
-    * [Locating API Endpoints]({{@link api_scraping/general_api_scraping/locating_and_learning.md}})
-    * [Cookies, Headers, and Tokens]({{@link api_scraping/general_api_scraping/cookies_headers_tokens.md}})
-    * Emulating API pagination
-  * [GraphQL Scraping]({{@link api_scraping/graphql_scraping.md}})
-    * [Introspection]({{@link api_scraping/graphql_scraping/introspection.md}})
-    * [Modifying variables]({{@link api_scraping/graphql_scraping/modifying_variables.md}})
-* [Anti-scraping protections]({{@link anti_scraping.md}})
-  * [Proxies]({{@link anti_scraping/mitigation/proxies.md}})
-  * Captchas and human behavior
-  * Web application firewalls
-* Apify Platform
-  * Getting started
-  * Apify CLI
-* Expert topics
-  * Mobile app scraping
-  * Overcoming result limits -->
-
 > We release course content as soon as we write it instead of launching it all at the same time much later. If you want to get notified about new lessons in the academy, [sign up for a free Apify account](https://console.apify.com/sign-up?asrc=developers_portal) to get our newsletters.
 
 ## [](#requirements) Requirements
 
-You don't need to be a developer or a software engineer to complete this course, but basic programming knowledge is recommended. Don't be afraid, though. We explain everything in great detail in the **Web scraping for beginners** course and provide external references that can help you level up your web scraping and development skills. If you're new to programming, pay very close attention to the instructions and examples. A seemingly insignificant thing like using `[]` instead of `()` can make a lot of difference.
+You don't need to be a developer or a software engineer to complete this course, but basic programming knowledge is recommended. Don't be afraid, though. We explain everything in great detail in the this course and provide external references that can help you level up your web scraping and development skills. If you're new to programming, pay very close attention to the instructions and examples. A seemingly insignificant thing like using `[]` instead of `()` can make a lot of difference.
 
-> If you don't already have basic programming knowledge and would like to be well-prepared for this course, we recommend taking a [JavaScript course](https://www.codecademy.com/learn/introduction-to-javascript) and learning about [CSS Selectors](https://www.w3schools.com/css/css_selectors.asp).
+> If you don't already have basic programming/web development knowledge and would like to be well-prepared for this course, we recommend taking a [JavaScript course](https://www.codecademy.com/learn/introduction-to-javascript) and learning about [CSS Selectors](https://www.w3schools.com/css/css_selectors.asp).
 
-As you progress to the Advanced and Pro courses, the coding will get more challenging, but still manageable to a person with an intermediate level of programming skills.
+As you progress to the more advanced courses, the coding will get more challenging, but will still be manageable to a person with an intermediate level of programming skills.
 
 ## [](#next) Next up
 
-The course begins with short theory and continues with practical examples of collecting data from the most popular websites on the internet using your browser console. So [let's get to it!]({{@link web_scraping_for_beginners/introduction.md}})
+The course begins with a small bit of theory and moves into some realistic and practical examples of collecting data from the most popular websites on the internet using your browser console. So [let's get to it!]({{@link web_scraping_for_beginners/introduction.md}})
 
 > If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}}) section.
