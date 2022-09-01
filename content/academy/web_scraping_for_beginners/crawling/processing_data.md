@@ -128,6 +128,6 @@ writeFileSync('dataset.xlsx', xlsx);
 
 It doesn't even have to be a dataset created by Crawlee. You can use this method to convert any JSON array to a CSV, XLSX, and so on.
 
-## [](#wrap-up) Wrap up 💥
+## [](#next) Next up
 
-And this is it for the [Basics of crawling section]({{@link web_scraping_for_beginners/crawling.md}}) of the [Web scraping for beginners]({{@link web_scraping_for_beginners.md}}) course. For now, this is also the last section of the **Web scraping for beginners** course. If you want to learn more about web scraping, we recommend checking venturing out and following the other lessons in the Academy. We will keep updating the Academy with more content regularly until we cover all the advanced and expert topics we promised at the beginning.
+And this is it for the [**Basics of crawling**]({{@link web_scraping_for_beginners/crawling.md}}) section of the [**Web scraping for beginners**]({{@link web_scraping_for_beginners.md}}) course. But that's not all! If you're feeling up for it, test your knowledge of the methods and concepts you learned in this course by moving forward with the [**challenge**]({{@link web_scraping_for_beginners/challenge.md}})!

@@ -219,6 +219,8 @@ await crawler.run();
 log.info('Crawl finished.');
 ```
 
-## [](#wrap-up) Wrap up
+## [](#wrap-up) Wrap up 💥
 
 Nice work! You've officially built your first scraper with Crawlee! You're now ready to take on the rest of the Apify Academy with confidence.
+
+For now, this is the last section of the **Web scraping for beginners** course. If you want to learn more about web scraping, we recommend checking venturing out and following the other lessons in the Academy. We will keep updating the Academy with more content regularly until we cover all the advanced and expert topics we promised at the beginning.
