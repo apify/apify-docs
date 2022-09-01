@@ -1,7 +1,7 @@
 ---
-title: VIII - Saving run stats
+title: VII - Saving run stats
 description: Implement the saving of general statistics about an actor's run, as well as adding request-specific statistics to dataset items.
-menuWeight: 8
+menuWeight: 7
 paths:
     - expert-scraping-with-apify/solutions/saving-stats
 ---

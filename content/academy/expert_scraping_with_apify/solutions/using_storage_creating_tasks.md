@@ -1,7 +1,7 @@
 ---
-title: IV - Using storage & creating tasks
+title: III - Using storage & creating tasks
 description: Follow along with step-by-step instructions on how to complete the task outlined in the previous lesson. Use different storage types, and create a task.
-menuWeight: 4
+menuWeight: 3
 paths:
     - expert-scraping-with-apify/solutions/using-storage-creating-tasks
 ---
@@ -86,7 +86,7 @@ await Actor.exit();
 
 > If you start receiving a linting error after adding the following code to your  **main.js** file, add `"parserOptions": { "ecmaVersion": "latest" }` to the **.eslintrc** file in the root directory of your project.
 
-You might have noticed that we are using a variable instead of a string for the key name in the key-value store. This is because we're using an exported variable from **constants.js** (which is best practice, as discussed in the [**Actor building** solution]({{@link expert_scraping_with_apify/solutions/actor_building.md}})). Here is what our **constants.js** file looks like:
+You might have noticed that we are using a variable instead of a string for the key name in the key-value store. This is because we're using an exported variable from **constants.js** (which is best practice, as discussed in the [**modularity**]({{@link web_scraping_for_beginners/challenge/modularity.md}})) lesson back in the **Web scraping for beginners** course. Here is what our **constants.js** file looks like:
 
 ```JavaScript
 // constants.js
