@@ -55,7 +55,7 @@ router.addDefaultHandler(({ log }) => {
 });
 ```
 
-Finally, we'll modify our input file in **storage/key_value_stores/default/INPUT.json** to look like this:
+Finally, we'll add the following input file to **INPUT.json** in the project's root directory (next to `package.json`, `node_modules` and others)
 
 ```JSON
 {
