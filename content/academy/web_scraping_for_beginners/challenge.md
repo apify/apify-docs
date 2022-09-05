@@ -16,10 +16,10 @@ We recommended that you make sure you've gone through both the [data collection]
 
 Before continuing, it is highly recommended to do the following:
 
-- Look over [how to build a crawler in Crawlee](https://crawlee.dev/docs/introduction/first-crawler) and ideally **code along**
-- Read [this short article](https://help.apify.com/en/articles/1829103-request-labels-and-how-to-pass-data-to-other-requests) about **request labels** and [`userData`](https://crawlee.dev/api/core/class/Request#userData) (this will be extremely useful later on)
-- Check out [this article](https://blog.apify.com/what-is-a-dynamic-page/) about dynamic pages
-- Read about the [RequestList](https://crawlee.dev/api/core/class/RequestList) and [RequestQueue](https://crawlee.dev/api/core/class/RequestQueue)
+- Look over [how to build a crawler in Crawlee](https://crawlee.dev/docs/introduction/first-crawler) and ideally **code along**.
+- Read [this short article](https://help.apify.com/en/articles/1829103-request-labels-and-how-to-pass-data-to-other-requests) about [**request labels**](https://crawlee.dev/api/core/class/Request#label) (this will be extremely useful later on).
+- Check out [this lesson]({{@link tutorials/dealing_with_dynamic_pages.md}}) about dynamic pages.
+- Read about the [RequestQueue](https://crawlee.dev/api/core/class/RequestQueue).
 
 ## [](#our-task) Our task
 
