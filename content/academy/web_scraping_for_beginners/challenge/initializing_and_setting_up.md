@@ -44,7 +44,14 @@ await crawler.addRequests([
 ]);
 
 log.info('Starting the crawl.');
-await crawler.run();
+await crawler.run([{
+    // Turn the keyword into a link we can make a request with
+    url: `https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=${keyword}`,
+    label: 'START',
+    userData: {
+        keyword,
+    },    
+}]);
 log.info('Crawl finished.');
 ```
 
