@@ -26,7 +26,6 @@ router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
 });
 ```
 
-> If you are sometimes getting an error along the lines of **RequestError: Proxy responded with 407**, don't worry, this is totally normal. The request will retry and succeed.
 
 Great! But wait, where do we go from here? We need to go to the offers page next and scrape each offer, but how can we do that? Let's take a small break from writing the scraper and open up [Proxyman]({{@link tools/proxyman.md}}) to analyze requests which we might be difficult to find in the network tab, then we'll click the button on the product page that loads up all of the product offers:
 
