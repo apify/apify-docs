@@ -23,7 +23,9 @@ To access the default dataset, we can use the  [`Dataset`](https://crawlee.dev/a
 // dataset.js
 import { Dataset } from 'crawlee';
 
-const { items } = await Dataset.getData();
+const dataset = await Dataset.open();
+
+const { items } = await dataset.getData();
 console.log(items.length);
 ```
 
