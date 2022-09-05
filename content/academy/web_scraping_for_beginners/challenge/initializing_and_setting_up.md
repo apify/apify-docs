@@ -31,17 +31,6 @@ const crawler = new CheerioCrawler({
     requestHandler: router,
 });
 
-// Add our initial requests
-await crawler.addRequests([
-    {
-        // Turn the inputted keyword into a link we can make a request with
-        url: `https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=${keyword}`,
-        label: 'START',
-        userData: {
-            keyword,
-        },
-    },
-]);
 
 log.info('Starting the crawl.');
 await crawler.run([{
