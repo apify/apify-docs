@@ -11,10 +11,7 @@ paths:
 The Crawlee CLI makes it extremely easy for us to set up a project in Crawlee and hit the ground running. Navigate to the directory you'd like your project's folder to live, then open up a terminal instance and run the following command:
 
 ```shell
-npx crawlee create demo-actor
-```
-
-> You don't have to call it **demo-actor**, but that's what we'll be calling it in this tutorial.
+npx crawlee create amazon-crawler
 
 Once you run this command, you'll get prompted into a menu which you can navigate using your arrow keys. Each of these options will generate different boilerplate code when selected. We're going to work with CheerioCrawler today, so we'll select the **CheerioCrawler template project** template, then press **Enter**.
 
