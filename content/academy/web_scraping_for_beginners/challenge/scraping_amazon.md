@@ -28,11 +28,13 @@ router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
 
 > If you are sometimes getting an error along the lines of **RequestError: Proxy responded with 407**, don't worry, this is totally normal. The request will retry and succeed.
 
-Great! But wait, where do we go from here? We need to go to the offers page next and scrape each offer, but how can we do that? Let's take a small break from writing the scraper and open up [Proxyman]({{@link tools/proxyman.md}}) to analyze requests which we can't see inside the network tab, then we'll click the button on the product page that loads up all of the product offers:
+Great! But wait, where do we go from here? We need to go to the offers page next and scrape each offer, but how can we do that? Let's take a small break from writing the scraper and open up [Proxyman]({{@link tools/proxyman.md}}) to analyze requests which we might be difficult to find in the network tab, then we'll click the button on the product page that loads up all of the product offers:
 
 ![View offers button]({{@asset web_scraping_for_beginners/challenge/images/view-offers-button.webp}})
 
 After clicking this button and checking back in Proxyman, we discovered this link:
+
+> You can find the request below in the network tab just fine, but with Proxyman, it is much easier and fasterdue to the extended filtering options.
 
 ```text
 https://www.amazon.com/gp/aod/ajax/ref=auto_load_aod?asin=B07ZPKBL9V&pc=dp
@@ -46,17 +48,7 @@ Here's what this page looks like:
 
 Wow, that's ugly. But for our scenario, this is really great. When we click the **View offers** button, we usually have to wait for the offers to load and render, which would mean we could have to switch our entire crawler to a **PuppeteerCrawler** or **PlaywrightCrawler**. The data on this page we've just found appears to be loaded statically, which means we can still use CheerioCrawler and keep the scraper as efficient as possible 😎
 
-First, we'll create a function which can generate an offers URL for us in **constants.js**:
-
-```JavaScript
-// constants.js
-
-// ...
-
-export const OFFERS_URL = (asin) => `${BASE_URL}/gp/aod/ajax/ref=auto_load_aod?asin=${asin}&pc=dp`;
-```
-
-Then, we'll import and use that function to create a request for each product's offers page:
+First, we'll create a request for each product's offers page:
 
 ```JavaScript
 // routes.js
@@ -70,7 +62,7 @@ router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
 
     // Add to the request queue
     await crawler.addRequests([{
-        url: OFFERS_URL(data.asin),
+        url: `${BASE_URL}/gp/aod/ajax/ref=auto_load_aod?asin=${data.asin}&pc=dp`,
         label: labels.OFFERS,
         userData: {
             data: {
@@ -111,8 +103,6 @@ That should be it! Let's just make sure we've all got the same code:
 // constants.js
 export const BASE_URL = 'https://www.amazon.com';
 
-export const OFFERS_URL = (asin) => `${BASE_URL}/gp/aod/ajax/ref=auto_load_aod?asin=${asin}&pc=dp`;
-
 export const labels = {
     START: 'START',
     PRODUCT: 'PRODUCT',
@@ -124,7 +114,7 @@ export const labels = {
 // routes.js
 import { Actor } from 'apify';
 import { createCheerioRouter } from '@crawlee/cheerio';
-import { BASE_URL, OFFERS_URL, labels } from './constants';
+import { BASE_URL, labels } from './constants';
 
 const router = createCheerioRouter();
 
@@ -163,7 +153,7 @@ router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
 
     await crawler.addRequests([
         {
-            url: OFFERS_URL(data.asin),
+            url: `${BASE_URL}/gp/aod/ajax/ref=auto_load_aod?asin=${data.asin}&pc=dp`,
             label: labels.OFFERS,
             userData: {
                 data: {
