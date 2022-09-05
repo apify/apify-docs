@@ -25,7 +25,7 @@ import { CheerioCrawler, KeyValueStore, log } from 'crawlee';
 import { router } from './routes.js';
 
 // Grab our keyword from the input
-const { keyword = 'iphone' } = (await KeyValueStore.getInput()) ?? {};
+const { keyword } = await KeyValueStore.getInput();
 
 const crawler = new CheerioCrawler({
     requestHandler: router,
