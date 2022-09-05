@@ -10,7 +10,7 @@ paths:
 
 Before moving onto the other courses in the academy, we recommend following along with this section, as it combines everything you've learned in the previous lessons into one cohesive project that helps you prove to yourself that you've thoroughly understood the material.
 
-We recommended that you make sure you've gone through both the [data collection]({{@link web_scraping_for_beginners/data_collection.md}}) [crawing]({{@link web_scraping_for_beginners/crawling.md}}) sections of this course to ensure the smoothest development process.
+We recommend that you make sure you've gone through both the [data collection]({{@link web_scraping_for_beginners/data_collection.md}}) and [crawling]({{@link web_scraping_for_beginners/crawling.md}}) sections of this course to ensure the smoothest development process.
 
 ## [](#learning) Learning 🧠
 
