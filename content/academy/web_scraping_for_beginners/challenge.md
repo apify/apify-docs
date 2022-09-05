@@ -29,7 +29,7 @@ On Amazon, we can use this link to get to the results page of any product we wan
 https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=KEYWORD
 ```
 
-Our actor's input will look like this:
+Our crawler's input will look like this:
 
 ```JSON
 {
