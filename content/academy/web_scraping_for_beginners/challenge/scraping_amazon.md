@@ -93,7 +93,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
     for (const offer of $('#aod-offer')) {
         const element = $(offer);
 
-        await Actor.pushData({
+        await Dataset.pushData({
             ...data,
             sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
             offer: element.find('.a-price .a-offscreen').text().trim(),
@@ -181,7 +181,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
     for (const offer of $('#aod-offer')) {
         const element = $(offer);
 
-        await Actor.pushData({
+        await Dataset.pushData({
             ...data,
             sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
             offer: element.find('.a-price .a-offscreen').text().trim(),
