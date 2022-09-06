@@ -232,7 +232,7 @@ Most frequently used data formats are presenting the data in tabular format (Out
 
 | Property           | Type                         | Required | Description                                                                                        |
 | ------------------ | ---------------------------- | -------- | -------------------------------------------------------------------------------------------------- |
-| actorSpecification | integer                      | true     | Specifies the version of dataset schema <br/>structure document. Currently only version 1 is available. |
+| actorSpecification | integer                      | true     | Specifies the version of dataset schema <br/>structure document. <br/>Currently only version 1 is available. |
 | fields             | JSONSchema compatible object | true     | Schema of one dataset object. <br/>Use JsonSchema Draft 2020-12 or <br/>other compatible format.             |
 | views              | DatasetView object           | true     | An object with description of an API <br/>and UI views                                                  |
 
@@ -261,7 +261,7 @@ Most frequently used data formats are presenting the data in tabular format (Out
 | Property   | Type                                                                                                               | Required | Description                                                                                                                  |
 | ---------- | ------------------------------------------------------------------------------------------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | component  | string                                                                                                             | true     | Only component “table” is available.                                                                                         |
-| properties |  Object | false    | Object with keys matching the `transformation.fields` <br/>and ViewDisplayProperty as values. In case properties are not set the table <br/>will be rendered automatically with fields formatted as Strings, Arrays or Objects. |
+| properties |  Object | false    | Object with keys matching the `transformation.fields` <br/>and ViewDisplayProperty as values. In case properties are not set <br/>the table will be rendered automatically with fields formatted as Strings, <br/>Arrays or Objects. |
 
 ### ViewDisplayProperty object definition
 
