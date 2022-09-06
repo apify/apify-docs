@@ -47,6 +47,8 @@ Here's what this page looks like:
 
 Wow, that's ugly. But for our scenario, this is really great. When we click the **View offers** button, we usually have to wait for the offers to load and render, which would mean we could have to switch our entire crawler to a **PuppeteerCrawler** or **PlaywrightCrawler**. The data on this page we've just found appears to be loaded statically, which means we can still use CheerioCrawler and keep the scraper as efficient as possible 😎
 
+> It's totally possible to scrape the same data as this crawler using [Puppeteer or Playwright]({{@link puppeteer_playwright.md}}); however, with this offers link found in Postman, we can follow the same workflow much more quickly with static HTTP requests using CheerioCrawler.
+
 First, we'll create a request for each product's offers page:
 
 ```JavaScript
