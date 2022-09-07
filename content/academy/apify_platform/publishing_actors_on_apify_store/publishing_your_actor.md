@@ -64,7 +64,7 @@ Then, click on your actor’s card and you will see your dedicated actor’s pag
 
 Apify has a QA system that regularly runs automated tests to ensure that all actors in the store are functional.
 
-The test runs the actor with its default input (defined by the **prefill** option in the input schema file) and expects it to finish with a **Succeeded** status within 5 minutes of the beginning of the run. 
+The test runs the actor with its default input (defined by the **prefill** option in the input schema file) and expects it to finish with a **Succeeded** status within 5 minutes of the beginning of the run.
 
 ![Actor page]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-test.webp}})
 
