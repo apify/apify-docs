@@ -1,6 +1,6 @@
 ---
 title: Publishing your actor
-description: Prepare your actor for Apify Store with a description and README file and learn how to make your actor available to the public.
+description: Prepare your actor for the Apify Store with a description and README file and learn how to make your actor available to the public.
 menuWeight: 1
 paths:
   - apify-platform/publishing-actors-on-apify-store/publishing-your-actor
@@ -64,7 +64,7 @@ Then, click on your actor’s card and you will see your dedicated actor’s pag
 
 Apify has a QA system that regularly runs automated tests to ensure that all actors in the store are functional.
 
-The test runs the actor with its default input (defined by the **prefill** option in the input schema file) and expects it to finish with a **Succeeded** status within 5 minutes of the beginning of the run. 
+The test runs the actor with its default input (defined by the **prefill** option in the input schema file) and expects it to finish with a **Succeeded** status within 5 minutes of the beginning of the run.
 
 ![Actor page]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-test.webp}})
 
