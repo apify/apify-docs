@@ -44,13 +44,13 @@ Note that the complexity of the README should match the actor’s complexity. Th
 
 Once you have finished coding and testing your actor, it's time to publish it.
 
-From your actor’s page in Apify Console, go to **Settings,** and scroll down to the **Public Information** section.
+From your actor’s page in Apify Console, go to **Publication → Display information**, fill in all the relevant fields for your actor (e.g., "Icons","Actor name", "Description", "Categories") and save it.
 
-![Actor settings]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-settings.webp}})
+![Actor settings]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-display-information.webp}})
 
-Select the **Published** switch, and your actor should now be available to the public on Apify Store.
+Once all the fields are filled in, you will notice that the button **Publish to Store** will turn green. Just click on it and your actor should now be available to the public on Apify Store.
 
-![Publish your actor]({{@asset apify_platform/publishing_actors_on_apify_store/images/publish-actor.webp}})
+![Publish your actor]({{@asset apify_platform/publishing_actors_on_apify_store/images/publish-actor-to-store.webp}})
 
 To check if everything went smoothly, you can go to [Apify Store](https://apify.com/store) and search for your actor’s name.
 
@@ -59,6 +59,25 @@ To check if everything went smoothly, you can go to [Apify Store](https://apify.
 Then, click on your actor’s card and you will see your dedicated actor’s page. This is the page where users will most likely have their first contact with your actor, so make sure to carefully review it and check if everything is set up correctly.
 
 ![Actor page]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-page.webp}})
+
+## [](#actor-testing) Actor testing
+
+Apify has a QA system that regularly runs automated tests to ensure that all actors in the store are functional.
+
+The test runs the actor with its default input (defined by the **prefill** option in the input schema file) and expects it to finish with a **Succeeded** status within 5 minutes of the beginning of the run. 
+
+![Actor page]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-test.webp}})
+
+If the actor fails to complete successful runs for three consecutive days, the developer will be notified, and the actor will be labeled **Under Maintenance** until it is fixed. After another 14 days of failing runs, you will receive another notification. Finally, if the runs continue to fail after yet another 14 days, the actor will be **Deprecated**.
+
+### What if my actor cannot comply with the test logic?
+
+Actors that require some sort of authentication will always fail the tests despite being fully functional. If that's the case with your actor, please contact support at **support@apify.com** and explain your specific use case that justifies why the actor should be excluded from the automated tests.
+
+### Advanced actor testing
+
+You can easily implement your own tests and customize them to fit your actor's particularities by using our public [Actor Testing](https://apify.com/pocesar/actor-testing) tool available on the Apify store.
+
 
 ## [](#next) Next up
 

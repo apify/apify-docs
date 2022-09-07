@@ -16,15 +16,12 @@ Paid actor users pay a monthly rental fee to use the tool, which is **paid in fu
 
 ## [](#request-monetization) Request monetization
 
-While on your actor settings page, scroll down to the actor’s **Monetization** section and click on **Request Monetization.**
+First, go to your actor page, **Actors → My Actors** and click on the actor you want to monetize. While on your actor page, go to the **Publication** tab on the right side of the screen and click on the **Request Monetization** button, located under the **Monetization** section.
 
-![Request monetization]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-monetization.webp}})
+![Request monetization]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-monetization-request.webp}})
 
-Our support team will be notified about your request and promptly contact you to discuss the price and trial length details for your paid actor.
+Our support team will be notified about your request and promptly contact you to discuss the desired price and trial length for your actor, and help you fill in your billing details.
 
-You will be asked to fill in your billing details. So, if you didn’t do it already, you can go ahead and fill it in by going to **Settings** → **Usage and billing** → **Subscription** → **Billing details**
-
-![Apify billing]({{@asset apify_platform/publishing_actors_on_apify_store/images/Apify-Billing.webp}})
 
 ## [](#price-and-trial-length) Price and trial length
 
