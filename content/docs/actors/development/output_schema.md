@@ -6,7 +6,7 @@ paths:
     - actors/development/output-schema
 ---
 
-# Actor Output schema
+# Actor output schema
 
  It is recommended to show the most important fields in a curated Overview visualization configured using output schema specification, while all available fields are automatically available in the “All fields” view.
 
