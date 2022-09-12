@@ -77,10 +77,9 @@ Both options are valid. The user can choose based on their own needs.
 
 ## Basic Template
 
-![Output tab UI]({{@asset actors/development/images/input-schema-user.webp}})
+![Output tab UI]({{@asset actors/development/images/output-schema-example.webp}})
 
-
-Let's consider there is an actor that uses `Actor.pushData` to store data in dataset e.g.
+Imagine there is an actor that calls `Actor.pushData()` to store data into dataset e.g.
 
 ```JSON
 //file: main.js
@@ -91,7 +90,7 @@ await Actor.init();
 /**
  * Actor code
  */
-await Actor.pushData([{
+await Actor.pushData({
     "___EXAMPLE_NUMERIC_FIELD___": 10,
     "___EXAMPLE_PICTURE_URL_FIELD___": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png",
     "___EXAMPLE_LINK_URL_FIELD___": "https://google.com",
@@ -100,7 +99,7 @@ await Actor.pushData([{
     "___EXAMPLE_DATE_FIELD___": new Date(),
     "___EXAMPLE_ARRAY_FIELD___": ['#hello', "#world"],
     "___EXAMPLE_OBJECT_FIELD___": {},
-}])
+})
 
 // Exit successfully
 await Actor.exit();
