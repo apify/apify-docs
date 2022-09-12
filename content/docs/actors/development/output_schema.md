@@ -77,8 +77,6 @@ Both options are valid. The user can choose based on their own needs.
 
 ## Basic Template
 
-![Output tab UI]({{@asset actors/development/images/output-schema-example.webp}})
-
 Imagine there is an actor that calls `Actor.pushData()` to store data into dataset e.g.
 
 ```JSON
@@ -180,6 +178,8 @@ The template above defines the configuration for the default dataset output view
 
 A 2-step configuration (transform & display) was implemented to provide a way to fetch data in the format presented in both API and UI consistently. Consistency between API data and UI data is crucial for actor end-users for them to experience the same results in both API and UI. Thus for the best end-user experience, we recommend overriding as few display properties as possible.
 
+Example of an actor output UI generated using basic template:
+![Output tab UI]({{@asset actors/development/images/output-schema-example.webp}})
 ## Example with inline comments
 
 ```JSON
