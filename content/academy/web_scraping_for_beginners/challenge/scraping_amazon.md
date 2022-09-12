@@ -113,8 +113,7 @@ export const labels = {
 
 ```JavaScript
 // routes.js
-import { Actor } from 'apify';
-import { createCheerioRouter } from '@crawlee/cheerio';
+import { createCheerioRouter, Dataset } from 'crawlee';
 import { BASE_URL, labels } from './constants';
 
 const router = createCheerioRouter();
