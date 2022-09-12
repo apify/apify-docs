@@ -1,7 +1,7 @@
 ---
-title: V - Apify API & client
+title: IV - Apify API & client
 description: Gain an in-depth understanding of the two main ways of programmatically interacting with the Apify platform - through the API, and through a client.
-menuWeight: 6.5
+menuWeight: 6.4
 paths:
     - expert-scraping-with-apify/apify-api-and-client
 ---

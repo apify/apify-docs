@@ -7,7 +7,7 @@ paths:
     - tools
 ---
 
-# [](#tools) Tools
+# [](#tools) Tools 🔧
 
 Here at Apify, we've found many tools, some quite popular and well-known and some niche, which can aid any developer in their scraper development process. We've compiled some of our favorite developer tools into to this short section. Each tool featured here serves a specific purpose, if not multiple purposes, which are directly relevant to web-scraping and web-automation.
 

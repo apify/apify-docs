@@ -60,6 +60,6 @@ npm install puppeteer
 6. [Creating multiple browser contexts]({{@link puppeteer_playwright/browser_contexts.md}})
 
 
-## [](#next) Next up
+## [](#next) First up
 
 In the [first lesson]({{@link puppeteer_playwright/browser.md}}) of this course, we'll be learning a bit about how to create and use the **Browser** object.
