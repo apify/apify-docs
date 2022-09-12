@@ -180,6 +180,7 @@ A 2-step configuration (transform & display) was implemented to provide a way to
 
 Example of an actor output UI generated using basic template:
 ![Output tab UI]({{@asset actors/development/images/output-schema-example.webp}})
+
 ## Example with inline comments
 
 ```JSON
