@@ -1,14 +1,14 @@
 ---
 title: Dealing with dynamic pages
 description: Learn about dynamic pages and dynamic content. How can we find out if a page is dynamic? How do we programmatically scrape dynamic content?
-menuWeight: 10
+menuWeight: 1
 paths:
-- web-scraping-for-beginners/crawling/dealing-with-dynamic-pages
+- tutorials/dealing-with-dynamic-pages
 ---
 
 # [](#dealing-with-dynamic-pages) Dealing with dynamic pages
 
-In the last few lessons, we learned about Crawlee, which is a powerful library for writing reliable and efficient scrapers. We recommend reading up on those last two lessons in order to install the `crawlee` package and familiarize yourself with it before moving forward with this lesson.
+<!-- In the last few lessons, we learned about Crawlee, which is a powerful library for writing reliable and efficient scrapers. We recommend reading up on those last two lessons in order to install the `crawlee` package and familiarize yourself with it before moving forward with this lesson. -->
 
 In this lesson, we'll be discussing dynamic content and how to scrape it while utilizing Crawlee.
 
@@ -16,9 +16,9 @@ In this lesson, we'll be discussing dynamic content and how to scrape it while u
 
 From our adored and beloved [Fakestore](https://demo-webstore.apify.org/), we have been tasked to scrape each product's title, price, and image from the [new arrivals](https://demo-webstore.apify.org/search/new-arrivals) page. Easy enough! We did something very similar in the previous modules.
 
-![New arrival products in Fakestore]({{@asset web_scraping_for_beginners/crawling/images/new-arrivals.webp}})
+![New arrival products in Fakestore]({{@asset tutorials/images/new-arrivals.webp}})
 
-In your project from the previous lessons, or in a new project, create a file called **dynamic.js** and copy-paste the following boiler plate code into it:
+First, create a file called **dynamic.js** and copy-paste the following boiler plate code into it:
 
 ```JavaScript
 import { CheerioCrawler } from 'crawlee';
@@ -71,16 +71,14 @@ const crawler = new CheerioCrawler({
     },
 });
 
-await crawler.addRequests([{ url: 'https://demo-webstore.apify.org/search/new-arrivals' }]);
-
-await crawler.run();
+await crawler.run([{ url: 'https://demo-webstore.apify.org/search/new-arrivals' }]);
 ```
 
 > Here, we are using the [`Array.prototype.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function to loop through all of the product elements and save them into an array we call `results` all at the same time.
 
 After running it, you might say, "Great! It works!" **But wait...** What are those results being logged to console?
 
-![Bad results in console]({{@asset web_scraping_for_beginners/crawling/images/bad-results.webp}})
+![Bad results in console]({{@asset tutorials/images/bad-results.webp}})
 
 Every single image seems to have the same exact "URL," but they are most definitely not the image URLs we are looking for. This is strange, because in the browser, we were getting URLs that looked like this:
 
@@ -130,14 +128,12 @@ const crawler = new PuppeteerCrawler({
     },
 });
 
-await crawler.addRequests([{ url: 'https://demo-webstore.apify.org/search/new-arrivals' }])
-
-await crawler.run();
+await crawler.run([{ url: 'https://demo-webstore.apify.org/search/new-arrivals' }]);
 ```
 
 After running this one, we can see that our results look different from before. We're getting the image links!
 
-![Not perfect results]({{@asset web_scraping_for_beginners/crawling/images/almost-there.webp}})
+![Not perfect results]({{@asset tutorials/images/almost-there.webp}})
 
 Well... Not quite. It seems that the only images which we got the full links to were the ones that were being displayed within the view of the browser. This means that the images are lazy-loaded. **Lazy-loading** is a common technique used across the web to improve performance. Lazy-loaded items allow the user to load content incrementally, as they perform some action. In most cases, including our current one, this action is scrolling.
 
@@ -177,9 +173,7 @@ const crawler = new PuppeteerCrawler({
     },
 });
 
-await crawler.addRequests([{ url: 'https://demo-webstore.apify.org/search/new-arrivals' }])
-
-await crawler.run();
+await crawler.run([{ url: 'https://demo-webstore.apify.org/search/new-arrivals' }]);
 ```
 
 Let's run this and check our dataset results...
@@ -197,7 +191,3 @@ Each product looks like this, and each image is a valid link that can be visited
 ## [](#small-recap) Small Recap
 
 Making static HTTP requests only downloads the HTML content from the `DOMContentLoaded` event. We must use a browser to allow dynamic code to load, or find different means altogether of scraping the data (see [API Scraping]({{@link api_scraping.md}}))
-
-## [](#wrap-up) Wrap up 💥
-
-And this is it for the [Basics of crawling section]({{@link web_scraping_for_beginners/crawling.md}}) of the [Web scraping for beginners]({{@link web_scraping_for_beginners.md}}) course. For now, this is also the last section of the **Web scraping for beginners** course. If you want to learn more about web scraping, we recommend checking venturing out and following the other lessons in the Academy. We will keep updating the Academy with more content regularly, until we cover all the advanced and expert topics we promised at the beginning.
