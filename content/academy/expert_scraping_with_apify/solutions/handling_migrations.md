@@ -1,7 +1,7 @@
 ---
-title: VI - Handling migrations
+title: V - Handling migrations
 description: Get real-world experience of maintaining a stateful object stored in memory, which will be persisted through migrations and even graceful aborts.
-menuWeight: 6
+menuWeight: 5
 paths:
     - expert-scraping-with-apify/solutions/handling-migrations
 ---

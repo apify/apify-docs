@@ -1,7 +1,7 @@
 ---
-title: IV - Tasks & storage
+title: III - Tasks & storage
 description: Understand how to save the configurations for actors with actor tasks. Also, learn about storage and the different types Apify offers.
-menuWeight: 6.4
+menuWeight: 6.3
 paths:
     - expert-scraping-with-apify/tasks-and-storage
 ---

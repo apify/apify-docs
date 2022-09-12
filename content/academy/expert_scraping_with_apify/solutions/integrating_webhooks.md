@@ -1,38 +1,14 @@
 ---
-title: II - Integrating webhooks
+title: I - Integrating webhooks
 description: Learn how to integrate webhooks into your actors. Webhooks are a super powerful tool, and can be used to do almost anything!
-menuWeight: 2
+menuWeight: 1
 paths:
     - expert-scraping-with-apify/solutions/integrating-webhooks
 ---
 
 # [](#integrating-webhooks) Integrating webhooks
 
-In this lesson we'll be writing a new actor and integrating it with our beloved Amazon scraping actor, but first, let's remove the code which sends ourselves an email so that we don't end up spamming ourselves when testing:
-
-```JavaScript
-// ...
-log.info('Starting the crawl.');
-await crawler.run();
-log.info('Crawl finished.');
-
-// We don't need the code below anymore!
-
-// log.info('Sending dataset link...');
-// const dataset = await Actor.openDataset();
-// const { id } = await dataset.getInfo();
-
-// await Actor.call('apify/send-mail', {
-//     to: 'youremail@gmail.com',
-//     subject: 'Amazon Dataset',
-//     text: `https://api.apify.com/v2/datasets/${id}/items?clean=true&format=json`,
-// });
-
-// log.info('Finished.');
-//...
-```
-
-Next, we'll navigate to the same directory our **demo-actor** folder lives, and run `apify create filter-actor` _(once again, you can name the actor whatever you want, but for this lesson, we'll be calling the new actor **filter-actor**)_. When prompted for which type of boilerplate to start out with, select **Empty**.
+In this lesson we'll be writing a new actor and integrating it with our beloved Amazon scraping actor. First, we'll navigate to the same directory our **demo-actor** folder lives, and run `apify create filter-actor` _(once again, you can name the actor whatever you want, but for this lesson, we'll be calling the new actor **filter-actor**)_. When prompted for which type of boilerplate to start out with, select **Empty**.
 
 ![Selecting an empty template to start with]({{@asset expert_scraping_with_apify/solutions/images/select-empty.webp}})
 

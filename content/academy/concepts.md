@@ -1,13 +1,13 @@
 ---
 title: Concepts
 description: Learn about some common yet tricky concepts and terms that are used frequently within the academy, as well as in the world of scraper development.
-menuWeight: 9
+menuWeight: 11
 category: glossary
 paths:
     - concepts
 ---
 
-# [](#concepts) Concepts
+# [](#concepts) Concepts 🤔
 
 There are some terms and concepts you'll see frequently repeated throughout various courses in the academy. Many of these concepts are common, and even fundamental in the scraping world, which makes it necessary to explain them to our course-takers; however it would be inconvenient for our readers to explain these terms each time they appear in a lesson.
 
