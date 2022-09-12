@@ -77,6 +77,35 @@ Both options are valid. The user can choose based on their own needs.
 
 ## Basic Template
 
+![Output tab UI]({{@asset actors/development/images/input-schema-user.webp}})
+
+
+Let's consider there is an actor that uses `Actor.pushData` to store data in dataset e.g.
+
+```JSON
+//file: main.js
+import { Actor } from 'apify';
+// Initialize the Apify SDK
+await Actor.init();
+
+/**
+ * Actor code
+ */
+await Actor.pushData([{
+    "___EXAMPLE_NUMERIC_FIELD___": 10,
+    "___EXAMPLE_PICTURE_URL_FIELD___": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png",
+    "___EXAMPLE_LINK_URL_FIELD___": "https://google.com",
+    "___EXAMPLE_TEXT_FIELD___": "Google",
+    "___EXAMPLE_BOOLEAN_FIELD___": true,
+    "___EXAMPLE_DATE_FIELD___": new Date(),
+    "___EXAMPLE_ARRAY_FIELD___": ['#hello', "#world"],
+    "___EXAMPLE_OBJECT_FIELD___": {},
+}])
+
+// Exit successfully
+await Actor.exit();
+```
+
 Let’s say we are going to use a single file to set up an actor’s output tab UI. The following template can be used as a `.actor/actor.json` configuration.
 
 ```JSON
@@ -94,26 +123,50 @@ Let’s say we are going to use a single file to set up an actor’s output tab 
                     "title": "Overview",
                     "transformation": {
                         "fields": [
-                            "___EXAMPLE_NUMERIC_FIELD___",
                             "___EXAMPLE_PICTURE_URL_FIELD___",
                             "___EXAMPLE_LINK_URL_FIELD___",
                             "___EXAMPLE_TEXT_FIELD___",
-                            "___EXAMPLE_BOOLEAN_FIELD___"
+                            "___EXAMPLE_BOOLEAN_FIELD___",
+                            "___EXAMPLE_ARRAY_FIELD___",
+                            "___EXAMPLE_OBJECT_FIELD___",
+                            "___EXAMPLE_DATE_FIELD___",
+                            "___EXAMPLE_NUMERIC_FIELD___"
                         ]
                     },
                     "display": {
                         "component": "table",
                         "properties": {
-                            "___EXAMPLE_NUMERIC_FIELD___": {
-                                "label": "ID",
-                                "format": "number"
-                            },
                             "___EXAMPLE_PICTURE_URL_FIELD___": {
-                                "format": "image",
+                                "label": "Image",
+                                "format": "image"
                             },
                             "___EXAMPLE_LINK_URL_FIELD___": {
-                                "label": "Clickable link",
+                                "label": "Link",
                                 "format": "link"
+                            },
+                            "___EXAMPLE_TEXT_FIELD___": {
+                                "label": "Text",
+                                "format": "text"
+                            },
+                            "___EXAMPLE_BOOLEAN_FIELD___": {
+                                "label": "Boolean",
+                                "format": "boolean"
+                            },
+                            "___EXAMPLE_ARRAY_FIELD___": {
+                                "label": "Array",
+                                "format": "array"
+                            },
+                            "___EXAMPLE_OBJECT_FIELD___": {
+                                "label": "Object",
+                                "format": "object"
+                            },
+                            "___EXAMPLE_DATE_FIELD___": {
+                                "label": "Date",
+                                "format": "date"
+                            },
+                            "___EXAMPLE_NUMERIC_FIELD___": {
+                                "label": "Number",
+                                "format": "number"
                             }
                         }
                     }
@@ -266,4 +319,4 @@ The most frequently used data formats present the data in a tabular format (Outp
 | Property | Type                                                    | Required | Description                                                                                    |
 | -------- | ------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------- |
 | label    | string                                                  | false    | In case the data are visualized as in Table view. <br/>The label will be visible table column’s header. |
-| format   | enum(text, number, date, <br/>boolean, image, array, object) | false    | Describes how output data values are formatted <br/>in order to be rendered in the output tab UI.       |
+| format   | enum(text, number, date, link, <br/>boolean, image, array, object) | false    | Describes how output data values are formatted <br/>in order to be rendered in the output tab UI.       |
