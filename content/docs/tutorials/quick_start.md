@@ -114,7 +114,7 @@ The above actor (and many others) uses the `apify` [NPM package](https://www.npm
 
 If you are building your own actors, you'll probably prefer to host the source code on Git. To do that, follow these steps:
 
-[//]: # (TODO: Repo below is outdated, we should probably update the actor there too)
+<!-- [//]: # (TODO: Repo below is outdated, we should probably update the actor there too) -->
 
 1. Create a new Git repository.
 2. Copy the boilerplate actor code from the [apify/quick-start](https://github.com/apify/actor-quick-start) actor.
