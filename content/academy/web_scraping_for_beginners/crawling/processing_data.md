@@ -23,7 +23,9 @@ To access the default dataset, we can use the  [`Dataset`](https://crawlee.dev/a
 // dataset.js
 import { Dataset } from 'crawlee';
 
-const { items } = await Dataset.getData();
+const dataset = await Dataset.open();
+
+const { items } = await dataset.getData();
 console.log(items.length);
 ```
 
@@ -128,6 +130,6 @@ writeFileSync('dataset.xlsx', xlsx);
 
 It doesn't even have to be a dataset created by Crawlee. You can use this method to convert any JSON array to a CSV, XLSX, and so on.
 
-# [](#next) Next up
+## [](#next) Next up
 
-In our [next lesson]({{@link web_scraping_for_beginners/crawling/dealing_with_dynamic_pages.md}}), we'll be taking an in-depth look at what dynamic content is, and how to scrape it reliably.
+And this is it for the [**Basics of crawling**]({{@link web_scraping_for_beginners/crawling.md}}) section of the [**Web scraping for beginners**]({{@link web_scraping_for_beginners.md}}) course. But that's not all! If you're feeling up for it, test your knowledge of the methods and concepts you learned in this course by moving forward with the [**challenge**]({{@link web_scraping_for_beginners/challenge.md}})!

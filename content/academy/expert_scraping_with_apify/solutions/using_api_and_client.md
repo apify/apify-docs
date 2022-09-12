@@ -1,7 +1,7 @@
 ---
-title: V - Using the Apify API & JavaScript client
+title: IV - Using the Apify API & JavaScript client
 description: Learn how to interact with the Apify API directly through the well-documented RESTful routes, or by using the proprietary Apify JavaScript client.
-menuWeight: 5
+menuWeight: 4
 paths:
     - expert-scraping-with-apify/solutions/using-api-and-client
 ---

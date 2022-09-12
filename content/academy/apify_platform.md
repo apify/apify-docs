@@ -15,6 +15,6 @@ The [Apify platform](https://apify.com) was built to serve large-scale and high-
 
 In this course, you'll be learning how to become an Apify platform developer from the ground up. From creating your first account, to developing actors, this is your one-stop-shop for understanding how the platform works, and how to work with it.
 
-## [](#next) Next up
+## [](#first) First up
 
 We'll start off this course light, by showing you how to create an Apify account and get everything ready for development with the platform. [Let's go!]({{@link apify_platform/getting_started.md}})

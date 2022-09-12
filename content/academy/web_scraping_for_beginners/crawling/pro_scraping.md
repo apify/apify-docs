@@ -18,9 +18,27 @@ We mentioned the benefits of developing with a dedicated scraping library in the
 2. **Fewer bugs**. Crawlee is fully unit-tested and battle-tested on millions of scraper runs.
 3. **Faster and cheaper scrapers** because Crawlee automatically scales based on system resources and is optimized for enterprise-grade performance.
 4. **More robust scrapers**. Annoying details like retries, proxy management, error handling, and result storage are all handled automatically by Crawlee.
-5. **Helpful community**. You can join our Discord or talk to us on GitHub. We're almost always there to talk about scraping.
+5. **Helpful community**. You can [join our Discord](https://discord.gg/qkMS6pU4cF) or talk to us [on GitHub](https://github.com/apify/crawlee). We're almost always there to talk about scraping and programming in general!
 
 > If you're still not convinced, [read this story](https://apify.com/success-stories/daltix-analytics-scrapy-python-to-apify) how a data analytics company saved 90% of scraping costs by switching from Scrapy (a scraping library for Python) to Crawlee. To be honest, it shocked even us! 💪
+
+The Crawlee library factors away and manages the hard parts of the scraping/automation development under the hood, such as:
+
+- Autoscaling
+- Request concurrency
+- Queueing requests
+- Data storage
+- Using and rotating [proxies]({{@link anti_scraping/mitigation/proxies.md}})
+- Puppeteer/Playwright setup overhead
+- Plus much more!
+
+As a developer, your goal is to take Crawlee, which is quite generic on its own, and write website-specific or use-case-specific [actors]({{@link apify_platform/getting_started/actors.md}}).
+
+Crawlee and its resources can be found in various different places:
+
+1. [Official Crawlee documentation](https://crawlee.dev/)
+2. [Crawlee Github repository (source code, issues)](https://github.com/apify/crawlee)
+3. [Crawlee on NPM](https://www.npmjs.com/package/crawlee)
 
 ## [](#crawlee-installation) Install Crawlee
 
