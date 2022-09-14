@@ -1,7 +1,7 @@
 ---
 title: Scraping iFrames
 description: Learn how to scrape information from iFrames using Puppeteer or Playwright.
-menuWeight: 4
+menuWeight: 5
 paths:
     - puppeteer-playwright/common-use-cases/scraping-iframes
 ---
