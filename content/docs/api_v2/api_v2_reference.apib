@@ -374,6 +374,13 @@ Note that the Apify API clients [for JavaScript](https://docs.apify.com/api/apif
 and [for Python](https://docs.apify.com/api/apify-client-python)
 use the exponential backoff algorithm transparently, so that you do not need to worry about it.
 
+## Referring to resources
+
+There are three main ways to refer to a resource you're accessing via API.
+
+- the resource ID (e.g. `iKkPcIgVvwmztduf8`)
+- `username~resourcename` - when using this access method, you will need to use your API token, and access will only work if you have the correct permissions.
+- `~resourcename` - for this, you need to use an API token, and the `resourcename` refers to a resource in the API token owner's account.
 
 # Group Actors
 
