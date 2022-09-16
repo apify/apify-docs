@@ -30,7 +30,7 @@ When hovering over the variable, we see that TypeScript was smart enough to infe
 
 ![Type of variable automatically inferred]({{@asset switching_to_typescript/images/number-inference.webp}})
 
-Attempting to reassign `value` to be a type other than a string will result in a compiler error.
+Attempting to reassign `value` to be a type other than a number will result in a compiler error.
 
 But what if we want to declare the variable with no initial value, then change it later?
 
@@ -72,7 +72,8 @@ value = 10;
 // Totally ok
 value = 'hello academy!';
 
-// This will throw a compiler error
+// This will throw a compiler error, because we didn't include
+// number arrays in our union type.
 value = [1, 2, 3]
 ```
 
