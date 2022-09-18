@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Understand the standards and best practices that we here at Apify abide by to write readable, scalable, and maintainable code. 
-menuWeight: 1.4
+menuWeight: 1.5
 paths:
     - web-scraping-for-beginners/best-practices
 ---

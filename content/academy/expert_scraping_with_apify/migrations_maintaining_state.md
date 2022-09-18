@@ -1,7 +1,7 @@
 ---
-title: VI - Migrations & maintaining state
+title: V - Migrations & maintaining state
 description: Learn about what actor migrations are and how to handle them properly so that state is not lost and it can safely be resurrected.
-menuWeight: 6.6
+menuWeight: 6.5
 paths:
     - expert-scraping-with-apify/migrations-maintaining-state
 ---

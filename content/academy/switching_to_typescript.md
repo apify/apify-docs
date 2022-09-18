@@ -59,6 +59,6 @@ Think of it this way: Javascript **IS** Typescript, but TypeScript isn't JavaScr
 
 So, what are the differences? Well, there's really just one: TypeScript files cannot be run directly. They must first be compiled into regular JavaScript.
 
-## [](#next) Ready to get started?
+## [](#first) Ready to get started?
 
 Now that you're familiar with what TypeScript is and aware of its many advantages, let's [get started]({{@link switching_to_typescript/installation.md}}) in our TS journey by installing the TypeScript compiler (super easy) and writing our first line of code in a **.ts** file.

@@ -32,39 +32,40 @@ This is what you'll learn in the **Web scraping for beginners** course:
   * [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}})
   * [Best practices]({{@link web_scraping_for_beginners/best_practices.md}})
 
-<!-- Other courses and lessons (coming soon) in the Academy:
-
-* [API scraping]({{@link api_scraping.md}})
-  * [General API Scraping]({{@link api_scraping/general_api_scraping.md}})
-    * [Locating API Endpoints]({{@link api_scraping/general_api_scraping/locating_and_learning.md}})
-    * [Cookies, Headers, and Tokens]({{@link api_scraping/general_api_scraping/cookies_headers_tokens.md}})
-    * Emulating API pagination
-  * [GraphQL Scraping]({{@link api_scraping/graphql_scraping.md}})
-    * [Introspection]({{@link api_scraping/graphql_scraping/introspection.md}})
-    * [Modifying variables]({{@link api_scraping/graphql_scraping/modifying_variables.md}})
-* [Anti-scraping protections]({{@link anti_scraping.md}})
-  * [Proxies]({{@link anti_scraping/mitigation/proxies.md}})
-  * Captchas and human behavior
-  * Web application firewalls
-* Apify Platform
-  * Getting started
-  * Apify CLI
-* Expert topics
-  * Mobile app scraping
-  * Overcoming result limits -->
-
 > We release course content as soon as we write it instead of launching it all at the same time much later. If you want to get notified about new lessons in the academy, [sign up for a free Apify account](https://console.apify.com/sign-up?asrc=developers_portal) to get our newsletters.
 
 ## [](#requirements) Requirements
 
-You don't need to be a developer or a software engineer to complete this course, but basic programming knowledge is recommended. Don't be afraid, though. We explain everything in great detail in the **Web scraping for beginners** course and provide external references that can help you level up your web scraping and development skills. If you're new to programming, pay very close attention to the instructions and examples. A seemingly insignificant thing like using `[]` instead of `()` can make a lot of difference.
+You don't need to be a developer or a software engineer to complete this course, but basic programming knowledge is recommended. Don't be afraid, though. We explain everything in great detail in the this course and provide external references that can help you level up your web scraping and development skills. If you're new to programming, pay very close attention to the instructions and examples. A seemingly insignificant thing like using `[]` instead of `()` can make a lot of difference.
 
-> If you don't already have basic programming knowledge and would like to be well-prepared for this course, we recommend taking a [JavaScript course](https://www.codecademy.com/learn/introduction-to-javascript) and learning about [CSS Selectors](https://www.w3schools.com/css/css_selectors.asp).
+> If you don't already have basic programming/web development knowledge and would like to be well-prepared for this course, we recommend taking a [JavaScript course](https://www.codecademy.com/learn/introduction-to-javascript) and learning about [CSS Selectors](https://www.w3schools.com/css/css_selectors.asp).
 
-As you progress to the Advanced and Pro courses, the coding will get more challenging, but still manageable to a person with an intermediate level of programming skills.
+As you progress to the more advanced courses, the coding will get more challenging, but will still be manageable to a person with an intermediate level of programming skills.
+
+Ideally, you should have at least a moderate understanding of the following concepts:
+
+### [](#javascript-and-node) JavaScript + Node.js
+
+It is recommended to understand at least the fundamentals of JavaScript and be proficient with Node.js prior to starting this course. If you are not yet comfortable with asynchronous programming (with promises and `async...await`), loops (and the different types of loops in JavaScript), modularity, or working with external packages, we would recommend studying the following resources before coming back and continuing this section:
+
+* [`async...await` (YouTube)](https://www.youtube.com/watch?v=vn3tm0quoqE&ab_channel=Fireship)
+* [JavaScript loops (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+* [Modularity in Node.js](https://www.section.io/engineering-education/how-to-use-modular-patterns-in-nodejs/)
+
+### [](#general-web-development) General web development
+
+Throughout the next lessons, we will sometimes use certain technologies and terms related to the web without explaining them. This is because the knowledge of them will be **assumed** (unless we're showing something out of the ordinary).
+
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [HTTP protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP)
+* [DevTools]({{@link web_scraping_for_beginners/data_collection/browser_devtools.md}})
+
+### [](#jquery-or-cheerio) jQuery or Cheerio
+
+We'll be using the [`cheerio`](https://www.npmjs.com/package/cheerio) package a whole lot to parse data from HTML. This package provides a simple API using jQuery syntax to help traverse downloaded HTML within Node.js.
 
 ## [](#next) Next up
 
-The course begins with short theory and continues with practical examples of collecting data from the most popular websites on the internet using your browser console. So [let's get to it!]({{@link web_scraping_for_beginners/introduction.md}})
+The course begins with a small bit of theory and moves into some realistic and practical examples of collecting data from the most popular websites on the internet using your browser console. So [let's get to it!]({{@link web_scraping_for_beginners/introduction.md}})
 
 > If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}}) section.
