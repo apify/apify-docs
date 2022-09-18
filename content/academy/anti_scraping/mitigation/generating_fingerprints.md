@@ -13,7 +13,7 @@ With the [Fingerprint generator](https://github.com/apify/fingerprint-generator)
 > It is crucial to generate fingerprints for the specific browser and operating system being used to trick the protections successfully. For example, if you are trying to overcome protection locally with Firefox on a macOS system, you should generate fingerprints for Firefox and macOS to achieve the best results.
 
 ```JavaScript
-import FingerprintGenerator from 'fingerprint-generator';
+import { FingerprintGenerator } from 'fingerprint-generator';
 
 // Instantiate the fingerprint generator with
 // configuration options
