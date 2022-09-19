@@ -40,21 +40,23 @@ If you are planning to schedule an actor run, you need to use the actor before y
 
 In [Apify Console](https://console.apify.com/schedules), click on the **Schedules** button in the left-side menu, then click the **Create new** button.
 
-In the **Settings** tab, give your schedule a memorable name, add a description, and choose how often you would like your actor or task to run using the **Cron expression** field.
+In the **Settings** tab, give your schedule a memorable name, add a description, and choose how often you would like your actor or task to run using the [schedule setup tool](#schedule-setup).
 
 ![New schedule]({{@asset images/schedule-settings.webp}})
 
-Next, you'll need to give the schedule something to run. This is where the actor or task you prepared earlier comes in. Switch to the **Actors** or **Tasks** tab, as appropriate, and click the **Add actor/task button**.
+Next, you'll need to give the schedule something to run. This is where the actor or task you prepared earlier comes in. Switch to the **Actors and Tasks** tab, and click the **Add [new]** button.
 
 If you're scheduling an actor run, you'll be able to specify the actor's [input]({{@link actors/running/input.md}}) and running options like
-[**build**]({{@link actors/development/builds.md}}),
-**timeout**,
-[**memory**]({{@link actors/running/memory_and_cpu.md}}).
+[build]({{@link actors/development/builds.md}}),
+timeout,
+[memory]({{@link actors/running/memory_and_cpu.md}}).
 The **timeout** value is specified in seconds; a value of **0** means there is no timeout and the actor runs until it finishes.
+
+ If you don't provide an input, then the actor's default input is used. If you provide an input with some fields missing, the missing fields are filled in with values from the default input. If input options are not provided, the default options values are used.
 
 ![Add actor to schedule]({{@asset images/schedule-actor-run.webp}})
 
-If you're scheduling a task, just select the task you prepared earlier from the **Task** dropdown. If you need to override the task's input, you can pass it as a JSON object in the **Input JSON overrides** field.
+If you're scheduling a task, just select the task you prepared earlier using the drop-down. If you need to override the task's input, you can pass it as a JSON object in the **Input JSON overrides** field.
 
 ![Add task to schedule]({{@asset images/schedule-add-tasks.webp}})
 
@@ -62,7 +64,7 @@ To add more actors or tasks, just repeat the process.
 
 > You can add a maximum of 10 actors and 10 tasks to each schedule.
 
-Now, all you need to do is click **Save** and wait for your scheduled actors/tasks to run and return your data.
+Now, all you need to do is click **Save & activate** and let the scheduler take care of running your jobs on time.
 
 For integrations, you can also add a [webhook](https://docs.apify.com/webhooks) to your tasks, which will notify you (or perform an action of your choice) every time the task runs.
 
@@ -103,9 +105,17 @@ You can add multiple actor and task runs to a schedule with a single POST reques
 
 For more information, see the [schedules section](https://docs.apify.com/api/v2#/reference/schedules/schedule-object/get-schedule) in the API documentation.
 
+## Schedule setup
+
+The schedule setup tool uses [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression), which we parse using the [cron-parser](https://www.npmjs.com/package/cron-parser) package, to specify run times. If you're familiar with how to use them and need a specific run schedule, you can dive right in. If not, don't worry - the setup tool has a visual custom schedule builder that provides the same level of control cron expressions.
+
+![Schedule setup tool]({{@asset images/schedule-setup.webp}})
+
+You can find more information and examples of cron expressions on [crontab.guru](http://crontab.guru/). For additional and non-standard characters, see [this](https://en.wikipedia.org/wiki/Cron#CRON_expression) Wikipedia article.
+
 ## Cron expressions
 
-Schedules use [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to specify run times. A cron expression has the following structure:
+A cron expression has the following structure:
 
 | Position | Field        | Values                         | Wildcards | Optional |
 |----------|--------------|--------------------------------|-----------|----------|
@@ -134,8 +144,6 @@ Additionally, you can use the following shortcut expressions:
 - `@weekly` = `0 0 * * 0` - once a week, on Sunday at midnight.
 - `@daily` = `0 0 * * *` - run once a day, at midnight.
 - `@hourly` = `0 * * * *` - on the hour, every hour.
-
-You can find more information and examples of cron expressions on [crontab.guru](http://crontab.guru/). For additional and non-standard characters, see [this](https://en.wikipedia.org/wiki/Cron#CRON_expression) Wikipedia article.
 
 ## Sharing
 
