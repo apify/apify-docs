@@ -30,7 +30,7 @@ const fingerprintGenerator = new FingerprintGenerator({
 });
 
 // Grab a fingerprint from the fingerprint generator
-const { fingerprint } = fingerprintGenerator.getFingerprint({
+const generated = fingerprintGenerator.getFingerprint({
   locales: ["en-US", "en"]
 });
 ```
@@ -65,20 +65,20 @@ const fingerprintGenerator = new FingerprintGenerator({
 });
 
 // Grab a fingerprint
-const { fingerprint } = fingerprintGenerator.getFingerprint({
+const generated = fingerprintGenerator.getFingerprint({
   locales: ["en-US", "en"]
 });
 
 // Create a new browser context, plugging in
 // some values from the fingerprint
 const context = await browser.newContext({
-  userAgent: fingerprint.userAgent,
-  locale: fingerprint.navigator.language,
+  userAgent: generated.fingerprint.userAgent,
+  locale: generated.fingerprint.navigator.language,
 });
 
 // Attach the fingerprint to the newly created
 // browser context
-await fingerprintInjector.attachFingerprintToPlaywright(context, fingerprint);
+await fingerprintInjector.attachFingerprintToPlaywright(context, generated);
 
 // Create a new page and go to Google
 const page = await context.newPage();
