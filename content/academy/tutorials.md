@@ -1,8 +1,8 @@
 ---
-title: Tutorials
+title: What's this section?
 description: Learn about various different specific topics related to web-scraping and web-automation with the Apify Academy tutorial lessons!
-menuWeight: 9
-category: glossary
+menuWeight: 12
+category: tutorials
 paths:
     - tutorials
 ---
