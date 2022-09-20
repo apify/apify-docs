@@ -1,6 +1,6 @@
 ---
 title: EditThisCookie
-description: description
+description: Learn how to add, delete, and modify different cookies in your browser for testing purposes.
 menuWeight: 9.7
 paths:
     - tools/edit-this-cookie
