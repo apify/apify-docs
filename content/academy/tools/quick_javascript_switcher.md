@@ -1,6 +1,6 @@
 ---
 title: Quick JavaScript Switcher
-description: description
+description: Discover a super simple tool for disabling JavaScript on a certain page to determine how it should be scraped. Great for detecting SPAs.
 menuWeight: 9.9
 paths:
     - tools/quick-javascript-switcher
