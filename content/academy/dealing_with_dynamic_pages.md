@@ -1,9 +1,10 @@
 ---
 title: Dealing with dynamic pages
 description: Learn about dynamic pages and dynamic content. How can we find out if a page is dynamic? How do we programmatically scrape dynamic content?
-menuWeight: 1
+menuWeight: 13
+category: tutorials
 paths:
-- tutorials/dealing-with-dynamic-pages
+- dealing-with-dynamic-pages
 ---
 
 # [](#dealing-with-dynamic-pages) Dealing with dynamic pages
@@ -16,7 +17,7 @@ In this lesson, we'll be discussing dynamic content and how to scrape it while u
 
 From our adored and beloved [Fakestore](https://demo-webstore.apify.org/), we have been tasked to scrape each product's title, price, and image from the [new arrivals](https://demo-webstore.apify.org/search/new-arrivals) page. Easy enough! We did something very similar in the previous modules.
 
-![New arrival products in Fakestore]({{@asset tutorials/images/new-arrivals.webp}})
+![New arrival products in Fakestore]({{@asset images/new-arrivals.webp}})
 
 First, create a file called **dynamic.js** and copy-paste the following boiler plate code into it:
 
@@ -78,7 +79,7 @@ await crawler.run([{ url: 'https://demo-webstore.apify.org/search/new-arrivals' 
 
 After running it, you might say, "Great! It works!" **But wait...** What are those results being logged to console?
 
-![Bad results in console]({{@asset tutorials/images/bad-results.webp}})
+![Bad results in console]({{@asset images/bad-results.webp}})
 
 Every single image seems to have the same exact "URL," but they are most definitely not the image URLs we are looking for. This is strange, because in the browser, we were getting URLs that looked like this:
 
@@ -133,7 +134,7 @@ await crawler.run([{ url: 'https://demo-webstore.apify.org/search/new-arrivals' 
 
 After running this one, we can see that our results look different from before. We're getting the image links!
 
-![Not perfect results]({{@asset tutorials/images/almost-there.webp}})
+![Not perfect results]({{@asset images/almost-there.webp}})
 
 Well... Not quite. It seems that the only images which we got the full links to were the ones that were being displayed within the view of the browser. This means that the images are lazy-loaded. **Lazy-loading** is a common technique used across the web to improve performance. Lazy-loaded items allow the user to load content incrementally, as they perform some action. In most cases, including our current one, this action is scrolling.
 

@@ -1,9 +1,10 @@
 ---
 title: Scraping with sitemaps
 description: The sitemap.xml file is a jackpot for every web scraper developer. Take advantage of this and learn a much easier way to extract  data from websites using Crawlee.
-menuWeight: 3
+menuWeight: 16
+category: tutorials
 paths:
-    - tutorials/scraping-with-sitemaps
+    - scraping-with-sitemaps
 ---
 
 # [](#scraping-with-sitemaps) Scraping with sitemaps
