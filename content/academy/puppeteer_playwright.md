@@ -58,7 +58,7 @@ npm install puppeteer
 4. [Reading & intercepting requests]({{@link puppeteer_playwright/reading_intercepting_requests.md}})
 5. [Using proxies]({{@link puppeteer_playwright/proxies.md}})
 6. [Creating multiple browser contexts]({{@link puppeteer_playwright/browser_contexts.md}})
-
+7. [Common use cases]({{@link puppeteer_playwright/common_use_cases.md}})
 
 ## [](#next) First up
 
