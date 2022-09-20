@@ -107,9 +107,11 @@ For more information, see the [schedules section](https://docs.apify.com/api/v2#
 
 ## Schedule setup
 
-The schedule setup tool uses [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression), which we parse using the [cron-parser](https://www.npmjs.com/package/cron-parser) package, to specify run times. If you're familiar with how to use them and need a specific run schedule, you can dive right in. If not, don't worry - the setup tool has a visual custom schedule builder that provides the same level of control cron expressions.
+The schedule setup tool uses [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to specify run times. If you're familiar with how to use them and need a specific run schedule, you can dive right in. If not, don't worry - the setup tool has a visual custom schedule builder that provides a similar level of control as cron expressions, though it's not quite as powerful.
 
 ![Schedule setup tool]({{@asset images/schedule-setup.webp}})
+
+The **Next runs** section at the bottom shows when the next five runs will be. You can use this live feedback to experiment until you find the correct configuration.
 
 You can find more information and examples of cron expressions on [crontab.guru](http://crontab.guru/). For additional and non-standard characters, see [this](https://en.wikipedia.org/wiki/Cron#CRON_expression) Wikipedia article.
 
