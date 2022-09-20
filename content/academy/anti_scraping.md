@@ -73,7 +73,7 @@ Solely based on the way how the bots operate. It comperes data-rich pages visits
 
 By definition, this is not an anti-scraping method, but it can heavily affect the reliability of a scraper. If your target website drastically changes its CSS selectors, and your scraper is heavily reliant on selectors, it could break. In principle, websites using this method change their HTML structure or CSS selectors randomly and frequently, making the parsing of the data harder, and requiring more maintenance of the bot.
 
-One of the best ways of avoiding the possible breaking of your scraper due to website structure changes is to limit your reliance on data from HTML elements as much as possible (see [API Scraping]({{@link api_scraping.md}}) and [JavaScript objects within HTML]({{@link tutorials/js_in_html.md}}))
+One of the best ways of avoiding the possible breaking of your scraper due to website structure changes is to limit your reliance on data from HTML elements as much as possible (see [API Scraping]({{@link api_scraping.md}}) and [JavaScript objects within HTML]({{@link js_in_html.md}}))
 
 ### IP session consistency
 
