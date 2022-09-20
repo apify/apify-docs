@@ -41,11 +41,11 @@ await page.click('a:has-text("Sign in")');
 await page.waitForLoadState('load');
 
 // Type in the username and continue forward
-await page.type('input[name="username"]', 'academy_playwright_login');
+await page.type('input[name="username"]', 'YOUR-LOGIN-HERE');
 await page.click('input[name="signin"]');
 
 // Type in the password and continue forward
-await page.type('input[name="password"]', 'AcademyIsGreat88');
+await page.type('input[name="password"]', 'YOUR-PASSWORD-HERE');
 await page.click('button[name="verifyPassword"]');
 await page.waitForLoadState('load');
 
@@ -67,11 +67,11 @@ await Promise.all([page.waitForSelector('a[data-ylk*="sign-in"]'), page.click('b
 await Promise.all([page.waitForNavigation(), page.click('a[data-ylk*="sign-in"]')]);
 
 // Type in the username and continue forward
-await page.type('input[name="username"]', 'academy_playwright_login');
+await page.type('input[name="username"]', 'YOUR-LOGIN-HERE');
 await Promise.all([page.waitForNavigation(), page.click('input[name="signin"]')]);
 
 // Type in the password and continue forward
-await page.type('input[name="password"]', 'AcademyIsGreat88');
+await page.type('input[name="password"]', 'YOUR-PASSWORD-HERE');
 await Promise.all([page.waitForNavigation(), page.click('button[name="verifyPassword"]')]);
 
 // Wait for 10 seconds so we can see that we have in fact
@@ -80,7 +80,7 @@ await page.waitForTimeout(10000)
 </marked-tab>
 ```
 
-Great! If you're following along and nothing is wrong with the credentials, you should see that on the final navigated page, you're logged into the **Academy** Yahoo account.
+Great! If you're following along and you've replaced the placeholder credentials with your own, you should see that on the final navigated page, you're logged into your Yahoo account.
 
 ![Successfully logged into Yahoo]({{@asset puppeteer_playwright/common_use_cases/images/logged-in.webp}})
 
@@ -289,10 +289,10 @@ await page.waitForSelector('a:has-text("Sign in")');
 await page.click('a:has-text("Sign in")');
 await page.waitForLoadState('load');
 
-await page.type('input[name="username"]', 'academy_playwright_login');
+await page.type('input[name="username"]', 'YOUR-LOGIN-HERE');
 await page.click('input[name="signin"]');
 
-await page.type('input[name="password"]', 'AcademyIsGreat88');
+await page.type('input[name="password"]', 'YOUR-PASSWORD-HERE');
 await page.click('button[name="verifyPassword"]');
 await page.waitForLoadState('load');
 
@@ -355,10 +355,10 @@ await page.goto('https://www.yahoo.com/');
 await Promise.all([page.waitForSelector('a[data-ylk*="sign-in"]'), page.click('button[name="agree"]')]);
 await Promise.all([page.waitForNavigation(), page.click('a[data-ylk*="sign-in"]')]);
 
-await page.type('input[name="username"]', 'academy_playwright_login');
+await page.type('input[name="username"]', 'YOUR-LOGIN-HERE');
 await Promise.all([page.waitForNavigation(), page.click('input[name="signin"]')]);
 
-await page.type('input[name="password"]', 'AcademyIsGreat88');
+await page.type('input[name="password"]', 'YOUR-PASSWORD-HERE');
 await Promise.all([page.waitForNavigation(), page.click('button[name="verifyPassword"]')]);
 
 const cookies = await page.cookies();
