@@ -184,6 +184,16 @@ Often times, both of these data obfuscation techniques are used together.
 
 Built-in JavaScript encoding functions are used to transform the code into, for example, hexadecimal string. Or, a custom encoding function is used and a custom decoding function decodes the code as it is evaluated in the browser.
 
+## Detecting fingerprinting scripts
+
+Because of how common it has become to obfuscate fingerprinting scripts, browser extensions such as [**Don't Fingerprint Me**](https://github.com/freethenation/DFPM) have been created to help detect them. In the extension's window, you can see a report on which functions commonly used for fingerprinting have been called, and which navigator properties have been accessed.
+
+![Don't Fingerprint Me extension window]({{@asset anti_scraping/techniques/images/dont-fingerprint-me.webp}})
+
+This extension provides monitoring of only a few critical attributes, but in order to to deceive anti-scraping protections, the full list is needed. However, the extension does reveal the scripts that collect the fingerprints.
+
+Because browser fingerprinting is also a big privacy question, there are many extensions help identify fingerprinting scripts.
+
 ## [](#anti-bot-fingerprinting) Anti-bot fingerprinting
 
 On websites which implement advanced fingerprinting techniques, they will tie the fingerprint and certain headers (such as the **User-Agent** header) to the IP address of the user. These sites will block a user (or scraper) if it made a request with one fingerprint and set of headers, then tries to make another request on the same proxy but with a different fingerprint.
