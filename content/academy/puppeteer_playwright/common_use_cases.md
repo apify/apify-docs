@@ -1,5 +1,5 @@
 ---
-title: VII - Common use cases
+title: Common use cases
 description: Learn about some of the most common uses cases of Playwright and Puppeteer, and how to handle these use cases when you run into them.
 menuWeight: 7.7
 paths:
