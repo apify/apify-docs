@@ -1,5 +1,5 @@
 ---
-title: JavaScript objects in HTML
+title: How to scrape hidden JavaScript objects in HTML
 description: Learn about "hidden" data found within the JavaScript of certain pages, which can increase the scraper reliability and improve your development experience.
 menuWeight: 14
 category: tutorials
