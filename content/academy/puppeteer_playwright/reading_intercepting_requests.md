@@ -261,7 +261,7 @@ This confirms that we've successfully blocked the CSS and image resources from l
 
 #### [](#quick-note) Quick note about resource blocking
 
-Something **very** important to note is that by using request interception, the browser's cache is turned **off**. This means that resources on websites that would normally be cached (and pulled from the cache instead on the next request for those resources) will not be cached, which can have varying negative effects on performance, especially when making many requests to the same domain, which is very common in web scraping.
+Something **very** important to note is that by using request interception, the browser's cache is turned **off**. This means that resources on websites that would normally be cached (and pulled from the cache instead on the next request for those resources) will not be cached, which can have varying negative effects on performance, especially when making many requests to the same domain, which is very common in web scraping. You can learn how to solve this problem in [this short tutorial]({{@link caching_responses_in_puppeteer.md}})
 
 To block resources, it is better to use a CDP (Chrome DevTools Protocol) Session ([Playwright](https://playwright.dev/docs/api/class-cdpsession)/[Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v14.1.0&show=api-class-cdpsession)) to set the blocked URLs. Here is an implementation that achieves the same goal as our above example above; however, the browser's cache remains enabled.
 
