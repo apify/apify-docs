@@ -44,7 +44,7 @@ router.addHandler('START', async ({ $, crawler, request }) => {
         // to the crawler for its page
         await crawler.addRequests([{
             url,
-            label: labels.PRODUCT,
+            label: 'PRODUCT',
             userData: {
                 // Pass the scraped data about the product to the next
                 // request so that it can be used there
