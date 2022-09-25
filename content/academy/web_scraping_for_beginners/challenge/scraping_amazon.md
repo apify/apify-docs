@@ -116,7 +116,7 @@ export const labels = {
 import { createCheerioRouter, Dataset } from 'crawlee';
 import { BASE_URL, labels } from './constants';
 
-const router = createCheerioRouter();
+export const router = createCheerioRouter();
 
 router.addHandler(labels.START, async ({ $, crawler, request }) => {
     const { keyword } = request.userData;
