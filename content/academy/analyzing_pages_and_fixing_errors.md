@@ -9,7 +9,7 @@ paths:
 
 # [](#scraping-with-sitemaps) Analyzing a page and fixing errors
 
-Debugging is absolutely essential in programming. Even if you don't call yourself a programmer, having basic debugging skills will make building crawlers easier. It will also help you safe money my allowing you to avoid hiring an expensive developer to solve your issue for you.
+Debugging is absolutely essential in programming. Even if you don't call yourself a programmer, having basic debugging skills will make building crawlers easier. It will also help you safe money by allowing you to avoid hiring an expensive developer to solve your issue for you.
 
 This quick lesson covers the absolute basics by discussing some of the most common problems and the simplest tools for analyzing and fixing them.
 
@@ -65,8 +65,7 @@ try {
     // ...
 } catch (error) {
     // You know where the code crashed so you can explain here
-    console.error('Request failed during login with an error:');
-    throw error;
+    throw new Error('Request failed during login with an error', { cause: error });
 }
 ```
 
@@ -108,8 +107,7 @@ try {
     const screenshotLink = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.jpg`
 
     // You know where the code crashed so you can explain here
-    console.error(`Request failed during login with an error. Screenshot: ${screenshotLink}`);
-    throw error;
+    throw new Error('Request failed during login with an error', { cause: error });
 }
 // ...
 ```
@@ -125,8 +123,9 @@ To make the error snapshot descriptive, we name it **ERROR-LOGIN**. We add a ran
 
 Logging and snapshotting are great tools but once you reach a certain run size, it may be hard to read through them all. For a large project, it is handy to create a more sophisticated reporting system. For example, let's just look at simple **dataset** reporting.
 
-<!-- TODO: Make the code example below make sense without using Apify API or SDK -->
-<!-- This example extends our snapshot solution above by creating a [named dataset](https://docs.apify.com/storage#named-and-unnamed-storages) (named datasets have infinite retention), where we will accumulate error reports. Those reports will explain what happened and will link to a saved snapshot, so we can do a quick visual check.
+## [](#with-the-apify-sdk) With the Apify SDK
+
+This example extends our snapshot solution above by creating a [named dataset](https://docs.apify.com/storage#named-and-unnamed-storages) (named datasets have infinite retention), where we will accumulate error reports. Those reports will explain what happened and will link to a saved snapshot, so we can do a quick visual check.
 
 ```JavaScript
 import { Actor } from 'apify';
@@ -172,11 +171,8 @@ try {
     await reportingDataset.pushData(report);
 
     // You know where the code crashed so you can explain here
-    console.error(
-        `Request failed during login with an error. Screenshot: ${screenshotLink}`
-    );
-    throw error;
+    throw new Error('Request failed during login with an error', { cause: error });
 }
 // ...
 await Actor.exit();
-``` -->
+```
