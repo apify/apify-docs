@@ -8,7 +8,29 @@ paths:
 
 # [](#generating-fingerprints) Generating fingerprints
 
-With the [Fingerprint generator](https://github.com/apify/fingerprint-generator) NPM package, you can easily generate a browser fingerprint.
+In [**Crawlee**](https://crawlee.dev), it's extremely easy to automatically generate fingerprints using the [**FingerprintOptions**](https://crawlee.dev/api/browser-pool/interface/FingerprintOptions) on a crawler.
+
+```JavaScript
+import { PlaywrightCrawler } from 'crawlee';
+
+const crawler = new PlaywrightCrawler({
+    browserPoolOptions: {
+        fingerprintOptions: {
+            fingerprintGeneratorOptions: {
+                browsers: [{ name: 'firefox', minVersion: 80 }],
+                devices: ['desktop'],
+                operatingSystems: ['windows'],
+            },
+        },
+    },
+});
+```
+
+> Note that Crawlee will automatically generate fingerprints for you with no configuration necessary, but the option to configure them yourself is still there within **browserPoolOptions**.
+
+## [](#using-fingerprint-generator) Using the fingerprint-generator package
+
+Crawlee uses the [Fingerprint generator](https://github.com/apify/fingerprint-generator) NPM package to do its fingerprint generating magic. For maximum control outside of Crawlee, you can install it on its own. With this package, you can easily generate browser fingerprints.
 
 > It is crucial to generate fingerprints for the specific browser and operating system being used to trick the protections successfully. For example, if you are trying to overcome protection locally with Firefox on a macOS system, you should generate fingerprints for Firefox and macOS to achieve the best results.
 
@@ -37,7 +59,7 @@ const generated = fingerprintGenerator.getFingerprint({
 
 ## [](#injecting-fingerprints) Injecting fingerprints
 
-Once you've generated a fingerprint, it can be injected into the browser using the [Fingerprint injector](https://github.com/apify/fingerprint-injector) package. This tool allows you to inject fingerprints to browsers automated by Playwright or Puppeteer:
+Once you've manually generated a fingerprint using the **Fingerprint generator** package, it can be injected into the browser using [**fingerprint-injector**](https://github.com/apify/fingerprint-injector). This tool allows you to inject fingerprints into browsers automated by Playwright or Puppeteer:
 
 ```JavaScript
 import FingerprintGenerator from 'fingerprint-generator';
@@ -90,3 +112,20 @@ await page.goto('https://google.com');
 ## Wrap up
 
 That's it for the **Mitigation** course for now, but be on the lookout for future lessons! We release lessons as we write them, and will be updating the Academy frequently, so be sure to check back every once in a while for new content! Alternatively, you can subscribe to our mailing list to get periodic updates on the Academy, as well as what Apify is up to.
+
+## [](#generating-headers) Generating headers
+
+Headers are also used by websites to fingerprint users (or bots), so it might sometimes be necessary to generate some user-like headers to mitigate anti-scraping protections. Similarly with fingerprints, **Crawlee** automatically generates headers for you, but you can have full control by using the [**browser-headers-generator**](https://github.com/apify/browser-headers-generator) package.
+
+```JavaScript
+import BrowserHeadersGenerator from 'browser-headers-generator';
+
+const browserHeadersGenerator = new BrowserHeadersGenerator({
+  operatingSystems: ['windows'],
+  browsers: ['chrome'],
+});
+
+await browserHeadersGenerator.initialize()
+
+const randomBrowserHeaders = await browserHeadersGenerator.getRandomizedHeaders()
+```
