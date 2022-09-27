@@ -1,13 +1,13 @@
 ---
-title: Scraping with sitemaps
+title: How to scrape from sitemaps
 description: The sitemap.xml file is a jackpot for every web scraper developer. Take advantage of this and learn a much easier way to extract  data from websites using Crawlee.
 menuWeight: 16
 category: tutorials
 paths:
-    - scraping-with-sitemaps
+    - scraping-from-sitemaps
 ---
 
-# [](#scraping-with-sitemaps) Scraping with sitemaps
+# [](#scraping-with-sitemaps) Scraping from sitemaps
 
 Let's say we want to scrape a database of craft beers ([brewbound.com](https://brewbound.com)) before summer starts. If we are lucky, the website will contain a sitemap at [https://www.brewbound.com/sitemap.xml](https://www.brewbound.com/sitemap.xml).
 
