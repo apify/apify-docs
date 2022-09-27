@@ -9,7 +9,7 @@ paths:
 
 # [](#optimizing-scrapers) Optimizing scrapers
 
-Especially if you are running your scrapers on [Apify](https://apify.com), performance is directly related to your wallet (or rather bank account). The slower and heavier your program is, the more [compute units](https://help.apify.com/en/articles/3490384-what-is-a-compute-unit) and higher [subscription plan](https://apify.com/pricing) you'll need.
+Especially if you are running your scrapers on [Apify](https://apify.com), performance is directly related to your wallet (or rather bank account). The slower and heavier your program is, the more proxy bandwidth, storage, [compute units](https://help.apify.com/en/articles/3490384-what-is-a-compute-unit) and higher [subscription plan](https://apify.com/pricing) you'll need.
 
 The goal of optimization is simple: Make the code run as fast possible and use the least resources possible. On Apify, the resources are memory and CPU usage (don't forget that the more memory you allocate to a run, the bigger share of CPU you get - proportionally). Memory alone should never be a bottleneck though. If it is, that means either a bug (memory leak) or bad architecture of the program (you need to split the computation to smaller parts). So in the rest of this article, we will focus only on optimizing CPU usage. You allocate more memory only to get more power from the CPU.
 
@@ -29,7 +29,7 @@ Now, if you want to build your own game and you are not a C/C++ veteran with a t
 
 What are the engines of the scraping world? A [browser](https://github.com/puppeteer/puppeteer/blob/master/docs/api.md), an [HTTP library](https://www.npmjs.com/package/@apify/http-request), an [HTML parser](https://github.com/cheeriojs/cheerio), and a [JSON parser](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse). The CPU spends more than 99% of its workload in these libraries. As with engines, you are not likely gonna write these from scratch - instead you'll use something like [Crawlee](https://crawlee.dev) that handles a lot of the overheads for you.
 
-It is about how you use these tools. The small amount of code you write in your [`requestHandler`](https://crawlee.dev/api/http-crawler/interface/HttpCrawlerOptions#requestHandler) is absolutely insignificant compared to what is running inside these tools. In other words, it doesn't matter how many functions you call or how many variables you extract. If you want to optimize your scrapers, you need to choose the lightweight option from the tools and use it as little as possible. A crawler scraping only JSON API can be as much as 50 times faster/cheaper than a browser based solution.
+It is about how you use these tools. The small amount of code you write in your [`requestHandler`](https://crawlee.dev/api/http-crawler/interface/HttpCrawlerOptions#requestHandler) is absolutely insignificant compared to what is running inside these tools. In other words, it doesn't matter how many functions you call or how many variables you extract. If you want to optimize your scrapers, you need to choose the lightweight option from the tools and use it as little as possible. A crawler scraping only JSON API can be as much as 200 times faster/cheaper than a browser based solution.
 
 **Ranking of the tools from the most efficient to the least:**
 

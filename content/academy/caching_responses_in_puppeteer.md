@@ -9,9 +9,9 @@ paths:
 
 # [](#caching-responses-in-puppeteer) Caching responses in Puppeteer
 
-> In the latest version of Puppeteer, the request-interception function inconveniently disables the native cache and significantly slows down the crawler. Therefore, it's not recommended to follow the examples shown in this article. Puppeteer now uses a native cache that should work well enough for most use cases.
+> In the latest version of Puppeteer, the request-interception function inconveniently disables the native cache and significantly slows down the crawler. Therefore, it's not recommended to follow the examples shown in this article unless you have a very specific use-case where the default browser cache is not enough (e.g. cashing over multiple scraper runs)
 
-When running crawlers that go through a single website, each open page has to load all resources again (sadly, headless browsers don't use cache). The problem is that each resource needs to be downloaded through the network, which can be slow and/or unstable (especially when proxies are used).
+When running crawlers that go through a single website, each open page has to load all resources again. The problem is that each resource needs to be downloaded through the network, which can be slow and/or unstable (especially when proxies are used).
 
 For this reason, in this article, we will take a look at how to use memory to cache responses in Puppeteer (only those that contain header **cache-control** with **max-age** above **0**).
 
@@ -153,14 +153,6 @@ const crawler = new PuppeteerCrawler({
             title: await page.title(),
             url: request.url,
             succeeded: true,
-        });
-    },
-
-    failedRequestHandler: async ({ request }) => {
-        await Dataset.pushData({
-            url: request.url,
-            succeeded: false,
-            errors: request.errorMessages,
         });
     },
 });
