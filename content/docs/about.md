@@ -25,7 +25,7 @@ Apify is an online platform specializing in [web scraping]({{@link web_scraping_
 <div>test div</div>
 
 
-<video width="320" height="240" controls src="https://www.youtube.com/watch?v=2ivKEj3ksPk"></video>
+<video width="320" height="240" controls src="./images/video.mov"></video>
 
 [Apify Store](https://apify.com/store) includes a range of ready-made tools such as **Booking Scraper** ([dtrungtin/booking-scraper](https://apify.com/dtrungtin/booking-scraper)), **SEO Audit Tool** ([drobnikj/seo-audit-tool](https://apify.com/drobnikj/seo-audit-tool)), or the **Google Sheets Import & Export** ([lukaskrivka/google-sheets](https://apify.com/lukaskrivka/google-sheets)) tool. You can try all of these for free right now.
 
