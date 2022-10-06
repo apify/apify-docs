@@ -42,7 +42,7 @@ Our server needs two paths:
 First, we'll import `express` and create an Express.js app. Then, we'll add some middleware that will allow us to receive form submissions.
 
 ```JavaScript
-import Apify from 'apify';
+import { Actor } from 'apify';
 import express from 'express';
 
 const app = express()
@@ -115,7 +115,7 @@ app.post('/add-url', async (req, res) => {
     console.log(`Got new URL: ${url}`);
 
     // Start chrome browser and open new page ...
-    const browser = await Apify.launchPuppeteer();
+    const browser = await Actor.launchPuppeteer();
     const page = await browser.newPage();
 
     // ... go to our URL and grab a screenshot ...
@@ -127,7 +127,7 @@ app.post('/add-url', async (req, res) => {
     await browser.close(); 
 
     // ... save screenshot to key-value store and add URL to processedUrls.
-    await Apify.setValue(`${processedUrls.length}.jpg`, screenshot, { contentType: 'image/jpeg' });
+    await Actor.setValue(`${processedUrls.length}.jpg`, screenshot, { contentType: 'image/jpeg' });
     processedUrls.push(url);
 
     res.redirect('/');
@@ -146,7 +146,7 @@ app.listen(APIFY_CONTAINER_PORT, () => {
 ### [](#final-code) Final code
 
 ```JavaScript
-import Apify from 'apify';
+import { Actor } from 'apify';
 import express from 'express';
 
 const app = express()
