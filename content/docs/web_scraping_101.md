@@ -39,4 +39,4 @@ In a word, yes. Of course, it has a code of ethics and regulations, which you sh
 
 ## [](#additional-resources) Additional resources
 
-If you would like to learn more, check out [The Beginner's Guide to Web Scraping](https://apify.com/web-scraping), which explains the basics of web scraping, why you should do it, and helpful tips on how to get started.
+If you would like to learn more, check out [The Beginner's Guide to Web Scraping](https://blog.apify.com/web-scraping-guide), which explains the basics of web scraping, why you should do it, and helpful tips on how to get started.
