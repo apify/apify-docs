@@ -7,6 +7,8 @@ paths:
     - integrations/webhooks/actions
 ---
 
+<!-- If the URL points toward APify, we don't need to add the token because it gets added automatically -->
+
 # Actions
 
 Currently, the only available action is to send an HTTP POST request to a URL specified in the webhook. New actions will come later.

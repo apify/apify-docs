@@ -29,6 +29,14 @@ Meanwhile, webhooks allow you to perform tasks like sending HTTP requests or not
 
 Below are some examples of the kind of integrations you can set up with Apify.
 
+Services you can connect to to extend the functionality of your actors.
+
+- [Slack](https://help.apify.com/en/articles/6454058-apify-integration-for-slack).
+
+- [Webhooks]({{@link integrations/webhooks.md}}).
+
+Other platforms you can use Apify from.
+
 - [Zapier](https://zapier.com/apps/apify/integrations). See the [tutorial](https://help.apify.com/en/articles/3034235-getting-started-with-apify-integration-for-zapier).
 
 - [Google](https://google.com). See the [tutorial](https://help.apify.com/en/articles/2424053-google-integration).
@@ -41,7 +49,7 @@ Below are some examples of the kind of integrations you can set up with Apify.
 
 ## API token
 
-To access our API in your integrations, you will need to use your secret API token. You can find it on the [Integrations](https://console.apify.com/account?tab=integrations) page in the Apify Console.
+To access our API in your integrations, you will need to use your secret API token. You can find it on the [Integrations](https://console.apify.com/account?tab=integrations) page in the Apify Console. Give your token a reasonable description and never use one token for several services, much like you shouldn't use the same password for different accounts.
 
 ![Integrations page in the Apify Console]({{@asset integrations/images/api-token.webp}})
 

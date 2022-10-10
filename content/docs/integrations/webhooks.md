@@ -12,7 +12,7 @@ paths:
 
 Webhooks allow you to configure the Apify platform to perform an action when a certain system event occurs. For example, you can use them to start another actor when the current run finishes or fails.
 
-You can find webhooks under the **Integrations** tab on an actor's page in Apify Console.
+You can find webhooks under the **Integrations** tab on an actor's page in [Apify Console](https://console.apify.com/actors).
 
 ![Integrations tab in Apify Console]({{@asset integrations/images/integrations-tab.webp}})
 
