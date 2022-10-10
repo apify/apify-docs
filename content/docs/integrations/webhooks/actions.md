@@ -1,9 +1,10 @@
 ---
 title: Actions
 description: Send notifications when specific events occur in your actor (task) run or build. Dynamically add data to the notification payload when sending the notification.
-menuWeight: 11.2
+menuWeight: 2
 paths:
     - webhooks/actions
+    - integrations/webhooks/actions
 ---
 
 # Actions
@@ -81,8 +82,8 @@ You may have noticed that the `eventData` and `resource` properties contain redu
 |-------------|--------|-------------------------------------------------------------------------------------|
 | `userId`    | string | ID of the user who owns the webhook.                                                |
 | `createdAt` | string | ISO string date of the webhook's trigger event.                                     |
-| `eventType` | string | Type of the trigger event, [see Events]({{@link webhooks/events.md}}).              |
-| `eventData` | Object | Data associated with the trigger event, [see Events]({{@link webhooks/events.md}}). |
+| `eventType` | string | Type of the trigger event, [see Events]({{@link integrations/webhooks/events.md}}).              |
+| `eventData` | Object | Data associated with the trigger event, [see Events]({{@link integrations/webhooks/events.md}}). |
 | `resource`  | Object | The resource that caused the trigger event, [see below](#resource).                 |
 
 

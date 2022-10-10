@@ -16,7 +16,7 @@ Once you have finished coding and testing your actor, it's time to publish it. G
 
 ![Publish your actor in the Apify Console]({{@asset actors/publishing/images/publish.webp}})
 
-As well as a README, input schema, and a category, you'll need a **username**. You can set one on your [Account](https://console.apify.com/account?tab=settings) page. Choose your username wisely, as changing it at a later stage will break any [integrations]({{@link tutorials/integrations.md}}) that use it.
+As well as a README, input schema, and a category, you'll need a **username**. You can set one on your [Account](https://console.apify.com/account?tab=settings) page. Choose your username wisely, as changing it at a later stage will break any [integrations]({{@link integrations.md}}) that use it.
 
 ## Private or public?
 
