@@ -29,17 +29,17 @@ Meanwhile, webhooks allow you to perform tasks like sending HTTP requests or not
 
 Below are some examples of the kind of integrations you can set up with Apify.
 
-Services you can connect to to extend the functionality of your actors.
+Services you can connect to to extend the functionality of your actors:
 
 - [Slack](https://help.apify.com/en/articles/6454058-apify-integration-for-slack).
 
 - [Webhooks]({{@link integrations/webhooks.md}}).
 
-Other platforms you can use Apify from.
+Other platforms you can connect to Apify:
 
 - [Zapier](https://zapier.com/apps/apify/integrations). See the [tutorial](https://help.apify.com/en/articles/3034235-getting-started-with-apify-integration-for-zapier).
 
-- [Google](https://google.com). See the [tutorial](https://help.apify.com/en/articles/2424053-google-integration).
+- [Google](https://help.apify.com/en/articles/2424053-google-integration).
 
 - [Keboola](https://components.keboola.com/components/apify.apify). See the [tutorial](https://help.apify.com/en/articles/2003234-keboola-integration).
 
