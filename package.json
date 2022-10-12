@@ -32,6 +32,7 @@
         "@apify/log": "^1.1.5",
         "fs-extra": "^10.0.0",
         "markdown-yaml-metadata-parser": "^3.0.0",
+        "nvm": "^0.0.4",
         "underscore": "^1.13.1"
     },
     "devDependencies": {
