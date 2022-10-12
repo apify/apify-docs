@@ -1,22 +1,18 @@
 ---
 title: Publishing your actor
 description: Prepare your actor for the Apify Store with a description and README file and learn how to make your actor available to the public.
-menuWeight: 1
+menuWeight: 4
 paths:
-  - apify-platform/publishing-actors-on-apify-store/publishing-your-actor
+    - apify-platform/publishing-actors-on-apify-store/publishing-your-actor
 ---
 
 # [](#publishing-actor) Publishing your actor
 
-Before you make your actor public, it is important to write a good **Description** and **README** sections, so that users can understand what your actor does, how to configure its inputs, and what kind of output it returns.
+Before you make your actor public, it is important to make sure your actor has good **Description** and **README** sections so that users can understand what your actor does, how to configure its inputs, and what kind of output it returns. In this lesson, we will briefly go over each of the fields you have to fill in before publishing your actor. For more detailed information about [SEO and promotion]({{@link apify_platform/publishing_actors_on_apify_store/seo_and_promotion.md}})! and [how to write a comprehensive README]({{@link apify_platform/publishing_actors_on_apify_store/actor_readme.md}})!, check the previous lessons in this section of the academy.
 
 You can find the Title and description configurations by going to **Apify Console** → **Actors** → **My Actors** → **your-actor** → **Settings → Publication**
 
 ![Actor publication settings]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-publication-settings.webp}})
-
-Writing a complete and descriptive README can significantly increase your chances of convincing users to give your actors a try. Not only that, but you can also include popular keywords in text to increase the traffic to your actor's page. For more information on how you can **fine-tune your actor’s title, description, and Readme**, check our in-depth [SEO guide](https://docs.apify.com/actors/publishing/seo-and-promotion).
-
-Now, let’s move on to understand exactly how to add a description and README to your Apify actors.
 
 ## [](#description) Description
 
@@ -30,15 +26,15 @@ While writing your actor’s description you also have the option to write an SE
 
 ## [](#readme) README
 
-The next step is to write a **README** detailing the actor’s features, reasons to scrape the targeted website, and an explanation about how to use the actor.
+The next step is to include a **README** detailing the actor’s features, reasons to scrape the targeted website, and an explanation about how to use the actor.
 
-Keep in mind that the actor’s README is generated from your README.md file, and you can apply the same [SEO principles](https://docs.apify.com/actors/publishing/seo-and-promotion) throughout the README.
+Keep in mind that the actor’s README is generated from your README.md file, and you can apply the same [SEO principles]({{ apify_platform/publishing_actors_on_apify_store/seo_and_promotion.md}})! described in the previous lesson to your README.
 
-To save some time when writing an actor’s README, we recommend using the template below as a starting point:
+To save some time when writing an actor’s README, you can use the template below as a starting point:
 
 [https://github.com/zpelechova/readme-template](https://github.com/zpelechova/readme-template)
 
-Note that the complexity of the README should match the actor’s complexity. This means that the template above is not immutable and that you can adapt it to fit the particularities of your actor. You can check our guide, **[How to write great README for your actors](https://help.apify.com/en/articles/2912548-how-to-write-great-readme-for-your-actors)**, for more examples of README files.
+Note that the complexity of the README should match the actor’s complexity. This means that the template above is not immutable and that you can adapt it to fit the particularities of your actor.
 
 ## [](#make-your-actor-public) Make your actor Public
 
@@ -77,7 +73,6 @@ Actors that require some sort of authentication will always fail the tests despi
 ### Advanced actor testing
 
 You can easily implement your own tests and customize them to fit your actor's particularities by using our public [Actor Testing](https://apify.com/pocesar/actor-testing) tool available on the Apify store.
-
 
 ## [](#next) Next up
 
