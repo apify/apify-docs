@@ -32,7 +32,7 @@ The Crawlee library factors away and manages the hard parts of the scraping/auto
 - Puppeteer/Playwright setup overhead
 - Plus much more!
 
-As a developer, your goal is to take Crawlee, which is quite generic on its own, and write website-specific or use-case-specific [actors]({{@link apify_platform/getting_started/actors.md}}).
+As a developer, your goal is to take Crawlee, which is quite generic on its own, and write website-specific or use-case-specific [actors]({{@link getting_started/actors.md}}).
 
 Crawlee and its resources can be found in various different places:
 

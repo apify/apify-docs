@@ -1,7 +1,7 @@
 ---
 title: Expert scraping with Apify
 description: After learning the basics of actors and Apify, learn to develop pro-level scrapers on the Apify platform with this advanced course.
-menuWeight: 8
+menuWeight: 12
 category: apify platform
 paths:
 - expert-scraping-with-apify
@@ -15,7 +15,7 @@ This course will teach you the nitty gritty of what it takes to build pro-level 
 
 Before developing a pro-level Apify scraper, there are some important things you should have at least a bit of knowledge about (knowing the basics of each is enough to continue through this section), as well as some things that you should have installed on your system.
 
-> If you've already gone through the [Web scraping for beginners course]({{@link web_scraping_for_beginners.md}}) and the first lessons of the [Apify platform course]({{@link apify_platform.md}}), you will be more than well equipped to continue on with the lessons in this course.
+> If you've already gone through the [Web scraping for beginners course]({{@link web_scraping_for_beginners.md}}) and the first courses of the [Apify platform category]({{@link apify_platform.md}}), you will be more than well equipped to continue on with the lessons in this course.
 
 <!-- ### [](#puppeteer-playwright) Puppeteer/Playwright
 
@@ -23,7 +23,7 @@ Before developing a pro-level Apify scraper, there are some important things you
 
 ### [](#crawlee-apify-sdk-and-cli) Crawlee, Apify SDK, and the Apify CLI
 
-If you're feeling ambitious, you don't need to have any prior experience with Crawlee to get started with this course; however, at least 5-10 minutes of exposure is recommended. If you haven't yet tried out Crawlee, you can refer to [this lesson]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) in the **Web scraping for beginners** course (and ideally follow along). To familiarize with the Apify SDK,you can refer to the [Apify Platform]({{@link apify_platform.md}}) course.
+If you're feeling ambitious, you don't need to have any prior experience with Crawlee to get started with this course; however, at least 5-10 minutes of exposure is recommended. If you haven't yet tried out Crawlee, you can refer to [this lesson]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}) in the **Web scraping for beginners** course (and ideally follow along). To familiarize with the Apify SDK,you can refer to the [Apify Platform]({{@link apify_platform.md}}) category.
 
 The Apify CLI will play a core role in the running and testing of the actor you will build, so if you haven't gotten it installed already, please refer to [this short lesson]({{@link tools/apify_cli.md}}).
 
@@ -37,7 +37,7 @@ Docker is a massive topic on its own, but don't be worried! We only expect you t
 
 ### [](#actor-basics) The basics of actors
 
-Part of this course will be learning more in-depth about actors; however, some basic knowledge is already assumed. If you haven't yet gone through the [actors]({{@link apify_platform/getting_started/actors.md}}) lesson of the **Apify platform** course, it's highly recommended to at least give it a glance before moving forward.
+Part of this course will be learning more in-depth about actors; however, some basic knowledge is already assumed. If you haven't yet gone through the [actors]({{@link getting_started/actors.md}}) lesson of the **Apify platform** course, it's highly recommended to at least give it a glance before moving forward.
 
 ## [](#first) First up
 

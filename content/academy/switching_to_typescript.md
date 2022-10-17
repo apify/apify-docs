@@ -2,7 +2,7 @@
 title: Switching to TypeScript
 description: In this course, learn what TypeScript is, why you should use it instead of vanilla JavaScript, and how to start using it in your own projects.
 menuWeight: 5
-category: web scraping courses
+category: web scraping & automation
 paths:
     - switching-to-typescript
 ---

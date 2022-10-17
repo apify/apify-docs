@@ -2,7 +2,7 @@
 title: Web scraping for beginners
 description: Learn how to develop web scrapers with this comprehensive and practical course. Go from beginner to expert, all in one place.
 menuWeight: 1
-category: web scraping courses
+category: web scraping & automation
 paths:
     - web-scraping-for-beginners
 ---

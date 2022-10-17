@@ -1,7 +1,7 @@
 ---
 title: How to scrape from dynamic pages
 description: Learn about dynamic pages and dynamic content. How can we find out if a page is dynamic? How do we programmatically scrape dynamic content?
-menuWeight: 13
+menuWeight: 17
 category: tutorials
 paths:
 - dealing-with-dynamic-pages

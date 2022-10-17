@@ -4,6 +4,7 @@ description: Learn to accept input into your actor, do something with it, then r
 menuWeight: 1
 paths:
     - apify-platform/deploying-your-code/inputs-outputs
+    - deploying-your-code/inputs-outputs
 ---
 
 # [](#inputs-outputs) Inputs & outputs
@@ -52,7 +53,7 @@ await Actor.exit();
 
 If we run this right now, we'll see **null** in our terminal - this is because we never provided any sort of test input, which should be provided in the default key-value store. The `Actor.getInput()` function has detected that there is no **storage** folder and generated one for us.
 
-![Default key-value store filepath]({{@asset apify_platform/deploying_your_code/images/filepath.webp}})
+![Default key-value store filepath]({{@asset deploying_your_code/images/filepath.webp}})
 
 We'll now add an **INPUT.json** file within **storage/key_value_stores/default** to match what we're expecting in our code.
 
@@ -85,7 +86,7 @@ Cool! When we run `node index.js`, we see **20**.
 
 ### Accepting input without the Apify SDK
 
-Alternatively, when writing in a language other than JavaScript, we can create our own `get_input()` function which utilizes the Apify API when the actor is running on the platform. For this example, we are using the [Apify Client]({{@link apify_platform/getting_started/apify_client.md}}) for Python to access the API.
+Alternatively, when writing in a language other than JavaScript, we can create our own `get_input()` function which utilizes the Apify API when the actor is running on the platform. For this example, we are using the [Apify Client]({{@link getting_started/apify_client.md}}) for Python to access the API.
 
 ```Python
 # index.py
@@ -218,4 +219,4 @@ After running our script, there should be a single item in the default dataset t
 
 ## [](#next) Next up
 
-That's it! We've now added all of the files and code necessary to convert our software into an actor. In the [next lesson]({{@link apify_platform/deploying_your_code/input_schema.md}}), we'll be learning how to easily generate a user interface for our actor's input so that users don't have to provide the input in raw JSON format.
+That's it! We've now added all of the files and code necessary to convert our software into an actor. In the [next lesson]({{@link deploying_your_code/input_schema.md}}), we'll be learning how to easily generate a user interface for our actor's input so that users don't have to provide the input in raw JSON format.

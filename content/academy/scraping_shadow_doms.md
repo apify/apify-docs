@@ -1,7 +1,7 @@
 ---
 title: How to scrape sites with a shadow DOM
 description: The shadow DOM enables the isolation of web components, but causes problems for those building web scrapers. Here's an easy workaround.
-menuWeight: 15
+menuWeight: 19
 category: tutorials
 paths:
 - scraping-shadow-doms

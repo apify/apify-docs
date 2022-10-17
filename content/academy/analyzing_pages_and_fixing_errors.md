@@ -1,7 +1,7 @@
 ---
 title: How to analyze and fix errors when scraping a website
 description: Learn how to deal with random crashes in your web-scraping and automation jobs. Find out the essentials of debugging and fixing problems in your crawlers.
-menuWeight: 17
+menuWeight: 20
 category: tutorials
 paths:
     - analyzing-pages-and-fixing-errors

@@ -4,13 +4,14 @@ description: Learn how you can use Apify to monetize your web scraping and autom
 menuWeight: 3
 paths:
     - apify-platform/publishing-actors-on-apify-store/monetizing-your-actor
+    - publishing-actors-on-apify-store/monetizing-your-actor
 ---
 
 # [](#monetizing-your-actor) Monetizing your actor
 
 When publishing your actor on the Apify platform you have the choice to make it a **Paid actor** and get paid by the users benefiting from your tool.
 
-![Paid actor example]({{@asset apify_platform/publishing_actors_on_apify_store/images/scraper-example.webp}})
+![Paid actor example]({{@asset publishing_actors_on_apify_store/images/scraper-example.webp}})
 
 Paid actor users pay a monthly rental fee to use the tool, which is **paid in full to the actor’s developer.** This means that, in the example above, the developer would get the full $45 monthly rent paid by each actor’s user.
 
@@ -18,7 +19,7 @@ Paid actor users pay a monthly rental fee to use the tool, which is **paid in fu
 
 First, go to your actor page, **Actors → My Actors** and click on the actor you want to monetize. While on your actor page, go to the **Publication** tab on the right side of the screen and click on the **Request Monetization** button, located under the **Monetization** section.
 
-![Request monetization]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-monetization-request.webp}})
+![Request monetization]({{@asset publishing_actors_on_apify_store/images/actor-monetization-request.webp}})
 
 Our support team will be notified about your request and promptly contact you to discuss the desired price and trial length for your actor, and help you fill in your billing details.
 
@@ -32,7 +33,7 @@ Inside the Apify Console, go to **Actors → Earnings.**
 
 Here you have access to a table detailing all the relevant information about your paid actor, including the estimated revenue and number of paying users.
 
-![Scraper earnings]({{@asset apify_platform/publishing_actors_on_apify_store/images/scraper-earnings-example.webp}})
+![Scraper earnings]({{@asset publishing_actors_on_apify_store/images/scraper-earnings-example.webp}})
 
 ## [](#promote-your-actor) Promote your actor
 

@@ -4,6 +4,7 @@ description: Interact with the Apify API in your code by using the apify-client 
 menuWeight: 5
 paths:
     - apify-platform/getting-started/apify-client
+    - getting-started/apify-client
 ---
 
 # [](#apify-client) Apify client
@@ -81,7 +82,7 @@ run = client.actor('YOUR_USERNAME/adding-actor').call(run_input={
 
 Once an actor's run has completed, it will return a **run info** object that looks something like this:
 
-![Run info object]({{@asset apify_platform/getting_started/images/run-info.webp}})
+![Run info object]({{@asset getting_started/images/run-info.webp}})
 
 The `run` variable we created in the last section points to the **run info** object of the run we created with the `.call()` function, which means that through this variable, we can access the run's `defaultDatasetId`. This ID can then be passed into the `client.dataset()` function.
 
@@ -188,7 +189,7 @@ actor.update(default_run_build='latest', default_run_memory_mbytes=256, default_
 
 After running the code, go back to the **Settings** page of **adding-actor**. If your default options now look like this, then it worked!:
 
-![New run defaults]({{@asset apify_platform/getting_started/images/new-defaults.webp}})
+![New run defaults]({{@asset getting_started/images/new-defaults.webp}})
 
 ## [](#overview) Overview
 
@@ -201,4 +202,4 @@ For a more in-depth understanding of the Apify API client, give these a quick lo
 
 ## [](#next) Next up
 
-Now that you're familiar and a bit more comfortable with the Apify platform, you're ready to start deploying your code to Apify! In the [next section]({{@link apify_platform/deploying_your_code.md}}), you'll learn how to take any project written in any programming language and turn it into an actor.
+Now that you're familiar and a bit more comfortable with the Apify platform, you're ready to start deploying your code to Apify! In the [next section]({{@link deploying_your_code.md}}), you'll learn how to take any project written in any programming language and turn it into an actor.

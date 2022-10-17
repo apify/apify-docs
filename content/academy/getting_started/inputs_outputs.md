@@ -4,6 +4,7 @@ description: Create an actor from scratch which takes an input, processes that i
 menuWeight: 3
 paths:
 - apify-platform/getting-started/inputs-outputs
+- getting-started/inputs-outputs
 ---
 
 # [](#inputs-outputs) Inputs & outputs
@@ -14,7 +15,7 @@ In this lesson, we'll be demonstrating inputs and outputs by building an actor w
 
 ## [](#accept-input) Accept input into an actor
 
-Let's first create another new actor using the same template as before. Feel free to refer to the [previous lesson]({{@link apify_platform/getting_started/creating_actors.md}}) for a refresher on how to do this.
+Let's first create another new actor using the same template as before. Feel free to refer to the [previous lesson]({{@link getting_started/creating_actors.md}}) for a refresher on how to do this.
 
 Replace all of the code in **main.js** with this code snippet:
 
@@ -70,7 +71,7 @@ Finally, **Save** and **Build** the actor just as you did in the previous lesson
 
 If you scroll down a bit, you'll find the **Developer console** located under the multifile editor. By default, after running a build, the **Last build** tab will be selected, where you can see all of the logs related to building the actor. Inputs can be configured within the **Input** tab.
 
-![Configuring inputs]({{@asset apify_platform/getting_started/images/configure-inputs.webp}})
+![Configuring inputs]({{@asset getting_started/images/configure-inputs.webp}})
 
 Enter any two numbers you'd like, then press **Start**. The actor's run should complete almost immediately.
 
@@ -78,11 +79,11 @@ Enter any two numbers you'd like, then press **Start**. The actor's run should c
 
 Since we've pushed the result into the default dataset, it, and some info about it can be viewed by clicking this box, which will take you to the results tab:
 
-![Result box]({{@asset apify_platform/getting_started/images/result-box.webp}})
+![Result box]({{@asset getting_started/images/result-box.webp}})
 
 On the results tab, there are a whole lot of options for which format to view/download the data in. Keep the default of **JSON** selected, and click on **Preview**.
 
-![Dataset preview]({{@asset apify_platform/getting_started/images/dataset-preview.webp}})
+![Dataset preview]({{@asset getting_started/images/dataset-preview.webp}})
 
 There's our solution! Did it work for you as well? Now, we can download the data right from the results tab to be used elsewhere, or even programmatically retrieve it by using [Apify's API](https://docs.apify.com/api/v2) (we'll be discussing how to do this in the next lesson).
 
@@ -90,4 +91,4 @@ It's important to note that the default dataset of the actor, which we pushed ou
 
 ## [](#next) Next up
 
-In [next lesson]({{@link apify_platform/getting_started/apify_api.md}})'s fun activity, you'll learn how to call the actor we created in this lesson programmatically using one of Apify's most powerful tools - the Apify API.
+In [next lesson]({{@link getting_started/apify_api.md}})'s fun activity, you'll learn how to call the actor we created in this lesson programmatically using one of Apify's most powerful tools - the Apify API.

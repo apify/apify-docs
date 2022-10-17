@@ -3,10 +3,8 @@ title: Naming your actor
 description: Apify's standards for actor naming. Learn how to choose the right name for scraping and non-scraping actors and how to optimize your actor for search engines.
 menuWeight: 1
 paths:
-    # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
-    - actor/publishing/naming-your-actor
-    - actors/publishing/naming-your-actor
     - apify-platform/publishing-actors-on-apify-store/naming-your-actor
+    - publishing-actors-on-apify-store/naming-your-actor
 ---
 
 # [](#naming-your-actor) Naming your actor
@@ -67,4 +65,4 @@ The **publication title**, however, can be changed without any problems.
 
 ## [](#next) Next up
 
-Now that your actor is properly named and you know the differences between your actor's technical name and publication title, it's time to take the [next step]({{@link apify_platform/publishing_actors_on_apify_store/actor_readme.md}})! into making your actor public in Apify Store by ensuring that it has a well-structured and comprehensive README.
+Now that your actor is properly named and you know the differences between your actor's technical name and publication title, it's time to take the [next step]({{@link publishing_actors_on_apify_store/actor_readme.md}})! into making your actor public in Apify Store by ensuring that it has a well-structured and comprehensive README.

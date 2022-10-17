@@ -2,7 +2,7 @@
 title: API scraping
 description: Learn all about how the professionals scrape various types of APIs with various configurations, parameters, and requirements.
 menuWeight: 3
-category: web scraping courses
+category: web scraping & automation
 paths:
     - api-scraping
 ---
