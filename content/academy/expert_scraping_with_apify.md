@@ -1,8 +1,8 @@
 ---
 title: Expert scraping with Apify
-description: After learning the basics of actors, learn to develop pro-level scrapers on the Apify platform with this advanced course.
-menuWeight: 6
-category: courses
+description: After learning the basics of actors and Apify, learn to develop pro-level scrapers on the Apify platform with this advanced course.
+menuWeight: 8
+category: apify platform
 paths:
 - expert-scraping-with-apify
 ---
