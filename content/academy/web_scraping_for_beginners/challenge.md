@@ -78,4 +78,6 @@ Each of the items in the dataset will represent a scraped offer, and will have t
 
 ## [](#next) First up
 
+From this course, you should have all the knowledge to build this scraper by yourself. Give it a try, then come back to compare your scraper with our solution.
+
 Let's start off this section easy by [initializing and setting up]({{@link web_scraping_for_beginners/challenge/initializing_and_setting_up.md}}) our project with the Crawlee CLI (don't worry, no additional install is required).
