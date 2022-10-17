@@ -21,15 +21,7 @@ https://docs.google.com/spreadsheets/d/1GA5sSQhQjB_REes8I5IKg31S-TuRcznWOPjcpNqt
 
 ![Start URLs in a spreadsheet]({{@asset tutorials/images/start-urls-in-spreadsheet.webp}})
 
-You don't have to add them to the actor manually or export them as a file, only to upload to the scraper.
-
-Simply add the `/gviz/tq?tqx=out:csv` query parameter to the base part of the Google Sheet URL, right after the long document identifier.
-
-```URL
-https://docs.google.com/spreadsheets/d/1GA5sSQhQjB_REes8I5IKg31S-TuRcznWOPjcpNqtxmU/gviz/tq?tqx=out:csv
-```
-
-This gives you a URL that automatically exports the spreadsheet to CSV. Then, just click the **Link remote text file** button in the actor's input and paste the URL.
+You don't have to add them to the actor manually or export them as a file, only to upload to the scraper. Just click the **Text file** -> **Link remote text file** button in the actor's input and paste the URL.
 
 ![Link a remote text file]({{@asset tutorials/images/link-remote-file.webp}})
 
