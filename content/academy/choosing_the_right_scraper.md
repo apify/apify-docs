@@ -1,7 +1,7 @@
 ---
 title: How to choose the right scraper for the job
 description: Understand how to choose the best scraper for your use-case by understanding some basic concepts.
-menuWeight: 20
+menuWeight: 23
 category: tutorials
 paths:
     - choosing-the-right-scraper

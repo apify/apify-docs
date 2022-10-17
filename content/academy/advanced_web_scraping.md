@@ -2,7 +2,7 @@
 title: Advanced web scraping
 description: Take your scrapers to the next level by learning various advanced concepts and techniques that will help you build highly scalable and reliable crawlers.
 menuWeight: 6
-category: web scraping courses
+category: web scraping & automation
 paths:
 - advanced-web-scraping
 ---

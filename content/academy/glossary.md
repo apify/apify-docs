@@ -1,7 +1,7 @@
 ---
 title: Why a glossary?
 description: Browse important web scraping concepts, tools and topics in succinct articles explaining common web development terms in a web scraping and automation context.
-menuWeight: 9
+menuWeight: 13
 category: glossary
 paths:
 - glossary

@@ -1,7 +1,7 @@
 ---
 title: How to optimize and speed up your web scraper
 description: We all want our scrapers to run as fast as possible and cost as little money as possible. Learn how to think about performance in the context of web-scraping and automation.
-menuWeight: 18
+menuWeight: 21
 category: tutorials
 paths:
     - optimizing-scrapers

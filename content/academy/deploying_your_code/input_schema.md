@@ -4,6 +4,7 @@ description: Learn how to generate a user interface on the platform for your act
 menuWeight: 2
 paths:
 - apify-platform/deploying-your-code/input-schema
+- deploying-your-code/input-schema
 ---
 
 # [](#input-schema) Input schema
@@ -97,7 +98,7 @@ For our case, we've made the **numbers** field required, as it is crucial to our
 
 Here is what the output schema we wrote will render on the platform:
 
-![Rendered UI from input schema]({{@asset apify_platform/deploying_your_code/images/rendered-ui.webp}})
+![Rendered UI from input schema]({{@asset deploying_your_code/images/rendered-ui.webp}})
 
 Later on, we'll be building more complex input schemas, as well as discussing how to write quality input schemas that allow the user to easily understand the actor and not become overwhelmed.
 
@@ -105,4 +106,4 @@ It is not expected to memorize all of the fields that properties can take, or th
 
 ## [](#next) Next up
 
-In the [next lesson]({{@link apify_platform/deploying_your_code/docker_file.md}}), we'll be learning about a very important file that is required for our project to run on the Apify platform - the Dockerfile.
+In the [next lesson]({{@link deploying_your_code/docker_file.md}}), we'll be learning about a very important file that is required for our project to run on the Apify platform - the Dockerfile.

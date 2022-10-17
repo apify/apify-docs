@@ -4,6 +4,7 @@ description: Build and run your very first actor right on the Apify platform fro
 menuWeight: 2
 paths:
 - apify-platform/getting-started/creating-actors
+- getting-started/creating-actors
 ---
 
 # [](#creating-actors) Creating actors
@@ -14,19 +15,19 @@ Creating an actor is so easy to do, we'll show you right in this lesson how to g
 
 On the [Apify Console](https://console.apify.com?asrc=developers_portal), click on the **Actors** tab we visited in the previous lesson. In the top right-hand corner, you should see a **Create new** button.
 
-![Create new button]({{@asset apify_platform/getting_started/images/create-new-actor.webp}})
+![Create new button]({{@asset getting_started/images/create-new-actor.webp}})
 
 Click it, then choose the **Basic Node.js actor** template and click on **Use template**.
 
 > Also feel free to give the actor a custom name instead of the default name. For this lesson though, we'll keep it as **my-actor**.
 
-![Choosing a template]({{@asset apify_platform/getting_started/images/choose-template.webp}})
+![Choosing a template]({{@asset getting_started/images/choose-template.webp}})
 
 ## [](#hello-world) Hello World!
 
 After clicking on **Use template**, you should be brought to a page that looks like this:
 
-![Multifile editor]({{@asset apify_platform/getting_started/images/multifile-editor.webp}})
+![Multifile editor]({{@asset getting_started/images/multifile-editor.webp}})
 
 The area where you can see some code and files is called the **multifile editor**, and it is your gateway to writing actor directly on the Apify platform.
 
@@ -66,11 +67,11 @@ To save your changes, click on the blue **Save** button.
 
 In order to run the actor, you've gotta build it. Luckily, that's only a button press away.
 
-![Build the actor]({{@asset apify_platform/getting_started/images/build-actor.webp}})
+![Build the actor]({{@asset getting_started/images/build-actor.webp}})
 
 After you've clicked the **Build** button, it'll take around 5-10 seconds to complete the build. You'll know it's finished when you see a green **Start** button.
 
-![Start button]({{@asset apify_platform/getting_started/images/start.webp}})
+![Start button]({{@asset getting_started/images/start.webp}})
 
 This beautiful button's presence means we can now run the actor!
 
@@ -78,7 +79,7 @@ This beautiful button's presence means we can now run the actor!
 
 Click **Start** and wait a few seconds... Do you see something that looks like this?:
 
-![Actor run logs]({{@asset apify_platform/getting_started/images/hello-world-run.webp}})
+![Actor run logs]({{@asset getting_started/images/hello-world-run.webp}})
 
 If so, it worked! 🥳
 
@@ -86,4 +87,4 @@ Later on, we'll be working on some more complex actors - this was just a fun and
 
 ## [](#next) Next up
 
-So we've created an actor, but how can we give it some input, then make it do stuff based on that input? This is exactly what we'll be discussing in the [next lesson]({{@link apify_platform/getting_started/inputs_outputs.md}})'s activity.
+So we've created an actor, but how can we give it some input, then make it do stuff based on that input? This is exactly what we'll be discussing in the [next lesson]({{@link getting_started/inputs_outputs.md}})'s activity.

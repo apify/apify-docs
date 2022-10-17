@@ -4,6 +4,7 @@ description: Learn how to write a comprehensive README to help users better navi
 menuWeight: 2
 paths:
     - apify-platform/publishing-actors-on-apify-store/actor-readme
+    - publishing-actors-on-apify-store/actor-readme
 ---
 
 ## What is the point of this guide?
@@ -50,7 +51,7 @@ Aim for sections 1-6 below and try to include at least 300 words. You can move t
     - Add a video tutorial or gif from an ideal actor run.
     - Consider adding a short numbered tutorial as Google will sometimes pick these up as rich snippets. Remember that this might be in search results, so you can repeat the name of the actor and give a link, e.g.
 
-    ![How to scrape a website - numbered tutorial]({{@asset apify_platform/publishing_actors_on_apify_store/images/how-to-scrape-target-site.webp}})
+    ![How to scrape a website - numbered tutorial]({{@asset publishing_actors_on_apify_store/images/how-to-scrape-target-site.webp}})
 
 5. **Is it legal to scrape (target site)?**
 
@@ -81,4 +82,4 @@ If you want some general tips on how to make GitHub readmes that stand out, chec
 
 ## [](#next) Next up
 
-If you followed all the tips described above, your actor README should be good to go! In the [next lesson]({{@link apify_platform/publishing_actors_on_apify_store/seo_and_promotion.md}})! we will dive deeper into how you can improve your README's SEO and promote your actor to ensure it reaches as many potential users as possible!
+If you followed all the tips described above, your actor README should be good to go! In the [next lesson]({{@link publishing_actors_on_apify_store/seo_and_promotion.md}})! we will dive deeper into how you can improve your README's SEO and promote your actor to ensure it reaches as many potential users as possible!
