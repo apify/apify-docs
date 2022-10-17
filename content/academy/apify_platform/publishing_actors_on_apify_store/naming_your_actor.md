@@ -1,10 +1,12 @@
 ---
 title: Naming your actor
 description: Apify's standards for actor naming. Learn how to choose the right name for scraping and non-scraping actors and how to optimize your actor for search engines.
+menuWeight: 1
 paths:
-# NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
+    # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actor/publishing/naming-your-actor
     - actors/publishing/naming-your-actor
+    - apify-platform/publishing-actors-on-apify-store/naming-your-actor
 ---
 
 # [](#naming-your-actor) Naming your actor
@@ -19,24 +21,23 @@ For actors such as [YouTube Scraper](https://apify.com/bernardo/youtube-scraper)
 
 GOOD:
 
-* Technical name (actor's name in the [Apify Console](https://console.apify.com)): **${domain}-scraper**, e.g. **youtube-scraper**.
-* Publication title for the Apify Store: **${Domain} Scraper**, e.g. **YouTube Scraper**.
-* Name of the GitHub repository: **actor-${domain}-scraper**, e.g. **actor-youtube-scraper**.
+- Technical name (actor's name in the [Apify Console](https://console.apify.com)): **${domain}-scraper**, e.g. **youtube-scraper**.
+- Publication title for the Apify Store: **${Domain} Scraper**, e.g. **YouTube Scraper**.
+- Name of the GitHub repository: **actor-${domain}-scraper**, e.g. **actor-youtube-scraper**.
 
 AVOID:
 
-* Technical name: **the-scraper-of-${domain}**, e.g. **the-scraper-of-youtube**.
-* Publication title: **The Scraper of ${Domain}**, e.g. **The Scraper of YouTube**.
-* GitHub repository: **actor-the-scraper-of-${domain}**, e.g. **actor-the-scraper-of-youtube**.
+- Technical name: **the-scraper-of-${domain}**, e.g. **the-scraper-of-youtube**.
+- Publication title: **The Scraper of ${Domain}**, e.g. **The Scraper of YouTube**.
+- GitHub repository: **actor-the-scraper-of-${domain}**, e.g. **actor-the-scraper-of-youtube**.
 
 If your actor only caters to a specific service on a domain (and you don't plan on extending it), add the service to the actor's name.
 
 For example,
 
-* Technical name: **${domain}-${service}-scraper**, e.g. **google-search-scraper**.
-* Publication title: **${Domain} ${Service} Scraper**, e.g. [**Google Search Scraper**](https://apify.com/apify/google-search-scraper).
-* GitHub repository: **actor-${domain}-${service}-scraper**, e.g. **actor-google-search-scraper**.
-
+- Technical name: **${domain}-${service}-scraper**, e.g. **google-search-scraper**.
+- Publication title: **${Domain} ${Service} Scraper**, e.g. [**Google Search Scraper**](https://apify.com/apify/google-search-scraper).
+- GitHub repository: **actor-${domain}-${service}-scraper**, e.g. **actor-google-search-scraper**.
 
 ## [](#non-scraping-actors) Non-scraping actors
 
@@ -48,18 +49,22 @@ Below are examples for the [Google Sheets](https://apify.com/lukaskrivka/google-
 
 GOOD:
 
-* Technical name: **google-sheets**.
-* Publication title: **Google Sheets Import & Export**.
-* GitHub repository: **actor-google-sheets**.
+- Technical name: **google-sheets**.
+- Publication title: **Google Sheets Import & Export**.
+- GitHub repository: **actor-google-sheets**.
 
 AVOID:
 
-* Technical name: **import-to-and-export-from-google-sheets**.
-* Publication title: **Actor for Importing to and Exporting from Google Sheets**.
-* GitHub repository: **actor-for-import-and-export-google-sheets**.
+- Technical name: **import-to-and-export-from-google-sheets**.
+- Publication title: **Actor for Importing to and Exporting from Google Sheets**.
+- GitHub repository: **actor-for-import-and-export-google-sheets**.
 
 ## [](#renaming-your-actor) Renaming your actor
 
 **Warning!** Changing your actor's **technical name** may break current integrations for that actor's users. This is why some actors in the Apify Store don't have consistent naming. For the same reason, it is best to change the actor's name early, before you build a steady user base.
 
 The **publication title**, however, can be changed without any problems.
+
+## [](#next) Next up
+
+Now that your actor is properly named and you know the differences between your actor's technical name and publication title, it's time to take the [next step]({{@link apify_platform/publishing_actors_on_apify_store/actor_readme.md}})! into making your actor public in Apify Store by ensuring that it has a well-structured and comprehensive README.

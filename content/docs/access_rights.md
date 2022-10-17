@@ -30,7 +30,7 @@ Apify's organization account allows you to grant role-specific access permission
 
 ## [](#publishing-in-apify-store) Publishing in Apify Store
 
-Another way to share your actor is to [publish]({{@link actors/publishing.md}}) it in [Apify Store](https://apify.com/store). The published actor appears in Apify Store, which means that **any user will be able to view its source code and run it**.
+Another way to share your actor is to [publish](https://developers.apify.com/academy/apify-platform/publishing-actors-on-apify-store) it in [Apify Store](https://apify.com/store). The published actor appears in Apify Store, which means that **any user will be able to view its source code and run it**.
 
 > When you publish an actor, you give every Apify user the **read** and **run** permissions.
 
@@ -44,7 +44,7 @@ To publish an actor, open it in the [Apify Console](https://console.apify.com), 
 
 ## [](#permissions) Permissions
 
-Below are the permissions you can grant via the [access rights](#granting-access-rights) system, [organization account]({{@link access_rights/organization_account.md}}) and [publishing in Apify store]({{@link actors/publishing.md}}).
+Below are the permissions you can grant via the [access rights](#granting-access-rights) system, [organization account]({{@link access_rights/organization_account.md}}) and [publishing in Apify store](https://developers.apify.com/academy/apify-platform/publishing-actors-on-apify-store).
 
 * The access rights system allows you to manage a **specific** user's permissions for a **specific** resource.
 * The organization account allows you to manage **each** member's permissions for **all** of an organization's resources.
