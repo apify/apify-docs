@@ -1,5 +1,5 @@
 ---
-title: Apify platform
+title: About this category
 description: Learn all about the Apify platform, all of the tools it offers, and how it can improve your overall development experience.
 menuWeight: 7
 category: apify platform
@@ -7,7 +7,7 @@ paths:
     - apify-platform
 ---
 
-# [](#about-the-platform) Apify platform
+# [](#about-the-platform) About this category
 
 The [Apify platform](https://apify.com) was built to serve large-scale and high-performance web scraping and automation needs. It provides easy access to compute instances ([actors]({{@link getting_started/actors.md}})), convenient request and result storages, proxies, scheduling, webhooks and more - all accessible through the **Console** web interface, [Apify's API](https://docs.apify.com/api/v2), or our [JavaScript](https://docs.apify.com/apify-client-js) and [Python](https://docs.apify.com/apify-client-python) API clients.
 
