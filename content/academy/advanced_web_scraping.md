@@ -17,4 +17,4 @@ Just like the [**Web scraping for beginners**]({{@link web_scraping_for_beginner
 
 ## [](#first-up) First up
 
-This course's [first lesson]({{@link advanced_web_scraping/crawling/scraping_paginated_sites.md}}) dives head-first into one of the most valuable skills you can have as a scraper developer: **Scraping paginated sites**.
+This course's [first lesson]({{@link advanced_web_scraping/scraping_paginated_sites.md}}) dives head-first into one of the most valuable skills you can have as a scraper developer: **Scraping paginated sites**.
