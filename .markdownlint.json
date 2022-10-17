@@ -11,5 +11,6 @@
     "no-multiple-blanks": {
         "maximum": 2
     },
-    "no-space-in-emphasis": false
+    "no-space-in-emphasis": false,
+    "link-fragments": false
 }
