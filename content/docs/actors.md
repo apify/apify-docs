@@ -36,14 +36,14 @@ A single isolated actor consists of source code and various settings. You can th
   * [State persistence]({{@link actors/development/state_persistence.md}})
   * [Testing and maintenance]({{@link actors/development/testing_and_maintenance.md}})
 * [Paid actors]({{@link actors/paid_actors.md}})
-* [Publishing]({{@link actors/publishing.md}})
-  * [Naming your actor]({{@link actors/publishing/naming_your_actor.md}})
-  * [SEO and promotion]({{@link actors/publishing/seo_and_promotion.md}})
+* [Publishing](https://developers.apify.com/academy/apify-platform/publishing-actors-on-apify-store)
+* [Naming your actor](https://developers.apify.com/academy/apify-platform/publishing-actors-on-apify-store/naming-your-actor)
+* [SEO and promotion](https://developers.apify.com/academy/apify-platform/publishing-actors-on-apify-store/seo-and-promotion)
 * [Security]({{@link actors/security.md}})
 * [Limits]({{@link actors/limits.md}})
 * [Examples]({{@link actors/examples.md}})
 
 ## Public, private, and paid actors
 
-Actors can be public (free or [paid]({{@link actors/paid_actors.md}})) or private. Private actors are yours to use and keep, and no one will see them if you don't want them to. Public actors are [available to everyone]({{@link actors/publishing.md}}) in [Apify Store](https://apify.com/store). You can make them free to use, or you can [charge for them](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/).
+Actors can be public (free or [paid]({{@link actors/paid_actors.md}})) or private. Private actors are yours to use and keep, and no one will see them if you don't want them to. Public actors are [available to everyone](https://developers.apify.com/academy/apify-platform/publishing-actors-on-apify-store) in [Apify Store](https://apify.com/store). You can make them free to use, or you can [charge for them](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/).
 

@@ -1,9 +1,9 @@
 ---
 title: Monetizing your actor
 description: Learn how you can use Apify to monetize your web scraping and automation projects.
-menuWeight: 2
+menuWeight: 3
 paths:
-  - apify-platform/publishing-actors-on-apify-store/monetizing-your-actor
+    - apify-platform/publishing-actors-on-apify-store/monetizing-your-actor
 ---
 
 # [](#monetizing-your-actor) Monetizing your actor
@@ -21,7 +21,6 @@ First, go to your actor page, **Actors → My Actors** and click on the actor yo
 ![Request monetization]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-monetization-request.webp}})
 
 Our support team will be notified about your request and promptly contact you to discuss the desired price and trial length for your actor, and help you fill in your billing details.
-
 
 ## [](#price-and-trial-length) Price and trial length
 
