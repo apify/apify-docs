@@ -7,21 +7,21 @@ paths:
     - integrations/webhooks/actions
 ---
 
-<!-- If the URL points toward APify, we don't need to add the token because it gets added automatically -->
-
 # Actions
 
 Currently, the only available action is to send an HTTP POST request to a URL specified in the webhook. New actions will come later.
 
-## [](#http-request)HTTP request
+## HTTP request
 
 This action sends an HTTP POST request to the provided URL with a JSON payload. The payload is defined using a payload template, a JSON-like syntax that extends JSON with the use of variables enclosed in double curly braces `{{variable}}`. This enables the payload to be dynamically injected with data at the time when the webhook is triggered.
 
-The response to the POST request must have an HTTP status code in the `2XX` range. Otherwise, it is considered an error and the request is periodically retried with an exponential back-off: first retry happens after roughly 1 minute, second after 2 minutes, third after 4 minutes etc. After 11 such retries which take around 32 hours, the system gives up and stops retrying the requests.
+The response to the POST request must have an HTTP status code in the `2XX` range. Otherwise, it is considered an error and the request is periodically retried with an exponential back-off: the first retry happens after roughly 1 minute, second after 2 minutes, third after 4 minutes etc. After 11 retries, which take around 32 hours, the system gives up and stops retrying the requests.
 
-For safety reasons, the webhook URL should contain a secret token to ensure only Apify can invoke it. To test your endpoint, you can use the _Test_ button in the user interface. The timeout of the webhook HTTP request is 30 seconds. If your endpoint performs a time-consuming operation, you should respond to the request immediately so that it does not time out before Apify receives the response. To ensure that the time-consuming operation is reliably finished, you can internally use a message queue to retry the operation on internal failure. In rare circumstances, the webhook might be invoked more than once, you should design your code to be idempotent to duplicate calls.
+For safety reasons, the webhook URL should contain a secret token to ensure only Apify can invoke it. To test your endpoint, you can use the **Test** button in the user interface. Webhook HTTP requests time out in 30 seconds. If your endpoint performs a time-consuming operation, you should respond to the request immediately so that it does not time out before Apify receives the response. To ensure that the time-consuming operation is reliably finished, you can internally use a message queue to retry the operation on internal failure. In rare circumstances, the webhook might be invoked more than once, you should design your code to be idempotent to duplicate calls.
 
-### [](#payload-template)Payload template
+> If your request's URL points toward Apify, you don't need to add a token, since it will be added automatically.
+
+### Payload template
 
 The payload template is a JSON-like string, whose syntax is extended with the use of variables. This is useful when a custom payload structure is needed, but at the same time dynamic data, that is only known at the time of the webhook's invocation, need to be injected into the payload. Aside from the variables, the string must be a valid JSON.
 
@@ -78,7 +78,7 @@ This example shows how you can use the payload template variables to send a cust
 
 You may have noticed that the `eventData` and `resource` properties contain redundant data. This is for backwards compatibility. Feel free to only use `eventData` or `resource` in your templates, depending on your use case.
 
-### [](#available-variables)Available variables
+### Available variables
 
 | Variable    | Type   | Description                                                                         |
 |-------------|--------|-------------------------------------------------------------------------------------|
@@ -89,7 +89,7 @@ You may have noticed that the `eventData` and `resource` properties contain redu
 | `resource`  | Object | The resource that caused the trigger event, [see below](#resource).                 |
 
 
-#### [](#resource)Resource
+#### Resource
 
 The `resource` variable represents the triggering system resource. For example when using the `ACTOR.RUN.SUCCEEDED` event, the resource is the actor run. The variable will be replaced by an `Object` that one would receive as response from the relevant API at the moment when the webhook is triggered. So for the actor run resource, it would be the response of the [Get actor run](https://docs.apify.com/api/v2#/reference/actors/run-object-deprecated/get-run) API endpoint.
 

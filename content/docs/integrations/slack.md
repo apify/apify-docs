@@ -25,7 +25,7 @@ To create a new task for this actor, simply go to the [actor’s page](https://a
 
 ## [](#step-two) Step 2: Set up the Slack integration
 
-Now click the **Integrations** tab, find the Slack integration, and click the **Configure** button. You will be prompted to log in with your Slack account and select your workspace in the **Settings > Integrations** window.
+Now click the **Integrations** tab on your task's page. Find the Slack integration, then click the **Configure** button. You will be prompted to log in with your Slack account and select your workspace in the **Settings > Integrations** window.
 
 ![Integrations tab]({{@asset integrations/images/integrations-tab.webp}})
 
@@ -45,6 +45,6 @@ You can now run the same task directly from Slack by typing /apify run [task nam
 
 ![Use Apify from Slack]({{@asset integrations/images/slack-apify-message.webp}})
 
-When an actor doesn’t require you to fill in any input fields, you can run it by simply typing `/apify run [actor name]`.
+When an actor doesn’t require you to fill in any input fields, you can run it by simply typing `/apify call [actor name]`.
 
 You’re all set! If you have any questions or need help, feel free to reach out to us on our [Discord channel](https://discord.com/invite/jyEM2PRvMU).
