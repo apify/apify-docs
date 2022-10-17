@@ -21,7 +21,13 @@ To access the default dataset, we can use the  [`Dataset`](https://crawlee.dev/a
 
 ```JavaScript
 // dataset.js
-import { Dataset } from 'crawlee';
+import { Dataset, } from 'crawlee';
+
+// Crawlee automatically deletes data from its previous runs.
+// We can turn this off by setting 'purgeOnStart' to false.
+// If we did not do this, we would have no data to process.
+// This is a temporary workaround, and we'll add a better interface soon.
+Configuration.getGlobalConfig().set('purgeOnStart', false);
 
 const dataset = await Dataset.open();
 
@@ -39,6 +45,8 @@ Let's say we wanted to print the title for each product that is more expensive t
 // dataset.js
 import { Dataset } from 'crawlee';
 
+Configuration.getGlobalConfig().set('purgeOnStart', false);
+
 const { items } = await Dataset.getData();
 
 let mostExpensive;
@@ -47,7 +55,7 @@ console.log('All items over $50 USD:');
 for (const { title, price } of items) {
     // Use a regular expression to filter out the
     // non-number and non-decimal characters
-    const numPrice = +price.replace(/[^0-9.]/g, '');
+    const numPrice = Number(price.replace(/[^0-9.]/g, ''));
     if (numPrice > 50) console.table({ title, price });
     if (numPrice > mostExpensive.price) mostExpensive = { title, price };
 }
@@ -60,7 +68,7 @@ In our case, the most expensive product was the Macbook Pro. Surprising? Heh, no
 
 ## [](#converting-to-excel) Converting the dataset to Excel
 
-We promised that you won't need an Apify account for anything in this course, and it's true. You can use the skills learned in the [Save to CSV lesson]({{@link web_scraping_for_beginners/data_collection/save_to_csv.md}}) to save the dataset to a CSV. Just use the loading code from above, plug it in there and then open the CSV in Excel. However, we really want to show you this neat trick. It won't cost you anything, we promise, and it's a cool and fast way to convert datasets to any format.
+We promised that you won't need an Apify account for anything in this course, and it's true. You can use the skills learned in the [Save to CSV lesson]({{@link web_scraping_for_beginners/data_collection/save_to_csv.md}}) to save the dataset to a CSV. Just use the loading code from above, plug it in there and then open the CSV in Excel. However, we really want to show you this neat trick. It won't cost you anything, and it's a cool and fast way to convert datasets to any format.
 
 ### [](#get-apify-token) Getting an Apify token
 
@@ -76,6 +84,8 @@ Now that you have a token, you can upload your local dataset to the Apify platfo
 // dataset.js
 import { Dataset } from 'crawlee';
 import { ApifyClient } from 'apify-client';
+
+Configuration.getGlobalConfig().set('purgeOnStart', false);
 
 const { items } = await Dataset.getData();
 
@@ -109,6 +119,8 @@ The full code, to do this in one go, looks like this:
 import { Dataset } from 'crawlee';
 import { ApifyClient } from 'apify-client';
 import { writeFileSync } from 'fs';
+
+Configuration.getGlobalConfig().set('purgeOnStart', false);
 
 const { items } = await Dataset.getData();
 
