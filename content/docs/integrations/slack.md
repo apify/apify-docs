@@ -29,7 +29,7 @@ Now click the **Integrations** tab on your task's page. Find the Slack integrati
 
 ![Integrations tab]({{@asset integrations/images/integrations-tab.webp}})
 
-Then, head back to your actor to finish the setup. Select what type of events you would like to be notified of (e.g., when a run is created, when a run succeeds, when a run fails, etc.), your workspace, and the channel you want to receive the notifications in (you can set up an ad-hoc channel for this test). In the **Message** field, you can see how the notification will look, or you can craft a new custom one.
+Then, head back to your task to finish the setup. Select what type of events you would like to be notified of (e.g., when a run is created, when a run succeeds, when a run fails, etc.), your workspace, and the channel you want to receive the notifications in (you can set up an ad-hoc channel for this test). In the **Message** field, you can see how the notification will look, or you can craft a new custom one.
 
 ![Integration setup]({{@asset integrations/images/slack-integration-setup.webp}})
 
