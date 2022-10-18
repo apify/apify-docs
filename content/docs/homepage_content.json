@@ -172,10 +172,6 @@
             "isExternalLink": true
         },
         {
-            "cardItem": "Publish your actor",
-            "href": "/actors/publishing"
-        },
-        {
             "cardItem": "Apify SDK API reference",
             "href": "https://sdk.apify.com/api/apify",
             "isExternalLink": true
