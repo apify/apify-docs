@@ -8,7 +8,7 @@ paths:
 
 # Slack integration
 
-[Slack](https://slack.com/) allows you to install various services in your workspace in order to automate and centralize tasks. Apify is one of these services, and it allows you to run your Apify actors, be notified about their run status, and get your results, all without opening your browser.
+[Slack](https://slack.com/) allows you to install various services in your workspace in order to automate and centralize jobs. Apify is one of these services, and it allows you to run your Apify actors, be notified about their run status, and get your results, all without opening your browser.
 
 ## Get started
 
@@ -37,10 +37,10 @@ Click the **Start** button and head to the Slack channel you selected to see you
 
 ## [](#step-three) Step 3: Start your run directly from Slack
 
-You can now run the same task directly from Slack by typing `/apify call [task name]` into the Slack message box. Remember you can retrieve the task’s name by clicking Tasks in the left sidebar on Apify Console.
+You can now run the same actor or task directly from Slack by typing `/apify call [actor/task name]` into the Slack message box.
 
 ![Use Apify from Slack]({{@asset integrations/images/slack-apify-message.webp}})
 
-When an actor doesn’t require you to fill in any input fields, you can run it by simply typing `/apify call [actor name]`.
+When an actor doesn’t require you to fill in any input fields, you can run it by simply typing `/apify call [actor/task name]`.
 
 You’re all set! If you have any questions or need help, feel free to reach out to us on our [Discord channel](https://discord.com/invite/jyEM2PRvMU).
