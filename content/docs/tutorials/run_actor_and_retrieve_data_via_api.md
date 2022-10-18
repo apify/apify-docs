@@ -1,7 +1,7 @@
 ---
 title: Run actor and retrieve data via API
 description: Learn how to run an actor/task via the Apify API, wait for the job to finish, and retrieve its output data. Your key to integrating actors with your projects.
-menuWeight: 1
+menuWeight: 6
 paths:
     - tutorials/run-actor-and-retrieve-data-via-api
     - tutorials/integrations/run-actor-and-retrieve-data-via-api
@@ -30,7 +30,7 @@ To run, or **call**, an actor/task, you will need a few things:
 
 - The name or ID of the actor/task. The name looks like `username~actorName` or `username~taskName`. The ID can be retrieved on the **Settings** page of the actor/task.
 
-- Your [API token]({{@link tutorials/integrations.md#api-token}}), which you can find on the **Integrations** page in the [Apify Console](https://console.apify.com/account?tab=integrations) (make sure it does not get leaked anywhere!).
+- Your [API token]({{@link integrations.md#api-token}}), which you can find on the **Integrations** page in the [Apify Console](https://console.apify.com/account?tab=integrations) (make sure it does not get leaked anywhere!).
 
 - Possibly an input, which is passed in JSON format as the request's **body**.
 
@@ -163,13 +163,13 @@ Once again, the final response will be the **run info object**; however, now its
 
 #### [](#webhooks) Webhooks
 
-If you have a server, [webhooks]({{@link webhooks.md}}) are the most elegant and flexible solution for integrations with Apify. You can simply set up a webhook for any actor or task, and that webhook will send a POST request to your server after an [event]({{@link webhooks/events.md}}) has occurred.
+If you have a server, [webhooks]({{@link integrations/webhooks.md}}) are the most elegant and flexible solution for integrations with Apify. You can simply set up a webhook for any actor or task, and that webhook will send a POST request to your server after an [event]({{@link integrations/webhooks/events.md}}) has occurred.
 
 Usually, this event is a successfully finished run, but you can also set a different webhook for failed runs, etc.
 
 ![Webhook example]({{@asset tutorials/images/webhook.webp}})
 
-The webhook will send you a pretty complicated [JSON object]({{@link webhooks/actions.md#http-request}}), but usually you are only interested in the `resource` object within the response, which is essentially just the **run info** JSON from the previous sections. We can leave the payload template as is as for our example use case, since it is what we need.
+The webhook will send you a pretty complicated [JSON object]({{@link integrations/webhooks/actions.md#http-request}}), but usually you are only interested in the `resource` object within the response, which is essentially just the **run info** JSON from the previous sections. We can leave the payload template as is as for our example use case, since it is what we need.
 
 Once your server receives this request from the webhook, you know that the event happened, and you can ask for the complete data.
 

@@ -1,9 +1,10 @@
 ---
 title: Ad-hoc webhooks
 description: Learn how to set one-off webhooks for actor runs started via the Apify API or from the actor's code. Trigger the event once the run reaches a desired state.
-menuWeight: 11.3
+menuWeight: 3
 paths:
     - webhooks/ad-hoc-webhooks
+    - integrations/webhooks/ad-hoc-webhooks
 ---
 
 # Ad-hoc webhooks
@@ -19,8 +20,8 @@ where `AD_HOC_WEBHOOKS` is a base64 encoded stringified JSON array of webhook de
 ```js
 [
     {
-        eventTypes: ['ACTOR.RUN.CREATED'],
-        requestUrl: 'https://example.com/run-created',
+        eventTypes: ['ACTOR.RUN.FAILED'],
+        requestUrl: 'https://example.com/run-failed',
     },
     {
         eventTypes: ['ACTOR.RUN.SUCCEEDED'],
@@ -40,8 +41,8 @@ import { Actor } from 'apify';
 await Actor.init();
 // ...
 await Actor.addWebhook({
-    eventTypes: ['ACTOR.RUN.CREATED'],
-    requestUrl: 'https://example.com/run-created',
+    eventTypes: ['ACTOR.RUN.FAILED'],
+    requestUrl: 'https://example.com/run-failed',
 });
 // ...
 await Actor.exit();
@@ -57,8 +58,8 @@ import { Actor } from 'apify';
 await Actor.init();
 // ...
 await Actor.addWebhook({
-    eventTypes: ['ACTOR.RUN.CREATED'],
-    requestUrl: 'https://example.com/run-created',
+    eventTypes: ['ACTOR.RUN.FAILED'],
+    requestUrl: 'https://example.com/run-failed',
     idempotencyKey: process.env.APIFY_ACTOR_RUN_ID,
 });
 // ...
