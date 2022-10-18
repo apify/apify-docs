@@ -206,7 +206,7 @@ file_put_contents(__DIR__ . '/hi-world.pdf', $response->getBody());
 
 ## Webhooks
 
-For actors that take longer to run, we can use [webhooks]({{@link webhooks.md}}). A webhook is an HTML POST request that is sent to a specified URL when an actor's status changes. We can use them as a kind of notification that is sent when your run finishes. You can set them up using query parameters. If we used webhooks in the example above, it would look like this:
+For actors that take longer to run, we can use [webhooks]({{@link integrations/webhooks.md}}). A webhook is an HTML POST request that is sent to a specified URL when an actor's status changes. We can use them as a kind of notification that is sent when your run finishes. You can set them up using query parameters. If we used webhooks in the example above, it would look like this:
 
 ```php
 // Webhooks need to be passed as a base64-encoded JSON string

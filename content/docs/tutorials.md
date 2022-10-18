@@ -38,7 +38,7 @@ If you're interested in publishing your actors for others to use, check our [bui
 
 ## Advanced use cases
 
-Check out our other tutorials that cover more specific and advanced scenarios such as [scraping dynamic content]({{@link tutorials/scraping_dynamic_content.md}}), [integrating]({{@link tutorials/integrations.md}}) your projects with Apify, [using your actors via API]({{@link tutorials/integrations/run_actor_and_retrieve_data_via_api.md}}), or setting up [monitoring]({{@link monitoring.md}}) for your projects.
+Check out our other tutorials that cover more specific and advanced scenarios such as [scraping dynamic content]({{@link tutorials/scraping_dynamic_content.md}}), [integrating]({{@link integrations.md}}) your projects with Apify, [using your actors via API]({{@link tutorials/run_actor_and_retrieve_data_via_api.md}}), or setting up [monitoring]({{@link monitoring.md}}) for your projects.
 
 ## Finally
 
