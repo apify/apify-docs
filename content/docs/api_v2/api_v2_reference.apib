@@ -3623,6 +3623,47 @@ The user account is identified by the provided authentication token.
     + Attributes
         - data (UserPrivateInfo, required)
 
+
+## Monthly usage [/v2/users/me/usage/monthly{?token,date}]
+
++ Parameters
+
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+    + date: `2020-06-14` (string, optional) - Date in the YYYY-MM-DD format.
+
+
+### Get a summary of your monthly usage [GET]
+
+Returns a complete summary of your usage for the current month, both daily and monthly,
+and includes usage of services. It is the same information you will see on your account's
+[Billing page](https://console.apify.com/billing#/usage). The information
+includes your use of storage, data transfer, and request queue usage.
+
+Using the `date` parameter will show your usage in the billing cycle that includes that date.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (MonthlyUsage, required)
+
+
+## Account and usage limits [/v2/users/me/limits{?token}]
+
++ Parameters
+
+    + token: `rWLaYmvZeK55uatRrZib4xbZs` (string, required) - API authentication token.
+
+### Get limits [GET]
+
+Returns a complete summary of your account's limits. It is the same information you will see on your account's
+[Limits page](https://console.apify.com/billing#/limits). The returned data includes the current billing cycle,
+a summary of your limits, and your current usage.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (AccountLimits, required)
+
 # Data Structures
 
 ## Actor (object)
@@ -3838,7 +3879,7 @@ The user account is identified by the provided authentication token.
 ## ListOfVersions (array)
 -                                                               (object)
     - versionNumber:            `0.1`                           (string, required)
-    - envVars:                                                  (array, nullable)
+    - envVars                                                  (array, nullable)
     - sourceType:               `SOURCE_FILES`                  (VersionSourceType, required)
     - applyEnvVarsToBuild:       false                          (boolean, nullable)
     - buildTag:                 `latest`                        (string, required)
@@ -3862,21 +3903,21 @@ The user account is identified by the provided authentication token.
 -                                                                   (object)
     - versionNumber:            `0.2`                               (string, required)
     - sourceType:               `GIT_REPO`                          (VersionSourceType, required)
-    - envVars:                                                      (array, nullable)
+    - envVars                                                       (array, nullable)
     - applyEnvVarsToBuild:       false                              (boolean, nullable)
     - buildTag:                 `latest`                            (string, required)
     - gitRepoUrl:               `https://github.com/jane35/my-actor`    (string, required)
 -                                                                   (object)
     - versionNumber:            `0.3`                               (string, required)
     - sourceType:               `TARBALL`                           (VersionSourceType, required)
-    - envVars:                                                      (array, nullable)
+    - envVars                                                       (array, nullable)
     - applyEnvVarsToBuild:       false                              (boolean, nullable)
     - buildTag:                 `latest`                            (string, required)
     - tarballUrl:               `https://github.com/jane35/my-actor/archive/master.zip`    (string, required)
 -                                                                   (object)
     - versionNumber:            `0.4`                               (string, required)
     - sourceType:               `GITHUB_GIST`                       (VersionSourceType, required)
-    - envVars:                                                      (array, nullable)
+    - envVars                                                       (array, nullable)
     - applyEnvVarsToBuild:       false                              (boolean, nullable)
     - buildTag:                 `latest`                            (string, required)
     - gitHubGistUrl:            `https://gist.github.com/jane35/e51feb784yu89`    (string, required)
@@ -4311,7 +4352,7 @@ The user account is identified by the provided authentication token.
 - userData                                     (object)
     - label:        `DETAIL`                   (string, nullable)
     - image:        `https://picserver1.eu`    (string, nullable)
-- handledAt:        `2019-06-16T10:23:31.607Z` (object, nullable)
+- handledAt:        `2019-06-16T10:23:31.607Z` (string, nullable)
 
 ## UserPublicInfo (object)
 - username:         `d7b9MDYsbtX5L7XAj`        (string, required)
@@ -4365,6 +4406,54 @@ The user account is identified by the provided authentication token.
     - teamAccountSeatCount:             1                   (number, required)
     - supportLevel:                     `COMMUNITY`         (string, required)
     - availableAddOns                                       (array, required)
+
+## MonthlyUsage (object)
+- usageCycle                                            (object, required)
+    - startAt:          `2022-10-02T00:00:00.000Z`      (string, required)
+    - endAt:            `2022-11-01T23:59:59.999Z`      (string, required)
+- monthlyServiceUsage                                   (object, required)
+    - USAGE_ITEM                               (object, required)
+        - quantity:          `2.784475`                 (number, required)
+        - baseAmountUsd:     `0.69611875`               (number, required)
+        - baseUnitPriceUsd:  `0.25`                     (number, required)
+        - amountAfterVolumeDiscountUsd: `0.69611875`    (number, required)
+- dailyServiceUsages                                   (array, required)
+    -                                                  (object, required)
+        - date:             `2022-10-02T00:00:00.000Z`         (string, required)
+        - serviceUsage                                         (object, required)
+            - SERVICE_USAGE_ITEM                               (object, required)
+                - quantity:          `60`                      (number, required)
+                - baseAmountUsd:     `0.00030000000000000003`  (number, required)
+
+        - amountAfterVolumeDiscountUsd: `0.69611875`    (number, required)
+        - totalUsageCreditsUsd:  `0.04743857919705913`                (number, required)
+- totalUsageCreditsUsdBeforeVolumeDiscount:    `0.786143673840067`    (number, required)
+- totalUsageCreditsUsdAfterVolumeDiscount:     `0.7861436738400671`   (number, required)
+
+## AccountLimits (object)
+- monthlyUsageCycle                                     (object, required)
+    - startAt:         `2022-10-02T00:00:00.000Z`       (string, required)
+    - endAt:           `2022-11-01T23:59:59.999Z`       (string, required)
+- limits                                                (object, required)
+    - maxMonthlyUsageUsd:                   `300`       (number, required)
+    - maxMonthlyActorComputeUnits:          `1000`      (number, required)
+    - maxMonthlyExternalDataTransferGbytes: `7`         (number, required)
+    - maxMonthlyProxySerps:                 `50`        (number, required)
+    - maxMonthlyResidentialProxyGbytes:     `0.5`       (number, required)
+    - maxActorMemoryGbytes:                 `16`        (number, required)
+    - maxActorCount:                        `100`       (number, required)
+    - maxActorTaskCount:                    `1000`      (number, required)
+    - maxTeamAccountSeatCount:              `9`         (number, required)
+- current                                               (object, required)
+    - monthlyUsageUsd:                      `43`        (number, required)
+    - monthlyActorComputeUnits:             `500.784475`            (number, required)
+    - monthlyExternalDataTransferGbytes:    `3.008619039319455624`  (number, required)
+    - monthlyProxySerps:                    `34`                    (number, required)
+    - monthlyResidentialProxyGbytes:        `0.4`                   (number, required)
+    - actorMemoryGbytes:                    `8`                     (number, required)
+    - actorCount:                           `31`                    (number, required)
+    - actorTaskCount:                       `130`                   (number, required)
+    - teamAccountSeatCount:                 `5`                     (number, required)
 
 ## Webhook (object)
 - id:               `YiKoxjkaS9gjGTqhF`             (string, required)
