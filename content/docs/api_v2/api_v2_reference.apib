@@ -3634,12 +3634,12 @@ The user account is identified by the provided authentication token.
 
 ### Get monthly usage [GET]
 
-Returns a complete summary of your usage for the current month,
+Returns a complete summary of your usage for the current usage cycle,
 an overall sum, as well as a daily breakdown of usage. It is the same information you will see on your account's
 [Billing page](https://console.apify.com/billing#/usage). The information
 includes your use of storage, data transfer, and request queue usage.
 
-Using the `date` parameter will show your usage in the billing cycle that includes that date.
+Using the `date` parameter will show your usage in the usage cycle that includes that date.
 
 + Response 200 (application/json)
 
@@ -3656,7 +3656,7 @@ Using the `date` parameter will show your usage in the billing cycle that includ
 ### Get limits [GET]
 
 Returns a complete summary of your account's limits. It is the same information you will see on your account's
-[Limits page](https://console.apify.com/billing#/limits). The returned data includes the current billing cycle,
+[Limits page](https://console.apify.com/billing#/limits). The returned data includes the current usage cycle,
 a summary of your limits, and your current usage.
 
 + Response 200 (application/json)
