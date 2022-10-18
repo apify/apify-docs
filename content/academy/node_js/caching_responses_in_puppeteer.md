@@ -1,13 +1,12 @@
 ---
 title: How to optimize Puppeteer by caching responses
 description: Learn why it's important to cache responses in memory when intercepting requests in Puppeteer, and how to do it.
-menuWeight: 22
-category: tutorials
+menuWeight: 14.2
 paths:
-    - caching-responses-in-puppeteer
+    - node-js/caching-responses-in-puppeteer
 ---
 
-# [](#caching-responses-in-puppeteer) Caching responses in Puppeteer
+# [](#caching-responses-in-puppeteer) How to optimize Puppeteer by caching responses
 
 > In the latest version of Puppeteer, the request-interception function inconveniently disables the native cache and significantly slows down the crawler. Therefore, it's not recommended to follow the examples shown in this article unless you have a very specific use-case where the default browser cache is not enough (e.g. cashing over multiple scraper runs)
 
@@ -17,7 +16,7 @@ For this reason, in this article, we will take a look at how to use memory to ca
 
 In this example, we will use a scraper which goes through top stories on the CNN website and takes a screenshot of each opened page. The scraper is very slow right now because it waits till all network requests are finished and because the posts contain videos. If the scraper runs with disabled caching, these statistics will show at the end of the run:
 
-![Bad run stats]({{@asset images/bad-scraper-stats.webp}})
+![Bad run stats]({{@asset node_js/images/bad-scraper-stats.webp}})
 
 As you can see, we used 177MB of traffic for 10 posts (that is how many posts are in the top-stories column) and 1 main page. We also stored all the screenshots, which you can find [here](https://my.apify.com/storage/key-value/q2ipoeLLy265NtSiL).
 
@@ -27,15 +26,15 @@ From the screenshot above, it's clear that most of the traffic is coming from sc
 
 If we go to the CNN website, open up the tools and go to the **Network** tab, we will find an option to disable caching.
 
-![Disabling cache in the Network tab]({{@asset images/cnn-network-tab.webp}})
+![Disabling cache in the Network tab]({{@asset node_js/images/cnn-network-tab.webp}})
 
 Once caching is disabled, we can take a look at how much data is transferred when we open the page. This is visible at the bottom of the developer tools.
 
-![5.3MB of data transferred]({{@asset images/slow-no-cache.webp}})
+![5.3MB of data transferred]({{@asset node_js/images/slow-no-cache.webp}})
 
 If we uncheck the disable-cache checkbox and refresh the page, we will see how much data we can save by caching responses.
 
-![642KB of data transferred]({{@asset images/fast-with-cache.webp}})
+![642KB of data transferred]({{@asset node_js/images/fast-with-cache.webp}})
 
 By comparison, the data transfer appears to be reduced by 88%!
 
@@ -93,7 +92,7 @@ page.on('response', async(response) => {
 
 After implementing this code, we can run the scraper again.
 
-![Good run results]({{@asset images/good-run-results.webp}})
+![Good run results]({{@asset node_js/images/good-run-results.webp}})
 
 Looking at the statistics, caching responses in Puppeteer brought the traffic down from 177MB to 13.4MB, which is a reduction of data transfer by 92%. The related screenshots can be found [here](https://my.apify.com/storage/key-value/iWQ3mQE2XsLA2eErL).
 
