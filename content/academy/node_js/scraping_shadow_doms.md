@@ -1,19 +1,18 @@
 ---
 title: How to scrape sites with a shadow DOM
 description: The shadow DOM enables the isolation of web components, but causes problems for those building web scrapers. Here's an easy workaround.
-menuWeight: 19
-category: tutorials
+menuWeight: 14.8
 paths:
-- scraping-shadow-doms
+- node-js/scraping-shadow-doms
 ---
 
-# [](#scraping-shadow-doms) Scraping sites with a shadow DOM
+# [](#scraping-shadow-doms) How to scrape sites with a shadow DOM
 
 Each website is represented by an HTML DOM, a tree-like structure consisting of HTML elements (e.g. paragraphs, images, videos) and text. [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) allows the separate DOM trees to be attached to the main DOM while remaining isolated in terms of CSS inheritance and JavaScript DOM manipulation. The CSS and JavaScript codes of separate shadow DOM components do not clash, but the downside is that you can't easily access the content from outside.
 
 Let's take a look at this page [alodokter.com](https://www.alodokter.com/). If you click on the menu and open a Chrome debugger, you will see that the menu tree is attached to the main DOM as shadow DOM under the element `<top-navbar-view id="top-navbar-view">`.
 
-![Shadow root of the top-navbar-view custom element]({{@asset images/shadow.webp}})
+![Shadow root of the top-navbar-view custom element]({{@asset node_js/images/shadow.webp}})
 
 The rest of the content is rendered the same way. This makes it hard to scrape because `document.body.innerText`, `document.getElementsByTagName('a')`, and all others return an empty result.
 

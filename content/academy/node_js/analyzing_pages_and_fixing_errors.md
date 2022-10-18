@@ -1,13 +1,12 @@
 ---
 title: How to analyze and fix errors when scraping a website
 description: Learn how to deal with random crashes in your web-scraping and automation jobs. Find out the essentials of debugging and fixing problems in your crawlers.
-menuWeight: 20
-category: tutorials
+menuWeight: 14.1
 paths:
-    - analyzing-pages-and-fixing-errors
+    - node-js/analyzing-pages-and-fixing-errors
 ---
 
-# [](#scraping-with-sitemaps) Analyzing a page and fixing errors
+# [](#scraping-with-sitemaps) How to analyze and fix errors when scraping a website
 
 Debugging is absolutely essential in programming. Even if you don't call yourself a programmer, having basic debugging skills will make building crawlers easier. It will also help you safe money by allowing you to avoid hiring an expensive developer to solve your issue for you.
 
@@ -24,7 +23,7 @@ Here are the most common reasons your working solution may break.
 - The website changes its layout or [data feed](https://www.datafeedwatch.com/academy/data-feed).
 - A site's layout changes depending on location or uses [A/B testing](https://www.youtube.com/watch?v=XDoKXaGrUxE&feature=youtu.be).
 - A page starts to block you (recognizes you as a bot).
-- The website [loads its data later dynamically]({{@link dealing_with_dynamic_pages.md}}), so the code works only sometimes, if you are slow or lucky enough.
+- The website [loads its data later dynamically]({{@link node_js/dealing_with_dynamic_pages.md}}), so the code works only sometimes, if you are slow or lucky enough.
 - You made a mistake when updating your code.
 - Your [proxies]({{@link anti_scraping/mitigation/proxies.md}}) aren't working.
 - You have upgraded your [dependencies](https://www.quora.com/What-is-a-dependency-in-coding) (other software that your software relies upon), and the new versions no longer work (this is harder to debug).

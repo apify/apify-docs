@@ -1,13 +1,12 @@
 ---
 title: How to optimize and speed up your web scraper
 description: We all want our scrapers to run as fast as possible and cost as little money as possible. Learn how to think about performance in the context of web-scraping and automation.
-menuWeight: 21
-category: tutorials
+menuWeight: 14.6
 paths:
-    - optimizing-scrapers
+    - node-js/optimizing-scrapers
 ---
 
-# [](#optimizing-scrapers) Optimizing scrapers
+# [](#optimizing-scrapers) How to optimize and speed up your web scraper
 
 Especially if you are running your scrapers on [Apify](https://apify.com), performance is directly related to your wallet (or rather bank account). The slower and heavier your program is, the more proxy bandwidth, storage, [compute units](https://help.apify.com/en/articles/3490384-what-is-a-compute-unit) and higher [subscription plan](https://apify.com/pricing) you'll need.
 

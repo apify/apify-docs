@@ -1,13 +1,12 @@
 ---
 title: How to choose the right scraper for the job
 description: Understand how to choose the best scraper for your use-case by understanding some basic concepts.
-menuWeight: 23
-category: tutorials
+menuWeight: 14.3
 paths:
-    - choosing-the-right-scraper
+    - node-js/choosing-the-right-scraper
 ---
 
-# [](#choosing-the-right-scraper) Choosing the right scraper for the job
+# [](#choosing-the-right-scraper) How to choose the right scraper for the job
 
 There are two main ways you can proceed with building your crawler:
 
@@ -24,7 +23,7 @@ If it were only a question of performance, you'd of course use request-based scr
 
 ## [](#dynamic-pages) Dynamic pages & blocking
 
-Some websites do not load any data without a browser, as they need to execute some scripts to show it (these are known as [dynamic pages]({{@link dealing_with_dynamic_pages.md}})). Another problem is blocking. If the website is collecting a [browser fingerprint]({{@link anti_scraping/techniques/fingerprinting.md}}), it is very easy for it to distinguish between a real user and a bot (crawler) and block access.
+Some websites do not load any data without a browser, as they need to execute some scripts to show it (these are known as [dynamic pages]({{@link node_js/dealing_with_dynamic_pages.md}})). Another problem is blocking. If the website is collecting a [browser fingerprint]({{@link anti_scraping/techniques/fingerprinting.md}}), it is very easy for it to distinguish between a real user and a bot (crawler) and block access.
 
 ## [](#making-the-choice) Making the choice
 
