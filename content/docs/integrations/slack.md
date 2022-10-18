@@ -17,15 +17,11 @@ To use the Apify integration for Slack, you will need:
 - An [Apify account](https://console.apify.com/).
 - A Slack account (and workspace).
 
-## [](#step-one) Step 1: Create a task in Apify Console
+## [](#step-one) Step 1: Set up the Slack integration
 
-A task is a saved configuration for an [actor]({{@link actors.md}}). For example, we can use the [Google Shopping Scraper](https://console.apify.com/actors/aLTexEuCetoJNL9bL), Apify’s tool to scrape Google Shopping for product details, prices, reviews, and more.
+You can find all integrations on an actor's or task's **Integrations** tab. For example, we will use a task we have pre-set for the [Google Shopping Scraper](https://console.apify.com/actors/aLTexEuCetoJNL9bL).
 
-To create a new task for this actor, simply go to the [actor’s page](https://apify.com/emastra/google-shopping-scraper) in Apify Store and click the **Try for free** button. You will be redirected to Apify Console. After filling in the input fields, click the **Save as new task** button. You can rename the task by clicking the **Settings** tab (let’s call it *shopping-test* for now) and find the task again by clicking **Tasks** in the left sidebar.
-
-## [](#step-two) Step 2: Set up the Slack integration
-
-Now click the **Integrations** tab on your task's page. Find the Slack integration, then click the **Configure** button. You will be prompted to log in with your Slack account and select your workspace in the **Settings > Integrations** window.
+Find the Slack integration, then click the **Configure** button. You will be prompted to log in with your Slack account and select your workspace in the **Settings > Integrations** window.
 
 ![Integrations tab]({{@asset integrations/images/integrations-tab.webp}})
 
