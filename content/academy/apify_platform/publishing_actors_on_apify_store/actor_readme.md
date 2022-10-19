@@ -6,7 +6,7 @@ paths:
     - apify-platform/publishing-actors-on-apify-store/actor-readme
 ---
 
-## What is the point of this guide?
+# What is the point of this guide?
 
 - It should also be a "template" for developers developing new public actors so that they have a structure and guidance for writing the readmes.
 - The goal is to ensure that more people will understand and run their actors.
