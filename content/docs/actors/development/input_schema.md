@@ -166,6 +166,7 @@ Properties:
 | `enum`       | [String]                                                                                  | Required if <br/>`editor` <br/>is `select` | Using this field, you can limit values <br/>to the given array of strings. <br/>Input will be displayed as select box.   |
 | `enumTitles` | [String]                                                                                  | No                                         | Titles for the `enum` keys described.                                                                                    |
 | `nullable`   | Boolean                                                                                   | No                                         | Specifies whether `null` <br/>is an allowed value.                                                                       |
+| `isSecret`   | Boolean                                                                                   | No                                         | Specifies whether the input field<br />will be stored encrypted.<br />Only available <br />with `textfield` and `textarea` editors.      |
 
 > When using escape characters `\` for the regular expression in the `pattern` field, be sure to escape them to avoid invalid JSON issues. For example, the regular expression `https:\/\/(www\.)?apify\.com\/.+` would become `https:\\/\\/(www\\.)?apify\\.com\\/.+`.
 
