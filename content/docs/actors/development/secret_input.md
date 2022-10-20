@@ -17,7 +17,8 @@ The Secret Input feature allows you to make an input field secret, causing it to
 
 To make an input field secret, just set `"isSecret": true` to the field in the actor's [input schema]({{@link actors/development/input_schema.md}}), like this:
 
-```jsonc
+<!-- eslint-skip -->
+```json
 {
     // ...
     "properties": {
