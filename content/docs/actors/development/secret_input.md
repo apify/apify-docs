@@ -8,7 +8,7 @@ paths:
 
 # [](#secret-input)Secret input
 
-The secret input feature allows you to set some actor input field as secret, causing them to be encrypted when saving an input for an actor. The input can then be decrypted only inside the actor.
+The secret input feature allows you to mark some actor input fields as secret, causing them to be encrypted when saving an input for an actor. The input can then be decrypted only inside the actor.
 
 ## Setting an input field as secret
 
