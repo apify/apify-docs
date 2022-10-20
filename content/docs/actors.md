@@ -32,6 +32,7 @@ A single isolated actor consists of source code and various settings. You can th
   * [Continuous integration]({{@link actors/development/continuous_integration.md}})
   * [Environment variables]({{@link actors/development/environment_variables.md}})
   * [Input schema]({{@link actors/development/input_schema.md}})
+  * [Secret input]({{@link actors/development/secret_input.md}})
   * [Source code]({{@link actors/development/source_code.md}})
   * [State persistence]({{@link actors/development/state_persistence.md}})
   * [Testing and maintenance]({{@link actors/development/testing_and_maintenance.md}})
