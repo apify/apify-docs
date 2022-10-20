@@ -1,21 +1,18 @@
 ---
 title: Secret input
-description: Learn about making some input fields secret and encrypted.
+description: Learn about making some actor input fields secret and encrypted. Ideal for passing passwords, API tokens or login cookies to actors.
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
-    - actor/secret-input
-    - actors/secret-input
-    - actor/development/secret-input
     - actors/development/secret-input
 ---
 
 # [](#secret-input)Secret input
 
-The Secret Input feature allows you to make an input field secret, causing it to be stored encrypted when setting the actor input, and decrypted only inside the actor.
+The secret input feature allows you to set some actor input field as secret, causing them to be encrypted when saving an input for an actor. The input can then be decrypted only inside the actor.
 
 ## Setting an input field as secret
 
-To make an input field secret, just set `"isSecret": true` to the field in the actor's [input schema]({{@link actors/development/input_schema.md}}), like this:
+To make an input field secret, just add a `"isSecret": true` setting to the input field in the actor's [input schema]({{@link actors/development/input_schema.md}}), like this:
 
 <!-- eslint-skip -->
 ```json
@@ -76,5 +73,5 @@ The decryption keys are passed to the actor runs as environment variables, so th
 
 ## Example actor
 
-If you want to test the secret input live, check out the [Example Secret Input](https://console.apify.com/actors/O3S2UlSKzkcnFHRRA) actor in the Apify Console.
+If you want to test the secret input live, check out the [Example Secret Input](https://console.apify.com/actors/O3S2UlSKzkcnFHRRA) actor in Apify Console.
 If you want to dig in deeper, you can check out its [source code](https://github.com/apify/actor-example-secret-input) on GitHub.
