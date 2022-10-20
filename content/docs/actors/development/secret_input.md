@@ -44,6 +44,7 @@ This is only available for `string` inputs, and the editor type is limited to `t
 
 When you read the actor input through `Actor.getInput()`, the encrypted fields are automatically decrypted, without any additional code needed (starting with the [`apify` package](https://www.npmjs.com/package/apify) version 3.1.0).
 
+<!-- eslint-skip -->
 ```js
 > await Actor.getInput();
 {
@@ -54,6 +55,7 @@ When you read the actor input through `Actor.getInput()`, the encrypted fields a
 
 If you read the `INPUT` key from the actor run's default key-value store directly, you will still get the original, encrypted input value.
 
+<!-- eslint-skip -->
 ```js
 > await Actor.getValue('INPUT');
 {
