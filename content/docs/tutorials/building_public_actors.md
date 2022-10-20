@@ -11,9 +11,9 @@ paths:
 There are four main stages of building a public actor:
 
 1. [Development]({{@link actors/development.md}}).
-2. [Publication](https://developers.apify.com/academy/apify-platform/publishing-actors-on-apify-store).
+2. [Publication]({{@link actors/publishing.md}}).
 3. [Testing and maintenance]({{@link actors/development/testing_and_maintenance.md}}).
-4. [Promotion](https://developers.apify.com/academy/apify-platform/publishing-actors-on-apify-store/seo-and-promotion).
+4. [Promotion](https://developers.apify.com/academy/apify-platform/getting-the-most-of-actors-on-apify-store/seo-and-promotion).
 
 While you don't have to maintain private actors, public actors are a more long-term project. Be prepared to stick with the project for at least a few months. Ensure you have enough time to maintain the project (~2 hours weekly). With this perspective, you will be able to monetize and promote your actors better.
 
@@ -25,7 +25,7 @@ Ensure periodic testing. You can either do it yourself or [set up automatic test
 
 ## Inspiration
 
-To come up with ideas for new actors, you can use your own experience with friends, colleagues, customers. Alternatively, you can use SEO tools that might help you find the right search terms, websites related to web scraping, web automation, or web integrations. See the [SEO article](https://developers.apify.com/academy/apify-platform/publishing-actors-on-apify-store/seo-and-promotion) for more details. Finally, you may take a look at our [actor ideas page](https://apify.com/ideas) to find out which actors are most in demand by the Apify community.
+To come up with ideas for new actors, you can use your own experience with friends, colleagues, customers. Alternatively, you can use SEO tools that might help you find the right search terms, websites related to web scraping, web automation, or web integrations. See the [SEO article](https://developers.apify.com/academy/apify-platform/getting-the-most-of-actors-on-apify-store/seo-and-promotion) for more details. Finally, you may take a look at our [actor ideas page](https://apify.com/ideas) to find out which actors are most in demand by the Apify community.
 
 To better understand the context and practical usage of public actors, [check out our blog](https://blog.apify.com/). Get familiar with how we think and write about actors, e.g. [Content Checker](https://blog.apify.com/how-to-set-up-a-content-change-watchdog-for-any-website-in-5-minutes-460843b12271) (short), [Kickstarter scraper](https://blog.apify.com/kickstarter-search-actor-create-your-own-kickstarter-api-7672acdb8d77) (mid-size), and [Google Sheets actor](https://blog.apify.com/import-data-easily-to-and-from-google-sheets-with-a-new-apify-actor-43536b719029) (long one).
 
