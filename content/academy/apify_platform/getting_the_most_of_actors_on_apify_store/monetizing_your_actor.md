@@ -3,14 +3,14 @@ title: Monetizing your actor
 description: Learn how you can use Apify to monetize your web scraping and automation projects.
 menuWeight: 4
 paths:
-    - apify-platform/publishing-actors-on-apify-store/monetizing-your-actor
+    - apify-platform/getting-the-most-of-actors-on-apify-store/monetizing-your-actor
 ---
 
 # [](#monetizing-your-actor) Monetizing your actor
 
 When publishing your actor on the Apify platform you have the choice to make it a **Paid actor** and get paid by the users benefiting from your tool.
 
-![Paid actor example]({{@asset apify_platform/publishing_actors_on_apify_store/images/scraper-example.webp}})
+![Paid actor example]({{@asset apify_platform/getting_the_most_of_actors_on_apify_store/images/scraper-example.webp}})
 
 Paid actor users pay a monthly rental fee to use the tool, which is **paid in full to the actor’s developer.** This means that, in the example above, the developer would get the full $45 monthly rent paid by each actor’s user.
 
@@ -18,9 +18,24 @@ Paid actor users pay a monthly rental fee to use the tool, which is **paid in fu
 
 First, go to your actor page, **Actors → My Actors** and click on the actor you want to monetize. While on your actor page, go to the **Publication** tab on the right side of the screen and click on the **Request Monetization** button, located under the **Monetization** section.
 
-![Request monetization]({{@asset apify_platform/publishing_actors_on_apify_store/images/actor-monetization-request.webp}})
+![Request monetization]({{@asset apify_platform/getting_the_most_of_actors_on_apify_store/images/actor-monetization-request.webp}})
 
 Our support team will be notified about your request and promptly contact you to discuss the desired price and trial length for your actor, and help you fill in your billing details.
+
+## [](#billing-details) Billing details
+
+Billing details and payment method should be added as soon as your actor is public since this information is mandatory for the creation of payout invoices. Please note that the billing details and payment method should be added as soon as your actor is public since this information is mandatory for the creation of payout invoices.
+
+To add your billing details head over to **Setting > Payouts** on the left side of your Apify Console.
+
+**Note:** The "Payouts" tab will only be visible after your submit the monetization request.
+
+![Billing details]({{@asset apify_platform/getting_the_most_of_actors_on_apify_store/images/billing-details.webp}})
+
+
+### Payout Invoices
+
+Invoices are created automatically at the beginning of the new month, just under your billing details in the same section of your Apify console. Once the invoice is ready, you will need to review and approve it in order the payment to be processed.
 
 ## [](#price-and-trial-length) Price and trial length
 
@@ -32,7 +47,7 @@ Inside the Apify Console, go to **Actors → Earnings.**
 
 Here you have access to a table detailing all the relevant information about your paid actor, including the estimated revenue and number of paying users.
 
-![Scraper earnings]({{@asset apify_platform/publishing_actors_on_apify_store/images/scraper-earnings-example.webp}})
+![Scraper earnings]({{@asset apify_platform/getting_the_most_of_actors_on_apify_store/images/scraper-earnings-example.webp}})
 
 ## [](#promote-your-actor) Promote your actor
 
@@ -46,7 +61,7 @@ Getting new users can be an art in itself, but there are **two simple steps** yo
 
     In short, SEO-optimized texts improve the likelihood that potential customers will find your actor when searching for similar tools on the web.
 
-    This can be a daunting task to take on your own, so we prepared an in-depth [SEO guide](https://docs.apify.com/actors/publishing/seo-and-promotion) to help you **fine-tune your actor’s title, description, and Readme.**
+    This can be a daunting task to take on your own, so we prepared an in-depth [SEO guide]{{@link apify_platform/getting_the_most_of_actors_on_apify_store/seo_and_promotion.md}} to help you **fine-tune your actor’s title, description, and Readme.**
 
 2. **Promoting your actor**
 
@@ -80,4 +95,4 @@ Getting new users can be an art in itself, but there are **two simple steps** yo
 
 **Don’t overlook promoting your actor**. This is arguably the most important step after publishing your tool. Taking advantage of all the possible channels for promotion is what often differentiates very successful actors with dozens of paid users from actors with few to no users at all.
 
-Finally, don’t forget to check our [pro-tips](https://docs.apify.com/actors/publishing/seo-and-promotion#promotion) to take your actor promotion efforts to the next level.
+Finally, don’t forget to check our [pro-tips]{{@link apify_platform/getting_the_most_of_actors_on_apify_store/seo_and_promotion.md}} to take your actor promotion efforts to the next level.
