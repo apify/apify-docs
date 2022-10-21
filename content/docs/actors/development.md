@@ -27,7 +27,7 @@ Here are some resources that will help you go from beginner to pro. If you have 
 
 - [Actor input](https://gitlab.com/apify-public/wiki/-/wikis/public-actors/input).
 - README:
-  - [How to make your README great](https://developers.apify.com/academy/apify-platform/publishing-actors-on-apify-store/actor-readme).
+  - [How to make your README great](https://developers.apify.com/academy/get-most-of-actors/actor-readme).
 - [How to structure your actor's files](https://gitlab.com/apify-public/wiki/-/wikis/public-actors/structure).
 - [Actor building checklist](https://gitlab.com/apify-public/wiki/-/wikis/public-actors/checklist).
-- [Naming your actor](https://developers.apify.com/academy/apify-platform/publishing-actors-on-apify-store/naming-your-actor).
+- [Naming your actor](https://developers.apify.com/academy/apify-platform/get-most-of-actors/naming-your-actor).

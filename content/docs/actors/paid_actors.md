@@ -15,7 +15,7 @@ Paid actors are a new feature in [Apify Store](https://apify.com/store). They're
 
 Each paid actor has a **free trial,** followed by a flat monthly rental fee that is automatically charged **from your platform usage credits** in advance for the following month. The trial's length is always shown for each paid actor.
 
-For more information about how to monetize your actor, best practices and SEO and promotion tips and tricks, head over to the [Getting the most of your public actors on Apify Store](https://developers.apify.com/academy/apify-platform/getting-the-most-of-actors-on-apify-store) section of the Apify Developers Academy.
+For more information about how to monetize your actor, best practices and SEO and promotion tips and tricks, head over to the [Getting the most of your public actors on Apify Store](https://developers.apify.com/academy/apify-platform/get-most-of-actors) section of the Apify Developers Academy.
 
 ![Paid actors free trial]({{@asset actors/images/paid-actors-trial.webp}})
 

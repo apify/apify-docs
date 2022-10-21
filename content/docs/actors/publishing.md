@@ -3,13 +3,12 @@ title: Publishing your actor
 description: Prepare your actor for the Apify Store with a description and README file and learn how to make your actor available to the public.
 menuWeight: 7.5
 paths:
-    - apify-platform/publishing-actors-on-apify-store/publishing-your-actor
     - actors/publishing
 ---
 
 # [](#publishing-actor) Publishing your actor
 
-Before you make your actor public, it is important to make sure your actor has good **Description** and **README** sections so that users can understand what your actor does, how to configure its inputs, and what kind of output it returns. In this lesson, we will briefly go over each of the fields you have to fill in before publishing your actor. For more detailed information about [SEO and promotion](https://developers.apify.com/academy/apify-platform/getting-the-most-of-actors-on-apify-store/seo-and-promotion) and [how to write a comprehensive README](https://developers.apify.com/academy/apify-platform/getting-the-most-of-actors-on-apify-store/actor-readme), check our guides at Apify Developer Academy.
+Before you make your actor public, it is important to make sure your actor has good **Description** and **README** sections so that users can understand what your actor does, how to configure its inputs, and what kind of output it returns. In this lesson, we will briefly go over each of the fields you have to fill in before publishing your actor. For more detailed information about [SEO and promotion](https://developers.apify.com/academy/apify-platform/get-most-of-actors/seo-and-promotion) and [how to write a comprehensive README](https://developers.apify.com/academy/apify-platform/get-most-of-actors/actor-readme), check our guides at Apify Developer Academy.
 
 You can find the Title and description configurations by going to **Apify Console** → **Actors** → **My Actors** → **your-actor** → **Settings → Publication**
 
