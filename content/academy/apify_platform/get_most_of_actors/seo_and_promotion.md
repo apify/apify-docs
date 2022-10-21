@@ -4,9 +4,6 @@ description: Optimize your actors to get more relevant visits from search engine
 menuWeight: 3
 paths:
     # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
-    - actor/publishing/seo-for-actors
-    - actors/publishing/seo-for-actors
-    - actors/publishing/seo-and-promotion
     - apify-platform/get-most-of-actors/seo-and-promotion
 ---
 

@@ -4,8 +4,6 @@ description: Apify's standards for actor naming. Learn how to choose the right n
 menuWeight: 1
 paths:
     # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
-    - actor/publishing/naming-your-actor
-    - actors/publishing/naming-your-actor
     - apify-platform/get-most-of-actors/naming-your-actor
 ---
 
