@@ -18,7 +18,7 @@ Before continuing, it is highly recommended to do the following:
 
 - Look over [how to build a crawler in Crawlee](https://crawlee.dev/docs/introduction/first-crawler) and ideally **code along**.
 - Read [this short article](https://help.apify.com/en/articles/1829103-request-labels-and-how-to-pass-data-to-other-requests) about [**request labels**](https://crawlee.dev/api/core/class/Request#label) (this will be extremely useful later on).
-- Check out [this lesson]({{@link dealing_with_dynamic_pages.md}}) about dynamic pages.
+- Check out [this tutorial]({{@link node_js/dealing_with_dynamic_pages.md}}) about dynamic pages.
 - Read about the [RequestQueue](https://crawlee.dev/api/core/class/RequestQueue).
 
 ## [](#our-task) Our task
@@ -77,5 +77,7 @@ Each of the items in the dataset will represent a scraped offer, and will have t
 <!-- After the scrape has completed, we'll programmatically call a [public actor which sends emails](https://apify.com/apify/send-mail) to send ourselves an email with a publicly viewable link to the actor's final dataset. -->
 
 ## [](#next) First up
+
+From this course, you should have all the knowledge to build this scraper by yourself. Give it a try, then come back to compare your scraper with our solution.
 
 Let's start off this section easy by [initializing and setting up]({{@link web_scraping_for_beginners/challenge/initializing_and_setting_up.md}}) our project with the Crawlee CLI (don't worry, no additional install is required).
