@@ -87,7 +87,7 @@ When allowing your users to pass input properties which could break the scraper 
 
 Validate the input provided by the user! This should be the very first thing your scraper does. If the fields in the input are missing or in an incorrect type/format, either parse the value and correct it programmatically or throw an informative error telling the user how to fix the error.
 
-> On the Apify platform, you can use the [input schema]({{@link apify_platform/deploying_your_code/input_schema.md}}) to both easily validate inputs and generate a clean UI for users.
+> On the Apify platform, you can use the [input schema]({{@link deploying_your_code/input_schema.md}}) to both easily validate inputs and generate a clean UI for those using your scraper.
 
 ## [](#error-handling) Error handling
 

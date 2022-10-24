@@ -2,7 +2,7 @@
 title: Web scraping for beginners
 description: Learn how to develop web scrapers with this comprehensive and practical course. Go from beginner to expert, all in one place.
 menuWeight: 1
-category: courses
+category: web scraping & automation
 paths:
     - web-scraping-for-beginners
 ---
@@ -62,7 +62,7 @@ Throughout the next lessons, we will sometimes use certain technologies and term
 
 ### [](#jquery-or-cheerio) jQuery or Cheerio
 
-We'll be using the [`cheerio`](https://www.npmjs.com/package/cheerio) package a whole lot to parse data from HTML. This package provides a simple API using jQuery syntax to help traverse downloaded HTML within Node.js.
+We'll be using the [**Cheerio**](https://www.npmjs.com/package/cheerio) package a whole lot to parse data from HTML. This package provides a simple API using jQuery syntax to help traverse downloaded HTML within Node.js.
 
 ## [](#next) Next up
 
