@@ -1,6 +1,6 @@
 ---
 title: Python tutorials
-description: A collection of various different Node.js tutorials ranging from scraping sitemaps to optimizing your Puppeteer scraper.
+description: A collection of various different Python tutorials.
 menuWeight: 15
 category: tutorials
 paths:
