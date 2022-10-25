@@ -1,6 +1,6 @@
 ---
 title: VI - Bypassing anti-scraping methods
-description: Learn about bypassing anti-bot methods with proxies and proxy/session rotation. Use Crawlee and the Apify SDK to abstract away the overheads that come with these concepts.
+description: Learn about bypassing anti-scraping methods using proxies and proxy/session rotation together with Crawlee and the Apify SDK.
 menuWeight: 6.6
 paths:
     - expert-scraping-with-apify/bypassing-anti-scraping

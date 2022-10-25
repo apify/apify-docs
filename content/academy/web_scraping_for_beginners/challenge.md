@@ -1,6 +1,6 @@
 ---
 title: Challenge
-description: Test your knowledge from the previous sections in this course by building an Amazon scraper with Crawlee!
+description: Test your knowledge acquired in the previous sections of this course by building an Amazon scraper using Crawlee's CheerioCrawler!
 menuWeight: 1.4
 paths:
     - web-scraping-for-beginners/challenge

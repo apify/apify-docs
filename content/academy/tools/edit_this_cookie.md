@@ -1,6 +1,6 @@
 ---
 title: EditThisCookie
-description: Learn how to add, delete, and modify different cookies in your browser for testing purposes.
+description: Learn how to add, delete, and modify different cookies in your browser for testing purposes using the EditThisCookie chrome extension.
 menuWeight: 9.7
 paths:
     - tools/edit-this-cookie

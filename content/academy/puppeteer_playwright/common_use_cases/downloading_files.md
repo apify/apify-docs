@@ -1,6 +1,6 @@
 ---
 title: Downloading files
-description: Learn how to automate the downloading and saving of files to the disk using Puppeteer or Playwright.
+description: Learn how to automatically download and save files to the disk using two of the most popular web automation libraries, Puppeteer and Playwright.
 menuWeight: 3
 paths:
     - puppeteer-playwright/common-use-cases/downloading-files
