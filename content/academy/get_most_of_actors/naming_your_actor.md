@@ -5,6 +5,7 @@ menuWeight: 1
 paths:
     # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - apify-platform/get-most-of-actors/naming-your-actor
+    - get-most-of-actors/naming-your-actor
 ---
 
 # [](#naming-your-actor) Naming your actor
@@ -65,4 +66,4 @@ The **publication title**, however, can be changed without any problems.
 
 ## [](#next) Next up
 
-Now that your actor is properly named and you know the differences between your actor's technical name and publication title, it's time to take the [next step]({{@link apify_platform/get_most_of_actors/actor_readme.md}})! into making your actor public in Apify Store by ensuring that it has a well-structured and comprehensive README.
+Now that your actor is properly named and you know the differences between your actor's technical name and publication title, it's time to take the [next step]({{@link get_most_of_actors/actor_readme.md}})! into making your actor public in Apify Store by ensuring that it has a well-structured and comprehensive README.

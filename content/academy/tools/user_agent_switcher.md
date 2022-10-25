@@ -1,6 +1,6 @@
 ---
 title: User-Agent Switcher
-description: Learn how to easily switch around your User-Agent header to different values to see how a certain site responds.
+description: Learn how to easily switch your User-Agent header to different values and monitor how a certain site responds to the changes.
 menuWeight: 9.8
 paths:
     - tools/user-agent-switcher

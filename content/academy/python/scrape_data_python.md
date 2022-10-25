@@ -1,6 +1,6 @@
 ---
 title: Scrape and process data using Python
-description: Learn how to scrape websites using Python and its Beautiful Soup library. Follow the tutorial to analyze the target page, create a Python actor, process the resulting data using the Pandas library, and visualize the processed data using Matplotlib.
+description: Learn how to create a Python actor and use Python libraries to scrape, process and visualize data extracted from the web.
 menuWeight: 1
 paths:
     - python/scrape-data-python
