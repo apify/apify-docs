@@ -1,10 +1,11 @@
 ---
 title: SEO and promotion
 description: Optimize your actors to get more relevant visits from search engines like Google. Set search engine-friendly parameters and share your actor with the world.
-menuWeight: 5
+menuWeight: 3
 paths:
-    - apify-platform/publishing-actors-on-apify-store/seo-and-promotion
-    - publishing-actors-on-apify-store/seo-and-promotion
+    # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
+    - apify-platform/get-most-of-actors/seo-and-promotion
+    - get-most-of-actors/seo-and-promotion
 ---
 
 # SEO and promotion
@@ -51,7 +52,7 @@ The actor name is your actor's developer-style name, which is prefixed by your u
 
 However, the name should also be readable and clear enough, so that people using your actor can understand what it does just from the name.
 
-[Read more about naming you actor]({{@link publishing_actors_on_apify_store/naming_your_actor.md}})!.
+[Read more about naming you actor]({{@link get_most_of_actors/naming_your_actor.md}})!.
 
 ### Title
 
@@ -75,7 +76,7 @@ The description is used by search engines to understand what the actor is about,
 
 If you’re not sure about similar phrases, check out the Google suggest tool in the search, and it will show you some hints and tips. Of course, the description should primarily be about what the actor does, but it’s always a good idea to enrich the text with popular keywords.
 
-![Google suggestions example]({{@asset publishing_actors_on_apify_store/images/actors-publishing-google.webp}})
+![Google suggestions example]({{@asset get_most_of_actors/images/actors-publishing-google.webp}})
 
 ### README
 
@@ -123,4 +124,4 @@ Now that you’ve created a cool new actor, let others see it! Share it on your 
 
 ## [](#next) Next up
 
-Congratulations! Your actor is coming together and getting ready to be shared with the world. In the [next lesson]({{@link publishing_actors_on_apify_store/publishing_your_actor.md}})! we will take the last steps to publish your actor on Apify Store.
+Congratulations! Your actor is coming together and getting ready to be shared with the world. In the [next lesson]({{@link get_most_of_actors/monetizing_your_actor.md}})! we will learn how you can monetize your actor on Apify Store.

@@ -1,6 +1,6 @@
 ---
 title: Processing data
-description: Learn how to process the data you scraped using the Crawlee and how to convert JSON to Excel files using the Apify API.
+description: Learn how to process the data you scraped using the Crawlee library and how to convert JSON files to Excel using the Apify API.
 menuWeight: 9
 paths:
 - web-scraping-for-beginners/crawling/processing-data
