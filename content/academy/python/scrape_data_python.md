@@ -1,5 +1,5 @@
 ---
-title: Scrape and process data using Python
+title: How to scrape and process data using Python
 description: Learn how to create a Python actor and use Python libraries to scrape, process and visualize data extracted from the web.
 menuWeight: 1
 paths:
