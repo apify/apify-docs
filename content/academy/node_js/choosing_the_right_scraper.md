@@ -1,6 +1,6 @@
 ---
 title: How to choose the right scraper for the job
-description: Understand how to choose the best scraper for your use-case by understanding some basic concepts.
+description: Learn basic web scraping concepts to help you analyze a website and choose the best scraper for your particular use case.
 menuWeight: 14.3
 paths:
     - node-js/choosing-the-right-scraper

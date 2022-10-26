@@ -1,6 +1,6 @@
 ---
 title: Output schema
-description: Output schema is designed to help actor creators present the results in an output UI attractive to actor users.
+description: Output schema is designed to help actor developers present the results to actor users in an attractive and comprehensive output UI.
 paths:
 # NOTE: IF ADDING A NEW PATH, LEAVE THE OLD ONES FOR REDIRECTS
     - actors/development/output-schema
