@@ -21,7 +21,7 @@ To access the default dataset, we can use the  [`Dataset`](https://crawlee.dev/a
 
 ```JavaScript
 // dataset.js
-import { Dataset, } from 'crawlee';
+import { Dataset, Configuration } from 'crawlee';
 
 // Crawlee automatically deletes data from its previous runs.
 // We can turn this off by setting 'purgeOnStart' to false.
@@ -43,7 +43,7 @@ Let's say we wanted to print the title for each product that is more expensive t
 
 ```JavaScript
 // dataset.js
-import { Dataset } from 'crawlee';
+import { Dataset, Configuration } from 'crawlee';
 
 Configuration.getGlobalConfig().set('purgeOnStart', false);
 
@@ -82,7 +82,7 @@ Now that you have a token, you can upload your local dataset to the Apify platfo
 
 ```JavaScript
 // dataset.js
-import { Dataset } from 'crawlee';
+import { Dataset, Configuration } from 'crawlee';
 import { ApifyClient } from 'apify-client';
 
 Configuration.getGlobalConfig().set('purgeOnStart', false);
@@ -116,7 +116,7 @@ The full code, to do this in one go, looks like this:
 
 ```JavaScript
 // dataset.js
-import { Dataset } from 'crawlee';
+import { Dataset, Configuration } from 'crawlee';
 import { ApifyClient } from 'apify-client';
 import { writeFileSync } from 'fs';
 
