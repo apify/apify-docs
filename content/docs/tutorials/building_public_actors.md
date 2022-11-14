@@ -13,7 +13,7 @@ There are four main stages of building a public actor:
 1. [Development]({{@link actors/development.md}}).
 2. [Publication]({{@link actors/publishing.md}}).
 3. [Testing and maintenance]({{@link actors/development/testing_and_maintenance.md}}).
-4. [Promotion](https://developers.apify.com/academy/apify-platform/get-most-of-actors/seo-and-promotion).
+4. [Promotion](https://developers.apify.com/academy/get-most-of-actors/seo-and-promotion).
 
 While you don't have to maintain private actors, public actors are a more long-term project. Be prepared to stick with the project for at least a few months. Ensure you have enough time to maintain the project (~2 hours weekly). With this perspective, you will be able to monetize and promote your actors better.
 
