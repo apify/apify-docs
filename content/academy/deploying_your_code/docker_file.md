@@ -1,10 +1,10 @@
 ---
 title: Dockerfile
 description: Understand how to write a Dockerfile (Docker image blueprint) for your project so that it can be run within a Docker container on the Apify platform.
-menuWeight: 3
+menuWeight: 4
 paths:
-- apify-platform/deploying-your-code/docker-file
-- deploying-your-code/docker-file
+    - apify-platform/deploying-your-code/docker-file
+    - deploying-your-code/docker-file
 ---
 
 # [](#dockerfile) Dockerfile
