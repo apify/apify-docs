@@ -154,7 +154,7 @@ const results = {
         name: $('meta[itemprop="name"]').attr('content');,
         SKU: $('*[itemprop~="sku"]').text().trim(),
         inStock: !request.url.includes('oosRedirected=true'),
-        onSale: false,
+        onSale: !$('div[itemprop="offers"]').text().includes('OFF'),
         price: $('span[itemprop="price"]').text(),
     };
 ```
