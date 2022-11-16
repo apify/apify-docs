@@ -159,6 +159,8 @@ const results = {
     };
 ```
 
+## [](#final-result) Final result
+
 Great! Now that everything is set up, it's time to run the actor and admire your actor's brand new output tab.
 
 > Need some extra guidance? Visit the [output schema documentation](https://docs.apify.com/actors/development/output-schema) for more detailed information about how to implement this feature.
