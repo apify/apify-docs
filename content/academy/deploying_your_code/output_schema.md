@@ -83,7 +83,7 @@ For reference, you can use the [Zappos Scraper source code](https://github.com/P
             "title": "Zappos.com Dataset",
             "description": "",
             "views": {
-                "places": {
+                "products": {
                     "title": "Overview",
                     "description": "It can take about one minute until the first results are available.",
                     "transformation": {
