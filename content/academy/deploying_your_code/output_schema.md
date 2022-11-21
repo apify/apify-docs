@@ -125,7 +125,7 @@ For reference, you can use the [Zappos Scraper source code](https://github.com/P
                                 "label": "In Stock",
                                 "format": "boolean"
                             },
-                            "onStock": {
+                            "onSale": {
                                 "label": "On Sale",
                                 "format": "boolean"
                             },
