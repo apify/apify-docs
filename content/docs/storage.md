@@ -89,7 +89,7 @@ To access your storages from Apify Console, go to the [**Storage** section](http
 
 > Only named storages are displayed by default. Select the **Include unnamed store** checkbox to display all of your storages.
 
-You can edit your stores' names by clicking their caption (id or name) on their detail page.
+You can edit your stores' names by clicking their caption (ID or name) on their detail page.
 
 Under the **Settings** tab of their detail page, you can grant [access rights](/access-rights) to other Apify users.
 
