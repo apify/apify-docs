@@ -79,3 +79,33 @@ Google SERP proxies do not support sessions.
 Our health check performs an HTTP and HTTPS request with each proxy server every few hours. If a server fails both requests 3 times in a row, it's marked as dead and all user sessions with this server are discarded.
 
 Banned proxies are not considered dead, since they become usable after a while.
+
+## A different approach to `502 Bad Gateway`
+
+There are times when the `502` status code is not comprehensive enough. Therefore, we have modified our server with `590-599` codes instead to provide more insight.
+
+* `590 Non Successful`: upstream responded with non-200 status code.
+
+* `591 RESERVED`: *this status code is reserved for further use.*
+
+* `592 Status Code Out Of Range`: upstream responded with status code different than 100-999.
+
+* `593 Not Found`: DNS lookup failed - [`EAI_NODATA`](https://github.com/libuv/libuv/blob/cdbba74d7a756587a696fb3545051f9a525b85ac/include/uv.h#L82) or [`EAI_NONAME`](https://github.com/libuv/libuv/blob/cdbba74d7a756587a696fb3545051f9a525b85ac/include/uv.h#L83).
+
+* `594 Connection Refused`: upstream refused connection.
+
+* `595 Connection Reset`: connection reset due to loss of connection or timeout.
+
+* `596 Broken Pipe`: trying to write on a closed socket.
+
+* `597 Auth Failed`: incorrect upstream credentials.
+
+* `598 RESERVED`: *this status code is reserved for further use.*
+
+* `599 Upstream Error`: generic upstream error.
+
+`590` and `592` indicate an issue on the upstream side.<br/>
+`593` indicates an incorrect `proxy-chain` configuration.<br/>
+`594`, `595` and `596` may occur due to connection loss.<br/>
+`597` indicates incorrect upstream credentials.<br/>
+`599` is a generic error, where the above is not applicable.
