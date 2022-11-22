@@ -33,11 +33,13 @@ Actors' input fields will vary depending on their purpose, but they all follow t
 
 You can set run options such as timeout and [memory]({{@link actors/running/memory_and_cpu.md}}) at the bottom of the input section.
 
+### Identifying tasks
+
+To make a task easier to identify, you can give it a name, title, and description by clicking it's caption on the detail page.  A task's name should be 3-63 characters long.
+
 ### Settings
 
-To make a task easier to identify, you can give it a name and description under the **Settings** tab. A task's name should be 3-63 characters long.
-
-![Apify task settings]({{@asset actors/images/create-task-settings.webp}})
+Under the **Settings** tab of their detail page, you can grant [access rights](/access-rights) to other Apify users.
 
 ## Run
 
