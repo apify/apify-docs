@@ -15,7 +15,7 @@ paths:
 
 An actor's input schema defines the input that the actor accepts and the UI components used for input in Apify Console. Using input schema, you can provide and easy-to-use UI for your actor's users and also ensure that the input provided is valid.
 
-Input schema must be stored in a file named **INPUT_SCHEMA.json** in the actor's root directory. The file's maximum size is 100 kB. If the input schema is provided, then input is always validated to fulfill the schema when an actor is being started (via API or from the console).
+Input schema can be embedded as an object in the `.actor/actor.json` file under `input` field. Alternatively, you can store a path to a json file in that field. If the `input` field or `.actor/actor.json` is omitted, input schema from `.actor/INPUT_SCHEMA.json` is used. In the absence of that file, the `INPUT_SCHEMA.json` file stored in the actor's root directory is used. The file's maximum size is 100 kB. If the input schema is provided, then input is always validated to fulfill the schema when an actor is being started (via API or from the console).
 
 > You can also use our [visual input schema editor](https://apify.github.io/input-schema-editor-react) to guide you through creation of the **INPUT_SCHEMA.json** file.
 <!--  -->

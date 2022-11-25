@@ -31,3 +31,5 @@ For a full list of available images, [see the Apify SDK Docker image guide](http
 The [Apify API client for Python](https://docs.apify.com/apify-client-python) is preinstalled on these images.
 
 - **Python 3 on Alpine Linux** ([`apify/actor-python`](https://hub.docker.com/r/apify/actor-python/)) - a slim image with Python 3 and the [Apify API client for Python](https://docs.apify.com/apify-client-python) preinstalled. Comes in multiple versions containing Python 3.7, 3.8, 3.9 or 3.10.
+## [](#custom_images) Custom image
+You can always create a custom `Dockerfile` that will be used as a base image for your actor build. To do that, create a Docker file and reference it from the actor config at `.actor/actor.json`, under `dockerfile` field. If not referenced there, the Apify platform will look for the Docker files at `.actor/Dockerfile` and then `Dockerfile` in the actor's root folder.
