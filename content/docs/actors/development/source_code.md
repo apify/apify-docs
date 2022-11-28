@@ -61,7 +61,7 @@ Similarly, as with the [Git repository]({{@link actors/development/source_code.m
 
 ## [](#custom-dockerfile)Custom Dockerfile
 
-Internally, Apify uses Docker to build and run actors. To control the build of the actor, you can create a custom **Dockerfile** and either reference from `dockerfile` field in actor's config at `.actor/actor.json`, or store it at `.actor/Dockerfile` or at `Dockerfile` in the actor's root directory. These three sites are searched for in this order of preference. If the **Dockerfile** is missing, the system uses the following default:
+Internally, Apify uses Docker to build and run actors. To control the build of the actor, you can create a custom **Dockerfile** and either reference from the `dockerfile` field in the actor's config in **.actor/actor.json**, or store it in **.actor/Dockerfile** or **Dockerfile** in the actor's root directory. These three sites are searched for in this order of preference. If the **Dockerfile** is missing, the system uses the following default:
 
 ```dockerfile
 FROM apify/actor-node:16
