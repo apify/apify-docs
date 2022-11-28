@@ -102,36 +102,30 @@ For reference, you can use the [Zappos Scraper source code](https://github.com/P
                         "component": "table",
                         "properties": {
                             "imgUrl": {
-                                "label": "Product image",
+                                "label": "Product image", // Resulting label: "Product image"
                                 "format": "image"
                             },
                             "url": {
-                                "label": "Link",
+                                "label": "Link", // Resulting label: "Link"
                                 "format": "link"
                             },
                             "brand": {
-                                "label": "Brand",
-                                "format": "text"
+                                "format": "text" // Resulting label: "Brand"
                             },
                             "name": {
-                                "label": "Name",
-                                "format": "text"
+                                "format": "text" // Resulting label: "Name"
                             },
                             "SKU": {
-                                "label": "SKU",
-                                "format": "text"
+                                "format": "text" // Resulting label: "SKU"
                             },
                             "inStock": {
-                                "label": "In Stock",
-                                "format": "boolean"
+                                "format": "boolean" // Resulting label: "In Stock"
                             },
                             "onSale": {
-                                "label": "On Sale",
-                                "format": "boolean"
+                                "format": "boolean" // Resulting label: "On Sale"
                             },
                             "price": {
-                                "label": "Price",
-                                "format": "text"
+                                "format": "text" // Resulting label: "Price"
                             }
                         }
                     }
@@ -143,6 +137,8 @@ For reference, you can use the [Zappos Scraper source code](https://github.com/P
 ```
 
 Note that the fields specified in the output schema should match the object keys of your resulting dataset.
+
+Also, if your desired label has the same name as the defined object key, then you don't need to specify a label name. The schema will, by default, show a capitalized version of the key and even split camel case into separate words and capitalize all of them.
 
 So, the matching object for the Zappos Scraper shown in the example above will look something like this:
 
