@@ -18,7 +18,7 @@ An actor's output schema defines the structure and both API and visual represent
 
 ## How to organize files in the .actor folder: two options
 
-**A)** all config options are being set in a .actor/actor.json file, e.g.:
+**A)** all config options are being set in a **.actor/actor.json** file, e.g.:
 
 ```JSON
 //file: .actor/actor.json
@@ -43,7 +43,7 @@ An actor's output schema defines the structure and both API and visual represent
 }
 ```
 
-**B)** .actor/actor.json links to other sub-config files in the same folder, e.g.:
+**B)** **.actor/actor.json** links to other sub-config files in the same folder, e.g.:
 
 ```JSON
 //file: .actor/actor.json
