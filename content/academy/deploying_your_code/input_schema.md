@@ -3,8 +3,8 @@ title: Input schema
 description: Learn how to generate a user interface on the platform for your actor's input with a single file - the INPUT_SCHEMA.json file.
 menuWeight: 2
 paths:
-- apify-platform/deploying-your-code/input-schema
-- deploying-your-code/input-schema
+    - apify-platform/deploying-your-code/input-schema
+    - deploying-your-code/input-schema
 ---
 
 # [](#input-schema) Input schema
@@ -96,7 +96,7 @@ For our case, we've made the **numbers** field required, as it is crucial to our
 
 ## [](#final-thoughts) Final thoughts
 
-Here is what the output schema we wrote will render on the platform:
+Here is what the input schema we wrote will render on the platform:
 
 ![Rendered UI from input schema]({{@asset deploying_your_code/images/rendered-ui.webp}})
 
@@ -106,4 +106,4 @@ It is not expected to memorize all of the fields that properties can take, or th
 
 ## [](#next) Next up
 
-In the [next lesson]({{@link deploying_your_code/docker_file.md}}), we'll be learning about a very important file that is required for our project to run on the Apify platform - the Dockerfile.
+In the [next lesson]({{@link deploying_your_code/output_schema.md}}), we'll learn how to generate an appealing Overview table to display our actor's results in real time, so users can get immediate feedback about the data being extracted.

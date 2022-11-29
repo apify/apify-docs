@@ -106,7 +106,7 @@ def get_input ():
     if not is_on_apify():
         with open('./apify_storage/key_value_stores/default/INPUT.json') as actor_input:
             return json.load(actor_input)
-    
+
     kv_store = client.key_value_store(environ.get('APIFY_DEFAULT_KEY_VALUE_STORE_ID'))
     return kv_store.get_record('INPUT')['value']
 
@@ -177,7 +177,7 @@ def get_input ():
     if not is_on_apify():
         with open('./apify_storage/key_value_stores/default/INPUT.json') as actor_input:
             return json.load(actor_input)
-    
+
     kv_store = client.key_value_store(environ.get('APIFY_DEFAULT_KEY_VALUE_STORE_ID'))
     return kv_store.get_record('INPUT')['value']
 
@@ -186,7 +186,7 @@ def set_output (data):
     if not is_on_apify():
         with open('./apify_storage/datasets/default/solution.json', 'w') as output:
             return output.write(json.dumps(data, indent=2))
-    
+
     dataset = client.dataset(environ.get('APIFY_DEFAULT_DATASET_ID'))
     dataset.push_items('OUTPUT', value=[json.dumps(data, indent=4)])
 
