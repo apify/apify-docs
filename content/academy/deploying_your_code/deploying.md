@@ -1,10 +1,10 @@
 ---
 title: Deploying
 description: Push local code to the platform, or create a new actor on the console and integrate it with a Git repo to optionally automatically rebuild any new changes.
-menuWeight: 4
+menuWeight: 5
 paths:
-- apify-platform/deploying-your-code/deploying
-- deploying-your-code/deploying
+    - apify-platform/deploying-your-code/deploying
+    - deploying-your-code/deploying
 ---
 
 # [](#deploying) Deploying
