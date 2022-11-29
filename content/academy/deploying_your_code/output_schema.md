@@ -102,30 +102,30 @@ For reference, you can use the [Zappos Scraper source code](https://github.com/P
                         "component": "table",
                         "properties": {
                             "imgUrl": {
-                                "label": "Product image", // Resulting label: "Product image"
+                                "label": "Product image",
                                 "format": "image"
                             },
                             "url": {
-                                "label": "Link", // Resulting label: "Link"
+                                "label": "Link",
                                 "format": "link"
                             },
                             "brand": {
-                                "format": "text" // Resulting label: "Brand"
+                                "format": "text"
                             },
                             "name": {
-                                "format": "text" // Resulting label: "Name"
+                                "format": "text"
                             },
                             "SKU": {
-                                "format": "text" // Resulting label: "SKU"
+                                "format": "text"
                             },
                             "inStock": {
-                                "format": "boolean" // Resulting label: "In Stock"
+                                "format": "boolean"
                             },
                             "onSale": {
-                                "format": "boolean" // Resulting label: "On Sale"
+                                "format": "boolean"
                             },
                             "price": {
-                                "format": "text" // Resulting label: "Price"
+                                "format": "text"
                             }
                         }
                     }
