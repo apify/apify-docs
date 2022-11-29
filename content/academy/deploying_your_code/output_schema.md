@@ -10,7 +10,7 @@ paths:
 
 The Output schema generates an interface that enables users to instantly preview their actor results in real time.
 
-![Output Schema](./images/output-schema-example.webp)
+![Output Schema]({{@asset deploying_your_code/images/output-schema-example.webp}})
 
 In this quick tutorial, you will learn how to set up an output tab for your own actor.
 
@@ -18,7 +18,7 @@ In this quick tutorial, you will learn how to set up an output tab for your own 
 
 Firstly, create a `.actor` folder in the root of your actor's source code. Then, create a `actor.json` file in this folder, after which you'll have .actor/actor.json.
 
-![.actor/actor.json](./images/actor-json-example.webp)
+![.actor/actor.json]({{@asset deploying_your_code/images/actor-json-example.webp}})
 
 Next, copy-paste the following template code into your `actor.json` file.
 
@@ -163,7 +163,7 @@ Great! Now that everything is set up, it's time to run the actor and admire your
 
 A few seconds after running the actor, you should see the actors results being displayed in the `Overview` table.
 
-![Output table overview](./images/output-schema-final-example.webp)
+![Output table overview]({{@asset deploying_your_code/images/output-schema-final-example.webp}})
 
 ## [](#next) Next up
 
