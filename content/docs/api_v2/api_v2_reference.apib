@@ -2261,6 +2261,26 @@ For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrec
     + Attributes
         - data (Run, required)
 
+## Update status message [/v2/actor-runs/{runId}{?token,statusMessage,isTerminal}]
+
+### Update status message [PUT]
+
+You can set a single status message on your run that will get displayed in the Apify Console UI. During an actor run, you will typically
+do this in order to inform users of your actor about the actor's progress. If the status message is the very last one, you will
+need to also specify `isStatusMessageTerminal=true`. In the absence of your status message the platform will try to substitute sensible defaults.
+
++ Parameters
+
+    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+    + statusMessage: `Actor has finished` (string, required) - Status message
+    + isStatusMessageTerminal: true (boolean) - Flag indicating if this is the final status message of the actor.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (Run, required)
+
 # Group Actor builds
 
 The API endpoints described in this section enable you to manage Apify actor builds.
