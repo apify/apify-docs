@@ -118,7 +118,7 @@ const crawler = new CheerioCrawler({
         console.log('Title: ', $('title').text());
 
         // We only want to enqueue the URLs from the first page.
-        if (request.label === 'START') {
+        if (request.userData.label === 'START') {
             await enqueueLinks({
                 // The selector is from our earlier code.
                 selector: 'a[href*="/product/"]',
@@ -157,7 +157,7 @@ import { CheerioCrawler, Dataset } from 'crawlee';
 
 const crawler = new CheerioCrawler({
     requestHandler: async ({ $, request, enqueueLinks }) => {
-        if (request.label === 'START') {
+        if (request.userData.label === 'START') {
             await enqueueLinks({
                 selector: 'a[href*="/product/"]',
                 baseUrl: new URL(request.url).origin,
