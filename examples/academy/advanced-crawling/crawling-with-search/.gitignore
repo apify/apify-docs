@@ -1,0 +1,11 @@
+# This file tells Git which files shouldn't be added to source control
+
+.idea
+dist
+node_modules
+apify_storage
+crawlee_storage
+storage
+# Not relevant for this example
+package-lock.json
+apify.json

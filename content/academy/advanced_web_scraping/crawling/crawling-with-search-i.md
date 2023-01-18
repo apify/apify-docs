@@ -1,12 +1,14 @@
 ---
-title: Scraping paginated sites
+title: Crawling with search I
 description: Learn how to extract all of a website's listings even if they limit the number of results pages. See code examples for setting up your scraper.
-menuWeight: 1
+menuWeight: 3
 paths:
-- advanced-web-scraping/scraping-paginated-sites
+- advanced-web-scraping/crawling/crawling-with-search-i
 ---
 
-# Scraping websites with limited pagination
+# Scraping websites with search I
+
+In this lesson, we will start with a simpler example of scraping HTML based websites with limited pagination. 
 
 Limited pagination is a common practice on e-commerce sites and is becoming more popular over time. It makes sense: a real user will never want to look through more than 200 pages of results – only bots love unlimited pagination. Fortunately, there are ways to overcome this limit while keeping our code clean and generic.
 
@@ -18,7 +20,7 @@ Limited pagination is a common practice on e-commerce sites and is becoming more
 
 Websites usually limit the pagination of a single (sub)category to somewhere between 1,000 to 20,000 listings. The site might have over a million listings in total. Without a proven algorithm, it will be very manual and almost impossible to scrape all listings.
 
-We will first look at a couple ideas that don't work so well and then present the [final robust solution](#using-filter-ranges).
+We will first look at a couple ideas that might cross our mind but don't work so well and then present the [most robust solution](#using-filter-ranges).
 
 ### [](#going-deeper-into-subcategories) Going deeper into subcategories
 
@@ -278,9 +280,10 @@ for (const filter of newFilters) {
 await crawler.addRequests(requestsToEnqueue);
 ```
 
+Check out the [full code example](https://github.com/metalwarrior665/apify-utils/tree/master/examples/crawler-with-filters).
+
 ## [](#summary) Summary
 
-And that's it. We have an elegant and simple solution for a complicated problem. In a real project, you would want to make this a bit more robust and [save analytics data]({{@link expert_scraping_with_apify/saving_useful_stats.md}}). This will let you know what filters you went through and how many products each of them had.
+And that's it. We have an elegant and simple solution for a complicated problem. In the next lesson, we will explore how to refine this algorithm and apply it to bigger use-cases like scraping APIs.
 
-Check out the [full code example](https://github.com/metalwarrior665/apify-utils/tree/master/examples/crawler-with-filters).
 
