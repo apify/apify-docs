@@ -20,7 +20,7 @@ You can also grant permission to update an actor and build a new version.
 
 > To be able to grant access rights to another user you must have a **username** set in [account settings](https://console.apify.com/account?tab=settings).
 
-To share an actor, task, key-value store, request queue or dataset, open its **Settings** tab and at the very bottom you will find the **Access rights** section. You can add a collaborator using their **user ID**, **email** or **username**. Once you have added the collaborator, you can configure their permissions.
+To share an actor, task, key-value store, request queue, or dataset, click on the **Actions** button in the top-right corner and select **Share**. You can add a collaborator using their **user ID**, **email**, or **username**. Once you have added the collaborator, you can configure their permissions.
 
 ![Access rights configuration]({{@asset images/access-rights.webp}})
 
