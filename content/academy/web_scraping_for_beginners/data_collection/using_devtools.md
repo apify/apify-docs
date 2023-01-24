@@ -8,39 +8,75 @@ paths:
 
 # [](#devtools-data-collection) Data collection with DevTools
 
-We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - collecting data from a website. Let's try collecting the on-sale products from [this fake e-commerce website](https://demo-webstore.apify.org/). We will use CSS selectors, JavaScript, and DevTools to achieve this task.
+We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - collecting data from a website. Let's try collecting the on-sale products from the [Warehouse store](https://warehouse-theme-metal.myshopify.com/). We will use CSS selectors, JavaScript, and DevTools to achieve this task.
+
+> Why use a Shopify demo and not a real e-commerce store like Amazon? Because real websites are usually bulkier, littered with promotions, and they change very often. Many even have multiple versions of pages, and you never know in advance which one you will get. It will be important to learn how to deal with these challenges in the future, but for this beginner course, we want to have a light and stable environment.
+>
+> Some other courses use so-called scraping playgrounds or sandboxes. Those are websites made solely for the purpose of learning scraping. We find those too dumbed down and not representative of real websites. The Shopify demo is a full-featured, real-world website and learning to scrape it will hone your scraping skills.
 
 ## [](#getting-structured-data) Getting structured data from HTML
 
-When you open up the [on-sale section of Fakestore](https://demo-webstore.apify.org/search/on-sale), you'll see that there's a grid of products on the page with names and pictures of products. We will now learn how to collect all this information. Open DevTools and select the first product with the selector tool.
+When you open up the [Sales section of Warehouse](https://warehouse-theme-metal.myshopify.com/collections/sales), you'll see that there's a grid of products on the page with names and pictures of products. We will learn how to extract all this information.
 
-![Selecting an element with DevTools]({{@asset web_scraping_for_beginners/data_collection/images/selecting-first-website.webp}})
+![Warehouse store with DevTools open]({{@asset web_scraping_for_beginners/data_collection/images/devtools-collection-warehouse.webp}})
 
-Now you know where to find the name of one of the products in the page's HTML, but we want to find all information about this product. To do that, in the **Elements** tab, hover over the elements above the one you just found, until you find the element that contains all the data about the selected product. Alternatively, you can press the up arrow a few times to get the same result.
+Open DevTools and select the name of the **Sony SACS9 Active Subwoofer**. When you click on it, it will get highlighted in the Elements tab.
 
-![Selecting an element from the Elements tab]({{@asset web_scraping_for_beginners/data_collection/images/selecting-container-element.webp}})
+![Selecting an element with DevTools]({{@asset web_scraping_for_beginners/data_collection/images/devtools-collection-product-name.webp}})
 
-This element is the parent element of all the nested (child) elements, and we can find it using JavaScript and collect the data. Notice that the element has an `aria-label` attribute, as well as multiple `class` attributes. This is where CSS selectors become handy, because we can use them to select an element with a specific class.
+Great, you have selected the element which contains the name of the subwoofer. Now we want to find all the elements that contain all the information about this subwoofer. Price, number of reviews, image and so on. We will use the **Elements** tab to do that. You can hover over the elements in the Elements tab, and they will get highlighted on the page as you move the mouse.
 
-> Websites change and the structure or their HTML or the CSS selectors can become outdated. We'll try our best to keep this course updated, but if you find that what you see on the website doesn't match this guide exactly, don't worry. Everything will work exactly the same. You will only have to use whatever you see on your screen and not in the screenshots here.
+Start from the previously selected element with the subwoofer's name and move your mouse up, hovering over each element, until you find the one that highlights the entire product card. Alternatively, you can press the up arrow a few times to get the same result. A little theory. The element that contains all the information about the subwoofer is called a **parent element**, and all the nested elements, including the subwoofer's name, price and so on, are **child elements**.
 
-## [](#selecting-elements) Selecting elements with JavaScript
+![Selecting an element with hover]({{@asset web_scraping_for_beginners/data_collection/images/devtools-collection-product-hover.webp}})
 
-We know how to find an element manually using the DevTools, but for automated scraping, we need to tell the computer how to find it as well. We can do that using JavaScript and CSS selectors.
+Now that we know how the parent element looks like, we can extract its data, including the data of its children. Notice that the element has a `class` attribute with multiple values like `product-item` or `product-item--vertical`. Let's use those classes in the Console to extract data.
 
-The function to do that is called `document.querySelector('some-selector')` and it will find the first element in the page's HTML matching the provided CSS selector. For example `document.querySelector('div')` will find the first `<div>` element. And `document.querySelector('p.my-class')` will find the first `<p>` element with the class `my-class`.
+![Class attribute in DevTools]({{@asset web_scraping_for_beginners/data_collection/images/devtools-collection-class.webp}})
+
+## [](#selecting-elements) Selecting elements in Console
+
+We know how to find an element manually using the DevTools, but that's not very useful for automated scraping. We need to teach the computer how to find it as well. We can do that using JavaScript and CSS selectors.
+
+The function to do that is called `document.querySelector()` and it will find the first element in the page's HTML matching the provided CSS selector. For example `document.querySelector('div')` will find the first `<div>` element. And `document.querySelector('.my-class')` (notice the period `.`) will find the first element with the class `my-class`. For example `<div class="my-class">` or `<p class="my-class">`.
+
+You can also combine selectors. `document.querySelector('p.my-class')` will find all `<p class="my-class">` elements, but no `<div class="my-class">`.
 
 > You can find available CSS selectors and their syntax on the [MDN CSS Selectors page](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
 
-At the time of writing, the HTML element that contained all the data we wanted had an `<a>` tag and a `animated fadeIn` class, plus an `aria-label` attribute. This actually means that there were two classes applied to the element - `animated` and `fadeIn`. Neither of these seem reliable classes to go off of; however, each element also includes an `href` attribute which includes `/product/`, which we can use to our advantage.
+Let's see how to use `document.querySelector()` to find the Sony subwoofer. Earlier we mentioned that the parent element of the subwoofer had, among others, the `product-item` class. We can use the class to look up the element. Copy or type (don't miss the period `.` in `.product-item`) the following function into the Console and press Enter.
 
 ```JavaScript
-document.querySelector('a[aria-label][href*="/product/"]');
+document.querySelector('.product-item');
 ```
 
-![Query a selector with JavaScript]({{@asset web_scraping_for_beginners/data_collection/images/query-selector.webp}})
+It will produce a result like this:
 
-> There are always multiple ways to select an element using CSS selectors. We always try to choose the one that seems the most reliable, precise, and unlikely to change with website updates. For example the `href` attribute can be assumed to always include `/products/`, as this is the path to view a specific product.
+![Query a selector with JavaScript]({{@asset web_scraping_for_beginners/data_collection/images/devtools-collection-query.webp}})
+
+But wait. When we look more closely by hovering over the result in the Console, we find that **it's not the Sony subwoofer**. It's a JBL Flip speaker. Why? Because `document.querySelector('.product-item')` finds the first element with the `product-item` class, and the JBL speaker is the first product in the list.
+
+![Hover over a query result]({{@asset web_scraping_for_beginners/data_collection/images/devtools-collection-query-hover.webp}})
+
+We need a different function: `document.querySelectorAll()` (notice the `All` at the end). This function does not find only the first element, but all the elements that match the provided selector.
+
+Run the following function in the Console:
+
+```JavaScript
+document.querySelectorAll('.product-item');
+```
+
+It will return a `NodeList` with many results. Expand the results by clicking the small arrow button and then hover over the third (number 2, indexing starts at 0) element in the list. You'll find that it's the Sony subwoofer we're looking for.
+
+![Hover over a query result]({{@asset web_scraping_for_beginners/data_collection/images/devtools-collection-query-all.webp}})
+
+Naturally, this is the method we use mostly in web scraping, because we're usually interested in scraping all the products from a page, not just a single product.
+
+## [](#choose-good-selectors) How to choose good selectors
+
+There are always multiple ways to select an element using CSS selectors. Try to choose selectors that are **simple**, **human-readable**, **unique** and **semantically connected** to the data. Selectors that meet these criteria are sometimes called **resilient selectors**, because they're the most reliable and least likely to change with website updates. If you can, avoid randomly generated attributes like `class="F4jsL8"`. They change often and without warning.
+
+The `product-item` class is simple, human-readable, and semantically connected with the data. It's one of the products. A product item. Those are strong signals that this is a good selector. It's also sufficiently unique in the website's context. If the selector was only `item`, for example, there would be a higher chance that the website's developers would add this class to something unrelated. Like an advertisement. And it could break your extraction code.
 
 ## [](#collecting-from-elements) Collecting data from elements
 

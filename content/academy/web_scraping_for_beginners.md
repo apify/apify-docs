@@ -9,13 +9,15 @@ paths:
 
 # [](#welcome) Web scraping for beginners
 
-Welcome to **Web scraping for beginners**, a comprehensive and practical web scraping course that will take you from an absolute beginner to a successful web scraper developer. This course is sponsored by [Apify](https://apify.com), the web scraping and automation platform, but we will use only open-source technologies throughout all academy lessons. This means that the skills you learn will be applicable to any scraping project, and you'll be able to run your scrapers on any computer. No Apify account needed.
+Welcome to **Web scraping for beginners**, a comprehensive, practical and long form web scraping course that will take you from an absolute beginner to a successful web scraper developer. If you're looking for a quick start, we recommend trying [this tutorial](https://blog.apify.com/web-scraping-javascript-nodejs/) instead.
 
-<!--If you would like to learn about the Apify platform and how it can help you build, run and scale your web scraping and automation projects, visit the Apify Academy, where we'll teach you all about our actors, proxies, API, scheduling, webhooks and much more. ONCE IT'S AVAILABLE-->
+This course is made by [Apify](https://apify.com), the web scraping and automation platform, but we will use only open-source technologies throughout all academy lessons. This means that the skills you learn will be applicable to any scraping project, and you'll be able to run your scrapers on any computer. No Apify account needed.
+
+If you would like to learn about the Apify platform and how it can help you build, run and scale your web scraping and automation projects, see the [Apify platform course](), where we'll teach you all about Apify serverless infrastructure, proxies, API, scheduling, webhooks and much more.
 
 ## [](#why-learn) Why learn scraper development?
 
-With so many point-and-click tools and no-code software that can help you extract data from websites, what is the point of learning scraper development? Contrary to what their marketing departments say, a point-and-click or no-code tool will never be as flexible, as powerful, or as optimized as a custom-built scraper.
+With so many point-and-click tools and no-code software that can help you extract data from websites, what is the point of learning web scraper development? Contrary to what their marketing departments say, a point-and-click or no-code tool will never be as flexible, as powerful, or as optimized as a custom-built scraper.
 
 Any software can do only what it was programmed to do. If you build your own scraper, it can do anything you want. And you can always quickly change it to do more, less, or the same, but faster or cheaper. The possibilities are endless once you know how scraping really works.
 
@@ -32,13 +34,11 @@ This is what you'll learn in the **Web scraping for beginners** course:
   * [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}})
   * [Best practices]({{@link web_scraping_for_beginners/best_practices.md}})
 
-> We release course content as soon as we write it instead of launching it all at the same time much later. If you want to get notified about new lessons in the academy, [sign up for a free Apify account](https://console.apify.com/sign-up?asrc=developers_portal) to get our newsletters.
-
 ## [](#requirements) Requirements
 
-You don't need to be a developer or a software engineer to complete this course, but basic programming knowledge is recommended. Don't be afraid, though. We explain everything in great detail in the this course and provide external references that can help you level up your web scraping and development skills. If you're new to programming, pay very close attention to the instructions and examples. A seemingly insignificant thing like using `[]` instead of `()` can make a lot of difference.
+You don't need to be a developer or a software engineer to complete this course, but basic programming knowledge is recommended. Don't be afraid, though. We explain everything in great detail in the course and provide external references that can help you level up your web scraping and web development skills. If you're new to programming, pay very close attention to the instructions and examples. A seemingly insignificant thing like using `[]` instead of `()` can make a lot of difference.
 
-> If you don't already have basic programming/web development knowledge and would like to be well-prepared for this course, we recommend taking a [JavaScript course](https://www.codecademy.com/learn/introduction-to-javascript) and learning about [CSS Selectors](https://www.w3schools.com/css/css_selectors.asp).
+> If you don't already have basic programming knowledge and would like to be well-prepared for this course, we recommend taking a [JavaScript course](https://www.codecademy.com/learn/introduction-to-javascript) and learning about [CSS Selectors](https://www.w3schools.com/css/css_selectors.asp).
 
 As you progress to the more advanced courses, the coding will get more challenging, but will still be manageable to a person with an intermediate level of programming skills.
 
@@ -62,7 +62,7 @@ Throughout the next lessons, we will sometimes use certain technologies and term
 
 ### [](#jquery-or-cheerio) jQuery or Cheerio
 
-We'll be using the [**Cheerio**](https://www.npmjs.com/package/cheerio) package a whole lot to parse data from HTML. This package provides a simple API using jQuery syntax to help traverse downloaded HTML within Node.js.
+We'll be using the [**Cheerio**](https://www.npmjs.com/package/cheerio) package a lot to parse data from HTML. This package provides a simple API using jQuery syntax to help traverse downloaded HTML within Node.js.
 
 ## [](#next) Next up
 

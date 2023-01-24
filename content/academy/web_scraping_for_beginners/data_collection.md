@@ -25,7 +25,7 @@ CSS (Cascading Style Sheets) is a markup language that is used to give websites 
 
 ## [](#javascript) JavaScript
 
-HTML and CSS give websites their structure and style, but they are static. To be able to meaningfully interact with a website, you need to throw JavaScript into the mix. It is the language of the web and you don't need to be a programmer to learn the basics. You don't even need any special software, because you can try it right now, in your browser.
+HTML and CSS give websites their structure and style, but they are static. To be able to meaningfully interact with a website, you need to throw JavaScript into the mix. It is the language of the web, and you don't need to be a programmer to learn the basics. You don't even need any special software, because you can try it right now, in your browser.
 
 > If you want to dive deeper into JavaScript, check out [this great tutorial](https://javascript.info/).
 
