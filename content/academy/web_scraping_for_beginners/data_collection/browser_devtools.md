@@ -8,7 +8,9 @@ paths:
 
 # [](#devtools) Browser DevTools
 
-Even though DevTools stands for developer tools, everyone can use them to inspect a website. Each major browser has their own DevTools. We will use Chrome DevTools as an example, but the advice is applicable to any browser, as the tools are extremely similar. To open Chrome DevTools, you can press **F12** or right-click anywhere in the page and choose **Inspect**. Now go to https://wikipedia.com and open your DevTools there. Inspecting the same page as us will make this lesson easier to follow.
+Even though DevTools stands for developer tools, everyone can use them to inspect a website. Each major browser has their own DevTools. We will use Chrome DevTools as an example, but the advice is applicable to any browser, as the tools are extremely similar. To open Chrome DevTools, you can press **F12** or right-click anywhere in the page and choose **Inspect**.
+
+Now go to [Wikipedia](https://wikipedia.com) and open your DevTools there. Inspecting the same website as us will make this lesson easier to follow.
 
 ![Wikipedia with Chrome DevTools open]({{@asset web_scraping_for_beginners/data_collection/images/browser-devtools-wikipedia.webp}})
 

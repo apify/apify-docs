@@ -13,7 +13,7 @@ Welcome to **Web scraping for beginners**, a comprehensive, practical and long f
 
 This course is made by [Apify](https://apify.com), the web scraping and automation platform, but we will use only open-source technologies throughout all academy lessons. This means that the skills you learn will be applicable to any scraping project, and you'll be able to run your scrapers on any computer. No Apify account needed.
 
-If you would like to learn about the Apify platform and how it can help you build, run and scale your web scraping and automation projects, see the [Apify platform course](), where we'll teach you all about Apify serverless infrastructure, proxies, API, scheduling, webhooks and much more.
+If you would like to learn about the Apify platform and how it can help you build, run and scale your web scraping and automation projects, see the [Apify platform course]({{@link apify_platform.md}}), where we'll teach you all about Apify serverless infrastructure, proxies, API, scheduling, webhooks and much more.
 
 ## [](#why-learn) Why learn scraper development?
 
