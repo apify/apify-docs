@@ -9,7 +9,7 @@ paths:
 
 # [](#devtools-data-extraction) Data extraction with DevTools
 
-We know the basics of HTML, CSS, JavaScript and DevTools and we can finally try doing something more practical - extracting data from a website. Let's try collecting the on-sale products from the [Warehouse store](https://warehouse-theme-metal.myshopify.com/). We will use CSS selectors, JavaScript, and DevTools to achieve this task.
+With the knowledge of the basics of DevTools and we can finally try doing something more practical - extracting data from a website. Let's try collecting the on-sale products from the [Warehouse store](https://warehouse-theme-metal.myshopify.com/). We will use [CSS selectors]({{@link concepts/css_selectors.md}}), JavaScript, and DevTools to achieve this task.
 
 > **Why use a Shopify demo and not a real e-commerce store like Amazon?** Because real websites are usually bulkier, littered with promotions, and they change very often. Many have multiple versions of pages, and you never know in advance which one you will get. It will be important to learn how to deal with these challenges in the future, but for this beginner course, we want to have a light and stable environment.
 >
@@ -39,13 +39,11 @@ Now that we know how the parent element looks like, we can extract its data, inc
 
 ## [](#selecting-elements) Selecting elements in Console
 
-We know how to find an element manually using the DevTools, but that's not very useful for automated scraping. We need to tell the computer how to find it as well. We can do that using JavaScript and CSS selectors. The function to do that is called `document.querySelector()` and it will find the first element in the page's HTML matching the provided CSS selector.
+We know how to find an element manually using the DevTools, but that's not very useful for automated scraping. We need to tell the computer how to find it as well. We can do that using JavaScript and CSS selectors. The function to do that is called [`document.querySelector()`]({{@link concepts/querying_css_selectors.md}}) and it will find the first element in the page's HTML matching the provided [CSS selector]({{@link concepts/css_selectors.md}}).
 
 For example `document.querySelector('div')` will find the first `<div>` element. And `document.querySelector('.my-class')` (notice the period `.`) will find the first element with the class `my-class`, such as `<div class="my-class">` or `<p class="my-class">`.
 
 You can also combine selectors. `document.querySelector('p.my-class')` will find all `<p class="my-class">` elements, but no `<div class="my-class">`.
-
-> You can find available CSS selectors and their syntax on the [MDN CSS Selectors page](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
 
 Let's try to use `document.querySelector()` to find the **Sony subwoofer**. Earlier we mentioned that the parent element of the subwoofer had, among others, the `product-item` class. We can use the class to look up the element. Copy or type (don't miss the period `.` in `.product-item`) the following function into the Console and press Enter.
 
@@ -61,7 +59,7 @@ When we look more closely by hovering over the result in the Console, we find th
 
 ![Hover over a query result]({{@asset web_scraping_for_beginners/data_extraction/images/devtools-collection-query-hover.webp}})
 
-We need a different function: `document.querySelectorAll()` (notice the `All` at the end). This function does not find only the first element, but all the elements that match the provided selector.
+We need a different function: [`document.querySelectorAll()`]({{@link concepts/querying_css_selectors.md}}) (notice the `All` at the end). This function does not find only the first element, but all the elements that match the provided selector.
 
 Run the following function in the Console:
 
@@ -69,7 +67,7 @@ Run the following function in the Console:
 document.querySelectorAll('.product-item');
 ```
 
-It will return a `NodeList` with many results. Expand the results by clicking the small arrow button and then hover over the third (number 2, indexing starts at 0) element in the list. You'll find that it's the Sony subwoofer we're looking for.
+It will return a `NodeList` (a type of array) with many results. Expand the results by clicking the small arrow button and then hover over the third (number 2, indexing starts at 0) element in the list. You'll find that it's the Sony subwoofer we're looking for.
 
 ![Hover over a query result]({{@asset web_scraping_for_beginners/data_extraction/images/devtools-collection-query-all.webp}})
 
@@ -92,7 +90,7 @@ const products = document.querySelectorAll('.product-item');
 const subwoofer = products[2];
 ```
 
-> If you're wondering what `products[2]` means, learn more in [this tutorial on JavaScript arrays](https://javascript.info/array).
+> If you're wondering what an array is or what `products[2]` means, learn more in [this tutorial on JavaScript arrays](https://javascript.info/array).
 
 Now that we have the subwoofer saved into a variable, run another command in the Console to print its text:
 
@@ -100,55 +98,100 @@ Now that we have the subwoofer saved into a variable, run another command in the
 subwoofer.textContent
 ```
 
-![Print text content of an element]({{@asset web_scraping_for_beginners/data_extraction/images/print-text-content.webp}})
+![Print text content of parent element]({{@asset web_scraping_for_beginners/data_extraction/images/devtools-print-parent-text.webp}})
 
-As you can see, we were able to extract the data, but the format is still not very useful - there's a whole lot of weird data there that we probably don't need. For further processing (ex. in a spreadsheet), we would like to have each piece of data as a separate field (column). To do that, we will look at the HTML structure in more detail.
+As you can see, we were able to extract information about the subwoofer, but the format is still not very useful - there's a lot of content that we don't need. For further processing (ex. in a spreadsheet), we would like to have each piece of data as a separate field (column). To do that, we will look at the HTML structure in more detail.
+
+### [](#finding-child-elements) Finding child elements
+
+In the [Getting structured data from HTML](#getting-structured-data-from-html) section, we were browsing the elements in the **Elements** tab to find the element that contains all the data. We can use the same approach to find the individual data points as well.
+
+Start from the element that contains all data: `<div class="product-item...">` Then inspect all the elements nested within this element. You'll discover that:
+
+- the product's name is an `<a>` element with the class `product-item__title`, and
+- the price is held inside a `<span>` with the class `price`. Note that there are two prices. The sale price and the regular price. We want the sale price.
+
+We will use this knowledge soon to extract the data.
+
+![Finding child elements in Elements tab]({{@asset web_scraping_for_beginners/data_extraction/images/devtools-find-child-elements.webp}})
 
 ### [](#selecting-child-elements) Selecting child elements
 
-In the [Getting structured data from HTML](#getting-structured-data-from-html) section, we were hovering over the elements in the **Elements** tab to find the element that contains all the data. We can use that to find the individual data points as well. After a bit more inspection, we discover that the product's title is a `<span>` tag with a parent `<h3>` element, and the price is held inside a `<div>` with a `class` attribute including the keyword of **price**.
+The `document.querySelector()` function looks for a specific element in the whole HTML `document`, so if we called it with `h3`, it would find the first `<h3>` node in the `document`. But we can replace the `document` with any other parent element and the function will limit its search to child elements of the chosen parent.
 
-> Don't forget that the selectors may have changed, but the general principle of finding them will always be the same. Use what you see on your screen.
+Earlier we selected the parent element of the Sony subwoofer and saved it to a variable called `subwoofer`. Let's use this variable to search inside the subwoofer element and find the product's name and price.
 
-![Finding child elements in Elements tab]({{@asset web_scraping_for_beginners/data_extraction/images/find-child-elements.webp}})
-
-The `document.querySelector()` function looks for a specific element in the whole HTML `document`, so if we called it with `h3`, it would find the first `<h3>` node in the `document`. Luckily we can also use this function to look for elements within an element.
-
-There's a similar function called [`querySelectorAll()`](https://javascript.info/searching-elements-dom#querySelectorAll) that returns collection of all the elements matching the selector - not just the first one. We will use this function to grab all the elements holding our sought after data.
-
-> Learn more about `Arrays` in [this tutorial](https://javascript.info/array).
-
-Let's find the parent element of all of the products, which matches the selector `div.grid.gap-6`, select it with `document.querySelector()`, then find all of the product elements.
+Run two commands in the Console. The first will find the element with the subwoofer's name and save it to a variable called `title`. The second will extract the name and print it.
 
 ```JavaScript
-const grid = document.querySelector('div.grid.gap-6');
-
-const products = grid.querySelectorAll('a[href*="/product/"]')
-
-console.log(products);
+const title = subwoofer.querySelector('a.product-item__title');
+title.textContent
 ```
 
-There are 32 products on the page, so if we've done this correctly, a list of 32 product elements should be logged to the console.
+![Extract product title]({{@asset web_scraping_for_beginners/data_extraction/images/devtools-extract-product-title.webp}})
 
-![List child elements with JavaScript]({{@asset web_scraping_for_beginners/data_extraction/images/list-child-elements.webp}})
+Great! We found a way how to programmatically extract the name of the product. We're getting somewhere.
 
-### [](#extracting-data) Extracting data
+Next, run the following two commands in the Console.
 
-The `products` array now contains all the elements we need, and we can access each one's data individually. Let's save the title and price of the first product into an [object](https://javascript.info/object). Those of you who know JavaScript will know that this is not the prettiest code ever written, but it is beginner-friendly and that's important here. We will also use the `.trim()` function to remove unnecessary whitespace from the results.
-
-```JavaScript
-const result = {
-    title: products[0].querySelector('h3').textContent.trim(),
-    price: products[0].querySelector('div[class*="price"]').textContent.trim(),
-};
-
-console.log(result);
+```javascript
+const price = subwoofer.querySelector('span.price');
+price.textContent
 ```
 
-![Print collected data to the Console]({{@asset web_scraping_for_beginners/data_extraction/images/print-product-data.webp}})
+![Extract product price]({{@asset web_scraping_for_beginners/data_extraction/images/devtools-extract-product-price.webp}})
 
-If you were able to get the same result in your browser console, congratulations! You successfully collected your first data. If not, don't worry and review your code carefully. You'll crush the bug soon enough.
+It worked, but the price was not alone in the result. We extracted it together with some extra text. This is very common in web scraping. Sometimes it's not possible to easily separate the data we need by element selection alone, and we have to clean the data using other methods.
+
+### [](#cleaning-extracted-data) Cleaning extracted data
+
+There are two approaches to cleaning the data. It's useful to know both, because often one of them is feasible to use and the other isn't.
+
+1. Remove the elements that add noise to your data from the selection. Then extract the pre-cleaned data.
+2. Extract the data with noise. Use regular expressions or other text manipulation techniques to parse the data and keep only the parts we're interested in.
+
+First, let's look at **removing the noise before extraction**. When you look closely at the element that contains the price, you'll see that it includes another `<span>` element with the text **Sale price**. This `<span>` is what adds noise to our data, and we have to get rid of it.
+
+![Noise in element selection]({{@asset web_scraping_for_beginners/data_extraction/images/devtools-cleaning-noise.webp}})
+
+When we call `subwoofer.querySelector('span.price')` it selects the whole `<span class="price ...:>` element. Unfortunately, it also includes the `<span class="visually-hidden">` element that we're not interested in.
+
+We can, however, use JavaScript to get only the actual text of the selected element, without any child elements. Run this command in the Console:
+
+```javascript
+price.childNodes[2].nodeValue
+```
+
+Why the third child node? Because the first one represents the empty space before `<span class="visually-hidden"`, the second is the noise `<span>` itself and the third one is the price. In any case, we were able to extract the clean price.
+
+![Clean price selection]({{@asset web_scraping_for_beginners/data_extraction/images/devtools-clean-price.webp}})
+
+The second option we have is to **take the noisy price data and clean it with string manipulation**. The data looks like this:
+
+```text
+\n                Sale price$158.00
+```
+
+There are numerous ways how we could approach this. Let's try a very naive solution:
+
+```javascript
+price.textContent.split('$')[1]
+```
+
+![Split price from noise]({{@asset web_scraping_for_beginners/data_extraction/images/devtools-split-price.webp}})
+
+And there you go. Notice that this time we extracted the price without the `$` dollar sign. This could be desirable, because we wanted to convert the price from a string to a number, or not, depending on individual circumstances of the scraping project.
+
+So which method to choose? Neither is the perfect solution. The first method could easily break if the website's developers change the structure of the `<span>` elements and the price will no longer be in the third position - a very small change that can happen at any moment.
+
+The second method seems more reliable, but only until the website adds prices in other currency or decides to replace `$` with `USD`. It's up to you, the scraping developer to decide which of the methods will be more resilient on the website you scrape.
+
+In production, we would probably use a regular expression like the following, or a specialized library for parsing prices from strings, but for this tutorial, we'll keep it simple.
+
+```javascript
+price.textContent.match(/((\d+,?)+.?(\d+)?)/)[0]
+```
 
 ## [](#next) Next up
 
-We have learned how to collect information about a few products from an e-commerce website. In the [next lesson]({{@link web_scraping_for_beginners/data_extraction/devtools_continued.md}}), we will learn how to collect all of them.
+This concludes our lesson on extracting and cleaning data using DevTools. Using CSS selectors, we were able to find the HTML element that contains data about our favorite Sony subwoofer and then extract the data. In the [next lesson]({{@link web_scraping_for_beginners/data_extraction/devtools_continued.md}}), we will learn how to extract information not only about the subwoofer, but about all the products on the page.

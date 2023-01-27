@@ -17,7 +17,7 @@ Now go to [Wikipedia](https://wikipedia.com) and open your DevTools there. Inspe
 
 ## [](#elements-tab) Elements tab
 
-When you first open Chrome DevTools on Wikipedia, you will start on the Elements tab (In Firefox it's called the **Inspector**). You can use this tab to inspect the page's HTML on the left hand side, and its CSS on the right. The items in the HTML view are called **elements** or **nodes**.
+When you first open Chrome DevTools on Wikipedia, you will start on the Elements tab (In Firefox it's called the **Inspector**). You can use this tab to inspect the page's HTML on the left hand side, and its CSS on the right. The items in the HTML view are called [**elements**]({{@link concepts/html_elements.md}}).
 
 ![Elements tab in Chrome DevTools]({{@asset web_scraping_for_beginners/data_extraction/images/browser-devtools-elements-tab.webp}})
 
