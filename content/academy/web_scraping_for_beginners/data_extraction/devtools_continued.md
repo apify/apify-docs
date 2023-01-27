@@ -1,8 +1,9 @@
 ---
 title: Browser DevTools - III
-description: Continue learning how to collect data from a website using browser DevTools, CSS selectors, and JavaScript via the DevTools console.
+description: Continue learning how to extract data from a website using browser DevTools, CSS selectors, and JavaScript via the DevTools console.
 menuWeight: 3
 paths:
+    - web-scraping-for-beginners/data-extraction/devtools-continued
     - web-scraping-for-beginners/data-collection/devtools-continued
 ---
 
@@ -22,7 +23,7 @@ const products = document.querySelectorAll('a[href*="/product/"]')
 console.log(products);
 ```
 
-![Print all products]({{@asset web_scraping_for_beginners/data_collection/images/print-all-product-elements.webp}})
+![Print all products]({{@asset web_scraping_for_beginners/data_extraction/images/print-all-product-elements.webp}})
 
 Second, we will loop over each product and print their unstructured data. The following `for..of` loop will iterate over all elements of the `products` array and execute the code provided in curly brackets `{}` for each element. In each iteration, the element is saved into the variable called `product` and we can use the variable to interact with the element.
 
@@ -37,11 +38,11 @@ for (const product of products) {
 
 > [Find out more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) about the `for..of` loop.
 
-![Print all products' text]({{@asset web_scraping_for_beginners/data_collection/images/print-all-products-text.webp}})
+![Print all products' text]({{@asset web_scraping_for_beginners/data_extraction/images/print-all-products-text.webp}})
 
-## [](#collecting-data-in-loop) Collecting data in a loop
+## [](#extracting-data-in-loop) Extracting data in a loop
 
-In the previous lesson we created a `result` object that contained the data of one single product. Now we'll create an array of result objects which will contain all the titles and prices for each product. To do that, we'll first create an empty array called `results` and then use a `for..of` loop, and the collection skills we learned in the previous lesson.
+In the previous lesson we created a `result` object that contained the data of one single product. Now we'll create an array of result objects which will contain all the titles and prices for each product. To do that, we'll first create an empty array called `results` and then use a `for..of` loop, and the data extraction skills we learned in the previous lesson.
 
 ```JavaScript
 const results = [];
@@ -58,8 +59,8 @@ console.log(results);
 
 The `results.push()` function takes its argument and pushes (adds) it to the `results` array. [Learn more about it here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push). The rest of the code is just copy-pasted from the previous lesson. For each `product` of `products`, we find the `title` and `price`, then save them to the `results` array by pushing the object with the data into it. When you run the code, you should see all the data neatly structured.
 
-![Print all products' data]({{@asset web_scraping_for_beginners/data_collection/images/print-all-products-data.webp}})
+![Print all products' data]({{@asset web_scraping_for_beginners/data_extraction/images/print-all-products-data.webp}})
 
 ## [](#next) Next up
 
-And that's it! With a bit of trial and error, you will be able to collect any data from a webpage that's loaded in your browser. This is a useful skill on its own. It will save you time when you need one-off data for your project. More importantly though, it taught you the basics to start programming your own scrapers. In the [next lessons]({{@link web_scraping_for_beginners/data_collection/computer_preparation.md}}), we will teach you how to create your own data collection script in JavaScript and Node.js.
+And that's it! With a bit of trial and error, you will be able to extract any data from a webpage that's loaded in your browser. This is a useful skill on its own. It will save you time when you need one-off data for your project. More importantly though, it taught you the basics to start programming your own scrapers. In the [next lessons]({{@link web_scraping_for_beginners/data_extraction/computer_preparation.md}}), we will teach you how to create your own data extraction script in JavaScript and Node.js.

@@ -4,6 +4,7 @@ description: Learn about HTML, CSS, and JavaScript, the basic building blocks of
 menuWeight: 1.2
 category: courses
 paths:
+    - web-scraping-for-beginners/data-extraction
     - web-scraping-for-beginners/data-collection
 ---
 
@@ -31,4 +32,4 @@ HTML and CSS give websites their structure and style, but they are static. To be
 
 ## [](#next) Next up
 
-We will show you [how to use the browser DevTools]({{@link web_scraping_for_beginners/data_collection/browser_devtools.md}}) to inspect and interact with a web page.
+We will show you [how to use the browser DevTools]({{@link web_scraping_for_beginners/data_extraction/browser_devtools.md}}) to inspect and interact with a web page.

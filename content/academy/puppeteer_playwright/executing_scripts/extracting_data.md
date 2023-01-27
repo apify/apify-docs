@@ -1,18 +1,19 @@
 ---
-title: Collecting data
-description: Learn how to collect data from a page with evaluate functions, then how to safely collect it by using a second library called Cheerio.
+title: Extracting data
+description: Learn how to extract data from a page with evaluate functions, then how to parse it by using a second library called Cheerio.
 menuWeight: 2
 paths:
+    - puppeteer-playwright/executing-scripts/extracting-data
     - puppeteer-playwright/executing-scripts/collecting-data
 ---
 
-# [](#collecting-data) Collecting data
+# [](#extracting-data) Extracting data
 
-Now that we know how to execute scripts on a page, we're ready to learn a bit about [data collection]({{@link web_scraping_for_beginners/data_collection.md}}). In this lesson, we'll be scraping all of the on-sale products from our [Fakestore](https://demo-webstore.apify.org/search/on-sale) website.
+Now that we know how to execute scripts on a page, we're ready to learn a bit about [data extraction]({{@link web_scraping_for_beginners/data_extraction.md}}). In this lesson, we'll be scraping all the on-sale products from our [Fakestore](https://demo-webstore.apify.org/search/on-sale) website.
 
-> Most data collection cases involve looping through a list of items of some sort.
+> Most web data extraction cases involve looping through a list of items of some sort.
 
-There are two main ways to collect data with Playwright and Puppeteer:
+There are two main ways to extract data with Playwright and Puppeteer:
 
 1. Directly in `page.evaluate()` and other evaluate functions such as `page.$$eval()`.
 2. In the Node.js context using a parsing library such as [Cheerio](https://www.npmjs.com/package/cheerio)
@@ -54,7 +55,7 @@ await browser.close();
 
 <!-- > Notice the slightly different syntax between Playwright and Puppeteer with `waitForLoadState('DOMContentLoaded')` and `waitForNavigation({ waitUntil: 'DOMContentLoaded' })`. Sometimes, the differences are fairly subtle like this, but later on we'll run into some more significant differences. -->
 
-## [](#collecting-in-page-evaluate) Collecting in the browser context
+## [](#extracting-in-page-evaluate) Extracting from the browser context
 
 Whatever is returned from the callback function in `page.evaluate()` will be returned by the evaluate function, which means that we can set it to a variable like so:
 
@@ -64,7 +65,7 @@ const products = await page.evaluate(() => { foo: 'bar' });
 console.log(products) // -> { foo: 'bar' }
 ```
 
-We'll be returning a bunch of product objects from this function, which will be accessible back in our Node.js context after the promise has resolved. Let's now go ahead and write some data collection code to collect each product:
+We'll be returning a bunch of product objects from this function, which will be accessible back in our Node.js context after the promise has resolved. Let's now go ahead and write some data extraction code to collect each product:
 
 ```JavaScript
 const products = await page.evaluate(() => {
@@ -90,7 +91,7 @@ When we run this code, we see this logged to our console:
 
 ## [](#using-jquery) Using jQuery
 
-Working with document.querySelector is cumbersome and quite verbose, but with the `page.addScriptTag()` function and the latest [jQuery CDN link](https://releases.jquery.com/), we can inject jQuery into the current page to gain access to its syntactical sweetness:
+Working with `document.querySelector` is cumbersome and quite verbose, but with the `page.addScriptTag()` function and the latest [jQuery CDN link](https://releases.jquery.com/), we can inject jQuery into the current page to gain access to its syntactical sweetness:
 
 ```JavaScript
 await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.6.0.min.js' });
@@ -128,7 +129,7 @@ This will output the same exact result as the code in the previous section.
 
 One of the most popular parsing libraries for Node.js is [Cheerio](https://www.npmjs.com/package/cheerio), which can be used in tandem with Playwright and Puppeteer. It is extremely beneficial to parse the page's HTML in the Node.js context for a number of reasons:
 
-- You can easily port the code between headless browser data collection and plain HTTP data collection
+- You can easily port the code between headless browser data extraction and plain HTTP data extraction
 - You don't have to worry in which context you're working (which can sometimes be confusing)
 - Errors are easier to handle when running in the base Node.js context
 

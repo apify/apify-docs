@@ -106,4 +106,4 @@ await browser.close();
 
 ## [](#next) Next up
 
-Next, we'll be learning a bit about how to collect data using Playwright/Puppeteer. There are two main ways to do this, so [next exciting lesson]({{@link puppeteer_playwright/executing_scripts/collecting_data.md}}) will be about both of them!
+Next, we'll be learning a bit about how to extract data using Playwright/Puppeteer. There are two main ways to do this, so [next exciting lesson]({{@link puppeteer_playwright/executing_scripts/extracting_data.md}}) will be about both of them!

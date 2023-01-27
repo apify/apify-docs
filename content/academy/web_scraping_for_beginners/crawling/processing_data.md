@@ -68,7 +68,7 @@ In our case, the most expensive product was the Macbook Pro. Surprising? Heh, no
 
 ## [](#converting-to-excel) Converting the dataset to Excel
 
-We promised that you won't need an Apify account for anything in this course, and it's true. You can use the skills learned in the [Save to CSV lesson]({{@link web_scraping_for_beginners/data_collection/save_to_csv.md}}) to save the dataset to a CSV. Just use the loading code from above, plug it in there and then open the CSV in Excel. However, we really want to show you this neat trick. It won't cost you anything, and it's a cool and fast way to convert datasets to any format.
+We promised that you won't need an Apify account for anything in this course, and it's true. You can use the skills learned in the [Save to CSV lesson]({{@link web_scraping_for_beginners/data_extraction/save_to_csv.md}}) to save the dataset to a CSV. Just use the loading code from above, plug it in there and then open the CSV in Excel. However, we really want to show you this neat trick. It won't cost you anything, and it's a cool and fast way to convert datasets to any format.
 
 ### [](#get-apify-token) Getting an Apify token
 

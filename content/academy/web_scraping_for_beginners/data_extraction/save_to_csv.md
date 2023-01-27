@@ -3,12 +3,13 @@ title: Saving results to CSV
 description: Learn how to save the results of your scraper's collected data to a CSV file that can be opened in Excel, Google Sheets, or any other spreadsheets program.
 menuWeight: 8
 paths:
+    - web-scraping-for-beginners/data-extraction/save-to-csv
     - web-scraping-for-beginners/data-collection/save-to-csv
 ---
 
 # [](#saving-to-csv) Saving results to CSV
 
-In the last lesson, we were able collect data about all the on-sale products from [our tutorial **Fakestore** website](https://demo-webstore.apify.org/). That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this lesson, we'll learn how to save that data into a CSV file that you can then open in Excel or Google Sheets.
+In the last lesson, we were able to extract data about all the on-sale products from [our tutorial **Fakestore** website](https://demo-webstore.apify.org/). That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this lesson, we'll learn how to save that data into a CSV file that you can then open in Excel or Google Sheets.
 
 ## [](#converting-to-csv) Converting to CSV
 
@@ -62,7 +63,7 @@ console.log(csv)
 
 And here's our newly created CSV printed to the console after running the script.
 
-![Printing CSV data to terminal]({{@asset web_scraping_for_beginners/data_collection/images/terminal-csv.webp}})
+![Printing CSV data to terminal]({{@asset web_scraping_for_beginners/data_extraction/images/terminal-csv.webp}})
 
 ## [](#writing-to-file) Writing the CSV to a file
 
@@ -115,9 +116,9 @@ writeFileSync('products.csv', csv);
 
 Finally, after running it again, we will find the **products.csv** file in our project folder. And when we open it with Excel/Google Sheets – voila!
 
-![Displaying CSV data in Google Sheets]({{@asset web_scraping_for_beginners/data_collection/images/data-in-sheets.webp}})
+![Displaying CSV data in Google Sheets]({{@asset web_scraping_for_beginners/data_extraction/images/data-in-sheets.webp}})
 
-This marks the end of the **Basics of data collection** section of Web scraping for beginners. If you enjoyed the course, give us a thumbs up down below and if you're eager to learn more...
+This marks the end of the **Basics of data extraction** section of Web scraping for beginners. If you enjoyed the course, give us a thumbs up down below and if you're eager to learn more...
 
 ## [](#next) Next up
 

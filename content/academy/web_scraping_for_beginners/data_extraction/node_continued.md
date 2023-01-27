@@ -3,18 +3,19 @@ title: Node.js scraper - II
 description: Continue learning how to create a web scraper with Node.js and Cheerio. Learn how to parse HTML and print the results of the data your scraper has collected.
 menuWeight: 7
 paths:
+    - web-scraping-for-beginners/data-extraction/node-continued
     - web-scraping-for-beginners/data-collection/node-continued
 ---
 
 # [](#finish-scraper) Finish Node.js scraper
 
-In the first part of the Node.js tutorial we downloaded the HTML of our [tutorial e-commerce site](https://demo-webstore.apify.org/search/on-sale) and parsed it with Cheerio. Now, we will replicate the collection logic from the [Collecting Data with DevTools]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}) lessons and finish our scraper.
+In the first part of the Node.js tutorial we downloaded the HTML of our [tutorial e-commerce site](https://demo-webstore.apify.org/search/on-sale) and parsed it with Cheerio. Now, we will replicate the extraction logic from the [Extracting Data with DevTools]({{@link web_scraping_for_beginners/data_extraction/using_devtools.md}}) lessons and finish our scraper.
 
 ## [](#querying-with-cheerio) Querying data with Cheerio
 
 As a reminder, the data we need for each product on the page is available in each `a[href*="/product/"]` element.
 
-![Selecting an element from the Elements tab]({{@asset web_scraping_for_beginners/data_collection/images/selecting-container-element.webp}})
+![Selecting an element from the Elements tab]({{@asset web_scraping_for_beginners/data_extraction/images/selecting-container-element.webp}})
 
 To get all the elements with that CSS selector using Cheerio, we call the `$` function with the selector.
 
@@ -44,13 +45,13 @@ for (const product of products) {
 
 After you run this script, you should see data of all the 32 products printed in your terminal. Don't forget about the `const element = $(product);` line. Without wrapping each `product` with `$()`, we wouldn't be able to call the `.text()` function on it.
 
-## [](#collecting-data) Collecting final data
+## [](#extracting-data) Extracting final data
 
-Now, we just need to repeat the process from the DevTools modules and add individual data point collection to the loop. From those lessons, we know that each of our product container `<a>` tags includes an `<h3>` element including the title, and a `<div>` price element matching the selector `div[class*="price"]`.
+Now, we just need to repeat the process from the DevTools modules and add individual data point extraction to the loop. From those lessons, we know that each of our product container `<a>` tags includes an `<h3>` element including the title, and a `<div>` price element matching the selector `div[class*="price"]`.
 
-![Finding child elements in Elements tab]({{@asset web_scraping_for_beginners/data_collection/images/find-child-elements.webp}})
+![Finding child elements in Elements tab]({{@asset web_scraping_for_beginners/data_extraction/images/find-child-elements.webp}})
 
-We will loop over all the `products` and collect the data points from each of them using the `for..of` loop. For reference, this is the code from the DevTools lesson, where we collected the data **using a browser**:
+We will loop over all the `products` and extract the data points from each of them using the `for..of` loop. For reference, this is the code from the DevTools lesson, where we collected the data **using a browser**:
 
 ```JavaScript
 // This code will only work in the browser, and NOT in Node.js
@@ -119,10 +120,10 @@ for (const product of products) {
 console.log(results);
 ```
 
-![Printing all products' data to terminal]({{@asset web_scraping_for_beginners/data_collection/images/terminal-all-products-data.webp}})
+![Printing all products' data to terminal]({{@asset web_scraping_for_beginners/data_extraction/images/terminal-all-products-data.webp}})
 
-If you were able to get here, run the code, get results and also understand everything, you can give yourself a pat on the back and congratulate yourself on completing the **Basics of data collection** section of the Web scraping for beginners course. Great job! 👏🎉
+If you were able to get here, run the code, get results and also understand everything, you can give yourself a pat on the back and congratulate yourself on completing the **Basics of data extraction** section of the Web scraping for beginners course. Great job! 👏🎉
 
 # [](#next) Next up
 
-While we were able to collect the data, it's not very useful to have those printed to the console. In the [next, bonus lesson]({{@link web_scraping_for_beginners/data_collection/save_to_csv.md}}), we will learn how to convert the data to a CSV and save it to a file.
+While we were able to extract the data, it's not very useful to have those printed to the console. In the [next, bonus lesson]({{@link web_scraping_for_beginners/data_extraction/save_to_csv.md}}), we will learn how to convert the data to a CSV and save it to a file.

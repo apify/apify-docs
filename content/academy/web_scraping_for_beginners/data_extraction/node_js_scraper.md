@@ -3,6 +3,7 @@ title: Node.js scraper - I
 description: Learn how to use JavaScript and Node.js to create a web scraper, plus take advantage of the cheerio and got-scraping libraries to make your job easier.
 menuWeight: 6
 paths:
+    - web-scraping-for-beginners/data-extraction/node-js-scraper
     - web-scraping-for-beginners/data-collection/node-js-scraper
 ---
 
@@ -29,7 +30,7 @@ Now run the script (using the `node main.js` command). After a brief moment, you
 
 ## [](#parsing-html) Parsing HTML
 
-Having the HTML printed to the terminal is not very helpful. To collect the data, we first have to parse it. Thanks to parsing, we will be able to query the HTML elements similarly to the way we did it in browser in the [Collecting Data with DevTools]({{@link web_scraping_for_beginners/data_collection/using_devtools.md}}) lessons. To parse HTML, we load it into the `cheerio` library.
+Having the HTML printed to the terminal is not very helpful. To extract the data, we first have to parse it. Thanks to parsing, we will be able to query the HTML elements similarly to the way we did it in browser in the [Extracting Data with DevTools]({{@link web_scraping_for_beginners/data_extraction/using_devtools.md}}) lessons. To parse HTML, we load it into the `cheerio` library.
 
 ```JavaScript
 // main.js
@@ -53,4 +54,4 @@ First, we loaded the downloaded `html` into `cheerio` using the `load()` functio
 
 ## [](#next) Next up
 
-In the [next lesson]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) we will learn more about Cheerio and use it to collect all the products' data from Fakestore.
+In the [next lesson]({{@link web_scraping_for_beginners/data_extraction/node_continued.md}}) we will learn more about Cheerio and use it to extract all the products' data from Fakestore.

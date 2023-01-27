@@ -30,7 +30,7 @@ When we set out to create the Academy, we wanted to build a complete guide to mo
 This is what you'll learn in the **Web scraping for beginners** course:
 
 * [Web scraping for beginners]({{@link web_scraping_for_beginners.md}})
-  * [Basics of data collection]({{@link web_scraping_for_beginners/data_collection.md}})
+  * [Basics of data extraction]({{@link web_scraping_for_beginners/data_extraction.md}})
   * [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}})
   * [Best practices]({{@link web_scraping_for_beginners/best_practices.md}})
 
@@ -58,7 +58,7 @@ Throughout the next lessons, we will sometimes use certain technologies and term
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [HTTP protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP)
-* [DevTools]({{@link web_scraping_for_beginners/data_collection/browser_devtools.md}})
+* [DevTools]({{@link web_scraping_for_beginners/data_extraction/browser_devtools.md}})
 
 ### [](#jquery-or-cheerio) jQuery or Cheerio
 
@@ -66,6 +66,6 @@ We'll be using the [**Cheerio**](https://www.npmjs.com/package/cheerio) package 
 
 ## [](#next) Next up
 
-The course begins with a small bit of theory and moves into some realistic and practical examples of collecting data from the most popular websites on the internet using your browser console. So [let's get to it!]({{@link web_scraping_for_beginners/introduction.md}})
+The course begins with a small bit of theory and moves into some realistic and practical examples of extracting data from the most popular websites on the internet using your browser console. So [let's get to it!]({{@link web_scraping_for_beginners/introduction.md}})
 
 > If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the [Basics of crawling]({{@link web_scraping_for_beginners/crawling.md}}) section.
