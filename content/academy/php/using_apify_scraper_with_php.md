@@ -3,7 +3,7 @@ title: Using Apify Scrapers via API from PHP
 description: Start scrapers and fetch results from a PHP application
 menuWeight: 1
 paths:
-    - php/using-apify-scrapers-via-api-from-php
+    - php/using-apify-scraper-with-php
 ---
 
 Once you set up and test your scraper, you can integrate it into your application via our API. Many of the questions we get are about API integration from PHP, so we've prepared this article on using Apify's API with a PHP application.

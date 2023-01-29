@@ -3,7 +3,7 @@ title: Block requests in Puppeteer
 description: Why and how to block requests in Puppeteer
 menuWeight: 16.2
 paths:
-    - node-js/block-requests-in-puppeteer
+    - node-js/block-requests-puppeteer
 ---
 
 _Unfortunately, in the recent version of Puppeteer, request interception disables native cache and slows down the actor significantly. Therefore it is not recommended to follow examples shown in this article. Instead, use_ [_blockRequests_](https://sdk.apify.com/docs/api/puppeteer#puppeteerblockrequestspage-options-promise) _utility function from_ [_Apify SDK_](https://sdk.apify.com/)_. It works through different paths and doesn't slow down your process._

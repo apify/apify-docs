@@ -3,7 +3,7 @@ title: Avoid EACCES error in actor builds with a custom Dockerfile
 description: Learn how to work around an issue where actor builds with a custom Dockerfile fail to copy files due to write access errors.
 menuWeight: 16.4
 paths:
-    - nodejs/avoid-eacces-error-in-actor-builds-with-a-custom-dockerfile
+    - node-js/avoid-eacces-error-in-actor-builds
 ---
 
 Sometimes when building an actor using a custom Dockerfile, you might receive errors like:

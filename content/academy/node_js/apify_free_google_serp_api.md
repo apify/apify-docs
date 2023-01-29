@@ -3,7 +3,7 @@ title: Apify's free Google SERP API
 description: How to stay up to date on search results with a Google SERP API
 menuWeight: 16.5
 paths:
-    - nodejs/apify-free-google-serp-api
+    - node-js/apify-free-google-serp-api
 ---
 
 So you need to regularly grab SERP data about your target keywords? Apify provides a free SERP API that includes organic search, ads, people also ask, etc. Free Apify accounts come with 30 days of proxy trial and $5 of credit. To get started, head over to the [Google Search Results Scraper](https://apify.com/apify/google-search-scraper) page and click the `Try me` button. You'll be taken to a page where you can enter the search query, region, language and other settings.
