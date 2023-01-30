@@ -21,15 +21,29 @@ What's up with that?! There are various reasons why a website might want to bloc
 
 - To prevent the possibility of malicious bots from crawling the site to steal sensitive data like passwords or personal data about users.
 - In order to avoid server performance hits due to bots making a large amount of requests to the website at a single time.
+- To avoid their competitors to gain market insights about their business.
+- To prevent bots from scraping their content and selling it to other websites or re-publishing it.
+- To not skew their analytics data with bot traffic.
 - If it is a social media website, they might be attempting to keep away bots programmed to mass create fake profiles (which are usually sold later).
+
+> We recommend checking out [this article about legal and ethical ramifications of web scraping](https://blog.apify.com/is-web-scraping-legal).
 
 Unfortunately for these websites, they have to make compromises and tradeoffs. While super strong anti-bot protections will surely prevent the majority of bots from accessing their content, there is also a higher chance of regular users being flagged as bots and being blocked as well. Because of this, different sites have different scraping-difficulty levels based on the anti-scraping measures they take.
 
-> Going into this topic, it's important to understand that there is no one silver bullet solution to bypassing protections against bots. Even if two websites are using Cloudflare (for example), one of them might be significantly more difficult to scrape due to harsher CloudFlare configurations.
+> Going into this topic, it's important to understand that there is no one silver bullet solution to bypassing protections against bots. Even if two websites are using Cloudflare (for example), one of them might be significantly more difficult to scrape due to harsher CloudFlare configurations. It is all about configuration, not the anti-scraping tool itself.
 
 ## [](#the-principles) The principles of anti-scraping protections
 
-Anti-scraping protections can work on many different layers and use a large amount of bot-identification techniques. There are two main ways a bot can be detected, which follow two different types of web scraping:
+Anti-scraping protections can work on many different layers and use a large amount of bot-identification techniques. There are 4 main principles that anti-scraping protections are based on:
+
+1. **Where you are coming from** - IP address of the incoming traffic is always available to the website. Proxies are used to emulate a different IP addresses but their quality matters a lot.
+2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, cyphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to clasify your hardware (like graphics hardware acceleration).
+3. **What you are scraping** - There are many ways to extract the same data from a website. You can just get the inital HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
+4. **How you behave** - The website can see patterns in how you are ordering your requests, how fast you are scraping, etc. It can also analyse browser behavior like mouse movement, clicks or key presses.
+
+Not all websites use all of these principles but they encompass the possibilities websites have to track and block bots. All techniques that help you mitigate anti-scraping protections are based on making yourself blend in with the crowd of regular users with each of these principles. 
+
+There are two main ways a bot can be detected, which follow two different types of web scraping:
 
 1. Crawlers using **HTTP requests**
 2. Crawlers using **browser automation** (usually with a headless browser)
@@ -54,6 +68,8 @@ One thing to keep in mind while navigating through this course is that advanced 
 ## [](#common-measures) Common anti-scraping measures
 
 Because we here at Apify scrape for a living, we have discovered many popular and niche anti-scraping techniques. We've compiled them into a short and comprehensible list here to help understand the roadblocks before this course teaches you how to get around them.
+
+> However, not all issues you encounter are caused by anti-scraping systems. Sometimes, it's just a simple configuration issue. Learn [how to effectively debug your programs here](https://developers.apify.com/academy/node-js/analyzing-pages-and-fixing-errors).
 
 ### IP rate-limiting
 
