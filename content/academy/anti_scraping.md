@@ -41,7 +41,7 @@ Anti-scraping protections can work on many different layers and use a large amou
 3. **What you are scraping** - There are many ways to extract the same data from a website. You can just get the inital HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
 4. **How you behave** - The website can see patterns in how you are ordering your requests, how fast you are scraping, etc. It can also analyse browser behavior like mouse movement, clicks or key presses.
 
-Not all websites use all of these principles but they encompass the possibilities websites have to track and block bots. All anti-scraping mitigation techniques are based on making yourself blend in with the crowd of regular users with each of these principles. 
+Not all websites use all of these principles but they encompass the possibilities websites have to track and block bots. All techniques that help you mitigate anti-scraping protections are based on making yourself blend in with the crowd of regular users with each of these principles. 
 
 There are two main ways a bot can be detected, which follow two different types of web scraping:
 
