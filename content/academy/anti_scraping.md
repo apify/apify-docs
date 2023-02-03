@@ -17,11 +17,11 @@ In development, it is crucial to check and adjust the configurations related to 
 
 ## [](#quick-start) Quick start
 
-If you don't have time to read about the theory behind anti-scraping protections to fine-tune your scraping project and instead you just need to get unblocked asap, here are some quick tips:
-- Use high quality proxies. **Residential proxies** are the least blocked. There are many providers out there like Apify, BrightData, Oxylabs, NetNut, etc.
-- Set a **real-user-like HTTP settings** and **browser fingerprints**. [Crawlee](https://crawlee.dev/) uses statistically generated realistic HTTP headers and browser fingerprints by default for all of its crawlers.
-- Use modern browser to pass bot capture challenges. We recommend **[Playwright with Firefox]**(https://crawlee.dev/docs/examples/playwright-crawler-firefox) because it is not that common for scraping. You can also play with [non-headless mode](https://crawlee.dev/api/playwright-crawler/interface/PlaywrightCrawlerOptions#headless) and adjust other [fingerprint settings](https://crawlee.dev/api/browser-pool/interface/FingerprintGeneratorOptions).
-- Consider extracting data from **[private APIs]({{@link api_scraping}})** or **mobile app APIs**. They are usually much less protected.
+If you don't have time to read about the theory behind anti-scraping protections to fine-tune your scraping project and instead you just need to get unblocked ASAP, here are some quick tips:
+- Use high-quality proxies. [Residential proxies](https://docs.apify.com/proxy/residential-proxy) are the least blocked. There are many providers out there like Apify, BrightData, Oxylabs, NetNut, etc.
+- Set **real-user-like HTTP settings** and **browser fingerprints**. [Crawlee](https://crawlee.dev/) uses statistically generated realistic HTTP headers and browser fingerprints by default for all of its crawlers.
+- Use a modern browser to pass bot capture challenges. We recommend [Playwright with Firefox](https://crawlee.dev/docs/examples/playwright-crawler-firefox) because it is not that common for scraping. You can also play with [non-headless mode](https://crawlee.dev/api/playwright-crawler/interface/PlaywrightCrawlerOptions#headless) and adjust other [fingerprint settings](https://crawlee.dev/api/browser-pool/interface/FingerprintGeneratorOptions).
+- Consider extracting data from **[private APIs]({{@link api_scraping.md}})** or **mobile app APIs**. They are usually much less protected.
 
 
 ## [](#why-block-bots) First of all, why do websites want to block bots?
