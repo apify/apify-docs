@@ -9,13 +9,17 @@ paths:
 
 # [](#saving-to-csv) Saving results to CSV
 
-In the last lesson, we were able to extract data about all the on-sale products from [our tutorial **Fakestore** website](https://demo-webstore.apify.org/). That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this lesson, we'll learn how to save that data into a CSV file that you can then open in Excel or Google Sheets.
+In the last lesson, we were able to extract data about all the on-sale products from [Warehouse Store](https://warehouse-theme-metal.myshopify.com/collections/sales). That's great. But we ended up with results printed to the terminal, which is not very useful for further processing. In this lesson, we'll learn how to save that data into a CSV file that you can then open in Excel or Google Sheets.
 
 ## [](#converting-to-csv) Converting to CSV
 
-It might look like a big programming challenge to transform a JavaScript object into a CSV, but thanks to NPM, this is going to be a walk in the park. After googling **json to csv npm** we found that there's a library called [`json2csv`](https://www.npmjs.com/package/json2csv) that can convert a JavaScript object to CSV format with a single function call. _Perfect!_
+It might look like a big programming challenge to transform a JavaScript object into a CSV, but thanks to NPM, this is going to be a walk in the park. Google search **json to csv npm**. You will find that there's a library called [`json2csv`](https://www.npmjs.com/package/json2csv) that can convert a JavaScript object to CSV format with a single function call. _Perfect!_
 
-> To install `json2csv`, run `npm i json2csv` in your project
+To install `json2csv`, run this command in your terminal. You need to be in the project's folder - the folder which has the `package.json` file.
+
+```bash
+npm i json2csv
+```
 
 First, we need to import the `parse()` function from the library.
 
@@ -29,41 +33,53 @@ Next, we need to parse the `results` array from the previous lesson with the imp
 const csv = parse(results);
 ```
 
-The full code including the earlier scraping part now looks like this.
+The full code including the earlier scraping part now looks like this. Replace the contents of your **main.js** file with this code:
 
 ```JavaScript
 // main.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
-import { parse } from 'json2csv';
+import { parse } from 'json2csv'; // <---- added a new import
 
-const response = await gotScraping('https://demo-webstore.apify.org/search/on-sale');
+const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
+
+const response = await gotScraping(storeUrl);
 const html = response.body;
 
 const $ = cheerio.load(html);
-const products = $('a[href*="/product/"]');
+
+const products = $('.product-item');
 
 const results = [];
-
 for (const product of products) {
-    const element = $(product);
+    const titleElement = $(product).find('a.product-item__title');
+    const title = titleElement.text().trim();
 
-    const title = element.find('h3').text();
-    const price = element.find('div[class*="price"]').text();
+    const priceElement = $(product).find('span.price');
+    const price = priceElement.contents()[2].nodeValue.trim();
 
-    results.push({
-        title,
-        price,
-    });
+    results.push({ title, price });
 }
 
-const csv = parse(results);
-console.log(csv)
+const csv = parse(results); // <---- added parsing of results to CSV
+console.log(csv);
 ```
 
-And here's our newly created CSV printed to the console after running the script.
+Now run the script with `node main.js`. The newly created CSV will be printed to the terminal.
 
-![Printing CSV data to terminal]({{@asset web_scraping_for_beginners/data_extraction/images/terminal-csv.webp}})
+```text
+"title","price"
+"JBL Flip 4 Waterproof Portable Bluetooth Speaker","$74.95"
+"Sony XBR-950G BRAVIA 4K HDR Ultra HD TV","From $1,398.00"
+"Sony SACS9 10"" Active Subwoofer","$158.00"
+"Sony PS-HX500 Hi-Res USB Turntable","$398.00"
+"Klipsch R-120SW Powerful Detailed Home Speaker - Unit","$324.00"
+"Denon AH-C720 In-Ear Headphones","$119.00"
+"Sony XBR-85X850F 85-Inch 4K Ultra HD Smart LED TV","$3,498.00"
+"Sony XBR-75X850F 75-Inch 4K Ultra HD Smart LED TV","$1,998.00"
+"Sony XBR-55A8F 55-Inch 4K Ultra HD Smart BRAVIA OLED TV","$2,298.00"
+...
+```
 
 ## [](#writing-to-file) Writing the CSV to a file
 
@@ -81,45 +97,45 @@ and then call it with a file name and the CSV data.
 writeFileSync('products.csv', csv);
 ```
 
-When we complete the code, it looks like this.
+When we complete the code, it looks like this. Replace the code in your **main.js** file with this new code.
 
 ```JavaScript
 // main.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 import { parse } from 'json2csv';
-import { writeFileSync } from 'fs';
+import { writeFileSync } from 'fs'; // <---- added a new import
 
-const response = await gotScraping('https://demo-webstore.apify.org/search/on-sale');
+const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
+
+const response = await gotScraping(storeUrl);
 const html = response.body;
 
 const $ = cheerio.load(html);
-const products = $('a[href*="/product/"]');
+
+const products = $('.product-item');
 
 const results = [];
-
 for (const product of products) {
-    const element = $(product);
+    const titleElement = $(product).find('a.product-item__title');
+    const title = titleElement.text().trim();
 
-    const title = element.find('h3').text();
-    const price = element.find('div[class*="price"]').text();
+    const priceElement = $(product).find('span.price');
+    const price = priceElement.contents()[2].nodeValue.trim();
 
-    results.push({
-        title,
-        price,
-    });
+    results.push({ title, price });
 }
 
 const csv = parse(results);
-writeFileSync('products.csv', csv);
+writeFileSync('products.csv', csv); // <---- added writing of CSV to file
 ```
 
-Finally, after running it again, we will find the **products.csv** file in our project folder. And when we open it with Excel/Google Sheets – voila!
+Finally, run it with `node main.js` in your terminal. After running it, you will find the **products.csv** file in your project folder. And when you open it with Excel/Google Sheets – voila!
 
-![Displaying CSV data in Google Sheets]({{@asset web_scraping_for_beginners/data_extraction/images/data-in-sheets.webp}})
+![Displaying CSV data in Google Sheets]({{@asset web_scraping_for_beginners/data_extraction/images/csv-data-in-sheets.webp}})
 
 This marks the end of the **Basics of data extraction** section of Web scraping for beginners. If you enjoyed the course, give us a thumbs up down below and if you're eager to learn more...
 
 ## [](#next) Next up
 
-Next up are the [**Basics of crawling**]({{@link web_scraping_for_beginners/crawling.md}}), where we will learn how to move between web pages and scrape data from all of them. We will build a scraper that first collects all the products on [Fakestore](https://demo-webstore.apify.org/), and then crawls each of them to scrape the data for each product separately.
+Next up are the [**Basics of crawling**]({{@link web_scraping_for_beginners/crawling.md}}). You already know how to build a scraper that finds all the products on sale in the [Warehouse Store](https://warehouse-theme-metal.myshopify.com/collections/sales). In the [**Basics of crawling**]({{@link web_scraping_for_beginners/crawling.md}}) section you will learn how to open individual product pages of those products and scrape information that's not available on the listing page, like SKUs, descriptions or reviews.

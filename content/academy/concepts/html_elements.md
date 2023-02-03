@@ -1,6 +1,6 @@
 ---
 title: HTML elements
-description: Learn about HTML elements. What they are, their types and how to work with them in a browser environment.
+description: Learn about HTML elements. What they are, their types and how to work with them in a browser environment using JavaScript.
 menuWeight: 8.6
 paths:
 - concepts/html-elements

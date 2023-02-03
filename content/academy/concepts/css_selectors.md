@@ -1,6 +1,6 @@
 ---
 title: CSS selectors
-description: Learn about CSS selectors. What they are, their types, why they are important for web scraping and how to use them.
+description: Learn about CSS selectors. What they are, their types, why they are important for web scraping and how to use them in browser Console with JavaScript.
 menuWeight: 8.4
 paths:
 - concepts/css-selectors

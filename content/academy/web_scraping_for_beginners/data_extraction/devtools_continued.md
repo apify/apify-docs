@@ -63,14 +63,14 @@ for (const product of products) {
     const titleElement = product.querySelector('a.product-item__title');
     const title = titleElement.textContent.trim();
 
-    const priceElement = subwoofer.querySelector('span.price');
+    const priceElement = product.querySelector('span.price');
     const price = priceElement.childNodes[2].nodeValue.trim();
 
     results.push({ title, price });
 }
 ```
 
-After running the code, you'll see `24` printed to the Console. That's because the `results` array includes 24 products.
+After running the code, you'll see **24** printed to the Console. That's because the `results` array includes 24 products.
 
 Now, run this command in the Console to print all the products:
 
@@ -79,6 +79,8 @@ console.log(results);
 ```
 
 ![Print all products' data]({{@asset web_scraping_for_beginners/data_extraction/images/devtools-print-all-products.webp}})
+
+> You may notice that some prices include the word **From**, indicating that the price is not final. If you wanted to process this data further, you would want to remove this from the price and instead save this information to another field.
 
 ## Summary
 

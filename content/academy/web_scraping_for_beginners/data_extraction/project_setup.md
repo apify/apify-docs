@@ -1,6 +1,6 @@
 ---
 title: Project setup
-description: Create a new project with NPM and Node.js. Install necessary libraries, and test that everything works before starting the next modules.
+description: Create a new project with NPM and Node.js. Install necessary libraries, and test that everything works before starting the next lesson.
 menuWeight: 5
 paths:
     - web-scraping-for-beginners/data-extraction/project-setup
@@ -9,10 +9,9 @@ paths:
 
 # [](#setting-up) Setting up your project
 
-When you open a website in a browser, the browser first downloads the page's initial HTML. To do the same thing with Node.js, we will install a program - an NPM module - to help us with it. NPM modules are installed using `npm`, which is another program, automatically installed with Node.js.
+When you open a website in a browser, the browser first downloads the page's HTML. To do the same thing with Node.js, we will install a program - an NPM module - to help us with it. NPM modules are installed using `npm`, which is another program, automatically installed with Node.js.
 
 > [NPM](https://www.npmjs.com/) has a huge collection of open-source libraries for Node.js. You can (and you should) utilize it to save time and tap into the amazing open-source community around JavaScript and Node.js.
-
 
 ## [](#creating-a-project) Creating a new project with NPM
 
@@ -40,19 +39,19 @@ Node.js and NPM support two types of projects, let's call them legacy and modern
 
 ## [](#install-libraries) Installing necessary libraries
 
-Now that we have a project set up, we can install NPM modules into the project. We will do that and install libraries that will help us very easily download and process websites' HTML. In the project directory, run the following command, which will install two libraries into your project. **got-scraping** and Cheerio.
+Now that we have a project set up, we can install NPM modules into the project. Let's install libraries that will help us easily download and process websites' HTML. In the project directory, run the following command, which will install two libraries into your project. **got-scraping** and Cheerio.
 
 ```shell
 npm install got-scraping cheerio
 ```
 
-[**got-scraping**](https://github.com/apify/got-scraping) is a library that's made especially for scraping and downloading page's HTML. It's based on the very popular [**got** library](https://github.com/sindresorhus/got), which means any features of **got** are also available in **got-scraping**. More precisely, **got** and **got-scraping** are HTTP clients. To learn more about HTTP, [visit this MDN tutorial](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP).
+[**got-scraping**](https://github.com/apify/got-scraping) is a library that's made especially for scraping and downloading page's HTML. It's based on the very popular [**got** library](https://github.com/sindresorhus/got), which means any features of **got** are also available in **got-scraping**. Both **got** and **got-scraping** are HTTP clients. To learn more about HTTP, [visit this MDN tutorial](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP).
 
-[Cheerio](https://github.com/cheeriojs/cheerio) is a very popular Node.js library for parsing (processing) HTML. It is a replica of probably the most popular JavaScript library of all time - [jQuery](https://jquery.com/). We can't use jQuery in Node.js because it only works in the browser, so we replace it with Cheerio, which is exactly the same.
+[Cheerio](https://github.com/cheeriojs/cheerio) is a very popular Node.js library for parsing (processing) HTML. If you're familiar with good old [jQuery](https://jquery.com/), you'll find working with Cheerio really easy.
 
 ## [](#testing) Test everything
 
-With the libraries installed, create a new file in the project's folder called **main.js**. This is where we will put all our code. Before we start scraping, though, let's do a simple check that everything installed correctly. Inside **main.js** add this piece of code.
+With the libraries installed, create a new file in the project's folder called **main.js**. This is where we will put all our code. Before we start scraping, though, let's do a simple check that everything installed correctly. Add this piece of code inside **main.js**.
 
 ```JavaScript
 import gotScraping from 'got-scraping';
@@ -61,7 +60,9 @@ import cheerio from 'cheerio';
 console.log('it works!');
 ```
 
-Those `import` statements tell Node.js that it should give you access to the **got-scraping** library under the `gotScraping` variable and the Cheerio library under the `cheerio` variable. Now run this command in your terminal:
+Those `import` statements tell Node.js that it should give you access to the **got-scraping** library under the `gotScraping` variable and the Cheerio library under the `cheerio` variable.
+
+Now run this command in your terminal:
 
 ```shell
 node main.js
