@@ -1,6 +1,6 @@
 ---
 title: Your first crawl
-description: Learn how to crawl the web using Node.js, Cheerio and an HTTP client. Collect URLs from pages and use them to visit more websites.
+description: Learn how to crawl the web using Node.js, Cheerio and an HTTP client. Extract URLs from pages and use them to visit more websites.
 menuWeight: 5
 paths:
     - web-scraping-for-beginners/crawling/first-crawl
@@ -8,7 +8,7 @@ paths:
 
 # [](#your-first-crawl) Your first crawl
 
-In the previous lessons, we learned what crawling is and how to collect URLs from a page's HTML. The only thing that remains is to write the code - so let's get right to it!
+In the previous lessons, we learned what crawling is and how to extract URLs from a page's HTML. The only thing that remains is to write the code - so let's get right to it!
 
 > If the code starts to look too complex for you, don't worry. We're showing it for educational purposes, so that you can learn how crawling works. Near the end of this module, we'll show you a much easier and faster way to crawl, using a specialized scraping library. If you want, you can skip the details and [go there now]({{@link web_scraping_for_beginners/crawling/pro_scraping.md}}).
 
@@ -118,4 +118,4 @@ At the time of writing, none of the links have failed; however, in your crawling
 
 ## [](#next) Next up
 
-In the [next lesson]({{@link web_scraping_for_beginners/crawling/scraping_the_data.md}}), we will complete the scraper by using the data collection code from the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) section and applying it to all of the product pages.
+In the [next lesson]({{@link web_scraping_for_beginners/crawling/scraping_the_data.md}}), we will complete the scraper by using the data extraction code from the [Basics of data extraction]({{@link web_scraping_for_beginners/data_extraction/node_continued.md}}) section and applying it to all of the product pages.

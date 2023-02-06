@@ -1,6 +1,6 @@
 ---
 title: Initializing & setting up
-description: When you collect links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.
+description: When you extract links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.
 menuWeight: 1
 paths:
 - web-scraping-for-beginners/challenge/initializing-and-setting-up
@@ -40,7 +40,7 @@ await crawler.run([{
     label: 'START',
     userData: {
         keyword,
-    },    
+    },
 }]);
 log.info('Crawl finished.');
 ```

@@ -162,4 +162,4 @@ Finally, in Puppeteer, you can use the `browser.defaultBrowserContext()` functio
 
 ## Wrap up
 
-So far in this course, you've learned how to launch a browser, open a page, run scripts on a page, collect data from a page, intercept requests made on the page, use proxies, and use multiple browser contexts. Stay tuned for new lessons!
+So far in this course, you've learned how to launch a browser, open a page, run scripts on a page, extract data from a page, intercept requests made on the page, use proxies, and use multiple browser contexts. Stay tuned for new lessons!

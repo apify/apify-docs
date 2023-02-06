@@ -10,7 +10,7 @@ paths:
 
 This section will teach you everything you should know about API scraping before moving into the next sections in the **API Scraping** module. Learn how to find APIs, how to use them, how to paginate them, and how to get past some common roadblocks when dealing with them.
 
-Each lesson will prepare you for real-world API scraping, and will help put yet another data-collection technique into your scraping toolbelt.
+Each lesson will prepare you for real-world API scraping, and will help put yet another data extraction technique into your scraping toolbelt.
 
 ## [](#next) Next up
 
