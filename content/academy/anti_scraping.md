@@ -118,9 +118,6 @@ One of the most successful and advanced methods is collecting the browser's "fin
 
 The honeypot approach is based on providing links that only bots can see. A typical example is hidden pagination. Usually, the bot needs to go through all the pages in the pagination, so the website's last "fake" page has a hidden link for the user, but has the same selector as the real one. Once the bot visits the link, it is automatically blacklisted. This method needs only the HTTP information.
 
-### IP-session consistency
-
-This technique is common for blocking the bot from accessing the website. It works on the principle that every entity that accesses the site gets a token. This token is then saved together with the IP address and HTTP request information such as user-agent and other specific headers. If the entity makes another request, but without the session cookie, the IP address is added on the grey list.
 
 ## [](#first) First up
 
