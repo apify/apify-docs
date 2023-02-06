@@ -43,7 +43,7 @@ npm install puppeteer
 </marked-tab>
 ```
 
-> For a more in-depth guide on how to set up the basic environment we'll be using in this tutorial, check out the [**Computer preparation**]({{@link web_scraping_for_beginners/data_collection/computer_preparation.md}}) lesson in the **Web scraping for beginners** course
+> For a more in-depth guide on how to set up the basic environment we'll be using in this tutorial, check out the [**Computer preparation**]({{@link web_scraping_for_beginners/data_extraction/computer_preparation.md}}) lesson in the **Web scraping for beginners** course
 
 ## [](#course-overview) Course overview
 
@@ -54,7 +54,7 @@ npm install puppeteer
     - [Page methods]({{@link puppeteer_playwright/page/page_methods.md}})
 3. [Executing scripts]({{@link puppeteer_playwright/executing_scripts.md}})
     - [Injecting code]({{@link puppeteer_playwright/executing_scripts/injecting_code.md}})
-    - [Collecting data]({{@link puppeteer_playwright/executing_scripts/collecting_data.md}})
+    - [Extracting data]({{@link puppeteer_playwright/executing_scripts/extracting_data.md}})
 4. [Reading & intercepting requests]({{@link puppeteer_playwright/reading_intercepting_requests.md}})
 5. [Using proxies]({{@link puppeteer_playwright/proxies.md}})
 6. [Creating multiple browser contexts]({{@link puppeteer_playwright/browser_contexts.md}})
