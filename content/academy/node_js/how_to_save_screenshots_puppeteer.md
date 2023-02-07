@@ -55,7 +55,7 @@ console.log('Done.');
 
 After you call the function, your screen appears in the KEY-VALUE STORE tab in the actor console. You can click on the row with your saved screen and it'll open it in a new window.
 
-![Puppeteer Key-Value store](./images/kv-store-puppeteer.png)
+![Puppeteer Key-Value store]({{@asset node_js/images/kv-store-puppeteer.webp}})
 
 If you have any questions, feel free to contact us in chat.
 
