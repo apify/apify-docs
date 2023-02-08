@@ -1,6 +1,6 @@
 ---
 title: Scraping data
-description: Learn how to add data collection logic to your crawler, which will allow you to extract data from all the websites you crawled.
+description: Learn how to add data extraction logic to your crawler, which will allow you to extract data from all the websites you crawled.
 menuWeight: 6
 paths:
     - web-scraping-for-beginners/crawling/scraping-the-data
@@ -8,11 +8,11 @@ paths:
 
 # [](#scraping-data) Scraping data
 
-At the [very beginning of the course]({{@link web_scraping_for_beginners.md}}), we learned that the term web scraping usually means a combined process of data collection and crawling. And this is exactly what we'll do in this lesson. We will take the code we built in the previous lesson and in the [Basics of data collection]({{@link web_scraping_for_beginners/data_collection/node_continued.md}}) section, and we will combine that into a web scraper.
+At the [very beginning of the course]({{@link web_scraping_for_beginners.md}}), we learned that the term web scraping usually means a combined process of data extraction and crawling. And this is exactly what we'll do in this lesson. We will take the code we built in the previous lesson and in the [Basics of data collection]({{@link web_scraping_for_beginners/data_extraction/node_continued.md}}) section, and we will combine that into a web scraper.
 
 ## [](#review-code) Quick review of earlier's code
 
-Here's a quick reminder of earlier's data collection code:
+Here's a quick reminder of earlier's data extraction code:
 
 ```JavaScript
 // main.js
@@ -80,7 +80,7 @@ for (const link of productsToScrape) {
 We can see that the code is extremely similar. Both scripts download HTML and then process the HTML. To get an idea how to put them together, we'll go back to the [original process of crawling]({{@link web_scraping_for_beginners/crawling.md}}).
 
 1. Visit the start URL.
-2. Collect next URLs (and data) and save them.
+2. Extract next URLs (and data) and save them.
 3. Visit one of the collected URLs and save data and/or more URLs.
 4. Repeat step 3 until you have everything you needed.
 
@@ -141,7 +141,7 @@ for (const url of productLinks) {
         const productResponse = await gotScraping(url);
         const $$ = cheerio.load(productResponse.body);
 
-        // And this is where we use data collection logic.
+        // And this is where we use data extraction logic.
         // Don't forget to update $ to $$, or you'll get errors.
         const title = $$('h3').text().trim();
         const price = $$('h3 + div').text().trim();

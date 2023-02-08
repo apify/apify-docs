@@ -1,6 +1,6 @@
 ---
 title: Waiting for content & events
-description: Learn the importance of waiting for content and events before running interaction/collection code, as well as the best practices for doing so.
+description: Learn the importance of waiting for content and events before running interaction or extraction code, as well as the best practices for doing so.
 menuWeight: 2
 paths:
     - puppeteer-playwright/page/waiting
@@ -106,7 +106,7 @@ await page.keyboard.press('Enter');
 await page.click('.g a');
 await page.waitForLoadState('load');
 
-// Our title collecting and screenshotting logic
+// Our title extraction and screenshotting logic
 // will go here
 
 await page.waitForTimeout(10000);
@@ -135,7 +135,7 @@ await page.keyboard.press('Enter');
 await page.waitForSelector('.g a');
 await Promise.all([page.waitForNavigation(), page.click('.g a')]);
 
-// Our title collecting and screenshotting logic
+// Our title extraction and screenshotting logic
 // will go here
 
 await page.waitForTimeout(10000);

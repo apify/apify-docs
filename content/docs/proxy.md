@@ -11,7 +11,7 @@ paths:
 
 [Apify Proxy](https://apify.com/proxy) allows you to change your IP address when web scraping to reduce the chance of being [blocked]({{@link web_scraping_101/anti_scraping_techniques.md#ip-address-based-blocking}}) because of your geographical location.
 
-You can use proxies in your [actors]({{@link actors.md}}) or any other application that supports HTTP, HTTPS, and FTP protocols. Apify Proxy monitors the health of your IP pool and intelligently [rotates addresses](#ip-address-rotation) to prevent IP address-based blocking.
+You can use proxies in your [actors]({{@link actors.md}}) or any other application that supports HTTP proxies. Apify Proxy monitors the health of your IP pool and intelligently [rotates addresses](#ip-address-rotation) to prevent IP address-based blocking.
 
 **You can view your proxy settings and password on the [Proxy](https://console.apify.com/proxy) page in the Apify Console.**
 

@@ -13,8 +13,12 @@ When using Puppeteer, often a webpage will load many resources that are not actu
 For example for this web page: <https://edition.cnn.com/>
 If we run an [Actor](https://www.apify.com/jaroslavhejlek/measure-downloaded-bytes) that measures extracted downloaded data from each response until the page is fully loaded, we get these results:
 
+<<<<<<< HEAD
 ![Actor loading]({{@asset node_js/images/actor-load.webp}})
 
+=======
+![Actor loading](./images/actor-load.png)
+>>>>>>> master
 
 And [this is how the website it looks](https://api.apify.com/v2/key-value-stores/sE2s9WmvoWFZhTff7/records/debug-screen.png?disableRedirect=true).
 
@@ -59,8 +63,12 @@ page.on('request', (request) => {
 
 With this code set up this is the output:
 
+<<<<<<< HEAD
 ![Improved actor loading]({{@asset node_js/images/improved-actor-loading.webp}})
 
+=======
+![Improved actor loading](./images/improved-actor-loading.png)
+>>>>>>> master
 
 And except for different ads, [the page looks the same](https://api.apify.com/v2/key-value-stores/fP9S5c2yBGHdcrga3/records/debug-screen.png?disableRedirect=true).
 

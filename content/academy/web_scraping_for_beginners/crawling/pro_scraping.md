@@ -93,9 +93,11 @@ const crawler = new CheerioCrawler({
 });
 
 await crawler.addRequests([{ url: 'https://demo-webstore.apify.org/search/on-sale' }]);
+
+await crawler.run();
 ```
 
-Here, we added the first request to the crawler - the first page we want to visit. Behind the scenes, `CheerioCrawler` will automatically create a `RequestQueue`, take the first (and currently only) URL from it, download its HTML, and parse it using Cheerio. The [`requestHandler`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlerOptions#requestHandler) is the place where we can interact with the downloaded page and collect its data. It gives you access to the parsed HTML in the [`$`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext) variable. You can also access various data about the request from the queue using the [`request`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext#request) variable.
+Here, we added the first request to the crawler - the first page we want to visit. Behind the scenes, `CheerioCrawler` will automatically create a `RequestQueue`, take the first (and currently only) URL from it, download its HTML, and parse it using Cheerio. The [`requestHandler`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlerOptions#requestHandler) is the place where we can interact with the downloaded page and extract its data. It gives you access to the parsed HTML in the [`$`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext) variable. You can also access various data about the request from the queue using the [`request`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext#request) variable.
 
 When you run the code above you'll see that it prints various log messages. Among the many you'll find the URL and `<title>` of the web page, which we printed out ourselves in the `requestHandler`.
 
@@ -145,9 +147,9 @@ When you run the code, you'll immediately see that it crawls faster than the man
 
 > If the crawler gets stuck for you at the end, it's ok. It's not actually stuck, but waiting to retry any pages that potentially failed.
 
-## [](#collecting-data) Collecting data
+## [](#extracting-data) Extracting data
 
-We have the crawler in place, and it's time to collect data. We already have the extraction code from the previous lesson, so we can just copy and paste it into the `requestHandler` with tiny changes.
+We have the crawler in place, and it's time to extract data. We already have the extraction code from the previous lesson, so we can just copy and paste it into the `requestHandler` with tiny changes.
 
 The one small, but important, change we did was to use the [`Dataset.pushData()`](https://crawlee.dev/docs/introduction/saving-data#whats-datasetpushdata) function to save the results to the run's default dataset. You will find the results in the **storage** folder, under **datasets/default**.
 

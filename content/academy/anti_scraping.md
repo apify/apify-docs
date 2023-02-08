@@ -11,9 +11,18 @@ paths:
 
 If at any point in time you've strayed away from the Academy's demo content, and into the wild west by writing some scrapers of your own, you may have been hit with anti-scraping measures. This is extremely common in the scraping world; however, the good thing is that there are always solutions.
 
-This section covers the essentials of mitigating anti-scraping protections, such as proxies, HTTP headers and cookies, and a few other things to consider when working on a reliable and scalable crawler. Proper usage of the methods taught in the next lessons will allow you to collect data which is specific to a certain location, enable your crawler to browse websites as a logged-in user, and more.
+This section covers the essentials of mitigating anti-scraping protections, such as proxies, HTTP headers and cookies, and a few other things to consider when working on a reliable and scalable crawler. Proper usage of the methods taught in the next lessons will allow you to extract data which is specific to a certain location, enable your crawler to browse websites as a logged-in user, and more.
 
 In development, it is crucial to check and adjust the configurations related to our next lessons' topics, as simply doing this can fix blocking issues on the majority of websites.
+
+## [](#quick-start) Quick start
+
+If you don't have time to read about the theory behind anti-scraping protections to fine-tune your scraping project and instead you just need to get unblocked ASAP, here are some quick tips:
+- Use high-quality proxies. [Residential proxies](https://docs.apify.com/proxy/residential-proxy) are the least blocked. There are many providers out there like Apify, BrightData, Oxylabs, NetNut, etc.
+- Set **real-user-like HTTP settings** and **browser fingerprints**. [Crawlee](https://crawlee.dev/) uses statistically generated realistic HTTP headers and browser fingerprints by default for all of its crawlers.
+- Use a modern browser to pass bot capture challenges. We recommend [Playwright with Firefox](https://crawlee.dev/docs/examples/playwright-crawler-firefox) because it is not that common for scraping. You can also play with [non-headless mode](https://crawlee.dev/api/playwright-crawler/interface/PlaywrightCrawlerOptions#headless) and adjust other [fingerprint settings](https://crawlee.dev/api/browser-pool/interface/FingerprintGeneratorOptions).
+- Consider extracting data from **[private APIs]({{@link api_scraping.md}})** or **mobile app APIs**. They are usually much less protected.
+
 
 ## [](#why-block-bots) First of all, why do websites want to block bots?
 
@@ -21,15 +30,29 @@ What's up with that?! There are various reasons why a website might want to bloc
 
 - To prevent the possibility of malicious bots from crawling the site to steal sensitive data like passwords or personal data about users.
 - In order to avoid server performance hits due to bots making a large amount of requests to the website at a single time.
+- To avoid their competitors to gain market insights about their business.
+- To prevent bots from scraping their content and selling it to other websites or re-publishing it.
+- To not skew their analytics data with bot traffic.
 - If it is a social media website, they might be attempting to keep away bots programmed to mass create fake profiles (which are usually sold later).
+
+> We recommend checking out [this article about legal and ethical ramifications of web scraping](https://blog.apify.com/is-web-scraping-legal).
 
 Unfortunately for these websites, they have to make compromises and tradeoffs. While super strong anti-bot protections will surely prevent the majority of bots from accessing their content, there is also a higher chance of regular users being flagged as bots and being blocked as well. Because of this, different sites have different scraping-difficulty levels based on the anti-scraping measures they take.
 
-> Going into this topic, it's important to understand that there is no one silver bullet solution to bypassing protections against bots. Even if two websites are using Cloudflare (for example), one of them might be significantly more difficult to scrape due to harsher CloudFlare configurations.
+> Going into this topic, it's important to understand that there is no one silver bullet solution to bypassing protections against bots. Even if two websites are using Cloudflare (for example), one of them might be significantly more difficult to scrape due to harsher CloudFlare configurations. It is all about configuration, not the anti-scraping tool itself.
 
 ## [](#the-principles) The principles of anti-scraping protections
 
-Anti-scraping protections can work on many different layers and use a large amount of bot-identification techniques. There are two main ways a bot can be detected, which follow two different types of web scraping:
+Anti-scraping protections can work on many different layers and use a large amount of bot-identification techniques. There are 4 main principles that anti-scraping protections are based on:
+
+1. **Where you are coming from** - IP address of the incoming traffic is always available to the website. Proxies are used to emulate a different IP addresses but their quality matters a lot.
+2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, cyphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to clasify your hardware (like graphics hardware acceleration).
+3. **What you are scraping** - There are many ways to extract the same data from a website. You can just get the inital HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
+4. **How you behave** - The website can see patterns in how you are ordering your requests, how fast you are scraping, etc. It can also analyse browser behavior like mouse movement, clicks or key presses.
+
+Not all websites use all of these principles but they encompass the possibilities websites have to track and block bots. All techniques that help you mitigate anti-scraping protections are based on making yourself blend in with the crowd of regular users with each of these principles. 
+
+There are two main ways a bot can be detected, which follow two different types of web scraping:
 
 1. Crawlers using **HTTP requests**
 2. Crawlers using **browser automation** (usually with a headless browser)
@@ -54,6 +77,8 @@ One thing to keep in mind while navigating through this course is that advanced 
 ## [](#common-measures) Common anti-scraping measures
 
 Because we here at Apify scrape for a living, we have discovered many popular and niche anti-scraping techniques. We've compiled them into a short and comprehensible list here to help understand the roadblocks before this course teaches you how to get around them.
+
+> However, not all issues you encounter are caused by anti-scraping systems. Sometimes, it's just a simple configuration issue. Learn [how to effectively debug your programs here](https://developers.apify.com/academy/node-js/analyzing-pages-and-fixing-errors).
 
 ### IP rate-limiting
 
@@ -93,9 +118,6 @@ One of the most successful and advanced methods is collecting the browser's "fin
 
 The honeypot approach is based on providing links that only bots can see. A typical example is hidden pagination. Usually, the bot needs to go through all the pages in the pagination, so the website's last "fake" page has a hidden link for the user, but has the same selector as the real one. Once the bot visits the link, it is automatically blacklisted. This method needs only the HTTP information.
 
-### IP-session consistency
-
-This technique is common for blocking the bot from accessing the website. It works on the principle that every entity that accesses the site gets a token. This token is then saved together with the IP address and HTTP request information such as user-agent and other specific headers. If the entity makes another request, but without the session cookie, the IP address is added on the grey list.
 
 ## [](#first) First up
 

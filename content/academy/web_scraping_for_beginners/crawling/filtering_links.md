@@ -1,6 +1,6 @@
 ---
 title: Filtering links
-description: When you collect links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.
+description: When you extract links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.
 menuWeight: 3
 paths:
 - web-scraping-for-beginners/crawling/filtering-links
@@ -8,7 +8,7 @@ paths:
 
 # [](#filtering-links) Filtering links
 
-Web pages are full of links, but frankly, most of them are useless to us. There are two approaches to filtering links: Targeting the links we're interested in by using unique CSS selectors, and collecting all links and then using pattern matching to find the sought after URLs. In real scraping scenarios, both of these two approaches are often combined for the most effective URL filtering.
+Web pages are full of links, but frankly, most of them are useless to us. There are two approaches to filtering links: Targeting the links we're interested in by using unique CSS selectors, and extracting all links and then using pattern matching to find the sought after URLs. In real scraping scenarios, both of these two approaches are often combined for the most effective URL filtering.
 
 ## [](#css-filtering) Filtering with unique CSS selectors
 

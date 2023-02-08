@@ -9,7 +9,7 @@ paths:
 
 # API scraping
 
-API scraping is locating a website's API endpoints, and collecting the desired data directly from their API, as opposed to parsing the data from their rendered HTML pages.
+API scraping is locating a website's API endpoints, and fetching the desired data directly from their API, as opposed to parsing the data from their rendered HTML pages.
 
 > **Note:** In the next few lessons, we'll be using [SoundCloud's website](https://soundcloud.com) as an example target, but the techniques described here can be applied to any site.
 
