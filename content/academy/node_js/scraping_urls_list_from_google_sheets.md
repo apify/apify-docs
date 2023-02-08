@@ -14,10 +14,10 @@ You can export URLs from [Google Sheets](https://www.google.com/sheets/about/) s
 
 3. In the actor's input, click Link remote text file and paste the URL there:
 
-![List of URLs](./images/gsheets-url.png)
+![List of URLs]({{@asset node_js/images/gsheets-url.webp}})
 
 IMPORTANT: Make sure anyone with the link can view the document. Otherwise, the actor will not be able to access it.
 
-![Link sharing](./images/anyone-with-link.png)
+![Link sharing]({{@asset node_js/images/anyone-with-link.webp}})
 
 [See more details](https://docs.apify.com/tutorials/crawl-urls-from-google-sheets-document) in our documentation.
