@@ -1,7 +1,7 @@
 ---
 title: How to scrape from sitemaps
 description: The sitemap.xml file is a jackpot for every web scraper developer. Take advantage of this and learn an easier way to extract data from websites using Crawlee.
-menuWeight: 14.7
+menuWeight: 14.8
 paths:
     - node-js/scraping-from-sitemaps
 ---
