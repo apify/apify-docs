@@ -1,6 +1,0 @@
-# Add your dependencies here.
-# See https://pip.pypa.io/en/latest/cli/pip_install/#requirements-file-format
-# for how to format them
-
-matplotlib
-pandas
