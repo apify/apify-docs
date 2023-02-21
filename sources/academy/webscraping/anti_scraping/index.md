@@ -31,7 +31,7 @@ In the vast majority of cases, this configuration should lead to success. Succes
 
 If the above tips didn't help, you can try to fiddle with the following:
 - Try different browsers. Crawlee & Playwright support Chromium, Firefox and WebKit out of the box. You can also try the [Brave browser](https://brave.com) which [can be configured for Playwright](https://blog.apify.com/unlocking-the-potential-of-brave-and-playwright-for-browser-automation).
-- Don't use browsers at all. Sometimes the anti-scraping protections are extremely sensitive to browser behavior but will allow plain HTTP requests (with the right headers) just fine. Don't forget to match the specific [HTTP headers](/academy/glossary/http_headers.md) for each request.
+- Don't use browsers at all. Sometimes the anti-scraping protections are extremely sensitive to browser behavior but will allow plain HTTP requests (with the right headers) just fine. Don't forget to match the specific [HTTP headers](/academy/concepts/http-headers) for each request.
 - Decrease concurrency. Slower scraping means you can blend in better with the rest of the traffic.
 - Add human-like behavior. Don't traverse the website like a bot (paginating quickly from 1 to 100). Instead, visit various types of pages, add time randomizations and you can even introduce some mouse movements and clicks.
 - Try Puppeteer with the [puppeteer-extra-plugin-stealth](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth) plugin. Generally, Crawlee's default configuration should have stronger bypassing but some features might land first in the stealth plugin.
