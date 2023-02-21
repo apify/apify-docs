@@ -38,7 +38,7 @@ If the above tips didn't help, you can try to fiddle with the following:
 - Find different sources of the data. The data might be rendered to the HTML but you could also find it in JavaScript (inlined in the HTML or in files) or in the API responses. Especially the APIs are often much less protected (if you use the right headers).
 - Reverse engineer the JavaScript challenges that run on the page so you can figure out how the bypass them. This is a very advanced topic that you can read about online. We plan to introduce more content about this.
 
-Keep in mind that there is no silver bullet solution. There are many anti-scraping systems and each of them behaves differently depending the website's configuration. That is why "trying a few things" usually leads to success. You will find more details about these tricks in the [mitigation](./mitigation) section below.
+Keep in mind that there is no silver bullet solution. There are many anti-scraping systems and each of them behaves differently depending the website's configuration. That is why "trying a few things" usually leads to success. You will find more details about these tricks in the [mitigation](./mitigation/index.md) section below.
 
 ## First of all, why do websites want to block bots? {#why-block-bots}
 
