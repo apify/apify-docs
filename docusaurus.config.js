@@ -14,9 +14,9 @@ module.exports = {
     scripts: ['/js/custom.js'],
     favicon: 'img/favicon.ico',
     onBrokenLinks:
-    /** @type {import('@docusaurus/types').ReportingSeverity} */ ('warn'),
+    /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
     onBrokenMarkdownLinks:
-    /** @type {import('@docusaurus/types').ReportingSeverity} */ ('warn'),
+    /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
     themes: [
         [
             require.resolve('./apify-docs-theme'),
