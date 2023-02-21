@@ -1,4 +1,4 @@
-name: Check & Release
+name: Test build & lint
 
 on:
     push:
