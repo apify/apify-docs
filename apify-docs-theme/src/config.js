@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 const absoluteUrl = process.env.LOCAL ? 'http://docs.apify.loc' : 'https://docs.apify.com';
 
 const themeConfig = ({

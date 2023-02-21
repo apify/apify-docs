@@ -105,34 +105,33 @@ function Versions(props) {
                     <table className="versions">
                         <tbody>
                             {versions.map(
-                                (version) =>
-                                    version !== latestVersion && (
-                                        <tr key={version}>
-                                            <th>{version}</th>
-                                            <td>
-                                                {/* You are supposed to change this href where appropriate
+                                (version) => version !== latestVersion && (
+                                    <tr key={version}>
+                                        <th>{version}</th>
+                                        <td>
+                                            {/* You are supposed to change this href where appropriate
                         Example: href="<baseUrl>/docs(/:language)/:version/:id" */}
-                                                <a
-                                                    href={`${
-                                                        siteConfig.baseUrl
-                                                    }${siteConfig.docsUrl}/${
-                                                        props.language
-                                                            ? `${props.language}/`
-                                                            : ''
-                                                    }${version}/api/apify`}
-                                                >
+                                            <a
+                                                href={`${
+                                                    siteConfig.baseUrl
+                                                }${siteConfig.docsUrl}/${
+                                                    props.language
+                                                        ? `${props.language}/`
+                                                        : ''
+                                                }${version}/api/apify`}
+                                            >
                                                     Documentation
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a
-                                                    href={`${repoUrl}/releases/tag/v${version}`}
-                                                >
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a
+                                                href={`${repoUrl}/releases/tag/v${version}`}
+                                            >
                                                     Release Notes
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    ),
+                                            </a>
+                                        </td>
+                                    </tr>
+                                ),
                             )}
                         </tbody>
                     </table>
@@ -146,6 +145,7 @@ function Versions(props) {
     );
 }
 
+// eslint-disable-next-line react/display-name
 export default (props) => (
     <Layout>
         <Versions {...props} />

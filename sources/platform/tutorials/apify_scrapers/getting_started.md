@@ -9,7 +9,6 @@ slug: /tutorials/apify-scrapers/getting-started
 
 [//]: # (TODO: Should be updated)
 
-# 
 Welcome to the getting started tutorial! It will walk you through creating your first scraping task step by step. You will learn how to set up all the different configuration options, code a **Page function** (`pageFunction`), and finally download the scraped data either as an Excel sheet or in another format, such as JSON or CSV. But first, let's give you a brief introduction to web scraping with Apify.
 
 ## [](#what-is-an-apify-scraper) What is an Apify scraper

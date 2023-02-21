@@ -43,7 +43,7 @@ This code doesn't actually throw an error, but it does output `27undefined`. Tha
 
 With TypeScript, these types of issues stick out like a sore thumb, and depending on your configurations, the [compiler](https://www.techtarget.com/whatis/definition/compiler#:~:text=A%20compiler%20is%20a%20special,as%20Java%20or%20C%2B%2B.) will refuse to compile it until they have been fixed.
 
-![](./images/typescript-error.png)
+![Typescript Error 2345](./images/typescript-error.png)
 
 This means that when using TS (a popular acronym for "TypeScript") on a large project, you'll run into much less runtime errors and catch the majority of them during the development process.
 

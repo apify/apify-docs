@@ -64,7 +64,7 @@ const requestList = await RequestList.open(null, [{
 }]);
 ```
 
-Now, let's use [PuppeteerCrawler](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler) to scrape the created [RequestList](hhttps://crawlee.dev/api/core/class/RequestList) with [Puppeteer](https://pptr.dev) and push it to the final dataset.
+Now, let's use [PuppeteerCrawler](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler) to scrape the created [RequestList](https://crawlee.dev/api/core/class/RequestList) with [Puppeteer](https://pptr.dev) and push it to the final dataset.
 
 ```js
 const crawler = new PuppeteerCrawler({

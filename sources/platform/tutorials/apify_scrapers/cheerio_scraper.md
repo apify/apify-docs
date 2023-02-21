@@ -9,7 +9,6 @@ slug: /tutorials/apify-scrapers/cheerio-scraper
 
 [//]: # (TODO: Should be updated)
 
-# 
 This scraping tutorial will go into the nitty gritty details of extracting data from **<https://apify.com/store>**
 using **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)). If you arrived here from the [Getting started with Apify scrapers](https://docs.apify.com/tutorials/apify-scrapers/getting-started),
 tutorial, great! You are ready to continue where we left off. If you haven't seen the Getting started yet,
@@ -145,7 +144,7 @@ using a regular expression, but its type is still a `string`, so we finally conv
 > Then we extract the match via `.match(/[\d,]+/)[0]` and finally remove all the commas by calling `.replace(/,/g, '')`.
 > We need to use `/,/g` with the global modifier to support large numbers with multiple separators, without it
 > we would replace only the very first occurrence.
-> 
+>
 > This will give us a string (e.g. `'1234567'`) that can be converted via `Number` function.
 
 ### [](#wrapping-it-up) Wrapping it up

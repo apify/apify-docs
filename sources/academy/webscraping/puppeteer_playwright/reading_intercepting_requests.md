@@ -37,6 +37,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -54,6 +55,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -80,6 +82,7 @@ page.on('request', (req) => {
 });
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -93,6 +96,7 @@ page.on('request', (req) => {
 });
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -133,6 +137,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -160,6 +165,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -200,6 +206,7 @@ page.on('response', async (res) => {
 });
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -218,6 +225,7 @@ page.on('response', async (res) => {
 });
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -266,6 +274,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -294,6 +303,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -335,6 +345,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -356,6 +367,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -386,6 +398,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -412,6 +425,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 

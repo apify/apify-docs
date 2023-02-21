@@ -83,6 +83,7 @@ await page.screenshot({ path: 'screenshot.png' });
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -117,6 +118,7 @@ await page.screenshot({ path: 'screenshot.png' });
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 

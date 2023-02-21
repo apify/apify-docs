@@ -60,6 +60,7 @@ await crawler.run(['https://proxy.apify.com/?format=json']);
 await Actor.exit();
 
 ```
+
 </TabItem>
 
 
@@ -86,6 +87,7 @@ await crawler.run(['https://proxy.apify.com']);
 await Actor.exit();
 
 ```
+
 </TabItem>
 
 
@@ -112,6 +114,7 @@ console.log(html);
 await Actor.exit();
 
 ```
+
 </TabItem>
 
 
@@ -147,6 +150,7 @@ console.log(response2.body.clientIp);
 await Actor.exit();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -183,6 +187,7 @@ await crawler.run([
 await Actor.exit();
 
 ```
+
 </TabItem>
 
 
@@ -213,6 +218,7 @@ await crawler.run([
 await Actor.exit();
 
 ```
+
 </TabItem>
 
 
@@ -244,6 +250,7 @@ console.log(html2);
 await Actor.exit();
 
 ```
+
 </TabItem>
 
 
@@ -277,6 +284,7 @@ console.log(response2.body.clientIp);
 await Actor.exit();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -339,6 +347,7 @@ const { data } = await axios.get(url, { proxy });
 console.log(data);
 
 ```
+
 </TabItem>
 
 
@@ -366,6 +375,7 @@ opener = request.build_opener(httpHandler,proxy_handler)
 print(opener.open("http://proxy.apify.com/?format=json").read())
 
 ```
+
 </TabItem>
 
 
@@ -390,6 +400,7 @@ opener = request.build_opener(proxy_handler)
 print(opener.open("http://proxy.apify.com/?format=json").read())
 
 ```
+
 </TabItem>
 
 
@@ -409,6 +420,7 @@ if ($response) echo $response;
 ?>
 
 ```
+
 </TabItem>
 
 
@@ -429,6 +441,7 @@ $response = $client->get("http://proxy.apify.com/?format=json");
 echo $response->getBody();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -461,6 +474,7 @@ console.log('clientIp1:', response1.data.clientIp);
 console.log('clientIp2:', response2.data.clientIp);
 
 ```
+
 </TabItem>
 
 
@@ -493,6 +507,7 @@ print("Should return the same clientIp as ")
 print(do_request())
 
 ```
+
 </TabItem>
 
 
@@ -529,6 +544,7 @@ print("Should return the same clientIp as ")
 print(do_request())
 
 ```
+
 </TabItem>
 
 
@@ -555,6 +571,7 @@ echo $response2;
 ?>
 
 ```
+
 </TabItem>
 
 
@@ -578,6 +595,7 @@ $response = $client->get("https://api.apify.com/v2/browser-info");
 echo $response->getBody();
 
 ```
+
 </TabItem>
 </Tabs>
 

@@ -9,7 +9,6 @@ slug: /tutorials/apify-scrapers/puppeteer-scraper
 
 [//]: # (TODO: Should be updated)
 
-# 
 This scraping tutorial will go into the nitty gritty details of extracting data from **<https://apify.com/store>**
 using **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper)). If you arrived here from the [Getting started with Apify scrapers](https://docs.apify.com/tutorials/apify-scrapers/getting-started),
 tutorial, great! You are ready to continue where we left off. If you haven't seen the Getting started yet,
@@ -94,6 +93,7 @@ return {
     title,
 }
 ```
+
 The [`page.$eval`](https://pptr.dev/#?product=Puppeteer&show=api-elementhandleevalselector-pagefunction-args-1)
 function allows you to run a function in the browser, with the selected element as the first argument.
 Here we use it to extract the text content of a `h1` element that's in the page. The return value of the function
@@ -151,6 +151,7 @@ return {
     modifiedDate,
 };
 ```
+
 Similarly to `page.$eval`, the [`page.$$eval`](https://pptr.dev/#?product=Puppeteer&show=api-elementhandleevalselector-pagefunction-args)
 function runs a function in the browser, only this time, it does not provide
 you with a single `Element` as the function's argument, but rather with an `Array` of `Elements`. Once again,
@@ -206,7 +207,7 @@ using a regular expression, but its type is still a `string`, so we finally conv
 > Then we extract the match via `.match(/[\d,]+/)[0]` and finally remove all the commas by calling `.replace(/,/g, '')`.
 > We need to use `/,/g` with the global modifier to support large numbers with multiple separators, without it
 > we would replace only the very first occurrence.
-> 
+>
 > This will give us a string (e.g. `'1234567'`) that can be converted via `Number` function.
 
 ### [](#wrapping-it-up) Wrapping it up
@@ -321,6 +322,7 @@ async function pageFunction(context) {
     }
 }
 ```
+
 > You have definitely noticed that we changed up the code a little bit. This is because the back and forth communication
 between Node.js and browser takes some time and it slows down the scraper. To limit the effect of this, we changed
 all the functions to start at the same time and only wait for all of them to finish at the end. This is called
@@ -405,7 +407,7 @@ Before we can wait for the button, we need to know its unique selector. A quick 
 that the button's class is some weird randomly generated string, but fortunately, there's an enclosing `<div>`
 with a class of `show-more`. Great! Our unique selector:
 
-```
+```css
 div.show-more > button
 ```
 
@@ -805,9 +807,9 @@ Thank you for reading this whole tutorial! Really! It's important to us that our
 
 ## [](#whats-next) What's next?
 
-* Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
-* [Take a deep dive into actors](https://docs.apify.com/actors), from how they work to [publishing](https://docs.apify.com/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on actors.
-* Found out you're not into the coding part but would still to use Apify actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom actor](https://apify.com/custom-solutions) from an Apify-certified developer.
+- Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
+- [Take a deep dive into actors](https://docs.apify.com/actors), from how they work to [publishing](https://docs.apify.com/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on actors.
+- Found out you're not into the coding part but would still to use Apify actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom actor](https://apify.com/custom-solutions) from an Apify-certified developer.
 
 
 **Learn how to scrape a website using Apify's Puppeteer Scraper. Build an actor's page function, extract information from a web page and download your data.**

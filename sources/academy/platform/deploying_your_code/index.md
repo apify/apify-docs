@@ -54,6 +54,7 @@ const addAllNumbers = (...nums) => nums.reduce((total, curr) => (total += curr))
 console.log(addAllNumbers(1, 2, 3, 4)) // -> 10
 
 ```
+
 </TabItem>
 <TabItem value="Python" label="Python">
 
@@ -70,6 +71,7 @@ def add_all_numbers (nums):
 print(add_all_numbers([1, 2, 3, 4])) # -> 10
 
 ```
+
 </TabItem>
 </Tabs>
 

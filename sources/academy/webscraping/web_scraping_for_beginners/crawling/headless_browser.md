@@ -112,6 +112,7 @@ This is the programmer's preferred solution, because you don't have to change th
 CRAWLEE_HEADLESS=1 node crawlee.js
 
 ```
+
 </TabItem>
 <TabItem value="Windows CMD" label="Windows CMD">
 
@@ -119,6 +120,7 @@ CRAWLEE_HEADLESS=1 node crawlee.js
 set CRAWLEE_HEADLESS=1 && node crawlee.js
 
 ```
+
 </TabItem>
 <TabItem value="Windows Powershell" label="Windows Powershell">
 
@@ -126,6 +128,7 @@ set CRAWLEE_HEADLESS=1 && node crawlee.js
 $env:CRAWLEE_HEADLESS=1; & node crawlee.js
 
 ```
+
 </TabItem>
 </Tabs>
 

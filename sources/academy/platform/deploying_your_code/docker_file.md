@@ -69,6 +69,7 @@ RUN npm --quiet set progress=false \
 COPY . ./
 
 ```
+
 </TabItem>
 <TabItem value="Python Dockerfile" label="Python Dockerfile">
 
@@ -104,6 +105,7 @@ COPY . ./
 CMD python3 main.py
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -126,6 +128,7 @@ RUN go build -o /example-actor
 CMD ["/example-actor"]
 
 ```
+
 </TabItem>
 <TabItem value="Rust actor Dockerfile" label="Rust actor Dockerfile">
 
@@ -158,6 +161,7 @@ RUN cargo build --release
 CMD ["./target/release/actor-example"]
 
 ```
+
 </TabItem>
 <TabItem value="Julia actor Dockerfile" label="Julia actor Dockerfile">
 
@@ -172,6 +176,7 @@ RUN julia install.jl
 CMD ["julia", "main.jl"]
 
 ```
+
 </TabItem>
 </Tabs>
 

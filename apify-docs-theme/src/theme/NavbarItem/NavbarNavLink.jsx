@@ -80,6 +80,7 @@ export default function NavbarNavLink({
             to={toUrl}
             isNavLink
             {...((activeBasePath || activeBaseRegex) && {
+                // eslint-disable-next-line no-shadow
                 isActive: (_match, location) => (activeBaseRegex
                     ? isRegexpStringMatch(activeBaseRegex, location.pathname) || dropDownHasActiveItem
                     : location.pathname.startsWith(activeBaseUrl)),

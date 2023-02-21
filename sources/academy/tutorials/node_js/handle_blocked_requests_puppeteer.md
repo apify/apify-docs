@@ -9,9 +9,7 @@ One of the main defense mechanisms websites use to ensure they are not scraped b
 
 # BasicCrawler
 
-**Getting around website defense mechanisms when crawling**
-
----
+> Getting around website defense mechanisms when crawling.
 
 Setting proxy rotation in [BasicCrawler](https://crawlee.dev/api/basic-crawler/class/BasicCrawler) is pretty simple. When using plain HTTP requests (like with the popular '[request-promise](https://www.npmjs.com/package/request-promise)' npm package), a fresh proxy is set up on each request.
 

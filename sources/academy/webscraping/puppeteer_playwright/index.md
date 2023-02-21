@@ -47,6 +47,7 @@ For this course, we'll be jumping right into the features of these awesome libra
 npm install playwright
 
 ```
+
 </TabItem>
 <TabItem value="Install Puppeteer" label="Install Puppeteer">
 
@@ -54,6 +55,7 @@ npm install playwright
 npm install puppeteer
 
 ```
+
 </TabItem>
 </Tabs>
 

@@ -85,7 +85,7 @@ function theme(
 title: Changelog
 sidebar_label: Changelog
 ---
-It seems that the changelog is not available. 
+It seems that the changelog is not available.
 This either means that your Docusaurus setup is misconfigured, or that your GitHub repository contains no releases yet.
 `);
                 }
@@ -96,6 +96,7 @@ This either means that your Docusaurus setup is misconfigured, or that your GitH
                     await copyChangelogFromReleases(pathsToCopyChangelog, `${context.siteConfig.organizationName}/${context.siteConfig.projectName}`);
                 }
             } catch (e) {
+                // eslint-disable-next-line no-console
                 console.warn(`Changelog page could not be initialized: ${e.message}`);
             }
         },

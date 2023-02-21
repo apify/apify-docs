@@ -27,6 +27,7 @@ In the previous lesson, we simply grabbed all the links from the HTML document.
 document.querySelectorAll('a');
 
 ```
+
 </TabItem>
 <TabItem value="Node.js with Cheerio" label="Node.js with Cheerio">
 
@@ -34,6 +35,7 @@ document.querySelectorAll('a');
 $('a');
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -48,6 +50,7 @@ That's not the only way to do it, however. Since we're interested in the `href` 
 document.querySelectorAll('a[href]');
 
 ```
+
 </TabItem>
 <TabItem value="Node.js" label="Node.js">
 
@@ -55,6 +58,7 @@ document.querySelectorAll('a[href]');
 $('a[href]');
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -71,6 +75,7 @@ We only want the product links on this page, so we can limit the number of resul
 document.querySelectorAll('main.fit a[href*="/product/"]');
 
 ```
+
 </TabItem>
 <TabItem value="Node.js" label="Node.js">
 
@@ -78,6 +83,7 @@ document.querySelectorAll('main.fit a[href*="/product/"]');
 $('main.fit a[href*="/product/"]');
 
 ```
+
 </TabItem>
 </Tabs>
 

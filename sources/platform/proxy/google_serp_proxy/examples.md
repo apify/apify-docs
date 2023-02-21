@@ -55,6 +55,7 @@ await crawler.run(['http://www.google.com/search?q=wikipedia']);
 await Actor.exit();
 
 ```
+
 </TabItem>
 
 
@@ -81,6 +82,7 @@ console.log(body);
 await Actor.exit();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -116,6 +118,7 @@ await crawler.run([`http://www.google.co.uk/search?q=${query}&tbm=shop`]);
 await Actor.exit();
 
 ```
+
 </TabItem>
 
 <TabItem value="gotScraping()" label="gotScraping()">
@@ -142,6 +145,7 @@ console.log(body);
 await Actor.exit();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -186,6 +190,7 @@ const { data } = await axios.get(url, { proxy, params });
 console.log(data);
 
 ```
+
 </TabItem>
 
 
@@ -210,6 +215,7 @@ query = parse.urlencode({ 'q': 'wikipedia' })
 print(opener.open(f"http://www.google.com/search?{query}").read())
 
 ```
+
 </TabItem>
 
 
@@ -238,6 +244,7 @@ url = (
 print(opener.open(url).read())
 
 ```
+
 </TabItem>
 
 
@@ -258,6 +265,7 @@ echo $response;
 ?>
 
 ```
+
 </TabItem>
 
 <TabItem value="PHP (Guzzle)" label="PHP (Guzzle)">
@@ -278,6 +286,7 @@ $response = $client->get("http://www.google.com/search", [
 echo $response->getBody();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -312,6 +321,7 @@ const { data } = await axios.get(url, { proxy, params });
 console.log(data);
 
 ```
+
 </TabItem>
 
 
@@ -334,6 +344,7 @@ query = parse.urlencode({ 'q': 'Apple iPhone XS 64GB', 'tbm': 'shop' })
 print(opener.open(f"http://www.google.co.uk/search?{query}").read())
 
 ```
+
 </TabItem>
 
 
@@ -362,6 +373,7 @@ url = (
 print(opener.open(url).read())
 
 ```
+
 </TabItem>
 
 
@@ -382,6 +394,7 @@ echo $response;
 ?>
 
 ```
+
 </TabItem>
 
 
@@ -406,5 +419,6 @@ $response = $client->get("http://www.google.co.uk/search", [
 echo $response->getBody();
 
 ```
+
 </TabItem>
 </Tabs>

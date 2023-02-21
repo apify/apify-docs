@@ -1,9 +1,8 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+// eslint-disable-next-line import/no-relative-packages
 import ExternalLinkIcon from '../../apify-docs-theme/static/img/external-link.svg';
 import styles from './Cards.module.css';
-
-// eslint-disable-next-line import/no-extraneosus-dependencies
 
 const PlatformLink = ({ cardItem, href, isExternalLink }) => (
     <Link to={href}>

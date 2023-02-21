@@ -42,6 +42,7 @@ After installing the package, let's make a file named **client** and import the 
 import { ApifyClient } from 'apify-client';
 
 ```
+
 </TabItem>
 <TabItem value="Python" label="Python">
 
@@ -50,6 +51,7 @@ import { ApifyClient } from 'apify-client';
 from apify_client import ApifyClient
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -68,6 +70,7 @@ const client = new ApifyClient({
 });
 
 ```
+
 </TabItem>
 <TabItem value="Python" label="Python">
 
@@ -75,6 +78,7 @@ const client = new ApifyClient({
 client = ApifyClient(token='YOUR_TOKEN')
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -92,6 +96,7 @@ const run = await client.actor('YOUR_USERNAME/adding-actor').call({
 });
 
 ```
+
 </TabItem>
 <TabItem value="Python" label="Python">
 
@@ -102,6 +107,7 @@ run = client.actor('YOUR_USERNAME/adding-actor').call(run_input={
 })
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -122,6 +128,7 @@ The `run` variable we created in the last section points to the **run info** obj
 const dataset = client.dataset(run['defaultDatasetId'])
 
 ```
+
 </TabItem>
 <TabItem value="Python" label="Python">
 
@@ -129,6 +136,7 @@ const dataset = client.dataset(run['defaultDatasetId'])
 dataset = client.dataset(run['defaultDatasetId'])
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -143,6 +151,7 @@ const { items } = await dataset.listItems();
 console.log(items);
 
 ```
+
 </TabItem>
 <TabItem value="Python" label="Python">
 
@@ -152,6 +161,7 @@ items = dataset.list_items().items
 print(items)
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -182,6 +192,7 @@ const { items } = await dataset.listItems();
 console.log(items);
 
 ```
+
 </TabItem>
 <TabItem value="Python" label="Python">
 
@@ -203,6 +214,7 @@ items = dataset.list_items().items
 print(items)
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -221,6 +233,7 @@ First, we'll create a pointer to our actor, similar to as before (except this ti
 const actor = client.actor('YOUR_USERNAME/adding-actor')
 
 ```
+
 </TabItem>
 <TabItem value="Python" label="Python">
 
@@ -228,6 +241,7 @@ const actor = client.actor('YOUR_USERNAME/adding-actor')
 actor = client.actor('YOUR_USERNAME/adding-actor')
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -246,6 +260,7 @@ await actor.update({
 });
 
 ```
+
 </TabItem>
 <TabItem value="Python" label="Python">
 
@@ -253,6 +268,7 @@ await actor.update({
 actor.update(default_run_build='latest', default_run_memory_mbytes=256, default_run_timeout_secs=20)
 
 ```
+
 </TabItem>
 </Tabs>
 

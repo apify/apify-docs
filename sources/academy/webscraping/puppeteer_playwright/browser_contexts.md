@@ -26,6 +26,7 @@ When we create a **Browser** object by using the `launch()` function, a single [
 const myNewContext = await browser.newContext();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -33,6 +34,7 @@ const myNewContext = await browser.newContext();
 const myNewContext = await browser.createIncognitoBrowserContext();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -57,6 +59,7 @@ const page = await browser.newPage();
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -72,6 +75,7 @@ const page = await browser.newPage();
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -105,6 +109,7 @@ const androidPage = await androidContext.newPage();
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -135,6 +140,7 @@ await androidPage.emulate(android);
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -171,6 +177,7 @@ for (const context of browser.contexts()) {
 }
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -182,6 +189,7 @@ for (const context of browser.browserContexts()) {
 }
 
 ```
+
 </TabItem>
 </Tabs>
 

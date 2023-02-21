@@ -117,6 +117,7 @@ export default function ApiDocs() {
     React.useEffect(() => {
         loadApiaryScripts();
         document.documentElement.setAttribute('style', 'scroll-behavior: auto;');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

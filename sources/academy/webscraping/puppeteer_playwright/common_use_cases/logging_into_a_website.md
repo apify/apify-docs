@@ -62,6 +62,7 @@ await page.waitForLoadState('load');
 await page.waitForTimeout(10000)
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -91,6 +92,7 @@ await Promise.all([page.waitForNavigation(), page.click('button[name="verifyPass
 await page.waitForTimeout(10000)
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -141,6 +143,7 @@ First, we'll grab the cookies we generated:
 const cookies = await browser.contexts()[0].cookies();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -149,6 +152,7 @@ const cookies = await browser.contexts()[0].cookies();
 const cookies = await page.cookies();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -176,6 +180,7 @@ await page2.goto('https://mail.yahoo.com/');
 await page2.waitForTimeout(10000);
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -193,6 +198,7 @@ await page2.goto('https://mail.yahoo.com/');
 await page2.waitForTimeout(10000);
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -243,6 +249,7 @@ const promises = emailsToSend.map(({ to, subject, body }) =>
 await Promise.all(promises);
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -279,6 +286,7 @@ const promises = emailsToSend.map(({ to, subject, body }) =>
 await Promise.all(promises);
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -366,6 +374,7 @@ await Promise.all(promises);
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -434,6 +443,7 @@ await Promise.all(promises);
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 

@@ -29,6 +29,7 @@ await chromium.launch();
 console.log('launched!');
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -40,6 +41,7 @@ await puppeteer.launch();
 console.log('launched!');
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -60,6 +62,7 @@ import { chromium } from 'playwright';
 await chromium.launch({ headless: false });
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -69,6 +72,7 @@ import puppeteer from 'puppeteer';
 await puppeteer.launch({ headless: false });
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -95,6 +99,7 @@ const browser = await chromium.launch({ headless: false });
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -108,6 +113,7 @@ const browser = await puppeteer.launch({ headless: false });
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 

@@ -74,6 +74,7 @@ console.log(lastPage);
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -100,6 +101,7 @@ console.log(lastPage);
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -158,6 +160,7 @@ console.log(repositories);
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -203,6 +206,7 @@ console.log(repositories);
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -318,6 +322,7 @@ console.log(repositories.length);
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -381,6 +386,7 @@ console.log(repositories.length);
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -419,6 +425,7 @@ await page.goto('https://www.aboutyou.com/c/women/clothing-20204');
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -438,6 +445,7 @@ await page.goto('https://www.aboutyou.com/c/women/clothing-20204');
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -467,6 +475,7 @@ while (products.length < 75) {
 }
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -479,6 +488,7 @@ while (products.length < 75) {
 }
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -509,6 +519,7 @@ while (products.length < 75) {
 }
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -534,6 +545,7 @@ while (products.length < 75) {
 }
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -626,6 +638,7 @@ console.log(products.slice(0, 75));
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -685,6 +698,7 @@ console.log(products.slice(0, 75));
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 

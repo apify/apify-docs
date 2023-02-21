@@ -10,7 +10,6 @@ slug: /tutorials/apify-scrapers/web-scraper
 
 [//]: # (TODO: Should be updated)
 
-# 
 This scraping tutorial will go into the nitty gritty details of extracting data from **<https://apify.com/store>**
 using **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)). If you arrived here from the [Getting started with Apify scrapers](https://docs.apify.com/tutorials/apify-scrapers/getting-started),
 tutorial, great! You are ready to continue where we left off. If you haven't seen the Getting started yet,
@@ -143,7 +142,7 @@ using a regular expression, but its type is still a `string`, so we finally conv
 > Then we extract the match via `.match(/[\d,]+/)[0]` and finally remove all the commas by calling `.replace(/,/g, '')`.
 > We need to use `/,/g` with the global modifier to support large numbers with multiple separators, without it
 > we would replace only the very first occurrence.
-> 
+>
 > This will give us a string (e.g. `'1234567'`) that can be converted via `Number` function.
 
 ### [](#wrapping-it-up) Wrapping it up
@@ -533,9 +532,9 @@ Thank you for reading this whole tutorial! Really! It's important to us that our
 
 ## [](#whats-next) What's next?
 
-* Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
-* [Take a deep dive into actors](https://docs.apify.com/actors), from how they work to [publishing](https://docs.apify.com/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on actors.
-* Found out you're not into the coding part but would still to use Apify actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom actor](https://apify.com/custom-solutions) from an Apify-certified developer.
+- Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
+- [Take a deep dive into actors](https://docs.apify.com/actors), from how they work to [publishing](https://docs.apify.com/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on actors.
+- Found out you're not into the coding part but would still to use Apify actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom actor](https://apify.com/custom-solutions) from an Apify-certified developer.
 
 
 **Learn how to scrape a website using Apify's Web Scraper. Build an actor's page function, extract information from a web page and download your data.**

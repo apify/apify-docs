@@ -1,8 +1,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
-import styles from './Cards.module.css';
 import clsx from 'clsx';
-// eslint-disable-next-line import/no-extraneosus-dependencies
+import styles from './Cards.module.css';
 
 const AcademyCard = ({ to, imageUrl, title, desc }) => {
     return (

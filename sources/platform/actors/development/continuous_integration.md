@@ -49,6 +49,7 @@ jobs:
           webhook_secret: ${{ secrets.APIFY_TOKEN }}
 
 ```
+
 </TabItem>
 
 
@@ -74,6 +75,7 @@ jobs:
           webhook_secret: ${{ secrets.APIFY_TOKEN }}
 
 ```
+
 </TabItem>
 </Tabs>
 

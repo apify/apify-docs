@@ -122,6 +122,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -155,6 +156,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 

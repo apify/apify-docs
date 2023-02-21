@@ -18,7 +18,7 @@ These actors start with a pre-defined list of URLs ([start URLs](./apify_scraper
 ![Add Start URLs in Apify Console](./images/start-url.png)
 
 Let's say you have the start URLs you want to crawl stored in a [Google Sheets](https://www.google.com/sheets/about/) spreadsheet, such as [this one](
-https://docs.google.com/spreadsheets/d/1GA5sSQhQjB_REes8I5IKg31S-TuRcznWOPjcpNqtxmU).
+<https://docs.google.com/spreadsheets/d/1GA5sSQhQjB_REes8I5IKg31S-TuRcznWOPjcpNqtxmU>).
 
 ![Start URLs in a spreadsheet](./images/start-urls-in-spreadsheet.png)
 

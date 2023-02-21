@@ -40,6 +40,7 @@ Let's first focus on the first 3 steps listed above. By using `page.click()` and
 await page.click('button:has-text("I agree")');
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -48,6 +49,7 @@ await page.click('button:has-text("I agree")');
 await page.click('button + button');
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -98,6 +100,7 @@ await page.waitForTimeout(10000)
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -123,6 +126,7 @@ await page.waitForTimeout(10000)
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -157,6 +161,7 @@ await page.waitForTimeout(10000)
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -183,6 +188,7 @@ await page.waitForTimeout(10000)
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 

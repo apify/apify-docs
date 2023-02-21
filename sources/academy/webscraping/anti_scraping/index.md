@@ -21,6 +21,7 @@ In development, it is crucial to check and adjust the configurations related to 
 ## Quick start {#quick-start}
 
 If you don't have time to read about the theory behind anti-scraping protections to fine-tune your scraping project and instead you just need to get unblocked ASAP, here are some quick tips:
+
 - Use high-quality proxies. [Residential proxies](/platform/proxy/residential-proxy) are the least blocked. There are many providers out there like Apify, BrightData, Oxylabs, NetNut, etc.
 - Set **real-user-like HTTP settings** and **browser fingerprints**. [Crawlee](https://crawlee.dev/) uses statistically generated realistic HTTP headers and browser fingerprints by default for all of its crawlers.
 - Use a modern browser to pass bot capture challenges. We recommend [Playwright with Firefox](https://crawlee.dev/docs/examples/playwright-crawler-firefox) because it is not that common for scraping. You can also play with [non-headless mode](https://crawlee.dev/api/playwright-crawler/interface/PlaywrightCrawlerOptions#headless) and adjust other [fingerprint settings](https://crawlee.dev/api/browser-pool/interface/FingerprintGeneratorOptions).
@@ -30,6 +31,7 @@ If you don't have time to read about the theory behind anti-scraping protections
 In the vast majority of cases, this configuration should lead to success. Success doesn't mean that all requests will go through unblocked, that is not realistic. Some IP addresses and fingerprint combinations will still be blocked but the automatic retry system takes care of that. If you can get at least 10% of your requests through, you can still scrape the whole website with enough retries. The default [SessionPool](https://crawlee.dev/api/core/class/SessionPool) configuration will preserve the working sessions and eventually the success rate will increase.
 
 If the above tips didn't help, you can try to fiddle with the following:
+
 - Try different browsers. Crawlee & Playwright support Chromium, Firefox and WebKit out of the box. You can also try the [Brave browser](https://brave.com) which [can be configured for Playwright](https://blog.apify.com/unlocking-the-potential-of-brave-and-playwright-for-browser-automation).
 - Don't use browsers at all. Sometimes the anti-scraping protections are extremely sensitive to browser behavior but will allow plain HTTP requests (with the right headers) just fine. Don't forget to match the specific [HTTP headers](/academy/concepts/http-headers) for each request.
 - Decrease concurrency. Slower scraping means you can blend in better with the rest of the traffic.
@@ -66,7 +68,7 @@ Anti-scraping protections can work on many different layers and use a large amou
 3. **What you are scraping** - There are many ways to extract the same data from a website. You can just get the inital HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
 4. **How you behave** - The website can see patterns in how you are ordering your requests, how fast you are scraping, etc. It can also analyse browser behavior like mouse movement, clicks or key presses.
 
-Not all websites use all of these principles but they encompass the possibilities websites have to track and block bots. All techniques that help you mitigate anti-scraping protections are based on making yourself blend in with the crowd of regular users with each of these principles. 
+Not all websites use all of these principles but they encompass the possibilities websites have to track and block bots. All techniques that help you mitigate anti-scraping protections are based on making yourself blend in with the crowd of regular users with each of these principles.
 
 There are two main ways a bot can be detected, which follow two different types of web scraping:
 

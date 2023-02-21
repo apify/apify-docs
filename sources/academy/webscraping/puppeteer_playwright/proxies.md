@@ -41,6 +41,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -58,6 +59,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -89,6 +91,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -110,6 +113,7 @@ await page.waitForTimeout(10000);
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -149,6 +153,7 @@ const browser = await chromium.launch({
 });
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -166,6 +171,7 @@ const browser = await puppeteer.launch({
 });
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -192,6 +198,7 @@ const browser = await chromium.launch({
 // Proxy will now be authenticated
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -213,6 +220,7 @@ await page.authenticate({ username, password });
 // Proxy will now be authenticated
 
 ```
+
 </TabItem>
 </Tabs>
 

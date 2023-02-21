@@ -68,4 +68,4 @@ Aside from importing libraries and downloading HTML, we loaded the HTML into Che
 
 ## Next Up {#next}
 
-After running the code, you will see quite a lot of links in the terminal. Some of them may look weird because they don't start with the regular **https://** protocol. We'll learn what to do with them in the [next lesson](./filtering_links.md).
+After running the code, you will see quite a lot of links in the terminal. Some of them may look weird because they don't start with the regular **<https://>** protocol. We'll learn what to do with them in the [next lesson](./filtering_links.md).

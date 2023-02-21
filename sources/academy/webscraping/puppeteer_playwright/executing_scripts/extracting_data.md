@@ -45,6 +45,7 @@ await page.waitForTimeout(10000)
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -63,6 +64,7 @@ await page.waitForTimeout(10000)
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -187,6 +189,7 @@ const $ = load(await page.content());
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -206,6 +209,7 @@ const $ = load(await page.content());
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 
@@ -268,6 +272,7 @@ console.log(products);
 await browser.close();
 
 ```
+
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
@@ -301,6 +306,7 @@ console.log(products);
 await browser.close();
 
 ```
+
 </TabItem>
 </Tabs>
 

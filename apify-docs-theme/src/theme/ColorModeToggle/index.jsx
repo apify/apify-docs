@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 function ColorModeToggle({
     className,
     value,
-    onChange
+    onChange,
 }) {
     const isBrowser = useIsBrowser();
     const title = translate(

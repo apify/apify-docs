@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import Layout from '@theme/Layout';
 
@@ -75,7 +76,7 @@ export default function Home() {
                 </div>
             </Section>
             <Section heading="Build on Apify">
-                <div className={styles.cardsWrapper} style={{ marginBottom: "24px" }}>
+                <div className={styles.cardsWrapper} style={{ marginBottom: '24px' }}>
                     <CardWithIcon
                         icon={<RectangleJavaScriptIcon />}
                         title="SDK for JavaScript"
@@ -105,11 +106,11 @@ export default function Home() {
                         width="calc(50% - 12px)"
                     />
                     <CardWithIcon
-                      icon={<CliIcon />}
-                      title="Apify CLI"
-                      description="Create actors from your computer's CLI. Run them locally or deploy them to the Apify platform."
-                      to="/cli/"
-                      width="calc(50% - 12px)"
+                        icon={<CliIcon />}
+                        title="Apify CLI"
+                        description="Create actors from your computer's CLI. Run them locally or deploy them to the Apify platform."
+                        to="/cli/"
+                        width="calc(50% - 12px)"
                     />
                 </div>
             </Section>

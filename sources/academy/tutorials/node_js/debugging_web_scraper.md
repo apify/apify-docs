@@ -13,9 +13,7 @@ Pressing F12 while browsing with Chrome, Firefox, or other popular browsers open
 
 # Running code in a browser console
 
-**Test your Page Function's code directly in your browser's console**
-
----
+> Test your Page Function's code directly in your browser's console.
 
 First, you need to inject jQuery. You can try to paste and run this snippet.
 
