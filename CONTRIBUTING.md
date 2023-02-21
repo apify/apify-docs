@@ -2,16 +2,6 @@
 
 ## Architecture
 
-- one root docusaurus instance for docs + academy + static content like homepage (this repo)
-- N docusaurus instances, one for each project (e.g. `apify-client-js` repo)
-- all instances are routed to the same hostname (reverse proxy), projects have their predefined prefix (used as
-  the `baseUrl` in docusaurus)
-- project instances can/will be deployed to GH pages on push
-- all links in shared components need to be absolute to escape the SPA/AJAX links
-- the layout/theme should be shared (currently just copies)
-
-## Local setup
-
 Currently, there are 6 separate projects outside of this repo:
 
 - apify-client-js
@@ -21,7 +11,17 @@ Currently, there are 6 separate projects outside of this repo:
 - apify-cli
 - apify-docs (this repository)
 
-Clone those, checkout the `docs-v2` branch if still not merged to master. Then you can start the docusaurus instances in them.
+The main documentation content for Platform docs and Academy is inside the `./sources` directory. Every project repository then has its own docusaurus instance and is available on a URL prefix (used as the `baseUrl` in docusaurus) that is routed via nginx reverse proxy to the main domain. All those docusaurus instances are deployed to GH pages on push.
+
+We use a shared docusaurus theme published to NPM as `@apify/docs-theme`, that is automatically synced in all the repositories via CI.
+
+## Local setup
+
+If you want to work only on the main documentation content, cloning this repository is enough, Once you install and run `npm start`, the main portal will open on <http://localhost:3000>. All the links in navbar and footer need to be absolute, and they will use a different hostname, configured to `docs.apify.loc` - to use that, follow the steps below and set up the nginx server.
+
+Alternatively, you can skip the nginx part and navigate to <http://localhost:3000/academy> or <http://localhost:3000/platform> manually instead of using links in navbar. All relative links should work fine there, the problem with absolute links is only with shared components. The nginx server is needed only for testing the whole setup and mapping all the different ports to a single one.
+
+Clone all the repositories, checkout the `docs-v2` branch (if still not merged to `master`). Then you can start the docusaurus instances in them.
 
 | repo                | branch  | port |
 |---------------------|---------|------|
