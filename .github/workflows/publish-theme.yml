@@ -17,7 +17,7 @@ jobs:
                   fetch-depth: 0
 
           -   name: Use Node.js 16
-              uses: actions/setup-node@v2-beta
+              uses: actions/setup-node@v3
               with:
                   node-version: 16
 
@@ -39,7 +39,7 @@ jobs:
                     token: ${{ secrets.GH_TOKEN }}
 
             -   name: Use Node.js 16
-                uses: actions/setup-node@v2-beta
+                uses: actions/setup-node@v3
                 with:
                     node-version: 16
 
@@ -47,7 +47,7 @@ jobs:
                 run: |
                     git config --global user.name "Apify Release Bot"
                     git config --global user.email "noreply@apify.com"
-                    
+
                     cd $GITHUB_WORKSPACE/apify-docs-theme
                     echo "access=public" > .npmrc
                     echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
@@ -69,7 +69,7 @@ jobs:
             - name: Wait until the new theme version is available on npm
               run: |
                 cd $GITHUB_WORKSPACE/apify-docs-theme
-                PACKAGE_JSON=$(cat package.json); 
+                PACKAGE_JSON=$(cat package.json);
                 PACKAGE_NAME=$(jq -r .name <(echo $PACKAGE_JSON));
                 PACKAGE_VER=$(jq -r .version <(echo $PACKAGE_JSON));
                 for i in $(seq 1 10); do
