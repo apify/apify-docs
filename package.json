@@ -1,7 +1,6 @@
 {
-    "name": "apify-docs-v2",
+    "name": "apify-docs",
     "scripts": {
-        "examples": "docusaurus-examples",
         "start": "npm run install-theme && rimraf .docusaurus && LOCAL=1 docusaurus start",
         "install-theme": "cd ./apify-docs-theme && npm i && cd ../",
         "build": "npm run install-theme && rimraf .docusaurus && docusaurus build",
@@ -9,7 +8,7 @@
         "write-translations": "docusaurus write-translations",
         "version": "docusaurus version",
         "rename-version": "docusaurus rename-version",
-        "prettify": "prettier --write --config ./tools/docs-prettier.config.js ../docs/apify-sdk/guides/*.md",
+        "prettify": "prettier --write --config ./tools/docs-prettier.config.js ./sources/**/*.md",
         "swizzle": "docusaurus swizzle",
         "deploy": "rimraf .docusaurus && docusaurus deploy",
         "docusaurus": "docusaurus",

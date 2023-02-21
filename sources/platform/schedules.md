@@ -16,17 +16,9 @@ slug: /schedules
 
 > Schedules allow timezone settings and support daylight saving time shifts (DST).
 
-You can set up and manage schedules from
-[Apify Console](https://console.apify.com/schedules)
-and via [API](/api/v2#/reference/schedules)
-(also with the
-[JavaScript](/api/client/js/reference/class/ScheduleClient) and
-[Python](/api/client/python/reference/class/ScheduleClient)
-API clients).
-When scheduling a new actor or task run, you can override its input settings using a JSON object similarly to when invoking a schedule using the [Apify API](/api/v2#/reference/schedules/).
+You can set up and manage schedules from [Apify Console](https://console.apify.com/schedules) and via [API](/api/v2#/reference/schedules) (also with the [JavaScript](/api/client/js/reference/class/ScheduleClient) and [Python](/api/client/python/reference/class/ScheduleClient) API clients). When scheduling a new actor or task run, you can override its input settings using a JSON object similarly to when invoking a schedule using the [Apify API](/api/v2#/reference/schedules/).
 
-> In most cases, scheduled events are fired within one second of their scheduled time. <br/>
-> Occasionally, however, runs can be delayed because of a system overload or a server shutting down.
+> In most cases, scheduled events are fired within one second of their scheduled time. <br/> Occasionally, however, runs can be delayed because of a system overload or a server shutting down.
 
 Each schedule can be associated with a maximum of 10 actors and 10 actor tasks.
 
@@ -48,13 +40,9 @@ In the **Settings** tab, give your schedule a memorable name, add a description,
 
 Next, you'll need to give the schedule something to run. This is where the actor or task you prepared earlier comes in. Switch to the **Actors and Tasks** tab, and click the **Add [new]** button.
 
-If you're scheduling an actor run, you'll be able to specify the actor's [input](./actors/running/input.md) and running options like
-[build](./actors/development/builds.md),
-timeout,
-[memory](./actors/running/memory_and_cpu.md).
-The **timeout** value is specified in seconds; a value of **0** means there is no timeout and the actor runs until it finishes.
+If you're scheduling an actor run, you'll be able to specify the actor's [input](./actors/running/input.md) and running options like [build](./actors/development/builds.md), timeout, [memory](./actors/running/memory_and_cpu.md). The **timeout** value is specified in seconds; a value of **0** means there is no timeout and the actor runs until it finishes.
 
- If you don't provide an input, then the actor's default input is used. If you provide an input with some fields missing, the missing fields are filled in with values from the default input. If input options are not provided, the default options values are used.
+If you don't provide an input, then the actor's default input is used. If you provide an input with some fields missing, the missing fields are filled in with values from the default input. If input options are not provided, the default options values are used.
 
 ![Add actor to schedule](./images/schedule-actor-run.png)
 
@@ -82,22 +70,22 @@ The below JSON object creates a schedule which runs an SEO audit of the Apify do
 
 ```json
 {
-  "name": "apify-domain-monthly-seo-audit",
-  "userId": "7AxwNO4kCDZxsMHip",
-  "isEnabled": true,
-  "isExclusive": true,
-  "cronExpression": "@monthly",
-  "timezone": "UTC",
-  "description": "A monthly audit of the Apify domain's SEO",
-  "actions": [
-    {
-      "type": "RUN_ACTOR_TASK",
-      "actorTaskId": "6rHoK2zjYJkmYhSug",
-      "input": {
-        "startUrl": "https://apify.com"
-      }
-    }
-  ]
+    "name": "apify-domain-monthly-seo-audit",
+    "userId": "7AxwNO4kCDZxsMHip",
+    "isEnabled": true,
+    "isExclusive": true,
+    "cronExpression": "@monthly",
+    "timezone": "UTC",
+    "description": "A monthly audit of the Apify domain's SEO",
+    "actions": [
+        {
+            "type": "RUN_ACTOR_TASK",
+            "actorTaskId": "6rHoK2zjYJkmYhSug",
+            "input": {
+                "startUrl": "https://apify.com"
+            }
+        }
+    ]
 }
 ```
 
@@ -122,13 +110,13 @@ You can find more information and examples of cron expressions on [crontab.guru]
 A cron expression has the following structure:
 
 | Position | Field        | Values                         | Wildcards | Optional |
-|----------|--------------|--------------------------------|-----------|----------|
-| 1        | second       | 0 - 59                         | , - * /   | yes      |
-| 2        | minute       | 0 - 59                         | , - * /   | no       |
-| 3        | hour         | 0 - 23                         | , - * /   | no       |
-| 4        | day of month | 1 - 31                         | , - * /   | no       |
-| 5        | month        | 1 - 12                         | , - * /   | no       |
-| 6        | day of week  | 0 - 7 <br/> (0 or 7 is Sunday) | , - * /   | no       |
+| -------- | ------------ | ------------------------------ | --------- | -------- |
+| 1        | second       | 0 - 59                         | , - \* /  | yes      |
+| 2        | minute       | 0 - 59                         | , - \* /  | no       |
+| 3        | hour         | 0 - 23                         | , - \* /  | no       |
+| 4        | day of month | 1 - 31                         | , - \* /  | no       |
+| 5        | month        | 1 - 12                         | , - \* /  | no       |
+| 6        | day of week  | 0 - 7 <br/> (0 or 7 is Sunday) | , - \* /  | no       |
 
 For example, the expression `30 5 16 * * 1` will start an actor at 16:05:30 every Monday.
 
@@ -136,18 +124,18 @@ The minimum interval between runs is 10 seconds; if your next run is scheduled s
 
 ### Examples of cron expressions
 
-- `0 8 * * *`  -  every day at 8am.
-- `0 0 * * 0` - every 7 days (at 00:00 on Sunday).
-- `*/3 * * * *` - every 3rd minute.
-- `0 0 1 */2 *` - every other month (at 00:00 on the first day of month, every 2nd month).
+-   `0 8 * * *` - every day at 8am.
+-   `0 0 * * 0` - every 7 days (at 00:00 on Sunday).
+-   `*/3 * * * *` - every 3rd minute.
+-   `0 0 1 */2 *` - every other month (at 00:00 on the first day of month, every 2nd month).
 
 Additionally, you can use the following shortcut expressions:
 
-- `@yearly` = `0 0 1 1 *` - once a year, on Jan 1st at midnight.
-- `@monthly` = `0 0 1 * *` - once a month, on the 1st at midnight.
-- `@weekly` = `0 0 * * 0` - once a week, on Sunday at midnight.
-- `@daily` = `0 0 * * *` - run once a day, at midnight.
-- `@hourly` = `0 * * * *` - on the hour, every hour.
+-   `@yearly` = `0 0 1 1 *` - once a year, on Jan 1st at midnight.
+-   `@monthly` = `0 0 1 * *` - once a month, on the 1st at midnight.
+-   `@weekly` = `0 0 * * 0` - once a week, on Sunday at midnight.
+-   `@daily` = `0 0 * * *` - run once a day, at midnight.
+-   `@hourly` = `0 * * * *` - on the hour, every hour.
 
 ## Sharing
 

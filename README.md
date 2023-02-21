@@ -86,7 +86,7 @@ server {
     proxy_pass https://apify.github.io/apify-client-python/;
   }
   location /sdk/js {
-    proxy_pass https://apify.github.io/apify-sdk-js-v2/;
+    proxy_pass https://apify.github.io/apify-sdk-js/;
   }
   location /sdk/python {
     proxy_pass https://apify.github.io/apify-sdk-python/;
