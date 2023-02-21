@@ -45,6 +45,7 @@
 }
 
 .footerLogo {
+    display: inline-block;
     width: 90px;
     height: 24px;
     background-image: url('/img/footer-apify-logo-black.svg');

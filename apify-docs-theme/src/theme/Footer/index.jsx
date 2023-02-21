@@ -39,7 +39,9 @@ function Footer() {
                 </div>
                 <div className="row padding-vert--md padding-top--lg">
                     <div className="col padding-vert--md col--6">
-                        <div className={styles.footerLogo}></div>
+                        <a href="https://apify.com" target={'_blank'} rel={'dofollow'}>
+                            <span className={styles.footerLogo}></span>
+                        </a>
                     </div>
                 </div>
             </div>
