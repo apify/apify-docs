@@ -1,5 +1,20 @@
 {
     "name": "apify-docs",
+    "version": "2.0.0",
+    "description": "This is a home of Apify documentation.",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/apify/apify-docs.git"
+    },
+    "keywords": [
+        "documentation",
+        "apify"
+    ],
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/apify/apify-docs/issues"
+    },
+    "homepage": "https://github.com/apify/apify-docs#readme",
     "scripts": {
         "start": "npm run install-theme && rimraf .docusaurus && LOCAL=1 docusaurus start",
         "install-theme": "cd ./apify-docs-theme && npm i && cd ../",
