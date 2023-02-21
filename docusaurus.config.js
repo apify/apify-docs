@@ -10,7 +10,7 @@ module.exports = {
     baseUrl: '/',
     trailingSlash: false,
     organizationName: 'apify',
-    projectName: 'apify-docs-v2',
+    projectName: 'apify-docs',
     scripts: ['/js/custom.js'],
     favicon: 'img/favicon.ico',
     onBrokenLinks:
@@ -23,7 +23,7 @@ module.exports = {
             /** @type {import('./apify-docs-theme/types').ThemeOptions} */
             ({
                 // subNavbar: {
-                //     title: 'Apify Docs v2',
+                //     title: 'Apify Docs',
                 //     items: [
                 //         {
                 //             label: 'Subnav 1',
@@ -45,8 +45,7 @@ module.exports = {
                 //             items: [
                 //                 {
                 //                     label: 'Reference',
-                //                     // TODO
-                //                     href: 'https://docs.apify.com/api/v2',
+                //                     href: `${config.absoluteUrl}/api/v2`,
                 //                 },
                 //                 {
                 //                     label: 'Client for JavaScript',
@@ -75,8 +74,7 @@ module.exports = {
                 docs: {
                     showLastUpdateAuthor: true,
                     showLastUpdateTime: true,
-                    // TODO change once the repo is migrated
-                    editUrl: 'https://github.com/apify/apify-docs-v2/edit/master/',
+                    editUrl: 'https://github.com/apify/apify-docs/edit/master/',
                     path: './sources/platform',
                     routeBasePath: 'platform',
                     sidebarPath: require.resolve('./sources/platform/sidebars.js'),
@@ -98,8 +96,7 @@ module.exports = {
                 rehypePlugins: [externalLinkProcessor],
                 showLastUpdateAuthor: true,
                 showLastUpdateTime: true,
-                // TODO change once the repo is migrated
-                editUrl: 'https://github.com/apify/apify-docs-v2/edit/master/',
+                editUrl: 'https://github.com/apify/apify-docs/edit/master/',
                 sidebarPath: require.resolve('./sources/academy/sidebars.js'),
             },
         ],
