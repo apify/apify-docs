@@ -124,18 +124,18 @@ The minimum interval between runs is 10 seconds; if your next run is scheduled s
 
 ### Examples of cron expressions
 
--   `0 8 * * *` - every day at 8am.
--   `0 0 * * 0` - every 7 days (at 00:00 on Sunday).
--   `*/3 * * * *` - every 3rd minute.
--   `0 0 1 */2 *` - every other month (at 00:00 on the first day of month, every 2nd month).
+- `0 8 * * *` - every day at 8am.
+- `0 0 * * 0` - every 7 days (at 00:00 on Sunday).
+- `*/3 * * * *` - every 3rd minute.
+- `0 0 1 */2 *` - every other month (at 00:00 on the first day of month, every 2nd month).
 
 Additionally, you can use the following shortcut expressions:
 
--   `@yearly` = `0 0 1 1 *` - once a year, on Jan 1st at midnight.
--   `@monthly` = `0 0 1 * *` - once a month, on the 1st at midnight.
--   `@weekly` = `0 0 * * 0` - once a week, on Sunday at midnight.
--   `@daily` = `0 0 * * *` - run once a day, at midnight.
--   `@hourly` = `0 * * * *` - on the hour, every hour.
+- `@yearly` = `0 0 1 1 *` - once a year, on Jan 1st at midnight.
+- `@monthly` = `0 0 1 * *` - once a month, on the 1st at midnight.
+- `@weekly` = `0 0 * * 0` - once a week, on Sunday at midnight.
+- `@daily` = `0 0 * * *` - run once a day, at midnight.
+- `@hourly` = `0 * * * *` - on the hour, every hour.
 
 ## Sharing
 

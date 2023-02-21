@@ -1,20 +1,14 @@
 name: Check & Release
 
 on:
-    # Push to master will deploy a dev version
     push:
         branches: [ master, renovate/** ]
-    # PR to master branch will skip deployment
     pull_request:
         branches: [ master ]
-    # A release via GitHub releases will deploy the latest version
-    release:
-        types: [ published ]
 
 jobs:
-    docs:
+    build:
         name: Docs build
-        if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
@@ -30,11 +24,42 @@ jobs:
             -   name: Install Dependencies
                 run: npm ci --force
 
-            -   name: Lint Markdown
-                run: npm run lint:md:fix
+            -   run: npm run build
 
-            -   name: Lint code
-                run: npm run lint:code:fix
+    lint_content:
+        name: Lint markdown content
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout Source code
+                uses: actions/checkout@v3
 
-            -   name: Build & deploy docs
-                run: npm run build
+            -   name: Use Node.js 16
+                uses: actions/setup-node@v3
+                with:
+                    node-version: 16
+                    cache: 'npm'
+                    cache-dependency-path: 'package-lock.json'
+
+            -   name: Install Dependencies
+                run: npm ci --force
+
+            -   run: npm run lint:md
+
+    lint_code:
+        name: Lint app code
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout Source code
+                uses: actions/checkout@v3
+
+            -   name: Use Node.js 16
+                uses: actions/setup-node@v3
+                with:
+                    node-version: 16
+                    cache: 'npm'
+                    cache-dependency-path: 'package-lock.json'
+
+            -   name: Install Dependencies
+                run: npm ci --force
+
+            -   run: npm run lint:code
