@@ -10,7 +10,7 @@ paths:
 
 This page explains how the new pricing model for actors in [Apify store](https://apify.com/store) allows you to pay only for the results an actor generates and not the underlying platform usage. This makes it transparent and easy to estimate upfront costs. If you have any feedback or would like to ask something, please join our [Discord](https://discord.gg/qkMS6pU4cF) community and let us know!
 
-# Traditional approach - paying for usage
+## Traditional approach - paying for usage
 
 There are two types of public actors in [Apify Store](https://apify.com/store): free and [paid actors](https://docs.apify.com/platform/actors/paid-actors). The latter requires a monthly fee to rent the actor and use it after its trial period. When you run either a free or paid actor from the store, they generate platform usage that is subtracted from your prepaid usage, which is either $5 on the free plan or prepaid usage given by your subscription plan.
 
