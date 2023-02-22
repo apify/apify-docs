@@ -37,6 +37,7 @@ A single isolated actor consists of source code and various settings. You can th
   * [State persistence]({{@link actors/development/state_persistence.md}})
   * [Testing and maintenance]({{@link actors/development/testing_and_maintenance.md}})
 * [Paid actors]({{@link actors/paid_actors.md}})
+* [Actors paid per result]({{@link actors/pay_per_result_actors.md}})
 * [Publishing]({{@link actors/publishing.md}})
 * [Naming your actor](https://developers.apify.com/academy/apify-platform/get-most-of-actors/naming-your-actor)
 * [SEO and promotion](https://developers.apify.com/academy/apify-platform/get-most-of-actors/seo-and-promotion)
