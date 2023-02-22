@@ -8,8 +8,7 @@ paths:
     - actors/pay-per-result-actors
 ---
 
-This page explains a new pricing model for actors in the [Apify store](https://apify.com/store) that allows you to pay only for the results an actor generates and not the underlying platform usage.
-This makes it transparent and easy to estimate upfront costs. If you have any feedback or would like to ask something, please join our [Discord](https://discord.gg/qkMS6pU4cF) community and let us know!
+This page explains a new pricing model for actors in the [Apify store](https://apify.com/store) that allows you to pay only for the results an actor generates and not the underlying platform usage. This makes it transparent and easy to estimate upfront costs. If you have any feedback or would like to ask something, please join our [Discord](https://discord.gg/qkMS6pU4cF) community and let us know!
 
 # Traditional approach - paying for usage
 
@@ -25,7 +24,7 @@ In this model, it is quite difficult to know beforehand exactly how much usage t
 
 ## Paying only for results instead
 
-With **pay per result** model you will only pay for the results that an actor returns when you run it, and you will not be charged for the underlying platform usage.
+With **pay per result** model you will only pay for the results that an actor returns when you run it, and you will not be charged for the underlying platform usage. Technically, **results** you are charged for are the clean items in the default [dataset](https://docs.apify.com/platform/storage/dataset) created by the actor run.
 
 <!-- TODO - add a bit about the ability to set the maximum limits actor should return -->
 
@@ -41,13 +40,8 @@ When you try the actor on the platform, you will see that the actor is paid per 
 ### Do I need to pay monthly rental fee to run the actor?
 No, the actor is free to run, you only pay for the results.
 
-### What exactly is the "result" I pay for?
-Technically, **results** you are charged for are the clean items in the default [dataset](https://docs.apify.com/platform/storage/dataset) created by the actor run.
-
 ### What happens when I interact with the dataset after the run finishes?
-Under the **pay per result** model, all platform costs generated **during the run of an actor** are not charged towards your account; you pay for the results instead. After the run finishes,
-any interactions with the default dataset storing the results, such as reading the results or writing additional data, will incur the standard platform usage costs. But do not worry, in the vast majority
-of cases, you only want to read the result from the dataset and that costs near to nothing.
+Under the **pay per result** model, all platform costs generated **during the run of an actor** are not charged towards your account; you pay for the results instead. After the run finishes, any interactions with the default dataset storing the results, such as reading the results or writing additional data, will incur the standard platform usage costs. But do not worry, in the vast majority of cases, you only want to read the result from the dataset and that costs near to nothing.
 
 ### Do I pay for the storage of results on the Apify platform?
 You will still be charged for the timed storage of the data in the same fashion as before. You can always decide to delete the dataset to reduce your costs after you exported the data from the platform. By default, any unnamed dataset will be automatically removed after your data retention period, so it most cases this is nothing to worry about.
