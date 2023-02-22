@@ -8,21 +8,24 @@ paths:
     - actors/pay-per-result-actors
 ---
 
-This is a brand new pricing model for actors in the [Apify store](https://apify.com/store). If you have any feedback or would like to ask something, please join our [Discord](https://discord.gg/qkMS6pU4cF) community and let us know!
+This page explains a new pricing model for actors in the [Apify store](https://apify.com/store) that allows you to pay only for the results an actor generates and not the underlying platform usage.
+This makes it transparent and easy to estimate upfront costs. If you have any feedback or would like to ask something, please join our [Discord](https://discord.gg/qkMS6pU4cF) community and let us know!
 
-# Actors that are paid per result
+# Traditional approach - paying for usage
 
-Traditionally, public actors in [Apify Store](https://apify.com/store) come in two flavors - free and [paid actors](https://docs.apify.com/platform/actors/paid-actors). The latter differs only in the fact that you need to pay the developer a monthly fee to rent the actor and be able to use it after its trial period.
+Traditionally, public actors in the [Apify Store](https://apify.com/store) come in two flavors: free and [paid actors](https://docs.apify.com/platform/actors/paid-actors). The latter requires a monthly fee to rent the actor and use it after its trial period. When you run either a free or paid actor from the store, they generate platform usage that is subtracted from your prepaid usage, which is either $5 on the free plan or prepaid usage given by your subscription plan.
 
 ![Free and paid actors in Apify Store]({{@asset actors/images/free_vs_paid_actors.webp}})
 
-When you run either free or paid actor from the store, they generate platform usage that is subtracted from your prepaid usage (which is either $5 on the free plan or prepaid usage given by your subscription plan). This platform usage consists of components such as [compute](https://docs.apify.com/platform/actors/running/compute-units), operations on [storages](https://docs.apify.com/platform/storage), and usage of [residential proxies](https://docs.apify.com/platform/proxy/residential-proxy) or [SERPs](<https://docs.apify.com/platform/proxy/google-serp-proxy>). You can see the usage your actor run generated on the run detail page.
+This platform usage includes components such as [compute](https://docs.apify.com/platform/actors/running/compute-units), operations on [storages](https://docs.apify.com/platform/storage), and usage of [residential proxies](https://docs.apify.com/platform/proxy/residential-proxy) or [SERPs](<https://docs.apify.com/platform/proxy/google-serp-proxy>). You can see the usage your actor run generated on the run detail page.
 
 ![Example run usage]({{@asset actors/images/example_run_usage.webp}})
 
-## Paying for results instead
+In this model, it is quite difficult to know beforehand exactly how much usage the actor will generate when you run it so you cannot easily estimate your costs upfront.
 
-In the traditional **pay for usage** model, it is nearly impossible to know beforehand how much usage the actor will generate when you run it so you cannot easily estimate your costs upfront. That is where **pay per result** model comes in. When an actor is paid per result, you will only pay for the results it returns when you run it and you will not be charged for the underlying platform usage. This makes it transparent and easy for you to estimate the upfront costs.
+## Paying only for results instead
+
+With **pay per result** model you will only pay for the results that an actor returns when you run it, and you will not be charged for the underlying platform usage.
 
 <!-- TODO - add a bit about the ability to set the maximum limits actor should return -->
 
