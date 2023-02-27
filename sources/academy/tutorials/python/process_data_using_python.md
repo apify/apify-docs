@@ -131,9 +131,9 @@ print(f'Result is available at {os.environ["APIFY_API_PUBLIC_BASE_URL"]}'
 
 And that's it! Now you can save the changes in the editor, and then click **Build and run** at the bottom of the page. The actor will get built, the built actor image will get saved for future re-use, and then it will be executed. You can follow the progress of the actor build and the actor run in the **Last build** and **Last run** tabs, respectively, in the developer console in the actor source view. Once the actor finishes running, it will output the URL where you can access the plot we created in its log.
 
-![Building and running the BBC Weather Parser actor](./images/bbc-weather-parser-source.webp)
+![Building and running the BBC Weather Parser actor](./images/bbc-weather-parser-source.png)
 
 Looking at the results, Honolulu seems like the right choice now, don't you think? 🙂
 
-![Weather prediction plot created by the BBC Weather Parser actor](./images/bbc-weather-prediction.webp)
+![Weather prediction plot created by the BBC Weather Parser actor](./images/bbc-weather-prediction.png)
 

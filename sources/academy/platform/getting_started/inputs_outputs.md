@@ -73,7 +73,7 @@ Finally, **Save** and **Build** the actor just as you did in the previous lesson
 
 If you scroll down a bit, you'll find the **Developer console** located under the multifile editor. By default, after running a build, the **Last build** tab will be selected, where you can see all of the logs related to building the actor. Inputs can be configured within the **Input** tab.
 
-![Configuring inputs](./images/configure-inputs.webp)
+![Configuring inputs](./images/configure-inputs.jpg)
 
 Enter any two numbers you'd like, then press **Start**. The actor's run should complete almost immediately.
 

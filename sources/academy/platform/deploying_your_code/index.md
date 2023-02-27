@@ -23,7 +23,7 @@ Because actors are basically just chunks of code running in Docker containers, y
 
 Actors are language agnostic, which means that the language your project is written in does not affect your ability to actorify it.
 
-![Supported languages](../../images/supported-languages.webp)
+![Supported languages](../../images/supported-languages.jpg)
 
 Though the majority of actors currently on the platform were written in Node.js, and despite the fact our current preferred languages are JavaScript and Python, there are a few examples of actors in other languages:
 

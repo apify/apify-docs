@@ -19,7 +19,7 @@ If you've never dealt with it before, trying to scrape thousands to hundreds of 
 
 The most common and rudimentary form of pagination is by simply having page numbers, which can be compared to paginating through a typical e-commerce website.
 
-![Amazon pagination](https://apify-docs.s3.amazonaws.com/master/docs/assets/tutorials/images/pagination.webp)
+![Amazon pagination](https://apify-docs.s3.amazonaws.com/master/docs/assets/tutorials/images/pagination.jpg)
 
 This implementation makes it fairly straightforward to programmatically paginate through an API, as it pretty much entails just incrementing up or down in order to receive the next set of items. The page number is usually provided right in the parameters of the request URL; however, some APIs require it to be provided in the request body instead.
 

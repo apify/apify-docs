@@ -29,11 +29,11 @@ The **Apps** tab allows you to both view all of the applications on your machine
 
 Let's open up Safari and visit **apify.com**, then check back in Proxyman to see all of the requests Safari has made when visiting the website.
 
-![Results in Proxyman](./images/proxyman-results.webp)
+![Results in Proxyman](./images/proxyman-results.jpg)
 
 We can see all of the requests related to us visiting **apify.com**. Then, by clicking a request, we can see a whole lot of information about it. The most important information for you, however, will usually be the request and response **headers** and **body**.
 
-![View a request](./images/proxyman-view-request.webp)
+![View a request](./images/proxyman-view-request.jpg)
 
 ### Filtering
 

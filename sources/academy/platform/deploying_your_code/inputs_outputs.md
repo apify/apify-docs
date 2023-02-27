@@ -55,7 +55,7 @@ await Actor.exit();
 
 If we run this right now, we'll see **null** in our terminal - this is because we never provided any sort of test input, which should be provided in the default key-value store. The `Actor.getInput()` function has detected that there is no **storage** folder and generated one for us.
 
-![Default key-value store filepath](./images/filepath.webp)
+![Default key-value store filepath](./images/filepath.jpg)
 
 We'll now add an **INPUT.json** file within **storage/key_value_stores/default** to match what we're expecting in our code.
 

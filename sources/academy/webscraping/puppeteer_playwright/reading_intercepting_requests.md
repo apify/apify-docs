@@ -433,7 +433,7 @@ await browser.close();
 
 Here's what we see when we run `node index.js`:
 
-![Request intercepted and sent to Mesto's page instead](./images/mesto-following.webp)
+![Request intercepted and sent to Mesto's page instead](./images/mesto-following.jpg)
 
 ## Next up {#next}
 

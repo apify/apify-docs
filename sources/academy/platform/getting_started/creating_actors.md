@@ -17,7 +17,7 @@ Creating an actor is so easy to do, we'll show you right in this lesson how to g
 
 On the [Apify Console](https://console.apify.com?asrc=developers_portal), click on the **Actors** tab we visited in the previous lesson. In the top right-hand corner, you should see a **Create new** button.
 
-![Create new button](./images/create-new-actor.webp)
+![Create new button](./images/create-new-actor.jpg)
 
 Click it, then choose the **Basic Node.js actor** template and click on **Use template**.
 
@@ -29,7 +29,7 @@ Click it, then choose the **Basic Node.js actor** template and click on **Use te
 
 After clicking on **Use template**, you should be brought to a page that looks like this:
 
-![Multifile editor](./images/multifile-editor.webp)
+![Multifile editor](./images/multifile-editor.jpg)
 
 The area where you can see some code and files is called the **multifile editor**, and it is your gateway to writing actor directly on the Apify platform.
 
@@ -69,7 +69,7 @@ To save your changes, click on the blue **Save** button.
 
 In order to run the actor, you've gotta build it. Luckily, that's only a button press away.
 
-![Build the actor](./images/build-actor.webp)
+![Build the actor](./images/build-actor.jpg)
 
 After you've clicked the **Build** button, it'll take around 5-10 seconds to complete the build. You'll know it's finished when you see a green **Start** button.
 
@@ -81,7 +81,7 @@ This beautiful button's presence means we can now run the actor!
 
 Click **Start** and wait a few seconds... Do you see something that looks like this?:
 
-![Actor run logs](./images/hello-world-run.webp)
+![Actor run logs](./images/hello-world-run.jpg)
 
 If so, it worked! 🥳
 

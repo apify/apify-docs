@@ -78,7 +78,7 @@ await puppeteer.launch({ headless: false });
 
 Now we'll actually see a browser open up.
 
-![Chromium browser opened by Puppeteer/Playwright](./images/chromium.webp)
+![Chromium browser opened by Puppeteer/Playwright](./images/chromium.jpg)
 
 There are a whole lot more options that we can pass into the `launch()` function, which we'll be getting into a little bit later on.
 

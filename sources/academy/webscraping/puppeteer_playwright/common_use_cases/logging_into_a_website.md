@@ -98,7 +98,7 @@ await page.waitForTimeout(10000)
 
 Great! If you're following along and you've replaced the placeholder credentials with your own, you should see that on the final navigated page, you're logged into your Yahoo account.
 
-![Successfully logged into Yahoo](./images/logged-in.webp)
+![Successfully logged into Yahoo](./images/logged-in.jpg)
 
 ## Passing around cookies {#passing-around-cookies}
 

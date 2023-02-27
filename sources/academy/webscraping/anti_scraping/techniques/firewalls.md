@@ -27,7 +27,7 @@ WAPs work on a similar premise as regular firewalls. Web admins define the rules
 4. A captcha is presented which must be solved. Once it is solved, a [cookie](../../../glossary/concepts/http_cookies.md) is stored in the visitor's browser.
 5. The request is forwarded to the application's server.
 
-![Cloudflare WAP workflow](./images/cloudflare-graphic.webp)
+![Cloudflare WAP workflow](./images/cloudflare-graphic.jpg)
 
 Since there are multiple providers, it is essential to say that the challenges are not always graphical and can be entirely server-side (without any JavaScript evaluation in the visitor browser).
 

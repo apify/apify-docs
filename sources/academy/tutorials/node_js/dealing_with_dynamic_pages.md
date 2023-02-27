@@ -19,7 +19,7 @@ In this lesson, we'll be discussing dynamic content and how to scrape it while u
 
 From our adored and beloved [Fakestore](https://demo-webstore.apify.org/), we have been tasked to scrape each product's title, price, and image from the [new arrivals](https://demo-webstore.apify.org/search/new-arrivals) page. Easy enough! We did something very similar in the previous modules.
 
-![New arrival products in Fakestore](./images/new-arrivals.webp)
+![New arrival products in Fakestore](./images/new-arrivals.jpg)
 
 First, create a file called **dynamic.js** and copy-paste the following boiler plate code into it:
 
@@ -185,7 +185,7 @@ Let's run this and check our dataset results...
 {
   "title": "women's shoes",
   "price": "$40.00 USD",
-  "image": "https://demo-webstore.apify.org/_next/image?url=https%3A%2F%2Fdummyjson.com%2Fimage%2Fi%2Fproducts%2F46%2F1.webp&w=3840&q=85"
+  "image": "https://demo-webstore.apify.org/_next/image?url=https%3A%2F%2Fdummyjson.com%2Fimage%2Fi%2Fproducts%2F46%2F1.jpg&w=3840&q=85"
 }
 ```
 

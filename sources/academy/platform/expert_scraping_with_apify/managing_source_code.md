@@ -51,11 +51,11 @@ Then, go ahead and paste the link to your repository into the **Git URL** text f
 
 The final step is to click on **API** in the top right corner of your actor's page:
 
-![API button](./images/api-button.webp)
+![API button](./images/api-button.jpg)
 
 And scroll through all of the links until you find the **Build actor** API endpoint. Copy this endpoint's URL, then head back over to your Github repository and navigate to **Settings > Webhooks > Add webhook**. The final thing to do is to paste the URL and save the webhook.
 
-![Adding a webhook to your Github repo](./images/github-integration.webp)
+![Adding a webhook to your GitHub repo](../../../platform/actors/images/github-integration.png)
 
 And you're done! 🎉
 

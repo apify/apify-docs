@@ -32,7 +32,7 @@ router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
 
 Great! But wait, where do we go from here? We need to go to the offers page next and scrape each offer, but how can we do that? Let's take a small break from writing the scraper and open up [Proxyman](../../../glossary/tools/proxyman.md) to analyze requests which we might be difficult to find in the network tab, then we'll click the button on the product page that loads up all of the product offers:
 
-![View offers button](./images/view-offers-button.webp)
+![View offers button](./images/view-offers-button.jpg)
 
 After clicking this button and checking back in Proxyman, we discovered this link:
 
@@ -46,7 +46,7 @@ The `asin` [query parameter](https://branch.io/glossary/query-parameters/) match
 
 Here's what this page looks like:
 
-![View offers page](./images/offers-page.webp)
+![View offers page](./images/offers-page.jpg)
 
 Wow, that's ugly. But for our scenario, this is really great. When we click the **View offers** button, we usually have to wait for the offers to load and render, which would mean we could have to switch our entire crawler to a **PuppeteerCrawler** or **PlaywrightCrawler**. The data on this page we've just found appears to be loaded statically, which means we can still use CheerioCrawler and keep the scraper as efficient as possible 😎
 

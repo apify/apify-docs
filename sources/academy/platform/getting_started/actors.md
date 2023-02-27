@@ -31,7 +31,7 @@ On the front page of the actor, click the green **Try for free** button. If you'
 
 This is where we can provide input to the actor. The defaults here are just fine, so we'll just leave it as is and click the green **Start** button to run it. While the actor is running, you'll see it log some information about itself.
 
-![Actor logs](./images/actor-logs.webp)
+![Actor logs](./images/actor-logs.jpg)
 
 After the actor has completed its run (you'll know this when you see **SEO audit for apify.com finished.** in the logs), the results of the run can be viewed by clicking the **Results** tab, then subsequently the **View in another tab** option under **Export**.
 
@@ -39,7 +39,7 @@ After the actor has completed its run (you'll know this when you see **SEO audit
 
 While still on the platform, click on the tab with the **< >** icon which says **Actors**. This tab is your one-stop-shop for seeing which actors you've used recently, and which ones you've developed yourself. You will be frequently using this tab when developing and testing on the Apify platform.
 
-![The "Actors" tab on the Apify platform](./images/actors-tab.webp)
+![The "Actors" tab on the Apify platform](./images/actors-tab.jpg)
 
 Now that you know the basics of what actors are and how to use them, it's time to develop **an actor of your own**!
 

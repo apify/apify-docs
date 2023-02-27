@@ -36,7 +36,7 @@ To make an input field secret, just add a `"isSecret": true` setting to the inpu
 ```
 
 The editor for this input field will then turn into a secret input, and when you edit the field value, it will be stored encrypted.
-<img src="{{@asset actors/development/images/secret-input-editor.webp}}" alt="Secret input editor" style={{width: '100%', maxWidth: '822px'}}/>
+<img src="{{@asset actors/development/images/secret-input-editor.jpg}}" alt="Secret input editor" style={{width: '100%', maxWidth: '822px'}}/>
 
 This is only available for `string` inputs, and the editor type is limited to `textfield` or `textarea`.
 

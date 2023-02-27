@@ -124,7 +124,7 @@ fragment TypeRef on __Type {
 
 Here's what we got back from the request:
 
-![GraphQL introspection request response](./images/introspection.webp)
+![GraphQL introspection request response](./images/introspection.jpg)
 
 The response body of our introspection query contains a whole lot of useful information about the API, such as the data types defined within it, as well the queries and mutations available for retrieving/changing the data.
 
@@ -138,7 +138,7 @@ Let's copy the response to our clipboard by clicking inside of the response body
 
 Finally, we can click on **Display** and immediately be shown a visualization of the API:
 
-![GraphQL Voyager API visualization](./images/voyager-interface.webp)
+![GraphQL Voyager API visualization](./images/voyager-interface.jpg)
 
 Now that we have this visualization to work off of, it will be much easier to build a query of our own.
 
@@ -148,7 +148,7 @@ In future lessons, we'll be building more complex queries using **dynamic variab
 
 Right now, our goal is to fetch the 1000 most recent articles on [Cheddar](https://cheddar.com). From each article, we'd like to fetch the **title** and the **publish date**. After just a bit of digging through the schema, we've come across the **media** field within the **organization** type, which has both **title** and **public_at** fields - seems to check out!
 
-![The media field pointing to datatype slugable](./images/media-field.webp)
+![The media field pointing to datatype slugable](./images/media-field.jpg)
 
 Cool. So now we know we need to access **media** through the **organization** query. The **media** field also takes in some arguments, of which we will be using the **first** parameter set to **1000**. Let's start writing our query in Insomnia!
 
@@ -181,7 +181,7 @@ Oh, okay. So that didn't work. But **why**?
 
 Rest assured, nothing is wrong with our query. We are most likely just missing an authorization token/parameter. Let's check back on the Cheddar website within our browser to see what types of headers are being sent with the requests there:
 
-![Request headers back on the Cheddar website](./images/cheddar-headers.webp)
+![Request headers back on the Cheddar website](./images/cheddar-headers.jpg)
 
 The **Authorization** and **X-App-Token** headers seem to be our culprits. Of course these values are dynamic, but for testing purposes we can copy them right from the **Network** tab and use them for our request in Insomnia.
 

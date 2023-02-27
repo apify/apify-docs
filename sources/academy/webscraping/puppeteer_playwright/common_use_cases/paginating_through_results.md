@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 If you're trying to [collect data](../executing_scripts/extracting_data.md) on a website that has millions, thousands, or even just hundreds of results, it is very likely that they are paginating their results to reduce strain on their backend as well as on the users loading and rendering the content.
 
-![Amazon pagination](https://apify-docs.s3.amazonaws.com/master/docs/assets/tutorials/images/pagination.webp)
+![Amazon pagination](https://apify-docs.s3.amazonaws.com/master/docs/assets/tutorials/images/pagination.jpg)
 
 Attempting to scrape thousands to tens of thousands of results using a headless browser on a website that only shows 30 results at a time might be daunting at first, but be rest assured that by the end of this lesson you'll feel confident when faced with this use case.
 
@@ -44,7 +44,7 @@ const REPOSITORIES_URL = `${BASE_URL}/orgs/facebook/repositories`;
 
 What we want to do now is grab the last page number, so that we know exactly how many requests we need to send in order to paginate through all of the repositories. Luckily, this information is available right on the page here:
 
-![Final page number](./images/github-last-page.webp)
+![Final page number](./images/github-last-page.jpg)
 
 Let's grab this number now with a little bit of code:
 

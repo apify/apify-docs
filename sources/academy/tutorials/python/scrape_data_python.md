@@ -29,17 +29,17 @@ The page shows the weather forecast for the upcoming 14 days. If we hover over t
 
 Combining this information gives us the full format for the URL of a page for a given location and day: `https://www.bbc.com/weather/{LOCATION_ID}/day{DAY_OFFSET}`.
 
-![BBC Weather URL format](./images/bbc-weather-url-format.webp)
+![BBC Weather URL format](./images/bbc-weather-url-format.png)
 
 ### Determining the forecast's starting date
 
 Looking more closely at the BBC Weather page, we can see that it shows the forecast for each day from 6:00 AM to 5:00 AM the next day. But what happens when we view a location where the current time is between midnight and 5 AM? Trying that, we can see that, in the day represented by **Tonight**, there are only a few slots for the hours between midnight and 5 AM displayed. This means that the first displayed day can either represent the current date at the location, or the day before the current date. To find out which of these two it is, we will first have to determine the current date and time at the location, and then possibly adjust it by one day based on whether the date matches the first displayed day.
 
-![BBC Weather displaying a location with current time between midnight and 5 AM](./images/bbc-weather-after-midnight.webp)
+![BBC Weather displaying a location with current time between midnight and 5 AM](./images/bbc-weather-after-midnight.png)
 
 To determine the current date and time at the displayed location, we will need to know the location's timezone. Fortunately, the timezone and its offset to GMT are displayed near the bottom of the page.
 
-![The timezone offset on the BBC Weather page](./images/bbc-time-offset.webp)
+![The timezone offset on the BBC Weather page](./images/bbc-time-offset.png)
 
 ### Understanding the element structure
 
@@ -49,7 +49,7 @@ If we right-click on the day title in the top carousel (**Today** or **Tonight**
 
 Exploring the document tree further, we can see that the element containing all the displayed hours has the class `wr-time-slot-container__slots`. The elements with the forecast for a given hour have the class `wr-time-slot`. In each time slot, the element containing the slot's hour has the class `wr-time-slot-primary__hours` and the element containing the slot's predicted temperature in degrees Celsius has the class `wr-value--temperature--c`.
 
-![BBC Weather with the DevTools Inspector open](./images/bbc-weather-devtools.webp)
+![BBC Weather with the DevTools Inspector open](./images/bbc-weather-devtools.png)
 
 ## Scraping the data from the page
 
@@ -209,7 +209,7 @@ print(f'Results have been saved to the dataset with ID {os.environ["APIFY_DEFAUL
 
 And that's it! Now you can save the changes in the editor, and then click **Build and run** at the bottom of the page. The actor will get built, the built actor image will get saved for future reuse, and then it will be executed. You can follow the progress of the actor build and the actor run in the **Last build** and **Last run** tabs, respectively, in the developer console in the actor source view. Once the actor finishes running, you can view the scraped data in the **Dataset** tab in the actor run view.
 
-![Building and running the BBC Weather Scraper actor](./images/bbc-weather-scraper-source.webp)
+![Building and running the BBC Weather Scraper actor](./images/bbc-weather-scraper-source.png)
 
 ## How to process data in Python using Pandas
 
@@ -329,9 +329,9 @@ print(f'Result is available at {os.environ["APIFY_API_PUBLIC_BASE_URL"]}'
 
 And that's it! Now you can save the changes in the editor, and then click **Build and run** at the bottom of the page. The actor will get built, the built actor image will get saved for future re-use, and then it will be executed. You can follow the progress of the actor build and the actor run in the **Last build** and **Last run** tabs, respectively, in the developer console in the actor source view. Once the actor finishes running, it will output the URL where you can access the plot we created in its log.
 
-![Building and running the BBC Weather Parser actor](./images/bbc-weather-parser-source.webp)
+![Building and running the BBC Weather Parser actor](./images/bbc-weather-parser-source.png)
 
 Looking at the results, Honolulu seems like the right choice now, don't you think? 🙂
 
-![Weather prediction plot created by the BBC Weather Parser actor](./images/bbc-weather-prediction.webp)
+![Weather prediction plot created by the BBC Weather Parser actor](./images/bbc-weather-prediction.png)
 

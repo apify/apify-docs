@@ -13,7 +13,7 @@ slug: /expert-scraping-with-apify/solutions/using-api-and-client
 
 Since we need to create another actor, we'll once again use the `apify create` command and start from an empty template.
 
-![Selecting an empty template to start with](./images/select-empty.webp)
+![Selecting an empty template to start with](./images/select-empty.jpg)
 
 This time, let's call our project **actor-caller**.
 

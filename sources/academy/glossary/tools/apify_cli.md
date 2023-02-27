@@ -29,7 +29,7 @@ This will install the CLI via NPM.
 
 After the CLI has finished installing, navigate to the [Apify Console](https://console.apify.com?asrc=developers_portal) and click on **Settings**. Then, within your account settings, click **Integrations**. The page should look like this:
 
-![Integrations tab on the Apify Platform](./images/settings-integrations.webp)
+![Integrations tab on the Apify Platform](./images/settings-integrations.jpg)
 
 > We've censored out the **User ID** in the image because it is private information which should not be shared with anyone who is not trusted. The same goes for your **Personal API Token**.
 

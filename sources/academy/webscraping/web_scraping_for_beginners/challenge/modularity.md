@@ -13,7 +13,7 @@ slug: /web-scraping-for-beginners/challenge/modularity
 
 Now that we've gotten our first request going, the first challenge is going to be selecting all of the resulting products on the page. Back in the browser, we'll use the DevTools hover tool to inspect a product.
 
-![Result products](../../../platform/expert_scraping_with_apify/solutions/images/result-items.webp)
+![Result products](../../../platform/expert_scraping_with_apify/solutions/images/result-items.jpg)
 
 **Bingo!** Each product seems to have a `data-asin` attribute, which includes the ASIN (product ID) data we want. Now, we can select each of these elements with this selector: `div > div[data-asin]:not([data-asin=""])`. Then, we'll scrape some data about each product, and push a request to the main product page so we can grab hold of the description.
 

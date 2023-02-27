@@ -47,14 +47,14 @@ Before we start, let's do a quick recap of the data we chose to scrape:
    5. **Last modification date** - When the actor was last modified.
    6. **Number of runs** - How many times the actor was run.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/scraping-practice.webp)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/scraping-practice.jpg)
 
 We've already scraped number 1 and 2 in the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started)
 tutorial, so let's get to the next one on the list: title.
 
 ### [](#title) Title
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/title.webp)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/title.jpg)
 
 By using the element selector tool, we find out that the title is there under an `<h1>` tag, as titles should be.
 Maybe surprisingly, we find that there are actually two `<h1>` tags on the detail page. This should get us thinking.
@@ -81,7 +81,7 @@ Getting the actor's description is a little more involved, but still pretty stra
 there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the actor description is nested within
 the `<header>` element too, same as the title. Moreover, the actual description is nested inside a `<span>` tag with a class `actor-description`.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.webp)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.jpg)
 
 ```js
 return {
@@ -94,7 +94,7 @@ return {
 
 The DevTools tell us that the `modifiedDate` can be found in a `<time>` element.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/modified-date.webp)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/modified-date.jpg)
 
 ```js
 return {
@@ -258,7 +258,7 @@ the Network tab of the Chrome DevTools.
 We want to know what happens when we click the **Show more** button, so we open the DevTools **Network** tab and clear it.
 Then we click the **Show more** button and wait for incoming requests to appear in the list.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/inspect-network.webp)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/inspect-network.jpg)
 
 Now, this is interesting. It seems that we've only received two images after clicking the button and no additional
 data. This means that the data about actors must already be available in the page and the **Show more** button only displays it. This is good news.
@@ -271,7 +271,7 @@ few hits do not provide any interesting information, but in the end, we find our
 with the ID `__NEXT_DATA__` that seems to hold a lot of information about Web Scraper. In DevTools,
 you can right click an element and click **Store as global variable** to make this element available in the **Console**.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/find-data.webp)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/find-data.jpg)
 
 A `temp1` variable is now added to your console. We're mostly interested in its contents and we can get that using
 the `temp1.textContent` property. You can see that it's a rather large JSON string. How do we know?
@@ -285,7 +285,7 @@ const data = JSON.parse(temp1.textContent);
 After entering the above command into the console, we can inspect the `data` variable and see that all the information
 we need is there, in the `data.props.pageProps.items` array. Great!
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/inspect-data.webp)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/inspect-data.jpg)
 
 > It's obvious that all the information we set to scrape is available in this one data object,
 so you might already be wondering, can I just make one request to the store to get this JSON

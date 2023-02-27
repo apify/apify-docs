@@ -117,7 +117,7 @@ run = client.actor('YOUR_USERNAME/adding-actor').call(run_input={
 
 Once an actor's run has completed, it will return a **run info** object that looks something like this:
 
-![Run info object](./images/run-info.webp)
+![Run info object](./images/run-info.jpg)
 
 The `run` variable we created in the last section points to the **run info** object of the run we created with the `.call()` function, which means that through this variable, we can access the run's `defaultDatasetId`. This ID can then be passed into the `client.dataset()` function.
 
@@ -274,7 +274,7 @@ actor.update(default_run_build='latest', default_run_memory_mbytes=256, default_
 
 After running the code, go back to the **Settings** page of **adding-actor**. If your default options now look like this, then it worked!:
 
-![New run defaults](./images/new-defaults.webp)
+![New run defaults](./images/new-defaults.jpg)
 
 ## Overview {#overview}
 

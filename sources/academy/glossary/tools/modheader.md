@@ -19,7 +19,7 @@ If you read about [Postman](./postman.md), you might remember that you can use i
 
 After you install the ModHeader extension, you should see in pinned in Chrome's task bar. When you click it, you'll see an interface like this pop up:
 
-![Modheader's simple interface](./images/modheader.webp)
+![Modheader's simple interface](./images/modheader.jpg)
 
 Here, you can add headers, remove headers, and even save multiple collections of headers that you can easily toggle between (which are called **Profiles** within the extension itself).
 

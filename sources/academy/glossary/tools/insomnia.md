@@ -19,7 +19,7 @@ Insomnia can be downloaded from its [official website](https://insomnia.rest/dow
 
 After opening the app, you'll first need to create a new request. After creating the request, you'll see an interface that looks like this:
 
-![Insomnia interface](./images/insomnia-interface.webp)
+![Insomnia interface](./images/insomnia-interface.jpg)
 
 Let's break down the main sections:
 
@@ -43,7 +43,7 @@ Where the response body is displayed after the request has been sent. Like in Po
 
 The one feature of Insomnia that separates it from Postman is the **Timeline**.
 
-![Request timeline](./images/insomnia-timeline.webp)
+![Request timeline](./images/insomnia-timeline.jpg)
 
 This feature allows you to see information about the request that is not present in the response body.
 
@@ -61,7 +61,7 @@ Insomnia keeps the cookies for the requests you have already sent before. This m
 
 This'll bring up the **Manage cookies** window, where all cached cookies can be viewed, edited, or deleted.
 
-![The "Manage Cookies" tab](./images/insomnia-manage-cookies.webp)
+![The "Manage Cookies" tab](./images/insomnia-manage-cookies.jpg)
 
 ## So, Postman or Insomnia? {#postman-or-insomnia}
 

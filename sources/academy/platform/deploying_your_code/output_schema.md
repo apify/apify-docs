@@ -13,7 +13,7 @@ slug: /deploying-your-code/output-schema
 
 The Output schema generates an interface that enables users to instantly preview their actor results in real time.
 
-![Output Schema](./images/output-schema-example.webp)
+![Output Schema](../../../platform/actors/development/images/output-schema-example.png)
 
 In this quick tutorial, you will learn how to set up an output tab for your own actor.
 

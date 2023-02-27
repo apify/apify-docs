@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 An important concept to understand when dealing with headless browsers is the **context** in which your code is being run. For example, if you try to use the native `fs` Node.js module (used in the previous lesson) while running code in the context of the browser, errors will be thrown saying that it is undefined. Similarly, if you are trying to use `document.querySelector()` or other browser-specific functions in the server-side Node.js context, errors will also be thrown.
 
-![Diagram explaining the two different contexts your code can be run in](../images/context-diagram.webp);
+![Diagram explaining the two different contexts your code can be run in](../images/context-diagram.jpg);
 
 Here is an example of a common mistake made by beginners to Puppeteer/Playwright:
 

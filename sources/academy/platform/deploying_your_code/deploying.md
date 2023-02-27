@@ -23,7 +23,7 @@ Before we deploy our project onto the Apify platform, let's ensure that we've pu
 
 Before anything can be integrated, we've gotta create a new actor. Luckily, this is super easy to do. Let's head over to our [Apify Console](https://console.apify.com?asrc=developers_portal) and click on the **New** button, then select the **Empty** template.
 
-![Create new button](../getting_started/images/create-new-actor.webp)
+![Create new button](../getting_started/images/create-new-actor.jpg)
 
 Easy peasy!
 
@@ -39,11 +39,11 @@ Now we'll paste the link to our GitHub repository into the **Git URL** text fiel
 
 The final step is to click on **API** in the top right corner of our actor's page:
 
-![API button](../expert_scraping_with_apify/images/api-button.webp)
+![API button](../expert_scraping_with_apify/images/api-button.jpg)
 
 And scroll through all of the links until we find the **Build actor** API endpoint. Now we'll copy this endpoint's URL, head back over to our GitHub repository and navigate to **Settings > Webhooks > Add webhook**. The final thing to do is to paste the URL and save the webhook.
 
-![Adding a webhook to your GithHub repo](../expert_scraping_with_apify/images/github-integration.webp)
+![Adding a webhook to your GitHub repo](../../../platform/actors/images/github-integration.png)
 
 That's it! the actor should now pull its source code from the repo and automatically build.
 
@@ -61,7 +61,7 @@ One important thing to note is that you can use a `.gitignore` file to exclude f
 
 Great! Once you've pushed your actor to the platform, you should see it in the list of actors under the **Actors** tab. If you used `apify push`, you'll have access to the **multifile editor** (discussed [here](../getting_started/creating_actors.md)).
 
-![Deployed actor on the Apify platform](./images/actor-page.webp)
+![Deployed actor on the Apify platform](./images/actor-page.jpg)
 
 The next step is to test your actor and experiment with the vast amount of features the platform has to offer.
 

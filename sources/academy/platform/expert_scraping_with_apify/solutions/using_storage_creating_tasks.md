@@ -236,7 +236,7 @@ Don't forget to push your changes to Github using `git push origin MAIN_BRANCH_N
 
 Back on the platform, on your actor's page, you can see a button in the top right hand corner that says **Create new task**:
 
-![Create new task button](./images/create-new-task.webp)
+![Create new task button](./images/create-new-task.jpg)
 
 Then, configure the task to use **google pixel** as a keyword and click **Save**.
 

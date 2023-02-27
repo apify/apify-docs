@@ -42,7 +42,7 @@ Our crawler's input will look like this:
 
 The goal at hand is to scrape all of the products from the first page of results for whatever keyword was provided (for our test case, it will be **iphone**), then to scrape each offer of each product, and push the results to the dataset. For context, the offers for a product look like this:
 
-![Amazon product offers](../../../platform/expert_scraping_with_apify/images/product-offers.webp)
+![Amazon product offers](../../../platform/expert_scraping_with_apify/images/product-offers.jpg)
 
 In the end, we'd like our final output to look something like this:
 
