@@ -394,7 +394,7 @@ html.plugin-docs .theme-doc-markdown {
 
 html.plugin-docs .theme-doc-markdown img {
     display: block;
-    margin: 0 auto;
+    margin: 1em auto 2em;
 }
 
 html.plugin-docs .theme-doc-markdown h1 {
@@ -528,6 +528,12 @@ div[class*="searchBox"] {
 
 .menu__link, .menu__list-item > .navbar__item {
     display: flex;
+}
+
+.theme-doc-sidebar-item-category .menu__list-item-collapsible,
+.theme-doc-sidebar-item-link {
+    display: flex;
+    align-items: center;
 }
 
 @media (min-width: 480px) {
