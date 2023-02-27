@@ -47,7 +47,7 @@
         "markdownlint": "^0.27.0",
         "markdownlint-cli": "^0.33.0",
         "path-browserify": "^1.0.1",
-        "rimraf": "^3.0.2",
+        "rimraf": "^4.0.0",
         "typescript": "^4.9.5",
         "undici": "^5.12.0"
     },
