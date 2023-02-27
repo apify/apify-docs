@@ -2,7 +2,7 @@
 title: Apify scrapers
 description: Discover Apify's ready-made web scraping and automation tools. Compare Web Scraper, Cheerio Scraper and Puppeteer Scraper to decide which is right for you.
 sidebar_position: 3.2
-slug: /tutorials/apify-scrapers
+slug: /apify-scrapers
 ---
 
 # Scraping with Apify
@@ -11,7 +11,7 @@ slug: /tutorials/apify-scrapers
 
 ---
 
-Scraping and crawling the web can be difficult and time-consuming without the right tools. That's why Apify provides ready-made solutions to crawl and scrape any website. They are based on our [actors](https://apify.com/actors), the [Apify SDK](https://docs.apify.com/sdk/js) and [Crawlee](https://crawlee.dev/).
+Scraping and crawling the web can be difficult and time-consuming without the right tools. That's why Apify provides ready-made solutions to crawl and scrape any website. They are based on our [actors](https://apify.com/actors), the [Apify SDK](/sdk/js) and [Crawlee](https://crawlee.dev/).
 
 Don't let the number of options confuse you. Unless you're really sure you need to use a specific tool, just go ahead and use **Web Scraper** ([apify/web-scraper](./web_scraper.md)). It is the easiest to pick up and can handle almost anything. Look at **Puppeteer Scraper** ([apify/puppeteer-scraper](./puppeteer_scraper.md)) or **Cheerio Scraper** ([apify/cheerio-scraper](./cheerio_scraper.md)) only after you know your target websites well and need to optimize your scraper.
 

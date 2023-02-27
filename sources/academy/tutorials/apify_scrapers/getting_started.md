@@ -4,10 +4,12 @@ menuTitle: Getting started
 description: Step-by-step tutorial that will help you get started with all Apify Scrapers. Learn the foundations of scraping the web with Apify and creating your own actors.
 externalSourceUrl: https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/build/introduction-tutorial.md
 sidebar_position: 1
-slug: /tutorials/apify-scrapers/getting-started
+slug: /apify-scrapers/getting-started
 ---
 
 [//]: # (TODO: Should be updated)
+
+#
 
 Welcome to the getting started tutorial! It will walk you through creating your first scraping task step by step. You will learn how to set up all the different configuration options, code a **Page function** (`pageFunction`), and finally download the scraped data either as an Excel sheet or in another format, such as JSON or CSV. But first, let's give you a brief introduction to web scraping with Apify.
 
@@ -15,7 +17,7 @@ Welcome to the getting started tutorial! It will walk you through creating your 
 
 It doesn't matter whether you arrived here from **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)), **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper)) or **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)).  All of them are **actors** and for now, let's just think of an **actor** as an application that you can use with your own configuration. **apify/web-scraper** is therefore an application called **web-scraper**, built by **apify**, that you can configure to scrape any webpage. We call these configurations **tasks**.
 
-> If you need help choosing the right scraper, see this [great article](https://help.apify.com/en/articles/3024655-choosing-the-right-solution). And if you just want to learn more about actors in general, you can read our [actors page](https://apify.com/actors) or [browse the documentation](https://docs.apify.com/actors).
+> If you need help choosing the right scraper, see this [great article](https://help.apify.com/en/articles/3024655-choosing-the-right-solution). And if you just want to learn more about actors in general, you can read our [actors page](https://apify.com/actors) or [browse the documentation](/platform/actors).
 
 You can create 10 different **tasks** for 10 different websites, with very different options, but there will always be just one **actor**, the `apify/*-scraper` you chose. This is the essence of tasks. They are nothing but **saved configurations** of the actor that you can run easily and repeatedly.
 
@@ -33,7 +35,7 @@ This takes you to the **Input and options** tab of the task configuration. Befor
 
 Scroll down to the **Performance and limits** section and set the **Max pages per run** option to **10**. This tells your task to finish after 10 pages have been visited. We don't need to crawl the whole domain just to see that the actor works.
 
-> This also helps with keeping your [compute unit](https://docs.apify.com/actors/running/compute-units) (CU) consumption low. Just to get an idea, our free plan includes 10 CUs and this run will consume about 0.04 CU, so you can run it 250 times a month for free. If you accidentally go over the limit, no worries, we won't charge you for it. You just won't be able to run more tasks that month.
+> This also helps with keeping your [compute unit](/platform/actors/running/compute-units) (CU) consumption low. Just to get an idea, our free plan includes 10 CUs and this run will consume about 0.04 CU, so you can run it 250 times a month for free. If you accidentally go over the limit, no worries, we won't charge you for it. You just won't be able to run more tasks that month.
 
 Now click **Save & Run**! *(in the bottom-left part of your screen)*
 
@@ -75,7 +77,7 @@ You can find all the task runs and their detail pages here. Every time you start
 
 ### [](#webhooks) Webhooks
 
-Webhooks are a feature that help keep you aware of what's happening with your tasks. You can set them up to inform you when a task starts, finishes, fails and so on, or you can even use them to run more tasks, depending on the outcome of the original one. [See webhooks documentation](https://docs.apify.com/webhooks).
+Webhooks are a feature that help keep you aware of what's happening with your tasks. You can set them up to inform you when a task starts, finishes, fails and so on, or you can even use them to run more tasks, depending on the outcome of the original one. [See webhooks documentation](/platform/integrations/webhooks).
 
 ### [](#readme) Information
 
@@ -106,7 +108,7 @@ Some of this information may be scraped directly from the listing pages, but for
 
 ### [](#the-start-url) The start URL
 
-Let's start with something simple. In the **Input** tab of the task we have, we'll change the **Start URL** from **<https://apify.com>**. This will tell the scraper to start by opening a different URL. You can add more **Start URL**s or even [use a file with a list of thousands of them](https://docs.apify.com/tutorials/crawl-urls-from-a-google-sheet), but in this case, we'll be good with just one.
+Let's start with something simple. In the **Input** tab of the task we have, we'll change the **Start URL** from **<https://apify.com>**. This will tell the scraper to start by opening a different URL. You can add more **Start URL**s or even [use a file with a list of thousands of them](//crawl-urls-from-a-google-sheet), but in this case, we'll be good with just one.
 
 How do we choose the new **Start URL**? The goal is to scrape all actors in the store, which is available at [https://apify.com/store](https://apify.com/store), so we choose this URL as our **Start URL**.
 
@@ -150,7 +152,7 @@ In the structures, only the `OWNER` and `NAME` change. We can leverage this in a
 
 #### Making a pseudo URL
 
-If you'd like to learn more about **Pseudo URL**s, [visit a quick tutorial in our docs](https://docs.apify.com/tutorials/apify-scrapers/getting-started#crawling-the-website-with-pseudo-url), but for now, let's keep it simple. **Pseudo URL**s are really just URLs with some variable parts in them. Those variable parts are represented by [regular expressions](https://regexone.com/) enclosed in brackets `[]`.
+**Pseudo URL**s are really just URLs with some variable parts in them. Those variable parts are represented by [regular expressions](https://regexone.com/) enclosed in brackets `[]`.
 
 So, working with our actor details example, we could produce a **Pseudo URL** like this:
 
@@ -252,7 +254,7 @@ When a **Pseudo URL** is set, the scraper attempts to enqueue matching links on 
 
 The `pageFunction` may only return nothing, `null`, `Object` or `Object[]`. If an `Object` is returned, it will be saved as a single result. Returning an `Array` of `Objects` will save each item in the array as a result.
 
-The scraping results are saved in a [dataset](https://docs.apify.com/storage/dataset) (one of the tabs in the run console, as you may remember). It behaves like a table. Each item is a row in the table and its properties are its columns. Returning the following `Object`:
+The scraping results are saved in a [dataset](/platform/storage/dataset) (one of the tabs in the run console, as you may remember). It behaves like a table. Each item is a row in the table and its properties are its columns. Returning the following `Object`:
 
 ```js
 {
@@ -338,11 +340,8 @@ There are differences in the code we use in the `pageFunction` though. Often sub
 In the next part of the tutorial, we'll focus on the individual scrapers' specific implementation details.
 So, it's time to choose sides. But don't worry, at Apify, no side is the dark side.
 
-- [Web Scraper tutorial](https://docs.apify.com/tutorials/apify-scrapers/web-scraper)
-- [Cheerio Scraper tutorial](https://docs.apify.com/tutorials/apify-scrapers/cheerio-scraper)
-- [Puppeteer Scraper tutorial](https://docs.apify.com/tutorials/apify-scrapers/puppeteer-scraper)
-
+- [Web Scraper tutorial](/academy/apify-scrapers/web-scraper)
+- [Cheerio Scraper tutorial](/academy/apify-scrapers/cheerio-scraper)
+- [Puppeteer Scraper tutorial](/academy/apify-scrapers/puppeteer-scraper)
 
 **Step-by-step tutorial that will help you get started with all Apify Scrapers. Learn the foundations of scraping the web with Apify and creating your own actors.**
-
----

@@ -108,7 +108,7 @@ context.page.on('request', req => console.log(req.url()));
 
 This can be useful in many ways, such as blocking unwanted assets or scripts from being downloaded, modifying request methods or faking responses and so on.
 
-_Explaining how to do interception properly is out of scope of this article. See [Puppeteer docs](https://pptr.dev/#?product=Puppeteer&show=api-pagesetrequestinterceptionvalue) and the [Apify SDK helper](https://docs.apify.com/sdk/js/docs/api/puppeteer#puppeteeraddinterceptrequesthandler-promise) for request interception._
+_Explaining how to do interception properly is out of scope of this article. See [Puppeteer docs](https://pptr.dev/#?product=Puppeteer&show=api-pagesetrequestinterceptionvalue) and the [Apify SDK helper](/sdk/js/docs/api/puppeteer#puppeteeraddinterceptrequesthandler-promise) for request interception._
 
 ## Enqueueing JavaScript links
 
@@ -152,15 +152,15 @@ await page.click('li a span.pagination-next');
 
 ## Using Apify SDK
 
-[Apify SDK](https://docs.apify.com/sdk/js/) is the library we used to build all of our scrapers. For power users, it is the best tool out there to scrape using JavaScript. If you're not yet ready to start writing your own actors using SDK, Puppeteer Scraper enables you to use its features without having to worry about building your own actors.
+[Apify SDK](/sdk/js/) is the library we used to build all of our scrapers. For power users, it is the best tool out there to scrape using JavaScript. If you're not yet ready to start writing your own actors using SDK, Puppeteer Scraper enables you to use its features without having to worry about building your own actors.
 
 The possibilities are endless, but to show you some examples:
 
-- Check out the [Apify.utils.puppeteer.infiniteScroll()](https://docs.apify.com/sdk/js/docs/api/puppeteer#puppeteer.infiniteScroll) function that enables scraping pages with infinite scroll in one line of code.
+- Check out the [Apify.utils.puppeteer.infiniteScroll()](/sdk/js/docs/api/puppeteer#puppeteer.infiniteScroll) function that enables scraping pages with infinite scroll in one line of code.
 
-- [Apify.utils.puppeteer.blockRequests()](https://docs.apify.com/sdk/js/docs/api/puppeteer#puppeteer.blockRequests) allows you to block network requests based on URL patterns.
+- [Apify.utils.puppeteer.blockRequests()](/sdk/js/docs/api/puppeteer#puppeteer.blockRequests) allows you to block network requests based on URL patterns.
 
-- [Apify.openDataset()](https://docs.apify.com/sdk/js/docs/api/apify#module_Apify.openDataset) lets you work with any dataset under your account.
+- [Apify.openDataset()](/sdk/js/docs/api/apify#module_Apify.openDataset) lets you work with any dataset under your account.
 
 - Make HTTP requests with `Apify.utils.requestAsBrowser()` to fetch external resources.
 

@@ -4,13 +4,15 @@ menuTitle: Puppeteer Scraper
 description: Learn how to scrape a website using Apify's Puppeteer Scraper. Build an actor's page function, extract information from a web page and download your data.
 externalSourceUrl: https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/build/puppeteer-scraper-tutorial.md
 sidebar_position: 4
-slug: /tutorials/apify-scrapers/puppeteer-scraper
+slug: /apify-scrapers/puppeteer-scraper
 ---
 
 [//]: # (TODO: Should be updated)
 
+#
+
 This scraping tutorial will go into the nitty gritty details of extracting data from **<https://apify.com/store>**
-using **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper)). If you arrived here from the [Getting started with Apify scrapers](https://docs.apify.com/tutorials/apify-scrapers/getting-started),
+using **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper)). If you arrived here from the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started),
 tutorial, great! You are ready to continue where we left off. If you haven't seen the Getting started yet,
 check it out, it will help you learn about Apify and scraping in general and set you up for this tutorial,
 because this one builds on topics and code examples discussed there.
@@ -63,7 +65,7 @@ Before we start, let's do a quick recap of the data we chose to scrape:
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/scraping-practice.webp)
 
-We've already scraped number 1 and 2 in the [Getting started with Apify scrapers](https://docs.apify.com/tutorials/apify-scrapers/getting-started)
+We've already scraped number 1 and 2 in the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started)
 tutorial, so let's get to the next one on the list: title.
 
 ### [](#title) Title
@@ -808,7 +810,7 @@ Thank you for reading this whole tutorial! Really! It's important to us that our
 ## [](#whats-next) What's next?
 
 - Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
-- [Take a deep dive into actors](https://docs.apify.com/actors), from how they work to [publishing](https://docs.apify.com/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on actors.
+- [Take a deep dive into actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on actors.
 - Found out you're not into the coding part but would still to use Apify actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom actor](https://apify.com/custom-solutions) from an Apify-certified developer.
 
 

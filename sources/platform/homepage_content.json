@@ -10,11 +10,11 @@
         },
         {
             "cardItem": "Start using Apify scrapers",
-            "href": "/platform/tutorials/apify-scrapers/getting-started"
+            "href": "/academy/apify-scrapers/getting-started"
         },
         {
             "cardItem": "Learn to use Web Scraper",
-            "href": "/platform/tutorials/apify-scrapers/web-scraper"
+            "href": "/academy/apify-scrapers/web-scraper"
         },
         {
             "cardItem": "Take a video tour of the platform",
@@ -32,7 +32,7 @@
         },
         {
             "cardItem": "What is web scraping?",
-            "href": "/platform/web-scraping-101"
+            "href": "/academy/web-scraping-for-beginners"
         }
     ],
     "Guides": [
@@ -46,7 +46,7 @@
         },
         {
             "cardItem": "Log into a website",
-            "href": "/platform/tutorials/log-into-a-website-using-puppeteer"
+            "href": "/academy/puppeteer-playwright/common-use-cases/logging-into-a-website"
         },
         {
             "cardItem": "Integrations",
@@ -54,15 +54,15 @@
         },
         {
             "cardItem": "Use Apify from PHP",
-            "href": "/platform/tutorials/use-apify-from-php"
+            "href": "/academy/php/using-apify-scraper-with-php"
         },
         {
             "cardItem": "Automate repetitive tasks",
-            "href": "/platform/robotic-process-automation"
+            "href": "/academy/concepts/robotic-process-automation"
         },
         {
             "cardItem": "Process data in Python with Pandas",
-            "href": "/platform/tutorials/process-data-using-python"
+            "href": "/academy/python/process-data-using-python"
         }
     ],
     "Web scraping": [
@@ -93,15 +93,15 @@
         },
         {
             "cardItem": "Analyze page content before scraping",
-            "href": "/platform/web-scraping-101/web-scraping-techniques"
+            "href": "/academy/concepts"
         },
         {
             "cardItem": "Analyze pages and fix errors",
-            "href": "/platform/tutorials/analyze-pages-and-fix-errors"
+            "href": "/academy/node-js/analyzing-pages-and-fixing-errors"
         },
         {
             "cardItem": "Scrape data in Python with Beautiful Soup",
-            "href": "/platform/tutorials/scrape-data-using-python"
+            "href": "/academy/python/scrape-data-python"
         }
     ],
     "Platform features": [
@@ -137,7 +137,7 @@
         },
         {
             "cardItem": "Bypass anti-scraping techniques",
-            "href": "/platform/web-scraping-101/anti-scraping-techniques"
+            "href": "/academy/anti-scraping/techniques"
         },
         {
             "cardItem": "Use a proxy in your browser",

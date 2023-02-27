@@ -18,5 +18,3 @@ You can export URLs from [Google Sheets](https://www.google.com/sheets/about/) s
 IMPORTANT: Make sure anyone with the link can view the document. Otherwise, the actor will not be able to access it.
 
 ![Link sharing](./images/anyone-with-link.png)
-
-[See more details](/platform/tutorials/crawl-urls-from-a-google-sheet) in our documentation.

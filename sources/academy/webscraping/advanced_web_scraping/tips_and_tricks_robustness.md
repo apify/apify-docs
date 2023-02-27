@@ -1,43 +1,15 @@
 ---
-title: Tips and tricks
-description: Learn how to make your automated processes more effective. Avoid common RPA pitfalls, future-proof your programs and improve your processes.
-slug: /robotic-process-automation/tips-and-tricks
+title: Tips and tricks for robustness
+description: Learn how to make your automated processes more effective. Avoid common pitfalls, future-proof your programs and improve your processes.
+sidebar_position: 2
+slug: /advanced-web-scraping/tips-and-tricks-robustness
 ---
 
-# [](./tips-and-tricks) RPA tips and tricks
-
-**Learn how to make your automated processes more effective. Avoid common RPA pitfalls, future-proof your programs and improve your processes.**
+**Learn how to make your automated processes more effective. Avoid common web scraping and web automation pitfalls, future-proof your programs and improve your processes.**
 
 ---
 
-This collection of [robotic process automation](./index.md) (RPA) tips and tricks aims to help you make your automations work smoother and produce fewer errors.
-
-## Event-bound flows {#event-bound-flows}
-
-Always strive to make automation as fluid as possible. Listen to events and react to them as needed by triggering consecutive actions immediately.
-
-- **Avoid** any **fixed-duration** delays wherever possible.
-- Prefer fluid flow based on the **occurrence of events**.
-
-```js
-// Avoid:
-await page.waitForTimeout(timeout);
-
-// Good:
-await page.waitForFunction(function, options, args);
-
-// Good:
-await page.waitForFunction(() => {
-    return window.location.href.includes('path');
-});
-
-// Good:
-await page.waitForFunction(selector =>
-    document.querySelector(selector).innerText,
-    { polling: 'mutation' },
-    '[data-qa="btnAppleSignUp"]',
-);
-```
+This collection of tips and tricks aims to help you make your scrapers work smoother and produce fewer errors.
 
 ## Proofs and verification {#proofs-and-verification}
 
@@ -144,3 +116,30 @@ If you are reasonably confident a page layout will remain without any dramatic f
 Matching elements by content is already natively supported by [Playwright](https://playwright.dev/). Playwright is a [Node.js](https://nodejs.org/en/) library that allows you to automate Chromium, Firefox and WebKit with a single API.
 
 In [Puppeteer](https://pptr.dev/), you can use custom utility functions to [polyfill](https://developer.mozilla.org/en-US/docs/Glossary/Polyfill) this functionality.
+
+## Event-bound flows {#event-bound-flows}
+
+Always strive to make code as fluid as possible. Listen to events and react to them as needed by triggering consecutive actions immediately.
+
+- **Avoid** any **fixed-duration** delays wherever possible.
+- Prefer fluid flow based on the **occurrence of events**.
+
+```js
+// Avoid:
+await page.waitForTimeout(timeout);
+
+// Good:
+await page.waitForFunction(function, options, args);
+
+// Good:
+await page.waitForFunction(() => {
+    return window.location.href.includes('path');
+});
+
+// Good:
+await page.waitForFunction(selector =>
+    document.querySelector(selector).innerText,
+    { polling: 'mutation' },
+    '[data-qa="btnAppleSignUp"]',
+);
+```

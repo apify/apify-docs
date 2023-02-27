@@ -42,4 +42,4 @@ As you likely already know, there is no solution that fits all. If you are strug
 
 ## Next up {#next}
 
-In the [next lesson](./captchas.md), we'll be covering **captchas**, which were mentioned throughout this lesson. It's important to note that attempting to solve a captcha programmatically is the last resort - always try to avoid being presented the captcha in the first place by using the techniques mentioned in this lesson.
+In the [next lesson](./browser_challenges.md), we'll be covering **browser challenges** and specifically the Cloudflare browser challenge which is part of the Cloudflare WAF mentioned in this lesson.

@@ -19,4 +19,4 @@ Examples:
 
 - `await context.waitFor('my-selector')` - waits for `my-selector` to appear on the page.
 
-For details, code examples, and advanced use cases, visit our [documentation](/platform/tutorials/scraping-dynamic-content).
+For details, code examples, and advanced use cases, visit our [documentation](../../webscraping/puppeteer_playwright/page/waiting.md).

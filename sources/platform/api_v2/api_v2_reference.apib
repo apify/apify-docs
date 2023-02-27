@@ -10,9 +10,9 @@ All requests and responses (including errors) are encoded in [JSON](http://www.j
 with a few exceptions that are explicitly described in the reference.
 
 To access the API using [Node.js](https://nodejs.org/en/), we recommend the
-[`apify-client`](https://docs.apify.com/api/client/js) [NPM package](https://www.npmjs.com/package/apify-client).
+[`apify-client`](/api/client/js) [NPM package](https://www.npmjs.com/package/apify-client).
 To access the API using [Python](https://www.python.org/), we recommend the
-[`apify-client`](https://docs.apify.com/api/api/client/python) [PyPI package](https://pypi.org/project/apify-client/).
+[`apify-client`](/api/api/client/python) [PyPI package](https://pypi.org/project/apify-client/).
 The clients' functions correspond to the API endpoints and have the same parameters. This simplifies development of apps that depend on the Apify platform.
 
 **Note:** All requests with JSON payloads need to specify the `Content-Type: application/json` HTTP header!
@@ -40,7 +40,7 @@ your API token.
 
 **Do not share your API token or password with untrusted parties.**
 
-For more information, see our [integrations](https://docs.apify.com/integrations) documentation.
+For more information, see our [integrations](/integrations) documentation.
 
 ## Basic usage
 
@@ -195,7 +195,7 @@ The following table describes the meaning of the response properties:
 
 ### Using key
 
-The records in the [key-value store](https://docs.apify.com/storage/key-value-store)
+The records in the [key-value store](/storage/key-value-store)
 are not ordered based on numerical indexes,
 but rather by their keys in the UTF-8 binary order.
 Therefore the [Get list of keys](#reference/key-value-stores/key-collection/get-list-of-keys)
@@ -370,8 +370,8 @@ and it can be described using the following pseudo-code:
 If all requests sent by the client implement the above steps,
 the client will automatically use the maximum available bandwidth for its requests.
 
-Note that the Apify API clients [for JavaScript](https://docs.apify.com/api/client/js)
-and [for Python](https://docs.apify.com/api/api/client/python)
+Note that the Apify API clients [for JavaScript](/api/client/js)
+and [for Python](/api/api/client/python)
 use the exponential backoff algorithm transparently, so that you do not need to worry about it.
 
 ## Referring to resources
@@ -385,7 +385,7 @@ There are three main ways to refer to a resource you're accessing via API.
 # Group Actors
 
 The API endpoints described in this section enable you to manage, build and run Apify actors.
-For more information, see the <a href="https://docs.apify.com/actor">Actor documentation</a>.
+For more information, see the <a href="/actor">Actor documentation</a>.
 
 Note that for all the API endpoints that accept the `actorId` parameter to specify an actor,
 you can pass either the actor ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
@@ -440,7 +440,7 @@ The HTTP request must have the `Content-Type: application/json` HTTP header!
 The actor needs to define at least one version of the source code.
 For more information, see [Version object](#reference/actors/version-object).
 
-If you want to make your actor public using `isRequired: true`, you will need to provide the actor's [`title`](https://docs.apify.com/actors/publishing#title) and the `categories` under which that actor will be classified in Apify Store. For this, it's best to use the [constants from our `apify-shared-js` package](https://github.com/apify/apify-shared-js/blob/2d43ebc41ece9ad31cd6525bd523fb86939bf860/packages/consts/src/consts.ts#L452-L471).
+If you want to make your actor public using `isRequired: true`, you will need to provide the actor's [`title`](/actors/publishing#title) and the `categories` under which that actor will be classified in Apify Store. For this, it's best to use the [constants from our `apify-shared-js` package](https://github.com/apify/apify-shared-js/blob/2d43ebc41ece9ad31cd6525bd523fb86939bf860/packages/consts/src/consts.ts#L452-L471).
 
 + Request (application/json)
 
@@ -483,7 +483,7 @@ The request needs to specify the `Content-Type: application/json` HTTP header!
 
 When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
-If you want to make your actor public using `isRequired: true`, you will need to provide the actor's [`title`](https://docs.apify.com/actors/publishing#title) and the `categories` under which that actor will be classified in Apify Store. For this, it's best to use the [constants from our `apify-shared-js` package](https://github.com/apify/apify-shared-js/blob/2d43ebc41ece9ad31cd6525bd523fb86939bf860/packages/consts/src/consts.ts#L452-L471).
+If you want to make your actor public using `isRequired: true`, you will need to provide the actor's [`title`](/actors/publishing#title) and the `categories` under which that actor will be classified in Apify Store. For this, it's best to use the [constants from our `apify-shared-js` package](https://github.com/apify/apify-shared-js/blob/2d43ebc41ece9ad31cd6525bd523fb86939bf860/packages/consts/src/consts.ts#L452-L471).
 
 + Request (application/json)
 
@@ -528,9 +528,9 @@ Creates a version of an actor using values specified in a [Version object](#refe
 
 The request must specify `versionNumber` and `sourceType` parameters (as strings) in the JSON payload and a `Content-Type: application/json` HTTP header.
 
-Each `sourceType` requires its own additional properties to be passed to the JSON payload object. These are outlined in the [Version object](#reference/actors/version-object) table below and in more detail in the [Apify documentation](https://docs.apify.com/actors/development/source-code).
+Each `sourceType` requires its own additional properties to be passed to the JSON payload object. These are outlined in the [Version object](#reference/actors/version-object) table below and in more detail in the [Apify documentation](/actors/development/source-code).
 
-For example, if an actor's source code is stored in a [GitHub repository](https://docs.apify.com/actors/development/source-code#git-repository), you will set the `sourceType` to `GIT_REPO` and pass the repository's URL in the `gitRepoUrl` property.
+For example, if an actor's source code is stored in a [GitHub repository](/actors/development/source-code#git-repository), you will set the `sourceType` to `GIT_REPO` and pass the repository's URL in the `gitRepoUrl` property.
 
 ```
 {
@@ -599,7 +599,7 @@ on its value the Version object has the following additional property:
   </tr>
 </table>
 
-For more information about source code and actor versions, see [Source code](https://docs.apify.com/actor/source-code) in Actors documentation.
+For more information about source code and actor versions, see [Source code](/actor/source-code) in Actors documentation.
 
 
 + Parameters
@@ -911,7 +911,7 @@ array elements.
 By default, the records are sorted by the `startedAt` field in ascending order,
 therefore you can use pagination to incrementally fetch all records while new
 ones are still being created. To sort the records in descending order, use `desc=1`
-parameter. You can also filter runs by status ([available statuses](https://docs.apify.com/actors/running#lifecycle)).
+parameter. You can also filter runs by status ([available statuses](/actors/running#lifecycle)).
 
 + Parameters
 
@@ -919,7 +919,7 @@ parameter. You can also filter runs by status ([available statuses](https://docs
     + offset: 10 (number, optional) - Number of array elements that should be skipped at the start. The default value is `0`.
     + limit: 99 (number, optional) - Maximum number of array elements to return. The default value as well as the maximum is `1000`.
     + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `startedAt` field in descending order. By default, they are sorted in ascending order.
-    + status: SUCCEEDED (string, optional) - Return only runs with the provided status ([available statuses](https://docs.apify.com/actors/running#lifecycle))
+    + status: SUCCEEDED (string, optional) - Return only runs with the provided status ([available statuses](/actors/running#lifecycle))
 
 + Response 200 (application/json)
 
@@ -959,7 +959,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
                                              otherwise it will have a transitional status (e.g. `RUNNING`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/webhooks).
+      [Webhooks documenation](/webhooks).
 
 + Request
 
@@ -992,7 +992,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/webhooks).
+      [Webhooks documenation](/webhooks).
 
 ### With input [POST]
 
@@ -1109,7 +1109,7 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/webhooks).
+      [Webhooks documenation](/webhooks).
     + format: `json` (string, optional) - Format of the results, possible values are: `json`, `jsonl`, `csv`, `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
     + clean: `false` (boolean, optional) - If `true` or `1` then the API endpoint returns only non-empty items and skips hidden fields
         (i.e. fields starting with the # character).
@@ -1337,7 +1337,7 @@ Internally, the system stops the Docker container corresponding to the actor run
 and starts a new container using a different Docker image.
 All the default storages are preserved and the new input is stored under the `INPUT-METAMORPH-1` key in the same default key-value store.
 
-For more information, see [Actor docs](https://docs.apify.com/actors/development/source-code#metamorph).
+For more information, see [Actor docs](/actors/development/source-code#metamorph).
 
 + Parameters
 
@@ -1362,7 +1362,7 @@ Only finished runs, i.e. runs with status `FINISHED`, `FAILED`, `ABORTED` and `T
 Run status will be updated to RUNNING and its container will be restarted with the same storages
 (the same behaviour as when the run gets migrated to the new server).
 
-For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrection-of-finished-run).
+For more information, see [Actor docs](/actor/run#resurrection-of-finished-run).
 
 + Parameters
 
@@ -1450,7 +1450,7 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 # Group Actor tasks
 
 The API endpoints described in this section enable you to manage and run Apify actor tasks.
-For more information, see the <a href="https://docs.apify.com/tasks">Actor tasks documentation</a>.
+For more information, see the <a href="/tasks">Actor tasks documentation</a>.
 
 Note that for all the API endpoints that accept the `actorTaskId` parameter to specify a task,
 you can pass either the task ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
@@ -1654,7 +1654,7 @@ array elements.
 By default, the records are sorted by the `startedAt` field in ascending order;
 therefore you can use pagination to incrementally fetch all records while new
 ones are still being created. To sort the records in descending order, use the `desc=1`
-parameter. You can also filter runs by status ([available statuses](https://docs.apify.com/actors/running#lifecycle)).
+parameter. You can also filter runs by status ([available statuses](/actors/running#lifecycle)).
 
 + Parameters
 
@@ -1663,7 +1663,7 @@ parameter. You can also filter runs by status ([available statuses](https://docs
     + offset: 10 (number, optional) - Number of array elements that should be skipped at the start. The default value is `0`.
     + limit: 99 (number, optional) - Maximum number of array elements to return. The default value as well as the maximum is `1000`.
     + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `startedAt` field in descending order. By default, they are sorted in ascending order.
-    + status: SUCCEEDED (string, optional) - Return only runs with the provided status ([available statuses](https://docs.apify.com/actors/running#lifecycle))
+    + status: SUCCEEDED (string, optional) - Return only runs with the provided status ([available statuses](/actors/running#lifecycle))
 
 + Response 200 (application/json)
 
@@ -1707,7 +1707,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks.
       **Note**: if you already have a webhook set up for the actor or task, you do not have to add it again here.
       For more information, see
-      [Webhooks documenation](https://docs.apify.com/webhooks).
+      [Webhooks documenation](/webhooks).
 
 + Request
 
@@ -1740,7 +1740,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
       in the response. By default, it is `OUTPUT`.
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/webhooks).
+      [Webhooks documenation](/webhooks).
 
 ### Run task synchronously (POST) [POST]
 
@@ -1845,7 +1845,7 @@ To run the Task asynchronously, use the [Run task asynchronously](#reference/act
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the task settings (typically `latest`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/webhooks).
+      [Webhooks documenation](/webhooks).
     + format: `json` (string, optional) - Format of the results, possible values are: `json`, `jsonl`, `csv`, `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
     + clean: `false` (boolean, optional) - If `true` or `1` then the API endpoint returns only non-empty items and skips hidden fields
       (i.e. fields starting with the # character).
@@ -2088,7 +2088,7 @@ array elements.
 By default, the records are sorted by the `startedAt` field in ascending order.
 Therefore, you can use pagination to incrementally fetch all records while new
 ones are still being created. To sort the records in descending order, use `desc=1`
-parameter. You can also filter runs by status ([available statuses](https://docs.apify.com/actors/running#lifecycle)).
+parameter. You can also filter runs by status ([available statuses](/actors/running#lifecycle)).
 
 + Parameters
 
@@ -2096,7 +2096,7 @@ parameter. You can also filter runs by status ([available statuses](https://docs
     + offset: 10 (number, optional) - Number of array elements that should be skipped at the start. The default value is `0`.
     + limit: 99 (number, optional) - Maximum number of array elements to return. The default value (as well as the maximum) is `1000`.
     + desc: true (boolean, optional) - If `true` or `1` then the objects are sorted by the `startedAt` field in descending order. By default, they are sorted in ascending order.
-    + status: SUCCEEDED (string, optional) - Return only runs with the provided status ([available statuses](https://docs.apify.com/actors/running#lifecycle))
+    + status: SUCCEEDED (string, optional) - Return only runs with the provided status ([available statuses](/actors/running#lifecycle))
 
 + Response 200 (application/json)
 
@@ -2222,7 +2222,7 @@ Internally, the system stops the Docker container corresponding to the actor run
 and starts a new container using a different Docker image.
 All the default storages are preserved and the new input is stored under the `INPUT-METAMORPH-1` key in the same default key-value store.
 
-For more information, see [Actor docs](https://docs.apify.com/actors/development/source-code#metamorph).
+For more information, see [Actor docs](/actors/development/source-code#metamorph).
 
 + Parameters
 
@@ -2246,7 +2246,7 @@ Only finished runs, i.e. runs with status `FINISHED`, `FAILED`, `ABORTED` and `T
 Run status will be updated to RUNNING and its container will be restarted with the same storages
 (the same behaviour as when the run gets migrated to the new server).
 
-For more information, see [Actor docs](https://docs.apify.com/actor/run#resurrection-of-finished-run).
+For more information, see [Actor docs](/actor/run#resurrection-of-finished-run).
 
 + Parameters
 
@@ -2368,7 +2368,7 @@ Key-value store is a simple storage for saving and reading data records or files
 Each data record is represented by a unique key and associated with a MIME content type.
 Key-value stores are ideal for saving screenshots, actor inputs and outputs, web pages,
 PDFs or to persist the state of crawlers.
-For more information, see the <a href="https://docs.apify.com/storage/key-value-store">Key-value store documentation</a>.
+For more information, see the <a href="/storage/key-value-store">Key-value store documentation</a>.
 
 Note that some of the endpoints do not require the authentication token, the calls
 are authenticated using a hard-to-guess ID of the key-value store.
@@ -2414,7 +2414,7 @@ parameter.
 
 Creates a key-value store and returns its object. The response is the same object as returned
 by the [Get store](#reference/key-value-stores/store-object/get-store) endpoint.
-Keep in mind that data stored under unnamed store follows [data retention period](https://docs.apify.com/storage#data-retention).
+Keep in mind that data stored under unnamed store follows [data retention period](/storage#data-retention).
 
 It creates a store with the given name if the parameter name is used.
 If there is another store with the same name, the endpoint does not create a new one and returns the existing object instead.
@@ -2611,7 +2611,7 @@ such as online store products or real estate offers. You can imagine it as a tab
 where each object is a row and its attributes are columns. Dataset is an append-only
 storage - you can only add new records to it but you cannot modify or remove existing
 records. Typically it is used to store crawling results.
-For more information, see the <a href="https://docs.apify.com/storage/dataset">Datasets documentation</a>.
+For more information, see the <a href="/storage/dataset">Datasets documentation</a>.
 
 Note that some of the endpoints do not require the authentication token, the calls
 are authenticated using the hard-to-guess ID of the dataset.
@@ -2651,7 +2651,7 @@ array elements.
 ### Create dataset [POST]
 
 Creates a dataset and returns its object.
-Keep in mind that data stored under unnamed dataset follows [data retention period](https://docs.apify.com/storage#data-retention).
+Keep in mind that data stored under unnamed dataset follows [data retention period](/storage#data-retention).
 
 It creates a dataset with the given name if the parameter name is used.
 If a dataset with the given name already exists then returns its object.
@@ -2983,7 +2983,7 @@ This section describes API endpoints to manage request queues.
 Request queue is a storage for a queue of HTTP URLs to crawl, which is typically used for deep crawling of websites where you
 start with several URLs and then recursively follow links to other pages.
 The storage supports both breadth-first and depth-first crawling orders.
-For more information, see the <a href="https://docs.apify.com/storage/request-queue">Request queue documentation</a>.
+For more information, see the <a href="/storage/request-queue">Request queue documentation</a>.
 
 Note that some of the endpoints do not require the authentication token, the calls
 are authenticated using the hard-to-guess ID of the queue.
@@ -3023,7 +3023,7 @@ array elements.
 ### Create request queue [POST]
 
 Creates a request queue and returns its object.
-Keep in mind that requests stored under unnamed queue follows [data retention period](https://docs.apify.com/storage#data-retention).
+Keep in mind that requests stored under unnamed queue follows [data retention period](/storage#data-retention).
 
 It creates a queue of given name if the parameter name is used. If a queue with the given name already exists then the endpoint returns
 its object.
@@ -3228,7 +3228,7 @@ This section describes API endpoints to manage webhooks.
 Webhooks provide an easy and reliable way to configure the Apify platform
 to carry out an action (e.g. a HTTP request to another service) when a certain system event occurs.
 For example, you can use webhooks to start another actor when an actor run finishes or fails.
-For more information see <a href="https://docs.apify.com/webhooks">Webhooks documentation</a>.
+For more information see <a href="/webhooks">Webhooks documentation</a>.
 
 ## Webhook collection [/v2/webhooks{?token,limit,offset,desc}]
 
@@ -3443,7 +3443,7 @@ This section describes API endpoints for managing schedules.
 
 Schedules are used to automatically start your actors at certain times. Each schedule can be associated with a number of actors and actor tasks. It is also possible
 to override the settings of each actor (task) similarly to when invoking the actor (task) using the API.
-For more information, see <a href="https://docs.apify.com/scheduler">Schedules documentation</a>.
+For more information, see <a href="/scheduler">Schedules documentation</a>.
 
 Each schedule is assigned actions for it to perform. Actions can be of two types - `RUN_ACTOR` and `RUN_ACTOR_TASK`. For details, see the documentation of the
 [Get schedule](#reference/schedules/schedule-object/get-schedule) endpoint.

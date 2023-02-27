@@ -8,9 +8,7 @@ slug: /switching-to-typescript
 
 # Switching to TypeScript {#switching-to-typescript}
 
-**In this course, learn what TypeScript is, why you should use it instead of vanilla JavaScript, and how to start using it in your own projects.**
-
----
+> In this course, learn what TypeScript is, why you should use it instead of vanilla JavaScript, and how to start using it in your own projects.
 
 As the world of JavaScript moves forward, [TypeScript](https://www.typescriptlang.org/) continues to become more popular. More companies than ever before are using TypeScript in their codebases, and are heavily preferring it over vanilla JavaScript. But why? What is TypeScript, and why is is so great for developers?
 
@@ -43,7 +41,7 @@ This code doesn't actually throw an error, but it does output `27undefined`. Tha
 
 With TypeScript, these types of issues stick out like a sore thumb, and depending on your configurations, the [compiler](https://www.techtarget.com/whatis/definition/compiler#:~:text=A%20compiler%20is%20a%20special,as%20Java%20or%20C%2B%2B.) will refuse to compile it until they have been fixed.
 
-![Typescript Error 2345](./images/typescript-error.png)
+![TS Error 2345](./images/typescript-error.png)
 
 This means that when using TS (a popular acronym for "TypeScript") on a large project, you'll run into much less runtime errors and catch the majority of them during the development process.
 

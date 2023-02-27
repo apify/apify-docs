@@ -149,9 +149,9 @@ import cheerio from 'cheerio';
 const BASE_URL = 'https://demo-webstore.apify.org';
 
 const crawler = new PuppeteerCrawler({
-    requestHandler: async ({ parseWithCheerio, request }) => {
+    requestHandler: async ({ parseWithCheerio, infiniteScroll }) => {
         // Add the utility function
-        await utils.puppeteer.infiniteScroll(page);
+        await infiniteScroll();
 
         const $ = await parseWithCheerio();
 

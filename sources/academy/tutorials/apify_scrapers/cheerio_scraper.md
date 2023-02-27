@@ -1,36 +1,40 @@
 ---
-title: Scraping with Web Scraper
-menuTitle: Web Scraper
-description: Learn how to scrape a website using Apify's Web Scraper. Build an actor's page function, extract information from a web page and download your data.
-externalSourceUrl: https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/build/web-scraper-tutorial.md
-sidebar_position: 2
-slug: /tutorials/apify-scrapers/web-scraper
+title: Scraping with Cheerio Scraper
+menuTitle: Cheerio Scraper
+description: Learn how to scrape a website using Apify's Cheerio Scraper. Build an actor's page function, extract information from a web page and download your data.
+externalSourceUrl: https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/build/cheerio-scraper-tutorial.md
+sidebar_position: 3
+slug: /apify-scrapers/cheerio-scraper
 ---
-<!-- When changing the TITLE property, make sure to edit the dependent integration test: https://github.com/apifytech/apify-web/blob/develop/tests/e2e/cypress/integration/docs.js so it doesn't break  -->
 
 [//]: # (TODO: Should be updated)
 
+#
+
 This scraping tutorial will go into the nitty gritty details of extracting data from **<https://apify.com/store>**
-using **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)). If you arrived here from the [Getting started with Apify scrapers](https://docs.apify.com/tutorials/apify-scrapers/getting-started),
+using **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)). If you arrived here from the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started),
 tutorial, great! You are ready to continue where we left off. If you haven't seen the Getting started yet,
 check it out, it will help you learn about Apify and scraping in general and set you up for this tutorial,
 because this one builds on topics and code examples discussed there.
 
 ## [](#getting-to-know-our-tools) Getting to know our tools
 
-In the [Getting started with Apify scrapers](https://apify.com/docs/scraping/tutorial/introduction) tutorial,
-we've confirmed that the scraper works as expected, so now it's time to add more data to the results.
+In the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started) tutorial, we've confirmed that the scraper works as expected,
+so now it's time to add more data to the results.
 
-To do that, we'll be using the [jQuery library](https://jquery.com/), because it provides some nice tools
-and a lot of people familiar with JavaScript already know how to use it.
+To do that, we'll be using the [Cheerio](https://github.com/cheeriojs/cheerio) library. This may not sound familiar,
+so let's try again. Does [jQuery](https://jquery.com/) ring a bell? If it does you're in luck,
+because Cheerio is just jQuery that doesn't need an actual browser to run. Everything else is the same.
+All the functions you already know are there and even the familiar `$` is used. If you still have no idea what either
+of those are, don't worry. We'll walk you through using them step by step.
 
-> [Check out the jQuery docs](https://api.jquery.com/) if you're not familiar with it. And if you just don't want to use it, that's okay. Everything can be done using pure JavaScript, too.
+> [Check out the Cheerio docs](https://github.com/cheeriojs/cheerio) to learn more about it.
 
-To add jQuery, all we need to do is turn on **Inject jQuery** under the  **Input and options** tab.
-This will add a `context.jQuery` function that you can use.
+Now that's out of the way, let's open one of the actor detail pages in the Store, for example the
+**Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)) page, and use our DevTools-Fu to scrape some data.
 
-Now that's out of the way, let's open one of the actor detail pages in the Store, for example
-the [Web Scraper](https://apify.com/apify/web-scraper) page and use our DevTools-Fu to scrape some data.
+> If you're wondering why we're using Web Scraper as an example instead of Cheerio Scraper,
+it's only because we didn't want to triple the number of screenshots we needed to make. Lazy developers!
 
 ## [](#building-our-page-function) Building our Page function
 
@@ -45,7 +49,7 @@ Before we start, let's do a quick recap of the data we chose to scrape:
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/scraping-practice.webp)
 
-We've already scraped number 1 and 2 in the [Getting started with Apify scrapers](https://docs.apify.com/tutorials/apify-scrapers/getting-started)
+We've already scraped number 1 and 2 in the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started)
 tutorial, so let's get to the next one on the list: title.
 
 ### [](#title) Title
@@ -65,7 +69,7 @@ To get the title we just need to find it using a `header h1` selector, which sel
 And as we already know, there's only one.
 
 ```js
-// Using jQuery.
+// Using Cheerio.
 return {
     title: $('header h1').text(),
 };
@@ -155,7 +159,10 @@ const { url } = request;
 
 // ...
 
-const uniqueIdentifier = url.split('/').slice(-2).join('/');
+const uniqueIdentifier = url
+    .split('/')
+    .slice(-2)
+    .join('/');
 
 return {
     url,
@@ -180,9 +187,8 @@ All we need to do now is add this to our `pageFunction`:
 
 ```js
 async function pageFunction(context) {
-    // use jQuery as $
-    const { request, log, skipLinks, jQuery: $ } = context;
-
+    // $ is Cheerio
+    const { request, log, skipLinks, $ } = context;
     if (request.userData.label === 'START') {
         log.info('Store opened!');
         // Do some stuff later.
@@ -231,169 +237,118 @@ Pagination is just a term that represents "going to the next page of results". Y
 actually scrape all the actors, just the first page of results. That's because to load the rest of the actors,
 one needs to click the **Show more** button at the very bottom of the list. This is pagination.
 
-> This is a typical form of JavaScript pagination, sometimes called infinite scroll. Other pages may just use links
-that take you to the next page. If you encounter those, just make a **Pseudo URL** for those links and they will
-be automatically enqueued to the request queue. Use a label to let the scraper know what kind of URL it's processing.
+> This is a typical JavaScript pagination, sometimes called infinite scroll. Other pages may use links
+that take you to the next page. If you encounter those, just make a Pseudo URL for those links and they
+will be automatically enqueued to the request queue. Use a label to let the scraper know what kind of URL
+it's processing.
 
-### [](#waiting-for-dynamic-content) Waiting for dynamic content
+If you paid close attention, you may now see a problem. How do we click a button in the page when we're working
+with Cheerio? We don't have a browser to do it and we only have the HTML of the page to work with. So the simple
+answer is that we can't click a button. Does that mean that we cannot get the data at all? Usually not,
+but it requires some clever DevTools-Fu.
 
-Before we talk about paginating, we need to have a quick look at dynamic content. Since Apify Store is a JavaScript
-application (as many, if not most, modern websites are), the button might not exist in the page when the scraper
-runs the `pageFunction`.
+### [](#analyzing-the-page) Analyzing the page
 
-How is this possible? Because the scraper only waits with executing the `pageFunction` for the page to load its HTML.
-If there's additional JavaScript that modifies the DOM afterwards, the `pageFunction` may execute before this
-JavaScript had the time to run.
+While with Web Scraper and **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper)), we could get away with simply clicking a button,
+with Cheerio Scraper we need to dig a little deeper into the page's architecture. For this, we will use
+the Network tab of the Chrome DevTools.
 
-At first, you may think that the scraper is broken, but it just cannot wait for all the JavaScript in the page
-to finish executing. For a lot of pages, there's always some JavaScript executing or some network requests being made.
-It would never stop waiting. It is therefore up to you, the programmer, to wait for the elements you need.
-Fortunately, we have an easy solution.
+> DevTools is a powerful tool with many features, so if you're not familiar with it, please [see Google's tutorial](https://developers.google.com/web/tools/chrome-devtools/network/), which explains everything much better than we ever could.
 
-#### The `context.waitFor()` function
+We want to know what happens when we click the **Show more** button, so we open the DevTools **Network** tab and clear it.
+Then we click the **Show more** button and wait for incoming requests to appear in the list.
 
-`waitFor()` is a function that's available on the `context` object passed to the `pageFunction` and helps you with,
-well, waiting for stuff. It accepts either a number of milliseconds to wait, a selector to await in the page,
-or a function to execute. It will stop waiting once the time elapses, the selector appears or the provided function
-returns `true`.
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/inspect-network.webp)
 
-```js
-// Waits for 2 seconds.
-await waitFor(2000);
-// Waits until an element with id "my-id" appears
-// in the page.
-await waitFor('#my-id');
-// Waits until a "myObject" variable appears
-// on the window object.
-await waitFor(() => !!window.myObject);
-```
+Now, this is interesting. It seems that we've only received two images after clicking the button and no additional
+data. This means that the data about actors must already be available in the page and the **Show more** button only displays it. This is good news.
 
-The selector may never be found and the function might never return `true`, so the `waitFor()` function also has
-a timeout. The default is `20` seconds. You can override it by providing an options object as the second parameter,
-with a `timeoutMillis` property.
+### [](#finding-the-actors) Finding the actors
 
-```js
-await waitFor('.bad-class', { timeoutMillis: 5000 });
-```
+Now that we know the information we seek is already in the page, we just need to find it. The first actor in the store
+is Web Scraper, so let's try using the search tool in the **Elements** tab to find some reference to it. The first
+few hits do not provide any interesting information, but in the end, we find our goldmine. There is a `<script>` tag,
+with the ID `__NEXT_DATA__` that seems to hold a lot of information about Web Scraper. In DevTools,
+you can right click an element and click **Store as global variable** to make this element available in the **Console**.
 
-With those tools, you should be able to handle any dynamic content the website throws at you.
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/find-data.webp)
 
-### [](#how-to-paginate) How to paginate
-
-With the theory out of the way, this should be pretty easy. The algorithm is a loop:
-
-1. Wait for the **Show more** button.
-2. Click it.
-3. Is there another **Show more** button?
-    - Yes? Repeat the above. (loop)
-    - No? We're done. We have all the actors.
-
-#### Waiting for the button
-
-Before we can wait for the button, we need to know its unique selector. A quick look in the DevTools tells us
-that the button's class is some weird randomly generated string, but fortunately, there's an enclosing `<div>`
-with a class of `show-more`. Great! Our unique selector:
-
-```text
-div.show-more > button
-```
-
-> Don't forget to confirm our assumption in the DevTools finder tool (CTRL/CMD + F).
-
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/waiting-for-the-button.webp)
-
-Now that we know what to wait for, we just plug it into the `waitFor()` function.
+A `temp1` variable is now added to your console. We're mostly interested in its contents and we can get that using
+the `temp1.textContent` property. You can see that it's a rather large JSON string. How do we know?
+The `type` attribute of the `<script>` element says `application/json`. But working with a string would be very
+cumbersome, so we need to parse it.
 
 ```js
-await waitFor('div.show-more > button');
+const data = JSON.parse(temp1.textContent);
 ```
 
-#### Clicking the button
+After entering the above command into the console, we can inspect the `data` variable and see that all the information
+we need is there, in the `data.props.pageProps.items` array. Great!
 
-We have a unique selector for the button and we know that it's already rendered in the page. Clicking it is a piece of cake. We'll use jQuery again, but feel free to use plain JavaScript, it works the same.
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/inspect-data.webp)
+
+> It's obvious that all the information we set to scrape is available in this one data object,
+so you might already be wondering, can I just make one request to the store to get this JSON
+and then parse it out and be done with it in a single request? Yes you can! And that's the power
+of clever page analysis.
+
+### [](#using-the-data-to-enqueue-all-actor-details) Using the data to enqueue all actor details
+
+We don't really need to go to all the actor details now, but for the sake of practice, let's imagine we only found
+actor names such as `cheerio-scraper` and their owners, such as `apify` in the data. We will use this information
+to construct URLs that will take us to the actor detail pages and enqueue those URLs into the request queue.
 
 ```js
-$('div.show-more > button').click()
-```
+// We're not in DevTools anymore,
+// so we use Cheerio to get the data.
+const dataJson = $('#__NEXT_DATA__').html();
+// We requested HTML, but the data are actually JSON.
+const data = JSON.parse(dataJson);
 
-This will show the next page of actors.
-
-#### Repeating the process
-
-We've shown two function calls, but how do we make this work together in the `pageFunction`?
-
-```js
-async function pageFunction(context) {
-
-// ...
-
-let timeoutMillis; // undefined
-const buttonSelector = 'div.show-more > button';
-while (true) {
-    log.info('Waiting for the "Show more" button.');
-    try {
-        // Default timeout first time.
-        await waitFor(buttonSelector, { timeoutMillis });
-        // 2 sec timeout after the first.
-        timeoutMillis = 2000;
-    } catch (err) {
-        // Ignore the timeout error.
-        log.info('Could not find the "Show more button", '
-            + 'we\'ve reached the end.');
-        break;
-    }
-    log.info('Clicking the "Show more" button.');
-    $(buttonSelector).click();
-}
-
-// ...
-
+for (const item of data.props.pageProps.items) {
+    const { name, username } = item;
+    const actorDetailUrl = `https://apify.com/${username}/${name}`;
+    await context.enqueueRequest({
+        url: actorDetailUrl,
+        userData: {
+            // Don't forget the label.
+            label: 'DETAIL',
+        }
+    });
 }
 ```
 
-We want to run this until the `waitFor()` function throws, so that's why we use a `while(true)` loop. We're also not
-interested in the error, because we're expecting it, so we just ignore it and print a log message instead.
+We iterate through the items we found, build actor detail URLs from the available properties and then enqueue
+those URLs into the request queue. We need to specify the label too, otherwise our page function wouldn't know
+how to route those requests.
 
-You might be wondering what's up with the `timeoutMillis`. Well, for the first page load, we want to wait longer,
-so that all the page's JavaScript has had a chance to execute, but for the other iterations, the JavaScript is
-already loaded and we're just waiting for the page to re-render so waiting for `2` seconds is enough to confirm
-that the button is not there. We don't want to stall the scraper for `20` seconds just to make sure that there's
-no button.
+>If you're wondering how we know the structure of the URL, see the [Getting started
+with Apify Scrapers](./getting_started.md) tutorial again.
 
-### [](#plugging-it-into-the-page-function) Plugging it into the pageFunction
+### [](#plugging-it-into-the-page-function) Plugging it into the Page function
 
 We've got the general algorithm ready, so all that's left is to integrate it into our earlier `pageFunction`.
-Remember the `// Do some stuff later` comment? Let's replace it. And don't forget to destructure the `waitFor()`
-function on the first line.
+Remember the `// Do some stuff later` comment? Let's replace it.
 
 ```js
 async function pageFunction(context) {
-    const { request,
-        log,
-        skipLinks,
-        jQuery: $,
-        waitFor,
-    } = context;
-
+    const { request, log, skipLinks, $ } = context;
     if (request.userData.label === 'START') {
         log.info('Store opened!');
-        let timeoutMillis; // undefined
-        const buttonSelector = 'div.show-more > button';
-        while (true) {
-            log.info('Waiting for the "Show more" button.');
-            try {
-                // Default timeout first time.
-                await waitFor(buttonSelector, { timeoutMillis });
-                // 2 sec timeout after the first.
-                timeoutMillis = 2000;
-            } catch (err) {
-                // Ignore the timeout error.
-                log.info('Could not find the "Show more button", '
-                    + 'we\'ve reached the end.');
-                break;
-            }
-            log.info('Clicking the "Show more" button.');
-            $(buttonSelector).click();
+
+        const dataJson = $('#__NEXT_DATA__').html();
+        // We requested HTML, but the data are actually JSON.
+        const data = JSON.parse(dataJson);
+
+        for (const item of data.props.pageProps.items) {
+            const { name, username } = item;
+            const actorDetailUrl = `https://apify.com/${username}/${name}`;
+            await context.enqueueRequest({
+                url: actorDetailUrl,
+                userData: {
+                    label: 'DETAIL',
+                },
+            });
         }
     }
     if (request.userData.label === 'DETAIL') {
@@ -428,12 +383,16 @@ async function pageFunction(context) {
 }
 ```
 
-That's it! You can now remove the **Max pages per run** limit, **Save & Run** your task and watch the scraper paginate
-through all the actors and then scrape all of their data. After it succeeds, open the **Dataset** tab again click on **Preview**. You should have a table of all the actor's details in front of you. If you do, great job!
-You've successfully scraped Apify Store. And if not, no worries, just go through the code examples again,
-it's probably just some typo.
+That's it! You can now remove the **Max pages per run** limit, **Save & Run** your task and watch the scraper
+scrape all of the actors' data. After it succeeds, open the **Dataset** tab again click on **Preview**.
+You should have a table of all the actor's details in front of you. If you do, great job! You've successfully
+scraped Apify Store. And if not, no worries, just go through the code examples again, it's probably just some typo.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/plugging-it-into-the-pagefunction.webp)
+> There's an important caveat. The way we implemented pagination here is in no way a generic system that you can easily
+use with other websites. Cheerio is fast (and that means it's cheap), but it's not easy. Sometimes there's just no way
+to get all results with Cheerio only and other times it takes hours of research. Keep this in mind when choosing
+the right scraper for your job. But don't get discouraged. Often times, the only thing you will ever need is to
+define a correct Pseudo URL. So do your research first before giving up on Cheerio Scraper.
 
 ## [](#downloading-our-scraped-data) Downloading the scraped data
 
@@ -464,34 +423,26 @@ async function pageFunction(context) {
         case 'DETAIL': return handleDetail(context);
     }
 
-    async function handleStart({ log, waitFor }) {
+    async function handleStart({ log, waitFor, $ }) {
         log.info('Store opened!');
-        let timeoutMillis; // undefined
-        const buttonSelector = 'div.show-more > button';
-        while (true) {
-            log.info('Waiting for the "Show more" button.');
-            try {
-                // Default timeout first time.
-                await waitFor(buttonSelector, { timeoutMillis });
-                // 2 sec timeout after the first.
-                timeoutMillis = 2000;
-            } catch (err) {
-                // Ignore the timeout error.
-                log.info('Could not find the "Show more button", '
-                    + 'we\'ve reached the end.');
-                break;
-            }
-            log.info('Clicking the "Show more" button.');
-            $(buttonSelector).click();
+
+        const dataJson = $('#__NEXT_DATA__').html();
+        // We requested HTML, but the data are actually JSON.
+        const data = JSON.parse(dataJson);
+
+        for (const item of data.props.pageProps.items) {
+            const { name, username } = item;
+            const actorDetailUrl = `https://apify.com/${username}/${name}`;
+            await context.enqueueRequest({
+                url: actorDetailUrl,
+                userData: {
+                    label: 'DETAIL',
+                },
+            });
         }
     }
 
-    async function handleDetail({
-        request,
-        log,
-        skipLinks,
-        jQuery: $,
-    }) {
+    async function handleDetail({ request, log, skipLinks, $ }) {
         const { url } = request;
         log.info(`Scraping ${url}`);
         await skipLinks();
@@ -532,11 +483,11 @@ Thank you for reading this whole tutorial! Really! It's important to us that our
 
 ## [](#whats-next) What's next?
 
-- Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
-- [Take a deep dive into actors](https://docs.apify.com/actors), from how they work to [publishing](https://docs.apify.com/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on actors.
-- Found out you're not into the coding part but would still to use Apify actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom actor](https://apify.com/custom-solutions) from an Apify-certified developer.
+* Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
+* [Take a deep dive into actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on actors.
+* Found out you're not into the coding part but would still to use Apify actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom actor](https://apify.com/custom-solutions) from an Apify-certified developer.
 
 
-**Learn how to scrape a website using Apify's Web Scraper. Build an actor's page function, extract information from a web page and download your data.**
+**Learn how to scrape a website using Apify's Cheerio Scraper. Build an actor's page function, extract information from a web page and download your data.**
 
 ---

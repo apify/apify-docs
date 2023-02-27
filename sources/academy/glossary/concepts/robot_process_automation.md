@@ -1,9 +1,8 @@
 ---
 title: Robotic process automation
 description: Learn the basics of robotic process automation. Make your processes on the web and other software more efficient by automating repetitive tasks.
-sidebar_position: 5
-category: guides
-slug: /robotic-process-automation
+sidebar_position: 8.7
+slug: /concepts/robotic-process-automation
 ---
 
 # What is robotic process automation (RPA)? {#what-is-robotic-process-automation-rpa}
@@ -32,7 +31,7 @@ With the advance of [machine learning](https://en.wikipedia.org/wiki/Machine_lea
 
 ## Is RPA the same as web scraping? {#is-rpa-the-same-as-web-scraping}
 
-While [web scraping](../web_scraping_101/index.md) is a kind of RPA, it focuses on extracting structured data. RPA focuses on the other tasks in browsers - everything except for extracting information.
+While [web scraping](../../webscraping/web_scraping_for_beginners/index.md) is a kind of RPA, it focuses on extracting structured data. RPA focuses on the other tasks in browsers - everything except for extracting information.
 
 ## Additional resources {#additional-resources}
 

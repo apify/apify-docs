@@ -48,7 +48,7 @@ An actor's input and its content type can be passed as a payload of the POST req
 Actors can also be invoked programmatically from other actors:
 
 - JavaScript: using the [`call()`](/sdk/js/reference/class/Actor#call) function of [`Actor`](/sdk/js/reference/class/Actor) class provided by the [`apify`](/sdk/js/) NPM package.
-- Python: using the [`call()`](/api/client/python/reference/class/ActorClient#call) function provided by the [`apify-client`](https://docs.apify.com/api/client/python) Python package.
+- Python: using the [`call()`](/api/client/python/reference/class/ActorClient#call) function provided by the [`apify-client`](/api/client/python) Python package.
 
 <Tabs groupId="main">
 

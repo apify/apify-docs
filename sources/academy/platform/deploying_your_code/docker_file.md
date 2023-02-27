@@ -20,7 +20,7 @@ The **Dockerfile** is a file which gives the Apify platform (or Docker, more spe
 
 ## Base images {#base-images}
 
-If your project doesn’t already contain a Dockerfile, don’t worry! Apify offers [many base images](https://docs.apify.com/sdk/js/docs/guides/docker-images) that are optimized for building and running actors on the platform, which can be found [here](https://hub.docker.com/u/apify). When using a language for which Apify doesn't provide a base image, [Docker Hub](https://hub.docker.com/) provides a ton of free Docker images for most use-cases, upon which you can create your own images.
+If your project doesn’t already contain a Dockerfile, don’t worry! Apify offers [many base images](/sdk/js/docs/guides/docker-images) that are optimized for building and running actors on the platform, which can be found [here](https://hub.docker.com/u/apify). When using a language for which Apify doesn't provide a base image, [Docker Hub](https://hub.docker.com/) provides a ton of free Docker images for most use-cases, upon which you can create your own images.
 
 > Tip: You can see all of Apify's Docker images [on DockerHub](https://hub.docker.com/r/apify/).
 

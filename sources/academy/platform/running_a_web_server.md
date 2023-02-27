@@ -21,7 +21,7 @@ Running a web server in an actor is a piece of cake! Each actor run is available
 
 If you start a web server on the port defined by the **APIFY_CONTAINER_PORT** environment variable (the default value is **4321**), the container URL becomes available and gets displayed in the **Live View** tab in the actor run console.
 
-For more details, see [the documentation](https://docs.apify.com/actor/run#container-web-server).
+For more details, see [the documentation](/platform/actors/running#container-web-server).
 
 ## Building the actor {#building-the-actor}
 
@@ -36,7 +36,7 @@ To achieve this we will use the following technologies:
 
 - [Express.js](https://expressjs.com) framework to create the server
 - [Puppeteer](https://pptr.dev) to grab screenshots.
-- The [Apify SDK](https://docs.apify.com/sdk/js) to access Apify storages to store the screenshots.
+- The [Apify SDK](/sdk/js) to access Apify storages to store the screenshots.
 
 Our server needs two paths:
 

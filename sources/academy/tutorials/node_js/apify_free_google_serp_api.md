@@ -10,7 +10,7 @@ So you need to regularly grab SERP data about your target keywords? Apify provid
 ![Apify Google SERP API](./images/gserp-api.png)
 
 
-Hit `Save & Run` and you'll have the downloaded data as soon as the query finishes. To have it run at regular frequency, you can set up the task to run on an [automatic schedule](https://docs.apify.com/schedules#setting-up-a-new-schedule).
+Hit `Save & Run` and you'll have the downloaded data as soon as the query finishes. To have it run at regular frequency, you can set up the task to run on an [automatic schedule](/platform/schedules#setting-up-a-new-schedule).
 
 To run from the API, send a [synchronous POST request](</api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-(post)>) to an endpoint such as `https://api.apify.com/v2/acts/TASK_NAME_OR_ID/runs?token=YOUR_TOKEN`. Include any required input in a JSON object in the request's body.
 

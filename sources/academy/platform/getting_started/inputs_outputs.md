@@ -33,7 +33,7 @@ const { num1, num2 } = await Actor.getInput();
 const solution = num1 + num2;
 
 // Push the solution to the dataset
-await Actor.pushData({ solution })
+await Actor.pushData({ solution });
 
 await Actor.exit();
 ```
@@ -65,7 +65,7 @@ Then, replace everything in **INPUT_SCHEMA.json**  with this:
 }
 ```
 
-> If you're interested in learning more about how the code works, and what the **INPUT_SCHEMA.json** means, read about [inputs](https://docs.apify.com/sdk/js/docs/examples/accept-user-input) and [adding data to a dataset](https://docs.apify.com/sdk/js/docs/examples/add-data-to-dataset) in the Apify SDK documentation, and refer to the [input schema docs](/platform/actors/development/input-schema#integer).
+> If you're interested in learning more about how the code works, and what the **INPUT_SCHEMA.json** means, read about [inputs](/sdk/js/docs/examples/accept-user-input) and [adding data to a dataset](/sdk/js/docs/examples/add-data-to-dataset) in the Apify SDK documentation, and refer to the [input schema docs](/platform/actors/development/input-schema#integer).
 
 Finally, **Save** and **Build** the actor just as you did in the previous lesson.
 

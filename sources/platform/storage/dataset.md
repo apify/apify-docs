@@ -26,7 +26,7 @@ Dataset storage is **append-only** - data can only be added and cannot be change
 There are five ways to access your datasets:
 
 * [Apify Console](https://console.apify.com/storage?tab=datasets) - provides an easy-to-understand interface [[details](#apify-console)].
-* [Apify SDK](https://docs.apify.com/sdk/js/docs/guides/result-storage#dataset) - when building your own Apify actor [[details](#apify-sdk)].
+* [Apify SDK](/sdk/js/docs/guides/result-storage#dataset) - when building your own Apify actor [[details](#apify-sdk)].
 * [JavaScript API client](/api/client/js/reference/class/DatasetClient) - to access your datasets from any Node.js application [[details](#javascript-api-client)].
 * [Python API client](/api/client/python/reference/class/DatasetClient) - to access your datasets from any Python application [[details](#python-api-client)].
 * [Apify API](/api/v2#/reference/datasets) - for accessing your datasets programmatically [[details](#apify-api)].
@@ -46,11 +46,11 @@ To view or download a dataset in the above-mentioned formats, click on its **Dat
 
 ### Apify SDK {#apify-sdk}
 
-If you are building an [Apify actor](../actors/index.md), you will be using the [Apify SDK](https://docs.apify.com/sdk/js).
-In the [Apify SDK](https://docs.apify.com/sdk/js/docs/guides/result-storage#dataset), the dataset is represented by the
-[`Dataset`](https://docs.apify.com/sdk/js/api/apify/class/Dataset) class.
+If you are building an [Apify actor](../actors/index.md), you will be using the [Apify SDK](/sdk/js).
+In the [Apify SDK](/sdk/js/docs/guides/result-storage#dataset), the dataset is represented by the
+[`Dataset`](/sdk/js/api/apify/class/Dataset) class.
 
-You can use the `Dataset` class to specify whether your data is stored locally or in the Apify cloud, push data to datasets of your choice using the [`pushData()`](https://docs.apify.com/sdk/js/api/apify/class/Dataset#pushData) method. You could also use other methods such as [`getData()`](https://docs.apify.com/sdk/js/api/apify/class/Dataset#getData), [`map()`](https://docs.apify.com/sdk/js/api/apify/class/Dataset#map) and [`reduce()`](https://docs.apify.com/sdk/js/api/apify/class/Dataset#reduce), see [example](https://docs.apify.com/sdk/js/docs/examples/map-and-reduce).
+You can use the `Dataset` class to specify whether your data is stored locally or in the Apify cloud, push data to datasets of your choice using the [`pushData()`](/sdk/js/api/apify/class/Dataset#pushData) method. You could also use other methods such as [`getData()`](/sdk/js/api/apify/class/Dataset#getData), [`map()`](/sdk/js/api/apify/class/Dataset#map) and [`reduce()`](/sdk/js/api/apify/class/Dataset#reduce), see [example](/sdk/js/docs/examples/map-and-reduce).
 
 If you have chosen to store your dataset locally, you can find it in the location below.
 
@@ -81,7 +81,7 @@ await Actor.exit();
 
 > Make sure to use the `await` keyword when calling `pushData()`, otherwise the actor process might finish before the data are stored.
 
-If you want to use something other than the default dataset, e.g. a dataset that you share between actors or between actor runs, you can use the [Actor.openDataset()](https://docs.apify.com/sdk/js/api/apify/class/Actor#openDataset) method.
+If you want to use something other than the default dataset, e.g. a dataset that you share between actors or between actor runs, you can use the [Actor.openDataset()](/sdk/js/api/apify/class/Actor#openDataset) method.
 
 ```js
 import { Actor } from 'apify';
@@ -99,7 +99,7 @@ await dataset.pushData({ foo: 'bar' });
 await Actor.exit();
 ```
 
-When using the [`getData()`](https://docs.apify.com/sdk/js/api/apify/class/Dataset#getData) method, you can specify the data you retrieve using the `fields` option. It should be an array of field names (strings) that will be included in the results. To include all the results, exclude the `fields` parameter.
+When using the [`getData()`](/sdk/js/api/apify/class/Dataset#getData) method, you can specify the data you retrieve using the `fields` option. It should be an array of field names (strings) that will be included in the results. To include all the results, exclude the `fields` parameter.
 
 ```js
 import { Actor } from 'apify';
@@ -118,7 +118,7 @@ const hotelAndCafeData = await dataset.getData({
 await Actor.exit();
 ```
 
-See the [SDK documentation](https://docs.apify.com/sdk/js/docs/guides/result-storage#dataset) and the `Dataset` class's [API reference](https://docs.apify.com/sdk/js/api/apify/class/Dataset) for details on managing datasets with the Apify SDK.
+See the [SDK documentation](/sdk/js/docs/guides/result-storage#dataset) and the `Dataset` class's [API reference](/sdk/js/api/apify/class/Dataset) for details on managing datasets with the Apify SDK.
 
 ### JavaScript API client {#javascript-api-client}
 
@@ -327,7 +327,7 @@ You can invite other Apify users to view or modify your datasets using the [acce
 
 You can access a dataset from any [actor](../actors/index.md) or [task](../actors/tasks.md) run as long as you know its **name** or **ID**.
 
-To access a dataset from another run using the Apify SDK, open it using the [`Actor.openDataset(datasetIdOrName)`](https://docs.apify.com/sdk/js/api/apify/class/Actor#openDataset) method like you would do with any other dataset.
+To access a dataset from another run using the Apify SDK, open it using the [`Actor.openDataset(datasetIdOrName)`](/sdk/js/api/apify/class/Actor#openDataset) method like you would do with any other dataset.
 
 ```js
 const otherDataset = await Actor.openDataset('old-dataset');

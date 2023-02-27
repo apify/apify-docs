@@ -21,17 +21,17 @@ See the [connection settings](../connection_settings.md) page for connection par
 
 ## Using the Apify SDK and Crawlee {#using-the-apify-sdk-and-crawlee}
 
-If you are developing your own Apify [actor](../../actors/index.md) using the [Apify SDK](https://docs.apify.com/sdk/js) and [Crawlee](https://crawlee.dev/), you can use Apify Proxy in:
+If you are developing your own Apify [actor](../../actors/index.md) using the [Apify SDK](/sdk/js) and [Crawlee](https://crawlee.dev/), you can use Apify Proxy in:
 
-* [`CheerioCrawler`](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler) by using the [`Actor.createProxyConfiguration()`](https://docs.apify.com/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
-* [`PlaywrightCrawler`](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler) by using the [`Actor.createProxyConfiguration()`](https://docs.apify.com/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
-* [`PuppeteerCrawler`](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler) by using the [`Actor.createProxyConfiguration()`](https://docs.apify.com/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
-* [`JSDOMCrawler`](https://crawlee.dev/api/jsdom-crawler/class/JSDOMCrawler) by using the [`Actor.createProxyConfiguration()`](https://docs.apify.com/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
+* [`CheerioCrawler`](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler) by using the [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
+* [`PlaywrightCrawler`](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler) by using the [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
+* [`PuppeteerCrawler`](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler) by using the [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
+* [`JSDOMCrawler`](https://crawlee.dev/api/jsdom-crawler/class/JSDOMCrawler) by using the [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
 * [`launchPlaywright()`](https://crawlee.dev/api/playwright-crawler/function/launchPlaywright) by specifying the proxy configuration in the function's options.
 * [`launchPuppeteer()`](https://crawlee.dev/api/puppeteer-crawler/function/launchPuppeteer) by specifying the proxy configuration in the function's options.
 * [`got-scraping`](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying proxy URL in the options.
 
-The Apify SDK's [ProxyConfiguration](https://docs.apify.com/sdk/js/api/apify/class/ProxyConfiguration) enables you to choose which proxies you use for all connections. You can inspect the current proxy's URL and other attributes using the [proxyInfo](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext#proxyInfo) property of [crawling context](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext) of your crawler's [requestHandler](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlerOptions#requestHandler).
+The Apify SDK's [ProxyConfiguration](/sdk/js/api/apify/class/ProxyConfiguration) enables you to choose which proxies you use for all connections. You can inspect the current proxy's URL and other attributes using the [proxyInfo](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext#proxyInfo) property of [crawling context](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext) of your crawler's [requestHandler](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlerOptions#requestHandler).
 
 ### Rotate IP addresses {#rotate-ip-addresses}
 
@@ -292,8 +292,8 @@ await Actor.exit();
 
 For simplicity, the examples above use the automatic proxy configuration (no specific proxy groups are specified), which selects IP addresses from all available groups.
 
-To use IP addresses from specific proxy groups, add the `groups` [property](https://docs.apify.com/sdk/js/api/apify/interface/ProxyConfigurationOptions#groups)
-to [`Actor.createProxyConfiguration()`](https://docs.apify.com/sdk/js/api/apify/class/Actor#createProxyConfiguration) and specify the group names. For example:
+To use IP addresses from specific proxy groups, add the `groups` [property](/sdk/js/api/apify/interface/ProxyConfigurationOptions#groups)
+to [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) and specify the group names. For example:
 
 ```js
 import { Actor } from 'apify';

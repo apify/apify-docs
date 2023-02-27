@@ -5,7 +5,7 @@ sidebar_position: 16.2
 slug: /node-js/block-requests-puppeteer
 ---
 
-_Unfortunately, in the recent version of Puppeteer, request interception disables native cache and slows down the actor significantly. Therefore it is not recommended to follow examples shown in this article. Instead, use_ [_blockRequests_](https://docs.apify.com/sdk/js/docs/api/puppeteer#puppeteerblockrequestspage-options-promise) _utility function from_ [_Apify SDK_](https://docs.apify.com/sdk/js/)_. It works through different paths and doesn't slow down your process._
+_Unfortunately, in the recent version of Puppeteer, request interception disables native cache and slows down the actor significantly. Therefore it is not recommended to follow examples shown in this article. Instead, use_ [_blockRequests_](/sdk/js/docs/api/puppeteer#puppeteerblockrequestspage-options-promise) _utility function from_ [_Apify SDK_](/sdk/js/)_. It works through different paths and doesn't slow down your process._
 
 When using Puppeteer, often a webpage will load many resources that are not actually necessary for your use case. For example page could be loading many tracking libraries, that are completely unnecessary for most crawlers, but will cause the page to use more traffic and load slower.
 

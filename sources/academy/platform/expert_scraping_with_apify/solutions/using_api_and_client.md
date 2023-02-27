@@ -230,7 +230,7 @@ await Actor.exit();
 
 **A:** The Apify client mimics the Apify API, so there aren't any super significant differences. It's super handy as it helps with managing the API calls (parsing, error handling, retries, etc) and even adds convenience functions.
 
-The one main difference is that the Apify client automatically uses [**exponential backoff**](https://docs.apify.com/api/client/js#retries-with-exponential-backoff) to deal with errors.
+The one main difference is that the Apify client automatically uses [**exponential backoff**](/api/client/js#retries-with-exponential-backoff) to deal with errors.
 
 **Q: How do you pass input when running actor or task via API?**
 

@@ -37,7 +37,7 @@ Any traffic outside this pool of domains will go through [datacenter proxy](../d
 
 The second limitation is that restricted residential proxy uses the man-in-the-middle system to monitor traffic
 and activities and so requires acceptance of an [SSL certificate](https://apify.com/restricted-residential-proxy-cert.crt).
-This is automatically handled by [Apify SDK](https://docs.apify.com/sdk/js/) and [Crawlee](https://crawlee.dev/) for both Puppeteer and Playwright. To manually check if a connection is using a man-in-the-middle connection, [head over to the Apify Proxy page](http://proxy.apify.com).
+This is automatically handled by [Apify SDK](/sdk/js/) and [Crawlee](https://crawlee.dev/) for both Puppeteer and Playwright. To manually check if a connection is using a man-in-the-middle connection, [head over to the Apify Proxy page](http://proxy.apify.com).
 
 ### Unrestricted residential proxy {#unrestricted-residential-proxy}
 
@@ -64,7 +64,7 @@ For example, your **proxy URL** when using the [got-scraping](https://www.npmjs.
 const proxyUrl = 'http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000';
 ```
 
-In the [Apify SDK](https://docs.apify.com/sdk/js), you set the **group** in your [proxy configuration](https://docs.apify.com/sdk/js/api/apify/interface/ProxyConfigurationOptions#groups):
+In the [Apify SDK](/sdk/js), you set the **group** in your [proxy configuration](/sdk/js/api/apify/interface/ProxyConfigurationOptions#groups):
 
 ```js
 import { Actor } from 'apify';
@@ -88,7 +88,7 @@ For example, your `username` parameter when using [Python 3](https://docs.python
 username = "groups-RESIDENTIAL,session-my_session,country-JP"
 ```
 
-In the [Apify SDK](https://docs.apify.com/sdk/js), you set the country in your [proxy configuration](https://docs.apify.com/sdk/js/api/apify/interface/ProxyConfigurationOptions#countryCode) using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `countryCode` parameter.
+In the [Apify SDK](/sdk/js), you set the country in your [proxy configuration](/sdk/js/api/apify/interface/ProxyConfigurationOptions#countryCode) using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `countryCode` parameter.
 
 ```js
 import { Actor } from 'apify';

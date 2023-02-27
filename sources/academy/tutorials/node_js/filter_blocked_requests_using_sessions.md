@@ -5,7 +5,7 @@ sidebar_position: 16
 slug: /node-js/filter-blocked-requests-using-sessions
 ---
 
-_This article explains how the problem was solved before the [SessionPool](https://docs.apify.com/sdk/js/docs/api/session-pool) class was added into [Apify SDK](https://docs.apify.com/sdk/js/). We are keeping the article here as it might be interesting for people who want to see how to work with sessions on a lower level. For any practical usage of sessions, just follow the documentation and examples of SessionPool._
+_This article explains how the problem was solved before the [SessionPool](/sdk/js/docs/api/session-pool) class was added into [Apify SDK](/sdk/js/). We are keeping the article here as it might be interesting for people who want to see how to work with sessions on a lower level. For any practical usage of sessions, just follow the documentation and examples of SessionPool._
 
 ### Overview of the problem
 
@@ -23,7 +23,7 @@ You want to crawl a website with a proxy pool, but most of your proxies are bloc
 
 Nobody can make sure that a proxy will work infinitely. The only real solution to this problem is to use [residential proxies](/platform/proxy#residential-proxy), but they can sometimes be too costly.
 
-However, usually, at least some of our proxies work. To crawl successfully, it is therefore imperative to handle blocked requests properly. You first need to discover that you are blocked, which usually means that either your request returned status greater or equal to 400 (simply it didn't return the proper response) or that the page displayed a captcha. To ensure that this bad request is retried, you usually just throw an error and it gets automatically retried later (our [SDK](https://docs.apify.com/sdk/js/) handles this for you). Check out [this article](https://help.apify.com/en/articles/2190650-how-to-handle-blocked-requests-in-puppeteercrawler) as inspiration for how to handle this situation with `PuppeteerCrawler`  class.
+However, usually, at least some of our proxies work. To crawl successfully, it is therefore imperative to handle blocked requests properly. You first need to discover that you are blocked, which usually means that either your request returned status greater or equal to 400 (simply it didn't return the proper response) or that the page displayed a captcha. To ensure that this bad request is retried, you usually just throw an error and it gets automatically retried later (our [SDK](/sdk/js/) handles this for you). Check out [this article](https://help.apify.com/en/articles/2190650-how-to-handle-blocked-requests-in-puppeteercrawler) as inspiration for how to handle this situation with `PuppeteerCrawler`  class.
 
 ### Solution
 

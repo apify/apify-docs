@@ -12,7 +12,7 @@ slug: /storage
 
 ---
 
-The Apify platform includes three types of storage you can use both in your [actors](../actors/index.md) and outside the Apify platform via [API](/api/v2#/), the [Apify SDK](https://docs.apify.com/sdk/js) and Apify's [JavaScript API client](/api/client/js) and [Python API client](/api/client/python).
+The Apify platform includes three types of storage you can use both in your [actors](../actors/index.md) and outside the Apify platform via [API](/api/v2#/), the [Apify SDK](/sdk/js) and Apify's [JavaScript API client](/api/client/js) and [Python API client](/api/client/python).
 
 This page contains a brief introduction of the three types of Apify Storage.
 
@@ -33,7 +33,7 @@ and general information for using storages with the [Apify API](#apify-api).
 The easiest way to access your datasets is via [Apify Console](https://console.apify.com/storage?tab=datasets), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties.
 
 To manage your datasets, you can use the
-[Apify SDK](https://docs.apify.com/sdk/js/api/apify/class/Dataset),
+[Apify SDK](/sdk/js/api/apify/class/Dataset),
 [JavaScript API client](/api/client/js/reference/class/DatasetClient),
 [Python API client](/api/client/python#datasetclient),
 or the [Apify API](/api/v2#/reference/datasets).
@@ -50,7 +50,7 @@ The easiest way to access your key-value stores is via
 [Apify Console](https://console.apify.com/storage?tab=keyValueStores), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties.
 
 To manage your key-value stores, you can use the
-[Apify SDK](https://docs.apify.com/sdk/js/api/apify/class/KeyValueStore),
+[Apify SDK](/sdk/js/api/apify/class/KeyValueStore),
 [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient),
 [Python API client](/api/client/python/reference/class/KeyValueStoreClient),
 or the [Apify API](/api/v2#/reference/key-value-stores).
@@ -67,7 +67,7 @@ The easiest way to access your request queues is via
 [Apify Console](https://console.apify.com/storage?tab=requestQueues), which provides a user-friendly interface for viewing your request queues and editing your queues' properties.
 
 To manage your request queues, you can use the
-[Apify SDK](https://docs.apify.com/sdk/js/api/apify/class/RequestQueue),
+[Apify SDK](/sdk/js/api/apify/class/RequestQueue),
 [JavaScript API client](/api/client/js/reference/class/RequestQueueClient),
 [Python API client](/api/client/python/reference/class/RequestQueueClient),
 or the [Apify API](/api/v2#/reference/request-queues).
@@ -79,7 +79,7 @@ or the [Apify API](/api/v2#/reference/request-queues).
 There are five ways to access your storage:
 
 * [Apify Console](https://console.apify.com/storage) - provides an easy-to-use interface [[details](#apify-console)].
-* Apify SDK - [Request](https://docs.apify.com/sdk/js/docs/guides/request-storage)/[Result](https://docs.apify.com/sdk/js/docs/guides/result-storage) storage - when building your own Apify actor [[details](#apify-sdk-and-crawlee)].
+* Apify SDK - [Request](/sdk/js/docs/guides/request-storage)/[Result](/sdk/js/docs/guides/result-storage) storage - when building your own Apify actor [[details](#apify-sdk-and-crawlee)].
 * [JavaScript API client](/api/client/js) - to access your storages from any Node.js application [[details](#javascript-api-client)].
 * [Python API client](/api/client/python) - to access your storages from any Python application [[details](#python-api-client)].
 * [Apify API](/api/v2#/reference/key-value-stores) - for accessing your storages programmatically [[details](#apify-api)].
@@ -107,7 +107,7 @@ These URLs provide links to API **endpoints**–the places where your data are s
 
 ### Apify SDK and Crawlee {#apify-sdk-and-crawlee}
 
-The [Apify SDK](https://docs.apify.com/sdk/js) is a JavaScript/Node.js library providing tools to build your own actors. [Crawlee](https://crawlee.dev/) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions (formerly was a part of Apify SDK). Both libraries require [Node.js](https://nodejs.org/en/) 16 or later.
+The [Apify SDK](/sdk/js) is a JavaScript/Node.js library providing tools to build your own actors. [Crawlee](https://crawlee.dev/) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions (formerly was a part of Apify SDK). Both libraries require [Node.js](https://nodejs.org/en/) 16 or later.
 
 See [Crawlee documentation](https://crawlee.dev/docs/quick-start) for setup instructions and to learn how to build your own crawlers and run them on the [Apify platform](https://crawlee.dev/docs/guides/apify-platform).
 
@@ -209,10 +209,10 @@ Any storage can be accessed from any [actor](../actors/index.md) or [task](../ac
 Named storages are only removed when you request it. You can delete storages in the following ways.
 
 * [Apify Console](https://console.apify.com/storage) - using the **Actions** button in the store's detail page.
-* [Apify SDK](https://docs.apify.com/sdk/js) - using the `.drop()` method of the
-  [Dataset](https://docs.apify.com/sdk/js/api/apify/class/Dataset#drop),
-  [Key-value store](https://docs.apify.com/sdk/js/api/apify/class/KeyValueStore#drop),
-  or [Request queue](https://docs.apify.com/sdk/js/api/apify/class/RequestQueue#drop) class.
+* [Apify SDK](/sdk/js) - using the `.drop()` method of the
+  [Dataset](/sdk/js/api/apify/class/Dataset#drop),
+  [Key-value store](/sdk/js/api/apify/class/KeyValueStore#drop),
+  or [Request queue](/sdk/js/api/apify/class/RequestQueue#drop) class.
 * [JavaScript API client](/api/client/js) - using the `.delete()` method in the
 [dataset](/api/client/js/reference/class/DatasetClient),
 [key-value store](/api/client/js/reference/class/KeyValueStoreClient),

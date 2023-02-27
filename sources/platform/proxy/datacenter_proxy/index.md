@@ -13,7 +13,7 @@ slug: /proxy/datacenter-proxy
 
 Datacenter proxies are a cheap, fast and stable way to mask your identity online. When you access a website using a datacenter proxy, the site can only see the proxy center's credentials, not yours.
 
-Datacenter proxies allow you to mask and [rotate](../index.md) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](web_scraping_101/anti_scraping_techniques.md#ip-address-based-blocking). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
+Datacenter proxies allow you to mask and [rotate](../index.md) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
 
 [Apify Proxy](https://apify.com/proxy) currently offers two types of datacenter proxy:
 

@@ -188,7 +188,7 @@ Finally, we can put all the extracted information together and push them to the 
 
 #### Storing the data
 
-As the last step, we need to store the scraped data in a dataset on the Apify platform, so that we can access it later. We do that through the [Apify API Client for Python](https://docs.apify.com/api/client/python), which greatly simplifies working with the Apify platform and allows you to use its functions without having to call the Apify API directly.
+As the last step, we need to store the scraped data in a dataset on the Apify platform, so that we can access it later. We do that through the [Apify API Client for Python](/api/client/python), which greatly simplifies working with the Apify platform and allows you to use its functions without having to call the Apify API directly.
 
 First, we initialize an `ApifyClient` instance. All the necessary arguments are automatically provided to the actor process as environment variables accessible in Python through the `os.environ` mapping. We will save the data into the default dataset belonging to the actor run, so we create a sub-client for working with that dataset, and push the data into it using its `.push_items(...)` method.
 
@@ -255,7 +255,7 @@ import pandas
 
 ### Scraping the data
 
-Next, we need to run the weather scraping actor and access its results. We do that through the [Apify API Client for Python](https://docs.apify.com/api/client/python), which greatly simplifies working with the Apify platform and allows you to use its functions without having to call the Apify API directly.
+Next, we need to run the weather scraping actor and access its results. We do that through the [Apify API Client for Python](/api/client/python), which greatly simplifies working with the Apify platform and allows you to use its functions without having to call the Apify API directly.
 
 First, we initialize an `ApifyClient` instance. All the necessary arguments are automatically provided to the actor process as environment variables accessible in Python through the `os.environ` mapping. We need to run the actor from the previous tutorial, which we have named `bbc-weather-scraper`, and wait for it to finish. So, we create a sub-client for working with that actor and run the actor through it. We then check whether the actor run has succeeded. If so, we create a client for working with its default dataset.
 

@@ -282,8 +282,8 @@ There is so much more you can do with the Apify client than just running actors,
 
 For a more in-depth understanding of the Apify API client, give these a quick lookover:
 
-- [API client for JavaScript](https://docs.apify.com/api/client/js)
-- [API client for Python](https://docs.apify.com/api/client/python)
+- [API client for JavaScript](/api/client/js)
+- [API client for Python](/api/client/python)
 
 ## Next up {#next}
 

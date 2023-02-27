@@ -11,15 +11,15 @@ slug: /expert-scraping-with-apify/apify-api-and-client
 
 ---
 
-There are two main ways to programmatically interact with the Apify platform: by directly using [Apify's RESTful API](/api/v2), or by using the [JavaScript](https://docs.apify.com/api/client/js) and [Python](https://docs.apify.com/api/client/python) API clients. In the next two lessons, we'll be focusing on the first two.
+There are two main ways to programmatically interact with the Apify platform: by directly using [Apify's RESTful API](/api/v2), or by using the [JavaScript](/api/client/js) and [Python](/api/client/python) API clients. In the next two lessons, we'll be focusing on the first two.
 
 > Apify's API and JavaScript API client allow us to do anything a regular user can do when interacting with the platform's web interface, only programmatically.
 
 ## Learning 🧠 {#learning}
 
 - Scroll through the [Apify API docs](/api/v2) (there's a whole lot there, so you're not expected to memorize everything).
-- Read about the Apify client in [Apify's docs](https://docs.apify.com/api/client/js). It can also be seen on [Github](https://github.com/apify/apify-client-js) and [NPM](https://www.npmjs.com/package/apify-client).
-- Learn about the [`Actor.newClient()`](https://docs.apify.com/sdk/js/reference/class/Actor#newClient) function in the Apify SDK.
+- Read about the Apify client in [Apify's docs](/api/client/js). It can also be seen on [Github](https://github.com/apify/apify-client-js) and [NPM](https://www.npmjs.com/package/apify-client).
+- Learn about the [`Actor.newClient()`](/sdk/js/reference/class/Actor#newClient) function in the Apify SDK.
 - Skim through [this article](https://help.apify.com/en/articles/2868670-how-to-pass-data-from-web-scraper-to-another-actor) about API integration (this article is old; however, still relevant).
 
 ## Knowledge check 📝 {#quiz}

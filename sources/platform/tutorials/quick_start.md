@@ -110,7 +110,7 @@ You can program an Apify actor to do anything one can do in the browser, from se
 
 ### Building more advanced actors
 
-The above actor (and many others) uses the `apify` [NPM package](https://www.npmjs.com/package/apify), which simplifies the development of actors. The Apify SDK has tutorials on how you can [get started](https://docs.apify.com/sdk/js/docs/guides/getting-started). Also make sure to check out [`Crawlee`](https://crawlee.dev/) - the library containing crawling and scraping-related tools, which previously were a part of Apify SDK.
+The above actor (and many others) uses the `apify` [NPM package](https://www.npmjs.com/package/apify), which simplifies the development of actors. The Apify SDK has tutorials on how you can [get started](/sdk/js/docs/guides/getting-started). Also make sure to check out [`Crawlee`](https://crawlee.dev/) - the library containing crawling and scraping-related tools, which previously were a part of Apify SDK.
 
 If you are building your own actors, you'll probably prefer to host the source code on Git. To do that, follow these steps:
 
@@ -127,6 +127,6 @@ For more information, see the [Git repository](../actors/development/source_code
 ## What's next?
 
 * Try some other actors from [Apify Store](https://apify.com/store).
-* Learn to use our main scrapers: [Web Scraper](./apify_scrapers/web_scraper.md), [Cheerio Scraper](./apify_scrapers/cheerio_scraper.md), and [Puppeteer Scraper](./apify_scrapers/puppeteer_scraper.md).
+* Learn to use our main scrapers: [Web Scraper](/academy/apify-scrapers/web-scraper), [Cheerio Scraper](/academy/apify-scrapers/cheerio-scraper), and [Puppeteer Scraper](/academy/apify-scrapers/puppeteer-scraper).
 * Learn more about using actors and the Apify platform: [tasks](../actors/tasks.md), [storages](../storage/index.md), and [proxies](../proxy/index.md).
-* Set up the [`apify`](https://docs.apify.com/sdk/js/docs/guides/getting-started) and [`crawlee`](https://crawlee.dev/docs/quick-start) packages on your computer, and build your own actors with the Apify SDK and Crawlee.
+* Set up the [`apify`](/sdk/js/docs/guides/getting-started) and [`crawlee`](https://crawlee.dev/docs/quick-start) packages on your computer, and build your own actors with the Apify SDK and Crawlee.
