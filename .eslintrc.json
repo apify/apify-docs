@@ -1,24 +1,28 @@
 {
     "extends": [
-        "plugin:markdown/recommended",
-        "@apify"
-    ],
-    "parser": "@babel/eslint-parser",
-    "plugins": [
-        "@babel"
+        "@apify/eslint-config-ts",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended"
     ],
     "parserOptions": {
-        "configFile": ".babelrc"
+        "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+        "project": "./tsconfig.eslint.json",
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2020
     },
     "env": {
-        "es6": true,
-        "node": true
+        "browser": true
     },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "root": true,
     "rules": {
-        "import/no-extraneous-dependencies": "off",
-        "no-unused-vars": "off",
-        "no-unused-expressions": "off",
-        "no-undef": "off",
-        "no-console": "off"
+        "quote-props": ["error", "consistent"],
+        "react/prop-types": ["off"]
     }
 }

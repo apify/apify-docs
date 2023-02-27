@@ -1,0 +1,23 @@
+{
+    "extends": "@apify/tsconfig",
+    "compilerOptions": {
+        "target": "ES2020",
+        "lib": [
+            "ESNext",
+            "DOM",
+            "ES2020"
+        ],
+        "jsx": "react-jsx",
+        "baseUrl": ".",
+        "allowJs": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": false
+    },
+    "include": [
+        "./packages/*/src/**/*"
+    ],
+    "exclude": [
+        "**/node_modules",
+        "**/build"
+    ]
+}

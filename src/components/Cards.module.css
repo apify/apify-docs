@@ -1,0 +1,45 @@
+.card {
+    border: 1px solid #b3b8d2;
+    border-radius: 0.5rem;
+}
+
+.card-hoverable:hover {
+    background-color: rgb(241, 242, 247);
+}
+
+html[data-theme="dark"] .card-hoverable:hover {
+    background-color: rgb(30, 40, 59);
+}
+
+.card-image-container {
+    height: 15rem;
+}
+
+.card-image-container > img {
+    padding: 0.8rem 0.8rem;
+    height: 100%;
+    object-fit: scale-down;
+}
+
+.card-header {
+    font-size: 120%;
+    padding: 20px 1rem;
+    margin: 0px 0px 10px 0px;
+    border-bottom: 1px #b3b8d2 solid;
+    box-sizing: border-box;
+}
+
+.card-links {
+    list-style-type: none;
+    padding: 0 0.5rem 1rem 1rem;
+    margin: 0; 
+    font-size: 80%;
+}
+
+.card-links a {
+    color: var(--ifm-color-content)
+}
+
+.card-links a:hover {
+    color: var(--ifm-link-color)
+}
