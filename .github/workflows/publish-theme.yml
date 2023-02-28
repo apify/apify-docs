@@ -54,7 +54,9 @@ jobs:
 
             -   name: Bump the theme version
                 run: |
+                    npm install
                     cd $GITHUB_WORKSPACE/apify-docs-theme
+                    npm install
                     npm version patch
 
             -   name: Deploy theme to npm
