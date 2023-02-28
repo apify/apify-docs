@@ -16,9 +16,8 @@
     },
     "homepage": "https://github.com/apify/apify-docs#readme",
     "scripts": {
-        "start": "npm run install-theme && rimraf .docusaurus && LOCAL=1 docusaurus start",
-        "install-theme": "cd ./apify-docs-theme && npm i && cd ../",
-        "build": "npm run install-theme && rimraf .docusaurus && docusaurus build",
+        "start": "rimraf .docusaurus && LOCAL=1 docusaurus start",
+        "build": "rimraf .docusaurus && docusaurus build",
         "publish-gh-pages": "docusaurus-publish",
         "write-translations": "docusaurus write-translations",
         "version": "docusaurus version",
@@ -63,5 +62,8 @@
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "unist-util-visit": "^4.1.2"
-    }
+    },
+    "workspaces": [
+        "apify-docs-theme"
+    ]
 }
