@@ -1,50 +1,134 @@
 ---
 title: Limits
-description: Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of actors/tasks per user or schedule.
+description: Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of actors and tasks per user.
 sidebar_position: 7.8
 slug: /actors/limits
 ---
 
 # Limits {#limits}
 
-**Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of actors/tasks per user or schedule.**
+**Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of actors and tasks per user.**
 
 ---
 
-The tables below demonstrate the Apify platform's default resource limits.
+The tables below demonstrate the Apify Platform's default resource limits. For API limits such as rate limits and max payload size, see the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting).
 
-If needed, the limits shown below can be increased on paid accounts. For details, contact us on **hello@apify.com** or using the chat icon in the bottom-right corner.
+> If needed, the limits shown below can be increased on paid accounts. For details, contact us on **hello@apify.com** or using the chat icon in the bottom-right corner.
 
-* Maximum combined memory of all running jobs.
-* Maximum number of actors per user.
-* Maximum number of tasks per user.
+## Actor runtime limits {#actor-limits}
 
-## Actor limits {#actor-limits}
+<table>
+    <thead>
+    <tr>
+        <th rowspan="2">Description</th>
+        <th colspan="4">Limit for plan</th>
+    </tr>
+    <tr>
+        <th>Free</th>
+        <th>Personal</th>
+        <th>Team</th>
+        <th>Enterprise</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Build memory size</td>
+            <td>2,048&nbsp;MB</td>
+            <td colspan="3">4,096&nbsp;MB</td>
+        </tr>
+        <tr>
+            <td>Run minimum memory</td>
+            <td>128&nbsp;MB</td>
+            <td colspan="3">128&nbsp;MB</td>
+        </tr>
+        <tr>
+            <td>Run maximum memory</td>
+            <td>4,096&nbsp;MB</td>
+            <td colspan="3">32,768&nbsp;MB</td>
+        </tr>
+        <tr>
+            <td>Maximum combined memory of all running jobs</td>
+            <td>4,096&nbsp;MB</td>
+            <td>32,768&nbsp;MB</td>
+            <td colspan="2">131,072&nbsp;MB</td>
+        </tr>
+        <tr>
+            <td>Build timeout</td>
+            <td colspan="4">1800&nbsp;secs</td>
+        </tr>
+        <tr>
+            <td>Build/run disk size</td>
+            <td colspan="4">2× job memory limit</td>
+        </tr>
+        <tr>
+            <td>Memory per CPU core</td>
+            <td colspan="4">4,096&nbsp;MB</td>
+        </tr>
+        <tr>
+            <td>Maximum log size</td>
+            <td colspan="4">10,485,760&nbsp;characters</td>
+        </tr>
+    </tbody>
+</table>
 
-| Description                                                      | Value                                                                                 |
-|------------------------------------------------------------------|---------------------------------------------------------------------------------------|
-| Build memory size                                                | 4,096 MB (2,048 MB on the free plan)<!-- ACTOR_LIMITS.BUILD_DEFAULT_MEMORY_MBYTES --> |
-| Run minimum memory                                               | 128 MB<!-- ACTOR_LIMITS.MIN_RUN_MEMORY_MBYTES -->                                     |
-| Run maximum memory                                               | 32,768 MB<!-- ACTOR_LIMITS.MAX_RUN_MEMORY_MBYTES -->                                  |
-| Maximum combined memory of all running jobs <br/>(Free plan)     | 4,096 MB<!-- ACTOR_LIMITS.FREE_PLAN_MAX_MEMORY_MBYTES -->                             |
-| Maximum combined memory of all running jobs <br/>(Personal plan) | 32,768 MB<!-- ACTOR_LIMITS.PERSONAL_PLAN_MAX_MEMORY_MBYTES -->                        |
-| Maximum combined memory of all running jobs <br/>(Team plan)     | 131,072 MB<!-- ACTOR_LIMITS.TEAM_PLAN_MAX_MEMORY_MBYTES -->                           |
-| Build timeout                                                    | 1800 secs<!-- ACTOR_LIMITS.BUILD_TIMEOUT_SECS -->                                     |
-| Build/run disk size                                              | 2x job memory limit<!-- ACTOR_LIMITS.RUN_DISK_TO_MEMORY_SIZE_COEFF -->                |
-| Memory per CPU core                                              | 4,096 MB<!-- ACTOR_LIMITS.RUN_MEMORY_MBYTES_PER_CPU_CORE -->                          |
-| Build/run maximum log size                                       | 10,485,760 characters<!-- ACTOR_LIMITS.LOG_MAX_CHARS -->                              |
-| Maximum number of dataset columns for xlsx format                | 2,000 columns                                                                         |
-| Maximum size of input schema for a task/actor                    | 100 kB<!-- ACTOR_LIMITS.INPUT_SCHEMA_MAX_BYTES -->                                    |
+## Apify Platform limits {#platform-limits}
 
-## Platform limits {#platform-limits}
+<table>
+    <thead>
+    <tr>
+        <th rowspan="2">Description</th>
+        <th colspan="4">Limit for plan</th>
+    </tr>
+    <tr>
+        <th>Free</th>
+        <th>Personal</th>
+        <th>Team</th>
+        <th>Enterprise</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Maximum number of dataset columns for tabular formats (XLSX, CSV, ...)</td>
+            <td colspan="4">2000&nbsp;columns</td>
+        </tr>
+        <tr>
+            <td>Maximum size of actor (task) input schema</td>
+            <td colspan="4">100&nbsp;kB</td>
+        </tr>
+        <tr>
+            <td>Maximum number of actors per user</td>
+            <td colspan="4">100</td>
+        </tr>
+        <tr>
+            <td>Maximum number of tasks per user</td>
+            <td colspan="4">1000</td>
+        </tr>
+        <tr>
+            <td>Maximum number of schedules per user</td>
+            <td colspan="4">100</td>
+        </tr>
+        <tr>
+            <td>Maximum number of webhooks per user</td>
+            <td colspan="4">100</td>
+        </tr>
+        <tr>
+            <td>Maximum number of actors per schedule</td>
+            <td colspan="4">10</td>
+        </tr>
+        <tr>
+            <td>Maximum number of tasks per schedule</td>
+            <td colspan="4">10</td>
+        </tr>
+        <tr>
+            <td>Maximum number of concurrent actor runs per user </td>
+            <td>25</td>
+            <td colspan="3">250</td>
+        </tr>
+    </tbody>
+</table>
 
-| Description                                                        | Value                                                                               |
-|--------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| Maximum number of actors per user                                  | 100<!-- DEFAULT_PLATFORM_LIMITS.MAX_ACTORS_PER_USER -->                             |
-| Maximum number of tasks per user                                   | 1000<!-- DEFAULT_PLATFORM_LIMITS.MAX_TASKS_PER_USER -->                             |
-| Maximum number of schedules per user                               | 100<!-- DEFAULT_PLATFORM_LIMITS.MAX_SCHEDULES_PER_USER -->                          |
-| Maximum number of webhooks per user                                | 100<!-- DEFAULT_PLATFORM_LIMITS.MAX_TASKS_PER_USER -->                              |
-| Maximum number of concurrent actor runs per user for free accounts | 25<!-- DEFAULT_PLATFORM_LIMITS.FREE_ACCOUNT_MAX_CONCURRENT_ACTOR_RUNS_PER_USER -->  |
-| Maximum number of concurrent actor runs per user for paid accounts | 250<!-- DEFAULT_PLATFORM_LIMITS.PAID_ACCOUNT_MAX_CONCURRENT_ACTOR_RUNS_PER_USER --> |
-| Maximum number of actors per schedule                              | 10<!-- DEFAULT_PLATFORM_LIMITS.MAX_ACTORS_PER_SCHEDULER -->                         |
-| Maximum number of tasks per schedule                               | 10<!-- DEFAULT_PLATFORM_LIMITS.MAX_TASKS_PER_SCHEDULER -->                          |
+## Usage limits {#platform-limits}
+
+Apify Platform also introduces usage limits based on the billing plan to protect users from accidental overspending. View these limits and adjust your maximum usage limit in [Apify Console](https://console.apify.com/billing#/limits):
+
+ <img src={require("./images/limits/usage-limits.png").default} title="Apify Security Whitepaper" />
