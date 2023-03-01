@@ -26,6 +26,7 @@ A single isolated actor consists of source code and various settings. You can th
   * [Input](./running/input.md)
   * [Memory and CPU](./running/memory_and_cpu.md)
   * [Compute units and consumption](./running/compute_units.md)
+  * [Actors in store](./running/store.md)
 * [Tasks](./tasks.md)
 * [Development](./development/index.md)
   * [Base Docker images](./development/base_docker_images.md)
@@ -37,15 +38,15 @@ A single isolated actor consists of source code and various settings. You can th
   * [Source code](./development/source_code.md)
   * [State persistence](./development/state_persistence.md)
   * [Testing and maintenance](./development/testing_and_maintenance.md)
-* [Paid actors](./paid_actors.md)
-* [Publishing](./publishing.md)
+* [Publishing](./publishing)
 * [Naming your actor](/academy/get-most-of-actors/naming-your-actor)
 * [SEO and promotion](/academy/get-most-of-actors/seo-and-promotion)
 * [Security](./security.md)
 * [Limits](./limits.md)
 * [Examples](./examples.md)
 
+
 ## Public, private, and paid actors
 
-Actors can be public (free or [paid](./paid_actors.md)) or private. Private actors are yours to use and keep, and no one will see them if you don't want them to. Public actors are [available to everyone](./publishing.md) in [Apify Store](https://apify.com/store). You can make them free to use, or you can [charge for them](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/).
+Actors can be [public](./running/store.md) (free or paid) or private. Private actors are yours to use and keep, and no one will see them if you don't want them to. Public actors are [available to everyone](./running/store.md) in [Apify Store](https://apify.com/store). You can make them free to use, or you can [charge for them](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/).
 

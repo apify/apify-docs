@@ -67,4 +67,4 @@ The next step is to test your actor and experiment with the vast amount of featu
 
 ## Wrap up {#next}
 
-That's it! In this short section, you've learned how to take your code written in any programming language and turn it into a usable actor that can run on the Apify platform! The next step is to start looking into the [paid actors](/platform/actors/paid-actors) program, which allows you to monetize your work.
+That's it! In this short section, you've learned how to take your code written in any programming language and turn it into a usable actor that can run on the Apify platform! The next step is to start looking into the [paid actors](/platform/actors/publishing) program, which allows you to monetize your work.

@@ -1,0 +1,31 @@
+---
+title: Automated testing
+description: TODO
+slug: /actors/publishing/test
+menuTitle: Publish your actor
+sidebar_position: 3
+---
+
+**Apify has a QA system that regularly runs automated tests to ensure that all actors in the store are functional.**
+
+---
+
+The test runs the actor with its default input (defined by the **prefill** option in the input schema file)
+and expects it to finish with a **Succeeded** status within 5 minutes of the beginning of the run.
+
+![Actor page](./images/actor-test.webp)
+
+If the actor fails to complete successful runs for three consecutive days, the developer will be notified,
+and the actor will be labeled **Under Maintenance** until it is fixed. After another 14 days of failing runs, you will receive another notification. Finally, if the runs continue to fail after yet another 14 days, the actor will be **Deprecated**.
+
+### What if my actor cannot comply with the test logic?
+
+Actors that require some sort of authentication will always fail the tests despite being fully functional.
+If that's the case with your actor, please contact support at **support@apify.com** and explain your specific use case that justifies why the actor should be excluded from the automated tests.
+
+### Advanced actor testing
+
+You can easily implement your own tests and customize them to fit your actor's particularities
+by using our public [Actor Testing](https://apify.com/pocesar/actor-testing) tool available on the Apify store.
+For more information see [testing and maintenance](../development/testing_and_maintenance.md) section.
+
