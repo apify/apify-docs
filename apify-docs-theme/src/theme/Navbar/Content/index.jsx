@@ -9,6 +9,7 @@ import NavbarItem from '@theme/NavbarItem';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
 import NavbarSearch from '@theme/Navbar/Search';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
+import { useLocation } from '@docusaurus/router';
 import SearchBar from '../../SearchBar';
 import styles from './styles.module.css';
 
@@ -36,8 +37,10 @@ function NavbarContentLayout({
 
 function SubNavbar() {
     const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
+    const location = useLocation();
+
     return (
-        subNavbar ? (
+        subNavbar && (!subNavbar?.pathRegex || location.pathname.match(subNavbar.pathRegex)) ? (
             <div className="navbar__inner navbar__sub">
                 <div className="navbar__container">
                     <div className="navbar__items">
