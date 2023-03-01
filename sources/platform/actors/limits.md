@@ -92,7 +92,7 @@ The tables below demonstrate the Apify Platform's default resource limits. For A
             <td colspan="4">2000&nbsp;columns</td>
         </tr>
         <tr>
-            <td>Maximum size of actor (task) input schema</td>
+            <td>Maximum size of actor input schema</td>
             <td colspan="4">100&nbsp;kB</td>
         </tr>
         <tr>
