@@ -13,7 +13,7 @@ slug: /actors/limits
 
 The tables below demonstrate the Apify Platform's default resource limits. For API limits such as rate limits and max payload size, see the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting).
 
-> If needed, the limits shown below can be increased on paid accounts. For details, contact us on **hello@apify.com** or using the chat icon in the bottom-right corner.
+> If needed, the limits shown below can be increased on paid accounts. For details, contact us at **hello@apify.com** or using the chat in [Apify Console](https://console.apify.com/) under the "Help & Resources → Contact Support".
 
 ## Actor runtime limits {#actor-limits}
 
@@ -92,7 +92,7 @@ The tables below demonstrate the Apify Platform's default resource limits. For A
             <td colspan="4">2000&nbsp;columns</td>
         </tr>
         <tr>
-            <td>Maximum size of actor (task) input schema</td>
+            <td>Maximum size of actor input schema</td>
             <td colspan="4">100&nbsp;kB</td>
         </tr>
         <tr>
