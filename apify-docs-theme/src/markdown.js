@@ -20,7 +20,7 @@ function pushHeadings(changelog) {
 }
 
 function linkUsers(changelog) {
-    return changelog.replaceAll(/^\s*[^#].*@([a-zA-Z0-9-]+)/g, '[@$1](https://github.com/$1)');
+    return changelog.replaceAll(/@([a-zA-Z0-9-]+)/g, '[@$1](https://github.com/$1)');
 }
 
 function linkPRs(changelog) {
