@@ -221,7 +221,7 @@ You can invite other Apify users to view or modify your request queues using the
 
 ### Sharing request queues between runs {#sharing-request-queues-between-runs}
 
-You can access a request queue from any [actor](../actors/index.md) or [task](../actors/tasks.md) run as long as you know its **name** or **ID**.
+You can access a request queue from any [actor](../actors/index.md) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
 
 To access a request queue from another run using the Apify SDK, open it using the [`Actor.openRequestQueue(queueIdOrName)`](/sdk/js/api/apify/class/Actor#openRequestQueue) method like you would do with any other queue.
 

@@ -32,7 +32,7 @@ Each schedule can be associated with a maximum of 10 actors and 10 actor tasks.
 
 ## Setting up a new schedule
 
-Before setting up a new schedule, you should have the [actor](./actors/index.md) or [task](./actors/tasks.md) whose run you want to schedule prepared and tested.
+Before setting up a new schedule, you should have the [actor](./actors/index.md) or [task](./actors/running/tasks.md) whose run you want to schedule prepared and tested.
 
 If you are planning to schedule an actor run, you need to use the actor before you can schedule any runs. Navigate to the actor's page in [Apify Store](https://apify.com/store), click the **Try for free** button, then **Start** it with your preferred settings.
 

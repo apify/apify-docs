@@ -12,7 +12,7 @@ slug: /monitoring/monitor-multiple-tasks
 
 ---
 
-This example walks you through setting up [monitoring](https://apify.com/apify/monitoring) for a multiple [tasks](../actors/tasks.md), [validating data](#validate-data) and setting up a data monitoring [dashboard](#set-up-data-visualization). Though the tutorial focuses on tasks, you can also use it to monitor [actors](../actors/index.md).
+This example walks you through setting up [monitoring](https://apify.com/apify/monitoring) for a multiple [tasks](../actors/running/tasks.md), [validating data](#validate-data) and setting up a data monitoring [dashboard](#set-up-data-visualization). Though the tutorial focuses on tasks, you can also use it to monitor [actors](../actors/index.md).
 
 ## Use case {#use-case}
 
@@ -49,7 +49,7 @@ Next, we will configure the monitoring suite.
 
 2. Next, open the **What you want to monitor** section. Give the monitoring suite a name in the **Monitoring suite name** field, e.g. `covid-tasks`.
 
-3. In the **Type of target:** dropdown, select **Task**, since you will be monitoring [actor tasks](../actors/tasks.md).
+3. In the **Type of target:** dropdown, select **Task**, since you will be monitoring [actor tasks](../actors/running/tasks.md).
 
 4. **Target name patterns** should be `^covid-`. The task names follow a simple naming convention (all start with **covid-**), so this name pattern will target all of the above tasks. To select only particular tasks, add separate **Target name patterns** for each: `covid-germany`, `covid-usa`, etc.
 

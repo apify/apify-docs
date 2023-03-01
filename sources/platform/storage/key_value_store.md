@@ -208,7 +208,7 @@ You can invite other Apify users to view or modify your key-value stores using t
 
 ### Sharing key-value stores between runs
 
-You can access a key-value store from any [actor](../actors/index.md) or [task](../actors/tasks.md) run as long as you know its **name** or **ID**.
+You can access a key-value store from any [actor](../actors/index.md) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
 
 To access a key-value store from another run using the Apify SDK, open it using the [`Actor.openKeyValueStore(storeIdOrName)`](/sdk/js/api/apify/class/Actor#openKeyValueStore) method like you would do with any other store.
 

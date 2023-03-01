@@ -12,7 +12,7 @@ slug: /monitoring/check-data-quality
 
 ---
 
-This example walks you through setting up [monitoring](https://apify.com/apify/monitoring) for an [actor](../actors/index.md) or [task](../actors/tasks.md).
+This example walks you through setting up [monitoring](https://apify.com/apify/monitoring) for an [actor](../actors/index.md) or [task](../actors/running/tasks.md).
 
 ## Use case {#use-case}
 

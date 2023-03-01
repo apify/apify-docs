@@ -325,7 +325,7 @@ You can invite other Apify users to view or modify your datasets using the [acce
 
 ### Sharing datasets between runs {#sharing-datasets-between-runs}
 
-You can access a dataset from any [actor](../actors/index.md) or [task](../actors/tasks.md) run as long as you know its **name** or **ID**.
+You can access a dataset from any [actor](../actors/index.md) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
 
 To access a dataset from another run using the Apify SDK, open it using the [`Actor.openDataset(datasetIdOrName)`](/sdk/js/api/apify/class/Actor#openDataset) method like you would do with any other dataset.
 

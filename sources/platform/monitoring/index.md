@@ -28,7 +28,7 @@ And if the scraping job fails, you will receive a notification, so there will be
 
 The [monitoring suite](https://apify.com/apify/monitoring) is a collection of [Apify actors](../actors/index.md) that allows you to automate the monitoring of jobs you have running on the [Apify platform](https://apify.com).
 
-You can use it to monitor anything from a single actor to complex projects spanning multiple actors, [tasks](../actors/tasks.md) or [storages](../storage/index.md).
+You can use it to monitor anything from a single actor to complex projects spanning multiple actors, [tasks](../actors/running/tasks.md) or [storages](../storage/index.md).
 
 ## How does it work? {#how-does-it-work}
 
@@ -71,7 +71,7 @@ To make any changes to an existing configuration, choose the **Update configurat
 
 ### Add the monitoring suite to your account {#add-the-monitoring-suite-to-your-account}
 
-On the monitoring suite's [page](https://apify.com/apify/monitoring) in [Apify Store](https://apify.com/store), click the **Try for free** button. This will take you to the [Apify Console](https://console.apify.com), add the suite to your [list of actors](https://console.apify.com/actors) and create a new [task](../actors/tasks.md).
+On the monitoring suite's [page](https://apify.com/apify/monitoring) in [Apify Store](https://apify.com/store), click the **Try for free** button. This will take you to the [Apify Console](https://console.apify.com), add the suite to your [list of actors](https://console.apify.com/actors) and create a new [task](../actors/running/tasks.md).
 
 ![Monitoring actor in Apify Store](./images/monitoring-in-store.png)
 
