@@ -72,6 +72,7 @@ module.exports = {
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
                 docs: {
+                    id: 'platform',
                     showLastUpdateAuthor: true,
                     showLastUpdateTime: true,
                     editUrl: 'https://github.com/apify/apify-docs/edit/master/',
