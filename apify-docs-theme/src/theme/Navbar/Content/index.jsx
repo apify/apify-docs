@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeConfig } from '@docusaurus/theme-common';
+import { useThemeConfig, isRegexpStringMatch } from '@docusaurus/theme-common';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import {
     splitNavbarItems,
@@ -40,7 +40,7 @@ function SubNavbar() {
     const location = useLocation();
 
     return (
-        subNavbar && (!subNavbar?.pathRegex || location.pathname.match(subNavbar.pathRegex)) ? (
+        subNavbar && (!subNavbar?.pathRegex || isRegexpStringMatch(subNavbar.pathRegex, location.pathname)) ? (
             <div className="navbar__inner navbar__sub">
                 <div className="navbar__container">
                     <div className="navbar__items">
