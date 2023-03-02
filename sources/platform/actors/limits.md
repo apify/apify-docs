@@ -1,13 +1,13 @@
 ---
 title: Limits
-description: Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of actors and tasks per user.
+description: Learn the Apify platform's resource capability and limitations, such as max memory, disk size, and the number of actors and tasks per user.
 sidebar_position: 7.8
 slug: /actors/limits
 ---
 
 # Limits {#limits}
 
-**Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of actors and tasks per user.**
+**Learn the Apify platform's resource capability and limitations, such as max memory, disk size, and the number of actors and tasks per user.**
 
 ---
 
@@ -129,6 +129,6 @@ The tables below demonstrate the Apify Platform's default resource limits. For A
 
 ## Usage limits {#platform-limits}
 
-Apify Platform also introduces usage limits based on the billing plan to protect users from accidental overspending. View these limits and adjust your maximum usage limit in [Apify Console](https://console.apify.com/billing#/limits):
+The Apify platform also introduces usage limits based on the billing plan to protect users from accidental overspending. View these limits and adjust your maximum usage limit in [Apify Console](https://console.apify.com/billing#/limits):
 
  <img src={require("./images/limits/usage-limits.png").default} title="Apify Security Whitepaper" />
