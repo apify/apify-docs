@@ -1,0 +1,42 @@
+import React from 'react';
+import Head from '@docusaurus/Head';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { useActiveDocContext } from '@docusaurus/plugin-content-docs/client';
+
+export default function SearchMetadata({ locale, version, tag }) {
+    const { siteConfig } = useDocusaurusContext();
+    const language = locale;
+
+    // keep the tag on same value for all the content, and add a new section + section tag
+    const section = siteConfig.projectName;
+    const sectionTag = tag;
+    tag = 'default';
+
+    const docsPluginId = siteConfig.presets[0][1].docs.id ?? 'default';
+    const activeDocContext = useActiveDocContext(docsPluginId);
+
+    // normalize the latest version regardless of what number it has,
+    // so we can search across all "latest versions of the docs"
+    if (!version || !activeDocContext.activeVersion || activeDocContext.activeVersion.isLast) {
+        version = 'latest';
+    }
+
+    return (
+        <Head>
+            {/*
+        Docusaurus metadata, used by third-party search plugin
+        See https://github.com/cmfcmf/docusaurus-search-local/issues/99
+        */}
+            {locale && <meta name="docusaurus_locale" content={locale}/>}
+            {version && <meta name="docusaurus_version" content={version}/>}
+            {tag && <meta name="docusaurus_tag" content={tag}/>}
+
+            {/* Algolia DocSearch metadata */}
+            {language && <meta name="docsearch:language" content={language}/>}
+            {version && <meta name="docsearch:version" content={version}/>}
+            <meta name="docsearch:docusaurus_tag" content={tag}/>
+            <meta name="docsearch:section" content={section}/>
+            <meta name="docsearch:section_tag" content={sectionTag}/>
+        </Head>
+    );
+}

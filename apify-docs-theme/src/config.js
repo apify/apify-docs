@@ -237,6 +237,7 @@ const themeConfig = ({
         appId: 'N8EOCSBQGH',
         apiKey: 'b43e67a96ed18c7f63f5fd965906a96d', // search only (public) API key
         indexName: 'apify_sdk',
+        contextualSearch: false,
         algoliaOptions: {
             facetFilters: ['version:VERSION'],
         },
