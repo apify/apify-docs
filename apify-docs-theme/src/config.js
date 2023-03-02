@@ -107,7 +107,7 @@ const themeConfig = ({
                         href: 'https://github.com/apify/fingerprint-suite',
                     },
                     {
-                        label: 'See Apify on GitHub',
+                        label: 'Apify on GitHub',
                         href: 'https://github.com/apify',
                     },
                 ],
@@ -115,7 +115,7 @@ const themeConfig = ({
             {
                 href: 'https://github.com/apify',
                 label: 'GitHub',
-                title: 'See Apify on GitHub',
+                title: 'Apify on GitHub',
                 position: 'right',
                 className: 'icon',
             },
