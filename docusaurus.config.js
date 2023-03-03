@@ -24,7 +24,7 @@ module.exports = {
             /** @type {import('./apify-docs-theme/types').ThemeOptions} */
             ({
                 subNavbar: {
-                    title: 'Apify Docs',
+                    title: 'Academy',
                     pathRegex: '/academy',
                     items: [
                         {
