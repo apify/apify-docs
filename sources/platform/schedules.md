@@ -48,10 +48,10 @@ In the **Settings** tab, give your schedule a memorable name, add a description,
 
 Next, you'll need to give the schedule something to run. This is where the actor or task you prepared earlier comes in. Switch to the **Actors and Tasks** tab, and click the **Add [new]** button.
 
-If you're scheduling an actor run, you'll be able to specify the actor's [input](./actors/running/input.md) and running options like
+If you're scheduling an actor run, you'll be able to specify the actor's [input](./actors/running/input_and_output.md) and running options like
 [build](./actors/development/builds.md),
 timeout,
-[memory](./actors/running/memory_and_cpu.md).
+[memory](./actors/running/usage_and_resources.md).
 The **timeout** value is specified in seconds; a value of **0** means there is no timeout and the actor runs until it finishes.
 
  If you don't provide an input, then the actor's default input is used. If you provide an input with some fields missing, the missing fields are filled in with values from the default input. If input options are not provided, the default options values are used.

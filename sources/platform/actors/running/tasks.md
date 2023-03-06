@@ -33,7 +33,7 @@ You can set up your task's input under the **Input and options** tab. A task's i
 
 Actors' input fields will vary depending on their purpose, but they all follow the same principle: you provide an actor with the information it needs so it can do what you want it to do.
 
-You can set run options such as timeout and [memory](./memory_and_cpu.md) at the bottom of the input section.
+You can set run options such as timeout and [memory](./usage_and_resources.md) at the bottom of the input section.
 
 ### Identifying tasks
 

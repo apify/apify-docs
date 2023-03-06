@@ -1,11 +1,9 @@
 ---
-title: Input
+title: Input and output
 description: Configure your actor's input parameters using the Apify Console, locally or via API. Access parameters in key-value stores from your actor's code.
 sidebar_position: 2
-slug: /actors/running/input
+slug: /actors/running/input-and-output
 ---
-
-# Input
 
 **Configure your actor's input parameters using the Apify Console, locally or via API. Access parameters in key-value stores from your actor's code.**
 

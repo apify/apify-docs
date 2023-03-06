@@ -53,7 +53,7 @@ In the [Apify SDK](/sdk/js/docs/guides/result-storage#key-value-store), the key-
 You can use the `KeyValueStore` class to specify whether your data is stored locally or in the Apify cloud,
 get and set values using the [`getValue()`](/sdk/js/api/apify/class/KeyValueStore#getValue) and [`setValue()`](/sdk/js/api/apify/class/KeyValueStore#setValue) methods respectively, or iterate over your key-value store keys using the [`forEachKey()`](/sdk/js/api/apify/class/KeyValueStore#forEachKey) method.
 
-Each actor run is associated with the default key-value store, which is created for the actor run. When running your actors and storing data locally, you can pass its [input](../actors/running/input.md) using the **INPUT.json** file in the default key-value store directory.
+Each actor run is associated with the default key-value store, which is created for the actor run. When running your actors and storing data locally, you can pass its [input](../actors/running/input_and_output.md) using the **INPUT.json** file in the default key-value store directory.
 
 You can find `INPUT.json` and other key-value store files in the location below.
 

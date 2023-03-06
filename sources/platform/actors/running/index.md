@@ -19,7 +19,7 @@ You can start an Apify actor in a number of ways. One option is to start an acto
 
 ![Apify developer console](../images/actor-console.png)
 
-You can specify options such as [build](../development/builds.md), timeout, and [memory](./memory_and_cpu.md) for your actor run.
+You can specify options such as [build](../development/builds.md), timeout, and [memory](./usage_and_resources.md) for your actor run.
 
 <!-- Using an HTML table because it doesn't have a header - markdown doesn't allow tables with no headers -->
 <table>

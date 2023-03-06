@@ -73,7 +73,7 @@ Congratulations, you have successfully created and run your first actor!
 
 ### Accepting input
 
-Let's try something little more advanced. We will enable the actor to accept input and generate output (for more details, [see the Input article](../actors/running/input.md)).
+Let's try something little more advanced. We will enable the actor to accept input and generate output (for more details, [see the Input article](../actors/running/input_and_output.md)).
 
 **1.** Paste the code below into the **Source code** editor.
 

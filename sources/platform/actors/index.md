@@ -25,9 +25,9 @@ A single isolated actor consists of source code and various settings. You can th
 @TODO: Marek
 
 * [Running](./running/index.md)
-  * [Input](./running/input.md)
-  * [Memory and CPU](./running/memory_and_cpu.md)
-  * [Compute units and consumption](./running/compute_units.md)
+  * [Input and output](./running/input_and_output.md)
+  * [Memory and CPU](./running/usage_and_resources.md)
+  * [Usage and resources](./running/usage_and_resources.md)
   * [Actors in store](./running/store.md)
   * [Tasks](./running/tasks.md)
 * [Development](./development/index.md)
