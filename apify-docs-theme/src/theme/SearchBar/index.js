@@ -56,6 +56,9 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
         mergeFacetFilters(contextualSearchFacetFilters, configFacetFilters)
         : // ... or use config facetFilters
         configFacetFilters;
+    const tags = facetFilters[facetFilters.length - 1];
+    const version = tags[tags.length - 1].match(/-([^-]+)$/)?.[1];
+    tags.push(`docusaurus_tag:default-${version}`);
     // We let user override default searchParameters if she wants to
     const searchParameters = {
         ...props.searchParameters,
