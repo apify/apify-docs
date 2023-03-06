@@ -1,5 +1,10 @@
 /* eslint-disable global-require */
-const absoluteUrl = process.env.LOCAL ? 'http://docs.apify.loc' : 'https://docs.apify.com';
+// eslint-disable-next-line no-nested-ternary
+const absoluteUrl = process.env.LOCALHOST
+    ? 'http://localhost:3000'
+    : process.env.DEV
+        ? 'http://docs.apify.loc'
+        : 'https://docs.apify.com';
 
 const themeConfig = ({
     docs: {
@@ -237,7 +242,6 @@ const themeConfig = ({
         appId: 'N8EOCSBQGH',
         apiKey: 'b43e67a96ed18c7f63f5fd965906a96d', // search only (public) API key
         indexName: 'apify_sdk',
-        contextualSearch: false,
         algoliaOptions: {
             facetFilters: ['version:VERSION'],
         },
