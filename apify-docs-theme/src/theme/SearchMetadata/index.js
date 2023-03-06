@@ -10,8 +10,6 @@ export default function SearchMetadata({ locale, version, tag }) {
     // keep the tag on same value for all the content, and add a new section + section tag
     const section = siteConfig.projectName;
     const sectionTag = tag;
-    tag = 'default';
-
     const docsPluginId = siteConfig.presets[0][1].docs.id ?? 'default';
     const activeDocContext = useActiveDocContext(docsPluginId);
 
@@ -20,6 +18,8 @@ export default function SearchMetadata({ locale, version, tag }) {
     if (!version || !activeDocContext.activeVersion || activeDocContext.activeVersion.isLast) {
         version = 'latest';
     }
+
+    tag = `default-${version}`;
 
     return (
         <Head>
