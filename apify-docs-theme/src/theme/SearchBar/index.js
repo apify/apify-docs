@@ -8,6 +8,7 @@ import {
     useAlgoliaContextualFacetFilters,
     useSearchResultUrlProcessor,
 } from '@docusaurus/theme-search-algolia/client';
+import { useActiveDocContext } from '@docusaurus/plugin-content-docs/client';
 import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { createPortal } from 'react-dom';
@@ -47,7 +48,7 @@ function mergeFacetFilters(f1, f2) {
 }
 
 function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
-    const { siteMetadata } = useDocusaurusContext();
+    const { siteMetadata, siteConfig } = useDocusaurusContext();
     const processSearchResultUrl = useSearchResultUrlProcessor();
     const contextualSearchFacetFilters = useAlgoliaContextualFacetFilters();
     const configFacetFilters = props.searchParameters?.facetFilters ?? [];
@@ -56,9 +57,20 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
         mergeFacetFilters(contextualSearchFacetFilters, configFacetFilters)
         : // ... or use config facetFilters
         configFacetFilters;
+
     const tags = facetFilters[facetFilters.length - 1];
-    const version = tags[tags.length - 1].match(/-([^-]+)$/)?.[1];
+    const docsPluginId = siteConfig.presets[0][1].docs.id ?? 'default';
+    const activeDocContext = useActiveDocContext(docsPluginId);
+    let version = tags[tags.length - 1].match(/-([^-]+)$/)?.[1];
+
+    // normalize the latest version regardless of what number it has,
+    // so we can search across all "latest versions of the docs"
+    if (!version || !activeDocContext.activeVersion || activeDocContext.activeVersion.isLast) {
+        version = 'latest';
+    }
+
     tags.push(`docusaurus_tag:default-${version}`);
+
     // We let user override default searchParameters if she wants to
     const searchParameters = {
         ...props.searchParameters,
@@ -108,7 +120,6 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
             window.location.href = itemUrl;
         },
     }).current;
-    const { siteConfig } = useDocusaurusContext();
     const transformItems = useRef((items) => (props.transformItems
         ? // Custom transformItems
         props.transformItems(items)
