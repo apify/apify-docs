@@ -8,8 +8,8 @@ import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarItem from '@theme/NavbarItem';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
 import NavbarSearch from '@theme/Navbar/Search';
-import SearchBar from '@theme/SearchBar';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
+import SearchBar from '../../SearchBar';
 import styles from './styles.module.css';
 
 function NavbarItems({ items }) {
