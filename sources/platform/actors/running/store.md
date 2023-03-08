@@ -24,7 +24,7 @@ All actors in [Apify Store](https://apify.com/store) fall into one of these thre
 
 ### Free actors
 
-When you use a free actor you are only charged the platform usage the runs of this actor generate. Platform usage includes components such as [compute](https://docs.apify.com/platform/actors/running/compute-units), operations on [storages](https://docs.apify.com/platform/storage), and usage of [residential proxies](https://docs.apify.com/platform/proxy/residential-proxy) or [SERPs](<https://docs.apify.com/platform/proxy/google-serp-proxy>). You can find the details of your actor usage on the run detail page.
+When you use a free actor you are only charged the platform usage the runs of this actor generate. [Platform usage](./usage_and_resources.md) includes components such as compute units, operations on [storages](https://docs.apify.com/platform/storage), and usage of [residential proxies](https://docs.apify.com/platform/proxy/residential-proxy) or [SERPs](<https://docs.apify.com/platform/proxy/google-serp-proxy>). You can find the details of your actor usage on the run detail page.
 
 ![Example run usage](./images/store/example_run_usage.png)
 
