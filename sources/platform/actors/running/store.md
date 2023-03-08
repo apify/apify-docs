@@ -30,7 +30,7 @@ When you use a free actor you are only charged the platform usage the runs of th
 
 > With this model, it is quite difficult to know beforehand exactly how much usage the actor will generate when you run it, so you cannot easily estimate your costs upfront. The easiest approach to do so is to try out the actor on a limited scope, for example on a small number of pages, and evaluate the consumption.
 >
-> **For more information on platform usage cost see the [usage and resources](./usage_and_resources) page.**
+> **For more information on platform usage cost see the [usage and resources](./usage_and_resources.md) page.**
 
 
 ### Paid actors
