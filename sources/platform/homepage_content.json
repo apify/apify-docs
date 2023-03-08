@@ -38,7 +38,7 @@
     "Guides": [
         {
             "cardItem": "Actor tasks",
-            "href": "/platform/actors/tasks"
+            "href": "/platform/actors/running/tasks"
         },
         {
             "cardItem": "Run an actor and retrieve data via API",

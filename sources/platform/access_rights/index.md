@@ -33,7 +33,7 @@ Apify's organization account allows you to grant role-specific access permission
 
 ## Publishing in Apify Store {#publishing-in-apify-store}
 
-Another way to share your actor is to [publish](../actors/publishing) it in [Apify Store](https://apify.com/store). The published actor appears in Apify Store, which means that **any user will be able to view its source code and run it**.
+Another way to share your actor is to [publish](../actors/publishing/publish) it in [Apify Store](https://apify.com/store). The published actor appears in Apify Store, which means that **any user will be able to view its source code and run it**.
 
 > When you publish an actor, you give every Apify user the **read** and **run** permissions.
 
