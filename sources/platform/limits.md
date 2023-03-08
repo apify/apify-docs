@@ -127,7 +127,7 @@ The tables below demonstrate the Apify Platform's default resource limits. For A
     </tbody>
 </table>
 
-## Usage limits {#platform-limits}
+## Usage limit {#usage-limit}
 
 Apify Platform also introduces usage limits based on the billing plan to protect users from accidental overspending. View these limits and adjust your maximum usage limit in [Apify Console](https://console.apify.com/billing#/limits):
 

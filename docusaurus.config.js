@@ -65,6 +65,7 @@ module.exports = {
                 // },
             }),
         ],
+        '@docusaurus/theme-mermaid',
     ],
     presets: /** @type {import('@docusaurus/types').PresetConfig[]} */ ([
         [
@@ -121,6 +122,9 @@ module.exports = {
         //     },
         // ],
     ],
+    markdown: {
+        mermaid: true,
+    },
     themeConfig: config.themeConfig,
     staticDirectories: ['apify-docs-theme/static', 'static'],
 };
