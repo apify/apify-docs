@@ -18,14 +18,14 @@ To use the Apify integration for GitHub, you will need:
 - An [Apify account](https://console.apify.com/).
 - A GitHub repository.
 
-## Create actor from GitHub repository
+### Create actor from GitHub repository
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NEzT_p_RE1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## Deploying changes automatically
+### Deploy changes automatically
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/j2I3DM8Nvu1M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## Creating issue when run fails
+### Create issue when run fails
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jZUp-rRbayc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

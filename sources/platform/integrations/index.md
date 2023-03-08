@@ -48,6 +48,8 @@ Some ETL tools offer connectors for Apify, which make it possible to use Apify d
  - [Keboola](./integrations/keboola)
  - [Airbyte](./integrations/airbyte)
 
-## Not sure what to do with following
+## Workarounds? Other materials?
+
+Not sure what to do with those:
 
 - [Google](https://help.apify.com/en/articles/2424053-google-integration).
