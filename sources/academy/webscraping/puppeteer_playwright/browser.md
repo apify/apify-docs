@@ -69,8 +69,8 @@ await chromium.launch({ headless: false });
 ```javascript
 import puppeteer from 'puppeteer';
 
-await puppeteer.launch({ headless: false });
-
+const browser = await puppeteer.launch({ headless: false });
+await browser.newPage();
 ```
 
 </TabItem>
