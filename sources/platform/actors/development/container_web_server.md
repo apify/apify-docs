@@ -1,6 +1,12 @@
+---
+title: Container web server
+description: Learn about how to run a web server inside your actor, which enables you to communicate with the outer world via both UI and API.
+slug: /actors/development/container-web-server
+---
 
+**Learn about how to run a web server inside your actor, which enables you to communicate with the outer world via both UI and API.**
 
-## Container web server
+---
 
 Each actor run is assigned a unique hard-to-guess URL (e.g. `kmdo7wpzlshygi.runs.apify.net`), which enables HTTP access to an optional web server running inside the actor run's Docker container. The URL is available in the following places:
 
