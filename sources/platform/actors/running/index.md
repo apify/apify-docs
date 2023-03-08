@@ -51,6 +51,8 @@ https://api.apify.com/v2/acts/apify~hello-world/runs?token=<YOUR_API_TOKEN>
 
 An actor's input and its content type can be passed as a payload of the POST request, and additional options can be specified using URL query parameters. For more details, see the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
 
+> To learn more about this, read the [Run an actor or task and retrieve data via API](../../tutorials/run-actor-and-retrieve-data-via-api) tutorial.
+
 ## Running programmatically
 
 Actors can also be invoked programmatically from other actors and your Python or JavaScript code:

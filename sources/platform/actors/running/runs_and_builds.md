@@ -1,6 +1,6 @@
 ---
 title: Runs and builds
-description: TODO
+description: Learn about actor builds and runs, their lifecycle, sharing, and data retention policy.
 sidebar_position: 2
 slug: /actors/running/runs-and-builds
 ---
@@ -26,7 +26,7 @@ Each build may have different features, input, or output. By fixing the build to
 
 When you start an actor, the actor run gets created. Actor run is a Docker container created from the build's Docker image with dedicated resources (CPU, memory, disk space). For more on this topic, see [usage and resources](./usage_and_resources).
 
-Each run has own (default) [storages](../../storage) assigned, which it may but not nesseserarly need to use:
+Each run has its own (default) [storages](../../storage) assigned, which it may but not nesseserarly need to use:
 - [Key-value store](../../storage/key_value_stores) containing the input and enabling actor to store other files
 - [Dataset](../../storage/datasets) enabling actor to store the results
 - [Request queue](../../storage/request_queues) to maintain a queue of URLs to be processed
@@ -96,7 +96,7 @@ The whole process of resurrection looks as follows:
 
 Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](/api/v2#/reference/actors/resurrect-run) API endpoint.
 
-> You can also adjust timeout, memory, or change actor build prior to resurrection. This is especially helpful in a case of an error in a code of an actor as it enables you to:
+> You can also adjust timeout, memory, or change actor build prior to the resurrection. This is especially helpful in a case of an error in a code of an actor as it enables you to:
 > - Abort a broken run
 > - Update the actor's code and build the new version
 > - Resurrect the run using the new build
@@ -105,11 +105,13 @@ Resurrection can be performed in Apify Console using the **resurrect** button or
 
 An **actor run** is deleted along with its default storages (key-value store, dataset, request queue) after a data retention period which is based on your [subscription plan](https://apify.com/pricing).
 
-An **actor build** is deleted only when is not tagged and it has not been used for more than 90 days.
+An **actor build** is deleted only when it is not tagged and has not been used for over 90 days.
 
 ## Sharing
 
 You can share your actor runs with other Apify users via the [access rights](../../access_rights/index.md) system.
+
+
 
 
 
