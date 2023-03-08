@@ -28,9 +28,9 @@ When you start an actor, the actor run gets created. Actor run is a Docker conta
 
 Each run has its own (default) [storages](../../storage) assigned, which it may but not nesseserarly need to use:
 
-- [Key-value store](../../storage/key_value_stores) containing the input and enabling actor to store other files
-- [Dataset](../../storage/datasets) enabling actor to store the results
-- [Request queue](../../storage/request_queues) to maintain a queue of URLs to be processed
+- [Key-value store](../../storage/key_value_store) containing the input and enabling actor to store other files
+- [Dataset](../../storage/dataset) enabling actor to store the results
+- [Request queue](../../storage/request_queue) to maintain a queue of URLs to be processed
 
 What's happening inside of an actor is visible in the actor run log at the actor run detail:
 

@@ -29,7 +29,7 @@ When running actor using the [API](https://docs.apify.com/api/v2) you can pass t
 
 ## Output
 
-While the input object provides a way to instruct actors, the actors can also generate an output, usually stored in its default [dataset](../../storage/datasets), but some additional files might be stored in its [key-value store](../../storage/key_value_stores). Always read the actor's README to learn more about its output.
+While the input object provides a way to instruct actors, the actors can also generate an output, usually stored in its default [dataset](../../storage/dataset), but some additional files might be stored in its [key-value store](../../storage/key_value_store). Always read the actor's README to learn more about its output.
 
 > For more details about storages, visit the [storage](../../storage/index.md) section.
 
@@ -37,7 +37,7 @@ You can quickly access the actor's output from the run detail page:
 
 ![Actor output](./images/input_and_output/actor-output.png)
 
-And to access all the data associated with the run, see the **storage** tab where you can explore the actor's default [dataset](../../storage/datasets),[key-value store](../../storage/key_value_stores), and [request queue](../../storage/request_queues):
+And to access all the data associated with the run, see the **storage** tab where you can explore the actor's default [dataset](../../storage/dataset),[key-value store](../../storage/key_value_store), and [request queue](../../storage/request_queue):
 
 ![Actor output](./images/input_and_output/actor-storage.png)
 
