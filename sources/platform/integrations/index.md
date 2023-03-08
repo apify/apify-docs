@@ -29,24 +29,24 @@ API and webhooks are useful when you either need something very simple or very c
 
 Apify offers easy to set up solutions for common scenarios. Like uploading your datasets to Google Drive when run succeeds, or creating an issue on Github when it fails.
 
- - [Slack](./integrations/slack)
- - [Drive](./integrations/drive)
- - [Github](./integrations/github)
- - [Gmail](./integrations/gmail)
+- [Slack](./integrations/slack)
+- [Drive](./integrations/drive)
+- [Github](./integrations/github)
+- [Gmail](./integrations/gmail)
 
 ## Complex integrations
 
 For more complicated integrations we recommend using our connectors / components / nodes for common integration services.
 
- - [Make](./integrations/make)
- - [Zapier](./integrations/zapier)
+- [Make](./integrations/make)
+- [Zapier](./integrations/zapier)
 
 ## ETL tools with Apify support
 
 Some ETL tools offer connectors for Apify, which make it possible to use Apify datasets as data sources.
 
- - [Keboola](./integrations/keboola)
- - [Airbyte](./integrations/airbyte)
+- [Keboola](./integrations/keboola)
+- [Airbyte](./integrations/airbyte)
 
 ## Workarounds? Other materials?
 
