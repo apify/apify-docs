@@ -16,7 +16,8 @@
     },
     "homepage": "https://github.com/apify/apify-docs#readme",
     "scripts": {
-        "start": "rimraf .docusaurus && LOCAL=1 docusaurus start",
+        "start": "rimraf .docusaurus && LOCALHOST=1 docusaurus start",
+        "start:dev": "rimraf .docusaurus && DEV=1 docusaurus start",
         "build": "rimraf .docusaurus && docusaurus build",
         "publish-gh-pages": "docusaurus-publish",
         "write-translations": "docusaurus write-translations",
