@@ -27,10 +27,8 @@ Actors can be [public](./running/store.md) or private. Private actors are yours 
 ## Section overview
 
 This section covers the main 3 topics when it comes to Apify Actors:
+
 - [Running actors](./running) - how to run your actors and actors from [Apify Store](https://apify.com/store). This part also covers the configuration, pricing, and usage cost.
 - [Development](./development) - an intro into how to develop your own actor.
 - [Publishing and momnetization](./publishing) - learn how to share your actors with other users and monetize them.
-
-
-
 

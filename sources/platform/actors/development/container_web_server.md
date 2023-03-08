@@ -1,8 +1,5 @@
 
 
-
-
-
 ## Container web server
 
 Each actor run is assigned a unique hard-to-guess URL (e.g. `kmdo7wpzlshygi.runs.apify.net`), which enables HTTP access to an optional web server running inside the actor run's Docker container. The URL is available in the following places:

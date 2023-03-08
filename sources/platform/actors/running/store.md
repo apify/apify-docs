@@ -17,9 +17,11 @@ Some actors are free to use (you will be charged only for the Apify platform usa
 ## Pricing models
 
 All actors in [Apify Store](https://apify.com/store) fall into one of these three pricing models:
+
 1. [**free**](#free-actors) - you can run the actor freely and you only pay for platform usage the actor generates.
 2. [**paid**](#paid-actors) - same as free, but in order to be able to run the actor after the trial period, you need to rent the actor from the developer and pay a flat monthly fee on the top of the platform usage the actor generates.
 3. [**paid per result**](#actors-paid-per-result) - you do not pay for platform usage the actor generates and only pay for the results it produces.
+
 ### Free actors
 
 When you use a free actor you are only charged the platform usage the runs of this actor generate. Platform usage includes components such as [compute](https://docs.apify.com/platform/actors/running/compute-units), operations on [storages](https://docs.apify.com/platform/storage), and usage of [residential proxies](https://docs.apify.com/platform/proxy/residential-proxy) or [SERPs](<https://docs.apify.com/platform/proxy/google-serp-proxy>). You can find the details of your actor usage on the run detail page.
@@ -86,6 +88,7 @@ Since actor rental fees are paid from prepaid platform usage, these fees concept
 Hence, you can find the breakdown of how much you have been charged for paid actors on the bottom of the **Platform usage** tab in the [Billing](https://console.apify.com/billing) section. The overall sum will also be visible in the usage bar chart and the table on the top of the same tab.
 
 ![Paid actors billing in Apify Console](./images/store/paid-actors-billing.png)
+
 ### Actors paid per result
 
 When you run an actor that is **paid per result**, you only pay for the results that an actor returns when you run it, and you are not charged for the underlying platform usage. Technically, **results** you are charged for are the clean items in the default [dataset](https://docs.apify.com/platform/storage/dataset) created by the actor run.

@@ -99,13 +99,3 @@ The newly started actor runs under the same user account as the initial actor, a
 
 Internally, the `call()` function takes the user's API token from the `APIFY_TOKEN` environment variable, then it invokes the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get record](/api/v2/#/reference/key-value-stores/record/get-record) API endpoint.
 
-
-
-
-
-
-
-
-
-
-

@@ -43,4 +43,3 @@ And to access all the data associated with the run, see the **storage** tab wher
 
 > You can also use [API](https://docs.apify.com/api/v2) to retrieve the output. To learn more about this, read the [Run an actor or task and retrieve data via API](../../tutorials/run-actor-and-retrieve-data-via-api) tutorial.
 
-

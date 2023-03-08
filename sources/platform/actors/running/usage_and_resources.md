@@ -82,6 +82,7 @@ In other words, giving a simple [Cheerio-based crawler](https://apify.com/apify/
 ## Usage
 
 When you run an actor the actor generates platform usage that's charged towards the user account. Platform usage is composed of 4 main parts:
+
 - **Compute units**: CPU and memory resources consumed by the actor.
 - **Data transfer**: Amount of data you transfered between web, Apify Platform, and other external systems.
 - **Proxy costs**: Residential or SERP proxy usage.
@@ -105,6 +106,7 @@ You can see each actor run's exact CU usage in the run's details.
 You can [find a summary of your overall platform and CU usage](https://console.apify.com/billing) in the **Billing** section of the Apify Console.
 
 > **How are CUs calculated?** To calculate CUs, you need to multiply two factors:
+>
 > - **Memory** (GB) - Size of the allocated server for your actor or task run.
 > - **Duration** (hours) - How long the server is used (actor or task run). For example, if your run took 6 minutes (360 seconds), you can use 0.1 (hours) as the second number to calculate CUs. Minimum granularity is a second.
 >

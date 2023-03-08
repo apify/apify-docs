@@ -14,7 +14,7 @@ slug: /actors/running/runs-and-builds
 An actor is a combination of source code and various settings. To be able to run an actor, you need to build it first. By building an actor, the actor build ready to be run gets created. This build contains the source code built as a Docker container image.
 
 > A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings.
-> https://www.docker.com/resources/what-container/
+> <https://www.docker.com/resources/what-container/>
 
 With every new version of an actor, a new build gets created. Each actor build has its own number (for example <strong>1.2.34</strong>), and some of the builds are tagged for easier use (for example <strong>latest</strong> or <strong>beta</strong>). When running an actor, you can choose what build you want to run by selecting a tag or number in the run options.
 
@@ -27,6 +27,7 @@ Each build may have different features, input, or output. By fixing the build to
 When you start an actor, the actor run gets created. Actor run is a Docker container created from the build's Docker image with dedicated resources (CPU, memory, disk space). For more on this topic, see [usage and resources](./usage_and_resources).
 
 Each run has its own (default) [storages](../../storage) assigned, which it may but not nesseserarly need to use:
+
 - [Key-value store](../../storage/key_value_stores) containing the input and enabling actor to store other files
 - [Dataset](../../storage/datasets) enabling actor to store the results
 - [Request queue](../../storage/request_queues) to maintain a queue of URLs to be processed
@@ -61,6 +62,7 @@ flowchart LR
               RUNNING --> TIMING-OUT --> TIMED-OUT
               RUNNING --> ABORTNING --> ABORTED
 ```
+
 ---
 
 | Status     | Type         | Description                                 |
@@ -97,6 +99,7 @@ The whole process of resurrection looks as follows:
 Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](/api/v2#/reference/actors/resurrect-run) API endpoint.
 
 > You can also adjust timeout, memory, or change actor build prior to the resurrection. This is especially helpful in a case of an error in a code of an actor as it enables you to:
+>
 > - Abort a broken run
 > - Update the actor's code and build the new version
 > - Resurrect the run using the new build
@@ -110,9 +113,4 @@ An **actor build** is deleted only when it is not tagged and has not been used f
 ## Sharing
 
 You can share your actor runs with other Apify users via the [access rights](../../access_rights/index.md) system.
-
-
-
-
-
 
