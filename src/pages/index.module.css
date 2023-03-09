@@ -1,0 +1,18 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+ .cardsWrapper {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    gap: 24px;
+}
+
+@media (max-width: 736px) {
+    .cardsWrapper  {
+        flex-direction: column;
+    }
+}
+

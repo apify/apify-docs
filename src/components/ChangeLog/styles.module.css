@@ -1,0 +1,56 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.changeLogItem {
+    margin-bottom: 16px;
+}
+
+.changeLogItem h3 {
+    margin: 0;
+    transition: color 200ms ease-in-out;
+}
+
+.changeLogItem h3:hover {
+    color: var(--color-Primary_TextInteractive);
+    text-decoration-line: underline;
+    text-underline-position: under;
+    text-decoration-thickness: 2px;
+    text-decoration-style: initial;
+    text-decoration-color: inherit;
+}
+
+.changeLogDate {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0;
+    color: var(--color-Neutral_TextMuted);
+    margin-bottom: 4px;
+}
+
+.changeLogProperties {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.changeLogProperties > span {
+    padding: 0 4px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.changeLogProperties .changeLogChipType {
+    color: var(--color-Primary_ChipText);
+    background: var(--color-Primary_ChipBackground);
+}
+
+.changeLogProperties .changeLogChipComponent {
+    background: var(--color-Neutral_ChipBackground);
+}

@@ -1,0 +1,50 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.card {
+    border: 1px solid var(--color-Neutral_SeparatorSubtle);
+    border-radius: 8px;
+    text-align: left;
+    transition: background-color 120ms ease-in-out;
+}
+
+.card .cardContent {
+    padding: 24px;
+}
+
+.card .cardContent h3 {
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+.card .cardContent h3 {
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.card .cardContent p {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+    color: var(--color-Neutral_TextMuted);
+    margin: 0;
+}
+
+.card .cardContent .cardIcon {
+    height: 40px;
+}
+
+.card:hover {
+    background-color: var(--color-Neutral_Hover);
+}
+
+@media (max-width: 736px) {
+    .card {
+        width: 100% !important;
+    }
+}

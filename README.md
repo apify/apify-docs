@@ -1,12 +1,12 @@
-# Apify documentation
+# Apify Documentation
 
-[![Build Status](https://github.com/apify/apify-docs/workflows/Build%20and%20deploy/badge.svg?branch=master)](https://github.com/apify/apify-docs/actions)
+[![Check & Release](https://github.com/apify/apify-docs/actions/workflows/test.yml/badge.svg)](https://github.com/apify/apify-docs/actions/workflows/test.yml)
 
 ## Intro
 
-This repo is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and all of its source files are located in the [/docs](https://github.com/apifytech/apify-docs/tree/master/docs) directory.
+This repository is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and all of its source files are located in the [/sources](https://github.com/apify/apify-docs/tree/master/sources) directory.
 
-Before **push**-ing to GitHub, always execute `npm run build` to make sure everything works.
+When you create a PR, the CI will try to build the project, searching for broken links and linting both the application code and markdown files.
 
 ## Implementation and style
 
@@ -14,89 +14,78 @@ In addition to the tips below: when in doubt, check existing docs for formatting
 
 ### Highlighting
 
-For consistency, use **bold** for highlighting non-code words/phrases.
+* For consistency, use **bold** for highlighting non-code words/phrases.
+* For inline `code` examples, use **back-ticks** (\` \`).
+* For multi-line code examples, use code fences and specify the language. Preferably, specify the title as well.
 
-For inline `code` examples, use **back-ticks** (\` \`).
+    ```markdown
+    \`\`\`js title='foo.js'
 
-For multi-line code examples, use code fences and specify the language:
+    const docsAreCool = require('coolDocs'); <br/>
+    ...<br/>
+    return docsAreCool;<br/>
 
-\`\`\`js
+    \`\`\`
+    ```
 
-const docsAreCool = require('coolDocs'); <br/>
-...<br/>
-return docsAreCool;<br/>
+    See [Markdown features](https://docusaurus.io/docs/markdown-features) in the docusaurus docs for more information.
 
-\`\`\`
+### Code tabs
 
-### Code example tabs
+See [docusaurus documentation for tabs](https://docusaurus.io/docs/markdown-features/tabs) for examples.
 
-When providing code examples in multiple languages, use the below format.
+```markdown
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Next to the code fence, specify the language as **marked-tabs**.
-
-Place each language's code in a **\<marked-tab header="Language name to display" lang="Language name" >\</marked-tab>** element.
-
-> Only use double quotation marks in the code tab headers <br/>
-> **Good**: \<marked-tab header="Curl" lang="bash"> </br>
-> **Avoid**: \<marked-tab header='Curl' lang='bash'>
-
-\`\`\`marked-tabs
-
-\<marked-tab header="NodeJS" lang="javascript">
-
-console.log('Some JS code');
-
-\</marked-tab>
-
-
-\<marked-tab header="Python" lang="python">
-
-print('Some python code');
-count = 1
-if count >= 1:
-    print('Some intended python code');
-print('Some python code on next line');
-
-\</marked-tab>
-
-
-\<marked-tab header="Curl" lang="bash">
-
-echo "Some bash code"
-
-\</marked-tab>
-
-\`\`\`
-
-PHP examples using guzzle live in separate repository: <https://github.com/apify/apify-php-examples>.
+<Tabs>
+  <TabItem value="apple" label="Apple" default>
+    This is an apple 🍎
+  </TabItem>
+  <TabItem value="orange" label="Orange">
+    This is an orange 🍊
+  </TabItem>
+  <TabItem value="banana" label="Banana">
+    This is a banana 🍌
+  </TabItem>
+</Tabs>
+```
 
 ### Metadata
 
-Each Markdown file here starts with metadata that define the document's menu title, placement, page description, and paths. For example:
+The page metadata can be provided as part of so-called [front-matter](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter).
 
-```text
+```markdown
 ---
-title: Getting started with Apify Scrapers
-menuTitle: Getting started
-description: Step-by-step tutorial that will help you get started with all Apify Scrapers.
-externalSourceUrl: https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/build/introduction-tutorial.md
-menuWeight: 2.1
-paths:
-    - scraping/getting-started
+id: doc-markdown
+title: Docs Markdown Features
+hide_title: false
+hide_table_of_contents: false
+sidebar_label: Markdown
+sidebar_position: 3
+pagination_label: Markdown features
+custom_edit_url: https://github.com/facebook/docusaurus/edit/main/docs/api-doc-markdown.md
+description: How do I find you when I cannot solve this problem
+keywords:
+  - docs
+  - docusaurus
+image: https://i.imgur.com/mErPwqL.png
+slug: /myDoc
+last_update:
+  date: 1/1/2000
+  author: custom author name
 ---
+
+# Markdown Features
+
+My Document Markdown content
 ```
-
-The document's `category` and `menuWeight` determine its placement in the docs menu. When inserting a new document, make sure to adjust the `menuWeight` properties of existing documents.
-
-The `paths` metadata ensures successful redirects in case articles are renamed. When renaming or moving an article, keep the existing paths and add the new path at the bottom.
 
 ### Descriptions
 
-Metadata descriptions are super important in making our documentation easy to find using search engines. To maximize our SEO,
+Metadata descriptions are super important in making our documentation easy to find using search engines. To maximize our SEO, **keep the descriptions between [140 and 160 characters in length](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwigg6Og56brAhUNi1wKHULsAHEQFjAGegQIDBAG&url=https%3A%2F%2Fmoz.com%2Flearn%2Fseo%2Fmeta-description&usg=AOvVaw3L26bXhHZTd0wYDM_5xtJ9) whenever possible**.
 
-#### Keep the descriptions between [140 and 160 characters in length](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwigg6Og56brAhUNi1wKHULsAHEQFjAGegQIDBAG&url=https%3A%2F%2Fmoz.com%2Flearn%2Fseo%2Fmeta-description&usg=AOvVaw3L26bXhHZTd0wYDM_5xtJ9) whenever possible
-
-(Of course, when there just isn't enough to say, don't waffle - it's not a university essay.)
+> Of course, when there just isn't enough to say, don't waffle - it's not a university essay.
 
 GOOD: "Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data from the Apify platform or via API."
 
@@ -130,34 +119,6 @@ GOOD: "Learn how to make your actor available to the public or keep it private. 
 
 AVOID: "Description of the processes regarding the optimizing and preparing for publishing of one's actor in Apify Store."
 
-### Assets
-
-When adding new images to articles, first compress them using [tinypng.com](https://tinypng.com). This will help our docs pages load faster.
-
-Avoid HTML in assets or links.
-
-You can place assets (images for example) in any directory. If you want to obtain a URL, use the following tag:
-
-```text
-{{@asset actor/images/run-log-2.webp}}
-```
-
-So to include this image in Markdown use:
-
-```text
-![Apify actor run log]({{@asset actor/images/run-log-2.webp}})
-```
-
-### Linking
-
-For links, we use a similar syntax as for assets:
-
-```text
-{{@link actor/source_code.md#source-git-repo}}
-```
-
-Avoid using HTML.
-
 ## Docs homepage
 
 The homepage menu card items are in the `docs/homepage_content.json` file.
@@ -184,8 +145,7 @@ For example:
 },
 ```
 
-Note:
-In JSON, all entries except booleans (`true/false`) and numbers need to be in double quote marks ("").
+> In JSON, all entries except booleans (`true/false`) and numbers need to be in double quote marks ("").
 
 Over time, we should track which items are useful and which don't get any traffic. Also, as Apify Docs expand, we may need to add more cards and update which articles we link to.
 
@@ -193,46 +153,27 @@ Over time, we should track which items are useful and which don't get any traffi
 
 On each commit to the `master` branch of this repository, a new version of the Apify documentation gets built and deployed to the appropriate subdomain.
 
-Every other branch can be viewed on its respective subdomain using the `?version=BRANCH_NAME` parameter, e.g. [https://docs.apify.com?version=feature/new-section].
-
-Keep in mind that there might be about 2 minute delay before updated documentation gets online (1 minute Github actions build + 1 minute update interval of the website).
-
-> Please don't use a `+` sign in your branch name, as the deployment will not work. Stick to dashes and slashes.
-
 ## Linting
 
-The **apify-docs** repo contains both Markdown and JavaScript files. Several Markdown files, such as [dataset docs]({{@link docs/storage/dataset.md}}) contain code examples. Because of this, we have two commands for linting.
+The **apify-docs** repo contains both Markdown and JavaScript/TypeScript files. We have two commands for linting them:
 
-* **npm run lint:md** / **npm run lint:md:fix** checks the **.md** files.
-* **npm run lint:code** / **npm run lint:code:fix** checks both the code examples within Markdown files and the build scripts.
+* `npm run lint:md` and `npm run lint:md:fix` checks the `*.md` files.
+* `npm run lint:code` and `npm run lint:code:fix` checks the `*.{js,ts}` files.
 
 For Markdown, we use the [markdownlint](https://github.com/DavidAnson/markdownlint) package, which also has a handy VSCode [extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
 
 For JavaScript, we use the [ESLint Markdown plugin](https://github.com/eslint/eslint-plugin-markdown).
 
-
 ## API docs
 
-The `docs/api_v2` directory contains the source file for the
-API reference (<https://docs.apify.com/api/v2>) hosted on Apiary.
-The build script contained in the **apify-docs/src** folder automatically uploads the API docs to Apiary during the web deployment process.
+The `./sources/platform/api_v2` directory contains the source file for the API reference (<https://docs.apify.com/api/v2>) hosted on Apiary. The build script contained in the `./tools` folder automatically uploads the API docs to Apiary during the web deployment process.
 
 ### Local testing
 
 1. Install Apiary gem `gem install apiaryio`
-2. After that, you can open the generated doc with the command: `apiary preview --path="./docs/api_v2/api-v2-reference.apib"`
+2. After that, you can open the generated doc with the
+   command: `apiary preview --path="./content/docs/api_v2/api_v2_reference.apib"`
 
 ### Test
 
 After updating the API docs, you should ALWAYS log in to Apiary, analyze the document and make sure there are **no warnings**!
-
-## External docs
-
-You will find most of the documentation in this repository.
-
-There are, however, a few exceptions, shown below. To make changes to them, you'll need to clone those repos and make your pull requests to them. When updating the tutorials in the **apify/actor-scraper** repo, don't forget to execute `npm run build` before pushing your code to GitHub.
-
-* Tutorials for Apify's scrapers (**docs/scraping** directory) are in the [**apify/actor-scraper**](https://github.com/apify/actor-scraper) repository.
-* Apify's API client for JavaScript documentation is in the [**apify-docs/apify-client-js**](https://github.com/apify/apify-client-js) repository.
-* Apify's API client for Python documentation is in the [**apify-docs/apify-client-python**](https://github.com/apify/apify-client-python) repository.
-* Docs for the command-line interface are in the [**apify/apify-cli**](https://github.com/apify/apify-cli) repo.
