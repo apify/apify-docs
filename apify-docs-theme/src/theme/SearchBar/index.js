@@ -13,9 +13,17 @@ import translations from '@theme/SearchTranslations';
 
 let DocSearchModal = null;
 
+function useLink(href, baseUrl) {
+    if (baseUrl === '/') {
+        return href.startsWith('/academy') || href.startsWith('/platform');
+    }
+
+    return href.startsWith(baseUrl);
+}
+
 function A(props) {
     const { siteConfig } = useDocusaurusContext();
-    if (props.href.startsWith(siteConfig.baseUrl)) {
+    if (useLink(props.href, siteConfig.baseUrl)) {
         return <Link {...props}>
             {props.children}
         </Link>;
