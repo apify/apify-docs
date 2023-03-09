@@ -22,6 +22,12 @@ function useLink(href, baseUrl) {
 }
 
 function A(props) {
+    props = { ...props };
+
+    if (props.href.startsWith('https://docs.apify.com')) {
+        props.href = props.href.substring('https://docs.apify.com'.length);
+    }
+
     const { siteConfig } = useDocusaurusContext();
     if (useLink(props.href, siteConfig.baseUrl)) {
         return <Link {...props}>
