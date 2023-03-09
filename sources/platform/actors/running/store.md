@@ -9,6 +9,8 @@ slug: /actors/running/actors-in-store
 
 ---
 
+<!-- TODO change memory_and_cpu.md to usage_and_resources.md in this file when that file is migrated -->
+
 > Anyone is welcome to [publish actors](/platform/actors/publishing) in the store, and you can even [monetize your actors](https://get.apify.com/monetize-your-code) by renting them out to users of the platform. For more information about how to monetize your actor, best practices and SEO and promotion tips and tricks, head over to the [Getting the most of your public actors on Apify Store](/academy/get-most-of-actors) section of the Apify Developers Academy.
 
 
@@ -24,13 +26,13 @@ All actors in [Apify Store](https://apify.com/store) fall into one of these thre
 
 ### Free actors
 
-When you use a free actor you are only charged the platform usage the runs of this actor generate. [Platform usage](./usage_and_resources.md) includes components such as compute units, operations on [storages](https://docs.apify.com/platform/storage), and usage of [residential proxies](https://docs.apify.com/platform/proxy/residential-proxy) or [SERPs](<https://docs.apify.com/platform/proxy/google-serp-proxy>). You can find the details of your actor usage on the run detail page.
+When you use a free actor you are only charged the platform usage the runs of this actor generate. [Platform usage](./memory_and_cpu.md) includes components such as compute units, operations on [storages](https://docs.apify.com/platform/storage), and usage of [residential proxies](https://docs.apify.com/platform/proxy/residential-proxy) or [SERPs](<https://docs.apify.com/platform/proxy/google-serp-proxy>). You can find the details of your actor usage on the run detail page.
 
 ![Example run usage](./images/store/example_run_usage.png)
 
 > With this model, it is quite difficult to know beforehand exactly how much usage the actor will generate when you run it, so you cannot easily estimate your costs upfront. The easiest approach to do so is to try out the actor on a limited scope, for example on a small number of pages, and evaluate the consumption.
 >
-> **For more information on platform usage cost see the [usage and resources](./usage_and_resources.md) page.**
+> **For more information on platform usage cost see the [usage and resources](./memory_and_cpu.md) page.**
 
 
 ### Paid actors
@@ -71,7 +73,7 @@ You always prepay the actor rental for the following month. The first payment ha
 
 **How am I charged for actor rental?**
 
-The rental fee for an actor is automatically subtracted from your prepaid platform usage, similarly to, e.g. [compute units](./usage_and_resources.md). If you don't have enough usage prepaid, you will need to cover any overage in the next invoice.
+The rental fee for an actor is automatically subtracted from your prepaid platform usage, similarly to, e.g. [compute units](./memory_and_cpu.md). If you don't have enough usage prepaid, you will need to cover any overage in the next invoice.
 
 **Will I be automatically charged at the end of the free trial?**
 
@@ -129,8 +131,13 @@ You can see the overview of how much you have been charged for actors paid by re
 
 ![Statistics in the billing section](./images/store/pay_per_result_billing_usage_section.png)
 
+On the top of that, you can see how much you have been charged for a specific run in the detail of that run and also in the overview table showing all runs.
+
+![Run cost shown on the run detail](./images/store/pay_per_result_run_detail.png)
+
+![Run cost shown on the overview of all runs](./images/store/pay_per_result_run_list.png)
+
 <!-- TODO - add info about where to see this at per-actor level -->
-<!-- TODO - add info about how to see this on run detail -->
 
 ## Reporting issues with actors
 
