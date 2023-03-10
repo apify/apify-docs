@@ -2,16 +2,14 @@
 title: Run actor and retrieve data via API
 description: Learn how to run an actor/task via the Apify API, wait for the job to finish, and retrieve its output data. Your key to integrating actors with your projects.
 sidebar_position: 6
-slug: /tutorials/run-actor-and-retrieve-data-via-api
+slug: /api/run-actor-and-retrieve-data-via-api
 ---
-
-# Run an actor or task and retrieve data via API
 
 **Learn how to run an actor/task via the Apify API, wait for the job to finish, and retrieve its output data. Your key to integrating actors with your projects.**
 
 ---
 
-The most popular way of [integrating](https://help.apify.com/en/collections/1669767-integrating-with-apify) the Apify platform with an external project/application is by programmatically running an [actor](../actors/index.md) or [task](../actors/running/tasks.md), waiting for it to complete its run, then collecting its data and using it within the project. Though this process sounds somewhat complicated, it's actually quite easy to do; however, due to the plethora of features offered on the Apify platform, new users may not be sure how exactly to implement this type of integration. So, let's dive in and see how you can do it.
+The most popular way of [integrating](https://help.apify.com/en/collections/1669767-integrating-with-apify) the Apify platform with an external project/application is by programmatically running an [actor](/platform/actors) or [task](/platform/actors/running/tasks), waiting for it to complete its run, then collecting its data and using it within the project. Though this process sounds somewhat complicated, it's actually quite easy to do; however, due to the plethora of features offered on the Apify platform, new users may not be sure how exactly to implement this type of integration. So, let's dive in and see how you can do it.
 
 > Remember to check out our [API documentation](/api/v2) with examples in different languages and a live API console. We also recommend testing the API with a nice desktop client like [Postman](https://www.getpostman.com/) or [Insomnia](https://insomnia.rest).
 
@@ -24,7 +22,7 @@ If the actor being run via API takes 5 minutes or less to complete a typical run
 
 ## Run an actor or task {#run-an-actor-or-task}
 
-> If you are unsure about the differences between an actor and task, you can read about them in the [tasks](../actors/running/tasks.md) documentation. In brief, tasks are just pre-configured inputs for actors.
+> If you are unsure about the differences between an actor and task, you can read about them in the [tasks](/platform/actors/running/tasks) documentation. In brief, tasks are just pre-configured inputs for actors.
 
 The API endpoints and usage (for both sync and async) for [actors](/api/v2#/reference/actors/run-collection/run-actor) and [tasks](/api/v2#/reference/actor-tasks/run-collection/run-task) are essentially the same.
 
@@ -32,7 +30,7 @@ To run, or **call**, an actor/task, you will need a few things:
 
 - The name or ID of the actor/task. The name looks like `username~actorName` or `username~taskName`. The ID can be retrieved on the **Settings** page of the actor/task.
 
-- Your [API token](../integrations/index.md), which you can find on the **Integrations** page in the [Apify Console](https://console.apify.com/account?tab=integrations) (make sure it does not get leaked anywhere!).
+- Your [API token](/platform/integrations), which you can find on the **Integrations** page in the [Apify Console](https://console.apify.com/account?tab=integrations) (make sure it does not get leaked anywhere!).
 
 - Possibly an input, which is passed in JSON format as the request's **body**.
 
@@ -60,7 +58,7 @@ We can also add settings for the actor (which will override the default settings
 https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN&memory=8192&build=beta
 ```
 
-This works nearly identically for both actors and tasks; however, for tasks there is no reason to specify a [`build`](../actors/development/builds.md) parameter, as a task already has only one specific actor build which cannot be changed with query parameters.
+This works nearly identically for both actors and tasks; however, for tasks there is no reason to specify a [`build`](/platform/actors/development/builds) parameter, as a task already has only one specific actor build which cannot be changed with query parameters.
 
 ### Input JSON {#input-json}
 
@@ -94,7 +92,7 @@ If your synchronous run exceeds the 5-minute time limit, the response will be a 
 
 ### Synchronous runs with dataset output {#synchronous-runs-with-dataset-output}
 
-Most actor runs will store their data in the default [dataset](../storage/dataset.md). The Apify API provides **run-sync-get-dataset-items** endpoints for [actors](/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items) and [tasks](/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-(post)), which allow you to run an actor and receive the items from the default dataset once the run has completed.
+Most actor runs will store their data in the default [dataset](/platform/storage/dataset). The Apify API provides **run-sync-get-dataset-items** endpoints for [actors](/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items) and [tasks](/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-(post)), which allow you to run an actor and receive the items from the default dataset once the run has completed.
 
 Here is a simple Node.js example of calling a task via the API and logging the dataset items to the console:
 
@@ -131,7 +129,7 @@ items.forEach((item) => {
 
 ### Synchronous runs with key-value store output {#synchronous-runs-with-key-value-store-output}
 
-[Key-value stores](../storage/key_value_store.md) are useful for storing files like images, HTML snapshots, or JSON data. The Apify API provides **run-sync** endpoints for [actors](/api/v2#/reference/actors/run-actor-synchronously/with-input) and [tasks](/api/v2#/reference/actor-tasks/run-task-synchronously/run-task-synchronously), which allow you to run a specific task and receive the output. By default, they return the `OUTPUT` record from the default key-value store.
+[Key-value stores](/platform/storage/key-value-store) are useful for storing files like images, HTML snapshots, or JSON data. The Apify API provides **run-sync** endpoints for [actors](/api/v2#/reference/actors/run-actor-synchronously/with-input) and [tasks](/api/v2#/reference/actor-tasks/run-task-synchronously/run-task-synchronously), which allow you to run a specific task and receive the output. By default, they return the `OUTPUT` record from the default key-value store.
 
 > For more detailed information, check the [API reference](/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items).
 
@@ -165,13 +163,13 @@ Once again, the final response will be the **run info object**; however, now its
 
 #### Webhooks {#webhooks}
 
-If you have a server, [webhooks](../integrations/webhooks/index.md) are the most elegant and flexible solution for integrations with Apify. You can simply set up a webhook for any actor or task, and that webhook will send a POST request to your server after an [event](../integrations/webhooks/events.md) has occurred.
+If you have a server, [webhooks](/platform/integrations/webhooks) are the most elegant and flexible solution for integrations with Apify. You can simply set up a webhook for any actor or task, and that webhook will send a POST request to your server after an [event](/platform/integrations/webhooks/events) has occurred.
 
 Usually, this event is a successfully finished run, but you can also set a different webhook for failed runs, etc.
 
 ![Webhook example](./images/webhook.png)
 
-The webhook will send you a pretty complicated [JSON object](../integrations/webhooks/actions.md), but usually you are only interested in the `resource` object within the response, which is essentially just the **run info** JSON from the previous sections. We can leave the payload template as is as for our example use case, since it is what we need.
+The webhook will send you a pretty complicated [JSON object](/platform/integrations/webhooks/actions), but usually you are only interested in the `resource` object within the response, which is essentially just the **run info** JSON from the previous sections. We can leave the payload template as is as for our example use case, since it is what we need.
 
 Once your server receives this request from the webhook, you know that the event happened, and you can ask for the complete data.
 
@@ -195,7 +193,7 @@ Once a status of `SUCCEEDED` or `FAILED` has been received, we know the run has 
 
 Unless you used the [synchronous call](#synchronous-flow) mentioned above, you will have to make one additional request to the API to retrieve the data.
 
-The **run info** JSON also contains the IDs of the default [dataset](../storage/dataset.md) and [key-value store](../storage/key_value_store.md) that are allocated separately for each run, which is usually everything you need. The fields are called `defaultDatasetId` and `defaultKeyValueStoreId`.
+The **run info** JSON also contains the IDs of the default [dataset](/platform/storage/dataset) and [key-value store](/platform/storage/key-value-store) that are allocated separately for each run, which is usually everything you need. The fields are called `defaultDatasetId` and `defaultKeyValueStoreId`.
 
 #### Retrieving a dataset {#retrieve-a-dataset}
 
@@ -219,7 +217,7 @@ https://api.apify.com/v2/datasets/DATASET_ID/items?format=csv&offset=250000
 
 #### Retrieving a key-value store {#retrieve-a-key-value-store}
 
-> [Key-value stores](../storage/key_value_store.md) are mainly useful if you have a single output or any kind of files that cannot be [stringified](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) (such as images or PDFs).
+> [Key-value stores](/platform/storage/key-value-store) are mainly useful if you have a single output or any kind of files that cannot be [stringified](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) (such as images or PDFs).
 
 When you want to retrieve something from a key-value store, the `defaultKeyValueStoreId` is _not_ enough. You also need to know the name (or **key**) of the record you want to retrieve.
 

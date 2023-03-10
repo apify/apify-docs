@@ -11,35 +11,51 @@ import TabItem from '@theme/TabItem';
 
 # Running
 
-**Start an actor from the Apify Console or via API. Learn about actor lifecycles, how to specify settings and version, provide input and resurrect finished runs.**
+**In this section, you learn how to run Apify Actors using Apify Console or programmatically. You will learn about their configuration, versioning, data retention, usage, and pricing.**
 
 ---
 
+## Run your first Apify Actor
+
 If you have not [built](./development) your own actor yet, then choose one from the [Apify Store](https://apify.com/store). Once you have an actor chosen, you can start it in a number of ways.
 
-## Running from Apify Console UI
+> **You will need an Apify account to complete this tutorial. If you don't have one, [complete the sign-up process](https://console.apify.com/sign-up) first. Don't worry about the price - it's free.**
 
-One option is to start an actor from its page in [Apify Console](https://console.apify.com/actors):
+### 1. Choose your actor
 
-![Apify developer console](./images/actor-broken-links-checker.png)
+After you sign-in to Apify Console, navigate to the [Apify Store](https://console.apify.com/store). We'll pick the [Google Search Results Scraper](https://console.apify.com/actors/nFJndFXA5zjCTuudP#/information/latest/readme):
 
-After setting up an input, you can specify run options such as [build](../development/builds.md), timeout, and [memory](./usage_and_resources.md) for your actor run.
+![Apify Store](./images/store-google-search-scraper.png)
 
-<!-- Using an HTML table because it doesn't have a header - markdown doesn't allow tables with no headers -->
-<table>
-    <tr>
-        <td>Build</td>
-        <td>Tag or number of the build to run (e.g. <strong>latest</strong> or <strong>1.2.34</strong>).</td>
-    </tr>
-    <tr>
-        <td>Timeout</td>
-        <td>Timeout for the actor run in seconds. Zero value means there is no timeout.</td>
-    </tr>
-    <tr>
-        <td>Memory</td>
-        <td>Amount of memory allocated for the actor run, in megabytes.</td>
-    </tr>
-</table>
+### 2. Configure it
+
+On the actor's page, head over to the **Input** tab. Don't be put off by all the boxes - the actor is pre-configured to run without any extra input. Just click the **Start** button in the bottom-left corner.
+
+Alternatively, you can play around with the settings to make the results more interesting for you.
+
+![Actor input](./images/actor-google-search-scraper-input.png)
+
+
+### 3. Wait for the results
+
+Now the actor is running, and it will need a short time to gather the first results. Meanwhile, you can look around:
+- There are more tabs providing you with the info about the actor run. For example, you can see the log and its storages
+- At the top right, you can click on the API button to explore the related API endpoints
+
+![Run](./images/actor-google-search-scraper-running.png)
+
+### 4. Get the results
+
+Shortly you will see the first results popping up:
+
+![Actor results](./images/actor-google-search-scraper-results.png)
+
+
+And you can use the export button at the bottom left to export the data in multiple formats:
+
+![Export results](./images/actor-google-search-scraper-export.png)
+
+And that's it! Now you can get back to the Actor's input, play with it, and try out more of the [Apify Actors](https://apify.com/store) or [build your own](./development).
 
 ## Running via Apify API
 
@@ -98,4 +114,6 @@ print(run['id'])
 The newly started actor runs under the same user account as the initial actor, and therefore all resources consumed are charged to the same user account. This allows more complex actors to be built using simpler actors built and owned by other users.
 
 Internally, the `call()` function takes the user's API token from the `APIFY_TOKEN` environment variable, then it invokes the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get record](/api/v2/#/reference/key-value-stores/record/get-record) API endpoint.
+
+
 

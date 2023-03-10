@@ -16,7 +16,7 @@ Actors are serverless cloud programs that can do almost anything a human can do 
 
 You can use actors [manually in the Apify Console](https://console.apify.com/actors), using [API](/api/v2) or [scheduler](../schedules.md). You can easily [integrate them with other apps](../integrations/index.md) and share your actors with other Apify users via our [Apify Store](https://apify.com/store) or [access rights](./access-rights) system.
 
-> New to Apify? Try actors with our [quick start](../tutorials/quick_start.md) tutorial and see the [Apify Academy's courses](/academy).
+> New to Apify? Try actors with our [quick start](../index.mdx) tutorial and see the [Apify Academy's courses](/academy).
 
 A single isolated actor consists of source code and various settings. You can think of an actor as a cloud app or service that runs on the Apify platform. The run of an actor is not limited to the lifetime of a single HTTP transaction. It can run for as long as necessary, even forever.
 

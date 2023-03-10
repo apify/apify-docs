@@ -27,6 +27,28 @@ When running actor using the [API](https://docs.apify.com/api/v2) you can pass t
 }
 ```
 
+### Options - Build, Timeout, and Memory
+
+As part of the input, you can also specify run options such as [build](../development/builds.md), timeout, and [memory](./usage_and_resources.md) for your actor run.
+
+![Run options](./images/input_and_output/actor-options.png)
+
+<!-- Using an HTML table because it doesn't have a header - markdown doesn't allow tables with no headers -->
+<table>
+    <tr>
+        <td>Build</td>
+        <td>Tag or number of the build to run (e.g. <strong>latest</strong> or <strong>1.2.34</strong>).</td>
+    </tr>
+    <tr>
+        <td>Timeout</td>
+        <td>Timeout for the actor run in seconds. Zero value means there is no timeout.</td>
+    </tr>
+    <tr>
+        <td>Memory</td>
+        <td>Amount of memory allocated for the actor run, in megabytes.</td>
+    </tr>
+</table>
+
 ## Output
 
 While the input object provides a way to instruct actors, the actors can also generate an output, usually stored in its default [dataset](../../storage/dataset), but some additional files might be stored in its [key-value store](../../storage/key-value-store). Always read the actor's README to learn more about its output.

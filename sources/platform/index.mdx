@@ -1,44 +1,52 @@
 ---
 title: Home
-description: Mold our tools any way you want to scrape websites or automate repetitive tasks. Find the solution to your task here or use the Search box above.
-sidebar_position: 1
+description: Apify is your one-stop shop for web scraping, data extraction, and RPA. Automate anything you can do manually in a browser.
 slug: /
 hide_table_of_contents: true
+sidebar_position: 0
 ---
-import PlatformCard from "@site/src/components/PlatformCard";
+import AcademyCard from "@site/src/components/AcademyCard";
 import CardGrid from "@site/src/components/CardGrid";
 import homepageContent from "./homepage_content.json";
 
-Mold our tools any way you want to scrape websites or automate repetitive tasks. Find the solution to your task here or use the Search box above.
+# Apify Platform
+
+> **Apify** is your one-stop shop for web scraping, data extraction, and RPA. Automate anything you can do manually in a browser.
+>
+> **Actors** are serverless cloud programs running on the Apify platform that can perform arbitrary computing jobs such as send an email or crawl a website with millions of pages. They can be started manually, using our API or scheduler, and they can be easily integrated with other apps.
+
+## Getting started
+
+**Learn how to run any actor in Apify Store or create your own. A step-by-step guides through your first steps on the Apify platform.**
+
+<CardGrid>
+    <AcademyCard
+        title="Run Actor from Apify Store"
+        desc="Apify Store is home to hundreds of public actors available to the Apify community. It's the easiest way for you to start with Apify."
+        to="/platform/actors/running"
+    />
+    <AcademyCard
+        title="Build your own Actor"
+        desc="Read about the technical part of building Apify actors. Learn to define actor inputs, build new versions, persist actor state, and choose base Docker images."
+        to="/platform/actors/running"
+    />
+    <AcademyCard
+        title="Become an expert with Apify Academy"
+        desc="Learn everything about web scraping and automation with our free courses that will turn you into an expert scraper developer."
+        to="/platform/actors/running"
+    />
+</CardGrid>
+
+## Contents
 
 <CardGrid>
     {
-        Object.entries(homepageContent).map(([title, items]) => (
-            <PlatformCard
+        homepageContent.map(({ title, description, to }) => (
+            <AcademyCard
                 title={title}
-                items={items}
+                desc={description}
+                to={to}
             />)
         )
     }
 </CardGrid>
-
-
-
-<!-- The homepage menu card items are in the homepage_content.json file.
-
-    Each item has its own JSON object, in which "cardItem" is the title and "href" is the link. If the link leads to outside the Apify Docs site, add the `"isExternalLink" : true` property. For local links, just use the article's path. E.g. `"/tutorials/apify-scrapers/web-scraper"`.
-
-    In the title (cardItem), do not just give the article's name. Phrase the title in a way that answers a question or fulfills a goal the user might have.
-
-    For example:
-    {
-        "cardItem": "How to run an actor",
-        "href": "https://www.youtube.com/watch?v=BsidLZKdYWQ",
-        "isExternalLink": true
-    },
-
-    Note:
-    In JSON, all entries except booleans (true/false) and numbers need to be in double quote marks ("").
-
-    Check the README for more information.
--->
