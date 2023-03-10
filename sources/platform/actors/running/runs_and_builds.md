@@ -112,5 +112,5 @@ An **actor build** is deleted only when it is not tagged and has not been used f
 
 ## Sharing
 
-You can share your actor runs with other Apify users via the [access rights](../../access_rights/index.md) system.
+You can share your actor runs with other Apify users via the [access rights](../../collaboration/index.md) system.
 

@@ -39,7 +39,7 @@ Only named request queues are displayed by default. Select the **Include unnamed
 
 To view a request queue, click on its **Queue ID**.
 Under the **Settings** tab, you can update the queue's name (and, in turn, its
-[retention period](./index.md)) and [access rights](../access_rights/index.md).
+[retention period](./index.md)) and [access rights](../collaboration/index.md).
 Click on the `API` button to view and test a queue's [API endpoints](/api/v2#/reference/request-queues).
 
 ![Request queues detail](./images/request-queue-detail.png)
@@ -217,7 +217,7 @@ See the [API documentation](/api/v2#/reference/request-queues) for a detailed br
 
 ## Sharing {#sharing}
 
-You can invite other Apify users to view or modify your request queues using the [access rights](../access_rights/index.md) system. See the [full list of permissions](../access_rights/list_of_permissions.md).
+You can invite other Apify users to view or modify your request queues using the [access rights](../collaboration/index.md) system. See the [full list of permissions](../collaboration/list_of_permissions.md).
 
 ### Sharing request queues between runs {#sharing-request-queues-between-runs}
 

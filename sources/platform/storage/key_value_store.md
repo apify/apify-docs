@@ -40,7 +40,7 @@ Only named key-value stores are displayed by default. Select the **Include unnam
 ![Key-value stores in app](./images/key-value-stores-app.png)
 
 To view a key-value store's content, click on its **Store ID**.
-Under the **Settings** tab, you can update the store's name (and, in turn, its [retention period](./index.md)) and [access rights](../access_rights/index.md).
+Under the **Settings** tab, you can update the store's name (and, in turn, its [retention period](./index.md)) and [access rights](../collaboration/index.md).
 Click on the `API` button to view and test a store's [API endpoints](/api/v2#/reference/key-value-stores).
 
 ![Key-value stores detail](./images/key-value-stores-detail.png)
@@ -204,7 +204,7 @@ You can compress a record and use the [Content-Encoding request header](https://
 
 ## Sharing
 
-You can invite other Apify users to view or modify your key-value stores using the [access rights](../access_rights/index.md) system. See the [full list of permissions](../access_rights/list_of_permissions.md).
+You can invite other Apify users to view or modify your key-value stores using the [access rights](../collaboration/index.md) system. See the [full list of permissions](../collaboration/list_of_permissions.md).
 
 ### Sharing key-value stores between runs
 
