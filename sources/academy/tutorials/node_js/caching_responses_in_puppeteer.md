@@ -71,7 +71,7 @@ page.on('response', async(response) => {
     const maxAgeMatch = cacheControl.match(/max-age=(\d+)/);
     const maxAge = maxAgeMatch && maxAgeMatch.length > 1 ? parseInt(maxAgeMatch[1], 10) : 0;
     if (maxAge) {
-        if (!cache[url] || cache[url].expires > Date.now()) return;
+        if (cache[url] && cache[url].expires > Date.now()) return;
         
         let buffer;
         try {
