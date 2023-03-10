@@ -5,7 +5,7 @@ slug: /
 hide_table_of_contents: true
 sidebar_position: 0
 ---
-import AcademyCard from "@site/src/components/AcademyCard";
+import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
 import homepageContent from "./homepage_content.json";
 
@@ -20,17 +20,17 @@ import homepageContent from "./homepage_content.json";
 **Learn how to run any actor in Apify Store or create your own. A step-by-step guides through your first steps on the Apify platform.**
 
 <CardGrid>
-    <AcademyCard
+    <Card
         title="Run Actor from Apify Store"
         desc="Apify Store is home to hundreds of public actors available to the Apify community. It's the easiest way for you to start with Apify."
         to="/platform/actors/running"
     />
-    <AcademyCard
+    <Card
         title="Build your own Actor"
         desc="Read about the technical part of building Apify actors. Learn to define actor inputs, build new versions, persist actor state, and choose base Docker images."
         to="/platform/actors/running"
     />
-    <AcademyCard
+    <Card
         title="Become an expert with Apify Academy"
         desc="Learn everything about web scraping and automation with our free courses that will turn you into an expert scraper developer."
         to="/platform/actors/running"
@@ -42,7 +42,7 @@ import homepageContent from "./homepage_content.json";
 <CardGrid>
     {
         homepageContent.map(({ title, description, to }) => (
-            <AcademyCard
+            <Card
                 title={title}
                 desc={description}
                 to={to}
