@@ -71,7 +71,7 @@ You always prepay the actor rental for the following month. The first payment ha
 
 **How am I charged for actor rental?**
 
-The rental fee for an actor is automatically subtracted from your prepaid platform usage, similarly to, e.g. [compute units](/platform/actors/running/compute-units). If you don't have enough usage prepaid, you will need to cover any overage in the next invoice.
+The rental fee for an actor is automatically subtracted from your prepaid platform usage, similarly to, e.g. [compute units](./usage_and_resources.md). If you don't have enough usage prepaid, you will need to cover any overage in the next invoice.
 
 **Will I be automatically charged at the end of the free trial?**
 
