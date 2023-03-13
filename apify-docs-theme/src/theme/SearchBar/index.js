@@ -21,7 +21,7 @@ function useLink(href, baseUrl) {
     return href.startsWith(baseUrl);
 }
 
-function A(props) {
+export function A(props) {
     props = { ...props };
 
     if (props.href.startsWith('https://docs.apify.com')) {
