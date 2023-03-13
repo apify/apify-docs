@@ -55,7 +55,10 @@ function useDocsSearchVersionsHelpers() {
     ),
     );
     // Set the value of a single select menu
-    const setSearchVersion = (pluginId, searchVersion) => setSearchVersions((s) => ({ ...s, [pluginId]: searchVersion }));
+    const setSearchVersion = (pluginId, searchVersion) => setSearchVersions((s) => ({
+        ...s,
+        [pluginId]: searchVersion,
+    }));
     const versioningEnabled = Object.values(allDocsData).some(
         (docsData) => docsData.versions.length > 1,
     );
@@ -109,9 +112,7 @@ function SearchVersionSelectList({ docsSearchVersionsHelpers }) {
 }
 
 function SearchPageContent() {
-    const {
-        i18n: { currentLocale },
-    } = useDocusaurusContext();
+    const { siteConfig, i18n: { currentLocale } } = useDocusaurusContext();
     const {
         algolia: { appId, apiKey, indexName },
     } = useAlgoliaThemeConfig();
@@ -183,15 +184,18 @@ function SearchPageContent() {
             );
             const items = hits.map(
                 ({
-                    url,
-                    _highlightResult: { hierarchy },
-                    _snippetResult: snippet = {},
-                }) => {
-                    const titles = Object.keys(hierarchy).map((key) => sanitizeValue(hierarchy[key].value),
-                    );
+                     url,
+                     _highlightResult: { hierarchy },
+                     _snippetResult: snippet = {},
+                 }) => {
+                    if (url.startsWith(siteConfig.url)) {
+                        url = url.substring(siteConfig.url.length);
+                    }
+
+                    const titles = Object.keys(hierarchy).map((key) => sanitizeValue(hierarchy[key].value));
                     return {
                         title: titles.pop(),
-                        url: processSearchResultUrl(url),
+                        url,
                         summary: snippet.content
                             ? `${sanitizeValue(snippet.content.value)}...`
                             : '',
