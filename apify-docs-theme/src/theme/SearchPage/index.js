@@ -5,7 +5,6 @@ import algoliaSearchHelper from 'algoliasearch-helper';
 import algoliaSearch from 'algoliasearch/lite';
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import Head from '@docusaurus/Head';
-import Link from '@docusaurus/Link';
 import { useAllDocsData } from '@docusaurus/plugin-content-docs/client';
 import {
     HtmlClassNameProvider,
@@ -23,6 +22,7 @@ import {
     useSearchResultUrlProcessor,
 } from '@docusaurus/theme-search-algolia/client';
 import Layout from '@theme/Layout';
+import { A } from '../SearchBar';
 import styles from './styles.module.css';
 
 // Very simple pluralization: probably good enough for now
@@ -382,7 +382,7 @@ function SearchPageContent() {
                             ({ title, url, summary, breadcrumbs }, i) => (
                                 <article key={i} className={styles.searchResultItem}>
                                     <h2 className={styles.searchResultItemHeading}>
-                                        <Link to={url} dangerouslySetInnerHTML={{ __html: title }}/>
+                                        <A href={url} dangerouslySetInnerHTML={{ __html: title }}/>
                                     </h2>
 
                                     {breadcrumbs.length > 0 && (
