@@ -249,7 +249,23 @@ const themeConfig = ({
     },
 });
 
+const plugins = [
+    [
+        '@docusaurus/plugin-google-gtag',
+        {
+            trackingID: 'UA-67003981-4',
+        },
+    ],
+    // [
+    //     'docusaurus-gtm-plugin',
+    //     {
+    //         id: 'GTM-...',
+    //     },
+    // ],
+];
+
 module.exports = {
     themeConfig,
+    plugins,
     absoluteUrl,
 };
