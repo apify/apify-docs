@@ -96,6 +96,14 @@ html[data-theme='dark'] {
     font-weight: 600;
 }
 
+.navbar__item {
+    font-weight: 500;
+}
+
+.navbar__sub--title > a {
+    font-weight: 600;
+}
+
 .footer__title {
     font-size: 1.25rem;
     font-weight: 600;
