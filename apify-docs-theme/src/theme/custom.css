@@ -702,3 +702,5 @@ html[data-theme='dark'] .beta-chip {
 a.tsd-anchor[href^="https://undefined"] {
     display: none;
 }
+
+/* dummy comment to trigger theme publishing */
