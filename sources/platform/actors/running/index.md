@@ -39,7 +39,7 @@ Alternatively, you can play around with the settings to make the results more in
 ### 3. Wait for the results
 
 The Actor might take a while to gather its first results and finish its run. Meanwhile, let's take some time to explore the platform options:
-- There are more tabs providing you with the info about the actor run. For example, you can see the log and its storages
+- There are more tabs providing you with information about the Actor run. For example, you can access the run **Log** and **Storage**.
 - At the top right, you can click on the API button to explore the related API endpoints
 
 ![Run](./images/actor-google-search-scraper-running.png)
