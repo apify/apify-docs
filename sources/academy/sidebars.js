@@ -1,5 +1,5 @@
 module.exports = {
-    academy: [
+    courses: [
         'index',
         {
             type: 'category',
@@ -25,6 +25,8 @@ module.exports = {
                 },
             ],
         },
+    ],
+    tutorials: [
         {
             type: 'category',
             label: 'Tutorials',
@@ -37,6 +39,8 @@ module.exports = {
                 },
             ],
         },
+    ],
+    glossary: [
         {
             type: 'category',
             label: 'Glossary',

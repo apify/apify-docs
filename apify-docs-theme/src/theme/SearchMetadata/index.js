@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { useActiveDocContext } from '@docusaurus/plugin-content-docs/client';
+import { useThemeConfig } from '@docusaurus/theme-common';
 
 export default function SearchMetadata({ locale, version, tag }) {
     const { siteConfig } = useDocusaurusContext();
@@ -10,12 +10,11 @@ export default function SearchMetadata({ locale, version, tag }) {
     // keep the tag on same value for all the content, and add a new section + section tag
     const section = siteConfig.projectName;
     const sectionTag = tag;
-    const docsPluginId = siteConfig.presets[0][1].docs.id ?? 'default';
-    const activeDocContext = useActiveDocContext(docsPluginId);
+    const { versions } = useThemeConfig();
 
     // normalize the latest version regardless of what number it has,
     // so we can search across all "latest versions of the docs"
-    if (!version || !activeDocContext.activeVersion || activeDocContext.activeVersion.isLast) {
+    if (!version || !versions || version === versions[0]) {
         version = 'latest';
     }
 

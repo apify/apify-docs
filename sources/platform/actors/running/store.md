@@ -129,8 +129,13 @@ You can see the overview of how much you have been charged for Actors paid by re
 
 ![Statistics in the billing section](./images/store/pay_per_result_billing_usage_section.png)
 
+On the top of that, you can see how much you have been charged for a specific run in the detail of that run and also in the overview table showing all runs.
+
+![Run cost shown on the run detail](./images/store/pay_per_result_run_detail.png)
+
+![Run cost shown on the overview of all runs](./images/store/pay_per_result_run_list.png)
+
 <!-- TODO - add info about where to see this at per-actor level -->
-<!-- TODO - add info about how to see this on run detail -->
 
 ## Reporting issues with Actors
 
