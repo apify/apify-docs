@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeConfig } from '@docusaurus/theme-common';
+import { useThemeConfig, isRegexpStringMatch } from '@docusaurus/theme-common';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import {
     splitNavbarItems,
@@ -9,6 +9,7 @@ import NavbarItem from '@theme/NavbarItem';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
 import NavbarSearch from '@theme/Navbar/Search';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
+import { useLocation } from '@docusaurus/router';
 import SearchBar from '../../SearchBar';
 import styles from './styles.module.css';
 
@@ -36,13 +37,15 @@ function NavbarContentLayout({
 
 function SubNavbar() {
     const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
+    const location = useLocation();
+
     return (
-        subNavbar ? (
+        subNavbar && (!subNavbar?.pathRegex || isRegexpStringMatch(subNavbar.pathRegex, location.pathname)) ? (
             <div className="navbar__inner navbar__sub">
                 <div className="navbar__container">
                     <div className="navbar__items">
                         <div className="navbar__sub--title">
-                            <NavbarItem label={subNavbar.title} to="/"/>
+                            <NavbarItem label={subNavbar.title} to="/" activeBaseRegex='(?!)' />
                         </div>
                         <NavbarItems items={subNavbar.items}/>
                     </div>
