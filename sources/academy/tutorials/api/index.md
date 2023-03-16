@@ -8,7 +8,7 @@ slug: /api
 
 # API Tutorials 💻📚
 
-**A collection of various API tutorials explaining how to interact with the API platform programmatically using its API.**
+**A collection of various tutorials explaining how to interact with the Apify platform programmatically using its API.**
 
 ---
 
