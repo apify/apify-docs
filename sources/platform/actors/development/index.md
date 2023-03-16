@@ -12,7 +12,7 @@ slug: /actors/development
 ---
 
 There are two ways how to create an actor:
-- You can either start using **web IDE** in [Apify Console](https://console.apify.com). This is the easiest way how to kick-start your actor and try out the Apify Platform.
+- Using the **Web IDE** in the [Apify Console](https://console.apify.com). This is the fastest way to kick-start your Actor development and try out the Apify Platform.
 - Or you can develop your Actor **locally** and then deploy it to the Apify Platform. This way, you can benefit from your local setup and get a better debugging experience.
 
 > Before you start building your own Actor, try out a couple of existing Actors from [Apify Store](https://apify.com/store). See the [running actors](./running) section for more information on running existing actors.
