@@ -21,7 +21,7 @@ There are two ways how to create an actor:
 
 ### 1. Create the Actor
 
-> You will need an Apify account to complete this tutorial. If you don't have one, [complete the sign-up process](https://console.apify.com/sign-up) first. Don't worry about the price - it's free.
+> You will need an Apify account to complete this tutorial. If you don't have one, you can [sign-up for a free account](https://console.apify.com/sign-up) on the Apify website.
 
 After you sign in to [Apify Console](https://console.apify.com), navigate to the [Actors](https://console.apify.com/actors). Click the Create button at the right top:
 
