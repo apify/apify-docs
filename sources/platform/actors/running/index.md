@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 
 ## Run your first Apify Actor
 
-If you have not [built](./development) your own actor yet, then choose one from the [Apify Store](https://apify.com/store). Once you have an actor chosen, you can start it in a number of ways.
+If you have not yet [built](./development) your own Actor, we recommend you pick an existing one from the [Apify Store](https://apify.com/store). Once you have chosen an actor, you can start it in a number of ways.
 
 > **You will need an Apify account to complete this tutorial. If you don't have one, [complete the sign-up process](https://console.apify.com/sign-up) first. Don't worry about the price - it's free.**
 
