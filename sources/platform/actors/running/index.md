@@ -38,7 +38,7 @@ Alternatively, you can play around with the settings to make the results more in
 
 ### 3. Wait for the results
 
-Now the actor is running, and it will need a short time to gather the first results. Meanwhile, you can look around:
+The Actor might take a while to gather its first results and finish its run. Meanwhile, let's take some time to explore the platform options:
 - There are more tabs providing you with the info about the actor run. For example, you can see the log and its storages
 - At the top right, you can click on the API button to explore the related API endpoints
 
