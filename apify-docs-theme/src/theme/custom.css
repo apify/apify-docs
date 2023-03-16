@@ -96,6 +96,14 @@ html[data-theme='dark'] {
     font-weight: 600;
 }
 
+.navbar__item {
+    font-weight: 500;
+}
+
+.navbar__sub--title > a {
+    font-weight: 600;
+}
+
 .footer__title {
     font-size: 1.25rem;
     font-weight: 600;
@@ -273,20 +281,13 @@ aside .icon svg[class*=iconExternalLink] {
 }
 
 .navbar__sub--title {
-    display: flex;
-    align-items: center;
-    width: 160px;
-    justify-content: flex-end;
-    margin-right: 40px;
-    position: relative;
-}
-
-.navbar__sub--title::after {
-    content: "";
-    height: 20px;
-    border-right: 1px solid var(--color-Neutral_SeparatorSubtle);
-    position: absolute;
-    right: -32px;
+	display: flex;
+	align-items: center;
+	width: 12.5rem;
+	padding-right: 0.5rem;
+	position: relative;
+	border-right: 1px solid var(--color-Neutral_SeparatorSubtle);
+	justify-content: center;
 }
 
 header.hero div[class^=heroButtons] {
