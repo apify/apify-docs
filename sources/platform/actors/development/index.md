@@ -23,21 +23,21 @@ There are two ways how to create an actor:
 
 > You will need an Apify account to complete this tutorial. If you don't have one, you can [sign-up for a free account](https://console.apify.com/sign-up) on the Apify website.
 
-After you sign in to [Apify Console](https://console.apify.com), navigate to the [Actors](https://console.apify.com/actors). Click the Create button at the right top:
+After you sign in to [Apify Console](https://console.apify.com), navigate to the [Actors](https://console.apify.com/actors) section on your left panel. Then, click the **Create new** button at the top right corner of the page.
 
 ![Create actor](./images/home/actor-create-button.png)
 
-And you will be offered various templates covering the JavaScript, TypeScript, and Python languages. Let's choose the "PuppeteerCrawler in Javascript".
+You will be redirected to a page containing various Actor development templates for popular languages such as JavaScript, TypeScript, and Python. You can choose the template that best suits your technology stack. For demonstration purposes, let's choose "PuppeteerCrawler in Javascript".
 
 ![Templates](./images/home/actor-create-templates.png)
 
-You will be prompted to give your actor a name and redirected to the actor detail.
+You will be prompted to give your actor a name and then redirected to your Actor configuration page.
 
 ### 2. Explore the source code
 
-Now it's time to look around the source code. You can see the boilerplate code that uses [Apify SDK](https://docs.apify.com/sdk/js/) combined with [Crawlee](https://crawlee.dev/), Apify's popular web scraping library for JavaScript. The code does a recursive crawl of the whole [apify.com](https://apify.com) website.
+Now it's time to take a peek at the source code. You can see the boilerplate code that uses [Apify SDK](https://docs.apify.com/sdk/js/) combined with [Crawlee](https://crawlee.dev/), Apify's popular open-source Node.js web scraping library. The code does a recursive crawl of the whole [apify.com](https://apify.com) website.
 
-> Crawlee is a web scraping and browser automation library. <br />
+> [Crawlee](https://crawlee.dev/) is an open-source Node.js web scraping and browser automation library. <br />
 > It helps you build reliable crawlers. Fast.
 
 Let's run it! To run your Actor, you need to build it first, so let's press the "Build" button below the source code.
@@ -54,17 +54,17 @@ Notice that the UI includes four tabs - (1) Code, (2) Build, (3) Input, and (4) 
 
 ### 4. Run it
 
-Once the Actor is built, you can look at its input, which consists of one field - Start URL, the URL where crawling starts. Below the input, you can adjust the run options consisting of build, timeout, and memory limit.
+Once the Actor is built, you can look at its input, which consists of one field - Start URL, the URL where the crawling starts. Below the input, you can adjust the run options consisting of build, timeout, and memory limit.
 
 ![Actor input](./images/home/actor-input.png)
 
-After pressing a run button, the actor run gets created, and you can view its log and other details. Results will shortly start popping up in the output tab. You can always stop the run using the "Abort" button.
+You can start an Actor run by pressing the **Start** button at the bottom of the page. Once the run is created, you can view its log and other details, including the **Results** which will shortly start popping up in the output tab. You can always stop the run using the **Abort** button.
 
 ![Actor run](./images/home/actor-run.png)
 
 ### 5. Iterate
 
-Now you can get back to the source code and modify the actor to match your needs. To learn about all the Apify Platform features and best practices, continue to the following chapter of this section or visit [Apify Academy](/academy).
+Now you can get back to the source code and modify the actor to match your needs. To learn about all the Apify Platform features and best practices, continue to the following chapter of this section or visit the [Apify Academy](/academy).
 
 ## Build Actor locally
 
@@ -88,19 +88,19 @@ For more installation and advanced usage information, see the [Apify CLI documen
 
 ### 2. Create your Actor
 
-Use the
+You can use the following command to create an Actor:
 
 ```bash
 apify create
 ```
 
-Command to create your actor. We choose `my-actor` as a name, JavaScript as the language, and "PuppeteerCrawler in JavaScript" as a template. CLI will then:
+You will be prompted to name your Actor (e.g, my-actor), and choose the programming language you would like to use (JavaScript, TypeScript, or Python). Next, you will be presented with a list of Actor development templates. After choosing your preferred template the CLI will:
 - Create a `my-actor` directory containing boilerplate code.
-- Install all the NPM dependencies.
+- Install all the project dependencies.
 
 ![Creation](./images/home/actor-create.gif)
 
-Now switch to the actor directory:
+Finally, switch to your newly created Actor directory:
 
 ```
 cd my-actor
@@ -108,7 +108,7 @@ cd my-actor
 
 ### 3. Explore the source code
 
-Now it's time to explore the source code. The important parts are:
+Next, let's explore the Actor's source code. We will use the "PuppeteerCrawler in JavaScript" template code as an example, but all Actor templates follow a similar organizational pattern. The important parts are:
 - `src` directory and, namely, the `src/main.js` file, which is the actual code of an actor.
 - `actor` directory containing actor's definition files such as `actor.json` and `Dockerfile`. These are important once you deploy your code to the Apify Platform.
 - `storage` directory containing the local emulation of [Apify Storage](../storage), namely [key-value store](../storage/key-value-store), [dataset](../storage/dataset), and [request queue](../storage/request-queue).
