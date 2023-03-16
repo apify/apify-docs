@@ -86,7 +86,7 @@ export default function Home() {
                     />
                     <CardWithIcon
                         icon={<RectanglePythonIcon />}
-                        title="SDK for Python (beta)"
+                        title="SDK for Python"
                         description="A toolkit for building actors on Apify Platform in Python"
                         to="/sdk/python/"
                         width="calc(50% - 12px)"

@@ -114,12 +114,7 @@ module.exports = {
                 },
             },
         ],
-        // [
-        //     'docusaurus-gtm-plugin',
-        //     {
-        //         id: 'GTM-TKBX678',
-        //     },
-        // ],
+        ...config.plugins,
     ],
     themeConfig: config.themeConfig,
     staticDirectories: ['apify-docs-theme/static', 'static'],
