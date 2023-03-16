@@ -59,7 +59,7 @@ In order to see what's actually happening, we can pass an **options** object ([P
 ```javascript
 import { chromium } from 'playwright';
 
-await chromium.launch({ headless: false });
+const browser = await chromium.launch({ headless: false });
 await browser.newPage();
 
 ```
