@@ -40,6 +40,7 @@ For more complicated integrations we recommend using our connectors / components
 
 - [Make](./integrations/make)
 - [Zapier](./integrations/zapier)
+- [Transposit](./integrations/transposit)
 
 ## ETL tools with Apify support
 
@@ -47,6 +48,7 @@ Some ETL tools offer connectors for Apify, which make it possible to use Apify d
 
 - [Keboola](./integrations/keboola)
 - [Airbyte](./integrations/airbyte)
+- [Hevo](./integrations/hevo)
 
 ## Workarounds? Other materials?
 
