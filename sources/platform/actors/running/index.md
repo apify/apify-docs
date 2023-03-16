@@ -29,7 +29,7 @@ After you sign-in to Apify Console, navigate to the [Apify Store](https://consol
 
 ### 2. Configure it
 
-On the actor's page, head over to the **Input** tab. Don't be put off by all the boxes - the actor is pre-configured to run without any extra input. Just click the **Start** button in the bottom-left corner.
+On the Actor's page, head over to the **Input** tab. Don't be put off by all the boxes - the Actor is pre-configured to run without any extra input. Just click the **Start** button in the bottom-left corner.
 
 Alternatively, you can play around with the settings to make the results more interesting for you.
 
