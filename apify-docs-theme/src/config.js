@@ -78,7 +78,7 @@ const themeConfig = ({
                         rel: 'dofollow',
                     },
                     {
-                        html: 'SDK for Python <span class="beta-chip">beta</span>',
+                        html: 'SDK for Python',
                         href: `${absoluteUrl}/sdk/python/`, // we need a trailing slash here, we'd get redirected there anyway
                         target: '_self',
                         rel: 'dofollow',
@@ -144,7 +144,8 @@ const themeConfig = ({
         darkTheme: require('prism-react-renderer/themes/dracula'),
         additionalLanguages: ['docker', 'log'],
     },
-    image: 'img/docs-og.png',
+    // this needs to be absolute link otherwise it gets resolved wrongly in project docs
+    image: 'https://docs.apify.com/img/docs-og.png',
     footer: {
         links: [
             {
@@ -197,7 +198,7 @@ const themeConfig = ({
                         rel: 'dofollow',
                     },
                     {
-                        label: 'SDK for Python (beta)',
+                        label: 'SDK for Python',
                         href: `${absoluteUrl}/sdk/python/`, // we need a trailing slash here, we'd get redirected there anyway
                         target: '_self',
                         rel: 'dofollow',
@@ -248,7 +249,23 @@ const themeConfig = ({
     },
 });
 
+const plugins = [
+    [
+        '@docusaurus/plugin-google-gtag',
+        {
+            trackingID: 'UA-67003981-4',
+        },
+    ],
+    // [
+    //     'docusaurus-gtm-plugin',
+    //     {
+    //         id: 'GTM-...',
+    //     },
+    // ],
+];
+
 module.exports = {
     themeConfig,
+    plugins,
     absoluteUrl,
 };
