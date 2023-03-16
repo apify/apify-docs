@@ -60,6 +60,7 @@ In order to see what's actually happening, we can pass an **options** object ([P
 import { chromium } from 'playwright';
 
 await chromium.launch({ headless: false });
+await browser.newPage();
 
 ```
 
@@ -93,6 +94,7 @@ The `launch()` function also returns an object representation of the browser tha
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
+await browser.newPage();
 
 // code will be here in the future
 
@@ -107,6 +109,7 @@ await browser.close();
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
+await browser.newPage();
 
 // code will be here in the future
 
