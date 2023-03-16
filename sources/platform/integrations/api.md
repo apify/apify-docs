@@ -7,9 +7,9 @@ slug: /integrations/api
 
 # API integrations
 
-The API is well described in API Reference. If you want to access API from browser or Node.js, we recommend to use `apify-client` npm package. If from Python, we recommend `apify-client` PyPI package. You are not limited to those packages, any HTTP client can be used (`axios`, `curl`, `wget` ...).
+The API is well described in API Reference. If you want to access API from browser or Node.js, we recommend to use [`apify-client` npm package](/api/client/js/). If from Python, we recommend [`apify-client` PyPI package](/api/client/python/). You are not limited to those packages, any HTTP client can be used (`axios`, `curl`, `wget` ...).
 
-For the details of specific endpoints, see API reference.
+For the details of specific endpoints, see [API reference](/api/v2/).
 
 ## API token
 
