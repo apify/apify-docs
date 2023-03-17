@@ -71,27 +71,28 @@ An actor's input and its content type can be passed as a payload of the POST req
 
 ## Running programmatically
 
-Actors can also be invoked programmatically from other actors and your Python or JavaScript code:
+Actors can also be invoked programmatically from your own applications or from other actors.
 
-- JavaScript: using the [`call()`](/sdk/js/reference/class/Actor#call) function of [`Actor`](/sdk/js/reference/class/Actor) class provided by the [`apify`](/sdk/js/) NPM package.
-- Python: using the [`call()`](/api/client/python/reference/class/ActorClient#call) function provided by the [`apify-client`](/api/client/python) Python package.
+To start an Actor from your own application, we recommend using our API client libraries for [JavaScript](/api/client/js/reference/class/ActorClient#call) or [Python](/api/client/python/reference/class/ActorClient#call).
 
 <Tabs groupId="main">
 
-<TabItem value="NodeJS" label="NodeJS">
+<TabItem value="JavaScript" label="JavaScript">
 
 ```javascript
-import { Actor } from 'apify';
+import { ApifyClient } from 'apify-client';
 
-await Actor.init();
-// ...
-const run = await Actor.call('apify/hello-world', {
-    message: 'Hello!',
+const client = new ApifyClient({
+    token: 'MY-API-TOKEN',
 });
-console.dir(run.output);
-// ...
-await Actor.exit();
 
+// Start the Google Search Scraper Actor and wait for it to finish.
+const actorRun = await client.actor('apify/google-search-scraper').call({
+    queries: 'apify',
+});
+// Fetch scraped results from the Actor's dataset.
+const { items } = await client.dataset(actorRun.defaultDatasetId).listItems();
+console.dir(items);
 ```
 
 </TabItem>
@@ -100,20 +101,27 @@ await Actor.exit();
 <TabItem value="Python" label="Python">
 
 ```python
+from apify_client import ApifyClient
 
-run = apify_client.actor('apify/hello-world').call(run_input={ 'message': 'Hello!' })
-print(run['id'])
+apify_client = ApifyClient('MY-API-TOKEN')
 
+# Start the Google Search Scraper Actor and wait for it to finish.
+actor_run = apify_client.actor('apify/google-search-scraper').call(
+    run_input={ 'queries': 'apify' }
+)
 
+# Fetch scraped results from the Actor's dataset.
+dataset_items = apify_client.dataset(actor_run['defaultDatasetId']).list_items().items
+print(dataset_items)
 ```
 
 </TabItem>
 
 </Tabs>
 
-The newly started actor runs under the same user account as the initial actor, and therefore all resources consumed are charged to the same user account. This allows more complex actors to be built using simpler actors built and owned by other users.
+The newly started actor runs under the account associated with the provided `token`, and therefore all resources consumed are charged to this user account.
 
-Internally, the `call()` function takes the user's API token from the `APIFY_TOKEN` environment variable, then it invokes the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get record](/api/v2/#/reference/key-value-stores/record/get-record) API endpoint.
+Internally, the `call()` function invokes the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get items](/api/v2/#/reference/datasets/item-collection/get-items) API endpoint.
 
 
 
