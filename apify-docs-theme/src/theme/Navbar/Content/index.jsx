@@ -45,7 +45,7 @@ function SubNavbar() {
                 <div className="navbar__container">
                     <div className="navbar__items">
                         <div className="navbar__sub--title">
-                            <NavbarItem label={subNavbar.title} to="/" activeBaseRegex='(?!)' />
+                            <NavbarItem label={subNavbar.title} to={subNavbar.to ?? '/'} activeBaseRegex='(?!)' />
                         </div>
                         <NavbarItems items={subNavbar.items}/>
                     </div>

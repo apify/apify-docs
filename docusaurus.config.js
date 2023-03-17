@@ -26,6 +26,7 @@ module.exports = {
                 subNavbar: {
                     title: 'Academy',
                     pathRegex: '/academy',
+                    to: '/academy',
                     items: [
                         {
                             label: 'Courses',
