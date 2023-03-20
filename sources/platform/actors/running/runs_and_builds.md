@@ -46,7 +46,7 @@ flowchart LR
     subgraph Transitional states
         RUNNING
         TIMING-OUT
-        ABORTNING
+        ABORTING
     end
 
     subgraph Terminal states
@@ -60,7 +60,7 @@ flowchart LR
               RUNNING --> SUCCEEDED
               RUNNING --> FAILED
               RUNNING --> TIMING-OUT --> TIMED-OUT
-              RUNNING --> ABORTNING --> ABORTED
+              RUNNING --> ABORTING --> ABORTED
 ```
 
 ---
@@ -81,8 +81,8 @@ flowchart LR
 
 You can abort runs with the statuses **READY**, **RUNNING**, or **TIMING-OUT** in two ways:
 
-- **Immediately** - this is the default option.
-- **Gracefully** - the actor run receives a signal about aborting via the `aborting` and `persistState` events and is force-aborted after 30 seconds. This is helpful in cases where you plan to resurrect the run later because it saves the actor's state. When resurrected, the actor can restart where it left off.
+- **Immediately** - this is the default option. The actor process is killed immediately with no grace period.
+- **Gracefully** - the actor run receives a signal about aborting via the `aborting` event and is granted a 30-second window to finish in-progress tasks before getting aborted. This is helpful in cases where you plan to resurrect the run later because it gives the actor a chance to persist its state. When resurrected, the actor can restart where it left off.
 
 You can abort a run in the Apify Console using the **Abort** button or via API using the [Abort run](/api/v2#/reference/actor-runs/abort-run/abort-run) endpoint.
 
@@ -98,17 +98,17 @@ The whole process of resurrection looks as follows:
 
 Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](/api/v2#/reference/actors/resurrect-run) API endpoint.
 
-> You can also adjust timeout, memory, or change actor build prior to the resurrection. This is especially helpful in a case of an error in a code of an actor as it enables you to:
+> You can also adjust timeout, memory, or change actor build prior to the resurrection. This is especially helpful in a case of an error in the actor's source code as it enables you to:
 >
-> - Abort a broken run
-> - Update the actor's code and build the new version
-> - Resurrect the run using the new build
+> 1. Abort a broken run
+> 2. Update the actor's code and build the new version
+> 3. Resurrect the run using the new build
 
 ### Data retention
 
-An **actor run** is deleted along with its default storages (key-value store, dataset, request queue) after a data retention period which is based on your [subscription plan](https://apify.com/pricing).
+All **actor runs** are deleted along with their default storages (key-value store, dataset, request queue) after the data retention period which is based on your [subscription plan](https://apify.com/pricing).
 
-An **actor build** is deleted only when it is not tagged and has not been used for over 90 days.
+**Actor builds** are deleted only when they are **not tagged** and have not been used for over 90 days.
 
 ## Sharing
 

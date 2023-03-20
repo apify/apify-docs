@@ -17,43 +17,43 @@ import TabItem from '@theme/TabItem';
 
 ## Run your first Apify Actor
 
-If you have not [built](./development) your own actor yet, then choose one from the [Apify Store](https://apify.com/store). Once you have an actor chosen, you can start it in a number of ways.
+Before you can run an Actor, you have to either choose one of the existing ones from the [Apify Store](https://apify.com/store) or [build your own](./development). To get started, we recommend trying out an Actor from the [Store](https://apify.com/store). Once you have chosen an Actor, you can start it in a number of ways.
 
 > **You will need an Apify account to complete this tutorial. If you don't have one, [complete the sign-up process](https://console.apify.com/sign-up) first. Don't worry about the price - it's free.**
 
 ### 1. Choose your actor
 
-After you sign-in to Apify Console, navigate to the [Apify Store](https://console.apify.com/store). We'll pick the [Google Search Results Scraper](https://console.apify.com/actors/nFJndFXA5zjCTuudP#/information/latest/readme):
+After you sign-in to Apify Console, navigate to the [Apify Store](https://console.apify.com/store). We'll pick the [Google Maps Scraper](https://console.apify.com/actors/nwua9Gu5YrADL7ZDj#/information/latest/readme):
 
-![Apify Store](./images/store-google-search-scraper.png)
+![Apify Store](./images/store-google-maps-scraper.png)
 
 ### 2. Configure it
 
-On the actor's page, head over to the **Input** tab. Don't be put off by all the boxes - the actor is pre-configured to run without any extra input. Just click the **Start** button in the bottom-left corner.
+On the Actor's page, head over to the **Input** tab. Don't be put off by all the boxes - the Actor is pre-configured to run without any extra input. Just click the **Start** button in the bottom-left corner.
 
 Alternatively, you can play around with the settings to make the results more interesting for you.
 
-![Actor input](./images/actor-google-search-scraper-input.png)
+![Actor input](./images/actor-google-maps-scraper-input.png)
 
 
 ### 3. Wait for the results
 
-Now the actor is running, and it will need a short time to gather the first results. Meanwhile, you can look around:
-- There are more tabs providing you with the info about the actor run. For example, you can see the log and its storages
+The Actor might take a while to gather its first results and finish its run. Meanwhile, let's take some time to explore the platform options:
+- There are more tabs providing you with information about the Actor run. For example, you can access the run **Log** and **Storage**.
 - At the top right, you can click on the API button to explore the related API endpoints
 
-![Run](./images/actor-google-search-scraper-running.png)
+![Run](./images/actor-google-maps-scraper-running.png)
 
 ### 4. Get the results
 
 Shortly you will see the first results popping up:
 
-![Actor results](./images/actor-google-search-scraper-results.png)
+![Actor results](./images/actor-google-maps-scraper-results.png)
 
 
 And you can use the export button at the bottom left to export the data in multiple formats:
 
-![Export results](./images/actor-google-search-scraper-export.png)
+![Export results](./images/actor-google-maps-scraper-export.png)
 
 And that's it! Now you can get back to the Actor's input, play with it, and try out more of the [Apify Actors](https://apify.com/store) or [build your own](./development).
 
@@ -62,7 +62,7 @@ And that's it! Now you can get back to the Actor's input, play with it, and try 
 Actors can also be invoked using the Apify API by sending an HTTP POST request to the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) endpoint, such as:
 
 ```text
-https://api.apify.com/v2/acts/apify~hello-world/runs?token=<YOUR_API_TOKEN>
+https://api.apify.com/v2/acts/compass~crawler-google-places/runs?token=<YOUR_API_TOKEN>
 ```
 
 An actor's input and its content type can be passed as a payload of the POST request, and additional options can be specified using URL query parameters. For more details, see the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
@@ -71,27 +71,28 @@ An actor's input and its content type can be passed as a payload of the POST req
 
 ## Running programmatically
 
-Actors can also be invoked programmatically from other actors and your Python or JavaScript code:
+Actors can also be invoked programmatically from your own applications or from other actors.
 
-- JavaScript: using the [`call()`](/sdk/js/reference/class/Actor#call) function of [`Actor`](/sdk/js/reference/class/Actor) class provided by the [`apify`](/sdk/js/) NPM package.
-- Python: using the [`call()`](/api/client/python/reference/class/ActorClient#call) function provided by the [`apify-client`](/api/client/python) Python package.
+To start an Actor from your own application, we recommend using our API client libraries for [JavaScript](/api/client/js/reference/class/ActorClient#call) or [Python](/api/client/python/reference/class/ActorClient#call).
 
 <Tabs groupId="main">
 
-<TabItem value="NodeJS" label="NodeJS">
+<TabItem value="JavaScript" label="JavaScript">
 
 ```javascript
-import { Actor } from 'apify';
+import { ApifyClient } from 'apify-client';
 
-await Actor.init();
-// ...
-const run = await Actor.call('apify/hello-world', {
-    message: 'Hello!',
+const client = new ApifyClient({
+    token: 'MY-API-TOKEN',
 });
-console.dir(run.output);
-// ...
-await Actor.exit();
 
+// Start the Google Maps Scraper Actor and wait for it to finish.
+const actorRun = await client.actor('compass/crawler-google-places').call({
+    queries: 'apify',
+});
+// Fetch scraped results from the Actor's dataset.
+const { items } = await client.dataset(actorRun.defaultDatasetId).listItems();
+console.dir(items);
 ```
 
 </TabItem>
@@ -100,20 +101,27 @@ await Actor.exit();
 <TabItem value="Python" label="Python">
 
 ```python
+from apify_client import ApifyClient
 
-run = apify_client.actor('apify/hello-world').call(run_input={ 'message': 'Hello!' })
-print(run['id'])
+apify_client = ApifyClient('MY-API-TOKEN')
 
+# Start the Google Maps Scraper Actor and wait for it to finish.
+actor_run = apify_client.actor('compass/crawler-google-places').call(
+    run_input={ 'queries': 'apify' }
+)
 
+# Fetch scraped results from the Actor's dataset.
+dataset_items = apify_client.dataset(actor_run['defaultDatasetId']).list_items().items
+print(dataset_items)
 ```
 
 </TabItem>
 
 </Tabs>
 
-The newly started actor runs under the same user account as the initial actor, and therefore all resources consumed are charged to the same user account. This allows more complex actors to be built using simpler actors built and owned by other users.
+The newly started actor runs under the account associated with the provided `token`, and therefore all resources consumed are charged to this user account.
 
-Internally, the `call()` function takes the user's API token from the `APIFY_TOKEN` environment variable, then it invokes the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get record](/api/v2/#/reference/key-value-stores/record/get-record) API endpoint.
+Internally, the `call()` function invokes the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get items](/api/v2/#/reference/datasets/item-collection/get-items) API endpoint.
 
 
 
