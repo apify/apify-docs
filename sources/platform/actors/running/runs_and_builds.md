@@ -11,12 +11,12 @@ slug: /actors/running/runs-and-builds
 
 ## Builds
 
-An actor is a combination of source code and various settings. To be able to run an actor, you need to build it first. By building an actor, the actor build ready to be run gets created. This build contains the source code built as a Docker container image.
+An Actor is a combination of source code and various settings in a Docker container. In order to be able to run, it first needs to be built. An Actor build consists of the source code built as a Docker container image, making the Actor ready to run on the Apify platform.
 
 > A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings.
 > <https://www.docker.com/resources/what-container/>
 
-With every new version of an actor, a new build gets created. Each actor build has its own number (for example <strong>1.2.34</strong>), and some of the builds are tagged for easier use (for example <strong>latest</strong> or <strong>beta</strong>). When running an actor, you can choose what build you want to run by selecting a tag or number in the run options.
+With every new version of an Actor, a new build gets created. Each actor build has its own number (for example <strong>1.2.34</strong>), and some of the builds are tagged for easier use (for example <strong>latest</strong> or <strong>beta</strong>). When running an Actor, you can choose what build you want to run by selecting a tag or number in the run options.
 
 ![Actor run options](./images/runs_and_builds/actor-run-options.png)
 

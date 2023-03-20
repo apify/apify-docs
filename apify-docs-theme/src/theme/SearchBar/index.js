@@ -4,10 +4,7 @@ import { DocSearchButton, useDocSearchKeyboardEvents } from '@docsearch/react';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import { useSearchPage } from '@docusaurus/theme-common/internal';
-import {
-    useAlgoliaContextualFacetFilters,
-    useSearchResultUrlProcessor,
-} from '@docusaurus/theme-search-algolia/client';
+import { useAlgoliaContextualFacetFilters } from '@docusaurus/theme-search-algolia/client';
 import { useActiveDocContext } from '@docusaurus/plugin-content-docs/client';
 import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -16,23 +13,39 @@ import translations from '@theme/SearchTranslations';
 
 let DocSearchModal = null;
 
-function A(props) {
-    return <Link {...props} onClick={((e) => {
-        e.preventDefault();
-        window.location.assign(props.href || props.to);
-    })}>
-        {props.children}
-    </Link>;
+function useLink(href, baseUrl) {
+    if (baseUrl === '/') {
+        return href.startsWith('/academy') || href.startsWith('/platform');
+    }
+
+    return href.startsWith(baseUrl);
+}
+
+export function A(props) {
+    props = { ...props };
+
+    if (props.href.startsWith('https://docs.apify.com')) {
+        props.href = props.href.substring('https://docs.apify.com'.length);
+    }
+
+    const { siteConfig } = useDocusaurusContext();
+    if (useLink(props.href, siteConfig.baseUrl)) {
+        return <Link {...props}>
+            {props.children}
+        </Link>;
+    }
+
+    return <a {...props}>{props.children}</a>;
 }
 
 function Hit({ hit, children }) {
-    return <A to={hit.url}>{children}</A>;
+    return <A href={hit.url}>{children}</A>;
 }
 
 function ResultsFooter({ state, onClose }) {
     const { generateSearchPageLink } = useSearchPage();
     return (
-        <A to={generateSearchPageLink(state.query)} onClick={onClose}>
+        <A href={generateSearchPageLink(state.query)} onClick={onClose}>
             <Translate
                 id="theme.SearchBar.seeAll"
                 values={{ count: state.context.nbHits }}>
@@ -49,7 +62,6 @@ function mergeFacetFilters(f1, f2) {
 
 function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
     const { siteMetadata, siteConfig } = useDocusaurusContext();
-    const processSearchResultUrl = useSearchResultUrlProcessor();
     const contextualSearchFacetFilters = useAlgoliaContextualFacetFilters();
     const configFacetFilters = props.searchParameters?.facetFilters ?? [];
     const facetFilters = contextualSearch
@@ -120,15 +132,12 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
             window.location.href = itemUrl;
         },
     }).current;
-    const transformItems = useRef((items) => (props.transformItems
-        ? // Custom transformItems
-        props.transformItems(items)
-        : // Default transformItems
-        items.map((item) => ({
-            ...item,
-            url: processSearchResultUrl(item.url).replace(new RegExp(`^${siteConfig.baseUrl}`), '/'),
-        }))),
-    ).current;
+    const transformItems = useRef((items) => (items.map((item) => {
+        if (item.url.startsWith(siteConfig.url)) {
+            return { ...item, url: item.url.substring(siteConfig.url.length) };
+        }
+        return item;
+    }))).current;
     const resultsFooterComponent = useMemo(
         () =>
             // eslint-disable-next-line react/no-unstable-nested-components,react/display-name,implicit-arrow-linebreak
