@@ -21,5 +21,3 @@ To share an Actor, task, key-value store, request queue, or dataset, click on th
 
 ![Access rights configuration](./images/access-rights/access-rights.png)
 
-
-
