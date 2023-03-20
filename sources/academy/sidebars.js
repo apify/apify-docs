@@ -1,6 +1,5 @@
 module.exports = {
     courses: [
-        'index',
         {
             type: 'category',
             label: 'Web scraping & Automation',
