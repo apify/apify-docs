@@ -23,9 +23,9 @@ Before you can run an Actor, you have to either choose one of the existing ones 
 
 ### 1. Choose your actor
 
-After you sign-in to Apify Console, navigate to the [Apify Store](https://console.apify.com/store). We'll pick the [Google Search Results Scraper](https://console.apify.com/actors/nFJndFXA5zjCTuudP#/information/latest/readme):
+After you sign-in to Apify Console, navigate to the [Apify Store](https://console.apify.com/store). We'll pick the [Google Maps Scraper](https://console.apify.com/actors/nwua9Gu5YrADL7ZDj#/information/latest/readme):
 
-![Apify Store](./images/store-google-search-scraper.png)
+![Apify Store](./images/store-google-maps-scraper.png)
 
 ### 2. Configure it
 
@@ -33,7 +33,7 @@ On the Actor's page, head over to the **Input** tab. Don't be put off by all the
 
 Alternatively, you can play around with the settings to make the results more interesting for you.
 
-![Actor input](./images/actor-google-search-scraper-input.png)
+![Actor input](./images/actor-google-maps-scraper-input.png)
 
 
 ### 3. Wait for the results
@@ -42,18 +42,18 @@ The Actor might take a while to gather its first results and finish its run. Mea
 - There are more tabs providing you with information about the Actor run. For example, you can access the run **Log** and **Storage**.
 - At the top right, you can click on the API button to explore the related API endpoints
 
-![Run](./images/actor-google-search-scraper-running.png)
+![Run](./images/actor-google-maps-scraper-running.png)
 
 ### 4. Get the results
 
 Shortly you will see the first results popping up:
 
-![Actor results](./images/actor-google-search-scraper-results.png)
+![Actor results](./images/actor-google-maps-scraper-results.png)
 
 
 And you can use the export button at the bottom left to export the data in multiple formats:
 
-![Export results](./images/actor-google-search-scraper-export.png)
+![Export results](./images/actor-google-maps-scraper-export.png)
 
 And that's it! Now you can get back to the Actor's input, play with it, and try out more of the [Apify Actors](https://apify.com/store) or [build your own](./development).
 
@@ -86,8 +86,8 @@ const client = new ApifyClient({
     token: 'MY-API-TOKEN',
 });
 
-// Start the Google Search Scraper Actor and wait for it to finish.
-const actorRun = await client.actor('apify/google-search-scraper').call({
+// Start the Google Maps Scraper Actor and wait for it to finish.
+const actorRun = await client.actor('compass/crawler-google-places').call({
     queries: 'apify',
 });
 // Fetch scraped results from the Actor's dataset.
@@ -105,8 +105,8 @@ from apify_client import ApifyClient
 
 apify_client = ApifyClient('MY-API-TOKEN')
 
-# Start the Google Search Scraper Actor and wait for it to finish.
-actor_run = apify_client.actor('apify/google-search-scraper').call(
+# Start the Google Maps Scraper Actor and wait for it to finish.
+actor_run = apify_client.actor('compass/crawler-google-places').call(
     run_input={ 'queries': 'apify' }
 )
 
