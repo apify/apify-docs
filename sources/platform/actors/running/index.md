@@ -68,7 +68,7 @@ https://api.apify.com/v2/acts/compass~crawler-google-places/runs?token=<YOUR_API
 
 An actor's input and its content type can be passed as a payload of the POST request, and additional options can be specified using URL query parameters. For more details, see the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
 
-> To learn more about this, read the [Run an actor or task and retrieve data via API](../tutorials/run-actor-and-retrieve-data-via-api) tutorial.
+> To learn more about this, read the [Run an actor or task and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api) tutorial.
 
 ## Running programmatically
 
