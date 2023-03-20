@@ -104,11 +104,11 @@ You will be prompted to name your Actor (e.g, my-actor), and choose the programm
 
 Finally, switch to your newly created Actor directory:
 
-```
+```bash
 cd my-actor
 ```
 
-### 3. Explore the source code
+### 3. Explore the source code in your editor
 
 Next, let's explore the Actor's source code. We will use the "PuppeteerCrawler in JavaScript" template code as an example, but all Actor templates follow a similar organizational pattern. The important parts are:
 
@@ -120,7 +120,7 @@ Next, let's explore the Actor's source code. We will use the "PuppeteerCrawler i
 
 > The following chapters will teach you more about an actor's structure and files.
 
-### 4. Run it
+### 4. Run it locally
 
 To run the actor, call:
 
