@@ -39,6 +39,7 @@ Alternatively, you can play around with the settings to make the results more in
 ### 3. Wait for the results
 
 The Actor might take a while to gather its first results and finish its run. Meanwhile, let's take some time to explore the platform options:
+
 - There are more tabs providing you with information about the Actor run. For example, you can access the run **Log** and **Storage**.
 - At the top right, you can click on the API button to explore the related API endpoints
 
@@ -122,6 +123,4 @@ print(dataset_items)
 The newly started actor runs under the account associated with the provided `token`, and therefore all resources consumed are charged to this user account.
 
 Internally, the `call()` function invokes the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get items](/api/v2/#/reference/datasets/item-collection/get-items) API endpoint.
-
-
 

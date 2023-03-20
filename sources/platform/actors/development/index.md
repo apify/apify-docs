@@ -12,6 +12,7 @@ slug: /actors/development
 ---
 
 There are two ways how to create an actor:
+
 - Using the **Web IDE** in the [Apify Console](https://console.apify.com). This is the fastest way to kick-start your Actor development and try out the Apify Platform.
 - Develop your Actor **locally** and only deploy to the Apify Platform when it is production ready. This way, you benefit from your local setup for a better development and debugging experience.
 
@@ -95,6 +96,7 @@ apify create
 ```
 
 You will be prompted to name your Actor (e.g, my-actor), and choose the programming language you would like to use (JavaScript, TypeScript, or Python). Next, you will be presented with a list of Actor development templates. After choosing your preferred template the CLI will:
+
 - Create a `my-actor` directory containing boilerplate code.
 - Install all the project dependencies.
 
@@ -109,6 +111,7 @@ cd my-actor
 ### 3. Explore the source code
 
 Next, let's explore the Actor's source code. We will use the "PuppeteerCrawler in JavaScript" template code as an example, but all Actor templates follow a similar organizational pattern. The important parts are:
+
 - `src` directory and, namely, the `src/main.js` file, which is the actual code of an actor.
 - `actor` directory containing actor's definition files such as `actor.json` and `Dockerfile`. These are important once you deploy your code to the Apify Platform.
 - `storage` directory containing the local emulation of [Apify Storage](../storage), namely [key-value store](../storage/key-value-store), [dataset](../storage/dataset), and [request queue](../storage/request-queue).
@@ -146,7 +149,4 @@ apify push
 
 
 > If you successfully finished your first actor, you may consider [sharing it with other users and monetizing it](./publishing).
-
-
-
 
