@@ -62,7 +62,7 @@ And that's it! Now you can get back to the Actor's input, play with it, and try 
 Actors can also be invoked using the Apify API by sending an HTTP POST request to the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) endpoint, such as:
 
 ```text
-https://api.apify.com/v2/acts/apify~hello-world/runs?token=<YOUR_API_TOKEN>
+https://api.apify.com/v2/acts/compass~crawler-google-places/runs?token=<YOUR_API_TOKEN>
 ```
 
 An actor's input and its content type can be passed as a payload of the POST request, and additional options can be specified using URL query parameters. For more details, see the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
