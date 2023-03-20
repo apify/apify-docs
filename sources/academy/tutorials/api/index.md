@@ -13,7 +13,7 @@ slug: /api
 ---
 
 This section explains how you can run [Apify Actors](/platform/actors) using Apify's [API](/api/v2), retrieve their results, and integrate them into your own product and workflows. You can do this using a raw HTTP client, or you can benefit from using one of our API clients for:
+
 - [JavaScript](/api/client/js/)
 - [Python](/api/client/python)
-
 
