@@ -16,7 +16,7 @@
     },
     {
         "title": "Schedules",
-        "description": "Learn how to automatically start your actor and task runs.",
+        "description": "Learn how to automatically start your Actor and task runs.",
         "to": "/platform/schedules"
     },
     {
@@ -26,7 +26,7 @@
     },
     {
         "title": "Monitoring",
-        "description": "Learn how to check the performance of your actors, validate your data and receive alerts.",
+        "description": "Learn how to check the performance of your Actors, validate your data and receive alerts.",
         "to": "/platform/monitoring"
     }
 ]

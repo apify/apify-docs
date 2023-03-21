@@ -18,7 +18,7 @@ You can use Actors [manually in Apify Console](https://console.apify.com/actors)
 
 > New to Apify? Try actors with our [quick start](../index.mdx) tutorial and see the [Apify Academy's courses](/academy).
 
-A single isolated actor consists of source code and various settings. You can think of an actor as a cloud app or service that runs on the Apify platform. The run of an actor is not limited to the lifetime of a single HTTP transaction. It can run for as long as necessary, even forever.
+A single isolated Actor consists of source code and various settings. You can think of an Actor as a cloud app or service that runs on the Apify platform. The run of an Actor is not limited to the lifetime of a single HTTP transaction. It can run for as long as necessary, even forever.
 
 ## Public and private actors
 

@@ -1,11 +1,11 @@
 ---
-title: Run actor and retrieve data via API
-description: Learn how to run an actor/task via the Apify API, wait for the job to finish, and retrieve its output data. Your key to integrating actors with your projects.
+title: Run Actor and retrieve data via API
+description: Learn how to run an Actor/task via the Apify API, wait for the job to finish, and retrieve its output data. Your key to integrating Actors with your projects.
 sidebar_position: 6
 slug: /api/run-actor-and-retrieve-data-via-api
 ---
 
-**Learn how to run an actor/task via the Apify API, wait for the job to finish, and retrieve its output data. Your key to integrating actors with your projects.**
+**Learn how to run an Actor/task via the Apify API, wait for the job to finish, and retrieve its output data. Your key to integrating Actors with your projects.**
 
 ---
 
@@ -20,17 +20,17 @@ There are 2 main ways of using the Apify API:
 
 If the actor being run via API takes 5 minutes or less to complete a typical run, it should be called **synchronously**. Otherwise, (if a typical run takes longer than 5 minutes), it should be called **asynchronously**.
 
-## Run an actor or task {#run-an-actor-or-task}
+## Run an Actor or task {#run-an-actor-or-task}
 
 > If you are unsure about the differences between an actor and task, you can read about them in the [tasks](/platform/actors/running/tasks) documentation. In brief, tasks are just pre-configured inputs for actors.
 
-The API endpoints and usage (for both sync and async) for [actors](/api/v2#/reference/actors/run-collection/run-actor) and [tasks](/api/v2#/reference/actor-tasks/run-collection/run-task) are essentially the same.
+The API endpoints and usage (for both sync and async) for [Actors](/api/v2#/reference/actors/run-collection/run-actor) and [tasks](/api/v2#/reference/actor-tasks/run-collection/run-task) are essentially the same.
 
-To run, or **call**, an actor/task, you will need a few things:
+To run, or **call**, an Actor/task, you will need a few things:
 
-- The name or ID of the actor/task. The name looks like `username~actorName` or `username~taskName`. The ID can be retrieved on the **Settings** page of the actor/task.
+- The name or ID of the Actor/task. The name looks like `username~actorName` or `username~taskName`. The ID can be retrieved on the **Settings** page of the Actor/task.
 
-- Your [API token](/platform/integrations), which you can find on the **Integrations** page in the [Apify Console](https://console.apify.com/account?tab=integrations) (make sure it does not get leaked anywhere!).
+- Your [API token](/platform/integrations), which you can find on the **Integrations** page in [Apify Console](https://console.apify.com/account?tab=integrations) (do not share it with anyone!).
 
 - Possibly an input, which is passed in JSON format as the request's **body**.
 
@@ -58,7 +58,7 @@ We can also add settings for the actor (which will override the default settings
 https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN&memory=8192&build=beta
 ```
 
-This works nearly identically for both actors and tasks; however, for tasks there is no reason to specify a [`build`](/platform/actors/development/builds) parameter, as a task already has only one specific actor build which cannot be changed with query parameters.
+This works in almost exactly the same way for both Actors and tasks; however, for tasks, there is no reason to specify a [`build`](/platform/actors/development/builds) parameter, as a task already has only one specific Actor build which cannot be changed with query parameters.
 
 ### Input JSON {#input-json}
 
@@ -92,7 +92,7 @@ If your synchronous run exceeds the 5-minute time limit, the response will be a 
 
 ### Synchronous runs with dataset output {#synchronous-runs-with-dataset-output}
 
-Most actor runs will store their data in the default [dataset](/platform/storage/dataset). The Apify API provides **run-sync-get-dataset-items** endpoints for [actors](/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items) and [tasks](/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-(post)), which allow you to run an actor and receive the items from the default dataset once the run has completed.
+Most Actor runs will store their data in the default [dataset](/platform/storage/dataset). The Apify API provides **run-sync-get-dataset-items** endpoints for [actors](/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items) and [tasks](/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-(post)), which allow you to run an Actor and receive the items from the default dataset once the run has finished.
 
 Here is a simple Node.js example of calling a task via the API and logging the dataset items to the console:
 
@@ -163,13 +163,13 @@ Once again, the final response will be the **run info object**; however, now its
 
 #### Webhooks {#webhooks}
 
-If you have a server, [webhooks](/platform/integrations/webhooks) are the most elegant and flexible solution for integrations with Apify. You can simply set up a webhook for any actor or task, and that webhook will send a POST request to your server after an [event](/platform/integrations/webhooks/events) has occurred.
+If you have a server, [webhooks](/platform/integrations/webhooks) are the most elegant and flexible solution for integrations with Apify. You can simply set up a webhook for any Actor or task, and that webhook will send a POST request to your server after an [event](/platform/integrations/webhooks/events) has occurred.
 
 Usually, this event is a successfully finished run, but you can also set a different webhook for failed runs, etc.
 
 ![Webhook example](./images/webhook.png)
 
-The webhook will send you a pretty complicated [JSON object](/platform/integrations/webhooks/actions), but usually you are only interested in the `resource` object within the response, which is essentially just the **run info** JSON from the previous sections. We can leave the payload template as is as for our example use case, since it is what we need.
+The webhook will send you a pretty complicated [JSON object](/platform/integrations/webhooks/actions), but usually, you would only be interested in the `resource` object within the response, which is essentially just the **run info** JSON from the previous sections. We can leave the payload template as is for our example since it is all we need.
 
 Once your server receives this request from the webhook, you know that the event happened, and you can ask for the complete data.
 

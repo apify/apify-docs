@@ -1,13 +1,13 @@
 ---
 title: Tasks
-description: Save configurations of your Apify actors for later. Create multiple configurations of the same actor tailored to various use cases.
+description: Save configurations of your Apify Actors for later. Create multiple configurations of the same Actor tailored to various use cases.
 sidebar_position: 7.2
 slug: /actors/running/tasks
 ---
 
 # Actor tasks
 
-**Save configurations of your Apify actors for later. Create multiple configurations of the same actor tailored to various use cases.**
+**Save configurations of your Apify Actors for later. Create multiple configurations of the same Actor tailored to various use cases.**
 
 ---
 

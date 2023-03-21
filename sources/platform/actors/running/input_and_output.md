@@ -41,17 +41,17 @@ As part of the input, you can also specify run options such as [build](../develo
     </tr>
     <tr>
         <td>Timeout</td>
-        <td>Timeout for the actor run in seconds. Zero value means there is no timeout.</td>
+        <td>Timeout for the Actor run in seconds. Zero value means there is no timeout.</td>
     </tr>
     <tr>
         <td>Memory</td>
-        <td>Amount of memory allocated for the actor run, in megabytes.</td>
+        <td>Amount of memory allocated for the Actor run, in megabytes.</td>
     </tr>
 </table>
 
 ## Output
 
-While the input object provides a way to instruct actors, the actors can also generate an output, usually stored in its default [dataset](../../storage/dataset), but some additional files might be stored in its [key-value store](../../storage/key-value-store). Always read the actor's README to learn more about its output.
+While the input object provides a way to instruct Actors, an Actor can also generate an output, usually stored in its default [dataset](../../storage/dataset), but some additional files might be stored in its [key-value store](../../storage/key-value-store). Always read the Actor's README to learn more about its output.
 
 > For more details about storages, visit the [storage](../../storage/index.md) section.
 
