@@ -31,4 +31,4 @@ We strive to reply to all reports within 5 working days. However, depending on t
 
 ## Securing your data
 
-Apify Platform provides you with multiple ways to secure your data. This includes [encrypted environment variables](./development/environment-variables) to store your configuration secrets and [encrypted input](./development/secret-input) to secure the input parameters of your actors.
+The Apify Platform provides you with multiple ways to secure your data. This includes [encrypted environment variables](./development/environment-variables) to store your configuration secrets and [encrypted input](./development/secret-input) to secure the input parameters of your actors.

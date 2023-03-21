@@ -15,15 +15,15 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-If you have not [built](./development) your own actor yet, then choose one from the [Apify Store](https://apify.com/store). Once you have an actor chosen, you can start it in a number of ways.
+If you have not [built](./development) your own Actor yet, then choose one from [Apify Store](https://apify.com/store). Once you have chosen an Actor, you can start it in a number of ways.
 
 ## Running from Apify Console UI
 
-One option is to start an actor from its page in [Apify Console](https://console.apify.com/actors):
+One option is to start an Actor from its page in [Apify Console](https://console.apify.com/actors):
 
 ![Apify developer console](./images/actor-broken-links-checker.png)
 
-After setting up an input, you can specify run options such as [build](../development/builds.md), timeout, and [memory](./usage_and_resources.md) for your actor run.
+After setting up an input, you can specify run options such as [build](../development/builds.md), timeout, and [memory](./usage_and_resources.md) for your Actor run.
 
 <!-- Using an HTML table because it doesn't have a header - markdown doesn't allow tables with no headers -->
 <table>
@@ -43,19 +43,19 @@ After setting up an input, you can specify run options such as [build](../develo
 
 ## Running via Apify API
 
-Actors can also be invoked using the Apify API by sending an HTTP POST request to the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) endpoint, such as:
+Actors can also be invoked using the Apify API by sending an HTTP POST request to the [Run Actor](/api/v2/#/reference/actors/run-collection/run-actor) endpoint, such as:
 
 ```text
 https://api.apify.com/v2/acts/apify~hello-world/runs?token=<YOUR_API_TOKEN>
 ```
 
-An actor's input and its content type can be passed as a payload of the POST request, and additional options can be specified using URL query parameters. For more details, see the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
+An actor's input and its content type can be passed as a payload of the POST request, and additional options can be specified using URL query parameters. For more details, see the [Run Actor](/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
 
 > To learn more about this, read the [Run an actor or task and retrieve data via API](../tutorials/run-actor-and-retrieve-data-via-api) tutorial.
 
 ## Running programmatically
 
-Actors can also be invoked programmatically from other actors and your Python or JavaScript code:
+Actors can also be invoked programmatically from other Actors and your Python or JavaScript code:
 
 - JavaScript: using the [`call()`](/sdk/js/reference/class/Actor#call) function of [`Actor`](/sdk/js/reference/class/Actor) class provided by the [`apify`](/sdk/js/) NPM package.
 - Python: using the [`call()`](/api/client/python/reference/class/ActorClient#call) function provided by the [`apify-client`](/api/client/python) Python package.
@@ -95,7 +95,7 @@ print(run['id'])
 
 </Tabs>
 
-The newly started actor runs under the same user account as the initial actor, and therefore all resources consumed are charged to the same user account. This allows more complex actors to be built using simpler actors built and owned by other users.
+The newly started Actor runs under the same user account as the initial Actor, and therefore all resources consumed are charged to the same user account. This allows you to build more complex Actors from simpler Actors built and owned by other users.
 
 Internally, the `call()` function takes the user's API token from the `APIFY_TOKEN` environment variable, then it invokes the [Run actor](/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the actor to finish and reads its output using the [Get record](/api/v2/#/reference/key-value-stores/record/get-record) API endpoint.
 

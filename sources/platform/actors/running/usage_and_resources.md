@@ -103,7 +103,7 @@ You can see each Actor run's exact CU usage in the run's details.
 
 ![An Actor run's platform usage](./images/usage_and_resources/actor-usage.png)
 
-You can [find a summary of your overall platform and CU usage](https://console.apify.com/billing) in the **Billing** section of the Apify Console.
+You can [find a summary of your overall platform and CU usage](https://console.apify.com/billing) in the **Billing** section of Apify Console.
 
 > **How are CUs calculated?** To calculate CUs, you need to multiply two factors:
 >

@@ -53,7 +53,7 @@ In the [Apify SDK](/sdk/js/docs/guides/result-storage#key-value-store), the key-
 You can use the `KeyValueStore` class to specify whether your data is stored locally or in the Apify cloud,
 get and set values using the [`getValue()`](/sdk/js/api/apify/class/KeyValueStore#getValue) and [`setValue()`](/sdk/js/api/apify/class/KeyValueStore#setValue) methods respectively, or iterate over your key-value store keys using the [`forEachKey()`](/sdk/js/api/apify/class/KeyValueStore#forEachKey) method.
 
-Each actor run is associated with the default key-value store, which is created for the actor run. When running your actors and storing data locally, you can pass its [input](../actors/running/input_and_output.md) using the **INPUT.json** file in the default key-value store directory.
+Each Actor run is associated with the default key-value store, which is created for the Actor run. When running your Actors and storing data locally, you can pass its [input](../actors/running/input_and_output.md) using the **INPUT.json** file in the default key-value store directory.
 
 You can find `INPUT.json` and other key-value store files in the location below.
 
@@ -208,7 +208,7 @@ You can invite other Apify users to view or modify your key-value stores using t
 
 ### Sharing key-value stores between runs
 
-You can access a key-value store from any [actor](../actors/index.md) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
+You can access a key-value store from any [Actor](../actors/index.md) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
 
 To access a key-value store from another run using the Apify SDK, open it using the [`Actor.openKeyValueStore(storeIdOrName)`](/sdk/js/api/apify/class/Actor#openKeyValueStore) method like you would do with any other store.
 

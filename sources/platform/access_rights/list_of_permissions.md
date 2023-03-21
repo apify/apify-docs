@@ -38,7 +38,7 @@ Click [here](../actors/index.md) to learn about Apify actors.
 | View runs            | View a list of actor task runs and their details. |
 | Manage access rights | Manage actor task access rights.                  |
 
-To learn about actor tasks, see the [documentation](../actors/running/tasks.md).
+To learn about Actor tasks, see the [documentation](../actors/running/tasks.md).
 
 ## Storage {#storage}
 
