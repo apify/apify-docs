@@ -59,7 +59,6 @@
         "@docusaurus/theme-mermaid": "^2.3.1",
         "@giscus/react": "^2.2.8",
         "clsx": "^1.2.1",
-        "docusaurus-plugin-hubspot": "^1.0.1",
         "form-data": "^4.0.0",
         "prop-types": "^15.8.1",
         "proxy-from-env": "^1.1.0",
