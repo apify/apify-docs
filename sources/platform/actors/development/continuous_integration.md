@@ -83,7 +83,7 @@ jobs:
 
 ## Prerequisites
 
-You will need an [actor](../../tutorials/quick_start.md), a GitHub repo for it, and your Apify token.
+To follow along, you will need a GitHub repository containing your [Actor](../index.md) code and your Apify API token.
 
 [Find your Apify token in the Apify Console](https://console.apify.com/account#/integrations).
 

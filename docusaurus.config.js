@@ -1,6 +1,7 @@
 /* eslint-disable global-require,import/no-extraneous-dependencies */
 const { config } = require('./apify-docs-theme');
 const { externalLinkProcessor } = require('./tools/utils/externalLink');
+const { collectSlugs } = require('./tools/utils/collectSlugs');
 
 /** @type {Partial<import('@docusaurus/types').DocusaurusConfig>} */
 module.exports = {
@@ -22,49 +23,35 @@ module.exports = {
             require.resolve('./apify-docs-theme'),
             /** @type {import('./apify-docs-theme/types').ThemeOptions} */
             ({
-                // subNavbar: {
-                //     title: 'Apify Docs',
-                //     items: [
-                //         {
-                //             label: 'Subnav 1',
-                //             href: `${config.absoluteUrl}/platform`,
-                //             target: '_self',
-                //             activeBasePath: 'platform',
-                //             rel: 'dofollow',
-                //         },
-                //         {
-                //             label: 'Subnav 2',
-                //             href: `${config.absoluteUrl}/academy`,
-                //             target: '_self',
-                //             activeBasePath: 'academy',
-                //             rel: 'dofollow',
-                //         },
-                //         {
-                //             label: 'Subnav 3',
-                //             type: 'dropdown',
-                //             items: [
-                //                 {
-                //                     label: 'Reference',
-                //                     href: `${config.absoluteUrl}/api/v2`,
-                //                 },
-                //                 {
-                //                     label: 'Client for JavaScript',
-                //                     href: `${config.absoluteUrl}/client-js/`, // we need a trailing slash here, we'd get redirected there anyway
-                //                     target: '_self',
-                //                     rel: 'dofollow',
-                //                 },
-                //                 {
-                //                     label: 'Client for Python',
-                //                     href: `${config.absoluteUrl}/client-python/`, // we need a trailing slash here, we'd get redirected there anyway
-                //                     target: '_self',
-                //                     rel: 'dofollow',
-                //                 },
-                //             ],
-                //         },
-                //     ],
-                // },
+                subNavbar: {
+                    title: 'Academy',
+                    pathRegex: '/academy',
+                    to: '/academy',
+                    items: [
+                        {
+                            label: 'Courses',
+                            to: `/academy`,
+                            activeBaseRegex: [
+                                'academy$',
+                                ...collectSlugs(`${__dirname}/sources/academy/webscraping`),
+                                ...collectSlugs(`${__dirname}/sources/academy/platform`),
+                            ].join('|'),
+                        },
+                        {
+                            label: 'Tutorials',
+                            to: `/academy/tutorials`,
+                            activeBaseRegex: collectSlugs(`${__dirname}/sources/academy/tutorials`).join('|'),
+                        },
+                        {
+                            label: 'Glossary',
+                            to: `/academy/glossary`,
+                            activeBaseRegex: collectSlugs(`${__dirname}/sources/academy/glossary`).join('|'),
+                        },
+                    ],
+                },
             }),
         ],
+        '@docusaurus/theme-mermaid',
     ],
     presets: /** @type {import('@docusaurus/types').PresetConfig[]} */ ([
         [
@@ -116,6 +103,9 @@ module.exports = {
         ],
         ...config.plugins,
     ],
+    markdown: {
+        mermaid: true,
+    },
     themeConfig: config.themeConfig,
     staticDirectories: ['apify-docs-theme/static', 'static'],
 };

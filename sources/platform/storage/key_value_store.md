@@ -40,7 +40,7 @@ Only named key-value stores are displayed by default. Select the **Include unnam
 ![Key-value stores in app](./images/key-value-stores-app.png)
 
 To view a key-value store's content, click on its **Store ID**.
-Under the **Settings** tab, you can update the store's name (and, in turn, its [retention period](./index.md)) and [access rights](../access_rights/index.md).
+Under the **Settings** tab, you can update the store's name (and, in turn, its [retention period](./index.md)) and [access rights](../collaboration/index.md).
 Click on the `API` button to view and test a store's [API endpoints](/api/v2#/reference/key-value-stores).
 
 ![Key-value stores detail](./images/key-value-stores-detail.png)
@@ -53,7 +53,7 @@ In the [Apify SDK](/sdk/js/docs/guides/result-storage#key-value-store), the key-
 You can use the `KeyValueStore` class to specify whether your data is stored locally or in the Apify cloud,
 get and set values using the [`getValue()`](/sdk/js/api/apify/class/KeyValueStore#getValue) and [`setValue()`](/sdk/js/api/apify/class/KeyValueStore#setValue) methods respectively, or iterate over your key-value store keys using the [`forEachKey()`](/sdk/js/api/apify/class/KeyValueStore#forEachKey) method.
 
-Each actor run is associated with the default key-value store, which is created for the actor run. When running your actors and storing data locally, you can pass its [input](../actors/running/input.md) using the **INPUT.json** file in the default key-value store directory.
+Each Actor run is associated with the default key-value store, which is created for the Actor run. When running your Actors and storing data locally, you can pass its [input](../actors/running/input_and_output.md) using the **INPUT.json** file in the default key-value store directory.
 
 You can find `INPUT.json` and other key-value store files in the location below.
 
@@ -204,11 +204,11 @@ You can compress a record and use the [Content-Encoding request header](https://
 
 ## Sharing
 
-You can invite other Apify users to view or modify your key-value stores using the [access rights](../access_rights/index.md) system. See the [full list of permissions](../access_rights/list_of_permissions.md).
+You can invite other Apify users to view or modify your key-value stores with the [access rights](../collaboration/index.md) system. See the [full list of permissions](../collaboration/list_of_permissions.md).
 
 ### Sharing key-value stores between runs
 
-You can access a key-value store from any [actor](../actors/index.md) or [task](../actors/tasks.md) run as long as you know its **name** or **ID**.
+You can access a key-value store from any [Actor](../actors/index.md) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
 
 To access a key-value store from another run using the Apify SDK, open it using the [`Actor.openKeyValueStore(storeIdOrName)`](/sdk/js/api/apify/class/Actor#openKeyValueStore) method like you would do with any other store.
 

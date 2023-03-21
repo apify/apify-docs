@@ -10,7 +10,7 @@ slug: /actors/development/testing-and-maintenance
 
 ---
 
-You should make sure your [actors](../index.md) (especially [paid ones](../paid_actors.md)) are well-maintained. You might not always get feedback from your users, therefore it is crucial that you periodically check if your actors work as expected. You can do this using our [monitoring suite](https://apify.com/apify/monitoring) or by setting up daily runs of the **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) actor.
+You should make sure your [Actors](../index.md) (especially [Actors in Apify Store](../running/store.md)) are well-maintained. You might not always get feedback from your users. Therefore it is crucial that you periodically check if your Actors work as expected. You can do this using our [monitoring suite](https://apify.com/apify/monitoring) or by setting up daily runs of the **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) tool.
 
 The monitoring suite is sufficient for most scenarios and includes automated alerts. [See more information](https://apify.com/apify/monitoring) on the suite's page or [check out our tutorials](../../monitoring/index.md).
 
@@ -26,7 +26,7 @@ We recommend using the Actor Testing actor for specific and advanced use cases. 
 
 ## Set up tasks you will test
 
-First, set up [tasks](../tasks.md) for all the possible input configurations your actor has. If your actor has only a couple of configuration options (e.g., it only has **search term** and **proxy configuration** inputs), one task is enough. If you have several options (e.g., **location**/**URL**/**max results**) make sure you prepare tasks for all of them.
+First, set up [tasks](../running/tasks.md) for all the possible input configurations your Actor has. If your Actor has only a couple of configuration options (e.g., it only has **search term** and **proxy configuration** inputs), one task is enough. If you have several options (e.g., **location**/**URL**/**max results**) make sure you prepare tasks for all of them.
 
 ![Tasks that test an actor's configurations](./images/testing-tasks.png)
 

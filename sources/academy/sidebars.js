@@ -1,6 +1,5 @@
 module.exports = {
-    academy: [
-        'index',
+    courses: [
         {
             type: 'category',
             label: 'Web scraping & Automation',
@@ -25,6 +24,8 @@ module.exports = {
                 },
             ],
         },
+    ],
+    tutorials: [
         {
             type: 'category',
             label: 'Tutorials',
@@ -37,6 +38,8 @@ module.exports = {
                 },
             ],
         },
+    ],
+    glossary: [
         {
             type: 'category',
             label: 'Glossary',
