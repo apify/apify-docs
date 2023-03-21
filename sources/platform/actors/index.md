@@ -12,40 +12,23 @@ slug: /actors
 
 ---
 
-Actors are serverless cloud programs that can do almost anything a human can do in a web browser. They can do anything from small tasks like filling in forms or unsubscribing from online services, all the way up to scraping and processing vast numbers of web pages.
+Actors are serverless cloud programs that can do almost anything a human can do in a web browser. They can do anything from small tasks like filling in forms or unsubscribing from online services all the way up to scraping and processing vast numbers of web pages.
 
-You can use actors [manually in the Apify Console](https://console.apify.com/actors), using [API](/api/v2) or [scheduler](../schedules.md). You can easily [integrate them with other apps](../integrations/index.md) and share your actors with other Apify users via our [access rights](../access_rights/index.md) system.
+You can use Actors [manually in Apify Console](https://console.apify.com/actors), by using the [API](/api/v2) or [scheduler](../schedules.md). You can easily [integrate them with other apps](../integrations/index.md) and share your Actors with other Apify users via [Apify Store](https://apify.com/store) or [access rights](./collaboration/access-rights) system.
 
-> New to Apify? [Try actors with our **quick start** tutorial](../tutorials/quick_start.md).
+> New to Apify? Try actors with our [quick start](../index.mdx) tutorial and see the [Apify Academy's courses](/academy).
 
-A single isolated actor consists of source code and various settings. You can think of an actor as a cloud app or service that runs on the Apify platform. The run of an actor is not limited to the lifetime of a single HTTP transaction. It can run for as long as necessary, even forever.
+A single isolated Actor consists of source code and various settings. You can think of an Actor as a cloud app or service that runs on the Apify platform. The run of an Actor is not limited to the lifetime of a single HTTP transaction. It can run for as long as necessary, even forever.
+
+## Public and private actors
+
+Actors can be [public](./actors/running/actors-in-store) or private. Private Actors are yours to use and keep; no one will see them if you don't want them to. Public actors are [available to everyone](./running/store.md) in [Apify Store](https://apify.com/store). You can make them free to use, or you can [charge for them](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/).
 
 ## Section overview
 
-* [Running](./running/index.md)
-  * [Input](./running/input.md)
-  * [Memory and CPU](./running/memory_and_cpu.md)
-  * [Compute units and consumption](./running/compute_units.md)
-* [Tasks](./tasks.md)
-* [Development](./development/index.md)
-  * [Base Docker images](./development/base_docker_images.md)
-  * [Builds](./development/builds.md)
-  * [Continuous integration](./development/continuous_integration.md)
-  * [Environment variables](./development/environment_variables.md)
-  * [Input schema](./development/input_schema.md)
-  * [Secret input](./development/secret_input.md)
-  * [Source code](./development/source_code.md)
-  * [State persistence](./development/state_persistence.md)
-  * [Testing and maintenance](./development/testing_and_maintenance.md)
-* [Paid actors](./paid_actors.md)
-* [Publishing](./publishing.md)
-* [Naming your actor](/academy/get-most-of-actors/naming-your-actor)
-* [SEO and promotion](/academy/get-most-of-actors/seo-and-promotion)
-* [Security](./security.md)
-* [Limits](./limits.md)
-* [Examples](./examples.md)
+This section covers the main 3 topics when it comes to Apify Actors:
 
-## Public, private, and paid actors
-
-Actors can be public (free or [paid](./paid_actors.md)) or private. Private actors are yours to use and keep, and no one will see them if you don't want them to. Public actors are [available to everyone](./publishing.md) in [Apify Store](https://apify.com/store). You can make them free to use, or you can [charge for them](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/).
+- [Running Actors](./actors/running) - how to run private and public Actors (from [Apify Store](https://apify.com/store)), and information about Actor configuration, pricing, and usage cost.
+- [Development](./actors/development) - start developing your own Actors.
+- [Publishing and monetization](./actors/publishing) - learn how to share your Actors with other users and monetize them on [Apify Store](https://apify.com/store).
 

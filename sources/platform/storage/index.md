@@ -94,7 +94,7 @@ To access your storages from Apify Console, go to the [**Storage** section](http
 
 You can edit your stores' names by clicking their caption (ID or name) on their detail page.
 
-Under the **Settings** tab of their detail page, you can grant [access rights](../access_rights/index.md) to other Apify users.
+Under the **Settings** tab of their detail page, you can grant [access rights](../collaboration/index.md) to other Apify users.
 
 You can quickly share your storages' contents and details by sharing the URLs you find under the **API** tab in a store's detail page.
 
@@ -191,11 +191,11 @@ For example, the storage names **janedoe~my-storage-1** and **janedoe~web-scrape
 
 ## Sharing {#sharing}
 
-You can invite other Apify users to view or modify your storages using the [access rights](../access_rights/index.md) system. See the [full list of permissions](../access_rights/list_of_permissions.md).
+You can invite other Apify users to view or modify your storages with the [access rights](../collaboration/index.md) system. See the [full list of permissions](../collaboration/list_of_permissions.md).
 
 ### Sharing storages between runs {#sharing-storages-between-runs}
 
-Any storage can be accessed from any [actor](../actors/index.md) or [task](../actors/tasks.md) run as long as you know its **name** or **ID**. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
+Any storage can be accessed from any [Actor](../actors/index.md) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
 [Datasets](./dataset.md) and [key-value stores](./key_value_store.md) can be used concurrently by multiple actors. This means that multiple actors or tasks running at the same time can **write** data to a single dataset or key-value store. The same applies for reading data – multiple runs can **read** data from datasets and key-value stores concurrently.
 

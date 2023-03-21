@@ -23,7 +23,7 @@ Storage allows us to save persistent data for further processing. As you'll lear
 
 ## Learning 🧠 {#learning}
 
-- Check out [the docs about actor tasks](/platform/actors/tasks).
+- Check out [the docs about actor tasks](/platform/actors/running/tasks).
 - Read about the [two main storage options](/platform/storage#dataset) on the Apify platform.
 - Understand the [crucial differences between named and unnamed storages](/platform/storage#named-and-unnamed-storages).
 - Learn about the [`Dataset`](/sdk/js/reference/class/Dataset) and [`KeyValueStore`](/sdk/js/reference/class/KeyValueStore) objects in the Apify SDK.

@@ -123,7 +123,7 @@ Now we're done, and we can push it up to the Apify platform with the `apify push
 
 ## Setting up the webhook {#setting-up-the-webhook}
 
-Since we'll be calling the actor via the [Apify API](/platform/tutorials/run-actor-and-retrieve-data-via-api#run-an-actor-or-task), we'll need to grab hold of the ID of the actor we just created and pushed to the platform. The ID is always accessible through the **Settings** page of the actor.
+Since we'll be calling the Actor via the [Apify API](/academy/api/run-actor-and-retrieve-data-via-api), we'll need to grab hold of the ID of the Actor we just created and pushed to the platform. The ID is always accessible through the **Settings** page of the actor.
 
 ![Actor ID in actor settings](./images/actor-settings.jpg)
 
