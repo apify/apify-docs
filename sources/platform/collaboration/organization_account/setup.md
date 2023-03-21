@@ -2,7 +2,7 @@
 title: Setup
 description: Configure your organization account by inviting new members and assigning their roles. Manage team members' access permissions to the organization's resources.
 sidebar_position: 1
-slug: /access-rights/organization-account/setup
+slug: /collaboration/organization-account/setup
 ---
 
 # Setup
@@ -21,7 +21,7 @@ You can add members to your organization in the **Members** tab. You can use the
 
 The **Members** tab allows you to view and manage your organization's members and transfer the organization's membership.
 
-![Organization members](../images/members.png)
+![Organization members](../images/organizations/members.png)
 
 ## Define roles and permissions {#define-roles-and-permissions}
 
@@ -29,7 +29,7 @@ Roles allow you to define permissions to your organization's resources by group.
 
 To edit the permissions for each role, click on the **Configure permissions** button in the top-right corner.
 
-![Organization roles](../images/roles.png)
+![Organization roles](../images/organizations/roles.png)
 
 > Each member can only have one role to avoid conflicting permissions.
 
@@ -37,7 +37,7 @@ You can configure individual permissions for each resource type such as actors, 
 
 **Some permissions have dependencies**. For example, if someone has the **actor run** permission, it is likely they will also need the **storage write** permission, so they can store the results from their actor runs.
 
-![Configure permissions](../images/configure-permissions.png)
+![Configure permissions](../images/organizations/configure-permissions.png)
 
 [See the full list of permissions](../list_of_permissions.md) that can be granted to Apify resources.
 

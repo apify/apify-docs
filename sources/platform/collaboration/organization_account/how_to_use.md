@@ -2,7 +2,7 @@
 title: How to use
 description: Learn to use and manage your organization account using the Apify Console or API. View the organizations you are in and manage your memberships.
 sidebar_position: 2
-slug: /access-rights/organization-account/how-to-use
+slug: /collaboration/organization-account/how-to-use
 ---
 
 # Using the organization account
@@ -21,7 +21,7 @@ While you can't manage an organization account via [API](/api/v2), you can still
 
 You can switch into **Organization account** view using the account button in the top-left corner.
 
-![Switch to organization account](../images/switch-to-organization.png)
+![Switch to organization account](../images/organizations/switch-to-organization.png)
 
 In the menu, the account you are currently using is displayed at the top, with all the accounts you can switch to displayed below. When you need to get back to your personal account, you can just switch right back to it – no need to log in and out.
 
@@ -35,7 +35,7 @@ You can view and manage the organizations you are a member of from the **Organiz
 
 If you want to leave an organization you own, you must first transfer ownership to someone else.
 
-![My organizations](../images/my-organizations.png)
+![My organizations](../images/organizations/my-organizations.png)
 
 ### Transfer ownership {#transfer-ownership}
 
@@ -47,7 +47,7 @@ While you cannot manage an organization account's settings and members via API, 
 
 As a member of an organization, you are assigned an [API token](../../integrations/index.md) (under the **Integrations** tab) and proxy password (click the **Proxy** button in the left menu) for accessing the Apify platform via REST API.
 
-![Integration tokens](../images/integrations.png)
+![Integration tokens](../images/organizations/integrations.png)
 
 The API tokens' functionality reflects your account's permissions in the organization, so if you only have the **read** and **run** permissions for actors, you will only be able to view and run actors via API. Only you can view your API token and password.
 

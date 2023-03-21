@@ -2,7 +2,7 @@
 title: Organization account
 description: Create a specialized account for your organization to encourage collaboration and manage permissions. Convert an existing account, or create one from scratch.
 sidebar_position: 12.1
-slug: /access-rights/organization-account
+slug: /collaboration/organization-account
 ---
 
 # Organization account
@@ -30,7 +30,7 @@ The organization account is available on all our plans. [Visit our pricing page]
 
 You can create a new organization by clicking the **Create new organization** button under the **Organizations** tab in your [account](https://console.apify.com/account#/myorganizations). If you want the organization to have a separate email address (used for notifications), enter it here. Otherwise, leave the **email** field empty and the owner's email will be used for notifications.
 
-![Create a new organization](../images/create-new-org.png)
+![Create a new organization](../images/organizations/create-new-org.png)
 
 **You can own up to 5 and be a member of as many organizations as you need.**
 
@@ -48,7 +48,7 @@ An organization can't be a member of other organizations. If you want to convert
 
 Then, under the **Organizations** [tab](https://console.apify.com/account#/myorganizations), click the **Convert this user account to an organization** button.
 
-![Convert your account to an organization](../images/convert-to-organization.png)
+![Convert your account to an organization](../images/organizations/convert-to-organization.png)
 
 Next, set the organization's name and click **Convert**.
 
@@ -60,9 +60,9 @@ For information on [adding members and assigning roles](./setup.md), see the Set
 
 Actor and task runs are billed to the account they are started from. **Always make sure you start your runs from the correct account** to avoid having an organization's runs billed to your personal account.
 
-The Free and Personal plans are [restricted to 9 seats](https://apify.com/pricing), while the Team plan comes with 9, which you can increase later. If you are on the Team plan and want to add some more seats to the 9 it comes with, head over to your [Billing page and click on Subscriptions](https://console.apify.com/billing-new#/subscription). Click on **Upgrade**, and, in the **Add-ons** section, and add as many additional seats as you need. Then, just complete the upgrade process, and you're done.
+The Free and Personal plans are [restricted to 9 seats](https://apify.com/pricing), while the Team plan comes with a minimum of 9, which you can increase later. If you are on the Team plan and want to add some more seats to the 9 it comes with, head over to your [Billing page and click on Subscriptions](https://console.apify.com/billing-new#/subscription). Click on **Upgrade**, and, in the **Add-ons** section, and add as many additional seats as you need. Then, just complete the upgrade process, and you're done.
 
-![Adding more teams account seats](../images/upgrade.png)
+![Adding more teams account seats](../images/organizations/upgrade.png)
 
 To find out about organization pricing, get in touch at [support@apify.com](mailto:support@apify.com?subject=Organization%20account%20pricing) or [visit the pricing page](https://apify.com/pricing).
 

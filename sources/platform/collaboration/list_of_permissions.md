@@ -2,7 +2,7 @@
 title: List of permissions
 description: Learn about the access rights you can grant to other users. See a list of all access options for Apify resources such as actors, actor runs/tasks and storage.
 sidebar_position: 12.2
-slug: /access-rights/list-of-permissions
+slug: /collaboration/list-of-permissions
 ---
 
 # List of permissions
@@ -108,9 +108,3 @@ Permissions that can be granted to members of organizations. To learn about the 
 | Reset password      | Reset the account's password.                                         |
 | View invoices       | See the account's invoices.                                           |
 | Manage organization | Change the organization's settings.                                   |
-
-## Custom Solutions {#custom-solutions}
-
-| Permission       | Description                       |
-|------------------|-----------------------------------|
-| Custom Solutions | Allow access to Custom Solutions. |

@@ -112,5 +112,5 @@ All **Actor runs** are deleted along with their default storages (key-value stor
 
 ## Sharing
 
-You can share your actor runs with other Apify users via the [access rights](../../access_rights/index.md) system.
+You can share your Actor runs with other Apify users via the [access rights](../../collaboration/index.md) system.
 
