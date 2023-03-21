@@ -22,7 +22,7 @@ A single isolated Actor consists of source code and various settings. You can th
 
 ## Public and private actors
 
-Actors can be [public](./actors/running/actors-in-store) or private. Private actors are yours to use and keep; no one will see them if you don't want them to. Public actors are [available to everyone](./running/store.md) in [Apify Store](https://apify.com/store). You can make them free to use, or you can [charge for them](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/).
+Actors can be [public](./actors/running/actors-in-store) or private. Private Actors are yours to use and keep; no one will see them if you don't want them to. Public actors are [available to everyone](./running/store.md) in [Apify Store](https://apify.com/store). You can make them free to use, or you can [charge for them](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/).
 
 ## Section overview
 
@@ -30,5 +30,5 @@ This section covers the main 3 topics when it comes to Apify Actors:
 
 - [Running Actors](./actors/running) - how to run private and public Actors (from [Apify Store](https://apify.com/store)), and information about Actor configuration, pricing, and usage cost.
 - [Development](./actors/development) - start developing your own Actors.
-- [Publishing and monetization](./actors/publishing) - learn how to share your Actors with other users and monetize them on the [Apify Store](https://apify.com/store).
+- [Publishing and monetization](./actors/publishing) - learn how to share your Actors with other users and monetize them on [Apify Store](https://apify.com/store).
 

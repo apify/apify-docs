@@ -1,11 +1,11 @@
 ---
 title: Runs and builds
-description: Learn about actor builds and runs, their lifecycle, sharing, and data retention policy.
+description: Learn about Actor builds and runs, their lifecycle, sharing, and data retention policy.
 sidebar_position: 2
 slug: /actors/running/runs-and-builds
 ---
 
-**Learn about actor builds and runs, their lifecycle, sharing, and data retention policy.**
+**Learn about Actor builds and runs, their lifecycle, sharing, and data retention policy.**
 
 ---
 
@@ -16,7 +16,7 @@ An Actor is a combination of source code and various settings in a Docker contai
 > A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings.
 > <https://www.docker.com/resources/what-container/>
 
-With every new version of an Actor, a new build gets created. Each actor build has its own number (for example <strong>1.2.34</strong>), and some of the builds are tagged for easier use (for example <strong>latest</strong> or <strong>beta</strong>). When running an Actor, you can choose what build you want to run by selecting a tag or number in the run options.
+With every new version of an Actor, a new build gets created. Each Actor build has its own number (for example <strong>1.2.34</strong>), and some of the builds are tagged for easier use (for example <strong>latest</strong> or <strong>beta</strong>). When running an Actor, you can choose what build you want to run by selecting a tag or number in the run options.
 
 ![Actor run options](./images/runs_and_builds/actor-run-options.png)
 
@@ -24,7 +24,7 @@ Each build may have different features, input, or output. By fixing the build to
 
 ## Runs
 
-When you start an actor, the actor run gets created. Actor run is a Docker container created from the build's Docker image with dedicated resources (CPU, memory, disk space). For more on this topic, see [usage and resources](./usage_and_resources.md).
+When you start an Actor, an actor run gets created. An Actor run is a Docker container created from the build's Docker image with dedicated resources (CPU, memory, disk space). For more on this topic, see [usage and resources](./usage_and_resources.md).
 
 Each run has its own (default) [storages](../../storage) assigned, which it may but not nesseserarly need to use:
 
@@ -32,7 +32,7 @@ Each run has its own (default) [storages](../../storage) assigned, which it may 
 - [Dataset](../../storage/dataset) enabling actor to store the results
 - [Request queue](../../storage/request-queue) to maintain a queue of URLs to be processed
 
-What's happening inside of an actor is visible in the actor run log at the actor run detail:
+What's happening inside of an Actor is visible on the Actor run log in the Actor run detail:
 
 ![Actor run](./images/runs_and_builds/actor-run-detail.png)
 
@@ -88,13 +88,13 @@ You can abort a run in Apify Console using the **Abort** button or via API using
 
 ### Resurrection of finished run
 
-Any actor run in a terminal state, i.e., run with status **FINISHED**, **FAILED**, **ABORTED**, and **TIMED-OUT**, might be resurrected back to a **RUNNING** state. This is helpful in many cases, for example, when the timeout for actor run was too low or in case of an unexpected error.
+Any Actor run in a terminal state, i.e., run with status **FINISHED**, **FAILED**, **ABORTED**, and **TIMED-OUT**, might be resurrected back to a **RUNNING** state. This is helpful in many cases, for example, when the timeout for an Actor run was too low or in case of an unexpected error.
 
 The whole process of resurrection looks as follows:
 
 - Run status will be updated to **RUNNING**, and its container will be restarted with the same storages (the same behavior as when the run gets migrated to the new server).
 - Updated duration will include the time when the actor was not running. This does not affect compute unit consumption.
-- Timeout will be counted from the point when this actor run was resurrected.
+- Timeout will be counted from the point when this Actor run was resurrected.
 
 Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](/api/v2#/reference/actors/resurrect-run) API endpoint.
 

@@ -9,7 +9,7 @@ slug: /api/run-actor-and-retrieve-data-via-api
 
 ---
 
-The most popular way of [integrating](https://help.apify.com/en/collections/1669767-integrating-with-apify) the Apify platform with an external project/application is by programmatically running an [actor](/platform/actors) or [task](/platform/actors/running/tasks), waiting for it to complete its run, then collecting its data and using it within the project. Though this process sounds somewhat complicated, it's actually quite easy to do; however, due to the plethora of features offered on the Apify platform, new users may not be sure how exactly to implement this type of integration. So, let's dive in and see how you can do it.
+The most popular way of [integrating](https://help.apify.com/en/collections/1669767-integrating-with-apify) the Apify platform with an external project/application is by programmatically running an [Actor](/platform/actors) or [task](/platform/actors/running/tasks), waiting for it to complete its run, then collecting its data and using it within the project. Though this process sounds somewhat complicated, it's actually quite easy to do; however, due to the plethora of features offered on the Apify platform, new users may not be sure how exactly to implement this type of integration. So, let's dive in and see how you can do it.
 
 > Remember to check out our [API documentation](/api/v2) with examples in different languages and a live API console. We also recommend testing the API with a nice desktop client like [Postman](https://www.getpostman.com/) or [Insomnia](https://insomnia.rest).
 
@@ -22,7 +22,7 @@ If the actor being run via API takes 5 minutes or less to complete a typical run
 
 ## Run an Actor or task {#run-an-actor-or-task}
 
-> If you are unsure about the differences between an actor and task, you can read about them in the [tasks](/platform/actors/running/tasks) documentation. In brief, tasks are just pre-configured inputs for actors.
+> If you are unsure about the differences between an Actor and a task, you can read about them in the [tasks](/platform/actors/running/tasks) documentation. In brief, tasks are just pre-configured inputs for Actors.
 
 The API endpoints and usage (for both sync and async) for [Actors](/api/v2#/reference/actors/run-collection/run-actor) and [tasks](/api/v2#/reference/actor-tasks/run-collection/run-task) are essentially the same.
 
