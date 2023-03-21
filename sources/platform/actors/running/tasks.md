@@ -1,13 +1,13 @@
 ---
 title: Tasks
-description: Set up configurations of your Apify Actors for simplified usage. Create multiple configurations of the same Actor tailored to various use cases.
+description: Save configurations of your Apify Actors for later. Create multiple configurations of the same Actor tailored to various use cases.
 sidebar_position: 7.2
 slug: /actors/running/tasks
 ---
 
 # Actor tasks
 
-**Set up configurations of your Apify actors for simplified usage. Create multiple configurations of the same actor tailored to various use cases.**
+**Save configurations of your Apify Actors for later. Create multiple configurations of the same Actor tailored to various use cases.**
 
 ---
 
@@ -17,7 +17,7 @@ All your tasks are listed at [https://console.apify.com/actors/tasks](https://co
 
 You can create tasks both for your personal actors and for those made by someone else. Just [search Apify Store](https://console.apify.com/store) to find an actor you want to use and click the **Create new task** button.
 
-Like any other resource, you can share your actor tasks with other Apify users via the [access rights](../../access_rights/index.md) system.
+Like any other resource, you can share your Actor tasks with other Apify users via the [access rights](../../collaboration/index.md) system.
 
 ## Create
 
@@ -41,7 +41,7 @@ To make a task easier to identify, you can give it a name, title, and descriptio
 
 ### Settings
 
-Under the **Settings** tab of their detail page, you can grant [access rights](../../access_rights/index.md) to other Apify users.
+You can grant [access rights](../../collaboration/index.md) to other Apify users under the **Settings** tab of their detail page.
 
 ## Run
 

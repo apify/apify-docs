@@ -27,6 +27,28 @@ When running an Actor using the [API](https://docs.apify.com/api/v2) you can pas
 }
 ```
 
+### Options - Build, Timeout, and Memory
+
+As part of the input, you can also specify run options such as [build](../development/builds.md), timeout, and [memory](./usage_and_resources.md) for your Actor run.
+
+![Run options](./images/input_and_output/actor-options.png)
+
+<!-- Using an HTML table because it doesn't have a header - markdown doesn't allow tables with no headers -->
+<table>
+    <tr>
+        <td>Build</td>
+        <td>Tag or number of the build to run (e.g. <strong>latest</strong> or <strong>1.2.34</strong>).</td>
+    </tr>
+    <tr>
+        <td>Timeout</td>
+        <td>Timeout for the Actor run in seconds. Zero value means there is no timeout.</td>
+    </tr>
+    <tr>
+        <td>Memory</td>
+        <td>Amount of memory allocated for the Actor run, in megabytes.</td>
+    </tr>
+</table>
+
 ## Output
 
 While the input object provides a way to instruct Actors, an Actor can also generate an output, usually stored in its default [dataset](../../storage/dataset), but some additional files might be stored in its [key-value store](../../storage/key-value-store). Always read the Actor's README to learn more about its output.
@@ -41,5 +63,5 @@ And to access all the data associated with the run, see the **storage** tab, whe
 
 ![Actor output](./images/input_and_output/actor-storage.png)
 
-> You can also use [API](https://docs.apify.com/api/v2) to retrieve the output. To learn more about this, read the [Run an actor or task and retrieve data via API](../../tutorials/run-actor-and-retrieve-data-via-api) tutorial.
+> You can also use [API](https://docs.apify.com/api/v2) to retrieve the output. To learn more about this, read the [Run an actor or task and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api) tutorial.
 

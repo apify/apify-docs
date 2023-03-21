@@ -94,7 +94,7 @@ To access your storages from Apify Console, go to the [**Storage** section](http
 
 You can edit your stores' names by clicking their caption (ID or name) on their detail page.
 
-Under the **Settings** tab of their detail page, you can grant [access rights](../access_rights/index.md) to other Apify users.
+Under the **Settings** tab of their detail page, you can grant [access rights](../collaboration/index.md) to other Apify users.
 
 You can quickly share your storages' contents and details by sharing the URLs you find under the **API** tab in a store's detail page.
 
@@ -191,7 +191,7 @@ For example, the storage names **janedoe~my-storage-1** and **janedoe~web-scrape
 
 ## Sharing {#sharing}
 
-You can invite other Apify users to view or modify your storages using the [access rights](../access_rights/index.md) system. See the [full list of permissions](../access_rights/list_of_permissions.md).
+You can invite other Apify users to view or modify your storages with the [access rights](../collaboration/index.md) system. See the [full list of permissions](../collaboration/list_of_permissions.md).
 
 ### Sharing storages between runs {#sharing-storages-between-runs}
 

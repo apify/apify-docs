@@ -40,7 +40,7 @@ Only named datasets are displayed by default. Select the **Include unnamed datas
 ![Datasets in app](./images/datasets-app.png)
 
 To view or download a dataset in the above-mentioned formats, click on its **Dataset ID**. Under the **Settings** tab, you can update the dataset's name (and, in turn, its [retention period](./index.md)) and
-[access rights](../access_rights/index.md). Click on the `API` button to view and test the dataset's [API endpoints](/api/v2#/reference/datasets).
+[access rights](../collaboration/index.md). Click on the `API` button to view and test the dataset's [API endpoints](/api/v2#/reference/datasets).
 
 ![Datasets detail view](./images/datasets-detail.png)
 
@@ -321,7 +321,7 @@ By default, the whole result is wrapped in an `<items/>` element, while each pag
 
 ## Sharing {#sharing}
 
-You can invite other Apify users to view or modify your datasets using the [access rights](../access_rights/index.md) system. See the [full list of permissions](../access_rights/list_of_permissions.md).
+You can invite other Apify users to view or modify your datasets with the [access rights](../collaboration/index.md) system. See the [full list of permissions](../collaboration/list_of_permissions.md).
 
 ### Sharing datasets between runs {#sharing-datasets-between-runs}
 
