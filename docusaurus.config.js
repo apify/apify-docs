@@ -89,18 +89,18 @@ module.exports = {
             },
         ],
         // TODO this should be somehow computed from all the external sources
-        [
-            '@docusaurus/plugin-client-redirects',
-            {
-                createRedirects(existingPath) {
-                    if (!existingPath.endsWith('/')) {
-                        return `${existingPath}/`;
-                    }
-
-                    return undefined; // Return a falsy value: no redirect created
-                },
-            },
-        ],
+        // [
+        //     '@docusaurus/plugin-client-redirects',
+        //     {
+        //         createRedirects(existingPath) {
+        //             if (!existingPath.endsWith('/')) {
+        //                 return `${existingPath}/`;
+        //             }
+        //
+        //             return undefined; // Return a falsy value: no redirect created
+        //         },
+        //     },
+        // ],
         ...config.plugins,
     ],
     markdown: {
