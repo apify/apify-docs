@@ -261,7 +261,7 @@ const plugins = [
             trackingID: 'UA-67003981-4',
         },
     ],
-    'docusaurus-plugin-hubspot',
+    '@stackql/docusaurus-plugin-hubspot',
     // [
     //     'docusaurus-gtm-plugin',
     //     {
