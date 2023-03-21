@@ -247,6 +247,11 @@ const themeConfig = ({
             facetFilters: ['version:VERSION'],
         },
     },
+    hubspot: {
+        accountId: '19497222',
+        async: true,
+        defer: true,
+    },
 });
 
 const plugins = [
@@ -256,6 +261,7 @@ const plugins = [
             trackingID: 'UA-67003981-4',
         },
     ],
+    'docusaurus-plugin-hubspot',
     // [
     //     'docusaurus-gtm-plugin',
     //     {
