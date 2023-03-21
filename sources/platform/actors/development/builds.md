@@ -43,4 +43,4 @@ Each build starts with the initial status **READY** and goes through one or more
 
 ## Sharing {#sharing}
 
-You can allow other Apify users to view your actor builds using the [access rights](../../collaboration/index.md) system. [See the full list of permissions](../../collaboration/list_of_permissions.md).
+You can allow other Apify users to view your Actor builds by using the [access rights](../../collaboration/index.md) system. [See the full list of permissions](../../collaboration/list_of_permissions.md).

@@ -14,7 +14,7 @@ slug: /actors
 
 Actors are serverless cloud programs that can do almost anything a human can do in a web browser. They can do anything from small tasks like filling in forms or unsubscribing from online services all the way up to scraping and processing vast numbers of web pages.
 
-You can use actors [manually in the Apify Console](https://console.apify.com/actors), using [API](/api/v2) or [scheduler](../schedules.md). You can easily [integrate them with other apps](../integrations/index.md) and share your actors with other Apify users via our [Apify Store](https://apify.com/store) or [access rights](./collaboration/access-rights) system.
+You can use Actors [manually in Apify Console](https://console.apify.com/actors), by using the [API](/api/v2) or [scheduler](../schedules.md). You can easily [integrate them with other apps](../integrations/index.md) and share your Actors with other Apify users via [Apify Store](https://apify.com/store) or [access rights](./collaboration/access-rights) system.
 
 > New to Apify? Try actors with our [quick start](../index.mdx) tutorial and see the [Apify Academy's courses](/academy).
 

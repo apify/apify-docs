@@ -151,4 +151,4 @@ Additionally, you can use the following shortcut expressions:
 
 ## Sharing
 
-You can invite other Apify users to view or modify your schedules using the [access rights](./collaboration/index.md) system. See the [full list of permissions](./collaboration/list_of_permissions.md).
+You can invite other Apify users to view or modify your schedules with the [access rights](./collaboration/index.md) system. See the [full list of permissions](./collaboration/list_of_permissions.md).

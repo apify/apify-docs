@@ -217,7 +217,7 @@ See the [API documentation](/api/v2#/reference/request-queues) for a detailed br
 
 ## Sharing {#sharing}
 
-You can invite other Apify users to view or modify your request queues using the [access rights](../collaboration/index.md) system. See the [full list of permissions](../collaboration/list_of_permissions.md).
+You can invite other Apify users to view or modify your request queues with the [access rights](../collaboration/index.md) system. See the [full list of permissions](../collaboration/list_of_permissions.md).
 
 ### Sharing request queues between runs {#sharing-request-queues-between-runs}
 

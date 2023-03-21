@@ -191,7 +191,7 @@ For example, the storage names **janedoe~my-storage-1** and **janedoe~web-scrape
 
 ## Sharing {#sharing}
 
-You can invite other Apify users to view or modify your storages using the [access rights](../collaboration/index.md) system. See the [full list of permissions](../collaboration/list_of_permissions.md).
+You can invite other Apify users to view or modify your storages with the [access rights](../collaboration/index.md) system. See the [full list of permissions](../collaboration/list_of_permissions.md).
 
 ### Sharing storages between runs {#sharing-storages-between-runs}
 

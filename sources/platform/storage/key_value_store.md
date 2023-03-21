@@ -204,7 +204,7 @@ You can compress a record and use the [Content-Encoding request header](https://
 
 ## Sharing
 
-You can invite other Apify users to view or modify your key-value stores using the [access rights](../collaboration/index.md) system. See the [full list of permissions](../collaboration/list_of_permissions.md).
+You can invite other Apify users to view or modify your key-value stores with the [access rights](../collaboration/index.md) system. See the [full list of permissions](../collaboration/list_of_permissions.md).
 
 ### Sharing key-value stores between runs
 
