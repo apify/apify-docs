@@ -1,200 +1,32 @@
-{
-    "Get started": [
-        {
-            "cardItem": "What is Apify?",
-            "href": "/platform/about"
-        },
-        {
-            "cardItem": "Quick start",
-            "href": "/platform/tutorials/quick-start"
-        },
-        {
-            "cardItem": "Start using Apify scrapers",
-            "href": "/academy/apify-scrapers/getting-started"
-        },
-        {
-            "cardItem": "Learn to use Web Scraper",
-            "href": "/academy/apify-scrapers/web-scraper"
-        },
-        {
-            "cardItem": "Take a video tour of the platform",
-            "href": "https://www.youtube.com/watch?v=nn-bCRvhNUM",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Apify vocabulary",
-            "href": "https://help.apify.com/en/articles/3408158-apify-vocabulary",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "What is an actor?",
-            "href": "/platform/actors"
-        },
-        {
-            "cardItem": "What is web scraping?",
-            "href": "/academy/web-scraping-for-beginners"
-        }
-    ],
-    "Guides": [
-        {
-            "cardItem": "Actor tasks",
-            "href": "/platform/actors/tasks"
-        },
-        {
-            "cardItem": "Run an actor and retrieve data via API",
-            "href": "/platform/tutorials/run-actor-and-retrieve-data-via-api"
-        },
-        {
-            "cardItem": "Log into a website",
-            "href": "/academy/puppeteer-playwright/common-use-cases/logging-into-a-website"
-        },
-        {
-            "cardItem": "Integrations",
-            "href": "/platform/integrations"
-        },
-        {
-            "cardItem": "Use Apify from PHP",
-            "href": "/academy/php/using-apify-scraper-with-php"
-        },
-        {
-            "cardItem": "Automate repetitive tasks",
-            "href": "/academy/concepts/robotic-process-automation"
-        },
-        {
-            "cardItem": "Process data in Python with Pandas",
-            "href": "/academy/python/process-data-using-python"
-        }
-    ],
-    "Web scraping": [
-        {
-            "cardItem": "Web scraping academy",
-            "href": "https://developers.apify.com/academy/web-scraping-for-beginners",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Basics of data collection",
-            "href": "https://developers.apify.com/academy/web-scraping-for-beginners/data-collection",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Scrape Twitter",
-            "href": "https://blog.apify.com/how-to-scrape-tweets-and-more-on-twitter-59330e6fb522",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Scrape Facebook",
-            "href": "https://blog.apify.com/how-to-scrape-facebook-pages-posts-comments-photos-and-more-425ebef352d8",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Scrape Amazon",
-            "href": "https://blog.apify.com/step-by-step-guide-to-scraping-amazon-c3c8b481333",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Analyze page content before scraping",
-            "href": "/academy/concepts"
-        },
-        {
-            "cardItem": "Analyze pages and fix errors",
-            "href": "/academy/node-js/analyzing-pages-and-fixing-errors"
-        },
-        {
-            "cardItem": "Scrape data in Python with Beautiful Soup",
-            "href": "/academy/python/scrape-data-python"
-        }
-    ],
-    "Platform features": [
-        {
-            "cardItem": "Proxy",
-            "href": "/platform/proxy"
-        },
-        {
-            "cardItem": "API Docs",
-            "href": "/api/v2"
-        },
-        {
-            "cardItem": "Integrate with the Apify platform",
-            "href": "/platform/integrations"
-        },
-        {
-            "cardItem": "Manage data",
-            "href": "/platform/storage"
-        },
-        {
-            "cardItem": "Schedule actor runs",
-            "href": "/platform/schedules"
-        },
-        {
-            "cardItem": "Monitor actor and task runs",
-            "href": "/platform/monitoring"
-        }
-    ],
-    "Reduce blocking": [
-        {
-            "cardItem": "Connect to Apify Proxy",
-            "href": "/platform/proxy/connection-settings"
-        },
-        {
-            "cardItem": "Bypass anti-scraping techniques",
-            "href": "/academy/anti-scraping/techniques"
-        },
-        {
-            "cardItem": "Use a proxy in your browser",
-            "href": "https://help.apify.com/en/articles/3858935-how-to-use-a-proxy-in-your-browser",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Manage proxies in Apify SDK",
-            "href": "https://sdk.apify.com/docs/guides/proxy-management",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Reduce blocking using sessions in SDK",
-            "href": "https://sdk.apify.com/docs/guides/session-management",
-            "isExternalLink": true
-        }
-    ],
-    "Build actors": [
-        {
-            "cardItem": "Meet the Apify SDK",
-            "href": "https://sdk.apify.com",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Meet Crawlee",
-            "href": "https://crawlee.dev/docs",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Build your first crawler",
-            "href": "https://crawlee.dev/docs/quick-start",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Apify SDK API reference",
-            "href": "https://sdk.apify.com/api/apify",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Actor code examples",
-            "href": "https://crawlee.dev/docs/examples/basic-crawler",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Crawl a site using Cheerio Scraper",
-            "href": "https://crawlee.dev/docs/examples/cheerio-crawler",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Manage requests in SDK",
-            "href": "https://sdk.apify.com/docs/guides/request-storage",
-            "isExternalLink": true
-        },
-        {
-            "cardItem": "Manage results in SDK",
-            "href": "https://sdk.apify.com/docs/guides/result-storage",
-            "isExternalLink": true
-        }
-    ]
-}
+[
+    {
+        "title": "Actors",
+        "description": "Learn how to develop, run and share own web scraping and automation tools.",
+        "to": "/platform/actors"
+    },
+    {
+        "title": "Storage",
+        "description": "Store anything from images and key-value pairs to structured output data.",
+        "to": "/platform/storage"
+    },
+    {
+        "title": "Proxy",
+        "description": "Learn to anonymously and reliably access websites in scraping/automation jobs.",
+        "to": "/platform/proxy"
+    },
+    {
+        "title": "Schedules",
+        "description": "Learn how to automatically start your Actor and task runs.",
+        "to": "/platform/schedules"
+    },
+    {
+        "title": "Integrations",
+        "description": "Learn how to connect the Apify platform with your projects.",
+        "to": "/platform/integrations"
+    },
+    {
+        "title": "Monitoring",
+        "description": "Learn how to check the performance of your Actors, validate your data and receive alerts.",
+        "to": "/platform/monitoring"
+    }
+]

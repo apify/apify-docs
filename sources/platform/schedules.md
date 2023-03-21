@@ -32,9 +32,9 @@ Each schedule can be associated with a maximum of 10 actors and 10 actor tasks.
 
 ## Setting up a new schedule
 
-Before setting up a new schedule, you should have the [actor](./actors/index.md) or [task](./actors/tasks.md) whose run you want to schedule prepared and tested.
+Before setting up a new schedule, you should have the [Actor](./actors/index.md) or [task](./actors/running/tasks.md) whose run you want to schedule prepared and tested.
 
-If you are planning to schedule an actor run, you need to use the actor before you can schedule any runs. Navigate to the actor's page in [Apify Store](https://apify.com/store), click the **Try for free** button, then **Start** it with your preferred settings.
+If you are planning to schedule an Actor run, you need to use the Actor before you can schedule any runs. Navigate to the Actor's page in [Apify Store](https://apify.com/store), click the **Try for free** button, then **Start** it with your preferred settings.
 
 > Your schedule's name should be 3-63 characters long.
 
@@ -46,15 +46,15 @@ In the **Settings** tab, give your schedule a memorable name, add a description,
 
 ![New schedule](./images/schedule-settings.png)
 
-Next, you'll need to give the schedule something to run. This is where the actor or task you prepared earlier comes in. Switch to the **Actors and Tasks** tab, and click the **Add [new]** button.
+Next, you'll need to give the schedule something to run. This is where the Actor or task you prepared earlier comes in. Switch to the **Actors and Tasks** tab, and click the **Add [new]** button.
 
-If you're scheduling an actor run, you'll be able to specify the actor's [input](./actors/running/input.md) and running options like
+If you're scheduling an Actor run, you'll be able to specify the Actor's [input](./actors/running/input_and_output.md) and running options like
 [build](./actors/development/builds.md),
 timeout,
-[memory](./actors/running/memory_and_cpu.md).
-The **timeout** value is specified in seconds; a value of **0** means there is no timeout and the actor runs until it finishes.
+[memory](./actors/running/usage_and_resources.md).
+The **timeout** value is specified in seconds; a value of **0** means there is no timeout, and the Actor runs until it finishes.
 
- If you don't provide an input, then the actor's default input is used. If you provide an input with some fields missing, the missing fields are filled in with values from the default input. If input options are not provided, the default options values are used.
+ If you don't provide an input, then the Actor's default input is used. If you provide an input with some fields missing, the missing fields are filled in with values from the default input. If input options are not provided, the default options values are used.
 
 ![Add actor to schedule](./images/schedule-actor-run.png)
 
@@ -151,4 +151,4 @@ Additionally, you can use the following shortcut expressions:
 
 ## Sharing
 
-You can invite other Apify users to view or modify your schedules using the [access rights](./access_rights/index.md) system. See the [full list of permissions](./access_rights/list_of_permissions.md).
+You can invite other Apify users to view or modify your schedules with the [access rights](./collaboration/index.md) system. See the [full list of permissions](./collaboration/list_of_permissions.md).

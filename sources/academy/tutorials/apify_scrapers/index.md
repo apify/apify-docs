@@ -1,7 +1,7 @@
 ---
 title: Apify scrapers
 description: Discover Apify's ready-made web scraping and automation tools. Compare Web Scraper, Cheerio Scraper and Puppeteer Scraper to decide which is right for you.
-sidebar_position: 3.2
+sidebar_position: 13.2
 slug: /apify-scrapers
 ---
 
@@ -42,4 +42,3 @@ Puppeteer Scraper is the most powerful scraper tool in our arsenal (aside from d
 Puppeteer is a Node.js library, so knowledge of Node.js and its paradigms is expected when working with Puppeteer Scraper.
 
 [Visit the Puppeteer Scraper tutorial to get started!](./puppeteer_scraper.md)
-

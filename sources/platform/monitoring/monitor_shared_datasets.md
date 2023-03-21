@@ -13,11 +13,11 @@ slug: /monitoring/monitor-shared-datasets
 
 ---
 
-This example walks you through setting up [monitoring](https://apify.com/apify/monitoring) for a [dataset](../storage/dataset.md) to which multiple [actors](../actors/index.md) or [tasks](../actors/tasks.md) add data.
+This example walks you through setting up [monitoring](https://apify.com/apify/monitoring) for a [dataset](../storage/dataset.md) to which multiple [Actors](../actors/index.md) or [tasks](../actors/running/tasks.md) add data.
 
 ## Use case {#use-case}
 
-You have two or more [actors](../actors/index.md) or [tasks](../actors/tasks.md) that scrape the same type of data from multiple websites and [push the data](../storage/dataset.md) to one [named dataset](../storage/index.md#named-and-unnamed-storages).
+You have two or more [Actors](../actors/index.md) or [tasks](../actors/running/tasks.md) that scrape the same type of data from multiple websites and [push the data](../storage/dataset.md) to one [named dataset](../storage/index.md#named-and-unnamed-storages).
 
 You need:
 
