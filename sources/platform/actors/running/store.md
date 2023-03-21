@@ -12,7 +12,7 @@ slug: /actors/running/actors-in-store
 > Anyone is welcome to [publish Actors](/platform/actors/publishing) in the store, and you can even [monetize your Actors](/platform/actors/publishing/monetize) by renting them out to users of the platform. For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Getting the most of your public Actors in the Apify Store](/academy/get-most-of-actors) section of the Apify Developers Academy.
 
 
-Some actors are free to use (you will be charged only for the Apify platform usage), while the others are paid with different pricing models. This page will explain to you all the approaches.
+Some Actors are free to use (you will be charged only for the Apify platform usage), while others are paid with different pricing models. This page explains all the options.
 
 ## Pricing models
 

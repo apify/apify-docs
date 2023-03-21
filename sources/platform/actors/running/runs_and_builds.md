@@ -84,7 +84,7 @@ You can abort runs with the statuses **READY**, **RUNNING**, or **TIMING-OUT** i
 - **Immediately** - this is the default option. The Actor process is killed immediately with no grace period.
 - **Gracefully** - the Actor run receives a signal about aborting via the `aborting` event and is granted a 30-second window to finish in-progress tasks before getting aborted. This is helpful in cases where you plan to resurrect the run later because it gives the Actor a chance to persist its state. When resurrected, the Actor can restart where it left off.
 
-You can abort a run in the Apify Console using the **Abort** button or via API using the [Abort run](/api/v2#/reference/actor-runs/abort-run/abort-run) endpoint.
+You can abort a run in Apify Console using the **Abort** button or via API using the [Abort run](/api/v2#/reference/actor-runs/abort-run/abort-run) endpoint.
 
 ### Resurrection of finished run
 

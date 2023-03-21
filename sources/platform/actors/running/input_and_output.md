@@ -51,7 +51,7 @@ As part of the input, you can also specify run options such as [build](../develo
 
 ## Output
 
-While the input object provides a way to instruct actors, the actors can also generate an output, usually stored in its default [dataset](../../storage/dataset), but some additional files might be stored in its [key-value store](../../storage/key-value-store). Always read the actor's README to learn more about its output.
+While the input object provides a way to instruct Actors, an Actor can also generate an output, usually stored in its default [dataset](../../storage/dataset), but some additional files might be stored in its [key-value store](../../storage/key-value-store). Always read the Actor's README to learn more about its output.
 
 > For more details about storages, visit the [storage](../../storage/index.md) section.
 
