@@ -49,7 +49,7 @@ In the **Settings** tab, give your schedule a memorable name, add a description,
 Next, you'll need to give the schedule something to run. This is where the Actor or task you prepared earlier comes in. Switch to the **Actors and Tasks** tab, and click the **Add [new]** button.
 
 If you're scheduling an Actor run, you'll be able to specify the Actor's [input](./actors/running/input_and_output.md) and running options like
-[build](./actors/development/builds.md),
+[build](./actors/development/builds_and_runs/builds.md),
 timeout,
 [memory](./actors/running/usage_and_resources.md).
 The **timeout** value is specified in seconds; a value of **0** means there is no timeout, and the Actor runs until it finishes.

@@ -1,5 +1,5 @@
 ---
-title: Environment variables
+title: LEGACY Environment variables
 description: Learn how to provide your actor with context that determines its behavior through a plethora of pre-defined environment variables offered by the Apify SDK.
 slug: /actors/development/environment-variables
 ---

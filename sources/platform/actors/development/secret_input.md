@@ -1,5 +1,5 @@
 ---
-title: Secret input
+title: LEGACY Secret input
 description: Learn about making some actor input fields secret and encrypted. Ideal for passing passwords, API tokens or login cookies to actors.
 slug: /actors/development/secret-input
 ---
@@ -14,7 +14,7 @@ The secret input feature allows you to mark some actor input fields as secret, c
 
 ## Setting an input field as secret
 
-To make an input field secret, just add a `"isSecret": true` setting to the input field in the actor's [input schema](./input_schema.md), like this:
+To make an input field secret, just add a `"isSecret": true` setting to the input field in the actor's [input schema](./actor_definition/input_schema.md), like this:
 
 <!-- eslint-skip -->
 ```json

@@ -5,7 +5,7 @@ sidebar_position: 7.4
 slug: /actors/development
 ---
 
-# Development
+# Development quick start
 
 **Read about the technical part of building Apify actors. Learn to define actor inputs, build new versions, persist actor state, and choose base Docker images.**
 

@@ -1,5 +1,5 @@
 ---
-title: Source code
+title: LEGACY Source code
 description: Learn all about an Apify actor's code. Compare deployment options, create a custom Dockerfile, set environment variables and metamorph your actor.
 slug: /actors/development/source-code
 ---
@@ -18,7 +18,7 @@ If the actor's source code requires the use of multiple files/directories, then 
 
 The only required file for multi-file is **Dockerfile**, and all other files depend on your Dockerfile settings. By default, Apify's custom NodeJS Dockerfile is used, which requires a **main.js** file containing your source code and a **package.json** file containing package configurations for [NPM](https://www.npmjs.com/).
 
-See [Custom Dockerfile](./source_code.md) and [base Docker images](./base_docker_images.md) for more information about creating your own Dockerfile and using Apify's prepared base images.
+See [Custom Dockerfile](./source_code.md) and [base Docker images](./actor_definition/dockerfile.md) for more information about creating your own Dockerfile and using Apify's prepared base images.
 
 ## [](#git-repository)Git repository
 
@@ -83,7 +83,7 @@ COPY . ./
 
 For more information about Dockerfile syntax and commands, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
-Note that `apify/actor-node` is a base Docker image provided by Apify. There are other base images with other features available. However, you can use arbitrary Docker images as the base for your actors, although using the Apify images has some performance advantages. See [base Docker images](./base_docker_images.md) for details.
+Note that `apify/actor-node` is a base Docker image provided by Apify. There are other base images with other features available. However, you can use arbitrary Docker images as the base for your actors, although using the Apify images has some performance advantages. See [base Docker images](./actor_definition/dockerfile.md) for details.
 
 By default, all Apify base Docker images with the Apify SDK and Crawlee start your Node.js application the same way as **npm start** does, i.e. by running the command specified in the **package.json** file under the **scripts** - **start** key. The default **package.json** file is similar to the following.
 
@@ -131,7 +131,7 @@ The actor owner can specify custom environment variables that are set to the act
 
 ![Custom environment variables](../images/source-env-vars.png)
 
-Note that the custom environment variables are fixed during the build of the actor and cannot be changed later. See the [Builds](./builds.md) section for details.
+Note that the custom environment variables are fixed during the build of the actor and cannot be changed later. See the [Builds](./builds_and_runs/builds.md) section for details.
 
 To access environment variables in Node.js, use the `process.env` object, for example:
 
@@ -149,7 +149,7 @@ In order to enable active development, the actor can have multiple versions of t
 
 For example, the actor can have a production version **1.1**, a beta version **1.2** that contains new features but is still backwards compatible, and a development version **2.0** that contains breaking changes.
 
-The versions of the actors are built and run separately. For details, see [Build](./builds.md) and [Running](../running/index.md).
+The versions of the actors are built and run separately. For details, see [Build](./builds_and_runs/builds.md) and [Running](../running/index.md).
 
 ## [](#local-development)Local development
 
@@ -162,7 +162,7 @@ Unfortunately, not all features of the Apify platform can be emulated locally, t
 
 Actor source files may contain an input schema defining the input that actor accepts and the UI components used for input at Apify platform. Using input schema you can provide UI to actor users that is easy to use and also ensure that input of your actor is valid.
 
-For more information on this topic see [input schema documentation](./input_schema.md) on a separate page.
+For more information on this topic see [input schema documentation](./actor_definition/input_schema.md) on a separate page.
 
 ## [](#metamorph)Metamorph
 
