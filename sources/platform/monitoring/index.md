@@ -1,6 +1,6 @@
 ---
 title: Monitoring
-description: Learn how to check the performance of your actors, tasks and storages. Validate your data and receive notifications when your jobs succeed or fail.
+description: Learn how to check the performance of your actors and tasks. Receive notifications when your jobs or their metrics are not as you expect.
 sidebar_position: 12
 category: guides
 slug: /monitoring
@@ -8,87 +8,101 @@ slug: /monitoring
 
 # What is monitoring? {#what-is-monitoring}
 
-**Learn how to check the performance of your actors, tasks and storages. Validate your data and receive notifications when your jobs succeed or fail.**
+**Learn how to check the performance of your actors and tasks. Receive notifications when your jobs or their metrics are not as you expect.**
 
 ---
 
-Monitoring allows you to track and observe how software works. It enables you to measure and compare your programs' performance over time, and to be notified when something goes wrong.
+Monitoring allows you to track and observe how the software works. It enables you to measure and compare your programs' performance over time and to be notified when something goes wrong.
 
-You can use data you gain from monitoring to optimize your software and maximize its potential.
+You can use the data you gain from monitoring to optimize your software and maximize its potential.
 
 ## What can I gain from monitoring? {#what-can-i-gain-from-monitoring}
 
 In essence, monitoring gives you more time. It allows you to automate processes that are complicated or tedious if you have to do them manually.
 
-If you are [scraping your competitor's website](https://www.youtube.com/watch?v=BsidLZKdYWQ) every day, you have already automated a part of the process. With monitoring, you can save even more time and ensure all your results are usable even before you need them.
+If you are [scraping your competitor's website](https://www.youtube.com/watch?v=BsidLZKdYWQ) every day, you have already automated a part of the process. With monitoring, you can save even more time and ensure all of your solutions are running as you expect.
 
-And if the scraping job fails, you will receive a notification, so there will be no unpleasant surprises.
+And if your solutions are not working as expected, you will receive a notification, so there will be no unpleasant surprises.
 
-## What is the Apify monitoring suite? {#what-is-the-apify-monitoring-suite}
+## What should I monitor when scraping? {#what-should-i-monitor}
 
-The [monitoring suite](https://apify.com/apify/monitoring) is a collection of [Apify actors](../actors/index.md) that allows you to automate the monitoring of jobs you have running on the [Apify platform](https://apify.com).
+There are many metrics you might want to monitor when you are scraping the web. Here are some examples:
 
-You can use it to monitor anything from a single Actor to complex projects spanning multiple Actors, [tasks](../actors/running/tasks.md) or [storages](../storage/index.md).
+1. The number of results returned by your solution. This is useful if you are scraping a list of products, for example. You can set up an alert to notify you if the number of results is lower than expected. Which indicates that something changed on the website you are scraping.
+2. Duration of the run. If your solution is taking longer than usual to finish, you can set up an alert to notify you, this will help you prevent your solution from being stuck and from wasting resources.
+3. Proxy usage. Seeing how your solution is using proxy and if there are any changes can help you optimize your usage and prevent increased costs if your solution starts behaving differently than you expect.
 
-## How does it work? {#how-does-it-work}
+These are just a few examples of what you can monitor, there are many other things you might want to monitor when scraping and Apify Console can help you with that.
 
-The monitoring suite is made up of a system of actors: **checkers** and **reporters**. Based on your configuration, the suite will create [schedules](../schedules.md) and [webhooks](../integrations/webhooks/index.md) under your account and use those to run these actors.
+## What can Apify monitoring do for you? {#what-can-apify-monitoring-do}
 
-As the names suggest, the checkers make sure your data is up to standard. Reporters create visualizations of how your actors perform over time and send [notifications](#notifications) about failed runs.
+The monitoring is a view that you can find on any actor or saved Task in the Apify Console. It allows you to display metric statistics about runs of your solution and set up alerts for when your solution behaves differently than you expect.
 
-![Monitoring dashboard](./images/monitoring-dashboard.png)
+Currently, the monitoring view offers the following features:
+
+1. Chart showing statuses of runs of the actor or saved task over last 30 days.
+
+![Daily run statuses](./images/daily-run-statuses.png)
+
+2. Chart displaying metrics of the last 200 runs of the actor or saved task.
+
+![Run statistics](./images/run-statistics-chart.png)
+
+3. Option to set up alerts with notifications based on the run metrics.
+
+![Alerts](./images/alerts.png)
+
+Both charts can also be added to your Apify Console home page so that you can quickly see if there are any issues every time you open the Apify Console.
 
 ## How much does it cost? {#how-much-does-it-cost}
 
-You can use the monitoring suite **free of charge**, but under the hood, it is a system of actors that consume [compute units](https://help.apify.com/en/articles/3490384-what-is-a-compute-unit) (CUs). We have tried our best to make it as efficient as possible.
+The monitoring system is free for all users. You can use it to monitor as many actors and tasks as you want and it does not use any additional resources on top of your usage when running them.
 
-* Medium projects (single monitoring configuration with 5-20 daily running monitored tasks or actors) should consume around **10 CUs per month**.
-* Bigger projects (more monitoring configurations with more than 20 daily running tasks or actors) can exceed **50 CUs+ per month**.
+## How do the alerts work? {#how-do-the-alerts-work}
 
-## How can I set up monitoring? {#how-can-i-set-up-monitoring}
+When you set up an alert you have two choices of how you want the metrics to be evaluated. And depending on your choices the alerting system will behave differently:
 
-We currently have video tutorials for setting up monitoring and adding data validation.
+1. **Alert, when the metric is lower than** - This type of alert is checked after the run finishes. If the metric is lower than the value you set, the alert will be triggered and you will receive a notification.
 
-* [Set up monitoring](https://www.youtube.com/watch?v=bLVk5dkFA7Y).
+2. **Alert, when the metric is higher than** - This type of alert is checked both during the run, and after the run finishes. During the run we are doing periodic checks (approximately every 5 minutes) so that we can notify you as soon as possible if the metric is higher than the value you set. After the run finishes we are doing a final check to make sure that the metric did not change over the limit in the last few minutes of the run.
 
-* [Add data validation](https://www.youtube.com/watch?v=Yha8X4cLtw8).
+![Metric condition configuration](./images/metric-options.png)
 
-We also have written tutorials for the following use cases.
+## How can I get notified? {#how-can-i-get-notified}
 
-* [Monitor actor or task runs for failure](./actor_or_task_run_failure.md)
+You can get notified by email, Slack, or in the Apify Console. If you use Slack, we suggest using Slack notifications instead of email, because they are more reliable and you can also get notified quicker.
 
-* [Checking product-based data for correct format and duplicates](./check_data_quality.md)
+1. **Email** - You can set up one or more emails to receive alert notifications, to do that you just have to separate them by commas. You can also disable email notifications if you don't want to receive them.
+2. **Slack** - To set up Slack notifications you first need to connect your Slack workspace to Apify. To do that, go to your [account integration settings](https://console.apify.com/account/integrations) and click on the **+ Add workspace** button in the Slack section. Once you have your workspace connected, you can choose the workspace when setting up alert notifications and then pick a channel where you want the notifications to be delivered to.
+3. **In app** - You can also get notified in the Apify Console. This is useful if you are using if you are accessing the Apify Console often and you do not need to be notified as soon as possible.
 
-* [Monitoring shared datasets](./monitor_shared_datasets.md)
+![Notifications configurations](./images/notifications.png)
 
-* [Monitoring multiple actors or tasks](./monitor_multiple_tasks.md)
+## What do the alert notifications look like? {#how-do-the-alert-notifications-look-like}
 
-## How do I turn it off or make changes? {#how-do-i-turn-it-off-or-make-changes}
+The email and Slack alert notifications both contain the same information. You will receive a notification with the following information:
 
-To turn off a monitoring task, simply run it with the **Mode** (in the task's **Input** section) set to **Delete configuration**. It will clean up all its resources and turn off all monitoring activity. You will no longer receive [notifications](#notifications).
+1. **Alert name**
+2. **Value** - The value of the metric when the alert was triggered.
+3. **Run ID** - The ID of the run that triggered the alert which links directly to the run detail in Apify Console.
+4. **Actor** - The full name of the actor that triggered the alert which links to the actor detail in Apify Console.
+5. **Task** - If the monitoring alert was set up for a task, then this field will contain the name of the task which links to the task detail in Apify Console.
 
-To make any changes to an existing configuration, choose the **Update configuration** mode in the task's **Input**, make your changes and run the monitoring suite task again.
+Both notification types also contain action buttons to quickly access the run which caused the alert and to open the configuration of the alert, in case it's misconfigured.
 
-### Add the monitoring suite to your account {#add-the-monitoring-suite-to-your-account}
+![Email notification](./images/email-notification.png)
 
-On the monitoring suite's [page](https://apify.com/apify/monitoring) in [Apify Store](https://apify.com/store), click the **Try for free** button. This will take you to [Apify Console](https://console.apify.com). Add the suite to your [list of Actors](https://console.apify.com/actors) and create a new [task](../actors/running/tasks.md).
+While the in app notification will contain less information, it will point you directly to the actor or task that triggered the alert:
 
-![Monitoring actor in Apify Store](./images/monitoring-in-store.png)
+![In app notification](./images/in-app-notification.png)
 
-## Notifications {#notifications}
+## Other monitoring solutions? {#other-monitoring-solutions}
 
-The suite will send notifications to the [email address associated with your account](https://console.apify.com/account) by default.
+For more complex monitoring you can use the [monitoring suite](https://apify.com/apify/monitoring) which is a collection of [Apify actors](../actors/index.md) that allows you to automate the monitoring of jobs you have running on the [Apify platform](https://apify.com). Compared to the monitoring in the Apify Console, the monitoring suite offers some features that are not available in the Apify Console, such as:
 
-You can disable email notifications or change the email address in a task **Input**'s **Email notifications** section.
+1. Schema validation of the output
+2. Duplicates check in the output
+3. Dashboards with data grouping
+4. Running the monitoring daily/weekly/monthly instead of after every run
 
-![Customize notifications](./images/customize-notifications.png)
-
-If you use [Slack](https://slack.com/), we suggest using Slack notifications instead of email. More details and setup instructions [here](https://apify.com/apify/monitoring#notifications).
-
-### Example of a failed run {#example-of-a-failed-run}
-
-Below is an example of an email notification for a task run that did not return enough results.
-
-![Failed run example](./images/puppies-failed-run.png)
-
-To see what went wrong, click on the **time** next to **Actor run** to open your task's **Runs** dashboard. When you click on **Details**, you'll find a detailed monitoring report in JSON format.
+But be warned that this solution is more complex and requires more time to set up. Also, it uses schedules, actors, tasks, and webhooks, so using it will increase your overall usage on the Apify platform.
