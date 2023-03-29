@@ -96,7 +96,7 @@ While the in app notification will contain less information, it will point you d
 
 ![In app notification](./images/in-app-notification.png)
 
-## Other monitoring solutions? {#other-monitoring-solutions}
+## Other monitoring solutions {#other-monitoring-solutions}
 
 For more complex monitoring you can use the [monitoring suite](https://apify.com/apify/monitoring) which is a collection of [Apify actors](../actors/index.md) that allows you to automate the monitoring of jobs you have running on the [Apify platform](https://apify.com). Compared to the monitoring in the Apify Console, the monitoring suite offers some features that are not available in the Apify Console, such as:
 
