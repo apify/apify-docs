@@ -1,14 +1,14 @@
 ---
-title: Basics of data collection
-description: Learn about HTML, CSS, and JavaScript, the basic building blocks of a website, and how to use them in web scraping and data collection.
+title: Basics of data extraction
+description: Learn about HTML, CSS, and JavaScript, the basic building blocks of a website, and how to use them in web scraping and data extraction.
 sidebar_position: 1.2
 category: courses
 slug: /web-scraping-for-beginners/data-collection
 ---
 
-# Basics of data collection {#basics}
+# Basics of data extraction {#basics}
 
-**Learn about HTML, CSS, and JavaScript, the basic building blocks of a website, and how to use them in web scraping and data collection.**
+**Learn about HTML, CSS, and JavaScript, the basic building blocks of a website, and how to use them in web scraping and data extraction.**
 
 ---
 

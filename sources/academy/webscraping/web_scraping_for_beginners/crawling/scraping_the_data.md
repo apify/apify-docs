@@ -11,7 +11,7 @@ slug: /web-scraping-for-beginners/crawling/scraping-the-data
 
 ---
 
-At the [very beginning of the course](../index.md), we learned that the term web scraping usually means a combined process of data extraction and crawling. And this is exactly what we'll do in this lesson. We will take the code we built in the previous lesson and in the [Basics of data collection](../data_extraction/node_continued.md) section, and we will combine that into a web scraper.
+At the [very beginning of the course](../index.md), we learned that the term web scraping usually means a combined process of data extraction and crawling. And this is exactly what we'll do in this lesson. We will take the code we built in the previous lesson and in the [Basics of data extraction](../data_extraction/node_continued.md) section, and we will combine that into a web scraper.
 
 ## Quick review of earlier's code {#review-code}
 
