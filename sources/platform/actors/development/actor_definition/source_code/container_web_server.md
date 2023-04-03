@@ -1,5 +1,5 @@
 ---
-title: LEGACY Container web server
+title: Container web server
 description: Learn about how to run a web server inside your Actor, which enables you to communicate with the outer world via both UI and API.
 slug: /actors/development/container-web-server
 ---
@@ -14,7 +14,7 @@ Each actor run is assigned a unique hard-to-guess URL (e.g. `kmdo7wpzlshygi.runs
 - In the API as the `containerUrl` property of the [Run object](/api/v2#/reference/actors/run-object/get-run).
 - In the Actor run's container as the **APIFY_CONTAINER_URL** environment variable.
 
-The web server running inside the container must listen at the port defined by the `APIFY_CONTAINER_PORT` environment variable (typically 4321). If you want to use another port, simply define the **APIFY_CONTAINER_PORT** environment variable with the desired port number in your actor version configuration - see [Custom environment variable](../development/source_code.md) for details.
+The web server running inside the container must listen at the port defined by the `APIFY_CONTAINER_PORT` environment variable (typically 4321). If you want to use another port, simply define the **APIFY_CONTAINER_PORT** environment variable with the desired port number in your actor version configuration - see [Custom environment variables](../environment_variables.md) for details.
 
 The following example demonstrates how to start a simple web server in your Actor:
 

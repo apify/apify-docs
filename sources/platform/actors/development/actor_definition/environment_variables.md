@@ -1,5 +1,5 @@
 ---
-title: LEGACY Environment variables
+title: Environment variables
 description: Learn how to provide your actor with context that determines its behavior through a plethora of pre-defined environment variables offered by the Apify SDK.
 slug: /actors/development/environment-variables
 ---
@@ -10,7 +10,9 @@ slug: /actors/development/environment-variables
 
 ---
 
-Aside from [custom environment variables](./source_code.md), the actor's process has several environment variables set to provide it with context:
+## System environment variables
+
+The actor's process has several environment variables set to provide it with context:
 
 | Environment Variable               | Description                                                                                                                                                                                                                |
 |------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -27,13 +29,13 @@ Aside from [custom environment variables](./source_code.md), the actor's process
 | `APIFY_HEADLESS`                   | If set to **1**, the web browsers inside the actor should run in headless mode because there is no windowing system available.                                                                              |
 | `APIFY_IS_AT_HOME`                 | Is set to **1** if the actor is running on Apify servers.                                                                                                                                                             |
 | `APIFY_MEMORY_MBYTES`              | Indicates the size of memory allocated for the actor run, in megabytes. It can be used by actors to optimize their memory usage.                                                                       |
-| `APIFY_PROXY_PASSWORD`             | The [Apify Proxy](../../proxy/index.md) password of the user who started the actor.                                                                                                                                            |
+| `APIFY_PROXY_PASSWORD`             | The [Apify Proxy](../../../proxy/index.md) password of the user who started the actor.                                                                                                                                            |
 | `APIFY_STARTED_AT`                 | Date when the actor was started.                                                                                                                                                                                           |
 | `APIFY_TIMEOUT_AT`                 | Date when the actor will time out.                                                                                                                                                                                         |
 | `APIFY_TOKEN`                      | The API token of the user who started the actor.                                                                                                                                                                      |
 | `APIFY_USER_ID`                    | ID of the user who started the actor. Note that it might be different than the owner of the actor.                                                                                                               |
-| `APIFY_CONTAINER_PORT`             | TCP port on which the actor can start a HTTP server to receive messages from the outside world. See [Container web server](../running/index.md) section for more details. |
-| `APIFY_CONTAINER_URL`              | A unique public URL under which the actor run web server is accessible from the outside world. See [Container web server](../running/index.md) section for more details.  |
+| `APIFY_CONTAINER_PORT`             | TCP port on which the actor can start a HTTP server to receive messages from the outside world. See [Container web server](../../running/index.md) section for more details. |
+| `APIFY_CONTAINER_URL`              | A unique public URL under which the actor run web server is accessible from the outside world. See [Container web server](../../running/index.md) section for more details.  |
 
 
 Dates are always in the UTC timezone and are represented in simplified extended ISO format ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)), e.g. **2022-07-13T14:23:37.281Z**.
@@ -50,3 +52,21 @@ To access environment variables in Python, use the `os.environ` dictionary, for 
 import os
 print(os.environ['APIFY_USER_ID'])
 ```
+
+## [](#custom-environment-variables)Custom environment variables
+
+The actor owner can specify custom environment variables that are set to the actor's process during the run. Sensitive environment variables such as passwords or API tokens can be protected by setting the **Secret** option. With this option enabled, the value of the environment variable is encrypted and it will not be visible in the app or APIs. In addition, the value is redacted from actor logs to avoid the accidental leakage of sensitive data.
+
+![Custom environment variables](./images/environment-vatiables-source.png)
+
+Note that the custom environment variables are fixed during the build of the actor and cannot be changed later. See the [Builds](../builds_and_runs/builds.md) section for details.
+
+To access environment variables in Node.js, use the `process.env` object, for example:
+
+```js
+console.log(process.env.SMTP_HOST);
+```
+
+The actor runtime sets additional environment variables for the actor process during the run. See [Environment variables](./environment_variables.md) for details.
+
+The environment variables can also be used for the build process. In this case, the variables are treated as [Docker build arguments](https://docs.docker.com/engine/reference/builder/#arg). This means that they should not be used for secrets and, in order to access them in Dockerfile, you have to use the `ARG variable_name` instruction.
