@@ -11,13 +11,13 @@ slug: /node-js/analyzing-pages-and-fixing-errors
 
 ---
 
-Debugging is absolutely essential in programming. Even if you don't call yourself a programmer, having basic debugging skills will make building crawlers easier. It will also help you safe money by allowing you to avoid hiring an expensive developer to solve your issue for you.
+Debugging is absolutely essential in programming. Even if you don't call yourself a programmer, having basic debugging skills will make building crawlers easier. It will also help you save money by allowing you to avoid hiring an expensive developer to solve your issue for you.
 
 This quick lesson covers the absolute basics by discussing some of the most common problems and the simplest tools for analyzing and fixing them.
 
 ## Possible causes {#possible-causes}
 
-It is often tricky to see the full scope of what can go wrong. We assume once the code is set up correctly, it will keep working. Unfortunately, that is rarely true in the realm of web scraping and automation.
+It is often tricky to see the full scope of what can go wrong. We assume that once the code is set up correctly, it will keep working. Unfortunately, that is rarely true in the realm of web scraping and automation.
 
 Websites change, they introduce new [anti-scraping technologies](../../webscraping/anti_scraping/index.md), programming tools change and, in addition, people make mistakes.
 
@@ -39,7 +39,7 @@ Web scraping and automation are very specific types of programming. It is not po
 
 ### Logging {#logging}
 
-Logging is an essential tool for any programmer. When used correctly, they help you capture a surprising amount of information. Here are some general rules for logging:
+Logging is an essential tool for any programmer. When used correctly, it helps you capture a surprising amount of information. Here are some general rules for logging:
 
 - Usually, **many logs** is better than **no logs** at all.
 - Putting more information into one line, rather than logging multiple short lines, helps reduce the overall log size.
