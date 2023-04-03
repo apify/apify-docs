@@ -1,15 +1,65 @@
 ---
-title: Examples
-description: Learn how to connect to Google SERP proxies from your applications with Node.js (axios and got-scraping), Python 2 and 3 and PHP using code examples.
-slug: /proxy/google-serp-proxy/examples
+title: Google SERP proxy
+description: Learn how to collect search results from Google Search-powered tools. Get search results from localized domains in multiple countries, e.g. the US and Germany.
+sidebar_position: 10.5
+slug: /proxy/google-serp-proxy
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Google SERP proxy {#google-serp-proxy}
 
-<!-- Watch out! This file is hard to read because our own "marked-tabs" language fences aren't syntax-highlighted -->
+**Learn how to collect search results from Google Search-powered tools. Get search results from localized domains in multiple countries, e.g. the US and Germany.**
 
-# Connect to Google SERP proxies
+---
+
+Google SERP proxy allows you to extract search results from Google Search-powered services. It allows searching in [various countries](#country-selection) and to dynamically switch between country domains.
+
+Our Google SERP proxy currently supports the below services.
+
+* Google Search (`http://www.google.<country domain>/search`).
+* Google Shopping (`http://www.google.<country domain>/search?tbm=shop`).
+
+> Google SERP proxy can **only** be used for Google Search and Shopping. It cannot be used to access other websites.
+
+When using the proxy, **pricing is based on the number of requests made**.
+
+To use Google SERP proxy or for more information, [contact us](https://apify.com/contact).
+
+## Connecting to Google SERP proxy {#connecting-to-google-serp-proxy}
+
+Requests made through the proxy are automatically routed through a proxy server from the selected country and pure **HTML code of the search result page is returned**.
+
+**Important:** Only HTTP requests are allowed, and the Google hostname needs to start with the `www.` prefix.
+
+For code examples on how to connect to Google SERP proxies, see the [examples](#examples) section.
+
+### Username parameters {#username-parameters}
+
+The `username` field enables you to pass various [parameters](./usage.md), such as groups and country, for your proxy connection.
+
+When using Google SERP proxy, the username should always be:
+
+```text
+groups-GOOGLE_SERP
+```
+
+Unlike [datacenter](./datacenter_proxy.md) or [residential](./residential_proxy.md) proxies, there is no [session](./usage.md) parameter.
+
+If you use the `country` [parameter](./usage.md), the Google proxy location is used if you access a website whose hostname (stripped of `www.`) starts with **google**.
+
+## Country selection {#country-selection}
+
+You must use the correct Google domain to get results for your desired country code.
+
+For example:
+
+* Search results from the USA: `http://www.google.com/search?q=<query>`
+
+
+* Shopping results from Great Britain: `http://www.google.co.uk/seach?tbm=shop&q=<query>`
+
+See a [full list](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/List_of_Google_domains.html) of available domain names for specific countries. When using them, remember to prepend the domain name with the `www.` prefix.
+
+# Examples {#examples}
 
 **Learn how to connect to Google SERP proxies from your applications with Node.js (axios and got-scraping), Python 2 and 3 and PHP using code examples.**
 
@@ -17,11 +67,11 @@ import TabItem from '@theme/TabItem';
 
 This page contains code examples for connecting to [Google SERP proxies](./index.md) using [Apify Proxy](https://apify.com/proxy).
 
-See the [connection settings](../connection_settings.md) page for connection parameters.
+See the [connection settings](./usage.md) page for connection parameters.
 
 ## Using the Apify SDK {#using-the-apify-sdk}
 
-If you are developing your own Apify [actor](../../actors/index.md) using the [Apify SDK](/sdk/js) and [Crawlee](https://crawlee.dev/), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler). This is because Google SERP proxy [only returns a page's HTML](./index.md). Alternatively, you can use the [got-scraping](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying proxy URL in the options.
+If you are developing your own Apify [actor](../actors/index.md) using the [Apify SDK](/sdk/js) and [Crawlee](https://crawlee.dev/), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler). This is because Google SERP proxy [only returns a page's HTML](./index.md). Alternatively, you can use the [got-scraping](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying proxy URL in the options.
 
 Apify Proxy also works with [PuppeteerCrawler](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler), [launchPuppeteer()](https://crawlee.dev/api/puppeteer-crawler/function/launchPuppeteer), [PlaywrightCrawler](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler), [launchPlaywright()](https://crawlee.dev/api/playwright-crawler/function/launchPlaywright) and [JSDOMCrawler](https://crawlee.dev/api/jsdom-crawler/class/JSDOMCrawler). However, `CheerioCrawler` is simply the most efficient solution for this use case.
 

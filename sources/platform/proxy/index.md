@@ -20,11 +20,11 @@ You can use proxies in your [actors](../actors/index.md) or any other applicatio
 
 ## Our proxies {#our-proxies}
 
-[Datacenter proxy](./datacenter_proxy/index.md) – the fastest and cheapest option, it uses datacenters to change your IP address. Note that there is a chance of being blocked because of the activity of other users. [[Code examples](./datacenter_proxy/examples.md)]
+[Datacenter proxy](./datacenter_proxy.md) – the fastest and cheapest option, it uses datacenters to change your IP address. Note that there is a chance of being blocked because of the activity of other users.
 
-[Residential proxy](./residential_proxy/index.md) – IP addresses located in homes and offices around the world. These IPs are the least likely to be blocked. [[How to connect](./residential_proxy/index.md)]
+[Residential proxy](./residential_proxy.md) – IP addresses located in homes and offices around the world. These IPs are the least likely to be blocked.
 
-[Google SERP proxy](./google_serp_proxy/index.md) – download and extract data from Google Search Engine Result Pages (SERPs). You can select country and language to get localized results. [[Code examples](./google_serp_proxy/examples.md)]
+[Google SERP proxy](./google_serp_proxy.md) – download and extract data from Google Search Engine Result Pages (SERPs). You can select country and language to get localized results.
 
 **For pricing information, visit [apify.com/proxy](https://apify.com/proxy).**
 
@@ -59,21 +59,21 @@ Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or
 
 Sessions allow you to use the same IP address for multiple connections.
 
-To set a new session, pass the [`session`](./connection_settings.md) parameter in your [username](./connection_settings.md#username-parameters) field when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To [use that IP address in other requests](./datacenter_proxy/examples.md#multiple-requests-with-the-same-ip-address), pass that same session ID in the username field.
+To set a new session, pass the [`session`](./usage.md) parameter in your [username](./usage.md#username-parameters) field when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To [use that IP address in other requests](./datacenter_proxy.md#multiple-requests-with-the-same-ip-address), pass that same session ID in the username field.
 
 The created session will store information such as cookies and can be used to generate [browser fingerprints](https://pixelprivacy.com/resources/browser-fingerprinting/). You can also assign custom user data such as authorization tokens and specific headers.
 
-Sessions are available for [datacenter](./datacenter_proxy/index.md) and [residential](./residential_proxy/index.md#session-persistence) proxies.
+Sessions are available for [datacenter](./datacenter_proxy.md) and [residential](./residential_proxy.md#session-persistence) proxies.
 
 **This parameter is optional**. By default, each proxied request is assigned a randomly picked least used IP address.
 
 ### Session persistence {#session-persistence}
 
-You can persist your sessions (use the same IP address) by setting the `session` parameter in the `username` [field](./connection_settings.md). This assigns a single IP address to a **session ID** after you make the first request.
+You can persist your sessions (use the same IP address) by setting the `session` parameter in the `username` [field](./usage.md). This assigns a single IP address to a **session ID** after you make the first request.
 
 **Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** In cases where you need to keep the same session (e.g. when you need to log in to a website), it is best to keep the same proxy. By assigning an IP address to a **session ID**, you can use that IP for every request you make.
 
-For datacenter proxies, a session persists for **26 hours** ([more info](./datacenter_proxy/index.md)). For residential proxies, it persists for **1 minute** ([more info](./residential_proxy/index.md#session-persistence)). Using a session resets its expiry timer.
+For datacenter proxies, a session persists for **26 hours** ([more info](./datacenter_proxy.md)). For residential proxies, it persists for **1 minute** ([more info](./residential_proxy.md#session-persistence)). Using a session resets its expiry timer.
 
 Google SERP proxies do not support sessions.
 
@@ -82,33 +82,3 @@ Google SERP proxies do not support sessions.
 Our health check performs an HTTP and HTTPS request with each proxy server every few hours. If a server fails both requests 3 times in a row, it's marked as dead and all user sessions with this server are discarded.
 
 Banned proxies are not considered dead, since they become usable after a while.
-
-## A different approach to `502 Bad Gateway`
-
-There are times when the `502` status code is not comprehensive enough. Therefore, we have modified our server with `590-599` codes instead to provide more insight.
-
-* `590 Non Successful`: upstream responded with non-200 status code.
-
-* `591 RESERVED`: *this status code is reserved for further use.*
-
-* `592 Status Code Out Of Range`: upstream responded with status code different than 100-999.
-
-* `593 Not Found`: DNS lookup failed - [`EAI_NODATA`](https://github.com/libuv/libuv/blob/cdbba74d7a756587a696fb3545051f9a525b85ac/include/uv.h#L82) or [`EAI_NONAME`](https://github.com/libuv/libuv/blob/cdbba74d7a756587a696fb3545051f9a525b85ac/include/uv.h#L83).
-
-* `594 Connection Refused`: upstream refused connection.
-
-* `595 Connection Reset`: connection reset due to loss of connection or timeout.
-
-* `596 Broken Pipe`: trying to write on a closed socket.
-
-* `597 Auth Failed`: incorrect upstream credentials.
-
-* `598 RESERVED`: *this status code is reserved for further use.*
-
-* `599 Upstream Error`: generic upstream error.
-
-`590` and `592` indicate an issue on the upstream side.<br/>
-`593` indicates an incorrect `proxy-chain` configuration.<br/>
-`594`, `595` and `596` may occur due to connection loss.<br/>
-`597` indicates incorrect upstream credentials.<br/>
-`599` is a generic error, where the above is not applicable.
