@@ -29,16 +29,13 @@ The monitoring system is free for all users. You can use it to monitor as many a
 Currently, the monitoring view offers the following features:
 
 1. Chart showing **statuses** of runs of the actor or saved task over last 30 days.
-
-![Daily run statuses](./images/daily-run-statuses.png)
+    ![Daily run statuses](./images/daily-run-statuses.png)
 
 2. Chart displaying **metrics** of the last 200 runs of the actor or saved task.
-
-![Run statistics](./images/run-statistics-chart.png)
+    ![Run statistics](./images/run-statistics-chart.png)
 
 3. Option to set up **alerts** with notifications based on the run metrics.
-
-![Alerts](./images/alerts.png)
+    ![Alerts](./images/alerts.png)
 
 > Both charts can also be added to your Apify Console home page so that you can quickly see if there are any issues every time you open the Apify Console.
 
@@ -92,7 +89,7 @@ There are many metrics you might want to monitor when you are scraping the web. 
 
 1. **Duration** of the run. If your solution is taking longer than usual to finish, you can set up an alert to notify you, this will help you prevent your solution from being stuck and from wasting resources.
 
-**Usage and cost**
+**Usage and cost**:
 
 1. **Usage cost** may change when the robot blocking solution gets implemented. An increase of the cost may indicate that many URLs are being retried.
 2. **Proxy usage.** Seeing how your solution is using proxy and if there are any changes can help you optimize your usage and prevent increased costs if your solution starts behaving differently than you expect.
