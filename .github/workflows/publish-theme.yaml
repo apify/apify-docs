@@ -114,4 +114,4 @@ jobs:
           - env:
               GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
             run: |
-                gh workflow run docs.yml --repo ${{ matrix.repo }} --ref ${{ matrix.branch }}
+                gh workflow run docs.yaml --repo ${{ matrix.repo }} --ref ${{ matrix.branch }}
