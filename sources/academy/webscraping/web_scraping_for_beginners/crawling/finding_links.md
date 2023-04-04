@@ -47,7 +47,9 @@ Go to the [Warehouse store Sales category](https://warehouse-theme-metal.myshopi
 
 ## Extracting link URLs in Node.js {#Extracting-links-in-node}
 
-DevTools Console is a fun playground, but Node.js is way more useful. Let's create a new file in our project called **crawler.js** and add some basic crawling code. We'll start with code that's very similar to the scraper we built in [Basics of data extraction](../data_extraction/node_js_scraper.md).
+DevTools Console is a fun playground, but Node.js is way more useful. Let's create a new file in our project called **crawler.js** and add some basic crawling code that prints all the links from the [Sales category of Warehouse](https://warehouse-theme-metal.myshopify.com/collections/sales).
+
+We'll start from a boilerplate that's very similar to the scraper we built in [Basics of data extraction](../data_extraction/node_js_scraper.md).
 
 ```js
 // crawler.js
