@@ -1,31 +1,39 @@
 ---
 title: API
-description: Learn how to integrate with Apify via API
+description: Learn how to integrate with Apify via API.
 sidebar_position: 11.01
 slug: /integrations/api
 ---
 
 # API integrations
 
-The API is well described in API Reference. If you want to access API from browser or Node.js, we recommend to use [`apify-client` npm package](/api/client/js/). If from Python, we recommend [`apify-client` PyPI package](/api/client/python/). You are not limited to those packages, any HTTP client can be used (`axios`, `curl`, `wget` ...).
+**Learn how to integrate with Apify via API.**
 
-For the details of specific endpoints, see [API reference](/api/v2/).
+---
+
+The API is well described in [**API Reference**](/api/v2). If you want to use Apify API from JavaScript/NodeJS or Python, we recommend you to use one of our API clients:
+- [**apify-client**](/api/client/js/) NPM package supporting both browser and server
+- [**apify-client**](/api/client/python/) PyPI package.
+
+You are not limited to those packages, any HTTP client can be used (axios, curl, wget, ...) but the official API clients implement the best practices such as exponential backoff or rate limit handling.
 
 ## API token
 
-To access our API in your integrations, you will need to use your secret API token. You can find it on the [Integrations](https://console.apify.com/account?tab=integrations) page in the Apify Console. Give your token a reasonable description and never use one token for several services, much like you shouldn't use the same password for different accounts.
+To access the Apify API in your integrations, you need to authenticate using your secret API token. You can find it on the [Integrations](https://console.apify.com/account?tab=integrations) page in the Apify Console. Give your token a reasonable description and never use one token for several services, much like you shouldn't use the same password for different accounts.
 
 ![Integrations page in the Apify Console](./images/api-token.png)
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+## Authentication
 
-**IMPORTANT**: **Do not share the API token with untrusted parties, or use it directly from client-side code,
+There are 2 ways how to authenticate to Apify API. You can either pass token via `Authorization` HTTP header or the URL `token` query paremeter. We always recommend you to use the autentication via HTTP header as this method is more secure.
+
+> **IMPORTANT**: **Do not share the API token with untrusted parties, or use it directly from client-side code,
 unless you fully understand the consequences!**
 
 Note that some API endpoints, such as [Get list of keys](/api/v2#/reference/key-value-stores/key-collection/get-list-of-keys),
 do not require an authentication token because they contain a hard-to-guess identifier that effectively serves as an authentication key.
 
-### API tokens in organization accounts
+## Organization accounts
 
  > This information is only relevant to members or owners of organization accounts.
 

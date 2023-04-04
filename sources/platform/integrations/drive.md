@@ -1,11 +1,11 @@
 ---
-title: Drive
+title: Google Drive
 description: Learn how to integrate with Apify with Drive
 sidebar_position: 11.15
 slug: /integrations/drive
 ---
 
-# Drive integration
+# Google Drive integration
 
 **Learn how to integrate your Apify actors with Drive. This article shows you how to automatically save results to Drive when actor run succeeds.**
 
