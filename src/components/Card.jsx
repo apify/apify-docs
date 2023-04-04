@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import styles from './Cards.module.css';
 
 // TODO: Better sizing for logo images (in integrations)
-const AcademyCard = ({ to, imageUrl, title, desc, smallImage }) => {
+const Card = ({ to, imageUrl, title, desc, smallImage }) => {
     return (
         <div className={clsx(styles.card, styles['card-hoverable'])}>
             <Link to={to}>
@@ -20,4 +20,4 @@ const AcademyCard = ({ to, imageUrl, title, desc, smallImage }) => {
     );
 };
 
-export default AcademyCard;
+export default Card;
