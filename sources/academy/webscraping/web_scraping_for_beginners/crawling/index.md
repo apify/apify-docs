@@ -12,9 +12,11 @@ slug: /web-scraping-for-beginners/crawling
 
 ---
 
-Welcome to the second section of our **Web scraping for beginners** course. In the [Basics of data extraction](../data_extraction/index.md) section, we learned how to extract data from a web page. Specifically, an e-commerce site called [Warehouse store](https://warehouse-theme-metal.myshopify.com/).
+Welcome to the second section of our **Web scraping for beginners** course. In the [Basics of data extraction](../data_extraction/index.md) section, we learned how to extract data from a web page. Specifically, a template Shopify site called [Warehouse store](https://warehouse-theme-metal.myshopify.com/).
 
-In this section, we will take a look at moving between web pages, which we call **crawling**. We will extract data about all the on-sale products on [Warehouse store](https://warehouse-theme-metal.myshopify.com/). To do that, we will need to crawl the individual product pages.
+![on-sale category of Warehouse store](./images/warehouse-store.png)
+
+In this section, we will take a look at moving between web pages, which we call **crawling**. We will extract data about all the on-sale products on [Warehouse store](https://warehouse-theme-metal.myshopify.com/collections/sales). To do that, we will need to crawl the individual product pages.
 
 ## How do you crawl? {#how-to-crawl}
 
