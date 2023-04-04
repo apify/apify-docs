@@ -68,7 +68,7 @@ LangChain is a standard interface through which you can interact with a variety 
 
 ## Resources
 
-- https://python.langchain.com/en/latest/getting_started/getting_started.html
-- https://python.langchain.com/en/latest/modules/agents/tools/examples/apify.html
-- https://python.langchain.com/en/latest/modules/models/llms.html
+- <https://python.langchain.com/en/latest/getting_started/getting_started.html>
+- <https://python.langchain.com/en/latest/modules/agents/tools/examples/apify.html>
+- <https://python.langchain.com/en/latest/modules/models/llms.html>
 
