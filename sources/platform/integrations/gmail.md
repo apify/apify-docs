@@ -1,6 +1,6 @@
 ---
 title: Gmail
-description: Learn how to integrate with Apify with Gmail
+description: Learn how to integrate Apify with Gmail
 sidebar_position: 11.14
 slug: /integrations/gmail
 ---
