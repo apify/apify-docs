@@ -26,6 +26,6 @@ To use the Apify integration for GitHub, you will need:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/j2I3DM8Nvu1M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-### Create issue when run fails
+### Create an issue when a run fails
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jZUp-rRbayc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
