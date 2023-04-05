@@ -7,7 +7,7 @@ slug: /integrations/gmail
 
 # Gmail integration
 
-**Learn how to integrate your Apify actors with Gmail. This article shows you how to automatically send an email with results when an actor run succeeds.**
+**Learn how to integrate your Apify Actors with Gmail. This article shows you how to automatically send an email with results when an Actor run succeeds.**
 
 ---
 
