@@ -64,7 +64,7 @@ print(result["answer"])
 print(result["sources"])
 ```
 
-LangChain is a standard interface through which you can interact with a variety of large language models (LLMs). It provides modules that can e used to build language model applications, and it also provides chains and agents with memory capabilities.
+LangChain is a standard interface through which you can interact with a variety of large language models (LLMs). It provides modules you can use to build language model applications. It also provides chains and agents with memory capabilities.
 
 ## Resources
 
