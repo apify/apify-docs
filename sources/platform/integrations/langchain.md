@@ -1,6 +1,6 @@
 ---
 title: Langchain
-description: Learn how to integrate with Apify with Langchain.
+description: Learn how to integrate Apify with Langchain.
 sidebar_position: 11.20
 slug: /integrations/langchain
 ---
