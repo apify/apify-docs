@@ -1,6 +1,6 @@
 ---
 title: Google Drive
-description: Learn how to integrate with Apify with Drive
+description: Learn how to integrate Apify with Google Drive
 sidebar_position: 11.15
 slug: /integrations/drive
 ---
