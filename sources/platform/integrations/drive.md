@@ -7,7 +7,7 @@ slug: /integrations/drive
 
 # Google Drive integration
 
-**Learn how to integrate your Apify actors with Drive. This article shows you how to automatically save results to Drive when actor run succeeds.**
+**Learn how to integrate your Apify Actors with Google Drive. This article shows you how to automatically save results to your drive when an Actor run succeeds.**
 
 ---
 
