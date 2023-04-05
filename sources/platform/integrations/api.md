@@ -26,7 +26,7 @@ To access the Apify API in your integrations, you need to authenticate using you
 
 ## Authentication
 
-There are 2 ways how to authenticate to Apify API. You can either pass token via `Authorization` HTTP header or the URL `token` query paremeter. We always recommend you to use the autentication via HTTP header as this method is more secure.
+There are 2 ways how to authenticate the Apify API. You can either pass the token via the `Authorization` HTTP header or the URL `token` query parameter. We always recommend you use the authentication via the HTTP header as this method is more secure.
 
 > **IMPORTANT**: **Do not share the API token with untrusted parties, or use it directly from client-side code,
 unless you fully understand the consequences!**
