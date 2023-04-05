@@ -38,7 +38,7 @@ do not require an authentication token because they contain a hard-to-guess iden
 
  > This information is only relevant to members or owners of organization accounts.
 
-When working under organization account, you will see two types of API tokens in the Integrations page.
+When working under an organization account, you will see two types of API tokens on the Integrations page.
 
 ![Integrations page in the Apify Console in organizatoin mode](./images/api-token-organization.png)
 
