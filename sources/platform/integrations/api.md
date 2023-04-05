@@ -16,7 +16,7 @@ The API is well described in [**API Reference**](/api/v2). If you want to use Ap
 - [**apify-client**](/api/client/js/) NPM package supporting both browser and server
 - [**apify-client**](/api/client/python/) PyPI package.
 
-You are not limited to those packages, any HTTP client can be used (axios, curl, wget, ...) but the official API clients implement the best practices such as exponential backoff or rate limit handling.
+You are not limited to those packages - any HTTP client can be used (axios, curl, wget, ...) - but the official API clients implement the best practices such as exponential backoff or rate limit handling.
 
 ## API token
 
