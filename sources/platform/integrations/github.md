@@ -7,7 +7,7 @@ slug: /integrations/github
 
 # GitHub integration
 
-**Learn how to integrate your Apify actors with GitHub. This article shows you several possible integrations.**
+**Learn how to integrate your Apify Actors with GitHub. This article shows you several possible integrations.**
 
 ---
 
