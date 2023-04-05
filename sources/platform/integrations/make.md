@@ -1,6 +1,6 @@
 ---
 title: Make
-description: Learn how to integrate your Apify actors with Make.
+description: Learn how to integrate your Apify Actors with Make.
 sidebar_position: 11.12
 slug: /integrations/make
 ---
