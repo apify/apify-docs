@@ -42,6 +42,6 @@ When working under an organization account, you will see two types of API tokens
 
 ![Integrations page in the Apify Console in organizatoin mode](./images/api-token-organization.png)
 
-The Personal API tokens are different than your own Personal API tokens mentioned above. If you use this token in an integration, it will have the same permissions you do within the organization and all the operations you use it for will be ascribed to you.
+The Personal API tokens are different from your own Personal API tokens mentioned above. If you use this token in an integration, it will have the same permissions that you have within the organization, and all the operations you use it for will be ascribed to you.
 
 On the other hand the Organization API tokens (only visible if you are the owner or have Manage access tokens permission) have full permissions and are not tied to a specific member of the organization.
