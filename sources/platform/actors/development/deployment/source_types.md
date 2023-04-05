@@ -33,7 +33,7 @@ To help you get started quickly, you can use the [apify/quick-start](https://api
 
 To specify a Git branch or tag to check out, add a URL fragment to the URL. For example, to check out the **develop** branch, specify a URL such as `https://github.com/jancurn/some-actor.git#develop`.
 
-Optionally, the second part of the fragment in the Git URL (separated by a colon) specifies the context directory for the Docker build. For example, `https://github.com/jancurn/some-actor.git#develop:some/dir` will check out the **develop** branch and set **some/dir** as a context directory for the Docker build.
+Optionally, the second part of the fragment in the Git URL (separated by a colon) specifies the directory from which the Actor will be built (and where the `.actor`) folder is located. For example, `https://github.com/jancurn/some-actor.git#develop:some/dir` will check out the **develop** branch and set **some/dir** as the root directory of the Actor.
 
 Note that you can easily set up an integration where the actor is automatically rebuilt on every commit to the Git repository. For more details, see [GitHub integration](./source_types.md).
 
@@ -42,6 +42,14 @@ Note that you can easily set up an integration where the actor is automatically 
 If your source code is hosted in a private Git repository then you need to configure deployment key. Deployment key is different for each actor and might be used only once at Git hosting of your choice (GitHub, Bitbucket, GitLab, etc.).
 
 To obtain the key click at the **deployment key** link under the **Git URL** text input and follow the instructions there.
+
+### [](#actor-monorepos)Actor monorepos
+
+By default, the context directory for the Docker build is the directory pointed to by the **Git URL** (or the repository root if no directory is specified). If you want to use a different directory for the Docker context, you can use the `dockerContextDir` property in the [Actor definition](../actor_definition/actor_json.md). This is useful for example for sharing code between multiple actors in the same repository.
+
+If you want to have multiple actors in a single repository that use shared code also located in the repository, you can set `dockerContextDir` to the path to the folder which contains the actor's source and the shared code, and then copy both the actor's source and shared code to the Docker image in the Dockerfile.
+
+An example actor monorepo is shown in the [`apify/actor-monorepo-example`](https://github.com/apify/actor-monorepo-example) repository. To build actors from this monorepo, you would set the source URL to `https://github.com/apify/actor-monorepo-example#main:actor_1` and `https://github.com/apify/actor-monorepo-example#main:actor_2` respectively.
 
 ## [](#zip-file)Zip file
 
