@@ -7,7 +7,7 @@ slug: /integrations/make
 
 # Make integration
 
-**Learn how to integrate your Apify actors with Make.**
+**Learn how to integrate your Apify Actors with Make.**
 
 ---
 
