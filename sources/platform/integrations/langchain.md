@@ -7,7 +7,7 @@ slug: /integrations/langchain
 
 # Langchain Integration
 
-**Learn how to integrate with Apify with Langchain.**
+**Learn how to integrate Apify with Langchain.**
 
 ---
 
