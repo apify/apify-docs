@@ -18,7 +18,7 @@ You can [switch](./how_to_use.md) between your personal and organization account
 You can set up an organization in two ways.
 
 * [Create a new organization](#create-a-new-organization). If you don't have integrations set up yet, or if they are easy to change, you can create a new organization, preserving your personal account.
-* [Convert an existing account](#convert-an-existing-account) into an organization. If your actors and [integrations](../../integrations/index.md) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
+* [Convert an existing account](#convert-an-existing-account) into an organization. If your Actors and [integrations](../../integrations/index.mdx) are set up in a personal account, it is probably best to convert that account into an organization. This will preserve all your integrations but means you will have a new personal account created for you.
 
 > Prefer video to reading? [See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) for organization accounts.
 

@@ -1,0 +1,160 @@
+---
+title: Integrations
+description: Learn how to integrate the Apify platform with other services, your systems, data pipelines, and other web automation workflows.
+sidebar_position: 11
+category: platform
+slug: /integrations
+---
+
+import Card from "@site/src/components/Card";
+import CardGrid from "@site/src/components/CardGrid";
+
+# Integrations
+
+**Learn how to integrate the Apify platform with other services, your systems, data pipelines, and other web automation workflows.**
+
+ > The whole is greater than the sum of its parts.
+ >
+ > 👴 *Aristotle*
+
+Integrations allow you to combine separate applications and take advantage of their combined capabilities. Automation of these online processes increases your productivity. That’s why we made Apify in a way that allows you to connect it with practically any cloud service or web app and make it part of your larger projects.
+
+## Built-in integrations
+
+Apify‘s RESTful API allows you to interact with the platform programmatically. HTTP webhooks notify you and your services when important events happen. By using the API, you can start Actors, retrieve their results, or basically do anything you can do on a platform UI
+
+<CardGrid>
+    <Card
+        title="API"
+        desc="Control the Apify platform programmatically from your code."
+        to="/platform/integrations/api"
+        smallImage
+    />
+    <Card
+        title="Webhooks"
+        desc="Trigger external events when your Actor run fails or succeeds."
+        to="/platform/integrations/webhooks"
+        smallImage
+    />
+</CardGrid><br />
+
+Apify offers easy-to-set-up solutions for common scenarios, like uploading your datasets to Google Drive when the run succeeds or creating an issue on GitHub when it fails.
+
+<CardGrid>
+    <Card
+        title="Slack"
+        to="/platform/integrations/slack"
+        imageUrl="/img/platform/integrations/slack.svg"
+        smallImage
+    />
+    <Card
+        title="Google Drive"
+        to="/platform/integrations/drive"
+        imageUrl="/img/platform/integrations/drive.svg"
+        smallImage
+    />
+    <Card
+        title="Gmail"
+        to="/platform/integrations/gmail"
+        imageUrl="/img/platform/integrations/gmail.svg"
+        smallImage
+    />
+    <Card
+        title="Github"
+        to="/platform/integrations/github"
+        imageUrl="/img/platform/integrations/github.svg"
+        smallImage
+    />
+    <Card
+        title="Git"
+        to="/platform/actors/development/source-code#git-repository"
+        imageUrl="/img/platform/integrations/git.svg"
+        smallImage
+    />
+    {/* Only show Asana once we have the videos ready for it
+    <Card
+        title="Asana"
+        to="/"
+        imageUrl="/img/platform/integrations/asana.svg"
+        smallImage
+    />
+    */}
+    {/* Only show Trello once it's enabled for all users on platform
+    <Card
+        title="Trello"
+        to="/"
+        imageUrl="/img/platform/integrations/trello.svg"
+        smallImage
+    />
+    */}
+</CardGrid>
+
+## Automation platforms
+
+If you use one of the main automation platforms, Apify support is here for you. The main advantage of these platforms is that you can integrate Apify into very complex workflows with the choice of thousands of supported services.
+
+<CardGrid>
+    <Card
+        title="Make"
+        to="./integrations/make"
+        imageUrl="/img/platform/integrations/make.svg"
+        smallImage
+    />
+    <Card
+        title="Zapier"
+        to="https://help.apify.com/en/articles/3034235-getting-started-with-apify-integration-for-zapier"
+        imageUrl="/img/platform/integrations/zapier.svg"
+        smallImage
+    />
+    <Card
+        title="Transposit"
+        to="https://www.transposit.com/docs/guides/apify/"
+        imageUrl="/img/platform/integrations/transposit.svg"
+        smallImage
+    />
+</CardGrid>
+
+
+## Data pipelines, ETLs, and AI/LLM tools
+
+The Apify platform integrates with popular ETL and data pipeline services, enabling you to integrate Apify Actors directly into your data integration processes.
+
+<CardGrid>
+    <Card
+        title="Keboola"
+        to="https://help.apify.com/en/articles/2003234-keboola-integration"
+        imageUrl="/img/platform/integrations/keboola.svg"
+        smallImage
+    />
+    <Card
+        title="Airbyte"
+        to="https://docs.airbyte.io/integrations/sources/apify-dataset"
+        imageUrl="/img/platform/integrations/airbyte.svg"
+        smallImage
+    />
+    <Card
+        title="Hevo"
+        to="https://docs.hevodata.com/sources/engg-analytics/apify/"
+        imageUrl="/img/platform/integrations/hevo.svg"
+        smallImage
+    />
+</CardGrid><br />
+
+
+If you are working on an AI/LLM-related project, we recommend you look into the Langchain integration.
+
+<CardGrid>
+    <Card
+        title="Langchain"
+        to="./integrations/langchain"
+        imageUrl="/img/platform/integrations/langchain.png"
+        smallImage
+    />
+</CardGrid>
+
+## Other Actors
+
+Explore [Apify Store](https://apify.com/store) for Actors that may help you with integrations, for example, [MongoDB Import](https://apify.com/drobnikj/mongodb-import) or [MySQL Insert](https://apify.com/petr_cermak/mysql-insert).
+
+![Apify Store](./images/apify-store.png)
+
