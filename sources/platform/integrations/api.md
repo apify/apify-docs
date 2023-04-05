@@ -11,7 +11,7 @@ slug: /integrations/api
 
 ---
 
-The API is well described in [**API Reference**](/api/v2). If you want to use Apify API from JavaScript/NodeJS or Python, we recommend you to use one of our API clients:
+The API is well described in the [**API Reference**](/api/v2). If you want to use theApify API from JavaScript/NodeJS or Python, we recommend you use one of our API clients:
 
 - [**apify-client**](/api/client/js/) NPM package supporting both browser and server
 - [**apify-client**](/api/client/python/) PyPI package.
