@@ -13,7 +13,7 @@ slug: /integrations/drive
 
 ## Get started
 
-To use the Apify integration for Drive, you will need:
+To use the Apify integration for Google Drive, you will need:
 
 - An [Apify account](https://console.apify.com/).
 - A Google account
