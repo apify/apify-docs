@@ -74,7 +74,7 @@ For integrations, you can also add a [webhook](/platform/integrations/webhooks) 
 
 To create a new [schedule](/api/v2#/reference/schedules) using the [Apify API](/api/v2#), send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to the [create schedule](/api/v2#/reference/schedules/schedules-collection/create-schedule) endpoint.
 
-You can find your [secret API token](./integrations/index.md) in your Apify account's [Integrations](https://console.apify.com/account?tab=integrations) tab. When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](/api/v2#/introduction/authentication)).
+You can find your [secret API token](./integrations/index.mdx) in your Apify account's [Integrations](https://console.apify.com/account?tab=integrations) tab. When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](/api/v2#/introduction/authentication)).
 
 In the POST request's payload should be a JSON object specifying the schedule's name, your [user ID](https://console.apify.com/account#/integrations), and the schedule's **actions**.
 
