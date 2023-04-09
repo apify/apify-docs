@@ -162,7 +162,7 @@ const results = {
 
 Great! Now that everything is set up, it's time to run the actor and admire your actor's brand new output tab.
 
-> Need some extra guidance? Visit the [output schema documentation](/platform/actors/development/output-schema) for more detailed information about how to implement this feature.
+> Need some extra guidance? Visit the [output schema documentation](/platform/actors/development/actor-definition/output-schema) for more detailed information about how to implement this feature.
 
 A few seconds after running the actor, you should see the actors results being displayed in the `Overview` table.
 

@@ -17,7 +17,7 @@ In this brief lesson, we'll discuss how to better manage an actor's source code.
 
 Thus far, every time we've updated our code on the Apify platform, we've used the `apify push` CLI command; however, this can be problematic for a few reasons - mainly because, if someone else wants to make a change to/maintain your code, they don't have access to it, as it is on your local machine.
 
-If you're not yet familiar with Git, please get familiar with it through the [Git documentation](https://git-scm.com/docs), then take a quick moment to read about [Github integration](/platform/actors/development/source-code#github-integration) in the Apify docs.
+If you're not yet familiar with Git, please get familiar with it through the [Git documentation](https://git-scm.com/docs), then take a quick moment to read about [Github integration](/platform/actors/development/actor-definition/source-code#github-integration) in the Apify docs.
 
 Also, try to explore the **Multifile editor** in one of the actors you developed in the previous lessons before moving forward.
 
