@@ -34,7 +34,7 @@ import CardGrid from "@site/src/components/CardGrid";
     />
     <Card
         title="Builds and runs"
-        to="/platform/actors/development/builds and runs"
+        to="/platform/actors/development/builds-and-runs"
         desc="Learn about Actor builds and runs, their lifecycle, versioning, and other properties."
     />
     <Card
