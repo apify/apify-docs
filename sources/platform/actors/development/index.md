@@ -20,7 +20,7 @@ import CardGrid from "@site/src/components/CardGrid";
     <Card
         title="Quick start"
         to="/platform/actors/development/quick-start"
-        desc="Create you first actor using Apify Console IDE or locally."
+        desc="Create your first actor using Apify Console IDE or locally."
     />
     <Card
         title="Actor definition"
@@ -40,7 +40,7 @@ import CardGrid from "@site/src/components/CardGrid";
     <Card
         title="Performance"
         to="/platform/actors/development/Performance"
-        desc="Learn how to get the most of the value our of your Actors, minimize costs and maximuze results."
+        desc="Learn how to get the maximum value out of your Actors, minimize costs, and maximize results."
     />
 </CardGrid>
 

@@ -11,7 +11,7 @@ sidebar_position: 1
 
 The main actor config should live in the `.actor/actor.json` file in the actor's root directory. This file associates your local development project with an actor on the Apify platform. It contains information such as actor name, version, build tag, and environment variables. Make sure you commit this file to the Git repository.
 
-For example, the `.actor/actor.json` file can look this:
+For example, the `.actor/actor.json` file can look like this:
 
 ```json
 {
@@ -34,7 +34,7 @@ For example, the `.actor/actor.json` file can look this:
 
 ## Reference
 
-> Note that actor `name`, `version`, `buildTag`, and `environmentVariables` are currently only used when you deploy your actor using [Apify CLI](/cli) and not when deployed for example via Github integration. There it serves for informative purposes only. This is suspect to change into the future.
+> Note that actor `name`, `version`, `buildTag`, and `environmentVariables` are currently only used when you deploy your actor using [Apify CLI](/cli) and not when deployed, for example, via Github integration. There it serves for informative purposes only. This is suspected to change in the future.
 
 
 | Property         | Type     | Description |
@@ -49,3 +49,5 @@ For example, the `.actor/actor.json` file can look this:
 | `input`                | Optional | You can embed your [input schema](./input_schema/index.md) object directly in `actor.json` under the `input` field. Alternatively, you can provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference. |
 `storages.dataset`       | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](./output_schema.md#specification-version-1) about actor output schema. |
 
+
+  

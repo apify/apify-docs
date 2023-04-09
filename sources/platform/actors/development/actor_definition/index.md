@@ -15,17 +15,19 @@ Basically, actors are programs packaged as [Docker images](https://hub.docker.co
 
 Actors have the following elements:
 
-- The main **[actor.json](./actor_json.md)** file containing **metadata** such as the actor name, description, author, version, and links pointing to the other definition files below.
+- The main **[actor.json](./actor_json.md)** file contains **metadata** such as the actor name, description, author, version, and links pointing to the other definition files below.
 - **[Dockerfile](./dockerfile.md)** which specifies where is the actor's source code, how to build it, and run it.
-- **Documentation** in a form of README.md file.
-- **[Input](./input_schema/index.md)** and **[output schemas](./output_schema.md)** that describe what input the actor requires, and what results it produces.
+- **Documentation** in the form of a README.md file.
+- **[Input](./input_schema/index.md)** and **[output schemas](./output_schema.md)** that describe what input the actor requires and what results in it produces.
 - Access to an out-of-box **[storage](../../../storage/index.md)** system for actor data, results, and files.
 
-The documentation and the input/output schemas make it possible for people to easily understand what the actor does, enter the required inputs both in user interface or API, and integrate the results of the actor into their other workflows. Actors can easily call and interact with each other, enabling building more complex systems on top of simple ones.
+The documentation and the input/output schemas make it possible for people to easily understand what the actor does, enter the required inputs both in the user interface or API and integrate the results of the actor into their other workflows. Actors can easily call and interact with each other, enabling building more complex systems on top of simple ones.
 
-The Apify platform provides an open [API](/api/v2), cron-style [scheduler](../schedules), [webhooks]('../../integrations/webhooks) and [integrations](../../integrations) to services such as Zapier or Make, which make it easy for users to integrate actors into their existing workflows. Anyone is welcome to [publish Actors](/platform/actors/publishing) in the [Apify Store](https://apify.com/store), and you can even [monetize your Actors](/platform/actors/publishing/monetize) by renting them out to users of the platform.
+The Apify platform provides an open [API](/api/v2), cron-style [scheduler](../schedules), [webhooks]('../../integrations/webhooks), and [integrations](../../integrations) to services such as Zapier or Make, which make it easy for users to integrate actors into their existing workflows. Anyone is welcome to [publish Actors](/platform/actors/publishing) in the [Apify Store](https://apify.com/store), and you can even [monetize your Actors](/platform/actors/publishing/monetize) by renting them out to users of the platform.
 
-Actors can be developed and run locally, and then easily deployed to the Apify platform using [Apify CLI](/cli) or [Github integration](../../../integrations/github.md). For more see [Deployment](../deployment/index.md) section.
+Actors can be developed and run locally and then easily deployed to the Apify platform using [Apify CLI](/cli) or [Github integration](../../../integrations/github.md). For more, see [Deployment](../deployment/index.md) section.
 
-> **To get better idea of what Apify Actors are, visit [Apify Store](https://apify.com/store), and try out some of them!**
+> **To get a better idea of what Apify Actors are, visit [Apify Store](https://apify.com/store), and try out some of them!**
 
+
+  
