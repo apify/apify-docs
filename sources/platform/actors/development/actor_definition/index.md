@@ -29,5 +29,3 @@ Actors can be developed and run locally and then easily deployed to the Apify pl
 
 > **To get a better idea of what Apify Actors are, visit [Apify Store](https://apify.com/store), and try out some of them!**
 
-
-  

@@ -15,13 +15,13 @@ The deployment of your Actor is the process of uploading your Actor [source code
 
 The easiest and fastest way to get your Actor deployed and built is to use [Apify CLI](/cli). If you followed one of the [tutorials](/academy), you should already have it installed. If you do not have Apify CLI installed, then follow the instructions at [Apify CLI documentation](/cli/docs/installation) to install it. Then you can simply log in to your Apify account by running:
 
-```
+```bash
 apify login
 ```
 
 and then deploy your Actor by running:
 
-```
+```bash
 apify push
 ```
 
@@ -37,5 +37,4 @@ There are more ways how to deploy your Actor to Apify platform. But in this case
 ![Actor source types](./images/actor-source-types.png)
 
 This enables you to link a Git repository, Gist, or Zip file to your Actor. You will find more information on all source types in the following chapter.
-
 

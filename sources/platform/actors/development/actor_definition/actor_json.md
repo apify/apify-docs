@@ -49,5 +49,3 @@ For example, the `.actor/actor.json` file can look like this:
 | `input`                | Optional | You can embed your [input schema](./input_schema/index.md) object directly in `actor.json` under the `input` field. Alternatively, you can provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference. |
 `storages.dataset`       | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](./output_schema.md#specification-version-1) about actor output schema. |
 
-
-  

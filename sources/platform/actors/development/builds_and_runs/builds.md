@@ -33,5 +33,3 @@ To set a tag for builds of a specific actor version, set the **Build tag** prope
 
 By default, the build process pulls the latest copies of all necessary Docker images and builds each new layer of Docker images from scratch. To speed up the builds triggered via API, you can add **useCache=1** parameter. See the API reference for more details.
 
-
-

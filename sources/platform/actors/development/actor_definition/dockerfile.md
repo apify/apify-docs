@@ -34,7 +34,6 @@ The [Apify API client for Python](/api/client/python) is preinstalled on these i
 - **Python 3 on Alpine Linux** ([`apify/actor-python`](https://hub.docker.com/r/apify/actor-python/)) - a slim image with Python 3 and the [Apify API client for Python](/api/client/python) preinstalled. Comes in multiple versions containing Python 3.7, 3.8, 3.9 or 3.10.
 
 
-
 ## [](#custom-dockerfile)Custom Dockerfile
 
 Internally, Apify uses Docker to build and run actors. To control the build of the actor, you can create a custom **Dockerfile** and either reference from the `dockerfile` field in the actor's config in **.actor/actor.json**, or store it in **.actor/Dockerfile** or **Dockerfile** in the actor's root directory. These three sites are searched for in this order of preference. If the **Dockerfile** is missing, the system uses the following default:
