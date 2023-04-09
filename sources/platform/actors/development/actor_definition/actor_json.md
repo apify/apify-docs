@@ -32,16 +32,20 @@ For example, the `.actor/actor.json` file can look this:
 }
 ```
 
-Note that actor `name`, `version`, and `buildTag` are for informative purposes only, so they are not enforced on the platform right now. You will still need to properly name your actor during its creation, whether you create it directly on the platform or push it using the Apify CLI.
+## Reference
 
-**`dockerfile` field**\
-If you specify the path to your Docker file under the `dockerfile` field, this file will be used for actor builds on the platform. If not specified, the system will look for Docker files at `.actor/Dockerfile` and `Dockerfile`, in this order of preference.
+> Note that actor `name`, `version`, `buildTag`, and `environmentVariables` are currently only used when you deploy your actor using [Apify CLI](/cli) and not when deployed for example via Github integration. There it serves for informative purposes only. This is suspect to change into the future.
 
-**`readme` field** \
-If you specify the path to your README file under the `readme` field, the README at this path will be used on the platform. If not specified, README at `.actor/README.md` or `README.md` will be used, in this order of preference.
 
-**`input` field**\
-You can embed your [input schema](./input_schema/index.md) object directly in `actor.json` under the `input` field. Alternatively, you can provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference.
+| Property         | Type     | Description |
+| ---------------- | -------- |----------- |
+| `actorSpecification`   | Required | We are at a version `1` which is the only one available so this must be set to `1`. |
+| `name`                 | Required | Name of the Actor. |
+| `version`              | Required | Actor version in the form `[Number].[Number]`, i.e. for example `0.0`, `0.1`, `2.3`, ... |
+| `buildTag`             | Optional | The tag name applied for the successful build of the Actor. Defaults to `latest`. For more information see the [builds](../builds_and_runs/builds.md) section. |
+| `environmentVariables` | Optional | An map of environment variables used during the local development that will be also applied to Actor at Apify platform. For more see the [environment variables](/cli/docs/vars) section of Apify CLI documentation. |
+| `dockerFile`           | Optional | If you specify the path to your Docker file under the `dockerfile` field, this file will be used for actor builds on the platform. If not specified, the system will look for Docker files at `.actor/Dockerfile` and `Dockerfile`, in this order of preference. For more see the [Dockerfile](./dockerfile.md) section. |
+| `readme`               | Optional | If you specify the path to your README file under the `readme` field, the README at this path will be used on the platform. If not specified, README at `.actor/README.md` or `README.md` will be used, in this order of preference. See our [Apify Academy article on writing a quality README files](/academy/get-most-of-actors/actor-readme). |
+| `input`                | Optional | You can embed your [input schema](./input_schema/index.md) object directly in `actor.json` under the `input` field. Alternatively, you can provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference. |
+`storages.dataset`       | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](./output_schema.md#specification-version-1) about actor output schema. |
 
-**`storages.dataset` field**\
-You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](./output_schema.md#specification-version-1) about actor output schema.

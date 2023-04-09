@@ -9,9 +9,6 @@ sidebar_position: 1
 
 ---
 
-TODO:
-- Mention that actors deployed using `apify push` are deployed as multiple source files or zip based on size
-
 The **Source type** setting determines the location of the source code for the actor. It can have one of the following values: [Multiple source files](#multiple-source-files), [Git repository](#git-repository), [Zip file](#zip-file) or [GitHub Gist](#github-gist).
 
 ## Multiple source files {#multiple-source-files}
