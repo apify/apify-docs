@@ -47,7 +47,7 @@ Click on the `API` button to view and test a store's [API endpoints](/api/v2#/re
 
 ### Apify SDK
 
-If you are building an [Apify actor](../actors/index.md), you will be using the [Apify SDK](/sdk/js).
+If you are building an [Apify actor](../actors/index.mdx), you will be using the [Apify SDK](/sdk/js).
 In the [Apify SDK](/sdk/js/docs/guides/result-storage#key-value-store), the key-value store is represented by the [`KeyValueStore`](/sdk/js/api/apify/class/KeyValueStore) class.
 
 You can use the `KeyValueStore` class to specify whether your data is stored locally or in the Apify cloud,
@@ -113,7 +113,7 @@ await Actor.setValue(
 await Actor.exit();
 ```
 
-The `Actor.getInput()` method is not only a shortcut to `Actor.getValue('INPUT')` - it is also compatible with `Actor.metamorph()` [[docs](../actors/development/builds_and_runs/metamorph.md)]. This is because a metamorphed actor run's input is stored in the **INPUT-METAMORPH-1** key instead of **INPUT**, which hosts the original input.
+The `Actor.getInput()` method is not only a shortcut to `Actor.getValue('INPUT')` - it is also compatible with `Actor.metamorph()` [[docs](../actors/development/actor_definition/source_code/metamorph.md)]. This is because a metamorphed actor run's input is stored in the **INPUT-METAMORPH-1** key instead of **INPUT**, which hosts the original input.
 
 See the [SDK documentation](/sdk/js/docs/guides/result-storage#key-value-store) and the `KeyValueStore` class's [API reference](/sdk/js/api/apify/class/KeyValueStore) for details on managing your key-value stores with the Apify SDK.
 
@@ -208,7 +208,7 @@ You can invite other Apify users to view or modify your key-value stores with th
 
 ### Sharing key-value stores between runs
 
-You can access a key-value store from any [Actor](../actors/index.md) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
+You can access a key-value store from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
 
 To access a key-value store from another run using the Apify SDK, open it using the [`Actor.openKeyValueStore(storeIdOrName)`](/sdk/js/api/apify/class/Actor#openKeyValueStore) method like you would do with any other store.
 

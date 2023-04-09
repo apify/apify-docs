@@ -12,7 +12,7 @@ slug: /monitoring/actor-or-task-run-failure
 
 ---
 
-This example walks you through setting up [monitoring](https://apify.com/apify/monitoring) for an [actor](../actors/index.md) or [task](../actors/running/tasks.md). The monitoring suite will send you notifications when the actor or task fails or returns too few results.
+This example walks you through setting up [monitoring](https://apify.com/apify/monitoring) for an [actor](../actors/index.mdx) or [task](../actors/running/tasks.md). The monitoring suite will send you notifications when the actor or task fails or returns too few results.
 
 ## Use case {#use-case}
 

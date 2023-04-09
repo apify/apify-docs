@@ -21,7 +21,7 @@ See the [connection settings](../connection_settings.md) page for connection par
 
 ## Using the Apify SDK and Crawlee {#using-the-apify-sdk-and-crawlee}
 
-If you are developing your own Apify [actor](../../actors/index.md) using the [Apify SDK](/sdk/js) and [Crawlee](https://crawlee.dev/), you can use Apify Proxy in:
+If you are developing your own Apify [actor](../../actors/index.mdx) using the [Apify SDK](/sdk/js) and [Crawlee](https://crawlee.dev/), you can use Apify Proxy in:
 
 * [`CheerioCrawler`](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler) by using the [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
 * [`PlaywrightCrawler`](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler) by using the [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.

@@ -1,6 +1,6 @@
 ---
-title: What is an Actor
-sidebar_position: 1
+title: REMOVE What is an Actor
+sidebar_position: 100
 description: earn what is the Apify Actor and benefits of this concept and Apify Platform.
 slug: /actors/development/what-is-actor
 ---

@@ -10,7 +10,7 @@ slug: /actors/development/state-persistence
 
 ---
 
-Long-running [actor](../../index.md) jobs may need to migrate from one server to another. Unless you save your job's progress, it will be lost during the migration. The actor will re-start from scratch on the new server, which can be costly.
+Long-running [actor](../../../index.mdx) jobs may need to migrate from one server to another. Unless you save your job's progress, it will be lost during the migration. The actor will re-start from scratch on the new server, which can be costly.
 
 To avoid this, long-running actors should save (persist) their state periodically and listen for [migration events](/sdk/js/api/apify/class/PlatformEventManager). On start, these actors should [check for persisted state](#code-examples), so they can continue where they left off.
 

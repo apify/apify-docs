@@ -9,7 +9,7 @@ sidebar_position: 3
 
 ---
 
-You should make sure your [Actors](../../index.md)  are well-maintained. You might not always get feedback from your users. Therefore it is crucial that you periodically check if your Actors work as expected. You can do this using our [monitoring suite](https://apify.com/apify/monitoring) or by setting up daily runs of the **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) tool.
+You should make sure your [Actors](../../index.mdx)  are well-maintained. You might not always get feedback from your users. Therefore it is crucial that you periodically check if your Actors work as expected. You can do this using our [monitoring suite](https://apify.com/apify/monitoring) or by setting up daily runs of the **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) tool.
 
 The monitoring suite is sufficient for most scenarios and includes automated alerts. [See more information](https://apify.com/apify/monitoring) on the suite's page or [check out our tutorials](../../../monitoring/index.md).
 

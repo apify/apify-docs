@@ -46,7 +46,7 @@ Click on the `API` button to view and test a queue's [API endpoints](/api/v2#/re
 
 ### Apify SDK {#apify-sdk}
 
-If you are building an [Apify actor](../actors/index.md), you will be using the [Apify SDK](/sdk/js).
+If you are building an [Apify actor](../actors/index.mdx), you will be using the [Apify SDK](/sdk/js).
 In the [Apify SDK](/sdk/js/docs/guides/request-storage#request-queue), the request queue is represented by the
 [`RequestQueue`](/sdk/js/api/apify/class/RequestQueue) class.
 
@@ -221,7 +221,7 @@ You can invite other Apify users to view or modify your request queues with the 
 
 ### Sharing request queues between runs {#sharing-request-queues-between-runs}
 
-You can access a request queue from any [Actor](../actors/index.md) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
+You can access a request queue from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
 
 To access a request queue from another run using the Apify SDK, open it using the [`Actor.openRequestQueue(queueIdOrName)`](/sdk/js/api/apify/class/Actor#openRequestQueue) method like you would do with any other queue.
 

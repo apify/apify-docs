@@ -17,7 +17,7 @@ An event is represented by a **type** and related **data**. The type is a `strin
 
 ## [](#actor-run)Actor run
 
-Actor run events are triggered when an Actor run gets created or transitions into a new state. Webhook can be defined for all runs of an [actor](../../actors/index.md) at its detail page or for a specific [Actor task](../../actors/running/tasks.md) at its detail page. In that case, the webhook is invoked only for runs started for that task.
+Actor run events are triggered when an Actor run gets created or transitions into a new state. Webhook can be defined for all runs of an [actor](../../actors/index.mdx) at its detail page or for a specific [Actor task](../../actors/running/tasks.md) at its detail page. In that case, the webhook is invoked only for runs started for that task.
 
 ### Run event types
 
@@ -50,7 +50,7 @@ Note that apart from event data, actions also have the `resource` object availab
 
 ## [](#actor-build)Actor build
 
-Actor build events are triggered when an actor build is created or transitions into a new state. Webhooks can be defined for all of an [actor](../../actors/index.md)'s builds on its detail page.
+Actor build events are triggered when an actor build is created or transitions into a new state. Webhooks can be defined for all of an [actor](../../actors/index.mdx)'s builds on its detail page.
 
 ### Build event types
 
