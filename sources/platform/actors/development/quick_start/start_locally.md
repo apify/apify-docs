@@ -54,7 +54,7 @@ Next, let's explore the Actor's source code. We will use the "PuppeteerCrawler i
 
 - `src` directory and, namely, the `src/main.js` file, which is the actual code of an actor.
 - `actor` directory containing actor's definition files such as `actor.json` and `Dockerfile`. These are important once you deploy your code to the Apify platform.
-- `storage` directory containing the local emulation of [Apify Storage](../storage), namely [key-value store](../storage/key-value-store), [dataset](../storage/dataset), and [request queue](../storage/request-queue).
+- `storage` directory containing the local emulation of [Apify Storage](../../storage), namely [key-value store](../../storage/key-value-store), [dataset](../../storage/dataset), and [request queue](../../storage/request-queue).
 
 ![Actor source code](./images/actor-local-code.png)
 
@@ -88,5 +88,5 @@ apify push
 ```
 
 
-> If you successfully finished your first actor, you may consider [sharing it with other users and monetizing it](./publishing).
+> If you successfully finished your first actor, you may consider [sharing it with other users and monetizing it](../publishing).
 
