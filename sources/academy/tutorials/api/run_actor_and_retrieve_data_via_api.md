@@ -58,7 +58,7 @@ We can also add settings for the actor (which will override the default settings
 https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN&memory=8192&build=beta
 ```
 
-This works in almost exactly the same way for both Actors and tasks; however, for tasks, there is no reason to specify a [`build`](/platform/actors/development/builds) parameter, as a task already has only one specific Actor build which cannot be changed with query parameters.
+This works in almost exactly the same way for both Actors and tasks; however, for tasks, there is no reason to specify a [`build`](/platform/actors/development/builds-and-runs/builds) parameter, as a task already has only one specific Actor build which cannot be changed with query parameters.
 
 ### Input JSON {#input-json}
 
