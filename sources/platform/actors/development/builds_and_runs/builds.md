@@ -11,7 +11,7 @@ slug: /actors/development/builds-and-runs/builds
 
 ---
 
-Before the actor can be run, it first needs to be built. The build effectively creates a snapshot of a specific version of the actor's settings, such as the [Source code](../actor_definition/source_code/index.md) and [Environment variables](../actor_definition/environment_variables.md). It creates a Docker image that contains everything the actor needs for its run, including necessary NPM packages, web browsers, etc.
+Before the actor can be run, it first needs to be built. The build effectively creates a snapshot of a specific version of the actor's settings, such as the [Source code](../actor_definition/source_code/index.mdx) and [Environment variables](../actor_definition/environment_variables.md). It creates a Docker image that contains everything the actor needs for its run, including necessary NPM packages, web browsers, etc.
 
 Each build is assigned a unique build number of the form **MAJOR\.MINOR\.BUILD** (e.g. **1\.2\.345**), where **MAJOR\.MINOR** corresponds to the actor version number (see [Versioning](#versioning)), and **BUILD** is an automatically-incremented number starting at **1**.
 
@@ -22,8 +22,6 @@ By default, the build has a timeout of 300 seconds and consumes 4096 MB (2048 MB
 In order to enable active development, the actor can have multiple versions of the source code and associated settings, such as the **Base image** and **Environment**. Each version is denoted by a version number of the form `MAJOR.MINOR`; the version numbers should adhere to the [Semantic Versioning](http://semver.org/) logic.
 
 For example, the actor can have a production version **1.1**, a beta version **1.2** that contains new features but is still backward compatible, and a development version **2.0** that contains breaking changes.
-
-The versions of the actors are built and run separately. For details, see [Build](../builds_and_runs/builds.md) and [Running](../../running/index.md).
 
 ## [](#tags)Tags
 
@@ -36,4 +34,4 @@ To set a tag for builds of a specific actor version, set the **Build tag** prope
 By default, the build process pulls the latest copies of all necessary Docker images and builds each new layer of Docker images from scratch. To speed up the builds triggered via API, you can add **useCache=1** parameter. See the API reference for more details.
 
 
-  
+
