@@ -88,5 +88,5 @@ apify push
 ```
 
 
-> If you successfully finished your first actor, you may consider [sharing it with other users and monetizing it](../publishing).
+> If you successfully finished your first actor, you may consider [sharing it with other users and monetizing it](../../publishing/index.mdx).
 
