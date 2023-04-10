@@ -45,7 +45,7 @@ We will use the techniques learned in the [Basics of data extraction](../data_ex
 
 > For brevity, we won't explain how to extract every attribute step-by-step. Review the [Basics of data extraction](../data_extraction/index.md) section to learn about DevTools and extracting data.
 
-#### Title
+### Title
 
 Getting the title is quite straightforward. We recommend using `h1` for titles where available, because it's the semantically correct way and therefore unlikely to change.
 
@@ -53,7 +53,7 @@ Getting the title is quite straightforward. We recommend using `h1` for titles w
 const title = $('h1').text().trim();
 ```
 
-#### Vendor
+### Vendor
 
 Vendor name is available as a link with the `product-meta__vendor` class. We're only interested in the text though.
 
@@ -61,7 +61,7 @@ Vendor name is available as a link with the `product-meta__vendor` class. We're 
 const vendor = $('a.product-meta__vendor').text().trim();
 ```
 
-#### Price
+### Price
 
 We will take a shortcut here and only extract the price as a string that includes currency. In production scrapers, you might want to split it into two fields.
 
@@ -69,7 +69,7 @@ We will take a shortcut here and only extract the price as a string that include
 const price = $('span.price').contents()[2].nodeValue;
 ```
 
-#### Number of reviews
+### Number of reviews
 
 For the review count, we use the `parseInt()` function to get only the number. Otherwise, we would receive a string like **2 reviews** from this element.
 
@@ -77,7 +77,7 @@ For the review count, we use the `parseInt()` function to get only the number. O
 const reviewCount = parseInt($('span.rating__caption').text());
 ```
 
-#### Description
+### Description
 
 Getting the description is fairly straightforward as well, but notice the two selectors separated by a space: `div[class*="description"]` `div.rte`. This is called a [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator), and it allows you to search for child elements within parent elements. Using any of the selectors separately would lead to unwanted strings in our result.
 

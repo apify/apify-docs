@@ -122,7 +122,7 @@ Title: Sales
 
 > `crawler.addRequests` uses the [`RequestQueue`](https://crawlee.dev/docs/guides/request-storage#request-queue) under the hood. It's a persistent storage, which means that if your crawler crashes, it doesn't have to start over, but it can continue from where it left off.
 
-### Summary:
+### Summary
 
 1. We added the first URL to the crawler using the `addRequests` function.
 2. `CheerioCrawler` will automatically take the URL from the queue, download its HTML using Got Scraping, and parse it using Cheerio.
