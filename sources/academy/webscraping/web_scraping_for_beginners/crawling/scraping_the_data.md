@@ -334,4 +334,4 @@ That's it for the absolute basics of crawling, but we're not done yet. We scrape
 
 ## Next up {#next}
 
-In the [next lesson](./pro_scraping.md) we will rewrite the scraper using a specialized web scraping library called [Crawlee](https://crawlee.dev). It will make the scraper more robust while speeding up development at the same time.
+In the [next lesson](./pro_scraping.md) we will rewrite the scraper using an open-source web scraping library called [Crawlee](https://crawlee.dev). It will make the scraper more robust while speeding up development at the same time.
