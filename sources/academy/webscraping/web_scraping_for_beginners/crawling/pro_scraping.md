@@ -170,9 +170,10 @@ When you run the code, you'll see the names and URLs of all the products printed
 
 ## Extracting data {#extracting-data}
 
-We have the crawler in place, and it's time to extract data. We already have the extraction code from the previous lesson, so we can just copy and paste it into the `requestHandler` with tiny changes.
+We have the crawler in place, and it's time to extract data. We already have the extraction code from the previous lesson, so we can just copy and paste it into the `requestHandler` with tiny changes. Instead of printing results to terminal, we will save it to disk.
 
 ```js title=crawlee.js
+// To save data to disk, we need to import Dataset.
 import { CheerioCrawler, Dataset } from 'crawlee';
 
 const crawler = new CheerioCrawler({
@@ -217,7 +218,7 @@ await crawler.addRequests([{
 await crawler.run();
 ```
 
-When you run the code as usual, you'll see the product URLs printed to the terminal and you'll find the scraped data saved to your disk. Thanks to using the [`Dataset.pushData()`](https://crawlee.dev/docs/introduction/saving-data#whats-datasetpushdata) function, Crawlee automatically created a `storage` directory in your project's location. The results will be saved there, with each product's data stored as a separate JSON file:
+When you run the code as usual, you'll see the product URLs printed to the terminal and you'll find the scraped data saved to your disk. Thanks to using the [`Dataset.pushData()`](https://crawlee.dev/docs/introduction/saving-data#whats-datasetpushdata) function, Crawlee automatically created a `storage` directory in your project's location and saved the results there. Each product has its data stored as a separate JSON file.
 
 ```text
 ./storage/datasets/default/*.json
