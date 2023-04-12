@@ -28,20 +28,6 @@ You can use proxies in your [actors](../actors/index.md) or any other applicatio
 
 **For pricing information, visit [apify.com/proxy](https://apify.com/proxy).**
 
-## Using your own proxies
-
-In addition to our proxies, you can use your own both in Apify Console and SDK.
-
-### Custom proxies in console {#console}
-
-To use your own proxies with Apify Console, in your actor's **Input and options** tab, scroll down and open the **Proxy and browser configuration** section. Enter your proxy URLs, and you're good to go.
-
-![Using custom proxy in Apify Console](../images/proxy-custom.png)
-
-### Custom proxies in SDK {#SDK}
-
-In the Apify SDK, use the `proxyConfiguration.newUrl(sessionId)` command to add your custom proxy URLs to the proxy configuration. See the [SDK docs](/sdk/js/api/apify/class/ProxyConfiguration#newUrl) for more details.
-
 ## IP address rotation {#ip-address-rotation}
 
 Web scrapers can rotate the IP addresses they use to access websites. They assign each request a different IP address, which makes it appear like they are all coming from different users. This greatly enhances performance and data throughout.
@@ -77,8 +63,3 @@ For datacenter proxies, a session persists for **26 hours** ([more info](./datac
 
 Google SERP proxies do not support sessions.
 
-## Dead proxies {#dead-proxies}
-
-Our health check performs an HTTP and HTTPS request with each proxy server every few hours. If a server fails both requests 3 times in a row, it's marked as dead and all user sessions with this server are discarded.
-
-Banned proxies are not considered dead, since they become usable after a while.
