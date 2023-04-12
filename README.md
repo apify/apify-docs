@@ -1,6 +1,6 @@
 # Apify Documentation
 
-[![Check & Release](https://github.com/apify/apify-docs/actions/workflows/test.yml/badge.svg)](https://github.com/apify/apify-docs/actions/workflows/test.yml)
+[![Check & Release](https://github.com/apify/apify-docs/actions/workflows/test.yaml/badge.svg)](https://github.com/apify/apify-docs/actions/workflows/test.yaml)
 
 ## Intro
 
