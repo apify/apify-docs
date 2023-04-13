@@ -242,4 +242,4 @@ The one main difference is that the Apify client automatically uses [**exponenti
 
 ## Wrap up {#wrap-up}
 
-That's it! Now, if you want to go above and beyond, you should create a Github repository for this actor, integrate it with a new actor on the Apify platform, and test if it works there as well (with multiple input configurations).
+That's it! Now, if you want to go above and beyond, you should create a GitHub repository for this actor, integrate it with a new actor on the Apify platform, and test if it works there as well (with multiple input configurations).

@@ -34,7 +34,7 @@ For example, the `.actor/actor.json` file can look like this:
 
 ## Reference
 
-> Note that actor `name`, `version`, `buildTag`, and `environmentVariables` are currently only used when you deploy your actor using [Apify CLI](/cli) and not when deployed, for example, via Github integration. There it serves for informative purposes only. This is suspected to change in the future.
+> Note that actor `name`, `version`, `buildTag`, and `environmentVariables` are currently only used when you deploy your actor using [Apify CLI](/cli) and not when deployed, for example, via GitHub integration. There it serves for informative purposes only. This is suspected to change in the future.
 
 
 | Property         | Type     | Description |

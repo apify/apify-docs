@@ -230,7 +230,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 });
 ```
 
-Don't forget to push your changes to Github using `git push origin MAIN_BRANCH_NAME` to see them on the Apify platform!
+Don't forget to push your changes to GitHub using `git push origin MAIN_BRANCH_NAME` to see them on the Apify platform!
 
 ## Creating a task (It's easy!) {#creating-task}
 

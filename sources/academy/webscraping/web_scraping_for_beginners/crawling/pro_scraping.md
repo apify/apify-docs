@@ -40,7 +40,7 @@ As a developer, your goal is to take Crawlee, which is quite generic on its own,
 Crawlee and its resources can be found in various different places:
 
 1. [Official Crawlee documentation](https://crawlee.dev/)
-2. [Crawlee Github repository (source code, issues)](https://github.com/apify/crawlee)
+2. [Crawlee GitHub repository (source code, issues)](https://github.com/apify/crawlee)
 3. [Crawlee on NPM](https://www.npmjs.com/package/crawlee)
 
 ## Install Crawlee {#crawlee-installation}

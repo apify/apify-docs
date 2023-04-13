@@ -82,7 +82,7 @@ client = ApifyClient(token='YOUR_TOKEN')
 </TabItem>
 </Tabs>
 
-> If you are planning on publishing your code to a public Github/Gitlab repository or anywhere else online, be sure to set your API token as en environment variable, and never hardcode it directly into your script.
+> If you are planning on publishing your code to a public GitHub/Gitlab repository or anywhere else online, be sure to set your API token as en environment variable, and never hardcode it directly into your script.
 
 Now that we've got our instance, we can point to an actor using the [`client.actor()`](/api/client/js/reference/class/ApifyClient#actor) function, then call the actor with some input with the [`.call()`](/api/client/js/reference/class/ApifyClient#actor) function - the first parameter of which is the input for the actor.
 

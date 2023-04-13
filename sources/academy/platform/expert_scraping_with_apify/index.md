@@ -32,7 +32,7 @@ The Apify CLI will play a core role in the running and testing of the actor you 
 
 ### Git {#git}
 
-In one of the later lessons, we'll be learning how to integrate our actor on the Apify platform with a Github repository. For this, you'll need to understand at least the basics of [Git](https://git-scm.com/docs). Here's a [great tutorial](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners) to help you get started with Git.
+In one of the later lessons, we'll be learning how to integrate our actor on the Apify platform with a GitHub repository. For this, you'll need to understand at least the basics of [Git](https://git-scm.com/docs). Here's a [great tutorial](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners) to help you get started with Git.
 
 ### Docker {#docker}
 

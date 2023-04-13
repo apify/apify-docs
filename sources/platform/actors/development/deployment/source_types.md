@@ -1,11 +1,11 @@
 ---
 title: Source types
-description: Learn about Apify Actor source types, how to deploy actor from Github, using CLI, or a Gist.
+description: Learn about Apify Actor source types, how to deploy actor from GitHub, using CLI, or a Gist.
 slug: /actors/development/source-types
 sidebar_position: 1
 ---
 
-**Learn about Apify Actor source types, how to deploy actor from Github, using CLI, or a Gist.**
+**Learn about Apify Actor source types, how to deploy actor from GitHub, using CLI, or a Gist.**
 
 ---
 

@@ -25,7 +25,7 @@ The documentation and the input/output schemas make it possible for people to ea
 
 The Apify platform provides an open [API](/api/v2), cron-style [scheduler](../../schedules), [webhooks](../../../integrations/webhooks/index.md), and [integrations](../../integrations) to services such as Zapier or Make, which make it easy for users to integrate actors into their existing workflows. Anyone is welcome to [publish Actors](/platform/actors/publishing) in the [Apify Store](https://apify.com/store), and you can even [monetize your Actors](/platform/actors/publishing/monetize) by renting them out to users of the platform.
 
-Actors can be developed and run locally and then easily deployed to the Apify platform using [Apify CLI](/cli) or [Github integration](../../../integrations/github.md). For more, see [Deployment](../deployment/index.md) section.
+Actors can be developed and run locally and then easily deployed to the Apify platform using [Apify CLI](/cli) or [GitHub integration](../../../integrations/github.md). For more, see [Deployment](../deployment/index.md) section.
 
 > **To get a better idea of what Apify Actors are, visit [Apify Store](https://apify.com/store), and try out some of them!**
 

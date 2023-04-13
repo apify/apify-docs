@@ -12,7 +12,7 @@ slug: /getting-started
 
 ---
 
-Your gateway into the Apify platform is your Apify account. The great thing about creating an account is that we support integration with both Google and Github, and that it takes only about 30 seconds!
+Your gateway into the Apify platform is your Apify account. The great thing about creating an account is that we support integration with both Google and GitHub, and that it takes only about 30 seconds!
 
 1. Create your account on the [sign up](https://console.apify.com/sign-up?asrc=developers_portal) page.
 2. Check your email, you should have a verification email with a link. Click it!
