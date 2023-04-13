@@ -114,10 +114,6 @@ To learn more about [sessions](./index.md#sessions) and [IP address rotation](./
 
 # Tips and tricks {#tips-and-tricks}
 
-**Helpful tips for using your application with Apify's residential proxies. Control traffic, deal with interrupted connections and manage expenses.**
-
----
-
 [Residential](./index.md) proxies are less predictable than [datacenter](./datacenter_proxy.md) proxies and are priced differently (by number of IPs vs traffic used). Because of this, there are some important things to consider before using residential proxy in your solutions.
 
 ## Control traffic used by automated browsers {#control-traffic-used-by-automated-browsers}

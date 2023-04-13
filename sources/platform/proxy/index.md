@@ -18,13 +18,71 @@ You can use proxies in your [actors](../actors/index.md) or any other applicatio
 
 **You can view your proxy settings and password on the [Proxy](https://console.apify.com/proxy) page in the Apify Console.**
 
+## Quickstart {#quickstart}
+
+If you want to start using Apify Proxy as soon as possible, we provide minimal working examples for connecting to our proxy using the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)) and [Crawlee](https://crawlee.dev/).
+
+<Tab groupId="main">
+<TabItem value="Python SDK with `requests`" label="Python SDK with `requests`">
+
+```python
+proxy_configuration = await Actor.create_proxy_configuration()
+proxy_url = await proxy_configuration.new_url()
+proxies = {
+    'http': proxy_url,
+    'https': proxy_url,
+}
+
+response = requests.get('https://proxy.apify.com/?format=json', proxies=proxies)
+
+```
+
+</TabItem>
+<TabItem value="JavaScript SDK with PuppeteerCrawler" label="JavaScript SDK with PuppeteerCrawler">
+
+```javascript
+import { Actor } from 'apify';
+import { PuppeteerCrawler } from 'crawlee';
+
+await Actor.init();
+
+const proxyConfiguration = await Actor.createProxyConfiguration();
+
+const crawler = new PuppeteerCrawler({
+    proxyConfiguration,
+    async requestHandler({ page }) {
+        console.log(await page.content())
+    },
+});
+
+await crawler.run(['https://proxy.apify.com/?format=json']);
+
+await Actor.exit();
+
+```
+
+</TabItem>
+</Tab>
+
 ## Our proxies {#our-proxies}
 
-[Datacenter proxy](./datacenter_proxy.md) – the fastest and cheapest option, it uses datacenters to change your IP address. Note that there is a chance of being blocked because of the activity of other users.
-
-[Residential proxy](./residential_proxy.md) – IP addresses located in homes and offices around the world. These IPs are the least likely to be blocked.
-
-[Google SERP proxy](./google_serp_proxy.md) – download and extract data from Google Search Engine Result Pages (SERPs). You can select country and language to get localized results.
+<CardGrid>
+    <Card
+        title="Datacenter proxy"
+        desc="The fastest and cheapest option, it uses datacenters to change your IP address. Note that there is a chance of being blocked because of the activity of other users."
+        to="/platform/proxy/datacenter-proxy"
+    />
+    <Card
+        title="Residential proxy"
+        desc="IP addresses located in homes and offices around the world. These IPs are the least likely to be blocked."
+        to="/platform/proxy/residential-proxy"
+    />
+    <Card
+        title="Google SERP proxy"
+        desc="Download and extract data from Google Search Engine Result Pages (SERPs). You can select country and language to get localized results."
+        to="/platform/proxy/google-serp-proxy"
+    />
+</CardGrid>
 
 **For pricing information, visit [apify.com/proxy](https://apify.com/proxy).**
 

@@ -1,15 +1,16 @@
 ---
 title: Usage
-description: Learn how to connect your application to Apify Proxy. See the required parameters such as the correct username and password.
+description: Learn how to configure and use Apify Proxy. See the required parameters such as the correct username and password.
 sidebar_position: 10.1
 slug: /proxy/usage
 ---
 
-# Connection settings
+# Usage
 
-**Learn how to connect your application to Apify Proxy. See the required parameters such as the correct username and password.**
+**Learn how to configure and use Apify Proxy. See the required parameters such as the correct username and password.**
 
----
+
+## Connection settings
 
 Below are the HTTP proxy connection settings for Apify Proxy.
 
@@ -26,7 +27,7 @@ Below are the HTTP proxy connection settings for Apify Proxy.
 
 **WARNING:** All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks – **the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
 
-## Username parameters
+### Username parameters
 
 The `username` field enables you to pass parameters like **[groups](#proxy-groups)**, **[session](./index.md) ID** and **country** for your proxy connection.
 
@@ -84,7 +85,7 @@ To learn more about [sessions](./index.md#sessions) and [IP address rotation](./
 
 ## Code examples
 
-We have code examples for connecting to our proxy using the [Apify SDK](/sdk/js) and [Crawlee](https://crawlee.dev/) and other JavaScript libraries (**axios** and **got-scraping**), as well as examples in Python and PHP.
+We have code examples for connecting to our proxy using the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)) and [Crawlee](https://crawlee.dev/) and other JavaScript libraries (**axios** and **got-scraping**), as well as examples in PHP.
 
 ### Datacenter proxy
 
@@ -92,9 +93,9 @@ We have code examples for connecting to our proxy using the [Apify SDK](/sdk/js)
 
 ### Google SERP proxy
 
-* [Datacenter proxy](./datacenter_proxy.md)
-* [Residential proxy](./residential_proxy.md)
-* [Google SERP proxy](./google_serp_proxy.md)
+### Your own proxies
+
+### Using standard libraries and languages
 
 ## Proxy groups
 
