@@ -9,7 +9,6 @@ slug: /proxy/usage
 
 **Learn how to configure and use Apify Proxy. See the required parameters such as the correct username and password.**
 
-
 ## Connection settings
 
 Below are the HTTP proxy connection settings for Apify Proxy.
@@ -87,15 +86,9 @@ To learn more about [sessions](./index.md#sessions) and [IP address rotation](./
 
 We have code examples for connecting to our proxy using the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)) and [Crawlee](https://crawlee.dev/) and other JavaScript libraries (**axios** and **got-scraping**), as well as examples in PHP.
 
-### Datacenter proxy
-
-### Residential proxy
-
-### Google SERP proxy
-
-### Your own proxies
-
-### Using standard libraries and languages
+* [Datacenter proxy](./datacenter_proxy.md)
+* [Residential proxy](./residential_proxy.md)
+* [Google SERP proxy](./google_serp_proxy.md)
 
 ## Proxy groups
 
