@@ -25,8 +25,7 @@ The [Apify SDK for JavaScript](/sdk/js) and [Crawlee](https://crawlee.dev/) are 
 
 - **Node.js 16 + Playwright + Chrome on Debian**  ([`apify/actor-node-playwright-chrome`](https://hub.docker.com/r/apify/actor-node-playwright-chrome/)) - similar to the `apify/actor-node-puppeteer-chrome` image, but it comes preinstalled the [`playwright`](https://github.com/microsoft/playwright) automation library instead of Puppeteer. With this image, you can use the [`launchPlaywright()`](https://crawlee.dev/api/playwright-crawler/function/launchPlaywright) function and [`PlaywrightCrawler`](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler). This image also comes with a `firefox` and `webkit` version.
 
-For a full list of available images, [see the Apify SDK Docker image guide](/sdk/js/docs/guides/docker-images). Note that some images available in the Apify UI can be marked as deprecated. This means that they should no longer be used for new projects and old projects are encouraged to migrate to one of the non-deprecated images.
-
+For a full list of available images, [see the Apify SDK Docker image guide](/sdk/js/docs/guides/docker-images).
 ## Images with Apify Client for Python preinstalled {#python-actor-images}
 
 The [Apify API client for Python](/api/client/python) is preinstalled on these images.

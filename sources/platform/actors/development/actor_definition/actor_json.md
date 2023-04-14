@@ -13,6 +13,12 @@ The main actor config should live in the `.actor/actor.json` file in the actor's
 
 For example, the `.actor/actor.json` file can look like this:
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="main">
+<TabItem value="Full actor.json" label="Full actor.json">
+
 ```json
 {
   "actorSpecification": 1, // always 1
@@ -30,7 +36,23 @@ For example, the `.actor/actor.json` file can look like this:
     "dataset": "./dataset_schema.json",
   }
 }
+
 ```
+
+</TabItem>
+<TabItem value="Minimal actor.json" label="Minimal actor.json">
+
+```json
+{
+  "actorSpecification": 1, // always 1
+  "name": "name-of-my-scraper",
+  "version": "0.0"
+}
+
+```
+
+</TabItem>
+</Tabs>
 
 ## Reference
 

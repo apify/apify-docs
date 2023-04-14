@@ -9,9 +9,9 @@ slug: /actors/development
 
 ---
 
-This section will guide you thru the whole story of [Actor](../index.mdx) development.
+This section will guide you through the whole story of [Actor](../index.mdx) development.
 
-You can follow chapters sequentially from [Quick start](./quick_start/index.mdx), where you learn how to create your first Actor in justa  few minutes, thru the more technical sections describing the whole Actor model, up to the [Performance](./performance.md) section, where you learn how to fine-tune your Actor to get the best out of the Apify.
+You can follow chapters sequentially from [Quick start](./quick_start/index.mdx), where you learn how to create your first Actor in justa  few minutes, through the more technical sections describing the whole Actor model, up to the [Performance](./performance.md) section, where you learn how to fine-tune your Actor to get the best out of the Apify.
 
 import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
