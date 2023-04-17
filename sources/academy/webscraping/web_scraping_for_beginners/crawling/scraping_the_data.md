@@ -113,7 +113,7 @@ const product = {
     price,
     reviewCount,
     description
-}
+};
 
 console.log(product)
 ```
