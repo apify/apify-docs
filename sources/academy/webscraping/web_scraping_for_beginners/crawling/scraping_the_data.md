@@ -115,7 +115,7 @@ const product = {
     description
 };
 
-console.log(product)
+console.log(product);
 ```
 
 ## Crawling product detail pages {#crawling}
