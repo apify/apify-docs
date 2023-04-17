@@ -51,8 +51,7 @@ DevTools Console is a fun playground, but Node.js is way more useful. Let's crea
 
 We'll start from a boilerplate that's very similar to the scraper we built in [Basics of data extraction](../data_extraction/node_js_scraper.md).
 
-```js
-// crawler.js
+```js title=crawler.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
