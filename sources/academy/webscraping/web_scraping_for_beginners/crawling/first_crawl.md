@@ -19,8 +19,7 @@ In the previous lessons, we learned what crawling is and how to extract URLs fro
 
 In the previous lessons, we collected and filtered all the URLs pointing to individual products in the [Sales category of Warehouse store](https://warehouse-theme-metal.myshopify.com/collections/sales). To crawl the URLs, we must take the whole list we collected and download the HTML of each of the pages. See the comments for changes and additions to the code.
 
-```js
-// crawler.js
+```js title=crawler.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
