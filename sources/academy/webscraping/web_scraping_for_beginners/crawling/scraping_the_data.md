@@ -91,8 +91,7 @@ This is the final code after putting all the extractors together with the initia
 
 Save it into a new file called `product.js` and run it with `node product.js` to see for yourself.
 
-```js
-// product.js
+```js title=product.js
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
 
