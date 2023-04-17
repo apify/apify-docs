@@ -79,7 +79,7 @@ const reviewCount = parseInt($('span.rating__caption').text());
 
 ### Description
 
-Getting the description is fairly straightforward as well, but notice the two selectors separated by a space: `div[class*="description"]` `div.rte`. This is called a [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator), and it allows you to search for child elements within parent elements. Using any of the selectors separately would lead to unwanted strings in our result.
+Getting the description is fairly straightforward as well, but notice the two selectors separated by a space: `div[class*="description"] div.rte`. This is called a [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator), and it allows you to search for child elements within parent elements. Using any of the selectors separately would lead to unwanted strings in our result.
 
 ```js
 const description = $('div[class*="description"] div.rte').text().trim();
