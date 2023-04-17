@@ -89,18 +89,17 @@ module.exports = {
             },
         ],
         // TODO this should be somehow computed from all the external sources
-        // [
-        //     '@docusaurus/plugin-client-redirects',
-        //     {
-        //         createRedirects(existingPath) {
-        //             if (!existingPath.endsWith('/')) {
-        //                 return `${existingPath}/`;
-        //             }
-        //
-        //             return undefined; // Return a falsy value: no redirect created
-        //         },
-        //     },
-        // ],
+        [
+            '@docusaurus/plugin-client-redirects',
+            {
+                redirects: [
+                    {
+                        to: '/academy/web-scraping-for-beginners',
+                        from: '/platform/tutorials',
+                    },
+                ],
+            },
+        ],
         ...config.plugins,
     ],
     markdown: {
