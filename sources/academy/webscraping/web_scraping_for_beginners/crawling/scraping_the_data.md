@@ -246,8 +246,7 @@ for (const url of productUrls) {
 
 Finally, let's combine the above code blocks into a full runnable example. When you run the below code, it will scrape detailed information about all the products on the first page of the [Warehouse Sales category](https://warehouse-theme-metal.myshopify.com/collections/sales). We added a few console logs throughout the code to see what's going on.
 
-```js
-// final.js
+```js title=final.js
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
 
