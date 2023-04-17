@@ -171,8 +171,7 @@ Let's create a brand-new file called **final.js** and write our scraper code the
 
 We'll start by adding our imports and constants at the top of the file, no changes there.
 
-```js
-// final.js
+```js title=final.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
