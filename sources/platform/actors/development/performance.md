@@ -17,7 +17,7 @@ There are many ways to improve the performance of your Actors. This guide will h
 
 When you run a single job, the Actor will be started and stopped for each run. This is a very expensive operation. If your Actor is running the web browser or other heavy dependencies, their startup times add to this. Therefore if you want to minimize your cost, we recommend you run a batch of jobs instead of a single job.
 
-For example, instead of starting an actor for every URL you want to process, group them in batches and run the actor only once for each batch. The browser will then be re-used, and the implementation will become much more cost-efficient.
+For example, instead of starting an Actor for every URL you want to process, group them in batches and run the Actor only once for each batch. The browser will then be re-used, and the implementation will become much more cost-efficient.
 
 ### Speed up your builds with the Docker layer cache
 
@@ -45,7 +45,7 @@ COPY . ./
 CMD npm start --silent
 ```
 
-We do first copy the `package.json`, `package-lock.json` , and install the dependencies before copying the rest of the source code. This way, we can take advantage of Docker's caching mechanism and only install the dependencies when the `package.json` or `package-lock.json` files change. This way, the build process is much faster.
+We first copy the `package.json`, `package-lock.json` , and install the dependencies before copying the rest of the source code. This way, we can take advantage of Docker's caching mechanism and only install the dependencies when the `package.json` or `package-lock.json` files change. This way, the build process is much faster.
 
 ### Speedup the Actor startup times by using standardised images
 

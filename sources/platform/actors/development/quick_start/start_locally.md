@@ -1,11 +1,11 @@
 ---
 title: Local development
 sidebar_position: 1
-description: Create you first Actor locally on your machine and then deploy it to Apify platform and run it in the cloud.
+description: Create your first Actor locally on your machine and then deploy it to the Apify platform and run it in the cloud.
 slug: /actors/development/quick-start/locally
 ---
 
-**Create you first Actor locally on your machine and then deploy it to Apify platform and run it in the cloud.**
+**Create your first Actor locally on your machine and then deploy it to the Apify platform and run it in the cloud.**
 
 ---
 
@@ -52,13 +52,13 @@ cd my-actor
 
 Next, let's explore the Actor's source code. We will use the "PuppeteerCrawler in JavaScript" template code as an example, but all Actor templates follow a similar organizational pattern. The important parts are:
 
-- `src` directory and, namely, the `src/main.js` file, which is the actual code of an actor.
+- `src` directory and, namely, the `src/main.js` file, which is the actual code of an Actor.
 - `actor` directory containing actor's definition files such as `actor.json` and `Dockerfile`. These are important once you deploy your code to the Apify platform.
 - `storage` directory containing the local emulation of [Apify Storage](../../../storage), namely [key-value store](../../../storage/key-value-store), [dataset](../../../storage/dataset), and [request queue](../../../storage/request-queue).
 
 ![Actor source code](./images/actor-local-code.png)
 
-> The following chapters will teach you more about an actor's structure and files.
+> The following chapters will teach you more about an Actor's structure and files.
 
 ## 4. Run it locally
 
@@ -88,5 +88,5 @@ apify push
 ```
 
 
-> If you successfully finished your first actor, you may consider [sharing it with other users and monetizing it](../../publishing/index.mdx).
+> If you successfully finished your first Actor, you may consider [sharing it with other users and monetizing it](../../publishing/index.mdx).
 

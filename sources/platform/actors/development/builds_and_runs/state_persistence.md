@@ -10,15 +10,15 @@ slug: /actors/development/state-persistence
 
 ---
 
-Long-running [actor](../../../index.mdx) jobs may need to migrate from one server to another. Unless you save your job's progress, it will be lost during the migration. The actor will re-start from scratch on the new server, which can be costly.
+Long-running [actor](../../../index.mdx) jobs may need to migrate from one server to another. Unless you save your job's progress, it will be lost during the migration. The Actor will restart from scratch on the new server, which can be costly.
 
-To avoid this, long-running actors should save (persist) their state periodically and listen for [migration events](/sdk/js/api/apify/class/PlatformEventManager). On start, these actors should [check for persisted state](#code-examples), so they can continue where they left off.
+To avoid this, long-running Actors should save (persist) their state periodically and listen for [migration events](/sdk/js/api/apify/class/PlatformEventManager). When started, these Actors should [check for persisted state](#code-examples), so they can continue where they left off.
 
-For short-running actors, the chance of a restart and the cost of repeated runs are low, so restarts can be ignored.
+For short-running Actors, the chance of a restart and the cost of repeated runs are low, so restarts can be ignored.
 
 ## [](#what-is-a-migration)What is a migration?
 
-A migration is when a process running on a server has to stop and move to another. All in-progress processes on the current server are stopped. Unless you have saved your state, the actor run will restart on the new server. For example, if a request in your [request queue](../../../storage/request_queue.md) has not been updated as **crawled** before the migration, it will be crawled again.
+A migration is when a process running on a server has to stop and move to another. All in-progress processes on the current server are stopped. Unless you have saved your state, the Actor run will restart on the new server. For example, if a request in your [request queue](../../../storage/request_queue.md) has not been updated as **crawled** before the migration, it will be crawled again.
 
 **When a migration event occurs, you only have a few seconds to save your work.**
 
@@ -34,7 +34,7 @@ There is no specified interval at which migrations happen. They are caused by th
 
 ## [](#why-is-state-lost-during-migration)Why is state lost during migration?
 
-Unless instructed to save its output or state to a [storage](../../../storage/index.md), an actor keeps them in the server's memory. So, when it switches servers, the run loses access to the previous server's memory. Even if data were saved on the server's disk, we would also lose access to that.
+Unless instructed to save its output or state to a [storage](../../../storage/index.md), an Actor keeps them in the server's memory. So, when it switches servers, the run loses access to the previous server's memory. Even if data were saved on the server's disk, we would also lose access to that.
 
 ## [](#how-to-persist-state)How to persist state
 

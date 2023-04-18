@@ -1,11 +1,11 @@
 ---
 title: Deployment
 sidebar_position: 6
-description: Learn how to deploy your Actor to Apify platform and build them.
+description: Learn how to deploy your Actor to the Apify platform and build them.
 slug: /actors/development/deployment
 ---
 
-**Learn how to deploy your Actor to Apify platform and build them.**
+**Learn how to deploy your Actor to the Apify platform and build them.**
 
 ---
 
@@ -32,7 +32,7 @@ When you deploy an Actor using the CLI, the code gets deployed as "multiple sour
 
 ## Other ways (Zip, Git, Gist)
 
-There are more ways how to deploy your Actor to Apify platform. But in this case, you need to first manually create the Actor in [Apify Console](https://my.apify.com/actors), and then you can switch its source type:
+There are more ways how to deploy your Actor to the Apify platform. But in this case, you need to first manually create the Actor in [Apify Console](https://my.apify.com/actors), and then you can switch its source type:
 
 ![Actor source types](./images/actor-source-types.png)
 

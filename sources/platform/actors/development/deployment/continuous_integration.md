@@ -124,9 +124,9 @@ You can find your builds under the actor's **Builds** section.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2I3DM8Nvu1M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-If the source code of an actor is hosted in a [Git repository](#git-repository), it is possible to set up integration so that on every push to the Git repository the actor is automatically rebuilt. For that, you only need to set up a webhook in your Git source control system that will invoke the [Build actor](/api/v2/#/reference/actors/build-collection/build-actor) API endpoint on every push to Git repository.
+If the source code of an Actor is hosted in a [Git repository](#git-repository), it is possible to set up an integration so that the Actor is automatically rebuilt on every push to the Git repository. For that, you only need to set up a webhook in your Git source control system that will invoke the [Build actor](/api/v2/#/reference/actors/build-collection/build-actor) API endpoint on every push.
 
-For example, for repositories on GitHub it can be done using the following steps. First, go to the actor detail page, open the **API** tab and copy the **Build actor** API endpoint URL. It should look something like this:
+For repositories on GitHub, you can use the following steps. First, go to the Actor detail page, open the **API** tab, and copy the **Build actor** API endpoint URL. It should look something like this:
 
 ```text
 https://api.apify.com/v2/acts/apify~hello-world/builds?token=<API_TOKEN>&version=0.1
@@ -136,5 +136,5 @@ Then go to your GitHub repository, click **Settings**, select **Webhooks** tab a
 
 ![GitHub integration](./images/ci-github-integration.png)
 
-And that's it! Now your actor should automatically rebuild on every push to the GitHub repository.
+And that's it! Now your Actor should automatically rebuild on every push to the GitHub repository.
 

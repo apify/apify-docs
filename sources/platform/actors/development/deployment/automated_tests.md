@@ -1,11 +1,11 @@
 ---
 title: Automated tests
-description: Learn how to automate ongoing testing and make sure your actors perform over time. See code examples for configuring the Actor Testing actor.
+description: Learn how to automate ongoing testing and make sure your Actors perform over time. See code examples for configuring the Actor Testing actor.
 slug: /actors/development/automated-tests
 sidebar_position: 3
 ---
 
-**Learn how to automate ongoing testing and make sure your actors perform over time. See code examples for configuring the Actor Testing actor.**
+**Learn how to automate ongoing testing and make sure your Actors perform over time. See code examples for configuring the Actor Testing actor.**
 
 ---
 

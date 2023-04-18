@@ -530,7 +530,7 @@ The request must specify `versionNumber` and `sourceType` parameters (as strings
 
 Each `sourceType` requires its own additional properties to be passed to the JSON payload object. These are outlined in the [Version object](#reference/actors/version-object) table below and in more detail in the [Apify documentation](/actors/development/actor-definition/source-code).
 
-For example, if an actor's source code is stored in a [GitHub repository](/actors/development/actor-definition/source-code#git-repository), you will set the `sourceType` to `GIT_REPO` and pass the repository's URL in the `gitRepoUrl` property.
+For example, if an Actor's source code is stored in a [GitHub repository](/actors/development/actor-definition/source-code#git-repository), you will set the `sourceType` to `GIT_REPO` and pass the repository's URL in the `gitRepoUrl` property.
 
 ```
 {
@@ -1340,7 +1340,7 @@ Internally, the system stops the Docker container corresponding to the actor run
 and starts a new container using a different Docker image.
 All the default storages are preserved and the new input is stored under the `INPUT-METAMORPH-1` key in the same default key-value store.
 
-For more information, see [Actor docs](/actors/development/actor-definition/source-code#metamorph).
+For more information, see the [Actor docs](/actors/development/actor-definition/source-code#metamorph).
 
 + Parameters
 
@@ -2228,7 +2228,7 @@ Internally, the system stops the Docker container corresponding to the actor run
 and starts a new container using a different Docker image.
 All the default storages are preserved and the new input is stored under the `INPUT-METAMORPH-1` key in the same default key-value store.
 
-For more information, see [Actor docs](/actors/development/actor-definition/source-code#metamorph).
+For more information, see the [Actor docs](/actors/development/actor-definition/source-code#metamorph).
 
 + Parameters
 

@@ -1,13 +1,13 @@
 ---
 title: Web IDE
 sidebar_position: 2
-description: Create you first Actor using the web IDE in Apify Console.
+description: Create your first Actor using the web IDE in Apify Console.
 slug: /actors/development/quick-start/web-ide
 ---
 
 # Development in web IDE
 
-**Create you first Actor using the web IDE in Apify Console.**
+**Create your first Actor using the web IDE in Apify Console.**
 
 ---
 
