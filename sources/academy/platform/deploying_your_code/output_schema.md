@@ -11,11 +11,11 @@ slug: /deploying-your-code/output-schema
 
 ---
 
-The Output schema generates an interface that enables users to instantly preview their actor results in real time.
+The Output schema generates an interface that enables users to instantly preview their Actor results in real time.
 
 ![Output Schema](../../../platform/actors/development/actor_definition/images/output-schema-example.png)
 
-In this quick tutorial, you will learn how to set up an output tab for your own actor.
+In this quick tutorial, you will learn how to set up an output tab for your own Actor.
 
 ## Implementation {#implementation}
 
@@ -160,11 +160,11 @@ const results = {
 
 ## Final result {#final-result}
 
-Great! Now that everything is set up, it's time to run the actor and admire your actor's brand new output tab.
+Great! Now that everything is set up, it's time to run the actor and admire your Actor's brand new output tab.
 
 > Need some extra guidance? Visit the [output schema documentation](/platform/actors/development/actor-definition/output-schema) for more detailed information about how to implement this feature.
 
-A few seconds after running the actor, you should see the actors results being displayed in the `Overview` table.
+A few seconds after running the Actor, you should see its results displayed in the `Overview` table.
 
 ![Output table overview](./images/output-schema-final-example.webp)
 

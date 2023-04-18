@@ -9,7 +9,7 @@ slug: /actors/development/builds-and-runs
 
 ---
 
-Actor **builds** and actor **runs** are two main primitives you need to know when your work with the Apify platform. If you take your source code and start building your Actor, you are creating a build. The build is a Docker image containing the source code and required dependencies needed to run the Actor:
+Actor **builds** and **runs** are two main primitives you need to know when you work with the Apify platform. If you take your source code and start building your Actor, you are creating a build. The build is a Docker image containing the source code and required dependencies needed to run the Actor:
 
 ```mermaid
 flowchart LR
@@ -23,7 +23,7 @@ flowchart LR
     AD -- "build process" --> Build
 ```
 
-If you take your build and start running with some input it then you are creating a run:
+If you take your build and start running with some input it, then you are creating a run:
 
 ```mermaid
 flowchart LR
@@ -38,7 +38,7 @@ flowchart LR
 
 ## [](#lifecycle)Lifecycle
 
-Actor builds, and runs share their lifecycle. Each build and run starts with the initial status **READY** and goes through one or more transitional statuses to one of the terminal statuses.
+Actor builds and runs share their lifecycle. Each build and run starts with the initial status **READY** and goes through one or more transitional statuses to one of the terminal statuses.
 
 ```mermaid
 flowchart LR

@@ -1,11 +1,11 @@
 ---
 title: Output schema
 sidebar_position: 3
-description: Output schema is designed to help actor developers present the results to actor users in an attractive and comprehensive output UI.
+description: Output schema is designed to help Actor developers present the results to users in an attractive and comprehensive output UI.
 slug: /actors/development/actor-definition/output-schema
 ---
 
-**Output schema is designed to help actor developers present the results to actor users in an attractive and comprehensive output UI.**
+**Output schema is designed to help Actor developers present the results to users in an attractive and comprehensive output UI.**
 
 ---
 

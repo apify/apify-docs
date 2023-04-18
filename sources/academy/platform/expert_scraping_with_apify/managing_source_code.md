@@ -1,13 +1,13 @@
 ---
 title: II - Managing source code
-description: Learn how to manage your actor's source code more efficiently by integrating it with a GitHub repository. This is the standard on the Apify platform.
+description: Learn how to manage your Actor's source code more efficiently by integrating it with a GitHub repository. This is standard on the Apify platform.
 sidebar_position: 6.2
 slug: /expert-scraping-with-apify/managing-source-code
 ---
 
 # Managing source code {#managing-source-code}
 
-**Learn how to manage your actor's source code more efficiently by integrating it with a GitHub repository. This is the standard on the Apify platform.**
+**Learn how to manage your Actor's source code more efficiently by integrating it with a GitHub repository. This is standard on the Apify platform.**
 
 ---
 
@@ -33,7 +33,7 @@ Also, try to explore the **Multifile editor** in one of the actors you developed
 
 > This lesson's task is so quick and easy, we won't even be splitting this topic into two parts like the previous two topics!
 
-First, we must initialize a GitHub repository (you can use Gitlab if you'd like, but this lesson's examples will be using GitHub). Then, after pushing our main Amazon actor's code to the repo, we must switch our actor's source code to use the content of the GitHub repository instead.
+First, we must initialize a GitHub repository (you can use Gitlab if you like, but this lesson's examples will be using GitHub). Then, after pushing our main Amazon Actor's code to the repo, we must switch its source code to use the content of the GitHub repository instead.
 
 ## Integrating GitHub source code {#integrating-github}
 
@@ -53,7 +53,7 @@ The final step is to click on **API** in the top right corner of your actor's pa
 
 ![API button](./images/api-button.jpg)
 
-And scroll through all of the links until you find the **Build actor** API endpoint. Copy this endpoint's URL, then head back over to your GitHub repository and navigate to **Settings > Webhooks > Add webhook**. The final thing to do is to paste the URL and save the webhook.
+And scroll through all of the links until you find the **Build Actor** API endpoint. Copy this endpoint's URL, then head back over to your GitHub repository and navigate to **Settings > Webhooks > Add webhook**. The final thing to do is to paste the URL and save the webhook.
 
 ![Adding a webhook to your GitHub repo](../../../platform/actors/development/deployment/images/ci-github-integration.png)
 
@@ -63,9 +63,9 @@ And you're done! 🎉
 
 So, it was bit of overhead, but the good news is that you don't ever have to configure this stuff again for this actor. Now, every time the content of your **main**/**master** branch changes, the actor on the Apify platform will rebuild based off of the newest code.
 
-A great way to think about it is that, by doing this, you are combining two steps into one! Normally, you'd have to do a `git push` from your terminal in order to get the newest code onto GitHub, then run `apify push` to push it to the platform.
+Think of it as combining two steps into one! Normally, you'd have to do a `git push` from your terminal in order to get the newest code onto GitHub, then run `apify push` to push it to the platform.
 
-It's also important to know that GitHub/Gitlab repository integration is standard practice. As projects grow, and the number of contributors and maintainers grows, it only makes sense to have a GitHub repository integrated with the project's actor. For the remainder of this course, all actors created will be integrated with a GitHub repository.
+It's also important to know that GitHub/Gitlab repository integration is standard practice. As projects grow and the number of contributors and maintainers increases, it only makes sense to have a GitHub repository integrated with the project's Actor. For the remainder of this course, all Actors created will be integrated with a GitHub repository.
 
 ## Next up {#next}
 

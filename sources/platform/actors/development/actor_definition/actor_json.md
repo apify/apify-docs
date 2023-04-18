@@ -5,11 +5,11 @@ slug: /actors/development/actor-config
 sidebar_position: 1
 ---
 
-**Learn how to write the main actor config in the `.actor/actor.json` file.**
+**Learn how to write the main Actor config in the `.actor/actor.json` file.**
 
 ---
 
-The main actor config should live in the `.actor/actor.json` file in the actor's root directory. This file associates your local development project with an actor on the Apify platform. It contains information such as actor name, version, build tag, and environment variables. Make sure you commit this file to the Git repository.
+The main Actor config should live in the `.actor/actor.json` file in the Actor's root directory. This file associates your local development project with an Actor on the Apify platform. It contains information such as Actor name, version, build tag, and environment variables. Make sure you commit this file to the Git repository.
 
 For example, the `.actor/actor.json` file can look like this:
 
@@ -69,5 +69,5 @@ import TabItem from '@theme/TabItem';
 | `dockerFile`           | Optional | If you specify the path to your Docker file under the `dockerfile` field, this file will be used for actor builds on the platform. If not specified, the system will look for Docker files at `.actor/Dockerfile` and `Dockerfile`, in this order of preference. For more see the [Dockerfile](./dockerfile.md) section. |
 | `readme`               | Optional | If you specify the path to your README file under the `readme` field, the README at this path will be used on the platform. If not specified, README at `.actor/README.md` or `README.md` will be used, in this order of preference. See our [Apify Academy article on writing a quality README files](/academy/get-most-of-actors/actor-readme). |
 | `input`                | Optional | You can embed your [input schema](./input_schema/index.md) object directly in `actor.json` under the `input` field. Alternatively, you can provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference. |
-`storages.dataset`       | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](./output_schema.md#specification-version-1) about actor output schema. |
+`storages.dataset`       | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](./output_schema.md#specification-version-1) about Actor output schemas. |
 

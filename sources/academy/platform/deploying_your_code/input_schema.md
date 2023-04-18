@@ -11,7 +11,7 @@ slug: /deploying-your-code/input-schema
 
 ---
 
-Though writing an [input schema](/platform/actors/development/actor-definition/input-schema) for an actor is not a required step, it is most definitely an ideal one. The Apify platform will read the **INPUT_SCHEMA.json** file within the root of your project and generate a user interface for entering input into your actor, which makes it significantly easier for non-developers (and even developers) to configure and understand the inputs your actor can receive. Because of this, we'll be writing an input schema for our example actor.
+Though writing an [input schema](/platform/actors/development/actor-definition/input-schema) for an Actor is not a required step, it is most definitely an ideal one. The Apify platform will read the **INPUT_SCHEMA.json** file within the root of your project and generate a user interface for entering input into your Actor, which makes it significantly easier for non-developers (and even developers) to configure and understand the inputs your Actor can receive. Because of this, we'll be writing an input schema for our example Actor.
 
 > Without an input schema, the users of our actor will have to provide the input in JSON format, which can be problematic for those who are not familiar with JSON.
 
@@ -104,7 +104,7 @@ Here is what the input schema we wrote will render on the platform:
 
 Later on, we'll be building more complex input schemas, as well as discussing how to write quality input schemas that allow the user to easily understand the actor and not become overwhelmed.
 
-It is not expected to memorize all of the fields that properties can take, or the different editor types available, which is why it's always good to reference the [input schema documentation](/platform/actors/development/actor-definition/input-schema) when writing a schema.
+It's not expected to memorize all of the fields that properties can take or the different editor types available, which is why it's always good to reference the [input schema documentation](/platform/actors/development/actor-definition/input-schema) when writing a schema.
 
 ## Next up {#next}
 

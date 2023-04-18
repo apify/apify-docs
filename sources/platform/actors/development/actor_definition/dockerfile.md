@@ -1,6 +1,6 @@
 ---
 title: Dockerfile
-description: Learn about the Docker images you can use as your actor's base. Choose the correct base image for your actor's type and requirements.
+description: Learn about the Docker images you can use as your Actor's base. Choose the correct base image for your Actor's type and requirements.
 slug: /actors/development/actor-definition/dockerfile
 sidebar_position: 4
 ---
@@ -35,7 +35,7 @@ The [Apify API client for Python](/api/client/python) is preinstalled on these i
 
 ## [](#custom-dockerfile)Custom Dockerfile
 
-Internally, Apify uses Docker to build and run actors. To control the build of the actor, you can create a custom **Dockerfile** and either reference from the `dockerfile` field in the actor's config in **.actor/actor.json**, or store it in **.actor/Dockerfile** or **Dockerfile** in the actor's root directory. These three sites are searched for in this order of preference. If the **Dockerfile** is missing, the system uses the following default:
+Internally, Apify uses Docker to build and run Actors. To control the build of the Actor, you can create a custom **Dockerfile** and either reference from the `dockerfile` field in the Actor's config in **.actor/actor.json**, or store it in **.actor/Dockerfile** or **Dockerfile** in its root directory. These three sites are searched for in this order of preference. If the **Dockerfile** is missing, the system uses the following default:
 
 ```dockerfile
 FROM apify/actor-node:16
@@ -56,7 +56,7 @@ COPY . ./
 
 For more information about Dockerfile syntax and commands, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
-Note that `apify/actor-node` is a base Docker image provided by Apify. There are other base images with other features available. However, you can use arbitrary Docker images as the base for your actors, although using the Apify images has some performance advantages.
+Note that `apify/actor-node` is a base Docker image provided by Apify. There are other base images with other features available. However, you can use arbitrary Docker images as the base for your Actors, although using the Apify images has some performance advantages.
 
 By default, all Apify base Docker images with the Apify SDK and Crawlee start your Node.js application the same way as **npm start** does, i.e. by running the command specified in the **package.json** file under the **scripts** - **start** key. The default **package.json** file is similar to the following.
 

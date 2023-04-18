@@ -33,7 +33,7 @@ CMD npm start --silent
 
 will build the Actor from the `apify/actor-node:16` image, copy the `package.json` and `package-lock.json` files to the image.
 
-> We do first copy the `package.json`, `package-lock.json` , and install the dependencies before copying the rest of the source code. This way, we can take advantage of Docker's caching mechanism and only install the dependencies when the `package.json` or `package-lock.json` files change. This way, the build process is much faster.
+> We first copy the `package.json`, `package-lock.json` , and install the dependencies before copying the rest of the source code. This way, we can take advantage of Docker's caching mechanism and only install the dependencies when the `package.json` or `package-lock.json` files change. This way, the build process is much faster.
 
 Then it will install the NPM packages and copy the rest of the source code to the image. Finally, it will run the `npm start` command, which is defined in the `package.json` file:
 
@@ -42,19 +42,19 @@ Then it will install the NPM packages and copy the rest of the source code to th
     "name": "getting-started-node",
     "version": "0.0.1",
     "type": "module",
-    "description": "This is an example of an Apify actor.",
+    "description": "This is an example of an Apify Actor.",
     "dependencies": {
         "apify": "^3.0.0"
     },
     "devDependencies": {},
     "scripts": {
         "start": "node src/main.js",
-        "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1"
+        "test": "echo \"Error: oops, the Actor has no tests yet, sad!\" && exit 1"
     },
-    "author": "It's not you it's me",
+    "author": "It's not you; it's me",
     "license": "ISC"
 }
 ```
 
-So once the actor starts, the `src/main.js` gets executed.
+So once the Actor starts, the `src/main.js` gets executed.
 

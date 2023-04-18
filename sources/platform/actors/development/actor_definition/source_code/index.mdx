@@ -1,16 +1,16 @@
 ---
 title: Source code
-description: Learn about Actor source code structure, metamorph feature, or how to run web server inside of an Actor.
+description: Learn about Actor source code structure, the metamorph feature, or how to run a web server inside of an Actor.
 slug: /actors/development/actor-definition/source-code
 ---
 
-**Learn about Actor source code structure, metamorph feature, or how to run web server inside of an Actor.**
+**Learn about Actor source code structure, the metamorph feature, or how to run a web server inside of an Actor.**
 
 ---
 
-Apify actor's source code placement is defined by its [Dockerfile](../dockerfile.md). If you have created the actor from one of Apify's [templates](https://apify.com/templates) then it's by convention placed in the `/src` directory.
+The Apify Actor's source code placement is defined by its [Dockerfile](../dockerfile.md). If you have created the Actor from one of Apify's [templates](https://apify.com/templates) then it's by convention placed in the `/src` directory.
 
-It's completely up to you what language and technologies, including various binaries (Chrome browser, Selenium, Cypress, or any other dependency of your choice) you use in your project. The only requirement is that you have to define the Dockerfile that will build the image for your actor, including all the dependencies and your source code.
+It's completely up to you what language and technologies, including various binaries (Chrome browser, Selenium, Cypress, or any other dependency of your choice) you use in your project. The only requirement is that you have to define the Dockerfile that will build the image for your Actor, including all the dependencies and your source code.
 
 In the following chapter, we take a look at the **[example setup of Actor's Dockerfile and source code](./example_setup.md)** and then take a look at two important features supported by the Apify platform:
 
@@ -25,7 +25,7 @@ import CardGrid from "@site/src/components/CardGrid";
     />
     <Card
         title="Metamorph"
-        desc="The metamorph operation transforms an actor run into a run of another actor with a new input."
+        desc="The metamorph operation transforms an Actor run into the run of another Actor with a new input."
         to="/platform/actors/development/actor-definition/source-code/metamorph"
     />
 </CardGrid>
