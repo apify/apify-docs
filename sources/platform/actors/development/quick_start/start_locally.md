@@ -73,7 +73,7 @@ Shortly after that, you will see the log of the Actor. The results will be store
 ![Actor source code](./images/actor-local-run.png)
 
 
-## 5. Deploy it to Apify Platform
+## 5. Deploy it to Apify platform
 
 In order to push your Actor to the Apify platform, you need to first sign in to Apify with the CLI tool:
 
