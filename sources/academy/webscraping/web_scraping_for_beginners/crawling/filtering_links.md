@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Web pages are full of links, but frankly, most of them are useless to us. There are two approaches to filtering links: Targeting the links we're interested in by using unique CSS selectors, and extracting all links and then using pattern matching to find the sought after URLs. In real scraping scenarios, both of these two approaches are often combined for the most effective URL filtering.
+Web pages are full of links, but frankly, most of them are useless to us when scraping. There are two approaches to filtering links: Targeting the links we're interested in by using unique CSS selectors, and extracting all links and then using pattern matching to find the sought after URLs. In real scraping scenarios, both of these two approaches are often combined for the most effective URL filtering.
 
 ## Filtering with unique CSS selectors {#css-filtering}
 
@@ -25,7 +25,6 @@ In the previous lesson, we simply grabbed all the links from the HTML document.
 
 ```javascript
 document.querySelectorAll('a');
-
 ```
 
 </TabItem>
@@ -33,7 +32,6 @@ document.querySelectorAll('a');
 
 ```javascript
 $('a');
-
 ```
 
 </TabItem>
@@ -48,7 +46,6 @@ That's not the only way to do it, however. Since we're interested in the `href` 
 
 ```javascript
 document.querySelectorAll('a[href]');
-
 ```
 
 </TabItem>
@@ -56,52 +53,53 @@ document.querySelectorAll('a[href]');
 
 ```javascript
 $('a[href]');
-
 ```
 
 </TabItem>
 </Tabs>
 
-Ensuring to always add the `[href]` part of the selector will save you from nasty bug hunts on certain pages.
+Adding the `[href]` part of the selector will save you from nasty bug hunts on certain pages.
 
-We only want the product links on this page, so we can limit the number of results by only targeting the links within the `main.fit` container to filter out some unwanted links (such as in the navbar), then further select any a tags with a `href` attribute containing `/product/`.
+### Link specific selectors {#specific-selectors}
 
-### Descendant selector {#descendant-selector}
+Let's go back to the [Sales category of Warehouse](https://warehouse-theme-metal.myshopify.com/collections/sales) and see how we could capture only the links to product detail pages. After inspecting the product cards in DevTools, you'll find that the links are available together with the product's title. Getting them will therefore be very similar to getting the product titles in the previous section.
+
+![product detail page link](./images/filtering-product-detail-link.png)
 
 <Tabs groupId="main">
 <TabItem value="DevTools" label="DevTools">
 
 ```javascript
-document.querySelectorAll('main.fit a[href*="/product/"]');
-
+document.querySelectorAll('a.product-item__title');
 ```
 
 </TabItem>
 <TabItem value="Node.js" label="Node.js">
 
 ```javascript
-$('main.fit a[href*="/product/"]');
-
+$('a.product-item__title');
 ```
 
 </TabItem>
 </Tabs>
 
-We already know both the `main.fit` and `a[href*="/product/"]` selectors and how they work on their own, but their combination is new. It's called a [descendant selector](https://css-tricks.com/almanac/selectors/d/descendant/), and it selects all `<a href=".../product/...">` elements that are descendants of a `<main class="fit">` element. A descendant is any element that's nested somewhere inside another element. It does not have to be a direct child of the specified parent element.
 
-![Nested HTML tags](./images/nested-tag.png)
+When we print all the URLs in the DevTools console, we can see that we've correctly filtered only the product detail page URLs.
 
-When we print all the URLs in the DevTools console, we can see that we've correctly filtered only the featured product links.
-
-```js
-for (const a of document.querySelectorAll('main.fit a[href*="/product/"]')) {
+```js title=DevTools
+for (const a of document.querySelectorAll('a.product-item__title')) {
     console.log(a.href);
 }
 ```
 
-![Product URLs printed to console](./images/product-urls.png)
+:::info
 
-Notice that we might have some duplicate URLs. These duplicates can be easily filtered out. _We will be learning about data filtering/manipulation in future lessons._
+If you try this in Node.js instead of DevTools, you will not get the full URLs, but only so-called **relative links**. We will explain what those are and how to work with them in the next lesson.
+
+:::
+
+![Product URLs printed to console](./images/filtering-product-urls.png)
+
 
 ## Filtering with pattern-matching {#pattern-matching-filter}
 
@@ -109,23 +107,27 @@ Another common way to filter links (or any text, really) is by matching patterns
 
 > [Learn more about regular expressions](https://javascript.info/regexp-introduction)
 
-We can inspect the product URLs, and we'll soon find that they all look like the following. That is, they're exactly the same except for the text after the final `/`.
+When we inspect the product URLs, we'll find that they all look like the following:
 
 ```text
-https://demo-webstore.apify.org/product/crystal-chandelier-maria-theresa-for-12-light
-https://demo-webstore.apify.org/product/macbook-pro
-https://demo-webstore.apify.org/product/lightweight-jacket
-...
-https://demo-webstore.apify.org/product/{PRODUCT-NAME}
+https://warehouse-theme-metal.myshopify.com/products/denon-ah-c720-in-ear-headphones
+https://warehouse-theme-metal.myshopify.com/products/sony-sacs9-10-inch-active-subwoofer
+https://warehouse-theme-metal.myshopify.com/products/sony-ps-hx500-hi-res-usb-turntable
 ```
 
-Now, we'll create a regular expression that matches those links. There are many ways to do this. For simplicity, let's go with this one:
+That is, they all begin with exactly the same pattern and only differ in the last portion of the path. We could write the pattern like this:
+
+```text
+https://warehouse-theme-metal.myshopify.com/products/{PRODUCT_NAME}
+```
+
+This means that we can create a regular expression that matches those URLs. There are many ways to do this. For simplicity, let's go with this one:
 
 ```RegExp
-demo-webstore\.apify\.org\/product\/[a-z|0-9|-]*
+https?:\/\/warehouse-theme-metal\.myshopify\.com\/products\/[\w\-]+
 ```
 
-This regular expression matches all URLs that include the `demo-webstore.apify.org/product/` substring immediately following with any number of letters or dashes `-`.
+This regular expression matches all URLs that use either `http` or `https` protocol and point to `warehouse-theme-metal.myshopify.com/products/` immediately followed with any number of letters or dashes `-`.
 
 > A great way to learn more about regular expression syntax and to test your expressions are tools like [regex101.com](https://regex101.com/) or [regexr.com](https://regexr.com/). It's okay if you don't get the hang of it right away!
 
@@ -135,15 +137,19 @@ To test our regular expression in the DevTools console, we'll first create a [`R
 // To demonstrate pattern matching, we use only the 'a'
 // selector to select all links on the page.
 for (const a of document.querySelectorAll('a')) {
-    const regExp = /demo-webstore\.apify\.org\/product\/[a-z|0-9|-]*/;
+    const regExp = /https?:\/\/warehouse-theme-metal\.myshopify\.com\/products\/[\w\-]+/;
     const url = a.href;
     if (regExp.test(url)) console.log(url);
 }
 ```
 
-If you run this code in DevTools, you'll see that it produces exactly the same URLs as the CSS filter did.
+When you run this code in DevTools Console on the [Sales category of Warehouse](https://warehouse-theme-metal.myshopify.com/collections/sales), you'll see that it produces a slightly different set of URLs than the CSS filter did.
 
-> Yes, filtering with CSS selectors is often the better (and just slightly more performant) option. But sometimes, it's not enough. Learning regular expressions is a very useful skill in many scenarios.
+![filtering-regex-urls.png](./images/filtering-regex-urls.png)
+
+That's because we selected all the links on the page and apparently there are more ways to get to the product detail pages. After careful inspection we can find that we can get there not only by clicking the title, but also by clicking the product's image, which leads to duplicates. Some products also have review links that lead to a specific subsection of the product detail page.
+
+With that said, yes, filtering with CSS selectors is often the better and more reliable option. But sometimes, it's not enough, and knowing about pattern matching with regular expressions expands your scraping toolbox and helps you tackle more complex scenarios.
 
 ## Next Up {#next}
 
