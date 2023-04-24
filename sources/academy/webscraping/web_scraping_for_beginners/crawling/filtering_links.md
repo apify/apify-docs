@@ -25,7 +25,6 @@ In the previous lesson, we simply grabbed all the links from the HTML document.
 
 ```javascript
 document.querySelectorAll('a');
-
 ```
 
 </TabItem>
@@ -33,7 +32,6 @@ document.querySelectorAll('a');
 
 ```javascript
 $('a');
-
 ```
 
 </TabItem>
@@ -48,7 +46,6 @@ That's not the only way to do it, however. Since we're interested in the `href` 
 
 ```javascript
 document.querySelectorAll('a[href]');
-
 ```
 
 </TabItem>
@@ -56,7 +53,6 @@ document.querySelectorAll('a[href]');
 
 ```javascript
 $('a[href]');
-
 ```
 
 </TabItem>
@@ -75,7 +71,6 @@ Let's go back to the [Sales category of Warehouse](https://warehouse-theme-metal
 
 ```javascript
 document.querySelectorAll('a.product-item__title');
-
 ```
 
 </TabItem>
@@ -83,7 +78,6 @@ document.querySelectorAll('a.product-item__title');
 
 ```javascript
 $('a.product-item__title');
-
 ```
 
 </TabItem>
