@@ -76,6 +76,13 @@ await crawler.addRequests([{
 await crawler.run();
 ```
 
+:::tip
+
+The `parseWithCheerio` function is available even in `CheerioCrawler` and all the other Crawlee crawlers. If you think you'll often switch up the crawlers, you can use it to further reduce the number of needed line changes.
+
+:::
+
+
 When you run the code with `node browser.js`, you'll see a browser window open and then the individual pages getting scraped, each in a new browser tab.
 
 So, that's it. In 4 lines of code we transformed our crawler from a static HTTP crawler to a headless browser crawler. The crawler now runs exactly the same as before, but using a Chromium browser instead of plain HTTP requests. This simply is not possible without Crawlee.
@@ -124,7 +131,7 @@ We discuss dynamic data at length in the [How to scrape dynamic pages](../../../
 
 :::
 
-If we added an appropriate selector to our original `CheerioCrawler` code, it would not extract the information, but browser automatically fetches and renders this extra data.
+If we added an appropriate selector to our original `CheerioCrawler` code, it would not extract the information, but a browser automatically fetches and renders this extra data.
 
 Let's add this new extractor to our code. It collects the names of the recommended products.
 

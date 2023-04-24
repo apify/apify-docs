@@ -19,8 +19,7 @@ The term product detail page (or PDP) is commonly used on e-commerce websites to
 
 Let's start writing a script that extracts data from this single PDP. We can use this familiar code as boilerplate.
 
-```js
-// product.js
+```js title=product.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
@@ -122,8 +121,7 @@ console.log(product);
 
 Let's compare the above data extraction example with the crawling code we wrote in the last lesson:
 
-```js
-// crawler.js
+```js title=crawler.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 

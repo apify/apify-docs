@@ -64,8 +64,18 @@ const csv = parse(results);
 writeFileSync('products.csv', csv)
 ```
 
-> If some of the code is hard for you to understand, please review the [Basics of data extraction](../data_extraction/index.md) section. We will not go through the details again in this section about crawling.
+:::tip
+
+If some of the code is hard for you to understand, please review the [Basics of data extraction](../data_extraction/index.md) section. We will not go through the details again in this section about crawling.
+
+:::
+
+:::caution
+
+We are using modern JS syntax like `import` statements and top-level `await`. If you see errors like Cannot use import outside of a module. Please review the [Project setup lesson](../data_extraction/project_setup.md#modern-javascript) where we explain how to enable those features.
+
+:::
 
 ## Next up {#next}
 
-The [next lesson](./finding_links.md) is all about finding some links to crawl on [Warehouse store](https://warehouse-theme-metal.myshopify.com/collections/sales).
+The [next lesson](./finding_links.md) is all about finding links to crawl on the [Warehouse store](https://warehouse-theme-metal.myshopify.com/collections/sales).
