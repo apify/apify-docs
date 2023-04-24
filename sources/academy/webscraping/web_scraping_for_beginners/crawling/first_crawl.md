@@ -73,8 +73,7 @@ In programming, you handle errors by catching and handling them. Typically by pr
 
 > The scraping library we'll [show you in the following lessons](./pro_scraping.md) handles errors and retries automatically for you.
 
-```js
-// crawler.js
+```js title=crawler.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 

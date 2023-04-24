@@ -86,13 +86,17 @@ $('a.product-item__title');
 
 When we print all the URLs in the DevTools console, we can see that we've correctly filtered only the product detail page URLs.
 
-```js
+```js title=DevTools
 for (const a of document.querySelectorAll('a.product-item__title')) {
     console.log(a.href);
 }
 ```
 
-> If you try this in Node.js instead of DevTools, you will not get the full URLs, but only so-called **relative links**. We will explain what those are and how to work with them in the next lesson.
+:::info
+
+If you try this in Node.js instead of DevTools, you will not get the full URLs, but only so-called **relative links**. We will explain what those are and how to work with them in the next lesson.
+
+:::
 
 ![Product URLs printed to console](./images/filtering-product-urls.png)
 

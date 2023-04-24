@@ -33,8 +33,7 @@ We'll see why the difference between relative URLs and absolute URLs is importan
 
 Let's update the Node.js code from the [Finding links lesson](./finding_links.md) to see why links with relative URLs can be a problem.
 
-```js
-// crawler.js
+```js title=crawler.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
@@ -71,8 +70,7 @@ In Node.js, when you create a `new URL()`, you can optionally pass a second argu
 
 When we plug this into our crawler code, we will get the correct - absolute - URLs.
 
-```js
-// crawler.js
+```js title=crawler.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
