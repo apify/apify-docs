@@ -29,7 +29,7 @@ Easy peasy!
 
 ### Changing source code location {#change-source-code}
 
-In the **Source** tab on the new actor's page, we'll click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Multiple source files**.
+In the **Source** tab on the new actor's page, we'll click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Web IDE**.
 
 ![Select source code location](../expert_scraping_with_apify/images/select-source-location.png)
 
