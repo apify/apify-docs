@@ -10,13 +10,13 @@ slug: /actors/development/source-code
 
 ---
 
-The **Source type** setting determines the location of the source code for the actor. It can have one of the following values: [Multiple source files](#multiple-source-files), [Git repository](#git-repository), [Zip file](#zip-file) or [GitHub Gist](#github-gist).
+The **Source type** setting determines the location of the source code for the actor. It can have one of the following values: [WEb IDE](#web-ide), [Git repository](#git-repository), [Zip file](#zip-file) or [GitHub Gist](#github-gist).
 
-## Multiple source files {#multiple-source-files}
+## Web IDE {#web-ide}
 
-If the actor's source code requires the use of multiple files/directories, then it can be hosted on the Apify platform using this option. This is particularly useful when you need to add [**INPUT_SCHEMA.json**](./source_code.md) or **README.md** to your actor, or if you want to create your actor in a language other than JavaScript.
+This option is used by default when your actor's source code is hosted on Apify platform. You can use our Web IDE to preview and update your actor's source code and browse its files and directories. This is especially helpful when you need to make fast updates to your source code or README, or when you want to directly test [**INPUT_SCHEMA.json**](./source_code.md) on the Apify platform.
 
-The only required file for multi-file is **Dockerfile**, and all other files depend on your Dockerfile settings. By default, Apify's custom NodeJS Dockerfile is used, which requires a **main.js** file containing your source code and a **package.json** file containing package configurations for [NPM](https://www.npmjs.com/).
+The only required file is **Dockerfile**, and all other files depend on your Dockerfile settings. By default, Apify's custom NodeJS Dockerfile is used, which requires a **main.js** file containing your source code and a **package.json** file containing package configurations for [NPM](https://www.npmjs.com/).
 
 See [Custom Dockerfile](./source_code.md) and [base Docker images](./base_docker_images.md) for more information about creating your own Dockerfile and using Apify's prepared base images.
 
