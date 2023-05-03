@@ -256,18 +256,12 @@ const themeConfig = ({
 
 const plugins = [
     [
-        '@docusaurus/plugin-google-gtag',
+        'docusaurus-gtm-plugin',
         {
-            trackingID: 'UA-67003981-4',
+            id: 'GTM-MNGXGGB',
         },
     ],
     '@stackql/docusaurus-plugin-hubspot',
-    // [
-    //     'docusaurus-gtm-plugin',
-    //     {
-    //         id: 'GTM-...',
-    //     },
-    // ],
 ];
 
 module.exports = {
