@@ -23,13 +23,13 @@ Before we deploy our project onto the Apify platform, let's ensure that we've pu
 
 Before anything can be integrated, we've gotta create a new actor. Luckily, this is super easy to do. Let's head over to our [Apify Console](https://console.apify.com?asrc=developers_portal) and click on the **New** button, then select the **Empty** template.
 
-![Create new button](../getting_started/images/create-new-actor.jpg)
+![Create new button](../getting_started/images/create-new-actor.png)
 
 Easy peasy!
 
 ### Changing source code location {#change-source-code}
 
-In the **Source** tab on the new actor's page, we'll click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Multiple source files**.
+In the **Source** tab on the new actor's page, we'll click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Web IDE**.
 
 ![Select source code location](../expert_scraping_with_apify/images/select-source-location.png)
 

@@ -43,7 +43,7 @@ First, let's create a repository. This can be done [in a number of ways](https:/
 
 Then, we'll run the commands it tells us in our terminal (while within the **demo-actor** directory) to initialize the repository locally, then push all of the files to the remote one.
 
-After you've created your repo, navigate on the Apify platform to the actor we called **demo-actor**. In the **Source** tab, click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Multiple source files**, which is what we've been using so far.
+After you've created your repo, navigate on the Apify platform to the actor we called **demo-actor**. In the **Source** tab, click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Web IDE**, which is what we've been using so far.
 
 ![Select source code location](./images/select-source-location.png)
 

@@ -1,17 +1,17 @@
 ---
-title: Langchain
-description: Learn how to integrate Apify with Langchain.
+title: LangChain Integration
+description: Learn how to integrate Apify with LangChain, in order to feed vector databases and LLMs with data crawled from the web.
 sidebar_position: 11.20
 slug: /integrations/langchain
 ---
 
-# Langchain Integration
+# 🦜🔗 LangChain Integration
 
-**Learn how to integrate Apify with Langchain.**
+**Learn how to integrate Apify with LangChain.**
 
 ---
 
-> For more information on Langchain visit its [documentation](https://python.langchain.com/en/latest/index.html).
+> For more information on LangChain visit its [documentation](https://python.langchain.com/en/latest/index.html).
 
 In this example, we'll use the Website [Content Crawler Actor](https://apify.com/apify/website-content-crawler), which can deeply crawl websites such as documentation, knowledge bases, help centers, or blogs and extract text content from the web pages. Then we feed the documents into a vector index and answer questions from it.
 
