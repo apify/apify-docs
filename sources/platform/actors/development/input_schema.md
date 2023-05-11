@@ -361,8 +361,8 @@ Properties:
 
 Usage of this field is based on the selected editor:
 
-* `requestListSources` - value from this field can be used as input of [RequestList](https://crawlee.dev/api/core/class/RequestList) class from Crawlee.
-* `pseudoUrls` - is intended to be used with a combination of the [PseudoUrl](https://crawlee.dev/api/core/class/PseudoUrl) class and the [enqueueLinks()](https://crawlee.dev/api/core/function/enqueueLinks) function from Crawlee.
+- `requestListSources` - value from this field can be used as input of [RequestList](https://crawlee.dev/api/core/class/RequestList) class from Crawlee.
+- `pseudoUrls` - is intended to be used with a combination of the [PseudoUrl](https://crawlee.dev/api/core/class/PseudoUrl) class and the [enqueueLinks()](https://crawlee.dev/api/core/function/enqueueLinks) function from Crawlee.
 
 Editor type `requestListSources` supports input in formats defined by the [sources](https://crawlee.dev/api/core/interface/RequestListOptions#sources) property of [RequestListOptions](https://crawlee.dev/api/core/interface/RequestListOptions).
 
