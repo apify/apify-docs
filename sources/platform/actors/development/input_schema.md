@@ -113,6 +113,11 @@ Each field of your input is described under its key in `inputSchema.properties` 
 | `sectionCaption`     | String                                                                            | No       | If this property is set, <br/>then all fields following this field <br/>(this field included) will be separated <br/>into a collapsible section <br/>with the value set as its caption. <br/>The section ends at the last field <br/>or the next field which has the <br/> `sectionCaption` property set. |
 | `sectionDescription` | String                                                                            | No       | If the `sectionCaption` property is set, <br/>then you can use this property to <br/>provide additional description to the section. <br/>The description will be visible right under <br/>the caption when the section is open.                                                                           |
 
+Here is a rule of thumb wheteher an input field should have a prefill, default, or empty value:
+
+- **Prefill** - For fields that don't have reasonable defaults and user should change them (e.g. search keyword, example start URL)
+- **Default** - For everything that should be set for the actor run to some value (e.g. max pages to crawl, proxy settings)
+- **Empty** - For purely opt-in features
 
 ## Additional properties
 
