@@ -1,0 +1,13 @@
+name: 'Invalidate'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  invalidate:
+      name: 'Invalidate'
+      runs-on: ubuntu-latest
+      steps:
+        - run: gh workflow run invalidate.yaml --repo apify/apify-docs-private
+          env:
+            GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
