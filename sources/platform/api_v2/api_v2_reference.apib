@@ -836,7 +836,7 @@ The response is the build object as returned by the
     + useCache: true (boolean, optional) - If `true` or `1`, the system will use a cache to speed up the build process. By default, cache is not used.
     + betaPackages: true (boolean, optional) - If `true` or `1` then the actor is built with beta versions of Apify NPM packages. By default, the build uses `latest` packages.
     + tag: `latest` (string, optional) - Tag to be applied to the build on success. By default, the tag is taken from actor version's `buildTag` property.
-    + waitForFinish: 60 (number, optional) -  The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
+    + waitForFinish: 60 (number, optional) -  The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
                                               If the build finishes in time then the returned build object will have a terminal status (e.g. `SUCCEEDED`),
                                               otherwise it will have a transitional status (e.g. `RUNNING`).
 
@@ -860,13 +860,13 @@ API endpoints related to build of the actor were moved under new namespace [acto
 
 Gets an object that contains all the details about a specific build of an actor.
 
-By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the build to finish.
+By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the build to finish.
 This is useful to avoid periodic polling when waiting for an actor build to finish.
 
 + Parameters
 
     + buildId: `soSkq9ekdmfOslopH` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
-    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
+    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
                                              If the build finishes in time then the returned build object will have a terminal status (e.g. `SUCCEEDED`),
                                              otherwise it will have a transitional status (e.g. `RUNNING`).
     + token: `soSkq9ekdmfOslopH` (string, optional) - API authentication token. It is only required for private actors.
@@ -957,7 +957,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the default run configuration for the actor.
     + maxItems: 1000 (number, optional) - The maximum number of items that the actor run should return. This is useful for pay-per-result actors, as it allows you to limit the number of results that will be charged to your subscription. You can access the maximum number of items in your actor by using the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
-    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default, it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
+    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default, it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
                                              If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
                                              otherwise it will have a transitional status (e.g. `RUNNING`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
@@ -1290,7 +1290,7 @@ API endpoints related to run of the actor were moved under new namespace [actor 
 
 Gets an object that contains all the details about a specific run of an actor.
 
-By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the run to finish.
+By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the run to finish.
 This is useful to avoid periodic polling when waiting for actor run to complete.
 
 This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the run.
@@ -1299,7 +1299,7 @@ This endpoint does not require the authentication token, the calls are authentic
 
     + actorId: `janedoe~my-actor` (string, required) - Actor ID or a tilde-separated owner's username and actor name.
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
-    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
+    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
                                                  If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
                                                  otherwise it will have a transitional status (e.g. `RUNNING`).
 
@@ -1706,7 +1706,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
     + memory: 256 (number, optional) - Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128. By default, the run uses a memory limit specified in the task settings.
     + maxItems: 1000 (number, optional) - The maximum number of items that the actor run should return. This is useful for pay-per-result actors, as it allows you to limit the number of results that will be charged to your subscription. You can access the maximum number of items in your actor by using the `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the task settings (typically `latest`).
-    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default, it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
+    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default, it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
       If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
       otherwise it will have a transitional status (e.g. `RUNNING`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
@@ -2180,7 +2180,7 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 
 Gets an object that contains all the details about a specific run of an actor.
 
-By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the run to finish.
+By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the run to finish.
 This is useful to avoid periodic polling when waiting for actor run to complete.
 
 This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the run.
@@ -2188,7 +2188,7 @@ This endpoint does not require the authentication token, the calls are authentic
 + Parameters
 
     + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
-    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
+    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the run to finish. By default it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
                                                  If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
                                                  otherwise it will have a transitional status (e.g. `RUNNING`).
 
@@ -2334,13 +2334,13 @@ parameter.
 
 Gets an object that contains all the details about a specific build of an actor.
 
-By passing the optional `waitForFinish=1` parameter the API endpoint will synchronously wait for the build to finish.
+By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the build to finish.
 This is useful to avoid periodic polling when waiting for an actor build to finish.
 
 + Parameters
 
     + buildId: `soSkq9ekdmfOslopH` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
-    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `300`. <!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS -->
+    + waitForFinish: 60 (number, optional) - The maximum number of seconds the server waits for the build to finish. By default it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
                                              If the build finishes in time then the returned build object will have a terminal status (e.g. `SUCCEEDED`),
                                              otherwise it will have a transitional status (e.g. `RUNNING`).
     + token: `soSkq9ekdmfOslopH` (string, optional) - API authentication token. It is only required for private actors.
