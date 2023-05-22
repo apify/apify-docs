@@ -12,4 +12,4 @@ jobs:
       steps:
         - run: gh workflow run deploy.yaml --repo apify/apify-docs-private
           env:
-            GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
