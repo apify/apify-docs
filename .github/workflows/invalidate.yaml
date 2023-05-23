@@ -5,7 +5,7 @@ on:
 
 jobs:
   invalidate:
-      name: 'Invalidate'
+      name: 'Invalidate CloudFront'
       runs-on: ubuntu-latest
       steps:
         - run: gh workflow run invalidate.yaml --repo apify/apify-docs-private
