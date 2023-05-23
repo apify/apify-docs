@@ -85,8 +85,8 @@ Aim for sections 1-6 below and try to include at least 300 words. You can move t
     - Share any tips on how to best run the Actor, such as how to limit compute unit usage, get more accurate results, or improve speed.
 
 If you want some general tips on how to make GitHub README that stand out, check out these guides. Not everything in there will be suitable for an Apify Actor README, so you should cherry-pick what you like and use your imagination.
-<br>
 
+<br />
 
 [Build a Stunning README For Your GitHub Profile](https://towardsdatascience.com/build-a-stunning-readme-for-your-github-profile-9b80434fe5d7)
 
