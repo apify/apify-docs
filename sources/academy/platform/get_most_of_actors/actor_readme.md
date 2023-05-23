@@ -11,20 +11,20 @@ slug: /get-most-of-actors/actor-readme
 
 ---
 
-- It should also be a "template" for developers developing new public Actors so that they have a structure and guidance for writing the readmes.
+- It should also be a "template" for developers developing new public Actors so that they have a structure and guidance for writing the README.
 - The goal is to ensure that more people will understand and run their Actors.
 - Whenever you build an Actor, think of the original request/idea and the "use case" = "user need" it should solve, please take notes and share them with Apify, so we can help you write a blog post supporting your Actor with more information, more detailed explanation, better SEO.
-- Consider adding a video, images, and screenshots to your readme to break up the text.
-- This is an example of an Actor with a readme that corresponds well to the guidelines below:
+- Consider adding a video, images, and screenshots to your README to break up the text.
+- This is an example of an Actor with a README that corresponds well to the guidelines below:
   - [https://apify.com/dtrungtin/airbnb-scraper](https://apify.com/dtrungtin/airbnb-scraper)
-- Tip no.1: if you want to add snippets of code anywhere in your readme, you can use [Carbon](https://github.com/carbon-app/carbon).
+- Tip no.1: if you want to add snippets of code anywhere in your README, you can use [Carbon](https://github.com/carbon-app/carbon).
 - Tip no.2: if you need any quick Markdown guidance, check out [https://www.markdownguide.org/cheat-sheet/](https://www.markdownguide.org/cheat-sheet/)
 
 >
-> 🦾 **No time for writing?** Our [Readme Generator](https://apify.com/apify/actor-readme-generator) will create a new readme out of thin air following the template below ⬇️
+> 🦾 **No time for writing?** Our [README Generator](https://apify.com/apify/actor-readme-generator) will create a new README out of thin air following the template below ⬇️
 >
 
-## What should you add to your Actor readme?
+## What should you add to your Actor README?
 
 Aim for sections 1-6 below and try to include at least 300 words. You can move the sections around to some extent if it makes sense, e.g. 3 might come after 6. Consider using emojis as bullet points or otherwise trying to break up the text.
 
@@ -55,7 +55,7 @@ Aim for sections 1-6 below and try to include at least 300 words. You can move t
 
     - Link to "How to…" blogs, if one exists (or suggest one if it doesn't)
     
-    - Add a video tutorial or gif from an ideal Actor run.
+    - Add a video tutorial or GIF from an ideal Actor run.
     > Tip: For better user experience, Apify Console automatically renders every YouTube URL as an embedded video player. Simply add a separate line with the URL of your YouTube video.
 
     - Consider adding a short numbered tutorial as Google will sometimes pick these up as rich snippets. Remember that this might be in search results, so you can repeat the name of the Actor and give a link, e.g.
@@ -83,7 +83,7 @@ Aim for sections 1-6 below and try to include at least 300 words. You can move t
 8. **Tips or Advanced options section**
     - Share any tips on how to best run the Actor, such as how to limit compute unit usage, get more accurate results, or improve speed.
 
-If you want some general tips on how to make GitHub readmes that stand out, check out these guides. Not everything in there will be suitable for an Apify Actor readme, so you should cherry-pick what you like and use your imagination.
+If you want some general tips on how to make GitHub README that stand out, check out these guides. Not everything in there will be suitable for an Apify Actor README, so you should cherry-pick what you like and use your imagination.
 <br>
 
 
