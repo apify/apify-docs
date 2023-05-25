@@ -117,7 +117,7 @@ Under the **pay per result** model, all platform costs generated **during the ru
 
 You will still be charged for the timed storage of the data in the same fashion as with any other Actor. You can always decide to delete the dataset to reduce your costs after you export the data from the platform. By default, any unnamed dataset will be automatically removed after your data retention period, so in most cases, this is nothing to worry about.
 
-**Can I set a cap on how many results an Actor should return**
+**Can I set a cap on how many results an Actor should return?**
 You can set a limit on how many items an Actor should return and you will be charged for in Options on the Actor detail page, in the section below the input section.
 
 ![Max items for pay-per-result](./images/store/pay_per_result_max_items.png)
