@@ -139,7 +139,7 @@ On the top of that, you can see how much you have been charged for a specific ru
 ![Run cost shown on the overview of all runs](./images/store/pay_per_result_run_list.png)
 
 If you wish to see how much you have been charged for a particular Actor, you will find this information
-on the bottom of the [Usage tab](https://console.apify.com/billing).
+at the bottom of the [Usage tab](https://console.apify.com/billing).
 
 ![Actor pay-per-result cost](./images/store/pay_per_result_actor_items.png)
 
