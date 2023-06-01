@@ -2,7 +2,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 import Hero from '../components/Hero/Hero';
 import Section from '../components/Section/Section';
@@ -24,11 +23,10 @@ import RectangleJavaScriptIcon from './img/rectangle-javascript.svg';
 import RectanglePythonIcon from './img/rectangle-python.svg';
 
 export default function Home() {
-    const { siteConfig } = useDocusaurusContext();
     return (
         <Layout
-            title={`${siteConfig.title} · ${siteConfig.tagline}`}
-            description={siteConfig.tagline}
+            title="Apify Documentation"
+            description="Navigate the Apify documentation for insights into web scraping and web automation on the Apify platform. Learn best practices, and discover how to optimize your web scrapers."
         >
             <Hero
                 heading="Apify Documentation"
