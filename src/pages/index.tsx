@@ -25,7 +25,6 @@ import RectanglePythonIcon from './img/rectangle-python.svg';
 export default function Home() {
     return (
         <Layout
-            title="Apify Documentation"
             description="Navigate the Apify documentation for insights into web scraping and web automation on the Apify platform. Learn best practices, and discover how to optimize your web scrapers."
         >
             <Hero
