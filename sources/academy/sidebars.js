@@ -14,7 +14,7 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'Apify Platform',
+            label: 'Apify platform',
             collapsible: false,
             className: 'section-header',
             items: [

@@ -12,7 +12,7 @@ slug: /limits
 
 ---
 
-The tables below demonstrate the Apify Platform's default resource limits. For API limits such as rate limits and max payload size, see the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting).
+The tables below demonstrate the Apify platform's default resource limits. For API limits such as rate limits and max payload size, see the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting).
 
 > If needed, the limits shown below can be increased on paid accounts. For details, contact us at **hello@apify.com** or using the chat in [Apify Console](https://console.apify.com/) under the "Help & Resources → Contact Support".
 
@@ -72,7 +72,7 @@ The tables below demonstrate the Apify Platform's default resource limits. For A
     </tbody>
 </table>
 
-## Apify Platform limits {#platform-limits}
+## Apify platform limits {#platform-limits}
 
 <table>
     <thead>
@@ -130,6 +130,6 @@ The tables below demonstrate the Apify Platform's default resource limits. For A
 
 ## Usage limit {#usage-limit}
 
-The Apify Platform also introduces usage limits based on the billing plan to protect users from accidental overspending. View these limits and adjust your maximum usage limit in [Apify Console](https://console.apify.com/billing#/limits):
+The Apify platform also introduces usage limits based on the billing plan to protect users from accidental overspending. View these limits and adjust your maximum usage limit in [Apify Console](https://console.apify.com/billing#/limits):
 
  <img src={require("./images/limits/usage-limits.png").default} title="Apify Security Whitepaper" />
