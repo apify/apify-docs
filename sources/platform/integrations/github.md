@@ -29,13 +29,19 @@ Selecting _GitHub_ will open a new window with GitHub authentication and selecti
 
 ![Git provider select modal](./images/apify-git-provider-select.png)
 
-To link account, click on _Add GitHub account_ and follow instructions on github.com.
+To link account, click on _Add GitHub account_ and follow instructions on github.com. Certain organization or user can be selected.
+
+![Git repository account select](./images/apify-git-repository-add.png)
+
+You can switch among all authorized users and organizations.
 
 ![Git repository account select](./images/apify-git-repository-account.png)
 
-If required repository is missing, try to find it with _Search_
+If required repository is missing, try to find it with _Search_.
 
 ![apify-git-repository-search.png](./images/apify-git-repository-search.png)
+
+Actor is created immediately from selected repository.
 
 ### Deploy changes automatically
 
