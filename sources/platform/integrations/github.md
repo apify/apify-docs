@@ -20,7 +20,7 @@ To use the Apify integration for GitHub, you will need:
 
 ### Create an Actor from a GitHub repository
 
-Learn how to create an Actor from a GitHub repository. This is useful if you want to use the GitHub integration to automatically deploy your code to Apify.
+Learn how to create an Actor from a GitHub repository. This is useful if you want to automatically deploy and build your code on push to your GitHub repository.
 
 ![New actor page](./images/apify-git-repository.png)
 
