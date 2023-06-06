@@ -34,8 +34,7 @@ The tables below demonstrate the Apify Platform's default resource limits. For A
     <tbody>
         <tr>
             <td>Build memory size</td>
-            <td>2,048&nbsp;MB</td>
-            <td colspan="3">4,096&nbsp;MB</td>
+            <td colspan="4">4,096&nbsp;MB</td>
         </tr>
         <tr>
             <td>Run minimum memory</td>
