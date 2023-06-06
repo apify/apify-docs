@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { DocSearchButton, useDocSearchKeyboardEvents } from '@docsearch/react';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
-import { useSearchPage } from '@docusaurus/theme-common/internal';
+import { useSearchLinkCreator } from '@docusaurus/theme-common/internal';
 import { useAlgoliaContextualFacetFilters } from '@docusaurus/theme-search-algolia/client';
 import { useActiveDocContext } from '@docusaurus/plugin-content-docs/client';
 import Translate from '@docusaurus/Translate';
@@ -43,7 +43,7 @@ function Hit({ hit, children }) {
 }
 
 function ResultsFooter({ state, onClose }) {
-    const { generateSearchPageLink } = useSearchPage();
+    const generateSearchPageLink = useSearchLinkCreator();
     return (
         <A href={generateSearchPageLink(state.query)} onClick={onClose}>
             <Translate
