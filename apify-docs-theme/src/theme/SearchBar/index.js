@@ -1,4 +1,3 @@
-/* eslint-disable operator-linebreak,import/no-extraneous-dependencies */
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { DocSearchButton, useDocSearchKeyboardEvents } from '@docsearch/react';
 import Head from '@docusaurus/Head';
@@ -65,10 +64,10 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
     const contextualSearchFacetFilters = useAlgoliaContextualFacetFilters();
     const configFacetFilters = props.searchParameters?.facetFilters ?? [];
     const facetFilters = contextualSearch
-        ? // Merge contextual search filters with config filters
-        mergeFacetFilters(contextualSearchFacetFilters, configFacetFilters)
-        : // ... or use config facetFilters
-        configFacetFilters;
+        // Merge contextual search filters with config filters
+        ? mergeFacetFilters(contextualSearchFacetFilters, configFacetFilters)
+        // ... or use config facetFilters
+        : configFacetFilters;
 
     const tags = facetFilters[facetFilters.length - 1];
     const docsPluginId = siteConfig.presets[0][1].docs.id ?? 'default';
@@ -139,9 +138,8 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
         return item;
     }))).current;
     const resultsFooterComponent = useMemo(
-        () =>
-            // eslint-disable-next-line react/no-unstable-nested-components,react/display-name,implicit-arrow-linebreak
-            (footerProps) => <ResultsFooter {...footerProps} onClose={onClose}/>,
+        // eslint-disable-next-line react/display-name
+        () => (footerProps) => <ResultsFooter {...footerProps} onClose={onClose}/>,
         [onClose],
     );
     const transformSearchClient = useCallback(
