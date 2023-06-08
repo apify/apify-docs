@@ -23,7 +23,7 @@ jobs:
 
           -   name: Check changes in theme
               id: changed-theme-files
-              uses: tj-actions/changed-files@v35
+              uses: tj-actions/changed-files@v36
               with:
                 since_last_remote_commit: "true"
                 files: |
