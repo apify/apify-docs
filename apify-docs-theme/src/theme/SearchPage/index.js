@@ -12,7 +12,7 @@ import {
     usePluralForm,
 } from '@docusaurus/theme-common';
 import {
-    useSearchPage,
+    useSearchQueryString,
     useTitleFormatter,
 } from '@docusaurus/theme-common/internal';
 import Translate, { translate } from '@docusaurus/Translate';
@@ -119,7 +119,7 @@ function SearchPageContent() {
     const processSearchResultUrl = useSearchResultUrlProcessor();
     const documentsFoundPlural = useDocumentsFoundPlural();
     const docsSearchVersionsHelpers = useDocsSearchVersionsHelpers();
-    const { searchQuery, setSearchQuery } = useSearchPage();
+    const [searchQuery, setSearchQuery] = useSearchQueryString();
     const initialSearchResultState = {
         items: [],
         query: null,
@@ -401,7 +401,6 @@ function SearchPageContent() {
                                                         key={index}
                                                         className="breadcrumbs__item"
                                                         // Developer provided the HTML, so assume it's safe.
-                                                        // eslint-disable-next-line react/no-danger
                                                         dangerouslySetInnerHTML={{ __html: html }}
                                                     />
                                                 ))}
@@ -413,7 +412,6 @@ function SearchPageContent() {
                                         <p
                                             className={styles.searchResultItemSummary}
                                             // Developer provided the HTML, so assume it's safe.
-                                            // eslint-disable-next-line react/no-danger
                                             dangerouslySetInnerHTML={{ __html: summary }}
                                         />
                                     )}
