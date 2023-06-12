@@ -13,7 +13,7 @@ Apify does not have an official PHP client (yet), so we are going to use [guzzle
 
 ## Before you start
 
-Make sure you have an Apify account and API token. You will find the token in the [Integrations]([https://console.apify.com/account#/integrations](https://console.apify.com/account#/integrations)) section in Apify Console.
+Make sure you have an Apify account and API token. You will find the token in the [Integrations](https://console.apify.com/account#/integrations) section in Apify Console.
 
 If you don't already have guzzle installed in your project (or just want to try out the code examples), run `composer require guzzlehttp/guzzle` to install it in the current directory.
 
