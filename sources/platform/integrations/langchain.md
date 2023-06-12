@@ -25,9 +25,8 @@ Before we start with the integration, we need to install all dependencies:
 
 After successful installation of all dependencies, we can start writing code.
 
-First, import `chromadb`, `os`, `Document`, `VectorstoreIndexCreator`, and `ApifyWrapper` into your source code:
+First, import `os`, `Document`, `VectorstoreIndexCreator`, and `ApifyWrapper` into your source code:
 ```python
-import chromadb
 import os
 
 from langchain.document_loaders.base import Document
@@ -78,7 +77,6 @@ print(result["sources"])
 If you want to test the whole example you can simple create a new file `langchain_integration.py` and copy the whole code into it.
 
 ```python
-import chromadb
 import os
 
 from langchain.document_loaders.base import Document
@@ -107,7 +105,7 @@ print(result["sources"])
 
 To run it, you can use the following command: `python langchain_integration.py`
 
-If you run the code, you should see the following output:
+After running the code, you should see the following output:
 
 ```text
 LangChain is a framework for developing applications powered by language models. It provides standard, extendable interfaces, external integrations, and end-to-end implementations for off-the-shelf use. It also integrates with other LLMs, systems, and products to create a vibrant and thriving ecosystem.
