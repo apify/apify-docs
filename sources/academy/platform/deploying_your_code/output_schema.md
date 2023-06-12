@@ -1,13 +1,13 @@
 ---
 title: Output schema
-description: Learn how to generate an appealing Overview table interface to preview your actor results in real time on the Apify Platform.
+description: Learn how to generate an appealing Overview table interface to preview your actor results in real time on the Apify platform.
 sidebar_position: 3
 slug: /deploying-your-code/output-schema
 ---
 
 # Output schema {#output-schema}
 
-**Learn how to generate an appealing Overview table interface to preview your actor results in real time on the Apify Platform.**
+**Learn how to generate an appealing Overview table interface to preview your actor results in real time on the Apify platform.**
 
 ---
 
