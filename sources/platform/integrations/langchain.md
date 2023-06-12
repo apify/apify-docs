@@ -16,8 +16,8 @@ slug: /integrations/langchain
 In this example, we'll use the Website [Content Crawler Actor](https://apify.com/apify/website-content-crawler), which can deeply crawl websites such as documentation, knowledge bases, help centers, or blogs and extract text content from the web pages.
 Then we feed the documents into a vector index and answer questions from it.
 
-This example focuses on how to integrate Apify with LangChain using Python language,
-but if you prefer to use JavaScript, you can follow the same steps with [JavaScript LangChain documentation](https://js.langchain.com/docs/modules/indexes/document_loaders/examples/web_loaders/apify_dataset).
+This example focuses on how to integrate Apify with LangChain using the Python language,
+but if you prefer to use JavaScript, you can follow the same steps in the [JavaScript LangChain documentation](https://js.langchain.com/docs/modules/indexes/document_loaders/examples/web_loaders/apify_dataset).
 
 Before we start with the integration, we need to install all dependencies:
 
@@ -76,7 +76,7 @@ print(result["answer"])
 print(result["sources"])
 ```
 
-If you want to test the whole example you can simple create a new file `langchain_integration.py` and copy the whole code into it.
+If you want to test the whole example, you can simply create a new file, `langchain_integration.py`, and copy the whole code into it.
 
 ```python
 import os
