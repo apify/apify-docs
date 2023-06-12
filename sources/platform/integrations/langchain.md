@@ -26,6 +26,7 @@ Before we start with the integration, we need to install all dependencies:
 After successful installation of all dependencies, we can start writing code.
 
 First, import `os`, `Document`, `VectorstoreIndexCreator`, and `ApifyWrapper` into your source code:
+
 ```python
 import os
 
@@ -56,6 +57,7 @@ loader = apify.call_actor(
     ),
 )
 ```
+
 _NOTE: The Actor call function can take some time as it loads the data from LangChain documentation website._
 
 Initialize the vector index from the crawled documents:
