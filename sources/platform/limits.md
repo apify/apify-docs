@@ -14,7 +14,7 @@ slug: /limits
 
 The tables below demonstrate the Apify platform's default resource limits. For API limits such as rate limits and max payload size, see the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting).
 
-> If needed, the limits shown below can be increased on paid accounts. For details, contact us at **hello@apify.com** or using the chat in [Apify Console](https://console.apify.com/) under the "Help & Resources → Contact Support".
+> If needed, the limits shown below can be increased on paid accounts. For details, contact us at **[hello@apify.com](mailto:hello@apify.com)** or using the chat in [Apify Console](https://console.apify.com/) under the "Help & Resources → Contact Support".
 
 ## Actor runtime limits {#actor-limits}
 
