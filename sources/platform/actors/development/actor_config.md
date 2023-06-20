@@ -1,5 +1,5 @@
 ---
-title: Actor config
+title: Actor configdsfs
 description: Learn how to write the main actor config in the `.actor/actor.json` file.
 slug: /actors/development/actor-config
 ---
@@ -26,6 +26,7 @@ For example, the `.actor/actor.json` file can look this:
   },
   "dockerfile": "./Dockerfile",
   "readme": "./ACTOR.md",
+  "changelog": "./CHANGELOG.md",
   "input": "./input_schema.json",
   "storages": {
     "dataset": "./dataset_schema.json",
@@ -40,6 +41,9 @@ If you specify the path to your Docker file under the `dockerfile` field, this f
 
 **`readme` field** \
 If you specify the path to your README file under the `readme` field, the README at this path will be used on the platform. If not specified, README at `.actor/README.md` or `README.md` will be used, in this order of preference.
+
+**`changelog` field** \
+If you specify the path to your CHANGELOG file under the `changelog` field, the CHANGELOG at this path will be used on the platform. If not specified, CHANGELOG at `.actor/CHANGELOG.md` or `CHANGELOG.md` will be used, in this order of preference.
 
 **`input` field**\
 You can embed your [input schema](./input_schema.md#specification-version-1) object directly in `actor.json` under the `input` field. Alternatively, you can provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference.
