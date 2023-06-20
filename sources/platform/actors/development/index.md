@@ -28,6 +28,11 @@ import CardGrid from "@site/src/components/CardGrid";
         desc="Learn how to turn your arbitrary code into an Actor simply by adding an Actor definition directory."
     />
     <Card
+        title="Programming interface"
+        to="/platform/actors/development/programming-interface"
+        desc="Learn about programming interface of Apify Actors, important commands and features provided by the Apify SDK and how to use them in your Actors."
+    />
+    <Card
         title="Deployment"
         to="/platform/actors/development/deployment"
         desc="Learn how to deploy your Actors to the Apify platform and build them."

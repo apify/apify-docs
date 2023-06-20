@@ -1,0 +1,50 @@
+---
+title: Programming interface
+sidebar_position: 4
+description: Learn about the programming interface of Apify Actors, important commands and features provided by the Apify SDK, and how to use them in your Actors.
+slug: /actors/development/programming-interface
+---
+
+**Learn about the programming interface of Apify Actors, important commands and features provided by the Apify SDK, and how to use them in your Actors.**
+
+---
+
+import Card from "@site/src/components/Card";
+import CardGrid from "@site/src/components/CardGrid";
+
+This chapter will guide you through all the commands you need to build your first Actor. This interface is provided by Apify SDKs for [Node.js](/sdk/js/) and [Python](/sdk/python). The chapter starts with basic commands and guides you thru system events and environment variables that are available to your Actor both locally and when running on Apify platform.
+
+<CardGrid>
+    <Card
+        title="Basic commands"
+        desc="Learn how to provide your actor with context that determines its behavior through a plethora of pre-defined environment variables offered by the Apify SDK."
+        to="/platform/actors/development/programming-interface/basic-commands"
+    />
+    <Card
+        title="Environment variables"
+        desc="Learn how to provide your actor with context that determines its behavior through a plethora of pre-defined environment variables offered by the Apify SDK."
+        to="/platform/actors/development/programming-interface/container-web-server"
+    />
+    <Card
+        title="Status messages"
+        desc="Use custom status message to inform the user about the progress of your Actor run."
+        to="/platform/actors/development/programming-interface/status-messages"
+    />
+    <Card
+        title="Status events"
+        desc="Learn about system events sent to your Actor and how to benefit from them."
+        to="/platform/actors/development/programming-interface/status-messages"
+    />
+    <Card
+        title="Container web server"
+        desc="Learn how to run a web server inside your Actor, which enables you to communicate with the outer world via UI and API."
+        to="/platform/actors/development/programming-interface/container-web-server"
+    />
+    <Card
+        title="Metamorph"
+        desc="The metamorph operation transforms an Actor run into the run of another Actor with a new input."
+        to="/platform/actors/development/programming-interface/metamorph"
+    />
+</CardGrid>
+
+  

@@ -1,13 +1,19 @@
 ---
-title: Example setup
-description: See an example setup of the Actor's Dockerfile and source code.
-slug: /actors/development/actor-definition/source-code/example-setup
-sidebar_position: 1
+title: Source code
+description: Learn about the Actor's source code placement and its structure.
+slug: /actors/development/actor-definition/source-code
+sidebar_position: 4
 ---
 
-**See an example setup of Actor's Dockerfile and source code.**
+**Learn about the Actor's source code placement and its structure.**
 
 ---
+
+The Apify Actor's source code placement is defined by its [Dockerfile](./dockerfile.md). If you have created the Actor from one of Apify's [templates](https://apify.com/templates) then it's by convention placed in the `/src` directory.
+
+It's completely up to you what language and technologies, including various binaries (Chrome browser, Selenium, Cypress, or any other dependency of your choice) you use in your project. The only requirement is that you have to define the Dockerfile that will build the image for your Actor, including all the dependencies and your source code.
+
+## Example setup
 
 Let's take a look at the example JavaScript Actor's source code. The following Dockerfile
 

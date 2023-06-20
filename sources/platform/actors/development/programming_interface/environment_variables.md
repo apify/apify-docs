@@ -1,7 +1,8 @@
 ---
 title: Environment variables
 description: Learn how to provide your actor with context that determines its behavior through a plethora of pre-defined environment variables offered by the Apify SDK.
-slug: /actors/development/environment-variables
+slug: /actors/development/programming-interface/environment-variables
+sidebar_position: 3
 ---
 
 # Environment variables {#environment-variables}
@@ -51,6 +52,16 @@ To access environment variables in Python, use the `os.environ` dictionary, for 
 ```python
 import os
 print(os.environ['APIFY_USER_ID'])
+```
+
+For convenience, rather than using environment vars directly, we provide a `Configuration` class
+that allows reading and updating the actor configuration.
+
+```javascript
+const token = Actor.config.get('token');
+
+// use different token
+Actor.config.set('token', 's0m3n3wt0k3n')
 ```
 
 ## [](#custom-environment-variables)Custom environment variables
