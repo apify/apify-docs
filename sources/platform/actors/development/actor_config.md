@@ -1,5 +1,5 @@
 ---
-title: Actor configdsfs
+title: Actor config
 description: Learn how to write the main actor config in the `.actor/actor.json` file.
 slug: /actors/development/actor-config
 ---
