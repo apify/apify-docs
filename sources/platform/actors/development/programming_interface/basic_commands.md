@@ -112,5 +112,3 @@ Actor.on('exit', ({ statusMessage, exitCode, timeoutSecs }) => {
     // Perform cleanup...
 })
 ```
-
-
