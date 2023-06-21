@@ -9,7 +9,7 @@ sidebar_position: 7
 
 ---
 
-Each actor run is assigned a unique hard-to-guess URL (e.g. `kmdo7wpzlshygi.runs.apify.net`), which enables HTTP access to an optional web server running inside the actor run's Docker container. The URL is available in the following places:
+Each Actor run is assigned a unique hard-to-guess URL (e.g. `kmdo7wpzlshygi.runs.apify.net`), which enables HTTP access to an optional web server running inside the Actor run's Docker container. The URL is available in the following places:
 
 - In the web application, on the Actor run details page as the **Container URL** field.
 - In the API as the `containerUrl` property of the [Run object](/api/v2#/reference/actors/run-object/get-run).
@@ -36,7 +36,7 @@ app.listen(port, () => console.log(`Web server is listening
     and can be accessed at
     ${process.env.APIFY_CONTAINER_URL}!`));
 
-// Let the actor run for an hour.
+// Let the Actor run for an hour.
 await new Promise((r) => setTimeout(r, 60 * 60 * 1000));
 
 await Actor.exit();

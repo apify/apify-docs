@@ -9,7 +9,7 @@ sidebar_position: 3
 
 ---
 
-Each actor run has a status (the `status` field), which can be one of the following values:
+Each Actor run has a status (the `status` field), which can be one of the following values:
 
 |Status|Type|Description|
 |--- |--- |--- |
@@ -22,13 +22,13 @@ Each actor run has a status (the `status` field), which can be one of the follow
 |`ABORTING`|transitional|Being aborted by user|
 |`ABORTED`|terminal|Aborted by user|
 
-Additionally, the actor run has a status message (the `statusMessage` field), which contains a text for users informing them what the actor is currently doing, and thus greatly improve their user experience.
+Additionally, the Actor run has a status message (the `statusMessage` field), which contains a text for users informing them what the Actor is currently doing, and thus greatly improve their user experience.
 
 ![Status message](./images/status-message.png)
 
-When an actor exits, the status message is either automatically set to some default text (e.g. "Actor finished with exit code 1"), or to a custom message - see [exit](./basic_commands.md#exit-actor) method for details.
+When an Actor exits, the status message is either automatically set to some default text (e.g. "Actor finished with exit code 1"), or to a custom message - see [exit](./basic_commands.md#exit-actor) method for details.
 
-When the actor is running, it should periodically update the status message as follows, to keep users informed and happy. The function can be called as often as necessary, the SDK only invokes API if status changed. This is to simplify the usage.
+When the Actor is running, it should periodically update the status message as follows, to keep users informed and happy. The function can be called as often as necessary, the SDK only invokes API if status changed. This is to simplify the usage.
 
 ```js
 await Actor.setStatusMessage('Crawled 45 of 100 pages');

@@ -9,18 +9,18 @@ sidebar_position: 4
 
 ---
 
-Actors are notified by the system about various events such as a migration to another server, [abort operation](#abort-another-actor) triggered by another actor, or the CPU being overloaded.
+Actors are notified by the system about various events such as a migration to another server, [abort operation](#abort-another-actor) triggered by another Actor, or the CPU being overloaded.
 
 Currently, the system sends the following events:
 
 | Event name     | Payload | Description |
 | -------------- | ------- | ----------- |
-| `cpuInfo`      | `{ isCpuOverloaded: Boolean }` | The event is emitted approximately every second and it indicates whether the actor is using the maximum of available CPU resources. If that’s the case, the actor should not add more workload. For example, this event is used by the AutoscaledPool class. |
-| `migrating`    | N/A | Emitted when the actor running on the Apify platform is going to be migrated to another worker server soon. You can use it to persist the state of the actor and abort the run, to speed up migration. For example, this is used by the RequestList class. |
-| `aborting`     | N/A | When a user aborts an actor run on the Apify platform, they can choose to abort gracefully to allow the actor some time before getting killed. This graceful abort emits the `aborting` event which the SDK uses to gracefully stop running crawls and you can use it to do your own cleanup as well.|
-| `persistState` | `{ isMigrating: Boolean }` | Emitted in regular intervals (by default 60 seconds) to notify all components of Apify SDK that it is time to persist their state, in order to avoid repeating all work when the actor restarts. This event is automatically emitted together with the migrating event, in which case the `isMigrating` flag is set to `true`. Otherwise the flag is `false`. Note that the `persistState` event is provided merely for user convenience, you can achieve the same effect using `setInterval()` and listening for the `migrating` event. |
+| `cpuInfo`      | `{ isCpuOverloaded: Boolean }` | The event is emitted approximately every second and it indicates whether the Actor is using the maximum of available CPU resources. If that’s the case, the Actor should not add more workload. For example, this event is used by the AutoscaledPool class. |
+| `migrating`    | N/A | Emitted when the Actor running on the Apify platform is going to be migrated to another worker server soon. You can use it to persist the state of the Actor and abort the run, to speed up migration. For example, this is used by the RequestList class. |
+| `aborting`     | N/A | When a user aborts an Actor run on the Apify platform, they can choose to abort gracefully to allow the Actor some time before getting killed. This graceful abort emits the `aborting` event which the SDK uses to gracefully stop running crawls and you can use it to do your own cleanup as well.|
+| `persistState` | `{ isMigrating: Boolean }` | Emitted in regular intervals (by default 60 seconds) to notify all components of Apify SDK that it is time to persist their state, in order to avoid repeating all work when the Actor restarts. This event is automatically emitted together with the migrating event, in which case the `isMigrating` flag is set to `true`. Otherwise the flag is `false`. Note that the `persistState` event is provided merely for user convenience, you can achieve the same effect using `setInterval()` and listening for the `migrating` event. |
 
-Under the hood, actors receive the system events by connecting to a web socket address specified by the `ACTOR_EVENTS_WEBSOCKET_URL` environment variable. The system sends messages in JSON format in the following structure:
+Under the hood, Actors receive the system events by connecting to a web socket address specified by the `ACTOR_EVENTS_WEBSOCKET_URL` environment variable. The system sends messages in JSON format in the following structure:
 
 ```js
 {
