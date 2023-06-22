@@ -1338,6 +1338,8 @@ This is useful if you want to use another actor to finish the work
 of your current actor run, without the need to create a completely new run and waiting for its finish.
 For the users of your actors, the metamorph operation is transparent, they will just see your actor got the work done.
 
+There is a limit on how many times you can metamorph a single run. You can check the limit in [the Actor runtime limits](/platform/limits#actor-limits).
+
 Internally, the system stops the Docker container corresponding to the actor run
 and starts a new container using a different Docker image.
 All the default storages are preserved and the new input is stored under the `INPUT-METAMORPH-1` key in the same default key-value store.
