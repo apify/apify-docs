@@ -69,6 +69,10 @@ The tables below demonstrate the Apify Platform's default resource limits. For A
             <td>Maximum log size</td>
             <td colspan="4">10,485,760&nbsp;characters</td>
         </tr>
+        <tr>
+            <td>Maximum number of metamorphs</td>
+            <td colspan="4">10 metamorphs per run</td>
+        </tr>
     </tbody>
 </table>
 
