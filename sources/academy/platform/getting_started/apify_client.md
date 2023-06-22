@@ -18,6 +18,12 @@ Now that you've gotten your toes wet with interacting with the Apify API through
 
 This lesson will provide code examples for both Node.js and Python, so regardless of the language you are using, you can follow along!
 
+## Examples {#examples}
+
+You can access `apify-client` examples in Console Actor detail page. Click on the **API** button and then on the **API Client** dropdown button.
+
+![API button](./images/api-button.png)
+
 ## Installing and importing {#installing-and-importing}
 
 If you are going to use the client in Node.js, use this command within one of your projects to install the package through NPM:
