@@ -30,7 +30,7 @@ import CardGrid from "@site/src/components/CardGrid";
     <Card
         title="Programming interface"
         to="/platform/actors/development/programming-interface"
-        desc="Learn about programming interface of Apify Actors, important commands and features provided by the Apify SDK and how to use them in your Actors."
+        desc="Learn about the programming interface of Apify Actors, important commands and features provided by the Apify SDK, and how to use them in your Actors."
     />
     <Card
         title="Deployment"

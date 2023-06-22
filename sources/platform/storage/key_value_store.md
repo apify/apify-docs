@@ -113,7 +113,7 @@ await Actor.setValue(
 await Actor.exit();
 ```
 
-The `Actor.getInput()` method is not only a shortcut to `Actor.getValue('INPUT')` - it is also compatible with `Actor.metamorph()` [[docs](../actors/development/programming_interface/metamorph.md)]. This is because a metamorphed actor run's input is stored in the **INPUT-METAMORPH-1** key instead of **INPUT**, which hosts the original input.
+The `Actor.getInput()` method is not only a shortcut to `Actor.getValue('INPUT')`; it is also compatible with `Actor.metamorph()` [[docs](../actors/development/programming_interface/metamorph.md)]. This is because a metamorphed Actor run's input is stored in the **INPUT-METAMORPH-1** key instead of **INPUT**, which hosts the original input.
 
 See the [SDK documentation](/sdk/js/docs/guides/result-storage#key-value-store) and the `KeyValueStore` class's [API reference](/sdk/js/api/apify/class/KeyValueStore) for details on managing your key-value stores with the Apify SDK.
 

@@ -5,11 +5,11 @@ slug: /actors/development/programming-interface/basic-commands
 sidebar_position: 2
 ---
 
-The commands described in this section are expected to be called from within a context of a running Actor, both in local environment or on the Apify platform.
+The commands described in this section are expected to be called from within a context of a running Actor, both in a local environment or on the Apify platform.
 
 ### Actor initialization
 
-First, the Actor should be initialized. During initialization, it prepares to receive events from Apify platform, determines machine and storage configuration, and optionally purges the previous state from local storage. It will also create a default instance of the Actor class.
+First, the Actor should be initialized. During initialization, it prepares to receive events from the Apify platform. The Actor determines the machine and storage configuration and optionally purges the previous state from local storage. It will also create a default instance of the Actor class.
 
 It is not required to perform the initialization explicitly because the Actor will initialize on the execution of any Actor method, but we strongly recommend it to prevent race conditions.
 
@@ -88,7 +88,7 @@ await Actor.pushData({
 
 When the main Actor process exits (i.e. the Docker container stops running), the Actor run is considered finished, and the process exit code is used to determine whether the Actor has succeeded (exit code `0` leads to status `SUCCEEDED`) or failed (exit code not equal to `0` leads to status `SUCCEEDED`). In this case, the platforms set a status message to a default value like `Actor exit with exit code 0`, which is not very descriptive for the users.
 
-An alternative and preferred way to exit an Actor is using the `exit` function in SDK, as shown below. This has two advantages:
+An alternative and preferred way to exit an Actor is using the `exit` function in the SDK, as shown below. This has two advantages:
 
 - You can provide a custom status message for users to tell them what the Actor achieved. On error, try to explain to users what happened, and most importantly, how they can fix the error. This greatly improves user experience.
 - The system emits the `exit` event, which can be listened to and used by various components of the Actor to perform a cleanup, persist state, etc. Note that the caller of exit can specify how long the system should wait for all `exit` event handlers to complete before closing the process, using the `timeoutSecs` option. For details, see [System Events](#system-events).
@@ -101,10 +101,10 @@ await Actor.exit('Succeeded, crawled 50 pages');
 await Actor.exit('Done right now', { timeoutSecs: 0 });
 
 // Actor will finish with 'FAILED' status
-await Actor.exit('Could not finish the crawl, try increasing memory', { exitCode: 1 });
+await Actor.exit('Could not finish the crawl. Try increasing memory', { exitCode: 1 });
 
 // ... or nicer way using this syntactic sugar:
-await Actor.fail('Could not finish the crawl, try increasing memory');
+await Actor.fail('Could not finish the crawl. Try increasing memory');
 
 // Register a handler to be called on exit.
 // Note that the handler has `timeoutSecs` to finish its job

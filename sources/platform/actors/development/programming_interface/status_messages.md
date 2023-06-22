@@ -5,7 +5,7 @@ slug: /actors/development/programming-interface/status-messages
 sidebar_position: 3
 ---
 
-**Learn how to use custom status messages to inform user about the progress of an Actor.**
+**Learn how to use custom status messages to inform users about the progress of an Actor.**
 
 ---
 
@@ -28,7 +28,7 @@ Additionally, the Actor run has a status message (the `statusMessage` field), wh
 
 When an Actor exits, the status message is either automatically set to some default text (e.g. "Actor finished with exit code 1"), or to a custom message - see [exit](./basic_commands.md#exit-actor) method for details.
 
-When the Actor is running, it should periodically update the status message as follows, to keep users informed and happy. The function can be called as often as necessary, the SDK only invokes API if status changed. This is to simplify the usage.
+When the Actor is running, it should periodically update the status message as follows to keep users informed and happy. The function can be called as often as necessary, and the SDK only invokes API if the status changes. This is to simplify the usage.
 
 ```js
 await Actor.setStatusMessage('Crawled 45 of 100 pages');
