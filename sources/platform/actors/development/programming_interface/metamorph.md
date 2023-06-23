@@ -1,8 +1,8 @@
 ---
 title: Metamorph
 description: The metamorph operation transforms an Actor run into the run of another Actor with a new input.
-slug: /actors/development/actor-definition/source-code/metamorph
-
+slug: /Actors/development/programming-interface/metamorph
+sidebar_position: 8
 ---
 
 **The metamorph operation transforms an Actor run into the run of another Actor with a new input. **
@@ -22,7 +22,7 @@ import { Actor } from 'apify';
 
 await Actor.init();
 
-// Get input of your actor.
+// Get input of your Actor.
 const { hotelUrl } = await Actor.getInput();
 
 // Create input for apify/web-scraper
@@ -36,12 +36,12 @@ const newInput = {
     // input parameters.
 };
 
-// Transform the actor run to apify/web-scraper
+// Transform the Actor run to apify/web-scraper
 // with the new input.
 await Actor.metamorph('apify/web-scraper', newInput);
 
 // The line here will never be reached, because the
-// actor run will be interrupted.
+// Actor run will be interrupted.
 
 await Actor.exit();
 ```
