@@ -2,7 +2,7 @@
 title: Runs
 sidebar_position: 8
 description: Learn about Actor runs, how to start them, and how to manage them.
-slug: /actors/development/runs
+slug: /actors/development/builds-and-runs/runs
 ---
 
 **Learn about Actor runs, how to start them, and how to manage them.**

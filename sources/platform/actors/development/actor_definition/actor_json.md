@@ -1,7 +1,7 @@
 ---
 title: actor.json
 description: Learn how to write the main actor config in the `.actor/actor.json` file.
-slug: /actors/development/actor-config
+slug: /actors/development/actor-definition/actor-json
 sidebar_position: 1
 ---
 

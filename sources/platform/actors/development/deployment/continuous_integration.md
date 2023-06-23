@@ -1,7 +1,7 @@
 ---
 title: Continuous integration
 description: Learn how to integrate your actors by setting up automated builds, deploys, and testing for your actors using GitHub Actions or Bitbucket Pipelines.
-slug: /actors/development/continuous-integration
+slug: /actors/development/deployment/continuous-integration
 sidebar_position: 2
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Source types
 description: Learn about Apify Actor source types, how to deploy actor from GitHub, using CLI, or a Gist.
-slug: /actors/development/source-types
+slug: /actors/development/deployment/source-types
 sidebar_position: 1
 ---
 

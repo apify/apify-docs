@@ -1,7 +1,7 @@
 ---
 title: State persistence
 description: Maintain a long-running actor's state to protect from unexpected restarts. See a code example on how to protect your run in case of server shutdown.
-slug: /actors/development/state-persistence
+slug: /actors/development/builds-and-runs/state-persistence
 ---
 
 # [](#state-persistence)State persistence
