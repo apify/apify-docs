@@ -1,7 +1,7 @@
 ---
 title: Metamorph
 description: The metamorph operation transforms an Actor run into the run of another Actor with a new input.
-slug: /Actors/development/programming-interface/metamorph
+slug: /actors/development/programming-interface/metamorph
 sidebar_position: 8
 ---
 
