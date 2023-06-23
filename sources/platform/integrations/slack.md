@@ -45,10 +45,10 @@ Click the **Start** button and head to the Slack channel you selected to see you
 
 ## Step 3: Start your run directly from Slack {#step-three}
 
-You can now run the same actor or task directly from Slack by typing `/apify call [actor/task name]` into the Slack message box.
+You can now run the same actor or task directly from Slack by typing `/apify call [actor or task ID]` into the Slack message box.
 
 ![Use Apify from Slack](./images/slack-apify-message.png)
 
-When an actor doesn’t require you to fill in any input fields, you can run it by simply typing `/apify call [actor/task name]`.
+When an actor doesn’t require you to fill in any input fields, you can run it by simply typing `/apify call [actor or task ID]`.
 
 You’re all set! If you have any questions or need help, feel free to reach out to us on our [Discord channel](https://discord.com/invite/jyEM2PRvMU).
