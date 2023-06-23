@@ -13,7 +13,7 @@ slug: /actors/running/usage-and-resources
 
 ## Resources
 
-[Actors](../index.md) run in
+[Actors](../index.mdx) run in
 [Docker containers](https://www.docker.com/resources/what-container),
 which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memory-and-cpu-limit) (memory, CPU, disk size, ...). When starting, the Actor needs to be allocated a certain share of those resources, such as how much CPU "horsepower" it will be able to use.
 
@@ -84,7 +84,7 @@ In other words, giving a simple [Cheerio-based crawler](https://apify.com/apify/
 When you run an Actor it generates platform usage that's charged towards the user account. Platform usage is composed of 4 main parts:
 
 - **Compute units**: CPU and memory resources consumed by the Actor.
-- **Data transfer**: Amount of data you transfered between web, Apify Platform, and other external systems.
+- **Data transfer**: Amount of data you transfered between web, Apify platform, and other external systems.
 - **Proxy costs**: Residential or SERP proxy usage.
 - **Storage operations**: Read, write, and other operations towards key-value store, dataset, and request queue.
 

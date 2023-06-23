@@ -46,7 +46,7 @@ To view or download a dataset in the above-mentioned formats, click on its **Dat
 
 ### Apify SDK {#apify-sdk}
 
-If you are building an [Apify actor](../actors/index.md), you will be using the [Apify SDK](/sdk/js).
+If you are building an [Apify actor](../actors/index.mdx), you will be using the [Apify SDK](/sdk/js).
 In the [Apify SDK](/sdk/js/docs/guides/result-storage#dataset), the dataset is represented by the
 [`Dataset`](/sdk/js/api/apify/class/Dataset) class.
 
@@ -325,7 +325,7 @@ You can invite other Apify users to view or modify your datasets with the [acces
 
 ### Sharing datasets between runs {#sharing-datasets-between-runs}
 
-You can access a dataset from any [Actor](../actors/index.md) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
+You can access a dataset from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
 
 To access a dataset from another run using the Apify SDK, open it using the [`Actor.openDataset(datasetIdOrName)`](/sdk/js/api/apify/class/Actor#openDataset) method like you would do with any other dataset.
 

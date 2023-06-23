@@ -27,4 +27,4 @@ When creating a pull request, the code is meant to be reviewed, or at least pass
 
 **Q: Based on your knowledge and experience, is the `apify push` command worth using (in your opinion)?**
 
-**A:** The `apify push` command can sometimes be useful when testing ideas; however, it is much more ideal to use Github integration rather than directly pushing to the platform.
+**A:** The `apify push` command can sometimes be useful when testing ideas; however, it is much more ideal to use GitHub integration rather than directly pushing to the platform.

@@ -1,18 +1,17 @@
 ---
-title: Testing and maintenance
-description: Learn how to automate ongoing maintenance and make sure your actors perform over time. See code examples for configuring the Actor Testing actor.
-slug: /actors/development/testing-and-maintenance
+title: Automated tests
+description: Learn how to automate ongoing testing and make sure your Actors perform over time. See code examples for configuring the Actor Testing actor.
+slug: /actors/development/deployment/automated-tests
+sidebar_position: 3
 ---
 
-# Testing and maintaining your actors
-
-**Learn how to automate ongoing maintenance and make sure your actors perform over time. See code examples for configuring the Actor Testing actor.**
+**Learn how to automate ongoing testing and make sure your Actors perform over time. See code examples for configuring the Actor Testing actor.**
 
 ---
 
-You should make sure your [Actors](../index.md) (especially [Actors in Apify Store](../running/store.md)) are well-maintained. You might not always get feedback from your users. Therefore it is crucial that you periodically check if your Actors work as expected. You can do this using our [monitoring suite](https://apify.com/apify/monitoring) or by setting up daily runs of the **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) tool.
+You should make sure your [Actors](../../index.mdx)  are well-maintained. You might not always get feedback from your users. Therefore it is crucial that you periodically check if your Actors work as expected. You can do this using our [monitoring suite](https://apify.com/apify/monitoring) or by setting up daily runs of the **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) tool.
 
-The monitoring suite is sufficient for most scenarios and includes automated alerts. [See more information](https://apify.com/apify/monitoring) on the suite's page or [check out our tutorials](../../monitoring/index.md).
+The monitoring suite is sufficient for most scenarios and includes automated alerts. [See more information](https://apify.com/apify/monitoring) on the suite's page or [check out our tutorials](../../../monitoring/index.md).
 
 We recommend using the Actor Testing actor for specific and advanced use cases. This guide will help you set it up.
 
@@ -26,7 +25,6 @@ We recommend using the Actor Testing actor for specific and advanced use cases. 
 
 ## Set up tasks you will test
 
-First, set up [tasks](../running/tasks.md) for all the possible input configurations your Actor has. If your Actor has only a couple of configuration options (e.g., it only has **search term** and **proxy configuration** inputs), one task is enough. If you have several options (e.g., **location**/**URL**/**max results**) make sure you prepare tasks for all of them.
 
 ![Tasks that test an actor's configurations](./images/testing-tasks.png)
 
@@ -77,7 +75,7 @@ await expectAsync(runResult).withStatistics((stats) => {
 });
 ```
 
-Information about and from within the [dataset](../../storage/dataset.md):
+Information about and from within the [dataset](../../../storage/dataset.md):
 
 ```js
 await expectAsync(runResult).withDataset(({ dataset, info }) => {
@@ -106,7 +104,7 @@ await expectAsync(runResult).withDataset(({ dataset, info }) => {
 });
 ```
 
-Information about the [key-value store](../../storage/key_value_store.md):
+Information about the [key-value store](../../../storage/key_value_store.md):
 
 ```js
 await expectAsync(runResult).withKeyValueStore(({ contentType }) => {
