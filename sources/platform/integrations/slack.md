@@ -5,7 +5,7 @@ sidebar_position: 11.13
 slug: /integrations/slack
 ---
 
-# Slack integration
+# Integration for Slack
 
 **Learn how to integrate your Apify Actors with Slack. This article guides you from installation through to automating your whole workflow in Slack.**
 
@@ -13,7 +13,7 @@ A tutorial can be found [here](https://help.apify.com/en/articles/6454058-apify-
 
 ---
 
-> Explore the [Slack integration tutorial](https://help.apify.com/en/articles/6454058-apify-integration-for-slack).
+> Explore the [integration for Slack tutorial](https://help.apify.com/en/articles/6454058-apify-integration-for-slack).
 
 
 [Slack](https://slack.com/) allows you to install various services in your workspace in order to automate and centralize jobs. Apify is one of these services, and it allows you to run your Apify Actors, get notified about their run statuses, and receive your results, all without opening your browser.
@@ -25,11 +25,11 @@ To use the Apify integration for Slack, you will need:
 - An [Apify account](https://console.apify.com/).
 - A Slack account (and workspace).
 
-## Step 1: Set up the Slack integration {#step-one}
+## Step 1: Set up the integration for Slack {#step-one}
 
 You can find all integrations on an actor's or task's **Integrations** tab. For example, you can try using the [Google Shopping Scraper](https://console.apify.com/actors/aLTexEuCetoJNL9bL).
 
-Find the Slack integration, then click the **Configure** button. You will be prompted to log in with your Slack account and select your workspace in the **Settings > Integrations** window.
+Find the integration for Slack, then click the **Configure** button. You will be prompted to log in with your Slack account and select your workspace in the **Settings > Integrations** window.
 
 ![Integrations tab](./images/integrations-tab.png)
 
@@ -45,10 +45,10 @@ Click the **Start** button and head to the Slack channel you selected to see you
 
 ## Step 3: Start your run directly from Slack {#step-three}
 
-You can now run the same actor or task directly from Slack by typing `/apify call [actor/task name]` into the Slack message box.
+You can now run the same actor or task directly from Slack by typing `/apify call [actor or task ID]` into the Slack message box.
 
 ![Use Apify from Slack](./images/slack-apify-message.png)
 
-When an actor doesn’t require you to fill in any input fields, you can run it by simply typing `/apify call [actor/task name]`.
+When an actor doesn’t require you to fill in any input fields, you can run it by simply typing `/apify call [actor or task ID]`.
 
 You’re all set! If you have any questions or need help, feel free to reach out to us on our [Discord channel](https://discord.com/invite/jyEM2PRvMU).

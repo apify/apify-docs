@@ -13,6 +13,8 @@ This feature is useful if you want to use another Actor to finish the work of yo
 
 Internally, the system stops the Docker container corresponding to the Actor run and starts a new container using a different Docker image. All the default storages are preserved, and the new input is stored under the **INPUT-METAMORPH-1** key in the same default key-value store.
 
+There is a limit on how many times you can metamorph a single run. You can check the limit in [the Actor runtime limits](/platform/limits#actor-limits).
+
 To make your Actor compatible with the metamorph operation, use `Actor.getInput()` instead of `Actor.getValue('INPUT')`. This method will fetch the input using the right key **INPUT-METAMORPH-1** in case of a metamorphed run.
 
 For example, imagine you have an Actor that accepts a hotel URL on input and then internally uses the [apify/web-scraper](https://www.apify.com/apify/web-scraper) Actor to scrape all the hotel reviews. The metamorphing code would look like this:
