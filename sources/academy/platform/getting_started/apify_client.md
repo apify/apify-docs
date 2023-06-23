@@ -20,7 +20,7 @@ This lesson will provide code examples for both Node.js and Python, so regardles
 
 ## Examples {#examples}
 
-You can access `apify-client` examples in Console Actor detail page. Click on the **API** button and then on the **API Client** dropdown button.
+You can access `apify-client` examples in the Console Actor detail page. Click the **API** button and then the **API Client** dropdown button.
 
 ![API button](./images/api-button.png)
 
