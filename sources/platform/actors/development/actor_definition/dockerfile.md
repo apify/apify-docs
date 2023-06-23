@@ -39,7 +39,7 @@ The [Apify API client for Python](/api/client/python) is preinstalled on these i
 Internally, Apify uses Docker to build and run Actors. To control the build of the Actor, you can create a custom **Dockerfile** and either reference from the `dockerfile` field in the Actor's config in **.actor/actor.json**, or store it in **.actor/Dockerfile** or **Dockerfile** in its root directory. These three sites are searched for in this order of preference. If the **Dockerfile** is missing, the system uses the following default:
 
 ```dockerfile
-FROM apify/actor-node:16
+FROM apify/actor-node:20
 
 COPY package*.json ./
 
