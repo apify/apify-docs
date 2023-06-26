@@ -33,7 +33,7 @@ After clicking on **Let's go**, you should be brought to a page that looks like 
 
 The area where you can see some code and files is called the **Web IDE**, and it is your gateway to writing Actor code directly on the Apify platform.
 
-> It is also possible to deploy code from a Github repository or from your local environment, which we will be getting into in future lessons
+> It is also possible to deploy code from a GitHub repository or from your local environment, which we will be getting into in future lessons
 
 In the **main.js** file we will find the starting template code:
 

@@ -1,7 +1,6 @@
 ---
 title: Running actors
 description: Start an actor from the Apify Console or via API. Learn about actor lifecycles, how to specify settings and version, provide input and resurrect finished runs.
-menuTitle: Running
 sidebar_position: 7.1
 slug: /actors/running
 ---

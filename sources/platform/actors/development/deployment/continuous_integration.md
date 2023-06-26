@@ -1,7 +1,8 @@
 ---
 title: Continuous integration
 description: Learn how to integrate your actors by setting up automated builds, deploys, and testing for your actors using GitHub Actions or Bitbucket Pipelines.
-slug: /actors/development/continuous-integration
+slug: /actors/development/deployment/continuous-integration
+sidebar_position: 2
 ---
 
 import Tabs from '@theme/Tabs';
@@ -101,6 +102,8 @@ https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&versi
 
 ## Set up automatic builds
 
+TODO: This duolicates somehow the above part
+
 Once you have your [prerequisites](#prerequisites), you can start automating your builds. You can use [webhooks](https://en.wikipedia.org/wiki/Webhook) or the [Apify CLI](/cli/) ([described in our Bitbucket guide](https://help.apify.com/en/articles/1861038-setting-up-continuous-integration-for-apify-actors-on-bitbucket)) in your Git workflow.
 
 To use webhooks, you can use the [distributhor/workflow-webhook](https://github.com/distributhor/workflow-webhook) action, which uses the secrets described in the [prerequisites](#prerequisites) section.
@@ -117,31 +120,21 @@ You can find your builds under the actor's **Builds** section.
 
 ![An actor's builds](./images/ci-builds.png)
 
-## Automate tests
+## [](#github-integration) Automatic builds from GitHub
 
-Depending on your needs, you can test your actors [on push to Git](#run-tests-on-push-to-git) (using frameworks like [Jest](https://jestjs.io/) or [Mocha](https://mochajs.org/)) or [set up ongoing monitoring](#monitoring) of your actors' performance.
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2I3DM8Nvu1M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-### Run tests on push to Git
+If the source code of an Actor is hosted in a [Git repository](#git-repository), it is possible to set up an integration so that the Actor is automatically rebuilt on every push to the Git repository. For that, you only need to set up a webhook in your Git source control system that will invoke the [Build actor](/api/v2/#/reference/actors/build-collection/build-actor) API endpoint on every push.
 
-[See our Bitbucket guide](https://help.apify.com/en/articles/1861038-setting-up-continuous-integration-for-apify-actors-on-bitbucket) for an outline of running tests in a Git workflow. It works the same for GitHub and Bitbucket.
+For repositories on GitHub, you can use the following steps. First, go to the Actor detail page, open the **API** tab, and copy the **Build actor** API endpoint URL. It should look something like this:
 
-In brief, you need to write your tests using your tool of choice, add a script that executes the tests to the **package.json** file, and add the command to your Git workflow.
-
-```yaml
-# Install dependencies and run tests
-- uses: actions/checkout@v2
-- run: npm install && npm run test
+```text
+https://api.apify.com/v2/acts/apify~hello-world/builds?token=<API_TOKEN>&version=0.1
 ```
 
-### Monitoring
+Then go to your GitHub repository, click **Settings**, select **Webhooks** tab and click **Add webhook**. Paste the API URL to the **Payload URL** as follows:
 
-For most ongoing monitoring scenarios, we recommend using the [Apify monitoring suite](https://apify.com/apify/monitoring). It allows you to check your actor's run statuses, validate your results, and [receive notifications via email or Slack](https://apify.com/apify/monitoring#notifications).
+![GitHub integration](./images/ci-github-integration.png)
 
-[Check out our text and video tutorials](../../monitoring/index.md) for various monitoring use cases.
-
-### Ongoing testing
-
-If you have advanced and specific requirements, you can create your own test actors, which you can [schedule](../../schedules.md) to regularly run and validate your actors' results. For this, you can use our **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) actor ([see the guide](./testing_and_maintenance.md)).
-
-If using this approach, you can set up notifications using the **Send Mail** ([apify/send-mail](https://apify.com/apify/send-mail)) and **Send Slack Message** ([katerinahronik/slack-message](https://apify.com/katerinahronik/slack-message)) actors.
+And that's it! Now your Actor should automatically rebuild on every push to the GitHub repository.
 

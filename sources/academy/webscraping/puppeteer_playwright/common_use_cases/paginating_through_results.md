@@ -22,9 +22,9 @@ Attempting to scrape thousands to tens of thousands of results using a headless 
 
 ## Page number-based pagination {#page-number-based-pagination}
 
-At the time of writing, Facebook has [115 repositories on Github](https://github.com/orgs/facebook/repositories). By default, Github lists repositories in descending order based on when they were last updated (the most recently updated repos are at the top of the list).
+At the time of writing, Facebook has [115 repositories on GitHub](https://github.com/orgs/facebook/repositories). By default, GitHub lists repositories in descending order based on when they were last updated (the most recently updated repos are at the top of the list).
 
-We want to scrape all of the titles, links, and descriptions for Facebook's repositories; however, Github only displays 30 repos per page. This means we've gotta paginate through all of the results.
+We want to scrape all of the titles, links, and descriptions for Facebook's repositories; however, GitHub only displays 30 repos per page. This means we've gotta paginate through all of the results.
 
 Let's first start off by defining some basic variables:
 
@@ -390,7 +390,7 @@ await browser.close();
 </TabItem>
 </Tabs>
 
-If we remember correctly, Facebook has 115 Github repositories (at the time of writing this lesson), so the final output should be:
+If we remember correctly, Facebook has 115 GitHub repositories (at the time of writing this lesson), so the final output should be:
 
 ```text
 115
