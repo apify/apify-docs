@@ -12,7 +12,7 @@ slug: /storage
 
 ---
 
-The Apify platform includes three types of storage you can use both in your [actors](../actors/index.md) and outside the Apify platform via [API](/api/v2#/), the [Apify SDK](/sdk/js) and Apify's [JavaScript API client](/api/client/js) and [Python API client](/api/client/python).
+The Apify platform includes three types of storage you can use both in your [actors](../actors/index.mdx) and outside the Apify platform via [API](/api/v2#/), the [Apify SDK](/sdk/js) and Apify's [JavaScript API client](/api/client/js) and [Python API client](/api/client/python).
 
 This page contains a brief introduction of the three types of Apify Storage.
 
@@ -195,7 +195,7 @@ You can invite other Apify users to view or modify your storages with the [acces
 
 ### Sharing storages between runs {#sharing-storages-between-runs}
 
-Any storage can be accessed from any [Actor](../actors/index.md) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
+Any storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
 [Datasets](./dataset.md) and [key-value stores](./key_value_store.md) can be used concurrently by multiple actors. This means that multiple actors or tasks running at the same time can **write** data to a single dataset or key-value store. The same applies for reading data – multiple runs can **read** data from datasets and key-value stores concurrently.
 
