@@ -54,6 +54,42 @@ You can start an Actor run by pressing the **Start** button at the bottom of the
 
 ![Actor run](./images/actor-run.png)
 
-## 5. Iterate
+## 5. Pull it
+
+For further local development, you can pull the Actor's source code to your local machine. You can get instructions for your Actor on the Actor detail page.
+
+![Actor pull](./images/actor-pull.png)
+
+To pull your Actor, you need to have `apify cli` installed. You can install it using the npm:
+
+```bash
+npm -g install apify-cli
+```
+
+or using the Homebrew package manager on macOS:
+
+```bash
+brew install apify/tap/apify-cli
+```
+
+Log in to the Apify platform:
+
+```bash
+apify login
+```
+
+Then, you can pull your Actor using the following command:
+
+```bash
+apify apify pull [actor_name]
+```
+
+or with specified version:
+
+```bash
+apify apify pull [actor_name] --version [version_number]
+```
+
+## 6. Iterate
 
 Now you can get back to the source code and modify the Actor to match your needs. To learn about all the Apify platform features and best practices, continue to the following chapter of this section or visit the [Apify Academy](/academy).
