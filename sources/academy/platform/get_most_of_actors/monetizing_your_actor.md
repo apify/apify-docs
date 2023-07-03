@@ -44,7 +44,7 @@ Invoices are created automatically at the beginning of the new month, just under
 
 **You choose the price and free trial length of your actor.** Apify can give you advice about the best practices of the most successful actors, but at the end of the day, we give developers full control over the pricing strategy of their tools.
 
-### Where can I keep track of my paid actor’s users and earnings on the Apify Platform?
+### Where can I keep track of my paid actor’s users and earnings on the Apify platform?
 
 Inside the Apify Console, go to **Actors → Earnings.**
 

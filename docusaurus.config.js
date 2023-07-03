@@ -1,4 +1,3 @@
-/* eslint-disable global-require,import/no-extraneous-dependencies */
 const { config } = require('./apify-docs-theme');
 const { externalLinkProcessor } = require('./tools/utils/externalLink');
 const { collectSlugs } = require('./tools/utils/collectSlugs');

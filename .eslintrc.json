@@ -23,6 +23,8 @@
     "root": true,
     "rules": {
         "quote-props": ["error", "consistent"],
-        "react/prop-types": ["off"]
+        "react/prop-types": ["off"],
+        "import/extensions": ["off"],
+        "no-void": ["off"]
     }
 }

@@ -58,7 +58,7 @@ We can also add settings for the actor (which will override the default settings
 https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN&memory=8192&build=beta
 ```
 
-This works in almost exactly the same way for both Actors and tasks; however, for tasks, there is no reason to specify a [`build`](/platform/actors/development/builds) parameter, as a task already has only one specific Actor build which cannot be changed with query parameters.
+This works in almost exactly the same way for both Actors and tasks; however, for tasks, there is no reason to specify a [`build`](/platform/actors/development/builds-and-runs/builds) parameter, as a task already has only one specific Actor build which cannot be changed with query parameters.
 
 ### Input JSON {#input-json}
 
@@ -151,10 +151,10 @@ There may be cases where we need to simply run the actor and go away. But in any
 
 #### `waitForFinish` parameter {#waitforfinish-parameter}
 
-This solution is quite similar to the synchronous flow. To make the POST request wait, add the `waitForFinish` parameter. It can have a value from `0` to `300`, which is the maximum time in seconds to wait (the max value for `waitForFinish` is 5 minutes). Knowing this, we can extend the example URL like this:
+This solution is quite similar to the synchronous flow. To make the POST request wait, add the `waitForFinish` parameter. It can have a value from `0` to `60`, which is the maximum time in seconds to wait (the max value for `waitForFinish` is 1 minute). Knowing this, we can extend the example URL like this:
 
 ```cURL
-https://api.apify.com/v2/acts/apify~web-scraper/runs?token=YOUR_TOKEN&waitForFinish=300
+https://api.apify.com/v2/acts/apify~web-scraper/runs?token=YOUR_TOKEN&waitForFinish=60
 ```
 
 You can also use the `waitForFinish` parameter with the [**GET Run** endpoint](/api/v2#/reference/actors/run-object/get-run) to implement a smarter [polling](#polling) system.

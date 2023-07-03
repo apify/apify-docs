@@ -40,7 +40,6 @@ What's happening inside of an Actor is visible on the Actor run log in the Actor
 
 Each run and build starts with the initial status **READY** and goes through one or more transitional statuses to one of the terminal statuses.
 
-
 ```mermaid
 flowchart LR
     subgraph Transitional states

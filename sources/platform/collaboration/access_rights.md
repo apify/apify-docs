@@ -10,7 +10,7 @@ slug: /collaboration/access-rights
 
 ---
 
-You can easily and securely share your own resources - Actors, tasks, key-value stores, datasets, and request queues - with other users by using a [granular](https://www.google.com/search?client=firefox-b-d&q=define+granular+permissions) permissions system. This enables you, for example, to let your colleague run an [Actor](../actors/index.md) or view a [dataset](../storage/dataset.md) but not modify it.
+You can easily and securely share your own resources - Actors, tasks, key-value stores, datasets, and request queues - with other users by using a [granular](https://www.google.com/search?client=firefox-b-d&q=define+granular+permissions) permissions system. This enables you, for example, to let your colleague run an [Actor](../actors/index.mdx) or view a [dataset](../storage/dataset.md) but not modify it.
 
 > To be able to grant access rights to another user, you must have a **username** set in [account settings](https://console.apify.com/account?tab=settings).
 

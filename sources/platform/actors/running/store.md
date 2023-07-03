@@ -117,6 +117,11 @@ Under the **pay per result** model, all platform costs generated **during the ru
 
 You will still be charged for the timed storage of the data in the same fashion as with any other Actor. You can always decide to delete the dataset to reduce your costs after you export the data from the platform. By default, any unnamed dataset will be automatically removed after your data retention period, so in most cases, this is nothing to worry about.
 
+**Can I set a cap on how many results an Actor should return?**
+You can set a limit on how many items an Actor should return and the amount you will be charged in Options on the Actor detail page in the section below the Actor input.
+
+![Max items for pay-per-result](./images/store/pay_per_result_max_items.png)
+
 **Can I publish an Actor that is paid per result?**
 
 Publishing an Actor that is paid per result is not yet available publicly as this pricing model is still in beta.
@@ -133,7 +138,10 @@ On the top of that, you can see how much you have been charged for a specific ru
 
 ![Run cost shown on the overview of all runs](./images/store/pay_per_result_run_list.png)
 
-<!-- TODO - add info about where to see this at per-actor level -->
+If you wish to see how much you have been charged for a particular Actor, you will find this information
+at the bottom of the [Usage tab](https://console.apify.com/billing).
+
+![Actor pay-per-result cost](./images/store/pay_per_result_actor_items.png)
 
 ## Reporting issues with Actors
 
