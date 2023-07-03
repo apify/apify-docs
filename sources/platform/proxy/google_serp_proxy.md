@@ -59,19 +59,15 @@ For example:
 
 See a [full list](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/List_of_Google_domains.html) of available domain names for specific countries. When using them, remember to prepend the domain name with the `www.` prefix.
 
-# Examples {#examples}
+## Examples {#examples}
 
-**Learn how to connect to Google SERP proxies from your applications with Node.js (axios and got-scraping), Python 2 and 3 and PHP using code examples.**
-
----
-
-This page contains code examples for connecting to [Google SERP proxies](./index.md) using [Apify Proxy](https://apify.com/proxy).
+This section contains code examples for connecting to [Google SERP proxies](./index.md) using [Apify Proxy](https://apify.com/proxy).
 
 See the [connection settings](./usage.md) page for connection parameters.
 
 ## Using the Apify SDK {#using-the-apify-sdk}
 
-If you are developing your own Apify [actor](../actors/index.md) using the [Apify SDK](/sdk/js) and [Crawlee](https://crawlee.dev/), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler). This is because Google SERP proxy [only returns a page's HTML](./index.md). Alternatively, you can use the [got-scraping](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying proxy URL in the options.
+If you are developing your own Apify [actor](../actors/index.mdx) using the [Apify SDK](/sdk/js) and [Crawlee](https://crawlee.dev/), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler). This is because Google SERP proxy [only returns a page's HTML](./index.md). Alternatively, you can use the [got-scraping](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying proxy URL in the options.
 
 Apify Proxy also works with [PuppeteerCrawler](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler), [launchPuppeteer()](https://crawlee.dev/api/puppeteer-crawler/function/launchPuppeteer), [PlaywrightCrawler](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler), [launchPlaywright()](https://crawlee.dev/api/playwright-crawler/function/launchPlaywright) and [JSDOMCrawler](https://crawlee.dev/api/jsdom-crawler/class/JSDOMCrawler). However, `CheerioCrawler` is simply the most efficient solution for this use case.
 
