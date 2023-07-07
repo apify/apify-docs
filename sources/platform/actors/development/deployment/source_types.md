@@ -44,7 +44,10 @@ To obtain the key click at the **deployment key** link under the **Git URL** tex
 
 By default, the context directory for the Docker build is the directory pointed to by the **Git URL** (or the repository root if no directory is specified). If you want to use a different directory for the Docker context, you can use the `dockerContextDir` property in the [Actor definition](../actor_definition/actor_json.md). This is useful for sharing code between multiple Actors in the same repository.
 
-If you want to have multiple Actors in a single repository using shared code also located in the repository, you can set `dockerContextDir` to the path to the folder which contains the Actor's source and the shared code. Copy the source and the code to the Docker image in the Dockerfile.
+If you want to have multiple Actors in a single repository using shared code also located in the repository, you can set `dockerContextDir` to the path to the folder which contains the Actor's source and the shared code, and then copy both the Actor's source and shared code to the Docker image in the Dockerfile.
+
+To enable sharing Dockerfiles between mutliple Actors, the Actor build process passes the `ACTOR_PATH_IN_DOCKER_CONTEXT` build arg to the Docker build.
+It contains the relative path from `dockerContextDir` to the directory selected as the root of the Actor in the Apify Console (the "directory" part of the Actor's git URL).
 
 An example Actor monorepo is shown in the [`apify/actor-monorepo-example`](https://github.com/apify/actor-monorepo-example) repository. To build Actors from this monorepo, you would set the source URL to `https://github.com/apify/actor-monorepo-example#main:actor_1` and `https://github.com/apify/actor-monorepo-example#main:actor_2` respectively.
 
