@@ -19,7 +19,7 @@ Below are the HTTP proxy connection settings for Apify Proxy.
 | Hostname            | `proxy.apify.com`                                                                                                                                                                                                                                                                                                                                          |
 | Port                | `8000`                                                                                                                                                                                                                                                                                                                                                     |
 | Username            | Specifies the proxy parameters such as groups, [session](./index.md) and location. <br/>See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username.                                                                                                                                |
-| Password            | Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy) page in Apify Console. <br/>In Apify [actors](../actors/index.mdx), it is passed as the `APIFY_PROXY_PASSWORD` <br/>environment variable.<br/>See the [environment variables docs](../actors/development/programming_interface/environment_variables.md) for more details. |
+| Password            | Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. <br/>In Apify [actors](../actors/index.mdx), it is passed as the `APIFY_PROXY_PASSWORD` <br/>environment variable.<br/>See the [environment variables docs](../actors/development/programming_interface/environment_variables.md) for more details. |
 | Connection URL      | `http://<username>:<password>@proxy.apify.com:8000`                                                                                                                                                                                                                                                                                                        |
 | Static IP Addresses | `18.208.102.16`, `35.171.134.41` Static IP addresses, <br/>that can be used as alternatives to `Hostname`.                                                                                                                                                                                                                                                 |
 
@@ -28,7 +28,7 @@ Below are the HTTP proxy connection settings for Apify Proxy.
 
 ### Username parameters
 
-The `username` field enables you to pass parameters like **[groups](#proxy-groups)**, **[session](./index.md) ID** and **country** for your proxy connection.
+The `username` field enables you to pass parameters like **[groups](#proxy-groups)**, **[session](./index.md#sessions) ID** and **country** for your proxy connection.
 
 For example, if you're using [datacenter proxies](./datacenter_proxy.md) and want to use the `new_job_123` session using the `SHADER` group, the username will be:
 
@@ -92,7 +92,7 @@ We have code examples for connecting to our proxy using the Apify SDK ([JavaScri
 
 ## Proxy groups
 
-You can see which proxy groups you have access to on the [Proxy page](https://console.apify.com/proxy) in the Apify Console.
+You can see which proxy groups you have access to on the [Proxy page](https://console.apify.com/proxy/groups) in the Apify Console.
 
 To use a specific proxy group (or multiple groups), specify it in the `username` parameter.
 
