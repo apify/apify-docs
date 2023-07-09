@@ -20,24 +20,9 @@ You can use proxies in your [actors](../actors/index.mdx) or any other applicati
 
 ## Quickstart {#quickstart}
 
-If you want to start using Apify Proxy as soon as possible, we provide minimal working examples for connecting to our proxy using the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)) and [Crawlee](https://crawlee.dev/).
+If you want to start using Apify Proxy as soon as possible, we provide minimal working examples for connecting to our proxy using the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)).
 
 <Tab groupId="main">
-<TabItem value="Python SDK with `requests`" label="Python SDK with `requests`">
-
-```python
-proxy_configuration = await Actor.create_proxy_configuration()
-proxy_url = await proxy_configuration.new_url()
-proxies = {
-    'http': proxy_url,
-    'https': proxy_url,
-}
-
-response = requests.get('https://proxy.apify.com/?format=json', proxies=proxies)
-
-```
-
-</TabItem>
 <TabItem value="JavaScript SDK with PuppeteerCrawler" label="JavaScript SDK with PuppeteerCrawler">
 
 ```javascript
@@ -58,6 +43,31 @@ const crawler = new PuppeteerCrawler({
 await crawler.run(['https://proxy.apify.com/?format=json']);
 
 await Actor.exit();
+
+```
+
+</TabItem>
+<TabItem value="Python SDK with `requests`" label="Python SDK with `requests`">
+
+```python
+import requests, asyncio
+from apify import Actor
+
+async def main():
+    async with Actor:
+        proxy_configuration = await Actor.create_proxy_configuration()
+        proxy_url = await proxy_configuration.new_url()
+
+        proxies = {
+            'http': proxy_url,
+            'https': proxy_url,
+        }
+
+        response = requests.get('https://api.apify.com/v2/browser-info', proxies=proxies)
+        print(response.text)
+
+if __name__ == '__main__':
+    asyncio.run(main())
 
 ```
 
