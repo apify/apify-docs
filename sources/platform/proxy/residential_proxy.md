@@ -15,15 +15,15 @@ Residential proxies use IP addresses assigned by Internet Service Providers to t
 
 This solution allows you to access a larger pool of servers than datacenter proxy. This makes it a better option in cases when you need a large number of different IP addresses.
 
-Residential proxies support [IP address rotation](./index.md) and [sessions](#session-persistence).
+Residential proxies support [IP address rotation](./index.md#ip-address-rotation) and [sessions](#session-persistence).
 
-**Pricing is based on data traffic**. It is measured for each connection made and displayed on your [dashboard](https://console.apify.com) in the Apify Console.
+**Pricing is based on data traffic**. It is measured for each connection made and displayed on your [proxy usage dashboard](https://console.apify.com/proxy/usage) in the Apify Console.
 
 ## Connecting to residential proxy {#connecting-to-residential-proxy}
 
 Connecting to residential proxy works the same way as [datacenter proxy](./datacenter_proxy.md), with two differences.
 
-1. The `groups` [username parameter](./usage.md) should always specify `RESIDENTIAL`.
+1. The `groups` [username parameter](./usage.md#username-parameters) should always specify `RESIDENTIAL`.
 
 2. You can specify the country in which you want your proxies to be.
 
@@ -37,7 +37,10 @@ For example, your **proxy URL** when using the [got-scraping](https://www.npmjs.
 const proxyUrl = 'http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000';
 ```
 
-In the [Apify SDK](/sdk/js), you set the **group** in your [proxy configuration](/sdk/js/api/apify/interface/ProxyConfigurationOptions#groups):
+In the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)), you set the **groups** in your proxy configuration:
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
 
 ```js
 import { Actor } from 'apify';
@@ -51,6 +54,22 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
 await Actor.exit();
 ```
 
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async with Actor:
+    # ...
+    proxy_configuration = await Actor.create_proxy_configuration(groups=['RESIDENTIAL'])
+    # ...
+
+```
+
+</TabItem>
+</Tabs>
+
 ### How to set a proxy country {#how-to-set-a-proxy-country}
 
 When using [standard libraries and languages](./datacenter_proxy.md), specify the `country` parameter in the [username](./usage.md#username-parameters) as `country-COUNTRY-CODE`.
@@ -58,10 +77,13 @@ When using [standard libraries and languages](./datacenter_proxy.md), specify th
 For example, your `username` parameter when using [Python 3](https://docs.python.org/3/) will look like this:
 
 ```python
-username = "groups-RESIDENTIAL,session-my_session,country-JP"
+username = "groups-RESIDENTIAL,country-JP"
 ```
 
-In the [Apify SDK](/sdk/js), you set the country in your [proxy configuration](/sdk/js/api/apify/interface/ProxyConfigurationOptions#countryCode) using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `countryCode` parameter.
+In the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)), you set the country in your proxy configuration using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `countryCode`/`country_code` parameter:
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
 
 ```js
 import { Actor } from 'apify';
@@ -75,6 +97,25 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
 // ...
 await Actor.exit();
 ```
+
+</TabItem>
+<TabItem value="JavaScript" label="JavaScript">
+
+```python
+from apify import Actor
+
+async with Actor:
+    # ...
+    proxy_configuration = await Actor.create_proxy_configuration(
+        groups=['RESIDENTIAL'],
+        country_code='FR',
+    )
+    # ...
+
+```
+
+</TabItem>
+</Tabs>
 
 ### Username examples {#username-examples}
 
@@ -99,9 +140,9 @@ groups-RESIDENTIAL,session-my_session_1,country-US
 
 ## Session persistence {#session-persistence}
 
-When using residential proxy with the `session` [parameter](./index.md) set in the [username](./usage.md#username-parameters), a single IP address is assigned to the **session ID** provided after you make the first request.
+When using residential proxy with the `session` [parameter](./index.md#sessions) set in the [username](./usage.md#username-parameters), a single IP address is assigned to the **session ID** provided after you make the first request.
 
-**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./index.md)]
+**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./index.md#sessions)]
 
 This IP/session ID combination is persisted for 1 minute. Each subsequent request resets the expiration time to 1 minute.
 
@@ -124,9 +165,9 @@ To reduce your traffic use, we recommend using the `blockRequests()` function of
 
 ### Connected proxy speed variation {#connected-proxy-speed-variation}
 
-Each host on the residential proxy network uses a different device. They have different network speeds and different latencies. This means that requests made with one [session](./index.md) can be extremely fast, while another request with a different session can be extremely slow. The difference can range from a few milliseconds to a few seconds.
+Each host on the residential proxy network uses a different device. They have different network speeds and different latencies. This means that requests made with one [session](./index.md#sessions) can be extremely fast, while another request with a different session can be extremely slow. The difference can range from a few milliseconds to a few seconds.
 
-If your solution requires quickly loaded content, the best option is to set a [session](./index.md), try a small request and see if the response time is acceptable. If it is, you can use this session for other requests. Otherwise, repeat the attempt with a different session.
+If your solution requires quickly loaded content, the best option is to set a [session](./index.md#sessions), try a small request and see if the response time is acceptable. If it is, you can use this session for other requests. Otherwise, repeat the attempt with a different session.
 
 ### Connection interruptions {#connection-interruptions}
 
