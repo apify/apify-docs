@@ -2,7 +2,8 @@
     "extends": [
         "@apify/eslint-config-ts",
         "plugin:react/recommended",
-        "plugin:react-hooks/recommended"
+        "plugin:react-hooks/recommended",
+        "plugin:markdown/recommended"
     ],
     "parserOptions": {
         "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
@@ -10,7 +11,7 @@
         "ecmaFeatures": {
             "jsx": true
         },
-        "ecmaVersion": 2020
+        "ecmaVersion": 2022
     },
     "env": {
         "browser": true
@@ -26,5 +27,15 @@
         "react/prop-types": ["off"],
         "import/extensions": ["off"],
         "no-void": ["off"]
-    }
+    },
+    "overrides": [
+        {
+            "files": ["**/*.md/*.{js,javascript,ts,typescript}"],
+            "rules": {
+                "no-undef": "warn",
+                "no-unused-expressions": "warn",
+                "no-unused-vars":"warn"
+            }
+        }
+    ]
 }
