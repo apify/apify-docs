@@ -146,7 +146,7 @@ try {
     // Change the way you save it depending on what tool you use
     const randomNumber = Math.random();
     const key = `ERROR-LOGIN-${randomNumber}`;
-     // The store gets removed with the run after data retention period so the links will stop working eventually
+    // The store gets removed with the run after data retention period so the links will stop working eventually
     // You can store the snapshots infinitely in a named KV store by adding `keyValueStoreName` option
     await puppeteerUtils.saveSnapshot(page, { key });
 
