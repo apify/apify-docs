@@ -3,7 +3,8 @@
         "@apify/eslint-config-ts",
         "plugin:react/recommended",
         "plugin:react-hooks/recommended",
-        "plugin:markdown/recommended"
+        "plugin:markdown/recommended",
+        "plugin:json/recommended-with-comments"
     ],
     "parserOptions": {
         "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
@@ -30,11 +31,11 @@
     },
     "overrides": [
         {
-            "files": ["**/*.md/*.{js,javascript,ts,typescript}"],
+            "files": ["**/*.md/*.{js,javascript,ts,typescript,json}"],
             "rules": {
                 "no-undef": "warn",
                 "no-unused-expressions": "warn",
-                "no-unused-vars":"warn"
+                "no-unused-vars": "warn"
             }
         }
     ]
