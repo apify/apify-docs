@@ -139,14 +139,6 @@ await Actor.init();
 // If you already have one, this will continue adding to it
 const reportingDataset = await Actor.openDataset('REPORTING');
 
-// storeId is ID of current key-value store, where we save snapshots
-const storeId = Actor.getEnv().defaultKeyValueStoreId;
-
-// We can also capture actor and run IDs
-// to have easy access in the reporting dataset
-const { actorId, actorRunId } = Actor.getEnv();
-const linkToRun = `https://console.apify.com/actors/actorId#/runs/actorRunId`;
-
 try {
     // Sensitive code block
     // ...
@@ -154,22 +146,25 @@ try {
     // Change the way you save it depending on what tool you use
     const randomNumber = Math.random();
     const key = `ERROR-LOGIN-${randomNumber}`;
+     // The store gets removed with the run after data retention period so the links will stop working eventually
+    // You can store the snapshots infinitely in a named KV store by adding `keyValueStoreName` option
     await puppeteerUtils.saveSnapshot(page, { key });
 
-    const screenshotLink = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.jpg?disableRedirect=true`;
+    // To create the reporting URLs, we need to know the Key-Value store and run IDs
+   
+    const { actorRunId, defaultKeyValueStoreId } = Actor.getEnv();
 
     // We create a report object
     const report = {
         errorType: 'login',
         errorMessage: error.toString(),
-
-        // You will have to adjust the keys if you save them in a non-standard way
-        htmlSnapshot: `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.html?disableRedirect=true`,
-        screenshot: screenshotLink,
-        run: linkToRun,
+        // .html and .jpg file extensions are added automatically by the saveSnapshot function
+        htmlSnapshotUrl: `https://api.apify.com/v2/key-value-stores/${defaultKeyValueStoreId}/records/${key}.html`,
+        screenshotUrl: `https://api.apify.com/v2/key-value-stores/${defaultKeyValueStoreId}/records/${key}.jpg`,
+        runUrl: `https://console.apify.com/actors/runs/${actorRunId}`,
     };
 
-    // And we push the report
+    // And we push the report to our reporting dataset
     await reportingDataset.pushData(report);
 
     // You know where the code crashed so you can explain here
