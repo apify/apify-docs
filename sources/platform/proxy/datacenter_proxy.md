@@ -13,7 +13,7 @@ slug: /proxy/datacenter-proxy
 
 Datacenter proxies are a cheap, fast and stable way to mask your identity online. When you access a website using a datacenter proxy, the site can only see the proxy center's credentials, not yours.
 
-Datacenter proxies allow you to mask and [rotate](./index.md) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
+Datacenter proxies allow you to mask and [rotate](./index.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
 
 [Apify Proxy](https://apify.com/proxy) currently offers two types of datacenter proxy:
 
@@ -22,7 +22,7 @@ Datacenter proxies allow you to mask and [rotate](./index.md) your IP address du
 
 ## Features {#features}
 
-* Periodic health checks of proxies in the pool so requests are not forwarded via [dead](./index.md) proxies.
+* Periodic health checks of proxies in the pool so requests are not forwarded via dead proxies.
 * Intelligent rotation of IP addresses so target hosts are accessed via proxies that have accessed them the longest time ago, to reduce the chance of blocking.
 * Periodically checks whether proxies are banned by selected target websites. If they are, stops forwarding traffic to them to get the proxies unbanned as soon as possible.
 * Ensures proxies are located in specific countries using IP geolocation.
@@ -43,7 +43,7 @@ To access more servers or to use Apify Proxy without other parts of the Apify pl
 
 When you purchase access to dedicated proxy groups, they are assigned to you, and only you can use them. You gain access to a range of static IP addresses from these groups.
 
-This feature is useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation](./index.md), [persistent sessions](#session-persistence), and health checking).
+This feature is useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation](./index.md#ip-address-rotation), [persistent sessions](#session-persistence), and health checking).
 
 If you do not have your own pool, the [customer support](https://apify.com/contact) team can set up a dedicated group for you based on your needs and requirements.
 
@@ -57,11 +57,11 @@ By default, each proxied HTTP request is potentially sent via a different target
 
 If you want to pick an IP address and pass all subsequent connections via that same IP address, you can use the `session` [parameter](./index.md).
 
-For code examples on how to connect to datacenter proxies, see the [examples](#examples) page.
+For code examples on how to connect to datacenter proxies, see the [examples](#examples-using-the-apify-sdk-and-crawlee).
 
 ### Username parameters {#username-parameters}
 
-The `username` field enables you to pass various [parameters](./usage.md), such as groups, session and country, for your proxy connection.
+The `username` field enables you to pass various [parameters](./usage.md#connection-settings), such as groups, session and country, for your proxy connection.
 
 **This parameter is optional**. By default, the proxy uses all available proxy servers from all groups you have access to.
 
@@ -69,15 +69,15 @@ If you do not want to specify either `groups` or `session` parameters and theref
 
 ## Session persistence {#session-persistence}
 
-When you use datacenter proxy with the `session` [parameter](./index.md) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
+When you use datacenter proxy with the `session` [parameter](./index.md#sessions) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
 
-**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./index.md)]
+**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./index.md#sessions)]
 
 This IP/session ID combination is persisted and expires 26 hours later. Each additional request resets the expiration time to 26 hours.
 
 So, if you use the session at least once a day, it will never expire, with two possible exceptions:
 
-* The proxy server stops responding and is marked as [dead](./index.md) during a health check.
+* The proxy server stops responding and is marked as dead during a health check.
 * If the proxy server is part of a proxy group that is refreshed monthly and is rotated out.
 
 If the session is discarded due to the reasons above, it is assigned a new IP address.
@@ -85,29 +85,20 @@ If the session is discarded due to the reasons above, it is assigned a new IP ad
 To learn more about [sessions](./index.md#sessions) and [IP address rotation](./index.md#ip-address-rotation), see the [proxy overview page](./index.md).
 
 
-# Examples {#examples}
+## Examples using the Apify SDK and Crawlee {#examples-using-the-apify-sdk-and-crawlee}
 
-**Learn how to connect to Apify's datacenter proxies from your application with Node.js (axios and got-scraping), Python 2 and 3 and PHP using code examples.**
-
----
-
-This page contains code examples for connecting to [datacenter proxies](./index.md) using [Apify Proxy](https://apify.com/proxy).
-
-See the [connection settings](./usage.md) page for connection parameters.
-
-## Using the Apify SDK and Crawlee {#using-the-apify-sdk-and-crawlee}
-
-If you are developing your own Apify [actor](../actors/index.mdx) using the [Apify SDK](/sdk/js) and [Crawlee](https://crawlee.dev/), you can use Apify Proxy in:
+If you are developing your own Apify [actor](../actors/index.mdx) using the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)) or [Crawlee](https://crawlee.dev/), you can use Apify Proxy in:
 
 * [`CheerioCrawler`](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler) by using the [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
 * [`PlaywrightCrawler`](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler) by using the [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
 * [`PuppeteerCrawler`](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler) by using the [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
 * [`JSDOMCrawler`](https://crawlee.dev/api/jsdom-crawler/class/JSDOMCrawler) by using the [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
+* [`requests`](https://pypi.org/project/requests/) library with Python SDK's [`Actor.createProxyConfiguration()`](/sdk/python/reference/class/Actor#create_proxy_configuration) function.
 * [`launchPlaywright()`](https://crawlee.dev/api/playwright-crawler/function/launchPlaywright) by specifying the proxy configuration in the function's options.
 * [`launchPuppeteer()`](https://crawlee.dev/api/puppeteer-crawler/function/launchPuppeteer) by specifying the proxy configuration in the function's options.
 * [`got-scraping`](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying proxy URL in the options.
 
-The Apify SDK's [ProxyConfiguration](/sdk/js/api/apify/class/ProxyConfiguration) enables you to choose which proxies you use for all connections. You can inspect the current proxy's URL and other attributes using the [proxyInfo](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext#proxyInfo) property of [crawling context](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext) of your crawler's [requestHandler](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlerOptions#requestHandler).
+The Apify SDK's ProxyConfiguration ([JavaScript](/sdk/js/api/apify/class/ProxyConfiguration) and [Python](/sdk/python/reference/class/ProxyConfiguration)) enables you to choose which proxies you use for all connections. You can inspect the current proxy's URL and other attributes using the [proxyInfo](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext#proxyInfo) property of [crawling context](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext) of your crawler's [requestHandler](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlerOptions#requestHandler).
 
 ### Rotate IP addresses {#rotate-ip-addresses}
 
@@ -162,6 +153,32 @@ await crawler.run(['https://proxy.apify.com']);
 
 await Actor.exit();
 
+```
+
+</TabItem>
+
+<TabItem value="Python SDK with requests" label="Python SDK with requests">
+
+```python
+from apify import Actor
+import requests, asyncio
+
+async def main():
+    async with Actor:
+        proxy_configuration = await Actor.create_proxy_configuration()
+        proxy_url = await proxy_configuration.new_url()
+        proxies = {
+            'http': proxy_url,
+            'https': proxy_url,
+        }
+
+        # each request uses a different IP address
+        for _ in range(10):
+            response = requests.get('https://api.apify.com/v2/browser-info', proxies=proxies)
+            print(response.text)
+
+if __name__ == '__main__':
+    asyncio.run(main())
 ```
 
 </TabItem>
@@ -297,6 +314,31 @@ await Actor.exit();
 
 </TabItem>
 
+<TabItem value="Python SDK with requests" label="Python SDK with requests">
+
+```python
+from apify import Actor
+import requests, asyncio
+
+async def main():
+    async with Actor:
+        proxy_configuration = await Actor.create_proxy_configuration()
+        proxy_url = await proxy_configuration.new_url('my_session')
+        proxies = {
+            'http': proxy_url,
+            'https': proxy_url,
+        }
+
+        # each request uses the same IP address
+        for _ in range(10):
+            response = requests.get('https://api.apify.com/v2/browser-info', proxies=proxies)
+            print(response.text)
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
+
+</TabItem>
 
 <TabItem value="launchPuppeteer()" label="launchPuppeteer()">
 
@@ -371,7 +413,10 @@ For simplicity, the examples above use the automatic proxy configuration (no spe
 To use IP addresses from specific proxy groups, add the `groups` [property](/sdk/js/api/apify/interface/ProxyConfigurationOptions#groups)
 to [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) and specify the group names. For example:
 
-```js
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```javascript
 import { Actor } from 'apify';
 
 await Actor.init();
@@ -383,7 +428,22 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
 await Actor.exit();
 ```
 
-## Using standard libraries and languages {#using-standard-libraries-and-languages}
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async with Actor:
+    # ...
+    proxy_configuration = await Actor.create_proxy_configuration(groups=['GROUP_NAME_1', 'GROUP_NAME_2'])
+    # ...
+```
+
+</TabItem>
+</Tabs>
+
+## Examples using standard libraries and languages {#examples-using-standard-libraries-and-languages}
 
 You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of the Apify Console.
 
