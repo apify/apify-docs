@@ -30,11 +30,11 @@ Requests made through the proxy are automatically routed through a proxy server 
 
 **Important:** Only HTTP requests are allowed, and the Google hostname needs to start with the `www.` prefix.
 
-For code examples on how to connect to Google SERP proxies, see the [examples](#examples) section.
+For code examples on how to connect to Google SERP proxies, see the [examples](#examples-using-the-apify-sdk) section.
 
 ### Username parameters {#username-parameters}
 
-The `username` field enables you to pass various [parameters](./usage.md), such as groups and country, for your proxy connection.
+The `username` field enables you to pass various [parameters](./usage.md#username-parameters), such as groups and country, for your proxy connection.
 
 When using Google SERP proxy, the username should always be:
 
@@ -42,7 +42,7 @@ When using Google SERP proxy, the username should always be:
 groups-GOOGLE_SERP
 ```
 
-Unlike [datacenter](./datacenter_proxy.md) or [residential](./residential_proxy.md) proxies, there is no [session](./usage.md) parameter.
+Unlike [datacenter](./datacenter_proxy.md) or [residential](./residential_proxy.md) proxies, there is no [session](./index.md#sessions) parameter.
 
 If you use the `country` [parameter](./usage.md), the Google proxy location is used if you access a website whose hostname (stripped of `www.`) starts with **google**.
 
@@ -59,15 +59,9 @@ For example:
 
 See a [full list](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/List_of_Google_domains.html) of available domain names for specific countries. When using them, remember to prepend the domain name with the `www.` prefix.
 
-## Examples {#examples}
+## Examples using the Apify SDK {#examples-using-the-apify-sdk}
 
-This section contains code examples for connecting to [Google SERP proxies](./index.md) using [Apify Proxy](https://apify.com/proxy).
-
-See the [connection settings](./usage.md) page for connection parameters.
-
-## Using the Apify SDK {#using-the-apify-sdk}
-
-If you are developing your own Apify [actor](../actors/index.mdx) using the [Apify SDK](/sdk/js) and [Crawlee](https://crawlee.dev/), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler). This is because Google SERP proxy [only returns a page's HTML](./index.md). Alternatively, you can use the [got-scraping](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying proxy URL in the options.
+If you are developing your own Apify [actor](../actors/index.mdx) using the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)) and [Crawlee](https://crawlee.dev/), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler). This is because Google SERP proxy [only returns a page's HTML](./index.md). Alternatively, you can use the [got-scraping](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying proxy URL in the options. For Python, you can leverage the [`requests`](https://pypi.org/project/requests/) library along with Apify SDK.
 
 Apify Proxy also works with [PuppeteerCrawler](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler), [launchPuppeteer()](https://crawlee.dev/api/puppeteer-crawler/function/launchPuppeteer), [PlaywrightCrawler](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler), [launchPlaywright()](https://crawlee.dev/api/playwright-crawler/function/launchPlaywright) and [JSDOMCrawler](https://crawlee.dev/api/jsdom-crawler/class/JSDOMCrawler). However, `CheerioCrawler` is simply the most efficient solution for this use case.
 
@@ -104,6 +98,30 @@ await Actor.exit();
 
 </TabItem>
 
+<TabItem value="Python SDK with requests" label="Python SDK with requests">
+
+```python
+from apify import Actor
+import requests, asyncio
+
+async def main():
+    async with Actor:
+        proxy_configuration = await Actor.create_proxy_configuration(groups=['GOOGLE_SERP'])
+        proxy_url = await proxy_configuration.new_url()
+        proxies = {
+            'http': proxy_url,
+            'https': proxy_url,
+        }
+
+        response = requests.get('http://www.google.com/search?q=wikipedia', proxies=proxies)
+        print(response.text)
+
+if __name__ == '__main__':
+    asyncio.run(main())
+
+```
+
+</TabItem>
 
 <TabItem value="gotScraping()" label="gotScraping()">
 
@@ -167,6 +185,31 @@ await Actor.exit();
 
 </TabItem>
 
+<TabItem value="Python SDK with requests" label="Python SDK with requests">
+
+```python
+from apify import Actor
+import requests, asyncio, urllib.parse
+
+async def main():
+    async with Actor:
+        proxy_configuration = await Actor.create_proxy_configuration(groups=['GOOGLE_SERP'])
+        proxy_url = await proxy_configuration.new_url()
+        proxies = {
+            'http': proxy_url,
+            'https': proxy_url,
+        }
+        query = urllib.parse.urlencode({ 'tbm': 'shop', 'q': 'Apple iPhone XS 64GB' })
+        response = requests.get(f'http://www.google.co.uk/search?{query}', proxies=proxies)
+        print(response.text)
+
+if __name__ == '__main__':
+    asyncio.run(main())
+
+```
+
+</TabItem>
+
 <TabItem value="gotScraping()" label="gotScraping()">
 
 ```javascript
@@ -195,9 +238,9 @@ await Actor.exit();
 </TabItem>
 </Tabs>
 
-## Using standard libraries and languages {#using-standard-libraries-and-languages}
+## Examples using standard libraries and languages {#using-standard-libraries-and-languages}
 
-You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of the Apify Console.
+You can find your proxy password on the [Proxy page](https://console.apify.com/proxy/access) of the Apify Console.
 
 > The `username` field is **not** your Apify username.<br/>
 > Instead, you specify proxy settings (e.g. `groups-GOOGLE_SERP`).<br/>
