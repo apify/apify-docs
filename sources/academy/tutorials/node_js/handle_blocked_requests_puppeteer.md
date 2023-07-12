@@ -14,20 +14,21 @@ One of the main defense mechanisms websites use to ensure they are not scraped b
 Setting proxy rotation in [BasicCrawler](https://crawlee.dev/api/basic-crawler/class/BasicCrawler) is pretty simple. When using plain HTTP requests (like with the popular '[request-promise](https://www.npmjs.com/package/request-promise)' npm package), a fresh proxy is set up on each request.
 
 ```js
-const Apify = require('apify')
-const requestPromise = require('request-promise')
-const PROXY_PASSWORD = process.env.APIFY_PROXY_PASSWORD
-const proxyUrl = `http://auto:${PROXY_PASSWORD}@proxy.apify.com`
+const Apify = require('apify');
+const requestPromise = require('request-promise');
+
+const PROXY_PASSWORD = process.env.APIFY_PROXY_PASSWORD;
+const proxyUrl = `http://auto:${PROXY_PASSWORD}@proxy.apify.com`;
 
 const crawler = new Apify.BasicCrawler({
-    requestList: someInitializedRequestList,
-    handleRequestFunction: async ({request}) => {
-        const response = await requestPromise ({
-            url: request.url,
-            proxy: proxyUrl
-        })
-   }
-})
+    requestList: someInitializedRequestList,
+    handleRequestFunction: async ({ request }) => {
+        const response = await requestPromise({
+            url: request.url,
+            proxy: proxyUrl,
+        });
+    },
+});
 ```
 
 Each time handleRequestFunction is executed in this example, requestPromise will send a request through the least used proxy for that target domain. This way you will not easily burn you through your proxies.
@@ -42,15 +43,15 @@ That's why PuppeteerCrawler offers a utility retire() function through a Puppete
 
 ```js
 const crawler = new PuppeteerCrawler({
-    requestList: someInitializedRequestList,
-    launchPuppeteerOptions:{
-        useApifyProxy: true
-    },
-    handlePageFunction: async ({request, page, puppeteerPool}) => {
-         // you are on the page now
-    }
+    requestList: someInitializedRequestList,
+    launchPuppeteerOptions: {
+        useApifyProxy: true,
+    },
+    handlePageFunction: async ({ request, page, puppeteerPool }) => {
+        // you are on the page now
+    },
 
-})
+});
 ```
 
 It is really up to a developer to spot if something is wrong with his request. There are [many ways](https://kb.apify.com/tips-and-tricks/several-tips-how-to-bypass-website-anti-scraping-protections) a website can interfere with your crawling. Page loading can be cancelled right away, it can timeout, the page can display a captcha, some error or warning message, or the data may be just missing or corrupted. The developer can then choose if he will try to handle these problems in the code or just focus on receiving the proper data. Either way, if the request went wrong, you should throw a proper error.
@@ -61,29 +62,29 @@ For example, let's assume we have already initialized a requestList of Google se
 
 ```js
 const crawler = new Apify.PuppeteerCrawler({
-        requestList: someInitializedRequestList,
-        launchPuppeteerOptions: {
-            useApifyProxy: true,
-        },
-        gotoFunction : async ({ request, page, puppeteerPool }) => {
-            const response = page.goto(request.url).catch(() => null)
-            if (!response) {
-                await puppeteerPool.retire(page.browser());
-                throw new Error(`Page didn't load for ${request.url}`);
-            }
-            return response;
-        },
-        handlePageFunction: async ({ request, page, puppeteerPool }) => {
-            if (page.url().includes('sorry')) {
-                await puppeteerPool.retire(page.browser());
-                throw new Error(`We got captcha for ${request.url}`);
-            }
-        },
-        retireInstanceAfterRequestCount:50
-    });
+    requestList: someInitializedRequestList,
+    launchPuppeteerOptions: {
+        useApifyProxy: true,
+    },
+    gotoFunction: async ({ request, page, puppeteerPool }) => {
+        const response = page.goto(request.url).catch(() => null);
+        if (!response) {
+            await puppeteerPool.retire(page.browser());
+            throw new Error(`Page didn't load for ${request.url}`);
+        }
+        return response;
+    },
+    handlePageFunction: async ({ request, page, puppeteerPool }) => {
+        if (page.url().includes('sorry')) {
+            await puppeteerPool.retire(page.browser());
+            throw new Error(`We got captcha for ${request.url}`);
+        }
+    },
+    retireInstanceAfterRequestCount: 50,
+});
 
-Apify.main(async() => {
-     await crawler.run();
+Apify.main(async () => {
+    await crawler.run();
 });
 ```
 

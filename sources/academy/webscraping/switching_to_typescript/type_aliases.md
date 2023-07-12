@@ -13,6 +13,7 @@ slug: /switching-to-typescript/type-aliases
 
 Real quick, let's look at this code:
 
+<!-- eslint-disable -->
 ```ts
 // Using a union type to allow value to be either a string,
 // a number, or a boolean
@@ -35,8 +36,9 @@ With the `type` keyword, you can abstract all the type stuff you'd normally put 
 
 First, we'll use the `type` keyword and call the type `MyUnionType`.
 
+<!-- eslint-disable -->
 ```ts
-type MyUnionType =
+type MyUnionType = any;
 ```
 
 Then, we can just copy-paste the union type between a string, number, and boolean and paste it after the equals sign:
@@ -53,6 +55,7 @@ The type is now stored under this `MyUnionType` **alias**.
 
 All we need to do to refactor the code from the beginning of the lesson is replace the type annotations with `MyUnionType`:
 
+<!-- eslint-disable -->
 ```ts
 type MyUnionType = string | number | boolean;
 

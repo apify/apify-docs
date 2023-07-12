@@ -68,21 +68,21 @@ Fingerprinting tools can also collect pieces of information that are retrieved b
 
 ```js
 // Get the WebGL vendor information
-WebGLRenderingContext.getParameter(37445)
+WebGLRenderingContext.getParameter(37445);
 
 // Get the WebGL renderer information
-WebGLRenderingContext.getParameter(37446)
+WebGLRenderingContext.getParameter(37446);
 
 // Pass any codec into this function (ex. "audio/aac"). It will return
 // either "maybe," "probably," or "" indicating whether
 // or not the browser can play that codec. An empty
 // string means that  it can't be played.
-HTMLMediaElement.canPlayType('some/codec')
+HTMLMediaElement.canPlayType('some/codec');
 
 // can ask for a permission if it is not already enabled.
 // allows you to know which permissions the user has
 // enabled, and which are disabled
-navigator.permissions.query('some_permission')
+navigator.permissions.query('some_permission');
 ```
 
 ### With canvases {#with-canvases}

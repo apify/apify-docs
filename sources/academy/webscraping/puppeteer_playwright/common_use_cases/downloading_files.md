@@ -20,7 +20,7 @@ These techniques are only necessary when we don't have a direct file link, which
 Let's start with the easiest technique. This method tells the browser in what folder we want to download a file from Puppeteer after clicking on it.
 
 ```js
-await page._client.send('Page.setDownloadBehavior', {behavior: 'allow', downloadPath: './my-downloads'})
+await page._client.send('Page.setDownloadBehavior', { behavior: 'allow', downloadPath: './my-downloads' });
 ```
 
 We use the mysterious `_client` API which gives us access to all the functions of the underlying developer console protocol. Basically, it extends Puppeteer's functionality. Then we can download the file by clicking on the button.
@@ -65,9 +65,9 @@ We don't need to await this promise since we'll be waiting for the result of thi
 The crucial part is intercepting the request that would result in downloading the file. Since the interception is already enabled, we just need to wait for the request to be sent.
 
 ```js
-const xRequest = await new Promise(resolve => {
-    page.on('request', interceptedRequest => {
-        interceptedRequest.abort(); //stop intercepting requests
+const xRequest = await new Promise((resolve) => {
+    page.on('request', (interceptedRequest) => {
+        interceptedRequest.abort(); // stop intercepting requests
         resolve(interceptedRequest);
     });
 });
@@ -87,12 +87,12 @@ const options = {
     method: xRequest._method,
     uri: xRequest._url,
     body: xRequest._postData,
-    headers: xRequest._headers
-}
+    headers: xRequest._headers,
+};
 
 // Add the cookies
 const cookies = await page.cookies();
-options.headers.Cookie = cookies.map(ck => ck.name + '=' + ck.value).join(';');
+options.headers.Cookie = cookies.map((ck) => `${ck.name}=${ck.value}`).join(';');
 
 // Resend the request
 const response = await request(options);

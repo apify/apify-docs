@@ -33,7 +33,7 @@ await page.goto('https://google.com/');
 // change background to green
 document.body.style.background = 'green';
 
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 
 await browser.close();
 ```
@@ -65,10 +65,9 @@ await page.evaluate(() => {
     document.body.style.background = 'green';
 });
 
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -86,10 +85,9 @@ await page.evaluate(() => {
     document.body.style.background = 'green';
 });
 
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -124,14 +122,13 @@ await page.goto('https://google.com/');
 
 const randomString = Math.random().toString(36).slice(2);
 
-await page.evaluate(({ randomString }) => {
-    document.querySelector('title').textContent = randomString;
-}, { randomString });
+await page.evaluate((randomStringInner) => {
+    document.querySelector('title').textContent = randomStringInner;
+}, randomString);
 
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -147,14 +144,13 @@ await page.goto('https://google.com/');
 
 const randomString = Math.random().toString(36).slice(2);
 
-await page.evaluate(({ randomString }) => {
-    document.querySelector('title').textContent = randomString;
-}, { randomString });
+await page.evaluate((randomStringInner) => {
+    document.querySelector('title').textContent = randomStringInner;
+}, randomString);
 
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 
 await browser.close();
-
 ```
 
 </TabItem>

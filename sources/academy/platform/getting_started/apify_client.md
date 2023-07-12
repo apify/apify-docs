@@ -46,7 +46,6 @@ After installing the package, let's make a file named **client** and import the 
 ```javascript
 // client.js
 import { ApifyClient } from 'apify-client';
-
 ```
 
 </TabItem>
@@ -74,7 +73,6 @@ Before we can use the client though, we must create a new instance of the `Apify
 const client = new ApifyClient({
     token: 'YOUR_TOKEN',
 });
-
 ```
 
 </TabItem>
@@ -100,7 +98,6 @@ const run = await client.actor('YOUR_USERNAME/adding-actor').call({
     num1: 4,
     num2: 2,
 });
-
 ```
 
 </TabItem>
@@ -131,8 +128,7 @@ The `run` variable we created in the last section points to the **run info** obj
 <TabItem value="Node.js" label="Node.js">
 
 ```javascript
-const dataset = client.dataset(run['defaultDatasetId'])
-
+const dataset = client.dataset(run.defaultDatasetId);
 ```
 
 </TabItem>
@@ -155,7 +151,6 @@ Finally, we can download the items in the dataset by using the **list items** fu
 const { items } = await dataset.listItems();
 
 console.log(items);
-
 ```
 
 </TabItem>
@@ -191,12 +186,11 @@ const run = await client.actor('YOUR_USERNAME/adding-actor').call({
     num2: 2,
 });
 
-const dataset = client.dataset(run['defaultDatasetId'])
+const dataset = client.dataset(run.defaultDatasetId);
 
 const { items } = await dataset.listItems();
 
 console.log(items);
-
 ```
 
 </TabItem>
@@ -236,8 +230,7 @@ First, we'll create a pointer to our actor, similar to as before (except this ti
 <TabItem value="Node.js" label="Node.js">
 
 ```javascript
-const actor = client.actor('YOUR_USERNAME/adding-actor')
-
+const actor = client.actor('YOUR_USERNAME/adding-actor');
 ```
 
 </TabItem>
@@ -264,7 +257,6 @@ await actor.update({
         timeoutSecs: 20,
     },
 });
-
 ```
 
 </TabItem>

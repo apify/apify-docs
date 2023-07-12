@@ -18,8 +18,8 @@ Pressing F12 while browsing with Chrome, Firefox, or other popular browsers open
 First, you need to inject jQuery. You can try to paste and run this snippet.
 
 ```js
-var jq = document.createElement('script');
-jq.src = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js";
+const jq = document.createElement('script');
+jq.src = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js';
 document.getElementsByTagName('head')[0].appendChild(jq);
 ```
 
@@ -49,17 +49,17 @@ You can easily get all information you need by running a small snippet of your p
 ```js
 results = [];
 $('.my-list-item').each((i, el) => {
- results.push({
- title: $(el).find('.title').text().trim(),
- // other fields
- })
-})
+    results.push({
+        title: $(el).find('.title').text().trim(),
+        // other fields
+    });
+});
 ```
 
 Now the `results` variable stays on the page and you can do whatever you wish with it. Usually, simply log it to analyze if your scraping code is correct. Writing a single expression will also log it in a browser console.
 
 ```js
-results
+results;
 // Will log a nicely formatted [{ title: 'my-article-1'}, { title: 'my-article-2'}] etc.
 ```
 
@@ -67,22 +67,24 @@ results
 
 If you don't want to deal with copy/pasting a proper snippet, you can always paste the whole pageFunction. You will just have to mock the context object when calling it. If you use some advanced tricks, this might not work but in most cases copy pasting this code should do it. This code is only for debugging your Page Function for a particular page. It does not crawl the website and the output is not saved anywhere.
 
+<!-- eslint-disable -->
 ```js
 async function pageFunction(context) {
-  /_
-    this is your pageFunction
-  _/
+    // this is your pageFunction
 }
 // Now you will call it with mocked context
-pageFunction ({
-  request: {
-    url: window.location.href,
- userData: { label: 'paste-a-label-if-you-use-one'}
-  },
-  waitFor: async function (ms) {console.log('(waitFor)'); await new Promise(res) => setTimeout(res, ms)},
-  enqueueRequest: function () {console.log('(enqueuePage)', arguments)},
-  skipLinks: function () {console.log('(skipLinks)', arguments)},
-  jQuery: $
+pageFunction({
+    request: {
+        url: window.location.href,
+        userData: { label: 'paste-a-label-if-you-use-one' },
+    },
+    async waitFor(ms) {
+        console.log('(waitFor)');
+        await new Promise((res) => setTimeout(res, ms));
+    },
+    enqueueRequest() { console.log('(enqueuePage)', arguments); },
+    skipLinks() { console.log('(skipLinks)', arguments); },
+    jQuery: $,
 });
 ```
 

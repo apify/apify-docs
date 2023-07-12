@@ -25,21 +25,25 @@ The absence of an expected element or message does **not** prove an action has b
 **Good**: Rely on the presence of an element or other content confirming a successful action.
 
 ```js
-try {
-    await page.waitForSelector('#PaymentAccepted');
-} catch (error) {
-    return OUTPUT.paymentFailure;
-}
+async function isPaymentSuccessful() {
+    try {
+        await page.waitForSelector('#PaymentAccepted');
+    } catch (error) {
+        return OUTPUT.paymentFailure;
+    }
 
-return OUTPUT.paymentSuccess;
+    return OUTPUT.paymentSuccess;
+}
 ```
 
 **Avoid**: Relying on the absence of an element that may have been simply updated or changed.
 
 ```js
-const $paymentAmount = await page.$('#PaymentAmount');
+async function isPaymentSuccessful() {
+    const $paymentAmount = await page.$('#PaymentAmount');
 
-if (!$paymentAmount) return OUTPUT.paymentSuccess;
+    if (!$paymentAmount) return OUTPUT.paymentSuccess;
+}
 ```
 
 ## Presumption of failure {#presumption-of-failure}
@@ -56,32 +60,37 @@ Assuming any action has been successful without direct proof is dangerous. Dispr
 **Good**: Verify outcome through proof. Clearly disprove failure of an important action.
 
 ```js
-await Promise.all([
-    page.click('submitPayment'),
-    page.waitForNavigation()
-]);
+async function submitPayment() {
+    await Promise.all([
+        page.click('submitPayment'),
+        page.waitForNavigation(),
+    ]);
 
-try {
-    await page.waitForFunction(selector =>
-        document.querySelector(selector).innerText.includes('Payment Success'),
-        { polling: 'mutation' },
-        '#PaymentOutcome');
-} catch (error) {
-    return OUTPUT.paymentFailure;
-};
+    try {
+        await page.waitForFunction(
+            (selector) => document.querySelector(selector).innerText.includes('Payment Success'),
+            { polling: 'mutation' },
+            '#PaymentOutcome',
+        );
+    } catch (error) {
+        return OUTPUT.paymentFailure;
+    }
 
-return OUTPUT.paymentSuccess;
+    return OUTPUT.paymentSuccess;
+}
 ```
 
 **Avoid**: Not verifying an outcome. It can easily fail despite output claiming otherwise.
 
 ```js
-await Promise.all([
-    page.click('submitPayment'),
-    page.waitForNavigation()
-]);
+async function submitPayment() {
+    await Promise.all([
+        page.click('submitPayment'),
+        page.waitForNavigation(),
+    ]);
 
-return OUTPUT.paymentSuccess;
+    return OUTPUT.paymentSuccess;
+}
 ```
 
 ## Targeting elements {#targeting-elements}
@@ -101,15 +110,11 @@ Make sure your [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/
 
 Below is an example of stripping away too-specific parts of a selector that are likely random or subject to change.
 
-```js
-#P_L_v201w3_t3_ReceiptToolStripLabel => a[id*="ReceiptToolStripLabel"]
-```
+`#P_L_v201w3_t3_ReceiptToolStripLabel` => `a[id*="ReceiptToolStripLabel"]`
 
 If you are reasonably confident a page layout will remain without any dramatic future changes **and** need to increase the selector specificity to reduce the chance of a collision with other selectors, you can extend the selector as per the principle below.
 
-```js
-#ReceiptToolStripLabel_P_L_v201w3_t3 => table li > a[id^="ReceiptToolStripLabel"]
-```
+`#ReceiptToolStripLabel_P_L_v201w3_t3` => `table li > a[id^="ReceiptToolStripLabel"]`
 
 ### Content pattern matching {#content-pattern-matching}
 
@@ -129,7 +134,7 @@ Always strive to make code as fluid as possible. Listen to events and react to t
 await page.waitForTimeout(timeout);
 
 // Good:
-await page.waitForFunction(function, options, args);
+await page.waitForFunction(myFunction, options, args);
 
 // Good:
 await page.waitForFunction(() => {
@@ -137,8 +142,8 @@ await page.waitForFunction(() => {
 });
 
 // Good:
-await page.waitForFunction(selector =>
-    document.querySelector(selector).innerText,
+await page.waitForFunction(
+    (selector) => document.querySelector(selector).innerText,
     { polling: 'mutation' },
     '[data-qa="btnAppleSignUp"]',
 );

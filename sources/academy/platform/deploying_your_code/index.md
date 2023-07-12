@@ -49,10 +49,9 @@ For this section, we'll be turning this example project into an actor:
 
 ```javascript
 // index.js
-const addAllNumbers = (...nums) => nums.reduce((total, curr) => (total += curr));
+const addAllNumbers = (...nums) => nums.reduce((total, curr) => (total + curr), 0);
 
-console.log(addAllNumbers(1, 2, 3, 4)) // -> 10
-
+console.log(addAllNumbers(1, 2, 3, 4)); // -> 10
 ```
 
 </TabItem>

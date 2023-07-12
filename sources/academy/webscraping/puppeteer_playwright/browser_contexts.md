@@ -24,7 +24,6 @@ When we create a **Browser** object by using the `launch()` function, a single [
 
 ```javascript
 const myNewContext = await browser.newContext();
-
 ```
 
 </TabItem>
@@ -32,7 +31,6 @@ const myNewContext = await browser.newContext();
 
 ```javascript
 const myNewContext = await browser.createIncognitoBrowserContext();
-
 ```
 
 </TabItem>
@@ -57,7 +55,6 @@ const browser = await chromium.launchPersistentContext('./persistent-context', {
 const page = await browser.newPage();
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -73,7 +70,6 @@ const browser = await puppeteer.launch({ headless: false });
 const page = await browser.newPage();
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -107,7 +103,6 @@ const androidPage = await androidContext.newPage();
 // The code in the next step will go here
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -138,7 +133,6 @@ await androidPage.emulate(android);
 // The code in the next step will go here
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -175,7 +169,6 @@ for (const context of browser.contexts()) {
     // a BrowserContext instance
     context.on('request', (req) => req.url() === 'https://www.deviceinfo.me/' && console.log('Site visited'));
 }
-
 ```
 
 </TabItem>
@@ -187,7 +180,6 @@ for (const context of browser.browserContexts()) {
     // of a BrowserContext instance
     context.on('targetchanged', () => console.log('Site visited'));
 }
-
 ```
 
 </TabItem>

@@ -18,9 +18,7 @@ In our quick chat about modularity, we finished the code for the results page, a
 
 // ...
 
-router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
-    const { data } = request.userData;
-
+router.addHandler(labels.PRODUCT, async ({ $ }) => {
     const element = $('div#productDescription');
 
     const description = element.text().trim();
@@ -36,7 +34,7 @@ Great! But wait, where do we go from here? We need to go to the offers page next
 
 After clicking this button and checking back in Proxyman, we discovered this link:
 
-> You can find the request below in the network tab just fine, but with Proxyman, it is much easier and fasterdue to the extended filtering options.
+> You can find the request below in the network tab just fine, but with Proxyman, it is much easier and faster due to the extended filtering options.
 
 ```text
 https://www.amazon.com/gp/aod/ajax/ref=auto_load_aod?asin=B07ZPKBL9V&pc=dp

@@ -21,7 +21,7 @@ In this lesson, we're building a scraper which expects a single number (in **hou
         "title": "FDA Authorizes 1st Breath Test for COVID-19 Infection",
         "publishDate": "2022-04-15T11:58:44-04:00",
         "videoUrl": "https://vod.chdrstatic.com/source%3Dbackend%2Cexpire%3D1651782479%2Cpath%3D%2Ftranscode%2Fb68f8133-3aa9-4c96-ac26-047452bbc9ce%2Ctoken%3D581fd52bb7f634834edca5c201619c014cd21eb20448cf89525bf101ca8a6f64/transcode/b68f8133-3aa9-4c96-ac26-047452bbc9ce/b68f8133-3aa9-4c96-ac26-047452bbc9ce.mp4"
-    }
+    },
     {
         "...": "..."
     }
@@ -163,7 +163,7 @@ Back in our code, we can import `gql` from `graphql-tag` and use it to store our
 
 ```js
 // index.js
-import { gql, } from 'graphql-tag';
+import { gql } from 'graphql-tag';
 import scrapeAppToken from './scrapeAppToken.mjs';
 
 const token = await scrapeAppToken();
@@ -229,9 +229,9 @@ Here's what our final project looks like:
 
 ```js
 // index.js
-import { gql, } from 'graphql-tag';
-import scrapeAppToken from './scrapeAppToken.mjs';
+import { gql } from 'graphql-tag';
 import { gotScraping } from 'got-scraping';
+import scrapeAppToken from './scrapeAppToken.mjs';
 
 // Scrape the token
 const token = await scrapeAppToken();
@@ -264,7 +264,7 @@ const testInput = { hours: 48, query: 'stocks' };
 // Calculate and prepare our variables
 const variables = { query: testInput.query, max_age: Math.round(testInput.hours) * 60 ** 2 };
 
-// Make the request 
+// Make the request
 const { body: { data: { organization } } } = await gotScraping('https://api.cheddar.com/graphql', {
     responseType: 'json',
     method: 'POST',
