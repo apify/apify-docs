@@ -8,15 +8,15 @@ slug: /node-js/how-to-save-screenshots-puppeteer
 A good way to debug your puppeteer crawler in Apify actors is to save a screenshot of a browser window to the Apify key-value store. You can do that using this function:
 
 ```js
-/*_
- _ Store screen from puppeteer page to Apify key-value store
- * @param page - Instance of puppeteer Page class https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#class-page
- * @param [key] - Function stores your screen in Apify key-value store under this key
- * @return {Promise<void>}
- */
+/**
+* Store screen from puppeteer page to Apify key-value store
+* @param page - Instance of puppeteer Page class https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#class-page
+* @param [key] - Function stores your screen in Apify key-value store under this key
+* @return {Promise<void>}
+*/
 const saveScreen = async (page, key = 'debug-screen') => {
-    const screenshotBuffer = await page.screenshot({ fullPage: true });
-    await Apify.setValue(key, screenshotBuffer, { contentType: 'image/png' });
+    const screenshotBuffer = await page.screenshot({ fullPage: true });
+    await Apify.setValue(key, screenshotBuffer, { contentType: 'image/png' });
 };
 ```
 
@@ -32,23 +32,24 @@ A simple example of usage function in an Apify actor:
 
 ```js
 const Apify = require('apify');
+
 const { saveSnapshot } = Apify.utils.puppeteer;
 
 Apify.main(async () => {
-    const input = await Apify.getValue('INPUT');
+    const input = await Apify.getValue('INPUT');
 
-console.log('Launching Puppeteer...');
-    const browser = await Apify.launchPuppeteer();
+    console.log('Launching Puppeteer...');
+    const browser = await Apify.launchPuppeteer();
 
-const page = await browser.newPage();
-    await page.goto(input.url);
+    const page = await browser.newPage();
+    await page.goto(input.url);
 
-await saveSnapshot(page, { key: 'test-screen' });
+    await saveSnapshot(page, { key: 'test-screen' });
 
-console.log('Closing Puppeteer...');
-    await browser.close();
+    console.log('Closing Puppeteer...');
+    await browser.close();
 
-console.log('Done.');
+    console.log('Done.');
 });
 ```
 

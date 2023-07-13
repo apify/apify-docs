@@ -81,7 +81,6 @@ console.log(title);
 await page.screenshot({ path: 'screenshot.png' });
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -116,7 +115,6 @@ console.log(title);
 await page.screenshot({ path: 'screenshot.png' });
 
 await browser.close();
-
 ```
 
 </TabItem>

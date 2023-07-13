@@ -35,10 +35,10 @@ Ok, cool, different environments, but how does that help you scrape stuff? Actua
 In Web Scraper, everything runs in the browser, so there's really not much to talk about there. With Puppeteer Scraper, it's just a single function call away.
 
 ```js
-const bodyHTML = await context.page.evaluate(() => {\
-    console.log('This will be printed in browser console.');\
-    return document.body.innerHTML;\
-})
+const bodyHTML = await context.page.evaluate(() => {
+    console.log('This will be printed in browser console.');
+    return document.body.innerHTML;
+});
 ```
 
 The `context.page.evaluate()` call executes the provided function in the browser environment and passes back the return value back to Node.js environment. There is one very important caveat though! Since we're in different environments, we cannot simply use our existing variables, such as `context` inside of the evaluated function, because they are not available there. Different environments, different variables.
@@ -48,15 +48,17 @@ _See the_ `page.evaluate()` _[documentation](https://pptr.dev/#?product=Puppetee
 With the help of Apify SDK, we can even inject jQuery into the browser. You can use the `Pre goto function` input option to manipulate the page's environment before it loads.
 
 ```js
-async function preGotoFunction({ request, page, Apify }) {\
-    await Apify.utils.puppeteer.injectJQuery(page);\
+async function preGotoFunction({ request, page, Apify }) {
+    await Apify.utils.puppeteer.injectJQuery(page);
 }
+```
 
 This will make jQuery available in all pages. You can then use it in `context.page.evaluate()` calls:
 
-const bodyText = await context.page.evaluate(() => {\
-    return $('body').text();\
-})
+```js
+const bodyText = await context.page.evaluate(() => {
+    return $('body').text();
+});
 ```
 
 You can do a lot of DOM manipulation directly from Node.js / Puppeteer, but when you're planning to do a lot of sequential operations, it's often better and faster to do it with jQuery in a single `context.page.evaluate()` call than using multiple `context.page.$`, `context.page.$eval()` and other Puppeteer methods.
@@ -70,7 +72,7 @@ Imagine that you currently have `https://example.com/page-1` open and there's a 
 Consider the following code inside Web Scraper page function:
 
 ```js
-await context.waitFor('button');\
+await context.waitFor('button');
 $('button').click();
 ```
 
@@ -79,10 +81,10 @@ With a `button` that takes you to the next page or launches a Google search (whi
 However, when using Puppeteer Scraper, this code:
 
 ```js
-await context.page.waitFor('button');\
-await Promise.all([\
-    context.page.waitForNavigation(),\
-    context.page.click('button'),\
+await context.page.waitFor('button');
+await Promise.all([
+    context.page.waitForNavigation(),
+    context.page.click('button'),
 ]);
 ```
 
@@ -103,7 +105,7 @@ Some very useful scraping techniques revolve around listening to network request
 With a simple call, you can listen to all the network requests that are being dispatched from the browser. For example, the following code will print all their URLs to the console.
 
 ```js
-context.page.on('request', req => console.log(req.url()));
+context.page.on('request', (req) => console.log(req.url()));
 ```
 
 This can be useful in many ways, such as blocking unwanted assets or scripts from being downloaded, modifying request methods or faking responses and so on.
@@ -127,7 +129,7 @@ Since we're actually clicking in the page, which may or may not trigger some nas
 This is easy and will work out of the box. It's typically used on older websites such as [Turkish Remax](https://www.remax.com.tr/ofis-office-franchise-girisimci-agent-arama). For a site like this you can just set the `Clickable elements selector` and you're good to go:
 
 ```js
-a[onclick^=getPage]
+'a[onclick ^= getPage]';
 ```
 
 ## Form submit navigations with side-effects
@@ -135,7 +137,7 @@ a[onclick^=getPage]
 Those are similar to the ones above with an important caveat. Once you click the first thing, it usually modifies the page in a way that causes more clicking to become impossible. We deal with those by scraping the pages one by one, using the pagination "next" button. See [Maxwell Materials](http://www.maxwellrender.com/materials/) and use the following selector:
 
 ```js
-li.page-item.next a
+'li.page-item.next a';
 ```
 
 ## Frontend navigations

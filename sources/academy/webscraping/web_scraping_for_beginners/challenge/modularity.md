@@ -76,7 +76,7 @@ And here is what our **main.js** file currently looks like:
 
 ```js
 // main.js
-import { CheerioCrawler, log } from 'crawlee';
+import { CheerioCrawler, log, KeyValueStore } from 'crawlee';
 import { router } from './routes.js';
 import { BASE_URL } from './constants.js';
 
@@ -95,7 +95,7 @@ await crawler.addRequests([
             keyword,
         },
     },
-])
+]);
 
 log.info('Starting the crawl.');
 await crawler.run();

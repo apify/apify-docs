@@ -231,7 +231,7 @@ async function pageFunction(context) {
         // Do some scraping.
         return {
             // Scraped data.
-        }
+        };
     }
 }
 ```
@@ -257,9 +257,12 @@ The `pageFunction` may only return nothing, `null`, `Object` or `Object[]`. If a
 The scraping results are saved in a [dataset](/platform/storage/dataset) (one of the tabs in the run console, as you may remember). It behaves like a table. Each item is a row in the table and its properties are its columns. Returning the following `Object`:
 
 ```js
-{
-    url: 'https://apify.com',
-    title: 'Web Scraping, Data Extraction and Automation - Apify'
+async function pageFunction(context) {
+    // ... rest of your code
+    return {
+        url: 'https://apify.com',
+        title: 'Web Scraping, Data Extraction and Automation - Apify',
+    };
 }
 ```
 

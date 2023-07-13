@@ -12,16 +12,16 @@ This tutorial shows you how to handle these kinds of pages. This approach is bas
 First of all, you need to copy&paste this function to your [Web Scraper](https://apify.com/apify/web-scraper) _Page function_:
 
 ```js
-const enqueueAspxForm = async function(request, formSelector, submitButtonSelector, async) {
-    request.payload = $(formSelector).serialize();
-    if ($(submitButtonSelector).length) {
-        request.payload += decodeURIComponent("&"+$(submitButtonSelector).attr("name") + "=" + $(submitButtonSelector).attr("value"));
-    }
-    request.payload += decodeURIComponent("&__ASYNCPOST="+async.toString());
-    request.method = "POST";
-    request.uniqueKey = Math.random();
-    await context.enqueueRequest(request);
-    return request;
+const enqueueAspxForm = async function (request, formSelector, submitButtonSelector, async) {
+    request.payload = $(formSelector).serialize();
+    if ($(submitButtonSelector).length) {
+        request.payload += decodeURIComponent(`&${$(submitButtonSelector).attr('name')}=${$(submitButtonSelector).attr('value')}`);
+    }
+    request.payload += decodeURIComponent(`&__ASYNCPOST=${async.toString()}`);
+    request.method = 'POST';
+    request.uniqueKey = Math.random();
+    await context.enqueueRequest(request);
+    return request;
 };
 ```
 
@@ -39,7 +39,7 @@ Then you can use it in your Page function as follows:
 
 ```js
 await enqueueAspxForm({
-        url: "http://architectfinder.aia.org/frmSearch.aspx",
-        userData: { label: "SEARCH-RESULT" }
-    }, 'form[name="aspnetForm"]', '#ctl00_ContentPlaceHolder1_btnSearch', false);
+    url: 'http://architectfinder.aia.org/frmSearch.aspx',
+    userData: { label: 'SEARCH-RESULT' },
+}, 'form[name="aspnetForm"]', '#ctl00_ContentPlaceHolder1_btnSearch', false);
 ```

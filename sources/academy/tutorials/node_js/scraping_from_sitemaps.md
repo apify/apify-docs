@@ -60,7 +60,7 @@ First, let's add the beer URLs from the sitemap to the [`RequestList`](https://c
 ```js
 const requestList = await RequestList.open(null, [{
     requestsFromUrl: 'https://www.brewbound.com/sitemap.xml',
-    regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^\/<]+\/[^\/<]+/gm,
+    regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^/<]+\/[^/<]+/gm,
 }]);
 ```
 
@@ -99,7 +99,7 @@ import { Dataset, RequestList, PuppeteerCrawler } from 'crawlee';
 
 const requestList = await RequestList.open(null, [{
     requestsFromUrl: 'https://www.brewbound.com/sitemap.xml',
-    regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^\/<]+\/[^\/<]+/gm,
+    regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^/<]+\/[^/<]+/gm,
 }]);
 
 const crawler = new PuppeteerCrawler({

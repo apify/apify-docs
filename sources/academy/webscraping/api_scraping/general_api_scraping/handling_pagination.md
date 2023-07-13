@@ -102,16 +102,16 @@ Now, in a new file called **index.js** we'll write the skeleton for our paginati
 
 ```js
 // index.js
+const { gotScraping } = require('got-scraping');
 const scrapeClientId = require('./scrapeClientId');
 // we will need gotScraping to make HTTP requests
-const { gotScraping } = require('got-scraping');
 
 const scrape100Items = async () => {
     // the initial request URL
-    let nextHref = 'https://api-v2.soundcloud.com/users/141707/tracks?limit=20&offset=0';
+    const nextHref = 'https://api-v2.soundcloud.com/users/141707/tracks?limit=20&offset=0';
 
     // create an array for all of our scraped items to live
-    let items = [];
+    const items = [];
 
     // scrape the client ID with the script from the
     // previous lesson
@@ -129,14 +129,17 @@ Let's now take a step back and think about the condition on which we should cont
 With a full understanding of this condition, we can translate it into code:
 
 ```js
-// continue making requests until either we've reached 100+ items
-while (items.flat().length < 100) {
-    // if the "next_href" wasn't present in the last call, there
-    // are no more pages. return what we have and stop paginating.
-    if (!nextHref) return items.flat();
+const scrape100Items = async () => {
+    // ...previous code
+    // continue making requests until either we've reached 100+ items
+    while (items.flat().length < 100) {
+        // if the "next_href" wasn't present in the last call, there
+        // are no more pages. return what we have and stop paginating.
+        if (!nextHref) return items.flat();
 
-    // continue paginating
-}
+        // continue paginating
+    }
+};
 ```
 
 All that's left to do now is flesh out this `while` loop with pagination logic and finally return the **items** array once the loop has finished.
@@ -145,12 +148,12 @@ All that's left to do now is flesh out this `while` loop with pagination logic a
 
 ```js
 // index.js
-const scrapeClientId = require('./scrapeClientId');
 const { gotScraping } = require('got-scraping');
+const scrapeClientId = require('./scrapeClientId');
 
 const scrape100Items = async () => {
     let nextHref = 'https://api-v2.soundcloud.com/users/141707/tracks?limit=20&offset=0';
-    let items = [];
+    const items = [];
 
     const clientId = await scrapeClientId();
 

@@ -46,7 +46,7 @@ await page.keyboard.press('Enter');
 await page.waitForSelector('.g a');
 await page.click('.g a');
 
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 await browser.close();
 ```
 
@@ -120,7 +120,6 @@ await page.waitForLoadState('load');
 await page.waitForTimeout(10000);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -154,7 +153,6 @@ await Promise.all([page.waitForNavigation(), page.click('.g a')]);
 await page.waitForTimeout(10000);
 
 await browser.close();
-
 ```
 
 </TabItem>

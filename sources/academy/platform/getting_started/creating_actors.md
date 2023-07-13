@@ -40,7 +40,7 @@ In the **main.js** file we will find the starting template code:
 ```js
 import { Actor } from 'apify';
 
-await Actor.init()
+await Actor.init();
 
 console.log('Loading input');
 // Structure of input is defined in input_schema.json.
@@ -69,7 +69,7 @@ await Actor.exit();
 To make this simple Actor functional, let's delete the current value of `result`, and replace it with the numbers we are getting from the user's input:
 
 ```js
-const result = input?.firstNumber + input?.secondNumber;
+const result = (input?.firstNumber || 0) + (input?.secondNumber || 0);
 ```
 
 The final code should look like this:
@@ -77,7 +77,7 @@ The final code should look like this:
 ```js
 import { Actor } from 'apify';
 
-await Actor.init()
+await Actor.init();
 
 console.log('Loading input');
 
@@ -85,7 +85,9 @@ const input = await Actor.getInput();
 console.log('First number: ', input?.firstNumber);
 console.log('Second number: ', input?.secondNumber);
 
-const result = input?.firstNumber + input?.secondNumber;
+const firstNumber = input?.firstNumber ?? 0;
+const secondNumber = input?.secondNumber ?? 0;
+const result = firstNumber + secondNumber;
 
 console.log('The result is: ', result);
 

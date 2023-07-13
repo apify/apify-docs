@@ -17,6 +17,7 @@ There are two types we haven't discussed yet - `any` and `unknown`.
 
 In the first [**Using types**](./using_types.md) lesson, you were briefly exposed to the `any` type, which is a special type used to represent all possible JavaScript values. By using this type, you basically tell TypeScript that you don't care, and that you want to be able to do anything with that value, even if it might cause a runtime error. Take a look at this example:
 
+<!-- eslint-disable -->
 ```ts
 // Create a variable that TypeScript will completely ignore.
 // Absolutely anything can be stored in here.
@@ -45,6 +46,7 @@ Just like `any`, the `unknown` type is also a special type that represents all p
 
 Even this will result in the same error:
 
+<!-- eslint-disable -->
 ```ts
 // This results in a compiler error!
 let userInput: unknown;
@@ -59,6 +61,7 @@ savedInput = userInput;
 
 In order to make the code above not throw any compiler errors, we can use a [type guard](https://www.typescriptlang.org/docs/handbook/advanced-types.html), which is just a check that happens at runtime to ensure that the type is in fact what it should be.
 
+<!-- eslint-disable -->
 ```ts
 let userInput: unknown;
 let savedInput: string;
@@ -79,6 +82,7 @@ This works, and in fact, it's the most optimal solution for this use case. But w
 
 Despite the fancy name, [type assertions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions) is a simple concept based around a single keyword: `as`. We usually use this on values that we can't control the return type of, or values that we're sure have a certain type, but TypeScript needs a bit of help understanding that.
 
+<!-- eslint-disable -->
 ```ts
 let userInput: unknown;
 let savedInput: string;

@@ -23,7 +23,7 @@ The content of the menu can be accessed only via the [`shadowRoot`](https://deve
 
 ```js
 // Find element that is shadow root of menu DOM tree.
-const shadowRoot = document.getElementById('top-navbar-view').shadowRoot;
+const { shadowRoot } = document.getElementById('top-navbar-view');
 
 // Create a copy of its HTML and use jQuery find links.
 const links = $(shadowRoot.innerHTML).find('a');
@@ -38,10 +38,10 @@ So instead of that, we can replace the content of each element containing shadow
 
 ```js
 // Iterate over all elements in the main DOM.
-for (let el of document.getElementsByTagName('*')) {
-   // If element contains shadow root then replace its 
-   // content with the HTML of shadow DOM.
-   if (el.shadowRoot) el.innerHTML = el.shadowRoot.innerHTML;
+for (const el of document.getElementsByTagName('*')) {
+    // If element contains shadow root then replace its
+    // content with the HTML of shadow DOM.
+    if (el.shadowRoot) el.innerHTML = el.shadowRoot.innerHTML;
 }
 ```
 
@@ -53,7 +53,7 @@ Some websites may contain shadow DOMs recursively inside of shadow DOMs. In thes
 // Returns HTML of given shadow DOM.
 const getShadowDomHtml = (shadowRoot) => {
     let shadowHTML = '';
-    for (let el of shadowRoot.childNodes) {
+    for (const el of shadowRoot.childNodes) {
         shadowHTML += el.nodeValue || el.outerHTML;
     }
     return shadowHTML;
@@ -61,7 +61,7 @@ const getShadowDomHtml = (shadowRoot) => {
 
 // Recursively replaces shadow DOMs with their HTML.
 const replaceShadowDomsWithHtml = (rootElement) => {
-    for (let el of rootElement.querySelectorAll('*')) {
+    for (const el of rootElement.querySelectorAll('*')) {
         if (el.shadowRoot) {
             replaceShadowDomsWithHtml(shadowRoot);
             el.innerHTML += getShadowDomHtml(el.shadowRoot);
