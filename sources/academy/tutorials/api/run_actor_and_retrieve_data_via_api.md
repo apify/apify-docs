@@ -102,7 +102,7 @@ import got from 'got';
 
 // Specify your API token
 // (find it at https://console.apify.com/account#/integrations)
-const myToken = YOUR_APIFY_TOKEN;
+const myToken = '<YOUR_APIFY_TOKEN>';
 
 // Start apify/google-search-scraper actor
 // and pass some queries into the JSON body
