@@ -75,7 +75,7 @@ await Actor.init();
 
 const { numbers } = await Actor.getInput();
 
-const addAllNumbers = (...nums) => nums.reduce((total, curr) => (total + curr), 0);
+const addAllNumbers = (...nums) => nums.reduce((total, curr) => total + curr, 0);
 
 const solution = addAllNumbers(...numbers);
 
@@ -148,7 +148,7 @@ await Actor.init();
 
 const { numbers } = await Actor.getInput();
 
-const addAllNumbers = (...nums) => nums.reduce((total, curr) => (total + curr), 0);
+const addAllNumbers = (...nums) => nums.reduce((total, curr) => total + curr, 0);
 
 const solution = addAllNumbers(...numbers);
 
