@@ -85,7 +85,9 @@ const input = await Actor.getInput();
 console.log('First number: ', input?.firstNumber);
 console.log('Second number: ', input?.secondNumber);
 
-const result = (input?.firstNumber || 0) + (input?.secondNumber || 0);
+const firstNumber = input?.firstNumber ?? 0;
+const secondNumber = input?.secondNumber ?? 0;
+const result = firstNumber + secondNumber;
 
 console.log('The result is: ', result);
 
