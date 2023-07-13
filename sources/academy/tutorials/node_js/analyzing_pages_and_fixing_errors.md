@@ -151,7 +151,6 @@ try {
     await puppeteerUtils.saveSnapshot(page, { key });
 
     // To create the reporting URLs, we need to know the Key-Value store and run IDs
-   
     const { actorRunId, defaultKeyValueStoreId } = Actor.getEnv();
 
     // We create a report object
