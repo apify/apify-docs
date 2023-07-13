@@ -147,15 +147,15 @@ So, the matching object for the Zappos Scraper shown in the example above will l
 
 ```js
 const results = {
-        url: request.loadedUrl,
-        imgUrl: $('#stage button[data-media="image"] img[itemprop="image"]').attr('src');,
-        brand: $('span[itemprop="brand"]').text().trim(),
-        name: $('meta[itemprop="name"]').attr('content');,
-        SKU: $('*[itemprop~="sku"]').text().trim(),
-        inStock: !request.url.includes('oosRedirected=true'),
-        onSale: !$('div[itemprop="offers"]').text().includes('OFF'),
-        price: $('span[itemprop="price"]').text(),
-    };
+    url: request.loadedUrl,
+    imgUrl: $('#stage button[data-media="image"] img[itemprop="image"]').attr('src'),
+    brand: $('span[itemprop="brand"]').text().trim(),
+    name: $('meta[itemprop="name"]').attr('content'),
+    SKU: $('*[itemprop~="sku"]').text().trim(),
+    inStock: !request.url.includes('oosRedirected=true'),
+    onSale: !$('div[itemprop="offers"]').text().includes('OFF'),
+    price: $('span[itemprop="price"]').text(),
+};
 ```
 
 ## Final result {#final-result}

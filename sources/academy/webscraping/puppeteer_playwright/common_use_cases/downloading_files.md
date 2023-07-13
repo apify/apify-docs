@@ -68,9 +68,9 @@ We don't need to await this promise since we'll be waiting for the result of thi
 The crucial part is intercepting the request that would result in downloading the file. Since the interception is already enabled, we just need to wait for the request to be sent.
 
 ```js
-const xRequest = await new Promise(resolve => {
-    page.on('request', interceptedRequest => {
-        interceptedRequest.abort(); //stop intercepting requests
+const xRequest = await new Promise((resolve) => {
+    page.on('request', (interceptedRequest) => {
+        interceptedRequest.abort(); // stop intercepting requests
         resolve(interceptedRequest);
     });
 });
@@ -90,12 +90,12 @@ const options = {
     method: xRequest._method,
     uri: xRequest._url,
     body: xRequest._postData,
-    headers: xRequest._headers
-}
+    headers: xRequest._headers,
+};
 
 // Add the cookies
 const cookies = await page.cookies();
-options.headers.Cookie = cookies.map(ck => ck.name + '=' + ck.value).join(';');
+options.headers.Cookie = cookies.map((ck) => `${ck.name}=${ck.value}`).join(';');
 
 // Resend the request
 const response = await request(options);

@@ -20,7 +20,7 @@ If you are using basic methods of page objects like `page.evaluate()`, you are a
 As a simple demonstration, we'll scrape the Twitter widget iFrame from [IMDB](https://www.imdb.com/).
 
 ```js
-const browser = await puppeteer.launch() ;
+const browser = await puppeteer.launch();
 
 const page = await browser.newPage();
 
@@ -31,9 +31,9 @@ let twitterFrame; // this will be populated later by our identified frame
 
 for (const frame of page.mainFrame().childFrames()) {
     // Here you can use few identifying methods like url(),name(),title()
-    if (frame.url().includes('twitter')){
-        console.log('we found the Twitter iframe')
-        twitterFrame = frame 
+    if (frame.url().includes('twitter')) {
+        console.log('we found the Twitter iframe');
+        twitterFrame = frame;
         // we assign this frame to myFrame to use it later
     }
 }
@@ -47,13 +47,13 @@ If it is hard to identify the iframe you want to access, don't worry. You can al
 let twitterFrame;
 
 for (const frame of page.mainFrame().childFrames()) {
-    if (frame.url().includes('twitter')){
-        for(const nestedFrame of frame.childFrames()){
-             const tweetList = await nestedFrame.$('.timeline-TweetList')
-             if(tweetList){
-                 console.log('We found the frame with tweet list')
-                 twitterFrame = nestedFrame
-             }
+    if (frame.url().includes('twitter')) {
+        for (const nestedFrame of frame.childFrames()) {
+            const tweetList = await nestedFrame.$('.timeline-TweetList');
+            if (tweetList) {
+                console.log('We found the frame with tweet list');
+                twitterFrame = nestedFrame;
+            }
         }
     }
 }
@@ -62,11 +62,11 @@ for (const frame of page.mainFrame().childFrames()) {
 Here we used some more advanced techniques to find a nested `<iframe>`. Now when we have it assigned to our twitterFrame object, the hard work is over and we can start working with it (almost) like with a regular page object.
 
 ```js
-const textFeed = await twitterFrame.$$eval('.timeline-Tweet-text', pElements => pElements.map((elem) => elem.textContent));
+const textFeed = await twitterFrame.$$eval('.timeline-Tweet-text', (pElements) => pElements.map((elem) => elem.textContent));
 
-for (const text of textFeed){
-    console.log(text)
-    console.log('**********')
+for (const text of textFeed) {
+    console.log(text);
+    console.log('**********');
 }
 ```
 

@@ -40,10 +40,9 @@ await page.goto('https://demo-webstore.apify.org/search/on-sale');
 
 // code will go here
 
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -59,10 +58,9 @@ await page.goto('https://demo-webstore.apify.org/search/on-sale');
 
 // code will go here
 
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -75,9 +73,9 @@ await browser.close();
 Whatever is returned from the callback function in `page.evaluate()` will be returned by the evaluate function, which means that we can set it to a variable like so:
 
 ```js
-const products = await page.evaluate(() => { foo: 'bar' });
+const products = await page.evaluate(() => ({ foo: 'bar' }));
 
-console.log(products) // -> { foo: 'bar' }
+console.log(products); // -> { foo: 'bar' }
 ```
 
 We'll be returning a bunch of product objects from this function, which will be accessible back in our Node.js context after the promise has resolved. Let's now go ahead and write some data extraction code to collect each product:
@@ -120,9 +118,9 @@ Now, since we're able to use jQuery, let's translate our vanilla JavaScript code
 await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.6.0.min.js' });
 
 const products = await page.evaluate(() => {
-        const productCards = Array.from($('a[class*="ProductCard_root"]'))
+    const productCards = Array.from($('a[class*="ProductCard_root"]'));
 
-        return productCards.map((element) => {
+    return productCards.map((element) => {
         const card = $(element);
 
         const name = card.find('h3[class*="ProductCard_name"]').text();
@@ -187,7 +185,6 @@ const $ = load(await page.content());
 // code will go here
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -207,7 +204,6 @@ const $ = load(await page.content());
 // code will go here
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -218,7 +214,7 @@ Now, to loop through all of the products, we'll make use of the `$` object and l
 ```js
 const $ = load(await page.content());
 
-const productCards = Array.from($('a[class*="ProductCard_root"]'))
+const productCards = Array.from($('a[class*="ProductCard_root"]'));
 
 const products = productCards.map((element) => {
     const card = $(element);
@@ -253,7 +249,7 @@ await page.goto('https://demo-webstore.apify.org/search/on-sale');
 
 const $ = load(await page.content());
 
-const productCards = Array.from($('a[class*="ProductCard_root"]'))
+const productCards = Array.from($('a[class*="ProductCard_root"]'));
 
 const products = productCards.map((element) => {
     const card = $(element);
@@ -270,7 +266,6 @@ const products = productCards.map((element) => {
 console.log(products);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -287,7 +282,7 @@ await page.goto('https://demo-webstore.apify.org/search/on-sale');
 
 const $ = load(await page.content());
 
-const productCards = Array.from($('a[class*="ProductCard_root"]'))
+const productCards = Array.from($('a[class*="ProductCard_root"]'));
 
 const products = productCards.map((element) => {
     const card = $(element);
@@ -304,7 +299,6 @@ const products = productCards.map((element) => {
 console.log(products);
 
 await browser.close();
-
 ```
 
 </TabItem>

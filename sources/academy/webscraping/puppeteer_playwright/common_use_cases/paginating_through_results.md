@@ -72,7 +72,6 @@ const lastPage = +(await lastPageElement.getAttribute('aria-label')).replace(/\D
 console.log(lastPage);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -99,7 +98,6 @@ const lastPage = +lastPageLabel.replace(/\D/g, '');
 console.log(lastPage);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -158,7 +156,6 @@ repositories.push(...(await scrapeRepos(page)));
 console.log(repositories);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -204,7 +201,6 @@ repositories.push(...(await scrapeRepos(page)));
 console.log(repositories);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -217,13 +213,13 @@ Cool, so now we have all the tools we need to write concise logic that will be r
 ```js
 // We must add 1 to the lastPage, since the array starts at 0 and we
 // are creating an array from its index values
-Array(lastPage + 1).keys() // -> [0, 1, 2, 3, 4]
+Array(lastPage + 1).keys(); // -> [0, 1, 2, 3, 4]
 ```
 
 Then, we'll slice the first two values from that array so that it starts from 2 and ends at 4:
 
 ```js
-[...Array(lastPage + 1).keys()].slice(2) // -> [2, 3, 4]
+[...Array(lastPage + 1).keys()].slice(2); // -> [2, 3, 4]
 ```
 
 This array now accurately represents the pages we need to go through. We'll map through it and create an array of promises, all of which make a request to each page, scrape its data, then push it to the **repositories** array:
@@ -231,22 +227,21 @@ This array now accurately represents the pages we need to go through. We'll map 
 ```js
 // Map through the range. The value from the array is the page number
 // to make a request for
-const promises = [...Array(lastPage + 1).keys()].slice(2).map((pageNumber) =>
-    (async () => {
-        const page2 = await browser.newPage();
+const promises = [...Array(lastPage + 1).keys()].slice(2).map((pageNumber) => (async () => {
+    const page2 = await browser.newPage();
 
-        // Prepare the URL before making the request by setting the "page"
-        // parameter to whatever the pageNumber is currently
-        const url = new URL(REPOSITORIES_URL);
-        url.searchParams.set('page', pageNumber);
+    // Prepare the URL before making the request by setting the "page"
+    // parameter to whatever the pageNumber is currently
+    const url = new URL(REPOSITORIES_URL);
+    url.searchParams.set('page', pageNumber);
 
-        await page2.goto(url.href);
+    await page2.goto(url.href);
 
-        // Scrape the data and push it to the "repositories" array
-        repositories.push(...(await scrapeRepos(page2)));
+    // Scrape the data and push it to the "repositories" array
+    repositories.push(...(await scrapeRepos(page2)));
 
-        await page2.close();
-    })()
+    await page2.close();
+})(),
 );
 
 await Promise.all(promises);
@@ -299,19 +294,18 @@ repositories.push(...(await scrapeRepos(page)));
 
 await page.close();
 
-const promises = [...Array(lastPage + 1).keys()].slice(2).map((pageNumber) =>
-    (async () => {
-        const page2 = await browser.newPage();
+const promises = [...Array(lastPage + 1).keys()].slice(2).map((pageNumber) => (async () => {
+    const page2 = await browser.newPage();
 
-        const url = new URL(REPOSITORIES_URL);
-        url.searchParams.set('page', pageNumber);
+    const url = new URL(REPOSITORIES_URL);
+    url.searchParams.set('page', pageNumber);
 
-        await page2.goto(url.href);
+    await page2.goto(url.href);
 
-        repositories.push(...(await scrapeRepos(page2)));
+    repositories.push(...(await scrapeRepos(page2)));
 
-        await page2.close();
-    })()
+    await page2.close();
+})(),
 );
 
 await Promise.all(promises);
@@ -320,7 +314,6 @@ await Promise.all(promises);
 console.log(repositories.length);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -363,19 +356,18 @@ repositories.push(...(await scrapeRepos(page)));
 
 await page.close();
 
-const promises = [...Array(lastPage + 1).keys()].slice(2).map((pageNumber) =>
-    (async () => {
-        const page2 = await browser.newPage();
+const promises = [...Array(lastPage + 1).keys()].slice(2).map((pageNumber) => (async () => {
+    const page2 = await browser.newPage();
 
-        const url = new URL(REPOSITORIES_URL);
-        url.searchParams.set('page', pageNumber);
+    const url = new URL(REPOSITORIES_URL);
+    url.searchParams.set('page', pageNumber);
 
-        await page2.goto(url.href);
+    await page2.goto(url.href);
 
-        repositories.push(...(await scrapeRepos(page2)));
+    repositories.push(...(await scrapeRepos(page2)));
 
-        await page2.close();
-    })()
+    await page2.close();
+})(),
 );
 
 await Promise.all(promises);
@@ -384,7 +376,6 @@ await Promise.all(promises);
 console.log(repositories.length);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -423,7 +414,6 @@ const page = await browser.newPage();
 await page.goto('https://www.aboutyou.com/c/women/clothing-20204');
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -443,7 +433,6 @@ const page = await browser.newPage();
 await page.goto('https://www.aboutyou.com/c/women/clothing-20204');
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -458,7 +447,7 @@ Now, what we'll do is grab the height in pixels of a result item to have somewha
 const itemHeight = await page.$eval('a[data-testid*="productTile"]', (elem) => elem.clientHeight);
 
 // Keep track of how many pixels have been scrolled down
-let totalScrolled = 0;
+const totalScrolled = 0;
 ```
 
 Then, within a `while` loop that ends once the length of the **products** array has reached 75, we'll run some logic that scrolls down the page and waits 1 second before running again.
@@ -473,7 +462,6 @@ while (products.length < 75) {
     // Allow the products 1 second to load
     await page.waitForTimeout(1000);
 }
-
 ```
 
 </TabItem>
@@ -486,7 +474,6 @@ while (products.length < 75) {
     // Allow the products 1 second to load
     await page.waitForTimeout(1000);
 }
-
 ```
 
 </TabItem>
@@ -517,7 +504,6 @@ while (products.length < 75) {
         break;
     }
 }
-
 ```
 
 </TabItem>
@@ -543,7 +529,6 @@ while (products.length < 75) {
         break;
     }
 }
-
 ```
 
 </TabItem>
@@ -636,7 +621,6 @@ while (products.length < 75) {
 console.log(products.slice(0, 75));
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -696,7 +680,6 @@ while (products.length < 75) {
 console.log(products.slice(0, 75));
 
 await browser.close();
-
 ```
 
 </TabItem>

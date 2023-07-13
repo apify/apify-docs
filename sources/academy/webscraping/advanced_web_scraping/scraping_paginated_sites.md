@@ -168,7 +168,7 @@ const getFiltersFromUrl = (url) => {
     const maxMatch = url.match(/max_price=([0-9.]+)/);
     const max = maxMatch ? Number(maxMatch[1]) : null;
     return { min, max };
-}
+};
 
 // Actor setup things here
 const crawler = new CheerioCrawler({
@@ -223,7 +223,7 @@ const crawler = new CheerioCrawler({
             // Enqueue next page as long as possible
             // Enqueue or scrape products normally
         }
-    }
+    },
 });
 ```
 

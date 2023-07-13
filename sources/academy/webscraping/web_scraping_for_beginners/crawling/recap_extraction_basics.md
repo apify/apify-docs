@@ -61,7 +61,7 @@ for (const product of products) {
 const csv = parse(results);
 
 // Then, we saved the CSV to the disk
-writeFileSync('products.csv', csv)
+writeFileSync('products.csv', csv);
 ```
 
 :::tip

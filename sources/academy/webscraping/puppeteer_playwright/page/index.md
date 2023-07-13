@@ -28,7 +28,6 @@ const browser = await chromium.launch({ headless: false });
 const page = await browser.newPage();
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -43,7 +42,6 @@ const browser = await puppeteer.launch({ headless: false });
 const page = await browser.newPage();
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -63,13 +61,12 @@ const browser = await chromium.launch({ headless: false });
 const page = await browser.newPage();
 
 // Visit Google
-await page.goto('https://google.com')
+await page.goto('https://google.com');
 
 // wait for 10 seconds before shutting down
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -87,10 +84,9 @@ const page = await browser.newPage();
 await page.goto('https://google.com');
 
 // wait for 10 seconds before shutting down
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 
 await browser.close();
-
 ```
 
 </TabItem>

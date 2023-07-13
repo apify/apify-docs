@@ -106,7 +106,7 @@ const crawler = new CheerioCrawler({
 
 // Add the Sales category of Warehouse store to the queue of URLs.
 await crawler.addRequests([
-    'https://warehouse-theme-metal.myshopify.com/collections/sales'
+    'https://warehouse-theme-metal.myshopify.com/collections/sales',
 ]);
 
 await crawler.run();
@@ -178,7 +178,7 @@ import { CheerioCrawler, Dataset } from 'crawlee';
 
 const crawler = new CheerioCrawler({
     requestHandler: async ({ $, request, enqueueLinks }) => {
-        console.log(`Fetching URL: ${request.url}`)
+        console.log(`Fetching URL: ${request.url}`);
 
         if (request.label === 'start-url') {
             await enqueueLinks({
@@ -195,7 +195,7 @@ const crawler = new CheerioCrawler({
         const title = $('h1').text().trim();
         const vendor = $('a.product-meta__vendor').text().trim();
         const price = $('span.price').contents()[2].nodeValue;
-        const reviewCount = parseInt($('span.rating__caption').text());
+        const reviewCount = parseInt($('span.rating__caption').text(), 10);
         const description = $('div[class*="description"] div.rte').text().trim();
 
         // Instead of printing the results to

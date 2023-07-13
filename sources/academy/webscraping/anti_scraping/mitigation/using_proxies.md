@@ -27,7 +27,7 @@ const crawler = new CheerioCrawler({
     requestHandler: async ({ $, request, enqueueLinks }) => {
         if (request.label === 'START') {
             await enqueueLinks({
-                selector: 'a[href*="/product/"]'
+                selector: 'a[href*="/product/"]',
             });
 
             // When on the START page, we don't want to
@@ -111,7 +111,7 @@ const crawler = new CheerioCrawler({
     // Destructure "proxyInfo" from the "context" object
     handlePageFunction: async ({ $, request, proxyInfo }) => {
         // Log its value
-        console.log(proxyInfo)
+        console.log(proxyInfo);
         // ...
         // ...
     },
@@ -131,8 +131,8 @@ Though we will discuss it more in-depth in future courses, it is still important
 ```js
 import { Actor } from 'apify';
 
-const proxyConfiguration = await  Actor.createProxyConfiguration({
-    countryCode: 'US'
+const proxyConfiguration = await Actor.createProxyConfiguration({
+    countryCode: 'US',
 });
 ```
 

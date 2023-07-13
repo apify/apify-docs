@@ -97,7 +97,7 @@ const subwoofer = products[2];
 Now that we have the subwoofer saved into a variable, run another command in the Console to print its text:
 
 ```js
-subwoofer.textContent
+subwoofer.textContent;
 ```
 
 ![Print text content of parent element](./images/devtools-print-parent-text.png)
@@ -127,7 +127,7 @@ Run two commands in the Console. The first will find the element with the subwoo
 
 ```js
 const title = subwoofer.querySelector('a.product-item__title');
-title.textContent
+title.textContent;
 ```
 
 ![Extract product title](./images/devtools-extract-product-title.png)
@@ -138,7 +138,7 @@ Next, run the following two commands in the Console.
 
 ```js
 const price = subwoofer.querySelector('span.price');
-price.textContent
+price.textContent;
 ```
 
 ![Extract product price](./images/devtools-extract-product-price.png)
@@ -161,7 +161,7 @@ When we call `subwoofer.querySelector('span.price')` it selects the whole `<span
 We can, however, use JavaScript to get only the actual text of the selected element, without any child elements. Run this command in the Console:
 
 ```js
-price.childNodes[2].nodeValue
+price.childNodes[2].nodeValue;
 ```
 
 Why the third child node? Because the first one represents the empty space before `<span class="visually-hidden"`, the second is the noise `<span>` itself and the third one is the price. In any case, we were able to extract the clean price.
@@ -177,7 +177,7 @@ The second option we have is to **take the noisy price data and clean it with st
 There are numerous ways how we could approach this. Let's try a very naive solution:
 
 ```js
-price.textContent.split('$')[1]
+price.textContent.split('$')[1];
 ```
 
 ![Split price from noise](./images/devtools-split-price.png)
@@ -191,7 +191,7 @@ The second method seems more reliable, but only until the website adds prices in
 In production, we would probably use a regular expression like the following, or a specialized library for parsing prices from strings, but for this tutorial, we'll keep it simple.
 
 ```js
-price.textContent.match(/((\d+,?)+.?(\d+)?)/)[0]
+price.textContent.match(/((\d+,?)+.?(\d+)?)/)[0];
 ```
 
 ## Next up {#next}

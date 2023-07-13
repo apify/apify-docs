@@ -24,7 +24,7 @@ In the root of our project, we'll create a file named **INPUT_SCHEMA.json** and 
     "title": "Adding actor input",
     "description": "Add all values in list of numbers with an arbitrary length.",
     "type": "object",
-    "schemaVersion": 1,
+    "schemaVersion": 1
 }
 ```
 
@@ -43,9 +43,9 @@ In order to define all of the properties our actor is expecting, we must include
     "properties": {
         "numbers": {
             "title": "Number list",
-            "description": "The list of numbers to add up.",
+            "description": "The list of numbers to add up."
         }
-    },
+    }
 }
 ```
 
@@ -68,7 +68,7 @@ Within our new **numbers** property, there are two more fields we must specify. 
             "type": "array",
             "editor": "json"
         }
-    },
+    }
 }
 ```
 

@@ -35,7 +35,6 @@ const crawler = new CheerioCrawler({
     requestHandler: router,
 });
 
-
 log.info('Starting the crawl.');
 await crawler.run([{
     // Turn the keyword into a link we can make a request with
@@ -55,7 +54,7 @@ import { createCheerioRouter } from 'crawlee';
 export const router = createCheerioRouter();
 
 router.addDefaultHandler(({ log }) => {
-    log.info('Route reached.')
+    log.info('Route reached.');
 });
 ```
 

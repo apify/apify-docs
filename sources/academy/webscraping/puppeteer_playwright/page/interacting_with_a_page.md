@@ -96,9 +96,8 @@ await page.type('input[title="Search"]', 'hello world');
 // Press enter
 await page.keyboard.press('Enter');
 
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -122,9 +121,8 @@ await page.type('input[title="Search"]', 'hello world');
 // Press enter
 await page.keyboard.press('Enter');
 
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -157,9 +155,8 @@ await page.keyboard.press('Enter');
 // Click the first result
 await page.click('.g a');
 
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -184,9 +181,8 @@ await page.keyboard.press('Enter');
 // Click the first result
 await page.click('.g a');
 
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>

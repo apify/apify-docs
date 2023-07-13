@@ -106,7 +106,7 @@ try {
     const randomNumber = Math.random();
     const key = `ERROR-LOGIN-${randomNumber}`;
     await puppeteerUtils.saveSnapshot(page, { key });
-    const screenshotLink = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.jpg`
+    const screenshotLink = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.jpg`;
 
     // You know where the code crashed so you can explain here
     throw new Error('Request failed during login with an error', { cause: error });
@@ -151,7 +151,6 @@ try {
     await puppeteerUtils.saveSnapshot(page, { key });
 
     // To create the reporting URLs, we need to know the Key-Value store and run IDs
-   
     const { actorRunId, defaultKeyValueStoreId } = Actor.getEnv();
 
     // We create a report object

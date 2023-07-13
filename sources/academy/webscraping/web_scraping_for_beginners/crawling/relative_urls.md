@@ -88,7 +88,7 @@ const productLinks = $('a.product-item__title');
 for (const link of productLinks) {
     const relativeUrl = $(link).attr('href');
     // Resolve relative URLs using the website's URL
-    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL)
+    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL);
     console.log(absoluteUrl.href);
 }
 ```
