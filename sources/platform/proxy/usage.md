@@ -11,24 +11,29 @@ slug: /proxy/usage
 
 ## Connection settings
 
-Below are the HTTP proxy connection settings for Apify Proxy.
+To connect to the Apify Proxy, you use the [HTTP proxy protocol](https://en.wikipedia.org/wiki/Proxy_server#Web_proxy_servers). This means that you need to configure your HTTP client to use the proxy server at `proxy.apify.com:8000` and provide it with your Apify Proxy password and the other parameters described below.
+
+The full connection string has the following format:
+
+```text
+http://<username>:<password>@proxy.apify.com:8000
+```
 
 | Parameter           | Value / explanation                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Proxy type          | `HTTP`                                                                                                                                                                                                                                                                                                                                                     |
 | Hostname            | `proxy.apify.com`                                                                                                                                                                                                                                                                                                                                          |
 | Port                | `8000`                                                                                                                                                                                                                                                                                                                                                     |
-| Username            | Specifies the proxy parameters such as groups, [session](./index.md) and location. <br/>See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username.                                                                                                                                |
-| Password            | Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. <br/>In Apify [actors](../actors/index.mdx), it is passed as the `APIFY_PROXY_PASSWORD` <br/>environment variable.<br/>See the [environment variables docs](../actors/development/programming_interface/environment_variables.md) for more details. |
-| Connection URL      | `http://<username>:<password>@proxy.apify.com:8000`                                                                                                                                                                                                                                                                                                        |
+| Username            | Specifies the proxy parameters such as groups, [session](#sessions) and location. <br/>See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username.                                                                                                                                |
+| Password            | Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. In Apify [actors](../actors/index.mdx), it is passed as the `APIFY_PROXY_PASSWORD`  environment variable. See the [environment variables docs](../actors/development/programming_interface/environment_variables.md) for more details. |
+
 | Static IP Addresses | `18.208.102.16`, `35.171.134.41` Static IP addresses, <br/>that can be used as alternatives to `Hostname`.                                                                                                                                                                                                                                                 |
 
-
-**WARNING:** All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks – **the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
+> **WARNING:** All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks – **the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
 
 ### Username parameters
 
-The `username` field enables you to pass parameters like **[groups](#proxy-groups)**, **[session](./index.md#sessions) ID** and **country** for your proxy connection.
+The `username` field enables you to pass parameters like **[groups](#proxy-groups)**, **[session ID](./index.md#sessions)** and **country** for your proxy connection.
 
 For example, if you're using [datacenter proxies](./datacenter_proxy.md) and want to use the `new_job_123` session using the `SHADER` group, the username will be:
 
@@ -89,6 +94,43 @@ We have code examples for connecting to our proxy using the Apify SDK ([JavaScri
 * [Datacenter proxy](./datacenter_proxy.md)
 * [Residential proxy](./residential_proxy.md)
 * [Google SERP proxy](./google_serp_proxy.md)
+
+## IP address rotation {#ip-address-rotation}
+
+Web scrapers can rotate the IP addresses they use to access websites. They assign each request a different IP address, which makes it appear like they are all coming from different users. This greatly enhances performance and data throughout.
+
+Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or [HTTP requests](https://apify.com/apify/cheerio-scraper) for your scraping jobs, IP address rotation works differently.
+
+* Browser – a different IP address is used for each browser.
+* HTTP request – a different IP address is used for each request.
+
+**You can use [sessions](#sessions) to manage how you rotate and [persist](#session-persistence) IP addresses.**
+
+[Click here](/academy/anti-scraping/techniques) to learn more about IP address rotation and our findings on how blocking works.
+
+## Sessions {#sessions}
+
+Sessions allow you to use the same IP address for multiple connections.
+
+To set a new session, pass the `session` parameter in your [username](./usage.md#username-parameters) field when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To [use that IP address in other requests](./datacenter_proxy.md#multiple-requests-with-the-same-ip-address), pass that same session ID in the username field.
+
+The created session will store information such as cookies and can be used to generate [browser fingerprints](https://pixelprivacy.com/resources/browser-fingerprinting/). You can also assign custom user data such as authorization tokens and specific headers.
+
+Sessions are available for [datacenter](./datacenter_proxy.md) and [residential](./residential_proxy.md#session-persistence) proxies.
+
+**This parameter is optional**. By default, each proxied request is assigned a randomly picked least used IP address.
+
+### Session persistence {#session-persistence}
+
+You can persist your sessions (use the same IP address) by setting the `session` parameter in the `username` [field](./usage.md). This assigns a single IP address to a **session ID** after you make the first request.
+
+**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** In cases where you need to keep the same session (e.g. when you need to log in to a website), it is best to keep the same proxy. By assigning an IP address to a **session ID**, you can use that IP for every request you make.
+
+For datacenter proxies, a session persists for **26 hours** ([more info](./datacenter_proxy.md)). For residential proxies, it persists for **1 minute** ([more info](./residential_proxy.md#session-persistence)). Using a session resets its expiry timer.
+
+Google SERP proxies do not support sessions.
+
+
 
 ## Proxy groups
 
