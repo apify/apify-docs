@@ -13,7 +13,7 @@ slug: /integrations/langchain
 
 > For more information on LangChain visit its [documentation](https://python.langchain.com/en/latest/index.html).
 
-In this example, we'll use the Website [Content Crawler Actor](https://apify.com/apify/website-content-crawler), which can deeply crawl websites such as documentation, knowledge bases, help centers, or blogs and extract text content from the web pages.
+In this example, we'll use the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor, which can deeply crawl websites such as documentation, knowledge bases, help centers, or blogs and extract text content from the web pages.
 Then we feed the documents into a vector index and answer questions from it.
 
 This example focuses on how to integrate Apify with LangChain using the Python language,
