@@ -1,7 +1,7 @@
 ---
 title: Datacenter proxy
 description: Learn how to reduce blocking when web scraping using IP address rotation. See proxy parameters and learn to implement Apify Proxy in an application.
-sidebar_position: 10.3
+sidebar_position: 10.4
 slug: /proxy/datacenter-proxy
 ---
 
@@ -58,7 +58,7 @@ Prices for dedicated proxy servers are mainly based on the number of proxy serve
 
 By default, each proxied HTTP request is potentially sent via a different target proxy server, which adds overhead and could be potentially problematic for websites which save cookies based on IP address.
 
-If you want to pick an IP address and pass all subsequent connections via that same IP address, you can use the `session` [parameter](./index.md).
+If you want to pick an IP address and pass all subsequent connections via that same IP address, you can use the `session` [parameter](./usage.md#sessions).
 
 For code examples on how to connect to datacenter proxies, see the [examples](#examples-using-the-apify-sdk-and-crawlee).
 
@@ -96,7 +96,7 @@ If you are developing your own Apify [actor](../actors/index.mdx) using the Apif
 * [`PlaywrightCrawler`](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler) by using the [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
 * [`PuppeteerCrawler`](https://crawlee.dev/api/puppeteer-crawler/class/PuppeteerCrawler) by using the [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
 * [`JSDOMCrawler`](https://crawlee.dev/api/jsdom-crawler/class/JSDOMCrawler) by using the [`Actor.createProxyConfiguration()`](/sdk/js/api/apify/class/Actor#createProxyConfiguration) function.
-* [`requests`](https://pypi.org/project/requests/) library with Python SDK's [`Actor.createProxyConfiguration()`](/sdk/python/reference/class/Actor#create_proxy_configuration) function.
+* [`requests`](https://pypi.org/project/requests/) library with Python SDK's [`Actor.create_proxy_configuration()`](/sdk/python/reference/class/Actor#create_proxy_configuration) function.
 * [`launchPlaywright()`](https://crawlee.dev/api/playwright-crawler/function/launchPlaywright) by specifying the proxy configuration in the function's options.
 * [`launchPuppeteer()`](https://crawlee.dev/api/puppeteer-crawler/function/launchPuppeteer) by specifying the proxy configuration in the function's options.
 * [`got-scraping`](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying proxy URL in the options.

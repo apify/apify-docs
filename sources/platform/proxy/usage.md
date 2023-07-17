@@ -89,9 +89,9 @@ If you want to specify one parameter and not the others, just provide that param
 
 We have code examples for connecting to our proxy using the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)) and [Crawlee](https://crawlee.dev/) and other JavaScript libraries (**axios** and **got-scraping**), as well as examples in PHP.
 
-* [Datacenter proxy](./datacenter_proxy.md)
-* [Residential proxy](./residential_proxy.md)
-* [Google SERP proxy](./google_serp_proxy.md)
+* [Datacenter proxy](./examples.md#datacenter-proxy)
+* [Residential proxy](./examples.md#residential-proxy)
+* [Google SERP proxy](./examples.md#gooogle-serp-proxy)
 
 ## IP address rotation {#ip-address-rotation}
 
