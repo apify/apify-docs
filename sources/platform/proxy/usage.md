@@ -33,7 +33,7 @@ http://<username>:<password>@proxy.apify.com:8000
 
 ### Username parameters
 
-The `username` field enables you to pass parameters like **[groups](#proxy-groups)**, **[session ID](./index.md#sessions)** and **country** for your proxy connection.
+The `username` field enables you to pass parameters like **[groups](#proxy-groups)**, **[session ID](#sessions)** and **country** for your proxy connection.
 
 For example, if you're using [datacenter proxies](./datacenter_proxy.md) and want to use the `new_job_123` session using the `SHADER` group, the username will be:
 
@@ -84,8 +84,6 @@ The table below describes the available parameters.
 </table>
 
 If you want to specify one parameter and not the others, just provide that parameter and omit the others. To use the default behavior (not specifying either `groups`, `session`, or `country`), set the username to **auto**. **auto** serves as a placeholder because the username can't be empty.
-
-To learn more about [sessions](./index.md#sessions) and [IP address rotation](./index.md#ip-address-rotation), see the [proxy overview page](./index.md).
 
 ## Code examples
 

@@ -52,7 +52,7 @@ await Actor.exit();
 ```
 
 </TabItem>
-<TabItem value="Python SDK with `requests`" label="Python SDK with `requests`">
+<TabItem value="Python SDK with `requests`" label="Python SDK with requests">
 
 ```python
 import requests, asyncio

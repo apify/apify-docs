@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 Datacenter proxies are a cheap, fast and stable way to mask your identity online. When you access a website using a datacenter proxy, the site can only see the proxy center's credentials, not yours.
 
-Datacenter proxies allow you to mask and [rotate](./index.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
+Datacenter proxies allow you to mask and [rotate](./usage.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
 
 [Apify Proxy](https://apify.com/proxy) currently offers two types of datacenter proxy:
 
@@ -46,7 +46,7 @@ To access more servers or to use Apify Proxy without other parts of the Apify pl
 
 When you purchase access to dedicated proxy groups, they are assigned to you, and only you can use them. You gain access to a range of static IP addresses from these groups.
 
-This feature is useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation](./index.md#ip-address-rotation), [persistent sessions](#session-persistence), and health checking).
+This feature is useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation](./usage.md#ip-address-rotation), [persistent sessions](#session-persistence), and health checking).
 
 If you do not have your own pool, the [customer support](https://apify.com/contact) team can set up a dedicated group for you based on your needs and requirements.
 
@@ -72,9 +72,9 @@ If you do not want to specify either `groups` or `session` parameters and theref
 
 ## Session persistence {#session-persistence}
 
-When you use datacenter proxy with the `session` [parameter](./index.md#sessions) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
+When you use datacenter proxy with the `session` [parameter](./usage.md#sessions) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
 
-**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./index.md#sessions)]
+**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./usage.md#sessions)]
 
 This IP/session ID combination is persisted and expires 26 hours later. Each additional request resets the expiration time to 26 hours.
 
@@ -85,7 +85,7 @@ So, if you use the session at least once a day, it will never expire, with two p
 
 If the session is discarded due to the reasons above, it is assigned a new IP address.
 
-To learn more about [sessions](./index.md#sessions) and [IP address rotation](./index.md#ip-address-rotation), see the [proxy overview page](./index.md).
+To learn more about [sessions](./usage.md#sessions) and [IP address rotation](./usage.md#ip-address-rotation), see the [proxy overview page](./index.md).
 
 
 ## Examples using the Apify SDK and Crawlee {#examples-using-the-apify-sdk-and-crawlee}
