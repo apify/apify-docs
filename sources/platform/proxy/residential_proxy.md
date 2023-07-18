@@ -120,27 +120,6 @@ async with Actor:
 </TabItem>
 </Tabs>
 
-### Username examples {#username-examples}
-
-Use randomly allocated IP addresses from all available countries:
-
-```text
-groups-RESIDENTIAL
-```
-
-A random proxy from the US:
-
-```text
-groups-RESIDENTIAL,country-US
-```
-
-Set a session and select an IP address from the United States:
-
-```text
-groups-RESIDENTIAL,session-my_session_1,country-US
-```
-
-
 ## Session persistence {#session-persistence}
 
 When using residential proxy with the `session` [parameter](./usage.md#sessions) set in the [username](./usage.md#username-parameters), a single IP address is assigned to the **session ID** provided after you make the first request.
