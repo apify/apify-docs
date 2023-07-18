@@ -129,7 +129,6 @@ For datacenter proxies, a session persists for **26 hours** ([more info](./datac
 Google SERP proxies do not support sessions.
 
 
-
 ## Proxy groups
 
 You can see which proxy groups you have access to on the [Proxy page](https://console.apify.com/proxy/groups) in the Apify Console.
