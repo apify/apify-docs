@@ -68,7 +68,7 @@ The `username` field enables you to pass various [parameters](./usage.md#connect
 
 If you do not want to specify either `groups` or `session` parameters and therefore use the default behavior for both, set the username to `auto`.
 
-### Examples
+### Examples {#examples}
 
 <Tabs groupId="main">
 <TabItem value="PuppeteerCrawler" label="PuppeteerCrawler">
