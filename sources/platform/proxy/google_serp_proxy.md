@@ -62,7 +62,8 @@ For example:
 
 See a [full list](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/List_of_Google_domains.html) of available domain names for specific countries. When using them, remember to prepend the domain name with the `www.` prefix.
 
-## Examples using the Apify SDK {#examples-using-the-apify-sdk}
+## Examples {#examples}
+### Using the Apify SDK {#examples-using-the-apify-sdk}
 
 If you are developing your own Apify [actor](../actors/index.mdx) using the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)) and [Crawlee](https://crawlee.dev/), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler). This is because Google SERP proxy [only returns a page's HTML](./index.md). Alternatively, you can use the [got-scraping](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying proxy URL in the options. For Python, you can leverage the [`requests`](https://pypi.org/project/requests/) library along with Apify SDK.
 
@@ -149,7 +150,7 @@ await Actor.exit();
 </TabItem>
 </Tabs>
 
-## Examples using standard libraries and languages {#using-standard-libraries-and-languages}
+### Using standard libraries and languages {#using-standard-libraries-and-languages}
 
 You can find your proxy password on the [Proxy page](https://console.apify.com/proxy/access) of the Apify Console.
 
