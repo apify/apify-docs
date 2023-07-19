@@ -27,7 +27,7 @@
         "prism-react-renderer": "^1.3.5"
     },
     "peerDependencies": {
-        "@docsearch/react": "*",
+        "@apify/docsearch-apify-docs": "*",
         "react": "*",
         "react-dom": "*"
     }
