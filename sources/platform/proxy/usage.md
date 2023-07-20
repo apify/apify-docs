@@ -83,13 +83,17 @@ If you want to specify one parameter and not the others, just provide that param
 
 ## Code examples
 
-TODO: @jirimoravcik this is the most important part, let's link also the examples in JS, Python, and Crawlee:
-
 We have code examples for connecting to our proxy using the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)) and [Crawlee](https://crawlee.dev/) and other libraries, as well as examples in PHP.
 
 * [Datacenter proxy](./datacenter_proxy.md#examples)
 * [Residential proxy](./residential_proxy.md#connecting-to-residential-proxy)
 * [Google SERP proxy](./google_serp_proxy.md#examples)
+
+For code examples related to proxy management in Apify SDK and Crawlee, see:
+
+* [Apify SDK JavaScript](/sdk/js/docs/guides/proxy-management)
+* [Apify SDK Python](/sdk/python/docs/concepts/proxy-management)
+* [Crawlee](https://crawlee.dev/docs/guides/proxy-management)
 
 ## IP address rotation {#ip-address-rotation}
 
