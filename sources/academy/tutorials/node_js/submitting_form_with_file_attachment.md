@@ -21,12 +21,14 @@ The actual downloading is going to be slightly different for text and binary fil
 
 ```js
 const fileData = await request('https://some-site.com/file.txt');
+```
 
 For a binary file, we need to provide additional parameters so as not to interpret it as text:
 
+```js
 const fileData = await request({
-    uri: 'https://some-site.com/file.pdf',
-    encoding: null
+    uri: 'https://some-site.com/file.pdf',
+    encoding: null,
 });
 ```
 
@@ -38,24 +40,24 @@ When the file is ready, we can submit the form as follows:
 
 ```js
 await request({
-    uri: 'https://other-site.com/submit-form.php',
-    method: 'POST',
+    uri: 'https://other-site.com/submit-form.php',
+    method: 'POST',
 
-formData: {
-        // set any form values
-        name: 'John',
-        surname: 'Doe',
-        email: 'john.doe@mail.com',
+    formData: {
+        // set any form values
+        name: 'John',
+        surname: 'Doe',
+        email: 'john.doe@mail.com',
 
-// add the attachment
-        attachment: {
-            value: fileData,
-            options: {
-                filename: 'file.pdf',
-                contentType: 'application/pdf'
-            }
-        }
-    }
+        // add the attachment
+        attachment: {
+            value: fileData,
+            options: {
+                filename: 'file.pdf',
+                contentType: 'application/pdf',
+            },
+        },
+    },
 });
 ```
 

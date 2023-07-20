@@ -137,7 +137,7 @@ To test our regular expression in the DevTools console, we'll first create a [`R
 // To demonstrate pattern matching, we use only the 'a'
 // selector to select all links on the page.
 for (const a of document.querySelectorAll('a')) {
-    const regExp = /https?:\/\/warehouse-theme-metal\.myshopify\.com\/products\/[\w\-]+/;
+    const regExp = /https?:\/\/warehouse-theme-metal\.myshopify\.com\/products\/[\w-]+/;
     const url = a.href;
     if (regExp.test(url)) console.log(url);
 }

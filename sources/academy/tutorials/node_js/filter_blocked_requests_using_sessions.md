@@ -37,17 +37,17 @@ Then we need to define an interval that will ensure our sessions are periodicall
 
 ```js
 setInterval(async () => {
-    await Apify.setValue('SESSIONS', sessions)
-}, 30 * 1000)
+    await Apify.setValue('SESSIONS', sessions);
+}, 30 * 1000);
 ```
 
 And inside our main function, we load the sessions the same way we load an input. If they were not saved yet (the actor was not restarted), we instantiate them as an empty object.
 
 ```js
 Apify.main(async () => {
-    sessions = (await Apify.getValue('SESSIONS')) || {}
-    // ...the rest of your code
-})
+    sessions = (await Apify.getValue('SESSIONS')) || {};
+    // ...the rest of your code
+});
 ```
 
 ### Algorithm
@@ -56,17 +56,17 @@ You don't necessarily need to understand the solution below - it should be fine 
 
 `sessions`  will be an object whose keys will be the names of the sessions and values will be objects with the name of the session (we choose a random number as a name here) and user agent (you can add any other useful properties that you want to match with each session.) This will be created automatically, for example:
 
-```js
+```json
 {
-  "0.7870849452667994": {
-    "name": "0.7870849452667994",
-    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36"
-  },
-  "0.4787584713044999": {
-    "name": "0.4787584713044999",
-    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299"
-  },
-...
+    "0.7870849452667994": {
+        "name": "0.7870849452667994",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36"
+        },
+    "0.4787584713044999": {
+        "name": "0.4787584713044999",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299"
+    }
+    // ...
 }
 ```
 
@@ -77,47 +77,47 @@ This function takes `sessions`  as an argument and returns a `session`  object
 ```js
 const pickSession = (sessions, maxSessions = 100) => {
 
-// sessions is our sessions object, at the beginning instantiated as {}
-    // maxSessions  is a constant which should be the number of working proxies we aspire to have.
-    // The lower the number, the faster you will use the working proxies
-    // but the faster the new one will not be picked
-    // 100 is reasonable default
-    // Since sessions is an object, we prepare an array of the session names
-    const sessionsKeys = Object.keys(sessions);
+    // sessions is our sessions object, at the beginning instantiated as {}
+    // maxSessions is a constant which should be the number of working proxies we aspire to have.
+    // The lower the number, the faster you will use the working proxies
+    // but the faster the new one will not be picked
+    // 100 is reasonable default
+    // Since sessions is an object, we prepare an array of the session names
+    const sessionsKeys = Object.keys(sessions);
 
-console.log(`Currently we have ${sessionsKeys.length} working sessions`);
+    console.log(`Currently we have ${sessionsKeys.length} working sessions`);
 
-// We define a random floating number from 0 to 1 that will serve
-    // both as a chance to pick the session and its possible name
-    const randomNumber = Math.random();
+    // We define a random floating number from 0 to 1 that will serve
+    // both as a chance to pick the session and its possible name
+    const randomNumber = Math.random();
 
-// The chance to pick a session will be higher when we have more working sessions
-    const chanceToPickSession = sessionsKeys.length /  maxSessions;
+    // The chance to pick a session will be higher when we have more working sessions
+    const chanceToPickSession = sessionsKeys.length / maxSessions;
 
-console.log(`Chance to pick a working session is ${Math.round(chanceToPickSession * 100)}%`);
+    console.log(`Chance to pick a working session is ${Math.round(chanceToPickSession * 100)}%`);
 
-// If the chance is higher than the random number, we pick one from the working sessions
-    const willPickSession = chanceToPickSession > randomNumber;
+    // If the chance is higher than the random number, we pick one from the working sessions
+    const willPickSession = chanceToPickSession > randomNumber;
 
-if (willPickSession) {
-        // We randomly pick one of the working sessions and return it
-        const indexToPick = Math.floor(sessionsKeys.length * Math.random());
+    if (willPickSession) {
+        // We randomly pick one of the working sessions and return it
+        const indexToPick = Math.floor(sessionsKeys.length * Math.random());
 
-const nameToPick = sessionsKeys[indexToPick];
+        const nameToPick = sessionsKeys[indexToPick];
 
-console.log(`We picked a working session: ${nameToPick} on index ${indexToPick}`);
+        console.log(`We picked a working session: ${nameToPick} on index ${indexToPick}`);
 
-return sessions[nameToPick];
-    } else {
-        // We create a new session object, assign a random userAgent to it and return it
+        return sessions[nameToPick];
+    }
+    // We create a new session object, assign a random userAgent to it and return it
 
-console.log(`Creating new session: ${randomNumber}`);
+    console.log(`Creating new session: ${randomNumber}`);
 
-return {
-            name: randomNumber.toString(),
-            userAgent: Apify.utils.getRandomUserAgent(),
-        };
-    }
+    return {
+        name: randomNumber.toString(),
+        userAgent: Apify.utils.getRandomUserAgent(),
+    };
+
 };
 ```
 
@@ -126,12 +126,12 @@ return {
 We then use this function whenever we want to get the session for our request. Here is an example of how we would use it for bare bones Puppeteer (for example as a part of `BasicCrawler` class).
 
 ```js
-const session = pickSession(sessions)
+const session = pickSession(sessions);
 const browser = await Apify.launchPuppeteer({
-    useApifyProxy: true,
-    apifyProxySession: session.name,
-    userAgent: session.userAgent,
-})
+    useApifyProxy: true,
+    apifyProxySession: session.name,
+    userAgent: session.userAgent,
+});
 ```
 
 Then we only need to add the session if the request was successful or remove it if it was not. It doesn't matter if we add the same session twice or delete a non-existent session (because of how JavaScript objects work).
@@ -150,16 +150,16 @@ First we define `lauchPuppeteerFunction` which tells the crawler how to create n
 
 ```js
 const crawler = new Apify.PuppeteerCrawler({
-    launchPuppeteerFunction: async () => {
-        const session = pickSession(sessions);
-        return Apify.launchPuppeteer({
-            useApifyProxy: true,
-            userAgent: `${session.userAgent} s=${session.name}`,
-            apifyProxySession: session.name
-        })
-    },
-    // handlePageFunction etc.
-})
+    launchPuppeteerFunction: async () => {
+        const session = pickSession(sessions);
+        return Apify.launchPuppeteer({
+            useApifyProxy: true,
+            userAgent: `${session.userAgent} s=${session.name}`,
+            apifyProxySession: session.name,
+        });
+    },
+    // handlePageFunction etc.
+});
 ```
 
 We picked the session and added it to the browser as `apifyProxySession`  but for userAgent, we didn't simply passed the user agent as it is but added the session name into it. That is the hack because we can retrieve the user agent from the Puppeteer browser itself.
@@ -167,35 +167,35 @@ We picked the session and added it to the browser as `apifyProxySession`  but f
 Now we need to retrieve the session name back in the `gotoFunction` , pass it into userData and fix the hacked userAgent back to normal so it is not suspicious for the website.
 
 ```js
-const gotoFunction = async({ request, page }) => {
-    const userAgentWithSession = await page.browser().userAgent()
-    const match = userAgentWithSession.match(/(.+) s=(.+)/)
-    const session = {
-        name: match[2],
-        userAgent: match[1],
-    }
-    request.userData.session = session;
-    await page.setUserAgent(session.userAgent);
-    return page.goto(request.url, { timeout: 60000 });
-}
+const gotoFunction = async ({ request, page }) => {
+    const userAgentWithSession = await page.browser().userAgent();
+    const match = userAgentWithSession.match(/(.+) s=(.+)/);
+    const session = {
+        name: match[2],
+        userAgent: match[1],
+    };
+    request.userData.session = session;
+    await page.setUserAgent(session.userAgent);
+    return page.goto(request.url, { timeout: 60000 });
+};
 ```
 
 Now he have access to the session in the `handlePageFunction`  and the rest of the logic is the same as in the first example. We extract the session from the userData, try/catch the whole code and on success we add the session and on error we delete it. Also it is useful to retire the browser completely (check [here](http://kb.apify.com/actor/how-to-handle-blocked-requests-in-puppeteercrawler) for reference) since the other requests will probably have similar problem.
 
 ```js
 const handlePageFunction = async ({ request, page, puppeteerPool }) => {
-    const { session } = request.userData;
-    console.log(URL: ${request.url}, session: ${session.name}, userAgent: ${session.userAgent})
+    const { session } = request.userData;
+    console.log(`URL: ${request.url}, session: ${session.name}, userAgent: ${session.userAgent}`);
 
-try {
-        // your main logic that is executed on each page
-        sessions[session.name] = session;
-    } catch (e) {
-        delete sessions[session.name]
-        await puppeteerPool.retire(page.browser());
-        throw e;
-    }
-}
+    try {
+        // your main logic that is executed on each page
+        sessions[session.name] = session;
+    } catch (e) {
+        delete sessions[session.name];
+        await puppeteerPool.retire(page.browser());
+        throw e;
+    }
+};
 ```
 
 Things to consider

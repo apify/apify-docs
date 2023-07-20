@@ -35,13 +35,13 @@ There are two ways to go about obtaining these objects to be used and manipulate
 
 ```js
 // same as "document.querySelector('html').innerHTML"
-const html = $.html()
+const html = $.html();
 
-const string = html.split('window.__sc_hydration = ')[1].split(';</script>')[0]
+const string = html.split('window.__sc_hydration = ')[1].split(';</script>')[0];
 
-const data = JSON.parse(string)
+const data = JSON.parse(string);
 
-console.log(data)
+console.log(data);
 ```
 
 ### 2. Retrieving them within the context of the browser
@@ -49,9 +49,9 @@ console.log(data)
 Tools like [Puppeteer](https://github.com/puppeteer/puppeteer) allow us to run code within the context in the browser, as well as return things out of these functions and use the data back in the Node.js context.
 
 ```js
-const data = await page.evaluate(() => window.__sc_hydration)
+const data = await page.evaluate(() => window.__sc_hydration);
 
-console.log(data)
+console.log(data);
 ```
 
 Which of these methods you use totally depends on the type of crawler you are using. Grabbing the data directly from the `window` object within the context of the browser using Puppeteer is of course the most reliable solution; however, it is less performant than making a static HTTP request and parsing the object directly from the downloaded HTML.

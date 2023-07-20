@@ -38,7 +38,7 @@ const productUrls = [];
 
 for (const link of productLinks) {
     const relativeUrl = $(link).attr('href');
-    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL)
+    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL);
 
     // Collect absolute product URLs.
     productUrls.push(absoluteUrl);
@@ -89,7 +89,7 @@ const productLinks = $('a.product-item__title');
 const productUrls = [];
 for (const link of productLinks) {
     const relativeUrl = $(link).attr('href');
-    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL)
+    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL);
     productUrls.push(absoluteUrl);
 }
 
@@ -109,7 +109,7 @@ for (const url of productUrls) {
         // In the catch block, we handle errors.
         // This time, we will just print
         // the error message and the url.
-        console.error(error.message, url)
+        console.error(error.message, url);
     }
 }
 ```

@@ -66,7 +66,7 @@ import { PlaywrightCrawler, Dataset } from 'crawlee';
 const crawler = new PlaywrightCrawler({
     // We removed the headless: false option to hide the browser windows.
     requestHandler: async ({ parseWithCheerio, request, enqueueLinks }) => {
-        console.log(`Fetching URL: ${request.url}`)
+        console.log(`Fetching URL: ${request.url}`);
 
         if (request.label === 'start-url') {
             await enqueueLinks({
@@ -81,7 +81,7 @@ const crawler = new PlaywrightCrawler({
         const title = $('h1').text().trim();
         const vendor = $('a.product-meta__vendor').text().trim();
         const price = $('span.price').contents()[2].nodeValue;
-        const reviewCount = parseInt($('span.rating__caption').text());
+        const reviewCount = parseInt($('span.rating__caption').text(), 10);
         const description = $('div[class*="description"] div.rte').text().trim();
         const recommendedProducts = $('.product-recommendations a.product-item__title')
             .map((i, el) => $(el).text().trim())

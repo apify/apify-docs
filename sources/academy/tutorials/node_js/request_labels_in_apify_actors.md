@@ -16,23 +16,23 @@ When you add a request to the queue, use the userData attribute.
 ```js
 // Create a request list.
 const requestQueue = await Apify.openRequestQueue();
-//Add the request to the queue
+// Add the request to the queue
 await requestQueue.addRequest({
-    url: 'https://www.example.com/',
-    userData: {
-        label: "START"
-    }
+    url: 'https://www.example.com/',
+    userData: {
+        label: 'START',
+    },
 });
 ```
 
 So right now, we have one request in the queue that has the label "START".  Now we can specify which code should be executed for this request in the handlePageFunction.
 
 ```js
-if (request.userData.label === "START") {
- // your code for the first request for example
- // enqueue the items of a shop
-} else if (request.userData.label === "ITEM") {
- // other code for the item of a shop
+if (request.userData.label === 'START') {
+    // your code for the first request for example
+    // enqueue the items of a shop
+} else if (request.userData.label === 'ITEM') {
+    // other code for the item of a shop
 }
 ```
 
@@ -42,18 +42,18 @@ You can also handle the passing of data to the request like this. For example, w
 
 ```js
 await requestQueue.addRequest({
-    url: sellerDetailUrl,
-    userData: {
-        label: "SELLERDETAIL",
-        data: itemObject
-    }
+    url: sellerDetailUrl,
+    userData: {
+        label: 'SELLERDETAIL',
+        data: itemObject,
+    },
 });
 ```
 
 Now, in the "SELLERDETAIL" url, we can just evaluate the page and extracted data merge to the object from the item detail, for example like this
 
 ```js
-const result = Object.assign({}, request.userData.data, sellerDetail);
+const result = { ...request.userData.data, ...sellerDetail };
 ```
 
 So next just save the results and we're done!
