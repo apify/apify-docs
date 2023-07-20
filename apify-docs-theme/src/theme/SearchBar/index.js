@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { DocSearchButton, useDocSearchKeyboardEvents } from '@docsearch/react';
+import { DocSearchButton, useDocSearchKeyboardEvents } from '@apify/docsearch-apify-docs';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import { useSearchLinkCreator } from '@docusaurus/theme-common/internal';
@@ -96,8 +96,8 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
             return Promise.resolve();
         }
         return Promise.all([
-            import('@docsearch/react/modal'),
-            import('@docsearch/react/style'),
+            import('@apify/docsearch-apify-docs/modal'),
+            import('@apify/docsearch-apify-docs/style'),
             import('./styles.css'),
         ]).then(([{ DocSearchModal: Modal }]) => {
             DocSearchModal = Modal;
