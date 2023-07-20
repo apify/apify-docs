@@ -21,7 +21,7 @@ import CardGrid from "@site/src/components/CardGrid";
 
 You can use proxies in your [actors](../actors/index.mdx) or any other application that supports HTTP proxies. Apify Proxy monitors the health of your IP pool and intelligently [rotates addresses](#ip-address-rotation) to prevent IP address-based blocking.
 
-You can view your proxy settings and password on the [Proxy](https://console.apify.com/proxy) page in the Apify Console. For pricing information, visit [apify.com/pricing](https://apify.com/pricing).
+You can view your proxy settings and password on the [Proxy](https://console.apify.com/proxy) page in Apify Console. For pricing information, visit [apify.com/pricing](https://apify.com/pricing).
 
 
 ## Quickstart {#quickstart}
@@ -80,7 +80,7 @@ if __name__ == '__main__':
 
 ## Proxy types {#proxy-types}
 
-There are several types of proxy servers each of them with different advantages, disadvantages, and price. You can use them to access websites from different geographies and with different levels of anonymity.
+There are several types of proxy servers, each of them with different advantages, disadvantages, and pricing. You can use them to access websites from various geographies and with different levels of anonymity.
 
 <CardGrid>
     <Card

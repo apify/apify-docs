@@ -66,7 +66,7 @@ See a [full list](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXW
 
 ### Using the Apify SDK {#examples-using-the-apify-sdk}
 
-If you are developing your own Apify [actor](../actors/index.mdx) using the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)) and [Crawlee](https://crawlee.dev/), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler). This is because Google SERP proxy [only returns a page's HTML](./index.md). Alternatively, you can use the [got-scraping](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying proxy URL in the options. For Python, you can leverage the [`requests`](https://pypi.org/project/requests/) library along with Apify SDK.
+If you are developing your own Apify [Actor](../actors/index.mdx) using the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)) and [Crawlee](https://crawlee.dev/), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler). This is because Google SERP proxy [only returns a page's HTML](./index.md). Alternatively, you can use the [got-scraping](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying the proxy URL in the options. For Python, you can leverage the [`requests`](https://pypi.org/project/requests/) library along with the Apify SDK.
 
 The following examples get a list of search results for the keyword **wikipedia** from the USA (`google.com`).
 
@@ -153,7 +153,7 @@ await Actor.exit();
 
 ### Using standard libraries and languages {#using-standard-libraries-and-languages}
 
-You can find your proxy password on the [Proxy page](https://console.apify.com/proxy/access) of the Apify Console.
+You can find your proxy password on the [Proxy page](https://console.apify.com/proxy/access) of Apify Console.
 
 > The `username` field is **not** your Apify username.<br/>
 > Instead, you specify proxy settings (e.g. `groups-GOOGLE_SERP`).<br/>
