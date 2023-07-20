@@ -18,11 +18,6 @@ Datacenter proxies are a cheap, fast and stable way to mask your identity online
 
 Datacenter proxies allow you to mask and [rotate](./usage.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
 
-[Apify Proxy](https://apify.com/proxy) currently offers two types of datacenter proxy:
-
-* [Shared proxy groups](#shared-proxy-groups)
-* [Dedicated proxy groups](#dedicated-proxy-groups)
-
 ## Features {#features}
 
 * Periodic health checks of proxies in the pool so requests are not forwarded via dead proxies.
@@ -34,25 +29,23 @@ Datacenter proxies allow you to mask and [rotate](./usage.md#ip-address-rotation
 * Measures statistics of traffic for specific users and hostnames.
 * Allows selection of proxy servers by country.
 
-## Shared proxy groups {#shared-proxy-groups}
+## Datacenter proxy types
+
+When using Apify's datacenter proxies, you can either select a proxy group, or the `auto` mode. [Apify Proxy](https://apify.com/proxy) offers either proxy groups that are shared across multiple customers or dedicated ones.
+
+### Shared proxy groups {#shared-proxy-groups}
 
 Each user has access to a selected number of proxy servers from a shared pool. These servers are spread into groups (called proxy groups). Each group shares a common feature (location, provider, speed and so on).
 
-For a full list of plans and number of allocated proxy servers for each plan, see our [pricing](https://apify.com/pricing).
+For a full list of plans and number of allocated proxy servers for each plan, see our [pricing](https://apify.com/pricing). To get access to more servers, you can upgrade your plan in the [subscription settings](https://console.apify.com/billing/subscription);
 
-To access more servers or to use Apify Proxy without other parts of the Apify platform, [contact us](https://apify.com/contact).
-
-## Dedicated proxy groups {#dedicated-proxy-groups}
+### Dedicated proxy groups {#dedicated-proxy-groups}
 
 When you purchase access to dedicated proxy groups, they are assigned to you, and only you can use them. You gain access to a range of static IP addresses from these groups.
 
-This feature is useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation](./usage.md#ip-address-rotation), [persistent sessions](#session-persistence), and health checking).
-
-If you do not have your own pool, the [customer support](https://apify.com/contact) team can set up a dedicated group for you based on your needs and requirements.
+This feature is also useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation](./usage.md#ip-address-rotation), [persistent sessions](#session-persistence), and health checking). If you do not have your own pool, the [customer support](https://apify.com/contact) team can set up a dedicated group for you based on your needs and requirements.
 
 Prices for dedicated proxy servers are mainly based on the number of proxy servers, their type, and location. [Contact us](https://apify.com/contact) for more information.
-
-[Contact us](https://apify.com/contact) for more details or if you have any questions.
 
 ## Connecting to datacenter proxies {#connecting-to-datacenter-proxies}
 
