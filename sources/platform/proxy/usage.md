@@ -143,8 +143,8 @@ There are times when the `502` status code is not comprehensive enough. Therefor
 
 The typical issues behind these codes are:
 
-- `590` and `592` indicate an issue on the upstream side.
-- `593` indicates an incorrect `proxy-chain` configuration.
-- `594`, `595` and `596` may occur due to connection loss.
-- `597` indicates incorrect upstream credentials.
-- `599` is a generic error, where the above is not applicable.
+* `590` and `592` indicate an issue on the upstream side.
+* `593` indicates an incorrect `proxy-chain` configuration.
+* `594`, `595` and `596` may occur due to connection loss.
+* `597` indicates incorrect upstream credentials.
+* `599` is a generic error, where the above is not applicable.
