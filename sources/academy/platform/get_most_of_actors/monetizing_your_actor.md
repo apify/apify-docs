@@ -44,7 +44,7 @@ Invoices are created automatically at the beginning of the new month, just under
 
 **You choose the price and free trial length of your actor.** Apify can give you advice about the best practices of the most successful actors, but at the end of the day, we give developers full control over the pricing strategy of their tools.
 
-**Note:** You are allowed to adjust the price of the Actor only once per month. Please refer to our [Terms & Conditions](https://apify.com/store-terms-and-conditions) for further details and guidelines.
+> You are allowed to adjust the price of the Actor only once per month. Please refer to our [Terms & Conditions](https://apify.com/store-terms-and-conditions) for further details and guidelines.
 
 ### Where can I keep track of my paid actor’s users and earnings on the Apify platform?
 
