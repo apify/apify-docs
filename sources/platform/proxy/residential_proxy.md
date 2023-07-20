@@ -1,9 +1,12 @@
 ---
 title: Residential proxy
 description: Achieve a higher level of anonymity using IP addresses from human users. Access a wider pool of proxies and reduce blocking by websites' anti-scraping measures.
-sidebar_position: 10.4
+sidebar_position: 10.3
 slug: /proxy/residential-proxy
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Residential proxy {#residential-proxy}
 
@@ -15,7 +18,7 @@ Residential proxies use IP addresses assigned by Internet Service Providers to t
 
 This solution allows you to access a larger pool of servers than datacenter proxy. This makes it a better option in cases when you need a large number of different IP addresses.
 
-Residential proxies support [IP address rotation](./index.md#ip-address-rotation) and [sessions](#session-persistence).
+Residential proxies support [IP address rotation](./usage.md#ip-address-rotation) and [sessions](#session-persistence).
 
 **Pricing is based on data traffic**. It is measured for each connection made and displayed on your [proxy usage dashboard](https://console.apify.com/proxy/usage) in the Apify Console.
 
@@ -99,7 +102,7 @@ await Actor.exit();
 ```
 
 </TabItem>
-<TabItem value="JavaScript" label="JavaScript">
+<TabItem value="Python" label="Python">
 
 ```python
 from apify import Actor
@@ -117,32 +120,11 @@ async with Actor:
 </TabItem>
 </Tabs>
 
-### Username examples {#username-examples}
-
-Use randomly allocated IP addresses from all available countries:
-
-```text
-groups-RESIDENTIAL
-```
-
-A random proxy from the US:
-
-```text
-groups-RESIDENTIAL,country-US
-```
-
-Set a session and select an IP address from the United States:
-
-```text
-groups-RESIDENTIAL,session-my_session_1,country-US
-```
-
-
 ## Session persistence {#session-persistence}
 
-When using residential proxy with the `session` [parameter](./index.md#sessions) set in the [username](./usage.md#username-parameters), a single IP address is assigned to the **session ID** provided after you make the first request.
+When using residential proxy with the `session` [parameter](./usage.md#sessions) set in the [username](./usage.md#username-parameters), a single IP address is assigned to the **session ID** provided after you make the first request.
 
-**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./index.md#sessions)]
+**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./usage.md#sessions)]
 
 This IP/session ID combination is persisted for 1 minute. Each subsequent request resets the expiration time to 1 minute.
 
@@ -151,7 +133,7 @@ If the proxy server becomes unresponsive or the session expires, a new IP addres
 > If you really need to persist the same session, you can try sending some data using that session (e.g. every 20 seconds) to keep it alive.<br/>
 > Providing the connection is not interrupted, this will let you keep the IP address for longer.
 
-To learn more about [sessions](./index.md#sessions) and [IP address rotation](./index.md#ip-address-rotation), see the proxy [overview page](./index.md).
+To learn more about [sessions](./usage.md#sessions) and [IP address rotation](./usage.md#ip-address-rotation), see the proxy [overview page](./index.md).
 
 ## Tips to keep in mind {#tips-to-keep-in-mind}
 
@@ -165,9 +147,9 @@ To reduce your traffic use, we recommend using the `blockRequests()` function of
 
 ### Connected proxy speed variation {#connected-proxy-speed-variation}
 
-Each host on the residential proxy network uses a different device. They have different network speeds and different latencies. This means that requests made with one [session](./index.md#sessions) can be extremely fast, while another request with a different session can be extremely slow. The difference can range from a few milliseconds to a few seconds.
+Each host on the residential proxy network uses a different device. They have different network speeds and different latencies. This means that requests made with one [session](./usage.md#sessions) can be extremely fast, while another request with a different session can be extremely slow. The difference can range from a few milliseconds to a few seconds.
 
-If your solution requires quickly loaded content, the best option is to set a [session](./index.md#sessions), try a small request and see if the response time is acceptable. If it is, you can use this session for other requests. Otherwise, repeat the attempt with a different session.
+If your solution requires quickly loaded content, the best option is to set a [session](./usage.md#sessions), try a small request and see if the response time is acceptable. If it is, you can use this session for other requests. Otherwise, repeat the attempt with a different session.
 
 ### Connection interruptions {#connection-interruptions}
 
