@@ -24,7 +24,7 @@
         "axios": "^1.4.0",
         "babel-loader": "^9.1.2",
         "docusaurus-gtm-plugin": "^0.0.2",
-        "prism-react-renderer": "^1.3.5"
+        "prism-react-renderer": "^2.0.0"
     },
     "peerDependencies": {
         "@apify/docsearch-apify-docs": "^3.5.3",
