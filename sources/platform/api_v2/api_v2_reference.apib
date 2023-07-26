@@ -2247,6 +2247,24 @@ For more information, see the [Actor docs](https://docs.apify.com/platform/actor
     + Attributes
         - data (RunMetamorphed, required)
 
+## Reboot run [/v2/actor-runs/{runId}/reboot{?token}]
+
+### Reboot run [POST]
+
+Reboots an actor run and returns an object that contains all the details about the rebooted run.
+Only runs that are running, i.e. runs with status `RUNNING` can be rebooted.
+The run's container will be restarted.
+
++ Parameters
+
+    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Actor run ID.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (Run, required)
+
 ## Resurrect run [/v2/acts/{actorId}/runs/{runId}/resurrect{?token,build,timeout,memory}]
 
 ### Resurrect run [POST]
