@@ -122,7 +122,7 @@ export default function ApiDocs() {
 
     return (
         <Layout
-            title={`API reference | ${siteConfig.title}`}
+            title={`API reference`}
             description={siteConfig.description}>
             <div id="nav-empty-space"/>
             <div style={{ width: '100%' }}>
