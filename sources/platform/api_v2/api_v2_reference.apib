@@ -2253,7 +2253,7 @@ For more information, see the [Actor docs](https://docs.apify.com/platform/actor
 
 Reboots an actor run and returns an object that contains all the details about the rebooted run.
 Only runs that are running, i.e. runs with status `RUNNING` can be rebooted.
-The run's container will be restarted.
+The run's container will be restarted, so any data not persisted in the key-value store, dataset, or request queue will be lost.
 
 + Parameters
 
