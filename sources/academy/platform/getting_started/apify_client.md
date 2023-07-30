@@ -166,8 +166,6 @@ print(items)
 </TabItem>
 </Tabs>
 
-> Notice that in the JavaScript example, we had to convert the `items` to a [`Buffer`](https://nodejs.org/api/buffer.html), then convert the Buffer to a string and parse it. This is because `dataset.downloadItems()` returns a buffer.
-
 The final code for running the actor and fetching its dataset items looks like this:
 
 <Tabs groupId="main">
