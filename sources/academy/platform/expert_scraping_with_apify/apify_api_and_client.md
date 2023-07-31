@@ -30,9 +30,9 @@ There are two main ways to programmatically interact with the Apify platform: by
 
 ## Our task
 
-In the previous lesson, we created a **task** for the Amazon actor we build in the first two lessons of this course. Now, we'll be creating another new actor, which will have two jobs:
+In the previous lesson, we created a **task** for the Amazon actor we built in the first two lessons of this course. Now, we'll be creating another new actor, which will have two jobs:
 
-1. Programmatically call the Amazon actor.
+1. Programmatically call the task for the Amazon actor.
 2. Export its results into CSV format under a new key called **OUTPUT.csv** in the default key-value store.
 
 Though it's a bit unintuitive, this is a perfect activity for learning how to use both the Apify API and the Apify JavaScript client.
