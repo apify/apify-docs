@@ -37,7 +37,7 @@ interface Person {
     name: string;
     age: number;
     hobbies: string[];
-};
+}
 ```
 
 When creating a new interface, you can also use the `extends` keyword to inherit all of the object properties from another interface (or type alias):

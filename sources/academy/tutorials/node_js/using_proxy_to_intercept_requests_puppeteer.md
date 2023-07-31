@@ -12,11 +12,10 @@ One possible way to intercept these requests is to use a man-in-the-middle (MITM
 First we set up the MITM proxy:
 
 ```js
+const { promisify } = require('util');
+const { exec } = require('child_process');
 const Proxy = require('http-mitm-proxy');
 const Promise = require('bluebird');
-const { promisify } = require('util');
-
-const { exec } = require('child_process');
 
 const execPromise = promisify(exec);
 
