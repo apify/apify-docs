@@ -103,10 +103,10 @@ When we complete the code, it looks like this. Replace the code in your **main.j
 
 ```js
 // main.js
+import { writeFileSync } from 'fs'; // <---- added a new import
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 import { parse } from 'json2csv';
-import { writeFileSync } from 'fs'; // <---- added a new import
 
 const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 
