@@ -28,8 +28,8 @@ we could can use this piece of code
 ```js
 await page.setRequestInterception(true);
 page.on('request', (request) => {
-            if (someCondition) request.abort();
-            else request.continue();
+    if (someCondition) request.abort();
+    else request.continue();
 });
 ```
 
@@ -42,17 +42,17 @@ Here is the code used:
 ```js
 await page.setRequestInterception(true);
 page.on('request', (request) => {
-    const url = request.url();
-    const filters = [
-        'livefyre',
-        'moatad',
-        'analytics',
-        'controltag',
-        'chartbeat',
-    ];
-    const shouldAbort = filters.some((urlPart) => url.includes(urlPart));
-    if (shouldAbort) request.abort();
-    else request.continue();
+    const url = request.url();
+    const filters = [
+        'livefyre',
+        'moatad',
+        'analytics',
+        'controltag',
+        'chartbeat',
+    ];
+    const shouldAbort = filters.some((urlPart) => url.includes(urlPart));
+    if (shouldAbort) request.abort();
+    else request.continue();
 });
 ```
 

@@ -43,20 +43,20 @@ import { FingerprintGenerator } from 'fingerprint-generator';
 // Instantiate the fingerprint generator with
 // configuration options
 const fingerprintGenerator = new FingerprintGenerator({
-  browsers: [
-      { name: "firefox", minVersion: 80 },
-  ],
-  devices: [
-      "desktop"
-  ],
-  operatingSystems: [
-      "windows"
-  ]
+    browsers: [
+        { name: 'firefox', minVersion: 80 },
+    ],
+    devices: [
+        'desktop',
+    ],
+    operatingSystems: [
+        'windows',
+    ],
 });
 
 // Grab a fingerprint from the fingerprint generator
 const generated = fingerprintGenerator.getFingerprint({
-  locales: ["en-US", "en"]
+    locales: ['en-US', 'en'],
 });
 ```
 
@@ -78,27 +78,27 @@ const browser = await chromium.launch();
 // Instantiate the fingerprint generator with
 // configuration options
 const fingerprintGenerator = new FingerprintGenerator({
-  browsers: [
-      { name: "firefox", minVersion: 80 },
-  ],
-  devices: [
-      "desktop"
-  ],
-  operatingSystems: [
-      "windows"
-  ]
+    browsers: [
+        { name: 'firefox', minVersion: 80 },
+    ],
+    devices: [
+        'desktop',
+    ],
+    operatingSystems: [
+        'windows',
+    ],
 });
 
 // Grab a fingerprint
 const generated = fingerprintGenerator.getFingerprint({
-  locales: ["en-US", "en"]
+    locales: ['en-US', 'en'],
 });
 
 // Create a new browser context, plugging in
 // some values from the fingerprint
 const context = await browser.newContext({
-  userAgent: generated.fingerprint.userAgent,
-  locale: generated.fingerprint.navigator.language,
+    userAgent: generated.fingerprint.userAgent,
+    locale: generated.fingerprint.navigator.language,
 });
 
 // Attach the fingerprint to the newly created
@@ -124,11 +124,11 @@ Headers are also used by websites to fingerprint users (or bots), so it might so
 import BrowserHeadersGenerator from 'browser-headers-generator';
 
 const browserHeadersGenerator = new BrowserHeadersGenerator({
-  operatingSystems: ['windows'],
-  browsers: ['chrome'],
+    operatingSystems: ['windows'],
+    browsers: ['chrome'],
 });
 
-await browserHeadersGenerator.initialize()
+await browserHeadersGenerator.initialize();
 
-const randomBrowserHeaders = await browserHeadersGenerator.getRandomizedHeaders()
+const randomBrowserHeaders = await browserHeadersGenerator.getRandomizedHeaders();
 ```

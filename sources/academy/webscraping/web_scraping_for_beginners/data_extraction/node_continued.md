@@ -2,7 +2,7 @@
 title: Node.js scraper - II
 description: Continue learning how to create a web scraper with Node.js and Cheerio. Learn how to parse HTML and print the results of the data your scraper has collected.
 sidebar_position: 7
-slug: /web-scraping-for-beginners/data-collection/node-continued
+slug: /web-scraping-for-beginners/data-extraction/node-continued
 ---
 
 # Finish Node.js scraper {#finish-scraper}
@@ -24,7 +24,9 @@ To get all the elements with that class using Cheerio, we call the `$` function 
 ```js
 // In browser DevTools Console
 const products = document.querySelectorAll('.product-item');
+```
 
+```js
 // In Node.js with Cheerio
 const products = $('.product-item');
 ```
@@ -138,24 +140,30 @@ console.log(results);
 
 After running the code, you will see this output in your terminal:
 
-```json
+```js
 [
-  {
-    title: 'JBL Flip 4 Waterproof Portable Bluetooth Speaker',
-    price: '$74.95'
-  },
-  {
-    title: 'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV',
-    price: 'From $1,398.00'
-  },
-  { title: 'Sony SACS9 10" Active Subwoofer', price: '$158.00' },
-  { title: 'Sony PS-HX500 Hi-Res USB Turntable', price: '$398.00' },
-  {
-    title: 'Klipsch R-120SW Powerful Detailed Home Speaker - Unit',
-    price: '$324.00'
-  },
-
-...
+    {
+        title: 'JBL Flip 4 Waterproof Portable Bluetooth Speaker',
+        price: '$74.95',
+    },
+    {
+        title: 'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV',
+        price: 'From $1,398.00',
+    },
+    {
+        title: 'Sony SACS9 10" Active Subwoofer',
+        price: '$158.00',
+    },
+    {
+        title: 'Sony PS-HX500 Hi-Res USB Turntable',
+        price: '$398.00',
+    },
+    {
+        title: 'Klipsch R-120SW Powerful Detailed Home Speaker - Unit',
+        price: '$324.00',
+    },
+    // ...and more
+];
 ```
 
 Congratulations! You completed the **Basics of data extraction** section of the Web scraping for beginners course. A quick recap of what you learned:

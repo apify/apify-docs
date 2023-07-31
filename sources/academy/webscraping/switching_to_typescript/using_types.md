@@ -26,7 +26,7 @@ In the previous lesson, we got a rough idea of how types are used by utilizing t
 Just because we're writing TS files doesn't mean we need to explicitly define the type of every single value/parameter though. We'll create a new file called **using-types.ts** and create a basic variable:
 
 ```ts
-let value = 10;
+const value = 10;
 ```
 
 When hovering over the variable, we see that TypeScript was smart enough to infer that the data type stored in `value` should always be a number.
@@ -37,6 +37,7 @@ Attempting to reassign `value` to be a type other than a number will result in a
 
 But what if we want to declare the variable with no initial value, then change it later?
 
+<!-- eslint-disable -->
 ```ts
 let value;
 
@@ -77,7 +78,7 @@ value = 'hello academy!';
 
 // This will throw a compiler error, because we didn't include
 // number arrays in our union type.
-value = [1, 2, 3]
+value = [1, 2, 3];
 ```
 
 Later in this course, we'll be getting more into union types.

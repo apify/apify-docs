@@ -2,7 +2,7 @@
 title: Browser DevTools - I
 description: Learn about browser DevTools, a valuable tool in the world of web scraping , and how you can use them to extract data from a website.
 sidebar_position: 1
-slug: /web-scraping-for-beginners/data-collection/browser-devtools
+slug: /web-scraping-for-beginners/data-extraction/browser-devtools
 ---
 
 # Browser DevTools {#devtools}
@@ -48,13 +48,13 @@ After you select the subtitle element, right-click the highlighted element in th
 For example, if you wanted to scrape the text inside the element, you could use the `textContent` property to get it. Copy and paste (or type) the following command into your Console and press Enter. The text of your `temp1` element - The Free Encyclopedia - will display in the Console.
 
 ```js
-temp1.textContent
+temp1.textContent;
 ```
 
 Now run this command to get the HTML of the element:
 
 ```js
-temp1.outerHTML
+temp1.outerHTML;
 ```
 
 And finally, run the next command to change the text of the element.

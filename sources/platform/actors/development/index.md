@@ -1,35 +1,54 @@
 ---
 title: Development
-description: Read about the technical part of building Apify actors. Learn to define actor inputs, build new versions, persist actor state, and choose base Docker images.
+desc: Read about the technical part of building Apify Actors. Learn to define actor inputs, build new versions, persist actor state, and choose base Docker images.
 sidebar_position: 7.4
 slug: /actors/development
 ---
 
-# Development
-
-**Read about the technical part of building Apify actors. Learn to define actor inputs, build new versions, persist actor state, and choose base Docker images.**
+**Read about the technical part of building Apify Actors. Learn to define actor inputs, build new versions, persist actor state, and choose base Docker images.**
 
 ---
 
-In this section, you can find documentation on creating your own actors using the Apify platform.
+This section will guide you through the whole story of [Actor](../index.mdx) development.
 
-**If you're interested in building paid actors, contact [community@apify.com](mailto:community@apify.com) to receive the guide.**
+You can follow chapters sequentially from [Quick start](./quick_start/index.mdx), where you learn how to create your first Actor in just a few minutes, through the more technical sections describing the whole Actor model, up to the [Performance](./performance.md) section, where you learn how to fine-tune your Actor to get the most out of the Apify platform.
 
-## Before you begin
+import Card from "@site/src/components/Card";
+import CardGrid from "@site/src/components/CardGrid";
 
-Here are some resources that will help you go from beginner to pro. If you have any questions, join other devs on our [Discord server](https://discord.gg/jyEM2PRvMU) or contact us at [community@apify.com](mailto:community@apify.com).
+<CardGrid>
+    <Card
+        title="Quick start"
+        to="/platform/actors/development/quick-start"
+        desc="Create your first Actor using Apify Console IDE or locally."
+    />
+    <Card
+        title="Actor definition"
+        to="/platform/actors/development/actor-definition"
+        desc="Learn how to turn your arbitrary code into an Actor simply by adding an Actor definition directory."
+    />
+    <Card
+        title="Programming interface"
+        to="/platform/actors/development/programming-interface"
+        desc="Learn about the programming interface of Apify Actors, important commands and features provided by the Apify SDK, and how to use them in your Actors."
+    />
+    <Card
+        title="Deployment"
+        to="/platform/actors/development/deployment"
+        desc="Learn how to deploy your Actors to the Apify platform and build them."
+    />
+    <Card
+        title="Builds and runs"
+        to="/platform/actors/development/builds-and-runs"
+        desc="Learn about Actor builds and runs, their lifecycle, versioning, and other properties."
+    />
+    <Card
+        title="Performance"
+        to="/platform/actors/development/Performance"
+        desc="Learn how to get the maximum value out of your Actors, minimize costs, and maximize results."
+    />
+</CardGrid>
 
-- Get familiar with [the Apify platform](https://www.youtube.com/watch?v=nn-bCRvhNUM) and [actors](../index.md).
-- [Check out our public wiki](https://gitlab.com/apify-public/wiki/-/wikis/home). It contains key information, best practices, and advice for building actors.
-- [How to and how not to write an actor](https://gitlab.com/apify-public/wiki/-/wikis/writing-actors/how-to-write-and-not-write-an-actor).
-- [Actor performance and optimization](https://gitlab.com/apify-public/wiki/-/wikis/writing-actors/actor-performance-and-optimization).
-- [Help articles](https://help.apify.com/en/collections/1669782-publishing-to-apify-store).
+---
 
-## Essential materials
-
-- [Actor input](https://gitlab.com/apify-public/wiki/-/wikis/public-actors/input).
-- README:
-  - [How to make your README great](/academy/get-most-of-actors/actor-readme).
-- [How to structure your actor's files](https://gitlab.com/apify-public/wiki/-/wikis/public-actors/structure).
-- [Actor building checklist](https://gitlab.com/apify-public/wiki/-/wikis/public-actors/checklist).
-- [Naming your actor](/academy/get-most-of-actors/naming-your-actor).
+After you development, you can jump to the section [Publishing and monetization](../publishing/index.mdx) to learn about how to publish your Actor in [Apify Store](https://apify.com/store) and monetize it by renting it out to users of the platform.

@@ -47,14 +47,14 @@ Before we start, let's do a quick recap of the data we chose to scrape:
    5. **Last modification date** - When the actor was last modified.
    6. **Number of runs** - How many times the actor was run.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/scraping-practice.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/scraping-practice.webp)
 
 We've already scraped number 1 and 2 in the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started)
 tutorial, so let's get to the next one on the list: title.
 
 ### [](#title) Title
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/title.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/title.webp)
 
 By using the element selector tool, we find out that the title is there under an `<h1>` tag, as titles should be.
 Maybe surprisingly, we find that there are actually two `<h1>` tags on the detail page. This should get us thinking.
@@ -70,9 +70,13 @@ And as we already know, there's only one.
 
 ```js
 // Using Cheerio.
-return {
-    title: $('header h1').text(),
-};
+async function pageFunction(context) {
+    const { $ } = context;
+    // ... rest of your code can come here
+    return {
+        title: $('header h1').text(),
+    };
+}
 ```
 
 ### [](#description) Description
@@ -81,31 +85,39 @@ Getting the actor's description is a little more involved, but still pretty stra
 there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the actor description is nested within
 the `<header>` element too, same as the title. Moreover, the actual description is nested inside a `<span>` tag with a class `actor-description`.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.webp)
 
 ```js
-return {
-    title: $('header h1').text(),
-    description: $('header span.actor-description').text(),
-};
+async function pageFunction(context) {
+    const { $ } = context;
+    // ... rest of your code can come here
+    return {
+        title: $('header h1').text(),
+        description: $('header span.actor-description').text(),
+    };
+}
 ```
 
 ### [](#modified-date) Modified date
 
 The DevTools tell us that the `modifiedDate` can be found in a `<time>` element.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/modified-date.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/modified-date.webp)
 
 ```js
-return {
-    title: $('header h1').text(),
-    description: $('header span.actor-description').text(),
-    modifiedDate: new Date(
-        Number(
-            $('ul.ActorHeader-stats time').attr('datetime'),
+async function pageFunction(context) {
+    const { $ } = context;
+    // ... rest of your code can come here
+    return {
+        title: $('header h1').text(),
+        description: $('header span.actor-description').text(),
+        modifiedDate: new Date(
+            Number(
+                $('ul.ActorHeader-stats time').attr('datetime'),
+            ),
         ),
-    ),
-};
+    };
+}
 ```
 
 It might look a little too complex at first glance, but let us walk you through it. We find all the `<time>` elements. Then, we read its `datetime` attribute, because that's where a unix timestamp is stored as a `string`.
@@ -120,21 +132,25 @@ And so we're finishing up with the `runCount`. There's no specific element like 
 a complex selector and then do a transformation on the result.
 
 ```js
-return {
-    title: $('header h1').text(),
-    description: $('header span.actor-description').text(),
-    modifiedDate: new Date(
-        Number(
-            $('ul.ActorHeader-stats time').attr('datetime'),
+async function pageFunction(context) {
+    const { $ } = context;
+    // ... rest of your code can come here
+    return {
+        title: $('header h1').text(),
+        description: $('header span.actor-description').text(),
+        modifiedDate: new Date(
+            Number(
+                $('ul.ActorHeader-stats time').attr('datetime'),
+            ),
         ),
-    ),
-    runCount: Number(
-        $('ul.ActorHeader-stats > li:nth-of-type(3)')
-            .text()
-            .match(/[\d,]+/)[0]
-            .replace(/,/g, ''),
-    ),
-};
+        runCount: Number(
+            $('ul.ActorHeader-stats > li:nth-of-type(3)')
+                .text()
+                .match(/[\d,]+/)[0]
+                .replace(/,/g, ''),
+        ),
+    };
+}
 ```
 
 The `ul.ActorHeader-stats > li:nth-of-type(3)` looks complicated, but it only reads that we're looking for a `<ul class="ActorHeader-stats ...">` element and within that
@@ -155,32 +171,34 @@ And there we have it! All the data we needed in a single object. For the sake of
 the properties we parsed from the URL earlier and we're good to go.
 
 ```js
-const { url } = request;
+async function pageFunction(context) {
+    const { $ } = context;
+    const { url } = request;
+    // ... rest of your code can come here
 
-// ...
+    const uniqueIdentifier = url
+        .split('/')
+        .slice(-2)
+        .join('/');
 
-const uniqueIdentifier = url
-    .split('/')
-    .slice(-2)
-    .join('/');
-
-return {
-    url,
-    uniqueIdentifier,
-    title: $('header h1').text(),
-    description: $('header span.actor-description').text(),
-    modifiedDate: new Date(
-        Number(
-            $('ul.ActorHeader-stats time').attr('datetime'),
+    return {
+        url,
+        uniqueIdentifier,
+        title: $('header h1').text(),
+        description: $('header span.actor-description').text(),
+        modifiedDate: new Date(
+            Number(
+                $('ul.ActorHeader-stats time').attr('datetime'),
+            ),
         ),
-    ),
-    runCount: Number(
-        $('ul.ActorHeader-stats > li:nth-of-type(3)')
-            .text()
-            .match(/[\d,]+/)[0]
-            .replace(/,/g, ''),
-    ),
-};
+        runCount: Number(
+            $('ul.ActorHeader-stats > li:nth-of-type(3)')
+                .text()
+                .match(/[\d,]+/)[0]
+                .replace(/,/g, ''),
+        ),
+    };
+}
 ```
 
 All we need to do now is add this to our `pageFunction`:
@@ -258,7 +276,7 @@ the Network tab of the Chrome DevTools.
 We want to know what happens when we click the **Show more** button, so we open the DevTools **Network** tab and clear it.
 Then we click the **Show more** button and wait for incoming requests to appear in the list.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/inspect-network.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/inspect-network.webp)
 
 Now, this is interesting. It seems that we've only received two images after clicking the button and no additional
 data. This means that the data about actors must already be available in the page and the **Show more** button only displays it. This is good news.
@@ -271,7 +289,7 @@ few hits do not provide any interesting information, but in the end, we find our
 with the ID `__NEXT_DATA__` that seems to hold a lot of information about Web Scraper. In DevTools,
 you can right click an element and click **Store as global variable** to make this element available in the **Console**.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/find-data.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/find-data.webp)
 
 A `temp1` variable is now added to your console. We're mostly interested in its contents and we can get that using
 the `temp1.textContent` property. You can see that it's a rather large JSON string. How do we know?
@@ -285,7 +303,7 @@ const data = JSON.parse(temp1.textContent);
 After entering the above command into the console, we can inspect the `data` variable and see that all the information
 we need is there, in the `data.props.pageProps.items` array. Great!
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/inspect-data.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/inspect-data.webp)
 
 > It's obvious that all the information we set to scrape is available in this one data object,
 so you might already be wondering, can I just make one request to the store to get this JSON
@@ -313,7 +331,7 @@ for (const item of data.props.pageProps.items) {
         userData: {
             // Don't forget the label.
             label: 'DETAIL',
-        }
+        },
     });
 }
 ```
@@ -421,6 +439,7 @@ async function pageFunction(context) {
     switch (context.request.userData.label) {
         case 'START': return handleStart(context);
         case 'DETAIL': return handleDetail(context);
+        default: throw new Error('Unknown request label.');
     }
 
     async function handleStart({ log, waitFor, $ }) {

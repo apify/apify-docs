@@ -296,7 +296,7 @@ By default, TypeScript doesn't know how to handle or recognize modules imported 
         "strict": true,
         "moduleResolution": "node",
         "skipLibCheck": true, /* this will prevent TS errors from happening due to library errors */
-        "module": "commonjs",
+        "module": "commonjs"
     },
     "exclude": ["node_modules"],
     "include": ["src/"]

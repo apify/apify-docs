@@ -42,7 +42,6 @@ await page.goto('https://google.com');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -63,7 +62,6 @@ await page.goto('https://google.com');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -101,7 +99,6 @@ console.log(msg);
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -124,7 +121,6 @@ console.log(msg);
 
 await page.waitForTimeout(20000);
 await browser.close();
-
 ```
 
 </TabItem>

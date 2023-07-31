@@ -27,7 +27,7 @@ Depending on how you arrived at this tutorial, you may already have your first t
 
 > This tutorial covers the use of **Web**, **Cheerio**, and **Puppeteer** scrapers, but a lot of the information here can be used with all actors. For this tutorial, we will select **Web Scraper**.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/actor-selection.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/actor-selection.webp)
 
 ### [](#running-a-task) Running a task
 
@@ -35,7 +35,7 @@ This takes you to the **Input and options** tab of the task configuration. Befor
 
 Scroll down to the **Performance and limits** section and set the **Max pages per run** option to **10**. This tells your task to finish after 10 pages have been visited. We don't need to crawl the whole domain just to see that the actor works.
 
-> This also helps with keeping your [compute unit](/platform/actors/running/compute-units) (CU) consumption low. Just to get an idea, our free plan includes 10 CUs and this run will consume about 0.04 CU, so you can run it 250 times a month for free. If you accidentally go over the limit, no worries, we won't charge you for it. You just won't be able to run more tasks that month.
+> This also helps with keeping your [compute unit](/platform/actors/running/usage-and-resources) (CU) consumption low. Just to get an idea, our free plan includes 10 CUs and this run will consume about 0.04 CU, so you can run it 250 times a month for free. If you accidentally go over the limit, no worries, we won't charge you for it. You just won't be able to run more tasks that month.
 
 Now click **Save & Run**! *(in the bottom-left part of your screen)*
 
@@ -47,7 +47,7 @@ After clicking **Save & Run**, the window will change to the run detail. Here, y
 
 Now that the run has `SUCCEEDED`, click on the glowing **Results** card to see the scrape's results. This takes you to the **Dataset** tab, where you can display or download the results in various formats. For now, just click the **Preview** button. Voila, the scraped data!
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/the-run-detail.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/the-run-detail.webp)
 
 Good job! We've run our first task and got some results. Let's learn how to change the default configuration to scrape something more interesting than just the page's `<title>`.
 
@@ -55,7 +55,7 @@ Good job! We've run our first task and got some results. Let's learn how to chan
 
 Before we jump into the scraping itself, let's just have a quick look at the user interface that's available to us. Click on the task's name in the top-left corner to visit the task's configuration.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/task-name.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/task-name.webp)
 
 ### [](#input) Input and options
 
@@ -204,7 +204,7 @@ The DevTools window will pop up and display a lot of, perhaps unfamiliar, inform
 
 You'll see that the Element tab jumps to the first `<title>` element of the current page and that the title is **Store · Apify**. It's always good practice to do your research using the DevTools before writing the `pageFunction` and running your task.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/using-devtools.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/using-devtools.webp)
 
 > For the sake of brevity, we won't go into the details of using the DevTools in this tutorial. If you're just starting out with DevTools, this [Google tutorial](https://developers.google.com/web/tools/chrome-devtools/) is a good place to begin.
 
@@ -231,7 +231,7 @@ async function pageFunction(context) {
         // Do some scraping.
         return {
             // Scraped data.
-        }
+        };
     }
 }
 ```
@@ -257,9 +257,12 @@ The `pageFunction` may only return nothing, `null`, `Object` or `Object[]`. If a
 The scraping results are saved in a [dataset](/platform/storage/dataset) (one of the tabs in the run console, as you may remember). It behaves like a table. Each item is a row in the table and its properties are its columns. Returning the following `Object`:
 
 ```js
-{
-    url: 'https://apify.com',
-    title: 'Web Scraping, Data Extraction and Automation - Apify'
+async function pageFunction(context) {
+    // ... rest of your code
+    return {
+        url: 'https://apify.com',
+        title: 'Web Scraping, Data Extraction and Automation - Apify',
+    };
 }
 ```
 

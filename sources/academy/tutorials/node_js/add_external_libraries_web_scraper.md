@@ -22,20 +22,20 @@ Now we have two options. Inject the library using plain JavaScript, or if you pr
 ## Injecting a library with plain JavaScript
 
 ```js
-async function pageFunction(context) {\
-    const libraryUrl = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js";
+async function pageFunction(context) {
+    const libraryUrl = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js';
 
-// Inject Moment.js\
-    await new Promise((resolve) => {\
-        const script = document.createElement("script");\
-        script.src = libraryUrl;\
-        script.addEventListener('load', resolve);\
-        document.body.append(script);\
-    });
+    // Inject Moment.js\
+    await new Promise((resolve) => {
+        const script = document.createElement('script');
+        script.src = libraryUrl;
+        script.addEventListener('load', resolve);
+        document.body.append(script);
+    });
 
-// Confirm that it works.\
-    const now = moment().format("ddd, hA");\
-    context.log.info("NOW: " + now);\
+    // Confirm that it works.\
+    const now = moment().format('ddd, hA');
+    context.log.info(`NOW: ${now}`);
 }
 ```
 
@@ -46,17 +46,17 @@ We're creating a script element in the page's DOM and waiting for the script to 
 After you select the Inject jQuery input option, jQuery will become available in your page function as `context.jQuery` .
 
 ```js
-async function pageFunction(context) {\
-    const libraryUrl = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js";
+async function pageFunction(context) {
+    const libraryUrl = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js';
 
-const $ = context.jQuery;
+    const $ = context.jQuery;
 
-// Inject Moment.js\
-    await $.getScript(libraryUrl);
+    // Inject Moment.js\
+    await $.getScript(libraryUrl);
 
-// Confirm that it works.\
-    const now = moment().format("ddd, hA");\
-    context.log.info("NOW: " + now);\
+    // Confirm that it works.\
+    const now = moment().format('ddd, hA');
+    context.log.info(`NOW: ${now}`);
 }
 ```
 

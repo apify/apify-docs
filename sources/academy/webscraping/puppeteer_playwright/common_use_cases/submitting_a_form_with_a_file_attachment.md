@@ -33,7 +33,7 @@ For a binary data file, we need to provide an additional parameter so as not to 
 ```js
 const fileData = await request({
     uri: 'https://some-site.com/file.pdf',
-    encoding: null
+    encoding: null,
 });
 ```
 

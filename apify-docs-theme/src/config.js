@@ -78,7 +78,7 @@ const themeConfig = ({
                         rel: 'dofollow',
                     },
                     {
-                        html: 'SDK for Python <span class="beta-chip">beta</span>',
+                        html: 'SDK for Python',
                         href: `${absoluteUrl}/sdk/python/`, // we need a trailing slash here, we'd get redirected there anyway
                         target: '_self',
                         rel: 'dofollow',
@@ -140,9 +140,9 @@ const themeConfig = ({
     },
     prism: {
         defaultLanguage: 'typescript',
-        theme: require('prism-react-renderer/themes/github'),
-        darkTheme: require('prism-react-renderer/themes/dracula'),
-        additionalLanguages: ['docker', 'log'],
+        theme: require('prism-react-renderer').themes.github,
+        darkTheme: require('prism-react-renderer').themes.dracula,
+        additionalLanguages: ['docker', 'log', 'php'],
     },
     // this needs to be absolute link otherwise it gets resolved wrongly in project docs
     image: 'https://docs.apify.com/img/docs-og.png',
@@ -198,7 +198,7 @@ const themeConfig = ({
                         rel: 'dofollow',
                     },
                     {
-                        label: 'SDK for Python (beta)',
+                        label: 'SDK for Python',
                         href: `${absoluteUrl}/sdk/python/`, // we need a trailing slash here, we'd get redirected there anyway
                         target: '_self',
                         rel: 'dofollow',
@@ -243,13 +243,31 @@ const themeConfig = ({
         appId: 'N8EOCSBQGH',
         apiKey: 'b43e67a96ed18c7f63f5fd965906a96d', // search only (public) API key
         indexName: 'apify_sdk',
+        // apiKey: 'e97714a64e2b4b8b8fe0b01cd8592870', // search only (public) API key
+        // indexName: 'crawler_dev_apify_sdk',
         algoliaOptions: {
             facetFilters: ['version:VERSION'],
         },
     },
+    hubspot: {
+        accountId: '19497222',
+        async: true,
+        defer: true,
+    },
 });
+
+const plugins = [
+    [
+        'docusaurus-gtm-plugin',
+        {
+            id: 'GTM-MNGXGGB',
+        },
+    ],
+    '@stackql/docusaurus-plugin-hubspot',
+];
 
 module.exports = {
     themeConfig,
+    plugins,
     absoluteUrl,
 };

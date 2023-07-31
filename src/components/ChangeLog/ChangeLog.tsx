@@ -61,7 +61,7 @@ export default function ChangeLog() {
             setIsLoading(false);
         };
 
-        fetchChangeLogData();
+        void fetchChangeLogData();
     }, []);
 
     if (isError) {

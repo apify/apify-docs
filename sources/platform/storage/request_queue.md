@@ -39,14 +39,14 @@ Only named request queues are displayed by default. Select the **Include unnamed
 
 To view a request queue, click on its **Queue ID**.
 Under the **Settings** tab, you can update the queue's name (and, in turn, its
-[retention period](./index.md)) and [access rights](../access_rights/index.md).
+[retention period](./index.md)) and [access rights](../collaboration/index.md).
 Click on the `API` button to view and test a queue's [API endpoints](/api/v2#/reference/request-queues).
 
 ![Request queues detail](./images/request-queue-detail.png)
 
 ### Apify SDK {#apify-sdk}
 
-If you are building an [Apify actor](../actors/index.md), you will be using the [Apify SDK](/sdk/js).
+If you are building an [Apify actor](../actors/index.mdx), you will be using the [Apify SDK](/sdk/js).
 In the [Apify SDK](/sdk/js/docs/guides/request-storage#request-queue), the request queue is represented by the
 [`RequestQueue`](/sdk/js/api/apify/class/RequestQueue) class.
 
@@ -154,7 +154,7 @@ See the [Python API client documentation](/api/client/python/reference/class/Req
 
 The [Apify API](/api/v2#/reference/request-queues) allows you to access your request queues programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your datasets using the **username~store-name** [store ID format](./index.md), you will need to use your [secret API token](../integrations/index.md#api-token). You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) page of your Apify account.
+If you are accessing your datasets using the **username~store-name** [store ID format](./index.md), you will need to use your [secret API token](../integrations/index.mdx#api-token). You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) page of your Apify account.
 
 > When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
 
@@ -217,11 +217,11 @@ See the [API documentation](/api/v2#/reference/request-queues) for a detailed br
 
 ## Sharing {#sharing}
 
-You can invite other Apify users to view or modify your request queues using the [access rights](../access_rights/index.md) system. See the [full list of permissions](../access_rights/list_of_permissions.md).
+You can invite other Apify users to view or modify your request queues with the [access rights](../collaboration/index.md) system. See the [full list of permissions](../collaboration/list_of_permissions.md).
 
 ### Sharing request queues between runs {#sharing-request-queues-between-runs}
 
-You can access a request queue from any [actor](../actors/index.md) or [task](../actors/tasks.md) run as long as you know its **name** or **ID**.
+You can access a request queue from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
 
 To access a request queue from another run using the Apify SDK, open it using the [`Actor.openRequestQueue(queueIdOrName)`](/sdk/js/api/apify/class/Actor#openRequestQueue) method like you would do with any other queue.
 

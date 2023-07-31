@@ -10,7 +10,7 @@ interface HeroProps {
 export default function Hero({ heading, description }: HeroProps) {
     return (
         <header className={clsx(styles.heroBanner)}>
-            <div className="row padding-horiz--md">
+            <div className="padding-horiz--md">
                 <div className="col">
                     <div className={clsx(styles.relative, 'row')}>
                         <div className="col">

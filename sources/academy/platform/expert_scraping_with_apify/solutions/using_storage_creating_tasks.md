@@ -21,7 +21,7 @@ Something important to understand is that, in the Apify SDK, when you use `Actor
 // main.js
 // ...
 
-await Actor.init()
+await Actor.init();
 
 const { keyword } = await Actor.getInput();
 
@@ -143,7 +143,7 @@ await crawler.addRequests([
             keyword,
         },
     },
-])
+]);
 
 log.info('Starting the crawl.');
 await crawler.run();
@@ -166,9 +166,9 @@ And here is **routes.js**:
 
 ```js
 // routes.js
+import { createCheerioRouter } from '@crawlee/cheerio';
 import { dataset } from './main.js';
 import { BASE_URL, OFFERS_URL, labels } from './constants';
-import { createCheerioRouter } from '@crawlee/cheerio';
 
 export const router = createCheerioRouter();
 
@@ -230,7 +230,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 });
 ```
 
-Don't forget to push your changes to Github using `git push origin MAIN_BRANCH_NAME` to see them on the Apify platform!
+Don't forget to push your changes to GitHub using `git push origin MAIN_BRANCH_NAME` to see them on the Apify platform!
 
 ## Creating a task (It's easy!) {#creating-task}
 

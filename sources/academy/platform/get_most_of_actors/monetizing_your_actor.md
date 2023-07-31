@@ -31,7 +31,7 @@ Billing details and payment method should be added as soon as your actor is publ
 
 To add your billing details head over to **Setting > Payouts** on the left side of your Apify Console.
 
-**Note:** The "Payouts" tab will only be visible after your submit the monetization request.
+**Note:** The "Payouts" tab will only be visible after you submit the monetization request.
 
 ![Billing details](./images/billing-details.png)
 
@@ -44,7 +44,9 @@ Invoices are created automatically at the beginning of the new month, just under
 
 **You choose the price and free trial length of your actor.** Apify can give you advice about the best practices of the most successful actors, but at the end of the day, we give developers full control over the pricing strategy of their tools.
 
-### Where can I keep track of my paid actor’s users and earnings on the Apify Platform?
+> You are allowed to adjust the price of the Actor only once per month. Please refer to our [Terms & Conditions](https://apify.com/store-terms-and-conditions) for further details and guidelines.
+
+### Where can I keep track of my paid actor’s users and earnings on the Apify platform?
 
 Inside the Apify Console, go to **Actors → Earnings.**
 

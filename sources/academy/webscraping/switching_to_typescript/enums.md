@@ -92,7 +92,7 @@ enum FileExtension {
 
 const value = FileExtension.JAVASCRIPT;
 
-console.log(value) // => ".js"
+console.log(value); // => ".js"
 ```
 
 ## Using enums as types {#using-enums-as-types}

@@ -59,8 +59,7 @@ await page.waitForLoadState('load');
 
 // Wait for 10 seconds so we can see that we have in fact
 // successfully logged in
-await page.waitForTimeout(10000)
-
+await page.waitForTimeout(10000);
 ```
 
 </TabItem>
@@ -89,8 +88,7 @@ await Promise.all([page.waitForNavigation(), page.click('button[name="verifyPass
 
 // Wait for 10 seconds so we can see that we have in fact
 // successfully logged in
-await page.waitForTimeout(10000)
-
+await page.waitForTimeout(10000);
 ```
 
 </TabItem>
@@ -116,13 +114,13 @@ const emailsToSend = [
     {
         to: 'testingtesting12345903@aol.com',
         subject: 'Testing',
-        body: 'I love the academy!'
+        body: 'I love the academy!',
     },
     {
         to: 'jimmyJohnBillyBob420@academy.net',
         subject: 'Apify is awesome!',
-        body: 'Some content.'
-    }
+        body: 'Some content.',
+    },
 ];
 ```
 
@@ -141,7 +139,6 @@ First, we'll grab the cookies we generated:
 // Grab the cookies from the default browser context,
 // which was used to log in
 const cookies = await browser.contexts()[0].cookies();
-
 ```
 
 </TabItem>
@@ -150,7 +147,6 @@ const cookies = await browser.contexts()[0].cookies();
 ```javascript
 // Grab the cookies from the page used to log in
 const cookies = await page.cookies();
-
 ```
 
 </TabItem>
@@ -178,7 +174,6 @@ const page2 = await sendEmailContext.newPage();
 // go through the logging in process again!
 await page2.goto('https://mail.yahoo.com/');
 await page2.waitForTimeout(10000);
-
 ```
 
 </TabItem>
@@ -196,7 +191,6 @@ await page2.setCookie(...cookies);
 // go through the logging in process again!
 await page2.goto('https://mail.yahoo.com/');
 await page2.waitForTimeout(10000);
-
 ```
 
 </TabItem>
@@ -218,36 +212,34 @@ await page.close();
 
 // Create an array of promises, running the cookie passing
 // and email sending logic each time
-const promises = emailsToSend.map(({ to, subject, body }) =>
-    (async () => {
-        // Create a fresh non-persistent browser context
-        const sendEmailContext = await browser.newContext();
-        // Add the cookies from the previous one to this one so that
-        // we'll be logged into Yahoo without having to re-do the
-        // logging in automation
-        await sendEmailContext.addCookies(cookies);
-        const page2 = await sendEmailContext.newPage();
+const promises = emailsToSend.map(({ to, subject, body }) => (async () => {
+    // Create a fresh non-persistent browser context
+    const sendEmailContext = await browser.newContext();
+    // Add the cookies from the previous one to this one so that
+    // we'll be logged into Yahoo without having to re-do the
+    // logging in automation
+    await sendEmailContext.addCookies(cookies);
+    const page2 = await sendEmailContext.newPage();
 
-        await page2.goto('https://mail.yahoo.com/');
+    await page2.goto('https://mail.yahoo.com/');
 
-        // Compose an email
-        await page2.click('a[aria-label="Compose"]');
+    // Compose an email
+    await page2.click('a[aria-label="Compose"]');
 
-        // Populate the fields with the details from the object
-        await page2.type('input#message-to-field', to);
-        await page2.type('input[data-test-id="compose-subject"]', subject);
-        await page2.type('div[data-test-id="compose-editor-container"] div[contenteditable="true"]', body);
+    // Populate the fields with the details from the object
+    await page2.type('input#message-to-field', to);
+    await page2.type('input[data-test-id="compose-subject"]', subject);
+    await page2.type('div[data-test-id="compose-editor-container"] div[contenteditable="true"]', body);
 
-        // Send the email
-        await page2.click('button[title="Send this email"]');
+    // Send the email
+    await page2.click('button[title="Send this email"]');
 
-        await sendEmailContext.close();
-    })()
+    await sendEmailContext.close();
+})(),
 );
 
 // Wait for all emails to be sent
 await Promise.all(promises);
-
 ```
 
 </TabItem>
@@ -256,35 +248,33 @@ await Promise.all(promises);
 ```javascript
 // Create an array of promises, running the cookie passing
 // and email sending logic each time
-const promises = emailsToSend.map(({ to, subject, body }) =>
-    (async () => {
-        // Create a fresh non-persistent browser context
-        const sendEmailContext = await browser.createIncognitoBrowserContext();
-        // Create a new page on the new browser context and set its cookies
-        // to be the same ones from the page we used to log into the website.
-        const page2 = await sendEmailContext.newPage();
-        await page2.setCookie(...cookies);
+const promises = emailsToSend.map(({ to, subject, body }) => (async () => {
+    // Create a fresh non-persistent browser context
+    const sendEmailContext = await browser.createIncognitoBrowserContext();
+    // Create a new page on the new browser context and set its cookies
+    // to be the same ones from the page we used to log into the website.
+    const page2 = await sendEmailContext.newPage();
+    await page2.setCookie(...cookies);
 
-        await page2.goto('https://mail.yahoo.com/');
+    await page2.goto('https://mail.yahoo.com/');
 
-        // Compose an email
-        await page2.click('a[aria-label="Compose"]');
+    // Compose an email
+    await page2.click('a[aria-label="Compose"]');
 
-        // Populate the fields with the details from the object
-        await page2.type('input#message-to-field', to);
-        await page2.type('input[data-test-id="compose-subject"]', subject);
-        await page2.type('div[data-test-id="compose-editor-container"] div[contenteditable="true"]', body);
+    // Populate the fields with the details from the object
+    await page2.type('input#message-to-field', to);
+    await page2.type('input[data-test-id="compose-subject"]', subject);
+    await page2.type('div[data-test-id="compose-editor-container"] div[contenteditable="true"]', body);
 
-        // Send the email
-        await page2.click('button[title="Send this email"]');
+    // Send the email
+    await page2.click('button[title="Send this email"]');
 
-        await sendEmailContext.close();
-    })()
+    await sendEmailContext.close();
+})(),
 );
 
 // Wait for all emails to be sent
 await Promise.all(promises);
-
 ```
 
 </TabItem>
@@ -349,30 +339,28 @@ const cookies = await browser.contexts()[0].cookies();
 await page.close();
 
 // Email sending logic
-const promises = emailsToSend.map(({ to, subject, body }) =>
-    (async () => {
-        const sendEmailContext = await browser.newContext();
-        await sendEmailContext.addCookies(cookies);
-        const page2 = await sendEmailContext.newPage();
+const promises = emailsToSend.map(({ to, subject, body }) => (async () => {
+    const sendEmailContext = await browser.newContext();
+    await sendEmailContext.addCookies(cookies);
+    const page2 = await sendEmailContext.newPage();
 
-        await page2.goto('https://mail.yahoo.com/');
+    await page2.goto('https://mail.yahoo.com/');
 
-        await page2.click('a[aria-label="Compose"]');
+    await page2.click('a[aria-label="Compose"]');
 
-        await page2.type('input#message-to-field', to);
-        await page2.type('input[data-test-id="compose-subject"]', subject);
-        await page2.type('div[data-test-id="compose-editor-container"] div[contenteditable="true"]', body);
+    await page2.type('input#message-to-field', to);
+    await page2.type('input[data-test-id="compose-subject"]', subject);
+    await page2.type('div[data-test-id="compose-editor-container"] div[contenteditable="true"]', body);
 
-        await page2.click('button[title="Send this email"]');
+    await page2.click('button[title="Send this email"]');
 
-        await sendEmailContext.close();
-    })()
+    await sendEmailContext.close();
+})(),
 );
 
 await Promise.all(promises);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -418,30 +406,28 @@ const cookies = await page.cookies();
 await page.close();
 
 // Email sending logic
-const promises = emailsToSend.map(({ to, subject, body }) =>
-    (async () => {
-        const sendEmailContext = await browser.createIncognitoBrowserContext();
-        const page2 = await sendEmailContext.newPage();
-        await page2.setCookie(...cookies);
+const promises = emailsToSend.map(({ to, subject, body }) => (async () => {
+    const sendEmailContext = await browser.createIncognitoBrowserContext();
+    const page2 = await sendEmailContext.newPage();
+    await page2.setCookie(...cookies);
 
-        await page2.goto('https://mail.yahoo.com/');
+    await page2.goto('https://mail.yahoo.com/');
 
-        await page2.click('a[aria-label="Compose"]');
+    await page2.click('a[aria-label="Compose"]');
 
-        await page2.type('input#message-to-field', to);
-        await page2.type('input[data-test-id="compose-subject"]', subject);
-        await page2.type('div[data-test-id="compose-editor-container"] div[contenteditable="true"]', body);
+    await page2.type('input#message-to-field', to);
+    await page2.type('input[data-test-id="compose-subject"]', subject);
+    await page2.type('div[data-test-id="compose-editor-container"] div[contenteditable="true"]', body);
 
-        await page2.click('button[title="Send this email"]');
+    await page2.click('button[title="Send this email"]');
 
-        await sendEmailContext.close();
-    })()
+    await sendEmailContext.close();
+})(),
 );
 
 await Promise.all(promises);
 
 await browser.close();
-
 ```
 
 </TabItem>

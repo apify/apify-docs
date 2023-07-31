@@ -1,21 +1,21 @@
 ---
 title: Output schema
-description: Learn how to generate an appealing Overview table interface to preview your actor results in real time on the Apify Platform.
+description: Learn how to generate an appealing Overview table interface to preview your actor results in real time on the Apify platform.
 sidebar_position: 3
 slug: /deploying-your-code/output-schema
 ---
 
 # Output schema {#output-schema}
 
-**Learn how to generate an appealing Overview table interface to preview your actor results in real time on the Apify Platform.**
+**Learn how to generate an appealing Overview table interface to preview your actor results in real time on the Apify platform.**
 
 ---
 
-The Output schema generates an interface that enables users to instantly preview their actor results in real time.
+The Output schema generates an interface that enables users to instantly preview their Actor results in real time.
 
-![Output Schema](../../../platform/actors/development/images/output-schema-example.png)
+![Output Schema](../../../platform/actors/development/actor_definition/images/output-schema-example.png)
 
-In this quick tutorial, you will learn how to set up an output tab for your own actor.
+In this quick tutorial, you will learn how to set up an output tab for your own Actor.
 
 ## Implementation {#implementation}
 
@@ -147,24 +147,24 @@ So, the matching object for the Zappos Scraper shown in the example above will l
 
 ```js
 const results = {
-        url: request.loadedUrl,
-        imgUrl: $('#stage button[data-media="image"] img[itemprop="image"]').attr('src');,
-        brand: $('span[itemprop="brand"]').text().trim(),
-        name: $('meta[itemprop="name"]').attr('content');,
-        SKU: $('*[itemprop~="sku"]').text().trim(),
-        inStock: !request.url.includes('oosRedirected=true'),
-        onSale: !$('div[itemprop="offers"]').text().includes('OFF'),
-        price: $('span[itemprop="price"]').text(),
-    };
+    url: request.loadedUrl,
+    imgUrl: $('#stage button[data-media="image"] img[itemprop="image"]').attr('src'),
+    brand: $('span[itemprop="brand"]').text().trim(),
+    name: $('meta[itemprop="name"]').attr('content'),
+    SKU: $('*[itemprop~="sku"]').text().trim(),
+    inStock: !request.url.includes('oosRedirected=true'),
+    onSale: !$('div[itemprop="offers"]').text().includes('OFF'),
+    price: $('span[itemprop="price"]').text(),
+};
 ```
 
 ## Final result {#final-result}
 
-Great! Now that everything is set up, it's time to run the actor and admire your actor's brand new output tab.
+Great! Now that everything is set up, it's time to run the actor and admire your Actor's brand new output tab.
 
-> Need some extra guidance? Visit the [output schema documentation](/platform/actors/development/output-schema) for more detailed information about how to implement this feature.
+> Need some extra guidance? Visit the [output schema documentation](/platform/actors/development/actor-definition/output-schema) for more detailed information about how to implement this feature.
 
-A few seconds after running the actor, you should see the actors results being displayed in the `Overview` table.
+A few seconds after running the Actor, you should see its results displayed in the `Overview` table.
 
 ![Output table overview](./images/output-schema-final-example.webp)
 

@@ -23,13 +23,13 @@ Before we deploy our project onto the Apify platform, let's ensure that we've pu
 
 Before anything can be integrated, we've gotta create a new actor. Luckily, this is super easy to do. Let's head over to our [Apify Console](https://console.apify.com?asrc=developers_portal) and click on the **New** button, then select the **Empty** template.
 
-![Create new button](../getting_started/images/create-new-actor.jpg)
+![Create new button](../getting_started/images/create-new-actor.png)
 
 Easy peasy!
 
 ### Changing source code location {#change-source-code}
 
-In the **Source** tab on the new actor's page, we'll click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Multiple source files**.
+In the **Source** tab on the new actor's page, we'll click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Web IDE**.
 
 ![Select source code location](../expert_scraping_with_apify/images/select-source-location.png)
 
@@ -41,11 +41,11 @@ The final step is to click on **API** in the top right corner of our actor's pag
 
 ![API button](../expert_scraping_with_apify/images/api-button.jpg)
 
-And scroll through all of the links until we find the **Build actor** API endpoint. Now we'll copy this endpoint's URL, head back over to our GitHub repository and navigate to **Settings > Webhooks > Add webhook**. The final thing to do is to paste the URL and save the webhook.
+And scroll through all of the links until we find the **Build Actor** API endpoint. Now we'll copy this endpoint's URL, head back over to our GitHub repository and navigate to **Settings > Webhooks > Add webhook**. The final thing to do is to paste the URL and save the webhook.
 
-![Adding a webhook to your GitHub repo](../../../platform/actors/images/github-integration.png)
+![Adding a webhook to your GitHub repo](../../../platform/actors/development/deployment/images/ci-github-integration.png)
 
-That's it! the actor should now pull its source code from the repo and automatically build.
+That's it! the Actor should now pull its source code from the repo and automatically build.
 
 ## Without a GitHub repository (using the Apify CLI) {#with-apify-cli}
 
@@ -67,4 +67,4 @@ The next step is to test your actor and experiment with the vast amount of featu
 
 ## Wrap up {#next}
 
-That's it! In this short section, you've learned how to take your code written in any programming language and turn it into a usable actor that can run on the Apify platform! The next step is to start looking into the [paid actors](/platform/actors/paid-actors) program, which allows you to monetize your work.
+That's it! In this short section, you've learned how to take your code written in any programming language and turn it into a usable Actor that can run on the Apify platform! The next step is to start looking into the [paid Actors](/platform/actors/publishing) program, which allows you to monetize your work.

@@ -35,7 +35,6 @@ await page.goto('https://soundcloud.com/tiesto/following');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -53,7 +52,6 @@ await page.goto('https://soundcloud.com/tiesto/following');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -78,9 +76,8 @@ page.on('request', (req) => {
     // If the URL doesn't include our keyword, ignore it
     if (!req.url().includes('followings')) return;
 
-    console.log('Request for followers was made!')
+    console.log('Request for followers was made!');
 });
-
 ```
 
 </TabItem>
@@ -92,9 +89,8 @@ page.on('request', (req) => {
     // If the URL doesn't include our keyword, ignore it
     if (!req.url().includes('followings')) return;
 
-    console.log('Request for followers was made!')
+    console.log('Request for followers was made!');
 });
-
 ```
 
 </TabItem>
@@ -135,7 +131,6 @@ await page.goto('https://soundcloud.com/tiesto/following');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -163,7 +158,6 @@ await page.goto('https://soundcloud.com/tiesto/following');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -201,10 +195,9 @@ page.on('response', async (res) => {
         const json = await res.json();
         console.log(json);
     } catch (err) {
-        console.error('Response wasn't JSON or failed to parse response.')
+        console.error('Response wasn\'t JSON or failed to parse response.');
     }
 });
-
 ```
 
 </TabItem>
@@ -220,10 +213,9 @@ page.on('response', async (res) => {
         const json = await res.json();
         console.log(json);
     } catch (err) {
-        console.error('Response wasn't JSON or failed to parse response.')
+        console.error('Response wasn\'t JSON or failed to parse response.');
     }
 });
-
 ```
 
 </TabItem>
@@ -272,7 +264,6 @@ await page.goto('https://soundcloud.com/tiesto/following');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -301,7 +292,6 @@ await page.goto('https://soundcloud.com/tiesto/following');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -343,7 +333,6 @@ await page.goto('https://soundcloud.com/tiesto/following');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -365,7 +354,6 @@ await page.goto('https://soundcloud.com/tiesto/following');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -396,7 +384,6 @@ await page.goto('https://soundcloud.com/tiesto/following');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -423,7 +410,6 @@ await page.goto('https://soundcloud.com/tiesto/following');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>

@@ -1,6 +1,6 @@
 # Apify Documentation
 
-[![Check & Release](https://github.com/apify/apify-docs/actions/workflows/test.yml/badge.svg)](https://github.com/apify/apify-docs/actions/workflows/test.yml)
+[![Check & Release](https://github.com/apify/apify-docs/actions/workflows/test.yaml/badge.svg)](https://github.com/apify/apify-docs/actions/workflows/test.yaml)
 
 ## Intro
 
@@ -172,7 +172,7 @@ The `./sources/platform/api_v2` directory contains the source file for the API r
 
 1. Install Apiary gem `gem install apiaryio`
 2. After that, you can open the generated doc with the
-   command: `apiary preview --path="./content/docs/api_v2/api_v2_reference.apib"`
+   command: `apiary preview --path="./sources/platform/api_v2/api_v2_reference.apib"`
 
 ### Test
 

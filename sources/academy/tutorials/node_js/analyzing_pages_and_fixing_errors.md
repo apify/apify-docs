@@ -11,13 +11,13 @@ slug: /node-js/analyzing-pages-and-fixing-errors
 
 ---
 
-Debugging is absolutely essential in programming. Even if you don't call yourself a programmer, having basic debugging skills will make building crawlers easier. It will also help you safe money by allowing you to avoid hiring an expensive developer to solve your issue for you.
+Debugging is absolutely essential in programming. Even if you don't call yourself a programmer, having basic debugging skills will make building crawlers easier. It will also help you save money by allowing you to avoid hiring an expensive developer to solve your issue for you.
 
 This quick lesson covers the absolute basics by discussing some of the most common problems and the simplest tools for analyzing and fixing them.
 
 ## Possible causes {#possible-causes}
 
-It is often tricky to see the full scope of what can go wrong. We assume once the code is set up correctly, it will keep working. Unfortunately, that is rarely true in the realm of web scraping and automation.
+It is often tricky to see the full scope of what can go wrong. We assume that once the code is set up correctly, it will keep working. Unfortunately, that is rarely true in the realm of web scraping and automation.
 
 Websites change, they introduce new [anti-scraping technologies](../../webscraping/anti_scraping/index.md), programming tools change and, in addition, people make mistakes.
 
@@ -39,7 +39,7 @@ Web scraping and automation are very specific types of programming. It is not po
 
 ### Logging {#logging}
 
-Logging is an essential tool for any programmer. When used correctly, they help you capture a surprising amount of information. Here are some general rules for logging:
+Logging is an essential tool for any programmer. When used correctly, it helps you capture a surprising amount of information. Here are some general rules for logging:
 
 - Usually, **many logs** is better than **no logs** at all.
 - Putting more information into one line, rather than logging multiple short lines, helps reduce the overall log size.
@@ -106,7 +106,7 @@ try {
     const randomNumber = Math.random();
     const key = `ERROR-LOGIN-${randomNumber}`;
     await puppeteerUtils.saveSnapshot(page, { key });
-    const screenshotLink = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.jpg`
+    const screenshotLink = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.jpg`;
 
     // You know where the code crashed so you can explain here
     throw new Error('Request failed during login with an error', { cause: error });
@@ -139,14 +139,6 @@ await Actor.init();
 // If you already have one, this will continue adding to it
 const reportingDataset = await Actor.openDataset('REPORTING');
 
-// storeId is ID of current key-value store, where we save snapshots
-const storeId = Actor.getEnv().defaultKeyValueStoreId;
-
-// We can also capture actor and run IDs
-// to have easy access in the reporting dataset
-const { actorId, actorRunId } = Actor.getEnv();
-const linkToRun = `https://console.apify.com/actors/actorId#/runs/actorRunId`;
-
 try {
     // Sensitive code block
     // ...
@@ -154,22 +146,24 @@ try {
     // Change the way you save it depending on what tool you use
     const randomNumber = Math.random();
     const key = `ERROR-LOGIN-${randomNumber}`;
+    // The store gets removed with the run after data retention period so the links will stop working eventually
+    // You can store the snapshots infinitely in a named KV store by adding `keyValueStoreName` option
     await puppeteerUtils.saveSnapshot(page, { key });
 
-    const screenshotLink = `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.jpg?disableRedirect=true`;
+    // To create the reporting URLs, we need to know the Key-Value store and run IDs
+    const { actorRunId, defaultKeyValueStoreId } = Actor.getEnv();
 
     // We create a report object
     const report = {
         errorType: 'login',
         errorMessage: error.toString(),
-
-        // You will have to adjust the keys if you save them in a non-standard way
-        htmlSnapshot: `https://api.apify.com/v2/key-value-stores/${storeId}/records/${key}.html?disableRedirect=true`,
-        screenshot: screenshotLink,
-        run: linkToRun,
+        // .html and .jpg file extensions are added automatically by the saveSnapshot function
+        htmlSnapshotUrl: `https://api.apify.com/v2/key-value-stores/${defaultKeyValueStoreId}/records/${key}.html`,
+        screenshotUrl: `https://api.apify.com/v2/key-value-stores/${defaultKeyValueStoreId}/records/${key}.jpg`,
+        runUrl: `https://console.apify.com/actors/runs/${actorRunId}`,
     };
 
-    // And we push the report
+    // And we push the report to our reporting dataset
     await reportingDataset.pushData(report);
 
     // You know where the code crashed so you can explain here

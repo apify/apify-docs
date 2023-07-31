@@ -1,0 +1,48 @@
+// This config is used for linting code snippets in markdown files
+// For now we use it only for Academy but it can be later moved to top level
+{
+    "root": true,
+    "extends":[
+        "@apify/eslint-config-ts",
+        "plugin:markdown/recommended",
+        "plugin:json/recommended-with-comments"
+    ],
+    "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "files": ["./**/*.{md,mdx}/*.{js,javascript,json,ts,typescript}"],
+        // We have to explicitly disable parser because the markdown plugin is not compatible with TS parser
+        // This means we are not getting type-check but we still get regular lint
+        "project": null,
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2022
+    },
+    "overrides": [
+        {
+            "files": ["./**/*.{md,mdx}/*.{js,javascript,json,ts,typescript}"],
+            "rules": {
+                // General things that are fine to have in code snippets
+                "import/no-extraneous-dependencies": "off",
+                "no-console": "off",
+                "no-underscore-dangle": "off",
+
+                // We already have this rule in JS
+                "@typescript-eslint/no-unused-vars": "off",
+
+                // Disable TS rules that require using TS type aware parser (cannot be used with markdown)
+                "@typescript-eslint/no-floating-promises": "off"
+
+                // Toggle these rules locally when writing snippets, don't forget to turn off before commit
+                // otherwise it produces hundreds of warnings
+                // They help to spot typos and bugs of the code you write or review
+                /*
+                "no-undef": "warn",
+                "no-unused-expressions": "warn",
+                "no-unused-vars": "warn",
+                */
+                
+            }
+        }
+    ]
+}

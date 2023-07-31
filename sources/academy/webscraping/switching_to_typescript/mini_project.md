@@ -247,22 +247,22 @@ Since we `SortOrder` ahead of time, we know exactly which cases we need to handl
 
 ```ts
 // index.ts
-//...
+// ...
 import { SortOrder } from './types';
 
 import type { ResponseData, Product } from './types';
 // ...
 const sortData = (products: Product[], order: SortOrder) => {
     switch (order) {
-        // If for whatever reason the value provided isn't in our SortOrder
-        // enum, just return the products as they were
-        default:
-            return products;
         // Handle ascending and descending sorting
         case SortOrder.ASC:
             return [...products].sort((a, b) => a.price - b.price);
         case SortOrder.DESC:
             return [...products].sort((a, b) => b.price - a.price);
+        // If for whatever reason the value provided isn't in our SortOrder
+        // enum, just return the products as they were
+        default:
+            return products;
     }
 };
 ```
@@ -278,7 +278,7 @@ Because of the abstractions we've made with the `fetchData` and `sortData` funct
 
 ```ts
 // index.ts
-//...
+// ...
 import { SortOrder } from './types';
 
 import type { ResponseData, Product, UserInput, ModifiedProduct } from './types';
@@ -387,12 +387,12 @@ const fetchData = async () => {
 
 const sortData = (products: Product[], order: SortOrder) => {
     switch (order) {
-        default:
-            return products;
         case SortOrder.ASC:
             return [...products].sort((a, b) => a.price - b.price);
         case SortOrder.DESC:
             return [...products].sort((a, b) => b.price - a.price);
+        default:
+            return products;
     }
 };
 
@@ -416,7 +416,6 @@ async function scrape(input: UserInput) {
 
 const main = async () => {
     const INPUT: UserInput<false> = { sort: 'ascending', removeImages: false };
-
 
     const result = await scrape(INPUT);
 

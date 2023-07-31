@@ -2,7 +2,7 @@
 title: Saving results to CSV
 description: Learn how to save the results of your scraper's collected data to a CSV file that can be opened in Excel, Google Sheets, or any other spreadsheets program.
 sidebar_position: 8
-slug: /web-scraping-for-beginners/data-collection/save-to-csv
+slug: /web-scraping-for-beginners/data-extraction/save-to-csv
 ---
 
 # Saving results to CSV {#saving-to-csv}
@@ -103,10 +103,10 @@ When we complete the code, it looks like this. Replace the code in your **main.j
 
 ```js
 // main.js
+import { writeFileSync } from 'fs'; // <---- added a new import
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 import { parse } from 'json2csv';
-import { writeFileSync } from 'fs'; // <---- added a new import
 
 const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 

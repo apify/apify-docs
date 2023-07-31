@@ -56,10 +56,11 @@ Headers required by the target API can be configured manually in a manner such a
 
 ```js
 const HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 YaBrowser/22.1.0.2500 Yowser/2.5 Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)'
+        + 'Chrome/96.0.4664.110 YaBrowser/22.1.0.2500 Yowser/2.5 Safari/537.36',
     Referer: 'https://soundcloud.com',
-    ...
-}
+    // ...
+};
 ```
 
 However, a much better option is to use either a custom implementation of generating random headers for each request, or to use a package such as [`got-scraping`](https://www.npmjs.com/package/got-scraping) to automatically do this.
@@ -74,17 +75,17 @@ const response = await gotScraping({
             {
                 name: 'chrome',
                 minVersion: 87,
-                maxVersion: 89
-            }
+                maxVersion: 89,
+            },
         ],
         devices: ['desktop'],
         locales: ['de-DE', 'en-US'],
         operatingSystems: ['windows', 'linux'],
     },
     headers: {
-        'some-header': 'Hello, Academy!'
-    }
-})
+        'some-header': 'Hello, Academy!',
+    },
+});
 ```
 
 ## Tokens {#tokens}

@@ -2,7 +2,7 @@
 title: Browser DevTools - III
 description: Continue learning how to extract data from a website using browser DevTools, CSS selectors, and JavaScript via the DevTools console.
 sidebar_position: 3
-slug: /web-scraping-for-beginners/data-collection/devtools-continued
+slug: /web-scraping-for-beginners/data-extraction/devtools-continued
 ---
 
 # Finish with DevTools {#finish-devtools}
@@ -21,7 +21,7 @@ Run this command in your Console:
 
 ```js
 const products = document.querySelectorAll('.product-item');
-products.length
+products.length;
 ```
 
 The `length` property of `products` tells us how many products we have in the list. It says **24** and if you count the number of products on the page, you'll find that it's correct. Good, that means our CSS selector is working perfectly to get all the products.

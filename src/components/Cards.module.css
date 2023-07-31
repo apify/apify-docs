@@ -21,6 +21,16 @@ html[data-theme="dark"] .card-hoverable:hover {
     object-fit: scale-down;
 }
 
+.card-image-container-small {
+    height: 5rem;
+}
+
+.card-image-container-small > img {
+    padding: 1rem;
+    height: 100%;
+    object-fit: contain;
+}
+
 .card-header {
     font-size: 120%;
     padding: 20px 1rem;

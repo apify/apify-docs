@@ -55,7 +55,7 @@ const cache = {};
 
 await page.setRequestInterception(true);
 
-page.on('request', async(request) => {
+page.on('request', async (request) => {
     const url = request.url();
     if (cache[url] && cache[url].expires > Date.now()) {
         await request.respond(cache[url]);
@@ -64,7 +64,7 @@ page.on('request', async(request) => {
     request.continue();
 });
 
-page.on('response', async(response) => {
+page.on('response', async (response) => {
     const url = response.url();
     const headers = response.headers();
     const cacheControl = headers['cache-control'] || '';

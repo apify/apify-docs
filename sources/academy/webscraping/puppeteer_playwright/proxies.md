@@ -39,7 +39,6 @@ await page.goto('https://google.com');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -57,7 +56,6 @@ await page.goto('https://google.com');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -81,7 +79,7 @@ const browser = await chromium.launch({
     proxy: {
         // Pass in the server URL
         server: proxy,
-        
+
     },
 });
 const page = await browser.newPage();
@@ -89,7 +87,6 @@ await page.goto('https://google.com');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -104,14 +101,13 @@ const proxy = '103.214.9.13:3128';
 // line switches, we pass the server URL in with "--proxy-server"
 const browser = await puppeteer.launch({
     headless: false,
-    args: [`--proxy-server=${proxy}`]
+    args: [`--proxy-server=${proxy}`],
 });
 const page = await browser.newPage();
 await page.goto('https://google.com');
 
 await page.waitForTimeout(10000);
 await browser.close();
-
 ```
 
 </TabItem>
@@ -148,10 +144,9 @@ const browser = await chromium.launch({
     headless: false,
     proxy: {
         server: `http://${username}:${password}@${proxy}`,
-        
+
     },
 });
-
 ```
 
 </TabItem>
@@ -169,7 +164,6 @@ const browser = await puppeteer.launch({
     headless: false,
     args: [`--proxy-server=http://${username}:${password}@${proxy}`],
 });
-
 ```
 
 </TabItem>
@@ -196,7 +190,6 @@ const browser = await chromium.launch({
     },
 });
 // Proxy will now be authenticated
-
 ```
 
 </TabItem>
@@ -218,7 +211,6 @@ const page = await browser.newPage();
 
 await page.authenticate({ username, password });
 // Proxy will now be authenticated
-
 ```
 
 </TabItem>

@@ -63,14 +63,14 @@ Before we start, let's do a quick recap of the data we chose to scrape:
    5. **Last modification date** - When the actor was last modified.
    6. **Number of runs** - How many times the actor was run.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/scraping-practice.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/scraping-practice.webp)
 
 We've already scraped number 1 and 2 in the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started)
 tutorial, so let's get to the next one on the list: title.
 
 ### [](#title) Title
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/title.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/title.webp)
 
 By using the element selector tool, we find out that the title is there under an `<h1>` tag, as titles should be.
 Maybe surprisingly, we find that there are actually two `<h1>` tags on the detail page. This should get us thinking.
@@ -86,13 +86,16 @@ And as we already know, there's only one.
 
 ```js
 // Using Puppeteer
-const title = await page.$eval(
-    'header h1',
-    (el => el.textContent)
-);
+async function pageFunction(context) {
+    const { page } = context;
+    const title = await page.$eval(
+        'header h1',
+        ((el) => el.textContent),
+    );
 
-return {
-    title,
+    return {
+        title,
+    };
 }
 ```
 
@@ -107,51 +110,57 @@ Getting the actor's description is a little more involved, but still pretty stra
 there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the actor description is nested within
 the `<header>` element too, same as the title. Moreover, the actual description is nested inside a `<span>` tag with a class `actor-description`.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.webp)
 
 ```js
-const title = await page.$eval(
-    'header h1',
-    (el => el.textContent)
-);
-const description = await page.$eval(
-    'header span.actor-description',
-    (el => el.textContent)
-);
+async function pageFunction(context) {
+    const { page } = context;
+    const title = await page.$eval(
+        'header h1',
+        ((el) => el.textContent),
+    );
+    const description = await page.$eval(
+        'header span.actor-description',
+        ((el) => el.textContent),
+    );
 
-return {
-    title,
-    description
-};
+    return {
+        title,
+        description,
+    };
+}
 ```
 
 ### [](#modified-date) Modified date
 
 The DevTools tell us that the `modifiedDate` can be found in a `<time>` element.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/modified-date.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/modified-date.webp)
 
 ```js
-const title = await page.$eval(
-    'header h1',
-    (el => el.textContent)
-);
-const description = await page.$eval(
-    'header span.actor-description',
-    (el => el.textContent)
-);
+async function pageFunction(context) {
+    const { page } = context;
+    const title = await page.$eval(
+        'header h1',
+        ((el) => el.textContent),
+    );
+    const description = await page.$eval(
+        'header span.actor-description',
+        ((el) => el.textContent),
+    );
 
-const modifiedTimestamp = await page.$eval(
-    'ul.ActorHeader-stats time',
-    (el) => el.getAttribute('datetime')
-);
-const modifiedDate = new Date(Number(modifiedTimestamp));
+    const modifiedTimestamp = await page.$eval(
+        'ul.ActorHeader-stats time',
+        (el) => el.getAttribute('datetime'),
+    );
+    const modifiedDate = new Date(Number(modifiedTimestamp));
 
-return {
-    title,
-    description,
-    modifiedDate,
-};
+    return {
+        title,
+        description,
+        modifiedDate,
+    };
+}
 ```
 
 Similarly to `page.$eval`, the [`page.$$eval`](https://pptr.dev/#?product=Puppeteer&show=api-elementhandleevalselector-pagefunction-args)
@@ -171,33 +180,36 @@ And so we're finishing up with the `runCount`. There's no specific element like 
 a complex selector and then do a transformation on the result.
 
 ```js
-const title = await page.$eval(
-    'header h1',
-    (el => el.textContent)
-);
-const description = await page.$eval(
-    'header span.actor-description',
-    (el => el.textContent)
-);
+async function pageFunction(context) {
+    const { page } = context;
+    const title = await page.$eval(
+        'header h1',
+        ((el) => el.textContent),
+    );
+    const description = await page.$eval(
+        'header span.actor-description',
+        ((el) => el.textContent),
+    );
 
-const modifiedTimestamp = await page.$eval(
-    'ul.ActorHeader-stats time',
-    (el) => el.getAttribute('datetime')
-);
-const modifiedDate = new Date(Number(modifiedTimestamp));
+    const modifiedTimestamp = await page.$eval(
+        'ul.ActorHeader-stats time',
+        (el) => el.getAttribute('datetime'),
+    );
+    const modifiedDate = new Date(Number(modifiedTimestamp));
 
-const runCountText = await page.$eval(
-    'ul.ActorHeader-stats > li:nth-of-type(3)',
-    (el => el.textContent)
-);
-const runCount = Number(runCountText.match(/[\d,]+/)[0].replace(',', ''));
+    const runCountText = await page.$eval(
+        'ul.ActorHeader-stats > li:nth-of-type(3)',
+        ((el) => el.textContent),
+    );
+    const runCount = Number(runCountText.match(/[\d,]+/)[0].replace(',', ''));
 
-return {
-    title,
-    description,
-    modifiedDate,
-    runCount,
-};
+    return {
+        title,
+        description,
+        modifiedDate,
+        runCount,
+    };
+}
 ```
 
 The `ul.ActorHeader-stats > li:nth-of-type(3)` looks complicated, but it only reads that we're looking for a `<ul class="ActorHeader-stats ...">` element and within that
@@ -218,44 +230,47 @@ And there we have it! All the data we needed in a single object. For the sake of
 the properties we parsed from the URL earlier and we're good to go.
 
 ```js
-const { url } = request;
+async function pageFunction(context) {
+    const { page, request } = context;
+    const { url } = request;
 
-// ...
+    // ...
 
-const uniqueIdentifier = url
-    .split('/')
-    .slice(-2)
-    .join('/');
+    const uniqueIdentifier = url
+        .split('/')
+        .slice(-2)
+        .join('/');
 
-const title = await page.$eval(
-    'header h1',
-    (el => el.textContent)
-);
-const description = await page.$eval(
-    'header span.actor-description',
-    (el => el.textContent)
-);
+    const title = await page.$eval(
+        'header h1',
+        ((el) => el.textContent),
+    );
+    const description = await page.$eval(
+        'header span.actor-description',
+        ((el) => el.textContent),
+    );
 
-const modifiedTimestamp = await page.$eval(
-    'ul.ActorHeader-stats time',
-    (el) => el.getAttribute('datetime')
-);
-const modifiedDate = new Date(Number(modifiedTimestamp));
+    const modifiedTimestamp = await page.$eval(
+        'ul.ActorHeader-stats time',
+        (el) => el.getAttribute('datetime'),
+    );
+    const modifiedDate = new Date(Number(modifiedTimestamp));
 
-const runCountText = await page.$eval(
-    'ul.ActorHeader-stats > li:nth-of-type(3)',
-    (el => el.textContent)
-);
-const runCount = Number(runCountText.match(/[\d,]+/)[0].replace(',', ''));
+    const runCountText = await page.$eval(
+        'ul.ActorHeader-stats > li:nth-of-type(3)',
+        ((el) => el.textContent),
+    );
+    const runCount = Number(runCountText.match(/[\d,]+/)[0].replace(',', ''));
 
-return {
-    url,
-    uniqueIdentifier,
-    title,
-    description,
-    modifiedDate,
-    runCount,
-};
+    return {
+        url,
+        uniqueIdentifier,
+        title,
+        description,
+        modifiedDate,
+        runCount,
+    };
+}
 ```
 
 All we need to do now is add this to our `pageFunction`:
@@ -415,7 +430,7 @@ div.show-more > button
 
 > Don't forget to confirm our assumption in the DevTools finder tool (CTRL/CMD + F).
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/waiting-for-the-button.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/waiting-for-the-button.webp)
 
 Now that we know what to wait for, we just plug it into the `waitFor()` function.
 
@@ -442,28 +457,28 @@ We've shown two function calls, but how do we make this work together in the `pa
 ```javascript
 async function pageFunction(context) {
 
-// ...
+    // ...
 
-let timeout; // undefined
-const buttonSelector = 'div.show-more > button';
-while (true) {
-    log.info('Waiting for the "Show more" button.');
-    try {
+    let timeout; // undefined
+    const buttonSelector = 'div.show-more > button';
+    for (;;) {
+        log.info('Waiting for the "Show more" button.');
+        try {
         // Default timeout first time.
-        await page.waitFor(buttonSelector, { timeout });
-        // 2 sec timeout after the first.
-        timeout = 2000;
-    } catch (err) {
+            await page.waitFor(buttonSelector, { timeout });
+            // 2 sec timeout after the first.
+            timeout = 2000;
+        } catch (err) {
         // Ignore the timeout error.
-        log.info('Could not find the "Show more button", '
+            log.info('Could not find the "Show more button", '
             + 'we\'ve reached the end.');
-        break;
+            break;
+        }
+        log.info('Clicking the "Show more" button.');
+        await page.click(buttonSelector);
     }
-    log.info('Clicking the "Show more" button.');
-    await page.click(buttonSelector);
-}
 
-// ...
+    // ...
 
 }
 ```
@@ -489,7 +504,7 @@ async function pageFunction(context) {
         log.info('Store opened!');
         let timeout; // undefined
         const buttonSelector = 'div.show-more > button';
-        while (true) {
+        for (;;) {
             log.info('Waiting for the "Show more" button.');
             try {
                 // Default timeout first time.
@@ -568,7 +583,7 @@ through all the actors and then scrape all of their data. After it succeeds, ope
 You've successfully scraped Apify Store. And if not, no worries, just go through the code examples again,
 it's probably just some typo.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/plugging-it-into-the-pagefunction.jpg)
+![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/plugging-it-into-the-pagefunction.webp)
 
 ## [](#downloading-our-scraped-data) Downloading the scraped data
 
@@ -597,13 +612,14 @@ async function pageFunction(context) {
     switch (context.request.userData.label) {
         case 'START': return handleStart(context);
         case 'DETAIL': return handleDetail(context);
+        default: throw new Error('Unknown request label.');
     }
 
     async function handleStart({ log, page }) {
         log.info('Store opened!');
         let timeout; // undefined
         const buttonSelector = 'div.show-more > button';
-        while (true) {
+        for (;;) {
             log.info('Waiting for the "Show more" button.');
             try {
                 // Default timeout first time.
@@ -727,13 +743,14 @@ async function pageFunction(context) {
     switch (context.request.userData.label) {
         case 'START': return handleStart(context);
         case 'DETAIL': return handleDetail(context);
+        default: throw new Error(`Unknown label: ${context.request.userData.label}`);
     }
 
     async function handleStart({ log, page }) {
         log.info('Store opened!');
         let timeout; // undefined
         const buttonSelector = 'div.show-more > button';
-        while (true) {
+        for (;;) {
             log.info('Waiting for the "Show more" button.');
             try {
                 await page.waitFor(buttonSelector, { timeout });
@@ -748,14 +765,14 @@ async function pageFunction(context) {
         }
     }
 
-    async function handleDetail(context) {
+    async function handleDetail(contextInner) {
         const {
             request,
             log,
             skipLinks,
             page,
             Apify,
-        } = context;
+        } = contextInner;
 
         // Inject jQuery
         await Apify.utils.puppeteer.injectJQuery(page);

@@ -1,6 +1,6 @@
 ---
 title: Finding links
-description: Learn what a link looks like in HTML and how to find and extract their URLs when web scraping using both DevTools and Node.js.
+description: Learn what a link looks like in HTML and how to find and extract their URLs when web scraping. Using both DevTools and Node.js.
 sidebar_position: 2
 slug: /web-scraping-for-beginners/crawling/finding-links
 ---
@@ -17,7 +17,7 @@ There are many kinds of links on the internet, which we'll cover in the advanced
 <a href="https://example.com">This is a link to example.com</a>
 ```
 
-On a webpage, the link above will look like this: "<a href="https://example.com" target="_blank" rel="noopener noreferrer">This is a link to example.com</a>". When you click it, your browser will navigate to the URL in the `<a>` tag's `href` attribute (`https://example.com`).
+On a webpage, the link above will look like this: [This is a link to example.com](https://example.com) When you click it, your browser will navigate to the URL in the `<a>` tag's `href` attribute (`https://example.com`).
 
 > `href` means **H**ypertext **REF**erence. You don't need to remember this - just know that `href` typically means some sort of link.
 
@@ -39,22 +39,30 @@ for (const link of links) {
 }
 ```
 
-**_Boom_** 💥, all the links from the website have now been printed to the console. Unless you were on example.com, it's usually a lot of links. By doing this, we can get a first-hand look at how interconnected the web really is.
+Go to the [Warehouse store Sales category](https://warehouse-theme-metal.myshopify.com/collections/sales), open the DevTools Console, paste the above code and run it.
+
+![links extracted from Warehouse store](./images/warehouse-links.png)
+
+**_Boom_** 💥, all the links from the page have now been printed to the console. Most of the links point to other parts of the website, but some links lead to other domains like facebook.com or instagram.com.
 
 ## Extracting link URLs in Node.js {#Extracting-links-in-node}
 
-DevTools is a fun playground, but Node.js is way more useful. Let's create a new file in our project called **crawler.js** and start adding some basic crawling code. We'll start with the same boilerplate as with our original scraper, but this time, we'll download the HTML of [the demo site's main page](https://demo-webstore.apify.org/).
+DevTools Console is a fun playground, but Node.js is way more useful. Let's create a new file in our project called **crawler.js** and add some basic crawling code that prints all the links from the [Sales category of Warehouse](https://warehouse-theme-metal.myshopify.com/collections/sales).
 
-```js
-// crawler.js
+We'll start from a boilerplate that's very similar to the scraper we built in [Basics of data extraction](../data_extraction/node_js_scraper.md).
+
+```js title=crawler.js
 import { gotScraping } from 'got-scraping';
 import cheerio from 'cheerio';
 
-// This time we open main page
-const response = await gotScraping('https://demo-webstore.apify.org/');
+const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
+
+const response = await gotScraping(storeUrl);
 const html = response.body;
 
 const $ = cheerio.load(html);
+
+// ------- new code below
 
 const links = $('a');
 
@@ -64,8 +72,10 @@ for (const link of links) {
 }
 ```
 
-Aside from importing libraries and downloading HTML, we loaded the HTML into Cheerio and then used it to retrieve all the `<a>` elements. After that, we iterated over the collected links and printed their `href` attributes, which we accessed using the [`.attr()`](https://api.jquery.com/attr/) function. Remember, Cheerio functions are exactly the same as they are in jQuery.
+Aside from importing libraries and downloading HTML, we load the HTML into Cheerio and then use it to retrieve all the `<a>` elements. After that, we iterate over the collected links and print their `href` attributes, which we access using the [`.attr()`](https://cheerio.js.org/docs/api/classes/Cheerio#attr) method.
+
+When you run the above code, you'll see quite a lot of links in the terminal. Some of them may look wrong, because they don't start with the regular **<https://>** protocol. We'll learn what to do with them in the following lessons.
 
 ## Next Up {#next}
 
-After running the code, you will see quite a lot of links in the terminal. Some of them may look weird because they don't start with the regular **<https://>** protocol. We'll learn what to do with them in the [next lesson](./filtering_links.md).
+The [next lesson](./filtering_links.md) will teach you how to select and filter links, so that your crawler will always work only with valid and useful URLs.
