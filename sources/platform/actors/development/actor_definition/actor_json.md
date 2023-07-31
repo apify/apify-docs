@@ -26,7 +26,7 @@ import TabItem from '@theme/TabItem';
   "version": "0.0",
   "buildTag": "latest",
   "minMemoryMbytes": 256,
-	"maxMemoryMbytes": 4096,
+  "maxMemoryMbytes": 4096,
   "environmentVariables": {
       "MYSQL_USER": "my_username",
       "MYSQL_PASSWORD": "@mySecretPassword"
