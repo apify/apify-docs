@@ -55,7 +55,6 @@
     },
     "dependencies": {
         "@apify-packages/ui-components": "0.53.8-featsharedcomponentsfordocs-24940f.12",
-        "@apify/actor-templates": "^0.1.3",
         "@docusaurus/core": "^2.4.1",
         "@docusaurus/plugin-client-redirects": "^2.4.1",
         "@docusaurus/preset-classic": "^2.4.1",
