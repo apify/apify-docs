@@ -52,7 +52,7 @@ const response = await gotScraping(storeUrl);
 const html = response.body;
 
 // Parse HTML with Cheerio
-const $ = cheerio.load(html);
+const $ = load.load(html);
 const headingElement = $('h1');
 const headingText = headingElement.text();
 
