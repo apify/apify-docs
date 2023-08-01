@@ -18,7 +18,29 @@ h1 {
     font-weight: 600;
     line-height: 80px;
     letter-spacing: 0;
+}
+
+.heroBannerContent {
+    margin: 0 auto;
+    max-width: 327px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
     text-align: center;
+}
+
+@media (min-width: 768px) {
+    .heroBannerContent { max-width: 738px;  align-items: flex-start; text-align: left; }
+    .heroBanner { margin-bottom: 0; }
+}
+
+@media (min-width: 1024px) {
+    .heroBannerContent { max-width: 896px; }
+}
+
+@media (min-width: 1440px) {
+    .heroBannerContent { max-width: 1200px; }
 }
 
 .tagline span {
@@ -39,11 +61,11 @@ h1 {
 .heroBanner {
     padding-top: 80px;
     padding-bottom: 56px;
-    text-align: center;
     background-image: url('/src/pages/img/hero-background-gradient.svg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-bottom: 32px;
 }
 
 .heroBanner::after {
@@ -64,8 +86,7 @@ html[data-theme='dark'] .heroBanner::after {
 }
 
 .heroBanner .heroDescription {
-    margin-left: auto;
-    margin-right: auto;
+   color: var(--color-neutral-text-muted);
 }
 
 html .heroBanner p {
