@@ -33,6 +33,88 @@ html[data-theme='dark'] {
     --color-Primary_ChipText: #8ebcff;
     --color-Primary_ChipBackground: #1a3a78;
     --color-Primary_TextInteractive: #6f9dff;
+
+    /* EXPERIMENT: tokens for shared components */
+    --color-neutral-text: #f3f4fa;
+    --color-neutral-text-muted: #b2b8cc;
+    --color-neutral-text-subtle: #8c93a8;
+    --color-neutral-text-disabled: #575d71;
+    --color-neutral-text-on-primary: #1a1b21;
+    --color-neutral-icon-on-primary: #1a1b21;
+    --color-neutral-background: #1a1b21;
+    --color-neutral-background-muted: #252832;
+    --color-neutral-background-subtle: #2a2d39;
+    --color-neutral-background-white: #f3f4fa;
+    --color-neutral-card-background: #1e2027;
+    --color-neutral-border: #414758;
+    --color-neutral-separator-subtle: #343847;
+    --color-neutral-hover: #2D313E;
+    --color-neutral-disabled: #343847;
+    --color-neutral-overflow: #2a2d39;
+    --color-neutral-icon: #b2b8cc;
+    --color-neutral-icon-subtle: #6e758a;
+    --color-neutral-icon-disabled: #575d71;
+    --color-neutral-field-border: #343847;
+    --color-neutral-action-secondary: #575d71;
+    --color-neutral-action-secondary-hover: #6e758a;
+    --color-neutral-action-secondary-active: #343847;
+    --color-neutral-chip-background: #575d71;
+    --color-neutral-chip-background-hover: #6e758a;
+    --color-neutral-chip-background-active: #8c93a8;
+    --color-neutral-chip-background-disabled: #8c93a8;
+    --color-neutral-large-tooltip-background: #2a2d39;
+    --color-neutral-large-tooltip-border: #343847;
+    --color-neutral-small-tooltip-background: #1a1b21;
+    --color-neutral-small-tooltip-border: #252832;
+    --color-neutral-overlay: #101114cc;
+    --color-neutral-field-background: #101114;
+    --color-neutral-text-placeholder: #6e758a;
+    --color-primary-text: #6f9dff;
+    --color-primary-text-interactive: #6f9dff;
+    --color-primary-icon: #3970d7;
+    --color-primary-action: #5990ff;
+    --color-primary-action-hover: #80a9ff;
+    --color-primary-action-active: #3970d7;
+    --color-primary-field-border-active: #3970d7;
+    --color-primary-chip-background: #1a3a78;
+    --color-primary-chip-background-hover: #194594;
+    --color-primary-chip-text: #8ebcff;
+    --color-primary-shadow-active: #295cbb;
+    --color-success-text: #3bb358;
+    --color-success-icon: #23a64a;
+    --color-success-background-subtle: #0f2b14;
+    --color-success-background-subtle-hover: #14441f;
+    --color-success-background-subtle-active: #006e29;
+    --color-success-border: #068a35;
+    --color-success-border-subtle: #006e29;
+    --color-success-action: #23a64a;
+    --color-success-action-hover: #3bb358;
+    --color-success-action-active: #068a35;
+    --color-success-chip-background: #14441f;
+    --color-success-chip-background-hover: #00531e;
+    --color-success-chip-text: #6ccd7c;
+    --color-warning-text: #f9ce4b;
+    --color-warning-icon: #f5bc38;
+    --color-warning-background-subtle: #3f1b07;
+    --color-warning-border-subtle: #8a4f05;
+    --color-warning-field-border: #cf9117;
+    --color-warning-chip-background: #5d2e0e;
+    --color-warning-chip-background-hover: #6d3806;
+    --color-warning-chip-text: #f9ce4b;
+    --color-danger-text: #ff7157;
+    --color-danger-icon: #ef6045;
+    --color-danger-background-subtle: #40191b;
+    --color-danger-background-subtle-hover: #672523;
+    --color-danger-background-subtle-active: #aa3229;
+    --color-danger-border: #cf4436;
+    --color-danger-border-subtle: #aa3229;
+    --color-danger-field-border: #ef6045;
+    --color-danger-action: #ef6045;
+    --color-danger-action-hover: #ff7157;
+    --color-danger-action-active: #cf4436;
+    --color-danger-chip-background: #672523;
+    --color-danger-chip-background-hover: #812420;
+    --color-danger-chip-text: #fe9e8a;
 }
 
 :root {
@@ -87,6 +169,92 @@ html[data-theme='dark'] {
     --color-Primary_ChipText: #1A57DA;
     --color-Primary_ChipBackground: #E1EAFF;
     --color-Primary_TextInteractive:  #3970d7;
+
+    /* EXPERIMENT: tokens for shared components */
+    --color-neutral-text: #242836;
+    --color-neutral-text-muted: #3f475d;
+    --color-neutral-text-subtle: #6c7590;
+    --color-neutral-text-disabled: #c0c6de;
+    --color-neutral-text-on-primary: #ffffff;
+    --color-neutral-icon-on-primary: #ffffff;
+    --color-neutral-background: #ffffff;
+    --color-neutral-background-muted: #f8f9fc;
+    --color-neutral-background-subtle: #f3f4fa;
+    --color-neutral-background-white: #ffffff;
+    --color-neutral-card-background: #ffffff;
+    --color-neutral-border: #d0d5e9;
+    --color-neutral-separator-subtle: #e0e3f2;
+    --color-neutral-hover: #EEF0F8;
+    --color-neutral-disabled: #f3f4fa;
+    --color-neutral-overflow: #e0e3f2;
+    --color-neutral-icon: #555d76;
+    --color-neutral-icon-subtle: #8a93ae;
+    --color-neutral-icon-disabled: #b0b8d1;
+    --color-neutral-field-border: #c0c6de;
+    --color-neutral-action-secondary: #d0d5e9;
+    --color-neutral-action-secondary-hover: #e0e3f2;
+    --color-neutral-action-secondary-active: #c0c6de;
+    --color-neutral-chip-background: #e0e3f2;
+    --color-neutral-chip-background-hover: #d0d5e9;
+    --color-neutral-chip-background-active: #c0c6de;
+    --color-neutral-chip-background-disabled: #d0d5e9;
+    --color-neutral-large-tooltip-background: #ffffff;
+    --color-neutral-large-tooltip-border: #e0e3f2;
+    --color-neutral-small-tooltip-background: #191b22;
+    --color-neutral-small-tooltip-border: #242836;
+    --color-neutral-overlay: #191b2280;
+    --color-neutral-field-background: #f8f9fc;
+    --color-neutral-text-placeholder: #969eb8;
+    --color-primary-text: #1672eb;
+    --color-primary-text-interactive: #1672eb;
+    --color-primary-icon: #1672eb;
+    --color-primary-action: #1672eb;
+    --color-primary-action-hover: #5290f9;
+    --color-primary-action-active: #1a57da;
+    --color-primary-field-border-active: #1672eb;
+    --color-primary-chip-background: #e1eaff;
+    --color-primary-chip-background-hover: #d8e2ff;
+    --color-primary-chip-text: #1a57da;
+    --color-primary-shadow-active: #b2c6ff;
+    --color-success-text: #008a27;
+    --color-success-icon: #008a27;
+    --color-success-background-subtle: #e4f5e5;
+    --color-success-background-subtle-hover: #cfe9d1;
+    --color-success-background-subtle-active: #80da8d;
+    --color-success-border: #00ab46;
+    --color-success-border-subtle: #80da8d;
+    --color-success-action: #008a27;
+    --color-success-action-hover: #00ab46;
+    --color-success-action-active: #086e08;
+    --color-success-chip-background: #daefdc;
+    --color-success-chip-background-hover: #cfe9d1;
+    --color-success-chip-text: #086e08;
+    --color-warning-text: #a96600;
+    --color-warning-icon: #f5b315;
+    --color-warning-background-subtle: #f9f0db;
+    --color-warning-border-subtle: #f5b315;
+    --color-warning-field-border: #f5b315;
+    --color-warning-chip-background: #f7e8c4;
+    --color-warning-chip-background-hover: #f7dfb1;
+    --color-warning-chip-text: #8c4e02;
+    --color-danger-text: #e3231d;
+    --color-danger-icon: #e3231d;
+    --color-danger-background-subtle: #fff0ec;
+    --color-danger-background-subtle-hover: #fedad1;
+    --color-danger-background-subtle-active: #ffb39f;
+    --color-danger-border: #fa4d37;
+    --color-danger-border-subtle: #ffb39f;
+    --color-danger-field-border: #fa4d37;
+    --color-danger-action: #e3231d;
+    --color-danger-action-hover: #fa4d37;
+    --color-danger-action-active: #bb0401;
+    --color-danger-chip-background: #ffe3dc;
+    --color-danger-chip-background-hover: #fedad1;
+    --color-danger-chip-text: #bb0401;
+}
+
+html {
+    font-size: 10px;
 }
 
 @font-face {
@@ -600,7 +768,6 @@ html .table-of-contents ul {
     font-size: 20px;
     line-height: 32px;
     color: var(--color-Neutral_TextMuted);
-    border-bottom: 2px solid var(--color-Neutral_TextMuted);
     display: inline-flex;
     -webkit-box-align: center;
     align-items: center;
@@ -608,7 +775,6 @@ html .table-of-contents ul {
 
 .actionLink:hover {
     color: var(--color-Primary_TextInteractive);
-    border-bottom: 2px solid var(--color-Primary_TextInteractive);
 }
 
 html[data-theme='dark'] .actionLink::after {
@@ -633,6 +799,23 @@ html[data-theme='dark'] .actionLink:hover::after {
 .actionLink:hover::after {
     background-image: url('/img/arrow-right-primary.svg');
     margin-left: 8px;
+}
+
+.cardContentWrapper {
+    display: flex;
+    padding-top: 1.6rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+    align-self: stretch;
+}
+
+.cardContentList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    align-self: stretch;
 }
 
 @media (min-width: 997px) and (max-width: 1660px) {
