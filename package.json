@@ -54,7 +54,7 @@
         "undici": "^5.22.1"
     },
     "dependencies": {
-        "@apify-packages/ui-components": "0.53.8-featsharedcomponentsfordocs-24940f.12",
+        "@apify-packages/ui-components": "0.53.17-featsharedcomponentsfordocs-24940f.16",
         "@docusaurus/core": "^2.4.1",
         "@docusaurus/plugin-client-redirects": "^2.4.1",
         "@docusaurus/preset-classic": "^2.4.1",
