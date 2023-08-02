@@ -94,8 +94,8 @@ Here's what our project's code looks like so far:
 <TabItem value="Playwright" label="Playwright">
 
 ```javascript
-import { chromium } from 'playwright';
 import * as fs from 'fs/promises';
+import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
 
@@ -126,8 +126,8 @@ await browser.close();
 <TabItem value="Puppeteer" label="Puppeteer">
 
 ```javascript
-import puppeteer from 'puppeteer';
 import * as fs from 'fs/promises';
+import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
 

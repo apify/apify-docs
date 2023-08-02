@@ -140,8 +140,8 @@ const themeConfig = ({
     },
     prism: {
         defaultLanguage: 'typescript',
-        theme: require('prism-react-renderer/themes/github'),
-        darkTheme: require('prism-react-renderer/themes/dracula'),
+        theme: require('prism-react-renderer').themes.github,
+        darkTheme: require('prism-react-renderer').themes.dracula,
         additionalLanguages: ['docker', 'log', 'php'],
     },
     // this needs to be absolute link otherwise it gets resolved wrongly in project docs
@@ -243,6 +243,8 @@ const themeConfig = ({
         appId: 'N8EOCSBQGH',
         apiKey: 'b43e67a96ed18c7f63f5fd965906a96d', // search only (public) API key
         indexName: 'apify_sdk',
+        // apiKey: 'e97714a64e2b4b8b8fe0b01cd8592870', // search only (public) API key
+        // indexName: 'crawler_dev_apify_sdk',
         algoliaOptions: {
             facetFilters: ['version:VERSION'],
         },
