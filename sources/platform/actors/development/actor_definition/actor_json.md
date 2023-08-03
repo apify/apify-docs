@@ -25,6 +25,8 @@ import TabItem from '@theme/TabItem';
   "name": "name-of-my-scraper",
   "version": "0.0",
   "buildTag": "latest",
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 4096,
   "environmentVariables": {
       "MYSQL_USER": "my_username",
       "MYSQL_PASSWORD": "@mySecretPassword"
@@ -71,4 +73,5 @@ import TabItem from '@theme/TabItem';
 | `readme`               | Optional | If you specify the path to your README file under the `readme` field, the README at this path will be used on the platform. If not specified, README at `.actor/README.md` or `README.md` will be used, in this order of preference. See our [Apify Academy article on writing a quality README files](/academy/get-most-of-actors/actor-readme). |
 | `input`                | Optional | You can embed your [input schema](./input_schema/index.md) object directly in `actor.json` under the `input` field. Alternatively, you can provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference. |
 `storages.dataset`       | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](./output_schema.md#specification-version-1) about Actor output schemas. |
-
+| `minMemoryMbytes`      | Optional | Specifies the minimum amount of memory in megabytes that an Actor requires to run. Requires an integer value. If both `minMemoryMbytes` and `maxMemoryMbytes` are set, then `minMemoryMbytes` must be the same or lower than `maxMemoryMbytes`. |
+| `maxMemoryMbytes`      | Optional | Specifies the maximum amount of memory in megabytes that an Actor requires to run. It can be used to control the costs of run, especially when developing pay per result actors. Requires an integer value. |
