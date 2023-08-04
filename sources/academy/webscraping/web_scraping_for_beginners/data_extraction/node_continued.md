@@ -38,7 +38,7 @@ Replace the code in your **main.js** with the following, and run it with `node m
 ```js
 // main.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 
@@ -110,7 +110,7 @@ The final scraper code looks like this. Replace the code in your **main.js** fil
 ```js
 // main.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 

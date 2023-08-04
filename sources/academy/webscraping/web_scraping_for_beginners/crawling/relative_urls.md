@@ -35,7 +35,7 @@ Let's update the Node.js code from the [Finding links lesson](./finding_links.md
 
 ```js title=crawler.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 
@@ -72,7 +72,7 @@ When we plug this into our crawler code, we will get the correct - absolute - UR
 
 ```js title=crawler.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 // Split the base URL from the category to use it later.
 const WEBSITE_URL = 'https://warehouse-theme-metal.myshopify.com';

@@ -43,7 +43,7 @@ To parse the HTML with the `cheerio` library. Replace the code in your **main.js
 ```js
 // main.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 

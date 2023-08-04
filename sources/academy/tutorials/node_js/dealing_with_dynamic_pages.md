@@ -144,7 +144,7 @@ So, we've gotta scroll down the page to load these images. Luckily, because we'r
 
 ```js
 import { PuppeteerCrawler, utils, Dataset } from 'crawlee';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const BASE_URL = 'https://demo-webstore.apify.org';
 
