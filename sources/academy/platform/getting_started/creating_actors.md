@@ -19,7 +19,7 @@ Once you're in Apify Console, go to [Actors](https://console.apify.com/actors?as
 
 ![Create an Actor button](./images/create-new-actor.png)
 
-You will be presented with a page featuring two ways how to start with a new the Actor.
+You'll be presented with a page featuring two ways to get started with a new Actor.
 
 1. Creating Actor from existing source code (using Git providers or pushing the code from your local machine using Apify CLI)
 2. Creating Actor from a code template
