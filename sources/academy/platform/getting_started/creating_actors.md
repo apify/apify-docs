@@ -1,6 +1,6 @@
 ---
 title: Creating Actors
-description: Build and run your very first Actor right on the Apify Console from a template. This lesson provides a hands-on experience with building and running an Actor.
+description: Build and run your very first Actor directly in Apify Console from a template. This lesson provides hands-on experience with building and running Actors.
 sidebar_position: 2
 slug: /getting-started/creating-actors
 ---
