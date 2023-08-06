@@ -170,7 +170,7 @@ After the Actor finishes, you can preview or download the extracted data simply 
 
 And that's it! You've just created your first Actor and extracted data from a website 🎉.
 
-## Don't get stuck with tips 💡 {#dont-get-stuck-with-tips}
+## Getting stuck? Check out the tips 💡 {#dont-get-stuck-with-tips}
 
 If you ever get stuck, you can always click on the **Tips** button in the top right corner of the page. It will show you a list of tips that are relevant to the Actor development.
 
