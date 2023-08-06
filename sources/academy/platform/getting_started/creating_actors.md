@@ -40,11 +40,11 @@ You can also push your existing code from your local machine using [Apify CLI](/
 
 ## Creating Actor from code template {#code-template}
 
-There are several template options in Python, JavaScript, and TypeScript. 
+There are several template options in Python, JavaScript, and TypeScript.
 
 > You can select one from the list on this page or you can browse all the templates in the template library by clicking on the **View all templates** button in the right corner.
 
-For example, let's choose the **Start with JavaScript** template and click on the template card. 
+For example, let's choose the **Start with JavaScript** template and click on the template card.
 
 ![JavaScript template card](./images/create-actor-template-javascript-card.png)
 
@@ -54,19 +54,19 @@ You will end up on a template detail page where you can see the all the importan
 
 ### Using the template in the Web IDE {#web-ide}
 
-By clicking **Use this template** button you will create the Actor in Apify Console and you will be moved to the **Code** tab with the [Web IDE](/platform/actors/development/quick-start/web-ide) where you can see the code of the template and start editing it. 
+By clicking **Use this template** button you will create the Actor in Apify Console and you will be moved to the **Code** tab with the [Web IDE](/platform/actors/development/quick-start/web-ide) where you can see the code of the template and start editing it.
 
-> The Web IDE is a great tool for developing your Actor directly on the Apify Console without the need to install or use any other software. 
+> The Web IDE is a great tool for developing your Actor directly on the Apify Console without the need to install or use any other software.
 
 ![Web IDE](./images/create-actor-web-ide.png)
 
 ### Using the template locally {#local}
 
-If you want to use the template locally, you can again use our [Apify CLI](/cli) to download the template to your local machine. 
+If you want to use the template locally, you can again use our [Apify CLI](/cli) to download the template to your local machine.
 
 > Creating an Actor from a template locally is a great option if you want to develop your code using your local environment and IDE and then push the final solution back to the Apify Console.
 
-By clicking on the **Use locally** button, you will be presented with an instructions on how to the create an Actor from this template in your local environment. 
+By clicking on the **Use locally** button, you will be presented with an instructions on how to the create an Actor from this template in your local environment.
 
 With the Apify CLI installed, you can simply run following commands in your terminal:
 
@@ -85,7 +85,7 @@ apify run
 
 This template is a great starting point for web scraping as it extracts data from a single website. It uses [Axios](https://axios-http.com/docs/intro) for downloading the page content and [Cheerio](https://cheerio.js.org/) for parsing the HTML from the content.
 
-Let's see what exactly is inside of the **Start with JavaScript** template. The main logic of the template lives in the `src/main.js` file. 
+Let's see what exactly is inside of the **Start with JavaScript** template. The main logic of the template lives in the `src/main.js` file.
 
 ```js
 // Axios - Promise based HTTP client for the browser and node.js (Read more at https://axios-http.com/docs/intro).
@@ -124,7 +124,8 @@ await Actor.pushData(headings);
 
 // Gracefully exit the Actor process. It's recommended to quit all Actors with an exit().
 await Actor.exit();
-``` 
+```
+
 The Actor takes the `url` from the input and then:
 
 1. Sends a request to the URL.
@@ -148,7 +149,7 @@ After you've clicked the **Build** button, it'll take around 5-10 seconds to com
 
 #### Fill the input {#fill-input}
 
-And now we are ready to run the Actor. But before we do that, let's give the Actor some input by going to the `Input` tab. 
+And now we are ready to run the Actor. But before we do that, let's give the Actor some input by going to the `Input` tab.
 
 The input tab is where you can provide the Actor with some meaningful input. In this case, we'll be providing the Actor with a URL to scrape. For now, we'll use the prefilled value of [Apify website](https://apify.com/) (`https://apify.com/`).
 
