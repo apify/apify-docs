@@ -7,7 +7,7 @@ slug: /getting-started/creating-actors
 
 # Creating actors {#creating-actors}
 
-**This lesson offers a hands-on experience in building and running an Actor on the Apify Console using a template. By the end of it, you will build and run your first Actor using an Actor template.**
+**This lesson offers hands-on experience in building and running Actors in Apify Console using a template. By the end of it, you will be able to build and run your first Actor using an Actor template.**
 
 ---
 
