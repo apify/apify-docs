@@ -11,7 +11,7 @@ slug: /getting-started/creating-actors
 
 ---
 
-There are several ways to create an Actor. You can create an Actor from you own source code hosted in Git repository or in your local machine but the easiest method we'll focus on in this tutorial is by selecting an Actor code template. We do not need to install any special software, and everything can be done directly on the Apify Console using an Apify account.
+There are several ways to create an Actor. You can create one from your own source code hosted in a Git repository or in your local machine, for example. But in this tutorial, we'll focus on the easiest method: selecting an Actor code template. We don't need to install any special software, and everything can be done directly in Apify Console using an Apify account.
 
 ## Choose the source {#choose-the-source}
 
