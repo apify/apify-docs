@@ -38,7 +38,6 @@ You can also push your existing code from your local machine using [Apify CLI](/
 
 ![Push your code using the Apify CLI](./images/create-actor-cli.png)
 
-
 ## Creating Actor from code template {#code-template}
 
 There are several template options in Python, JavaScript, and TypeScript. 
@@ -90,11 +89,11 @@ Let's see what exactly is inside of the **Start with JavaScript** template. The 
 
 ```js
 // Axios - Promise based HTTP client for the browser and node.js (Read more at https://axios-http.com/docs/intro).
-import axios from "axios";
+import axios from 'axios';
 // Cheerio - The fast, flexible & elegant library for parsing and manipulating HTML and XML (Read more at https://cheerio.js.org/).
-import * as cheerio from "cheerio";
+import * as cheerio from 'cheerio';
 // Apify SDK - toolkit for building Apify Actors (Read more at https://docs.apify.com/sdk/js/).
-import { Actor } from "apify";
+import { Actor } from 'apify';
 
 // The init() call configures the Actor for its environment. It's recommended to start every Actor with an init().
 await Actor.init();
@@ -111,12 +110,12 @@ const $ = cheerio.load(response.data);
 
 // Extract all headings from the page (tag name and text).
 const headings = [];
-$("h1, h2, h3, h4, h5, h6").each((i, element) => {
+$('h1, h2, h3, h4, h5, h6').each((i, element) => {
     const headingObject = {
-        level: $(element).prop("tagName").toLowerCase(),
+        level: $(element).prop('tagName').toLowerCase(),
         text: $(element).text(),
     };
-    console.log("Extracted heading", headingObject);
+    console.log('Extracted heading', headingObject);
     headings.push(headingObject);
 });
 
@@ -125,7 +124,6 @@ await Actor.pushData(headings);
 
 // Gracefully exit the Actor process. It's recommended to quit all Actors with an exit().
 await Actor.exit();
-
 ``` 
 The Actor takes the `url` from the input and then:
 
@@ -175,8 +173,6 @@ And that's it! You've just created your first Actor and extracted data from a we
 If you ever get stuck, you can always click on the **Tips** button in the top right corner of the page. It will show you a list of tips that are relevant to the Actor development.
 
 ![Tips](./images/actor-tips.png)
-
-
 
 ## Next up {#next}
 
