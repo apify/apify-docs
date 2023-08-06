@@ -17,7 +17,7 @@ There are several ways to create an Actor. You can create one from your own sour
 
 Once you're in Apify Console, go to [Actors](https://console.apify.com/actors?asrc=developers_portal), and click on the **Create an Actor** button in the top right-hand corner.
 
-![Create and Actor button](./images/create-new-actor.png)
+![Create an Actor button](./images/create-new-actor.png)
 
 You will be presented with a page featuring two ways how to start with a new the Actor.
 
