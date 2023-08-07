@@ -56,7 +56,7 @@ You will end up on a template detail page where you can see the all the importan
 
 By clicking **Use this template** button you will create the Actor in Apify Console and you will be moved to the **Code** tab with the [Web IDE](/platform/actors/development/quick-start/web-ide) where you can see the code of the template and start editing it.
 
-> The Web IDE is a great tool for developing your Actor directly on the Apify Console without the need to install or use any other software.
+> The Web IDE is a great tool for developing your Actor directly in Apify Console without the need to install or use any other software.
 
 ![Web IDE](./images/create-actor-web-ide.png)
 
@@ -66,7 +66,7 @@ If you want to use the template locally, you can again use our [Apify CLI](/cli)
 
 > Creating an Actor from a template locally is a great option if you want to develop your code using your local environment and IDE and then push the final solution back to the Apify Console.
 
-By clicking on the **Use locally** button, you will be presented with an instructions on how to the create an Actor from this template in your local environment.
+When you click on the **Use locally** button, you'll be presented with instructions on how to create an Actor from this template in your local environment.
 
 With the Apify CLI installed, you can simply run following commands in your terminal:
 
@@ -85,7 +85,7 @@ apify run
 
 This template is a great starting point for web scraping as it extracts data from a single website. It uses [Axios](https://axios-http.com/docs/intro) for downloading the page content and [Cheerio](https://cheerio.js.org/) for parsing the HTML from the content.
 
-Let's see what exactly is inside of the **Start with JavaScript** template. The main logic of the template lives in the `src/main.js` file.
+Let's see what's inside the **Start with JavaScript** template. The main logic of the template lives in the `src/main.js` file.
 
 ```js
 // Axios - Promise based HTTP client for the browser and node.js (Read more at https://axios-http.com/docs/intro).
