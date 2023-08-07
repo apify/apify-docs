@@ -147,7 +147,7 @@ After you've clicked the **Build** button, it'll take around 5-10 seconds to com
 
 ![Start button](./images/start.png)
 
-#### Fill the input {#fill-input}
+## Fill the input {#fill-input}
 
 And now we are ready to run the Actor. But before we do that, let's give the Actor some input by going to the `Input` tab.
 
