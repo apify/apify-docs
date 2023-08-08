@@ -61,8 +61,8 @@ import TabItem from '@theme/TabItem';
 > Note that actor `name`, `version`, `buildTag`, and `environmentVariables` are currently only used when you deploy your actor using [Apify CLI](/cli) and not when deployed, for example, via GitHub integration. There it serves for informative purposes only. This is suspected to change in the future.
 
 
-| Property         | Type     | Description |
-| ---------------- | -------- |----------- |
+| Property               | Type     | Description |
+|------------------------| -------- |----------- |
 | `actorSpecification`   | Required | We are at a version `1` which is the only one available so this must be set to `1`. |
 | `name`                 | Required | Name of the Actor. |
 | `version`              | Required | Actor version in the form `[Number].[Number]`, i.e. for example `0.0`, `0.1`, `2.3`, ... |
@@ -72,6 +72,6 @@ import TabItem from '@theme/TabItem';
 | `dockerContextDir`     | Optional | Specifies the path to the directory used as the Docker context when building the Actor. The path is relative to the location of the `actor.json` file. Useful for having a monorepo with multiple Actors. See [Actor monorepos](../deployment/source_types.md#actor-monorepos) for more details. |
 | `readme`               | Optional | If you specify the path to your README file under the `readme` field, the README at this path will be used on the platform. If not specified, README at `.actor/README.md` or `README.md` will be used, in this order of preference. See our [Apify Academy article on writing a quality README files](/academy/get-most-of-actors/actor-readme). |
 | `input`                | Optional | You can embed your [input schema](./input_schema/index.md) object directly in `actor.json` under the `input` field. Alternatively, you can provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference. |
-`storages.dataset`       | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](./output_schema.md#specification-version-1) about Actor output schemas. |
+| `storages.dataset`     | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](./output_schema.md#specification-version-1) about Actor output schemas. |
 | `minMemoryMbytes`      | Optional | Specifies the minimum amount of memory in megabytes that an Actor requires to run. Requires an integer value. If both `minMemoryMbytes` and `maxMemoryMbytes` are set, then `minMemoryMbytes` must be the same or lower than `maxMemoryMbytes`. |
 | `maxMemoryMbytes`      | Optional | Specifies the maximum amount of memory in megabytes that an Actor requires to run. It can be used to control the costs of run, especially when developing pay per result actors. Requires an integer value. |

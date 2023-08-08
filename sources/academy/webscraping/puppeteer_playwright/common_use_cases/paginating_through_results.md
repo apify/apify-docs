@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 If you're trying to [collect data](../executing_scripts/extracting_data.md) on a website that has millions, thousands, or even just hundreds of results, it is very likely that they are paginating their results to reduce strain on their backend as well as on the users loading and rendering the content.
 
-![Amazon pagination](https://apify-docs.s3.amazonaws.com/master/docs/assets/tutorials/images/pagination.jpg)
+![Amazon pagination](../../advanced_web_scraping/images/pagination.png)
 
 Attempting to scrape thousands to tens of thousands of results using a headless browser on a website that only shows 30 results at a time might be daunting at first, but be rest assured that by the end of this lesson you'll feel confident when faced with this use case.
 
@@ -53,7 +53,6 @@ Let's grab this number now with a little bit of code:
 
 ```javascript
 import { chromium } from 'playwright';
-import { load } from 'cheerio';
 
 const repositories = [];
 
@@ -79,7 +78,6 @@ await browser.close();
 
 ```javascript
 import puppeteer from 'puppeteer';
-import { load } from 'cheerio';
 
 const repositories = [];
 
@@ -118,7 +116,7 @@ And since we're already on the first page, we'll go ahead and scrape the repos f
 
 ```javascript
 import { chromium } from 'playwright';
-import { load } from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const repositories = [];
 
@@ -127,7 +125,7 @@ const REPOSITORIES_URL = `${BASE_URL}/orgs/facebook/repositories`;
 
 // Create a function which grabs all repos from a page
 const scrapeRepos = async (page) => {
-    const $ = load(await page.content());
+    const $ = cheerio.load(await page.content());
 
     return [...$('li.Box-row')].map((item) => {
         const elem = $(item);
@@ -163,7 +161,7 @@ await browser.close();
 
 ```javascript
 import puppeteer from 'puppeteer';
-import { load } from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const repositories = [];
 
@@ -172,7 +170,7 @@ const REPOSITORIES_URL = `${BASE_URL}/orgs/facebook/repositories`;
 
 // Create a function which grabs all repos from a page
 const scrapeRepos = async (page) => {
-    const $ = load(await page.content());
+    const $ = cheerio.load(await page.content());
 
     return [...$('li.Box-row')].map((item) => {
         const elem = $(item);
@@ -260,7 +258,7 @@ After all is said and done, here's what our final code looks like:
 
 ```javascript
 import { chromium } from 'playwright';
-import { load } from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const repositories = [];
 
@@ -268,7 +266,7 @@ const BASE_URL = 'https://github.com';
 const REPOSITORIES_URL = `${BASE_URL}/orgs/facebook/repositories`;
 
 const scrapeRepos = async (page) => {
-    const $ = load(await page.content());
+    const $ = cheerio.load(await page.content());
 
     return [...$('li.Box-row')].map((item) => {
         const elem = $(item);
@@ -321,7 +319,7 @@ await browser.close();
 
 ```javascript
 import puppeteer from 'puppeteer';
-import { load } from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const repositories = [];
 
@@ -330,7 +328,7 @@ const REPOSITORIES_URL = `${BASE_URL}/orgs/facebook/repositories`;
 
 // Create a function which grabs all repos from a page
 const scrapeRepos = async (page) => {
-    const $ = load(await page.content());
+    const $ = cheerio.load(await page.content());
 
     return [...$('li.Box-row')].map((item) => {
         const elem = $(item);
@@ -402,7 +400,6 @@ We're going to scrape the brand and price from the first 75 results on the **Abo
 
 ```javascript
 import { chromium } from 'playwright';
-import { load } from 'cheerio';
 
 // Create an array where all scraped products will
 // be pushed to
@@ -421,7 +418,6 @@ await browser.close();
 
 ```javascript
 import puppeteer from 'puppeteer';
-import { load } from 'cheerio';
 
 // Create an array where all scraped products will
 // be pushed to
@@ -543,7 +539,9 @@ Now, the `while` loop will exit out if we've reached the bottom of the page.
 Within the loop, we can grab hold of the total number of items on the page. To avoid extracting and pushing duplicate items to the **products** array, we can use the `.slice()` method to cut out the items we've already scraped.
 
 ```js
-const $ = load(await page.content());
+import * as cheerio from 'cheerio';
+
+const $ = cheerio.load(await page.content());
 
 // Grab the newly loaded items
 const items = [...$('a[data-testid*="productTile"]')].slice(products.length);
@@ -569,7 +567,7 @@ With everything completed, this is what we're left with:
 
 ```javascript
 import { chromium } from 'playwright';
-import { load } from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const products = [];
 
@@ -592,7 +590,7 @@ while (products.length < 75) {
     // Allow the products 1 second to load
     await page.waitForTimeout(1000);
 
-    const $ = load(await page.content());
+    const $ = cheerio.load(await page.content());
 
     // Grab the newly loaded items
     const items = [...$('a[data-testid*="productTile"]')].slice(products.length);
@@ -628,7 +626,7 @@ await browser.close();
 
 ```javascript
 import puppeteer from 'puppeteer';
-import { load } from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const products = [];
 
@@ -651,7 +649,7 @@ while (products.length < 75) {
     // Allow the products 1 second to load
     await page.waitForTimeout(1000);
 
-    const $ = load(await page.content());
+    const $ = cheerio.load(await page.content());
 
     // Grab the newly loaded items
     const items = [...$('a[data-testid*="productTile"]')].slice(products.length);

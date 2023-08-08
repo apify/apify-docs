@@ -21,7 +21,7 @@ In the previous lessons, we collected and filtered all the URLs pointing to indi
 
 ```js title=crawler.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const WEBSITE_URL = 'https://warehouse-theme-metal.myshopify.com';
 const storeUrl = `${WEBSITE_URL}/collections/sales`;
@@ -75,7 +75,7 @@ In programming, you handle errors by catching and handling them. Typically by pr
 
 ```js title=crawler.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const WEBSITE_URL = 'https://warehouse-theme-metal.myshopify.com';
 const storeUrl = `${WEBSITE_URL}/collections/sales`;
