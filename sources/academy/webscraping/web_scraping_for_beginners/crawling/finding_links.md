@@ -53,7 +53,7 @@ We'll start from a boilerplate that's very similar to the scraper we built in [B
 
 ```js title=crawler.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 

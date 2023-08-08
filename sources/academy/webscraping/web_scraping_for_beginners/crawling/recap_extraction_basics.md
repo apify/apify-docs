@@ -18,7 +18,7 @@ We finished off the [first section](../data_extraction/index.md) of the _Web Scr
 // download, extract, and convert the data we wanted
 import { writeFileSync } from 'fs';
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 import { parse } from 'json2csv';
 
 // Here, we fetched the website's HTML and saved it to a new variable.

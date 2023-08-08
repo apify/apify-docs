@@ -21,7 +21,7 @@ Let's start writing a script that extracts data from this single PDP. We can use
 
 ```js title=product.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const productUrl = 'https://warehouse-theme-metal.myshopify.com/products/denon-ah-c720-in-ear-headphones';
 const response = await gotScraping(productUrl);
@@ -123,7 +123,7 @@ Let's compare the above data extraction example with the crawling code we wrote 
 
 ```js title=crawler.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const WEBSITE_URL = 'https://warehouse-theme-metal.myshopify.com';
 const storeUrl = `${WEBSITE_URL}/collections/sales`;
@@ -171,7 +171,7 @@ We'll start by adding our imports and constants at the top of the file, no chang
 
 ```js title=final.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const WEBSITE_URL = 'https://warehouse-theme-metal.myshopify.com';
 ```
