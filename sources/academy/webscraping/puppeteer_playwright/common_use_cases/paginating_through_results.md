@@ -53,7 +53,6 @@ Let's grab this number now with a little bit of code:
 
 ```javascript
 import { chromium } from 'playwright';
-import * as cheerio from 'cheerio';
 
 const repositories = [];
 
@@ -79,7 +78,6 @@ await browser.close();
 
 ```javascript
 import puppeteer from 'puppeteer';
-import * as cheerio from 'cheerio';
 
 const repositories = [];
 
@@ -402,7 +400,6 @@ We're going to scrape the brand and price from the first 75 results on the **Abo
 
 ```javascript
 import { chromium } from 'playwright';
-import * as cheerio from 'cheerio';
 
 // Create an array where all scraped products will
 // be pushed to
@@ -421,7 +418,6 @@ await browser.close();
 
 ```javascript
 import puppeteer from 'puppeteer';
-import * as cheerio from 'cheerio';
 
 // Create an array where all scraped products will
 // be pushed to
@@ -543,6 +539,8 @@ Now, the `while` loop will exit out if we've reached the bottom of the page.
 Within the loop, we can grab hold of the total number of items on the page. To avoid extracting and pushing duplicate items to the **products** array, we can use the `.slice()` method to cut out the items we've already scraped.
 
 ```js
+import * as cheerio from 'cheerio';
+
 const $ = cheerio.load(await page.content());
 
 // Grab the newly loaded items
