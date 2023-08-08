@@ -131,7 +131,7 @@ The Actor takes the `url` from the input and then:
 1. Sends a request to the URL.
 2. Downloads the page's HTML content.
 3. Extracts headings (H1 - H6) from the page.
-4. Stores the extracted data
+4. Stores the extracted data.
 
 The extracted data is stored in the [Dataset](/platform/storage/dataset) where you can preview it and download. We'll show how to do that later in [Run the Actor](#run-the-actor) section.
 
