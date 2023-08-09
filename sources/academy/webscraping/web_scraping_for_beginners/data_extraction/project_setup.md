@@ -57,7 +57,7 @@ With the libraries installed, create a new file in the project's folder called *
 
 ```js
 import gotScraping from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 console.log('it works!');
 ```
