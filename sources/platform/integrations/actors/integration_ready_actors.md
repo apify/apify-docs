@@ -1,11 +1,10 @@
 ---
-title: Actors
+title: Integration-ready Actors
 description: Learn how to integrate with other Actors and tasks
-sidebar_position: 11.10
-slug: /integrations/actors
+sidebar_position: 1
+slug: /integrations/actors/integration-ready-actor
 ---
 
-## How to prepare integration-ready Actor?
 
 Any Actor can be used as integration. But in order to make the experience nice for it’s users, there are few things to keep on mind.
 
@@ -84,34 +83,3 @@ To allow other users to use your Actor as integration, make it public, users can
 For the Actors that are generic enough to be used with basically any other Actor it’s possible to have them listed under “Generic integrations”. Those include (but are not limited to) uploading the datasets to databases, sending notifications through various messaging systems, creating issues in ticketing systems etc. To have your Actor listed under generic integrations, contact support.
 
 Some Actors can only be integrated with a few or even just one other Actor. Let’s say that you have Actor that’s capable of scraping profiles from social network X(Y), it makes sense to show it for Actors that produce usernames on social network X(Y), but not for Actors that produce lists of products. In this case it’s possible to have the Actor listed in integrations “Specific to this Actor”. In order to have your Actor listed, contact support.
-
-## Using Actor-to-Actor integrations via API
-
-Integrating Actor via API is also possible, using the [webhooks](https://docs.apify.com/api/v2#/reference/webhooks/webhook-collection/create-webhook) endpoint. It’s the same as any other webhooks, but to make sure you see it in Console in the nice UI, you need to make sure of few things. The `requestUrl` field needs to point to run Actor or run task endpoints and needs to use their ids as identifiers (ie. not names). The `payloadTemplate` field should be valid json - ie. it should only use variables enclosed in strings. Also you need to make sure that it contains `payload` field. The `shouldInterpolateStrings` field needs to be set to `true`, otherwise the variables won’t work. The last thing needed is to add `isApifyIntegration` field with `true` value. This is just a helper that turns on the nice UI, if the above conditions are met.
-
-Not meeting the conditions won’t mean that the webhook won’t work. It’s just going to be displayed as a regular HTTP webhook in Console.
-
-### Example
-
-The webhook would look something like this:
-
-```jsx
-{
-  "requestUrl": "https://api.apify.com/v2/acts/<integration-actor-id>/runs",
-  "eventTypes": [ "ACTOR.RUN.SUCCEEDED" ],
-  "condition": {
-     "actorId": "<actor-id>",
-  },
-  "shouldInterpolateStrings": true,
-  "isApifyIntegration": true,
-  "payloadTemplate": "{\"field\":\"value\",\"payload\":{\"resource\":\"{{resource}}\"}}",
-}
-```
-
-It’s usually enough to just include `resource` in the payload template, but some actors might need other fields too. Keep in mind that the `payloadTemplate` is string, not object.
-
-## What is under the hood?
-
-Under the hood the Actor to Actor integration uses regular HTTP POST webhooks targeting Apify API, it’s just nicer UI for the same thing. The UI allows to fill the payload template using Actor input UI, not just plaintext, and constructs the url to start actor with given options.
-
-The UI makes sure that the variables are enclosed in strings, meaning that event the payload template itself is a valid JSON, not just the resulting interpolation. It also automatically adds `payload` field that contains default webhook payload. So for Actors that are meant to be used as integrations, users don’t have to fill in the variables, and Actor just takes the data from this field.
