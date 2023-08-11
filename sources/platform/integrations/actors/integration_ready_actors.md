@@ -46,7 +46,7 @@ const { datasetId, connectionString, tableName } = await Actor.getInput();
 
 That is comfortable for Actor’s developer, but not for the end user. To make it comfortable, we’d use different input schema:
 
-```
+```plaintext
 connectionString (string) - Credentials for the database connection
 tableName (string) - Name of table / collection
 ```
