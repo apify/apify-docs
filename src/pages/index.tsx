@@ -16,6 +16,10 @@ import Section from '../components/Section/Section';
 import CardWithIcon from '../components/CardWithIcon/CardWithIcon';
 import ActionCard from '../components/ActionCard/ActionCard';
 import PlainCard from '../components/PlainCard/PlainCard';
+import { ActorTemplates } from '../components/ActorTemplates/ActorTemplates';
+import CardWithImageAndContent from '../components/CardWithImageAndContent/ImageWithContent';
+import OpenSourceCards from '../components/OpenSourceCards/OpenSourceCards';
+import Button from '../components/Button';
 
 /* Platform icons */
 import Actors from './img/platform_icons/actors.svg';
@@ -27,17 +31,13 @@ import Monitoring from './img/platform_icons/monitoring.svg';
 import Collaboration from './img/platform_icons/collaboration.svg';
 import Security from './img/platform_icons/security.svg';
 
-/* Academy icons */
+/* Academy images */
 import WebScrapingForBeginners from './img/academy_icons/web_scraping_for_beginners.svg';
 import ApifyPlatformCourse from './img/academy_icons/apify_platform_course.svg';
 import ApiScraping from './img/academy_icons/api_scraping.svg';
 import AntiScrapingProtections from './img/academy_icons/anti_scraping_protections.svg';
 import ExpertScrapingWithApify from './img/academy_icons/expert_scraping_with_apify.svg';
 import DeployYourCode from './img/academy_icons/deploy_your_code.svg';
-import { ActorTemplates } from '../components/ActorTemplates/ActorTemplates';
-import CardWithImageAndContent from '../components/CardWithImageAndContent/ImageWithContent';
-import OpenSourceCards from '../components/OpenSourceCards/OpenSourceCards';
-import Button from '../components/Button';
 
 const StyledBanner = styled(Banner)`
     width: 100%;
@@ -62,7 +62,6 @@ export default function Home() {
 
     return (
         <Layout
-            className={styles.landingPageContent}
             description="Navigate the Apify documentation for insights into web scraping and web automation on the Apify platform. Learn best practices, and discover how to optimize your web scrapers."
         >
             <Hero

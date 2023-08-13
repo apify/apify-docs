@@ -320,6 +320,11 @@ footer .col {
     display: none;
 }
 
+.dropdown__link {
+    font-size: 14px;
+
+}
+
 .DocSearch-Button-Placeholder {
     font-size: 14px !important;
 }
