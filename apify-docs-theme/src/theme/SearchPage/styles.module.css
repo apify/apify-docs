@@ -3,11 +3,11 @@
   border-radius: var(--ifm-global-radius);
   border: 2px solid var(--ifm-toc-border-color);
   font: var(--ifm-font-size-base) var(--ifm-font-family-base);
-  padding: 0.8rem;
+  padding: 12.8px;
   width: 100%;
   background: var(--docsearch-searchbox-focus-background);
   color: var(--docsearch-text-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
   transition: border var(--ifm-transition-fast) ease;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .searchResultsColumn {
-  font-size: 0.9rem;
+  font-size: 14.4px;
   font-weight: bold;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .searchResultItem {
-  padding: 1rem 0;
+  padding: 16px 0;
   border-bottom: 1px solid var(--ifm-toc-border-color);
 }
 
@@ -45,13 +45,13 @@
 }
 
 .searchResultItemPath {
-  font-size: 0.8rem;
+  font-size: 12.8px;
   color: var(--ifm-color-content-secondary);
   --ifm-breadcrumb-separator-size-multiplier: 1;
 }
 
 .searchResultItemSummary {
-  margin: 0.5rem 0 0;
+  margin: 8px 0 0;
   font-style: italic;
 }
 
@@ -86,8 +86,8 @@
 }
 
 .loadingSpinner {
-  width: 3rem;
-  height: 3rem;
+  width: 48px;
+  height: 48px;
   border: 0.4em solid #eee;
   border-top-color: var(--ifm-color-primary);
   border-radius: 50%;
@@ -102,7 +102,7 @@
 }
 
 .loader {
-  margin-top: 2rem;
+  margin-top: 32px;
 }
 
 :global(.search-result-match) {

@@ -20,7 +20,7 @@ export default function NavbarMobilePrimaryMenu() {
         <>
             {
                 subNavbar ? <>
-                    <ul className="menu__list" style={{ marginBottom: '1rem', borderBottom: '1px solid #e0e0e0', paddingBottom: '1rem' }}>
+                    <ul className="menu__list" style={{ marginBottom: '16px', borderBottom: '1px solid #e0e0e0', paddingBottom: '16px' }}>
                         <NavbarItem
                             key={'title'}
                             mobile
@@ -29,7 +29,7 @@ export default function NavbarMobilePrimaryMenu() {
                         />
                         {subNavbar.items.map((item, i) => (
                             <NavbarItem
-                                style={{ paddingLeft: '1rem' }}
+                                style={{ paddingLeft: '16.px' }}
                                 key={i}
                                 mobile
                                 {...item}
@@ -47,7 +47,7 @@ export default function NavbarMobilePrimaryMenu() {
                 {items.map((item, i) => (
                     <NavbarItem
                         mobile
-                        style={{ paddingLeft: '1rem' }}
+                        style={{ paddingLeft: '16px' }}
                         {...item}
                         key={i}
                     />

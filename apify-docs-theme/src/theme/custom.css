@@ -124,7 +124,7 @@ html[data-theme='dark'] {
     --ifm-font-weight-semibold: 600;
     --ifm-font-color-base: #242736;
 
-    --ifm-navbar-item-padding-horizontal: 1.75rem;
+    --ifm-navbar-item-padding-horizontal: 28px;
     --ifm-navbar-link-color: #41465d;
     --ifm-navbar-shadow: none;
 
@@ -132,8 +132,8 @@ html[data-theme='dark'] {
     --ifm-hero-background-color: transparent;
 
     --ifm-code-background: var(--ifm-pre-background) !important;
-    --ifm-code-padding-horizontal: 0.4rem;
-    --ifm-code-padding-vertical: 0.2rem;
+    --ifm-code-padding-horizontal: 6.4px;
+    --ifm-code-padding-vertical: 3.2px;
 
     --ifm-color-primary-lightest: #5d9df1;
     --ifm-color-primary-lighter: #3a87ee;
@@ -253,8 +253,15 @@ html[data-theme='dark'] {
     --color-danger-chip-text: #bb0401;
 }
 
+/* Setting the base size to 10px so it's easy to use rem for scaling (1.6rem = 16px) */
 html {
     font-size: 10px;
+}
+
+body {
+    font-family: var(--ifm-font-family-base);
+    font-size: 16px;
+    line-height: 24px;
 }
 
 @font-face {
@@ -273,7 +280,7 @@ html {
 }
 
 .footer__title {
-    font-size: 1.25rem;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -286,7 +293,7 @@ html {
 }
 
 footer .col {
-    margin-bottom: 2rem;
+    margin-bottom: 32px;
 }
 
 .navbar__title {
@@ -371,14 +378,14 @@ aside > div > a > b {
 .dropdown > .navbar__link::after {
     border-color: currentColor;
     border-style: solid;
-    border-width: 0.1em 0.1em 0 0;
+    border-width: 1.6px 1.6px 0 0;
     content: '';
     display: inline-block;
-    height: 0.4em;
-    left: 0.3em;
+    height: 6.4px;
+    left: 4.8px;
     position: relative;
     vertical-align: top;
-    width: 0.4em;
+    width: 6.4px;
     top: 7px;
     transform: rotate(135deg);
     transition: all ease-in 0.2s;
@@ -451,8 +458,8 @@ aside .icon svg[class*=iconExternalLink] {
 .navbar__sub--title {
 	display: flex;
 	align-items: center;
-	width: 12.5rem;
-	padding-right: 0.5rem;
+	width: 200px;
+	padding-right: 8px;
 	position: relative;
 	border-right: 1px solid var(--color-Neutral_SeparatorSubtle);
 	justify-content: center;
@@ -514,14 +521,13 @@ aside button[class*="collapseSidebarButton"] svg {
 }
 
 nav.navbar .dropdown__menu {
-    min-width: 6rem;
+    min-width: 96px;
 }
 
 .navbar__logo {
     display: none;
-    width: 11rem;
-    height: 3rem;
-    /* padding: 10px 0px; */
+    width: 176px;
+    height: 48px;
 }
 
 .navbar-sidebar .navbar__logo {
@@ -537,13 +543,13 @@ nav.navbar .dropdown__menu {
 }
 
 .navbar__link.subnav {
-    font-size: 0.8em;
+    font-size: 12.8px;
     padding: 5px;
 }
 
 .main-wrapper a[class*='sidebarLogo'] img {
-    height: 3rem;
-    width: 11rem;
+    height: 48px;
+    width: 176px;
     padding: 10px 0px;
 }
 
@@ -563,7 +569,7 @@ html.plugin-docs .theme-doc-markdown {
 
 html.plugin-docs .theme-doc-markdown img {
     display: block;
-    margin: 1em auto 2em;
+    margin: 16px auto 32px;
 }
 
 html.plugin-docs .theme-doc-markdown h1 {
@@ -803,10 +809,10 @@ html[data-theme='dark'] .actionLink:hover::after {
 
 .cardContentWrapper {
     display: flex;
-    padding-top: 1.6rem;
+    padding-top: 25.6px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.6rem;
+    gap: 25.6px;
     align-self: stretch;
 }
 
@@ -814,14 +820,14 @@ html[data-theme='dark'] .actionLink:hover::after {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.8rem;
+    gap: 12.8px;
     align-self: stretch;
 }
 
 @media (min-width: 997px) and (max-width: 1660px) {
     :root {
-        --ifm-toc-padding-vertical: 0.25rem;
-        --ifm-toc-padding-horizontal: 0.25rem;
+        --ifm-toc-padding-vertical: 4px;
+        --ifm-toc-padding-horizontal: 4px;
     }
 
     .navbar__item, .menu__link, .navbar__link {
@@ -830,7 +836,7 @@ html[data-theme='dark'] .actionLink:hover::after {
 
     .theme-doc-sidebar-menu .menu__link,
     .theme-doc-toc-desktop .table-of-contents .toc-highlight {
-        font-size: .8rem;
+        font-size: 12.8px;
     }
 
     .theme-doc-toc-desktop {
@@ -846,7 +852,7 @@ html[data-theme='dark'] .actionLink:hover::after {
 aside li.section-header > div > .menu__link {
     text-transform: uppercase;
     opacity: 0.8;
-    font-size: 1em;
+    font-size: 16px;
     font-weight: 700;
     margin: 0;
 }
