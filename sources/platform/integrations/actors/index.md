@@ -9,7 +9,7 @@ slug: /integrations/actors
 
 # What are Actor integrations?
 
- Actor integrations provide a way to connect your Actors with other Actors easily. They provide a new level of flexibility, as adding a new integration simply means creating [integration-ready Actors]('/platform/integrations/integration-ready-actors'). Thus, new integrations can be created by the community itself, without relying on external parties.
+ Actor integrations provide a way to connect your Actors with other Actors easily. They provide a new level of flexibility, as adding a new integration simply means creating [integration-ready Actors]('/platform/integrations/integration-ready-actors'). Thus, new integrations can be created by the community itself.
 
 ## How to integrate an Actor with other Actors?
 
