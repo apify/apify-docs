@@ -22,7 +22,7 @@ export default function CardWithIcon({ icon, title, description, to, width }: Ca
         content={
             <div className={styles.cardContent}>
                 <div className={styles.cardContentHeader}>
-                    <div className={styles.cardIcon}>{icon}</div>
+                    {icon}
                     <Heading type='titleM'>{title}</Heading>
                 </div>
                 <div className={styles.cardContentDescription}>
