@@ -31,4 +31,4 @@ The webhook should look something like this:
 }
 ```
 
-It’s usually enough to just include `resource` in the payload template, but some actors might need other fields, too. Keep in mind that the `payloadTemplate` is a string, not object.
+It’s usually enough to just include the `resource` field in the payload template, but some actors might need other fields, too. Keep in mind that the `payloadTemplate` is a string, not object.

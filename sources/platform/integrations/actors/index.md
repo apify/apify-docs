@@ -9,14 +9,14 @@ slug: /integrations/actors
 
 # What are Actor integrations?
 
- Actor integrations provide a way to connect your Actors with other Actors easily. They provide a new level of flexibility, as adding a new integration simply means creating [integration-ready Actors]('/platform/integrations/integration-ready-actors'). Thus, new integrations can be created by the community itself.
+Actor integrations provide a way to connect your Actors with other Actors easily. They provide a new level of flexibility, as adding a new integration simply means creating [integration-ready Actors]('/platform/integrations/integration-ready-actors'). Thus, new integrations can be created by the community itself.
 
 ## How to integrate an Actor with other Actors?
 
 To integrate one Actor with another:
 
-1. Navigate to the **Integrations** tab in the Actor's detail page,
-2. Select `Apify (Connect Actor or Task)`
+1. Navigate to the **Integrations** tab in the Actor's detail page.
+2. Select `Apify (Connect Actor or Task)`.
 3. Find the Actor you want to integrate with and click `Connect`.
 
 This leads you to a setup screen, where you can provide:
@@ -29,4 +29,4 @@ This leads you to a setup screen, where you can provide:
 
 Under the hood, the Actor integrations use regular [HTTP POST webhooks](https://www.redhat.com/en/topics/automation/what-is-a-webhook) targeting the Apify API, for which this feature provides a friendlier UI. The UI allows you to fill the payload template using the Actor input UI rather than plain text, and constructs the URL to start your actor with the given options.
 
-The UI makes sure that the variables are enclosed in strings, meaning that event the payload template itself is a valid JSON, not just the resulting interpolation. It also automatically adds `payload` field that contains default webhook payload. So for Actors that are meant to be used as integrations, users don’t have to fill in the variables, and Actor just takes the data from this field.
+The UI makes sure that the variables are enclosed in strings, meaning that even the payload template itself is a valid JSON, not just the resulting interpolation. It also automatically adds `payload` field that contains the default webhook payload. Thanks to this, when using Actors that are meant to be used as integrations, users don’t have to fill in the variables - the Actor takes the data from this field by itself.
