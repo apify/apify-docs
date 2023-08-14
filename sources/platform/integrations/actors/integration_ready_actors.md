@@ -29,7 +29,7 @@ connectionString (string) - Credentials for the database connection
 tableName (string) - Name of table / collection
 ```
 
-With this input schema, users have to provide an input that looks like:
+With this input schema, users have to provide an input that looks like this:
 
 ```json
 {
