@@ -27,6 +27,6 @@ This leads you to a setup screen, where you can provide:
 
 ## Implementation details
 
-Under the hood, the Actor integrations use regular [HTTP POST webhooks](https://www.redhat.com/en/topics/automation/what-is-a-webhook) targeting the Apify API, for which this feature provides a friendlier UI. The UI allows you to fill the payload template using the Actor input UI rather than plain text, and constructs the URL to start your actor with the given options.
+Under the hood, the Actor integrations use regular [HTTP POST webhooks](https://www.redhat.com/en/topics/automation/what-is-a-webhook) and target the Apify API, for which this feature provides a friendlier UI. The UI allows you to fill the payload template using the Actor input UI rather than plain text and constructs the URL to start your Actor with the given options.
 
 The UI makes sure that the variables are enclosed in strings, meaning that even the payload template itself is a valid JSON, not just the resulting interpolation. It also automatically adds `payload` field that contains the default webhook payload. Thanks to this, when using Actors that are meant to be used as integrations, users don’t have to fill in the variables - the Actor takes the data from this field by itself.
