@@ -52,7 +52,7 @@ connectionString (string) - Credentials for the database connection
 tableName (string) - Name of table / collection
 ```
 
-In this case, users only need to provide the "static" part of input:
+In this case, users only need to provide the "static" part of the input:
 
 ```json
 {
