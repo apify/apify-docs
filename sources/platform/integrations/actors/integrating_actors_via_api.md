@@ -14,7 +14,7 @@ You can integrate Actors via API using the [Create webhook](/api/v2#/reference/w
 * The `shouldInterpolateStrings` field needs to be set to `true`, otherwise the variables won’t work.
 * Add `isApifyIntegration` field with the value `true`. This is a helper that turns on the Actor integration UI, if the above conditions are met.
 
-Not meeting the conditions does not mean that the webhook won’t work, it will just be displayed as a regular HTTP webhook in Apify Console.
+Not meeting the conditions does not mean that the webhook won’t work; it will just be displayed as a regular HTTP webhook in Apify Console.
 
 The webhook should look something like this:
 
