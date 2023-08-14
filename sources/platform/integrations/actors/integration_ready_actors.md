@@ -75,7 +75,7 @@ const { payload, datasetId } = await Actor.getInput();
 const datasetIdToProcess = payload?.resource?.defaultDatasetId ?? datasetId;
 ```
 
-In the example, we're focusing on accessing a run's default dataset, but the approach would be similar for any other field.
+In the above example, we're focusing on accessing a run's default dataset, but the approach would be similar for any other field.
 
 ## Making your Actor available to other users
 
