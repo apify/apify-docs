@@ -863,6 +863,10 @@ Gets an object that contains all the details about a specific build of an actor.
 By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the build to finish.
 This is useful to avoid periodic polling when waiting for an actor build to finish.
 
+This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the build. If
+you pass the authentication token, your effective pricing at the time of query will be used to compute the dollar values of the
+services the build consumed.
+
 + Parameters
 
     + buildId: `soSkq9ekdmfOslopH` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
@@ -1293,7 +1297,9 @@ Gets an object that contains all the details about a specific run of an actor.
 By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the run to finish.
 This is useful to avoid periodic polling when waiting for actor run to complete.
 
-This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the run.
+This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the run. If
+you pass the authentication token, your effective pricing at the time of query will be used to compute the dollar values of the
+services the run consumed.
 
 + Parameters
 
@@ -2185,7 +2191,9 @@ Gets an object that contains all the details about a specific run of an actor.
 By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the run to finish.
 This is useful to avoid periodic polling when waiting for actor run to complete.
 
-This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the run.
+This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the run. If
+you pass the authentication token, your effective pricing at the time of query will be used to compute the dollar values of the
+services the run consumed.
 
 + Parameters
 
@@ -2356,6 +2364,10 @@ Gets an object that contains all the details about a specific build of an actor.
 
 By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the build to finish.
 This is useful to avoid periodic polling when waiting for an actor build to finish.
+
+This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the build. If
+you pass the authentication token, your effective pricing at the time of query will be used to compute the dollar values of the
+services the build consumed.
 
 + Parameters
 
