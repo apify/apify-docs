@@ -5,11 +5,11 @@ sidebar_position: 11.10
 slug: /integrations/actors
 ---
 
-> This is an experimental feature and currently available on request. Ask our support to enable it for your account.
+> This is an experimental feature and currently available on request. Ask our [support](mailto:support@apify.com?subject=Actor%20integrations%20preview) to enable it for your account.
 
 # What are Actor integrations?
 
-Actor integrations provide a way to connect your Actors with other Actors easily. They provide a new level of flexibility, as adding a new integration simply means creating [integration-ready Actors]('/platform/integrations/integration-ready-actors'). Thus, new integrations can be created by the community itself.
+Actor integrations provide a way to connect your Actors with other Actors easily. They provide a new level of flexibility, as adding a new integration simply means creating [integration-ready Actors](/platform/integrations/actors/integration-ready-actors). Thus, new integrations can be created by the community itself.
 
 ## How to integrate an Actor with other Actors?
 

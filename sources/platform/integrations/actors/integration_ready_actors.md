@@ -79,7 +79,7 @@ In the above example, we're focusing on accessing a run's default dataset, but t
 
 ## Making your Actor available to other users
 
-To allow other users to use your Actor as an integration, all you need to do is [publish it in Apify Store]('/platform/actors/publishing), so users can then integrate it using the **Connect Actor or task** button on the **Integrations** tab of any Actor. While publishing the Actor is enough, there are two ways to make it more visible to users.
+To allow other users to use your Actor as an integration, all you need to do is [publish it in Apify Store](/platform/actors/publishing), so users can then integrate it using the **Connect Actor or task** button on the **Integrations** tab of any Actor. While publishing the Actor is enough, there are two ways to make it more visible to users.
 
 For Actors that are generic enough to be used with most other Actors, it's possible to have them listed under **Generic integrations** in the **Integrations** tab. This includes (but is not limited to) Actors that upload datasets to databases, send notifications through various messaging systems, create issues in ticketing systems, etc. To have your Actor listed under our generic integrations, [contact support](mailto:support@apify.com?subject=Actor%20generic%20integration).
 
