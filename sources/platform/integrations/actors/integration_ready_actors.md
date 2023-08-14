@@ -13,7 +13,7 @@ Any Actor can be used in integrations. In order to provide a smooth experience f
 
 If your Actor is supposed to be used as an integration, it will most likely have an input that can be described as two groups of fields. The first group is the "static" part of the input - the fields that have the same value whenever the integration is triggered. The second, "dynamic", group are fields that are specific to the triggering event - information from the run or build that triggered the integration.
 
-The Actor should ideally try to hide its complexity from users and take all the "dynamic" fields from the implicit `payload` field - it is attached automatically. This way, users don't have to take care of passing in variables on their own and only need to take care of the static part of input.
+The Actor should ideally try to hide its complexity from users and take all the "dynamic" fields from the implicit `payload` field - it is attached automatically. This way, users don't have to take care of passing in variables on their own and only need to take care of the static part of the input.
 
 An important thing to remember is that only the **dataset ID** is passed to the Actor as input, not the **dataset contents**. This means that the Actor needs to take care of getting the actual contents of the dataset. And, ideally, it should not load the full dataset while doing so, as it might be too large to fit to memory, but rather process it in batches.
 
