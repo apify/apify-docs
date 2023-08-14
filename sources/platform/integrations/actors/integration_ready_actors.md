@@ -21,7 +21,7 @@ An important thing to remember is that only the **dataset ID** is passed to the 
 
 To illustrate the above, here is a simplified example of an Actor that uploads a dataset to a table/collection in some database.
 
-We would start with an input that looks something like:
+We would start with an input that looks something like this:
 
 ```text
 datasetId (string) - Id of dataset that should be uploaded
