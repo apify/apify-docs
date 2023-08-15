@@ -41,8 +41,6 @@
 
 .bannerContentImage {
     display: none !important;
-    position: absolute;
-    margin-top: 15.8rem;
 }
 
 .bannerContentImageAfter {
@@ -127,8 +125,13 @@
 @media (min-width: 1024px) {
     .cards { grid-template-columns: repeat(3, 1fr); }
     .actionCards { width: 896px; }
-    .bannerContentActions, .bannerContentDescription,
-    .bannerContentImage { width: 41.8rem; }
+    .bannerContentActions { width: 41.8rem; } 
+    .bannerContentDescription { width: 38.4rem; }
+    .bannerContentImage {
+        width: 38.4rem;
+        position: absolute;
+        margin-top: 15.8rem;
+    }
 }
 
 @media (min-width: 1440px) {
