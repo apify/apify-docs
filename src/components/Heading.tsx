@@ -18,41 +18,72 @@ import { TextProps } from '@apify-packages/ui-components/src/text/text';
  * @property {Boolean} [italic]
  */
 
+console.log('Shared typography mobile', theme.typography.shared.mobile);
+
 const HEADING_VARIANTS_CSS = {
     titleXs: css`
-    ${theme.typography.shared.mobile.titleXs}
-    @media (min-width: ${theme.layout.tablet}) {${theme.typography.shared.tablet.titleXs}}
-    @media (min-width: ${theme.layout.desktop}) {${theme.typography.shared.desktop.titleXs}}
+        ${theme.typography.shared.mobile.titleXs}
+        @media (min-width: ${theme.layout.tablet}) {
+            ${theme.typography.shared.tablet.titleXs}
+        }
+        @media (min-width: ${theme.layout.desktop}) {
+            ${theme.typography.shared.desktop.titleXs}
+        }
     `,
     titleS: css`
-    ${theme.typography.shared.mobile.titleS}
-    @media (min-width: ${theme.layout.tablet}) {${theme.typography.shared.tablet.titleS}}
-    @media (min-width: ${theme.layout.desktop}) {${theme.typography.shared.desktop.titleS}}
+        ${theme.typography.shared.mobile.titleS}
+        @media (min-width: ${theme.layout.tablet}) {
+            ${theme.typography.shared.tablet.titleS}
+        }
+        @media (min-width: ${theme.layout.desktop}) {
+            ${theme.typography.shared.desktop.titleS}
+        }
     `,
     titleM: css`
-    ${theme.typography.shared.mobile.titleM}
-    @media (min-width: ${theme.layout.tablet}) {${theme.typography.shared.tablet.titleM}}
-    @media (min-width: ${theme.layout.desktop}) {${theme.typography.shared.desktop.titleM}}
+        ${theme.typography.shared.mobile.titleM}
+        @media (min-width: ${theme.layout.tablet}) {
+            ${theme.typography.shared.tablet.titleM}
+        }
+        @media (min-width: ${theme.layout.desktop}) {
+            ${theme.typography.shared.desktop.titleM}
+        }
     `,
     titleL: css`
-    ${theme.typography.shared.mobile.titleL}
-    @media (min-width: ${theme.layout.tablet}) {${theme.typography.shared.tablet.titleL}}
-    @media (min-width: ${theme.layout.desktop}) {${theme.typography.shared.desktop.titleL}}
+        ${theme.typography.shared.mobile.titleL}
+        @media (min-width: ${theme.layout.tablet}) {
+            ${theme.typography.shared.tablet.titleL}
+        }
+        @media (min-width: ${theme.layout.desktop}) {
+            ${theme.typography.shared.desktop.titleL}
+        }
     `,
     titleXl: css`
-    ${theme.typography.shared.mobile.titleXl}
-    @media (min-width: ${theme.layout.tablet}) {${theme.typography.shared.tablet.titleXl}}
-    @media (min-width: ${theme.layout.desktop}) {${theme.typography.shared.desktop.titleXl}}
+        ${theme.typography.shared.mobile.titleXl}
+        @media (min-width: ${theme.layout.tablet}) {
+            ${theme.typography.shared.tablet.titleXl}
+        }
+        @media (min-width: ${theme.layout.desktop}) {
+            ${theme.typography.shared.desktop.titleXl}
+        }
     `,
     title2Xl: css`
-    ${theme.typography.shared.mobile.title2Xl}
-    @media (min-width: ${theme.layout.tablet}) {${theme.typography.shared.tablet.title2Xl}}
-    @media (min-width: ${theme.layout.desktop}) {${theme.typography.shared.desktop.title2Xl}}
+        ${theme.typography.shared.mobile.title2xl}
+        @media (min-width: ${theme.layout.tablet}) {
+            ${theme.typography.shared.tablet.title2xl}
+        }
+        @media (min-width: ${theme.layout.desktop}) {
+            ${theme.typography.shared.desktop.title2xl}
+        }
     `,
     title3Xl: css`
-    ${theme.typography.shared.mobile.title3Xl}
-    @media (min-width: ${theme.layout.tablet}) {${theme.typography.shared.tablet.title3Xl}}
-    @media (min-width: ${theme.layout.desktop}) {${theme.typography.shared.desktop.title3Xl}}`,
+        ${theme.typography.shared.mobile.title3xl}
+        @media (min-width: ${theme.layout.tablet}) {
+            ${theme.typography.shared.tablet.title3xl}
+        }
+        @media (min-width: ${theme.layout.desktop}) {
+            ${theme.typography.shared.desktop.title3xl}
+        }
+    `,
 };
 
 export const HEADING_ELEMENTS = {
