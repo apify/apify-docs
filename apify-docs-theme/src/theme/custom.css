@@ -156,6 +156,14 @@ html[data-theme='dark'] {
 
     --ifm-heading-color: #242736;
 
+    /* Comes from the Apify design theme content typography tokens */
+    --ifm-h1-font-size: 2.4rem;
+    --ifm-h2-font-size: 2rem;
+    --ifm-h3-font-size: 1.8rem;
+    --ifm-h4-font-size: 1.6rem;
+    --ifm-h5-font-size: 1.4rem;
+    --ifm-h6-font-size: 1.2rem;
+
     /* TRON colors */
     --color-Neutral_Text: #242836;
     --color-Neutral_TextMuted: #3f475d;
@@ -251,6 +259,18 @@ html[data-theme='dark'] {
     --color-danger-chip-background: #ffe3dc;
     --color-danger-chip-background-hover: #fedad1;
     --color-danger-chip-text: #bb0401;
+}
+
+@media (min-width: 768px) {
+    :root {
+         /* Comes from the Apify design theme content typography tokens */
+        --ifm-h1-font-size: 3.2rem;
+        --ifm-h2-font-size: 2.4rem;
+        --ifm-h3-font-size: 2rem;
+        --ifm-h4-font-size: 1.6rem;
+        --ifm-h5-font-size: 1.4rem;
+        --ifm-h6-font-size: 1.2rem;
+    }
 }
 
 /* Setting the base size to 10px so it's easy to use rem for scaling (1.6rem = 16px) */
