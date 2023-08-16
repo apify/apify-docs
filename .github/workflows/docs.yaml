@@ -48,3 +48,4 @@ jobs:
                 run: gh workflow run invalidate.yaml --repo apify/apify-docs-private
                 env:
                     GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
+                    NPM_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}
