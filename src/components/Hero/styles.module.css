@@ -2,23 +2,6 @@
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
  */
-h1 {
-    overflow-wrap: break-word;
-}
-
-.buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.tagline {
-    font-family: 'Lota Grotesque', sans-serif;
-    font-size: 64px;
-    font-weight: 600;
-    line-height: 80px;
-    letter-spacing: 0;
-}
 
 .heroBannerContent {
     margin: 0 auto;
@@ -41,21 +24,6 @@ h1 {
 
 @media (min-width: 1440px) {
     .heroBannerContent { max-width: 1200px; }
-}
-
-.tagline span {
-    color: transparent !important;
-}
-
-.relative {
-    position: relative;
-}
-
-.codeBlock {
-    position: absolute;
-    top: 40%;
-    max-width: 400px;
-    width: 100%;
 }
 
 .heroBanner {
@@ -90,14 +58,9 @@ html[data-theme='dark'] .heroBanner::after {
 }
 
 html .heroBanner p {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 32px;
     color: var(--color-Neutral_TextMuted);
     margin-top: 8px;
     margin-bottom: 24px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 html[data-theme='dark'] .heroBanner p {
@@ -126,67 +89,14 @@ html[data-theme='dark'] .heroBanner p {
     color: #f2f3fb;
 }
 
-.logoBlur {
-    position: absolute;
-    width: 680px;
-    height: 680px;
-    top: -120px;
-    left: -100px;
-    z-index: -1;
-}
-
-.heroButtons {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 50px;
-}
-
-@media only screen and (max-device-width: 996px) {
-    .codeBlock {
-        position: relative;
-        top: 50px;
-    }
-
-    .logoBlur {
-        display: none;
-    }
-}
-
 @media only screen and (max-device-width: 736px) {
     .heroBanner {
         padding-top: 20px;
         padding-bottom: 2rem;
     }
-
-    .tagline {
-        font-size: 32px;
-        line-height: 48px;
-    }
-
-    .tagline br {
-        display: none;
-    }
-
-    .hideSmall {
-        display: none;
-    }
-
-    .codeBlock {
-        top: 0;
-    }
 }
 
 @media only screen and (max-device-width: 450px) {
-    .codeBlock code {
-        font-size: 0.8em;
-    }
-
-    .heroButtons {
-        flex-direction: column;
-        align-items: flex-start !important;
-    }
-
     .heroBanner button {
         opacity: 0;
     }
@@ -196,109 +106,4 @@ html[data-theme='dark'] .heroBanner p {
     .codeBlock code {
         font-size: 0.7em;
     }
-}
-
-.tagline span {
-    color: var(--ifm-color-primary);
-}
-
-.getStarted {
-    font-size: 18px;
-    line-height: 28px;
-    padding: 12px 24px;
-    background: #7717b5;
-    border-radius: 8px;
-    color: white;
-    font-weight: 600;
-}
-
-.getStarted:hover {
-    color: white;
-    background: #931ce0;
-}
-
-html[data-theme='dark'] .getStarted {
-    border-color: #585e76;
-}
-
-.try {
-    padding-top: 20px;
-}
-
-.try, .features {
-    color: #41465d;
-}
-
-.try > * {
-    margin-left: 0;
-    margin-right: 0;
-}
-
-html[data-theme='dark'] .try,
-html[data-theme='dark'] .features {
-    color: #b3b8d2;
-}
-
-.features > * {
-    margin: 2em 0;
-}
-
-.bottomLogo {
-    height: 40px;
-}
-
-.topBanner {
-    margin-top: 50px;
-    padding: 24px 60px;
-    border: 1px solid #cfd4eb;
-    font-weight: 700;
-    border-radius: 6px;
-}
-
-.topBanner h1 {
-    font-family: 'Lota Grotesque', sans-serif;
-    font-size: 40px;
-    line-height: 48px;
-    margin-top: 5px;
-    color: #41465D;
-}
-
-.topBanner a {
-    text-decoration: underline;
-    color: #41465d;
-}
-
-.topBanner a:hover {
-    text-decoration: none;
-}
-
-.textRow svg {
-    margin: 0 5px;
-    display: inline-block;
-    position: relative;
-    top: 4px;
-}
-
-html[data-theme='dark'] .topBanner h1,
-html[data-theme='dark'] .topBanner a {
-    color: #f2f3fb;
-}
-
-html[data-theme='dark'] .ghLogoSmall path {
-    fill: #f2f3fb;
-}
-
-html[data-theme='dark'] .hnLogoSmall {
-    background: #f2f3fb;
-}
-
-html[data-theme='dark'] .phLogoSmall {
-    background: #f2f3fb;
-    border-radius: 100%;
-}
-
-.phcard {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
 }

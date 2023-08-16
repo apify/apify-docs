@@ -58,16 +58,12 @@ const StyledBanner = styled(Banner)`
 `;
 
 export default function Home() {
-    console.log('shared typography', theme.typography.shared);
-
     return (
-        <Layout
-            description="Navigate the Apify documentation for insights into web scraping and web automation on the Apify platform. Learn best practices, and discover how to optimize your web scrapers."
-        >
+        <Layout>
             <Hero
                 heading="Documentation"
                 description={
-                    <Text color={theme.color.neutral.textMuted}>
+                    <Text color={theme.color.neutral.textMuted} size='large'>
                 Mold our tools any way you want to scrape websites or automate
                 repetitive tasks.
                         <br />
@@ -80,7 +76,7 @@ export default function Home() {
                     <div className={styles.bannerContent}>
                         <div className={styles.bannerContentDescription}>
                             <Heading type="titleXl">Getting started</Heading>
-                            <Text color={theme.color.neutral.textMuted}>
+                            <Text size='medium' color={theme.color.neutral.textMuted}>
                                 Learn what an Actor is, how to turn your program into an Actor, and how to deploy it.
                             </Text>
                             <ThemedImage
@@ -353,11 +349,13 @@ export default function Home() {
                 <div className={styles.actionCards}>
                     <ActionCard
                         title="Blog"
+                        titleAs='h4'
                         description="Updates, tips and stories from the world of web scraping."
                         to="https://blog.apify.com/"
                     />
                     <ActionCard
                         title="Changelog"
+                        titleAs='h4'
                         description="What's new at Apify? Our latest feature and product updates."
                         to="https://apify.com/change-log"
                     />
@@ -367,7 +365,7 @@ export default function Home() {
                 <StyledBanner>
                     <div className={styles.smallBannerContent}>
                         <div className={styles.smallBannerContentText}>
-                            <Heading type='titleL'>Monetize your code</Heading>
+                            <Heading type='titleXl'>Monetize your code</Heading>
                             <Text color={theme.color.neutral.textMuted}>
                                 Publish your web scrapers as paid Actors on the Apify platform and get regular passive income!
                             </Text>

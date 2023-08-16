@@ -17,8 +17,8 @@ type ButtonSize = typeof BUTTON_SIZES[keyof typeof BUTTON_SIZES];
 type ButtonVariant = typeof BUTTON_VARIANTS[keyof typeof BUTTON_VARIANTS];
 
 interface ButtonProps extends PropsWithChildren {
-    variant: ButtonVariant,
-    size: ButtonSize;
+    variant?: ButtonVariant,
+    size?: ButtonSize;
 }
 
 const BUTTON_SIZES_CSS = {

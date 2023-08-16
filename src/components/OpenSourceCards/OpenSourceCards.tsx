@@ -36,7 +36,7 @@ const OpenSourceCards: React.FC = () => {
                 content={
                     <div className='cardContentWrapper'>
                         <Link to="https://crawlee.dev" className={styles.headingLink}>
-                            <Heading type="titleL">Crawlee</Heading>
+                            <Heading type="titleM">Crawlee</Heading>
                         </Link>
                         <Text color={theme.color.neutral.textMuted}>
                             A web scraping and browser automation library.

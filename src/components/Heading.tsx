@@ -18,8 +18,6 @@ import { TextProps } from '@apify-packages/ui-components/src/text/text';
  * @property {Boolean} [italic]
  */
 
-console.log('Shared typography mobile', theme.typography.shared.mobile);
-
 const HEADING_VARIANTS_CSS = {
     titleXs: css`
         ${theme.typography.shared.mobile.titleXs}

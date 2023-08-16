@@ -57,7 +57,7 @@
     text-align: center;
 }
 
-.smallBannerContent h3 {
+.smallBannerContent h2 {
     align-self: center;
 }
 
@@ -103,7 +103,7 @@
     .cards { grid-template-columns: repeat(2, 1fr); }
     .bannerContentImage { display: initial !important; width: 25rem; }
     .bannerContentImageAfter { display: none !important; }
-    .bannerContentActions { max-width: 38.4rem; }
+    .bannerContentActions { width: 38.4rem; }
     .bannerContentDescription { width: 25rem; margin-bottom: 0; }
     .actionCards { grid-template-columns: repeat(2, 1fr); }
     .smallBannerContent { 
@@ -113,7 +113,7 @@
         align-self: stretch;
         text-align: left; 
     }
-    .smallBannerContent h3 { align-self: flex-start; }
+    .smallBannerContent h2 { align-self: flex-start; }
     .smallBannerContentText { width: 41.8rem; }
     .bannerContent {
         display: flex;
@@ -130,12 +130,16 @@
     .bannerContentImage {
         width: 38.4rem;
         position: absolute;
-        margin-top: 15.8rem;
+        margin-top: 20rem;
     }
 }
 
 @media (min-width: 1440px) {
     .actionCards { width: 1200px; }
-    .bannerContentDescription, .bannerContentImage { width: 50.2rem; }
+    .bannerContentDescription { width: 50.2rem; }
+    .bannerContentImage {
+        width: 50.2rem;
+        margin-top: 15.8rem;
+    }
 
 }

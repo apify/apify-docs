@@ -13,7 +13,7 @@ export default function Hero({ heading, description }: HeroProps) {
         <header className={clsx(styles.heroBanner)}>
             <div className={styles.heroBannerContent}>
                 <div>
-                    <Heading type='title2Xl' className={styles.tagline}>{heading}</Heading>
+                    <Heading type='title3Xl' className={styles.tagline}>{heading}</Heading>
                 </div>
                 <div className={clsx(styles.heroDescription)}>
                     {description}

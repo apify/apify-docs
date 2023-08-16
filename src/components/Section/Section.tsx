@@ -1,8 +1,8 @@
 import React from 'react';
+import { theme } from '@apify-packages/ui-components';
 import styles from './styles.module.css';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
-import { theme } from '@apify-packages/ui-components';
 
 interface SectionProps {
     heading?: string;

@@ -10,12 +10,13 @@ import ArrowRight20 from '../../pages/img/arrow-right-20.svg';
 
 interface ActionCardProps {
     title: string;
+    titleAs?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     description?: string;
     to: string;
     width?: string;
 }
 
-export default function ActionCard({ title, description, to, width }: ActionCardProps) {
+export default function ActionCard({ title, description, to, width, titleAs = 'h3' }: ActionCardProps) {
     const { siteConfig } = useDocusaurusContext();
     const external = to.startsWith('http');
 
@@ -24,7 +25,7 @@ export default function ActionCard({ title, description, to, width }: ActionCard
         content={
             <div className={styles.actionCardContent}>
                 <div className={styles.actionCardContentHeader}>
-                    <Heading type='titleM'>{title}</Heading>
+                    <Heading type='titleM' as={titleAs}>{title}</Heading>
                 </div>
                 <div className={styles.cardContentDescription}>
                     <Text align='left' color={theme.color.neutral.textSubtle}>{description}</Text>
@@ -32,7 +33,7 @@ export default function ActionCard({ title, description, to, width }: ActionCard
             </div>
         }
         isClickable
-        action={<ArrowRight20 size={20} strokeWidth={1.5} /> }
+        action={<ArrowRight20 strokeWidth={1.5} /> }
     />;
 
     if (external) {
