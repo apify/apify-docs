@@ -22,7 +22,7 @@ jobs:
 
             -   name: Setup npm and GitHub Packages
                 run: |
-                    echo "//npm.pkg.github.com/:_authToken=${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}" > .npmrc && \
+                    echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc && \
                     echo "@apify-packages:registry=https://npm.pkg.github.com/" >> .npmrc && \
                     echo "always-auth=true" >> .npmrc
 
@@ -40,7 +40,7 @@ jobs:
 
             -   name: Setup npm and GitHub Packages
                 run: |
-                    echo "//npm.pkg.github.com/:_authToken=${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}" > .npmrc && \
+                    echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc && \
                     echo "@apify-packages:registry=https://npm.pkg.github.com/" >> .npmrc && \
                     echo "always-auth=true" >> .npmrc
 
@@ -72,7 +72,7 @@ jobs:
 
             -   name: Setup npm and GitHub Packages
                 run: |
-                    echo "//npm.pkg.github.com/:_authToken=${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}" > .npmrc && \
+                    echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc && \
                     echo "@apify-packages:registry=https://npm.pkg.github.com/" >> .npmrc && \
                     echo "always-auth=true" >> .npmrc
 
