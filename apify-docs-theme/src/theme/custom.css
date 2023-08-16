@@ -558,12 +558,12 @@ nav.navbar .dropdown__menu {
     padding: 10px 0px;
 }
 
-html.plugin-pages h2 {
+html .plugin-pages h2 {
     font-size: 36px;
     line-height: 48px;
 }
 
-html.plugin-docs .theme-doc-markdown {
+html .plugin-docs .theme-doc-markdown {
     font-size: 18px;
     line-height: 32px;
 }
@@ -572,36 +572,36 @@ html.plugin-docs .theme-doc-markdown {
     margin-top: var(--ifm-list-item-margin);
 }
 
-html.plugin-docs .theme-doc-markdown img {
+html .plugin-docs .theme-doc-markdown img {
     display: block;
     margin: 16px auto 32px;
 }
 
-html.plugin-docs .theme-doc-markdown h1 {
+html .plugin-docs .theme-doc-markdown h1 {
     font-weight: 600;
     font-size: 48px;
     line-height: 64px;
     color: #000;
 }
 
-html[data-theme='dark'].plugin-docs .theme-doc-markdown h1 {
+html[data-theme='dark'] .plugin-docs .theme-doc-markdown h1 {
     color: #fff;
 }
 
-html.plugin-typedoc-api .theme-doc-markdown h1 {
+html .plugin-typedoc-api .theme-doc-markdown h1 {
     color: #000;
 }
 
-html[data-theme='dark'].plugin-typedoc-api .theme-doc-markdown h1 {
+html[data-theme='dark'] .plugin-typedoc-api .theme-doc-markdown h1 {
     color: #fff;
 }
 
-html.plugin-docs .theme-doc-markdown h2 {
+html .plugin-docs .theme-doc-markdown h2 {
     font-size: 36px;
     line-height: 48px;
 }
 
-html.plugin-docs .theme-doc-markdown h3 {
+html .plugin-docs .theme-doc-markdown h3 {
     font-size: 28px;
     line-height: 36px;
     /*color: #242736;*/
@@ -848,7 +848,7 @@ html[data-theme='dark'] .actionLink:hover::after {
         margin-left: -15px;
     }
 
-    html.plugin-docs .theme-doc-markdown {
+    html .plugin-docs .theme-doc-markdown {
         font-size: 16px;
         line-height: 28px;
     }
