@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import styled, { css, CSSProp } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { theme } from '@apify-packages/ui-components';
 
 // TODO: implement secondary, success and danger
@@ -69,8 +69,8 @@ const BUTTON_VARIANTS_CSS = {
     `,
 };
 
-const getButtonSizeCss = ({ size = BUTTON_SIZES.MEDIUM }: ButtonProps): CSSProp => BUTTON_SIZES_CSS[size];
-const getButtonVariantCss = ({ variant = BUTTON_VARIANTS.PRIMARY }: ButtonProps): CSSProp => BUTTON_VARIANTS_CSS[variant];
+const getButtonSizeCss = ({ size = BUTTON_SIZES.MEDIUM }: ButtonProps) => BUTTON_SIZES_CSS[size];
+const getButtonVariantCss = ({ variant = BUTTON_VARIANTS.PRIMARY }: ButtonProps) => BUTTON_VARIANTS_CSS[variant];
 
 const StyledButton = styled.button<ButtonProps>`
     cursor: pointer;

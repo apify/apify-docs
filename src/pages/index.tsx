@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 import { Banner, theme } from '@apify-packages/ui-components';
 
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import { Heading } from '../components/Heading';
 import { Text } from '../components/Text';
 import styles from './index.module.css';

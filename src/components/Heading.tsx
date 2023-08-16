@@ -1,11 +1,13 @@
 import React from 'react';
-import styled, { css, CSSProp } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import {
     TextBaseComponent,
     theme,
 } from '@apify-packages/ui-components';
 import { TextProps } from '@apify-packages/ui-components/src/text/text';
+
+console.log('typography content', theme.typography.content);
 
 /**
  * @typedef {Object} HeadingProps
@@ -122,7 +124,7 @@ interface HeadingCssProps {
     $type?: string;
 }
 
-const getHeadingCss = ({ $type = 'titleXs' }: HeadingCssProps): CSSProp => HEADING_VARIANTS_CSS[$type];
+const getHeadingCss = ({ $type = 'titleXs' }: HeadingCssProps) => HEADING_VARIANTS_CSS[$type];
 
 const StyledHeading = styled(TextBaseComponent)<HeadingCssProps>`${getHeadingCss}`;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css, CSSProp } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import {
     TextBaseComponent,
@@ -68,7 +68,7 @@ interface TextCssProps {
     $weight?: string;
 }
 
-const getTextCss = ({ $type = 'body', $size = 'regular', $weight = 'normal' }: TextCssProps): CSSProp => {
+const getTextCss = ({ $type = 'body', $size = 'regular', $weight = 'normal' }: TextCssProps) => {
     return TEXT_VARIANTS_CSS[$type]?.[$size]?.[$weight];
 };
 
