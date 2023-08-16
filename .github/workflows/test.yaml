@@ -20,6 +20,14 @@ jobs:
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
 
+            -   name: Setup git user and npm
+                run: |
+                    git config --global user.name "Apify Release Bot"
+                    git config --global user.email "noreply@apify.com"
+
+                    echo "access=public" > .npmrc
+                    echo "//registry.npmjs.org/:_authToken=${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}" >> .npmrc
+
             -   name: Install Dependencies
                 run: npm ci --force
 
@@ -31,6 +39,14 @@ jobs:
         steps:
             -   name: Checkout Source code
                 uses: actions/checkout@v3
+
+            -   name: Setup git user and npm
+                run: |
+                    git config --global user.name "Apify Release Bot"
+                    git config --global user.email "noreply@apify.com"
+
+                    echo "access=public" > .npmrc
+                    echo "//registry.npmjs.org/:_authToken=${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}" >> .npmrc
 
             -   name: Use Node.js 16
                 uses: actions/setup-node@v3
@@ -57,6 +73,14 @@ jobs:
                     node-version: 16
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
+
+            -   name: Setup git user and npm
+                run: |
+                    git config --global user.name "Apify Release Bot"
+                    git config --global user.email "noreply@apify.com"
+
+                    echo "access=public" > .npmrc
+                    echo "//registry.npmjs.org/:_authToken=${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}" >> .npmrc
 
             -   name: Install Dependencies
                 run: npm ci --force
