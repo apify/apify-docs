@@ -21,13 +21,7 @@ jobs:
                 uses: actions/setup-node@v3
                 with:
                     node-version: 16
-
-            -   name: Setup npm and GitHub Packages
-                run: |
-                    echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc && \
-                    echo "@apify-packages:registry=https://npm.pkg.github.com/" >> .npmrc && \
-                    echo "always-auth=true" >> .npmrc
-
+    
             -   name: Build docs
                 run: |
                     npm ci --force
