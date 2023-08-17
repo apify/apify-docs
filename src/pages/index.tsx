@@ -4,6 +4,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import { Banner, theme } from '@apify-packages/ui-components';
 
@@ -58,6 +59,9 @@ const StyledBanner = styled(Banner)`
 `;
 
 export default function Home() {
+    const { siteConfig } = useDocusaurusContext();
+
+
     return (
         <Layout>
             <Hero
@@ -195,8 +199,8 @@ export default function Home() {
                                 </Text>
                                 <Text>
                                     <ul className={styles.cardContentList}>
-                                        <li><Link to="/sdk/python">SDK for Python</Link></li>
-                                        <li><Link to="/sdk/js">SDK for JavaScript</Link></li>
+                                        <li><Link to={new URL('/sdk/python', siteConfig.url).href}>SDK for Python</Link></li>
+                                        <li><Link to={new URL('/sdk/js', siteConfig.url).href}>SDK for JavaScript</Link></li>
                                     </ul>
                                 </Text>
                             </div>
@@ -220,9 +224,9 @@ export default function Home() {
                                 </Text>
                                 <Text>
                                     <ul className={styles.cardContentList}>
-                                        <li><Link to="/api/v2">Reference</Link></li>
-                                        <li><Link to="/api/client/js">API client for Python</Link></li>
-                                        <li><Link to="/api/client/python">API client for JavaScript</Link></li>
+                                        <li><Link to={new URL('/api/v2', siteConfig.url).href}>Reference</Link></li>
+                                        <li><Link to={new URL('/api/client/js', siteConfig.url).href}>API client for Python</Link></li>
+                                        <li><Link to={new URL('/api/client/python', siteConfig.url).href}>API client for JavaScript</Link></li>
                                     </ul>
                                 </Text>
                             </div>
@@ -246,7 +250,7 @@ export default function Home() {
                                 </Text>
                                 <Text>
                                     <ul className={styles.cardContentList}>
-                                        <li><Link to="/cli">CLI reference</Link></li>
+                                        <li><Link to={new URL('/cli', siteConfig.url).href}>CLI reference</Link></li>
                                     </ul>
                                 </Text>
                             </div>
