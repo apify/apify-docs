@@ -19,9 +19,9 @@ jobs:
                     node-version: 16
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
+                    always-auth: 'true'
                     registry-url: 'https://npm.pkg.github.com/'
                     scope: '@apify-packages'
-                    always-auth: true
 
             -   name: Install Dependencies
                 run: npm ci --force
