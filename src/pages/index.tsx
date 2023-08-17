@@ -195,8 +195,8 @@ export default function Home() {
                                 </Text>
                                 <Text>
                                     <ul className={styles.cardContentList}>
-                                        <li><Link to="/sdk">SDK for Python</Link></li>
-                                        <li><Link to="/sdk-js">SDK for JavaScript</Link></li>
+                                        <li><Link to="/sdk/python">SDK for Python</Link></li>
+                                        <li><Link to="/sdk/js">SDK for JavaScript</Link></li>
                                     </ul>
                                 </Text>
                             </div>
@@ -220,9 +220,9 @@ export default function Home() {
                                 </Text>
                                 <Text>
                                     <ul className={styles.cardContentList}>
-                                        <li><Link to="/sdk">Reference</Link></li>
-                                        <li><Link to="/sdk-js">API client for Python</Link></li>
-                                        <li><Link to="/sdk-js">API client for JavaScript</Link></li>
+                                        <li><Link to="/api/v2">Reference</Link></li>
+                                        <li><Link to="/api/client/js">API client for Python</Link></li>
+                                        <li><Link to="/api/client/python">API client for JavaScript</Link></li>
                                     </ul>
                                 </Text>
                             </div>
