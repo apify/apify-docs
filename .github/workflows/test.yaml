@@ -19,15 +19,13 @@ jobs:
                     node-version: 16
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
-
-            -   name: Setup npm and GitHub Packages
-                run: |
-                    echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc && \
-                    echo "@apify-packages:registry=https://npm.pkg.github.com/" >> .npmrc && \
-                    echo "always-auth=true" >> .npmrc
+                    registry-url: 'https://npm.pkg.github.com/'
+                    scope: '@apify-packages'
 
             -   name: Install Dependencies
                 run: npm ci --force
+                env:
+                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             -   run: npm run build
 
@@ -38,21 +36,19 @@ jobs:
             -   name: Checkout Source code
                 uses: actions/checkout@v3
 
-            -   name: Setup npm and GitHub Packages
-                run: |
-                    echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc && \
-                    echo "@apify-packages:registry=https://npm.pkg.github.com/" >> .npmrc && \
-                    echo "always-auth=true" >> .npmrc
-
             -   name: Use Node.js 16
                 uses: actions/setup-node@v3
                 with:
                     node-version: 16
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
+                    registry-url: 'https://npm.pkg.github.com/'
+                    scope: '@apify-packages'
 
             -   name: Install Dependencies
                 run: npm ci --force
+                env:
+                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             -   run: npm run lint:md
 
@@ -69,14 +65,12 @@ jobs:
                     node-version: 16
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
-
-            -   name: Setup npm and GitHub Packages
-                run: |
-                    echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc && \
-                    echo "@apify-packages:registry=https://npm.pkg.github.com/" >> .npmrc && \
-                    echo "always-auth=true" >> .npmrc
+                    registry-url: 'https://npm.pkg.github.com/'
+                    scope: '@apify-packages'
 
             -   name: Install Dependencies
                 run: npm ci --force
+                env:
+                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             -   run: npm run lint:code
