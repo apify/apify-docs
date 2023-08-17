@@ -1,13 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import {
-    TextBaseComponent,
-    theme,
-} from '@apify-packages/ui-components';
+import { TextBaseComponent, theme } from '@apify-packages/ui-components';
 import { TextProps } from '@apify-packages/ui-components/src/text/text';
-
-console.log('typography content', theme.typography.content);
 
 /**
  * @typedef {Object} HeadingProps
@@ -105,7 +100,7 @@ export const HEADING_TYPES = {
     TITLE_3XL: 'title3Xl',
 };
 
-type HeadingType = typeof HEADING_TYPES[keyof typeof HEADING_TYPES];
+type HeadingType = (typeof HEADING_TYPES)[keyof typeof HEADING_TYPES];
 
 const HEADING_DEFAULT_ELEMENTS = {
     title2Xl: HEADING_ELEMENTS.H1,
@@ -126,7 +121,9 @@ interface HeadingCssProps {
 
 const getHeadingCss = ({ $type = 'titleXs' }: HeadingCssProps) => HEADING_VARIANTS_CSS[$type];
 
-const StyledHeading = styled(TextBaseComponent)<HeadingCssProps>`${getHeadingCss}`;
+const StyledHeading = styled(TextBaseComponent)<HeadingCssProps>`
+    ${getHeadingCss}
+`;
 
 /**
  *
@@ -138,7 +135,7 @@ export const Heading: React.FC<HeadingComponentProps> = ({
     ...rest
 }) => (
     <StyledHeading
-        forwardedAs={as || (type && HEADING_DEFAULT_ELEMENTS[type]) || 'h1'}
+        forwardedAs={as || (type && HEADING_DEFAULT_ELEMENTS[type]) || 'h1'}
         $type={type}
         {...rest}
     />

@@ -76,7 +76,7 @@ export const ActorTemplates: React.FC<ActorTemplatesProps> = ({
         };
 
         void fetchTemplates();
-    }, []);
+    }, [displayedTemplatesIds, numberOfDisplayedTemplates]);
 
     if (isError) {
         return (
