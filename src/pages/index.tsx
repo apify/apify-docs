@@ -246,7 +246,7 @@ export default function Home() {
                                 </Text>
                                 <Text>
                                     <ul className={styles.cardContentList}>
-                                        <li><Link to="/sdk">CLI reference</Link></li>
+                                        <li><Link to="/cli">CLI reference</Link></li>
                                     </ul>
                                 </Text>
                             </div>
