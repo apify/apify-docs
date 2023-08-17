@@ -61,7 +61,6 @@ const StyledBanner = styled(Banner)`
 export default function Home() {
     const { siteConfig } = useDocusaurusContext();
 
-
     return (
         <Layout>
             <Hero
