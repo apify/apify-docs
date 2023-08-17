@@ -21,7 +21,7 @@ jobs:
                 uses: actions/setup-node@v3
                 with:
                     node-version: 16
-    
+                    
             -   name: Build docs
                 run: |
                     npm ci --force
