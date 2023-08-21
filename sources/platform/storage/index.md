@@ -131,7 +131,7 @@ In most cases, when accessing your storages via API, you will need to provide a 
 
 * **WkzbQMuFYuamGv3YF** - the store's alphanumerical ID if the store is unnamed.
 * **~store-name** - the store's name prefixed with tilde (`~`) character if the store is named (e.g. **~ecommerce-scraping-results**)
-* **username~store-name** - username and the store's name separated by a tilde (`~`) character if the store is named and belongs to different account (e.g. **janedoe~ecommerce-scraping-results**). Note that in this case the user owning the store needs to grant you access first.
+* **username~store-name** - username and the store's name separated by a tilde (`~`) character if the store is named and belongs to a different account (e.g. **janedoe~ecommerce-scraping-results**). Note that in this case, the store's owner needs to grant you access first.
 
 For read (GET) requests, it is enough to use a store's alphanumerical ID, since the ID is hard to guess and effectively serves as an authentication key.
 
