@@ -19,7 +19,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@apify/docs-search-modal": "^1.0.16",
+        "@apify/docs-search-modal": "^1.0.17",
         "@docusaurus/theme-common": "^2.4.1",
         "@stackql/docusaurus-plugin-hubspot": "^1.1.0",
         "axios": "^1.4.0",
