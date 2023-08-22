@@ -3770,7 +3770,7 @@ Gets the schedule log as a JSON array containing information about up to a 1000 
 
 # Group Store
 
-[Apify Store](https://apify.com/store) is home to hundreds of public actors available to the Apify community.
+[Apify Store](https://apify.com/store) is home to hundreds of public Actors available to the Apify community.
 The API endpoints described in this section are used to retrieve these Actors.
 
 Note that the endpoints do not require the authentication token.
@@ -3779,7 +3779,7 @@ Note that the endpoints do not require the authentication token.
 
 + Parameters
 
-    + limit: 99 (number, optional) - Maximum number of elements to return. The default value as well as the maximum is `1000`.
+    + limit: 99 (number, optional) - Maximum number of elements to return. The default and maximum value is `1,000`.
     + offset: 10 (number, optional) - Number of elements that should be skipped at the start. The default value is `0`.
     + search: `web scraper` (string, optional) - String to search by. The search runs on the following fields: `title`, `name`, `description`, `username`, `readme`.
     + sortBy: 'popularity' (string, optional) - Specifies the field by which to sort the results. The supported values are `relevance` (default), `popularity`, `newest` and `lastUpdate`.
@@ -3789,10 +3789,10 @@ Note that the endpoints do not require the authentication token.
 
 ### Get list of Actors in store [GET]
 
-Gets the list of public Actors in the Apify Store. You can use search parameters to search Actors by title, description, username, etc.
+Gets the list of public Actors in Apify Store. You can use search parameters to search Actors by title, description, username, etc.
 If you need detailed info about a specific Actor, use the [Get actor](#/reference/actors/actor-object/get-actor) endpoint.
 
-The endpoint supports pagination using the `limit` and `offset` parameters. It will not return more than 1000 records.
+The endpoint supports pagination using the `limit` and `offset` parameters. It will not return more than 1,000 records.
 
 + Response 200 (application/json)
 
