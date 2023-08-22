@@ -391,6 +391,10 @@ Note that for all the API endpoints that accept the `actorId` parameter to speci
 you can pass either the actor ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
 username of the actor owner and the actor name (e.g. `janedoe~my-actor`).
 
+Some of the API endpoints return runs objects. Note that if any such run object contains usage in dollars, your effective unit pricing at the time of query
+has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes. You can learn more
+about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
+
 ## Actor collection [/v2/acts{?token,offset,limit,desc,my}]
 
 + Parameters
@@ -863,6 +867,8 @@ Gets an object that contains all the details about a specific build of an actor.
 By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the build to finish.
 This is useful to avoid periodic polling when waiting for an actor build to finish.
 
+This endpoint does not require the authentication token. The calls are authenticated using a hard-to-guess ID of the build.
+
 + Parameters
 
     + buildId: `soSkq9ekdmfOslopH` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
@@ -1293,7 +1299,7 @@ Gets an object that contains all the details about a specific run of an actor.
 By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the run to finish.
 This is useful to avoid periodic polling when waiting for actor run to complete.
 
-This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the run.
+This endpoint does not require the authentication token. The calls are authenticated using a hard-to-guess ID of the run.
 
 + Parameters
 
@@ -1462,6 +1468,10 @@ For more information, see the <a href="https://docs.apify.com/platform/actors/ru
 Note that for all the API endpoints that accept the `actorTaskId` parameter to specify a task,
 you can pass either the task ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
 username of the task's owner and the task's name (e.g. `janedoe~my-task`).
+
+Some of the API endpoints return runs objects. Note that if any such run object contains usage in dollars, your effective unit pricing at the time of query
+has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes. You can learn more
+about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
 
 ## Task collection [/v2/actor-tasks{?token,offset,limit,desc}]
 
@@ -2085,6 +2095,10 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 
 The API endpoints described in this section enable you to manage Apify actor runs.
 
+Note that if any returned run object contains usage in dollars, your effective unit pricing at the time of query
+has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes.
+You can learn more about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
+
 ## Run collection [/v2/actor-runs{?token,offset,limit,desc,status}]
 
 ### Get user runs list [GET]
@@ -2185,7 +2199,7 @@ Gets an object that contains all the details about a specific run of an actor.
 By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the run to finish.
 This is useful to avoid periodic polling when waiting for actor run to complete.
 
-This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the run.
+This endpoint does not require the authentication token. The calls are authenticated using a hard-to-guess ID of the run.
 
 + Parameters
 
@@ -2313,6 +2327,10 @@ you will also need to specify `isStatusMessageTerminal=true`. In the absence of 
 
 The API endpoints described in this section enable you to manage Apify actor builds.
 
+Note that if any returned build object contains usage in dollars, your effective unit pricing at the time of query
+has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes.
+You can learn more about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
+
 ## Build collection [/v2/actor-builds{?token,offset,limit,desc}]
 
 + Parameters
@@ -2356,6 +2374,8 @@ Gets an object that contains all the details about a specific build of an actor.
 
 By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the build to finish.
 This is useful to avoid periodic polling when waiting for an actor build to finish.
+
+This endpoint does not require the authentication token. The calls are authenticated using a hard-to-guess ID of the build.
 
 + Parameters
 
