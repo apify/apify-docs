@@ -63,7 +63,7 @@ In this case, users only need to provide the "static" part of the input:
 
 In the Actor's code, the `datasetId` (the dynamic part) would be obtained from the `payload` field:
 
-```jsx
+```js
 const { payload, connectionString, tableName } = await Actor.getInput();
 const datasetId = payload.resource.defaultDatasetId;
 ```
