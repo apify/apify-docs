@@ -70,7 +70,7 @@ const datasetId = payload.resource.defaultDatasetId;
 
 It's also possible to combine both approaches, which is useful for development purposes or advanced usage. It would mean keeping the `datasetId` in the input, only hidden under an "Advanced options" section, and using it like this:
 
-```jsx
+```js
 const { payload, datasetId } = await Actor.getInput();
 const datasetIdToProcess = payload?.resource?.defaultDatasetId ?? datasetId;
 ```
