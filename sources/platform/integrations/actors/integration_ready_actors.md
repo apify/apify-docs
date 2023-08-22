@@ -23,11 +23,9 @@ To illustrate the above, here is a simplified example of an Actor that uploads a
 
 We would start with an input that looks something like this:
 
-```text
-datasetId (string) - Id of dataset that should be uploaded
-connectionString (string) - Credentials for the database connection
-tableName (string) - Name of table / collection
-```
+ - `datasetId: string` - Id of dataset that should be uploaded
+ - `connectionString: string` - Credentials for the database connection
+ - `tableName: string` - Name of table / collection
 
 With this input schema, users have to provide an input that looks like this:
 
@@ -47,10 +45,9 @@ const { datasetId, connectionString, tableName } = await Actor.getInput();
 
 That is comfortable for Actor's developer, but not for the end user. To impove it, we can use a different input schema:
 
-```plaintext
-connectionString (string) - Credentials for the database connection
-tableName (string) - Name of table / collection
-```
+ - `connectionString: string` - Credentials for the database connection
+ - `tableName: string` - Name of table / collection
+
 
 In this case, users only need to provide the "static" part of the input:
 

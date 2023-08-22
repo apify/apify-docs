@@ -9,7 +9,7 @@ slug: /integrations/actors
 
 # What are Actor integrations?
 
-Actor integrations provide a way to connect your Actors with other Actors easily. They provide a new level of flexibility, as adding a new integration simply means creating [integration-ready Actors](/platform/integrations/actors/integration-ready-actors). Thus, new integrations can be created by the community itself.
+Actor integrations provide a way to connect your Actors with other Actors or tasks easily. They provide a new level of flexibility, as adding a new integration simply means creating [integration-ready Actors](/platform/integrations/actors/integration-ready-actors). Thus, new integrations can be created by the community itself.
 
 ## How to integrate an Actor with other Actors?
 
@@ -17,7 +17,7 @@ To integrate one Actor with another:
 
 1. Navigate to the **Integrations** tab in the Actor's detail page.
 2. Select `Apify (Connect Actor or Task)`.
-3. Find the Actor you want to integrate with and click `Connect`.
+3. Find the Actor or task you want to integrate with and click `Connect`.
 
 This leads you to a setup screen, where you can provide:
 
