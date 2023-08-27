@@ -19,7 +19,8 @@ Google SERP proxy allows you to extract search results from Google Search-powere
 Our Google SERP proxy currently supports the below services.
 
 * Google Search (`http://www.google.<country domain>/search`).
-* Google Shopping (`http://www.google.<country domain>/search?tbm=shop`).
+* Google Shopping (`http://www.google.<country domain>/shopping/product/<product ID>`).
+* Google Shopping Search (`http://www.google.<country domain>/search?tbm=shop`).
 
 > Google SERP proxy can **only** be used for Google Search and Shopping. It cannot be used to access other websites.
 
