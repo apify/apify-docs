@@ -26,8 +26,6 @@ Our Google SERP proxy currently supports the below services.
 
 When using the proxy, **pricing is based on the number of requests made**.
 
-To use Google SERP proxy or for more information, [contact us](https://apify.com/contact).
-
 ## Connecting to Google SERP proxy {#connecting-to-google-serp-proxy}
 
 Requests made through the proxy are automatically routed through a proxy server from the selected country and pure **HTML code of the search result page is returned**.
