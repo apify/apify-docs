@@ -3788,6 +3788,43 @@ Gets the schedule log as a JSON array containing information about up to a 1000 
                 - level:     `ERROR`                     (string, required)
                 - createdAt: `2019-03-26T12:30:00.325Z`  (string, required)
 
+# Group Store
+
+[Apify Store](https://apify.com/store) is home to hundreds of public Actors available to the Apify community.
+The API endpoints described in this section are used to retrieve these Actors.
+
+Note that the endpoints do not require the authentication token.
+
+## Store Actors collection [/v2/store{?limit,offset,search,sortBy,category,username,pricingModel}]
+
++ Parameters
+
+    + limit: 99 (number, optional) - Maximum number of elements to return. The default and maximum value is `1,000`.
+    + offset: 10 (number, optional) - Number of elements that should be skipped at the start. The default value is `0`.
+    + search: `web scraper` (string, optional) - String to search by. The search runs on the following fields: `title`, `name`, `description`, `username`, `readme`.
+    + sortBy: 'popularity' (string, optional) - Specifies the field by which to sort the results. The supported values are `relevance` (default), `popularity`, `newest` and `lastUpdate`.
+    + category: 'AI' (string, optional) - Filters the results by the specified category.
+    + username: 'apify' (string, optional) - Filters the results by the specified username.
+    + pricingModel: 'FREE' (string, optional) - Filters the results by the specified pricing model. The supported values are `FREE`, `FLAT_PRICE_PER_MONTH` and `PRICE_PER_DATASET_ITEM`.
+
+### Get list of Actors in store [GET]
+
+Gets the list of public Actors in Apify Store. You can use `search` parameter to search Actors by string in title, name, description, username and readme.
+If you need detailed info about a specific Actor, use the [Get actor](#/reference/actors/actor-object/get-actor) endpoint.
+
+The endpoint supports pagination using the `limit` and `offset` parameters. It will not return more than 1,000 records.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (object, required)
+            - total: 100 (number, required)
+            - offset: 0 (number, required)
+            - limit: 1000 (number, required)
+            - desc: false (boolean, required)
+            - count: 1 (number, required)
+            - items (array[StoreListActor, StoreListActor], required)
+
 # Group Logs
 
 The API endpoints described in this section are used the download the logs
@@ -5028,3 +5065,23 @@ a summary of your limits, and your current usage.
         - input                                               (object, nullable)
             - foo:         `bar`                              (string, nullable)
             - hotel:       `restaurant`                       (string, nullable)
+
+## StoreListActor (object)
+- id:               `zdc3Pyhyz3m8vjDeM`        (string, required)
+- title:            `My Public Actor`          (string, required)
+- name:             `my-public-actor`          (string, required)
+- username:         `jane35`                   (string, required)
+- description:      `My public actor!`         (string, nullable)
+- pictureUrl:       `https://...`              (string, nullable)
+- userPictureUrl:   `https://...`              (string, nullable)
+- stats                                        (object, required)
+    - totalBuilds:      9                      (number, required)
+    - totalRuns:        16                     (number, required)
+    - totalUsers:       6                      (number, required)
+    - totalUsers7Days:  2                      (number, required)
+    - totalUsers30Days: 6                      (number, required)
+    - totalUsers90Days: 6                      (number, required)
+    - totalMetamorphs:  2                      (number, required)
+    - lastRunStartedAt: `2019-07-08T14:01:05.546Z` (string, required)
+- currentPricingInfo                            (object, required)
+    - pricingModel:            `FREE`           (string, required)
