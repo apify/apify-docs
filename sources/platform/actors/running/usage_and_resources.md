@@ -88,6 +88,10 @@ When you run an Actor it generates platform usage that's charged towards the use
 - **Proxy costs**: Residential or SERP proxy usage.
 - **Storage operations**: Read, write, and other operations towards key-value store, dataset, and request queue.
 
+The platform usage can be represented either in raw units (e.g. gigabytes for data transfer, or number of writes for dataset operations), or in the dollar equivalents.
+Note that for technical reasons, every time you see the usage in dollars on a specific historical Actor run or build in the API or Apify Console, your current service pricing is used to compute the dollar amount,
+and hence it should be used only for informative purposes.
+
 > For detailed information, FAQ, and, pricing see the [platform pricing page](https://apify.com/pricing/actors).
 
 
