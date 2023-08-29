@@ -10,6 +10,7 @@ This repository is the home of Apify's documentation, which you can find at [doc
 
 > [!IMPORTANT]
 > Before you contribute to Apify documentation with your first pull request, please read the following 2 articles:
+>
 > - [Contributing guidelines](./CONTRIBUTING.md), where you learn about the project structure, local development, and testing.
 > - [Style guide](#style-guide), here below, where you learn how to keep the documentation style consistent.
 
@@ -19,9 +20,9 @@ In addition to the tips below: when in doubt, check existing docs for formatting
 
 ### Highlighting
 
-* For consistency, use **bold** for highlighting non-code words/phrases.
-* For inline `code` examples, use **back-ticks** (\` \`).
-* For multi-line code examples, use code fences and specify the language. Preferably, specify the title as well.
+- For consistency, use **bold** for highlighting non-code words/phrases.
+- For inline `code` examples, use **back-ticks** (\` \`).
+- For multi-line code examples, use code fences and specify the language. Preferably, specify the title as well.
 
     ```markdown
     \`\`\`js title='foo.js'
@@ -137,5 +138,4 @@ My Document Markdown content
 ### Screenshots
 
 Documentation has both light and dark theme. However to keep the screenshots consistent and easily manageable, use the light theme for all screenshots.
-
 

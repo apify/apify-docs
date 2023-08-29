@@ -51,11 +51,11 @@ After updating the API docs, you should ALWAYS log into [Apiary](https://apiary.
 
 The homepage menu card items are in the `docs/homepage_content.json` file. The cards aim to suit three types of use cases:
 
-* Beginners and people who just want to use the actors (**Get started**, **Use actors and scrapers**).
+- Beginners and people who just want to use the actors (**Get started**, **Use actors and scrapers**).
 
-* Experienced actor and platform users (**Reduce blocking**, **Use platform features**).
+- Experienced actor and platform users (**Reduce blocking**, **Use platform features**).
 
-* Actor builders and advanced users (**Build actors**, **Advanced tutorials and debugging**).
+- Actor builders and advanced users (**Build actors**, **Advanced tutorials and debugging**).
 
 Each item has its own JSON object, in which "cardItem" is the title and "href" is the link. If the link leads to outside the Apify Docs site, add the `"isExternalLink": true` property. For local links, just use the article's path. E.g. `"/tutorials/apify-scrapers/web-scraper"`.
 
@@ -131,8 +131,8 @@ And add a record to `/etc/hosts` to map the docs.apify.loc hostname to localhost
 
 The **apify-docs** repo contains both Markdown and JavaScript/TypeScript files. We have two commands for linting them:
 
-* `npm run lint:md` and `npm run lint:md:fix` checks the `*.md` files.
-* `npm run lint:code` and `npm run lint:code:fix` checks the `*.{js,ts}` files.
+- `npm run lint:md` and `npm run lint:md:fix` checks the `*.md` files.
+- `npm run lint:code` and `npm run lint:code:fix` checks the `*.{js,ts}` files.
 
 For Markdown, we use the [markdownlint](https://github.com/DavidAnson/markdownlint) package, which also has a handy VSCode [extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
 
