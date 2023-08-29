@@ -3,6 +3,7 @@ import React, { useCallback } from 'react';
 import { ApifySearch } from '@apify/docs-search-modal';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useLocation, useHistory } from '@docusaurus/router';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 import RouterLink from '@docusaurus/Link';
 
@@ -56,14 +57,14 @@ export default function SearchBar() {
     }, [location]);
 
     return (
-        <>
-            <ApifySearch
+        <BrowserOnly>
+            {() => <ApifySearch
                 algoliaAppId={siteConfig.themeConfig.algolia.appId}
                 algoliaIndexName='test_test_apify_sdk'
                 algoliaKey={siteConfig.themeConfig.algolia.apiKey}
                 filters={`version:${getVersion()}`}
                 navigate={navigate}
-            />
-        </>
+            />}
+        </BrowserOnly>
     );
 }
