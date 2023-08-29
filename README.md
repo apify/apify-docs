@@ -116,13 +116,13 @@ My Document Markdown content
     GOOD:
 
     > Title: Proxy
-
+    >
     > Description: Learn how to anonymously access websites when running web scraping or automation jobs. Prevent IP address-based blocking using IP address rotation.
 
     AVOID:
 
     > Title: Proxy
-
+    >
     > Description: Learn how to use Apify Proxy. Prevent IP address-based blocking using a proxy. Apify Proxy helps you bypass security.
 
 - Phrase the descriptions in a way that answers a question that the person using the search engine might have.
