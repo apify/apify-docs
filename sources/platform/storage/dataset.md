@@ -11,6 +11,34 @@ slug: /storage/dataset
 
 ---
 
+import Card from "@site/src/components/Card";
+import CardGrid from "@site/src/components/CardGrid";
+
+<CardGrid>
+    <Card
+        title="Basic usage"
+        desc="Learn about the various ways to access your datasets."
+        to="/platform/storage/dataset#basic-usage"
+    />
+    <Card
+        title="Hidden fields"
+        desc="Learn how to store debug information or metadata that should not appear in downloaded datasets."
+        to="/platform/storage/dataset#hidden-fields"
+    />
+    <Card
+        title="XML format extension"
+        desc="Learn how to convert between data formats using the XML format extension."
+        to="/platform/storage/dataset#xml-format-extension"
+    />
+    <Card
+        title="Sharing"
+        desc="Iinvite other Apify users to view or modify your datasets."
+        to="/platform/storage/dataset#sharing"
+    />
+</CardGrid>
+
+---
+
 Dataset storage enables you to sequentially save and retrieve data. Each actor run is assigned its own dataset, which is created when the first item is stored to it.
 
 Datasets usually contain results from web scraping, crawling or data processing jobs. The data can be visualized as a table where each object is a row and its attributes are the columns. The data can be exported in JSON, CSV, XML, RSS, Excel or HTML formats.
@@ -25,11 +53,11 @@ Dataset storage is **append-only** - data can only be added and cannot be change
 
 There are five ways to access your datasets:
 
-* [Apify Console](https://console.apify.com/storage?tab=datasets) - provides an easy-to-understand interface [[details](#apify-console)].
-* [Apify SDK](/sdk/js/docs/guides/result-storage#dataset) - when building your own Apify actor [[details](#apify-sdk)].
-* [JavaScript API client](/api/client/js/reference/class/DatasetClient) - to access your datasets from any Node.js application [[details](#javascript-api-client)].
-* [Python API client](/api/client/python/reference/class/DatasetClient) - to access your datasets from any Python application [[details](#python-api-client)].
-* [Apify API](/api/v2#/reference/datasets) - for accessing your datasets programmatically [[details](#apify-api)].
+* [Apify Console](https://console.apify.com/storage?tab=datasets) - provides an easy-to-understand interface [[How-to](#apify-console)].
+* [Apify SDK](/sdk/js/docs/guides/result-storage#dataset) - when building your own Apify actor [[How-to](#apify-sdk)].
+* [JavaScript API client](/api/client/js/reference/class/DatasetClient) - to access your datasets from any Node.js application [[How-to](#javascript-api-client)].
+* [Python API client](/api/client/python/reference/class/DatasetClient) - to access your datasets from any Python application [[How-to](#python-api-client)].
+* [Apify API](/api/v2#/reference/datasets) - for accessing your datasets programmatically [[How-to](#apify-api)].
 
 ### Apify Console {#apify-console}
 
@@ -222,7 +250,7 @@ See the [API documentation](/api/v2#/reference/datasets) for a detailed breakdow
 
 ## Hidden fields {#hidden-fields}
 
-Top-level fields starting with the `#` character are considered hidden.
+Datasets can contain top-level fields that start with the `#` character.
 These fields may be easily omitted when downloading the data from a dataset by providing the **skipHidden=1** or **clean=1** query parameters. This provides a convenient way to store debug information that should not appear in the final dataset.
 
 Below is an example of a dataset record containing hidden fields with an HTTP response and error.

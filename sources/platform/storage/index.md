@@ -21,7 +21,7 @@ import CardGrid from "@site/src/components/CardGrid";
         desc="Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in Apify Console or via API."
         to="/platform/storage/dataset"
     />
-    <Cardcd
+    <Card
         title="Key-value store"
         desc="Store anything from actor or task run results JSON documents or images. Learn how to access and manage key-value stores from Apify Console or via API."
         to="/platform/storage/key-value-store"
@@ -32,6 +32,8 @@ import CardGrid from "@site/src/components/CardGrid";
         to="/platform/storage/request-queue"
     />
 </CardGrid>
+
+---
 
 ## What is the Apify Storage?
 
