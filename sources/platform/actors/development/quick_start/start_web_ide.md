@@ -69,7 +69,7 @@ npm -g install apify-cli
 or using the Homebrew package manager on macOS:
 
 ```bash
-brew install apify/tap/apify-cli
+brew install apify-cli
 ```
 
 Log in to the Apify platform:
