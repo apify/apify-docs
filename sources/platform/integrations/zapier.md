@@ -83,7 +83,6 @@ We will use the Web Scraper Actor in this example.
 You need to fill the input for the Actor and use the "Continue" button to advance to the next step.
 
 > You can choose to run Actor synchronously or asynchronously. If you choose to run Actor synchronously, the Zap will wait until the Actor finishes and the Actor output and data will be available in next steps.
-
 > Beware that the hard timeout for the run is 30 seconds. If the Actor doesn't finish in 30 seconds, the run will be terminated and the Actor output will not be available in next steps.
 
 In the next step, you can test the action and check if everything is using the "Test step" button.
