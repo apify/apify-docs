@@ -16,7 +16,7 @@ slug: /actors/development/quick-start/locally
 On macOS (or Linux), you can install the Apify CLI via the Homebrew package manager.
 
 ```bash
-brew install apify/tap/apify-cli
+brew install apify-cli
 ```
 
 Otherwise, use [NPM](https://www.npmjs.com/) to install the Apify CLI.
