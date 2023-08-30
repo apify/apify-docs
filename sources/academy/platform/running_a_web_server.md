@@ -21,7 +21,7 @@ Running a web server in an actor is a piece of cake! Each actor run is available
 
 If you start a web server on the port defined by the **APIFY_CONTAINER_PORT** environment variable (the default value is **4321**), the container URL becomes available and gets displayed in the **Live View** tab in the actor run console.
 
-For more details, see [the documentation](/platform/actors/running#container-web-server).
+For more details, see [the documentation](/platform/actors/development/programming-interface/container-web-server).
 
 ## Building the actor {#building-the-actor}
 
