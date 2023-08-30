@@ -79,6 +79,8 @@ This button runs the Actor run on Apify and you can see its data in Zapier.
 
 ![Zapier Action](./images/zapier-action-3.png)
 
+Once you are happy with the test you can publish the Zap and when it is turned on, it will run the Actor every time the trigger is fired.
+
 ## Triggers
 
 ### Finished Actor Run
