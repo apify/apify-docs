@@ -8,11 +8,34 @@ slug: /storage
 
 # Storage {#storage}
 
-**Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data from the Apify platform or via API.**
+**Learn how to access and manage your stored data from the Apify platform or via API. With Storage, store anything from images and key-value pairs to structured output data. **
 
 ---
 
-The Apify platform includes three types of storage you can use both in your [actors](../actors/index.mdx) and outside the Apify platform via [API](/api/v2#/), the [Apify SDK](/sdk/js) and Apify's [JavaScript API client](/api/client/js) and [Python API client](/api/client/python).
+import Card from "@site/src/components/Card";
+import CardGrid from "@site/src/components/CardGrid";
+
+<CardGrid>
+    <Card
+        title="Dataset"
+        desc="Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in Apify Console or via API."
+        to="/platform/storage/dataset"
+    />
+    <Cardcd
+        title="Key-value store"
+        desc="Store anything from actor or task run results JSON documents or images. Learn how to access and manage key-value stores from Apify Console or via API."
+        to="/platform/storage/key-value-store"
+    />
+    <Card
+        title="Request queue"
+        desc="Queue URLs for an actor to visit in its run. Learn how to share your queues between actor runs. Access and manage request queues from Apify Console or via API."
+        to="/platform/storage/request-queue"
+    />
+</CardGrid>
+
+## What is the Apify Storage?
+
+Storage is used for storing any kind of data. The Apify platform includes three types of storage you can use both in your [actors](../actors/index.mdx) and outside the Apify platform via [API](/api/v2#/), the [Apify SDK](/sdk/js) and Apify's [JavaScript API client](/api/client/js) and [Python API client](/api/client/python).
 
 This page contains a brief introduction of the three types of Apify Storage.
 
