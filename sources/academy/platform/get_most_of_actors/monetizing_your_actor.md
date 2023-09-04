@@ -100,4 +100,4 @@ Getting new users can be an art in itself, but there are **two simple steps** yo
 
 **Don’t overlook promoting your actor**. This is arguably the most important step after publishing your tool. Taking advantage of all the possible channels for promotion is what often differentiates very successful actors with dozens of paid users from actors with few to no users at all.
 
-Finally, don’t forget to check our [pro-tips]./seo_and_promotion.md to take your actor promotion efforts to the next level.
+Finally, don’t forget to check our [pro-tips](./seo_and_promotion.md) to take your actor promotion efforts to the next level.
