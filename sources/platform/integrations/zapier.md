@@ -24,7 +24,7 @@ To use the Apify integration on Zapier, you will need to:
 - Have an [Apify account](https://console.apify.com/).
 - Have a [Zapier account](https://zapier.com/).
 
-## Step 1: Create Zap and find Apify on Zapier
+### Step 1: Create Zap and find Apify on Zapier
 
 Once you have your Zapier account ready and you are successfully logged in, you can create your first Zap.
 
@@ -40,7 +40,7 @@ Then select which trigger you want to use.
 
 ![Apify Zapier Trigger 2](./images/zapier-trigger-2.png)
 
-## Step 2: Create a connection to your Apify account
+### Step 2: Create a connection to your Apify account
 
 The next step is to connect your Apify account.
 
@@ -62,7 +62,7 @@ The last step is to test the connection. The "Test Trigger" button lets you test
 
 After a successful test, you can continue with the Zap configuration and set up the action for the Zap.
 
-## Step 3: Set up your Apify action in Zapier
+### Step 3: Set up your Apify action in Zapier
 
 You are able to use any action to follow your Apify trigger. For example, you can use Gmail to send an email about a finished Actor run.
 
