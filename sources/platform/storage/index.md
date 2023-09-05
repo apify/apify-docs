@@ -35,100 +35,105 @@ import CardGrid from "@site/src/components/CardGrid";
 
 ---
 
-## What is the Apify Storage?
+## Introduction to the Apify Storage
 
-Storage is used for storing any kind of data. The Apify platform includes three types of storage you can use both in your [actors](../actors/index.mdx) and outside the Apify platform via [API](/api/v2#/), the [Apify SDK](/sdk/js) and Apify's [JavaScript API client](/api/client/js) and [Python API client](/api/client/python).
+Apify Storage is a versatile solution for storing all kinds of data. You can use it within your Apify [actors](../actors/index.mdx) or access it externally via the Apify platform [API](/api/v2#/). 
 
-This page contains a brief introduction of the three types of Apify Storage.
+In this guide, you'll be introduced to the three primary types of Apify Storage and learn how to use them effectively.
 
-* [Dataset](#dataset) - storage for data objects such as scraping output.
-* [Key-value store](#key-value-store) - storage for arbitrary data records such as files, images, and strings.
-* [Request queue](#request-queue) - a queue of URLs for your actors to visit.
+Let's start by exploring these three types of Apify Storage:
 
-You will then find [basic usage](#basic-usage) information relating to all three types of storage. For example, how to manage your storages in [Apify Console](#apify-console), the basics of setting up the [Apify SDK](#apify-sdk-and-crawlee),
-the [JavaScript API client](#javascript-api-client) and the [Python API client](/api/client/python),
-and general information for using storages with the [Apify API](#apify-api).
+### Dataset {#dataset}
 
-## Dataset {#dataset}
+[Dataset](./dataset.md) storage is perfect for storing data objects, such as the results of web scraping, crawling, or data processing jobs. You can export datasets in various formats, such as JSON, CSV, XML, RSS, Excel, or HTML.
 
-[Dataset](./dataset.md) storage allows you to store a series of data objects such as results from web scraping, crawling or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel or HTML formats.
+#### Accessing Datasets
+The most user-friendly way to access your datasets is through the [Apify Console](https://console.apify.com/storage?tab=datasets), which provides an intuitive interface for data viewing, downloading, and editing dataset properties.
 
-![Dataset graphic](../images/datasets-overview.png)
+![Image describing a storage dataset](../images/datasets-overview.png)
 
-The easiest way to access your datasets is via [Apify Console](https://console.apify.com/storage?tab=datasets), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties.
-
-To manage your datasets, you can use the
+#### Managing Datasets
+You can manage your datasets using the
 [Apify SDK](/sdk/js/api/apify/class/Dataset),
 [JavaScript API client](/api/client/js/reference/class/DatasetClient),
 [Python API client](/api/client/python#datasetclient),
 or the [Apify API](/api/v2#/reference/datasets).
 
-[See the dataset documentation](./dataset.md) for details.
+For more in-depth information, refer to the [dataset documentation](./dataset.md).
 
-## Key-value store {#key-value-store}
+### Key-value store {#key-value-store}
 
-The [key-value store](./key_value_store.md) is ideal for saving data records such as files, screenshots of web pages, and PDFs or for persisting your actors' state. The records are accessible under a unique name and can be written and read quickly.
+The [key-value store](./key_value_store.md) is designed for preserving data records like files, web page screenshots, PDFs, or actor states. These records are accessible via unique names and can be read or written quickly.
 
-![Key-value store graphic](../images/key-value-overview.svg)
+![Image describing a Key-value store](../images/key-value-overview.svg)
 
-The easiest way to access your key-value stores is via
-[Apify Console](https://console.apify.com/storage?tab=keyValueStores), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties.
+#### Accessing Key-Value Stores
+The most straightforward way to access your key-value stores is through the [Apify Console](https://console.apify.com/storage?tab=keyValueStores), offering a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties.
 
-To manage your key-value stores, you can use the
+#### Managing Key-Value Stores
+You can manage your key-value stores using the
 [Apify SDK](/sdk/js/api/apify/class/KeyValueStore),
 [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient),
 [Python API client](/api/client/python/reference/class/KeyValueStoreClient),
 or the [Apify API](/api/v2#/reference/key-value-stores).
 
-[See the key-value store documentation](./key_value_store.md) for details.
+For more in-depth information, refer to the [key-value store documentation](./key_value_store.md).
 
-## Request queue {#request-queue}
 
-[Request queues](./request_queue.md) allow you to dynamically maintain a queue of URLs of web pages. You can use this when recursively crawling websites: you start from initial URLs and add new links as they are found while skipping duplicates.
+### Request queue {#request-queue}
 
-![Request queue graphic](../images/request-queue-overview.svg)
+[Request queues](./request_queue.md) allow you to dynamically maintain a dynamic queue of web page URLs. You can use this when recursively crawling websites: you start from initial URLs and add new links as they are found while skipping duplicates.
 
-The easiest way to access your request queues is via
+![Image describing a storage request queue](../images/request-queue-overview.svg)
+
+#### Accessing Request Queues
+The most user-friendly method to access your request queues is through the
 [Apify Console](https://console.apify.com/storage?tab=requestQueues), which provides a user-friendly interface for viewing your request queues and editing your queues' properties.
 
+#### Managing Request Queues
 To manage your request queues, you can use the
 [Apify SDK](/sdk/js/api/apify/class/RequestQueue),
 [JavaScript API client](/api/client/js/reference/class/RequestQueueClient),
 [Python API client](/api/client/python/reference/class/RequestQueueClient),
 or the [Apify API](/api/v2#/reference/request-queues).
 
-[See the request queue documentation](./request_queue.md) for details.
+For more in-depth information, refer to the [request queue documentation](./request_queue.md).
 
-## Basic usage {#basic-usage}
+## How to Use Apify Storage {#basic-usage}
 
-There are five ways to access your storage:
+In this section, we'll explore various ways to access all three types of Apify Storage.  We'll cover managing your storages in [Apify Console](#apify-console), the fundamentals of setting up the [Apify SDK](#apify-sdk-and-crawlee),
+the [JavaScript API client](#javascript-api-client), and the [Python API client](/api/client/python),
+as well as general information for using storages with the [Apify API](#apify-api).
 
-* [Apify Console](https://console.apify.com/storage) - provides an easy-to-use interface [[details](#apify-console)].
-* Apify SDK - [Request](/sdk/js/docs/guides/request-storage)/[Result](/sdk/js/docs/guides/result-storage) storage - when building your own Apify actor [[details](#apify-sdk-and-crawlee)].
-* [JavaScript API client](/api/client/js) - to access your storages from any Node.js application [[details](#javascript-api-client)].
-* [Python API client](/api/client/python) - to access your storages from any Python application [[details](#python-api-client)].
-* [Apify API](/api/v2#/reference/key-value-stores) - for accessing your storages programmatically [[details](#apify-api)].
+These are the five primary ways to access your storage:
+
+* [Apify Console](https://console.apify.com/storage) - This provides an easy-to-use interface. [[See details](#apify-console)]
+* Apify SDK - You can utilize [Request](/sdk/js/docs/guides/request-storage)/[Result](/sdk/js/docs/guides/result-storage) storage when building your own Apify actor. [[See details](#apify-sdk-and-crawlee)]
+* [JavaScript API client](/api/client/js) - Access your storages from any Node.js application using the API client. [[See details](#javascript-api-client)]
+* [Python API client](/api/client/python) - Access your storages from any Python application using the API client. [[See details](#python-api-client)]
+* [Apify API](/api/v2#/reference/key-value-stores) - For accessing your storages programmatically via HTTP requests. [[See details](#apify-api)]
 
 ### Apify Console {#apify-console}
 
-To access your storages from Apify Console, go to the [**Storage** section](https://console.apify.com/storage) in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, request queues and related API endpoints. To view a storage, click its **ID**.
+To access your storages from Apify Console, navigate to the [**Storage** section](https://console.apify.com/storage) in the left-side menu. From there, you can easily click through the tabs to view your key-value stores, datasets, request queues and related API endpoints. To access a specific storage, simply click on its **ID**.
 
-![Storages in app](./images/datasets-app.png)
+![Image describing Storages in Apify Console](./images/datasets-app.png)
 
-> Only named storages are displayed by default. Select the **Include unnamed store** checkbox to display all of your storages.
+> By default, only named storages are displayed. To view all of your storages, check the **Include unnamed store** checkbox.
 
 You can edit your stores' names by clicking their caption (ID or name) on their detail page.
 
-Under the **Settings** tab of their detail page, you can grant [access rights](../collaboration/index.md) to other Apify users.
+Additionally, under the **Settings** tab of the storage's detail page, you can grant [access rights](../collaboration/index.md) to other Apify users.
 
-You can quickly share your storages' contents and details by sharing the URLs you find under the **API** tab in a store's detail page.
+For convenient sharing of your storage contents and details, you can use the URLs found under the **API** tab on a storage's detail page.
 
 ![Storage API](./images/overview-api.png)
 
-These URLs provide links to API **endpoints**–the places where your data are stored. Endpoints that allow you to **read** stored information do not require an [authentication token](/api/v2#/introduction/authentication). The calls are authenticated using a hard-to-guess ID, so they can be shared freely. Operations such as **update** or **delete**, however, will need the authentication token.
+These URLs provide links to API **endpoints** where your data is stored. Note that endpoints allowing data **read** operations do not require an [authentication token](/api/v2#/introduction/authentication). The calls are authenticated using a hard-to-guess ID, so they can be freely shared. However, for operations like **update** or **delete**, an authentication token is required.
 
-> Never share a URL containing your authentication token, as this will compromise your account's security. <br/>
-> If the data you want to share requires a token, first download the data, then share it as a file.
+> Remember never to share a URL containing your authentication token, as this will compromise your account's security. <br/>
+
+> If the data you want to share requires a token, it's safer to download the data first and then share it as a file.
 
 ### Apify SDK and Crawlee {#apify-sdk-and-crawlee}
 
@@ -166,7 +171,7 @@ See the [API documentation](/api/v2#/reference/datasets) for details and a break
 
 ## Rate limiting {#rate-limiting}
 
-All API endpoints limit their rate of requests to protect Apify servers from overloading. The default rate limit is **30** requests per second per storage object, with a few exceptions, which are limited to **200** requests per second per storage object:
+To safeguard Apify servers from overloading, all API endpoints limit their rate of requests. The default rate limit is **30** requests per second per storage object. However, there are a few exceptions with a higher limit of **200** requests per second per storage object:
 
 * [Push items](/api/v2#/reference/datasets/item-collection/put-items) to dataset.
 * CRUD ([add](/api/v2#/reference/request-queues/request-collection/add-request),
@@ -175,7 +180,7 @@ All API endpoints limit their rate of requests to protect Apify servers from ove
 [delete](/api/v2#/reference/request-queues/request-collection/delete-request))
 operations of **request queue** requests.
 
-If a client sends too many requests, the API endpoints respond with the HTTP status code `429 Too Many Requests` and the following body:
+If a client sends too many requests, the API endpoints respond with the HTTP status code **429**, indicating `Too Many Requests`. The response body will include the following information:
 
 ```json
 {
@@ -186,7 +191,7 @@ If a client sends too many requests, the API endpoints respond with the HTTP sta
 }
 ```
 
-See the [API documentation](/api/v2#/introduction/rate-limiting) for details and to learn what to do if you exceed the rate limit.
+Please see the [API documentation](/api/v2#/introduction/rate-limiting) for further details on what to do if you exceed the rate limit.
 
 ## Data retention {#data-retention}
 
@@ -207,7 +212,7 @@ The [Apify SDK](/sdk/js), [Crawlee](https://crawlee.dev/), the [JavaScript](/api
 
 ## Named and unnamed storages {#named-and-unnamed-storages}
 
-The default storages for an actor run are created without a name (with only an **ID**). This allows them to expire after 7 days (on the free plan, longer on paid plans) and not take up your storage space. If you want to preserve a storage, simply [give it a name](#preserving-storages), and it will be retained indefinitely.
+The default storages for an actor run are created without a name (with only an **ID**). This design choice allows them to automatically expire after 7 days (and not take up your storage space), particularly on the free plan, although they persist longer on paid plans. If you want to preserve a storage, simply [give it a name](#preserving-storages), and it will be retained indefinitely.
 
 > Storages' names can be up to 63 characters long.
 

@@ -17,7 +17,7 @@ import CardGrid from "@site/src/components/CardGrid";
 <CardGrid>
     <Card
         title="Basic usage"
-        desc="Learn about the various ways to access your datasets."
+        desc="Learn about the various ways to access and manage your datasets."
         to="/platform/storage/dataset#basic-usage"
     />
     <Card
