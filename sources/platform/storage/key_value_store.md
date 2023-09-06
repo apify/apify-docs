@@ -11,6 +11,29 @@ slug: /storage/key-value-store
 
 ---
 
+import Card from "@site/src/components/Card";
+import CardGrid from "@site/src/components/CardGrid";
+
+<CardGrid>
+    <Card
+        title="Basic usage"
+        desc="Learn about the various ways to access and manage your key-value stores."
+        to="/platform/storage/key-value-store#basic-usage"
+    />
+    <Card
+        title="Compression"
+        desc="Compress your files automatically by using the Apify SDK."
+        to="/platform/storage/key-value-store#compression"
+    />
+    <Card
+        title="Sharing"
+        desc="Iinvite other Apify users to view or modify your key-value stores."
+        to="/platform/storage/key-value-store#sharing"
+    />
+</CardGrid>
+
+---
+
 The key-value store is simple storage that can be used for storing any kind of data. It can be JSON or HTML documents, zip files, images, or simply strings. The data are stored along with their [MIME content type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
 Each actor run is assigned its own key-value store when it is created. The store contains the actor's input, and, if necessary, other data such as its output.
@@ -23,13 +46,15 @@ Key-value stores are mutable–you can both add entries and delete them.
 
 ## Basic usage
 
-There are five ways to access your key-value stores:
+In this section, we'll explore various ways to access your Key-Value stores.  We'll cover managing your stores in [Apify Console](#apify-console), the fundamentals of setting up the [Apify SDK](#apify-sdk),
+the [API clients](#api-client), as well as general information for using Key-Value stores with the [Apify API](#apify-api).
 
-* [Apify Console](https://console.apify.com/storage?tab=keyValueStores) - provides an easy-to-understand interface [[details](#apify-console)].
-* [Apify SDK](/sdk/js/docs/guides/result-storage#key-value-store) - when building your own Apify actor [[details](#apify-sdk)].
-* [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient) - to access your key-value stores from any Node.js application [[details](#javascript-api-client)].
-* [Python API client](/api/client/python/reference/class/KeyValueStoreClient) - to access your key-value stores from any Python application [[details](#python-api-client)].
-* [Apify API](/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically [[details](#apify-api)].
+There are four primary ways to access your key-value stores:
+
+* [Apify Console](https://console.apify.com/storage?tab=keyValueStores) - provides an easy-to-understand interface. [[How-to](#apify-console)]
+* [Apify SDK](/sdk/js/docs/guides/result-storage#key-value-store) - provides Key-Value Store classes to utilize when building your custom Apify actors. [[How-to](#apify-sdk)]
+* [API clients](#api-client) - to access your key-value stores from any Node.js or Python application using the API client. [[How-to](#api-client)]
+* [Apify API](/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically [[How-to](#apify-api)]
 
 ### Apify Console
 
@@ -117,33 +142,52 @@ The `Actor.getInput()` method is not only a shortcut to `Actor.getValue('INPUT')
 
 See the [SDK documentation](/sdk/js/docs/guides/result-storage#key-value-store) and the `KeyValueStore` class's [API reference](/sdk/js/api/apify/class/KeyValueStore) for details on managing your key-value stores with the Apify SDK.
 
-### JavaScript API client
+### API clients {#api-client}
 
-Apify's [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient) (`apify-client`) allows you to access your key-value stores from any Node.js application, whether it is running on the Apify platform or elsewhere.
+Apify provides API clients for [JavaScript](/api/client/js/reference/class/KeyValueStoreClient) (`apify-client`) and [Python](/api/client/python/reference/class/KeyValueStoreClient) (`apify-client`) enabling you to access your key-value stores from Node.js or Python applications, whether the application is running on the Apify platform or elsewhere. 
 
-After importing and initiating the client, you can save each key-value store to a variable for easier access.
+Here's an example on how to use key-value stores in both languages:
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="js" label="JavaScript">
 
 ```js
+// Import the Apify client
+const ApifyClient = require('apify-client');
+
+// Initialize the client
+const apifyClient = new ApifyClient();
+
+// Save the key-value store to a variable for easier access
 const myKeyValStoreClient = apifyClient.keyValueStore('jane-doe/my-key-val-store');
+
 ```
 
-You can then use that variable to [access the key-value store's items and manage it](/api/client/js/reference/class/KeyValueStoreClient).
+</TabItem>
+<TabItem value="py" label="Python">
 
-See the [JavaScript API client documentation](/api/client/js/reference/class/KeyValueStoreClient) for [help with setup](/api/client/js/docs) and more details.
+```py
+# Import the Apify client
+from apify_client import ApifyClient
 
-### Python API client
+# Initialize the client
+apify_client = ApifyClient()
 
-Apify's [Python API client](/api/client/python/reference/class/KeyValueStoreClient) (`apify-client`) allows you to access your key-value stores from any Python application, whether it is running on the Apify platform or elsewhere.
-
-After importing and initiating the client, you can save each key-value store to a variable for easier access.
-
-```python
+# Save the key-value store to a variable for easier access
 my_key_val_store_client = apify_client.key_value_store('jane-doe/my-key-val-store')
+
 ```
 
-You can then use that variable to [access the key-value store's items and manage it](/api/client/python/reference/class/KeyValueStoreClient).
+</TabItem>
+</Tabs>
 
-See the [Python API client documentation](/api/client/python/reference/class/KeyValueStoreClient) for [help with setup](/api/client/python/docs/quick-start) and more details.
+In both languages,you can use the respective client variable (`myKeyValStoreClient`) [in JavaScript](/api/client/js/reference/class/KeyValueStoreClient) and (`my_key_val_store_client`) [in Python](/api/client/python/reference/class/KeyValueStoreClient) to interact with your key-value store.
+
+See the API client documentation for [JavaScript](/api/client/js/reference/class/KeyValueStoreClient) or [Python](/api/client/python/reference/class/KeyValueStoreClient) for help with [JS-related setup](/api/client/js/docs) or [Python-related setup](/api/client/python/docs/quick-start) and more details.
+
 
 ### Apify API
 

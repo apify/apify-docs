@@ -32,8 +32,13 @@ import CardGrid from "@site/src/components/CardGrid";
     />
     <Card
         title="Sharing"
-        desc="Iinvite other Apify users to view or modify your datasets."
+        desc="Invite other Apify users to view or modify your datasets."
         to="/platform/storage/dataset#sharing"
+    />
+    <Card
+        title="Rate limiting"
+        desc="Learn about how rate limiting improves request queues."
+        to="/platform/storage/dataset#rate-limiting"
     />
 </CardGrid>
 
@@ -45,40 +50,58 @@ Datasets usually contain results from web scraping, crawling or data processing 
 
 > Named datasets are retained indefinitely. <br/>
 > Unnamed datasets expire after 7 days unless otherwise specified. <br/>
-> [Learn about named and unnamed datasets.](./index.md)
+> [Learn about named and unnamed datasets.](./index.md#named-and-unnamed-storages)
 
 Dataset storage is **append-only** - data can only be added and cannot be changed or deleted.
 
 ## Basic usage {#basic-usage}
 
-There are five ways to access your datasets:
+In this section, we'll explore various ways to access your Storage datasets.  We'll cover managing your storages in [Apify Console](#apify-console), the fundamentals of setting up the [Apify SDK](#apify-sdk),
+the [API clients](#api-client), as well as general information for using storages with the [Apify API](#apify-api).
+
+These are the four primary ways to access your datasets:
 
 * [Apify Console](https://console.apify.com/storage?tab=datasets) - provides an easy-to-understand interface [[How-to](#apify-console)].
-* [Apify SDK](/sdk/js/docs/guides/result-storage#dataset) - when building your own Apify actor [[How-to](#apify-sdk)].
-* [JavaScript API client](/api/client/js/reference/class/DatasetClient) - to access your datasets from any Node.js application [[How-to](#javascript-api-client)].
-* [Python API client](/api/client/python/reference/class/DatasetClient) - to access your datasets from any Python application [[How-to](#python-api-client)].
+* [Apify SDK](/sdk/js/docs/guides/result-storage#dataset) - provides Dataset classes to utilize when building your custom Apify actors. [[How-to](#apify-sdk)].
+* [API clients](#api-client) - to access your datasets from any Node.js or Python application using the API client. [[How-to](#api-client)]
 * [Apify API](/api/v2#/reference/datasets) - for accessing your datasets programmatically [[How-to](#apify-api)].
 
 ### Apify Console {#apify-console}
 
-In [Apify Console](https://console.apify.com), you can view your datasets in the [Storage](https://console.apify.com/storage) section under the [Datasets](https://console.apify.com/storage?tab=datasets) tab.
+To access your storages from Apify Console, navigate to the [**Storage** section](https://console.apify.com/storage) in the left-side menu. From there, you can easily click through the tabs to view your datasets, under the [Datasets](https://console.apify.com/storage?tab=datasets) tab. To access a specific storage, simply click on its **ID**.
 
-Only named datasets are displayed by default. Select the **Include unnamed datasets** checkbox to display all of your datasets.
+> By default, only named storages are displayed. To view all of your storages, check the **Include unnamed store** checkbox.
 
-![Datasets in app](./images/datasets-app.png)
+![Image describing datasets in Apify Console](./images/datasets-app.png)
 
 To view or download a dataset in the above-mentioned formats, click on its **Dataset ID**. Under the **Settings** tab, you can update the dataset's name (and, in turn, its [retention period](./index.md)) and
 [access rights](../collaboration/index.md). Click on the `API` button to view and test the dataset's [API endpoints](/api/v2#/reference/datasets).
 
-![Datasets detail view](./images/datasets-detail.png)
+![Image describing a dataset's detail view](./images/datasets-detail.png)
+
+Additionally, under the **Settings** tab of the dataset's detail page, you can grant [access rights](../collaboration/index.md) to other Apify users.
+
+For convenient sharing of your dataset contents and details, you can use the URLs found under the **API** tab on a dataset's detail page.
+
+![Image describing a dataset's API](./images/overview-api.png)
+
+These URLs provide links to API **endpoints** where your data is stored. Note that endpoints allowing data **read** operations do not require an [authentication token](/api/v2#/introduction/authentication). The calls are authenticated using a hard-to-guess ID, so they can be freely shared. However, for operations like **update** or **delete**, an authentication token is required.
+
+> Remember never to share a URL containing your authentication token, as this will compromise your account's security. <br/>
+
+> If the data you want to share requires a token, it's safer to download the data first and then share it as a file.
 
 ### Apify SDK {#apify-sdk}
 
-If you are building an [Apify actor](../actors/index.mdx), you will be using the [Apify SDK](/sdk/js).
-In the [Apify SDK](/sdk/js/docs/guides/result-storage#dataset), the dataset is represented by the
-[`Dataset`](/sdk/js/api/apify/class/Dataset) class.
+If you are building an [Apify actor](../actors/index.mdx), you will be using the [Apify SDK](/sdk/js) or the [Apify Python SDK](/sdk/python). In the [Apify SDK](/sdk/js/docs/guides/result-storage#dataset), the dataset is represented by the [`Dataset`](/sdk/js/api/apify/class/Dataset) class, while in the Apify Python SDK, you can use the [`DatasetClient`](/api/client/python/reference/class/DatasetClient) to interact with datasets.
 
-You can use the `Dataset` class to specify whether your data is stored locally or in the Apify cloud, push data to datasets of your choice using the [`pushData()`](/sdk/js/api/apify/class/Dataset#pushData) method. You could also use other methods such as [`getData()`](/sdk/js/api/apify/class/Dataset#getData), [`map()`](/sdk/js/api/apify/class/Dataset#map) and [`reduce()`](/sdk/js/api/apify/class/Dataset#reduce), see [example](/sdk/js/docs/examples/map-and-reduce).
+> Get in-depth information about the Apify Python SDK in the [documentation section](/sdk/python/docs/overview/introduction)
+
+Using the Apify SDK, you can use the `Dataset` class to specify whether your data is stored locally or in the Apify cloud, push data to datasets of your choice using the [`pushData()`](/sdk/js/api/apify/class/Dataset#pushData) method. You could also use other methods such as [`getData()`](/sdk/js/api/apify/class/Dataset#getData), [`map()`](/sdk/js/api/apify/class/Dataset#map) and [`reduce()`](/sdk/js/api/apify/class/Dataset#reduce), see [example](/sdk/js/docs/examples/map-and-reduce).
+
+> [Crawlee](https://crawlee.dev/) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions (formerly was a part of Apify SDK).
+
+> See [Crawlee documentation](https://crawlee.dev/docs/quick-start) for setup instructions and to learn how to build your own crawlers and run them on the [Apify platform](https://crawlee.dev/docs/guides/apify-platform).
 
 If you have chosen to store your dataset locally, you can find it in the location below.
 
@@ -148,37 +171,54 @@ await Actor.exit();
 
 See the [SDK documentation](/sdk/js/docs/guides/result-storage#dataset) and the `Dataset` class's [API reference](/sdk/js/api/apify/class/Dataset) for details on managing datasets with the Apify SDK.
 
-### JavaScript API client {#javascript-api-client}
+### API clients {#api-client}
 
-Apify's [JavaScript API client](/api/client/js/reference/class/DatasetClient) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or elsewhere.
+Apify provides API clients for [JavaScript](/api/client/js/reference/class/DatasetClient) (`apify-client`) and [Python](/api/client/python/reference/class/DatasetClient) (`apify-client`) enabling you to access your datasets from Node.js or Python applications, whether the application is running on the Apify platform or elsewhere. 
 
-After importing and initiating the client, you can save each dataset to a variable for easier access.
+Here's an example on how to use datasets in both languages:
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="js" label="JavaScript">
 
 ```js
+// Import the Apify client
+const ApifyClient = require('apify-client');
+
+// Initialize the client
+const apifyClient = new ApifyClient();
+
+// Save the dataset to a variable for easier access
 const myDatasetClient = apifyClient.dataset('jane-doe/my-dataset');
+
 ```
 
-You can then use that variable to [access the dataset's items and manage it](/api/client/js/reference/class/DatasetClient).
+</TabItem>
+<TabItem value="py" label="Python">
 
-> When using the [`.listItems()`](/api/client/js/reference/class/DatasetClient#listItems) method, if you mention the same field name in the `field` and `omit` parameters, the `omit` parameter will prevail and the field will not be returned.
+```py
+# Import the Apify client
+from apify_client import ApifyClient
 
-See the [JavaScript API client documentation](/api/client/js/reference/class/DatasetClient) for [help with setup](/api/client/js/docs) and more details.
+# Initialize the client
+apify_client = ApifyClient()
 
-### Python API client {#python-api-client}
-
-Apify's [Python API client](/api/client/python/reference/class/DatasetClient) (`apify-client`) allows you to access your datasets from any Python application, whether it is running on the Apify platform or elsewhere.
-
-After importing and initiating the client, you can save each dataset to a variable for easier access.
-
-```python
+# Save the dataset to a variable for easier access
 my_dataset_client = apify_client.dataset('jane-doe/my-dataset')
+
 ```
 
-You can then use that variable to [access the dataset's items and manage it](/api/client/python/reference/class/DatasetClient).
+</TabItem>
+</Tabs>
 
-> When using the [`.list_items()`](/api/client/python/reference/class/DatasetClient#list_items) method, if you mention the same field name in the `field` and `omit` parameters, the `omit` parameter will prevail and the field will not be returned.
+In both languages,you can use the respective client variable (`myDatasetClient`) [in JavaScript](/api/client/js/reference/class/DatasetClient) and (`my_dataset_client`) [in Python](/api/client/python/reference/class/DatasetClient) to interact with your dataset.
 
-See the [Python API client documentation](/api/client/python/reference/class/DatasetClient) for [help with setup](/api/client/python/docs/quick-start) and more details.
+> Important note: When using the [`.listItems()`](/api/client/js/reference/class/DatasetClient#listItems) method in Javascript or the [`.list_items()`](/api/client/python/reference/class/DatasetClient#list_items) method in Python, if you mention the same field name in the `field` and `omit` parameters, the `omit` parameter will take precedence and the specified field will not be returned.
+
+See the API client documentation for [JavaScript](/api/client/js/reference/class/DatasetClient) or [Python](/api/client/python/reference/class/DatasetClient) for help with [JS-related setup](/api/client/js/docs) or [Python-related setup](/api/client/python/docs/quick-start) and more details.
+
 
 ### Apify API {#apify-api}
 
@@ -385,10 +425,26 @@ See the [Storage overview](/platform/storage#sharing-storages-between-runs) for 
 
 * Dataset names can be up to 63 characters long.
 
-### Rate limiting {#rate-limiting}
+## Rate limiting {#rate-limiting}
 
-When pushing data to a dataset via [API](/api/v2#/reference/datasets/item-collection/put-items), the request rate is limited to **200** per second per dataset. This helps protect Apify servers from being overloaded.
+To safeguard Apify servers from overloading, all API endpoints limit their rate of requests. The default rate limit is **30** requests per second per storage object. However, there are a few exceptions with a higher limit of **200** requests per second per storage object:
 
-All other dataset API [endpoints](/api/v2#/reference/datasets) are limited to **30** requests per second per dataset.
+* [Push items](/api/v2#/reference/datasets/item-collection/put-items) to dataset.
+* CRUD ([add](/api/v2#/reference/request-queues/request-collection/add-request),
+[get](/api/v2#/reference/request-queues/request-collection/get-request),
+[update](/api/v2#/reference/request-queues/request-collection/update-request),
+[delete](/api/v2#/reference/request-queues/request-collection/delete-request))
+operations of **request queue** requests.
 
-See the [API documentation](/api/v2#/introduction/rate-limiting) for details and to learn what to do if you exceed the rate limit.
+If a client sends too many requests, the API endpoints respond with the HTTP status code **429**, indicating `Too Many Requests`. The response body will include the following information:
+
+```json
+{
+    "error": {
+        "type": "rate-limit-exceeded",
+        "message": "You have exceeded the rate limit of ... requests per second"
+    }
+}
+```
+
+Please see the [API documentation](/api/v2#/introduction/rate-limiting) for further details on what to do if you exceed the rate limit.

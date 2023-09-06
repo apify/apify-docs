@@ -253,13 +253,25 @@ See the [Storage overview](/platform/storage#sharing-storages-between-runs) for 
 
 ### Rate limiting {#rate-limiting}
 
-When managing request queues via [API](/api/v2#/reference/request-queues/put-items),
-CRUD ([add](/api/v2#/reference/request-queues/request-collection/add-request),
+To safeguard Apify servers from overloading, all API endpoints limit their rate of requests. The default rate limit is **30** requests per second per storage object. However, there are a few exceptions with a higher limit of **200** requests per second per storage object:
+
+* [API Requests](/api/v2#/reference/request-queues/put-items).
+* CRUD ([add](/api/v2#/reference/request-queues/request-collection/add-request),
 [get](/api/v2#/reference/request-queues/request-collection/get-request),
 [update](/api/v2#/reference/request-queues/request-collection/update-request),
 [delete](/api/v2#/reference/request-queues/request-collection/delete-request))
-operation requests are limited to **200** per second per request queue. This helps protect Apify servers from being overloaded.
+operations of **request queue** requests.
 
-All other request queue API [endpoints](/api/v2#/reference/request-queues) are limited to **30** requests per second per request queue.
+If a client sends too many requests, the API endpoints respond with the HTTP status code **429**, indicating `Too Many Requests`. The response body will include the following information:
 
-See the [API documentation](/api/v2#/introduction/rate-limiting) for details and to learn what to do if you exceed the rate limit.
+```json
+{
+    "error": {
+        "type": "rate-limit-exceeded",
+        "message": "You have exceeded the rate limit of ... requests per second"
+    }
+}
+```
+
+Please see the [API documentation](/api/v2#/introduction/rate-limiting) for further details on what to do if you exceed the rate limit.
+
