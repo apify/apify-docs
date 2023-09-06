@@ -27,7 +27,7 @@ import CardGrid from "@site/src/components/CardGrid";
     />
     <Card
         title="Sharing"
-        desc="Iinvite other Apify users to view or modify your key-value stores."
+        desc="Invite other Apify users to view or modify your key-value stores."
         to="/platform/storage/key-value-store#sharing"
     />
 </CardGrid>
@@ -44,7 +44,7 @@ Key-value stores are mutable–you can both add entries and delete them.
 > Unnamed key-value stores expire after 7 days unless otherwise specified.<br/>
 > [Learn about named and unnamed key-value stores.](./index.md)
 
-## Basic usage
+## Basic usage {#basic-usage}
 
 In this section, we'll explore various ways to access your Key-Value stores.  We'll cover managing your stores in [Apify Console](#apify-console), the fundamentals of setting up the [Apify SDK](#apify-sdk),
 the [API clients](#api-client), as well as general information for using Key-Value stores with the [Apify API](#apify-api).
