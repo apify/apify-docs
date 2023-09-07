@@ -81,16 +81,16 @@ If you want to work only on the main documentation content, cloning this reposit
 
 Alternatively, you can skip the Nginx part and navigate to <http://localhost:3000/academy> or <http://localhost:3000/platform> manually instead of using links in the navbar. All relative links should work fine there. The problem with absolute links is only with shared components. The Nginx server is needed only for testing the whole setup and mapping all the different ports to a single one.
 
-Clone all the repositories, checkout the `docs-v2` branch (if still not merged to `master`). Then you can start the Docusaurus instances in them.
+Clone all the repositories, and start the Docusaurus instances in them.
 
-| repo                | branch  | port |
-|---------------------|---------|------|
-| apify-docs          | master  | 3000 |
-| apify-client-js     | master  | 3001 |
-| apify-client-python | docs-v2 | 3002 |
-| apify-sdk-js        | master  | 3003 |
-| apify-sdk-python    | docs-v2 | 3004 |
-| apify-cli           | master  | 3005 |
+| repo                | port |
+|---------------------|------|
+| apify-docs          | 3000 |
+| apify-client-js     | 3001 |
+| apify-client-python | 3002 |
+| apify-sdk-js        | 3003 |
+| apify-sdk-python    | 3004 |
+| apify-cli           | 3005 |
 
 > To run Docusaurus on a specific port, use `npm start -- --port XXXX`.
 

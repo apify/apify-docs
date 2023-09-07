@@ -97,21 +97,16 @@ jobs:
         needs: publish
         strategy:
             matrix:
-                include:
-                    - repo: 'apify/apify-sdk-js'
-                      branch: 'master'
-                    - repo: 'apify/apify-sdk-python'
-                      branch: 'docs-v2'
-                    - repo: 'apify/apify-cli'
-                      branch: 'master'
-                    - repo: 'apify/apify-client-js'
-                      branch: 'master'
-                    - repo: 'apify/apify-client-python'
-                      branch: 'docs-v2'
+                repo:
+                    - apify/apify-sdk-js
+                    - apify/apify-sdk-python
+                    - apify/apify-cli
+                    - apify/apify-client-js
+                    - apify/apify-client-python
 
         runs-on: ubuntu-latest
         steps:
           - env:
               GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
             run: |
-                gh workflow run docs.yaml --repo ${{ matrix.repo }} --ref ${{ matrix.branch }}
+                gh workflow run docs.yaml --repo ${{ matrix.repo }}
