@@ -20,6 +20,7 @@ LlamaIndex is a platform that allows you to create and manage vector databases a
 ## How to integrate Apify with LlamaIndex?
 
 These two components that you can integrate with LlamaIndex:
+
 * Apify dataset
 * Apify Actor
 

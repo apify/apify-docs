@@ -7,7 +7,7 @@ slug: /integrations/flowise
 
 # Flowise
 
-**Learn how to integrate Apify with Flowise**
+**Learn how to integrate Apify with Flowise.**
 
 ---
 
@@ -45,6 +45,3 @@ The final flow can answer questions about Apify docs.
 
 * [Flowise](https://flowiseai.com/)
 * [Flowise documentation](https://github.com/FlowiseAI/Flowise#quick-start)
-
-
-
