@@ -7,11 +7,11 @@ slug: /integrations/llama
 
 # LlamaIndex
 
-**Learn how to integrate Apify with LlamaIndex, in order to feed vector databases and LLMs with data crawled from the web.**
+**Learn how to integrate Apify with LlamaIndex, to feed vector databases and LLMs with data crawled from the web.**
 
 ---
 
-> For more information on LlamaIndex visit its [documentation](https://gpt-index.readthedocs.io/en/stable/).
+> For more information on LlamaIndex, visit its [documentation](https://gpt-index.readthedocs.io/en/stable/).
 
 ## What is LlamaIndex?
 
@@ -19,19 +19,19 @@ LlamaIndex is a platform that allows you to create and manage vector databases a
 
 ## How to integrate Apify with LlamaIndex?
 
-There two components that you can integrate with LlamaIndex:
+These two components that you can integrate with LlamaIndex:
 * Apify dataset
 * Apify Actor
 
-This example focuses on how to integrate Apify with LlamaIndex using the Apify Actor.
+This example focuses on integrating Apify with LlamaIndex using the Apify Actor.
 
 Before we start with the integration, we need to install all dependencies:
 
 `pip install apify-client llama-index`
 
-After successful installation of all dependencies, we can start writing code.
-To use Apify Actor loader we need to import `download_loader`, `Document`.
-Then we need to import loader itself using method `download_loader`.
+After successfully installing all dependencies, we can start writing Python code.
+To use the Apify Actor loader, import `download_loader`, `Document`.
+Then, we need to import the loader using the method `download_loader`.
 
 ```python
 from llama_index import download_loader
