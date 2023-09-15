@@ -31,11 +31,11 @@ This leads you to a setup screen, where you can provide:
 
 ## Testing your integration
 
-When adding a new integration, you can test it using a past run or build as a trigger. This will trigger a run of your target Actor or task as if your desired trigger event just occurred.
-
-![Test integration options](./images/integrations_test_options.png)
+When adding a new integration, you can test it using a past run or build as a trigger. This will trigger a run of your target Actor or task as if your desired trigger event just occurred. The only difference between a test run and regular run is that the trigger's event type will be set to 'TEST'. The test run will still consume compute units.
 
 To test your integration, first set your desired input and options and save. You can then select one of the options from the menu. If the source of your integration is a task, you can test it using a past run. For Actors, you can use a past run or build. Alternatively, if the source of your integration has neither, you can test your integration with a random joke in the webhook's payload.
+
+![Test integration options](./images/integrations_test_options.png)
 
 When testing with a custom run or build, you will need to enter its ID. You can find it on the run's or build's detail page. Ensure that the run or build belongs to the **source** Actor, since that is where the trigger will be coming from.
 
