@@ -69,8 +69,18 @@ It's also possible to combine both approaches, which is useful for development p
 
 ```js
 const { payload, datasetId } = await Actor.getInput();
-const datasetIdToProcess = payload?.resource?.defaultDatasetId ?? datasetId;
+const datasetIdToProcess = datasetId || payload?.resource?.defaultDatasetId;
 ```
+
+To make the integration process smoother it's possible to define an input that's going to be prefilled when actor is being used as an integration. You can do that in the "Settings" tab of your Actor, on the "Integrations" form. In our example, we'd use:
+
+```json
+{
+  "datasetId": "{{resource.defaultDatasetId}}"
+}
+```
+
+This means that users will see that the `defaultDatasetId` of the triggering run is going to be used right away.
 
 In the above example, we're focusing on accessing a run's default dataset, but the approach would be similar for any other field.
 
