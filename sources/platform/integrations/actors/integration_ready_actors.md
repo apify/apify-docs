@@ -72,7 +72,7 @@ const { payload, datasetId } = await Actor.getInput();
 const datasetIdToProcess = datasetId || payload?.resource?.defaultDatasetId;
 ```
 
-To make the integration process smoother it's possible to define an input that's going to be prefilled when actor is being used as an integration. You can do that in the "Settings" tab of your Actor, on the "Integrations" form. In our example, we'd use:
+To make the integration process smoother, it's possible to define an input that's going to be prefilled when Actor is being used as an integration. You can do that in the "Settings" tab of your Actor, on the "Integrations" form. In our example, we'd use:
 
 ```json
 {
