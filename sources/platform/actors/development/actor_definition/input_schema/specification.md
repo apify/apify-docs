@@ -366,7 +366,7 @@ Editor type `requestListSources` supports input in formats defined by the [sourc
 
 Editor type `globs` maps to the Crawlee's [GlobInput](https://crawlee.dev/api/core#GlobInput) used by the [UrlPatterObject](https://crawlee.dev/api/core#UrlPatternObject).
 
-Editor type `select` gives the user option to pick items from a select allowing multiple choices. Please check this example of how to define the multi-select field
+Editor type `select` gives the user option to pick items from a select allowing multiple choices. Please check this example of how to define the multiselect field
 
 ```json
 {
@@ -382,4 +382,4 @@ Editor type `select` gives the user option to pick items from a select allowing 
 }
 ```
 
-To correctly define options for multiselect, you need to define the `item` property and then provide values and optionally labels in `enum` and `enumTitles` properties.
+To correctly define options for multiselect, you need to define the `items` property and then provide values and optionally labels in `enum` and `enumTitles` properties.
