@@ -382,4 +382,4 @@ Editor type `select` allows the user to pick items from a select, providing mult
 }
 ```
 
-To correctly define options for multiselect, you need to define the `items` property and then provide values and optionally labels in `enum` and `enumTitles` properties.
+To correctly define options for multiselect, you need to define the `items` property and then provide values and (optionally) labels in `enum` and `enumTitles` properties.
