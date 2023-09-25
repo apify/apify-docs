@@ -92,7 +92,7 @@ Any Actor run in a terminal state, i.e., run with status **FINISHED**, **FAILED*
 The whole process of resurrection looks as follows:
 
 - Run status will be updated to **RUNNING**, and its container will be restarted with the same storages (the same behavior as when the run gets migrated to the new server).
-- Updated duration will include the time when the actor was not running. This does not affect compute unit consumption.
+- Updated duration will not include the time when the actor was not running.
 - Timeout will be counted from the point when this Actor run was resurrected.
 
 Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](/api/v2#/reference/actors/resurrect-run) API endpoint.
