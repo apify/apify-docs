@@ -345,7 +345,7 @@ Properties:
 
 | Property           | Value                                                                                                               | Required  | Description                                                                                                                                                 |
 |--------------------|---------------------------------------------------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `editor`           | One of <br/>`json`, <br/>`requestListSources`, <br/>`pseudoUrls`, <br/>`globs`, <br/>`keyValue`, <br/>`stringList`, <br/>`hidden` | Yes       | UI editor used for input.                                                                                                                                   |
+| `editor`           | One of <br/>`json`, <br/>`requestListSources`, <br/>`pseudoUrls`, <br/>`globs`, <br/>`keyValue`, <br/>`stringList`, <br/>`select`, <br/>`hidden` | Yes       | UI editor used for input.                                                                                                                                   |
 | `placeholderKey`   | String                                                                                                              | No          | Placeholder displayed for <br/>key field when no value is specified. <br/>Works only with `keyValue` editor.                                                |
 | `placeholderValue` | String                                                                                                              | No          | Placeholder displayed in value field <br/>when no value is provided. <br/>Works only with `keyValue` and <br/>`stringList` editors.                         |
 | `patternKey`       | String                                                                                                              | No          | Regular expression that <br/>will be used to validate <br/>the keys of items in the array. <br/>Works only with `keyValue` <br/>editor.                     |
@@ -354,6 +354,7 @@ Properties:
 | `minItems`         | Integer                                                                                                             | No          | Minimum number of items <br/>the array can contain.                                                                                                         |
 | `uniqueItems`      | Boolean                                                                                                             | No          | Specifies whether the array <br/>should contain only unique values.                                                                                         |
 | `nullable`         | Boolean                                                                                                             | No          | Specifies whether null is <br/>an allowed value.                                                                                                            |
+| `items`            | object                                                                                                                 | No          | Specifies format of the items of the array, useful mainly for multiselect (see below)                                                                                                            |
 
 
 Usage of this field is based on the selected editor:
@@ -364,3 +365,21 @@ Usage of this field is based on the selected editor:
 Editor type `requestListSources` supports input in formats defined by the [sources](https://crawlee.dev/api/core/interface/RequestListOptions#sources) property of [RequestListOptions](https://crawlee.dev/api/core/interface/RequestListOptions).
 
 Editor type `globs` maps to the Crawlee's [GlobInput](https://crawlee.dev/api/core#GlobInput) used by the [UrlPatterObject](https://crawlee.dev/api/core#UrlPatternObject).
+
+Editor type `select` allows the user to pick items from a select, providing multiple choices. Please check this example of how to define the multiselect field:
+
+```json
+{
+    "title": "Multiselect field",
+    "description": "My multiselect field",
+    "type": "array",
+    "editor": "select",
+    "items": {
+        "type": "string",
+        "enum": ["value1", "value2", "value3"],
+        "enumTitles": ["Label of value1", "Label of value2", "Label of value3"]
+    }
+}
+```
+
+To correctly define options for multiselect, you need to define the `items` property and then provide values and (optionally) labels in `enum` and `enumTitles` properties.
