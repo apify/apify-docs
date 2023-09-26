@@ -1,12 +1,12 @@
 ---
 title: State persistence
-description: Maintain a long-running Actor's state to protect from unexpected restarts. See a code example on how to protect your run in case of server shutdown.
+description: Maintain a long-running Actor's state to prevent unexpected restarts. See a code example on how to prevent a run in the case of a server shutdown.
 slug: /actors/development/builds-and-runs/state-persistence
 ---
 
 # [](#state-persistence)State persistence
 
-**Maintain a long-running Actor's state to protect from unexpected restarts. See a code example on how to protect your run in case of server shutdown.**
+**Maintain a long-running Actor's state to prevent unexpected restarts. See a code example on how to prevent a run in the case of a server shutdown.**
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

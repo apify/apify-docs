@@ -65,7 +65,7 @@ The email and Slack alert notifications both contain the same information. You w
 2. **Condition** - The condition that was violated.
 3. **Value** - The value of the metric violating the condition and triggering the alert.
 4. **Run ID** - The ID of the run that triggered the alert, which links directly to the run detail in Apify Console.
-5. **Actor** - The full name of the Actor that triggered the alert, which links to the Actor detail in Apify Console.
+5. **Actor** - The full name of the Actor that triggered the alert which links to the Actor detail in Apify Console.
 6. **Task** - If the monitoring alert was set up for a task, then this field will contain the name of the task which links to the task detail in Apify Console.
 
 ![Email notification](./images/email-notification.png)

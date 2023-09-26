@@ -18,7 +18,7 @@ Some Actors are free to use (you will be charged only for the Apify platform usa
 
 All Actors in [Apify Store](https://apify.com/store) fall into one of these three pricing models:
 
-1. [**free**](#free-actors) - you can run the Actor freely and you only pay for platform usage the Actor generates.
+1. [**free**](#free-actors) - you can run the Actor freely and you only pay for the platform usage the Actor generates.
 2. [**rental**](#rental-actors) - same as free, but in order to be able to run the Actor after the trial period, you need to rent the Actor from the developer and pay a flat monthly fee on the top of the platform usage the Actor generates.
 3. [**paid per result**](#actors-paid-per-result) - you do not pay for platform usage the Actor generates and only pay for the results it produces.
 

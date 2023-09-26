@@ -20,7 +20,7 @@ First, the Actor should be initialized. During initialization, it prepares to re
 
 It is not required to perform the initialization explicitly because the Actor will initialize on the execution of any Actor method, but we strongly recommend it to prevent race conditions.
 
-### Using JavaScript SDK
+### Using the JavaScript SDK
 
 The Actor is initialized by calling the `init()` method. It should be paired with an `exit()` method, which terminates the Actor. The use of `exit()` is not required but recommended. For more information, go to [Exit Actor](#exit-actor).
 
@@ -44,9 +44,9 @@ Actor.main(async () => {
 });
 ```
 
-### Using Python SDK
+### Using the Python SDK
 
-In Python SDK Actor is written as an asynchronous context manager, which means that we can use the `with` keyword to write our Actor code into a block. The `init()` method would be called before the code block is executed, and the `exit()` method will be called after the code block is finished.
+In the Python SDK, an Actor is written as an asynchronous context manager, which means that we can use the `with` keyword to write our Actor code into a block. The `init()` method will be called before the code block is executed, and the `exit()` method will be called after the code block is finished.
 
 ```python
 from apify import Actor

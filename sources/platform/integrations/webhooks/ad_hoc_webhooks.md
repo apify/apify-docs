@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-An ad-hoc webhook is a one-time webhook created for a certain Actor run when starting the run using the [Apify API](/api/v2). It's triggered at most once when the given run transitions into the desired state. Ad-hoc webhooks can be defined using a URL parameter `webhooks` added to the API endpoint that starts an Actor or Actor task:
+An ad-hoc webhook is a one-time webhook created for a certain Actor run when starting the run using the [Apify API](/api/v2). It's triggered no more than once when the given run transitions into the desired state. Ad-hoc webhooks can be defined using a URL parameter `webhooks` added to the API endpoint that starts an Actor or Actor task:
 
 ```text
 https://api.apify.com/v2/acts/[ACTOR_ID]/runs?token=[YOUR_API_TOKEN]&webhooks=[AD_HOC_WEBHOOKS]
@@ -76,7 +76,7 @@ async def main():
 
 To learn more, see the [JavaScript SDK documentation](/sdk/js/api/apify/class/Actor#addWebhook) or the [Python SDK documentation](/sdk/python/api/apify/class/Actor#add_webhook).
 
-To ensure that duplicate ad-hoc webhooks won't get created in a case of Actor restart you can use the idempotency key parameter. The idempotency key must be unique across all the webhooks of a user so that only one webhook gets created for a given value. You can use, for example, the Actor run ID as idempotency key:
+To ensure that duplicate ad-hoc webhooks won't get created in the case of Actor restart, you can use the idempotency key parameter. The idempotency key must be unique across all the webhooks of a user so that only one webhook gets created for a given value. You can use, for example, the Actor run ID as an idempotency key:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">

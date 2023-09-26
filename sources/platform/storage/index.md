@@ -12,7 +12,7 @@ slug: /storage
 
 ---
 
-The Apify platform includes three types of storage you can use both in your [Actors](../actors/index.mdx) and outside the Apify platform via [API](/api/v2#/), the [JavaScript SDK](/sdk/js), the [Python SDK](/sdk/python), the [JavaScript API client](/api/client/js) and [Python API client](/api/client/python).
+The Apify platform includes four types of storage you can use both in your [Actors](../actors/index.mdx) and outside the Apify platform via [API](/api/v2#/): the [JavaScript SDK](/sdk/js), the [Python SDK](/sdk/python), the [JavaScript API client](/api/client/js), and the [Python API client](/api/client/python).
 
 This page contains a brief introduction of the three types of Apify Storage.
 
@@ -20,7 +20,7 @@ This page contains a brief introduction of the three types of Apify Storage.
 * [Key-value store](#key-value-store) - storage for arbitrary data records such as files, images, and strings.
 * [Request queue](#request-queue) - a queue of URLs for your Actors to visit.
 
-You will then find [basic usage](#basic-usage) information relating to all three types of storage. For example, how to manage your storages in [Apify Console](#apify-console), the basics of setting up the [JavaScript SDK and Crawlee](#javascript-sdk-and-crawlee), [Python SDK](#python-sdk), the [JavaScript API client](#javascript-api-client), the [Python API client](/api/client/python), and general information for using storages with the [Apify API](#apify-api).
+You will then find [basic usage](#basic-usage) information relating to all types of storage. For example, how to manage your storage in [Apify Console](#apify-console), the basics of setting up the [JavaScript SDK and Crawlee](#javascript-sdk-and-crawlee), [Python SDK](#python-sdk), the [JavaScript API client](#javascript-api-client), and the [Python API client](/api/client/python). You will also find general information for using storage with the [Apify API](#apify-api).
 
 ## Dataset {#dataset}
 
@@ -109,13 +109,13 @@ These URLs provide links to API **endpoints**–the places where your data are s
 
 ### JavaScript SDK and Crawlee {#javascript-sdk-and-crawlee}
 
-The [Apify JavaScript SDK](/sdk/js) is a JavaScript/Node.js library providing tools to build your own Actors. [Crawlee](https://crawlee.dev/) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions (formerly was a part of JavaScript SDK). Both libraries require [Node.js](https://nodejs.org/en/) 16 or later.
+The [Apify JavaScript SDK](/sdk/js) is a JavaScript/Node.js library providing tools to build your own Actors. [Crawlee](https://crawlee.dev/) is a JavaScript/Node.js library that allows you to build your own web scraping and automation solutions (it was formerly a part of the JavaScript SDK). Both libraries require [Node.js](https://nodejs.org/en/) 16 or later.
 
 See [Crawlee documentation](https://crawlee.dev/docs/quick-start) for setup instructions and to learn how to build your own crawlers and run them on the [Apify platform](https://crawlee.dev/docs/guides/apify-platform).
 
 ### Python SDK {#python-sdk}
 
-The [Apify Python SDK](/sdk/python) is a Python library providing tools to build your own Actors. We do not currently have an alternative to Crawlee for Python, but we plan to develop it in the future.
+The [Apify Python SDK](/sdk/python) is a Python library providing tools to build your own Actors. We do not currently have an alternative to Crawlee for Python, but we plan on developing it in the future.
 
 ### JavaScript API client {#javascript-api-client}
 

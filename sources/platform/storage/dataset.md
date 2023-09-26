@@ -50,7 +50,7 @@ To view or download a dataset in the above-mentioned formats, click on its **Dat
 
 ### JavaScript SDK {#javascript-sdk}
 
-If you are building a JavaScript [Actor](../actors/index.mdx), you will be using the [JavaScript SDK](/sdk/js/docs/guides/result-storage#dataset). The dataset is represented by a [`Dataset`](/sdk/js/reference/class/Dataset) class. You can use the class to specify whether your data is stored locally or in the Apify cloud, push data to the datasets of your choice using the [`pushData()`](/sdk/js/reference/class/Dataset#pushData) method. You could also use other methods such as [`getData()`](/sdk/js/reference/class/Dataset#getData), [`map()`](/sdk/js/reference/class/Dataset#map) and [`reduce()`](/sdk/js/reference/class/Dataset#reduce), see the [example](/sdk/js/docs/examples/map-and-reduce).
+If you are building a JavaScript [Actor](../actors/index.mdx), you will be using the [JavaScript SDK](/sdk/js/docs/guides/result-storage#dataset). The dataset is represented by a [`Dataset`](/sdk/js/reference/class/Dataset) class. You can use the class to specify whether your data is stored locally or in the Apify cloud and push data to the datasets of your choice using the [`pushData()`](/sdk/js/reference/class/Dataset#pushData) method. You could also use other methods such as [`getData()`](/sdk/js/reference/class/Dataset#getData), [`map()`](/sdk/js/reference/class/Dataset#map) and [`reduce()`](/sdk/js/reference/class/Dataset#reduce), see the [example](/sdk/js/docs/examples/map-and-reduce).
 
 If you have chosen to store your dataset locally, you can find it in the location below.
 
@@ -122,7 +122,7 @@ See the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#datase
 
 ### Python SDK {#python-sdk}
 
-If you are building a Python [Actor](../actors/index.mdx), you will be using the [Python SDK](/sdk/python/docs/concepts/storages#working-with-datasets). The dataset is represented by a [`Dataset`](/sdk/python/reference/class/Dataset) class. You can use the class to specify whether your data is stored locally or in the Apify cloud, push data to the datasets of your choice using the [`push_data()`](/sdk/python/reference/class/Dataset#push_data) method. You could also use other methods such as [`get_data()`](/sdk/python/reference/class/Dataset#get_data), [`map()`](/sdk/python/reference/class/Dataset#map) and [`reduce()`](/sdk/python/reference/class/Dataset#reduce).
+If you are building a Python [Actor](../actors/index.mdx), you will be using the [Python SDK](/sdk/python/docs/concepts/storages#working-with-datasets). The dataset is represented by a [`Dataset`](/sdk/python/reference/class/Dataset) class. You can use the class to specify whether your data is stored locally or in the Apify cloud and push data to the datasets of your choice using the [`push_data()`](/sdk/python/reference/class/Dataset#push_data) method. You could also use other methods such as [`get_data()`](/sdk/python/reference/class/Dataset#get_data), [`map()`](/sdk/python/reference/class/Dataset#map) and [`reduce()`](/sdk/python/reference/class/Dataset#reduce).
 
 If you have chosen to store your dataset locally, you can find it in the location below.
 
@@ -382,7 +382,7 @@ You can invite other Apify users to view or modify your datasets with the [acces
 
 You can access a dataset from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
 
-To access a dataset from another run using the [JavaScript SDK](/sdk/js) or the [Python SDK](/sdk/python), open it using the same method like you would do with any other dataset.
+To access a dataset from another run using the [JavaScript SDK](/sdk/js) or the [Python SDK](/sdk/python), open it using the same method as you would with any other dataset.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">

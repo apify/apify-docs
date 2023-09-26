@@ -9,7 +9,7 @@ sidebar_position: 3
 
 ---
 
-You should make sure your [Actors](../../index.mdx) are well-maintained. You might not always get feedback from your users. Therefore it is crucial that you periodically check if your Actors work as expected. You can do this using our [monitoring suite](https://apify.com/apify/monitoring) or by setting up daily runs of the **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) tool.
+You should make sure your [Actors](../../index.mdx) are well-maintained. You might not always get feedback from your users. Therefore, it is crucial that you periodically check if your Actors work as expected. You can do this using our [monitoring suite](https://apify.com/apify/monitoring) or by setting up daily runs of the **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) tool.
 
 The monitoring suite is sufficient for most scenarios and includes automated alerts. [See more information](https://apify.com/apify/monitoring) on the suite's page or [check out our tutorials](../../../monitoring/index.md).
 
@@ -27,7 +27,7 @@ We recommend using the Actor Testing Actor for specific and advanced use cases. 
 
 ![Tasks that test an Actor's configurations](./images/testing-tasks.png)
 
-We also advise to test your Actor's default run – one that uses the pre-filled inputs. It is often the first task your users run and they may be put off if it doesn't work.
+We also advise you to test your Actor's default run – one that uses the pre-filled inputs. It is often the first task your users run, and they may be put off if it doesn't work.
 
 Set a low `maxItem` value for your testing tasks, so that you don't burn your credit. If you need to test your Actor with a large amount of data, set the scheduler to run less frequently.
 

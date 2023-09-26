@@ -39,11 +39,11 @@ If you want to leave an organization you own, you must first transfer ownership 
 
 ### Transfer ownership {#transfer-ownership}
 
-The organization, its Actors and integrations will keep running as they are. The original owner will either leave the organization or become a member with permissions defined by the new owner. Only the new owner will have complete access to the organization.
+The organization, its Actors, and its integrations will keep running as they are. The original owner will either leave the organization or become a member with permissions defined by the new owner. Only the new owner will have complete access to the organization.
 
 ## Via API {#via-api}
 
-While you cannot manage an organization account's settings and members via API, you can access its Actor and task runs, webhooks, schedules and storages just like you would with any other account.
+While you cannot manage an organization account's settings and members via API, you can access its Actor and task runs, webhooks, schedules, and storages just as you would with any other account.
 
 As a member of an organization, you are assigned an [API token](../../integrations/index.mdx) (under the **Integrations** tab) and proxy password (click the **Proxy** button in the left menu) for accessing the Apify platform via REST API.
 

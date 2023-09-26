@@ -18,7 +18,7 @@ Actors have the following elements:
 - The main **[actor.json](./actor_json.md)** file contains **metadata** such as the Actor name, description, author, version, and links pointing to the other definition files below.
 - **[Dockerfile](./dockerfile.md)** which specifies where is the Actor's source code, how to build it, and run it.
 - **Documentation** in the form of a **README.md** file.
-- **[Input](./input_schema/index.md)** and **[output schemas](./output_schema.md)** that describe what input the Actor requires and what results in it produces.
+- **[Input](./input_schema/index.md)** and **[output schemas](./output_schema.md)** that describe what input the Actor requires and what results it produces.
 - Access to an out-of-box **[storage](../../../storage/index.md)** system for Actor data, results, and files.
 
 The documentation and the input/output schemas make it possible for people to easily understand what the Actor does, enter the required inputs both in the user interface or API, and integrate the Actor's results with their other workflows. Actors can easily call and interact with each other, enabling building more complex systems on top of simple ones.

@@ -11,7 +11,7 @@ sidebar_position: 4
 
 ## Base Docker images
 
-Apify provides several Docker images that can be used as a base for user Actors.
+Apify provides several Docker images that can be used as a base for Actors.
 
 All images come in two versions: the **latest** tag corresponds to the stable version and **beta** to images where we test new features. Use the beta version at your own risk.
 

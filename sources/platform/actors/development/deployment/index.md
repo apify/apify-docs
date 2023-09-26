@@ -9,7 +9,7 @@ slug: /actors/development/deployment
 
 ---
 
-The deployment of your Actor is the process of uploading your Actor [source code](../actor_definition/index.md) and [building](../builds_and_runs/builds.md) it at the Apify platform. After that, you can easily [run](../builds_and_runs/runs.md) and scale your Actor in the cloud.
+The deployment of your Actor is the process of uploading your Actor [source code](../actor_definition/index.md) and [building](../builds_and_runs/builds.md) it on the Apify platform. After that, you can easily [run](../builds_and_runs/runs.md) and scale your Actor in the cloud.
 
 ## Apify CLI
 

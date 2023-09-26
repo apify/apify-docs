@@ -69,7 +69,7 @@ If you read the `INPUT` key from the Actor run's default key-value store directl
 The encryption mechanism used for encrypting the secret input fields is the same dual encryption as in [PGP](https://en.wikipedia.org/wiki/Pretty_Good_Privacy#/media/File:PGP_diagram.svg).
 
 The secret input field is encrypted using a random key, using the `aes-256-gcm` cipher, and then the key is encrypted using a 2048-bit RSA key.
-The RSA key is unique for every user and Actor combination, so no Actor can decrypt input meant for other Actor run of the same user, and no user can decrypt input of Actor runs of a different user, but same Actor.
+The RSA key is unique for every user and Actor combination. No Actor can decrypt input meant for runs of another Actor by the same user, and no user can decrypt input runs of the same Actor by a different user.
 
 The decryption keys are passed to the Actor runs as environment variables, so the input decryption happens only inside of the Actor run.
 
