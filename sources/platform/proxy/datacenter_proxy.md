@@ -86,7 +86,6 @@ const crawler = new PuppeteerCrawler({
 await crawler.run(['https://proxy.apify.com/?format=json']);
 
 await Actor.exit();
-
 ```
 
 </TabItem>
@@ -113,7 +112,6 @@ const crawler = new CheerioCrawler({
 await crawler.run(['https://proxy.apify.com']);
 
 await Actor.exit();
-
 ```
 
 </TabItem>
@@ -174,7 +172,6 @@ console.log('Should be different than');
 console.log(response2.body.clientIp);
 
 await Actor.exit();
-
 ```
 
 </TabItem>
@@ -225,7 +222,6 @@ await crawler.run([
 ]);
 
 await Actor.exit();
-
 ```
 
 </TabItem>
@@ -256,7 +252,6 @@ await crawler.run([
 ]);
 
 await Actor.exit();
-
 ```
 
 </TabItem>
@@ -316,7 +311,6 @@ console.log("Should be the same as");
 console.log(response2.body.clientIp);
 
 await Actor.exit();
-
 ```
 
 </TabItem>
@@ -354,7 +348,6 @@ const url = 'http://proxy.apify.com/?format=json';
 const { data } = await axios.get(url, { proxy });
 
 console.log(data);
-
 ```
 
 </TabItem>
@@ -382,7 +375,6 @@ httpHandler = request.HTTPSHandler(context=ctx)
 
 opener = request.build_opener(httpHandler,proxy_handler)
 print(opener.open("http://proxy.apify.com/?format=json").read())
-
 ```
 
 </TabItem>
@@ -407,7 +399,6 @@ proxy_handler = request.ProxyHandler({
 })
 opener = request.build_opener(proxy_handler)
 print(opener.open("http://proxy.apify.com/?format=json").read())
-
 ```
 
 </TabItem>
@@ -427,7 +418,6 @@ $response = curl_exec($curl);
 curl_close($curl);
 if ($response) echo $response;
 ?>
-
 ```
 
 </TabItem>
@@ -448,7 +438,6 @@ $client = new \GuzzleHttp\Client([
 
 $response = $client->get("http://proxy.apify.com/?format=json");
 echo $response->getBody();
-
 ```
 
 </TabItem>

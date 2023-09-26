@@ -17,7 +17,7 @@ flowchart LR
         direction LR
         Dockerfile
         .actor/actor.json
-        src/main.js
+        src/main.*
     end
 
     AD -- "build process" --> Build
@@ -74,5 +74,3 @@ flowchart LR
 | TIMED-OUT  | terminal     | Timed out                                   |
 | ABORTING   | transitional | Being aborted by user                       |
 | ABORTED    | terminal     | Aborted by user                             |
-
-  

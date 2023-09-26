@@ -1,11 +1,15 @@
 ---
 title: Actors
-description: Learn how to integrate with other Actors and tasks
+description: Learn how to integrate with other Actors and tasks.
 sidebar_position: 11.10
 slug: /integrations/actors
 ---
 
 # What are Actor integrations?
+
+**Learn how to integrate with other Actors and tasks.**
+
+---
 
 Actor integrations provide a way to connect your Actors with other Actors or tasks easily. They provide a new level of flexibility, as adding a new integration simply means creating [integration-ready Actors](/platform/integrations/actors/integration-ready-actors). Thus, new integrations can be created by the community itself.
 
@@ -31,4 +35,4 @@ This leads you to a setup screen, where you can provide:
 
 Under the hood, the Actor integrations use regular [HTTP POST webhooks](https://www.redhat.com/en/topics/automation/what-is-a-webhook) and target the Apify API, for which this feature provides a friendlier UI. The UI allows you to fill the payload template using the Actor input UI rather than plain text and constructs the URL to start your Actor with the given options.
 
-The UI makes sure that the variables are enclosed in strings, meaning that even the payload template itself is a valid JSON, not just the resulting interpolation. It also automatically adds the `payload` field that contains the default webhook payload. Thanks to this, when using Actors that are meant to be used as integrations, users don’t have to fill in the variables - the Actor takes the data from this field by itself.
+The UI makes sure that the variables are enclosed in strings, meaning that even the payload template itself is a valid JSON, not just the resulting interpolation. It also automatically adds the `payload` field that contains the default webhook payload. Thanks to this, when using Actors that are meant to be used as integrations, users don't have to fill in the variables - the Actor takes the data from this field by itself.

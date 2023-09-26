@@ -26,5 +26,3 @@ By default, each system resource (Actor, key-value store, run, ...) you create i
         <td>Another way to share your Actor with other users is to publish it in <a href="https://apify.com/store">Apify Store</a>. When publishing your Actor, you can make it a Paid Actor and get paid by the users benefiting from your tool. For more information, read the <a href="/platform/actors/publishing">publishing and monetization</a> section.</td>
     </tr>
 </table>
-
-  

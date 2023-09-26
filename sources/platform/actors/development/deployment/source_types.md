@@ -1,19 +1,21 @@
 ---
 title: Source types
-description: Learn about Apify Actor source types, how to deploy actor from GitHub, using CLI, or a Gist.
+description: Learn about Apify Actor source types, how to deploy Actor from GitHub, using CLI, or a Gist.
 slug: /actors/development/deployment/source-types
 sidebar_position: 1
 ---
 
-**Learn about Apify Actor source types, how to deploy actor from GitHub, using CLI, or a Gist.**
+# Source types {#source-types}
+
+**Learn about Apify Actor source types, how to deploy Actor from GitHub, using CLI, or a Gist.**
 
 ---
 
-The **Source type** setting determines the location of the source code for the actor. It can have one of the following values: [Web IDE](#web-ide), [Git repository](#git-repository), [Zip file](#zip-file) or [GitHub Gist](#github-gist).
+The **Source type** setting determines the location of the source code for the Actor. It can have one of the following values: [Web IDE](#web-ide), [Git repository](#git-repository), [Zip file](#zip-file) or [GitHub Gist](#github-gist).
 
 ## Web IDE {#web-ide}
 
-This option is used by default when your actor's source code is hosted on Apify platform. You can use our Web IDE to preview and update your actor's source code and browse its files and directories. This is especially helpful when you need to make fast updates to your source code or README, or when you want to directly test [**INPUT_SCHEMA.json**](../actor_definition/input_schema/index.md) on the Apify platform.
+This option is used by default when your Actor's source code is hosted on Apify platform. You can use our Web IDE to preview and update your Actor's source code and browse its files and directories. This is especially helpful when you need to make fast updates to your source code or README, or when you want to directly test [**INPUT_SCHEMA.json**](../actor_definition/input_schema/index.md) on the Apify platform.
 
 The only required file is **Dockerfile**, and all other files depend on your Dockerfile settings. By default, Apify's custom NodeJS Dockerfile is used, which requires a **main.js** file containing your source code and a **package.json** file containing package configurations for [NPM](https://www.npmjs.com/).
 
@@ -25,8 +27,8 @@ See [Dockerfile](../actor_definition/dockerfile.md#custom-dockerfile) and [base 
 
 If the Actor's source code is hosted externally in a Git repository, it can consist of multiple files and directories, use its own **Dockerfile** to control the build process (see [Custom Dockerfile](../actor_definition/dockerfile.md#custom-dockerfile) for details) and have a user description in store fetched from the <strong>README.md</strong> file. The location of the repository is specified by the **Git URL** setting, which can be an **https**, **git** or **ssh** URL.
 
-[//]: # (TODO: It's pretty outdated, we should probably update the actor too)
-To help you get started quickly, you can use the [apify/quick-start](https://apify.com/apify/quick-start) actor which contains all the boilerplate necessary when creating a new actor hosted on Git. The source code is available on [GitHub](https://github.com/apify/actor-quick-start).
+[//]: # (TODO: It's pretty outdated, we should probably update the Actor too)
+To help you get started quickly, you can use the [apify/quick-start](https://apify.com/apify/quick-start) Actor which contains all the boilerplate necessary when creating a new Actor hosted on Git. The source code is available on [GitHub](https://github.com/apify/actor-quick-start).
 
 To specify a Git branch or tag to check out, add a URL fragment to the URL. For example, to check out the **develop** branch, specify a URL such as `https://github.com/jancurn/some-actor.git#develop`.
 
@@ -36,7 +38,7 @@ Note that you can easily set up an integration where the Actor is automatically 
 
 ### [](#private-repositories)Private repositories
 
-If your source code is hosted in a private Git repository then you need to configure deployment key. Deployment key is different for each actor and might be used only once at Git hosting of your choice (GitHub, Bitbucket, GitLab, etc.).
+If your source code is hosted in a private Git repository then you need to configure deployment key. Deployment key is different for each Actor and might be used only once at Git hosting of your choice (GitHub, Bitbucket, GitLab, etc.).
 
 To obtain the key click at the **deployment key** link under the **Git URL** text input and follow the instructions there.
 
@@ -53,13 +55,13 @@ An example Actor monorepo is shown in the [`apify/actor-monorepo-example`](https
 
 ## [](#zip-file)Zip file
 
-The source code for the Actor can also be located in a Zip archive hosted on an external URL. This option enables integration with arbitrary source code or continuous integration systems. Similarly, as with the [Git repository](#git-repository), the source code can consist of multiple files and directories, can contain a custom **Dockerfile**, and the actor description is taken from <strong>README.md</strong>. If you don't use a [custom Dockerfile](../actor_definition/dockerfile.md#custom-dockerfile), the root file of your application must be named `main.js`.
+The source code for the Actor can also be located in a Zip archive hosted on an external URL. This option enables integration with arbitrary source code or continuous integration systems. Similarly, as with the [Git repository](#git-repository), the source code can consist of multiple files and directories, can contain a custom **Dockerfile**, and the Actor description is taken from <strong>README.md</strong>. If you don't use a [custom Dockerfile](../actor_definition/dockerfile.md#custom-dockerfile), the root file of your application must be named `main.js`.
 
 ## [](#github-gist)GitHub Gist
 
 Sometimes having a full Git repository or a hosted Zip file might be overly complicated for your small project, but you still want to have the source code in multiple files. In this case, you can simply put your source code into a [GitHub Gist](https://gist.github.com/). For example:
 
-[//]: # (TODO: It's pretty outdated, we should probably update the actor too)
+[//]: # (TODO: It's pretty outdated, we should probably update the Actor too)
 [https://gist.github.com/jancurn/2dbe83fea77c439b1119fb3f118513e7](https://gist.github.com/jancurn/2dbe83fea77c439b1119fb3f118513e7)
 
 Then set the **Source Type** to **GitHub Gist** and paste the Gist URL as follows:
@@ -68,5 +70,4 @@ Then set the **Source Type** to **GitHub Gist** and paste the Gist URL as follow
 
 Note that the example Actor is available in the Apify Store as [apify/example-github-gist](https://apify.com/apify/example-github-gist).
 
-Similarly, as with the [Git repository](#git-repository), the source code can consist of multiple files and directories, it can contain a custom **Dockerfile** and the actor description is taken from <strong>README.md</strong>. If you don't use a [custom Dockerfile](../actor_definition/dockerfile.md#custom-dockerfile), the root file of your application must be named `main.js`.
-
+Similarly, as with the [Git repository](#git-repository), the source code can consist of multiple files and directories, it can contain a custom **Dockerfile** and the Actor description is taken from <strong>README.md</strong>. If you don't use a [custom Dockerfile](../actor_definition/dockerfile.md#custom-dockerfile), the root file of your application must be named `main.js`.

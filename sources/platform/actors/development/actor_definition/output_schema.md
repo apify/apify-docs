@@ -9,20 +9,20 @@ slug: /actors/development/actor-definition/output-schema
 
 ---
 
- It is recommended to show the most important fields in a curated Overview visualization configured using output schema specification, while all available fields are automatically available in the “All fields” view.
+ It is recommended to show the most important fields in a curated Overview visualization configured using output schema specification, while all available fields are automatically available in the "All fields" view.
 
 In the future, output schema will also help with strict output data format validation, which will make integrations more solid and easier to set up.
 
 ## Specification version 1
 
-An actor's output schema defines the structure and both API and visual representation of data produced by an actor. Output configuration files have to be located in the `.actor` folder in the actor's root directory.
+An Actor's output schema defines the structure and both API and visual representation of data produced by an Actor. Output configuration files have to be located in the `.actor` folder in the Actor's root directory.
 
 ## How to organize files in the .actor folder: two options
 
 **A)** all config options are being set in a **.actor/actor.json** file, e.g.:
 
 ```json
-//file: .actor/actor.json
+// file: .actor/actor.json
 {
     "actorSpecification": 1,
     "name": "this-is-book-library-scraper",
@@ -47,7 +47,7 @@ An actor's output schema defines the structure and both API and visual represent
 **B)** **.actor/actor.json** links to other sub-config files in the same folder, e.g.:
 
 ```json
-//file: .actor/actor.json
+// file: .actor/actor.json
 {
     "actorSpecification": 1,
     "name": "this-is-book-library-scraper",
@@ -60,7 +60,7 @@ An actor's output schema defines the structure and both API and visual represent
 ```
 
 ```json
-//file: .actor/dataset_schema.json
+// file: .actor/dataset_schema.json
 {
     "actorSpecification": 1,
     "fields": {},
@@ -78,12 +78,12 @@ Both options are valid. The user can choose based on their own needs.
 
 ## Basic Template
 
-Imagine there is an actor that calls `Actor.pushData()` to store data into dataset e.g.
+Imagine there is an Actor that calls `Actor.pushData()` to store data into dataset e.g.
 
-```json
-//file: main.js
+```javascript
+// file: main.js
 import { Actor } from 'apify';
-// Initialize the Apify SDK
+// Initialize the JavaScript SDK
 await Actor.init();
 
 /**
@@ -104,10 +104,10 @@ await Actor.pushData({
 await Actor.exit();
 ```
 
-Let’s say we are going to use a single file to set up an actor’s output tab UI. The following template can be used as a `.actor/actor.json` configuration.
+Let's say we are going to use a single file to set up an Actor's output tab UI. The following template can be used as a `.actor/actor.json` configuration.
 
 ```json
-//file: .actor/actor.json
+// file: .actor/actor.json
 {
     "actorSpecification": 1,
     "name": "___ENTER_ACTOR_NAME____",
@@ -177,30 +177,30 @@ Let’s say we are going to use a single file to set up an actor’s output tab 
 
 The template above defines the configuration for the default dataset output view. Under the **views** property, there is one view with the title **Overview**. The view configuration consists of two basic steps: 1) set up how to fetch the data, aka **transformation,** and 2) set up how to **display** the data fetched in step 1). The default behaviour is that the Output tab UI table will display **all the fields** from `transformation.fields` **in that same order**. So, theoretically, there should be no need to set up `[**display.properties**](http://display.properties)` at all. However, it can be customized in case it is visually worth setting up some specific display format or column labels. The customization is carried out by using one of the `transformation.fields` names inside `display.properties` and overriding either the label or the format, as demonstrated in the basic template above.
 
-A 2-step configuration (transform & display) was implemented to provide a way to fetch data in the format presented in both API and UI consistently. Consistency between API data and UI data is crucial for actor end-users for them to experience the same results in both API and UI. Thus for the best end-user experience, we recommend overriding as few display properties as possible.
+A 2-step configuration (transform & display) was implemented to provide a way to fetch data in the format presented in both API and UI consistently. Consistency between API data and UI data is crucial for Actor end-users for them to experience the same results in both API and UI. Thus for the best end-user experience, we recommend overriding as few display properties as possible.
 
-Example of an actor output UI generated using basic template:
+Example of an Actor output UI generated using basic template:
 ![Output tab UI](./images/output-schema-example.png)
 
 ## Example with inline comments
 
 ```json
-//file: .actor/actor.json
+// file: .actor/actor.json
 {
-    "actorSpecification": 1,                //mandatory
-    "name": "this-is-book-library-scraper", //mandatory, unique name of an actor
-    "title": "Book Library scraper",        //mandatory, the human readable name of an actor
-    "version": "1.0.0",                     //mandatory
-    "storages": {                           //mandatory
-        "dataset": {                        //mandatory
-            "actorSpecification": 1,        //mandatory
-            "fields": {},                   //mandatory, but it can be an empty object for now
-            "views": {                      //mandatory
-                "overview": {               //mandatory, but it does not have to be "overview", one can choose any name, multiple views are possible within views object
-                    "title": "Overview",    //mandatory, one can choose any other title
-                    "transformation": {     //mandatory
-                        "fields": [         //mandatory, fields property supports basic JSONPath selectors
-                            "isbn",         //important, an order of fields in this array matches the order of columns in visualisation UI
+    "actorSpecification": 1,                // mandatory
+    "name": "this-is-book-library-scraper", // mandatory, unique name of an Actor
+    "title": "Book Library scraper",        // mandatory, the human readable name of an Actor
+    "version": "1.0.0",                     // mandatory
+    "storages": {                           // mandatory
+        "dataset": {                        // mandatory
+            "actorSpecification": 1,        // mandatory
+            "fields": {},                   // mandatory, but it can be an empty object for now
+            "views": {                      // mandatory
+                "overview": {               // mandatory, but it does not have to be "overview", one can choose any name, multiple views are possible within views object
+                    "title": "Overview",    // mandatory, one can choose any other title
+                    "transformation": {     // mandatory
+                        "fields": [         // mandatory, fields property supports basic JSONPath selectors
+                            "isbn",         // important, an order of fields in this array matches the order of columns in visualisation UI
                             "picture",
                             "title",
                             "buyOnlineUrl",
@@ -213,22 +213,22 @@ Example of an actor output UI generated using basic template:
                             "anArray",
                             "anObject"
                         ],
-                        "flatten": [        //optional, flattened objects are easily available for as display.properties keys
+                        "flatten": [        // optional, flattened objects are easily available for as display.properties keys
                             "anObjectWithDeepStructure"
                         ]
                     },
-                    "display": {                      //mandatory
-                        "component": "table",         //mandatory
-                        "properties": {               //mandatory
-                            "isbn": {                 //optional, use transformation.fields values there as keys
-                                "label": "ISBN",      //optional, define "label" only in case you would like to overide the basic field name capitalisation in table UI
-                                // "format": "text"   //optional, "text" format is default, use only in case you would like to overide the default format settings
+                    "display": {                      // mandatory
+                        "component": "table",         // mandatory
+                        "properties": {               // mandatory
+                            "isbn": {                 // optional, use transformation.fields values there as keys
+                                "label": "ISBN",      // optional, define "label" only in case you would like to overide the basic field name capitalisation in table UI
+                                // "format": "text"   // optional, "text" format is default, use only in case you would like to overide the default format settings
                             },
                             "picture": {
                                 "label": "Cover",
-                                "format": "image"     //optional, in this case the format is overriden to show "image" instead of image link "text". "image" format only works with .jpeg, .png or other image format urls.
+                                "format": "image"     // optional, in this case the format is overriden to show "image" instead of image link "text". "image" format only works with .jpeg, .png or other image format urls.
                             },
-                            // "title": {             //does not have to be specified, default behaviour will show the field correctly
+                            // "title": {             // does not have to be specified, default behaviour will show the field correctly
                             //    "label": "Title",
                             //    "format": "text"
                             // },
@@ -243,7 +243,7 @@ Example of an actor output UI generated using basic template:
                             "longBookDescription": {
                                 "label": "Description"
                             },
-                            "anObjectWithDeepStructure.pageCount": {   //use "." for sub-keys of flattened objects
+                            "anObjectWithDeepStructure.pageCount": { // use "." for sub-keys of flattened objects
                                 "label": "# pages",
                                 "format": "number"
                             },
@@ -272,11 +272,13 @@ Example of an actor output UI generated using basic template:
 
 ### Nested structures
 
-The most frequently used data formats present the data in a tabular format (Output tab table, Excel, CSV). In case an actor produces nested JSON structures, there is a need to transform the nested data into a flat tabular format. There are three ways to flatten the data:
+The most frequently used data formats present the data in a tabular format (Output tab table, Excel, CSV). In case an Actor produces nested JSON structures, there is a need to transform the nested data into a flat tabular format. There are three ways to flatten the data:
 
-**1)** use `transformation.flatten` to flatten the nested structure of specified fields. Flatten transforms the nested object into a flat structure. e.g. with `flatten:[”foo”]`, the object `{”foo”:{”bar”:”hello”}}` is turned into `{’foo.bar”:”hello”}`. Once the structure is flattened, it is necessary to use the flattened property name in both `transformation.fields` and [`display.properties`](http://display.properties), otherwise, fields might not be fetched or configured properly in the UI visualization.
+**1)** use `transformation.flatten` to flatten the nested structure of specified fields. Flatten transforms the nested object into a flat structure. e.g. with `flatten:["foo"]`, the object `{"foo": {"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`. Once the structure is flattened, it is necessary to use the flattened property name in both `transformation.fields` and [`display.properties`](http://display.properties), otherwise, fields might not be fetched or configured properly in the UI visualization.
+
 **2)** use `transformation.unwind` to deconstruct the nested children into parent objects.
-**3)** change the output structure in an actor from nested to flat before the results are saved in the dataset.
+
+**3)** change the output structure in an Actor from nested to flat before the results are saved in the dataset.
 
 ## Dataset schema structure definitions
 
@@ -301,9 +303,9 @@ The most frequently used data formats present the data in a tabular format (Outp
 
 | Property | Type     | Required | Description                                                                                                                                                                                                         |
 | -------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fields   | string[] | true     | Selects fields that are going to be presented in the output. <br/>The order of fields matches the order of columns <br/>in visualization UI. In case the fields value <br/>is missing, it will be presented as “undefined” in the UI. |
-| unwind   | string   | false    | Deconstructs nested children into parent object, <br/>e.g.: with unwind:[”foo”], the object `{”foo”:{”bar”:”hello”}}`  <br/> is turned into `{’bar”:”hello”}`.                                                                     |
-| flatten  | string[] | false    | Transforms nested object into flat structure. <br/>eg: with flatten:[”foo”] the object `{”foo”:{”bar”:”hello”}}` <br/> is turned into `{’foo.bar”:”hello”}`.                                                                    |
+| fields   | string[] | true     | Selects fields that are going to be presented in the output. <br/>The order of fields matches the order of columns <br/>in visualization UI. In case the fields value <br/>is missing, it will be presented as "undefined" in the UI. |
+| unwind   | string   | false    | Deconstructs nested children into parent object, <br/>e.g.: with `unwind:["foo"]`, the object `{"foo": {"bar": "hello"}}`  <br/> is turned into `{"bar": "hello"}`.                                                                     |
+| flatten  | string[] | false    | Transforms nested object into flat structure. <br/>eg: with `flatten:["foo"]` the object `{"foo":{"bar": "hello"}}` <br/> is turned into `{"foo.bar": "hello"}`.                                                                    |
 | omit     | string   | false    | Removes the specified fields from the output. <br/>Nested fields names can be used there as well.                                                                                                                           |
 | limit    | integer  | false    | The maximum number of results returned. <br/>Default is all results.                                                                                                                                                         |
 | desc     | boolean  | false    | By default, results are sorted in ascending based <br/>on the write event into the dataset. desc:true param <br/>will return the newest writes to the dataset first.                                                                      |
@@ -312,12 +314,12 @@ The most frequently used data formats present the data in a tabular format (Outp
 
 | Property   | Type                                                                                                               | Required | Description                                                                                                                  |
 | ---------- | ------------------------------------------------------------------------------------------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| component  | string                                                                                                             | true     | Only component “table” is available.                                                                                         |
+| component  | string                                                                                                             | true     | Only component "table" is available.                                                                                         |
 | properties |  Object | false    | Object with keys matching the `transformation.fields` <br/> and ViewDisplayProperty as values. In case properties are not set <br/>the table will be rendered automatically with fields formatted as Strings, <br/>Arrays or Objects. |
 
 ### ViewDisplayProperty object definition
 
 | Property | Type                                                    | Required | Description                                                                                    |
 | -------- | ------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------- |
-| label    | string                                                  | false    | In case the data are visualized as in Table view. <br/>The label will be visible table column’s header. |
+| label    | string                                                  | false    | In case the data are visualized as in Table view. <br/>The label will be visible table column's header. |
 | format   | enum(text, number, date, link, <br/>boolean, image, array, object) | false    | Describes how output data values are formatted <br/>in order to be rendered in the output tab UI.       |

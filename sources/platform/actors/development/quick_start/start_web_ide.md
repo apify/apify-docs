@@ -19,7 +19,7 @@ After you sign in to [Apify Console](https://console.apify.com), navigate to the
 
 ![Create Actor](./images/actor-create-button.png)
 
-You will be redirected to a page containing various Actor development templates for popular languages such as JavaScript, TypeScript, and Python. You can choose the template that best suits your technology stack. For demonstration purposes, let's choose "PuppeteerCrawler in Javascript".
+You will be redirected to a page containing various Actor development templates for popular languages such as JavaScript, TypeScript, and Python. You can choose the template that best suits your technology stack. For demonstration purposes, let's choose "PuppeteerCrawler in JavaScript".
 
 ![Templates](./images/actor-create-templates.png)
 

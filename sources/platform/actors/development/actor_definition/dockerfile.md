@@ -5,17 +5,17 @@ slug: /actors/development/actor-definition/dockerfile
 sidebar_position: 4
 ---
 
-**Learn about the Docker images you can use as your actor's base. Choose the correct base image for your actor's type and requirements.**
+**Learn about the Docker images you can use as your Actor's base. Choose the correct base image for your Actor's type and requirements.**
 
 ---
 
 ## Base Docker images
 
-Apify provides several Docker images that can be used as a base for user actors.
+Apify provides several Docker images that can be used as a base for user Actors.
 
 All images come in two versions: the **latest** tag corresponds to the stable version and **beta** to images where we test new features. Use the beta version at your own risk.
 
-Note that all Apify Docker images are pre-cached on Apify servers in order to speed up the actor builds and runs. The source code used to generate the images is available in the [apify-actor-docker](https://github.com/apify/apify-actor-docker) GitHub repository.
+Note that all Apify Docker images are pre-cached on Apify servers in order to speed up the Actor builds and runs. The source code used to generate the images is available in the [apify-actor-docker](https://github.com/apify/apify-actor-docker) GitHub repository.
 
 ### Node.js base images
 
@@ -77,7 +77,7 @@ By default, all Apify base Docker images with the Apify SDK and Crawlee start yo
 
 ```json
 {
-    "description": "Anonymous actor on the Apify platform",
+    "description": "Anonymous Actor on the Apify platform",
     "version": "0.0.1",
     "license": "UNLICENSED",
     "main": "main.js",
@@ -93,4 +93,3 @@ By default, all Apify base Docker images with the Apify SDK and Crawlee start yo
 ```
 
 *This means that by default the system expects the source code to be in the **main.js** file.* If you want to override this behavior, use a custom **package.json** and/or **Dockerfile**.
-
