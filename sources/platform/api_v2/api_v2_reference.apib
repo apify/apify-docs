@@ -3489,7 +3489,7 @@ To assign the new webhook to an actor or task, the request body must contain `re
 * `eventTypes` is a list of events that will trigger the webhook, e.g. when the actor run succeeds.
 * `condition` should be an object containing the ID of the actor or task to which the webhook will be assigned.
 * `payloadTemplate` is a JSON-like string, whose syntax is extended with the use of variables.
-* `headersTemplate` is a JSON-like string, whose syntax is extended with the use of variables. Following values will be re-written to defaults: 'host', 'Content-Type', 'X-Apify-Webhook', 'X-Apify-Webhook-Dispatch-Id', 'X-Apify-Request-Origin'
+* `headersTemplate` is a JSON-like string, whose syntax is extended with the use of variables. Following values will be re-written to defaults: "host", "Content-Type", "X-Apify-Webhook", "X-Apify-Webhook-Dispatch-Id", "X-Apify-Request-Origin"
 * `description` is an optional string.
 * `shouldInterpolateStrings` is a boolean indicating whether to interpolate variables contained inside strings in the `payloadTemplate`
 

@@ -96,6 +96,10 @@ It is important to notice that the following keys are hard-coded and will be re-
 | `X-Apify-Webhook-Dispatch-Id` | Apify id            |
 | `X-Apify-Request-Origin`   | Apify origin           |
 
+### Description
+
+Description is an optional string that you can add to the webhook. It serves for your information, it is not send with the http request when the webhook is dispatched.
+
 ### Available variables
 
 | Variable    | Type   | Description                                                                         |
