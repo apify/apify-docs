@@ -262,6 +262,20 @@ const plugins = [
         },
     ],
     '@stackql/docusaurus-plugin-hubspot',
+    async function runnableCodeBlock() {
+        return {
+            name: 'runnable-code-block',
+            configureWebpack() {
+                return {
+                    resolveLoader: {
+                        alias: {
+                            'roa-loader': require.resolve(`${__dirname}/roa-loader/`),
+                        },
+                    },
+                };
+            },
+        };
+    },
 ];
 
 module.exports = {
