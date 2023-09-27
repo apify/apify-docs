@@ -1,11 +1,14 @@
 ---
 title: Status messages
-description: Learn how to use custom status messages to inform user about the progress of an Actor.
+description: Learn how to use custom status messages to inform users about the progress of an Actor.
 slug: /actors/development/programming-interface/status-messages
 sidebar_position: 3
 ---
 
 **Learn how to use custom status messages to inform users about the progress of an Actor.**
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ---
 
@@ -30,7 +33,31 @@ When an Actor exits, the status message is either automatically set to some defa
 
 When the Actor is running, it should periodically update the status message as follows to keep users informed and happy. The function can be called as often as necessary, and the SDK only invokes API if the status changes. This is to simplify the usage.
 
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
 ```js
+import { Actor } from 'apify';
+
+await Actor.init();
+
+// ...
 await Actor.setStatusMessage('Crawled 45 of 100 pages');
+
+await Actor.exit();
 ```
 
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def main():
+    async with Actor:
+        await Actor.set_status_message('Crawled 45 of 100 pages')
+        # INFO  [Status message]: Crawled 45 of 100 pages
+```
+
+</TabItem>
+</Tabs>

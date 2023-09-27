@@ -1,6 +1,6 @@
 ---
 title: Schedules
-description: Learn how to automatically start your actor and task runs and the basics of cron expressions. Set up and manage your schedules from Apify Console or via API.
+description: Learn how to automatically start your Actor and task runs and the basics of cron expressions. Set up and manage your schedules from Apify Console or via API.
 sidebar_position: 8
 category: platform
 slug: /schedules
@@ -8,11 +8,11 @@ slug: /schedules
 
 # Schedules
 
-**Learn how to automatically start your actor and task runs and the basics of cron expressions. Set up and manage your schedules from Apify Console or via API.**
+**Learn how to automatically start your Actor and task runs and the basics of cron expressions. Set up and manage your schedules from Apify Console or via API.**
 
 ---
 
-[Schedules](https://console.apify.com/schedules) allow you to run your actors and tasks at specific times. You schedule the run frequency using [cron expressions](#cron-expressions).
+[Schedules](https://console.apify.com/schedules) allow you to run your Actors and tasks at specific times. You schedule the run frequency using [cron expressions](#cron-expressions).
 
 > Schedules allow timezone settings and support daylight saving time shifts (DST).
 
@@ -23,12 +23,12 @@ and via [API](/api/v2#/reference/schedules)
 [JavaScript](/api/client/js/reference/class/ScheduleClient) and
 [Python](/api/client/python/reference/class/ScheduleClient)
 API clients).
-When scheduling a new actor or task run, you can override its input settings using a JSON object similarly to when invoking a schedule using the [Apify API](/api/v2#/reference/schedules/).
+When scheduling a new Actor or task run, you can override its input settings using a JSON object similarly to when invoking a schedule using the [Apify API](/api/v2#/reference/schedules/).
 
 > In most cases, scheduled events are fired within one second of their scheduled time. <br/>
 > Occasionally, however, runs can be delayed because of a system overload or a server shutting down.
 
-Each schedule can be associated with a maximum of 10 actors and 10 actor tasks.
+Each schedule can be associated with a maximum of 10 Actors and 10 Actor tasks.
 
 ## Setting up a new schedule
 
@@ -42,7 +42,7 @@ If you are planning to schedule an Actor run, you need to use the Actor before y
 
 In [Apify Console](https://console.apify.com/schedules), click on the **Schedules** button in the left-side menu, then click the **Create new** button.
 
-In the **Settings** tab, give your schedule a memorable name, add a description, and choose how often you would like your actor or task to run using the [schedule setup tool](#schedule-setup).
+In the **Settings** tab, give your schedule a memorable name, add a description, and choose how often you would like your Actor or task to run using the [schedule setup tool](#schedule-setup).
 
 ![New schedule](./images/schedule-settings.png)
 
@@ -56,15 +56,15 @@ The **timeout** value is specified in seconds; a value of **0** means there is n
 
  If you don't provide an input, then the Actor's default input is used. If you provide an input with some fields missing, the missing fields are filled in with values from the default input. If input options are not provided, the default options values are used.
 
-![Add actor to schedule](./images/schedule-actor-run.png)
+![Add Actor to schedule](./images/schedule-actor-run.png)
 
 If you're scheduling a task, just select the task you prepared earlier using the drop-down. If you need to override the task's input, you can pass it as a JSON object in the **Input JSON overrides** field.
 
 ![Add task to schedule](./images/schedule-add-tasks.png)
 
-To add more actors or tasks, just repeat the process.
+To add more Actors or tasks, just repeat the process.
 
-> You can add a maximum of 10 actors and 10 tasks to each schedule.
+> You can add a maximum of 10 Actors and 10 tasks to each schedule.
 
 Now, all you need to do is click **Save & activate** and let the scheduler take care of running your jobs on time.
 
@@ -74,7 +74,7 @@ For integrations, you can also add a [webhook](/platform/integrations/webhooks) 
 
 To create a new [schedule](/api/v2#/reference/schedules) using the [Apify API](/api/v2#), send a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to the [create schedule](/api/v2#/reference/schedules/schedules-collection/create-schedule) endpoint.
 
-You can find your [secret API token](./integrations/index.mdx) in your Apify account's [Integrations](https://console.apify.com/account?tab=integrations) tab. When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](/api/v2#/introduction/authentication)).
+You can find your [secret API token](./integrations/index.mdx) in your Apify account's [Integrations](https://console.apify.com/account?tab=integrations) tab. When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL ([more info](/api/v2#/introduction/authentication)).
 
 In the POST request's payload should be a JSON object specifying the schedule's name, your [user ID](https://console.apify.com/account#/integrations), and the schedule's **actions**.
 
@@ -82,28 +82,28 @@ The below JSON object creates a schedule which runs an SEO audit of the Apify do
 
 ```json
 {
-  "name": "apify-domain-monthly-seo-audit",
-  "userId": "7AxwNO4kCDZxsMHip",
-  "isEnabled": true,
-  "isExclusive": true,
-  "cronExpression": "@monthly",
-  "timezone": "UTC",
-  "description": "A monthly audit of the Apify domain's SEO",
-  "actions": [
-    {
-      "type": "RUN_ACTOR_TASK",
-      "actorTaskId": "6rHoK2zjYJkmYhSug",
-      "input": {
-        "startUrl": "https://apify.com"
-      }
-    }
-  ]
+    "name": "apify-domain-monthly-seo-audit",
+    "userId": "7AxwNO4kCDZxsMHip",
+    "isEnabled": true,
+    "isExclusive": true,
+    "cronExpression": "@monthly",
+    "timezone": "UTC",
+    "description": "A monthly audit of the Apify domain's SEO",
+    "actions": [
+        {
+            "type": "RUN_ACTOR_TASK",
+            "actorTaskId": "6rHoK2zjYJkmYhSug",
+            "input": {
+                "startUrl": "https://apify.com"
+            }
+        }
+    ]
 }
 ```
 
 If the request is successful, you will receive a 201 [HTTP response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) and a JSON object in the response body containing the details of your new schedule. If you receive an error (`4**` code), you will need to check your API token, user ID, or POST request body.
 
-You can add multiple actor and task runs to a schedule with a single POST request. Simply add another object with the run's details to the **actions** array in your POST request's payload object.
+You can add multiple Actor and task runs to a schedule with a single POST request. Simply add another object with the run's details to the **actions** array in your POST request's payload object.
 
 For more information, see the [schedules section](/api/v2#/reference/schedules/schedule-object/get-schedule) in the API documentation.
 
@@ -130,7 +130,7 @@ A cron expression has the following structure:
 | 5        | month        | 1 - 12                         | , - * /   | no       |
 | 6        | day of week  | 0 - 7 <br/> (0 or 7 is Sunday) | , - * /   | no       |
 
-For example, the expression `30 5 16 * * 1` will start an actor at 16:05:30 every Monday.
+For example, the expression `30 5 16 * * 1` will start an Actor at 16:05:30 every Monday.
 
 The minimum interval between runs is 10 seconds; if your next run is scheduled sooner than 10 seconds after the previous run, the next run will be skipped.
 

@@ -63,4 +63,3 @@ Then it will install the NPM packages and copy the rest of the source code to th
 ```
 
 So once the Actor starts, the `src/main.js` gets executed.
-

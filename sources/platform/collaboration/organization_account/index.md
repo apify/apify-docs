@@ -65,4 +65,3 @@ The Free and Personal plans are [restricted to 9 seats](https://apify.com/pricin
 ![Adding more teams account seats](../images/organizations/upgrade.png)
 
 To find out about organization pricing, get in touch at [support@apify.com](mailto:support@apify.com?subject=Organization%20account%20pricing) or [visit the pricing page](https://apify.com/pricing).
-
