@@ -1,13 +1,13 @@
 ---
 title: Key-value store
-description: Store anything from Actor or task run results JSON documents or images. Learn how to access and manage key-value stores from Apify Console or via API.
+description: Store anything from Actor or task run results, JSON documents, or images. Learn how to access and manage key-value stores from Apify Console or via API.
 sidebar_position: 9.2
 slug: /storage/key-value-store
 ---
 
 # Key-value store
 
-**Store anything from Actor or task run results JSON documents or images. Learn how to access and manage key-value stores from Apify Console or via API.**
+**Store anything from Actor or task run results, JSON documents, or images. Learn how to access and manage key-value stores from Apify Console or via API.**
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -51,7 +51,7 @@ Click on the `API` button to view and test a store's [API endpoints](/api/v2#/re
 
 ### JavaScript SDK
 
-If you are building a JavaScript [Actor](../actors/index.mdx), you will be using the [JavaScript SDK](/sdk/js/docs/guides/result-storage#key-value-store). The key-value store is represented by a [`KeyValueStore`](/sdk/js/reference/class/KeyValueStore) class. You can use the class to specify whether your data is stored locally or in the Apify cloud, get and set values using the [`getValue()`](/sdk/js/reference/class/KeyValueStore#getValue) and [`setValue()`](/sdk/js/reference/class/KeyValueStore#setValue) methods respectively, or iterate over your key-value store keys using the [`forEachKey()`](/sdk/js/reference/class/KeyValueStore#forEachKey) method.
+If you are building a JavaScript [Actor](../actors/index.mdx), you will be using the [JavaScript SDK](/sdk/js/docs/guides/result-storage#key-value-store). The key-value store is represented by a [`KeyValueStore`](/sdk/js/reference/class/KeyValueStore) class. You can use the class to specify whether your data is stored locally or in the Apify cloud, and get and set values using the [`getValue()`](/sdk/js/reference/class/KeyValueStore#getValue) and [`setValue()`](/sdk/js/reference/class/KeyValueStore#setValue) methods respectively, or iterate over your key-value store keys using the [`forEachKey()`](/sdk/js/reference/class/KeyValueStore#forEachKey) method.
 
 Each Actor run is associated with the default key-value store, which is created for the Actor run. When running your Actors and storing data locally, you can pass its [input](../actors/running/input_and_output.md) using the **INPUT.json** file in the default key-value store directory.
 
@@ -119,7 +119,7 @@ See the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#key-va
 
 ### Python SDK
 
-If you are building a Python [Actor](../actors/index.mdx), you will be using the [Python SDK](/sdk/python/docs/concepts/storages#working-with-key-value-stores). The key-value store is represented by a [`KeyValueStore`](/sdk/python/reference/class/KeyValueStore) class. You can use the `KeyValueStore` class to specify whether your data is stored locally or in the Apify cloud, get and set values using the [`get_value()`](/sdk/python/reference/class/KeyValueStore#get_value) and [`set_value()`](/sdk/python/reference/class/KeyValueStore#set_value) methods respectively.
+If you are building a Python [Actor](../actors/index.mdx), you will be using the [Python SDK](/sdk/python/docs/concepts/storages#working-with-key-value-stores). The key-value store is represented by a [`KeyValueStore`](/sdk/python/reference/class/KeyValueStore) class. You can use the `KeyValueStore` class to specify whether your data is stored locally or in the Apify cloud, and get and set values using the [`get_value()`](/sdk/python/reference/class/KeyValueStore#get_value) and [`set_value()`](/sdk/python/reference/class/KeyValueStore#set_value) methods respectively.
 
 Each Actor run is associated with the default key-value store, which is created for the Actor run. When running your Actors and storing data locally, you can pass its [input](../actors/running/input_and_output.md) using the **INPUT.json** file in the default key-value store directory.
 
@@ -262,7 +262,7 @@ You can invite other Apify users to view or modify your key-value stores with th
 
 You can access a key-value store from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
 
-To access a key-value store from another run using the [JavaScript SDK](/sdk/js) or the [Python SDK](/sdk/python), open it using the same method like you would do with any other store.
+To access a key-value store from another run using the [JavaScript SDK](/sdk/js) or the [Python SDK](/sdk/python), open it using the same method as you would do with any other store.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
