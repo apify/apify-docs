@@ -82,6 +82,20 @@ This example shows how you can use the payload template variables to send a cust
 
 You may have noticed that the `eventData` and `resource` properties contain redundant data. This is for backwards compatibility. Feel free to only use `eventData` or `resource` in your templates, depending on your use case.
 
+### Headers template
+
+Headers is a JSON-like string where you can add additional information to the default header of the webhook request. You can pass the variables in the same way as in [payload template](#payload-template) (including the use of string interpolation, available variables and nesting). The resulting headers need to be a valid json object.
+
+It is important to notice that the following keys are hard-coded and will be re-written always.
+
+| Variable                  | Value                   |
+|---------------------------|-------------------------|
+| `host`                    | request url             |
+| `Content-Type`            | application/json        |
+| `X-Apify-Webhook`         | Apify value             |
+| `X-Apify-Webhook-Dispatch-Id` | Apify id            |
+| `X-Apify-Request-Origin`   | Apify origin           |
+
 ### Available variables
 
 | Variable    | Type   | Description                                                                         |
