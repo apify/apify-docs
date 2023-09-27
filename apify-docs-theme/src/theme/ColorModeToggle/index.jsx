@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import clsx from 'clsx';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import { translate } from '@docusaurus/Translate';
