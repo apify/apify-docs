@@ -19,7 +19,7 @@ Key-value stores are mutable–you can both add entries and delete them.
 
 > Named key-value stores are retained indefinitely. <br/>
 > Unnamed key-value stores expire after 7 days unless otherwise specified.<br/>
-> [Learn about named and unnamed key-value stores.](./index.md)
+> [Learn more](./index.md#named-and-unnamed-storages)
 
 ## Basic usage
 

@@ -17,7 +17,7 @@ Request queue storage supports both breadth-first and depth-first crawling order
 
 > Named request queues are retained indefinitely. <br/>
 > Unnamed request queues expire after 7 days unless otherwise specified.<br/>
-> [Learn about named and unnamed queues.](./index.md)
+> [Learn more](./index.md#named-and-unnamed-storages)
 
 ## Basic usage {#basic-usage}
 

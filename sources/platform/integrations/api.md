@@ -5,18 +5,19 @@ sidebar_position: 11.01
 slug: /integrations/api
 ---
 
-# API integrations
+# API
 
-**Learn how to integrate with Apify via API.**
+**Learn how to integrate with Apify using the REST API.**
 
 ---
 
-The API is well described in the [**API Reference**](/api/v2). If you want to use the Apify API from JavaScript/NodeJS or Python, we recommend you use one of our API clients:
+All aspects of the Apify platform can be controlled via a REST API, which is described in detail in the [**API Reference**](/api/v2).
+If you want to use the Apify API from JavaScript/Node.js or Python, we strongly recommend to use one of our API clients:
 
-- [**apify-client**](/api/client/js/) NPM package supporting both browser and server
-- [**apify-client**](/api/client/python/) PyPI package.
+- [**apify-client**](/api/client/js/) NPM package for JavaScript, supporting both browser and server
+- [**apify-client**](/api/client/python/) PyPI package for Python.
 
-You are not limited to those packages - any HTTP client can be used (axios, curl, wget, ...) - but the official API clients implement the best practices such as exponential backoff or rate limit handling.
+You are not required to those packages—the REST API works with any HTTP client—but the official API clients implement best practices such as exponential backoff and rate limiting.
 
 ## API token
 
