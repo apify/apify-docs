@@ -290,10 +290,12 @@ To access a request queue from another run using the [JavaScript SDK](/sdk/js) o
 ```js
 import { Actor } from 'apify';
 
-Actor.main(async () => {
-    const otherQueue = await Actor.openRequestQueue('old-queue');
-    // ...
-});
+await Actor.init();
+
+const otherQueue = await Actor.openRequestQueue('old-queue');
+// ...
+
+await Actor.exit();
 ```
 
 </TabItem>

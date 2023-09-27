@@ -390,10 +390,12 @@ To access a dataset from another run using the [JavaScript SDK](/sdk/js) or the 
 ```js
 import { Actor } from 'apify';
 
-Actor.main(async () => {
-    const otherDataset = await Actor.openDataset('old-dataset');
-    // ...
-});
+await Actor.init();
+
+const otherDataset = await Actor.openDataset('old-dataset');
+// ...
+
+await Actor.exit();
 ```
 
 </TabItem>

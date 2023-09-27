@@ -270,10 +270,12 @@ To access a key-value store from another run using the [JavaScript SDK](/sdk/js)
 ```js
 import { Actor } from 'apify';
 
-Actor.main(async () => {
-    const otherStore = await Actor.openKeyValueStore('old-store');
-    // ...
-});
+await Actor.init();
+
+const otherStore = await Actor.openKeyValueStore('old-store');
+// ...
+
+await Actor.exit();
 ```
 
 </TabItem>

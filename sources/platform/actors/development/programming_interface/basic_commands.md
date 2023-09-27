@@ -69,11 +69,13 @@ The input is an object with properties. If the Actor defines the input schema, t
 ```js
 import { Actor } from 'apify';
 
-Actor.main(async () => {
-    const input = await Actor.getInput();
-    console.log(input);
-    // prints: {'option1': 'aaa', 'option2': 456}
-});
+await Actor.init();
+
+const input = await Actor.getInput();
+console.log(input);
+// prints: {'option1': 'aaa', 'option2': 456}
+
+await Actor.exit();
 ```
 
 </TabItem>
@@ -104,20 +106,22 @@ The user can override this behavior and specify another key-value store or input
 ```js
 import { Actor } from 'apify';
 
-Actor.main(async () => {
-    // Save object to store (stringified to JSON)
-    await Actor.setValue('my_state', { something: 123 });
+await Actor.init();
 
-    // Save binary file to store with content type
-    await Actor.setValue('screenshot.png', buffer, { contentType: 'image/png' });
+// Save object to store (stringified to JSON)
+await Actor.setValue('my_state', { something: 123 });
 
-    // Get a record from the store (automatically parsed from JSON)
-    const value = await Actor.getValue('my_state');
+// Save binary file to store with content type
+await Actor.setValue('screenshot.png', buffer, { contentType: 'image/png' });
 
-    // Access another key-value store by its name
-    const store = await Actor.openKeyValueStore('screenshots-store');
-    await store.setValue('screenshot.png', buffer, { contentType: 'image/png' });
-});
+// Get a record from the store (automatically parsed from JSON)
+const value = await Actor.getValue('my_state');
+
+// Access another key-value store by its name
+const store = await Actor.openKeyValueStore('screenshots-store');
+await store.setValue('screenshot.png', buffer, { contentType: 'image/png' });
+
+await Actor.exit();
 ```
 
 </TabItem>
@@ -154,12 +158,12 @@ Note that Datasets can optionally be equipped with the schema that ensures only 
 ```js
 import { Actor } from 'apify';
 
-Actor.main(async () => {
-    // Append result object to the default dataset associated with the run
-    await Actor.pushData({
-        someResult: 123,
-    });
-});
+await Actor.init();
+
+// Append result object to the default dataset associated with the run
+await Actor.pushData({ someResult: 123 });
+
+await Actor.exit();
 ```
 
 </TabItem>
@@ -187,10 +191,10 @@ When the main Actor process exits (i.e. the Docker container stops running), the
 ```js
 import { Actor } from 'apify';
 
-Actor.main(async () => {
-    // Actor will finish with 'SUCCEEDED' status
-    await Actor.exit('Succeeded, crawled 50 pages');
-});
+await Actor.init();
+// ...
+// Actor will finish with 'SUCCEEDED' status
+await Actor.exit('Succeeded, crawled 50 pages');
 ```
 
 </TabItem>
@@ -218,10 +222,10 @@ async def main():
 ```js
 import { Actor } from 'apify';
 
-Actor.main(async () => {
-    // Exit right away without calling `exit` handlers at all
-    await Actor.exit('Done right now', { timeoutSecs: 0 });
-});
+await Actor.init();
+// ...
+// Exit right away without calling `exit` handlers at all
+await Actor.exit('Done right now', { timeoutSecs: 0 });
 ```
 
 </TabItem>
@@ -248,10 +252,10 @@ async def main():
 ```js
 import { Actor } from 'apify';
 
-Actor.main(async () => {
-    // Actor will finish with 'FAILED' status
-    await Actor.exit('Could not finish the crawl, try increasing memory', { exitCode: 1 });
-});
+await Actor.init();
+// ...
+// Actor will finish with 'FAILED' status
+await Actor.exit('Could not finish the crawl, try increasing memory', { exitCode: 1 });
 ```
 
 </TabItem>
@@ -282,10 +286,10 @@ An alternative and preferred way to exit an Actor is using the `exit` function i
 ```js
 import { Actor } from 'apify';
 
-Actor.main(async () => {
-    // ... or nicer way using this syntactic sugar:
-    await Actor.fail('Could not finish the crawl, try increasing memory');
-});
+await Actor.init();
+// ...
+// Or nicer way using this syntactic sugar:
+await Actor.fail('Could not finish the crawl, try increasing memory');
 ```
 
 </TabItem>
@@ -312,20 +316,23 @@ async def main():
 ```js
 import { Actor } from 'apify';
 
-Actor.main(async () => {
-    // Register a handler to be called on exit.
-    // Note that the handler has `timeoutSecs` to finish its job.
-    Actor.on('exit', ({ statusMessage, exitCode, timeoutSecs }) => {
-        // Perform cleanup...
-    })
-});
+await Actor.init();
+
+// Register a handler to be called on exit.
+// Note that the handler has `timeoutSecs` to finish its job.
+Actor.on('exit', ({ statusMessage, exitCode, timeoutSecs }) => {
+    // Perform cleanup...
+})
+
+await Actor.exit();
 ```
 
 </TabItem>
 <TabItem value="Python" label="Python">
 
 ```python
-# Custom handlers are not supported in the Python SDK yet
+# 😔 Custom handlers are not supported in the Python SDK yet.
+# 👉 Stay tuned and follow the news at https://apify.com/change-log
 ```
 
 </TabItem>

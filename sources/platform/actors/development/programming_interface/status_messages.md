@@ -39,9 +39,12 @@ When the Actor is running, it should periodically update the status message as f
 ```js
 import { Actor } from 'apify';
 
-Actor.main(async () => {
-    await Actor.setStatusMessage('Crawled 45 of 100 pages');
-});
+await Actor.init();
+
+// ...
+await Actor.setStatusMessage('Crawled 45 of 100 pages');
+
+await Actor.exit();
 ```
 
 </TabItem>

@@ -73,12 +73,14 @@ that allows reading and updating the Actor configuration.
 ```js
 import { Actor } from 'apify';
 
-Actor.main(async () => {
-    const token = Actor.config.get('token');
+await Actor.init();
 
-    // use different token
-    Actor.config.set('token', 's0m3n3wt0k3n')
-});
+// get current token
+const token = Actor.config.get('token');
+// use different token
+Actor.config.set('token', 's0m3n3wt0k3n')
+
+await Actor.exit();
 ```
 
 </TabItem>

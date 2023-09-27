@@ -46,18 +46,20 @@ Note that some events (e.g. `persistState`) are not sent by the system via the w
 ```js
 import { Actor } from 'apify';
 
-Actor.main(async () => {
-    // Add event handler
-    Actor.on('cpuInfo', (data) => {
-        if (data.isCpuOverloaded) console.log('Oh no, we need to slow down!');
-    });
+await Actor.init();
 
-    // Remove all handlers for a specific event
-    Actor.off('systemInfo');
-
-    // Remove a specific event handler
-    Actor.off('systemInfo', handler);
+// Add event handler
+Actor.on('cpuInfo', (data) => {
+    if (data.isCpuOverloaded) console.log('Oh no, we need to slow down!');
 });
+
+// Remove all handlers for a specific event
+Actor.off('systemInfo');
+
+// Remove a specific event handler
+Actor.off('systemInfo', handler);
+
+await Actor.exit();
 ```
 
 </TabItem>

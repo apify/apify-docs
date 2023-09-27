@@ -17,7 +17,7 @@ flowchart LR
         direction LR
         Dockerfile
         .actor/actor.json
-        src/main.*
+        src/main.js
     end
 
     AD -- "build process" --> Build
