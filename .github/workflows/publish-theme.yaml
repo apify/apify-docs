@@ -16,10 +16,10 @@ jobs:
               with:
                   fetch-depth: 0
 
-          -   name: Use Node.js 16
+          -   name: Use Node.js 18
               uses: actions/setup-node@v3
               with:
-                  node-version: 16
+                  node-version: 18
 
           -   name: Check changes in theme
               id: changed-theme-files
@@ -38,10 +38,10 @@ jobs:
                 with:
                     token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
-            -   name: Use Node.js 16
+            -   name: Use Node.js 18
                 uses: actions/setup-node@v3
                 with:
-                    node-version: 16
+                    node-version: 18
 
             -   name: Setup git user and npm
                 run: |
