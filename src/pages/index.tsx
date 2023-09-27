@@ -21,6 +21,7 @@ import FilePythonIcon from './img/file-python.svg';
 import CliIcon from './img/cli.svg';
 import RectangleJavaScriptIcon from './img/rectangle-javascript.svg';
 import RectanglePythonIcon from './img/rectangle-python.svg';
+import CrawleeIcon from './img/crawlee.svg';
 
 export default function Home() {
     return (
@@ -30,10 +31,7 @@ export default function Home() {
             <Hero
                 heading="Apify Documentation"
                 description={<p>
-                Mold our tools any way you want to scrape websites or automate
-                repetitive tasks.
-                    <br />
-                Find the solution to your task here or use the search box above.
+                    Learn how to extract value from the web with the Apify platform.
                 </p>}
             />
             <Section heading="Academy">
@@ -41,14 +39,14 @@ export default function Home() {
                     <CardWithIcon
                         icon={<LearnIcon />}
                         title="Web scraping course"
-                        description="This course is a comprehensive and practical web scraping course that will take you from an absolute beginner to an expert scraper developer. It's free and uses only open-source tools."
+                        description="A comprehensive and practical web scraping course that will take you from an absolute beginner to an expert scraper developer. It's free and uses only open-source tools."
                         to="/academy/web-scraping-for-beginners"
                         width="calc(50% - 12px)"
                     />
                     <CardWithIcon
                         icon={<BookCodeIcon />}
-                        title="Apify Platform course"
-                        description="Our Apify platform course will teach you how to master the Apify platform and become a professional Apify developer. You will learn how to deploy your code as an Apify actor and effectively use all the platform's features."
+                        title="Apify platform course"
+                        description="Master the Apify platform and become an expert Apify developer. You will learn how to deploy your code as an Apify Actor and effectively use all platform features."
                         to="/academy/apify-platform"
                         width="calc(50% - 12px)"
                     />
@@ -58,72 +56,79 @@ export default function Home() {
                 <div className={styles.cardsWrapper}>
                     <CardWithIcon
                         icon={<BookIcon />}
-                        title="Platform docs"
-                        description="Our documentation will help you master our tools to scrape websites or automate repetitive tasks."
+                        title="Apify platform reference"
+                        description="A full reference for the Apify platform, covering Actors, Proxies, Storage, integrations, and open-source tools."
                         to="/platform"
                         width="calc(50% - 12px)"
                     />
                     <CardWithIcon
                         icon={<FileCodeIcon />}
-                        title="API reference"
-                        description="Get programmatic access to the Apify Platform with the Apify API."
+                        title="Apify API reference"
+                        description="Get programmatic access to the Apify platform using a REST API."
                         to="/api/v2/"
                         width="calc(50% - 12px)"
                     />
                 </div>
             </Section>
-            <Section heading="Build on Apify">
+            <Section heading="Development kits">
                 <div className={styles.cardsWrapper} style={{ marginBottom: '24px' }}>
                     <CardWithIcon
                         icon={<RectangleJavaScriptIcon />}
-                        title="SDK for JavaScript"
-                        description="A toolkit for building actors on Apify Platform in JavaScript"
+                        title="Apify SDK for JavaScript"
+                        description="A toolkit for building actors on the Apify platform in JavaScript."
                         to="/sdk/js/"
                         width="calc(50% - 12px)"
                     />
                     <CardWithIcon
                         icon={<RectanglePythonIcon />}
-                        title="SDK for Python"
-                        description="A toolkit for building actors on Apify Platform in Python"
+                        title="Apify SDK for Python"
+                        description="A toolkit for building actors on the Apify platform in Python."
                         to="/sdk/python/"
                         width="calc(50% - 12px)"
                     />
                     <CardWithIcon
                         icon={<FileJavaScriptIcon />}
-                        title="API Client for JavaScript"
-                        description="The official library to access the Apify API from your JavaScript applications."
+                        title="Apify API client for JavaScript"
+                        description="Integrate with the Apify platform from your Node.js and JavaScript applications."
                         to="/api/client/js/"
                         width="calc(50% - 12px)"
                     />
                     <CardWithIcon
                         icon={<FilePythonIcon />}
-                        title="API Client for Python"
-                        description="The official library to access the Apify API from your Python applications."
+                        title="Apify API client for Python"
+                        description="Integrate with the Apify platform from your Python applications."
                         to="/api/client/python/"
                         width="calc(50% - 12px)"
                     />
                     <CardWithIcon
                         icon={<CliIcon />}
                         title="Apify CLI"
-                        description="Create actors from your computer's CLI. Run them locally or deploy them to the Apify platform."
+                        description="Manage Actors and the Apify platform from your terminal or shell scripts."
                         to="/cli/"
+                        width="calc(50% - 12px)"
+                    />
+                    <CardWithIcon
+                        icon={<CrawleeIcon />}
+                        title="Crawlee"
+                        description="The most popular open-source library for web scraping and crawling in JavaScript/Node.js."
+                        to="https://crawlee.dev"
                         width="calc(50% - 12px)"
                     />
                 </div>
             </Section>
-            <Section heading="Contribute">
+            <Section heading="Community">
                 <div className={styles.cardsWrapper}>
                     <CardWithIcon
                         icon={<GitHubIcon />}
                         title="GitHub"
-                        description="Check out our repositories on GitHub, or contribute to a project through forking."
+                        description="Check out and contribute to our open-source projects on GitHub."
                         to="https://github.com/apify"
                         width="calc(50% - 12px)"
                     />
                     <CardWithIcon
                         icon={<DiscordIcon />}
                         title="Discord"
-                        description="Join our Discord community to get the latest news and find plenty of people happy to help you."
+                        description="Join our Discord community to get the latest news and connect with other Apify developers."
                         to="https://discord.com/invite/jyEM2PRvMU"
                         width="calc(50% - 12px)"
                     />
