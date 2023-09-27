@@ -18,7 +18,7 @@ Currently, the plugin can use the following Actors:
 
 - [Google Search Scraper](https://apify.com/apify/google-search-scraper): Fetch Google Search results
 - [Website Content Crawler](https://apify.com/apify/website-content-crawler): Download individual web pages or files
-- [Website Content Vector Retriever](hamza.alwan/website-content-vector-retriever): Crawl websites and query web pages found (experimental)
+- [Website Content Vector Retriever](https://apify.com/hamza.alwan/website-content-vector-retriever): Crawl websites and query web pages found (experimental)
 
 **IMPORTANT**: The plugin is currently under review by OpenAI, and hence it's not yet available in the ChatGPT Plugin store.
 In order to test the plugin, you'll need to have the Developer mode enabled in ChatGPT, and install the plugin using
@@ -42,8 +42,3 @@ See the [example conversation](https://chat.openai.com/share/719b751c-be9e-4e02-
 
 Please note that Apify ChatGPT plugin is currently in beta, and based on user feedback, we'll keep improving its functionality.
 If you encounter any issues or require different functionality, please contact us at [ai@apify.com](mailto:ai@apify.com)
-
-
-
-
-
