@@ -64,7 +64,7 @@ from apify import Actor
 
 async def main():
     async with Actor:
-        other_dataset = await Actor.add_webhook(
+        await Actor.add_webhook(
             event_types=['ACTOR.RUN.FAILED'],
             request_url='https://example.com/run-failed',
         )
@@ -104,7 +104,7 @@ from apify import Actor
 
 async def main():
     async with Actor:
-        other_dataset = await Actor.add_webhook(
+        await Actor.add_webhook(
             event_types=['ACTOR.RUN.FAILED'],
             request_url='https://example.com/run-failed',
             idempotency_key=os.environ['APIFY_ACTOR_RUN_ID'],

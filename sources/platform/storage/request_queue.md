@@ -304,7 +304,7 @@ from apify import Actor
 
 async def main():
     async with Actor:
-        other_dataset = await Actor.open_request_queue(name='old-queue')
+        other_queue = await Actor.open_request_queue(name='old-queue')
         # ...
 ```
 

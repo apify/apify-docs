@@ -46,7 +46,6 @@ Note that some events (e.g. `persistState`) are not sent by the system via the w
 ```js
 import { Actor } from 'apify';
 
-// TODO: add working example
 Actor.main(async () => {
     // Add event handler
     Actor.on('cpuInfo', (data) => {

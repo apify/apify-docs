@@ -284,7 +284,7 @@ from apify import Actor
 
 async def main():
     async with Actor:
-        other_dataset = await Actor.open_key_value_store(name='old-store')
+        other_store = await Actor.open_key_value_store(name='old-store')
         # ...
 ```
 
