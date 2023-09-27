@@ -1,13 +1,13 @@
 ---
 title: List of permissions
-description: Learn about the access rights you can grant to other users. See a list of all access options for Apify resources such as actors, actor runs/tasks and storage.
+description: Learn about the access rights you can grant to other users. See a list of all access options for Apify resources such as Actors, Actor runs/tasks and storage.
 sidebar_position: 12.2
 slug: /collaboration/list-of-permissions
 ---
 
 # List of permissions
 
-**Learn about the access rights you can grant to other users. See a list of all access options for Apify resources such as actors, actor runs/tasks and storage.**
+**Learn about the access rights you can grant to other users. See a list of all access options for Apify resources such as Actors, actActoror runs/tasks and storage.**
 
 ---
 
@@ -21,12 +21,12 @@ Click [here](../actors/index.mdx) to learn about Apify Actors.
 
 | Permission           | Description                                  |
 |----------------------|----------------------------------------------|
-| Read                 | View actor settings, source code and builds. |
-| Write                | Edit actor settings and source code.         |
-| Run                  | Run any of an actor's builds.                |
-| Delete               | Remove the actor.                            |
-| View runs            | View a list of actor runs and their details. |
-| Manage access rights | Manage actor access rights.                  |
+| Read                 | View Actor settings, source code and builds. |
+| Write                | Edit Actor settings and source code.         |
+| Run                  | Run any of an Actor's builds.                |
+| Delete               | Remove the Actor.                            |
+| View runs            | View a list of Actor runs and their details. |
+| Manage access rights | Manage Actor access rights.                  |
 
 ### Actor task {#actor-task}
 
@@ -35,8 +35,8 @@ Click [here](../actors/index.mdx) to learn about Apify Actors.
 | Read                 | View task configuration.                          |
 | Write                | Edit task configuration and settings.             |
 | Delete               | Remove the task.                                  |
-| View runs            | View a list of actor task runs and their details. |
-| Manage access rights | Manage actor task access rights.                  |
+| View runs            | View a list of Actor task runs and their details. |
+| Manage access rights | Manage Actor task access rights.                  |
 
 To learn about Actor tasks, see the [documentation](../actors/running/tasks.md).
 
@@ -81,8 +81,8 @@ To learn about request queue storage, see the [documentation](../storage/request
 
 | Permission | Description                                        |
 |------------|----------------------------------------------------|
-| Read       | View schedule settings and scheduled actors/tasks. |
-| Write      | Edit schedule settings and scheduled actors/tasks. |
+| Read       | View schedule settings and scheduled Actors/tasks. |
+| Write      | Edit schedule settings and scheduled Actors/tasks. |
 | Delete     | Remove the schedule.                               |
 
 To learn about schedules, see the [documentation](../schedules.md).

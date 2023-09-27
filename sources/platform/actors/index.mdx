@@ -8,20 +8,20 @@ slug: /actors
 
 **Learn how to develop, run and share serverless cloud programs. Create your own web scraping and automation tools and publish them on the Apify platform.**
 
----
-
 import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
 
+---
+
 <CardGrid>
     <Card
-        title="Running actors"
+        title="Running Actors"
         desc="In this section, you learn how to run Apify Actors. You will learn about their configuration, versioning, data retention, usage, and pricing."
         to="/platform/actors/running"
     />
     <Card
         title="Development"
-        desc="Read about the technical part of building Apify actors. Learn to define actor inputs, build new versions, persist actor state, and choose base Docker images."
+        desc="Read about the technical part of building Apify Actors. Learn to define Actor inputs, build new versions, persist Actor state, and choose base Docker images."
         to="/platform/actors/development"
     />
     <Card
@@ -46,8 +46,6 @@ A single isolated Actor consists of source code and various settings. You can th
 
 Basically, Actors are programs packaged as [Docker images](https://hub.docker.com/), which accept a well-defined JSON input, perform an action, and optionally produce an output.
 
-## Public and private actors
+## Public and private Actors
 
 Actors can be [public](./actors/running/actors-in-store) or private. Private Actors are yours to use and keep; no one will see them if you don't want them to. Public Actors are [available to everyone](./running/store.md) in [Apify Store](https://apify.com/store). You can make them free to use, or you can [charge for them](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/).
-
-

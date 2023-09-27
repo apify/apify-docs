@@ -1,6 +1,6 @@
 ---
 title: Security
-description: Learn more about Apify's security practices and data protection measures that are used to protect your actors, their data, and the Apify platform in general.
+description: Learn more about Apify's security practices and data protection measures that are used to protect your Actors, their data, and the Apify platform in general.
 sidebar_position: 15
 category: platform
 slug: /security
@@ -8,7 +8,7 @@ slug: /security
 
 # Security
 
-**Learn more about Apify's security practices and data protection measures that are used to protect your actors, their data, and the Apify platform in general.**
+**Learn more about Apify's security practices and data protection measures that are used to protect your Actors, their data, and the Apify platform in general.**
 
 ---
 

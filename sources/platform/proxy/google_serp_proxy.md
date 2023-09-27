@@ -93,7 +93,6 @@ const crawler = new CheerioCrawler({
 await crawler.run(['http://www.google.com/search?q=wikipedia']);
 
 await Actor.exit();
-
 ```
 
 </TabItem>
@@ -118,7 +117,6 @@ async def main():
 
 if __name__ == '__main__':
     asyncio.run(main())
-
 ```
 
 </TabItem>
@@ -144,7 +142,6 @@ const { body } = await gotScraping({
 console.log(body);
 
 await Actor.exit();
-
 ```
 
 </TabItem>
@@ -187,7 +184,6 @@ const params = { q: 'wikipedia' };
 const { data } = await axios.get(url, { proxy, params });
 
 console.log(data);
-
 ```
 
 </TabItem>
@@ -212,7 +208,6 @@ opener = request.build_opener(proxy_handler)
 
 query = parse.urlencode({ 'q': 'wikipedia' })
 print(opener.open(f"http://www.google.com/search?{query}").read())
-
 ```
 
 </TabItem>
@@ -241,7 +236,6 @@ url = (
     (query)
 )
 print(opener.open(url).read())
-
 ```
 
 </TabItem>
@@ -262,7 +256,6 @@ $response = curl_exec($curl);
 curl_close($curl);
 echo $response;
 ?>
-
 ```
 
 </TabItem>
@@ -283,7 +276,6 @@ $response = $client->get("http://www.google.com/search", [
     'query' => ['q' => 'wikipedia']
 ]);
 echo $response->getBody();
-
 ```
 
 </TabItem>

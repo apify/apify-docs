@@ -54,9 +54,9 @@ Imagine you are building a simple crawler whose inputs are an array of start URL
 
 And generated the input UI will be:
 
-![Apify actor input schema example](./images/input-schema-example.png)
+![Apify Actor input schema example](./images/input-schema-example.png)
 
-If you switch the input to the **JSON** display using the toggle, then you will see the entered input stringified to JSON, as it will be passed to the actor:
+If you switch the input to the **JSON** display using the toggle, then you will see the entered input stringified to JSON, as it will be passed to the Actor:
 
 ```json
 {
@@ -74,7 +74,7 @@ If you switch the input to the **JSON** display using the toggle, then you will 
 
 ## Structure
 
-The input schema is a JSON file named **INPUT_SCHEMA.json**, placed in the root directory of an actor with the following structure:
+The input schema is a JSON file named **INPUT_SCHEMA.json**, placed in the root directory of an Actor with the following structure:
 
 ```json
 {
@@ -105,15 +105,15 @@ Each field of your input is described under its key in `inputSchema.properties` 
 | `title`              | String                                                                            | Yes      | Title of the field in UI.                                                                                                                                                                                                                                                                                 |
 | `description`        | String                                                                            | Yes      | Description of the field that will be <br/>displayed as help text in Actor input UI.                                                                                                                                                                                                                      |
 | `default`            | Must match <br/>`type` property.                                                  | No       | Default value that will be <br/>used when no value is provided.                                                                                                                                                                                                                                           |
-| `prefill`            | Must match <br/>`type` property.                                                  | No       | Value that will be prefilled <br/>in the actor input interface. <br/>Only the `boolean` type doesn't <br/>support `prefill` property.                                                                                                                                                                     |
-| `example`            | Must match <br/>`type` property.                                                  | No       | Sample value of this field <br/>for the actor to be displayed when <br/>actor is published in Apify Store.                                                                                                                                                                                                |
+| `prefill`            | Must match <br/>`type` property.                                                  | No       | Value that will be prefilled <br/>in the Actor input interface. <br/>Only the `boolean` type doesn't <br/>support `prefill` property.                                                                                                                                                                     |
+| `example`            | Must match <br/>`type` property.                                                  | No       | Sample value of this field <br/>for the Actor to be displayed when <br/>Actor is published in Apify Store.                                                                                                                                                                                                |
 | `sectionCaption`     | String                                                                            | No       | If this property is set, <br/>then all fields following this field <br/>(this field included) will be separated <br/>into a collapsible section <br/>with the value set as its caption. <br/>The section ends at the last field <br/>or the next field which has the <br/> `sectionCaption` property set. |
 | `sectionDescription` | String                                                                            | No       | If the `sectionCaption` property is set, <br/>then you can use this property to <br/>provide additional description to the section. <br/>The description will be visible right under <br/>the caption when the section is open.                                                                           |
 
-Here is a rule of thumb wheteher an input field should have a `prefill`, `default`, or empty value:
+Here is the rule of thumb for whether an input field should have a `prefill`, `default`, or empty value:
 
 - **Prefill** - For fields that don't have reasonable defaults and user should change them (e.g. search keyword, example start URL)
-- **Default** - For everything that should be set for the actor run to some value (e.g. max pages to crawl, proxy settings)
+- **Default** - For everything that should be set for the Actor run to some value (e.g. max pages to crawl, proxy settings)
 - **Empty** - For purely opt-in features
 
 ## Additional properties
@@ -136,7 +136,7 @@ Example of a code input:
 
 Rendered input:
 
-![Apify actor input schema page function](./images/input-schema-page-function.png)
+![Apify Actor input schema page function](./images/input-schema-page-function.png)
 
 Example of country selection using a select input:
 
@@ -154,14 +154,14 @@ Example of country selection using a select input:
 
 Rendered input:
 
-![Apify actor input schema - country input](./images/input-schema-country.png)
+![Apify Actor input schema - country input](./images/input-schema-country.png)
 
 Properties:
 
 | Property     | Value                                                                                                                 | Required                                   | Description                                                                                                              |
 |--------------|-----------------------------------------------------------------------------------------------------------------------|--------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | `editor`     | One of <br/>`textfield`, <br/>`textarea`, <br/>`javascript`, <br/>`python`, <br/>`select`,<br/>`datepicker`, <br/>`hidden` | Yes                                        | Visual editor used for <br/>the input field.                                                                             |
-| `pattern`    | String                                                                                                                | No                                         | Regular expression that will be <br/>used to validate the input. <br/> If validation fails, <br/>the actor will not run. |
+| `pattern`    | String                                                                                                                | No                                         | Regular expression that will be <br/>used to validate the input. <br/> If validation fails, <br/>the Actor will not run. |
 | `minLength`  | Integer                                                                                                               | No                                         | Minimum length of the string.                                                                                            |
 | `maxLength`  | Integer                                                                                                               | No                                         | Maximum length of the string.                                                                                            |
 | `enum`       | [String]                                                                                                              | Required if <br/>`editor` <br/>is `select` | Using this field, you can limit values <br/>to the given array of strings. <br/>Input will be displayed as select box.   |
@@ -186,7 +186,7 @@ Example options with group caption:
             in the log.",
         "default": true,
         "groupCaption": "Options",
-        "groupDescription": "Various options for this actor"
+        "groupDescription": "Various options for this Actor"
     },
     "lightspeed": {
         "title": "Lightspeed",
@@ -200,7 +200,7 @@ Example options with group caption:
 
 Rendered input:
 
-![Apify actor input schema options](./images/input-schema-options.png)
+![Apify Actor input schema options](./images/input-schema-options.png)
 
 Properties:
 
@@ -228,7 +228,7 @@ Example:
 
 Rendered input:
 
-![Apify actor input schema memory](./images/input-schema-memory.png)
+![Apify Actor input schema memory](./images/input-schema-memory.png)
 
 Properties:
 
@@ -256,7 +256,7 @@ Example of proxy configuration:
 
 Rendered input:
 
-![Apify actor input schema proxy](./images/input-schema-proxy.png)
+![Apify Actor input schema proxy](./images/input-schema-proxy.png)
 
 The object where the proxy configuration is stored has the following structure:
 
@@ -293,7 +293,7 @@ Example of a blackbox object:
 
 Rendered input:
 
-![Apify actor input schema user object](./images/input-schema-user.png)
+![Apify Actor input schema user object](./images/input-schema-user.png)
 
 Properties:
 
@@ -305,7 +305,6 @@ Properties:
 | `maxProperties` | Integer                                         | No        | Maximum number of properties <br/>the object can have.                        |
 | `minProperties` | Integer                                         | No        | Minimum number of properties <br/>the object can have.                        |
 | `nullable`      | Boolean                                         | No        | Specifies whether null is <br/>an allowed value.                              |
-
 
 ### [](#array)Array
 
@@ -323,7 +322,7 @@ Example of request list sources configuration:
 
 Rendered input:
 
-![Apify actor input schema start urls array](./images/input-schema-start-urls.png)
+![Apify Actor input schema start urls array](./images/input-schema-start-urls.png)
 
 Example of an array:
 
@@ -339,7 +338,7 @@ Example of an array:
 
 Rendered input:
 
-![Apify actor input schema colors array](./images/input-schema-colors.png)
+![Apify Actor input schema colors array](./images/input-schema-colors.png)
 
 Properties:
 

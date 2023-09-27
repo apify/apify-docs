@@ -1,6 +1,6 @@
 ---
 title: Limits
-description: Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of actors and tasks per user.
+description: Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of Actors and tasks per user.
 sidebar_position: 16
 category: platform
 slug: /limits
@@ -8,7 +8,7 @@ slug: /limits
 
 # Limits {#limits}
 
-**Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of actors and tasks per user.**
+**Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of Actors and tasks per user.**
 
 ---
 
@@ -96,11 +96,11 @@ The tables below demonstrate the Apify platform's default resource limits. For A
             <td colspan="4">2000&nbsp;columns</td>
         </tr>
         <tr>
-            <td>Maximum size of actor input schema</td>
+            <td>Maximum size of Actor input schema</td>
             <td colspan="4">100&nbsp;kB</td>
         </tr>
         <tr>
-            <td>Maximum number of actors per user</td>
+            <td>Maximum number of Actors per user</td>
             <td colspan="4">100</td>
         </tr>
         <tr>
@@ -116,7 +116,7 @@ The tables below demonstrate the Apify platform's default resource limits. For A
             <td colspan="4">100</td>
         </tr>
         <tr>
-            <td>Maximum number of actors per schedule</td>
+            <td>Maximum number of Actors per schedule</td>
             <td colspan="4">10</td>
         </tr>
         <tr>
@@ -124,7 +124,7 @@ The tables below demonstrate the Apify platform's default resource limits. For A
             <td colspan="4">10</td>
         </tr>
         <tr>
-            <td>Maximum number of concurrent actor runs per user </td>
+            <td>Maximum number of concurrent Actor runs per user </td>
             <td>25</td>
             <td>32</td>
             <td>128</td>

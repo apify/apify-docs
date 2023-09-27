@@ -5,7 +5,10 @@ slug: /actors/development/programming-interface/metamorph
 sidebar_position: 8
 ---
 
-**The metamorph operation transforms an Actor run into the run of another Actor with a new input. **
+**The metamorph operation transforms an Actor run into the run of another Actor with a new input.**
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ---
 
@@ -18,6 +21,9 @@ There is a limit on how many times you can metamorph a single run. You can check
 To make your Actor compatible with the metamorph operation, use `Actor.getInput()` instead of `Actor.getValue('INPUT')`. This method will fetch the input using the right key **INPUT-METAMORPH-1** in case of a metamorphed run.
 
 For example, imagine you have an Actor that accepts a hotel URL on input and then internally uses the [apify/web-scraper](https://www.apify.com/apify/web-scraper) Actor to scrape all the hotel reviews. The metamorphing code would look like this:
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
 
 ```js
 import { Actor } from 'apify';
@@ -44,6 +50,36 @@ await Actor.metamorph('apify/web-scraper', newInput);
 
 // The line here will never be reached, because the
 // Actor run will be interrupted.
-
 await Actor.exit();
 ```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def main():
+    async with Actor:
+        # Get input of your Actor
+        actor_input = await Actor.get_input() or {}
+
+        # Create input for apify/web-scraper
+        new_input = {
+            'startUrls': [{'url': actor_input['url']}],
+            'pageFunction': """
+                # Here you pass the page function that
+                # scrapes all the reviews ...
+            """,
+            # ... and here would be all the additional input parameters
+        }
+
+        # Transform the Actor run to apify/web-scraper with the new input
+        await Actor.metamorph('apify/web-scraper', new_input)
+
+        # The line here will never be reached, because the Actor run will be interrupted
+        Actor.log.info('This should not be printed')
+```
+
+</TabItem>
+</Tabs>

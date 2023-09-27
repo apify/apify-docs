@@ -53,7 +53,7 @@ cd my-actor
 Next, let's explore the Actor's source code. We will use the "PuppeteerCrawler in JavaScript" template code as an example, but all Actor templates follow a similar organizational pattern. The important parts are:
 
 - `src` directory and, namely, the `src/main.js` file, which is the actual code of an Actor.
-- `actor` directory containing actor's definition files such as `actor.json` and `Dockerfile`. These are important once you deploy your code to the Apify platform.
+- `actor` directory containing Actor's definition files such as `actor.json` and `Dockerfile`. These are important once you deploy your code to the Apify platform.
 - `storage` directory containing the local emulation of [Apify Storage](../../../storage), namely [key-value store](../../../storage/key-value-store), [dataset](../../../storage/dataset), and [request queue](../../../storage/request-queue).
 
 ![Actor source code](./images/actor-local-code.png)
@@ -72,7 +72,6 @@ Shortly after that, you will see the log of the Actor. The results will be store
 
 ![Actor source code](./images/actor-local-run.png)
 
-
 ## 5. Deploy it to Apify platform
 
 In order to push your Actor to the Apify platform, you need to first sign in to Apify with the CLI tool:
@@ -87,6 +86,4 @@ And then, you can push your Actor under your Apify account with the following:
 apify push
 ```
 
-
 > If you successfully finished your first Actor, you may consider [sharing it with other users and monetizing it](../../publishing/index.mdx).
-

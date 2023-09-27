@@ -12,17 +12,15 @@ slug: /storage
 
 ---
 
-The Apify platform includes three types of storage you can use both in your [actors](../actors/index.mdx) and outside the Apify platform via [API](/api/v2#/), the [Apify SDK](/sdk/js) and Apify's [JavaScript API client](/api/client/js) and [Python API client](/api/client/python).
+The Apify platform includes four types of storage you can use both in your [Actors](../actors/index.mdx) and outside the Apify platform via [API](/api/v2#/): the [JavaScript SDK](/sdk/js), the [Python SDK](/sdk/python), the [JavaScript API client](/api/client/js), and the [Python API client](/api/client/python).
 
 This page contains a brief introduction of the three types of Apify Storage.
 
 * [Dataset](#dataset) - storage for data objects such as scraping output.
 * [Key-value store](#key-value-store) - storage for arbitrary data records such as files, images, and strings.
-* [Request queue](#request-queue) - a queue of URLs for your actors to visit.
+* [Request queue](#request-queue) - a queue of URLs for your Actors to visit.
 
-You will then find [basic usage](#basic-usage) information relating to all three types of storage. For example, how to manage your storages in [Apify Console](#apify-console), the basics of setting up the [Apify SDK](#apify-sdk-and-crawlee),
-the [JavaScript API client](#javascript-api-client) and the [Python API client](/api/client/python),
-and general information for using storages with the [Apify API](#apify-api).
+You will then find [basic usage](#basic-usage) information relating to all types of storage. For example, how to manage your storage in [Apify Console](#apify-console), the basics of setting up the [JavaScript SDK and Crawlee](#javascript-sdk-and-crawlee), [Python SDK](#python-sdk), the [JavaScript API client](#javascript-api-client), and the [Python API client](/api/client/python). You will also find general information for using storage with the [Apify API](#apify-api).
 
 ## Dataset {#dataset}
 
@@ -33,7 +31,8 @@ and general information for using storages with the [Apify API](#apify-api).
 The easiest way to access your datasets is via [Apify Console](https://console.apify.com/storage?tab=datasets), which provides a user-friendly interface for viewing or downloading the data and editing your datasets' properties.
 
 To manage your datasets, you can use the
-[Apify SDK](/sdk/js/api/apify/class/Dataset),
+[JavaScript SDK](/sdk/js/reference/class/Dataset),
+[Python SDK](/sdk/python/reference/class/Dataset),
 [JavaScript API client](/api/client/js/reference/class/DatasetClient),
 [Python API client](/api/client/python#datasetclient),
 or the [Apify API](/api/v2#/reference/datasets).
@@ -42,7 +41,7 @@ or the [Apify API](/api/v2#/reference/datasets).
 
 ## Key-value store {#key-value-store}
 
-The [key-value store](./key_value_store.md) is ideal for saving data records such as files, screenshots of web pages, and PDFs or for persisting your actors' state. The records are accessible under a unique name and can be written and read quickly.
+The [key-value store](./key_value_store.md) is ideal for saving data records such as files, screenshots of web pages, and PDFs or for persisting your Actor's state. The records are accessible under a unique name and can be written and read quickly.
 
 ![Key-value store graphic](../images/key-value-overview.svg)
 
@@ -50,7 +49,8 @@ The easiest way to access your key-value stores is via
 [Apify Console](https://console.apify.com/storage?tab=keyValueStores), which provides a user-friendly interface for viewing or downloading the data and editing your key-value stores' properties.
 
 To manage your key-value stores, you can use the
-[Apify SDK](/sdk/js/api/apify/class/KeyValueStore),
+[JavaScript SDK](/sdk/js/reference/class/KeyValueStore),
+[Python SDK](/sdk/python/reference/class/KeyValueStore),
 [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient),
 [Python API client](/api/client/python/reference/class/KeyValueStoreClient),
 or the [Apify API](/api/v2#/reference/key-value-stores).
@@ -67,7 +67,8 @@ The easiest way to access your request queues is via
 [Apify Console](https://console.apify.com/storage?tab=requestQueues), which provides a user-friendly interface for viewing your request queues and editing your queues' properties.
 
 To manage your request queues, you can use the
-[Apify SDK](/sdk/js/api/apify/class/RequestQueue),
+[JavaScript SDK](/sdk/js/reference/class/RequestQueue),
+[Python SDK](/sdk/python/reference/class/RequestQueue),
 [JavaScript API client](/api/client/js/reference/class/RequestQueueClient),
 [Python API client](/api/client/python/reference/class/RequestQueueClient),
 or the [Apify API](/api/v2#/reference/request-queues).
@@ -79,7 +80,8 @@ or the [Apify API](/api/v2#/reference/request-queues).
 There are five ways to access your storage:
 
 * [Apify Console](https://console.apify.com/storage) - provides an easy-to-use interface [[details](#apify-console)].
-* Apify SDK - [Request](/sdk/js/docs/guides/request-storage)/[Result](/sdk/js/docs/guides/result-storage) storage - when building your own Apify actor [[details](#apify-sdk-and-crawlee)].
+* JavaScript SDK ([Request storage](/sdk/js/docs/guides/request-storage), [Result storage](/sdk/js/docs/guides/result-storage)) - when building your own JavaScript Actor [[details](#javascript-sdk-and-crawlee)].
+* Python SDK ([Working with storages](/sdk/python/docs/concepts/storages)) - when building your own Python Actor [[detail](#python-sdk)].
 * [JavaScript API client](/api/client/js) - to access your storages from any Node.js application [[details](#javascript-api-client)].
 * [Python API client](/api/client/python) - to access your storages from any Python application [[details](#python-api-client)].
 * [Apify API](/api/v2#/reference/key-value-stores) - for accessing your storages programmatically [[details](#apify-api)].
@@ -105,11 +107,15 @@ These URLs provide links to API **endpoints**–the places where your data are s
 > Never share a URL containing your authentication token, as this will compromise your account's security. <br/>
 > If the data you want to share requires a token, first download the data, then share it as a file.
 
-### Apify SDK and Crawlee {#apify-sdk-and-crawlee}
+### JavaScript SDK and Crawlee {#javascript-sdk-and-crawlee}
 
-The [Apify SDK](/sdk/js) is a JavaScript/Node.js library providing tools to build your own actors. [Crawlee](https://crawlee.dev/) is a JavaScript/Node.js library which allows you to build your own web scraping and automation solutions (formerly was a part of Apify SDK). Both libraries require [Node.js](https://nodejs.org/en/) 16 or later.
+The [Apify JavaScript SDK](/sdk/js) is a JavaScript/Node.js library providing tools to build your own Actors. [Crawlee](https://crawlee.dev/) is a JavaScript/Node.js library that allows you to build your own web scraping and automation solutions (it was formerly a part of the JavaScript SDK). Both libraries require [Node.js](https://nodejs.org/en/) 16 or later.
 
 See [Crawlee documentation](https://crawlee.dev/docs/quick-start) for setup instructions and to learn how to build your own crawlers and run them on the [Apify platform](https://crawlee.dev/docs/guides/apify-platform).
+
+### Python SDK {#python-sdk}
+
+The [Apify Python SDK](/sdk/python) is a Python library providing tools to build your own Actors. We do not currently have an alternative to Crawlee for Python, but we plan on developing it in the future.
 
 ### JavaScript API client {#javascript-api-client}
 
@@ -177,12 +183,11 @@ Then, head over to the **Storage** menu, select the appropriate tab, and tick th
 
 To name your storage via API, get its ID from the run that generated it using the [Get run](/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run) endpoint. You can then give it a new name using the **Update \[storage\]** endpoint. For example, [Update dataset](/api/v2#/reference/datasets/dataset/update-dataset).
 
-The [Apify SDK](/sdk/js), [Crawlee](https://crawlee.dev/), the [JavaScript](/api/client/js/) and [Python](/api/client/python/) clients have their own ways of naming storages - check their docs for details.
-
+The [JavaScript SDK](/sdk/js), [Crawlee](https://crawlee.dev/), The [Python SDK](/sdk/python), the [JavaScript](/api/client/js/) and [Python](/api/client/python/) clients have their own ways of naming storages - check their docs for details.
 
 ## Named and unnamed storages {#named-and-unnamed-storages}
 
-The default storages for an actor run are created without a name (with only an **ID**). This allows them to expire after 7 days (on the free plan, longer on paid plans) and not take up your storage space. If you want to preserve a storage, simply [give it a name](#preserving-storages), and it will be retained indefinitely.
+The default storages for an Actor run are created without a name (with only an **ID**). This allows them to expire after 7 days (on the free plan, longer on paid plans) and not take up your storage space. If you want to preserve a storage, simply [give it a name](#preserving-storages), and it will be retained indefinitely.
 
 > Storages' names can be up to 63 characters long.
 
@@ -198,9 +203,9 @@ You can invite other Apify users to view or modify your storages with the [acces
 
 Any storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
-[Datasets](./dataset.md) and [key-value stores](./key_value_store.md) can be used concurrently by multiple actors. This means that multiple actors or tasks running at the same time can **write** data to a single dataset or key-value store. The same applies for reading data – multiple runs can **read** data from datasets and key-value stores concurrently.
+[Datasets](./dataset.md) and [key-value stores](./key_value_store.md) can be used concurrently by multiple Actors. This means that multiple Actors or tasks running at the same time can **write** data to a single dataset or key-value store. The same applies for reading data – multiple runs can **read** data from datasets and key-value stores concurrently.
 
-[Request queues](./request_queue.md), on the other hand, only allow multiple runs to **add new data**. A request queue can only be processed by one actor or task run at any one time.
+[Request queues](./request_queue.md), on the other hand, only allow multiple runs to **add new data**. A request queue can only be processed by one Actor or task run at any one time.
 
 > When multiple runs try to write data to a storage at the same time, it isn't possible to control the order in which the data will be written. It will be written whenever the request is processed. <br/>
 > In key-value stores and request queues, the same applies for deleting records: if a request to delete a record is made shortly before a request to read that same record, the second request will fail.
@@ -210,10 +215,14 @@ Any storage can be accessed from any [Actor](../actors/index.mdx) or [task](../a
 Named storages are only removed when you request it. You can delete storages in the following ways.
 
 * [Apify Console](https://console.apify.com/storage) - using the **Actions** button in the store's detail page.
-* [Apify SDK](/sdk/js) - using the `.drop()` method of the
+* [JavaScript SDK](/sdk/js) - using the `.drop()` method of the
   [Dataset](/sdk/js/api/apify/class/Dataset#drop),
   [Key-value store](/sdk/js/api/apify/class/KeyValueStore#drop),
   or [Request queue](/sdk/js/api/apify/class/RequestQueue#drop) class.
+* [Python SDK](/sdk/python) - using the `.drop()` method of the
+  [Dataset](/sdk/python/reference/class/Dataset#drop),
+  [Key-value store](/sdk/python/reference/class/KeyValueStore#drop),
+  or [Request queue](/sdk/python/reference/class/RequestQueue#drop) class.
 * [JavaScript API client](/api/client/js) - using the `.delete()` method in the
 [dataset](/api/client/js/reference/class/DatasetClient),
 [key-value store](/api/client/js/reference/class/KeyValueStoreClient),
@@ -223,4 +232,3 @@ or [request queue](/api/client/js/reference/class/RequestQueueClient) clients.
 [key-value store](/api/client/python/reference/class/KeyValueStoreClient),
 or [request queue](/api/client/python/reference/class/RequestQueueClient) clients.
 * [API](/api/v2#/reference/key-value-stores/store-object/delete-store) using the - **Delete [store]** endpoint, where **[store]** is the type of storage you want to delete.
-
