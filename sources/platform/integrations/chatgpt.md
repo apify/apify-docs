@@ -1,5 +1,5 @@
 ---
-title: Apify ChatGPT plugin
+title: ChatGPT
 description: Let ChatGPT access up-to-date information on the web. Fetch Google Search results, crawl smaller websites, query web pages found, and download individual web pages or files.
 sidebar_position: 11.23
 slug: /integrations/chatgpt-plugin
@@ -19,10 +19,6 @@ Currently, the plugin can use the following Actors:
 - [Google Search Scraper](https://apify.com/apify/google-search-scraper): Fetch Google Search results
 - [Website Content Crawler](https://apify.com/apify/website-content-crawler): Download individual web pages or files
 - [Website Content Vector Retriever](https://apify.com/hamza.alwan/website-content-vector-retriever): Crawl websites and query web pages found (experimental)
-
-**IMPORTANT**: The plugin is currently under review by OpenAI, and hence it's not yet available in the ChatGPT Plugin store.
-In order to test the plugin, you'll need to have the Developer mode enabled in ChatGPT, and install the plugin using
-by going to **Install an unverified plugin** and entering "apify.com".
 
 ## Legal disclaimer
 
