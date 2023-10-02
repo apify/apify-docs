@@ -11,7 +11,7 @@ This repository is the home of Apify's documentation, which you can find at [doc
 > [!IMPORTANT]
 > Before you contribute to Apify documentation with your first pull request, please read the following 2 articles:
 >
-> - [Contributing guidelines](./CONTRIBUTING.md), where you learn about the project structure, local development, and testing.
+> - [Contributing guidelines](CONTRIBUTING.md), where you learn about the project structure, local development, and testing.
 > - [Style guide](#style-guide), here below, where you learn how to keep the documentation style consistent.
 
 ## Style guide

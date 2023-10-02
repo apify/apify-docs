@@ -9,7 +9,7 @@ slug: /actors/development/deployment
 
 ---
 
-The deployment of your Actor is the process of uploading your Actor [source code](../actor_definition/index.md) and [building](../builds_and_runs/builds.md) at it the Apify platform. After that, you can easily [run](../builds_and_runs/runs.md) and scale your Actor in the cloud.
+The deployment of your Actor is the process of uploading your Actor [source code](../actor_definition/index.md) and [building](../builds_and_runs/builds.md) it on the Apify platform. After that, you can easily [run](../builds_and_runs/runs.md) and scale your Actor in the cloud.
 
 ## Apify CLI
 
@@ -37,4 +37,3 @@ There are more ways how to deploy your Actor to the Apify platform. But in this 
 ![Actor source types](./images/actor-source-types.png)
 
 This enables you to link a Git repository, Gist, or Zip file to your Actor. You will find more information on all source types in the following chapter.
-

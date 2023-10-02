@@ -3386,7 +3386,7 @@ The response contains the `hadMultipleClients` boolean field which indicates tha
     + clientKey: `client-abc` (string, optional) - A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long
     + token:     `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
-### Add requests [GET]
+### Add requests [POST]
 
 Adds requests to the queue in batch. The maximum requests in batch is limit to 25. The response contains an array of unprocessed and processed requests.
 If any add operation fails because the request queue rate limit is exceeded or an internal failure occurs,
@@ -3983,7 +3983,6 @@ a summary of your limits, and your current usage.
 - isPublic:         false                      (boolean, nullable)
 - seoTitle:         `My actor`                 (string, nullable)
 - seoDescription:   `My actor is the best`     (string, nullable)
-- issuesEnabled:    true                       (boolean, nullable)
 - restartOnError:   false                      (boolean, nullable)
 - versions                                     (array, nullable)
     -                                          (VersionUpdate, nullable)
@@ -3999,7 +3998,6 @@ a summary of your limits, and your current usage.
 - isPublic:         false                      (boolean, required)
 - seoTitle:         `My actor`                 (string, nullable)
 - seoDescription:   `My actor is the best`     (string, nullable)
-- issuesEnabled:    true                       (boolean, nullable)
 - title:            `My Actor`                 (string, nullable)
 - restartOnError:   false                      (boolean, nullable)
 - versions                                     (array, required)

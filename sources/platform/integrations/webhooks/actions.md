@@ -1,13 +1,13 @@
 ---
 title: Actions
-description: Send notifications when specific events occur in your actor (task) run or build. Dynamically add data to the notification payload when sending the notification.
+description: Send notifications when specific events occur in your Actor (task) run or build. Dynamically add data to the notification payload when sending the notification.
 sidebar_position: 2
 slug: /integrations/webhooks/actions
 ---
 
 # Actions
 
-**Send notifications when specific events occur in your actor (task) run or build. Dynamically add data to the notification payload when sending the notification.**
+**Send notifications when specific events occur in your Actor (task) run or build. Dynamically add data to the notification payload when sending the notification.**
 
 ---
 
@@ -92,10 +92,8 @@ You may have noticed that the `eventData` and `resource` properties contain redu
 | `eventData` | Object | Data associated with the trigger event, [see Events](./events.md). |
 | `resource`  | Object | The resource that caused the trigger event, [see below](#resource).                 |
 
-
 #### Resource
 
-The `resource` variable represents the triggering system resource. For example when using the `ACTOR.RUN.SUCCEEDED` event, the resource is the actor run. The variable will be replaced by an `Object` that one would receive as response from the relevant API at the moment when the webhook is triggered. So for the actor run resource, it would be the response of the [Get actor run](/api/v2#/reference/actors/run-object-deprecated/get-run) API endpoint.
+The `resource` variable represents the triggering system resource. For example, when using the `ACTOR.RUN.SUCCEEDED` event, the resource is the Actor run. The variable will be replaced by the `Object` that you would receive as a response from the relevant API at the moment when the webhook is triggered. So for the Actor run resource, it would be the response of the [Get Actor run](/api/v2#/reference/actors/run-object-deprecated/get-run) API endpoint.
 
-In addition to actor runs, webhooks also support various events related to actor builds. In such cases, the resource object will look like the response of the
-[Get actor build](/api/v2#/reference/actor-builds/build-object/get-build) API endpoint.
+In addition to Actor runs, webhooks also support various events related to Actor builds. In such cases, the resource object will look like the response of the [Get Actor build](/api/v2#/reference/actor-builds/build-object/get-build) API endpoint.

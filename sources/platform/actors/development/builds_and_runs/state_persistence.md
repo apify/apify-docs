@@ -1,16 +1,19 @@
 ---
 title: State persistence
-description: Maintain a long-running actor's state to protect from unexpected restarts. See a code example on how to protect your run in case of server shutdown.
+description: Maintain a long-running Actor's state to prevent unexpected restarts. See a code example on how to prevent a run in the case of a server shutdown.
 slug: /actors/development/builds-and-runs/state-persistence
 ---
 
 # [](#state-persistence)State persistence
 
-**Maintain a long-running actor's state to protect from unexpected restarts. See a code example on how to protect your run in case of server shutdown.**
+**Maintain a long-running Actor's state to prevent unexpected restarts. See a code example on how to prevent a run in the case of a server shutdown.**
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ---
 
-Long-running [actor](../../../index.mdx) jobs may need to migrate from one server to another. Unless you save your job's progress, it will be lost during the migration. The Actor will restart from scratch on the new server, which can be costly.
+Long-running [Actor](../../index.mdx) jobs may need to migrate from one server to another. Unless you save your job's progress, it will be lost during the migration. The Actor will restart from scratch on the new server, which can be costly.
 
 To avoid this, long-running Actors should save (persist) their state periodically and listen for [migration events](/sdk/js/api/apify/class/PlatformEventManager). When started, these Actors should [check for persisted state](#code-examples), so they can continue where they left off.
 
@@ -38,11 +41,14 @@ Unless instructed to save its output or state to a [storage](../../../storage/in
 
 ## [](#how-to-persist-state)How to persist state
 
-The [Apify SDK](/sdk/js) persists its state automatically, using the `migrating` and `persistState` [events](/sdk/js/api/apify/class/PlatformEventManager). `persistState` notifies SDK components to persist their state at regular intervals in case a migration happens. The `migrating` event is emitted just before a migration.
+The Apify SDK ([SDK for JavaScript](/sdk/js), [SDK for Python](/sdk/python)) persists its state automatically, using the `migrating` and `persistState` [events](/sdk/js/api/apify/class/PlatformEventManager). `persistState` notifies SDK components to persist their state at regular intervals in case a migration happens. The `migrating` event is emitted just before a migration.
 
 ### [](#code-examples)Code examples
 
-To persist state manually, you can use the [`Actor.on`](/sdk/js/reference/class/Actor#on) method in the Apify SDK.
+To persist state manually, you can use the `Actor.on` method in the Apify SDK.
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
 
 ```js
 import { Actor } from 'apify';
@@ -58,7 +64,29 @@ Actor.on('migrating', () => {
 await Actor.exit();
 ```
 
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def actor_migrate():
+    await Actor.set_value('my-crawling-state', {'foo': 'bar'})
+
+async def main():
+    async with Actor:
+        # ...
+        Actor.on('migrating', actor_migrate)
+        # ...
+```
+
+</TabItem>
+</Tabs>
+
 To check for state saved in a previous run, use:
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
 
 ```js
 import { Actor } from 'apify';
@@ -70,4 +98,20 @@ const previousCrawlingState = await Actor.getValue('my-crawling-state') || {};
 await Actor.exit();
 ```
 
-To improve your actor's performance, you can also [cache repeated page data](/academy/expert-scraping-with-apify/saving-useful-stats).
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def main():
+    async with Actor:
+        # ...
+        previous_crawling_state = await Actor.get_value('my-crawling-state')
+        # ...
+```
+
+</TabItem>
+</Tabs>
+
+To improve your Actor's performance, you can also [cache repeated page data](/academy/expert-scraping-with-apify/saving-useful-stats).

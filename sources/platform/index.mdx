@@ -41,11 +41,12 @@ import homepageContent from "./homepage_content.json";
 
 <CardGrid>
     {
-        homepageContent.map(({ title, description, to }) => (
+        homepageContent.map(({ title, description, to }, i) => (
             <Card
                 title={title}
                 desc={description}
                 to={to}
+                key={i}
             />)
         )
     }

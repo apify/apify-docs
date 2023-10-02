@@ -11,11 +11,11 @@ slug: /actors/running/tasks
 
 ---
 
-Tasks let you create multiple re-usable configurations of a single Actor that are adapted for specific use cases. For example, you can create one **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)) configuration (task) that scrapes the latest reviews from imdb.com, another that scrapes nike.com for the latest sneakers, and a third that scrapes your competitor's e-shop. You can then use and reuse these configurations directly from [Apify Console](https://console.apify.com/actors/tasks), [schedules](../../schedules.md), or [API](/api/v2#/reference/actor-tasks/run-collection/run-task).
+Tasks let you create multiple re-usable configurations of a single Actor that are adapted for specific use cases. For example, you can create one **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)) configuration (task) that scrapes the latest reviews from imdb.com, another that scrapes nike.com for the latest sneakers, and a third that scrapes your competitor's e-shop. You can then use and reuse these configurations directly from [Apify Console](https://console.apify.com/actors/tasks), [Schedules](../../schedules.md), or [API](/api/v2#/reference/actor-tasks/run-collection/run-task).
 
 All your tasks are listed at [https://console.apify.com/actors/tasks](https://console.apify.com/actors/tasks).
 
-You can create tasks both for your personal actors and for those made by someone else. Just [search Apify Store](https://console.apify.com/store) to find an actor you want to use and click the **Create new task** button.
+You can create tasks both for your personal Actors and for those made by someone else. Just [search Apify Store](https://console.apify.com/store) to find an Actor you want to use and click the **Create new task** button.
 
 Like any other resource, you can share your Actor tasks with other Apify users via the [access rights](../../collaboration/index.md) system.
 
@@ -27,11 +27,11 @@ Open any Actor from [Apify Store](https://console.apify.com/store) or your list 
 
 ## Configure
 
-You can set up your task's input under the **Input and options** tab. A task's input configuration works just like an actor's. After all, it is just a copy of an Actor you can pre-configure for a specific scenario. You can use either JSON or the visual input UI.
+You can set up your task's input under the **Input and options** tab. A task's input configuration works just like an Actor's. After all, it is just a copy of an Actor you can pre-configure for a specific scenario. You can use either JSON or the visual input UI.
 
 ![Apify task configuration](./images/tasks/create-task-configure.png)
 
-Actors' input fields will vary depending on their purpose, but they all follow the same principle: you provide an actor with the information it needs so it can do what you want it to do.
+Actors' input fields will vary depending on their purpose, but they all follow the same principle: you provide an Actor with the information it needs so it can do what you want it to do.
 
 You can set run options such as timeout and [memory](./usage_and_resources.md) at the bottom of the input section.
 
