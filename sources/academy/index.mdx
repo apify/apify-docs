@@ -19,12 +19,13 @@ Learn everything about web scraping and automation with our free courses that wi
             <h2>{categoryName}</h2>
             <CardGrid>
                 {
-                    sections.map((section) =>
+                    sections.map((section, i) =>
                     <Card
                         title={section.title}
                         desc={section.description}
                         imageUrl={section.imageUrl}
                         to={section.link}
+                        key={i}
                     />)
                 }
             </CardGrid>
