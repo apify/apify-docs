@@ -48,14 +48,14 @@ You can read more about Actors in store and different pricing models from the pe
 
 2. Always check `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable in your Actor code. Your Actor should never return more than `ACTOR_MAX_PAID_DATASET_ITEMS` results, because the user will be not charged for more and you could start generating losses. This variable is configurable by the user to limit how much the run will cost them.
 
-3. To set your price per 1,000 results, we recommend running your Actor several times to see the average cost pre 1,000 runs that is available in the Apify Console when you open run detail. Usually runs returning only 1 result are much more expensive in the underlying platform costs than runs returning many results, due to fixed costs at Actor startups. Hence, try runs with different number of results in your experiments to get the best idea about the average costs. Also make sure your runs never return 0 results, e.g. when scraping social network profiles without any videos, return at least the basic profile info.
+3. To set your price per 1,000 results, we recommend running your Actor several times to see the average cost per 1,000 runs that is available in the Apify Console when you open run detail. Usually runs returning only 1 result are much more expensive in the underlying platform costs than runs returning many results, due to fixed costs at Actor startups. Hence, try runs with different numbers of results in your experiments to get the best idea about the average costs. Also make sure your runs never return 0 results, e.g. when scraping social network profiles without any videos, return at least the basic profile info.
 ### Setting up monetization {#setting-up-monetization}
 
 First, go to your Actor page, [**Actors → My Actors**](https://console.apify.com/actors?tab=my) and click on the Actor you want to monetize. While on your Actor page, go to the **Publication** tab on the right side of the screen into **Publication settings** and open the **Monetization** section.
 
 ![Monetization section](./images/monetization_section.png)
 
-If you haven't already, you will need to fill in the billing and payments details that will be used for paying out the profits. You can do that by following the link shown on the screen. Once you have the details set up, you will be able to access details on your payouts in the [**Settings > Payouts**](https://console.apify.com/account/payouts) section.
+If you haven't already, you will need to fill in the billing and payment details that will be used for paying out the profits. You can do that by following the link shown on the screen. Once you have the details set up, you will be able to access details on your payouts in the [**Settings > Payouts**](https://console.apify.com/account/payouts) section.
 
 ![Set up monetization](./images/monetize_actor_set_up_monetization.png)
 
@@ -71,7 +71,7 @@ Also note that your are allowed to adjust the monetization settings of the Actor
 
 ### How you will be paid out {#payouts}
 
-Payout invoices are created automatically at the beginning of the new month. You will be notified and can access the new payout invoice, and any historical invoices, in the [**Settings > Payouts**](https://console.apify.com/account/payouts) section in Apify Console. Once the new invoice is ready, you will need to review and approve it in order the payment to be processed. Note that if you do not approve the invoice, or let us know of any discrepancies, by 9th of the month, the invoice will be auto-approved by the system on 10th.
+Payout invoices are created automatically at the beginning of the new month. You will be notified and can access the new payout invoice, and any historical invoices, in the [**Settings > Payouts**](https://console.apify.com/account/payouts) section in Apify Console. Once the new invoice is ready, you will need to review and approve it in order for the payment to be processed. Note that if you do not approve the invoice, or let us know of any discrepancies, by the 9th of the month, the invoice will be auto-approved by the system on the 10th.
 
 ### Tracking profit and user statistics {#analytics}
 
