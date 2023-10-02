@@ -54,7 +54,7 @@ function BreadcrumbsItem({ children, active, index, addMicrodata }) {
 }
 
 export default function DocBreadcrumbs() {
-    const breadcrumbs = useSidebarBreadcrumbs().slice(0, -1);
+    const breadcrumbs = useSidebarBreadcrumbs()?.slice(0, -1);
     const homePageRoute = useHomePageRoute();
     if (!breadcrumbs || breadcrumbs.length === 0) {
         return null;
