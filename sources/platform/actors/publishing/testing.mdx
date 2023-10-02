@@ -9,17 +9,27 @@ sidebar_position: 3
 
 ---
 
+### Why we test
+We want to make sure that all Actors in Apify Store are top-notch, or at least as top-notch as they can be. Since there are many of them, we have an automated testing procedure in place that tests all Actors daily.
+This helps us to flag Actors that temporarily don't work as expected `under maintenance`, and to automatically `deprecate` Actors that have been broken for more than a month.
+
+### How we test
 The test runs the Actor with its default input (defined by the **prefill** option in the input schema file)
 and expects it to finish with a **Succeeded** status within 5 minutes of the beginning of the run.
 
 ![Actor page](./images/actor-test.webp)
 
 If the Actor fails to complete successful runs for three consecutive days, the developer will be notified,
-and the Actor will be labeled **Under Maintenance** until it is fixed. After another 14 days of failing runs, you will receive another notification. Finally, if the runs continue to fail after yet another 14 days, the Actor will be **Deprecated**.
+and the Actor will be labeled `under maintenance` until it is fixed. After another 14 days of failing runs, you will receive another notification. Finally, if the runs continue to fail after yet another 14 days, the Actor will be `deprecated`.
+
+### How can I make my Actor healthy again?
+The best course of action is to fix the Actor and rebuild it. The automatic testing system will pick this up within 24 hours
+and mark it as healthy. In some cases, your Actor might break because of issues with the target website. In such a case, if your Actor
+passes the majority of test runs in the next 7 days, it will be marked as healthy automatically.
 
 ## What if my Actor cannot comply with the test logic?
 
-Actors that require some sort of authentication will always fail the tests despite being fully functional.
+Actors that require some sort of authentication will always fail the tests despite being fully functional. Also, some Actors inherently run for longer than 5 minutes.
 If that's the case with your Actor, please contact support at **support@apify.com** and explain your specific use case that justifies why the Actor should be excluded from the automated tests.
 
 ## Advanced Actor testing

@@ -76,7 +76,7 @@ If you have an [Apify paid plan](https://apify.com/pricing), you will be automat
 
 **Can I cancel my Actor rental?**
 
-During your trial or any time after that, **you can always turn off auto-renewal** so that you are not charged when your current Actor rental expires. If you choose to do so, you can always turn it back on later.
+**You can cancel the Actor rental** during your trial or any time after that so that don't get charged when your current Actor rental expires. You can always turn it back on later if you want.
 
 **Where can I see how much I have paid for Actor rental?**
 
