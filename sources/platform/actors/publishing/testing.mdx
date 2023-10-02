@@ -10,8 +10,8 @@ sidebar_position: 3
 ---
 
 ### Why we test
-We want to make sure that all Actors in the Store are top notch, or at least as top notch they can be. Since there are many of them, we have an automated testing procedure in place that tests all Actors daily.
-This helps us to flag Actors that temporarily don't work as expected `under maintenance`, and to automatically `deprecate` Actors that are broken for more than a month.
+We want to make sure that all Actors in Apify Store are top-notch, or at least as top-notch as they can be. Since there are many of them, we have an automated testing procedure in place that tests all Actors daily.
+This helps us to flag Actors that temporarily don't work as expected `under maintenance`, and to automatically `deprecate` Actors that have been broken for more than a month.
 
 ### How we test
 The test runs the Actor with its default input (defined by the **prefill** option in the input schema file)
@@ -24,8 +24,8 @@ and the Actor will be labeled `under maintenance` until it is fixed. After anoth
 
 ### How can I make my Actor healthy again?
 The best course of action is to fix the Actor and rebuild it. The automatic testing system will pick this up within 24 hours
-and mark it healthy. In some cases, your actor might break because of issues with the target website. In such a case, if you Actor
-passes majority of test runs in the next 7 days, it will be marked healthy automatically.
+and mark it as healthy. In some cases, your Actor might break because of issues with the target website. In such a case, if your Actor
+passes the majority of test runs in the next 7 days, it will be marked as healthy automatically.
 
 ## What if my Actor cannot comply with the test logic?
 
