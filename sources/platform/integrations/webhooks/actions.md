@@ -84,7 +84,7 @@ You may have noticed that the `eventData` and `resource` properties contain redu
 
 ### Headers template
 
-Headers is a JSON-like string where you can add additional information to the default header of the webhook request. You can pass the variables in the same way as in [payload template](#payload-template) (including the use of string interpolation, available variables and nesting). The resulting headers need to be a valid json object.
+Headers is a JSON-like string where you can add additional information to the default header of the webhook request. You can pass the variables in the same way as in [payload template](#payload-template) (including the use of string interpolation and available variables). The resulting headers need to be a valid json object and values can be strings only.
 
 It is important to notice that the following keys are hard-coded and will be re-written always.
 
