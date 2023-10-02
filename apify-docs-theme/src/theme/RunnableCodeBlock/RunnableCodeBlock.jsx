@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import clsx from 'clsx';
 import CodeBlock from '@theme/CodeBlock';
 import Link from '@docusaurus/Link';
