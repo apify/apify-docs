@@ -2312,16 +2312,6 @@ you will typically do this in order to inform users of your actor about the acto
 
 The request body must contain `runId` and `statusMessage` properties. The `isStatusMessageTerminal` property is optional and it indicates if the status message is the very last one. In the absence of a status message, the platform will try to substitute sensible defaults.
 
-* `runId` is required string of run ID
-* `statusMessage` is required string of the status message
-* `isStatusMessageTerminal` is optional boolean indicating if this is the final status message of the actor
-
-```
-    "runId" :  `3KH8gEpp4d8uQSe8T`,
-    "statusMessage" : `Actor has finished`,
-    "isStatusMessageTerminal": true,
-```
-
 + Parameters
 
     + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
