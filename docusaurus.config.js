@@ -59,8 +59,10 @@ module.exports = {
             ({
                 docs: {
                     id: 'platform',
-                    showLastUpdateAuthor: true,
-                    showLastUpdateTime: true,
+                    // Docusaurus shows the author and date of last commit to entire repo, which doesn't make sense,
+                    // so let's just disable showing author and last modification
+                    showLastUpdateAuthor: false,
+                    showLastUpdateTime: false,
                     editUrl: 'https://github.com/apify/apify-docs/edit/master/',
                     path: './sources/platform',
                     routeBasePath: 'platform',
