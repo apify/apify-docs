@@ -85,7 +85,7 @@ jobs:
                 npm show $PACKAGE_NAME@$PACKAGE_VER # fails if the package is not available, succeeds if it is
 
             - name: Commit the new theme version
-              uses: stefanzweifel/git-auto-commit-action@v4
+              uses: stefanzweifel/git-auto-commit-action@v5
               with:
                 commit_message: 'chore: publish new version of @apify/docs-theme [skip ci]'
                 file_pattern: 'apify-docs-theme/package*.json'
