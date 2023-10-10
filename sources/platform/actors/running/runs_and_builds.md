@@ -11,26 +11,26 @@ slug: /actors/running/runs-and-builds
 
 ## Builds
 
-An Actor is a combination of source code and various settings in a Docker container. In order to be able to run, it first needs to be built. An Actor build consists of the source code built as a Docker container image, making the Actor ready to run on the Apify platform.
+An Actor is a combination of source code and various settings in a Docker container. In order to be able to run, it first needs to be built. An Actor build consists of the source code built as a Docker image, making the Actor ready to run on the Apify platform.
 
-> A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings.
+> A Docker image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings.
 > <https://www.docker.com/resources/what-container/>
 
 With every new version of an Actor, a new build gets created. Each Actor build has its own number (for example <strong>1.2.34</strong>), and some of the builds are tagged for easier use (for example <strong>latest</strong> or <strong>beta</strong>). When running an Actor, you can choose what build you want to run by selecting a tag or number in the run options.
 
 ![Actor run options](./images/runs_and_builds/actor-run-options.png)
 
-Each build may have different features, input, or output. By fixing the build to an exact version, you can ensure that you won't be affected by a breaking change in a new actor version. But on the other hand, you lose updates.
+Each build may have different features, input, or output. By fixing the build to an exact version, you can ensure that you won't be affected by a breaking change in a new Actor version. But on the other hand, you lose updates.
 
 ## Runs
 
-When you start an Actor, an actor run gets created. An Actor run is a Docker container created from the build's Docker image with dedicated resources (CPU, memory, disk space). For more on this topic, see [usage and resources](./usage_and_resources.md).
+When you start an Actor, an Actor run gets created. An Actor run is a Docker container created from the build's Docker image with dedicated resources (CPU, memory, disk space). For more on this topic, see [usage and resources](./usage_and_resources.md).
 
 Each run has its own (default) [storages](../../storage) assigned, which it may but not nesseserarly need to use:
 
-- [Key-value store](../../storage/key-value-store) containing the input and enabling actor to store other files
-- [Dataset](../../storage/dataset) enabling actor to store the results
-- [Request queue](../../storage/request-queue) to maintain a queue of URLs to be processed
+- [Key-value store](../../storage/key-value-store) containing the input and enabling Actor to store other files.
+- [Dataset](../../storage/dataset) enabling Actor to store the results.
+- [Request queue](../../storage/request-queue) to maintain a queue of URLs to be processed.
 
 What's happening inside of an Actor is visible on the Actor run log in the Actor run detail:
 
@@ -112,4 +112,3 @@ All **Actor runs** are deleted along with their default storages (key-value stor
 ## Sharing
 
 You can share your Actor runs with other Apify users via the [access rights](../../collaboration/index.md) system.
-

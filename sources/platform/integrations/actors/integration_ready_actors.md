@@ -1,11 +1,15 @@
 ---
 title: Integration-ready Actors
-description: Learn how to create Actors that are ready to be integrated with other Actors and tasks
+description: Learn how to create Actors that are ready to be integrated with other Actors and tasks.
 sidebar_position: 1
 slug: /integrations/actors/integration-ready-actors
 ---
 
 # Integration-ready Actors
+
+**Learn how to create Actors that are ready to be integrated with other Actors and tasks.**
+
+---
 
 Any Actor can be used in integrations. In order to provide a smooth experience for its users, there are few things to keep in mind.
 
@@ -31,9 +35,9 @@ With this input schema, users have to provide an input that looks like this:
 
 ```json
 {
-  "datasetId": "{{resource.defaultDatasetId}}",
-  "connectionString": "****",
-  "tableName": "results"
+    "datasetId": "{{resource.defaultDatasetId}}",
+    "connectionString": "****",
+    "tableName": "results"
 }
 ```
 
@@ -53,8 +57,8 @@ In this case, users only need to provide the "static" part of the input:
 
 ```json
 {
-  "connectionString": "****",
-  "tableName": "results"
+    "connectionString": "****",
+    "tableName": "results"
 }
 ```
 
@@ -76,7 +80,7 @@ To make the integration process smoother, it's possible to define an input that'
 
 ```json
 {
-  "datasetId": "{{resource.defaultDatasetId}}"
+    "datasetId": "{{resource.defaultDatasetId}}"
 }
 ```
 
@@ -91,6 +95,5 @@ To allow other users to use your Actor as an integration, all you need to do is 
 For Actors that are generic enough to be used with most other Actors, it's possible to have them listed under **Generic integrations** in the **Integrations** tab. This includes (but is not limited to) Actors that upload datasets to databases, send notifications through various messaging systems, create issues in ticketing systems, etc. To have your Actor listed under our generic integrations, [contact support](mailto:support@apify.com?subject=Actor%20generic%20integration).
 
 Some Actors can only be integrated with a few or even just one other Actor. Let's say that you have an Actor that's capable of scraping profiles from a social network. It makes sense to show it for Actors that produce usernames from the social network but not for Actors that produce lists of products. In this case, it's possible to have the Actor listed as **Specific to this Actor** under the Actor's **Integrations** tab. To have your Actor listed as specific to another Actor, [contact support](mailto:support@apify.com?subject=Actor%specific%20integration).
-
 
 ![Specific vs generic integrations](./images/specific_vs_generic_integrations.png)

@@ -5,6 +5,8 @@ sidebar_position: 14.4
 slug: /node-js/dealing-with-dynamic-pages
 ---
 
+import Example from '!!raw-loader!roa-loader!./dealing_with_dynamic_pages.js';
+
 # How to scrape from dynamic pages {#dealing-with-dynamic-pages}
 
 **Learn about dynamic pages and dynamic content. How can we find out if a page is dynamic? How do we programmatically scrape dynamic content?**
@@ -142,41 +144,9 @@ Well... Not quite. It seems that the only images which we got the full links to 
 
 So, we've gotta scroll down the page to load these images. Luckily, because we're using Crawlee, we don't have to write the logic that will achieve that, because a utility function specifically for Puppeteer called [`infiniteScroll`](https://crawlee.dev/api/puppeteer-crawler/namespace/puppeteerUtils#infiniteScroll) already exists right in the library, and can be accessed through `utils.puppeteer`. Let's add it to our code now:
 
-```js
-import { PuppeteerCrawler, utils, Dataset } from 'crawlee';
-
-const BASE_URL = 'https://demo-webstore.apify.org';
-
-const crawler = new PuppeteerCrawler({
-    requestHandler: async ({ parseWithCheerio, infiniteScroll }) => {
-        // Add the utility function
-        await infiniteScroll();
-
-        const $ = await parseWithCheerio();
-
-        const products = $('a[href*="/product/"]');
-
-        const results = [...products].map((product) => {
-            const elem = $(product);
-
-            const title = elem.find('h3').text();
-            const price = elem.find('div[class*="price"]').text();
-            const image = elem.find('img[src]').attr('src');
-
-            return {
-                title,
-                price,
-                image: new URL(image, BASE_URL).href,
-            };
-        });
-
-        // Push our results to the dataset
-        await Dataset.pushData(results);
-    },
-});
-
-await crawler.run([{ url: 'https://demo-webstore.apify.org/search/new-arrivals' }]);
-```
+<RunnableCodeBlock className="language-js" type="puppeteer">
+    {Example}
+</RunnableCodeBlock>
 
 Let's run this and check our dataset results...
 

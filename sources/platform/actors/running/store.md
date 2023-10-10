@@ -1,11 +1,11 @@
 ---
 title: Actors in store
-description: Apify Store is home to hundreds of public Actors available to the Apify community.
+description: Apify Store is home to hundreds of public Actors available to the Apify community. It's the easiest way for you to start with Apify.
 sidebar_position: 1
 slug: /actors/running/actors-in-store
 ---
 
-**[Apify Store](https://apify.com/store) is home to hundreds of public actors available to the Apify community. It's the easiest way for you to start with Apify.**
+**[Apify Store](https://apify.com/store) is home to hundreds of public Actors available to the Apify community. It's the easiest way for you to start with Apify.**
 
 ---
 
@@ -16,13 +16,13 @@ Some Actors are free to use (you will be charged only for the Apify platform usa
 
 ## Pricing models
 
-All actors in [Apify Store](https://apify.com/store) fall into one of these three pricing models:
+All Actors in [Apify Store](https://apify.com/store) fall into one of these three pricing models:
 
-1. [**free**](#free-actors) - you can run the actor freely and you only pay for platform usage the actor generates.
-2. [**rental**](#rental-actors) - same as free, but in order to be able to run the actor after the trial period, you need to rent the actor from the developer and pay a flat monthly fee on the top of the platform usage the Actor generates.
-3. [**paid per result**](#actors-paid-per-result) - you do not pay for platform usage the actor generates and only pay for the results it produces.
+1. [**free**](#free-actors) - you can run the Actor freely and you only pay for the platform usage the Actor generates.
+2. [**rental**](#rental-actors) - same as free, but in order to be able to run the Actor after the trial period, you need to rent the Actor from the developer and pay a flat monthly fee on the top of the platform usage the Actor generates.
+3. [**paid per result**](#actors-paid-per-result) - you do not pay for platform usage the Actor generates and only pay for the results it produces.
 
-### Free actors
+### Free Actors
 
 When you use a free Actor, you are only charged for the platform usage that the runs of this Actor generates. [Platform usage](./usage_and_resources.md) includes components such as compute units, operations on [storages](/platform/storage), and usage of [residential proxies](/platform/proxy/residential-proxy) or [SERPs](/platform/proxy/google-serp-proxy). You can find the details of your Actor usage on the run detail page.
 
@@ -32,8 +32,7 @@ When you use a free Actor, you are only charged for the platform usage that the 
 >
 > **For more information on platform usage cost see the [usage and resources](./usage_and_resources.md) page.**
 
-
-### Rental actors
+### Rental Actors
 
 Rental Actors are like free Actors, but with a slight difference. When you use a rental Actor, you pay a fee to its developer. This empowers the developer to dedicate more time and effort to their Actors, thus ensuring they are of the **highest quality** and receive **ongoing maintenance**.
 
@@ -61,7 +60,7 @@ Yes, you will pay normal [platform usage costs](https://apify.com/pricing/actors
 
 You don't need a paid plan to start a rental Actor's free trial. Just activate the trial, and you are good to go. After that, you will need to subscribe to one of [Apify's paid plans](https://apify.com/pricing) in order to keep renting the Actor and continue using it.
 
-**When will I be charged for the actor rental?**
+**When will I be charged for the Actor rental?**
 
 You always prepay the Actor rental for the following month. The first payment happens when the trial expires, and then recurs monthly. When you open the Actor in the Apify Console, you will see when the next rental payment is due, and you will also receive a notification when it happens.
 
@@ -77,7 +76,7 @@ If you have an [Apify paid plan](https://apify.com/pricing), you will be automat
 
 **Can I cancel my Actor rental?**
 
-During your trial or any time after that, **you can always turn off auto-renewal** so that you are not charged when your current Actor rental expires. If you choose to do so, you can always turn it back on later.
+**You can cancel the Actor rental** during your trial or any time after that so that don't get charged when your current Actor rental expires. You can always turn it back on later if you want.
 
 **Where can I see how much I have paid for Actor rental?**
 

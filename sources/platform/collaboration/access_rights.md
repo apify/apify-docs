@@ -20,4 +20,3 @@ You can also grant permission to update an Actor and build a new version.
 To share an Actor, task, key-value store, request queue, or dataset, click on the **Actions** button in the top-right corner and select **Share**. You can add a collaborator by using their **user ID**, **email**, or **username**. Once you have added the collaborator, you can configure their permissions.
 
 ![Access rights configuration](./images/access-rights/access-rights.png)
-

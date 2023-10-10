@@ -9,6 +9,8 @@ slug: /proxy/usage
 
 **Learn how to configure and use Apify Proxy. See the required parameters such as the correct username and password.**
 
+---
+
 ## Connection settings
 
 To connect to the Apify Proxy, you use the [HTTP proxy protocol](https://en.wikipedia.org/wiki/Proxy_server#Web_proxy_servers). This means that you need to configure your HTTP client to use the proxy server at `proxy.apify.com:8000` and provide it with your Apify Proxy password and the other parameters described below.
@@ -25,7 +27,7 @@ http://<username>:<password>@proxy.apify.com:8000
 | Hostname            | `proxy.apify.com`, alternatively you can use static IP addresses `18.208.102.16`, `35.171.134.41`. |
 | Port                | `8000`              |
 | Username            | Specifies the proxy parameters such as groups, [session](#sessions) and location. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username.|
-| Password            | Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. In Apify [actors](../actors/index.mdx), it is passed as the `APIFY_PROXY_PASSWORD`  environment variable. See the [environment variables docs](../actors/development/programming_interface/environment_variables.md) for more details. |
+| Password            | Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. In Apify [Actors](../actors/index.mdx), it is passed as the `APIFY_PROXY_PASSWORD`  environment variable. See the [environment variables docs](../actors/development/programming_interface/environment_variables.md) for more details. |
 
 > **WARNING:** All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks – **the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
 

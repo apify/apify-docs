@@ -63,11 +63,11 @@ await Actor.exit();
 ```python
 from apify import Actor
 
-async with Actor:
-    # ...
-    proxy_configuration = await Actor.create_proxy_configuration(groups=['RESIDENTIAL'])
-    # ...
-
+async def main():
+    async with Actor:
+        # ...
+        proxy_configuration = await Actor.create_proxy_configuration(groups=['RESIDENTIAL'])
+        # ...
 ```
 
 </TabItem>
@@ -107,14 +107,14 @@ await Actor.exit();
 ```python
 from apify import Actor
 
-async with Actor:
-    # ...
-    proxy_configuration = await Actor.create_proxy_configuration(
-        groups=['RESIDENTIAL'],
-        country_code='FR',
-    )
-    # ...
-
+async def main():
+    async with Actor:
+        # ...
+        proxy_configuration = await Actor.create_proxy_configuration(
+            groups=['RESIDENTIAL'],
+            country_code='FR',
+        )
+        # ...
 ```
 
 </TabItem>

@@ -17,15 +17,17 @@ jobs:
 
         steps:
             -   uses: actions/checkout@v4
-            -   name: Use Node.js 16
+            -   name: Use Node.js 18
                 uses: actions/setup-node@v3
                 with:
-                    node-version: 16
+                    node-version: 18
 
             -   name: Build docs
                 run: |
                     npm ci --force
                     npm run build
+                env:
+                    APIFY_SIGNING_TOKEN: ${{ secrets.APIFY_SIGNING_TOKEN }}
 
             -   name: Set up GitHub Pages
                 uses: actions/configure-pages@v3
