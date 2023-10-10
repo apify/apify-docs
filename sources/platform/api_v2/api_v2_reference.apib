@@ -2213,6 +2213,19 @@ This endpoint does not require the authentication token. The calls are authentic
     + Attributes
         - data (Run, required)
 
+## Delete run [/v2/actor-runs/{runId}{?token}]
+
+### Delete run [DELETE]
+
+Delete the run. Only finished runs can be deleted. Only the person or organization that initiated the run can delete it.
+
++ Parameters
+
+    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+
++ Response 204 (application/json)
+
 ## Abort run [/v2/actor-runs/{runId}/abort{?token,gracefully}]
 
 ### Abort run [POST]
@@ -2393,6 +2406,19 @@ This endpoint does not require the authentication token. The calls are authentic
     + Attributes
         - data (Build, required)
 
+## Delete build [/v2/actor-builds/{buildId}{?token}]
+
+### Delete build [DELETE]
+
+Delete the build. The build that is the current default build for the Actor cannot be deleted.
+Only users with build permissions for the Actor can delete builds.
+
++ Parameters
+
+    + buildId: `soSkq9ekdmfOslopH` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+
++ Response 204 (application/json)
 
 ## Abort build [/v2/actor-builds/{buildId}/abort{?token}]
 
