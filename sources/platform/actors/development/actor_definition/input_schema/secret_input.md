@@ -6,11 +6,11 @@ slug: /actors/development/actor-definition/input-schema/secret-input
 
 # [](#secret-input)Secret input
 
-**Learn about making some actor input fields secret and encrypted. Ideal for passing passwords, API tokens or login cookies to actors.**
+**Learn about making some Actor input fields secret and encrypted. Ideal for passing passwords, API tokens, or login cookies to Actors.**
 
 ---
 
-The secret input feature allows you to mark some actor input fields as secret, causing them to be encrypted when saving an input for an actor. The input can then be decrypted only inside the actor.
+The secret input feature allows you to mark some Actor input fields as secret, causing them to be encrypted when saving an input for an Actor. The input can then be decrypted only inside the Actor.
 
 ## Setting an input field as secret
 
@@ -42,7 +42,7 @@ This is only available for `string` inputs, and the editor type is limited to `t
 
 ## Reading secret input fields
 
-When you read the actor input through `Actor.getInput()`, the encrypted fields are automatically decrypted, without any additional code needed (starting with the [`apify` package](https://www.npmjs.com/package/apify) version 3.1.0).
+When you read the Actor input through `Actor.getInput()`, the encrypted fields are automatically decrypted, without any additional code needed (starting with the [`apify` package](https://www.npmjs.com/package/apify) version 3.1.0).
 
 <!-- eslint-skip -->
 ```js
@@ -53,7 +53,7 @@ When you read the actor input through `Actor.getInput()`, the encrypted fields a
 }
 ```
 
-If you read the `INPUT` key from the actor run's default key-value store directly, you will still get the original, encrypted input value.
+If you read the `INPUT` key from the Actor run's default key-value store directly, you will still get the original, encrypted input value.
 
 <!-- eslint-skip -->
 ```js
@@ -69,11 +69,11 @@ If you read the `INPUT` key from the actor run's default key-value store directl
 The encryption mechanism used for encrypting the secret input fields is the same dual encryption as in [PGP](https://en.wikipedia.org/wiki/Pretty_Good_Privacy#/media/File:PGP_diagram.svg).
 
 The secret input field is encrypted using a random key, using the `aes-256-gcm` cipher, and then the key is encrypted using a 2048-bit RSA key.
-The RSA key is unique for every user and actor combination, so no actor can decrypt input meant for other actor run of the same user, and no user can decrypt input of actor runs of a different user, but same actor.
+The RSA key is unique for every user and Actor combination. No Actor can decrypt input meant for runs of another Actor by the same user, and no user can decrypt input runs of the same Actor by a different user.
 
-The decryption keys are passed to the actor runs as environment variables, so the input decryption happens only inside of the actor run.
+The decryption keys are passed to the Actor runs as environment variables, so the input decryption happens only inside of the Actor run.
 
-## Example actor
+## Example Actor
 
-If you want to test the secret input live, check out the [Example Secret Input](https://console.apify.com/actors/O3S2UlSKzkcnFHRRA) actor in Apify Console.
+If you want to test the secret input live, check out the [Example Secret Input](https://console.apify.com/actors/O3S2UlSKzkcnFHRRA) Actor in Apify Console.
 If you want to dig in deeper, you can check out its [source code](https://github.com/apify/actor-example-secret-input) on GitHub.

@@ -2213,6 +2213,19 @@ This endpoint does not require the authentication token. The calls are authentic
     + Attributes
         - data (Run, required)
 
+## Delete run [/v2/actor-runs/{runId}{?token}]
+
+### Delete run [DELETE]
+
+Delete the run. Only finished runs can be deleted. Only the person or organization that initiated the run can delete it.
+
++ Parameters
+
+    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+
++ Response 204 (application/json)
+
 ## Abort run [/v2/actor-runs/{runId}/abort{?token,gracefully}]
 
 ### Abort run [POST]
@@ -2308,15 +2321,17 @@ For more information, see the [Actor docs](https://docs.apify.com/platform/actor
 ### Update status message [PUT]
 
 You can set a single status message on your run that will be displayed in the Apify Console UI. During an actor run,
-you will typically do this in order to inform users of your actor about the actor's progress. If the status message is the very last one,
-you will also need to specify `isStatusMessageTerminal=true`. In the absence of a status message, the platform will try to substitute sensible defaults.
+you will typically do this in order to inform users of your actor about the actor's progress.
+
+The request body must contain `runId` and `statusMessage` properties. The `isStatusMessageTerminal` property is optional and it indicates if the status message is the very last one. In the absence of a status message, the platform will try to substitute sensible defaults.
 
 + Parameters
 
-    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
-    + statusMessage: `Actor has finished` (string, required) - Status message
-    + isStatusMessageTerminal: true (boolean, optional) - Flag indicating if this is the final status message of the actor.
+
++ Request (application/json)
+
+    + Attributes(StatusMessageUpdate)
 
 + Response 200 (application/json)
 
@@ -2391,6 +2406,19 @@ This endpoint does not require the authentication token. The calls are authentic
     + Attributes
         - data (Build, required)
 
+## Delete build [/v2/actor-builds/{buildId}{?token}]
+
+### Delete build [DELETE]
+
+Delete the build. The build that is the current default build for the Actor cannot be deleted.
+Only users with build permissions for the Actor can delete builds.
+
++ Parameters
+
+    + buildId: `soSkq9ekdmfOslopH` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+
++ Response 204 (application/json)
 
 ## Abort build [/v2/actor-builds/{buildId}/abort{?token}]
 
@@ -4630,6 +4658,11 @@ a summary of your limits, and your current usage.
     - DATA_TRANSFER_EXTERNAL_GBYTES?:   0.0002 (number, nullable)
     - PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16  (number, nullable)
     - PROXY_SERPS:                      0.0006 (number, nullable)
+
+## StatusMessageUpdate (object)
+- runId:            `3KH8gEpp4d8uQSe8T`         (string, required)
+- statusMessage:    `Actor has finished`        (string, required)
+- isStatusMessageTerminal: true                 (boolean, optional)
 
 ## KVStore (object)
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)

@@ -9,6 +9,9 @@ sidebar_position: 3
 
 **Learn how to provide your Actor with context that determines its behavior through a plethora of pre-defined environment variables offered by the Apify SDK.**
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ---
 
 ## System environment variables
@@ -27,6 +30,7 @@ The Actor's process has several environment variables set to provide it with con
 | `ACTOR_DEFAULT_KEY_VALUE_STORE_ID` | ID of the key-value store where the Actor's input and output data are stored.                                                                                                                                    |
 | `ACTOR_DEFAULT_REQUEST_QUEUE_ID`   | ID of the request queue that stores and handles requests that you enqueue.                                                                                                                                            |
 | `ACTOR_INPUT_KEY`                  | The key of the record in the default key-value store that holds the Actor input. Typically it's **INPUT**, but it might be something else.                                                             |
+| `ACTOR_MAX_PAID_DATASET_ITEMS`     | If the Actor is paid per result, this will contain the limit set by the user on how many results they want to return. Do not return them more results because they will be only charged for the limit they set, and you might start accumulating loss.
 | `APIFY_HEADLESS`                   | If set to **1**, the web browsers inside the Actor should run in headless mode because there is no windowing system available.                                                                              |
 | `APIFY_IS_AT_HOME`                 | Is set to **1** if the Actor is running on Apify servers.                                                                                                                                                             |
 | `ACTOR_MEMORY_MBYTES`              | Indicates the size of memory allocated for the Actor run, in megabytes. It can be used by Actors to optimize their memory usage.                                                                       |
@@ -41,28 +45,65 @@ The Actor's process has several environment variables set to provide it with con
 
 Dates are always in the UTC timezone and are represented in simplified extended ISO format ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)), e.g. **2022-07-13T14:23:37.281Z**.
 
-To access environment variables in Node.js, use the `process.env` object, for example:
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
 
 ```js
+// To access environment variables in Node.js, use the process.env object
 console.log(process.env.APIFY_USER_ID);
 ```
 
-To access environment variables in Python, use the `os.environ` dictionary, for example:
+</TabItem>
+<TabItem value="Python" label="Python">
 
 ```python
+# To access environment variables in Python, use the os.environ dictionary:
 import os
 print(os.environ['APIFY_USER_ID'])
 ```
 
+</TabItem>
+</Tabs>
+
 For convenience, rather than using environment vars directly, we provide a `Configuration` class
 that allows reading and updating the Actor configuration.
 
-```javascript
-const token = Actor.config.get('token');
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
 
+```js
+import { Actor } from 'apify';
+
+await Actor.init();
+
+// get current token
+const token = Actor.config.get('token');
 // use different token
 Actor.config.set('token', 's0m3n3wt0k3n')
+
+await Actor.exit();
 ```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def main():
+    async with Actor:
+        old_token = Actor.config.token
+        Actor.log.info(f'old_token = {old_token}')
+
+        # use different token
+        Actor.config.token = 's0m3n3wt0k3n'
+
+        new_token = Actor.config.token
+        Actor.log.info(f'new_token = {new_token}')
+```
+
+</TabItem>
+</Tabs>
 
 ## [](#custom-environment-variables)Custom environment variables
 
@@ -71,12 +112,6 @@ The Actor owner can specify custom environment variables that are set to the Act
 ![Custom environment variables](./images/environment-vatiables-source.png)
 
 Note that the custom environment variables are fixed during the build of the Actor and cannot be changed later. See the [Builds](../builds_and_runs/builds.md) section for details.
-
-To access environment variables in Node.js, use the `process.env` object, for example:
-
-```js
-console.log(process.env.SMTP_HOST);
-```
 
 The Actor runtime sets additional environment variables for the Actor process during the run. See [Environment variables](./environment_variables.md) for details.
 

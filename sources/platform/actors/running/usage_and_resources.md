@@ -38,7 +38,7 @@ The share of CPU is computed automatically from the memory as follows: for each 
 ![A usage spike on an Actor's start-up](./images/usage_and_resources/memory-cpu-usage-spike.png)
 
 [//]: # (Is it still relevant though? Does it still get CPU boost?)
-Sometimes, you see the Actor’s CPU use go over 100%. This is not unusual. To help an Actor start up faster, it is allocated a free CPU boost. For example, if an Actor is assigned 1GB (25% of a core), it will temporarily be allowed to use 100% of the core, so it gets started quicker.
+Sometimes, you see the Actor's CPU use go over 100%. This is not unusual. To help an Actor start up faster, it is allocated a free CPU boost. For example, if an Actor is assigned 1GB (25% of a core), it will temporarily be allowed to use 100% of the core, so it gets started quicker.
 
 ### Disk
 
@@ -46,8 +46,7 @@ The Actor has hard disk space limited by twice the amount of memory. For example
 
 ## Requirements
 
-
-Actors built on top of the [Apify SDK](/sdk/js) and [Crawlee](https://crawlee.dev/) use autoscaling. This means that they will always run as efficiently as they can with the memory they have allocated. So, if you allocate 2 times more memory, the run should be 2 times faster and consume the same amount of compute units (1 * 1 = 0.5 * 2).
+Actors built on top of the [Apify JS SDK](/sdk/js) and [Crawlee](https://crawlee.dev/) use autoscaling. This means that they will always run as efficiently as they can with the memory they have allocated. So, if you allocate 2 times more memory, the run should be 2 times faster and consume the same amount of compute units (1 * 1 = 0.5 * 2). Autoscaling for Python is not yet available, but it is planned for the near future.
 
 A good middle ground to start is 4096 MB. If you need the results faster, increase the memory (bear in mind the [next point](#maximum-memory), though). You can also try decreasing it to lower the pressure on the target site.
 
@@ -69,7 +68,6 @@ Each use case has its own minimum memory requirements. The larger and more compl
 - Actors using [Puppeteer](https://pptr.dev/) or [Playwright](https://playwright.dev/) and so the real web browser: at least 1GB of memory.
 - Large and complex sites like [Google Maps](https://apify.com/drobnikj/crawler-google-places): at least 4GB for optimal speed and [concurrency](https://crawlee.dev/api/core/class/AutoscaledPool#minConcurrency).
 - Working with a large amount of data in memory.
-
 
 ### Maximum memory
 
@@ -93,7 +91,6 @@ Note that for technical reasons, every time you see the usage in dollars on a sp
 and hence it should be used only for informative purposes.
 
 > For detailed information, FAQ, and, pricing see the [platform pricing page](https://apify.com/pricing/actors).
-
 
 ### What is a compute unit (CU)?
 

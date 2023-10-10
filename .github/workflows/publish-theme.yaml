@@ -16,10 +16,10 @@ jobs:
               with:
                   fetch-depth: 0
 
-          -   name: Use Node.js 16
+          -   name: Use Node.js 18
               uses: actions/setup-node@v3
               with:
-                  node-version: 16
+                  node-version: 18
 
           -   name: Check changes in theme
               id: changed-theme-files
@@ -38,10 +38,10 @@ jobs:
                 with:
                     token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
-            -   name: Use Node.js 16
+            -   name: Use Node.js 18
                 uses: actions/setup-node@v3
                 with:
-                    node-version: 16
+                    node-version: 18
 
             -   name: Setup git user and npm
                 run: |
@@ -85,7 +85,7 @@ jobs:
                 npm show $PACKAGE_NAME@$PACKAGE_VER # fails if the package is not available, succeeds if it is
 
             - name: Commit the new theme version
-              uses: stefanzweifel/git-auto-commit-action@v4
+              uses: stefanzweifel/git-auto-commit-action@v5
               with:
                 commit_message: 'chore: publish new version of @apify/docs-theme [skip ci]'
                 file_pattern: 'apify-docs-theme/package*.json'
