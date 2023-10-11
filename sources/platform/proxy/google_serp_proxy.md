@@ -19,13 +19,12 @@ Google SERP proxy allows you to extract search results from Google Search-powere
 Our Google SERP proxy currently supports the below services.
 
 * Google Search (`http://www.google.<country domain>/search`).
-* Google Shopping (`http://www.google.<country domain>/search?tbm=shop`).
+* Google Shopping (`http://www.google.<country domain>/shopping/product/<product ID>`).
+* Google Shopping Search (`http://www.google.<country domain>/search?tbm=shop`).
 
 > Google SERP proxy can **only** be used for Google Search and Shopping. It cannot be used to access other websites.
 
 When using the proxy, **pricing is based on the number of requests made**.
-
-To use Google SERP proxy or for more information, [contact us](https://apify.com/contact).
 
 ## Connecting to Google SERP proxy {#connecting-to-google-serp-proxy}
 
@@ -94,7 +93,6 @@ const crawler = new CheerioCrawler({
 await crawler.run(['http://www.google.com/search?q=wikipedia']);
 
 await Actor.exit();
-
 ```
 
 </TabItem>
@@ -119,7 +117,6 @@ async def main():
 
 if __name__ == '__main__':
     asyncio.run(main())
-
 ```
 
 </TabItem>
@@ -145,7 +142,6 @@ const { body } = await gotScraping({
 console.log(body);
 
 await Actor.exit();
-
 ```
 
 </TabItem>
@@ -188,7 +184,6 @@ const params = { q: 'wikipedia' };
 const { data } = await axios.get(url, { proxy, params });
 
 console.log(data);
-
 ```
 
 </TabItem>
@@ -213,7 +208,6 @@ opener = request.build_opener(proxy_handler)
 
 query = parse.urlencode({ 'q': 'wikipedia' })
 print(opener.open(f"http://www.google.com/search?{query}").read())
-
 ```
 
 </TabItem>
@@ -242,7 +236,6 @@ url = (
     (query)
 )
 print(opener.open(url).read())
-
 ```
 
 </TabItem>
@@ -263,7 +256,6 @@ $response = curl_exec($curl);
 curl_close($curl);
 echo $response;
 ?>
-
 ```
 
 </TabItem>
@@ -284,7 +276,6 @@ $response = $client->get("http://www.google.com/search", [
     'query' => ['q' => 'wikipedia']
 ]);
 echo $response->getBody();
-
 ```
 
 </TabItem>

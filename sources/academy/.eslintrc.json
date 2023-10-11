@@ -20,7 +20,7 @@
     },
     "overrides": [
         {
-            "files": ["./**/*.{md,mdx}/*.{js,javascript,json,ts,typescript}"],
+            "files": ["./**/*.{js,json,ts}", "./**/*.{md,mdx}/*.{js,javascript,json,ts,typescript}"],
             "rules": {
                 // General things that are fine to have in code snippets
                 "import/no-extraneous-dependencies": "off",
@@ -41,7 +41,7 @@
                 "no-unused-expressions": "warn",
                 "no-unused-vars": "warn",
                 */
-                
+
             }
         }
     ]

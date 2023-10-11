@@ -391,6 +391,10 @@ Note that for all the API endpoints that accept the `actorId` parameter to speci
 you can pass either the actor ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
 username of the actor owner and the actor name (e.g. `janedoe~my-actor`).
 
+Some of the API endpoints return runs objects. Note that if any such run object contains usage in dollars, your effective unit pricing at the time of query
+has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes. You can learn more
+about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
+
 ## Actor collection [/v2/acts{?token,offset,limit,desc,my}]
 
 + Parameters
@@ -863,6 +867,8 @@ Gets an object that contains all the details about a specific build of an actor.
 By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the build to finish.
 This is useful to avoid periodic polling when waiting for an actor build to finish.
 
+This endpoint does not require the authentication token. The calls are authenticated using a hard-to-guess ID of the build.
+
 + Parameters
 
     + buildId: `soSkq9ekdmfOslopH` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
@@ -1293,7 +1299,7 @@ Gets an object that contains all the details about a specific run of an actor.
 By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the run to finish.
 This is useful to avoid periodic polling when waiting for actor run to complete.
 
-This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the run.
+This endpoint does not require the authentication token. The calls are authenticated using a hard-to-guess ID of the run.
 
 + Parameters
 
@@ -1462,6 +1468,10 @@ For more information, see the <a href="https://docs.apify.com/platform/actors/ru
 Note that for all the API endpoints that accept the `actorTaskId` parameter to specify a task,
 you can pass either the task ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
 username of the task's owner and the task's name (e.g. `janedoe~my-task`).
+
+Some of the API endpoints return runs objects. Note that if any such run object contains usage in dollars, your effective unit pricing at the time of query
+has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes. You can learn more
+about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
 
 ## Task collection [/v2/actor-tasks{?token,offset,limit,desc}]
 
@@ -2085,6 +2095,10 @@ In order to save new items to the dataset, send HTTP POST request with JSON payl
 
 The API endpoints described in this section enable you to manage Apify actor runs.
 
+Note that if any returned run object contains usage in dollars, your effective unit pricing at the time of query
+has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes.
+You can learn more about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
+
 ## Run collection [/v2/actor-runs{?token,offset,limit,desc,status}]
 
 ### Get user runs list [GET]
@@ -2185,7 +2199,7 @@ Gets an object that contains all the details about a specific run of an actor.
 By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the run to finish.
 This is useful to avoid periodic polling when waiting for actor run to complete.
 
-This endpoint does not require the authentication token, the calls are authenticated using a hard-to-guess ID of the run.
+This endpoint does not require the authentication token. The calls are authenticated using a hard-to-guess ID of the run.
 
 + Parameters
 
@@ -2198,6 +2212,19 @@ This endpoint does not require the authentication token, the calls are authentic
 
     + Attributes
         - data (Run, required)
+
+## Delete run [/v2/actor-runs/{runId}{?token}]
+
+### Delete run [DELETE]
+
+Delete the run. Only finished runs can be deleted. Only the person or organization that initiated the run can delete it.
+
++ Parameters
+
+    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+
++ Response 204 (application/json)
 
 ## Abort run [/v2/actor-runs/{runId}/abort{?token,gracefully}]
 
@@ -2294,15 +2321,17 @@ For more information, see the [Actor docs](https://docs.apify.com/platform/actor
 ### Update status message [PUT]
 
 You can set a single status message on your run that will be displayed in the Apify Console UI. During an actor run,
-you will typically do this in order to inform users of your actor about the actor's progress. If the status message is the very last one,
-you will also need to specify `isStatusMessageTerminal=true`. In the absence of a status message, the platform will try to substitute sensible defaults.
+you will typically do this in order to inform users of your actor about the actor's progress.
+
+The request body must contain `runId` and `statusMessage` properties. The `isStatusMessageTerminal` property is optional and it indicates if the status message is the very last one. In the absence of a status message, the platform will try to substitute sensible defaults.
 
 + Parameters
 
-    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
     + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
-    + statusMessage: `Actor has finished` (string, required) - Status message
-    + isStatusMessageTerminal: true (boolean, optional) - Flag indicating if this is the final status message of the actor.
+
++ Request (application/json)
+
+    + Attributes(StatusMessageUpdate)
 
 + Response 200 (application/json)
 
@@ -2312,6 +2341,10 @@ you will also need to specify `isStatusMessageTerminal=true`. In the absence of 
 # Group Actor builds
 
 The API endpoints described in this section enable you to manage Apify actor builds.
+
+Note that if any returned build object contains usage in dollars, your effective unit pricing at the time of query
+has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes.
+You can learn more about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
 
 ## Build collection [/v2/actor-builds{?token,offset,limit,desc}]
 
@@ -2357,6 +2390,8 @@ Gets an object that contains all the details about a specific build of an actor.
 By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait for the build to finish.
 This is useful to avoid periodic polling when waiting for an actor build to finish.
 
+This endpoint does not require the authentication token. The calls are authenticated using a hard-to-guess ID of the build.
+
 + Parameters
 
     + buildId: `soSkq9ekdmfOslopH` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
@@ -2371,6 +2406,19 @@ This is useful to avoid periodic polling when waiting for an actor build to fini
     + Attributes
         - data (Build, required)
 
+## Delete build [/v2/actor-builds/{buildId}{?token}]
+
+### Delete build [DELETE]
+
+Delete the build. The build that is the current default build for the Actor cannot be deleted.
+Only users with build permissions for the Actor can delete builds.
+
++ Parameters
+
+    + buildId: `soSkq9ekdmfOslopH` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+
++ Response 204 (application/json)
 
 ## Abort build [/v2/actor-builds/{buildId}/abort{?token}]
 
@@ -3366,7 +3414,7 @@ The response contains the `hadMultipleClients` boolean field which indicates tha
     + clientKey: `client-abc` (string, optional) - A unique identifier of the client accessing the request queue. It must be a string between 1 and 32 characters long
     + token:     `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
-### Add requests [GET]
+### Add requests [POST]
 
 Adds requests to the queue in batch. The maximum requests in batch is limit to 25. The response contains an array of unprocessed and processed requests.
 If any add operation fails because the request queue rate limit is exceeded or an internal failure occurs,
@@ -3768,6 +3816,43 @@ Gets the schedule log as a JSON array containing information about up to a 1000 
                 - level:     `ERROR`                     (string, required)
                 - createdAt: `2019-03-26T12:30:00.325Z`  (string, required)
 
+# Group Store
+
+[Apify Store](https://apify.com/store) is home to hundreds of public Actors available to the Apify community.
+The API endpoints described in this section are used to retrieve these Actors.
+
+Note that the endpoints do not require the authentication token.
+
+## Store Actors collection [/v2/store{?limit,offset,search,sortBy,category,username,pricingModel}]
+
++ Parameters
+
+    + limit: 99 (number, optional) - Maximum number of elements to return. The default and maximum value is `1,000`.
+    + offset: 10 (number, optional) - Number of elements that should be skipped at the start. The default value is `0`.
+    + search: `web scraper` (string, optional) - String to search by. The search runs on the following fields: `title`, `name`, `description`, `username`, `readme`.
+    + sortBy: 'popularity' (string, optional) - Specifies the field by which to sort the results. The supported values are `relevance` (default), `popularity`, `newest` and `lastUpdate`.
+    + category: 'AI' (string, optional) - Filters the results by the specified category.
+    + username: 'apify' (string, optional) - Filters the results by the specified username.
+    + pricingModel: 'FREE' (string, optional) - Filters the results by the specified pricing model. The supported values are `FREE`, `FLAT_PRICE_PER_MONTH` and `PRICE_PER_DATASET_ITEM`.
+
+### Get list of Actors in store [GET]
+
+Gets the list of public Actors in Apify Store. You can use `search` parameter to search Actors by string in title, name, description, username and readme.
+If you need detailed info about a specific Actor, use the [Get actor](#/reference/actors/actor-object/get-actor) endpoint.
+
+The endpoint supports pagination using the `limit` and `offset` parameters. It will not return more than 1,000 records.
+
++ Response 200 (application/json)
+
+    + Attributes
+        - data (object, required)
+            - total: 100 (number, required)
+            - offset: 0 (number, required)
+            - limit: 1000 (number, required)
+            - desc: false (boolean, required)
+            - count: 1 (number, required)
+            - items (array[StoreListActor, StoreListActor], required)
+
 # Group Logs
 
 The API endpoints described in this section are used the download the logs
@@ -3926,7 +4011,6 @@ a summary of your limits, and your current usage.
 - isPublic:         false                      (boolean, nullable)
 - seoTitle:         `My actor`                 (string, nullable)
 - seoDescription:   `My actor is the best`     (string, nullable)
-- issuesEnabled:    true                       (boolean, nullable)
 - restartOnError:   false                      (boolean, nullable)
 - versions                                     (array, nullable)
     -                                          (VersionUpdate, nullable)
@@ -3942,7 +4026,6 @@ a summary of your limits, and your current usage.
 - isPublic:         false                      (boolean, required)
 - seoTitle:         `My actor`                 (string, nullable)
 - seoDescription:   `My actor is the best`     (string, nullable)
-- issuesEnabled:    true                       (boolean, nullable)
 - title:            `My Actor`                 (string, nullable)
 - restartOnError:   false                      (boolean, nullable)
 - versions                                     (array, required)
@@ -4576,6 +4659,11 @@ a summary of your limits, and your current usage.
     - PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16  (number, nullable)
     - PROXY_SERPS:                      0.0006 (number, nullable)
 
+## StatusMessageUpdate (object)
+- runId:            `3KH8gEpp4d8uQSe8T`         (string, required)
+- statusMessage:    `Actor has finished`        (string, required)
+- isStatusMessageTerminal: true                 (boolean, optional)
+
 ## KVStore (object)
 - id:               `WkzbQMuFYuamGv3YF`        (string, required)
 - name:             `d7b9MDYsbtX5L7XAj`        (string, required)
@@ -5008,3 +5096,23 @@ a summary of your limits, and your current usage.
         - input                                               (object, nullable)
             - foo:         `bar`                              (string, nullable)
             - hotel:       `restaurant`                       (string, nullable)
+
+## StoreListActor (object)
+- id:               `zdc3Pyhyz3m8vjDeM`        (string, required)
+- title:            `My Public Actor`          (string, required)
+- name:             `my-public-actor`          (string, required)
+- username:         `jane35`                   (string, required)
+- description:      `My public actor!`         (string, nullable)
+- pictureUrl:       `https://...`              (string, nullable)
+- userPictureUrl:   `https://...`              (string, nullable)
+- stats                                        (object, required)
+    - totalBuilds:      9                      (number, required)
+    - totalRuns:        16                     (number, required)
+    - totalUsers:       6                      (number, required)
+    - totalUsers7Days:  2                      (number, required)
+    - totalUsers30Days: 6                      (number, required)
+    - totalUsers90Days: 6                      (number, required)
+    - totalMetamorphs:  2                      (number, required)
+    - lastRunStartedAt: `2019-07-08T14:01:05.546Z` (string, required)
+- currentPricingInfo                            (object, required)
+    - pricingModel:            `FREE`           (string, required)

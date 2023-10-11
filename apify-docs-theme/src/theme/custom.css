@@ -917,4 +917,21 @@ a.tsd-anchor[href^="https://undefined"] {
     display: none;
 }
 
-/* dummy comment to trigger theme publishing */
+.runnable-code-block .code-block.no-title pre + div {
+    position: absolute;
+    right: 170px;
+    line-height: 28px;
+}
+
+.runnable-code-block .code-block button {
+    height: 36px;
+    margin-top: 1px;
+}
+
+.runnable-code-block:hover .code-block button {
+    opacity: 0.4;
+}
+
+html[data-theme='dark'] .runnable-code-block svg .apify-logo {
+    fill: #fff;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
-import clsx from 'clsx';
 // eslint-disable-next-line import/no-extraneous-dependencies
+import clsx from 'clsx';
 import { useThemeConfig } from '@docusaurus/theme-common';
 import LinkItem from '@theme/Footer/LinkItem';
 import styles from './index.module.css';
