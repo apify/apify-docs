@@ -1,7 +1,7 @@
 ---
 title: Guidelines for writing tutorials 
 description: Create a guide for your users so they can get the best out of your Actor. Make sure your tutorial is both user- and SEO-friendly. Your tutorial will be published on Apify Blog.
-sidebar_position: 4
+sidebar_position: 3
 slug: /get-most-of-actors/guidelines-writing-tutorials
 ---
 
@@ -102,4 +102,4 @@ Once you've set everything up, click the Start button. [Describe what happens ne
 
 ## Next up {#next}
 
-Congratulations! Your Actor is coming together and getting ready to be shared with the world. In the [last lesson](./monetizing_your_actor.md) we will learn how you can monetize your Actor on Apify Store.
+Now that your Actor has a name, a README and you have an idea of making a tutorial for it, let's make sure it's visible to Google and the world. In the [next lesson](./seo_and_promotion.md) we will explore some SEO basics and a few tricks.
