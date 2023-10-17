@@ -20,7 +20,7 @@ These guidelines are of course not set in stone. They are here to give you a gen
     3. Provide a step-by-step guide, complete with input and output examples → **How to use X tool for scraping X website. Step 1… Step 5.**
     4. Discuss potential use cases → **What are the most frequent use cases of X tool?**
     5. Include a call-to-action (CTA) → **Try this X tool**
-    6. Address frequently asked questions (FAQs) 
+    6. Address frequently asked questions (FAQs)
 
 Feel free to expand beyond this core structure. For inspiration, check out these tutorials:
 
@@ -28,6 +28,7 @@ Feel free to expand beyond this core structure. For inspiration, check out these
 - [How to scrape Threads](https://blog.apify.com/how-to-scrape-threads/)
 - [How to record tests with the Cypress Recorder extension](https://blog.apify.com/how-to-record-test-cypress-recorder-extension/)
 - [Google Lens API: OCR and text image search](https://blog.apify.com/google-lens-api-ocr-text-image-search/)
+
 3. **Use SEO tools for keyword research.** Even the best tutorial won't make an impact if it's hidden in the depths of the internet. Use tools like [Answer the Public](https://answerthepublic.com/) to find high-volume, high-cost-per-click keywords related to your topic.
 4. **Incorporate relevant links.** While you're writing, look for opportunities to link to other blog posts on the Apify blog that fit well with your topic. Search engines seem to prefer articles that don’t stand alone.
 5. **ChatGPT is your friend, but edit wisely.** Feel free to use ChatGPT for generating content, but remember to edit the output. While it's a good tool to get started, it's not perfect and may occasionally make errors.
