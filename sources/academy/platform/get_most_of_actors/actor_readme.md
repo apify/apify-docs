@@ -84,7 +84,7 @@ Aim for sections 1-6 below and try to include at least 300 words. You can move t
 8. **Tips or Advanced options section**
     - Share any tips on how to best run the Actor, such as how to limit compute unit usage, get more accurate results, or improve speed.
 
-If you want some general tips on how to make GitHub README that stand out, check out these guides. Not everything in there will be suitable for an Apify Actor README, so you should cherry-pick what you like and use your imagination.
+If you want some general tips on how to make GitHub README that stands out, check out these guides. Not everything in there will be suitable for an Apify Actor README, so you should cherry-pick what you like and use your imagination.
 
 <br />
 
@@ -94,4 +94,4 @@ If you want some general tips on how to make GitHub README that stand out, check
 
 ## Next up {#next}
 
-If you followed all the tips described above, your Actor README should be good to go! In the [next lesson](./seo_and_promotion.md)! we will dive deeper into how you can improve your README's SEO and promote your Actor to ensure it reaches as many potential users as possible!
+If you followed all the tips described above, your Actor README is almost good to go! In the [next lesson](./guidelines_for_writing.md) we will give you a few instructions on how you can create a tutorial for your Actor.  
