@@ -1,5 +1,5 @@
 ---
-title: ChatGPT
+title: ChatGPT plugin
 description: Let ChatGPT access up-to-date information on the web. Fetch Google Search results, crawl smaller websites, query web pages found, and download individual web pages or files.
 sidebar_position: 11.23
 slug: /integrations/chatgpt-plugin
@@ -24,7 +24,7 @@ Currently, the plugin can use the following Actors:
 
 By installing or using the Apify ChatGPT plugin, you're accepting Apify's [Terms of use](https://apify.com/terms-of-use) and [Privacy policy](https://apify.com/privacy-policy).
 
-## How it works?
+## How to use
 
 Here are some example ChatGPT prompts that invoke the plugin:
 
@@ -36,5 +36,5 @@ See the [example conversation](https://chat.openai.com/share/719b751c-be9e-4e02-
 
 ## Feedback
 
-Please note that Apify ChatGPT plugin is currently in beta, and based on user feedback, we'll keep improving its functionality.
-If you encounter any issues or require different functionality, please contact us at [ai@apify.com](mailto:ai@apify.com)
+Please note that Apify ChatGPT plugin is currently in beta, and based on feedback we receive, we'll keep improving its functionality.
+If you encounter any issues or require a new functionality, please let us know at [ai@apify.com](mailto:ai@apify.com)

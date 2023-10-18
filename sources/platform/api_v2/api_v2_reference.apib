@@ -2213,6 +2213,19 @@ This endpoint does not require the authentication token. The calls are authentic
     + Attributes
         - data (Run, required)
 
+## Delete run [/v2/actor-runs/{runId}{?token}]
+
+### Delete run [DELETE]
+
+Delete the run. Only finished runs can be deleted. Only the person or organization that initiated the run can delete it.
+
++ Parameters
+
+    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+
++ Response 204 (application/json)
+
 ## Abort run [/v2/actor-runs/{runId}/abort{?token,gracefully}]
 
 ### Abort run [POST]
@@ -2393,6 +2406,19 @@ This endpoint does not require the authentication token. The calls are authentic
     + Attributes
         - data (Build, required)
 
+## Delete build [/v2/actor-builds/{buildId}{?token}]
+
+### Delete build [DELETE]
+
+Delete the build. The build that is the current default build for the Actor cannot be deleted.
+Only users with build permissions for the Actor can delete builds.
+
++ Parameters
+
+    + buildId: `soSkq9ekdmfOslopH` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+
++ Response 204 (application/json)
 
 ## Abort build [/v2/actor-builds/{buildId}/abort{?token}]
 
@@ -3491,6 +3517,8 @@ To assign the new webhook to an actor or task, the request body must contain `re
 * `eventTypes` is a list of events that will trigger the webhook, e.g. when the actor run succeeds.
 * `condition` should be an object containing the ID of the actor or task to which the webhook will be assigned.
 * `payloadTemplate` is a JSON-like string, whose syntax is extended with the use of variables.
+* `headersTemplate` is a JSON-like string, whose syntax is extended with the use of variables. Following values will be re-written to defaults: "host", "Content-Type", "X-Apify-Webhook", "X-Apify-Webhook-Dispatch-Id", "X-Apify-Request-Origin"
+* `description` is an optional string.
 * `shouldInterpolateStrings` is a boolean indicating whether to interpolate variables contained inside strings in the `payloadTemplate`
 
 ```
@@ -3505,6 +3533,8 @@ To assign the new webhook to an actor or task, the request body must contain `re
         "actorTaskId" : "W9bs9JE9v7wprjAnJ"
     },
     "payloadTemplate": "",
+    "headersTemplate": "",
+    "description": "my awesome webhook",
     "shouldInterpolateStrings": false,
 ```
 
@@ -4904,6 +4934,8 @@ a summary of your limits, and your current usage.
 - doNotRetry:               false                           (boolean, nullable)
 - requestUrl:               `http://example.com/`           (string, required)
 - payloadTemplate:          `{\n \"userId\": {{userId}}...` (string, nullable)
+- headersTemplate:          `{\n \"Authorization\": Bearer...`(string, nullable)
+- description:              `this is webhook description`   (string, nullable)
 - lastDispatch                                              (object, nullable)
     - status:               `SUCCEEDED`                     (string, required)
     - finishedAt:           `2019-12-13T08:36:13.202Z`      (string, required)
@@ -4943,6 +4975,8 @@ a summary of your limits, and your current usage.
 - doNotRetry:               false                           (boolean, nullable)
 - requestUrl:               `http://example.com/`           (string, required)
 - payloadTemplate:          `{\n \"userId\": {{userId}}...` (string, nullable)
+- headersTemplate:          `{\n \"Authorization\": Bearer...`(string, nullable)
+- description:              `this is webhook description`   (string, nullable)
 - shouldInterpolateStrings: false                           (boolean, nullable)
 
 ## WebhookUpdate (object)
@@ -4955,6 +4989,8 @@ a summary of your limits, and your current usage.
 - doNotRetry:               false                           (boolean, nullable)
 - requestUrl:               `http://example.com/`           (string, nullable)
 - payloadTemplate:          `{\n \"userId\": {{userId}}...` (string, nullable)
+- headersTemplate:          `{\n \"Authorization\": Bearer...`(string, nullable)
+- description:              `this is webhook description`   (string, nullable)
 - shouldInterpolateStrings: false                           (boolean, nullable)
 
 ## WebhookDispatch
