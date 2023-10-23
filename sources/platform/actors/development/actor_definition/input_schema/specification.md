@@ -114,10 +114,10 @@ Each field of your input is described under its key in `inputSchema.properties` 
 
 Here is a rule of thumb for whether an input field should have a `prefill`, `default`, or be required:
 
-- **Prefill** - Use for fields that don't have a reasonable default. The provided value is prefilled for the user, to show them an example how to use the field and make it easy to test the Actor (e.g., search keyword, start URLs)
-- **Required** - Use for fields that don't have a reasonable default and must be entered by the user (e.g., API token, password).
-- **Default** - Use for fields that must be set for the Actor run to some value (e.g., max pages to crawl, proxy settings), but where you don't need the user to change the default behavior.
-  If the user omits the value when starting the Actor, the platform passes the Actor this default value automatically.
+- **Prefill** - Use for fields that don't have a reasonable default. The provided value is prefilled for the user to show them an example of using the field and to make it easy to test the Actor (e.g., search keyword, start URLs). In other words, this field is only used in the user interface but does not affect the Actor functionality and API.
+- **Required** - Use for fields that don't have a reasonable default and MUST be entered by the user (e.g., API token, password).
+- **Default** - Use for fields that MUST be set for the Actor run to some value, but where you don't need the user to change the default behavior (e.g., max pages to crawl, proxy settings).
+  If the user omits the value when starting the Actor via any means (API, CLI, scheduler, or user interface), the platform automatically passes the Actor this default value.
 - **No particular setting** - Use for purely optional fields where it makes no sense to prefill any value (e.g., flags like debug mode or download files).
 
 In summary, you can use each option separately or use a combination of **Prefill + Required**, but the combinations **Prefill + Default** or **Default + Required** don't make sense to use.
