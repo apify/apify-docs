@@ -1108,7 +1108,7 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
             - type: `run-timeout-exceeded` (string, required)
             - message: `Actor run exceeded timeout of 60 seconds for this API enpoint` (string, required)
 
-## Run actor synchronously and get dataset items [/v2/acts/{actorId}/run-sync-get-dataset-items{?token,timeout,memory,build,webhooks,format,offset,limit,attachment,delimiter,bom,desc,xmlRoot,xmlRow,fields,omit,unwind,skipHeaderRow,token,clean,skipHidden,skipEmpty,simplified,skipFailedPages}]
+## Run actor synchronously and get dataset items [/v2/acts/{actorId}/run-sync-get-dataset-items{?token,timeout,memory,build,webhooks,format,offset,limit,attachment,delimiter,bom,desc,xmlRoot,xmlRow,fields,omit,unwind,flatten,skipHeaderRow,token,clean,skipHidden,skipEmpty,simplified,skipFailedPages}]
 
 + Parameters
 
@@ -1138,6 +1138,9 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
         If the unwound field is an object then it is merged with the parent object
         If the unwound field is missing or its value is neither an array nor an object and therefore cannot be merged with a parent object then the item gets preserved as it is.
         Note that the unwound items ignore the `desc` parameter.
+    + flatten: `myValue` (string, optional) - A comma-separated list of fields which should transform nested objects into flat structures.
+        For example, with `flatten="foo"` the object `{"foo":{"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`.
+        The original object with properties is replaced with the flattened object.
     + desc: true (boolean, optional) - By default, results are returned in the same order as they were stored. To reverse the order, set this parameter to `true` or `1`.
     + attachment: true (boolean, optional) - If `true` or `1` then the response will define the `Content-Disposition: attachment` header, forcing a web browser to download the file rather than to display it. By default this header is not present.
     + delimiter: `;` (string, optional) - A delimiter character for CSV files, only used if `format=csv`. You might need to URL-encode the character (e.g. use `%09` for tab or `%3B` for semicolon). The default delimiter is a simple comma (`,`).
@@ -1853,7 +1856,7 @@ To run the Task asynchronously, use the [Run task asynchronously](#reference/act
             - type: `run-timeout-exceeded` (string, required)
             - message: `Actor run exceeded timeout of 300 seconds for this API endpoint` (string, required)
 
-## Run task synchronously and get dataset items [/v2/actor-tasks/{actorTaskId}/run-sync-get-dataset-items{?token,webhooks,timeout,memory,build,format,offset,limit,attachment,delimiter,bom,desc,xmlRoot,xmlRow,fields,omit,unwind,skipHeaderRow,token,clean,skipHidden,skipEmpty,simplified,skipFailedPages}]
+## Run task synchronously and get dataset items [/v2/actor-tasks/{actorTaskId}/run-sync-get-dataset-items{?token,webhooks,timeout,memory,build,format,offset,limit,attachment,delimiter,bom,desc,xmlRoot,xmlRow,fields,omit,unwind,flatten,skipHeaderRow,token,clean,skipHidden,skipEmpty,simplified,skipFailedPages}]
 
 + Parameters
 
@@ -1883,6 +1886,9 @@ To run the Task asynchronously, use the [Run task asynchronously](#reference/act
       If the unwound field is an object then it is merged with the parent object
       If the unwound field is missing or its value is neither an array nor an object and therefore cannot be merged with a parent object then the item gets preserved as it is.
       Note that the unwound items ignore the `desc` parameter.
+    + flatten: `myValue` (string, optional) - A comma-separated list of fields which should transform nested objects into flat structures.
+      For example, with `flatten="foo"` the object `{"foo":{"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`.
+      The original object with properties is replaced with the flattened object.
     + desc: true (boolean, optional) - By default, results are returned in the same order as they were stored. To reverse the order, set this parameter to `true` or `1`.
     + attachment: true (boolean, optional) - If `true` or `1` then the response will define the `Content-Disposition: attachment` header, forcing a web browser to download the file rather than to display it. By default this header is not present.
     + delimiter: `;` (string, optional) - A delimiter character for CSV files, only used if `format=csv`. You might need to URL-encode the character (e.g. use `%09` for tab or `%3B` for semicolon). The default delimiter is a simple comma (`,`).
@@ -2800,7 +2806,7 @@ Deletes a specific dataset.
 
 + Response 204 (application/json)
 
-## Item collection [/v2/datasets/{datasetId}/items{?format,offset,limit,attachment,delimiter,bom,desc,xmlRoot,xmlRow,fields,omit,unwind,skipHeaderRow,token,clean,skipHidden,skipEmpty,simplified,skipFailedPages}]
+## Item collection [/v2/datasets/{datasetId}/items{?format,offset,limit,attachment,delimiter,bom,desc,xmlRoot,xmlRow,fields,omit,unwind,flatten,skipHeaderRow,token,clean,skipHidden,skipEmpty,simplified,skipFailedPages}]
 
 + Parameters
 
@@ -2972,6 +2978,9 @@ Note that only the order of **Items** is reversed, but not the order of the `unw
       If the unwound field is an object then it is merged with the parent object
       If the unwound field is missing or its value is neither an array nor an object and therefore cannot be merged with a parent object then the item gets preserved as it is.
       Note that the unwound items ignore the `desc` parameter.
+    + flatten: `myValue` (string, optional) - A comma-separated list of fields which should transform nested objects into flat structures.
+      For example, with `flatten="foo"` the object `{"foo":{"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`.
+      The original object with properties is replaced with the flattened object.
     + desc: true (boolean, optional) - By default, results are returned in the same order as they were stored. To reverse the order, set this parameter to `true` or `1`.
     + attachment: true (boolean, optional) - If `true` or `1` then the response will define the `Content-Disposition: attachment` header, forcing a web browser to download the file rather than to display it. By default this header is not present.
     + delimiter: `;` (string, optional) - A delimiter character for CSV files, only used if `format=csv`. You might need to URL-encode the character (e.g. use `%09` for tab or `%3B` for semicolon). The default delimiter is a simple comma (`,`).
