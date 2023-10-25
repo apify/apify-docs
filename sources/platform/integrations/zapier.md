@@ -116,7 +116,7 @@ Once you are happy with the test, you can publish the Zap. When it is turned on,
 ### Scrape Single URL
 
 > Runs a scraper for the website and returns its content as text, markdown and HTML.
-> This action is made for getting content of a single page, for example, to use in large language models (LLM) flows.
+> This action is for getting content of a single page to use, for example, in LLM flows.
 
 ### Set Key-Value Store Record
 
