@@ -85,7 +85,8 @@ If we press **Send**, it will immediately return some info about the run. The `s
 We will later use this **run info** JSON to retrieve the run's output data. This info about the run can also be retrieved with another call to the [**Get run**](https://apify.com/docs/api/v2#/reference/actors/run-object/get-run) endpoint.
 
 ## JavaScript and Python client {#javascript-and-python-client}
-If you are using JavaScript or Python, it is highly recommended using Apify API client ([JavaScript](https://docs.apify.com/api/client/js/), [Python](https://docs.apify.com/api/client/python/)) instead of using the raw HTTP API. The client implements smart polling and exponential backoff which makes calling actors and getting results very simple. 
+
+If you are using JavaScript or Python, it is highly recommended using Apify API client ([JavaScript](https://docs.apify.com/api/client/js/), [Python](https://docs.apify.com/api/client/python/)) instead of using the raw HTTP API. The client implements smart polling and exponential backoff which makes calling actors and getting results very simple.
 
 You can skip most of this tutorial by following this code example that calls the Google Search Results Scraper actor and logs its results:
 
@@ -129,7 +130,6 @@ run = client.actor("apify/google-search-scraper").call(run_input=run_input)
 # Fetch and print Actor results from the run's dataset (if there are any)
 for item in client.dataset(run["defaultDatasetId"]).iterate_items():
     print(item)
-
 ```
 
 </TabItem>
