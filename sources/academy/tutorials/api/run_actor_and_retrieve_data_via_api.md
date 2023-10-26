@@ -95,6 +95,7 @@ You can skip most of this tutorial by following this code example that calls the
 
 ```javascript
 import { ApifyClient } from 'apify-client';
+
 const client = new ApifyClient({ token: 'YOUR_API_TOKEN' });
 
 const input = { queries: 'Food in NYC' };
