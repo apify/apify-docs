@@ -84,6 +84,60 @@ If we press **Send**, it will immediately return some info about the run. The `s
 
 We will later use this **run info** JSON to retrieve the run's output data. This info about the run can also be retrieved with another call to the [**Get run**](https://apify.com/docs/api/v2#/reference/actors/run-object/get-run) endpoint.
 
+## JavaScript and Python client {#javascript-and-python-client}
+
+If you are using JavaScript or Python, it is highly recommended using Apify API client ([JavaScript](https://docs.apify.com/api/client/js/), [Python](https://docs.apify.com/api/client/python/)) instead of using the raw HTTP API. The client implements smart polling and exponential backoff which makes calling actors and getting results very simple.
+
+You can skip most of this tutorial by following this code example that calls the Google Search Results Scraper actor and logs its results:
+
+<Tabs groupId="main">
+<TabItem value="Node.js" label="Node.js">
+
+```javascript
+import { ApifyClient } from 'apify-client';
+
+const client = new ApifyClient({ token: 'YOUR_API_TOKEN' });
+
+const input = { queries: 'Food in NYC' };
+
+// Run the Actor and wait for it to finish
+// .call method waits infinitely long using smart polling
+// Get back the run API object
+const run = await client.actor('apify/google-search-scraper').call(input);
+
+// Fetch and print Actor results from the run's dataset (if any)
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+items.forEach((item) => {
+    console.dir(item);
+});
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify_client import ApifyClient
+client = ApifyClient(token='YOUR_API_TOKEN')
+
+run_input = {
+    "queries": "Food in NYC",
+}
+
+# Run the Actor and wait for it to finish
+# .call method waits infinitely long using smart polling
+# Get back the run API object
+run = client.actor("apify/google-search-scraper").call(run_input=run_input)
+
+# Fetch and print Actor results from the run's dataset (if there are any)
+for item in client.dataset(run["defaultDatasetId"]).iterate_items():
+    print(item)
+```
+
+</TabItem>
+</Tabs>
+
+By using our client, you don't need to worry about choosing between synchronous or asynchronous flow. But if you don't want your code to wait during `.call` (potentially for hours), continue reading below about how to implement webhooks.
+
 ## Synchronous flow {#synchronous-flow}
 
 If each of your runs will last shorter than 5 minutes, you can use a single [synchronous endpoint](https://usergrid.apache.org/docs/introduction/async-vs-sync.html#synchronous). When running **synchronously**, the connection will be held for _up to_ 5 minutes.
