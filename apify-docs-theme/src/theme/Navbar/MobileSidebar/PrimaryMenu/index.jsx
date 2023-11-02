@@ -29,7 +29,7 @@ export default function NavbarMobilePrimaryMenu() {
                         />
                         {subNavbar.items.map((item, i) => (
                             <NavbarItem
-                                style={{ paddingLeft: '16.px' }}
+                                style={{ paddingLeft: '16px' }}
                                 key={i}
                                 mobile
                                 {...item}

@@ -16,6 +16,7 @@ html[data-theme='dark'] {
 
     /* TODO set this conditionally to 123px when there is second level nav */
     --ifm-navbar-height: 68px;
+    --ifm-line-height-base: 1.65;
 
     --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
     --docsearch-text-color: #8d92af;
@@ -163,6 +164,8 @@ html[data-theme='dark'] {
     --ifm-h4-font-size: 1.6rem;
     --ifm-h5-font-size: 1.4rem;
     --ifm-h6-font-size: 1.2rem;
+
+    --ifm-heading-line-height: 
 
     /* TRON colors */
     --color-Neutral_Text: #242836;
