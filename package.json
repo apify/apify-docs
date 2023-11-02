@@ -54,7 +54,7 @@
         "undici": "^5.22.1"
     },
     "dependencies": {
-        "@apify-packages/ui-components": "^0.56.0",
+        "@apify-packages/ui-components": "^0.73.1",
         "@apify/docsearch-apify-docs": "3.5.3",
         "@docusaurus/core": "^2.4.1",
         "@docusaurus/plugin-client-redirects": "^2.4.1",
