@@ -86,9 +86,9 @@ We will later use this **run info** JSON to retrieve the run's output data. This
 
 ## JavaScript and Python client {#javascript-and-python-client}
 
-If you are using JavaScript or Python, it is highly recommended using Apify API client ([JavaScript](https://docs.apify.com/api/client/js/), [Python](https://docs.apify.com/api/client/python/)) instead of using the raw HTTP API. The client implements smart polling and exponential backoff which makes calling actors and getting results very simple.
+If you are using JavaScript or Python, we highly recommend using the Apify API client ([JavaScript](https://docs.apify.com/api/client/js/), [Python](https://docs.apify.com/api/client/python/)) instead of the raw HTTP API. The client implements smart polling and exponential backoff, which makes calling Actors and getting results very simple.
 
-You can skip most of this tutorial by following this code example that calls the Google Search Results Scraper actor and logs its results:
+You can skip most of this tutorial by following this code example that calls Google Search Results Scraper and logs its results:
 
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
