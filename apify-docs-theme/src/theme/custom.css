@@ -136,6 +136,8 @@ html[data-theme='dark'] {
     --ifm-code-padding-horizontal: 6.4px;
     --ifm-code-padding-vertical: 3.2px;
 
+    --ifm-global-spacing: 1.6rem !important;
+
     --ifm-color-primary-lightest: #5d9df1;
     --ifm-color-primary-lighter: #3a87ee;
     --ifm-color-primary-light: #2e80ed;
@@ -165,7 +167,7 @@ html[data-theme='dark'] {
     --ifm-h5-font-size: 1.4rem;
     --ifm-h6-font-size: 1.2rem;
 
-    --ifm-heading-line-height: 
+    --ifm-heading-line-height:
 
     /* TRON colors */
     --color-Neutral_Text: #242836;
@@ -595,7 +597,7 @@ html .plugin-docs .theme-doc-markdown {
     margin-top: var(--ifm-list-item-margin);
 }
 
-html .plugin-docs .theme-doc-markdown img {
+.plugin-docs .theme-doc-markdown img {
     display: block;
     margin: 16px auto 32px;
 }
@@ -938,3 +940,126 @@ a.tsd-anchor[href^="https://undefined"] {
 html[data-theme='dark'] .runnable-code-block svg .apify-logo {
     fill: #fff;
 }
+
+
+/* updating the sizes in the docs search modal */
+.aa-DetachedContainer {
+    .mx-0\.5 {
+        margin-left: 0.2rem;
+        margin-right: 0.2rem;
+    }
+
+    .mb-3 {
+        margin-bottom: 1.2rem;
+    }
+
+    .mt-2 {
+        margin-top: 0.8rem;
+    }
+
+    .h-16 {
+        height: 6.4rem;
+    }
+
+    .rounded {
+        border-radius: 0.4rem;
+    }
+
+    .rounded-l {
+        border-top-left-radius: 0.4rem;
+        border-bottom-left-radius: 0.4rem;
+    }
+
+    .p-2 {
+        padding: 0.8rem;
+    }
+
+    .p-5 {
+        padding: 2rem;
+    }
+
+    .p-7 {
+        padding: 2.8rem;
+    }
+
+    .px-1 {
+        padding-left: 0.4rem;
+        padding-right: 0.4rem;
+    }
+
+    .px-3 {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+
+    .px-5 {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .px-6 {
+        padding-left: 2.4rem;
+        padding-right: 2.4rem;
+    }
+
+    .py-0\.5 {
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+    }
+
+    .py-1 {
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .py-3 {
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+    }
+
+    .pb-6 {
+        padding-bottom: 2.4rem;
+    }
+
+
+    .pl-10 {
+        padding-left: 4rem;
+    }
+
+    .pl-3 {
+        padding-left: 1.2rem;
+    }
+
+    .pl-5 {
+        padding-left: 2rem;
+    }
+
+
+    .text-2xl {
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+    }
+
+    .text-lg {
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+    }
+
+    .text-sm {
+        font-size: 1.4rem;
+        line-height: 2rem;
+    }
+
+    .leading-6 {
+        line-height: 2.4rem;
+    }
+}
+
+.card-image-container_src-components-Cards-module  {
+    height: 23rem !important;
+    & > img {
+        width: 100%;
+    }
+}
+
+
