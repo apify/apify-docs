@@ -2,11 +2,19 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { HorizontalTile, theme } from '@apify-packages/ui-components';
+import styled from 'styled-components';
 import styles from './styles.module.css';
 import { Text } from '../Text';
 import { Heading } from '../Heading';
 
 import ArrowRight20 from '../../pages/img/arrow-right-20.svg';
+
+const StyledHorizontalTile = styled(HorizontalTile)`
+  height: 100%;
+  & > * {
+    display: inherit;
+    }
+`;
 
 interface ActionCardProps {
     title: string;
@@ -20,16 +28,17 @@ export default function ActionCard({ title, description, to, width, titleAs = 'h
     const { siteConfig } = useDocusaurusContext();
     const external = to.startsWith('http');
 
-    const Tile = <HorizontalTile
-        style={{ height: '100%' }}
+    const Tile = <StyledHorizontalTile
+
         content={
             <div className={styles.actionCardContent}>
                 <div className={styles.actionCardContentHeader}>
                     <Heading type='titleM' as={titleAs}>{title}</Heading>
                 </div>
-                <div className={styles.cardContentDescription}>
+                { description && <div className={styles.cardContentDescription}>
                     <Text align='left' color={theme.color.neutral.textSubtle}>{description}</Text>
                 </div>
+                }
             </div>
         }
         isClickable
