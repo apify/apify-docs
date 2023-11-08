@@ -157,7 +157,7 @@ html[data-theme='dark'] {
     --ifm-footer-background-color: #272c3d;
     --ifm-footer-title-color: #f2f3fb;
     --ifm-footer-link-color: #8d92af;
-    --max-layout-width: 1680px;
+    --max-layout-width: 1440px;
 
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
@@ -170,6 +170,7 @@ html[data-theme='dark'] {
     --ifm-hr-margin-vertical: 2.4rem;
 
     /* Comes from the Apify design theme content typography tokens */
+    /* The markdown headings are one step higher than the default to account for H2 being the "main" heading */
     .markdown h1,
     .markdown h2,
     .markdown h3,
@@ -183,6 +184,13 @@ html[data-theme='dark'] {
         --ifm-h5-font-size: 1.6rem;
         --ifm-h6-font-size: 1.4rem;
     }
+
+    --ifm-h1-font-size: 2.4rem;
+    --ifm-h2-font-size: 2rem;
+    --ifm-h3-font-size: 1.8rem;
+    --ifm-h4-font-size: 1.6rem;
+    --ifm-h5-font-size: 1.4rem;
+    --ifm-h6-font-size: 1.2rem;
 
     /* TRON colors */
     --color-Neutral_Text: #242836;
@@ -296,8 +304,14 @@ html[data-theme='dark'] {
             --ifm-h4-font-size: 2rem;
             --ifm-h5-font-size: 1.6rem;
             --ifm-h6-font-size: 1.4rem;
-            --ifm-h7-font-size: 1.2rem;
         }
+
+        --ifm-h1-font-size: 3.2rem;
+        --ifm-h2-font-size: 2.4rem;
+        --ifm-h3-font-size: 2rem;
+        --ifm-h4-font-size: 1.6rem;
+        --ifm-h5-font-size: 1.4rem;
+        --ifm-h6-font-size: 1.2rem;
     }
 }
 
@@ -500,6 +514,14 @@ aside .icon svg[class*=iconExternalLink] {
     transition: all ease-in 0.2s;
 }
 
+.menu__link:hover {
+    background: var(--color-Neutral_Hover) !important;
+}
+
+.menu__link--active:hover {
+    background: var(--color-neutral-overflow) !important;
+}
+
 .navbar__link:hover, .navbar__link--active:hover {
     color: unset;
 }
@@ -686,6 +708,15 @@ html .plugin-docs .theme-doc-markdown h3 {
 
 .theme-doc-sidebar-menu .menu__list-item-collapsible {
     background: none;
+    border-radius: 0.8rem;
+}
+
+.theme-doc-sidebar-menu .menu__list-item-collapsible:hover {
+    background: var(--color-Neutral_Hover);
+}
+
+.theme-doc-sidebar-menu .menu__list-item-collapsible--active:hover {
+    background: var(--color-neutral-overflow);
 }
 
 .theme-doc-toc-desktop .table-of-contents .table-of-contents__link--active {
@@ -697,7 +728,7 @@ html .plugin-docs .theme-doc-markdown h3 {
 .theme-doc-sidebar-menu.menu__list .menu__list-item-collapsible--active
  {
     color: var(--color-Neutral_Text);
-    background: var(--color-Neutral_ChipBackgroundActive);
+    background: var(--color-neutral-overflow);
 }
 
 .navbar__link:not(.navbar__link--active):hover {
