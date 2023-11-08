@@ -12,7 +12,7 @@ module.exports = {
     organizationName: 'apify',
     projectName: 'apify-docs',
     scripts: ['/js/custom.js'],
-    favicon: 'img/favicon.ico',
+    favicon: 'img/favicon.svg',
     onBrokenLinks:
     /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
     onBrokenMarkdownLinks:
