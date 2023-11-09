@@ -72,7 +72,7 @@
         "react-github-btn": "^1.4.0",
         "styled-components": "5.2.0",
         "unist-util-visit": "^5.0.0",
-        "search-insights": "2.7.0"
+        "search-insights": "2.10.0"
     },
     "workspaces": [
         "apify-docs-theme"
