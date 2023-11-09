@@ -169,22 +169,6 @@ html[data-theme='dark'] {
 
     --ifm-hr-margin-vertical: 2.4rem;
 
-    /* Comes from the Apify design theme content typography tokens */
-    /* The markdown headings are one step higher than the default to account for H2 being the "main" heading */
-    .markdown h1,
-    .markdown h2,
-    .markdown h3,
-    .markdown h4,
-    .markdown h5,
-    .markdown h6 {
-        --ifm-h1-font-size: 2.8rem;
-        --ifm-h2-font-size: 2.4rem;
-        --ifm-h3-font-size: 2rem;
-        --ifm-h4-font-size: 1.8rem;
-        --ifm-h5-font-size: 1.6rem;
-        --ifm-h6-font-size: 1.4rem;
-    }
-
     --ifm-h1-font-size: 2.4rem;
     --ifm-h2-font-size: 2rem;
     --ifm-h3-font-size: 1.8rem;
@@ -289,9 +273,37 @@ html[data-theme='dark'] {
     --color-danger-chip-text: #bb0401;
 }
 
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+    /* Comes from the Apify design theme content typography tokens */
+    --ifm-h1-font-size: 2.8rem;
+    --ifm-h2-font-size: 2.4rem;
+    --ifm-h3-font-size: 2rem;
+    --ifm-h4-font-size: 1.8rem;
+    --ifm-h5-font-size: 1.6rem;
+    --ifm-h6-font-size: 1.4rem;
+}
+
+.markdown h1:first-child {
+    --ifm-h1-font-size: 2.8rem;
+}
+
 @media (min-width: 768px) {
     :root {
-        .markdown h1,
+        /* Comes from the Apify design theme content typography tokens */
+        --ifm-h1-font-size: 3.2rem;
+        --ifm-h2-font-size: 2.4rem;
+        --ifm-h3-font-size: 2rem;
+        --ifm-h4-font-size: 1.6rem;
+        --ifm-h5-font-size: 1.4rem;
+        --ifm-h6-font-size: 1.2rem;
+    }
+
+    .markdown h1,
         .markdown h2,
         .markdown h3,
         .markdown h4,
@@ -305,13 +317,9 @@ html[data-theme='dark'] {
             --ifm-h5-font-size: 1.6rem;
             --ifm-h6-font-size: 1.4rem;
         }
-
-        --ifm-h1-font-size: 3.2rem;
-        --ifm-h2-font-size: 2.4rem;
-        --ifm-h3-font-size: 2rem;
-        --ifm-h4-font-size: 1.6rem;
-        --ifm-h5-font-size: 1.4rem;
-        --ifm-h6-font-size: 1.2rem;
+    
+    .markdown h1:first-child {
+        --ifm-h1-font-size: 4.2rem;
     }
 }
 
