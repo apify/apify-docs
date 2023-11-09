@@ -75,7 +75,7 @@ const OpenSourceCards: React.FC = () => {
                 content={
                     <div className='cardContentWrapper'>
                         <Link to="https://github.com/apify/got-scraping" className={styles.headingLink}>
-                            <Heading type="titleL">Got Scraping</Heading>
+                            <Heading type="titleM">Got Scraping</Heading>
                         </Link>
                         <Text color={theme.color.neutral.textMuted}>
                             An HTTP client made for scraping based on Got.
@@ -114,7 +114,7 @@ const OpenSourceCards: React.FC = () => {
                 content={
                     <div className='cardContentWrapper'>
                         <Link to="https://github.com/apify/fingerprint-suite" className={styles.headingLink}>
-                            <Heading type="titleL">Fingerprint Suite</Heading>
+                            <Heading type="titleM">Fingerprint Suite</Heading>
                         </Link>
                         <Text color={theme.color.neutral.textMuted}>
                             Browser fingerprinting tools for anonymizing your
