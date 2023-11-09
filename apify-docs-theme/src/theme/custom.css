@@ -603,7 +603,7 @@ aside button[class*="collapseSidebarButton"] svg {
 
 nav.navbar .dropdown__menu {
     min-width: 96px;
-    margin-top: 1rem;
+    padding-top: 1rem;
 }
 
 .navbar__logo {
