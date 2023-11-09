@@ -21,6 +21,11 @@ jobs:
                 uses: actions/setup-node@v4
                 with:
                     node-version: 18
+                    cache: 'npm'
+                    cache-dependency-path: 'package-lock.json'
+                    always-auth: 'true'
+                    registry-url: 'https://npm.pkg.github.com/'
+                    scope: '@apify-packages'
 
             -   name: Build docs
                 run: |
@@ -28,6 +33,7 @@ jobs:
                     npm run build
                 env:
                     APIFY_SIGNING_TOKEN: ${{ secrets.APIFY_SIGNING_TOKEN }}
+                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             -   name: Set up GitHub Pages
                 uses: actions/configure-pages@v3
