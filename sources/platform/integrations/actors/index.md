@@ -13,6 +13,8 @@ slug: /integrations/actors
 
 Actor integrations provide a way to connect your Actors with other Actors or tasks easily. They provide a new level of flexibility, as adding a new integration simply means creating [integration-ready Actors](/platform/integrations/actors/integration-ready-actors). Thus, new integrations can be created by the community itself.
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zExnYbvFoBM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## How to integrate an Actor with other Actors?
 
 To integrate one Actor with another:
