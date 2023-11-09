@@ -1,3 +1,24 @@
 .section {
-    margin-bottom: 64px;
+    max-width: 327px;
+    margin: 0 auto 64px auto;
+}
+
+.sectionHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 2.4rem;
+}
+
+@media (min-width: 768px) {
+    .section { max-width: 738px; }
+}
+
+@media (min-width: 1024px) {
+    .section { max-width: 896px; }
+}
+
+@media (min-width: 1440px) {
+    .section { max-width: 1200px; }
 }
