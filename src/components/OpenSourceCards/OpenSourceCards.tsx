@@ -39,7 +39,7 @@ const OpenSourceCards: React.FC = () => {
                             <Heading type="titleM">Crawlee</Heading>
                         </Link>
                         <Text color={theme.color.neutral.textMuted}>
-                            A web scraping and browser automation library.
+                            A popular web scraping and browser automation library.
                         </Text>
                         <GitHubButton
                             href="https://github.com/apify/crawlee"
