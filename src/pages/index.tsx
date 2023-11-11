@@ -169,7 +169,7 @@ export default function Home() {
                         <CardWithIcon
                             icon={<Security />}
                             title="Security"
-                            description="Learn about the Apify platform security and data protection."
+                            description="Learn about Apify platform security and data protection."
                             to="/platform/security"
                         />
                     </div>
