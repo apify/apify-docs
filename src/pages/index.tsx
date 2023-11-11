@@ -269,7 +269,7 @@ export default function Home() {
                         <CardWithIcon
                             icon={<ApifyPlatformCourse />}
                             title="Introduction to the Apify platform"
-                            description="Learn basics of the Apify platform and how to use it for your scraping projects."
+                            description="Learn the basics of the Apify platform and how to use it for your scraping projects."
                             to="/academy/apify-platform"
                         />
                         <CardWithIcon
