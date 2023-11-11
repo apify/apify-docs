@@ -77,7 +77,7 @@ export default function Home() {
                         <div className={styles.bannerContentDescription}>
                             <Heading type="titleXl">Getting started</Heading>
                             <Text size='medium' color={theme.color.neutral.textMuted}>
-                                Apify is all about Actors—a new way to package cloud software to make it easy to share, integrate, and build upon.
+                                Apify is all about Actors—a new way to package your code to make it easy to share, integrate, and build upon.
                             </Text>
                             <ThemedImage
                                 className={styles.bannerContentImage}
@@ -133,7 +133,7 @@ export default function Home() {
                         <CardWithIcon
                             icon={<Storage />}
                             title="Storage"
-                            description="Store and export results of your web scraping and crawling jobs."
+                            description="Store files and results of your web scraping jobs, and export it to various formats."
                             to="/platform/storage"
                         />
                         <CardWithIcon
@@ -191,12 +191,12 @@ export default function Home() {
                             <div className={styles.cardContentWrapper}>
                                 <Heading type='titleXl' as="h3">SDK</Heading>
                                 <Text color={theme.color.neutral.textMuted}>
-                                    A software toolkit for developing new Actors.
+                                    Software toolkits for developing new Actors.
                                 </Text>
                                 <Text>
                                     <ul className={styles.cardContentList}>
-                                        <li><Link to={new URL('/sdk/python', siteConfig.url).href}>SDK for Python</Link></li>
                                         <li><Link to={new URL('/sdk/js', siteConfig.url).href}>SDK for JavaScript</Link></li>
+                                        <li><Link to={new URL('/sdk/python', siteConfig.url).href}>SDK for Python</Link></li>
                                     </ul>
                                 </Text>
                             </div>
@@ -220,9 +220,9 @@ export default function Home() {
                                 </Text>
                                 <Text>
                                     <ul className={styles.cardContentList}>
-                                        <li><Link to={new URL('/api/v2', siteConfig.url).href}>API Reference</Link></li>
-                                        <li><Link to={new URL('/api/client/js', siteConfig.url).href}>API client for Python</Link></li>
                                         <li><Link to={new URL('/api/client/python', siteConfig.url).href}>API client for JavaScript</Link></li>
+                                        <li><Link to={new URL('/api/client/js', siteConfig.url).href}>API client for Python</Link></li>
+                                        <li><Link to={new URL('/api/v2', siteConfig.url).href}>API Reference</Link></li>
                                     </ul>
                                 </Text>
                             </div>
@@ -255,7 +255,7 @@ export default function Home() {
                 </div>
             </Section>
             <Section
-                heading="Academy"
+                heading="Web scraping Academy"
                 description='Free practical courses on web scraping and browser automation. Go from beginner to expert, all in one place.'
             >
                 <div className={styles.sectionLayoutWrapper}>
@@ -297,7 +297,7 @@ export default function Home() {
                             to="/academy/deploying-your-code"
                         />
                     </div>
-                    <Link to='/academy' className="actionLink">Go to Apify Academy</Link>
+                    <Link to='/academy' className="actionLink">Go to Academy</Link>
                 </div>
             </Section>
             <Section
