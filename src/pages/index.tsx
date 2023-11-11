@@ -256,7 +256,7 @@ export default function Home() {
             </Section>
             <Section
                 heading="Academy"
-                description='Free practical courses of web scraping and browser automation. Go from beginner to expert, all in one place.'
+                description='Free practical courses on web scraping and browser automation. Go from beginner to expert, all in one place.'
             >
                 <div className={styles.sectionLayoutWrapper}>
                     <div className={styles.cards}>
