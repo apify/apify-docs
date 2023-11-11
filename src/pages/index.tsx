@@ -263,7 +263,7 @@ export default function Home() {
                         <CardWithIcon
                             icon={<WebScrapingForBeginners />}
                             title="Web scraping for beginners"
-                            description="Learn basics of web scraping and how to develop your own scraper."
+                            description="Learn the basics of web scraping and how to develop your own scraper."
                             to="/academy/web-scraping-for-beginners"
                         />
                         <CardWithIcon
