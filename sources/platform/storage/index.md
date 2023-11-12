@@ -31,3 +31,4 @@ The Apify platform provides three types of storage accessible both within our [A
         to="/platform/storage/request-queue"
     />
 </CardGrid>
+

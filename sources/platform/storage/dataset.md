@@ -446,4 +446,4 @@ The rate limit for pushing data to a dataset through the [API](/api/v2#/referenc
 
 For all other dataset [API endpoints](/api/v2#/reference/datasets) , the rate limit is **30 requests per second** for each dataset.
 
-Consult the [API documentation](/api/v2#/introduction/rate-limiting) for more information and guidance on actinos to take if you exceed these rate limits.
+Check out the [API documentation](/api/v2#/introduction/rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.

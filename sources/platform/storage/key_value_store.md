@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-The key-value store is simple storage that can be used for storing any kind of data. It can be JSON or HTML documents, zip files, images, or simply strings. The data are stored along with their [MIME content type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
+The key-value store is simple storage that can be used for storing any kind of data. It can be JSON or HTML documents, zip files, images, or strings. The data are stored along with their [MIME content type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
 Each Actor run is assigned its own key-value store when it is created. The store contains the Actor's input, and, if necessary, other data such as its output.
 
@@ -185,7 +185,7 @@ Check out the [JavaScript API client documentation](/api/client/js/reference/cla
 
 ### Python API client
 
-Apify's [Python API client](/api/client/python/reference/class/KeyValueStoreClient) (`apify-client`) allows you to access your key-value stores from any Python application, whether it is running on the Apify platform or elsewhere.
+Apify's [Python API client](/api/client/python/reference/class/KeyValueStoreClient) (`apify-client`) allows you to access your key-value stores from any Python application, whether it is running on the Apify platform or externally.
 
 After importing and initiating the client, you can save each key-value store to a variable for easier access.
 
@@ -307,7 +307,7 @@ other_store_client = apify_client.key_value_store('jane-doe/old-store')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-See the [Storage overview](/platform/storage#sharing-storages-between-runs) for details on sharing storages between runs.
+Check out the [Storage overview](/platform/storage#sharing-storages-between-runs) for details on sharing storages between runs.
 
 ## Data consistency
 
@@ -316,5 +316,3 @@ Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. Accordi
 ## Limits
 
 * The maximum length for key-value store is 63 characters.
-
-### Rate limiting

@@ -164,4 +164,4 @@ or [request queue](/api/client/js/reference/class/RequestQueueClient) clients.
 [dataset](/api/client/python#datasetclient),
 [key-value store](/api/client/python/reference/class/KeyValueStoreClient),
 or [request queue](/api/client/python/reference/class/RequestQueueClient) clients.
-* [API](/api/v2#/reference/key-value-stores/store-object/delete-store) using the - **Delete [store]** endpoint, where **[store]** is the type of storage you want to delete.
+* [API](/api/v2#/reference/key-value-stores/store-object/delete-store) using the - `Delete [store]` endpoint, where `[store]` is the type of storage you want to delete.
