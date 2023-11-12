@@ -50,7 +50,7 @@ Click on the **API** button to view and test a queue's [API endpoints](/api/v2#/
 
 When working with a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/request-storage#request-queue) is an essential tool, especially for request queue management. The primary class for this purpose is the [`RequestQueue`](/sdk/js/reference/class/RequestQueue). Use this class to decide whether your data is stored locally or in the Apify cloud.
 
-Every Actor run is linked to a default request queue, that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily suppy the 
+
 
 If you are building a JavaScript [Actor](../actors/index.mdx), you will be using the [JavaScript SDK](/sdk/js/docs/guides/request-storage#request-queue). The request queue is represented by a [`RequestQueue`](/sdk/js/reference/class/RequestQueue) class. You can use the class to specify whether your data is stored locally or in the Apify cloud and [enqueue new URLs](/sdk/js/reference/class/RequestQueue#addRequests).
 
@@ -62,7 +62,7 @@ If you are storing your data locally, you can find your request queue at the fol
 {APIFY_LOCAL_STORAGE_DIR}/request_queues/{QUEUE_ID}/{ID}.json
 ```
 
-The default request queue's ID is **default**. Each request in the queue is stored as a separate JSON file, where {ID} is a request ID.
+The default request queue's ID is *default*. Each request in the queue is stored as a separate JSON file, where {ID} is a request ID.
 
 To open a request queue, use the [`Actor.openRequestQueue()`](/sdk/js/reference/class/Actor#openRequestQueue) method.
 
@@ -134,9 +134,9 @@ If you are storing your data locally, you can find your request queue at the fol
 {APIFY_LOCAL_STORAGE_DIR}/request_queues/{QUEUE_ID}/{ID}.json
 ```
 
-The default request queue's ID is **default**. Each request in the queue is stored as a separate JSON file, where {ID} is a request ID.
+The default request queue's ID is *default*. Each request in the queue is stored as a separate JSON file, where {ID} is a request ID.
 
-To **open a request queue**, use the [`Actor.open_request_queue()`](/sdk/python/reference/class/Actor#open_request_queue) method.
+To *open a request queue*, use the [`Actor.open_request_queue()`](/sdk/python/reference/class/Actor#open_request_queue) method.
 
 ```python
 from apify import Actor
@@ -185,7 +185,7 @@ Check out the [Python SDK documentation](/sdk/python/docs/guides/request-storage
 
 ### JavaScript API client {#javascript-api-client}
 
-Apify's [JavaScript API client](/api/client/js/reference/class/RequestQueueClient) (`apify-client`) enables you to access your request queues from any Node.js application, whether it is running on the Apify platform or externally.
+The Apify [JavaScript API client](/api/client/js/reference/class/RequestQueueClient) (`apify-client`) enables you to access your request queues from any Node.js application, whether it is running on the Apify platform or externally.
 
 After importing and initiating the client, you can save each request queue to a variable for easier access.
 
@@ -199,7 +199,7 @@ Check out the [JavaScript API client documentation](/api/client/js/reference/cla
 
 ### Python API client {#python-api-client}
 
-Apify's [Python API client](/api/client/python) (`apify-client`) allows you to access your request queues from any Python application, whether it is running on the Apify platform or externally.
+The Apify [Python API client](/api/client/python) (`apify-client`) allows you to access your request queues from any Python application, whether it is running on the Apify platform or externally.
 
 After importing and initiating the client, you can save each request queue to a variable for easier access.
 
@@ -219,25 +219,25 @@ If you are accessing your datasets using the `username~store-name` [store ID for
 
 > When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/api.md#authentication)).
 
-To get a list of your request queues, send a `GET` request to the [Get list of request queues](/api/v2#/reference/request-queues/store-collection/get-list-of-request-queues) endpoint.
+To get a list of your request queues, send a GET request to the [Get list of request queues](/api/v2#/reference/request-queues/store-collection/get-list-of-request-queues) endpoint.
 
 ```text
 https://api.apify.com/v2/request-queues
 ```
 
-To get information about a request queue such as its creation time and item count, send a `GET` request to the [Get request queue](/api/v2#/reference/request-queues/queue/get-request-queue) endpoint.
+To get information about a request queue such as its creation time and item count, send a GET request to the [Get request queue](/api/v2#/reference/request-queues/queue/get-request-queue) endpoint.
 
 ```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}
 ```
 
-To get a request from a queue, send a `GET` request to the [Get request](/api/v2#/reference/request-queues/request/get-request) endpoint.
+To get a request from a queue, send a GET request to the [Get request](/api/v2#/reference/request-queues/request/get-request) endpoint.
 
 ```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}
 ```
 
-To add a request to a queue, send a `POST` request with the request to be added as a JSON object in the request's payload to the [Add request](/api/v2#/reference/request-queues/request-collection/add-request) endpoint.
+To add a request to a queue, send a POST request with the request to be added as a JSON object in the request's payload to the [Add request](/api/v2#/reference/request-queues/request-collection/add-request) endpoint.
 
 ```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests
@@ -253,7 +253,7 @@ Example payload:
 }
 ```
 
-To update a request in a queue, send a `PUT` request with the request to update as a JSON object in the request's payload to the [Update request](/api/v2#/reference/request-queues/request/update-request) endpoint. In the payload, specify the request's ID and add the information you want to update.
+To update a request in a queue, send a PUT request with the request to update as a JSON object in the request's payload to the [Update request](/api/v2#/reference/request-queues/request/update-request) endpoint. In the payload, specify the request's ID and add the information you want to update.
 
 ```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}

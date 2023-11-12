@@ -14,12 +14,12 @@ slug: /storage/usage
 
 There are several ways to access your storage:
 
-* [Apify Console](https://console.apify.com/storage) - provides an easy-to-use interface [[details](#apify-console)].
-* JavaScript SDK ([Request storage](/sdk/js/docs/guides/request-storage), [Result storage](/sdk/js/docs/guides/result-storage)) - when building your own JavaScript Actor, check [[details](#javascript-sdk-and-crawlee)].
-* Python SDK ([Working with storages](/sdk/python/docs/concepts/storages)) - when building your own Python Actor, check [[detail](#python-sdk)].
-* [JavaScript API client](/api/client/js) - to access your storages from any Node.js application, check [[details](#javascript-api-client)].
-* [Python API client](/api/client/python) - to access your storages from any Python application, check [[details](#python-api-client)].
-* [Apify API](/api/v2#/reference/key-value-stores) - for accessing your storages programmatically, check [[details](#apify-api)].
+* [Apify Console](https://console.apify.com/storage) - provides an easy-to-use interface.
+* JavaScript SDK ([Request storage](/sdk/js/docs/guides/request-storage), [Result storage](/sdk/js/docs/guides/result-storage)) - when building your own JavaScript Actor.
+* Python SDK ([Working with storages](/sdk/python/docs/concepts/storages)) - when building your own Python Actor.
+* [JavaScript API client](/api/client/js) - to access your storages from any Node.js application,.
+* [Python API client](/api/client/python) - to access your storages from any Python application,.
+* [Apify API](/api/v2#/reference/key-value-stores) - for accessing your storages programmatically.
 
 ### Apify Console {#apify-console}
 
@@ -35,7 +35,7 @@ Additionally, you can quickly share the contents and details of your storage by 
 
 ![Storage API](./images/overview-api.png)
 
-These URLs link to API **endpoints**—the places where your data are stored. Endpoints that allow you to **read** stored information do not require an [authentication token](/api/v2#/introduction/authentication). Calls are authenticated using a hard-to-guess ID, allowing for secure sharing. However operations such as **update** or **delete** require the authentication token.
+These URLs link to API *endpoints*—the places where your data are stored. Endpoints that allow you to *read* stored information do not require an [authentication token](/api/v2#/introduction/authentication). Calls are authenticated using a hard-to-guess ID, allowing for secure sharing. However operations such as *update* or *delete* require the authentication token.
 
 > Never share a URL containing your authentication token, to avoid compromising your account's security. <br/>
 > If the data you want to share requires a token, first download the data, then share it as a file.
@@ -64,28 +64,28 @@ Go to the [client's documentation](/api/client/python/docs/quick-start) for help
 
 The [Apify API](/api/v2#/reference/key-value-stores) allows you to access your storages programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
 
-In most cases, when accessing your storages via API, you will need to provide a **store ID**, which you can do in the following formats:
+In most cases, when accessing your storages via API, you will need to provide a `store ID`, which you can do in the following formats:
 
-* **WkzbQMuFYuamGv3YF** - the store's alphanumerical ID if the store is unnamed.
-* **~store-name** - the store's name prefixed with tilde (`~`) character if the store is named (e.g. **~ecommerce-scraping-results**)
-* **username~store-name** - username and the store's name separated by a tilde (`~`) character if the store is named and belongs to a different account (e.g. **janedoe~ecommerce-scraping-results**). Note that in this case, the store's owner needs to grant you access first.
+* `WkzbQMuFYuamGv3YF` - the store's alphanumerical ID if the store is unnamed.
+* `~store-name` - the store's name prefixed with tilde (`~`) character if the store is named (e.g. `~ecommerce-scraping-results`)
+* `username~store-name` - username and the store's name separated by a tilde (`~`) character if the store is named and belongs to a different account (e.g. `janedoe~ecommerce-scraping-results`). Note that in this case, the store's owner needs to grant you access first.
 
 For read (GET) requests, it is enough to use a store's alphanumerical ID, since the ID is hard to guess and effectively serves as an authentication key.
 
-With other request types and when using the **username~store-name**, however, you will need to provide your secret API token in your request's [`Authorization`](/api/v2#/introduction/authentication) header or as a query parameter. You can find your token on the [Integrations](https://console.apify.com/account?tab=integrations) page of your Apify account.
+With other request types and when using the `username~store-name`, however, you will need to provide your secret API token in your request's [`Authorization`](/api/v2#/introduction/authentication) header or as a query parameter. You can find your token on the [Integrations](https://console.apify.com/account?tab=integrations) page of your Apify account.
 
 For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2#/reference/datasets).
 
 ## Rate limiting {#rate-limiting}
 
-All API endpoints limit their rate of requests to protect Apify servers from overloading. The default rate limit for storage objects is **30** requests per second. However, there are exceptions limited to **200** requests per second per storage object, including:
+All API endpoints limit their rate of requests to protect Apify servers from overloading. The default rate limit for storage objects is *30 requests per second*. However, there are exceptions limited to *200 requests per second* per storage object, including:
 
 * [Push items](/api/v2#/reference/datasets/item-collection/put-items) to dataset.
 * CRUD ([add](/api/v2#/reference/request-queues/request-collection/add-request),
 [get](/api/v2#/reference/request-queues/request-collection/get-request),
 [update](/api/v2#/reference/request-queues/request-collection/update-request),
 [delete](/api/v2#/reference/request-queues/request-collection/delete-request))
-operations of **request queue** requests.
+operations of *request queue* requests.
 
 If a client exceeds this limit, the API endpoints responds with the HTTP status code `429 Too Many Requests` and the following body:
 
@@ -113,13 +113,13 @@ To ensure indefinite retention of your storages, assign them a name. This can be
 
 Find and open your storage by clicking the ID, click on the **Actions** menu, choose **Rename**, and enter its new name in the field. Your storage will now be preserved indefinitely.
 
-To name your storage via API, get its ID from the run that generated it using the [Get run](/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run) endpoint. You can then give it a new name using the **Update \[storage\]** endpoint. For example, [Update dataset](/api/v2#/reference/datasets/dataset/update-dataset).
+To name your storage via API, get its ID from the run that generated it using the [Get run](/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run) endpoint. You can then give it a new name using the `Update \[storage\]` endpoint. For example, [Update dataset](/api/v2#/reference/datasets/dataset/update-dataset).
 
 The [JavaScript SDK](/sdk/js), The [Python SDK](/sdk/python), the [JavaScript](/api/client/js/) and [Python](/api/client/python/) clients have their own ways of naming storages - check their docs for details.
 
 ## Named and unnamed storages {#named-and-unnamed-storages}
 
-The default storages for an Actor run are unnamed, identified only by an **ID**. This allows them to expire after 7 days (or longer on paid plans) conserving your storage space. If you want to preserve a storage, [assign it a name](#preserving-storages), and it will be retained indefinitely.
+The default storages for an Actor run are unnamed, identified only by an *ID*. This allows them to expire after 7 days (or longer on paid plans) conserving your storage space. If you want to preserve a storage, [assign it a name](#preserving-storages), and it will be retained indefinitely.
 
 > Storages' names can be up to 63 characters long.
 
@@ -133,7 +133,7 @@ You can grant [access rights](../collaboration/index.md) to others Apify users t
 
 ### Sharing storages between runs {#sharing-storages-between-runs}
 
-Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run, provided you have its **name** or **ID**. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
+Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run, provided you have its *name* or *ID*. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
 [Datasets](./dataset.md) and [key-value stores](./key_value_store.md) support concurrent use by multiple Actors. Thus, several Actors or tasks can simultaneously write data to a single dataset or key-value store. Similarly, multiple runs can read data from datasets and key-value stores at the same time.
 

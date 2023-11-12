@@ -22,7 +22,7 @@ Typically, datasets comprises serults from web scraping, crawling, and data proc
 > Unnamed datasets expire after 7 days unless otherwise specified. <br/>
 > [Learn more](./index#named-and-unnamed-storages)
 
-Dataset storage is **append-only** - data can only be added and cannot be modified or deleted once stored.
+Dataset storage is *append-only* - data can only be added and cannot be modified or deleted once stored.
 
 ## Basic usage {#basic-usage}
 
@@ -63,7 +63,7 @@ If you have chosen to store your dataset locally, you can find it in the locatio
 {APIFY_LOCAL_STORAGE_DIR}/datasets/{DATASET_ID}/{INDEX}.json
 ```
 
-`DATASET_ID` refers to the dataset's **name** or **ID**. The default dataset will be stored in the **default** directory.
+`DATASET_ID` refers to the dataset's *name* or *ID*. The default dataset will be stored in the *default* directory.
 
 To add data to the default dataset, you can use the example below:
 
@@ -135,7 +135,7 @@ For datasets stored locally, the data is located at the following path:
 {APIFY_LOCAL_STORAGE_DIR}/datasets/{DATASET_ID}/{INDEX}.json
 ```
 
-The `DATASET_ID` refers to the dataset's **name** or **ID**. The default dataset will be stored in the **default** directory.
+The `DATASET_ID` refers to the dataset's *name* or *ID*. The default dataset will be stored in the *default* directory.
 
 To add data to the default dataset, you can use the example below:
 
@@ -210,7 +210,7 @@ You can then use that variable to [access the dataset's items and manage it](/ap
 
 > When using the [`.list_items()`](/api/client/python/reference/class/DatasetClient#list_items) method, if you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
 
-See the [Python API client documentation](/api/client/python/reference/class/DatasetClient) for [help with setup](/api/client/python/docs/quick-start) and more details.
+Check out the [Python API client documentation](/api/client/python/reference/class/DatasetClient) for [help with setup](/api/client/python/docs/quick-start) and more details.
 
 ### Apify API {#apify-api}
 
@@ -220,20 +220,19 @@ If you are accessing your datasets using the `username~store-name` [store ID for
 
 > When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/api.md#authentication)).
 
-To retrieve a list of you datasets, send a `GET` request to the [Get list of datasets](/api/v2#/reference/datasets/get-list-of-datasets) endpoint.
+To retrieve a list of you datasets, send a GET request to the [Get list of datasets](/api/v2#/reference/datasets/get-list-of-datasets) endpoint.
 
 ```text
 https://api.apify.com/v2/datasets
 ```
 
-To get information about a dataset such as its creation time and **item count**, send a `GET` request to the [Get dataset](/api/v2#/reference/datasets/dataset/get-dataset) endpoint.
+To get information about a dataset such as its creation time and item count, send a GET request to the [Get dataset](/api/v2#/reference/datasets/dataset/get-dataset) endpoint.
 
 ```text
 https://api.apify.com/v2/datasets/{DATASET_ID}
 ```
 
-To view a dataset's data, send a `GET` request to the
-[Get dataset items](/api/v2#/reference/datasets/item-collection/get-items) Apify API endpoint.
+To view a dataset's data, send a GET request to the [Get dataset items](/api/v2#/reference/datasets/item-collection/get-items) Apify API endpoint.
 
 ```text
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
@@ -245,7 +244,7 @@ Control the data export by appending a comma-separated list of fields to the `fi
 
 In addition, you can set the format in which you retrieve the data using the `?format=` parameter. The available formats are `json`, `jsonl`, `csv`, `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
 
-To retrieve the **hotel** and **cafe** fields, you would send your `GET` request to the URL below.
+To retrieve the `hotel` and `cafe` fields, you would send your GET request to the URL below.
 
 ```text
 https://api.apify.com/v2/datasets/{DATASET_ID}/items?format=json&fields=hotel%2Ccafe
@@ -253,13 +252,13 @@ https://api.apify.com/v2/datasets/{DATASET_ID}/items?format=json&fields=hotel%2C
 
 > Use `%2C` instead of commas for URL encoding, as `%2C` represent a comma. For morn on URL encoding check out [this page](https://www.url-encode-decode.com)
 
-To add data to a dataset, issue a `POST` request to the [Put items](/api/v2#/reference/datasets/item-collection/put-items) endpoint with the data as a JSON object payload.
+To add data to a dataset, issue a POST request to the [Put items](/api/v2#/reference/datasets/item-collection/put-items) endpoint with the data as a JSON object payload.
 
 ```text
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
-> API data push to a dataset is capped at **200 requests per second** to avoid overloading our servers.
+> API data push to a dataset is capped at *200 requests per second* to avoid overloading our servers.
 
 Example payload:
 
@@ -375,7 +374,7 @@ will be transformed to the following XML snippet:
 
 This feature is also useful when customizing your RSS feeds generated for various websites.
 
-By default, the whole result is wrapped in an `<items/>` element, while each page object is contained in an `<item/>` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when retrieviewing your data with a `GET` request.
+By default, the whole result is wrapped in an `<items/>` element, while each page object is contained in an `<item/>` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when retrieviewing your data with a GET request.
 
 ## Sharing {#sharing}
 
@@ -383,7 +382,7 @@ You can grant [access rights](../collaboration/index.md) to your dataset through
 
 ### Sharing datasets between runs {#sharing-datasets-between-runs}
 
-You can access a dataset from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
+You can access a dataset from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its *name* or *ID*.
 
 To access a dataset from another run using the [JavaScript SDK](/sdk/js) or the [Python SDK](/sdk/python), open it using the same method as you would with any other dataset.
 
@@ -434,7 +433,7 @@ See the [Storage overview](/platform/storage#sharing-storages-between-runs) for 
 
 ## Limits {#limits}
 
-* Data storage formats that use tabulation (like HTML, CSV, and EXCEL) are limited to a maximum of **3000** columns. Data exceeding this limit will not be retrieved.
+* Data storage formats that use tabulation (like HTML, CSV, and EXCEL) are limited to a maximum of *3000* columns. Data exceeding this limit will not be retrieved.
 
 * The `pushData()`method is constrained by the receiving API's size limit. It accepts objects with JSON size under *9MB*. While individual objects within an array must not exceed *9MB*, the overall size has no restriction.
 
@@ -442,8 +441,8 @@ See the [Storage overview](/platform/storage#sharing-storages-between-runs) for 
 
 ### Rate limiting {#rate-limiting}
 
-The rate limit for pushing data to a dataset through the [API](/api/v2#/reference/datasets/item-collection/put-items) is capped at **200 requests per second** for each dataset, a measure to prevent overloading APify servers.
+The rate limit for pushing data to a dataset through the [API](/api/v2#/reference/datasets/item-collection/put-items) is capped at *200 requests per second* for each dataset, a measure to prevent overloading APify servers.
 
-For all other dataset [API endpoints](/api/v2#/reference/datasets) , the rate limit is **30 requests per second** for each dataset.
+For all other dataset [API endpoints](/api/v2#/reference/datasets) , the rate limit is *30 requests per second* for each dataset.
 
 Check out the [API documentation](/api/v2#/introduction/rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.

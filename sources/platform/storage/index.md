@@ -17,17 +17,17 @@ The Apify platform provides three types of storage accessible both within our [A
 <CardGrid>
     <Card
         title="Dataset"
-        desc="Dataset storage for data objects such as scraping output."
+        desc="Stores results from web scraping and data processing, with each Actor run getting a unique dataset. Features include table-like data visualization and multiple export formats like JSON and Excel."
         to="/platform/storage/dataset"
     />
     <Card
         title="Key-value store"
-        desc="The key-value store is simple storage for arbitrary data records such as files, images, and strings."
+        desc="Stores various data types like JSON, HTML, images, and strings. Accessible via Apify Console or API, it's ideal for diverse data storage needs.​"
         to="/platform/storage/key-value-store"
     />
     <Card
         title="Request queue"
-        desc="Request queue storage is a queue of URLs for your Actors to visit."
+        desc="Manages URL processing for web crawling and other tasks. Supports different crawling orders and allows for querying and updating URLs, accessible via Apify Console or API​."
         to="/platform/storage/request-queue"
     />
 </CardGrid>
