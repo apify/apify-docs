@@ -1,6 +1,6 @@
 ---
 title: Usage
-description: 
+description: Learn how to effectively use Apify's storage options. Understand key aspects of data retention, rate limiting, and secure sharing.
 sidebar_position: 9.2
 category: platform
 slug: /storage/usage
