@@ -1,7 +1,7 @@
 ---
 title: Dataset
 description: Store and export web scraping, crawling or data processing job results. Learn how to access and manage datasets in Apify Console or via API.
-sidebar_position: 9.1
+sidebar_position: 9.2
 slug: /storage/dataset
 ---
 
@@ -53,7 +53,9 @@ Utilize the **Actions** menu to modify the dataset's name, which also affects it
 
 ### JavaScript SDK {#javascript-sdk}
 
-In developing a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#dataset) is your primary tool for managing datasets. It streamlines the process of storing and retrieving data, ensuring seamless integration with your Actor's workflow. The SDK's dataset manipulatón features include appending data, retrieving stored data, and managing dataset properties effectively. The dataset is represented by a [`Dataset`](/sdk/js/reference/class/Dataset) class. You can use the class to specify whether your data is stored locally or in the Apify cloud and push data to the datasets of your choice using the [`pushData()`](/sdk/js/reference/class/Dataset#pushData) method. You could also use other methods such as [`getData()`](/sdk/js/reference/class/Dataset#getData), [`map()`](/sdk/js/reference/class/Dataset#map) and [`reduce()`](/sdk/js/reference/class/Dataset#reduce), see the [example](/sdk/js/docs/examples/map-and-reduce).
+When working with a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#dataset) is an essential tool, especially for dataset management. It simplifies the tasks of storing and retrieving data, seamlessly integrating with the Actor's workflow. Key features of the SDK include the ability to append data, retrieve what is stored, and manage dataset properties effectively. Central to this functionality is the [`Dataset`](/sdk/js/reference/class/Dataset) class. This class allows you to determine where your data is stored - locally or in the Apify cloud. To add data to your chosen datasets, use the [`pushData()`](/sdk/js/reference/class/Dataset#pushData) method.
+
+Additionaly the SDK offers other methods like [`getData()`](/sdk/js/reference/class/Dataset#getData), [`map()`](/sdk/js/reference/class/Dataset#map) and [`reduce()`](/sdk/js/reference/class/Dataset#reduce), and [`reduce()`](/sdk/js/reference/class/Dataset#reduce). For practical applications of these methods, refer to the [example section](/sdk/js/docs/examples/map-and-reduce).
 
 If you have chosen to store your dataset locally, you can find it in the location below.
 
@@ -125,7 +127,7 @@ See the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#datase
 
 ### Python SDK {#python-sdk}
 
-For Python [Actors](../actors/index.mdx), the [Python SDK](/sdk/python/docs/concepts/storages#working-with-datasets) is essential. The dataset is represented by a [`Dataset`](/sdk/python/reference/class/Dataset) class. You can use the class to specify whether your data is stored locally or in the Apify cloud and push data to the datasets of your choice using the [`push_data()`](/sdk/python/reference/class/Dataset#push_data) method. For further data manipulation you could also use other methods such as [`get_data()`](/sdk/python/reference/class/Dataset#get_data), [`map()`](/sdk/python/reference/class/Dataset#map) and [`reduce()`](/sdk/python/reference/class/Dataset#reduce).
+For Python [Actors](../actors/index.mdx), the [Python SDK](/sdk/python/docs/concepts/storages#working-with-datasets) is essential. The dataset is represented by a [`Dataset`](/sdk/python/reference/class/Dataset) class. You can use this class to specify whether your data is stored locally or in the Apify cloud and push data to the datasets of your choice using the [`push_data()`](/sdk/python/reference/class/Dataset#push_data) method. For further data manipulation you could also use other methods such as [`get_data()`](/sdk/python/reference/class/Dataset#get_data), [`map()`](/sdk/python/reference/class/Dataset#map) and [`reduce()`](/sdk/python/reference/class/Dataset#reduce).
 
 For datasets stored locally, the data is located at the following path:
 
@@ -216,7 +218,7 @@ The [Apify API](/api/v2#/reference/datasets) enables you progammatic access to y
 
 If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your [secret API token](../integrations/index.mdx#api-token). You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations)tab of **Settings** page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](#introduction/authentication)).
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/api.md#authentication)).
 
 To retrieve a list of you datasets, send a `GET` request to the [Get list of datasets](/api/v2#/reference/datasets/get-list-of-datasets) endpoint.
 
@@ -230,7 +232,7 @@ To get information about a dataset such as its creation time and **item count**,
 https://api.apify.com/v2/datasets/{DATASET_ID}
 ```
 
-To **view a dataset's data**, send a `GET` request to the
+To view a dataset's data, send a `GET` request to the
 [Get dataset items](/api/v2#/reference/datasets/item-collection/get-items) Apify API endpoint.
 
 ```text
@@ -243,7 +245,7 @@ Control the data export by appending a comma-separated list of fields to the `fi
 
 In addition, you can set the format in which you retrieve the data using the `?format=` parameter. The available formats are `json`, `jsonl`, `csv`, `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
 
-To retrieve the **hotel** and **cafe** fields, you would send your GET request to the URL below.
+To retrieve the **hotel** and **cafe** fields, you would send your `GET` request to the URL below.
 
 ```text
 https://api.apify.com/v2/datasets/{DATASET_ID}/items?format=json&fields=hotel%2Ccafe
@@ -432,11 +434,11 @@ See the [Storage overview](/platform/storage#sharing-storages-between-runs) for 
 
 ## Limits {#limits}
 
-* DAta storage formats that use tabulation (like HTML, CSV, and EXCEL) are limited to a maximum of **3000** columns. Data exceeding this limit will not be retrieved.
+* Data storage formats that use tabulation (like HTML, CSV, and EXCEL) are limited to a maximum of **3000** columns. Data exceeding this limit will not be retrieved.
 
 * The `pushData()`method is constrained by the receiving API's size limit. It accepts objects with JSON size under *9MB*. While individual objects within an array must not exceed *9MB*, the overall size has no restriction.
 
-* The maximum length for dataset names in 63 characters.
+* The maximum length for dataset names is 63 characters.
 
 ### Rate limiting {#rate-limiting}
 
