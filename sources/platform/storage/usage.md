@@ -54,7 +54,7 @@ Additionally, you can quickly share the contents and details of your storage by 
 
 ![Storage API](./images/overview-api.png)
 
-These URLs link to API *endpoints*—the places where your data are stored. Endpoints that allow you to *read* stored information do not require an [authentication token](/api/v2#/introduction/authentication). Calls are authenticated using a hard-to-guess ID, allowing for secure sharing. However operations such as *update* or *delete* require the authentication token.
+These URLs link to API *endpoints*—the places where your data are stored. Endpoints that allow you to _read_ stored information do not require an [authentication token](/api/v2#/introduction/authentication). Calls are authenticated using a hard-to-guess ID, allowing for secure sharing. However operations such as _update_ or _delete_ require the authentication token.
 
 > Never share a URL containing your authentication token, to avoid compromising your account's security. <br/>
 > If the data you want to share requires a token, first download the data, then share it as a file.
@@ -104,7 +104,7 @@ All API endpoints limit their rate of requests to protect Apify servers from ove
 [get](/api/v2#/reference/request-queues/request-collection/get-request),
 [update](/api/v2#/reference/request-queues/request-collection/update-request),
 [delete](/api/v2#/reference/request-queues/request-collection/delete-request))
-operations of *request queue* requests.
+operations of _request queue_ requests.
 
 If a client exceeds this limit, the API endpoints responds with the HTTP status code `429 Too Many Requests` and the following body:
 
@@ -148,7 +148,7 @@ Clients:
 
 ## Named and unnamed storages {#named-and-unnamed-storages}
 
-The default storages for an Actor run are unnamed, identified only by an *ID*. This allows them to expire after 7 days (or longer on paid plans) conserving your storage space. If you want to preserve a storage, [assign it a name](#preserving-storages), and it will be retained indefinitely.
+The default storages for an Actor run are unnamed, identified only by an _ID_. This allows them to expire after 7 days (or longer on paid plans) conserving your storage space. If you want to preserve a storage, [assign it a name](#preserving-storages), and it will be retained indefinitely.
 
 > Storages' names can be up to 63 characters long.
 
@@ -162,7 +162,7 @@ You can grant [access rights](../collaboration/index.md) to others Apify users t
 
 ### Sharing storages between runs {#sharing-storages-between-runs}
 
-Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run, provided you have its *name* or *ID*. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
+Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run, provided you have its _name_ or _ID_. You can access and manage storages from other runs using the same methods or endpoints as with storages from your current run.
 
 [Datasets](./dataset.md) and [key-value stores](./key_value_store.md) support concurrent use by multiple Actors. Thus, several Actors or tasks can simultaneously write data to a single dataset or key-value store. Similarly, multiple runs can read data from datasets and key-value stores at the same time.
 

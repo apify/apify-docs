@@ -63,7 +63,7 @@ If you have chosen to store your dataset locally, you can find it in the locatio
 {APIFY_LOCAL_STORAGE_DIR}/datasets/{DATASET_ID}/{INDEX}.json
 ```
 
-`DATASET_ID` refers to the dataset's *name* or *ID*. The default dataset will be stored in the *default* directory.
+`DATASET_ID` refers to the dataset's _name_ or _ID_. The default dataset will be stored in the _default_ directory.
 
 To add data to the default dataset, you can use the example below:
 
@@ -135,7 +135,7 @@ For datasets stored locally, the data is located at the following path:
 {APIFY_LOCAL_STORAGE_DIR}/datasets/{DATASET_ID}/{INDEX}.json
 ```
 
-The `DATASET_ID` refers to the dataset's *name* or *ID*. The default dataset will be stored in the *default* directory.
+The `DATASET_ID` refers to the dataset's _name_ or _ID_. The default dataset will be stored in the _default_ directory.
 
 To add data to the default dataset, you can use the example below:
 
@@ -382,7 +382,7 @@ You can grant [access rights](../collaboration/index.md) to your dataset through
 
 ### Sharing datasets between runs {#sharing-datasets-between-runs}
 
-You can access a dataset from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its *name* or *ID*.
+You can access a dataset from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
 
 To access a dataset from another run using the [JavaScript SDK](/sdk/js) or the [Python SDK](/sdk/python), open it using the same method as you would with any other dataset.
 
@@ -442,14 +442,14 @@ See the [Storage overview](/platform/storage#sharing-storages-between-runs) for 
 
 * Data storage formats that use tabulation (like HTML, CSV, and EXCEL) are limited to a maximum of *3000* columns. Data exceeding this limit will not be retrieved.
 
-* The `pushData()`method is constrained by the receiving API's size limit. It accepts objects with JSON size under *9MB*. While individual objects within an array must not exceed *9MB*, the overall size has no restriction.
+* The `pushData()`method is constrained by the receiving API's size limit. It accepts objects with JSON size under _9MB_. While individual objects within an array must not exceed _9MB_, the overall size has no restriction.
 
 * The maximum length for dataset names is 63 characters.
 
 ### Rate limiting {#rate-limiting}
 
-The rate limit for pushing data to a dataset through the [API](/api/v2#/reference/datasets/item-collection/put-items) is capped at *200 requests per second* for each dataset, a measure to prevent overloading APify servers.
+The rate limit for pushing data to a dataset through the [API](/api/v2#/reference/datasets/item-collection/put-items) is capped at _200 requests per second_ for each dataset, a measure to prevent overloading APify servers.
 
-For all other dataset [API endpoints](/api/v2#/reference/datasets) , the rate limit is *30 requests per second* for each dataset.
+For all other dataset [API endpoints](/api/v2#/reference/datasets) , the rate limit is _30 requests per second_ for each dataset.
 
 Check out the [API documentation](/api/v2#/introduction/rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.

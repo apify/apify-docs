@@ -53,9 +53,9 @@ When working with a Javascript [Actor](../actors/index.mdx), the [JavaScript SDK
 
 Additionally, you can iterate over the keys in your store using the [`forEachKey()`](/sdk/js/reference/class/KeyValueStore#forEachKey) method.
 
-Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](../actors/running/input_and_output.md) by placing an *INPUT.json* file in the corresponding directory of the default key-value store. This method ensures that you Actor has all the necessary data readily available for its execution.
+Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that you Actor has all the necessary data readily available for its execution.
 
-You can find *INPUT.json* and other key-value store files in the location below.
+You can find _INPUT.json_ and other key-value store files in the location below.
 
 ```text
 {APIFY_LOCAL_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}
@@ -113,7 +113,7 @@ await Actor.setValue(
 await Actor.exit();
 ```
 
-The `Actor.getInput()` method is not only a shortcut to `Actor.getValue('INPUT')`; it is also compatible with [`Actor.metamorph()`](../actors/development/programming_interface/metamorph.md). This is because a metamorphed Actor run's input is stored in the *INPUT-METAMORPH-1* key instead of *INPUT*, which hosts the original input.
+The `Actor.getInput()` method is not only a shortcut to `Actor.getValue('INPUT')`; it is also compatible with [`Actor.metamorph()`](../actors/development/programming_interface/metamorph.md). This is because a metamorphed Actor run's input is stored in the _INPUT-METAMORPH-1_ key instead of _INPUT_, which hosts the original input.
 
 Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#key-value-store) and the `KeyValueStore` class's [API reference](/sdk/js/reference/class/KeyValueStore) for details on managing your key-value stores with the JavaScript SDK.
 
@@ -121,15 +121,15 @@ Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#
 
 For Python [Actor](../actors/index.mdx), the [Python SDK](/sdk/python/docs/concepts/storages#working-with-key-value-stores) is essential. The key-value store is represented by a [`KeyValueStore`](/sdk/python/reference/class/KeyValueStore) class. You can use this class to specify whether your data is stored locally or in the Apify cloud. For further data manipulation it offers [`get_value()`](/sdk/python/reference/class/KeyValueStore#get_value) and [`set_value()`](/sdk/python/reference/class/KeyValueStore#set_value) methods to retrieve and assign values, respectively.
 
-Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](../actors/running/input_and_output.md) by placing an *INPUT.json* file in the corresponding directory of the default key-value store. This method ensures that you Actor has all the necessary data readily available for its execution.
+Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that you Actor has all the necessary data readily available for its execution.
 
-You can find *INPUT.json* and other key-value store files in the location below.
+You can find _INPUT.json_ and other key-value store files in the location below.
 
 ```text
 {APIFY_LOCAL_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}
 ```
 
-The default key-value store's ID is *default*. The {KEY} is the record's *key* and {EXT} corresponds to the record value's MIME content type.
+The default key-value store's ID is _default_. The {KEY} is the record's *key* and {EXT} corresponds to the record value's MIME content type.
 
 To manage your key-value stores, you can use the following methods. See the `KeyValueStore` class [documentation](/sdk/python/reference/class/KeyValueStore) for the full list.
 
@@ -165,7 +165,7 @@ async def main():
         await Actor.set_value(key='OUTPUT', value=image_buffer, content_type='image/jpeg')
 ```
 
-The `Actor.get_input()` method is not only a shortcut to `Actor.get_value('INPUT')`; it is also compatible with [`Actor.metamorph()`](../actors/development/programming_interface/metamorph.md). This is because a metamorphed Actor run's input is stored in the *INPUT-METAMORPH-1* key instead of *INPUT*, which hosts the original input.
+The `Actor.get_input()` method is not only a shortcut to `Actor.get_value('INPUT')`; it is also compatible with [`Actor.metamorph()`](../actors/development/programming_interface/metamorph.md). This is because a metamorphed Actor run's input is stored in the _INPUT-METAMORPH-1_ key instead of _INPUT_, which hosts the original input.
 
 Check out the [Python SDK documentation](/sdk/python/docs/guides/result-storage#key-value-store) and the `KeyValueStore` class's [API reference](/sdk/python/reference/class/KeyValueStore) for details on managing your key-value stores with the Python SDK.
 
@@ -252,7 +252,7 @@ Previously, when using the [Put record](/api/v2#/reference/key-value-stores/reco
 
 You can compress a record and use the [Content-Encoding request header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding) to let our platform know which compression it uses. We recommend compressing large key-value records to save storage space and network traffic.
 
-*Using the [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) or our [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient#setRecord) automatically compresses your files.* We advise utilizing the JavaScript API client for data compression prior to server upload and decompression upon retrieval, minimizing storage costs.
+_Using the [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) or our [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient#setRecord) automatically compresses your files._ We advise utilizing the JavaScript API client for data compression prior to server upload and decompression upon retrieval, minimizing storage costs.
 
 ## Sharing
 
@@ -260,7 +260,7 @@ You can grant [access rights](../collaboration/index.md) to your dataset through
 
 ### Sharing key-value stores between runs
 
-You can access a key-value store from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its *name* or *ID*.
+You can access a key-value store from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
 
 To access a key-value store from another run using the [JavaScript SDK](/sdk/js) or the [Python SDK](/sdk/python), open it using the same method as you would do with any other store.
 

@@ -60,7 +60,7 @@ If you are storing your data locally, you can find your request queue at the fol
 {APIFY_LOCAL_STORAGE_DIR}/request_queues/{QUEUE_ID}/{ID}.json
 ```
 
-The default request queue's ID is *default*. Each request in the queue is stored as a separate JSON file, where `{ID}` is a request ID.
+The default request queue's ID is _default_. Each request in the queue is stored as a separate JSON file, where `{ID}` is a request ID.
 
 To open a request queue, use the [`Actor.openRequestQueue()`](/sdk/js/reference/class/Actor#openRequestQueue) method.
 
@@ -132,7 +132,7 @@ If you are storing your data locally, you can find your request queue at the fol
 {APIFY_LOCAL_STORAGE_DIR}/request_queues/{QUEUE_ID}/{ID}.json
 ```
 
-The default request queue's ID is *default*. Each request in the queue is stored as a separate JSON file, where `{ID}` is a request ID.
+The default request queue's ID is _default_. Each request in the queue is stored as a separate JSON file, where `{ID}` is a request ID.
 
 To *open a request queue*, use the [`Actor.open_request_queue()`](/sdk/python/reference/class/Actor#open_request_queue) method.
 
@@ -280,7 +280,7 @@ You can grant [access rights](../collaboration/index.md) to your dataset through
 
 ### Sharing request queues between runs {#sharing-request-queues-between-runs}
 
-You can access a request queue from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its *name* or *ID*.
+You can access a request queue from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
 
 To access a request queue from another run using the [JavaScript SDK](/sdk/js) or the [Python SDK](/sdk/python), open it using the same method like you would do with any other request queue.
 
@@ -338,7 +338,7 @@ Check out the [Storage overview](/platform/storage#sharing-storages-between-runs
 
 ## Limits {#limits}
 
-* While multiple Actor or task runs can *add new requests* to a queue concurrently, only one run can *process a queue* at any one time.
+* While multiple Actor or task runs can _add new requests_ to a queue concurrently, only one run can _process a queue_ at any one time.
 
 * The maximum legnth for request queue nams is 63 characters.
 
@@ -349,8 +349,8 @@ CRUD ([add](/api/v2#/reference/request-queues/request-collection/add-request),
 [get](/api/v2#/reference/request-queues/request-collection/get-request),
 [update](/api/v2#/reference/request-queues/request-collection/update-request),
 [delete](/api/v2#/reference/request-queues/request-collection/delete-request))
-operation requests are limited to **200 requests per second** per request queue. This helps protect Apify servers from being overloaded.
+operation requests are limited to _200 requests per second_ per request queue. This helps protect Apify servers from being overloaded.
 
-All other request queue API [endpoints](/api/v2#/reference/request-queues) are limited to **30 requests per second** per request queue.
+All other request queue API [endpoints](/api/v2#/reference/request-queues) are limited to _30 requests per second_ per request queue.
 
 Check out the [API documentation](/api/v2#/introduction/rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.
