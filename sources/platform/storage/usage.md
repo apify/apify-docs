@@ -54,7 +54,7 @@ Additionally, you can quickly share the contents and details of your storage by 
 
 ![Storage API](./images/overview-api.png)
 
-These URLs link to API *endpoints*—the places where your data are stored. Endpoints that allow you to _read_ stored information do not require an [authentication token](/api/v2#/introduction/authentication). Calls are authenticated using a hard-to-guess ID, allowing for secure sharing. However operations such as _update_ or _delete_ require the authentication token.
+These URLs link to API _endpoints_—the places where your data are stored. Endpoints that allow you to _read_ stored information do not require an [authentication token](/api/v2#/introduction/authentication). Calls are authenticated using a hard-to-guess ID, allowing for secure sharing. However operations such as _update_ or _delete_ require the authentication token.
 
 > Never share a URL containing your authentication token, to avoid compromising your account's security. <br/>
 > If the data you want to share requires a token, first download the data, then share it as a file.
@@ -97,7 +97,7 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 
 ## Rate limiting {#rate-limiting}
 
-All API endpoints limit their rate of requests to protect Apify servers from overloading. The default rate limit for storage objects is *30 requests per second*. However, there are exceptions limited to *200 requests per second* per storage object, including:
+All API endpoints limit their rate of requests to protect Apify servers from overloading. The default rate limit for storage objects is _30 requests per second_. However, there are exceptions limited to _200 requests per second_ per storage object, including:
 
 * [Push items](/api/v2#/reference/datasets/item-collection/put-items) to dataset.
 * CRUD ([add](/api/v2#/reference/request-queues/request-collection/add-request),

@@ -22,7 +22,7 @@ Typically, datasets comprises results from web scraping, crawling, and data proc
 > Unnamed datasets expire after 7 days unless otherwise specified. <br/>
 > [Learn more](./index#named-and-unnamed-storages)
 
-Dataset storage is *append-only* - data can only be added and cannot be modified or deleted once stored.
+Dataset storage is _append-only_ - data can only be added and cannot be modified or deleted once stored.
 
 ## Basic usage {#basic-usage}
 
@@ -258,7 +258,7 @@ To add data to a dataset, issue a POST request to the [Put items](/api/v2#/refer
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
-> API data push to a dataset is capped at *200 requests per second* to avoid overloading our servers.
+> API data push to a dataset is capped at _200 requests per second_ to avoid overloading our servers.
 
 Example payload:
 
@@ -440,7 +440,7 @@ See the [Storage overview](/platform/storage#sharing-storages-between-runs) for 
 
 ## Limits {#limits}
 
-* Data storage formats that use tabulation (like HTML, CSV, and EXCEL) are limited to a maximum of *3000* columns. Data exceeding this limit will not be retrieved.
+* Data storage formats that use tabulation (like HTML, CSV, and EXCEL) are limited to a maximum of _3000_ columns. Data exceeding this limit will not be retrieved.
 
 * The `pushData()`method is constrained by the receiving API's size limit. It accepts objects with JSON size under _9MB_. While individual objects within an array must not exceed _9MB_, the overall size has no restriction.
 

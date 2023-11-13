@@ -134,7 +134,7 @@ If you are storing your data locally, you can find your request queue at the fol
 
 The default request queue's ID is _default_. Each request in the queue is stored as a separate JSON file, where `{ID}` is a request ID.
 
-To *open a request queue*, use the [`Actor.open_request_queue()`](/sdk/python/reference/class/Actor#open_request_queue) method.
+To _open a request queue_, use the [`Actor.open_request_queue()`](/sdk/python/reference/class/Actor#open_request_queue) method.
 
 ```python
 from apify import Actor

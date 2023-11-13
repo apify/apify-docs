@@ -61,7 +61,7 @@ You can find _INPUT.json_ and other key-value store files in the location below.
 {APIFY_LOCAL_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}
 ```
 
-The default key-value store's ID is *default*. The `{KEY}` is the record's *key* and `{EXT}` corresponds to the record value's MIME content type.
+The default key-value store's ID is _default_. The `{KEY}` is the record's _key_ and `{EXT}` corresponds to the record value's MIME content type.
 
 To manage your key-value stores, you can use the following methods. See the `KeyValueStore` class's [API reference](/sdk/js/reference/class/KeyValueStore) for the full list.
 
@@ -129,7 +129,7 @@ You can find _INPUT.json_ and other key-value store files in the location below.
 {APIFY_LOCAL_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}
 ```
 
-The default key-value store's ID is _default_. The {KEY} is the record's *key* and {EXT} corresponds to the record value's MIME content type.
+The default key-value store's ID is _default_. The {KEY} is the record's _key_ and {EXT} corresponds to the record value's MIME content type.
 
 To manage your key-value stores, you can use the following methods. See the `KeyValueStore` class [documentation](/sdk/python/reference/class/KeyValueStore) for the full list.
 
@@ -248,7 +248,7 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 
 ## Compression
 
-Previously, when using the [Put record](/api/v2#/reference/key-value-stores/record/put-record) endpoint, every record was automatically compressed with Gzip before being uploaded. However, this process has been updated. *Now, record are stored exactly as you upload them.* This change means that it is up to you whether the record is stored compressed or uncompressed.
+Previously, when using the [Put record](/api/v2#/reference/key-value-stores/record/put-record) endpoint, every record was automatically compressed with Gzip before being uploaded. However, this process has been updated. _Now, record are stored exactly as you upload them._ This change means that it is up to you whether the record is stored compressed or uncompressed.
 
 You can compress a record and use the [Content-Encoding request header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding) to let our platform know which compression it uses. We recommend compressing large key-value records to save storage space and network traffic.
 
@@ -318,7 +318,7 @@ Check out the [Storage overview](/platform/storage#sharing-storages-between-runs
 
 ## Data consistency
 
-Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. According to the [S3 documentation](https://aws.amazon.com/s3/consistency/), it provides *strong read-after-write* consistency.
+Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. According to the [S3 documentation](https://aws.amazon.com/s3/consistency/), it provides _strong read-after-write_ consistency.
 
 ## Limits
 
