@@ -34,8 +34,8 @@ The [key-value store](./key_value_store.md) is ideal for saving data records suc
 There are several ways to access your storage:
 
 * [Apify Console](https://console.apify.com/storage) - provides an easy-to-use interface.
-* [JavaScript SDK](/api/sdk/js) - when building your own JavaScript Actor.
-* [Python SDK](/api/sdk/python) - when building your own Python Actor.
+* [JavaScript SDK](/sdk/js) - when building your own JavaScript Actor.
+* [Python SDK](/sdk/python) - when building your own Python Actor.
 * [JavaScript API client](/api/client/js) - to access your storages from any Node.js application.
 * [Python API client](/api/client/python) - to access your storages from any Python application.
 * [Apify API](/api/v2#/reference/key-value-stores) - to access your storages programmatically.
