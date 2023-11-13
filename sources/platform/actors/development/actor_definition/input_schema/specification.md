@@ -97,6 +97,8 @@ The input schema is a JSON file named **INPUT_SCHEMA.json**, placed in the root 
 | `properties`    | Object   | Yes       | This is an object mapping each field key <br/>to its specification.                                                                    |
 | `required`      | [String] | No        | An array of field keys that are required.                                                                                              |
 
+> Even though the structure of the Actor input schema is similar to JSON schema, there are a few important differences. Therefore, we cannot guarantee that JSON schema tooling will work correctly on input schema documents. For precise technical understanding of the matter, feel free to browse the code of the [@apify/input_schema](https://github.com/apify/apify-shared-js/tree/master/packages/input_schema/src) package.
+
 ## Fields
 
 Each field of your input is described under its key in `inputSchema.properties` object. The field might have `integer`, `string`, `array`, `object` or `boolean` type and its specification contains the following properties:
