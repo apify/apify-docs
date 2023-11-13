@@ -6,6 +6,9 @@ category: platform
 slug: /storage
 ---
 
+import Card from "@site/src/components/Card";
+import CardGrid from "@site/src/components/CardGrid";
+
 # Storage {#storage}
 
 **Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data on the Apify Console or via the API.**

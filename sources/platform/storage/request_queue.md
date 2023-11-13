@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 Request queues enable you to enqueue and retrieve requests such as URLs with an [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and other parameters. They prove essential not only in web crawling scenarios but also in any situation requiring the management of a large number of  URLs and the addition of new links.
 
-The storage system for request queues accomoodates both breadth-8irst and depth-first crawling stategies, along with the inclusion of custom data attributes. This system enables you to check if certain URLs have already been encountered, add new URLs to the queue, and retrieve the next set of URLs fo processing.
+The storage system for request queues accomoodates both breadth-first and depth-first crawling stategies, along with the inclusion of custom data attributes. This system enables you to check if certain URLs have already been encountered, add new URLs to the queue, and retrieve the next set of URLs fo processing.
 
 > Named request queues are retained indefinitely. <br/>
 > Unnamed request queues expire after 7 days unless otherwise specified.<br/>
@@ -41,14 +41,14 @@ In the [Apify Console](https://console.apify.com), you can view your request que
 
 To view a request queue, click on its **Queue ID**.
 Under the **Actions** menu, you can rename your queue's name (and, in turn, its
-[retention period](./index.md)) and [access rights](../collaboration/index.md) using the **Share** button.
+[retention period](./usage#named-and-unnamed-storages)) and [access rights](../collaboration/index.md) using the **Share** button.
 Click on the **API** button to view and test a queue's [API endpoints](/api/v2#/reference/request-queues).
 
 ![Request queues detail](./images/request-queue-detail.png)
 
 ### JavaScript SDK {#javascript-sdk}
 
-When working with a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/request-storage#request-queue) is an essential tool, especially for request queue management. The primary class for this purpose is the [`RequestQueue`](/sdk/js/reference/class/RequestQueue). Use this class to decide whether your data is stored locally or in the Apify cloud.
+When working with a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/request-storage#request-queue) is an essential tool, especially for request queue management. The primary class for this purpose is the [`RequestQueue`](/sdk/js/reference/class/RequestQueue) class. Use this class to decide whether your data is stored locally or in the Apify cloud.
 
 If you are building a JavaScript [Actor](../actors/index.mdx), you will be using the [JavaScript SDK](/sdk/js/docs/guides/request-storage#request-queue). The request queue is represented by a [`RequestQueue`](/sdk/js/reference/class/RequestQueue) class. You can use the class to specify whether your data is stored locally or in the Apify cloud and [enqueue new URLs](/sdk/js/reference/class/RequestQueue#addRequests).
 
@@ -60,7 +60,7 @@ If you are storing your data locally, you can find your request queue at the fol
 {APIFY_LOCAL_STORAGE_DIR}/request_queues/{QUEUE_ID}/{ID}.json
 ```
 
-The default request queue's ID is *default*. Each request in the queue is stored as a separate JSON file, where {ID} is a request ID.
+The default request queue's ID is *default*. Each request in the queue is stored as a separate JSON file, where `{ID}` is a request ID.
 
 To open a request queue, use the [`Actor.openRequestQueue()`](/sdk/js/reference/class/Actor#openRequestQueue) method.
 
@@ -122,9 +122,9 @@ Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/request-storage
 
 ### Python SDK {#python-sdk}
 
-For Python [Actor](../actors/index.mdx) development, the [Python SDK](/sdk/python/docs/concepts/storages#working-with-request-queues) the in essential. The request queue is represented by [`RequestQueue`](/sdk/python/reference/class/RequestQueue) a class. Utilize this class to determine whether your data is stored locally or  in the Apify cloud. For managing your data, it provides the capability to [enqueue new URLs](/sdk/python/reference/class/RequestQueue#add_requests), facilitatin seamless integration and operation within your Actor.
+For Python [Actor](../actors/index.mdx) development, the [Python SDK](/sdk/python/docs/concepts/storages#working-with-request-queues) the in essential. The request queue is represented by [`RequestQueue`](/sdk/python/reference/class/RequestQueue) class. Utilize this class to determine whether your data is stored locally or in in the Apify cloud. For managing your data, it provides the capability to [enqueue new URLs](/sdk/python/reference/class/RequestQueue#add_requests), facilitating seamless integration and operation within your Actor.
 
-Every Actor run is automatically connected to a default request queue, established specifically for that run upon the addition of the first request. If you're operating your Actors anc choose to utilize this queue, it typically serves to store URLs for crawling in the respective Actor run, though its use is not mandatory. To extend functionality, you have the option to create named queue, which offer the flexibility to be shared among different Actors or across multiple Actor runs.
+Every Actor run is automatically connected to a default request queue, established specifically for that run upon the addition of the first request. If you're operating your Actors and choose to utilize this queue, it typically serves to store URLs for crawling in the respective Actor run, though its use is not mandatory. To extend functionality, you have the option to create named queue, which offer the flexibility to be shared among different Actors or across multiple Actor runs.
 
 If you are storing your data locally, you can find your request queue at the following location.
 
@@ -132,7 +132,7 @@ If you are storing your data locally, you can find your request queue at the fol
 {APIFY_LOCAL_STORAGE_DIR}/request_queues/{QUEUE_ID}/{ID}.json
 ```
 
-The default request queue's ID is *default*. Each request in the queue is stored as a separate JSON file, where {ID} is a request ID.
+The default request queue's ID is *default*. Each request in the queue is stored as a separate JSON file, where `{ID}` is a request ID.
 
 To *open a request queue*, use the [`Actor.open_request_queue()`](/sdk/python/reference/class/Actor#open_request_queue) method.
 
@@ -280,7 +280,7 @@ You can grant [access rights](../collaboration/index.md) to your dataset through
 
 ### Sharing request queues between runs {#sharing-request-queues-between-runs}
 
-You can access a request queue from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its **name** or **ID**.
+You can access a request queue from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its *name* or *ID*.
 
 To access a request queue from another run using the [JavaScript SDK](/sdk/js) or the [Python SDK](/sdk/python), open it using the same method like you would do with any other request queue.
 
@@ -313,17 +313,24 @@ async def main():
 </TabItem>
 </Tabs>
 
-In the [JavaScript API client](/api/client/js), you can access a request queue using [its client](/api/client/js/reference/class/RequestQueueClient). Once you've opened the request queue, you can use it in your crawler or add new requests like you would do with a queue from your current run.
+In the [JavaScript API client](/api/client/js/reference/class/RequestQueueClient) as well as in [Python API client](/api/client/python/reference/class/RequestQueueClient), you can access a request queue using its respective client. Once you've opened the request queue, you can use it in your crawler or add new requests like you would do with a queue from your current run.
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
 
 ```js
 const otherQueueClient = apifyClient.requestQueue('jane-doe/old-queue');
 ```
 
-Likewise, in the [Python API client](/api/client/python), you can access a request queue using [its client](/api/client/python/reference/class/RequestQueueClient).
+</TabItem>
+<TabItem value="Python" label="Python">
 
 ```python
 other_queue_client = apify_client.request_queue('jane-doe/old-queue')
 ```
+
+</TabItem>
+</Tabs>
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
@@ -342,8 +349,8 @@ CRUD ([add](/api/v2#/reference/request-queues/request-collection/add-request),
 [get](/api/v2#/reference/request-queues/request-collection/get-request),
 [update](/api/v2#/reference/request-queues/request-collection/update-request),
 [delete](/api/v2#/reference/request-queues/request-collection/delete-request))
-operation requests are limited to **200** per second per request queue. This helps protect Apify servers from being overloaded.
+operation requests are limited to **200 requests per second** per request queue. This helps protect Apify servers from being overloaded.
 
-All other request queue API [endpoints](/api/v2#/reference/request-queues) are limited to **30** requests per second per request queue.
+All other request queue API [endpoints](/api/v2#/reference/request-queues) are limited to **30 requests per second** per request queue.
 
 Check out the [API documentation](/api/v2#/introduction/rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.

@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 Dataset storage enables you to sequentially save and retrieve data. A unique dataset is automatically created and assigned to each Actor run when the first item is stored.
 
-Typically, datasets comprises serults from web scraping, crawling, and data processing jobs. You can visualize this data in a table, where each object forming a row and its attribuets represented as columns. You have the option to export data in various formats, indluding JSON, CSV, XML, Excel, HTML Table, RSS or JSONL.
+Typically, datasets comprises results from web scraping, crawling, and data processing jobs. You can visualize this data in a table, where each object forming a row and its attribuets represented as columns. You have the option to export data in various formats, indluding JSON, CSV, XML, Excel, HTML Table, RSS or JSONL.
 
 > Named datasets are retained indefinitely. <br/>
 > Unnamed datasets expire after 7 days unless otherwise specified. <br/>
@@ -33,7 +33,7 @@ There are several ways to access your datasets:
 * [Python SDK](sdk/python/docs/concepts/storages#working-with-datasets) - when building your own Python Actor.
 * [JavaScript API client](/api/client/js/reference/class/DatasetClient) - to access your datasets from any Node.js application.
 * [Python API client](/api/client/python/reference/class/DatasetClient) - to access your datasets from any Python application.
-* [Apify API](/api/v2#/reference/datasets) - for accessing your datasets programmatically.
+* [Apify API](/api/v2#/reference/datasets) - to access your datasets programmatically.
 
 ### Apify Console {#apify-console}
 
@@ -47,7 +47,7 @@ To view or download a dataset:
 2. Select the format & configure other options if desired in **Export dataset** section.
 3. Click **Download**.
 
-Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](./index#data-retention-data-retention)) and to adjust [access rights](../collaboration/index.md). The `API` button allows you to explore and test the dataset's [API endpoints](/api/v2#/reference/datasets).
+Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](./index#data-retention-data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2#/reference/datasets).
 
 ![Datasets detail view](./images/datasets-detail.png)
 
@@ -55,7 +55,7 @@ Utilize the **Actions** menu to modify the dataset's name, which also affects it
 
 When working with a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#dataset) is an essential tool, especially for dataset management. It simplifies the tasks of storing and retrieving data, seamlessly integrating with the Actor's workflow. Key features of the SDK include the ability to append data, retrieve what is stored, and manage dataset properties effectively. Central to this functionality is the [`Dataset`](/sdk/js/reference/class/Dataset) class. This class allows you to determine where your data is stored - locally or in the Apify cloud. To add data to your chosen datasets, use the [`pushData()`](/sdk/js/reference/class/Dataset#pushData) method.
 
-Additionaly the SDK offers other methods like [`getData()`](/sdk/js/reference/class/Dataset#getData), [`map()`](/sdk/js/reference/class/Dataset#map) and [`reduce()`](/sdk/js/reference/class/Dataset#reduce), and [`reduce()`](/sdk/js/reference/class/Dataset#reduce). For practical applications of these methods, refer to the [example section](/sdk/js/docs/examples/map-and-reduce).
+Additionaly the SDK offers other methods like [`getData()`](/sdk/js/reference/class/Dataset#getData), [`map()`](/sdk/js/reference/class/Dataset#map), and [`reduce()`](/sdk/js/reference/class/Dataset#reduce). For practical applications of these methods, refer to the [example](/sdk/js/docs/examples/map-and-reduce) section.
 
 If you have chosen to store your dataset locally, you can find it in the location below.
 
@@ -123,7 +123,7 @@ const hotelAndCafeData = await dataset.getData({
 await Actor.exit();
 ```
 
-See the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#dataset) and the `Dataset` class's [API reference](/sdk/js/reference/class/Dataset) for details on managing datasets with the JavaScript SDK.
+Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#dataset) and the `Dataset` class's [API reference](/sdk/js/reference/class/Dataset) for details on managing datasets with the JavaScript SDK.
 
 ### Python SDK {#python-sdk}
 
@@ -194,7 +194,7 @@ You can then use that variable to [access the dataset's items and manage it](/ap
 
 > When using the [`.listItems()`](/api/client/js/reference/class/DatasetClient#listItems) method, if you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
 
-See the [JavaScript API client documentation](/api/client/js/reference/class/DatasetClient) for [help with setup](/api/client/js/docs) and more details.
+Check out the [JavaScript API client documentation](/api/client/js/reference/class/DatasetClient) for [help with setup](/api/client/js/docs) and more details.
 
 ### Python API client {#python-api-client}
 
@@ -280,7 +280,7 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 
 ## Hidden fields {#hidden-fields}
 
-Fields in a dataset that begin with a `#` are treated as hidden. You can exclude these fields when downloading data by using eithes `skipHidden=1` or `clean=1` in your query parameters. This feature is useful for excluding debug information from the final dataset output.
+Fields in a dataset that begin with a `#` are treated as hidden. You can exclude these fields when downloading data by using either `skipHidden=1` or `clean=1` in your query parameters. This feature is useful for excluding debug information from the final dataset output.
 
 The following example demonstates a dataset record with hiddent fields, including HTTP response and error details.
 
@@ -298,11 +298,11 @@ The following example demonstates a dataset record with hiddent fields, includin
 }
 ```
 
-Data excluding hidden fields, termead as "clean" data, can be downloaded from the [Apify Console](https://console.apify.com/storage?tab=datasets) using the **Clean items** option. Alternatively, you can download it via API by applying `clean=true` or `clean=1` as [URL parameters](/api/v2#/reference/datasets/item-collection/get-items).
+Data excluding hidden fields, termed as "clean" data, can be downloaded from the [Apify Console](https://console.apify.com/storage?tab=datasets) using the **Clean items** option. Alternatively, you can download it via API by applying `clean=true` or `clean=1` as [URL parameters](/api/v2#/reference/datasets/item-collection/get-items).
 
 ## XML format extension {#xml-format-extension}
 
-In `XML` and `RSS` export formats, object property name are converted into XML tags, and their corresponding values arerepresented as children of these tags.
+In `XML` and `RSS` export formats, object property name are converted into XML tags, and their corresponding values are represented as children of these tags.
 
 For example, the JavaScript object:
 
@@ -374,7 +374,7 @@ will be transformed to the following XML snippet:
 
 This feature is also useful when customizing your RSS feeds generated for various websites.
 
-By default, the whole result is wrapped in an `<items/>` element, while each page object is contained in an `<item/>` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when retrieviewing your data with a GET request.
+By default, the whole result is wrapped in an `<items/>` element, while each page object is contained in an `<item/>` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when retrieving your data with a GET request.
 
 ## Sharing {#sharing}
 
@@ -415,17 +415,24 @@ async def main():
 </TabItem>
 </Tabs>
 
-In the [JavaScript API client](/api/client/js), you can access a dataset using [its client](/api/client/js/reference/class/DatasetClient). Once you've opened the dataset, you can read its contents and add new data in the same manner as you would for a dataset from your current run.
+In the [JavaScript API client](/api/client/js/reference/class/DatasetClient) as well as in [Python API client](/api/client/python/reference/class/DatasetClient) , you can access a dataset using its client. Once you've opened the dataset, you can read its contents and add new data in the same manner as you would for a dataset from your current run.
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
 
 ```js
 const otherDatasetClient = apifyClient.dataset('jane-doe/old-dataset');
 ```
 
-Likewise, in the [Python API client](/api/client/python), you can access a dataset using [its client](/api/client/python/reference/class/DatasetClient).
+</TabItem>
+<TabItem value="Python" label="Python">
 
 ```python
 other_dataset_client = apify_client.dataset('jane-doe/old-dataset')
 ```
+
+</TabItem>
+</Tabs>
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 

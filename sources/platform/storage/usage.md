@@ -1,7 +1,7 @@
 ---
 title: Usage
 description: Learn how to effectively use Apify's storage options. Understand key aspects of data retention, rate limiting, and secure sharing.
-sidebar_position: 9.2
+sidebar_position: 9.1
 category: platform
 slug: /storage/usage
 ---
@@ -10,26 +10,45 @@ slug: /storage/usage
 
 ---
 
+## Dataset {#dataset}
+
+[Dataset](./dataset.md) storage allows you to store a series of data objects such as results from web scraping, crawling or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel or HTML formats.
+
+![Dataset graphic](../images/datasets-overview.png)
+
+## Key-value store {#key-value-store}
+
+The [key-value store](./key_value_store.md) is ideal for saving data records such as files, screenshots of web pages, and PDFs or for persisting your Actor's state. The records are accessible under a unique name and can be written and read quickly.
+
+![Key-value store graphic](../images/key-value-overview.svg)
+
+
+## Request queue {#request-queue}
+
+[Request queues](./request_queue.md) allow you to dynamically maintain a queue of URLs of web pages. You can use this when recursively crawling websites: you start from initial URLs and add new links as they are found while skipping duplicates.
+
+![Request queue graphic](../images/request-queue-overview.svg)
+
 ## Basic usage {#basic-usage}
 
 There are several ways to access your storage:
 
 * [Apify Console](https://console.apify.com/storage) - provides an easy-to-use interface.
-* JavaScript SDK ([Request storage](/sdk/js/docs/guides/request-storage), [Result storage](/sdk/js/docs/guides/result-storage)) - when building your own JavaScript Actor.
-* Python SDK ([Working with storages](/sdk/python/docs/concepts/storages)) - when building your own Python Actor.
-* [JavaScript API client](/api/client/js) - to access your storages from any Node.js application,.
-* [Python API client](/api/client/python) - to access your storages from any Python application,.
-* [Apify API](/api/v2#/reference/key-value-stores) - for accessing your storages programmatically.
+* [JavaScript SDK](/api/sdk/js) - when building your own JavaScript Actor.
+* [Python SDK](/api/sdk/python) - when building your own Python Actor.
+* [JavaScript API client](/api/client/js) - to access your storages from any Node.js application.
+* [Python API client](/api/client/python) - to access your storages from any Python application.
+* [Apify API](/api/v2#/reference/key-value-stores) - to access your storages programmatically.
 
 ### Apify Console {#apify-console}
 
-To access your storages via the Apify Console, navigate to the [**Storage** section](https://console.apify.com/storage) in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, request queues and you can click on **API** button in the top right corner to view related API endpoints. To view a storage, click its **ID**.
+To access your storages via the Apify Console, navigate to the [**Storage**](https://console.apify.com/storage) section in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, request queues and you can click on **API** button in the top right corner to view related API endpoints. To view a storage, click its **ID**.
 
 ![Storages in app](./images/datasets-app.png)
 
-> Use the **Include unnamed storages** checkbox to either display or hide unnamed storages. By default Apify Console will show them.
+> Use the **Include unnamed storages** checkbox to either display or hide unnamed storages. By default Apify Console will display them.
 
-You can edit your store's name by clicking on the **Actions** menu and selecting **Rename**
+You can edit your store's name by clicking on the **Actions** menu and selecting **Rename**.
 
 Additionally, you can quickly share the contents and details of your storage by selecting **Share** under the **Actions** menu and providing either email, username or user ID.
 
@@ -46,17 +65,17 @@ The Apify [JavaScript SDK](https://github.com/apify/apify-sdk-js) is a JavaScrip
 
 ### Python SDK {#python-sdk}
 
-The Apify [Python SDK](https://github.com/apify/apify-sdk-python) is a Python library providing tools to build your own Actors. We do not currently have an alternative to Crawlee for Python.
+The Apify [Python SDK](https://github.com/apify/apify-sdk-python) is a Python library providing tools to build your own Actors. Requires [Python](https://www.python.org/downloads/release/python-380/) 3.8 or above.
 
 ### JavaScript API client {#javascript-api-client}
 
-The Apify [JavaScript API client](https://github.com/apify/apify-client-js) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or elsewhere.
+The Apify [JavaScript API client](https://github.com/apify/apify-client-js) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or externally.
 
 Go to the [client's documentation](/api/client/js/docs) for help with setup.
 
 ### Python API client {#python-api-client}
 
-The Apify [Python API client](https://github.com/apify/apify-client-python) (`apify-client`) allows you to access your datasets from any Python application, whether it is running on the Apify platform or elsewhere.
+The Apify [Python API client](https://github.com/apify/apify-client-python) (`apify-client`) allows you to access your datasets from any Python application, whether it is running on the Apify platform or externally. Requires [Python](https://www.python.org/downloads/release/python-380/) 3.8 or above.
 
 Go to the [client's documentation](/api/client/python/docs/quick-start) for help with setup.
 
@@ -115,7 +134,17 @@ Find and open your storage by clicking the ID, click on the **Actions** menu, ch
 
 To name your storage via API, get its ID from the run that generated it using the [Get run](/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run) endpoint. You can then give it a new name using the `Update \[storage\]` endpoint. For example, [Update dataset](/api/v2#/reference/datasets/dataset/update-dataset).
 
-The [JavaScript SDK](/sdk/js), The [Python SDK](/sdk/python), the [JavaScript](/api/client/js/) and [Python](/api/client/python/) clients have their own ways of naming storages - check their docs for details.
+Our SDKs and clients each have unique naming conventions for storages. For more information check out documentation:
+
+SDKs:
+
+* [JavaScript](/sdk/js)
+* [Python](/sdk/python)
+
+Clients:
+
+* [JavaScript](/api/client/js/)
+* [Python](/api/client/python/)
 
 ## Named and unnamed storages {#named-and-unnamed-storages}
 
