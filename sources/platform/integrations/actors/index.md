@@ -49,6 +49,6 @@ Under the hood, the Actor integrations use regular [HTTP POST webhooks](https://
 
 The UI ensures that the variables are enclosed in strings, meaning that even the payload template is a valid JSON, not just the resulting interpolation. It also automatically adds the `payload` field that contains the default webhook payload. Thanks to this, when using Actors that are meant to be used as integrations, users don't have to fill in the variables: the Actor takes the data from this field by itself.
 
-# Blog tutorial
+## Blog tutorial
 
 You can read a complete example of integrating two Actors in [this tutorial](https://blog.apify.com/connecting-scrapers-apify-integration/).
