@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 Dataset storage enables you to sequentially save and retrieve data. A unique dataset is automatically created and assigned to each Actor run when the first item is stored.
 
-Typically, datasets comprises results from web scraping, crawling, and data processing jobs. You can visualize this data in a table, where each object forming a row and its attribuets represented as columns. You have the option to export data in various formats, indluding JSON, CSV, XML, Excel, HTML Table, RSS or JSONL.
+Typically, datasets comprises results from web scraping, crawling, and data processing jobs. You can visualize this data in a table, where each object is forming a row and its attributes are represented as columns. You have the option to export data in various formats, including JSON, CSV, XML, Excel, HTML Table, RSS or JSONL.
 
 > Named datasets are retained indefinitely. <br/>
 > Unnamed datasets expire after 7 days unless otherwise specified. <br/>
@@ -378,7 +378,7 @@ By default, the whole result is wrapped in an `<items/>` element, while each pag
 
 ## Sharing {#sharing}
 
-You can grant [access rights](../collaboration/index.md) to your dataset through the **Share** button under the **Actions** menu. For more details,check the [full list of permissions](../collaboration/list_of_permissions.md).
+You can grant [access rights](../collaboration/index.md) to your dataset through the **Share** button under the **Actions** menu. For more details, check the [full list of permissions](../collaboration/list_of_permissions.md).
 
 ### Sharing datasets between runs {#sharing-datasets-between-runs}
 
@@ -448,7 +448,7 @@ See the [Storage overview](/platform/storage#sharing-storages-between-runs) for 
 
 ### Rate limiting {#rate-limiting}
 
-The rate limit for pushing data to a dataset through the [API](/api/v2#/reference/datasets/item-collection/put-items) is capped at _200 requests per second_ for each dataset, a measure to prevent overloading APify servers.
+The rate limit for pushing data to a dataset through the [API](/api/v2#/reference/datasets/item-collection/put-items) is capped at _200 requests per second_ for each dataset, a measure to prevent overloading Apify servers.
 
 For all other dataset [API endpoints](/api/v2#/reference/datasets) , the rate limit is _30 requests per second_ for each dataset.
 
