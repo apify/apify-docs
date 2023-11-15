@@ -276,7 +276,7 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 
 ## Sharing {#sharing}
 
-You can grant [access rights](../collaboration/index.md) to your dataset through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../collaboration/list_of_permissions.md).
+You can grant [access rights](../collaboration/index.md) to your request queue through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../collaboration/list_of_permissions.md).
 
 ### Sharing request queues between runs {#sharing-request-queues-between-runs}
 

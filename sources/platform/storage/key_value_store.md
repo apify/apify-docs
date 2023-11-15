@@ -256,7 +256,7 @@ _Using the [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) or o
 
 ## Sharing
 
-You can grant [access rights](../collaboration/index.md) to your dataset through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../collaboration/list_of_permissions.md).
+You can grant [access rights](../collaboration/index.md) to your key-value store through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../collaboration/list_of_permissions.md).
 
 ### Sharing key-value stores between runs
 
