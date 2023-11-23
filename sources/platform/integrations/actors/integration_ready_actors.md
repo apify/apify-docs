@@ -47,7 +47,19 @@ And in the Actor code, we'd use this to get the values:
 const { datasetId, connectionString, tableName } = await Actor.getInput();
 ```
 
-That is comfortable for Actor's developer, but not for the end user. To impove it, we can use a different input schema:
+To make the integration process smoother, it's possible to define an input that's going to be prefilled when your Actor is being used as an integration. You can do that in the Actor's **Settings** tab, on the **Integrations** form. In our example, we'd use:
+
+```json
+{
+    "datasetId": "{{resource.defaultDatasetId}}"
+}
+```
+
+This means that users will see that the `defaultDatasetId` of the triggering run is going to be used right away.
+
+Explicitly stating what is the expected input when Actor is being used as an integration is a preferred way.
+
+However, if the Actor is **only** supposed to be used as integration, we can use a different input schema:
 
 - `connectionString: string` - Credentials for the database connection
 - `tableName: string` - Name of table / collection
@@ -75,16 +87,6 @@ It's also possible to combine both approaches, which is useful for development p
 const { payload, datasetId } = await Actor.getInput();
 const datasetIdToProcess = datasetId || payload?.resource?.defaultDatasetId;
 ```
-
-To make the integration process smoother, it's possible to define an input that's going to be prefilled when your Actor is being used as an integration. You can do that in the Actor's **Settings** tab, on the **Integrations** form. In our example, we'd use:
-
-```json
-{
-    "datasetId": "{{resource.defaultDatasetId}}"
-}
-```
-
-This means that users will see that the `defaultDatasetId` of the triggering run is going to be used right away.
 
 In the above example, we're focusing on accessing a run's default dataset, but the approach would be similar for any other field.
 
