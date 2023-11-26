@@ -12,7 +12,7 @@ slug: /storage/usage
 
 ## Dataset {#dataset}
 
-[Dataset](./dataset.md) storage allows you to store a series of data objects such as results from web scraping, crawling or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel or HTML formats.
+[Dataset](./dataset.md) storage allows you to store a series of data objects, such as results from web scraping, crawling, or data processing jobs. You can export your datasets in JSON, CSV, XML, RSS, Excel, or HTML formats.
 
 ![Dataset graphic](../images/datasets-overview.png)
 
@@ -42,7 +42,7 @@ There are several ways to access your storage:
 
 ### Apify Console {#apify-console}
 
-To access your storages via the Apify Console, navigate to the [**Storage**](https://console.apify.com/storage) section in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, request queues and you can click on **API** button in the top right corner to view related API endpoints. To view a storage, click its **ID**.
+To access your storages via Apify Console, navigate to the [**Storage**](https://console.apify.com/storage) section in the left-side menu. From there, you can click through the tabs to view your key-value stores, datasets, and request queues, and you can click on the **API** button in the top right corner to view related API endpoints. To view a storage, click its **ID**.
 
 ![Storages in app](./images/datasets-app.png)
 
@@ -54,7 +54,7 @@ Additionally, you can quickly share the contents and details of your storage by 
 
 ![Storage API](./images/overview-api.png)
 
-These URLs link to API _endpoints_—the places where your data are stored. Endpoints that allow you to _read_ stored information do not require an [authentication token](/api/v2#/introduction/authentication). Calls are authenticated using a hard-to-guess ID, allowing for secure sharing. However operations such as _update_ or _delete_ require the authentication token.
+These URLs link to API _endpoints_—the places where your data is stored. Endpoints that allow you to _read_ stored information do not require an [authentication token](/api/v2#/introduction/authentication). Calls are authenticated using a hard-to-guess ID, allowing for secure sharing. However, operations such as _update_ or _delete_ require the authentication token.
 
 > Never share a URL containing your authentication token, to avoid compromising your account's security. <br/>
 > If the data you want to share requires a token, first download the data, then share it as a file.
@@ -126,7 +126,7 @@ Unnamed datasets expire after 7 days unless otherwise specified.
 
 ### Preserving your storages {#preserving-storages}
 
-To ensure indefinite retention of your storages, assign them a name. This can be done via the Apify Console or through our API. First, you'll need your store's ID. You can find it in the details of the run that created it. In Apify Console, head over to your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate. Check that store's details, and you will find its ID among them.
+To ensure indefinite retention of your storages, assign them a name. This can be done via Apify Console or through our API. First, you'll need your store's ID. You can find it in the details of the run that created it. In Apify Console, head over to your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate. Check that store's details, and you will find its ID among them.
 
 ![Finding your store's ID](./images/find-store-id.png)
 
