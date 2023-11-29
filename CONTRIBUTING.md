@@ -2,7 +2,7 @@
 
 ## Architecture
 
-Currently, there are 6 separate projects outside of this repo:
+Currently, there are 6 separate repositories that together make up the Apify documentation:
 
 - apify-client-js
 - apify-client-python
@@ -77,7 +77,7 @@ Over time, we should track which items are useful and which don't get any traffi
 
 ## Local setup
 
-If you want to work only on the main documentation content, cloning this repository is enough. Once you install and run `npm start`, the main portal will open on <http://localhost:3000>. All the links in the navbar and footer need to be absolute, and they will use a different hostname, configured to `docs.apify.loc` - to use that, follow the steps below and set up the Nginx server.
+If you want to work only on the main documentation content, cloning this repository is enough. Once you run `npm install` to install all dependencies and run `npm start`, the main portal will open on <http://localhost:3000>. All the links in the navbar and footer need to be absolute, and they will use a different hostname, configured to `docs.apify.loc` - to use that, follow the steps below and set up the Nginx server.
 
 Alternatively, you can skip the Nginx part and navigate to <http://localhost:3000/academy> or <http://localhost:3000/platform> manually instead of using links in the navbar. All relative links should work fine there. The problem with absolute links is only with shared components. The Nginx server is needed only for testing the whole setup and mapping all the different ports to a single one.
 
