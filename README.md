@@ -144,4 +144,4 @@ My Document Markdown content
 ### Screenshots
 
 Documentation has both light and dark themes. However, to keep the screenshots consistent and easily manageable, use the light theme for all screenshots.
-Also, for consistency, if you are planning to add arrows or any kind of indicators to the screenshots, they should be red(<!--here provide the hex code of exact shade for red.-->)
+If you add arrows or other indicators to the screenshots, they should be red for high contrast and visibility on the light theme.
