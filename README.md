@@ -20,18 +20,32 @@ In addition to the following tips, check existing docs for formatting and style 
 
 ### Language
 
-We adhere to US-EN language standards to maintain consistency and clarity in our documentation.
+Adhere to US-EN language standards to maintain consistency and clarity in our documentation.
+
+Use inclusive language, for example:
+
+Instead of _see_, use _view_ or _check out_.
+
+Avoid using directional language like:
+
+> Click the **Home** button on the left to return to the homepage.
+> You'll find the account settings on the left-hand side menu.
+
+Instead, try to be more descriptive, for example:
+
+> Click the **Home** button in the menu, to return to the homepage.
+> You'll find the account settings under the **Settings** button in the menu.
 
 ### Highlighting
 
 - For consistency, use **bold** to highlight UI text when dealing with UI-focused documentation (for example, Apify Console).
 - For consistency, use _italics_ to emphasize text.
 - For inline `code` examples, use **back-ticks** (\` \`).
-- For multi-line code examples, use code fences and specify the language. Preferably, specify the title as well.
+- For multi-line code examples, use code fences and specify the language. Next to the language declaration, add `showLineNumbers` so that the code fence displays line numbers. Preferably, specify the title as well.
   - Within platform documentation, always use [Code tabs](README.md#code-tabs) and declare the language.
 
     ```markdown
-    \`\`\`js title='foo.js'
+    \`\`\`js showLineNumbers title='foo.js'
 
     const docsAreCool = require('coolDocs'); <br/>
     ...<br/>
@@ -40,11 +54,11 @@ We adhere to US-EN language standards to maintain consistency and clarity in our
     \`\`\`
     ```
 
-    See [Markdown features](https://docusaurus.io/docs/markdown-features) in the Docusaurus docs for more information.
+    Check out [Markdown features](https://docusaurus.io/docs/markdown-features) in the Docusaurus docs for more information.
 
 ### Code tabs
 
-See [Docusaurus documentation for tabs](https://docusaurus.io/docs/markdown-features/tabs) for examples. In Apify platform documentation, use the code tabs to always include examples for both JavaScript and Python languages.
+View [Docusaurus documentation for tabs](https://docusaurus.io/docs/markdown-features/tabs) for examples. In Apify platform documentation, always use the code tabs to include examples for both JavaScript and Python languages.
 
 ```markdown
 import Tabs from '@theme/Tabs';
@@ -144,4 +158,7 @@ My Document Markdown content
 ### Screenshots
 
 Documentation has both light and dark themes. However, to keep the screenshots consistent and easily manageable, use the light theme for all screenshots.
+
+All screenshots should have a meaningful alt text to accommodate screen readers.
+
 If you add arrows or other indicators to the screenshots, they should be red for high contrast and visibility on the light theme.
