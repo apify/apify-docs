@@ -23,7 +23,7 @@ There are few ways you can set up and manage your Schedules:
 * [JavaScript API client](https://docs.apify.com/api/client/js/reference/class/ScheduleClient)
 * [Python API client](https://docs.apify.com/api/client/python/reference/class/ScheduleClient)
 
-When scheduling a new Actor or task run, you can override its input settings using a JSON object similarly to when invoking a schedule using the [Apify REST API](/api/v2#/reference/schedules/).
+When scheduling a new Actor or task run, you can override its input settings using a JSON object similarly to when invoking an Actor or task using the [Apify REST API](/api/v2#/reference/schedules/).
 
 :::note Events Startup Variability
 In most cases, scheduled events are fired within one second of their scheduled time. <br/>
