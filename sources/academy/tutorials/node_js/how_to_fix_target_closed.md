@@ -21,7 +21,7 @@ A modern browser creates a separate process for each tab. That means each tab li
 
 ### Memory solution
 
-If you use [Crawlee](https://crawlee.dev/), your concurrency automatically scales up and down to fit in the allocated memory. You can change the allocated memory using environment variable or the [Configuration](https://crawlee.dev/docs/guides/configuration) class. But very hungry pages can still occasionally cause sudden memory spike and you might have to limit the [maxConcurrency](https://crawlee.dev/docs/guides/scaling-crawlers#minconcurrency-and-maxconcurrency) of the crawler. This problem is very rare though.
+If you use [Crawlee](https://crawlee.dev/), your concurrency automatically scales up and down to fit in the allocated memory. You can change the allocated memory using the environment variable or the [Configuration](https://crawlee.dev/docs/guides/configuration) class. But very hungry pages can still occasionally cause sudden memory spikes, and you might have to limit the [maxConcurrency](https://crawlee.dev/docs/guides/scaling-crawlers#minconcurrency-and-maxconcurrency) of the crawler. This problem is very rare, though.
 
 Without Crawlee, you will need to predict the maximum concurrency the particular use-case can handle or just increase the allocated memory.
 
