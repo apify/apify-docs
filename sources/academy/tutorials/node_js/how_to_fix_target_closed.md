@@ -7,7 +7,7 @@ slug: /node-js/how_to_fix_target-closed
 
 # How to fix 'Target closed' error in Puppeteer and Playwright
 
-**Learn about common causes for the 'Target closed' error in browser automation and what can you do to fix it.**
+**Learn about common causes for the 'Target closed' error in browser automation and what you can do to fix it.**
 
 ---
 
