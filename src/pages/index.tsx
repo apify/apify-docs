@@ -372,10 +372,11 @@ export default function Home() {
                                 Publish your Actors on Apify Store and earn regular passive income.
                             </Text>
                         </div>
-                        {/* TODO: Missing a link here! */}
-                        <Button>
-                            Get started
-                        </Button>
+                        <Link to='https://apify.com/partners/actor-developers'>
+                            <Button>
+                                Get started
+                            </Button>
+                        </Link>
                     </div>
                 </StyledBanner>
             </Section>
