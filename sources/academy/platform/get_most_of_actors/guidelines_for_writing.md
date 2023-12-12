@@ -36,7 +36,7 @@ These guidelines are of course not set in stone. They are here to give you a gen
 4. **Incorporate relevant links.** While you're writing, look for opportunities to link to other blog posts on the Apify blog that fit well with your topic. Search engines seem to prefer articles that don’t stand alone.
 5. **ChatGPT is your friend, but edit wisely.** Feel free to use ChatGPT for generating content, but remember to edit the output. While it's a good tool to get started, it's not perfect and may occasionally make errors.
 6. **Additional resources for external writers.** For more details on our tone of voice, image specifications, and other guidelines, visit [Write for Apify](https://apify.com/write-for-apify).
-7. After you're done writing, [send your tutorial](mailto:natalia.lekh@apify.com) over to one of our writers. They'll take care of it and let you know when it's published.
+7. After you're done writing, [send your tutorial](mailto:marketing@apify.com) over to one of our writers. They'll take care of it and let you know when it's published.
 8. Once your tutorial is published, don't forget to add a link to it to the Actor's README. That way, your tutorial will get its first backlink! It can also be useful for the users skimming through the README in search for detailed instructions.
 
 
