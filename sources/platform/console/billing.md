@@ -26,9 +26,11 @@ The **Historical usage** tab provides a detailed view of your monthly platform u
 
 The tab features an adjustable bar chart. This chart can be customized to display statistics either on a monthly or daily basis. Additionally, you have the option to view these statistics as either absolute or cumulative numbers, providing flexibility in how you analyze your usage data.
 
+![Apify Console historical usage view](./images/console-billing-historical-usage.png)
+
 Below the bar chart, there is a table titled **Usage by Actors**. This table presents a detailed breakdown of the Compute units used per Actor and the associated costs. It clearly explains how each Actor contributes to your overall platform usage and expenses.
 
-![Apify Console historical usage view](./images/console-billing-historical-usage.png)
+![Apify Console historical usage by actor view](./images/console-billing-historical-usage-by-actors.png)
 
 ## Subscription
 
@@ -41,14 +43,18 @@ Another feature of this tab is the visibility of any special offers currently ap
 
 ## Pricing
 
-![APify console pricing view](./images/console-billing-pricing.png)
+The Pricing tab offers a way to quickly check all pricing related to Apify usage for your account.
+
+![Apify console pricing view](./images/console-billing-pricing.png)
 
 ## Invoices
 
-The invoices page is where you can find your current and previous invoices for Apify Platform usage.
+The invoices page is where you can find your current and previous invoices for Apify platform usage.
+
+![Apify console invoices view](./images/console-billing-invoices.png)
 
 ## Limits
 
-The limits page showcases the limits of Apify Platform usage that are based on your current subscription plan.
+The limits page showcases the limits of Apify platform usage that are based on your current subscription plan.
 
 ![Apify Console limits view](./images/console-billing-limits.png)
