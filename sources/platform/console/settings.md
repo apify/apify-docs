@@ -1,18 +1,18 @@
 ---
 title: Settings
-description: Learn about the Apify Console settings for account, integrations , organization management, and notification preferences.
+description: Learn about the Apify Console settings for the account, integrations, organization management, and notification preferences.
 sidebar_position: 3
 category: platform
 slug: /console/settings
 ---
 
-**Learn about the Apify Console settings for account, integrations , organization management, and notification preferences.**
+**Learn about the Apify Console settings for the account, integrations, organization management, and notification preferences.**
 
 ---
 
 ## Account
 
-By clicking the **Settings** tab on the side menu, by default, you will be presented with new page where you can view & edit various setting regarding your account, like:
+By clicking the **Settings** tab on the side menu, by default, you will be presented with an Account page where you can view & edit various settings regarding your account, such as:
 
 * account email
 * username
@@ -23,12 +23,12 @@ By clicking the **Settings** tab on the side menu, by default, you will be prese
 
 ## Integrations
 
-Integrations page is where you can find your **Personal API tokens** that are required if you want to utilize our [REST API](https://docs.apify.com/api/v2). As well as your Slack workspace integration and your **Actor Integration Accounts** if you added any necessary 3rd party integrations to Actors developed by you or your team. For more information on integrations visit [Integrations documentation](https://docs.apify.com/platform/integrations).
+The Integrations page provides essential tools for enhancing your interaction with our platform. Here, you can access your **Personal API Tokens**, which are necessary for using our [REST API](https://docs.apify.com/api/v2). This page also facilitates the integration of your Slack workspace and lists your **Actor Integration Accounts**. This section represents any third-party integrations added to Actors developed by you or your team. For detailed guidance on utilizing these integrations, refer to our [Integrations documentation](https://docs.apify.com/platform/integrations).
 
 ## Organization
 
-Organizations page is where you can either view your accounts current organizations, create new organizations, or convert your user account into an organization account. For more information on organizations visit [Organizations documentation](https://docs.apify.com/platform/collaboration/organization-account).
+Organizations page is where you can view your accounts' current organizations, create new organizations, or convert your user account into an organization account. For more information on organizations, visit the organization's [documentation](https://docs.apify.com/platform/collaboration/organization-account).
 
 ## Notifications
 
-Notifications page is where you can view and adjust your notifications settings like, what updates you receive and how you receive them.
+The Notifications page allows you to customize your notification preferences. Here, you can specify the types of updates you wish to receive and select the methods by which you receive them.

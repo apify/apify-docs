@@ -12,17 +12,14 @@ slug: /console/store
 
 ![apify-console-store](./images/console-store.png)
 
-Store is a place where you can browse through Actors that have been created and are maintained by Apify, or by members of our community.<br/> There are few ways that can make your browsing experience better:
-
-1. You can use search box on top of the page to search by service (e.g. TikTok, Google, Facebook), or for example by its author.
-
-2. You can browse Actors by predefined categories using the side menu.
-
-3. You can sort results from the store by few different categories like:
+The Store is a place where you can explore a variety of Actors, both created and maintained by Apify or our community members. To enhance your browsing experience, you can employ several strategies.
+Utilize the search box at the top of the page to find Actors by service names, such as TikTok, Google, Facebook, or by their authors.
+Alternatively, explore Actors grouped under predefined categories accessible via the side menu.
+The results from the store can also be organized by different criteria, including:
 
 * relevance
 * popularity
 * newest
-* recently updated
+* recent updates
 
-Choosing any of the Actors in the store will redirect you to it's Actor page. Where you can adjust the settings of your future Actor run and save them for later, or run it immediately.
+Upon selecting an Actor from the store, you'll be directed to its specific page. Here, you can configure the settings for your future Actor run, save these configurations for later use, or run the Actor immediately.
