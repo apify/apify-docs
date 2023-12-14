@@ -14,21 +14,11 @@ slug: /console
 
 To use Apify Console, you need to create Apify account. [Sign up here](https://console.apify.com/sign-up).
 
-You can do this either by:
-
-- Sign up with Google
-- Sign up with GitHub
-- Provide email and password
-
 ![apify-console-sign-up](./images/console-signup.png)
 
 ## Log In
 
-To log in to Apify Console, you can use one of the following methods:
-
-- Google Single Sign-On
-- GitHub Single Sign-On
-- The email and password set during account creation
+After signing up you need to log in using your Apify account.
 
 ![apify-console-login](./images/console-login.png)
 
