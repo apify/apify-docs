@@ -67,6 +67,6 @@ You can also navigate Apify Console via keyboard shortcuts.
 | [Actors](/sources/platform/actors/index.mdx)| View your recent runs, Actors developed by you, rented Actors, analytics & issues, as well as:<br/><br/> &bull; Saved tasks - where you can view your saved tasks or change any settings within them.<br/> &bull; Runs - where you can check on your previous runs. |
 | [Schedules](/sources/platform/schedules.md)| Schedule Actor runs & tasks to run at specified time. |
 | [Storage](/sources/platform/storage/index.md)| View stored results of your runs in various data formats. |
-| [Proxy](/sources/platform/proxy/index.md)| View your proxy usage & setup proxy for your Actors. |
+| [Proxy](/sources/platform/proxy/index.md)| View your proxy usage & credentials |
 | [Settings](/sources/platform/console/settings.md)| Settings of your account. |
 | [Billing](/sources/platform/console/billing.md)| Billing information, statistics and invoices. |
