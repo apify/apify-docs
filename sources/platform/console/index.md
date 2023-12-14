@@ -26,9 +26,9 @@ You can do this either by:
 
 To log in to Apify Console, you can use one of the following methods:
 
-* Google Single Sign-On
-* GitHub Single Sign-On
-* The email and password set during account creation
+- Google Single Sign-On
+- GitHub Single Sign-On
+- The email and password set during account creation
 
 ![apify-console-login](./images/console-login.png)
 
@@ -38,15 +38,15 @@ To log in to Apify Console, you can use one of the following methods:
 
 The Apify Console homepage provides an overview of your account setup. The header displays your account name and current plan level. The homepage features several sections:
 
-* **Get Started with Apify**: This section guides you to Apify Store. Here, you can explore existing Actors or create your own. A 'Show me how' button directs you to a guided tour of the Console.
+- **Get Started with Apify**: This section guides you to Apify Store. Here, you can explore existing Actors or create your own. A 'Show me how' button directs you to a guided tour of the Console.
 
-* **Recently Viewed**: This section displays Actors you have recently accessed. If you haven't used any Actors yet, you will see suggestions instead.
+- **Recently Viewed**: This section displays Actors you have recently accessed. If you haven't used any Actors yet, you will see suggestions instead.
 
-* **Suggested Actors for You**: Based on your and other users' recent activities, this section recommends Actors that might interest you.
+- **Suggested Actors for You**: Based on your and other users' recent activities, this section recommends Actors that might interest you.
 
-* **Actor Runs**: This section is divided into two tabs:
-  * **Recent**: View your latest Actor runs.
-  * **Scheduled**: Check your upcoming scheduled runs and tasks.
+- **Actor Runs**: This section is divided into two tabs:
+  - **Recent**: View your latest Actor runs.
+  - **Scheduled**: Check your upcoming scheduled runs and tasks.
 
 Use the side menu to navigate other parts of the Apify Console easily.
 
