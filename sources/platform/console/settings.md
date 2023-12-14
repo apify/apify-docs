@@ -12,7 +12,7 @@ slug: /console/settings
 
 ## Account
 
-By clicking the **Settings** tab on the side menu, by default, you will be presented with an Account page where you can view & edit various settings regarding your account, such as:
+By clicking the **Settings** tab on the side menu, you will be presented with an Account page where you can view & edit various settings regarding your account, such as:
 
 * account email
 * username
@@ -23,12 +23,12 @@ By clicking the **Settings** tab on the side menu, by default, you will be prese
 
 ## Integrations
 
-The Integrations page provides essential tools for enhancing your interaction with our platform. Here, you can access your **Personal API Tokens**, which are necessary for using our [REST API](https://docs.apify.com/api/v2). This page also facilitates the integration of your Slack workspace and lists your **Actor Integration Accounts**. This section represents any third-party integrations added by you or your team. For detailed guidance on utilizing these integrations, refer to our [Integrations documentation](https://docs.apify.com/platform/integrations).
+The **Integrations** tab provides essential tools for enhancing your interaction with our platform. Here, you can access your **Personal API Tokens**, which are necessary for using our [REST API](https://docs.apify.com/api/v2). This page also facilitates the integration of your Slack workspace and lists your **Actor Integration Accounts**. This section represents any third-party integrations added by you or your team. For detailed guidance on utilizing these integrations, refer to our [Integrations documentation](https://docs.apify.com/platform/integrations).
 
 ## Organization
 
-Organizations page is where you can view your accounts' current organizations, create new organizations, or convert your user account into an organization account. For more information on organizations, visit the organization's [documentation](https://docs.apify.com/platform/collaboration/organization-account).
+The **Organizations** tab is where you can view your accounts' current organizations, create new organizations, or convert your user account into an organization account. For more information on organizations, visit the organization's [documentation](https://docs.apify.com/platform/collaboration/organization-account).
 
 ## Notifications
 
-The Notifications page allows you to customize your notification preferences. Here, you can specify the types of updates you wish to receive and select the methods by which you receive them.
+The **Notifications** tab allows you to customize your notification preferences. Here, you can specify the types of updates you wish to receive and select the methods by which you receive them.

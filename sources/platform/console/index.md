@@ -14,6 +14,12 @@ slug: /console
 
 To use Apify Console, you need to create Apify account. [Sign up here](https://console.apify.com/sign-up).
 
+You can do this either by:
+
+- Sign up with Google
+- Sign up with GitHub
+- Provide email and password
+
 ![apify-console-sign-up](./images/console-signup.png)
 
 ## Log In
@@ -34,7 +40,7 @@ The Apify Console homepage provides an overview of your account setup. The heade
 
 * **Get Started with Apify**: This section guides you to Apify Store. Here, you can explore existing Actors or create your own. A 'Show me how' button directs you to a guided tour of the Console.
 
-* **Recently Viewed**: This section displays Actors you have recently accessed. New users or those who haven't viewed any Actors will see suggestions instead.
+* **Recently Viewed**: This section displays Actors you have recently accessed. If you haven't used any Actors yet, you will see suggestions instead.
 
 * **Suggested Actors for You**: Based on your and other users' recent activities, this section recommends Actors that might interest you.
 
@@ -43,6 +49,27 @@ The Apify Console homepage provides an overview of your account setup. The heade
   * **Scheduled**: Check your upcoming scheduled runs and tasks.
 
 Use the side menu to navigate other parts of the Apify Console easily.
+
+:::tip Keyboard shortcuts
+You can also navigate Apify Console via keyboard shortcuts.
+<details>
+<summary>Keyboard Shortcuts</summary>
+
+|Shortcut| Tab |
+|:---|:----|
+|Home| GH  |
+|Store| GO  |
+|Actors| GA  |
+|Saved tasks| GT  |
+|Runs| GR  |
+|Schedules| GU  |
+|Storage| GE  |
+|Proxy| GP  |
+|Settings| GS  |
+|Billing| GB  |
+
+</details>
+:::
 
 | Tab name | Description |
 |:---|:---|

@@ -1,12 +1,12 @@
 ---
 title: Billing
-description: lorem ipsum
+description: The Billings page is the central place for all information regarding your invoices, billing information regarding current usage, historical usage, subscriptions & limits.
 sidebar_position: 4
 category: platform
 slug: /console/billing
 ---
 
-The Billings page is the central place for all information regarding your invoices, billing information regarding current usage, historical usage, subscriptions & limits.
+**The Billings page is the central place for all information regarding your invoices, billing information regarding current usage, historical usage, subscriptions & limits.**
 
 ---
 
@@ -36,7 +36,7 @@ Below the bar chart, there is a table titled **Usage by Actors**. This table pre
 
 The **Subscriptions** tab offers a central location to manage various aspects of your subscription plan. Here, you can access details about your current plan and explore options to upgrade to a different one.
 
-This tab also allows you to manage your payment methods, including adding new ones or editing existing options. Additionally, you can adjust your billing details to ensure they remain up-to-date.
+This tab also allows you to manage your payment methods. Additionally, you can adjust your billing details to ensure they remain up-to-date.
 Another feature of this tab is the visibility of any special offers currently applied to your account.
 
 ![Apify console subscription view](./images/console-billing-subscription.png)
@@ -49,12 +49,12 @@ The **Pricing** tab offers a way to quickly check all pricing related to Apify u
 
 ## Invoices
 
-The **Invoices** page is where you can find your current and previous invoices for Apify platform usage.
+The **Invoices** tab is where you can find your current and previous invoices for Apify platform usage.
 
 ![Apify console invoices view](./images/console-billing-invoices.png)
 
 ## Limits
 
-The **Limits** page showcases the limits of Apify platform usage that are based on your current subscription plan.
+The **Limits** tab showcases the limits of Apify platform usage that are based on your current subscription plan.
 
 ![Apify Console limits view](./images/console-billing-limits.png)
