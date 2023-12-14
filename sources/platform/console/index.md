@@ -30,9 +30,9 @@ To log in to Apify Console, you can use one of the following methods:
 
 ![apify-console-homepage](./images/console-homepage.png)
 
-The Apify Console homepage provides an overview of our services. The header displays your account name and current plan level. The homepage features several sections:
+The Apify Console homepage provides an overview of your account setup. The header displays your account name and current plan level. The homepage features several sections:
 
-* **Get Started with Apify**: This section guides you to Apify Store. Here, you can explore existing Actors or create your own. A 'Show me how' button directs you to a guided tour on the Console.
+* **Get Started with Apify**: This section guides you to Apify Store. Here, you can explore existing Actors or create your own. A 'Show me how' button directs you to a guided tour of the Console.
 
 * **Recently Viewed**: This section displays Actors you have recently accessed. New users or those who haven't viewed any Actors will see suggestions instead.
 

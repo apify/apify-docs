@@ -34,7 +34,7 @@ Below the bar chart, there is a table titled **Usage by Actors**. This table pre
 
 ## Subscription
 
-The Subscriptions tab offers a central location to manage various aspects of your subscription plan. Here, you can access details about your current plan and explore options to upgrade to a different one.
+The **Subscriptions** tab offers a central location to manage various aspects of your subscription plan. Here, you can access details about your current plan and explore options to upgrade to a different one.
 
 This tab also allows you to manage your payment methods, including adding new ones or editing existing options. Additionally, you can adjust your billing details to ensure they remain up-to-date.
 Another feature of this tab is the visibility of any special offers currently applied to your account.
@@ -43,18 +43,18 @@ Another feature of this tab is the visibility of any special offers currently ap
 
 ## Pricing
 
-The Pricing tab offers a way to quickly check all pricing related to Apify usage for your account.
+The **Pricing** tab offers a way to quickly check all pricing related to Apify usage for your account.
 
 ![Apify console pricing view](./images/console-billing-pricing.png)
 
 ## Invoices
 
-The invoices page is where you can find your current and previous invoices for Apify platform usage.
+The **Invoices** page is where you can find your current and previous invoices for Apify platform usage.
 
 ![Apify console invoices view](./images/console-billing-invoices.png)
 
 ## Limits
 
-The limits page showcases the limits of Apify platform usage that are based on your current subscription plan.
+The **Limits** page showcases the limits of Apify platform usage that are based on your current subscription plan.
 
 ![Apify Console limits view](./images/console-billing-limits.png)
