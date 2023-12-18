@@ -127,7 +127,7 @@ You can find more information and examples of cron expressions on [crontab.guru]
 A cron expression has the following structure:
 
 | Position | Field        | Values                         | Wildcards | Optional |
-|:----------|:--------------|:--------------------------------|:-----------|:----------|
+|:---------|:-------------|:-------------------------------|:----------|:---------|
 | 1        | second       | 0 - 59                         | , - * /   | yes      |
 | 2        | minute       | 0 - 59                         | , - * /   | no       |
 | 3        | hour         | 0 - 23                         | , - * /   | no       |
