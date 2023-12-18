@@ -20,7 +20,7 @@ Typically, datasets comprises results from web scraping, crawling, and data proc
 
 > Named datasets are retained indefinitely. <br/>
 > Unnamed datasets expire after 7 days unless otherwise specified. <br/>
-> [Learn more](./index#named-and-unnamed-storages)
+> [Learn more](usage.md#named-and-unnamed-storages)
 
 Dataset storage is _append-only_ - data can only be added and cannot be modified or deleted once stored.
 
@@ -30,7 +30,7 @@ There are several ways to access your datasets:
 
 * [Apify Console](https://console.apify.com/storage?tab=datasets) - provides an easy-to-understand interface.
 * [JavaScript SDK](/sdk/js/docs/guides/result-storage#dataset) - when building your own JavaScript Actor.
-* [Python SDK](sdk/python/docs/concepts/storages#working-with-datasets) - when building your own Python Actor.
+* [Python SDK](/sdk/python/docs/concepts/storages#working-with-datasets) - when building your own Python Actor.
 * [JavaScript API client](/api/client/js/reference/class/DatasetClient) - to access your datasets from any Node.js application.
 * [Python API client](/api/client/python/reference/class/DatasetClient) - to access your datasets from any Python application.
 * [Apify API](/api/v2#/reference/datasets) - to access your datasets programmatically.
@@ -43,7 +43,7 @@ In [Apify Console](https://console.apify.com), you can view your datasets in the
 
 To view or download a dataset:
 
-1. Click on its **Dataset ID**.  
+1. Click on its **Dataset ID**.
 2. Select the format & configure other options if desired in **Export dataset** section.
 3. Click **Download**.
 
