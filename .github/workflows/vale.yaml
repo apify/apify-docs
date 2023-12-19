@@ -9,5 +9,5 @@ jobs:
           - uses: actions/checkout@v4
           - uses: errata-ai/vale-action@reviewdog
             with:
-              files: ./sources/*
+              files: ./sources/
               fail_on_error: true
