@@ -12,13 +12,13 @@ slug: /console
 
 ## Sign Up
 
-To use Apify Console, you need to create Apify account. [Sign up here](https://console.apify.com/sign-up).
+To use Apify Console, you need to create an Apify account. [Sign up here](https://console.apify.com/sign-up).
 
 ![apify-console-sign-up](./images/console-signup.png)
 
 ## Log In
 
-After signing up you need to log in using your Apify account.
+After signing up, you need to log in using your Apify account.
 
 ![apify-console-login](./images/console-login.png)
 
@@ -38,7 +38,7 @@ The Apify Console homepage provides an overview of your account setup. The heade
   - **Recent**: View your latest Actor runs.
   - **Scheduled**: Check your upcoming scheduled runs and tasks.
 
-Use the side menu to navigate other parts of the Apify Console easily.
+Use the side menu to navigate other parts of Apify Console easily.
 
 :::tip Keyboard shortcuts
 You can also navigate Apify Console via keyboard shortcuts.

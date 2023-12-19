@@ -43,19 +43,19 @@ The **Subscriptions** tab offers a central location to manage various aspects of
 This tab also allows you to manage your payment methods. Additionally, you can adjust your billing details to ensure they remain up-to-date.
 Another feature of this tab is the visibility of any special offers currently applied to your account.
 
-![Apify console subscription view](./images/console-billing-subscription.png)
+![Apify Console subscription view](./images/console-billing-subscription.png)
 
 ## Pricing
 
 The **Pricing** tab offers a way to quickly check all unit pricing for various platform services related to Apify usage for your account.
 
-![Apify console pricing view](./images/console-billing-pricing.png)
+![Apify Console pricing view](./images/console-billing-pricing.png)
 
 ## Invoices
 
 The **Invoices** tab is where you can find your current and previous invoices for Apify platform usage. This is your source of truth for any questions regarding previous charges and subscriptions.
 
-![Apify console invoices view](./images/console-billing-invoices.png)
+![Apify Console invoices view](./images/console-billing-invoices.png)
 
 ## Limits
 
