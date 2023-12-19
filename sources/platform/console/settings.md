@@ -27,7 +27,7 @@ The **Integrations** tab provides essential tools for enhancing your interaction
 
 ## Organization
 
-The **Organizations** tab is where you can view your accounts' current organizations, create new organizations, or convert your user account into an organization account. For more information on organizations, visit the organization's [documentation](https://docs.apify.com/platform/collaboration/organization-account).
+The **Organizations** tab is where you can view your accounts' current organizations, create new organizations, or convert your user account into an organization account. For more information on how to set up an organization check out this [article](https://help.apify.com/en/articles/8698948-how-to-set-up-an-organization-account).
 
 ## Notifications
 
