@@ -26,6 +26,7 @@
         "swizzle": "docusaurus swizzle",
         "deploy": "rimraf .docusaurus && docusaurus deploy",
         "docusaurus": "docusaurus",
+        "postinstall": "npx patch-package",
         "lint": "npm run lint:md && npm run lint:code",
         "lint:fix": "npm run lint:md:fix && npm run lint:code:fix",
         "lint:md": "markdownlint '**/*.md'",
