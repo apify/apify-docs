@@ -1,0 +1,13 @@
+name: Lint with Vale on pull request
+on: [pull_request]
+
+jobs:
+    vale:
+        name: vale
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v4
+          - uses: errata-ai/vale-action@reviewdog
+            with:
+              files: sources/*
+              fail_on_error: true
