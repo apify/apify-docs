@@ -22,6 +22,6 @@ You can also organize the results from the store by different criteria, includin
 * newest
 * recent updates
 
-upon selecting an Actor from the store, you'll be directed to its specific page. Here, you can configure the settings for your future Actor run, save these configurations for later use, or run the Actor immediately.
+Upon selecting an Actor from the store, you'll be directed to its specific page. Here, you can configure the settings for your future Actor run, save these configurations for later use, or run the Actor immediately.
 
 For more information on Actors in Apify Store, visit [here](/sources/platform/actors/running/store.md).
