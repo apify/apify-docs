@@ -22,7 +22,7 @@ After signing up you need to log in using your Apify account.
 
 ![apify-console-login](./images/console-login.png)
 
-## Homepage Overview
+## Homepage overview
 
 ![apify-console-homepage](./images/console-homepage.png)
 
