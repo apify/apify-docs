@@ -10,4 +10,5 @@ jobs:
           - uses: errata-ai/vale-action@reviewdog
             with:
               files: '["./sources/", "./README.md", "./CONTRIBUTING.md"]'
-              fail-on-error: true
+              fail_on_error: true
+              filter_mode: file
