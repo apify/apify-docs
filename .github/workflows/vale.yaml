@@ -6,9 +6,14 @@ jobs:
         name: vale
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v4
-          - uses: errata-ai/vale-action@reviewdog
-            with:
-              files: '["./sources/", "./README.md", "./CONTRIBUTING.md"]'
-              fail_on_error: true
-              filter_mode: file
+        - name: Checkout
+          uses: actions/checkout@v4
+        - name: Get Changed Files
+          id: get_changed_files
+          uses: lots0logs/gh-action-get-changed-files@2.1.4
+        - name: Vale
+          uses: errata-ai/vale-action@reviewdog
+          with:
+            files: '${{ steps.get_changed_files.output.all }}'
+            fail_on_error: true
+            filter_mode: file
