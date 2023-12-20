@@ -80,7 +80,7 @@ if __name__ == '__main__':
 
 ## Proxy types {#proxy-types}
 
-There are several types of proxy servers exist, each offering distinct advantages, disadvantages, and varying pricing structures. You can use them to access websites from various geographies and with different levels of anonymity.
+Several types of proxy servers exist, each offering distinct advantages, disadvantages, and varying pricing structures. You can use them to access websites from various geographies and with different levels of anonymity.
 
 <CardGrid>
     <Card
