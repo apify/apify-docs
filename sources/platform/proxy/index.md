@@ -26,7 +26,7 @@ You can view your proxy settings and password on the [Proxy](https://console.api
 
 ## Quickstart {#quickstart}
 
-Usage of Apify Proxy means just a couple of lines of code thanks to our SDKs for ([JavaScript](/sdk/js) and [Python](/sdk/python)):
+Usage of Apify Proxy means just a couple of lines of code, thanks to our SDKs for ([JavaScript](/sdk/js) and [Python](/sdk/python)):
 
 <Tabs groupId="main">
 <TabItem value="JavaScript SDK with PuppeteerCrawler" label="JavaScript SDK with PuppeteerCrawler">
@@ -85,7 +85,7 @@ There are several types of proxy servers, each of them with different advantages
 <CardGrid>
     <Card
         title="Datacenter proxy"
-        desc="The fastest and cheapest option, it uses datacenters to change your IP address. Note that there is a chance of being blocked because of the activity of other users."
+        desc="The fastest and cheapest option. It uses data centers to change your IP address. Note that there is a chance of being blocked because of the activity of other users."
         to="/platform/proxy/datacenter-proxy"
     />
     <Card
