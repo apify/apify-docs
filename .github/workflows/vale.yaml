@@ -1,9 +1,10 @@
 name: Lint with Vale on pull request
-on: [pull_request]
+on:
+    pull_request:
+        types: [ opened, edited, synchronize ]
 
 jobs:
     vale:
-        name: vale
         runs-on: ubuntu-latest
         steps:
         - name: Checkout
