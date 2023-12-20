@@ -16,6 +16,8 @@ jobs:
         - name: Vale
           uses: errata-ai/vale-action@reviewdog
           with:
-            files: '${{ steps.get_changed_files.output.all }}'
+            files: '${{ steps.get_changed_files.outputs.all }}'
             fail_on_error: true
             filter_mode: file
+          env:
+            GITHUB_TOKEN: ${{secret.GITHUB_TOKEN}}
