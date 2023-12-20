@@ -10,7 +10,7 @@ jobs:
           uses: actions/checkout@v4
         - name: Get Changed Files
           id: get_changed_files
-          uses: lots0logs/gh-action-get-changed-files@2.1.4
+          uses: lots0logs/gh-action-get-changed-files@2.2.2
           with:
             token: ${{ secrets.GITHUB_TOKEN }}
         - name: Vale
