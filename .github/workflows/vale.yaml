@@ -9,5 +9,5 @@ jobs:
           - uses: actions/checkout@v4
           - uses: errata-ai/vale-action@reviewdog
             with:
-              files: '["./sources/", "./README.md", "CONTRIBUTING.md", "__onlyModified" ]'
+              files: '["./sources/", "./README.md", "CONTRIBUTING.md"]'
               fail_on_error: true
