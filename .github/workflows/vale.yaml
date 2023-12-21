@@ -14,7 +14,7 @@ jobs:
           with:
             token: ${{ secrets.GITHUB_TOKEN }}
         - name: Vale
-          uses: errata-ai/vale-action@master
+          uses: errata-ai/vale-action@reviewdog
           with:
             files: '${{ steps.get_changed_files.outputs.all }}'
             fail_on_error: true
