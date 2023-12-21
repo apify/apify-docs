@@ -1,7 +1,6 @@
 name: Lint with Vale on pull request
 on:
-    pull_request:
-        types: [ opened, edited, synchronize ]
+    [pull_request]
 
 jobs:
     vale:
