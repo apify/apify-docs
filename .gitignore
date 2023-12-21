@@ -24,4 +24,6 @@ sources/typedefs
 tsconfig.tsbuildinfo
 .turbo
 apify-docs-theme/package-lock.json
-
+.github/styles/*
+!.github/styles/Vocab
+!.github/styles/Apify
