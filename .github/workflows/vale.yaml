@@ -18,6 +18,5 @@ jobs:
           with:
             files: '${{ steps.get_changed_files.outputs.all }}'
             fail_on_error: true
-            filter_mode: file
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
