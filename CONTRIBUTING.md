@@ -2,7 +2,7 @@
 
 ## Architecture
 
-Currently, there are 6 separate repositories that together make up the Apify documentation:
+Apify documentation consists of six different repositories:
 
 - apify-client-js
 - apify-client-python
