@@ -19,7 +19,7 @@ jobs:
           separator: ","
 
       - uses: errata-ai/vale-action@reviewdog
-        if: steps.changed-files.outputs.any_changed == "true"
+        if: steps.changed-files.outputs.any_changed == 'true'
         with:
           files: ${{ steps.changed-files.outputs.all_changed_files }}
           separator: ","
