@@ -10,26 +10,18 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    # Filter paths
-    - uses: dorny/paths-filter@v2
-      id: changes
-      with:
-        filters: |
-          sources:
-            - 'sources/**'
-          root_files:
-            - 'README.md'
-            - 'CONTRIBUTING.md'
-
     # Get changed files
     - uses: tj-actions/changed-files@v40
       id: changed_files
       with:
-        only_changed: true
+        files: |
+            README.md
+            CONTRIBUTING.md
+            sources/*
 
     # Run Vale only if specified files are changed
     - name: Run Vale Linter
-      if: steps.changes.outputs.sources == 'true' || steps.changes.outputs.root_files == 'true'
+      if: steps.changed_files.outputs.any_changed_files == 'true'
       uses: errata-ai/vale-action@reviewdog
       with:
         files: ${{ steps.changed_files.outputs.all_changed_files }}
