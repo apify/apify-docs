@@ -1,32 +1,26 @@
-name: Lint with Vale on pull request
-on:
-    [pull_request]
+name: Vale
 
-env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+on: [pull_request]
+
 jobs:
-    vale:
-        runs-on: ubuntu-latest
-        steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-        - name: Get Changed Files
-          id: get_changed_files
-          uses: lots0logs/gh-action-get-changed-files@2.2.2
-          with:
-            token: ${{ secrets.GITHUB_TOKEN }}
-        - name: Vale-added
-          uses: errata-ai/vale-action@reviewdog
-          with:
-            files:  ${{ steps.get_changed_files.outputs.added }}
-            fail_on_error: true
-        - name: Vale-modified
-          uses: errata-ai/vale-action@reviewdog
-          with:
-            files: ${{ steps.get_changed_files.outputs.modified }}
-            fail_on_error: true
-        - name: Vale-renamed
-          uses: errata-ai/vale-action@reviewdog
-          with:
-            files: ${{ steps.get_changed_files.outputs.renamed }}
-            fail_on_error: true
+  vale:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v40.2.0
+        with:
+          files: |
+            '**/*.md'
+            '**/*.mdx'
+          separator: ","
+
+      - uses: errata-ai/vale-action@reviewdog
+        if: steps.changed-files.outputs.any_changed == "true"
+        with:
+          files: ${{ steps.changed-files.outputs.all_changed_files }}
+          separator: ","
+          fail_on_error: true
