@@ -3,7 +3,7 @@ name: Vale
 on: [pull_request]
 
 jobs:
-  vale:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
