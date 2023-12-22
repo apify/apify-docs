@@ -27,7 +27,7 @@ When scheduling a new Actor or task run, you can override its input settings usi
 
 :::note Events Startup Variability
 In most cases, scheduled events are fired within one second of their scheduled time. <br/>
-Occasionally, however, runs can be delayed because of a system overload or a server shutting down.
+However, runs can be delayed because of a system overload or a server shutting down.
 :::
 
 Each schedule can be associated with a maximum of _10_ Actors and _10_ Actor tasks.
