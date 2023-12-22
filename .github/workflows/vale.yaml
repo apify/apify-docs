@@ -21,7 +21,7 @@ jobs:
 
     # Run Vale only if specified files are changed
     - name: Run Vale Linter
-      if: steps.changed_files.outputs.any_changed_files == 'true'
+      if: steps.changed_files.outputs.any_changed == 'true'
       uses: errata-ai/vale-action@reviewdog
       with:
-        files: ${{ steps.changed_files.outputs.all_changed_files }}
+        files: ${{ steps.changed_files.outputs.any_changed }}
