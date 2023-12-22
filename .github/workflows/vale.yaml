@@ -1,27 +1,32 @@
-name: Linting Workflow
-
-on: [pull_request]
+name: Lint with Vale on pull request
+on:
+    [pull_request]
 
 env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-
-    # Get changed files
-    - uses: tj-actions/changed-files@v40
-      id: changed_files
-      with:
-        files: |
-            README.md
-            CONTRIBUTING.md
-            sources/*
-
-    # Run Vale only if specified files are changed
-    - name: Run Vale Linter
-      if: steps.changed_files.outputs.any_changed == 'true'
-      uses: errata-ai/vale-action@reviewdog
-      with:
-        files: ${{ steps.changed_files.outputs.any_changed }}
+    vale:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+        - name: Get Changed Files
+          id: get_changed_files
+          uses: lots0logs/gh-action-get-changed-files@2.2.2
+          with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+        - name: Vale-added
+          uses: errata-ai/vale-action@reviewdog
+          with:
+            files:  ${{ steps.get_changed_files.outputs.added }}
+            fail_on_error: true
+        - name: Vale-modified
+          uses: errata-ai/vale-action@reviewdog
+          with:
+            files: ${{ steps.get_changed_files.outputs.modified }}
+            fail_on_error: true
+        - name: Vale-renamed
+          uses: errata-ai/vale-action@reviewdog
+          with:
+            files: ${{ steps.get_changed_files.outputs.renamed }}
+            fail_on_error: true
