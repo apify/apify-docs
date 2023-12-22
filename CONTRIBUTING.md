@@ -24,7 +24,7 @@ The theme is available on npm as `@apify/docs-theme` and can be installed in any
 
 #### Publishing the theme
 
-There is a GitHub Action that automatically publishes the theme to npm whenever any changes are pushed to the `master` branch. However, this only happens if you update the version in the `package.json` file manually - if the current version already exists on npm, the publish will be skipped.
+A GitHub Action automatically publishes the theme to npm whenever any changes are pushed to the `master` branch. However, this only happens if you update the version in the `package.json` file manually - if the current version already exists on npm, the publish will be skipped.
 
 Additionally, if there are any changes to the `apify-docs-theme` folder detected, the GitHub action will invoke docs builds in all the subprojects to make sure that all the pages are using the latest theme version. This is done in the `rebuild-docs` job. This job utilizes a matrix strategy to run the builds in parallel. The actual rebuild is initiated by the `workflow_dispatch` event in the respective repositories. Because of this, the `GITHUB_TOKEN` env var has to be replaced by the PAT token stored in the `GH_TOKEN` secret - the original token does not have the necessary permissions to trigger the workflows in other repositories.
 
@@ -51,11 +51,11 @@ After updating the API docs, you should ALWAYS log into [Apiary](https://apiary.
 
 The homepage menu card items are in the `docs/homepage_content.json` file. The cards aim to suit three types of use cases:
 
-- Beginners and people who just want to use the actors (**Get started**, **Use actors and scrapers**).
+- Beginners and people who just want to use the Actors (**Get started**, **Use Actors and scrapers**).
 
-- Experienced actor and platform users (**Reduce blocking**, **Use platform features**).
+- Experienced Actor and platform users (**Reduce blocking**, **Use platform features**).
 
-- Actor builders and advanced users (**Build actors**, **Advanced tutorials and debugging**).
+- Actor builders and advanced users (**Build Actors**, **Advanced tutorials and debugging**).
 
 Each item has its own JSON object, in which "cardItem" is the title and "href" is the link. If the link leads to outside the Apify Docs site, add the `"isExternalLink": true` property. For local links, just use the article's path. E.g. `"/tutorials/apify-scrapers/web-scraper"`.
 
@@ -121,7 +121,7 @@ server {
 }
 ```
 
-And add a record to `/etc/hosts` to map the docs.apify.loc hostname to localhost:
+And add a record to `/etc/hosts` to map the `docs.apify.loc` hostname to localhost:
 
 ```text
 127.0.0.1 docs.apify.loc
