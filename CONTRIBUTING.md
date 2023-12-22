@@ -121,7 +121,7 @@ server {
 }
 ```
 
-And add a record to `/etc/hosts` to map the docs.apify.loc hostname to localhost:
+And add a record to `/etc/hosts` to map the `docs.apify.loc` hostname to localhost:
 
 ```text
 127.0.0.1 docs.apify.loc
