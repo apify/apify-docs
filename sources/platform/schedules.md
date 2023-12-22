@@ -16,7 +16,7 @@ Schedules allow you to run your Actors and tasks at specific times. You schedule
 Schedules allow timezone settings and support daylight saving time shifts (DST).
 :::
 
-There are few ways you can set up and manage your Schedules:
+You can set up and manage your Schedules using:
 
 * [Apify Console](https://console.apify.com/schedules)
 * [Apify API](https://docs.apify.com/api/v2#/reference/schedules)
