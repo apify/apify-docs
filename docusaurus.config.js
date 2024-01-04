@@ -1,4 +1,3 @@
-const postcssPreset = require('postcss-preset-env');
 const { config } = require('./apify-docs-theme');
 const { externalLinkProcessor } = require('./tools/utils/externalLink');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
@@ -92,13 +91,6 @@ module.exports = {
                 sidebarPath: require.resolve('./sources/academy/sidebars.js'),
             },
         ],
-        () => ({
-            name: 'new-css-syntax',
-            configurePostCss(options) {
-                options.plugins.push(postcssPreset); // allow newest CSS syntax
-                return options;
-            },
-        }),
         // TODO this should be somehow computed from all the external sources
         // [
         //     '@docusaurus/plugin-client-redirects',
