@@ -1,3 +1,4 @@
+const postcssPreset = require('postcss-preset-env');
 const path = require('path');
 const fs = require('fs');
 const axios = require('axios');
@@ -124,6 +125,10 @@ This either means that your Docusaurus setup is misconfigured, or that your GitH
                     ],
                 },
             };
+        },
+        configurePostCss(o) {
+            o.plugins.push(postcssPreset); // allow newest CSS syntax
+            return o;
         },
     };
 }
