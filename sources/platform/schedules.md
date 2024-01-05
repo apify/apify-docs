@@ -16,7 +16,7 @@ Schedules allow you to run your Actors and tasks at specific times. You schedule
 Schedules allow timezone settings and support daylight saving time shifts (DST).
 :::
 
-There are few ways you can set up and manage your Schedules:
+You can set up and manage your Schedules using:
 
 * [Apify Console](https://console.apify.com/schedules)
 * [Apify API](https://docs.apify.com/api/v2#/reference/schedules)
@@ -27,7 +27,7 @@ When scheduling a new Actor or task run, you can override its input settings usi
 
 :::note Events Startup Variability
 In most cases, scheduled events are fired within one second of their scheduled time. <br/>
-Occasionally, however, runs can be delayed because of a system overload or a server shutting down.
+However, runs can be delayed because of a system overload or a server shutting down.
 :::
 
 Each schedule can be associated with a maximum of _10_ Actors and _10_ Actor tasks.
@@ -39,7 +39,7 @@ Before setting up a new schedule, you should have the [Actor](./actors/index.mdx
 To schedule an Actor, you need to have run it at least once before. To run the Actor, navigate to the Actor's page through [Apify Console](https://console.apify.com/store), where you can configure and initiate the Actor's run with your preferred settings by clicking on **Start** button. After this initial run, you can then use Schedules to automate future runs of the Actor
 
 :::info Name Length
-Your schedule's name should be 3-63 characters long.
+Your schedule's name should be 3–63 characters long.
 :::
 
 ### Apify Console
@@ -141,7 +141,7 @@ The minimum interval between runs is 10 seconds; if your next run is scheduled s
 
 ### Examples of cron expressions
 
-* `0 8 * * *`  -  every day at 8am.
+* `0 8 * * *`  -  every day at 8 AM.
 * `0 0 * * 0` - every 7 days (at 00:00 on Sunday).
 * `*/3 * * * *` - every 3rd minute.
 * `0 0 1 */2 *` - every other month (at 00:00 on the first day of month, every 2nd month).

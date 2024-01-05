@@ -1,0 +1,9 @@
+extends: existence
+message: "The word '%s' should always be capitalized."
+ignorecase: false
+level: error
+tokens:
+  - '\bactor\b'
+  - '\bactors\b'
+  - '\bapify\b(?!-\w+)'
+nonword: false
