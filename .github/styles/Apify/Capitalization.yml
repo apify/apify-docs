@@ -6,4 +6,6 @@ tokens:
   - '\bactor\b'
   - '\bactors\b'
   - '\bapify\b(?!-\w+)'
+  - '(?<!\()\bhttps?://[^\s]*\bapify\b[^\s]*\b(?!\))|(?<!\[)\bhttps?://[^\s]*\bapify\b[^\s]*\b(?!\])'
+
 nonword: false
