@@ -1,0 +1,10 @@
+extends: substitution
+message: "Use '%s' instead of '%s'."
+ignorecase: false
+level: warning
+swap:
+    Apify Dashboard: Apify Console
+    apify freelancers: Apify freelancers
+    Apify Platfrom: Apify platform
+    '(?:[Tt]he\s)?[Aa]pify\sproxy': Apify Proxy
+    circa: approx.
