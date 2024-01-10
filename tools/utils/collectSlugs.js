@@ -1,4 +1,5 @@
 const { opendirSync, readFileSync } = require('fs');
+const { join } = require('path');
 
 function collectSlugs(pathname) {
     const dir = opendirSync(pathname);
@@ -9,7 +10,7 @@ function collectSlugs(pathname) {
     // eslint-disable-next-line no-cond-assign
     while ((direntry = dir.readSync()) !== null) {
         if (direntry.isFile() && direntry.name.endsWith('.md')) {
-            const mdContent = readFileSync(`${pathname}/${direntry.name}`, { encoding: 'utf-8' });
+            const mdContent = readFileSync(join(pathname, direntry.name), { encoding: 'utf-8' });
 
             const slugMatch = mdContent.match(/^slug: (.*)$/m);
             if (slugMatch) {
@@ -18,7 +19,7 @@ function collectSlugs(pathname) {
         }
 
         if (direntry.isDirectory()) {
-            const dirPath = `${pathname}/${direntry.name}`;
+            const dirPath = join(pathname, direntry.name);
             const dirRes = collectSlugs(dirPath);
             res.push(...dirRes);
         }
