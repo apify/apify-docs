@@ -1,8 +1,33 @@
-const { execSync } = require('child_process');
+const { opendirSync, readFileSync } = require('fs');
+const { join } = require('path');
 
 function collectSlugs(pathname) {
-    const a = execSync(`find ${pathname} -type f -name "*.md" -exec grep slug: {} \\;`, { encoding: 'utf-8' });
-    return a.split('\n').filter((x) => x.startsWith('slug: ')).map((x) => x.replace('slug: ', ''));
+    const dir = opendirSync(pathname);
+    const res = [];
+
+    let direntry;
+
+    // eslint-disable-next-line no-cond-assign
+    while ((direntry = dir.readSync()) !== null) {
+        if (direntry.isFile() && direntry.name.endsWith('.md')) {
+            const mdContent = readFileSync(join(pathname, direntry.name), { encoding: 'utf-8' });
+
+            const slugMatch = mdContent.match(/^slug: (.*)$/m);
+            if (slugMatch) {
+                res.push(slugMatch[1]);
+            }
+        }
+
+        if (direntry.isDirectory()) {
+            const dirPath = join(pathname, direntry.name);
+            const dirRes = collectSlugs(dirPath);
+            res.push(...dirRes);
+        }
+    }
+
+    dir.closeSync();
+
+    return res;
 }
 
 module.exports = {
