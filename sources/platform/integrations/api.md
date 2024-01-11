@@ -5,8 +5,6 @@ sidebar_position: 11.01
 slug: /integrations/api
 ---
 
-# API
-
 **Learn how to integrate with Apify using the REST API.**
 
 ---

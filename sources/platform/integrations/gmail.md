@@ -1,11 +1,10 @@
 ---
-title: Gmail
+title: Gmail integration
+sidebar_label: Gmail
 description: Learn how to integrate Apify with Gmail
-sidebar_position: 11.14
+sidebar_position: 11.16
 slug: /integrations/gmail
 ---
-
-# Gmail integration
 
 **Learn how to integrate your Apify Actors with Gmail. This article shows you how to automatically send an email with results when an Actor run succeeds.**
 

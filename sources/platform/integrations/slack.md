@@ -1,11 +1,10 @@
 ---
-title: Slack
+title: Slack integration
+sidebar_label: Slack
 description: Learn how to integrate your Apify Actors with Slack. This article guides you from installation through to automating your whole workflow in Slack.
-sidebar_position: 11.13
+sidebar_position: 11.15
 slug: /integrations/slack
 ---
-
-# Integration for Slack
 
 **Learn how to integrate your Apify Actors with Slack. This article guides you from installation through to automating your whole workflow in Slack.**
 
