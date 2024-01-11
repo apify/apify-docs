@@ -1,3 +1,4 @@
+const { join } = require('path');
 const { config } = require('./apify-docs-theme');
 const { externalLinkProcessor } = require('./tools/utils/externalLink');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
@@ -30,21 +31,21 @@ module.exports = {
                         {
                             label: 'Courses',
                             to: `/academy`,
-                            activeBaseRegex: [
+                            activeBaseRegex: `${[
                                 'academy$',
-                                ...collectSlugs(`${__dirname}/sources/academy/webscraping`),
-                                ...collectSlugs(`${__dirname}/sources/academy/platform`),
-                            ].join('$|'),
+                                ...collectSlugs(join(__dirname, 'sources', 'academy', 'webscraping')),
+                                ...collectSlugs(join(__dirname, 'sources', 'academy', 'platform')),
+                            ].join('$|')}$`,
                         },
                         {
                             label: 'Tutorials',
                             to: `/academy/tutorials`,
-                            activeBaseRegex: collectSlugs(`${__dirname}/sources/academy/tutorials`).join('$|'),
+                            activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'tutorials')).join('$|')}$`,
                         },
                         {
                             label: 'Glossary',
                             to: `/academy/glossary`,
-                            activeBaseRegex: collectSlugs(`${__dirname}/sources/academy/glossary`).join('$|'),
+                            activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'glossary')).join('$|')}$`,
                         },
                     ],
                 },
