@@ -71,7 +71,7 @@ The connection is now created and the configuration form closed.
 
 ### Step 1: Create & connect new bot on Telegram
 
-After setting up Apify as your trigger within Zapier, it's time to set up telegram as your action that will happen based on triger.
+After setting up Apify as your trigger within Zapier, it's time to set up Telegram as the action that will occur based on the trigger.
 
 ![Choosing action source within Zapier](./images/zapier-zap-choose-action.png)
 
