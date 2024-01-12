@@ -11,7 +11,7 @@ slug: /integrations/gmail
 
 ---
 
-### Get started
+## Get started
 
 To use the Apify integration for Gmail, you will need:
 
