@@ -16,6 +16,8 @@ Your Zapier workflows can start Apify Actors or tasks, fetch items from a datase
 
 You can use the Zapier integration to trigger a workflow whenever an Actor or a task finishes.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XldEuQleq3c?si=86qbdrzWpVLoY_fr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Connect Apify with Zapier
 
 To use the Apify integration on Zapier, you will need to:
@@ -109,7 +111,3 @@ Select **Chat-Id**, **Text Format**, and a **Message Text** that suits your need
 ![Zapier choosing Action event](./images/zapier-zap-action.png)
 
 Once you fill all required fields, you can test your integration and if everything works hit **Publish** and you are done!
-
-You can check how to do this by checking out the following video
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XldEuQleq3c?si=86qbdrzWpVLoY_fr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
