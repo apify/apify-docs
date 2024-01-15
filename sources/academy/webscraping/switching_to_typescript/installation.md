@@ -156,4 +156,4 @@ Outputted is `2099`, exactly what we expected. Awesome!
 
 ## Next up {#next}
 
-In the [next lesson], we'll be discussing how to use some of the core types that TypeScript offers.
+In the [next lesson](./using_types.md)!, we'll be discussing how to use some of the core types that TypeScript offers.
