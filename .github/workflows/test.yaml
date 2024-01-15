@@ -34,24 +34,41 @@ jobs:
         name: Lint markdown content
         runs-on: ubuntu-latest
         steps:
-            -   name: Checkout Source code
-                uses: actions/checkout@v4
+            - name: Checkout Source code
+              uses: actions/checkout@v4
 
-            -   name: Use Node.js 18
-                uses: actions/setup-node@v4
-                with:
-                    node-version: 18
-                    cache: 'npm'
-                    cache-dependency-path: 'package-lock.json'
-                    registry-url: 'https://npm.pkg.github.com/'
-                    scope: '@apify-packages'
+            - name: Get changed files
+              id: changed-files
+              uses: tj-actions/changed-files@v41.0.0
+              with:
+                files: |
+                    **/*.md
+                    **/*.mdx
+                separator: ","
 
-            -   name: Install Dependencies
-                run: npm ci --force
-                env:
-                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            - name: Use Node.js 18
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+                cache: 'npm'
+                cache-dependency-path: 'package-lock.json'
+                registry-url: 'https://npm.pkg.github.com/'
+                scope: '@apify-packages'
 
-            -   run: npm run lint:md
+            - name: Install Dependencies
+              run: npm ci --force
+              env:
+                NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+            - name: List and Lint Changed Markdown Files
+              env:
+                ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+              run: |
+                IFS=',' read -ra FILE_ARRAY <<< "$ALL_CHANGED_FILES"
+                for file in "${FILE_ARRAY[@]}"; do
+                  npx markdownlint "$file"
+                done
+
 
     lint_code:
         name: Lint app code
