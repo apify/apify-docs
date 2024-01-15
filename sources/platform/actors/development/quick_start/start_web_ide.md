@@ -81,13 +81,13 @@ apify login
 Then, you can pull your Actor using the following command:
 
 ```bash
-apify apify pull [actor_name]
+apify pull [actor_name]
 ```
 
 or with specified version:
 
 ```bash
-apify apify pull [actor_name] --version [version_number]
+apify pull [actor_name] --version [version_number]
 ```
 
 ## 6. Iterate
