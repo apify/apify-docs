@@ -49,7 +49,7 @@ You have two possible triggers that you can choose while setting up your Telegra
 
 :::info Available Actors & Tasks
 
-Please note that only Actor runs or Actor task runs that you previously executed will be available to choose from.
+Please note that only Actors or Actor tasks that you previously run will be available to choose from.
 
 :::
 
