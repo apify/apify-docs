@@ -11,4 +11,4 @@ jobs:
       - uses: lycheeverse/lychee-action@v1.9.0
         with:
           fail: true
-          args: --base . --verbose --no-progress './**/*.md' './**/*.mdx'
+          args: --base https://docs.apify.com/ . --verbose --no-progress './**/*.md' './**/*.mdx'
