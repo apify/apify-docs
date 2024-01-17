@@ -92,7 +92,7 @@ If the string being interpolated only contains the variable, the actual variable
 ```
 
 
-To turn on this new syntax, use "Interpolate variables in string fields" switch. In API it's called `shouldInterpolateStrings`. The field is always `true` when integrating Actors or tasks.
+To turn on this new syntax, use **Interpolate variables in string fields** switch within Apify Console. In API it's called `shouldInterpolateStrings`. The field is always `true` when integrating Actors or tasks.
 
 #### Payload template example
 
