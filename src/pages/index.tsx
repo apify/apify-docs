@@ -220,8 +220,8 @@ export default function Home() {
                                 </Text>
                                 <Text>
                                     <ul className={styles.cardContentList}>
-                                        <li><Link to={new URL('/api/client/python', siteConfig.url).href}>API client for JavaScript</Link></li>
-                                        <li><Link to={new URL('/api/client/js', siteConfig.url).href}>API client for Python</Link></li>
+                                        <li><Link to={new URL('/api/client/js', siteConfig.url).href}>API client for JavaScript</Link></li>
+                                        <li><Link to={new URL('/api/client/python', siteConfig.url).href}>API client for Python</Link></li>
                                         <li><Link to={new URL('/api/v2', siteConfig.url).href}>API Reference</Link></li>
                                     </ul>
                                 </Text>
