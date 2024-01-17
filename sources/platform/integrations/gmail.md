@@ -1,5 +1,5 @@
 ---
-title: Gmail integration
+title: Gmail
 sidebar_label: Gmail
 description: Learn how to integrate Apify with Gmail
 sidebar_position: 11.16

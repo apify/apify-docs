@@ -1,5 +1,5 @@
 ---
-title: Google Drive integration
+title: Google Drive
 sidebar_label: Google Drive
 description: Learn how to integrate Apify with Google Drive
 sidebar_position: 11.17
