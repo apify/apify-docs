@@ -68,7 +68,7 @@ The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`. The variab
 
 #### String interpolation
 
-The payload template **is not** a valid JSON by default. The resulting payload is, but not the template. In some cases this is limiting, so there is also updated syntax available, that allows to use templates that provide the same functionality, and are valid JSON at the same time.
+The payload template _is not_ a valid JSON by default. The resulting payload is, but not the template. In some cases this is limiting, so there is also updated syntax available, that allows to use templates that provide the same functionality, and are valid JSON at the same time.
 
 With this new syntax, the default payload template - resulting in the same payload - looks like this:
 
