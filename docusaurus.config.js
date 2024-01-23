@@ -92,6 +92,23 @@ module.exports = {
                 sidebarPath: require.resolve('./sources/academy/sidebars.js'),
             },
         ],
+        () => ({
+            configureWebpack() {
+                return {
+                    module: {
+                        rules: [
+                            {
+                                test: /@apify-packages\/ui-components\/.*/,
+                                resolve: {
+                                    fullySpecified: false,
+                                },
+                                loader: 'babel-loader',
+                            },
+                        ],
+                    },
+                };
+            },
+        }),
         // TODO this should be somehow computed from all the external sources
         // [
         //     '@docusaurus/plugin-client-redirects',
