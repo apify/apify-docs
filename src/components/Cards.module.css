@@ -21,8 +21,9 @@ html[data-theme="dark"] .card-hoverable:hover {
     object-fit: scale-down;
 }
 
-.card-image-container-small {
+.card div.card-image-container-small {
     height: 5rem;
+    padding: 0rem !important;
 }
 
 .card-image-container-small > img {
