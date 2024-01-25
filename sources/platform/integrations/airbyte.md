@@ -1,12 +1,12 @@
 ---
 title: Airbyte
 sidebar_lbel: Airbyte
-description: Learn how to integrate your Apify Datasets with Airbyte.
+description: Learn how to integrate your Apify datasets with Airbyte.
 sidebar_position: 11.15
 slug: /integrations/airbyte
 ---
 
-**Learn how to integrate your Apify Datasets with Airbyte.**
+**Learn how to integrate your Apify datasets with Airbyte.**
 
 ---
 
@@ -29,11 +29,11 @@ You will need to provide a **dataset ID** and your Apify API Token. You can find
 
 ![Airbyte source setup](./images/airbyte-source-setup.png)
 
-To find your **dataset ID**, you need to navigate to **Storage** tab in Apify Console. Copy it and paste it in Airbyte.
+To find your **dataset ID**, you need to navigate to the **Storage** tab in Apify Console. Copy it and paste it in Airbyte.
 
 ![Datasets in app](./images/datasets-app.png)
 
-To find your Apify API Token, you need to navigate to **Settings** tab and select **Integrations**. Copy it and paste it in the relevant field in Airbyte.
+To find your Apify API token, you need to navigate to the **Settings** tab and select **Integrations**. Copy it and paste it in the relevant field in Airbyte.
 
 ![Integrations token](./images/apify-integrations-token.png)
 
