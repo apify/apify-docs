@@ -2,7 +2,7 @@
 title: Apify ChatGPT plugin
 sidebar_lbel: ChatGPT plugin
 description: Let ChatGPT access up-to-date information on the web. Fetch Google Search results, crawl smaller websites, query web pages found, and download individual web pages or files.
-sidebar_position: 11.21
+sidebar_position: 11.22
 slug: /integrations/chatgpt-plugin
 ---
 
