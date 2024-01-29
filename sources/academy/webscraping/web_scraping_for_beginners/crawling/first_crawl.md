@@ -21,7 +21,7 @@ In the previous lessons, we collected and filtered all the URLs pointing to indi
 
 ```js title=crawler.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const WEBSITE_URL = 'https://warehouse-theme-metal.myshopify.com';
 const storeUrl = `${WEBSITE_URL}/collections/sales`;
@@ -38,7 +38,7 @@ const productUrls = [];
 
 for (const link of productLinks) {
     const relativeUrl = $(link).attr('href');
-    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL)
+    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL);
 
     // Collect absolute product URLs.
     productUrls.push(absoluteUrl);
@@ -75,7 +75,7 @@ In programming, you handle errors by catching and handling them. Typically by pr
 
 ```js title=crawler.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const WEBSITE_URL = 'https://warehouse-theme-metal.myshopify.com';
 const storeUrl = `${WEBSITE_URL}/collections/sales`;
@@ -89,7 +89,7 @@ const productLinks = $('a.product-item__title');
 const productUrls = [];
 for (const link of productLinks) {
     const relativeUrl = $(link).attr('href');
-    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL)
+    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL);
     productUrls.push(absoluteUrl);
 }
 
@@ -109,7 +109,7 @@ for (const url of productUrls) {
         // In the catch block, we handle errors.
         // This time, we will just print
         // the error message and the url.
-        console.error(error.message, url)
+        console.error(error.message, url);
     }
 }
 ```

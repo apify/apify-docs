@@ -5,6 +5,8 @@ sidebar_position: 2
 slug: /web-scraping-for-beginners/crawling/finding-links
 ---
 
+import Example from '!!raw-loader!roa-loader!./finding_links.js';
+
 # Finding links {#finding-links}
 
 **Learn what a link looks like in HTML and how to find and extract their URLs when web scraping using both DevTools and Node.js.**
@@ -51,26 +53,9 @@ DevTools Console is a fun playground, but Node.js is way more useful. Let's crea
 
 We'll start from a boilerplate that's very similar to the scraper we built in [Basics of data extraction](../data_extraction/node_js_scraper.md).
 
-```js title=crawler.js
-import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
-
-const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
-
-const response = await gotScraping(storeUrl);
-const html = response.body;
-
-const $ = cheerio.load(html);
-
-// ------- new code below
-
-const links = $('a');
-
-for (const link of links) {
-    const url = $(link).attr('href');
-    console.log(url);
-}
-```
+<RunnableCodeBlock className="language-js" type="cheerio">
+    {Example}
+</RunnableCodeBlock>
 
 Aside from importing libraries and downloading HTML, we load the HTML into Cheerio and then use it to retrieve all the `<a>` elements. After that, we iterate over the collected links and print their `href` attributes, which we access using the [`.attr()`](https://cheerio.js.org/docs/api/classes/Cheerio#attr) method.
 

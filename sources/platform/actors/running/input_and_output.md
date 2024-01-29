@@ -1,6 +1,6 @@
 ---
 title: Input and output
-description: Configure your Actor's input parameters with Apify Console, locally or via API. Access parameters in key-value stores from your Actor's code.
+description: Configure your Actor's input parameters using Apify Console, locally or via API. Access parameters in key-value stores from your Actor's code.
 sidebar_position: 2
 slug: /actors/running/input-and-output
 ---
@@ -29,7 +29,7 @@ When running an Actor using the [API](https://docs.apify.com/api/v2) you can pas
 
 ### Options - Build, Timeout, and Memory
 
-As part of the input, you can also specify run options such as [build](../development/builds.md), timeout, and [memory](./usage_and_resources.md) for your Actor run.
+As part of the input, you can also specify run options such as [build](../development/builds_and_runs/builds.md), timeout, and [memory](./usage_and_resources.md) for your Actor run.
 
 ![Run options](./images/input_and_output/actor-options.png)
 
@@ -59,9 +59,8 @@ You can quickly access the Actor's output from the run detail page:
 
 ![Actor output](./images/input_and_output/actor-output.png)
 
-And to access all the data associated with the run, see the **storage** tab, where you can explore the Actor's default [dataset](../../storage/dataset),[key-value store](../../storage/key-value-store), and [request queue](../../storage/request-queue):
+And to access all the data associated with the run, see the **storage** tab, where you can explore the Actor's default [dataset](../../storage/dataset), [key-value store](../../storage/key-value-store), and [request queue](../../storage/request-queue):
 
 ![Actor output](./images/input_and_output/actor-storage.png)
 
-> You can also use [API](https://docs.apify.com/api/v2) to retrieve the output. To learn more about this, read the [Run an actor or task and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api) tutorial.
-
+> You can also use [API](https://docs.apify.com/api/v2) to retrieve the output. To learn more about this, read the [Run an Actor or task and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api) tutorial.

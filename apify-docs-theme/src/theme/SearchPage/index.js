@@ -12,7 +12,7 @@ import {
     usePluralForm,
 } from '@docusaurus/theme-common';
 import {
-    useSearchPage,
+    useSearchQueryString,
     useTitleFormatter,
 } from '@docusaurus/theme-common/internal';
 import Translate, { translate } from '@docusaurus/Translate';
@@ -22,7 +22,7 @@ import {
     useSearchResultUrlProcessor,
 } from '@docusaurus/theme-search-algolia/client';
 import Layout from '@theme/Layout';
-import { A } from '../SearchBar';
+import { Link } from '../SearchBar';
 import styles from './styles.module.css';
 
 // Very simple pluralization: probably good enough for now
@@ -119,7 +119,7 @@ function SearchPageContent() {
     const processSearchResultUrl = useSearchResultUrlProcessor();
     const documentsFoundPlural = useDocumentsFoundPlural();
     const docsSearchVersionsHelpers = useDocsSearchVersionsHelpers();
-    const { searchQuery, setSearchQuery } = useSearchPage();
+    const [searchQuery, setSearchQuery] = useSearchQueryString();
     const initialSearchResultState = {
         items: [],
         query: null,
@@ -386,7 +386,7 @@ function SearchPageContent() {
                             ({ title, url, summary, breadcrumbs }, i) => (
                                 <article key={i} className={styles.searchResultItem}>
                                     <h2 className={styles.searchResultItemHeading}>
-                                        <A href={url} dangerouslySetInnerHTML={{ __html: title }}/>
+                                        <Link href={url} dangerouslySetInnerHTML={{ __html: title }}/>
                                     </h2>
 
                                     {breadcrumbs.length > 0 && (
@@ -401,7 +401,6 @@ function SearchPageContent() {
                                                         key={index}
                                                         className="breadcrumbs__item"
                                                         // Developer provided the HTML, so assume it's safe.
-                                                        // eslint-disable-next-line react/no-danger
                                                         dangerouslySetInnerHTML={{ __html: html }}
                                                     />
                                                 ))}
@@ -413,7 +412,6 @@ function SearchPageContent() {
                                         <p
                                             className={styles.searchResultItemSummary}
                                             // Developer provided the HTML, so assume it's safe.
-                                            // eslint-disable-next-line react/no-danger
                                             dangerouslySetInnerHTML={{ __html: summary }}
                                         />
                                     )}

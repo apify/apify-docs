@@ -21,15 +21,14 @@ You might have already noticed that we've been using the **RESIDENTIAL** proxy g
 
 - Skim [this page](https://apify.com/proxy) for a general idea of Apify Proxy.
 - Give the [proxy documentation](/platform/proxy#our-proxies) a solid readover (feel free to skip most of the examples).
-- Read about our [proxy trial](https://help.apify.com/en/articles/2108625-free-trial-of-apify-proxy).
-- Check out [this](https://help.apify.com/en/articles/1961361-several-tips-on-how-to-bypass-website-anti-scraping-protections) article about bypassing anti-scraping measures.
+- Check out the [anti-scraping guide](../../webscraping/anti_scraping/index.md).
 - Gain a solid understanding of the [SessionPool](https://crawlee.dev/api/core/class/SessionPool).
 - Look at a few actors on the [Apify store](https://apify.com/store). How are they utilizing proxies?
 
 ## Knowledge check 📝 {#quiz}
 
 1. What are the different types of proxies that Apify proxy offers? What are the main differences between them?
-2. Which proxy groups do users get with the proxy trial? How long does the trial last?
+2. Which proxy groups do users get on the free plan? Can they access the proxy from their computer?
 3. How can you prevent an error from occurring if one of the proxy groups that a user has is removed? What are the best practices for these scenarios?
 4. Does it make sense to rotate proxies when you are logged into a website?
 5. Construct a proxy URL that will select proxies **only from the US**.

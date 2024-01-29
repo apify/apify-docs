@@ -12,35 +12,34 @@ One possible way to intercept these requests is to use a man-in-the-middle (MITM
 First we set up the MITM proxy:
 
 ```js
+const { promisify } = require('util');
+const { exec } = require('child_process');
 const Proxy = require('http-mitm-proxy');
 const Promise = require('bluebird');
-const { promisify } = require('util');
-
-const { exec } = require('child_process');
 
 const execPromise = promisify(exec);
 
-const wait = timeout => new Promise(resolve => setTimeout(resolve, timeout));
+const wait = (timeout) => new Promise((resolve) => setTimeout(resolve, timeout));
 
 const setupProxy = async (port) => {
-  // Setup chromium certs directory
-  // WARNING: this only works in debian docker images
-  // modify it for any other use cases or local usage.
-  await execPromise('mkdir -p $HOME/.pki/nssdb');
-  await execPromise('certutil -d sql:$HOME/.pki/nssdb -N');
-  const proxy = Proxy();
-  proxy.use(Proxy.wildcard);
-  proxy.use(Proxy.gunzip);
-  return new Promise((resolve, reject) => {
-    proxy.listen({ port, silent: true }, (err) => {
-      if (err) return reject(err);
-      // Add CA certificate to chromium and return initialize proxy object
-      execPromise('certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n mitm-ca -i ./.http-mitm-proxy/certs/ca.pem')
-        .then(() => resolve(proxy))
-        .catch(reject);
-    });
-  });
-}
+    // Setup chromium certs directory
+    // WARNING: this only works in debian docker images
+    // modify it for any other use cases or local usage.
+    await execPromise('mkdir -p $HOME/.pki/nssdb');
+    await execPromise('certutil -d sql:$HOME/.pki/nssdb -N');
+    const proxy = Proxy();
+    proxy.use(Proxy.wildcard);
+    proxy.use(Proxy.gunzip);
+    return new Promise((resolve, reject) => {
+        proxy.listen({ port, silent: true }, (err) => {
+            if (err) return reject(err);
+            // Add CA certificate to chromium and return initialize proxy object
+            execPromise('certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n mitm-ca -i ./.http-mitm-proxy/certs/ca.pem')
+                .then(() => resolve(proxy))
+                .catch(reject);
+        });
+    });
+};
 ```
 
 Then we'll need a Docker image that has the `certutil` utility. Here is an [example of a Dockerfile](https://github.com/apifytech/act-proxy-intercept-request/blob/master/Dockerfile) that can create such an image and is based on the [apify/actor-node-chrome](https://hub.docker.com/r/apify/actor-node-chrome/) image that contains Puppeteer.
@@ -52,16 +51,16 @@ Now we need to specify how the proxy shall handle the intercepted requests:
 const proxyPort = 8000;
 const proxy = setupProxy(proxyPort);
 proxy.onRequest((context, callback) => {
-   if (blockRequests) {
-     const request = context.clientToProxyRequest;
-     // Log out blocked requests
-     console.log('Blocked request:', request.headers.host, request.url);
+    if (blockRequests) {
+        const request = context.clientToProxyRequest;
+        // Log out blocked requests
+        console.log('Blocked request:', request.headers.host, request.url);
 
-// Close the connection with custom content
-     context.proxyToClientResponse.end('Blocked');
-     return;
-   }
-   return callback();
+        // Close the connection with custom content
+        context.proxyToClientResponse.end('Blocked');
+        return;
+    }
+    return callback();
 });
 ```
 
@@ -70,7 +69,7 @@ The final step is to let Puppeteer use the local proxy:
 ```js
 // Launch puppeteer with local proxy
 const browser = await puppeteer.launch({
-    args: [ '--no-sandbox', `--proxy-server=localhost:${proxyPort}` ]
+    args: ['--no-sandbox', `--proxy-server=localhost:${proxyPort}`],
 });
 ```
 

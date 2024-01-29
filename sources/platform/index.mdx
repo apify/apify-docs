@@ -9,7 +9,7 @@ import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
 import homepageContent from "./homepage_content.json";
 
-# Apify Platform
+# Apify platform
 
 > **Apify** is a cloud platform that helps you build reliable web scrapers, fast, and automate anything you can do manually in a web browser.
 >
@@ -41,11 +41,12 @@ import homepageContent from "./homepage_content.json";
 
 <CardGrid>
     {
-        homepageContent.map(({ title, description, to }) => (
+        homepageContent.map(({ title, description, to }, i) => (
             <Card
                 title={title}
                 desc={description}
                 to={to}
+                key={i}
             />)
         )
     }

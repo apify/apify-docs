@@ -1,11 +1,10 @@
 ---
 title: Make
+sidebar_label: Make
 description: Learn how to integrate your Apify Actors with Make.
-sidebar_position: 11.12
+sidebar_position: 11.15
 slug: /integrations/make
 ---
-
-# Make integration
 
 **Learn how to integrate your Apify Actors with Make.**
 
@@ -46,7 +45,7 @@ Congratulations! You have successfully connected the Apify app and can now use i
 
 ### Watch Actor Runs
 
-> Triggers when a selected actor run is finished.
+> Triggers when a selected Actor run is finished.
 
 <img src={require("./images/apify-make-trigger.png").default} width="50%" />
 
@@ -70,7 +69,7 @@ Congratulations! You have successfully connected the Apify app and can now use i
 
 ### Run a task
 
-> Runs a selected actor task.
+> Runs a selected Actor task.
 
 <img src={require("./images/apify-make-run-task.png").default} width="50%" />
 
@@ -80,21 +79,21 @@ Congratulations! You have successfully connected the Apify app and can now use i
 | Run synchronously    | Make will wait until the task run is finished. Beware that the maximum timeout for the run is 120 seconds.                                               |
 | Input JSON overrides | Here you can enter a JSON object to override the task input configuration. Only the provided fields will be overridden, the rest will be left unchanged. |
 
-### Run an actor
+### Run an Actor
 
-> Runs a selected actor.
+> Runs a selected Actor.
 
 <img src={require("./images/apify-make-run-actor.png").default} width="50%" />
 
 
 | Input                | Description                                                                                                                                                                                     |
 | :------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Actor                | Select or map the ID of the actor you want to run.                                                                                                                                              |
+| Actor                | Select or map the ID of the Actor you want to run.                                                                                                                                              |
 | Run synchronously    | Make will wait until the task run is finished. Beware that the maximum timeout for the run is 120 seconds.                                                                                      |
 | Input JSON overrides | Here you can enter a JSON object to override the task input configuration. Only the provided fields will be overridden, the rest will be left unchanged.                                        |
-| Build                | Specify the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically 'latest'). |
-| Timeout              | Enter the timeout for the run in seconds. By default, the run uses a timeout specified in the default run configuration for the actor.                                                          |
-| Memory               | Select or enter memory limit for the run, in megabytes. By default, the run uses a memory limit specified in the default run configuration for the actor.                                       |
+| Build                | Specify the Actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the Actor (typically 'latest'). |
+| Timeout              | Enter the timeout for the run in seconds. By default, the run uses a timeout specified in the default run configuration for the Actor.                                                          |
+| Memory               | Select or enter memory limit for the run, in megabytes. By default, the run uses a memory limit specified in the default run configuration for the Actor.                                       |
 
 ## Searches
 

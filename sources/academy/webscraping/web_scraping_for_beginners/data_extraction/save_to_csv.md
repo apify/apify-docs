@@ -40,7 +40,7 @@ The full code including the earlier scraping part now looks like this. Replace t
 ```js
 // main.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 import { parse } from 'json2csv'; // <---- added a new import
 
 const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
@@ -103,10 +103,10 @@ When we complete the code, it looks like this. Replace the code in your **main.j
 
 ```js
 // main.js
-import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
-import { parse } from 'json2csv';
 import { writeFileSync } from 'fs'; // <---- added a new import
+import { gotScraping } from 'got-scraping';
+import * as cheerio from 'cheerio';
+import { parse } from 'json2csv';
 
 const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 

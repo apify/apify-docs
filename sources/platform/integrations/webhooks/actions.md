@@ -1,13 +1,13 @@
 ---
 title: Actions
-description: Send notifications when specific events occur in your actor (task) run or build. Dynamically add data to the notification payload when sending the notification.
+description: Send notifications when specific events occur in your Actor (task) run or build. Dynamically add data to the notification payload when sending the notification.
 sidebar_position: 2
 slug: /integrations/webhooks/actions
 ---
 
 # Actions
 
-**Send notifications when specific events occur in your actor (task) run or build. Dynamically add data to the notification payload when sending the notification.**
+**Send notifications when specific events occur in your Actor (task) run or build. Dynamically add data to the notification payload when sending the notification.**
 
 ---
 
@@ -66,6 +66,34 @@ The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`. The variab
 }
 ```
 
+#### String interpolation
+
+The payload template _is not_ a valid JSON by default. The resulting payload is, but not the template. In some cases this is limiting, so there is also updated syntax available, that allows to use templates that provide the same functionality, and are valid JSON at the same time.
+
+With this new syntax, the default payload template - resulting in the same payload - looks like this:
+
+```json
+{
+    "userId": "{{userId}}",
+    "createdAt": "{{createdAt}}",
+    "eventType": "{{eventType}}",
+    "eventData": "{{eventData}}",
+    "resource": "{{resource}}"
+}
+```
+
+Notice that `resource` and `eventData` will actually become an object, even though in the template it's a string.
+
+If the string being interpolated only contains the variable, the actual variable value is used in the payload. For example `"{{eventData}}"` results in an object. If the string contains more than just the variable, the string value of the variable will occur in the payload:
+
+```json
+{ "text": "My user id is {{userId}}" }
+{ "text": "My user id is abf6vtB2nvQZ4nJzo" }
+```
+
+
+To turn on this new syntax, use **Interpolate variables in string fields** switch within Apify Console. In API it's called `shouldInterpolateStrings`. The field is always `true` when integrating Actors or tasks.
+
 #### Payload template example
 
 This example shows how you can use the payload template variables to send a custom object that displays the status of a RUN, its ID and a custom property:
@@ -80,6 +108,24 @@ This example shows how you can use the payload template variables to send a cust
 
 You may have noticed that the `eventData` and `resource` properties contain redundant data. This is for backwards compatibility. Feel free to only use `eventData` or `resource` in your templates, depending on your use case.
 
+### Headers template
+
+Headers is a JSON-like string where you can add additional information to the default header of the webhook request. You can pass the variables in the same way as in [payload template](#payload-template) (including the use of string interpolation and available variables). The resulting headers need to be a valid json object and values can be strings only.
+
+It is important to notice that the following keys are hard-coded and will be re-written always.
+
+| Variable                  | Value                   |
+|---------------------------|-------------------------|
+| `host`                    | request url             |
+| `Content-Type`            | application/json        |
+| `X-Apify-Webhook`         | Apify value             |
+| `X-Apify-Webhook-Dispatch-Id` | Apify id            |
+| `X-Apify-Request-Origin`   | Apify origin           |
+
+### Description
+
+Description is an optional string that you can add to the webhook. It serves for your information, it is not send with the http request when the webhook is dispatched.
+
 ### Available variables
 
 | Variable    | Type   | Description                                                                         |
@@ -90,10 +136,8 @@ You may have noticed that the `eventData` and `resource` properties contain redu
 | `eventData` | Object | Data associated with the trigger event, [see Events](./events.md). |
 | `resource`  | Object | The resource that caused the trigger event, [see below](#resource).                 |
 
-
 #### Resource
 
-The `resource` variable represents the triggering system resource. For example when using the `ACTOR.RUN.SUCCEEDED` event, the resource is the actor run. The variable will be replaced by an `Object` that one would receive as response from the relevant API at the moment when the webhook is triggered. So for the actor run resource, it would be the response of the [Get actor run](/api/v2#/reference/actors/run-object-deprecated/get-run) API endpoint.
+The `resource` variable represents the triggering system resource. For example, when using the `ACTOR.RUN.SUCCEEDED` event, the resource is the Actor run. The variable will be replaced by the `Object` that you would receive as a response from the relevant API at the moment when the webhook is triggered. So for the Actor run resource, it would be the response of the [Get Actor run](/api/v2#/reference/actors/run-object-deprecated/get-run) API endpoint.
 
-In addition to actor runs, webhooks also support various events related to actor builds. In such cases, the resource object will look like the response of the
-[Get actor build](/api/v2#/reference/actor-builds/build-object/get-build) API endpoint.
+In addition to Actor runs, webhooks also support various events related to Actor builds. In such cases, the resource object will look like the response of the [Get Actor build](/api/v2#/reference/actor-builds/build-object/get-build) API endpoint.

@@ -46,7 +46,7 @@ await page.keyboard.press('Enter');
 await page.waitForSelector('.g a');
 await page.click('.g a');
 
-await page.waitForTimeout(10000)
+await page.waitForTimeout(10000);
 await browser.close();
 ```
 
@@ -94,8 +94,8 @@ Here's what our project's code looks like so far:
 <TabItem value="Playwright" label="Playwright">
 
 ```javascript
-import { chromium } from 'playwright';
 import * as fs from 'fs/promises';
+import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
 
@@ -120,15 +120,14 @@ await page.waitForLoadState('load');
 await page.waitForTimeout(10000);
 
 await browser.close();
-
 ```
 
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
 ```javascript
-import puppeteer from 'puppeteer';
 import * as fs from 'fs/promises';
+import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
 
@@ -154,7 +153,6 @@ await Promise.all([page.waitForNavigation(), page.click('.g a')]);
 await page.waitForTimeout(10000);
 
 await browser.close();
-
 ```
 
 </TabItem>

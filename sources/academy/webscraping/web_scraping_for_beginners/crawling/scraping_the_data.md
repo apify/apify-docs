@@ -21,7 +21,7 @@ Let's start writing a script that extracts data from this single PDP. We can use
 
 ```js title=product.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const productUrl = 'https://warehouse-theme-metal.myshopify.com/products/denon-ah-c720-in-ear-headphones';
 const response = await gotScraping(productUrl);
@@ -73,7 +73,7 @@ const price = $('span.price').contents()[2].nodeValue;
 For the review count, we use the `parseInt()` function to get only the number. Otherwise, we would receive a string like **2 reviews** from this element.
 
 ```js
-const reviewCount = parseInt($('span.rating__caption').text());
+const reviewCount = parseInt($('span.rating__caption').text(), 10);
 ```
 
 ### Description
@@ -103,7 +103,7 @@ const $ = cheerio.load(html);
 const title = $('h1').text().trim();
 const vendor = $('a.product-meta__vendor').text().trim();
 const price = $('span.price').contents()[2].nodeValue;
-const reviewCount = parseInt($('span.rating__caption').text());
+const reviewCount = parseInt($('span.rating__caption').text(), 10);
 const description = $('div[class*="description"] div.rte').text().trim();
 
 const product = {
@@ -111,7 +111,7 @@ const product = {
     vendor,
     price,
     reviewCount,
-    description
+    description,
 };
 
 console.log(product);
@@ -123,7 +123,7 @@ Let's compare the above data extraction example with the crawling code we wrote 
 
 ```js title=crawler.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const WEBSITE_URL = 'https://warehouse-theme-metal.myshopify.com';
 const storeUrl = `${WEBSITE_URL}/collections/sales`;
@@ -137,7 +137,7 @@ const productLinks = $('a.product-item__title');
 const productUrls = [];
 for (const link of productLinks) {
     const relativeUrl = $(link).attr('href');
-    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL)
+    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL);
     productUrls.push(absoluteUrl);
 }
 
@@ -149,7 +149,7 @@ for (const url of productUrls) {
         const productPageTitle = $productPage('h1').text().trim();
         console.log(productPageTitle);
     } catch (error) {
-        console.error(error.message, url)
+        console.error(error.message, url);
     }
 }
 ```
@@ -171,7 +171,7 @@ We'll start by adding our imports and constants at the top of the file, no chang
 
 ```js title=final.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const WEBSITE_URL = 'https://warehouse-theme-metal.myshopify.com';
 ```
@@ -196,7 +196,7 @@ const productLinks = $('a.product-item__title');
 const productUrls = [];
 for (const link of productLinks) {
     const relativeUrl = $(link).attr('href');
-    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL)
+    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL);
     productUrls.push(absoluteUrl);
 }
 ```
@@ -223,7 +223,7 @@ for (const url of productUrls) {
         const title = $productPage('h1').text().trim();
         const vendor = $productPage('a.product-meta__vendor').text().trim();
         const price = $productPage('span.price').contents()[2].nodeValue;
-        const reviewCount = parseInt($productPage('span.rating__caption').text());
+        const reviewCount = parseInt($productPage('span.rating__caption').text(), 10);
         const description = $productPage('div[class*="description"] div.rte').text().trim();
 
         results.push({
@@ -260,7 +260,7 @@ const productLinks = $('a.product-item__title');
 const productUrls = [];
 for (const link of productLinks) {
     const relativeUrl = $(link).attr('href');
-    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL)
+    const absoluteUrl = new URL(relativeUrl, WEBSITE_URL);
     productUrls.push(absoluteUrl);
 }
 
@@ -271,14 +271,14 @@ const errors = [];
 
 for (const url of productUrls) {
     try {
-        console.log(`Fetching URL: ${url}`)
+        console.log(`Fetching URL: ${url}`);
         const productResponse = await gotScraping(url);
         const $productPage = cheerio.load(productResponse.body);
 
         const title = $productPage('h1').text().trim();
         const vendor = $productPage('a.product-meta__vendor').text().trim();
         const price = $productPage('span.price').contents()[2].nodeValue;
-        const reviewCount = parseInt($productPage('span.rating__caption').text());
+        const reviewCount = parseInt($productPage('span.rating__caption').text(), 10);
         const description = $productPage('div[class*="description"] div.rte').text().trim();
 
         results.push({
@@ -301,28 +301,28 @@ And here's an example of the results you will see after running the above code. 
 
 ```js
 [
-  {
-    title: 'JBL Flip 4 Waterproof Portable Bluetooth Speaker',
-    vendor: 'JBL',
-    price: '$74.95',
-    reviewCount: 2,
-    description: 'JBL Flip 4 is the next generation in the ...'
-  },
-  {
-    title: 'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV',
-    vendor: 'Sony',
-    price: '$1,398.00',
-    reviewCount: 3,
-    description: 'Unlock the world of ultimate colors and ...'
-  },
-  {
-    title: 'Sony SACS9 10" Active Subwoofer',
-    vendor: 'Sony',
-    price: '$158.00',
-    reviewCount: 3,
-    description: 'Put more punch in your movie ...'
-  }
-]
+    {
+        title: 'JBL Flip 4 Waterproof Portable Bluetooth Speaker',
+        vendor: 'JBL',
+        price: '$74.95',
+        reviewCount: 2,
+        description: 'JBL Flip 4 is the next generation in the ...',
+    },
+    {
+        title: 'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV',
+        vendor: 'Sony',
+        price: '$1,398.00',
+        reviewCount: 3,
+        description: 'Unlock the world of ultimate colors and ...',
+    },
+    {
+        title: 'Sony SACS9 10" Active Subwoofer',
+        vendor: 'Sony',
+        price: '$158.00',
+        reviewCount: 3,
+        description: 'Put more punch in your movie ...',
+    },
+];
 ```
 
 That's it for the absolute basics of crawling, but we're not done yet. We scraped 24 products from the first page of the Sales category, but the category actually has 50 products on 3 pages. You will learn how to visit all the pages and scrape all the products in the following lessons.

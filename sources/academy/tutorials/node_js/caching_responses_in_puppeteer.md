@@ -5,6 +5,8 @@ sidebar_position: 14.2
 slug: /node-js/caching-responses-in-puppeteer
 ---
 
+import Example from '!!raw-loader!roa-loader!./caching_responses_in_puppeteer.js';
+
 # How to optimize Puppeteer by caching responses {#caching-responses-in-puppeteer}
 
 **Learn why it is important for performance to cache responses in memory when intercepting requests in Puppeteer and how to implement it in your code.**
@@ -55,7 +57,7 @@ const cache = {};
 
 await page.setRequestInterception(true);
 
-page.on('request', async(request) => {
+page.on('request', async (request) => {
     const url = request.url();
     if (cache[url] && cache[url].expires > Date.now()) {
         await request.respond(cache[url]);
@@ -64,15 +66,15 @@ page.on('request', async(request) => {
     request.continue();
 });
 
-page.on('response', async(response) => {
+page.on('response', async (response) => {
     const url = response.url();
     const headers = response.headers();
     const cacheControl = headers['cache-control'] || '';
     const maxAgeMatch = cacheControl.match(/max-age=(\d+)/);
     const maxAge = maxAgeMatch && maxAgeMatch.length > 1 ? parseInt(maxAgeMatch[1], 10) : 0;
     if (maxAge) {
-        if (!cache[url] || cache[url].expires > Date.now()) return;
-        
+        if (cache[url] && cache[url].expires > Date.now()) return;
+
         let buffer;
         try {
             buffer = await response.buffer();
@@ -105,59 +107,6 @@ It did not speed up the crawler, but that is only because the crawler is set to 
 
 Since most of you are likely using [Crawlee](https://crawlee.dev), here is what response caching would look like using `PuppeteerCrawler`:
 
-```js
-import { PuppeteerCrawler, Dataset } from 'crawlee';
-
-const cache = {};
-
-const crawler = new PuppeteerCrawler({
-    preNavigationHooks: [async ({ page }) => {
-        await page.setRequestInterception(true);
-
-        page.on('request', async (request) => {
-            const url = request.url();
-            if (cache[url] && cache[url].expires > Date.now()) {
-                await request.respond(cache[url]);
-                return;
-            }
-            request.continue();
-        });
-
-        page.on('response', async (response) => {
-            const url = response.url();
-            const headers = response.headers();
-            const cacheControl = headers['cache-control'] || '';
-            const maxAgeMatch = cacheControl.match(/max-age=(\d+)/);
-            const maxAge = maxAgeMatch && maxAgeMatch.length > 1 ? parseInt(maxAgeMatch[1], 10) : 0;
-
-            if (maxAge) {
-                if (!cache[url] || cache[url].expires > Date.now()) return;
-
-                let buffer;
-                try {
-                    buffer = await response.buffer();
-                } catch (error) {
-                    // some responses do not contain buffer and do not need to be catched
-                    return;
-                }
-
-                cache[url] = {
-                    status: response.status(),
-                    headers: response.headers(),
-                    body: buffer,
-                    expires: Date.now() + maxAge * 1000,
-                };
-            }
-        });
-    }],
-    requestHandler: async ({ page, request }) => {
-        await Dataset.pushData({
-            title: await page.title(),
-            url: request.url,
-            succeeded: true,
-        });
-    },
-});
-
-await crawler.run(['https://apify.com/store', 'https://apify.com']);
-```
+<RunnableCodeBlock className="language-js" type="puppeteer">
+    {Example}
+</RunnableCodeBlock>

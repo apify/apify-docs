@@ -70,9 +70,13 @@ And as we already know, there's only one.
 
 ```js
 // Using Cheerio.
-return {
-    title: $('header h1').text(),
-};
+async function pageFunction(context) {
+    const { $ } = context;
+    // ... rest of your code can come here
+    return {
+        title: $('header h1').text(),
+    };
+}
 ```
 
 ### [](#description) Description
@@ -84,10 +88,14 @@ the `<header>` element too, same as the title. Moreover, the actual description 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.webp)
 
 ```js
-return {
-    title: $('header h1').text(),
-    description: $('header span.actor-description').text(),
-};
+async function pageFunction(context) {
+    const { $ } = context;
+    // ... rest of your code can come here
+    return {
+        title: $('header h1').text(),
+        description: $('header span.actor-description').text(),
+    };
+}
 ```
 
 ### [](#modified-date) Modified date
@@ -97,15 +105,19 @@ The DevTools tell us that the `modifiedDate` can be found in a `<time>` element.
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/modified-date.webp)
 
 ```js
-return {
-    title: $('header h1').text(),
-    description: $('header span.actor-description').text(),
-    modifiedDate: new Date(
-        Number(
-            $('ul.ActorHeader-stats time').attr('datetime'),
+async function pageFunction(context) {
+    const { $ } = context;
+    // ... rest of your code can come here
+    return {
+        title: $('header h1').text(),
+        description: $('header span.actor-description').text(),
+        modifiedDate: new Date(
+            Number(
+                $('ul.ActorHeader-stats time').attr('datetime'),
+            ),
         ),
-    ),
-};
+    };
+}
 ```
 
 It might look a little too complex at first glance, but let us walk you through it. We find all the `<time>` elements. Then, we read its `datetime` attribute, because that's where a unix timestamp is stored as a `string`.
@@ -120,21 +132,25 @@ And so we're finishing up with the `runCount`. There's no specific element like 
 a complex selector and then do a transformation on the result.
 
 ```js
-return {
-    title: $('header h1').text(),
-    description: $('header span.actor-description').text(),
-    modifiedDate: new Date(
-        Number(
-            $('ul.ActorHeader-stats time').attr('datetime'),
+async function pageFunction(context) {
+    const { $ } = context;
+    // ... rest of your code can come here
+    return {
+        title: $('header h1').text(),
+        description: $('header span.actor-description').text(),
+        modifiedDate: new Date(
+            Number(
+                $('ul.ActorHeader-stats time').attr('datetime'),
+            ),
         ),
-    ),
-    runCount: Number(
-        $('ul.ActorHeader-stats > li:nth-of-type(3)')
-            .text()
-            .match(/[\d,]+/)[0]
-            .replace(/,/g, ''),
-    ),
-};
+        runCount: Number(
+            $('ul.ActorHeader-stats > li:nth-of-type(3)')
+                .text()
+                .match(/[\d,]+/)[0]
+                .replace(/,/g, ''),
+        ),
+    };
+}
 ```
 
 The `ul.ActorHeader-stats > li:nth-of-type(3)` looks complicated, but it only reads that we're looking for a `<ul class="ActorHeader-stats ...">` element and within that
@@ -155,32 +171,34 @@ And there we have it! All the data we needed in a single object. For the sake of
 the properties we parsed from the URL earlier and we're good to go.
 
 ```js
-const { url } = request;
+async function pageFunction(context) {
+    const { $ } = context;
+    const { url } = request;
+    // ... rest of your code can come here
 
-// ...
+    const uniqueIdentifier = url
+        .split('/')
+        .slice(-2)
+        .join('/');
 
-const uniqueIdentifier = url
-    .split('/')
-    .slice(-2)
-    .join('/');
-
-return {
-    url,
-    uniqueIdentifier,
-    title: $('header h1').text(),
-    description: $('header span.actor-description').text(),
-    modifiedDate: new Date(
-        Number(
-            $('ul.ActorHeader-stats time').attr('datetime'),
+    return {
+        url,
+        uniqueIdentifier,
+        title: $('header h1').text(),
+        description: $('header span.actor-description').text(),
+        modifiedDate: new Date(
+            Number(
+                $('ul.ActorHeader-stats time').attr('datetime'),
+            ),
         ),
-    ),
-    runCount: Number(
-        $('ul.ActorHeader-stats > li:nth-of-type(3)')
-            .text()
-            .match(/[\d,]+/)[0]
-            .replace(/,/g, ''),
-    ),
-};
+        runCount: Number(
+            $('ul.ActorHeader-stats > li:nth-of-type(3)')
+                .text()
+                .match(/[\d,]+/)[0]
+                .replace(/,/g, ''),
+        ),
+    };
+}
 ```
 
 All we need to do now is add this to our `pageFunction`:
@@ -313,7 +331,7 @@ for (const item of data.props.pageProps.items) {
         userData: {
             // Don't forget the label.
             label: 'DETAIL',
-        }
+        },
     });
 }
 ```
@@ -421,6 +439,7 @@ async function pageFunction(context) {
     switch (context.request.userData.label) {
         case 'START': return handleStart(context);
         case 'DETAIL': return handleDetail(context);
+        default: throw new Error('Unknown request label.');
     }
 
     async function handleStart({ log, waitFor, $ }) {

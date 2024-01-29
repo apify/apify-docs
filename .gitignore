@@ -13,7 +13,6 @@ logs
 pids
 .idea
 .vscode
-.npmrc
 yarn.lock
 tmp
 jsconfig.json

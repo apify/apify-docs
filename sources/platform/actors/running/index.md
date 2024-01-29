@@ -1,17 +1,16 @@
 ---
-title: Running actors
-description: Start an actor from the Apify Console or via API. Learn about actor lifecycles, how to specify settings and version, provide input and resurrect finished runs.
-menuTitle: Running
+title: Running Actors
+description: Start an Actor from Apify Console or via API. Learn about Actor lifecycles, how to specify settings and version, provide input, and resurrect finished runs.
 sidebar_position: 7.1
 slug: /actors/running
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Running
 
 **In this section, you learn how to run Apify Actors using Apify Console or programmatically. You will learn about their configuration, versioning, data retention, usage, and pricing.**
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ---
 
@@ -21,7 +20,7 @@ Before you can run an Actor, you have to either choose one of the existing ones 
 
 > **You will need an Apify account to complete this tutorial. If you don't have one, [complete the sign-up process](https://console.apify.com/sign-up) first. Don't worry about the price - it's free.**
 
-### 1. Choose your actor
+### 1. Choose your Actor
 
 After you sign-in to Apify Console, navigate to [Apify Store](https://console.apify.com/store). We'll pick the [Google Maps Scraper](https://console.apify.com/actors/nwua9Gu5YrADL7ZDj#/information/latest/readme):
 
@@ -34,7 +33,6 @@ On the Actor's page, head over to the **Input** tab. Don't be put off by all the
 Alternatively, you can play around with the settings to make the results more interesting for you.
 
 ![Actor input](./images/actor-google-maps-scraper-input.png)
-
 
 ### 3. Wait for the results
 
@@ -66,7 +64,7 @@ Actors can also be invoked using the Apify API by sending an HTTP POST request t
 https://api.apify.com/v2/acts/compass~crawler-google-places/runs?token=<YOUR_API_TOKEN>
 ```
 
-An actor's input and its content type can be passed as a payload of the POST request, and additional options can be specified using URL query parameters. For more details, see the [Run Actor](/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
+An Actor's input and its content type can be passed as a payload of the POST request, and additional options can be specified using URL query parameters. For more details, see the [Run Actor](/api/v2/#/reference/actors/run-collection/run-actor) section in the API reference.
 
 > To learn more about this, read the [Run an Actor or task and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api) tutorial.
 
@@ -123,4 +121,3 @@ print(dataset_items)
 The newly started Actor runs under the account associated with the provided `token`, and therefore all resources consumed are charged to this user account.
 
 Internally, the `call()` function invokes the [Run Actor](/api/v2/#/reference/actors/run-collection/run-actor) API endpoint, waits for the Actor to finish, and reads its output using the [Get items](/api/v2/#/reference/datasets/item-collection/get-items) API endpoint.
-

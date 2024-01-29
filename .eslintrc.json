@@ -10,7 +10,7 @@
         "ecmaFeatures": {
             "jsx": true
         },
-        "ecmaVersion": 2020
+        "ecmaVersion": 2022
     },
     "env": {
         "browser": true
@@ -23,6 +23,8 @@
     "root": true,
     "rules": {
         "quote-props": ["error", "consistent"],
-        "react/prop-types": ["off"]
+        "react/prop-types": ["off"],
+        "import/extensions": ["off"],
+        "no-void": ["off"]
     }
 }

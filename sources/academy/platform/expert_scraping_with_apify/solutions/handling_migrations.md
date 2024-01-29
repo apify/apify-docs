@@ -34,7 +34,7 @@ class ASINTracker {
             return;
         }
 
-        this.state[asin]+= 1;
+        this.state[asin] += 1;
     }
 }
 
@@ -155,7 +155,7 @@ class ASINTracker {
             return;
         }
 
-        this.state[asin]+= 1;
+        this.state[asin] += 1;
     }
 }
 
@@ -200,7 +200,7 @@ class ASINTracker {
             return;
         }
 
-        this.state[asin]+= 1;
+        this.state[asin] += 1;
     }
 }
 

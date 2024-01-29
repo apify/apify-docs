@@ -18,6 +18,12 @@ Now that you've gotten your toes wet with interacting with the Apify API through
 
 This lesson will provide code examples for both Node.js and Python, so regardless of the language you are using, you can follow along!
 
+## Examples {#examples}
+
+You can access `apify-client` examples in the Console Actor detail page. Click the **API** button and then the **API Client** dropdown button.
+
+![API button](./images/api-button.png)
+
 ## Installing and importing {#installing-and-importing}
 
 If you are going to use the client in Node.js, use this command within one of your projects to install the package through NPM:
@@ -40,7 +46,6 @@ After installing the package, let's make a file named **client** and import the 
 ```javascript
 // client.js
 import { ApifyClient } from 'apify-client';
-
 ```
 
 </TabItem>
@@ -68,7 +73,6 @@ Before we can use the client though, we must create a new instance of the `Apify
 const client = new ApifyClient({
     token: 'YOUR_TOKEN',
 });
-
 ```
 
 </TabItem>
@@ -82,9 +86,9 @@ client = ApifyClient(token='YOUR_TOKEN')
 </TabItem>
 </Tabs>
 
-> If you are planning on publishing your code to a public Github/Gitlab repository or anywhere else online, be sure to set your API token as en environment variable, and never hardcode it directly into your script.
+> If you are planning on publishing your code to a public GitHub/Gitlab repository or anywhere else online, be sure to set your API token as en environment variable, and never hardcode it directly into your script.
 
-Now that we've got our instance, we can point to an actor using the [`client.actor()`](/api/client/js/reference/class/ApifyClient#actor) function, then call the actor with some input with the [`.call()`](/api/client/js/reference/class/ApifyClient#actor) function - the first parameter of which is the input for the actor.
+Now that we've got our instance, we can point to an Actor using the [`client.actor()`](/api/client/js/reference/class/ApifyClient#actor) function, then call the Actor with some input with the [`.call()`](/api/client/js/reference/class/ApifyClient#actor) function - the first parameter of which is the input for the Actor.
 
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
@@ -94,7 +98,6 @@ const run = await client.actor('YOUR_USERNAME/adding-actor').call({
     num1: 4,
     num2: 2,
 });
-
 ```
 
 </TabItem>
@@ -125,8 +128,7 @@ The `run` variable we created in the last section points to the **run info** obj
 <TabItem value="Node.js" label="Node.js">
 
 ```javascript
-const dataset = client.dataset(run['defaultDatasetId'])
-
+const dataset = client.dataset(run.defaultDatasetId);
 ```
 
 </TabItem>
@@ -149,7 +151,6 @@ Finally, we can download the items in the dataset by using the **list items** fu
 const { items } = await dataset.listItems();
 
 console.log(items);
-
 ```
 
 </TabItem>
@@ -164,8 +165,6 @@ print(items)
 
 </TabItem>
 </Tabs>
-
-> Notice that in the JavaScript example, we had to convert the `items` to a [`Buffer`](https://nodejs.org/api/buffer.html), then convert the Buffer to a string and parse it. This is because `dataset.downloadItems()` returns a buffer.
 
 The final code for running the actor and fetching its dataset items looks like this:
 
@@ -185,12 +184,11 @@ const run = await client.actor('YOUR_USERNAME/adding-actor').call({
     num2: 2,
 });
 
-const dataset = client.dataset(run['defaultDatasetId'])
+const dataset = client.dataset(run.defaultDatasetId);
 
 const { items } = await dataset.listItems();
 
 console.log(items);
-
 ```
 
 </TabItem>
@@ -230,8 +228,7 @@ First, we'll create a pointer to our actor, similar to as before (except this ti
 <TabItem value="Node.js" label="Node.js">
 
 ```javascript
-const actor = client.actor('YOUR_USERNAME/adding-actor')
-
+const actor = client.actor('YOUR_USERNAME/adding-actor');
 ```
 
 </TabItem>
@@ -258,7 +255,6 @@ await actor.update({
         timeoutSecs: 20,
     },
 });
-
 ```
 
 </TabItem>

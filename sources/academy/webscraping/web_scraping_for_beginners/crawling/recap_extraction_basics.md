@@ -16,10 +16,10 @@ We finished off the [first section](../data_extraction/index.md) of the _Web Scr
 ```js
 // First, we imported all the libraries we needed to
 // download, extract, and convert the data we wanted
-import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
-import { parse } from 'json2csv';
 import { writeFileSync } from 'fs';
+import { gotScraping } from 'got-scraping';
+import * as cheerio from 'cheerio';
+import { parse } from 'json2csv';
 
 // Here, we fetched the website's HTML and saved it to a new variable.
 const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
@@ -61,7 +61,7 @@ for (const product of products) {
 const csv = parse(results);
 
 // Then, we saved the CSV to the disk
-writeFileSync('products.csv', csv)
+writeFileSync('products.csv', csv);
 ```
 
 :::tip

@@ -12,18 +12,18 @@ jobs:
       outputs:
           theme_changed: ${{ steps.changed-theme-files.outputs.any_changed }}
       steps:
-          -   uses: actions/checkout@v3
+          -   uses: actions/checkout@v4
               with:
                   fetch-depth: 0
 
-          -   name: Use Node.js 16
-              uses: actions/setup-node@v3
+          -   name: Use Node.js 18
+              uses: actions/setup-node@v4
               with:
-                  node-version: 16
+                  node-version: 18
 
           -   name: Check changes in theme
               id: changed-theme-files
-              uses: tj-actions/changed-files@v35
+              uses: tj-actions/changed-files@v41
               with:
                 since_last_remote_commit: "true"
                 files: |
@@ -34,14 +34,19 @@ jobs:
         if: needs.look_for_change.outputs.theme_changed == 'true'
         runs-on: ubuntu-latest
         steps:
-            -   uses: actions/checkout@v3
+            -   uses: actions/checkout@v4
                 with:
-                    token: ${{ secrets.GH_TOKEN }}
+                    token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
-            -   name: Use Node.js 16
-                uses: actions/setup-node@v3
+            -   name: Use Node.js 18
+                uses: actions/setup-node@v4
                 with:
-                    node-version: 16
+                    node-version: 18
+                    cache: 'npm'
+                    cache-dependency-path: 'package-lock.json'
+                    registry-url: 'https://npm.pkg.github.com/'
+                    scope: '@apify-packages'
+    
 
             -   name: Setup git user and npm
                 run: |
@@ -49,21 +54,23 @@ jobs:
                     git config --global user.email "noreply@apify.com"
 
                     echo "access=public" > .npmrc
-                    echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+                    echo "//registry.npmjs.org/:_authToken=${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}" >> .npmrc
 
             -   name: Bump the theme version
                 run: |
                     cd $GITHUB_WORKSPACE/apify-docs-theme
-                    npm version patch
+                    npm version patch --legacy-peer-deps
+                env:
+                    NODE_AUTH_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}
 
             -   name: Deploy theme to npm
                 run: |
                     cd $GITHUB_WORKSPACE/apify-docs-theme
                     npx -y publish-if-not-exists
                 env:
-                    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-                    GIT_USER: "barjin:${{ secrets.GH_TOKEN }}"
-                    GH_TOKEN: ${{ secrets.GH_TOKEN }}
+                    NPM_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}
+                    GIT_USER: "barjin:${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}"
+                    GH_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
             - name: Wait until the new theme version is available on npm
               run: |
@@ -85,7 +92,7 @@ jobs:
                 npm show $PACKAGE_NAME@$PACKAGE_VER # fails if the package is not available, succeeds if it is
 
             - name: Commit the new theme version
-              uses: stefanzweifel/git-auto-commit-action@v4
+              uses: stefanzweifel/git-auto-commit-action@v5
               with:
                 commit_message: 'chore: publish new version of @apify/docs-theme [skip ci]'
                 file_pattern: 'apify-docs-theme/package*.json'
@@ -97,21 +104,16 @@ jobs:
         needs: publish
         strategy:
             matrix:
-                include:
-                    - repo: 'apify/apify-sdk-js'
-                      branch: 'master'
-                    - repo: 'apify/apify-sdk-python'
-                      branch: 'docs-v2'
-                    - repo: 'apify/apify-cli'
-                      branch: 'master'
-                    - repo: 'apify/apify-client-js'
-                      branch: 'master'
-                    - repo: 'apify/apify-client-python'
-                      branch: 'docs-v2'
+                repo:
+                    - apify/apify-sdk-js
+                    - apify/apify-sdk-python
+                    - apify/apify-cli
+                    - apify/apify-client-js
+                    - apify/apify-client-python
 
         runs-on: ubuntu-latest
         steps:
           - env:
-              GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+              GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
             run: |
-                gh workflow run docs.yaml --repo ${{ matrix.repo }} --ref ${{ matrix.branch }}
+                gh workflow run docs.yaml --repo ${{ matrix.repo }}

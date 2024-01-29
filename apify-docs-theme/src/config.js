@@ -140,12 +140,12 @@ const themeConfig = ({
     },
     prism: {
         defaultLanguage: 'typescript',
-        theme: require('prism-react-renderer/themes/github'),
-        darkTheme: require('prism-react-renderer/themes/dracula'),
-        additionalLanguages: ['docker', 'log'],
+        theme: require('prism-react-renderer').themes.github,
+        darkTheme: require('prism-react-renderer').themes.dracula,
+        additionalLanguages: ['docker', 'log', 'php'],
     },
     // this needs to be absolute link otherwise it gets resolved wrongly in project docs
-    image: 'https://docs.apify.com/img/docs-og.png',
+    image: 'https://apify.com/api/og-image/docs-article',
     footer: {
         links: [
             {
@@ -241,8 +241,8 @@ const themeConfig = ({
     },
     algolia: {
         appId: 'N8EOCSBQGH',
-        apiKey: 'b43e67a96ed18c7f63f5fd965906a96d', // search only (public) API key
-        indexName: 'apify_sdk',
+        apiKey: 'e97714a64e2b4b8b8fe0b01cd8592870', // search only (public) API key
+        indexName: 'test_test_apify_sdk',
         algoliaOptions: {
             facetFilters: ['version:VERSION'],
         },
@@ -262,6 +262,20 @@ const plugins = [
         },
     ],
     '@stackql/docusaurus-plugin-hubspot',
+    async function runnableCodeBlock() {
+        return {
+            name: 'runnable-code-block',
+            configureWebpack() {
+                return {
+                    resolveLoader: {
+                        alias: {
+                            'roa-loader': require.resolve(`${__dirname}/roa-loader/`),
+                        },
+                    },
+                };
+            },
+        };
+    },
 ];
 
 module.exports = {

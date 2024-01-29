@@ -1,6 +1,6 @@
 ---
 title: Limits
-description: Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of actors and tasks per user.
+description: Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of Actors and tasks per user.
 sidebar_position: 16
 category: platform
 slug: /limits
@@ -8,13 +8,13 @@ slug: /limits
 
 # Limits {#limits}
 
-**Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of actors and tasks per user.**
+**Learn the Apify platform's resource capability and limitations such as max memory, disk size and number of Actors and tasks per user.**
 
 ---
 
-The tables below demonstrate the Apify Platform's default resource limits. For API limits such as rate limits and max payload size, see the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting).
+The tables below demonstrate the Apify platform's default resource limits. For API limits such as rate limits and max payload size, see the [API documentation](https://docs.apify.com/api/v2#/introduction/rate-limiting).
 
-> If needed, the limits shown below can be increased on paid accounts. For details, contact us at **hello@apify.com** or using the chat in [Apify Console](https://console.apify.com/) under the "Help & Resources → Contact Support".
+> If needed, the limits shown below can be increased on paid accounts. For details, contact us at **[hello@apify.com](mailto:hello@apify.com)** or using the chat in [Apify Console](https://console.apify.com/) under the "Help & Resources → Contact Support".
 
 ## Actor runtime limits {#actor-limits}
 
@@ -34,8 +34,7 @@ The tables below demonstrate the Apify Platform's default resource limits. For A
     <tbody>
         <tr>
             <td>Build memory size</td>
-            <td>2,048&nbsp;MB</td>
-            <td colspan="3">4,096&nbsp;MB</td>
+            <td colspan="4">4,096&nbsp;MB</td>
         </tr>
         <tr>
             <td>Run minimum memory</td>
@@ -69,10 +68,14 @@ The tables below demonstrate the Apify Platform's default resource limits. For A
             <td>Maximum log size</td>
             <td colspan="4">10,485,760&nbsp;characters</td>
         </tr>
+        <tr>
+            <td>Maximum number of metamorphs</td>
+            <td colspan="4">10 metamorphs per run</td>
+        </tr>
     </tbody>
 </table>
 
-## Apify Platform limits {#platform-limits}
+## Apify platform limits {#platform-limits}
 
 <table>
     <thead>
@@ -93,11 +96,11 @@ The tables below demonstrate the Apify Platform's default resource limits. For A
             <td colspan="4">2000&nbsp;columns</td>
         </tr>
         <tr>
-            <td>Maximum size of actor input schema</td>
+            <td>Maximum size of Actor input schema</td>
             <td colspan="4">100&nbsp;kB</td>
         </tr>
         <tr>
-            <td>Maximum number of actors per user</td>
+            <td>Maximum number of Actors per user</td>
             <td colspan="4">100</td>
         </tr>
         <tr>
@@ -113,7 +116,7 @@ The tables below demonstrate the Apify Platform's default resource limits. For A
             <td colspan="4">100</td>
         </tr>
         <tr>
-            <td>Maximum number of actors per schedule</td>
+            <td>Maximum number of Actors per schedule</td>
             <td colspan="4">10</td>
         </tr>
         <tr>
@@ -121,15 +124,17 @@ The tables below demonstrate the Apify Platform's default resource limits. For A
             <td colspan="4">10</td>
         </tr>
         <tr>
-            <td>Maximum number of concurrent actor runs per user </td>
+            <td>Maximum number of concurrent Actor runs per user </td>
             <td>25</td>
-            <td colspan="3">250</td>
+            <td>32</td>
+            <td>128</td>
+            <td>256</td>
         </tr>
     </tbody>
 </table>
 
 ## Usage limit {#usage-limit}
 
-The Apify Platform also introduces usage limits based on the billing plan to protect users from accidental overspending. View these limits and adjust your maximum usage limit in [Apify Console](https://console.apify.com/billing#/limits):
+The Apify platform also introduces usage limits based on the billing plan to protect users from accidental overspending. View these limits and adjust your maximum usage limit in [Apify Console](https://console.apify.com/billing#/limits):
 
  <img src={require("./images/limits/usage-limits.png").default} title="Apify Security Whitepaper" />

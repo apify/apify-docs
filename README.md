@@ -4,22 +4,48 @@
 
 ## Intro
 
-This repository is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and all of its source files are located in the [/sources](https://github.com/apify/apify-docs/tree/master/sources) directory.
+This repository is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). Source files of the [platform documentation](https://docs.apify.com/platform) are located in the [/sources](https://github.com/apify/apify-docs/tree/master/sources) directory. However, other sections, such as [SDK](https://docs.apify.com/sdk) or [CLI](https://docs.apify.com/cli), have their own repositories. For more information, see the [Contributing guidelines](./CONTRIBUTING.md).
 
-When you create a PR, the CI will try to build the project, searching for broken links and linting both the application code and markdown files.
+## Before you start contributing
 
-## Implementation and style
+> [!IMPORTANT]
+> Before you contribute to Apify documentation with your first pull request, please read the following 2 articles:
+>
+> - [Contributing guidelines](CONTRIBUTING.md), where you learn about the project structure, local development, testing, and setting up the [redirects](./CONTRIBUTING.md#redirects) to make sure we keep our SEO juice 🍊.
+> - [Style guide](#style-guide), here below 👇, where you learn how to keep the documentation style consistent.
 
-In addition to the tips below: when in doubt, check existing docs for formatting and style tips.
+## Style guide
+
+In addition to the following tips, check existing docs for formatting and style tips when in doubt.
+
+### Language
+
+Adhere to US-EN language standards to maintain consistency and clarity in our documentation.
+
+Use inclusive language, for example:
+
+Instead of _see_, use _view_ or _check out_.
+
+Avoid using directional language like:
+
+> Click the **Home** button on the left to return to the homepage.
+> You'll find the account settings on the left-hand side menu.
+
+Instead, try to be more descriptive, for example:
+
+> Click the **Home** button in the menu, to return to the homepage.
+> You'll find the account settings under the **Settings** button in the menu.
 
 ### Highlighting
 
-* For consistency, use **bold** for highlighting non-code words/phrases.
-* For inline `code` examples, use **back-ticks** (\` \`).
-* For multi-line code examples, use code fences and specify the language. Preferably, specify the title as well.
+- For consistency, use **bold** to highlight UI text when dealing with UI-focused documentation (for example, Apify Console).
+- For consistency, use _italics_ to emphasize text.
+- For inline `code` examples, use **back-ticks** (\` \`).
+- For multi-line code examples, use code fences and specify the language. Next to the language declaration, add `showLineNumbers` so that the code fence displays line numbers. Preferably, specify the title as well.
+  - Within platform documentation, always use [Code tabs](README.md#code-tabs) and declare the language.
 
     ```markdown
-    \`\`\`js title='foo.js'
+    \`\`\`js showLineNumbers title='foo.js'
 
     const docsAreCool = require('coolDocs'); <br/>
     ...<br/>
@@ -28,11 +54,11 @@ In addition to the tips below: when in doubt, check existing docs for formatting
     \`\`\`
     ```
 
-    See [Markdown features](https://docusaurus.io/docs/markdown-features) in the docusaurus docs for more information.
+    Check out [Markdown features](https://docusaurus.io/docs/markdown-features) in the Docusaurus docs for more information.
 
 ### Code tabs
 
-See [docusaurus documentation for tabs](https://docusaurus.io/docs/markdown-features/tabs) for examples.
+View [Docusaurus documentation for tabs](https://docusaurus.io/docs/markdown-features/tabs) for examples. In Apify platform documentation, always use the code tabs to include examples for both JavaScript and Python languages.
 
 ```markdown
 import Tabs from '@theme/Tabs';
@@ -53,7 +79,7 @@ import TabItem from '@theme/TabItem';
 
 ### Metadata
 
-The page metadata can be provided as part of so-called [front-matter](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter).
+You must provide the new page metadata as part of the so-called [front matter](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter).
 
 ```markdown
 ---
@@ -83,97 +109,56 @@ My Document Markdown content
 
 ### Descriptions
 
-Metadata descriptions are super important in making our documentation easy to find using search engines. To maximize our SEO, **keep the descriptions between [140 and 160 characters in length](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwigg6Og56brAhUNi1wKHULsAHEQFjAGegQIDBAG&url=https%3A%2F%2Fmoz.com%2Flearn%2Fseo%2Fmeta-description&usg=AOvVaw3L26bXhHZTd0wYDM_5xtJ9) whenever possible**.
+- Metadata descriptions are super important in making our documentation easy to find using search engines. To maximize our SEO, _keep the descriptions between [140 and 160 characters](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwigg6Og56brAhUNi1wKHULsAHEQFjAGegQIDBAG&url=https%3A%2F%2Fmoz.com%2Flearn%2Fseo%2Fmeta-description&usg=AOvVaw3L26bXhHZTd0wYDM_5xtJ9) whenever possible_.
 
-> Of course, when there just isn't enough to say, don't waffle - it's not a university essay.
+    Of course, when there just isn't enough to say, don't waffle - it's not a university essay.
 
-GOOD: "Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data from the Apify platform or via API."
+    GOOD:
 
-AVOID: "Apify storage docs."
+    > "Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data from the Apify platform or via API."
 
-#### Avoid using the word "**documentation**"
+    AVOID:
 
-GOOD: "Learn how to develop, run and share serverless cloud programs. Create your own web scraping and automation tools and publish them on the Apify platform."
+    > "Apify storage docs."
 
-AVOID: "Documentation of Apify actors - the easy way to build serverless cloud programs."
+- Avoid using the word "_documentation_".
 
-#### Avoid **keyword stuffing**, i.e. repeating the article's name too much
+    GOOD:
 
-[Wikipedia article](https://en.wikipedia.org/wiki/Keyword_stuffing).
+    > "Learn how to develop, run and share serverless cloud programs. Create your own web scraping and automation tools and publish them on the Apify platform."
 
-GOOD:
+    AVOID:
 
-Title: Proxy
+    > "Documentation of Apify actors - the easy way to build serverless cloud programs."
 
-Description: Learn how to anonymously access websites when running web scraping or automation jobs. Prevent IP address-based blocking using IP address rotation.
+- Avoid _keyword stuffing_, i.e., repeating the article's name too much; view the [Wikipedia article](https://en.wikipedia.org/wiki/Keyword_stuffing) for more.
 
-AVOID:
+    GOOD:
 
-Title: Proxy
+    > Title: Proxy
+    >
+    > Description: Learn how to anonymously access websites when running web scraping or automation jobs. Prevent IP address-based blocking using IP address rotation.
 
-Description: Learn how to use Apify Proxy. Prevent IP address-based blocking using proxy. Apify Proxy helps you bypass security.
+    AVOID:
 
-#### Phrase the descriptions in a way that answers a question that the person using the search engine might have
+    > Title: Proxy
+    >
+    > Description: Learn how to use Apify Proxy. Prevent IP address-based blocking using a proxy. Apify Proxy helps you bypass security.
 
-GOOD: "Learn how to make your actor available to the public or keep it private. Prepare your actor for Apify Store with a description and README file."
+- Phrase the descriptions in a way that answers a question that the person using the search engine might have.
 
-AVOID: "Description of the processes regarding the optimizing and preparing for publishing of one's actor in Apify Store."
+    GOOD:
 
-## Docs homepage
+    > Learn how to make your actor available to the public or keep it private. Prepare your actor for Apify Store with a description and README file.
 
-The homepage menu card items are in the `docs/homepage_content.json` file.
+    AVOID:
 
-The cards aim to suit three types use cases:
+    > Description of the processes regarding the optimizing and preparing for publishing of one's actor in Apify Store.
 
-* Beginners and people who just want to use the actors (**Get started**, **Use actors and scrapers**).
+### Screenshots
 
-* Experienced actor and platform users (**Reduce blocking**, **Use platform features**).
+Documentation has both light and dark themes. However, to keep the screenshots consistent and easily manageable, use the light theme for all screenshots.
 
-* Actor builders and advanced users (**Build actors**, **Advanced tutorials and debugging**).
+All screenshots should have a meaningful alt text to accommodate screen readers.
 
-Each item has its own JSON object, in which "cardItem" is the title and "href" is the link. If the link leads to outside the Apify Docs site, add the `"isExternalLink" : true` property. For local links, just use the article's path. E.g. `"/tutorials/apify-scrapers/web-scraper"`.
-
-In the title (`cardItem`), do not just give the article's name. Phrase the title in a way that answers a question or fulfills a goal the user might have.
-
-For example:
-
-```text
-{
-    "cardItem": "How to run an actor",
-    "href": "https://www.youtube.com/watch?v=BsidLZKdYWQ",
-    "isExternalLink": true
-},
-```
-
-> In JSON, all entries except booleans (`true/false`) and numbers need to be in double quote marks ("").
-
-Over time, we should track which items are useful and which don't get any traffic. Also, as Apify Docs expand, we may need to add more cards and update which articles we link to.
-
-## Deployment
-
-On each commit to the `master` branch of this repository, a new version of the Apify documentation gets built and deployed to the appropriate subdomain.
-
-## Linting
-
-The **apify-docs** repo contains both Markdown and JavaScript/TypeScript files. We have two commands for linting them:
-
-* `npm run lint:md` and `npm run lint:md:fix` checks the `*.md` files.
-* `npm run lint:code` and `npm run lint:code:fix` checks the `*.{js,ts}` files.
-
-For Markdown, we use the [markdownlint](https://github.com/DavidAnson/markdownlint) package, which also has a handy VSCode [extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
-
-For JavaScript, we use the [ESLint Markdown plugin](https://github.com/eslint/eslint-plugin-markdown).
-
-## API docs
-
-The `./sources/platform/api_v2` directory contains the source file for the API reference (<https://docs.apify.com/api/v2>) hosted on Apiary. The build script contained in the `./tools` folder automatically uploads the API docs to Apiary during the web deployment process.
-
-### Local testing
-
-1. Install Apiary gem `gem install apiaryio`
-2. After that, you can open the generated doc with the
-   command: `apiary preview --path="./sources/platform/api_v2/api_v2_reference.apib"`
-
-### Test
-
-After updating the API docs, you should ALWAYS log in to Apiary, analyze the document and make sure there are **no warnings**!
+If you add arrows or other indicators to the screenshots, they should be red for high contrast and visibility on the light theme.

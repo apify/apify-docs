@@ -5,6 +5,8 @@ sidebar_position: 14.7
 slug: /node-js/scraping-from-sitemaps
 ---
 
+import Example from '!!raw-loader!roa-loader!./scraping_from_sitemaps.js';
+
 # How to scrape from sitemaps {#scraping-with-sitemaps}
 
 **The sitemap.xml file is a jackpot for every web scraper developer. Take advantage of this and learn an easier way to extract data from websites using Crawlee.**
@@ -60,7 +62,7 @@ First, let's add the beer URLs from the sitemap to the [`RequestList`](https://c
 ```js
 const requestList = await RequestList.open(null, [{
     requestsFromUrl: 'https://www.brewbound.com/sitemap.xml',
-    regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^\/<]+\/[^\/<]+/gm,
+    regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^/<]+\/[^/<]+/gm,
 }]);
 ```
 
@@ -94,33 +96,6 @@ If we create a new actor using the code below on the [Apify platform](../../plat
 
 Make sure to use the **apify/actor-node-puppeteer-chrome** image for your Dockerfile, otherwise the run will fail.
 
-```js
-import { Dataset, RequestList, PuppeteerCrawler } from 'crawlee';
-
-const requestList = await RequestList.open(null, [{
-    requestsFromUrl: 'https://www.brewbound.com/sitemap.xml',
-    regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^\/<]+\/[^\/<]+/gm,
-}]);
-
-const crawler = new PuppeteerCrawler({
-    requestList,
-    async requestHandler({ page }) {
-        const beerPage = await page.evaluate(() => {
-            return document.getElementsByClassName('productreviews').length;
-        });
-        if (!beerPage) return;
-
-        const data = await page.evaluate(() => {
-            const title = document.getElementsByTagName('h1')[0].innerText;
-            const [brewery, beer] = title.split(':');
-            const description = document.getElementsByClassName('productreviews')[0].innerText;
-
-            return { brewery, beer, description };
-        });
-
-        await Dataset.pushData(data);
-    },
-});
-
-await crawler.run();
-```
+<RunnableCodeBlock className="language-js" type="puppeteer">
+    {Example}
+</RunnableCodeBlock>

@@ -28,10 +28,10 @@ The monitoring system is free for all users. You can use it to monitor as many A
 
 Currently, the monitoring option offers the following features:
 
-1. Chart showing **statuses** of runs of the actor or saved task over last 30 days.
+1. Chart showing **statuses** of runs of the Actor or saved task over last 30 days.
     ![Daily run statuses](./images/daily-run-statuses.png)
 
-2. Chart displaying **metrics** of the last 200 runs of the actor or saved task.
+2. Chart displaying **metrics** of the last 200 runs of the Actor or saved task.
     ![Run statistics](./images/run-statistics-chart.png)
 
 3. Option to set up **alerts** with notifications based on the run metrics.
@@ -65,7 +65,7 @@ The email and Slack alert notifications both contain the same information. You w
 2. **Condition** - The condition that was violated.
 3. **Value** - The value of the metric violating the condition and triggering the alert.
 4. **Run ID** - The ID of the run that triggered the alert, which links directly to the run detail in Apify Console.
-5. **Actor** - The full name of the actor that triggered the alert, which links to the Actor detail in Apify Console.
+5. **Actor** - The full name of the Actor that triggered the alert which links to the Actor detail in Apify Console.
 6. **Task** - If the monitoring alert was set up for a task, then this field will contain the name of the task which links to the task detail in Apify Console.
 
 ![Email notification](./images/email-notification.png)
@@ -98,7 +98,7 @@ These are just a few examples of what you can monitor. It's always recommended t
 
 ### Alternative solutions
 
-For more complex monitoring, you can use the [monitoring suite](https://apify.com/apify/monitoring), which is a collection of [Apify Actors](../actors/index.md) that allows you to automate the monitoring of jobs you have running on the [Apify platform](https://apify.com). The monitoring suite offers some features that are not **currently** available in Apify Console, such as:
+For more complex monitoring, you can use the [monitoring suite](https://apify.com/apify/monitoring), which is a collection of [Apify Actors](../actors/index.mdx) that allows you to automate the monitoring of jobs you have running on the [Apify platform](https://apify.com). The monitoring suite offers some features that are not **currently** available in Apify Console, such as:
 
 1. Schema validation of the output
 2. Duplicate checks in the output

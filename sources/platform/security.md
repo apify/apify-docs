@@ -1,6 +1,6 @@
 ---
 title: Security
-description: Learn more about Apify's security practices and data protection measures that are used to protect your actors, their data, and the Apify platform in general.
+description: Learn more about Apify's security practices and data protection measures that are used to protect your Actors, their data, and the Apify platform in general.
 sidebar_position: 15
 category: platform
 slug: /security
@@ -8,7 +8,7 @@ slug: /security
 
 # Security
 
-**Learn more about Apify's security practices and data protection measures that are used to protect your actors, their data, and the Apify platform in general.**
+**Learn more about Apify's security practices and data protection measures that are used to protect your Actors, their data, and the Apify platform in general.**
 
 ---
 
@@ -32,4 +32,4 @@ We strive to reply to all reports within 5 working days. However, depending on t
 
 ## Securing your data
 
-The Apify Platform provides you with multiple ways to secure your data. This includes [encrypted environment variables](./actors/development/environment-variables) to store your configuration secrets and [encrypted input](./actors/development/secret-input) to secure the input parameters of your actors.
+The Apify platform provides you with multiple ways to secure your data. This includes [encrypted environment variables](./actors/development/programming_interface/environment_variables.md) to store your configuration secrets and [encrypted input](./actors/development/actor_definition/input_schema/secret_input.md) to secure the input parameters of your Actors.

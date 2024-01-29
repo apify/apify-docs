@@ -16,15 +16,15 @@ import TabItem from '@theme/TabItem';
 
 If you're trying to [collect data](../executing_scripts/extracting_data.md) on a website that has millions, thousands, or even just hundreds of results, it is very likely that they are paginating their results to reduce strain on their backend as well as on the users loading and rendering the content.
 
-![Amazon pagination](https://apify-docs.s3.amazonaws.com/master/docs/assets/tutorials/images/pagination.jpg)
+![Amazon pagination](../../advanced_web_scraping/images/pagination.png)
 
 Attempting to scrape thousands to tens of thousands of results using a headless browser on a website that only shows 30 results at a time might be daunting at first, but be rest assured that by the end of this lesson you'll feel confident when faced with this use case.
 
 ## Page number-based pagination {#page-number-based-pagination}
 
-At the time of writing, Facebook has [115 repositories on Github](https://github.com/orgs/facebook/repositories). By default, Github lists repositories in descending order based on when they were last updated (the most recently updated repos are at the top of the list).
+At the time of writing, Facebook has [115 repositories on GitHub](https://github.com/orgs/facebook/repositories). By default, GitHub lists repositories in descending order based on when they were last updated (the most recently updated repos are at the top of the list).
 
-We want to scrape all of the titles, links, and descriptions for Facebook's repositories; however, Github only displays 30 repos per page. This means we've gotta paginate through all of the results.
+We want to scrape all of the titles, links, and descriptions for Facebook's repositories; however, GitHub only displays 30 repos per page. This means we've gotta paginate through all of the results.
 
 Let's first start off by defining some basic variables:
 
@@ -53,7 +53,6 @@ Let's grab this number now with a little bit of code:
 
 ```javascript
 import { chromium } from 'playwright';
-import { load } from 'cheerio';
 
 const repositories = [];
 
@@ -72,7 +71,6 @@ const lastPage = +(await lastPageElement.getAttribute('aria-label')).replace(/\D
 console.log(lastPage);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -80,7 +78,6 @@ await browser.close();
 
 ```javascript
 import puppeteer from 'puppeteer';
-import { load } from 'cheerio';
 
 const repositories = [];
 
@@ -99,7 +96,6 @@ const lastPage = +lastPageLabel.replace(/\D/g, '');
 console.log(lastPage);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -120,7 +116,7 @@ And since we're already on the first page, we'll go ahead and scrape the repos f
 
 ```javascript
 import { chromium } from 'playwright';
-import { load } from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const repositories = [];
 
@@ -129,7 +125,7 @@ const REPOSITORIES_URL = `${BASE_URL}/orgs/facebook/repositories`;
 
 // Create a function which grabs all repos from a page
 const scrapeRepos = async (page) => {
-    const $ = load(await page.content());
+    const $ = cheerio.load(await page.content());
 
     return [...$('li.Box-row')].map((item) => {
         const elem = $(item);
@@ -158,7 +154,6 @@ repositories.push(...(await scrapeRepos(page)));
 console.log(repositories);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -166,7 +161,7 @@ await browser.close();
 
 ```javascript
 import puppeteer from 'puppeteer';
-import { load } from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const repositories = [];
 
@@ -175,7 +170,7 @@ const REPOSITORIES_URL = `${BASE_URL}/orgs/facebook/repositories`;
 
 // Create a function which grabs all repos from a page
 const scrapeRepos = async (page) => {
-    const $ = load(await page.content());
+    const $ = cheerio.load(await page.content());
 
     return [...$('li.Box-row')].map((item) => {
         const elem = $(item);
@@ -204,7 +199,6 @@ repositories.push(...(await scrapeRepos(page)));
 console.log(repositories);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -217,13 +211,13 @@ Cool, so now we have all the tools we need to write concise logic that will be r
 ```js
 // We must add 1 to the lastPage, since the array starts at 0 and we
 // are creating an array from its index values
-Array(lastPage + 1).keys() // -> [0, 1, 2, 3, 4]
+Array(lastPage + 1).keys(); // -> [0, 1, 2, 3, 4]
 ```
 
 Then, we'll slice the first two values from that array so that it starts from 2 and ends at 4:
 
 ```js
-[...Array(lastPage + 1).keys()].slice(2) // -> [2, 3, 4]
+[...Array(lastPage + 1).keys()].slice(2); // -> [2, 3, 4]
 ```
 
 This array now accurately represents the pages we need to go through. We'll map through it and create an array of promises, all of which make a request to each page, scrape its data, then push it to the **repositories** array:
@@ -231,22 +225,21 @@ This array now accurately represents the pages we need to go through. We'll map 
 ```js
 // Map through the range. The value from the array is the page number
 // to make a request for
-const promises = [...Array(lastPage + 1).keys()].slice(2).map((pageNumber) =>
-    (async () => {
-        const page2 = await browser.newPage();
+const promises = [...Array(lastPage + 1).keys()].slice(2).map((pageNumber) => (async () => {
+    const page2 = await browser.newPage();
 
-        // Prepare the URL before making the request by setting the "page"
-        // parameter to whatever the pageNumber is currently
-        const url = new URL(REPOSITORIES_URL);
-        url.searchParams.set('page', pageNumber);
+    // Prepare the URL before making the request by setting the "page"
+    // parameter to whatever the pageNumber is currently
+    const url = new URL(REPOSITORIES_URL);
+    url.searchParams.set('page', pageNumber);
 
-        await page2.goto(url.href);
+    await page2.goto(url.href);
 
-        // Scrape the data and push it to the "repositories" array
-        repositories.push(...(await scrapeRepos(page2)));
+    // Scrape the data and push it to the "repositories" array
+    repositories.push(...(await scrapeRepos(page2)));
 
-        await page2.close();
-    })()
+    await page2.close();
+})(),
 );
 
 await Promise.all(promises);
@@ -265,7 +258,7 @@ After all is said and done, here's what our final code looks like:
 
 ```javascript
 import { chromium } from 'playwright';
-import { load } from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const repositories = [];
 
@@ -273,7 +266,7 @@ const BASE_URL = 'https://github.com';
 const REPOSITORIES_URL = `${BASE_URL}/orgs/facebook/repositories`;
 
 const scrapeRepos = async (page) => {
-    const $ = load(await page.content());
+    const $ = cheerio.load(await page.content());
 
     return [...$('li.Box-row')].map((item) => {
         const elem = $(item);
@@ -299,19 +292,18 @@ repositories.push(...(await scrapeRepos(page)));
 
 await page.close();
 
-const promises = [...Array(lastPage + 1).keys()].slice(2).map((pageNumber) =>
-    (async () => {
-        const page2 = await browser.newPage();
+const promises = [...Array(lastPage + 1).keys()].slice(2).map((pageNumber) => (async () => {
+    const page2 = await browser.newPage();
 
-        const url = new URL(REPOSITORIES_URL);
-        url.searchParams.set('page', pageNumber);
+    const url = new URL(REPOSITORIES_URL);
+    url.searchParams.set('page', pageNumber);
 
-        await page2.goto(url.href);
+    await page2.goto(url.href);
 
-        repositories.push(...(await scrapeRepos(page2)));
+    repositories.push(...(await scrapeRepos(page2)));
 
-        await page2.close();
-    })()
+    await page2.close();
+})(),
 );
 
 await Promise.all(promises);
@@ -320,7 +312,6 @@ await Promise.all(promises);
 console.log(repositories.length);
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -328,7 +319,7 @@ await browser.close();
 
 ```javascript
 import puppeteer from 'puppeteer';
-import { load } from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const repositories = [];
 
@@ -337,7 +328,7 @@ const REPOSITORIES_URL = `${BASE_URL}/orgs/facebook/repositories`;
 
 // Create a function which grabs all repos from a page
 const scrapeRepos = async (page) => {
-    const $ = load(await page.content());
+    const $ = cheerio.load(await page.content());
 
     return [...$('li.Box-row')].map((item) => {
         const elem = $(item);
@@ -363,19 +354,18 @@ repositories.push(...(await scrapeRepos(page)));
 
 await page.close();
 
-const promises = [...Array(lastPage + 1).keys()].slice(2).map((pageNumber) =>
-    (async () => {
-        const page2 = await browser.newPage();
+const promises = [...Array(lastPage + 1).keys()].slice(2).map((pageNumber) => (async () => {
+    const page2 = await browser.newPage();
 
-        const url = new URL(REPOSITORIES_URL);
-        url.searchParams.set('page', pageNumber);
+    const url = new URL(REPOSITORIES_URL);
+    url.searchParams.set('page', pageNumber);
 
-        await page2.goto(url.href);
+    await page2.goto(url.href);
 
-        repositories.push(...(await scrapeRepos(page2)));
+    repositories.push(...(await scrapeRepos(page2)));
 
-        await page2.close();
-    })()
+    await page2.close();
+})(),
 );
 
 await Promise.all(promises);
@@ -384,13 +374,12 @@ await Promise.all(promises);
 console.log(repositories.length);
 
 await browser.close();
-
 ```
 
 </TabItem>
 </Tabs>
 
-If we remember correctly, Facebook has 115 Github repositories (at the time of writing this lesson), so the final output should be:
+If we remember correctly, Facebook has 115 GitHub repositories (at the time of writing this lesson), so the final output should be:
 
 ```text
 115
@@ -411,7 +400,6 @@ We're going to scrape the brand and price from the first 75 results on the **Abo
 
 ```javascript
 import { chromium } from 'playwright';
-import { load } from 'cheerio';
 
 // Create an array where all scraped products will
 // be pushed to
@@ -423,7 +411,6 @@ const page = await browser.newPage();
 await page.goto('https://www.aboutyou.com/c/women/clothing-20204');
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -431,7 +418,6 @@ await browser.close();
 
 ```javascript
 import puppeteer from 'puppeteer';
-import { load } from 'cheerio';
 
 // Create an array where all scraped products will
 // be pushed to
@@ -443,7 +429,6 @@ const page = await browser.newPage();
 await page.goto('https://www.aboutyou.com/c/women/clothing-20204');
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -458,7 +443,7 @@ Now, what we'll do is grab the height in pixels of a result item to have somewha
 const itemHeight = await page.$eval('a[data-testid*="productTile"]', (elem) => elem.clientHeight);
 
 // Keep track of how many pixels have been scrolled down
-let totalScrolled = 0;
+const totalScrolled = 0;
 ```
 
 Then, within a `while` loop that ends once the length of the **products** array has reached 75, we'll run some logic that scrolls down the page and waits 1 second before running again.
@@ -473,7 +458,6 @@ while (products.length < 75) {
     // Allow the products 1 second to load
     await page.waitForTimeout(1000);
 }
-
 ```
 
 </TabItem>
@@ -486,7 +470,6 @@ while (products.length < 75) {
     // Allow the products 1 second to load
     await page.waitForTimeout(1000);
 }
-
 ```
 
 </TabItem>
@@ -517,7 +500,6 @@ while (products.length < 75) {
         break;
     }
 }
-
 ```
 
 </TabItem>
@@ -543,7 +525,6 @@ while (products.length < 75) {
         break;
     }
 }
-
 ```
 
 </TabItem>
@@ -558,7 +539,9 @@ Now, the `while` loop will exit out if we've reached the bottom of the page.
 Within the loop, we can grab hold of the total number of items on the page. To avoid extracting and pushing duplicate items to the **products** array, we can use the `.slice()` method to cut out the items we've already scraped.
 
 ```js
-const $ = load(await page.content());
+import * as cheerio from 'cheerio';
+
+const $ = cheerio.load(await page.content());
 
 // Grab the newly loaded items
 const items = [...$('a[data-testid*="productTile"]')].slice(products.length);
@@ -584,7 +567,7 @@ With everything completed, this is what we're left with:
 
 ```javascript
 import { chromium } from 'playwright';
-import { load } from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const products = [];
 
@@ -607,7 +590,7 @@ while (products.length < 75) {
     // Allow the products 1 second to load
     await page.waitForTimeout(1000);
 
-    const $ = load(await page.content());
+    const $ = cheerio.load(await page.content());
 
     // Grab the newly loaded items
     const items = [...$('a[data-testid*="productTile"]')].slice(products.length);
@@ -636,7 +619,6 @@ while (products.length < 75) {
 console.log(products.slice(0, 75));
 
 await browser.close();
-
 ```
 
 </TabItem>
@@ -644,7 +626,7 @@ await browser.close();
 
 ```javascript
 import puppeteer from 'puppeteer';
-import { load } from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const products = [];
 
@@ -667,7 +649,7 @@ while (products.length < 75) {
     // Allow the products 1 second to load
     await page.waitForTimeout(1000);
 
-    const $ = load(await page.content());
+    const $ = cheerio.load(await page.content());
 
     // Grab the newly loaded items
     const items = [...$('a[data-testid*="productTile"]')].slice(products.length);
@@ -696,7 +678,6 @@ while (products.length < 75) {
 console.log(products.slice(0, 75));
 
 await browser.close();
-
 ```
 
 </TabItem>

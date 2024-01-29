@@ -16,24 +16,37 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            -   uses: actions/checkout@v3
-            -   name: Use Node.js 16
-                uses: actions/setup-node@v3
+            -   uses: actions/checkout@v4
+            -   name: Use Node.js 18
+                uses: actions/setup-node@v4
                 with:
-                    node-version: 16
+                    node-version: 18
+                    cache: 'npm'
+                    cache-dependency-path: 'package-lock.json'
+                    always-auth: 'true'
+                    registry-url: 'https://npm.pkg.github.com/'
+                    scope: '@apify-packages'
 
             -   name: Build docs
                 run: |
                     npm ci --force
                     npm run build
+                env:
+                    APIFY_SIGNING_TOKEN: ${{ secrets.APIFY_SIGNING_TOKEN }}
+                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             -   name: Set up GitHub Pages
-                uses: actions/configure-pages@v3
+                uses: actions/configure-pages@v4
 
             -   name: Upload GitHub Pages artifact
-                uses: actions/upload-pages-artifact@v1
+                uses: actions/upload-pages-artifact@v3
                 with:
                     path: ./build
 
             -   name: Deploy artifact to GitHub Pages
-                uses: actions/deploy-pages@v2
+                uses: actions/deploy-pages@v4
+
+            -   name: Invalidate CloudFront cache
+                run: gh workflow run invalidate.yaml --repo apify/apify-docs-private
+                env:
+                    GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}

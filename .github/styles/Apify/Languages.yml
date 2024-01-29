@@ -1,0 +1,10 @@
+extends: substitution
+message: "Use '%s' instead of '%s'."
+ignorecase: false
+level: warning
+swap:
+  'javascript|Javascript|javaScript': JavaScript
+  '(?<!-)python(?!-)': Python
+  'typescript|Typescript|typescript': TypeScript
+  'nodejs|Nodejs|node.js': Node.js
+  # Add more languages or common mistakes as needed

@@ -88,9 +88,9 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
 
 **A:** Datacenter, residential, and Google SERP proxies with sub-groups. Datacenter proxies are fast and cheap, but have a higher chance of being blocked on certain sites in comparison to residential proxies, which are IP addresses located in homes and offices around the world. Google SERP proxies are specifically for Google.
 
-**Q: Which proxy groups do users get with the proxy trial? How long does the trial last?**
+**Q: Which proxy groups do users get on the free plan? Can they access the proxy from their computer?**
 
-**A:** Users can get a 30 day trial to Apify Proxy and will get access to the **GOOGLE_SERP** and **RESIDENTIAL** groups.
+**A:** All users have access to the **BUYPROXIES94952**, **GOOGLE_SERP** and **RESIDENTIAL** groups. Free users cannot access the proxy from outside the Apify platform (paying users can).
 
 **Q: How can you prevent an error from occurring if one of the proxy groups that a user has is removed? What are the best practices for these scenarios?**
 

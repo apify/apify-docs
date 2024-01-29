@@ -11,35 +11,50 @@ slug: /actors/running/runs-and-builds
 
 ## Builds
 
-An Actor is a combination of source code and various settings in a Docker container. In order to be able to run, it first needs to be built. An Actor build consists of the source code built as a Docker container image, making the Actor ready to run on the Apify platform.
+An Actor is a combination of source code and various settings in a Docker container. To be able to run, it first needs to be built. An Actor build consists of the source code built as a Docker image, making the Actor ready to run on the Apify platform.
 
-> A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings.
-> <https://www.docker.com/resources/what-container/>
+:::info What is Docker image?
+A Docker image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings.
+<https://www.docker.com/resources/what-container/>
+:::
 
-With every new version of an Actor, a new build gets created. Each Actor build has its own number (for example <strong>1.2.34</strong>), and some of the builds are tagged for easier use (for example <strong>latest</strong> or <strong>beta</strong>). When running an Actor, you can choose what build you want to run by selecting a tag or number in the run options.
+With every new version of an Actor, a new build gets created. Each Actor build has its number (for example, **1.2.34**), and some of the builds are tagged for easier use (for example, **latest** or **beta**). When running an Actor, you can choose what build you want to run by selecting a tag or number in the run options.
 
 ![Actor run options](./images/runs_and_builds/actor-run-options.png)
 
-Each build may have different features, input, or output. By fixing the build to an exact version, you can ensure that you won't be affected by a breaking change in a new actor version. But on the other hand, you lose updates.
+Each build may have different features, input, or output. By fixing the build to an exact version, you can ensure that you won't be affected by a breaking change in a new Actor version. But on the other hand, you lose updates.
 
 ## Runs
 
-When you start an Actor, an actor run gets created. An Actor run is a Docker container created from the build's Docker image with dedicated resources (CPU, memory, disk space). For more on this topic, see [usage and resources](./usage_and_resources.md).
+When you start an Actor, an Actor run gets created. An Actor run is a Docker container created from the build's Docker image with dedicated resources (CPU, memory, disk space). For more on this topic, see [usage and resources](./usage_and_resources.md).
 
-Each run has its own (default) [storages](../../storage) assigned, which it may but not nesseserarly need to use:
+Each run has its own (default) [storages](../../storage) assigned, which it may but not necessarily need to use:
 
-- [Key-value store](../../storage/key-value-store) containing the input and enabling actor to store other files
-- [Dataset](../../storage/dataset) enabling actor to store the results
-- [Request queue](../../storage/request-queue) to maintain a queue of URLs to be processed
+- [Key-value store](../../storage/key-value-store) containing the input and enabling Actor to store other files.
+- [Dataset](../../storage/dataset) enabling Actor to store the results.
+- [Request queue](../../storage/request-queue) to maintain a queue of URLs to be processed.
 
 What's happening inside of an Actor is visible on the Actor run log in the Actor run detail:
 
 ![Actor run](./images/runs_and_builds/actor-run-detail.png)
 
+### Origin
+
+All **Actor runs** have an **Origin** field indicating where the Actor run was invoked.
+
+|Name|Origin|
+|:---|:---|
+|DEVELOPMENT|manually from Apify Console in Development mode (own Actor)|
+|WEB|manually from Apify Console in "normal" mode (someone else's Actor or task)|
+|API|from API|
+|CLI|from Apify CLI|
+|SCHEDULER|using a Schedule|
+|WEBHOOK|using a webhook|
+|ACTOR|from another Actor run|
+
 ## Lifecycle
 
 Each run and build starts with the initial status **READY** and goes through one or more transitional statuses to one of the terminal statuses.
-
 
 ```mermaid
 flowchart LR
@@ -92,25 +107,26 @@ Any Actor run in a terminal state, i.e., run with status **FINISHED**, **FAILED*
 
 The whole process of resurrection looks as follows:
 
-- Run status will be updated to **RUNNING**, and its container will be restarted with the same storages (the same behavior as when the run gets migrated to the new server).
-- Updated duration will include the time when the actor was not running. This does not affect compute unit consumption.
+- Run status will be updated to **RUNNING**, and its container will be restarted with the same storage (the same behavior as when the run gets migrated to the new server).
+- Updated duration will not include the time when the Actor was not running.
 - Timeout will be counted from the point when this Actor run was resurrected.
 
 Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](/api/v2#/reference/actors/resurrect-run) API endpoint.
 
-> You can also adjust timeout and memory or change Actor build prior to the resurrection. This is especially helpful in a case of an error in the Actor's source code as it enables you to:
->
-> 1. Abort a broken run
-> 2. Update the Actor's code and build the new version
-> 3. Resurrect the run using the new build
+:::info Settings adjustments
+You can also adjust timeout and memory or change Actor build before the resurrection. This is especially helpful in case of an error in the Actor's source code as it enables you to:
+
+1. Abort a broken run
+2. Update the Actor's code and build the new version
+3. Resurrect the run using the new build
+:::
 
 ### Data retention
 
-All **Actor runs** are deleted along with their default storages (key-value store, dataset, request queue) after the data retention period, which is based on your [subscription plan](https://apify.com/pricing).
+All **Actor runs** and default storages (key-value store, dataset, request queue) are deleted after the data retention period, based on your [subscription plan](https://apify.com/pricing).
 
 **Actor builds** are deleted only when they are **not tagged** and have not been used for over 90 days.
 
 ## Sharing
 
-You can share your Actor runs with other Apify users via the [access rights](../../collaboration/index.md) system.
-
+Share your Actor runs with other Apify users via the [access rights](../../collaboration/index.md) system.

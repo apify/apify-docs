@@ -16,7 +16,7 @@
         "automergeType": "branch"
     },
     "constraints": {
-        "npm": "^8.0.0"
+        "npm": "^9.0.0"
     },
     "packageRules": [
         {

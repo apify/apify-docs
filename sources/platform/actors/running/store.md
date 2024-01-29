@@ -1,28 +1,28 @@
 ---
 title: Actors in store
-description: Apify Store is home to hundreds of public Actors available to the Apify community.
+description: Apify Store is home to hundreds of public Actors available to the Apify community. It's the easiest way for you to start with Apify.
 sidebar_position: 1
 slug: /actors/running/actors-in-store
 ---
 
-**[Apify Store](https://apify.com/store) is home to hundreds of public actors available to the Apify community. It's the easiest way for you to start with Apify.**
+**[Apify Store](https://apify.com/store) is home to hundreds of public Actors available to the Apify community. It's the easiest way for you to start with Apify.**
 
 ---
 
-> Anyone is welcome to [publish Actors](/platform/actors/publishing) in the store, and you can even [monetize your Actors](/platform/actors/publishing/monetize) by renting them out to users of the platform. For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Getting the most of your public Actors in the Apify Store](/academy/get-most-of-actors) section of the Apify Developers Academy.
+> Anyone is welcome to [publish Actors](/platform/actors/publishing) in the store, and you can even [monetize your Actors](/platform/actors/publishing/monetize). For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Getting the most of your public Actors in Apify Store](/academy/get-most-of-actors) section of the Apify Developers Academy.
 
 
 Some Actors are free to use (you will be charged only for the Apify platform usage), while others are paid with different pricing models. This page explains all the options.
 
 ## Pricing models
 
-All actors in [Apify Store](https://apify.com/store) fall into one of these three pricing models:
+All Actors in [Apify Store](https://apify.com/store) fall into one of these three pricing models:
 
-1. [**free**](#free-actors) - you can run the actor freely and you only pay for platform usage the actor generates.
-2. [**paid**](#paid-actors) - same as free, but in order to be able to run the actor after the trial period, you need to rent the actor from the developer and pay a flat monthly fee on the top of the platform usage the actor generates.
-3. [**paid per result**](#actors-paid-per-result) - you do not pay for platform usage the actor generates and only pay for the results it produces.
+1. [**free**](#free-actors) - you can run the Actor freely and you only pay for the platform usage the Actor generates.
+2. [**rental**](#rental-actors) - same as free, but in order to be able to run the Actor after the trial period, you need to rent the Actor from the developer and pay a flat monthly fee on the top of the platform usage the Actor generates.
+3. [**paid per result**](#actors-paid-per-result) - you do not pay for platform usage the Actor generates and only pay for the results it produces.
 
-### Free actors
+### Free Actors
 
 When you use a free Actor, you are only charged for the platform usage that the runs of this Actor generates. [Platform usage](./usage_and_resources.md) includes components such as compute units, operations on [storages](/platform/storage), and usage of [residential proxies](/platform/proxy/residential-proxy) or [SERPs](/platform/proxy/google-serp-proxy). You can find the details of your Actor usage on the run detail page.
 
@@ -32,36 +32,35 @@ When you use a free Actor, you are only charged for the platform usage that the 
 >
 > **For more information on platform usage cost see the [usage and resources](./usage_and_resources.md) page.**
 
+### Rental Actors
 
-### Paid actors
+Rental Actors are like free Actors, but with a slight difference. When you use a rental Actor, you pay a fee to its developer. This empowers the developer to dedicate more time and effort to their Actors, thus ensuring they are of the **highest quality** and receive **ongoing maintenance**.
 
-Paid Actors are like free Actors, but with a slight difference. When you use a paid Actor, you pay a fee to the its developer. This empowers the developer to dedicate more time and effort to their Actors, thus ensuring these Actors are of the **highest quality** and receive **ongoing maintenance**.
+![Free and rental Actors in Apify Store](./images/store/free_vs_paid_actors.png)
 
-![Free and paid Actors in Apify Store](./images/store/free_vs_paid_actors.png)
+Each rental Actor has a **free trial,** where the trial's length is always shown for each rental Actor.
 
-Each paid Actor has a **free trial,** where the trial's length is always shown for each paid Actor.
-
-![Paid Actors in Apify Store](./images/store/paid-actors-store.png)
+![Rental Actors in Apify Store](./images/store/paid-actors-store.png)
 
 ---
 
-![Paid Actors free trial](./images/store/paid-actors-trial.png)
+![Rental Actors free trial](./images/store/paid-actors-trial.png)
 
-After a trial, a flat monthly **Actor rental** fee is automatically charged from your prepaid platform usage in advance for the following month. This fee goes directly to the developer, and it is paid on top of the platform usage generated by the Actor. You can read more about our motivation for releasing paid Actors in [this blog post](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) from Apify's CEO Jan Čurn.
+After a trial period, a flat monthly **Actor rental** fee is automatically charged from your prepaid platform usage in advance for the following month. This fee goes directly to the developer and is paid on top of the platform usage generated by the Actor. You can read more about our motivation for releasing rental Actors in [this blog post](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) from Apify's CEO Jan Čurn.
 
-**Can I run paid Actors via API or the Apify client?**
+**Can I run rental Actors via API or the Apify client?**
 
-Yes, when you are renting a paid Actor, you can run it using either our [API](/api/v2), [JavaScript](/api/client/js) or [Python](/api/client/python) clients as you would do with private or free public Actors.
+Yes, when you are renting an Actor, you can run it using either our [API](/api/v2), [JavaScript](/api/client/js) or [Python](/api/client/python) clients as you would do with private or free public Actors.
 
-**Do I pay platform costs for running paid Actors?**
+**Do I pay platform costs for running rental Actors?**
 
-Yes, you will pay normal [platform usage costs](https://apify.com/pricing/actors) on top of the monthly Actor rental fee. The platform costs work exactly the same way as for free public Actors or your private Actors. You should find estimates of the cost of usage in each individual paid Actor's README ([see an example](https://apify.com/drobnikj/crawler-google-places#how-much-will-it-cost)).
+Yes, you will pay normal [platform usage costs](https://apify.com/pricing/actors) on top of the monthly Actor rental fee. The platform costs work exactly the same way as for free public Actors or your private Actors. You should find estimates of the cost of usage in each individual rental Actor's README ([see an example](https://apify.com/drobnikj/crawler-google-places#how-much-will-it-cost)).
 
-**Do I need an Apify paid plan to use paid Actors?**
+**Do I need an Apify paid plan to use rental Actors?**
 
-You don't need a paid plan to start a paid Actor's free trial. Just activate the trial, and you are good to go. After that, you will need to subscribe to one of [Apify's paid plans](https://apify.com/pricing) in order to keep renting the Actor and continue using it.
+You don't need a paid plan to start a rental Actor's free trial. Just activate the trial, and you are good to go. After that, you will need to subscribe to one of [Apify's paid plans](https://apify.com/pricing) in order to keep renting the Actor and continue using it.
 
-**When will I be charged for the actor rental?**
+**When will I be charged for the Actor rental?**
 
 You always prepay the Actor rental for the following month. The first payment happens when the trial expires, and then recurs monthly. When you open the Actor in the Apify Console, you will see when the next rental payment is due, and you will also receive a notification when it happens.
 
@@ -77,15 +76,15 @@ If you have an [Apify paid plan](https://apify.com/pricing), you will be automat
 
 **Can I cancel my Actor rental?**
 
-During your trial or any time after that, **you can always turn off auto-renewal** so that you are not charged when your current Actor rental expires. If you choose to do so, you can always turn it back on later.
+**You can cancel the Actor rental** during your trial or any time after that so that don't get charged when your current Actor rental expires. You can always turn it back on later if you want.
 
 **Where can I see how much I have paid for Actor rental?**
 
 Since Actor rental fees are paid from prepaid platform usage, these fees conceptually belong under platform usage.
 
-Hence, you can find the breakdown of how much you have been charged for paid Actors on the bottom of the **Platform usage** tab in the [Billing](https://console.apify.com/billing) section. The overall sum will also be visible in the usage bar chart and the table on the top of the same tab.
+You can find the breakdown of how much you have been charged for rental Actors at the bottom of the **Platform usage** tab in the [Billing](https://console.apify.com/billing) section. The overall sum will also be visible in the usage bar chart and the table at the top of the same tab.
 
-![Paid Actors billing in Apify Console](./images/store/paid-actors-billing.png)
+![Rental Actors billing in Apify Console](./images/store/paid-actors-billing.png)
 
 ### Actors paid per result
 
@@ -117,6 +116,11 @@ Under the **pay per result** model, all platform costs generated **during the ru
 
 You will still be charged for the timed storage of the data in the same fashion as with any other Actor. You can always decide to delete the dataset to reduce your costs after you export the data from the platform. By default, any unnamed dataset will be automatically removed after your data retention period, so in most cases, this is nothing to worry about.
 
+**Can I set a cap on how many results an Actor should return?**
+You can set a limit on how many items an Actor should return and the amount you will be charged in Options on the Actor detail page in the section below the Actor input.
+
+![Max items for pay-per-result](./images/store/pay_per_result_max_items.png)
+
 **Can I publish an Actor that is paid per result?**
 
 Publishing an Actor that is paid per result is not yet available publicly as this pricing model is still in beta.
@@ -133,7 +137,10 @@ On the top of that, you can see how much you have been charged for a specific ru
 
 ![Run cost shown on the overview of all runs](./images/store/pay_per_result_run_list.png)
 
-<!-- TODO - add info about where to see this at per-actor level -->
+If you wish to see how much you have been charged for a particular Actor, you will find this information
+at the bottom of the [Usage tab](https://console.apify.com/billing).
+
+![Actor pay-per-result cost](./images/store/pay_per_result_actor_items.png)
 
 ## Reporting issues with Actors
 

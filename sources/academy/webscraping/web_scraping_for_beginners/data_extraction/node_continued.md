@@ -24,7 +24,9 @@ To get all the elements with that class using Cheerio, we call the `$` function 
 ```js
 // In browser DevTools Console
 const products = document.querySelectorAll('.product-item');
+```
 
+```js
 // In Node.js with Cheerio
 const products = $('.product-item');
 ```
@@ -36,7 +38,7 @@ Replace the code in your **main.js** with the following, and run it with `node m
 ```js
 // main.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 
@@ -108,7 +110,7 @@ The final scraper code looks like this. Replace the code in your **main.js** fil
 ```js
 // main.js
 import { gotScraping } from 'got-scraping';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const storeUrl = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
 
@@ -138,24 +140,30 @@ console.log(results);
 
 After running the code, you will see this output in your terminal:
 
-```json
+```js
 [
-  {
-    title: 'JBL Flip 4 Waterproof Portable Bluetooth Speaker',
-    price: '$74.95'
-  },
-  {
-    title: 'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV',
-    price: 'From $1,398.00'
-  },
-  { title: 'Sony SACS9 10" Active Subwoofer', price: '$158.00' },
-  { title: 'Sony PS-HX500 Hi-Res USB Turntable', price: '$398.00' },
-  {
-    title: 'Klipsch R-120SW Powerful Detailed Home Speaker - Unit',
-    price: '$324.00'
-  },
-
-...
+    {
+        title: 'JBL Flip 4 Waterproof Portable Bluetooth Speaker',
+        price: '$74.95',
+    },
+    {
+        title: 'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV',
+        price: 'From $1,398.00',
+    },
+    {
+        title: 'Sony SACS9 10" Active Subwoofer',
+        price: '$158.00',
+    },
+    {
+        title: 'Sony PS-HX500 Hi-Res USB Turntable',
+        price: '$398.00',
+    },
+    {
+        title: 'Klipsch R-120SW Powerful Detailed Home Speaker - Unit',
+        price: '$324.00',
+    },
+    // ...and more
+];
 ```
 
 Congratulations! You completed the **Basics of data extraction** section of the Web scraping for beginners course. A quick recap of what you learned:
