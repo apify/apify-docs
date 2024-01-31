@@ -102,7 +102,7 @@ You will not be able to enable the two-factor authentication until you on the **
 
 ### Verification after sign in
 
-After you enable two-factor authentication, the next time you attempt to sign in, you will not be directly redirected to Apify Console, but instead you will have to provide your verification code. To do that, open your authenticator app and enter the code for your Apify account into the **code** field. After you enter the code, click on the **Verify** button and if the provided code is correct, you will proceed to Apify Console.
+After you enable two-factor authentication, the next time you attempt to sign in, you'll need to enter a code before you can get into the Apify Console. To do that, open your authenticator app and enter the code for your Apify account into the **code** field. After you enter the code, click on the **Verify** button and if the provided code is correct, you will proceed to Apify Console.
 
 ![Apify console two-factor authentication form](./images/console-two-factor-authentication.png)
 
