@@ -96,7 +96,7 @@ After you scan the QR code, or setup your app manually, the app will generate a 
 
 ![Apify console setup two-factor authentication - recovery codes](./images/console-setup-two-factor-auth-codes.png)
 
-In this step you will we will show you 16 recovery codes. These codes can are required when you want to sign in to your account if you lose access to your authenticator app. We recommend saving these codes in a safe place, ideally printing them out and not storing them on your device.
+In this step you will see 16 recovery codes. These codes can are required when you want to sign in to your account if you lose access to your authenticator app. We recommend saving these codes in a safe place, ideally printing them out and not storing them on your device.
 
 You will not be able to enable the two-factor authentication until you on the **Download** / **Copy** buttons, or copy the codes manually. After you do that, the **I have saved my recovery codes** button will be enabled and you can click on it to enable the two-factor authentication. Which will be confirmed in the next view.
 
