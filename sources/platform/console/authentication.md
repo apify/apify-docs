@@ -113,7 +113,7 @@ In case you lose access to your authenticator app, you can use the recovery code
 If the provided recovery code is correct, you will proceed to Apify Console same as if you provided the code from the authenticator app. We recommend then going to the [account settings](https://console.apify.com/account/settings) and disabling the two-factor authentication, and then enabling it again with the new authenticator app.
 
 :::info Removal of recovery codes
-When you successfully use a recovery code, we remove the code from the original list and it's no longer possible to use it again. If you use all of your recovery codes, you will not be able to sign in to your account with them anymore and you will need to either use your authenticator app or contact our support to help you regain access to your account.
+When you successfully use a recovery code, we remove the code from the original list as it's no longer possible to use it again. If you use all of your recovery codes, you will not be able to sign in to your account with them anymore and you will need to either use your authenticator app or contact our support to help you regain access to your account.
 :::
 
 
