@@ -108,7 +108,7 @@ After you enable two-factor authentication, the next time you attempt to sign in
 
 ### Using recovery codes
 
-In case you loose access to your authenticator app, you can use the recovery codes to sign in to your account. To do that, click on the **recovery code or begin 2FA account recovery** link below the **Verify** button. This will redirect you to a similar view as the current one, but instead of code from the authenticator app, you will need to enter one of your 16 recovery codes which you have received during the setup process.
+In case you lose access to your authenticator app, you can use the recovery codes to sign in to your account. To do that, click on the **recovery code or begin 2FA account recovery** link below the **Verify** button. This will redirect you to a similar view as the current one, but instead of code from the authenticator app, you will need to enter one of your 16 recovery codes which you have received during the setup process.
 
 If the provided recovery code is correct, you will proceed to Apify Console same as if you provided the code from the authenticator app. We recommend then going to the [account settings](https://console.apify.com/account/settings) and disabling the two-factor authentication, and then enabling it again with the new authenticator app.
 
