@@ -6,7 +6,7 @@ import { isDifferentInstance } from '../../utils';
 export default function MDXA(props) {
     const { siteConfig } = useDocusaurusContext();
 
-    if (props.href?.startsWith(siteConfig.url)) {
+    if (props.href?.startsWith(siteConfig.url) && isDifferentInstance(siteConfig.baseUrl)) {
         const { href, ...rest } = props;
         rest.to = props.href.replace(siteConfig.url + siteConfig.baseUrl, '/');
         props = rest;
