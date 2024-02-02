@@ -317,7 +317,7 @@ html[data-theme='dark'] {
             --ifm-h5-font-size: 1.6rem;
             --ifm-h6-font-size: 1.4rem;
         }
-    
+
     .markdown h1:first-child {
         --ifm-h1-font-size: 4.2rem;
     }
@@ -586,6 +586,10 @@ article .card h2 {
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
+}
+
+.tsd-flag {
+    user-select: none;
 }
 
 .menu__caret:before,
