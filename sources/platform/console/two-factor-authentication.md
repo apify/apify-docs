@@ -18,7 +18,9 @@ To set up two-factor authentication, go to your [account settings](https://conso
 
 ![Apify console two-factor authentication section](./images/console-account-two-factor-disabled.png)
 
-If it's not enabled click on the **Enable** button and you will see with this view:
+If it's not enabled click on the **Enable** button you should see the two-factor setup view.
+
+### Authenticator app setup
 
 ![Apify console setup two-factor authentication - app](./images/console-two-factor-app-setup.png)
 
@@ -32,6 +34,8 @@ Here you can copy the two-factor `secret` key, which you can use in your authent
 
 After you scan the QR code or set up your app manually, the app will generate a code which you need to enter into the **Verify the code from the app** field. After you enter the code, click on the **Continue** button to get to the next step of the setup process.
 
+### Recovery settings
+
 ![Apify console setup two-factor authentication - recovery codes](./images/console-two-factor-recovery-setup.png)
 
 In this step, you will see 16 recovery codes. If you ever lose access to your authenticated app, you will be able to use these codes to access the Apify Console. We recommend saving these codes in a safe place, ideally, you should either store them in a secure password manager or print them out and keep them separate from your device.
@@ -43,6 +47,8 @@ What kind of personal information you provide is completely up to you, it does n
 :::
 
 You will not be able to enable the two-factor authentication until you click on the **Download** / **Copy** buttons or copy the codes manually. After you do that, the **Continue** button will light up and you can click on it to enable the two-factor authentication. The authentication process will then enable the two-factor authentication for your account and show a confirmation.
+
+### Confirmation
 
 When you close the setup process, you should see that your two-factor authentication is enabled in the account settings.
 
