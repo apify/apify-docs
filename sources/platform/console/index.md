@@ -10,7 +10,7 @@ slug: /console
 
 ---
 
-## Sign up
+## Sign-up
 
 To use Apify Console you first need to create an account. To create it please go to the [sign up page](https://console.apify.com/sign-up).
 At the moment we support 3 different methods of creating an account:
@@ -40,7 +40,7 @@ On the other hand if you used GitHub to create your account and your github acco
 
 If you already have an account in Apify Console connected to Google or GitHub, clicking on these buttons on the sign up page will not create a new account and instead it will directly sign you in.
 
-## Sign in
+## Sign-in
 
 To sign in to your account please go to the [sign in page](https://console.apify.com/sign-in).
 There you can use any of the authentication methods you have set up for your account. If you have multiple authentication methods, you can choose which one you want to use by using on the corresponding button or form.
