@@ -38,7 +38,7 @@ If you do not want to create a new password for Apify Console, you can also use 
 If you used Google to sign up, there is no verification step after this, and you can start using Apify Console right away.
 On the other hand, if you used GitHub to create your account and your GitHub account does not have a verified email, we will ask you to verify your email address before you can start using Apify Console. The process works the same as the process for email and password authentication.
 
-If you already have an account in Apify Console connected to Google or GitHub, clicking on these buttons on the sign up page will not create a new account and instead it will directly sign you in.
+If you already have an account in Apify Console connected to Google or GitHub, clicking on these buttons on the sign-up page will not create a new account but will directly sign you in.
 
 ## Sign-in
 
