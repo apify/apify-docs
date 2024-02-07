@@ -94,4 +94,4 @@ The support team will not give you any clues about the information you have prov
 
 You can always check what information you provided by going to your [account settings](https://console.apify.com/account/settings), scrolling down to the **Two-factor authentication** section, and clicking on the **Recovery settings** button, then you should see a view like this which will show you the information you have provided.
 
-![Apify console recovery settings modal](./images/console-two-factor-recovery-settings.png)
+![Apify Console recovery settings modal](./images/console-two-factor-recovery-settings.png)
