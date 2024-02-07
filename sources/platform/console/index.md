@@ -33,7 +33,7 @@ If you did not receive the email, you can visit the [sign-in page](https://conso
 
 ### Google or GitHub
 
-If you do not want to create a new password for Apify Console, you can also use your Google or GitHub account to sign up. To do that, click on the **Sign up with Google** or **Sign up with GitHub** buttons. You will proceed to the corresponding authentication page where you will need to sign in and authorize Apify to access your account. Then when you come back to the Apify Console we will create your account.
+If you do not want to create a new password for Apify Console, you can also use your Google or GitHub account to sign up. To do that, click the **Sign up with Google** or **Sign up with GitHub** buttons. You will proceed to the corresponding authentication page, where you must sign in and authorize Apify to access your account. Then, when you come back to Apify Console, we will create your account.
 
 If you used Google to sign up, there is no verification step after this and you can start to use the Apify Console right away.
 On the other hand if you used GitHub to create your account and your github account does not have verified email, we will ask you to verify your email address before you can start using Apify Console. The process works the same as the process for email and password authentication.
