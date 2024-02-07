@@ -21,7 +21,7 @@ At the moment we support 3 different methods of creating an account:
 
 This is the most common way of creating an account. You just need to provide your email address and a password. The password needs to be at least 8 characters, should not be your email address, and should either contain special characters or be long enough to be secure. The password field has a strength indicator below it that will tell you if your password is strong enough.
 
-After you click on the **Sign up** button, we will send you a verification email. The email contains a link which you need to click on or copy to your browser to proceed to automated email verification. After we verify your email you will proceed to the Apify Console.
+After you click the **Sign up** button, we will send you a verification email. The email contains a link that you need to click on or copy to your browser to proceed to automated email verification. After we verify your email, you will proceed to Apify Console.
 
 :::info CAPTCHA
 We are using Google reCaptcha to prevent spam accounts. Usually you will not see it, but if Google evaluates your browser as suspicious, they will ask you to solve a reCaptcha before we create your account and send you the verification email.
