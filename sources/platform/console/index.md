@@ -68,7 +68,7 @@ This section also allows you to reset your password if you ever forget it. To do
 We will then send an email to the address connected to your account with a link to the password reset page.
 After you click on the link (or copy it to your browser), you will proceed to a page where you can set up a new password.
 
-![Apify console reset password page](./images/console-reset-password-page.png)
+![Apify Console reset password page](./images/console-reset-password-page.png)
 
 ## Homepage overview
 
