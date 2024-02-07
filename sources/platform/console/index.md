@@ -27,7 +27,7 @@ After you click the **Sign up** button, we will send you a verification email. T
 We are using Google reCaptcha to prevent spam accounts. Usually, you will not see it, but if Google evaluates your browser as suspicious, they will ask you to solve a reCaptcha before we create your account and send you the verification email.
 :::
 
-If you did not receive the email, you can go to the [sign in page](https://console.apify.com/sign-in). There you will either proceed to our verification page right away, or you can sign in and you will be redirect after. On the verification page you can click on the **Resend verification email** button to send the email again.
+If you did not receive the email, you can visit the [sign-in page](https://console.apify.com/sign-in). There, you will either proceed to our verification page right away, or you can sign in and will be redirected afterward. On the verification page, you can click on the **Resend verification email** button to send the email again.
 
 ![Apify console email verification page](./images/console-email-verification-page.png)
 
