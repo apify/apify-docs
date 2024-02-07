@@ -52,7 +52,7 @@ If you do not have two-factor authentication enabled, you will be directly redir
 
 ### Forgotten password
 
-In case you forgot your password, you can click on the **Forgot your password?** link which will redirect you to the [forgot password page](https://console.apify.com/forgot-password). There you will need to enter your email address and click on the **Reset password** button. We will then send an email to the address connected to your account with a link to the password reset page which will allow you to change your password.
+In case you forgot your password, you can click on the **Forgot your password?** link, which will redirect you to the [forgot password page](https://console.apify.com/forgot-password). There, you will need to enter your email address and click on the **Reset password** button. We will then send an email to the address connected to your account with a link to the password reset page, which will allow you to change your password.
 
 ![Apify console forgotten password page](./images/console-forgotten-password-page.png)
 
