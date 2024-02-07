@@ -60,7 +60,7 @@ In case you forgot your password, you can click on the **Forgot your password?**
 
 After you create your account, you might still want to use the other authentication methods. To do that, go to your [account settings](https://console.apify.com/account/settings) and scroll down to the **Login** section. There, you will see all available authentication methods and their configuration.
 
-![Apify console sign in methods section on account page](./images/console-sign-in-methods-section.png)
+![Apify Console sign-in methods section on account page](./images/console-sign-in-methods-section.png)
 
 ## Resetting your password
 
