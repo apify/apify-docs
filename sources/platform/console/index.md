@@ -29,7 +29,7 @@ We are using Google reCaptcha to prevent spam accounts. Usually, you will not se
 
 If you did not receive the email, you can visit the [sign-in page](https://console.apify.com/sign-in). There, you will either proceed to our verification page right away, or you can sign in and will be redirected afterward. On the verification page, you can click on the **Resend verification email** button to send the email again.
 
-![Apify console email verification page](./images/console-email-verification-page.png)
+![Apify Console email verification page](./images/console-email-verification-page.png)
 
 ### Google or GitHub
 
