@@ -89,7 +89,7 @@ If you lost access to both your authenticator app and either you do not have any
 For our support team to help you recover your account, you will need to provide them with the personal information you have configured during the two-factor authentication setup. If you provide the correct information, the support team will help you regain access to your account.
 
 :::caution
-The support team will not give you any clues about the information you have provided, they will only verify if the information you provided is correct.
+The support team will not give you any clues about the information you provided; they will only verify if it is correct.
 :::
 
 You can always check what information you provided by going to your [account settings](https://console.apify.com/account/settings), scrolling down to the **Two-factor authentication** section, and clicking on the **Recovery settings** button, then you should see a view like this, which will show you the information you have provided.
