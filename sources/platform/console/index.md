@@ -64,7 +64,7 @@ After you create your account, you might still want to use the other authenticat
 
 ## Resetting your password
 
-This section also allows you to reset your password if you ever forget it. To do that, click on the **Send email to reset password** button.
+This section also allows you to reset your password if you ever forget it. To do that, click the **Send email to reset password** button.
 We will then send an email to the address connected to your account with a link to the password reset page.
 After you click on the link (or copy it to your browser), you will proceed to a page where you can set up a new password.
 
