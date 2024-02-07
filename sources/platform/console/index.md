@@ -48,7 +48,7 @@ There, you can use any of the authentication methods you have set up for your ac
 If you sign in through email and password and have two-factor authentication enabled on your account, you will proceed to the two-factor authentication page after you enter your password. There, you will need to enter the code from your authenticator app to sign in.
 If you do not have two-factor authentication enabled, you will be directly redirected to Apify Console.
 
-![Apify console sign in form](./images/console-sign-in-form.png)
+![Apify Console sign-in form](./images/console-sign-in-form.png)
 
 ### Forgotten password
 
