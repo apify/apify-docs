@@ -46,7 +46,7 @@ To sign in to your account, please go to the [sign-in page](https://console.apif
 There, you can use any of the authentication methods you have set up for your account. If you have multiple authentication methods, you can choose which one you want to use by using the corresponding button or form.
 
 If you sign in through email and password and have two-factor authentication enabled on your account, you will proceed to the two-factor authentication page after you enter your password. There, you will need to enter the code from your authenticator app to sign in.
-If you do not have two-factor authentication enabled, you will be directly redirected to the Apify Console.
+If you do not have two-factor authentication enabled, you will be directly redirected to Apify Console.
 
 ![Apify console sign in form](./images/console-sign-in-form.png)
 
