@@ -26,57 +26,57 @@ If it's not enabled, click on the **Enable** button. You should see the two-fact
 
 In this view, you can use your favorite authenticator app to scan the QR code. We recommend using Google Authenticator ([Google play store](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_US)/[Apple app store](https://apps.apple.com/us/app/google-authenticator/id388497605)) or [Authy](https://authy.com/) but any other authenticator app should work as well.
 
-You can also set up your app/browser extension manually without the QR code. To do that, click on the **Setup key** link below the QR code this view with the key will pop up:
+You can also set up your app/browser extension manually without the QR code. To do that, click on the **Setup key** link below the QR code. This view with the key will pop up:
 
-![Apify console setup two-factor authentication - key](./images/console-setup-two-factor-auth-key.png)
+![Apify Console setup two-factor authentication - key](./images/console-setup-two-factor-auth-key.png)
 
 Here you can copy the two-factor `secret` key, which you can use in your authenticator app to set up the account. You can also use this key to set up your authenticator app on multiple devices.
 
-After you scan the QR code or set up your app manually, the app will generate a code which you need to enter into the **Verify the code from the app** field. After you enter the code, click on the **Continue** button to get to the next step of the setup process.
+After you scan the QR code or set up your app manually, the app will generate a code that you need to enter into the **Verify the code from the app** field. After you enter the code, click on the **Continue** button to get to the next step of the setup process.
 
 ### Recovery settings
 
-![Apify console setup two-factor authentication - recovery codes](./images/console-two-factor-recovery-setup.png)
+![Apify Console setup two-factor authentication - recovery codes](./images/console-two-factor-recovery-setup.png)
 
-In this step, you will see 16 recovery codes. If you ever lose access to your authenticated app, you will be able to use these codes to access the Apify Console. We recommend saving these codes in a safe place, ideally, you should either store them in a secure password manager or print them out and keep them separate from your device.
+In this step, you will see 16 recovery codes. If you ever lose access to your authenticated app, you will be able to use these codes to access the Apify Console. We recommend saving these codes in a safe place; ideally, you should store them in a secure password manager or print them out and keep them separate from your device.
 
-Under the recovery codes, you will find two fields for your recovery information. These two fields are what the support team will ask you to provide in case you lose access to your authenticator app and also to your recovery codes. We will never use the phone number for anything else than to verify your identity and help you regain access to your account and only as a last resort. Ideally, the personal information provided by you will be enough to verify your identity. Always provide both what kind of personal information you provide and the actual information.
+Under the recovery codes, you will find two fields for your recovery information. These two fields are what the support team will ask you to provide in case you lose access to your authenticator app and also to your recovery codes. We will never use the phone number for anything other than to verify your identity and help you regain access to your account, only as a last resort. Ideally, the personal information you provide will be enough to verify your identity. Always provide both the kind of personal information you provide and the actual information.
 
 :::info Personal information
-What kind of personal information you provide is completely up to you, it does not even have to be personal, as long as it's secure and easy to remember. For example, it can be the name of your pet, the name of your favorite book, some secret code, or anything else. Keep in mind who has access to that information. While you can use the name of your pet, if you share information about your pet on public social media, it's not a good choice, because anyone on the internet can access it. The same goes for any other information you provide.
+What kind of personal information you provide is completely up to you. It does not even have to be personal, as long as it's secure and easy to remember. For example, it can be the name of your pet, the name of your favorite book, some secret code, or anything else. Keep in mind who has access to that information. While you can use the name of your pet, if you share information about your pet on public social media, it's not a good choice because anyone on the internet can access it. The same goes for any other information you provide.
 :::
 
-You will not be able to enable the two-factor authentication until you click on the **Download** / **Copy** buttons or copy the codes manually. After you do that, the **Continue** button will light up and you can click on it to enable the two-factor authentication. The authentication process will then enable the two-factor authentication for your account and show a confirmation.
+You will not be able to enable the two-factor authentication until you click on the **Download** / **Copy** buttons or copy the codes manually. After you do that, the **Continue** button will light up, and you can click on it to enable the two-factor authentication. The authentication process will then enable the two-factor authentication for your account and show a confirmation.
 
 ### Confirmation
 
 When you close the setup process, you should see that your two-factor authentication is enabled in the account settings.
 
-![Apify console two-factor authentication section enabled](./images/console-account-two-factor-enabled.png)
+![Apify Console two-factor authentication section enabled](./images/console-account-two-factor-enabled.png)
 
 
 ## Verification after sign-in
 
-After you enable two-factor authentication, the next time you attempt to sign in, you'll need to enter a code before you can get into the Apify Console. To do that, open your authenticator app and enter the code for your Apify account into the **code** field. After you enter the code, click on the **Verify** button and if the provided code is correct, you will proceed to Apify Console.
+After you enable two-factor authentication, the next time you attempt to sign in, you'll need to enter a code before you can get into the Apify Console. To do that, open your authenticator app and enter the code for your Apify account into the **code** field. After you enter the code, click on the **Verify** button, and if the provided code is correct, you will proceed to Apify Console.
 
-![Apify console two-factor authentication form](./images/console-two-factor-authentication.png)
+![Apify Console two-factor authentication form](./images/console-two-factor-authentication.png)
 
 ## Using recovery codes
 
-In case you lose access to your authenticator app, you can use the recovery codes to sign in to your account. To do that, click on the **recovery code or begin 2FA account recovery** link below the **Verify** button. This will redirect you to a similar view as the current one, but instead of code from the authenticator app, you will need to enter one of the 16 recovery codes that you have received during the setup process.
+In case you lose access to your authenticator app, you can use the recovery codes to sign in to your account. To do that, click on the **recovery code or begin 2FA account recovery** link below the **Verify** button. This will redirect you to a view similar to the current one, but instead of code from the authenticator app, you will need to enter one of the 16 recovery codes you received during the setup process.
 
-If the provided recovery code is correct, you will proceed to Apify Console same as if you provided the code from the authenticator app. After gaining access to Apify Console we recommend going to the [account settings](https://console.apify.com/account/settings), disabling the two-factor authentication there, and then enabling it again with the new authenticator app.
+If the provided recovery code is correct, you will proceed to Apify Console, the same as if you provided the code from the authenticator app. After gaining access to Apify Console, we recommend going to the [account settings](https://console.apify.com/account/settings), disabling the two-factor authentication there, and then enabling it again with the new authenticator app.
 
 :::info Removal of recovery codes
-When you successfully use a recovery code, we remove the code from the original list as it's no longer possible to use it again. If you use all of your recovery codes, you will not be able to sign in to your account with them anymore and you will need to either use your authenticator app or contact our support to help you regain access to your account.
+When you successfully use a recovery code, we remove the code from the original list as it's no longer possible to use it again. If you use all of your recovery codes, you will not be able to sign in to your account with them anymore, and you will need to either use your authenticator app or contact our support to help you regain access to your account.
 :::
 
 
-![Apify console two-factor authentication with recovery code form](./images/console-two-factor-use-recovery-code.png)
+![Apify Console two-factor authentication with recovery code form](./images/console-two-factor-use-recovery-code.png)
 
 ## Disabling two-factor authentication
 
-In case you no longer want to use the two-factor authentication or if you lose access to your authenticator app, you can disable the two-factor authentication in your [account settings](https://console.apify.com/account/settings). To do that, scroll down to the **Two-factor authentication** section and click on the **Disable** button. We will ask you to enter either your verification code from the authenticator app or if you do not have access to it anymore, you can use one of your recovery codes. After you enter the code, click on the **Remove app** button which will verify the provided code and if it's valid, it will disable the two-factor authentication and remove the configuration from your account.
+If you no longer want to use the two-factor authentication or lose access to your authenticator app, you can disable the two-factor authentication in your [account settings](https://console.apify.com/account/settings). To do that, scroll down to the **Two-factor authentication** section and click on the **Disable** button. We will ask you to enter either your verification code from the authenticator app or, if you do not have access to it anymore, you can use one of your recovery codes. After entering the code, click on the **Remove app** button to verify the provided code. If it's valid, it will disable the two-factor authentication and remove the configuration from your account.
 
 After you disable the two-factor authentication you will be able to sign in to your account without providing the verification code.
 
