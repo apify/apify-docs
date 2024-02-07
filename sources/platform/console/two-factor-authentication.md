@@ -18,7 +18,7 @@ To set up two-factor authentication, go to your [account settings](https://conso
 
 ![Apify Console two-factor authentication section](./images/console-account-two-factor-disabled.png)
 
-If it's not enabled click on the **Enable** button you should see the two-factor setup view.
+If it's not enabled, click on the **Enable** button. You should see the two-factor setup view.
 
 ### Authenticator app setup
 
