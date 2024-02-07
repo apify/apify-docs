@@ -10,7 +10,7 @@ slug: /console/two-factor-authentication
 
 ---
 
-If you use your email and password to sign in to Apify Console, you can enable two-factor authentication for your account. This will add an extra layer of security to your account and will prevent anyone who gains access to your password from signing in to your account.
+If you use your email and password to sign in to Apify Console, you can enable two-factor authentication for your account. This will add an extra layer of security to your account and prevent anyone who gains access to your password from signing in to your account.
 
 ## Setting up two-factor authentication
 
