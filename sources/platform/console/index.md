@@ -15,7 +15,7 @@ slug: /console
 To use Apify Console, you first need to create an account. To create it please go to the [sign-up page](https://console.apify.com/sign-up).
 At the moment we support 3 different methods of creating an account:
 
-![Apify Apify Console sign-up form](./images/console-sign-up-form.png)
+![Apify Console sign-up form](./images/console-sign-up-form.png)
 
 ### Email and password
 
