@@ -80,7 +80,7 @@ In case you no longer want to use the two-factor authentication or if you lose a
 
 After you disable the two-factor authentication you will be able to sign in to your account without providing the verification code.
 
-![Apify console disable two-factor authentication modal](./images/console-two-factor-auth-disable.png)
+![Apify Console disable two-factor authentication modal](./images/console-two-factor-auth-disable.png)
 
 ## What to do when you get locked out
 
