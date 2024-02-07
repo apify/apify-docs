@@ -22,7 +22,7 @@ If it's not enabled, click on the **Enable** button. You should see the two-fact
 
 ### Authenticator app setup
 
-![Apify console setup two-factor authentication - app](./images/console-two-factor-app-setup.png)
+![Apify Console setup two-factor authentication - app](./images/console-two-factor-app-setup.png)
 
 In this view, you can use your favorite authenticator app to scan the QR code. We recommend using Google Authenticator ([Google play store](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_US)/[Apple app store](https://apps.apple.com/us/app/google-authenticator/id388497605)) or [Authy](https://authy.com/) but any other authenticator app should work as well.
 
