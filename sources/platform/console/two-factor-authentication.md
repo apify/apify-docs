@@ -16,7 +16,7 @@ If you use your email and password to sign in to Apify Console, you can enable t
 
 To set up two-factor authentication, go to your [account settings](https://console.apify.com/account/settings) and scroll down to the **Two-factor authentication** section. Currently, there is only one option, which is the **Authenticator app**. If you have two-factor authentication already enabled, there will be a label **enabled** next to it.
 
-![Apify console two-factor authentication section](./images/console-account-two-factor-disabled.png)
+![Apify Console two-factor authentication section](./images/console-account-two-factor-disabled.png)
 
 If it's not enabled click on the **Enable** button you should see the two-factor setup view.
 
