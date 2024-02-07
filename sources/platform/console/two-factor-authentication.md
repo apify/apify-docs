@@ -92,6 +92,6 @@ For our support team to help you recover your account, you will need to provide 
 The support team will not give you any clues about the information you have provided, they will only verify if the information you provided is correct.
 :::
 
-You can always check what information you provided by going to your [account settings](https://console.apify.com/account/settings), scrolling down to the **Two-factor authentication** section, and clicking on the **Recovery settings** button, then you should see a view like this which will show you the information you have provided.
+You can always check what information you provided by going to your [account settings](https://console.apify.com/account/settings), scrolling down to the **Two-factor authentication** section, and clicking on the **Recovery settings** button, then you should see a view like this, which will show you the information you have provided.
 
 ![Apify Console recovery settings modal](./images/console-two-factor-recovery-settings.png)
