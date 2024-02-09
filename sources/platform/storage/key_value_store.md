@@ -322,4 +322,4 @@ Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. Accordi
 
 ## Limits
 
-* The maximum length for key-value store is 63 characters.
+* The maximum length for key of key-value store is 63 characters.
