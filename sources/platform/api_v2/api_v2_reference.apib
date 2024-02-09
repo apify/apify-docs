@@ -902,6 +902,25 @@ Only builds that are starting or running are aborted. For builds with status `FI
     + Attributes
         - data (BuildAborted, required)
 
+## Build logs [/v2/acts/{actorId}/builds/{buildId}/log{?token,stream,download}]
+
+Check out [Logs](#reference/logs) for full reference.
+
++ Parameters
+
+    + buildId: `HG7ML7M8z78YcAPEB` (string, required) - ID of the actor build.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+    + stream: false (boolean, required) - If `true` or `1` then the logs will be streamed as long as the run or build is running.
+    + download: false (boolean, required) - If `true` or `1` then the web browser will download the log file rather than open it in a tab.
+
+### Get log [GET]
+
++ Response 200 (text/plain)
+
+2017-07-14T06:00:49.733Z Application started.
+2017-07-14T06:00:49.741Z Input: { test: 123 }
+2017-07-14T06:00:49.752Z Some useful debug information follows.
+
 ## Run collection [/v2/acts/{actorId}/runs{?token,offset,limit,desc,waitForFinish,timeout,memory,build,webhooks,status}]
 
 + Parameters
@@ -2443,6 +2462,25 @@ Only builds that are starting or running are aborted. For builds with status `FI
     + Attributes
         - data (BuildAborted, required)
 
+## Build logs [/v2/actor-builds/{buildId}/log{?token,stream,download}]
+
+Check out [Logs](#reference/logs) for full reference.
+
++ Parameters
+
+    + buildId: `HG7ML7M8z78YcAPEB` (string, required) - ID of the actor build.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+    + stream: false (boolean, required) - If `true` or `1` then the logs will be streamed as long as the run or build is running.
+    + download: false (boolean, required) - If `true` or `1` then the web browser will download the log file rather than open it in a tab.
+
+### Get log [GET]
+
++ Response 200 (text/plain)
+
+2017-07-14T06:00:49.733Z Application started.
+2017-07-14T06:00:49.741Z Input: { test: 123 }
+2017-07-14T06:00:49.752Z Some useful debug information follows.
+
 # Group Key-value stores
 
 This section describes API endpoints to manage Key-value stores.
@@ -3885,20 +3923,11 @@ are authenticated using a hard-to-guess ID of the actor build or run.
 
 ### Get log [GET]
 
-Responds with HTTP status 302 to redirect to an URL containing the requested log. The log has a content type `text/plain` and it is encoded as `gzip` returned with
-appropriate HTTP headers. The log has following format:
++ Response 200 (text/plain)
 
-```
 2017-07-14T06:00:49.733Z Application started.
 2017-07-14T06:00:49.741Z Input: { test: 123 }
 2017-07-14T06:00:49.752Z Some useful debug information follows.
-```
-
-+ Response 302 (application/json)
-
-    + Headers
-
-            Location: https://apifier-circular-logs-prod.s3.amazonaws.com/yiawTzreqPeFSKySN.log.gz?AWSAccessKeyId=AKIABOIQ&Expires=1500368148&Signature=B7wgpkNKiBin
 
 # Group Users
 
