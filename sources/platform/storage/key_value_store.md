@@ -26,7 +26,7 @@ Key-value stores are mutable–you can both add entries and delete them.
 
 ## Basic usage
 
-There are several ways to access your key-value stores
+You can access key-value stores through several methods
 
 * [Apify Console](https://console.apify.com/storage?tab=keyValueStores) - provides an easy-to-understand interface.
 * [JavaScript SDK](/sdk/js/docs/guides/result-storage#key-value-store) - when building your own JavaScript Actor.
