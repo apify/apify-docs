@@ -40,8 +40,9 @@ The `./sources/platform/api_v2` directory contains the source file for the API r
 #### Local testing
 
 1. Install Apiary gem `gem install apiaryio`
-2. After that, you can open the generated doc with the
-   command: `apiary preview --path="./sources/platform/api_v2/api_v2_reference.apib"`
+2. After that, you can:
+    - Open the generated doc with the command: `apiary preview --path="./sources/platform/api_v2/api_v2_reference.apib"`
+    - Log into [Apiary](https://apiary.io/) to get the document analyzed for warnings (there is no automatic linter)
 
 #### Pre-release testing
 
