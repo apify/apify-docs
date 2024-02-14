@@ -853,8 +853,9 @@ The response is the build object as returned by the
     + Attributes
         - data (Build, required)
 
-## Build object - deprecated [/v2/acts/{actorId}/builds/{buildId}{?token,waitForFinish}]
-API endpoints related to build of the actor were moved under new namespace [actor builds](#reference/actor-builds).
+## Build object [/v2/acts/{actorId}/builds/{buildId}{?token,waitForFinish}]
+
+**[DEPRECATED]** API endpoints related to build of the actor were moved under new namespace [`actor-builds`](#reference/actor-builds).
 
 + Parameters
 
@@ -885,6 +886,8 @@ This endpoint does not require the authentication token. The calls are authentic
 
 
 ## Abort build [/v2/acts/{actorId}/builds/{buildId}/abort{?token}]
+
+**[DEPRECATED]** API endpoints related to build of the actor were moved under new namespace [`actor-builds`](#reference/actor-builds).
 
 ### Abort build [POST]
 
@@ -1292,10 +1295,13 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
             - type: `run-timeout-exceeded` (string, required)
             - message: `Actor run exceeded timeout of 60 seconds for this API enpoint` (string, required)
 
-## Run object - deprecated [/v2/acts/{actorId}/runs/{runId}{?token,waitForFinish}]
-API endpoints related to run of the actor were moved under new namespace [actor runs](#reference/actor-runs).
+## Run object [/v2/acts/{actorId}/runs/{runId}{?token,waitForFinish}]
+
+**[DEPRECATED]** API endpoints related to run of the actor were moved under new namespace [`actor-runs`](#reference/actor-runs).
 
 ### Get run [GET]
+
+**[DEPRECATED]** API endpoints related to run of the actor were moved under new namespace [`actor-runs`](#reference/actor-runs).
 
 Gets an object that contains all the details about a specific run of an actor.
 
@@ -1319,6 +1325,8 @@ This endpoint does not require the authentication token. The calls are authentic
 
 ## Abort run [/v2/acts/{actorId}/runs/{runId}/abort{?token,gracefully}]
 
+**[DEPRECATED]** API endpoints related to run of the actor were moved under new namespace [`actor-runs`](#reference/actor-runs).
+
 ### Abort run [POST]
 
 Aborts an actor run and returns an object that contains all the details about the run.
@@ -1339,6 +1347,8 @@ Only runs that are starting or running are aborted. For runs with status `FINISH
         - data (RunAborted, required)
 
 ## Metamorph run [/v2/acts/{actorId}/runs/{runId}/metamorph{?token,build,targetActorId}]
+
+**[DEPRECATED]** API endpoints related to run of the actor were moved under new namespace [`actor-runs`](#reference/actor-runs).
 
 ### Metamorph run [POST]
 
@@ -1370,6 +1380,8 @@ For more information, see the [Actor docs](https://docs.apify.com/platform/actor
         - data (RunMetamorphed, required)
 
 ## Resurrect run [/v2/acts/{actorId}/runs/{runId}/resurrect{?token,build,timeout,memory}]
+
+**[DEPRECATED]** API endpoints related to run of the actor were moved under new namespace [`actor-runs`](#reference/actor-runs).
 
 ### Resurrect run [POST]
 
@@ -2167,7 +2179,7 @@ Additionally, each of the above API endpoints supports all sub-endpoints
 of the original one:
 
 #### Log
-* `/v2/actor-runs/{runId}/logs` [Log](#reference/log)
+* `/v2/actor-runs/{runId}/log` [Log](#reference/logs)
 
 #### Key-value store
 
@@ -2442,6 +2454,27 @@ Only builds that are starting or running are aborted. For builds with status `FI
 
     + Attributes
         - data (BuildAborted, required)
+
+## Build log [/v2/actor-builds/{buildId}/log{?token,stream,download}]
+
+Check out [Logs](#reference/logs) for full reference.
+
++ Parameters
+
+    + buildId: `HG7ML7M8z78YcAPEB` (string, required) - ID of the actor build.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+    + stream: false (boolean, required) - If `true` or `1` then the logs will be streamed as long as the run or build is running.
+    + download: false (boolean, required) - If `true` or `1` then the web browser will download the log file rather than open it in a tab.
+
+### Get log [GET]
+
++ Response 200 (text/plain)
+
+    ```
+    2017-07-14T06:00:49.733Z Application started.
+    2017-07-14T06:00:49.741Z Input: { test: 123 }
+    2017-07-14T06:00:49.752Z Some useful debug information follows.
+    ```
 
 # Group Key-value stores
 
@@ -3885,20 +3918,13 @@ are authenticated using a hard-to-guess ID of the actor build or run.
 
 ### Get log [GET]
 
-Responds with HTTP status 302 to redirect to an URL containing the requested log. The log has a content type `text/plain` and it is encoded as `gzip` returned with
-appropriate HTTP headers. The log has following format:
++ Response 200 (text/plain)
 
-```
-2017-07-14T06:00:49.733Z Application started.
-2017-07-14T06:00:49.741Z Input: { test: 123 }
-2017-07-14T06:00:49.752Z Some useful debug information follows.
-```
-
-+ Response 302 (application/json)
-
-    + Headers
-
-            Location: https://apifier-circular-logs-prod.s3.amazonaws.com/yiawTzreqPeFSKySN.log.gz?AWSAccessKeyId=AKIABOIQ&Expires=1500368148&Signature=B7wgpkNKiBin
+    ```
+    2017-07-14T06:00:49.733Z Application started.
+    2017-07-14T06:00:49.741Z Input: { test: 123 }
+    2017-07-14T06:00:49.752Z Some useful debug information follows.
+    ```
 
 # Group Users
 
