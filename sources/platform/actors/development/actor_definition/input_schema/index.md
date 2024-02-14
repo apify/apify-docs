@@ -17,7 +17,7 @@ This is an example of an **auto-generated UI** for [Website Content Crawler](htt
 
 with an **input schema** defined this way:
 
-```json
+```json5
 {
     "title": "Input schema for Website Content Crawler",
     "description": "Enter the start URL(s) of the website(s) to crawl, configure other optional settings, and run the Actor to crawl the pages and extract their text content.",
@@ -54,7 +54,7 @@ with an **input schema** defined this way:
             "minimum": 0,
             "default": 9999999
         },
-        ...
+        // ...
     }
 }
 ```

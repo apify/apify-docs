@@ -1,5 +1,5 @@
-import React from 'react';
 import Head from '@docusaurus/Head';
+import React from 'react';
 // MDX elements are wrapped through the MDX pragma. In some cases (notably usage
 // with Head/Helmet) we need to unwrap those elements.
 function unwrapMDXElement(element) {

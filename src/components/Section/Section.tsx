@@ -1,5 +1,6 @@
-import React from 'react';
 import { theme } from '@apify-packages/ui-components';
+import React from 'react';
+
 import styles from './styles.module.css';
 import { Heading } from '../Heading';
 import { Text } from '../Text';

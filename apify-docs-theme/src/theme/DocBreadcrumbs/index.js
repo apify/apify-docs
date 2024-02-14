@@ -1,14 +1,14 @@
-import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 import { ThemeClassNames } from '@docusaurus/theme-common';
 import {
     useSidebarBreadcrumbs,
     useHomePageRoute,
 } from '@docusaurus/theme-common/internal';
-import Link from '@docusaurus/Link';
 import { translate } from '@docusaurus/Translate';
 import HomeBreadcrumbItem from '@theme/DocBreadcrumbs/Items/Home';
+import clsx from 'clsx';
+import React from 'react';
+
 import styles from './styles.module.css';
 
 // TODO move to design system folder

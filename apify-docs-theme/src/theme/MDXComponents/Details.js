@@ -1,5 +1,5 @@
-import React from 'react';
 import Details from '@theme/Details';
+import React from 'react';
 
 export default function MDXDetails(props) {
     const items = React.Children.toArray(props.children);

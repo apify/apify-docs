@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import React from 'react';
 import clsx from 'clsx';
 import Giscus from '@giscus/react';

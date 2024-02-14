@@ -29,6 +29,7 @@
         "prism-react-renderer": "^2.0.6"
     },
     "peerDependencies": {
+        "clsx": "*",
         "react": "*",
         "react-dom": "*"
     }

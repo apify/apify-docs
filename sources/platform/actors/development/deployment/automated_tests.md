@@ -81,7 +81,7 @@ await expectAsync(runResult).withDataset(({ dataset, info }) => {
     // If you're sure, always set this number to be your exact maxItems
     expect(info.cleanItemCount)
         .withContext(runResult.format('Dataset cleanItemCount'))
-        .toBe(3); //or toBeGreaterThan(1) or toBeWithinRange(1,3)
+        .toBe(3); // or toBeGreaterThan(1) or toBeWithinRange(1,3)
 
     // Make sure the dataset isn't empty
     expect(dataset.items)
@@ -91,12 +91,12 @@ await expectAsync(runResult).withDataset(({ dataset, info }) => {
     const results = dataset.items;
 
     // Check dataset items to have the expected data format
-    for (let r in results) {
-        expect(results[r].directUrl)
+    for (const result of results) {
+        expect(result.directUrl)
             .withContext(runResult.format('Direct url'))
             .toStartWith('https://www.yelp.com/biz/');
 
-        expect(results[r].bizId)
+        expect(result.bizId)
             .withContext(runResult.format('Biz ID'))
             .toBeNonEmptyString();
     }
@@ -107,13 +107,13 @@ Information about the [key-value store](../../../storage/key_value_store.md):
 
 ```js
 await expectAsync(runResult).withKeyValueStore(({ contentType }) => {
-   // Check for the proper content type of the saved key-value item
-     expect(contentType)
-         .withContext(runResult.format('KVS contentType'))
-         .toBe('image/gif');
-    },
+    // Check for the proper content type of the saved key-value item
+    expect(contentType)
+        .withContext(runResult.format('KVS contentType'))
+        .toBe('image/gif');
+},
 
-    // This also checks for existence of the key-value key
-    { keyName: 'apify.com-scroll_losless-comp' }
+// This also checks for existence of the key-value key
+{ keyName: 'apify.com-scroll_losless-comp' },
 );
 ```
