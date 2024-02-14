@@ -1,5 +1,6 @@
-const { urlToRequest } = require('loader-utils');
 const { inspect } = require('util');
+
+const { urlToRequest } = require('loader-utils');
 
 const signingUrl = new URL('https://api.apify.com/v2/tools/encode-and-sign');
 signingUrl.searchParams.set('token', process.env.APIFY_SIGNING_TOKEN);

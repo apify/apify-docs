@@ -1,7 +1,8 @@
 const { join } = require('path');
+
 const { config } = require('./apify-docs-theme');
-const { externalLinkProcessor } = require('./tools/utils/externalLink');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
+const { externalLinkProcessor } = require('./tools/utils/externalLink');
 
 /** @type {Partial<import('@docusaurus/types').DocusaurusConfig>} */
 module.exports = {

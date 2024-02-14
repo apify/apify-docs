@@ -1,5 +1,6 @@
 import Link from '@docusaurus/Link';
 import React, { useState, useEffect } from 'react';
+
 import styles from './styles.module.css';
 
 const NUMBER_OF_CHANGELOG_ITEMS = 5;

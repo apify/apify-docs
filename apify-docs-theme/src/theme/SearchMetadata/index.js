@@ -1,7 +1,7 @@
-import React from 'react';
 import Head from '@docusaurus/Head';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useThemeConfig } from '@docusaurus/theme-common';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import React from 'react';
 
 export default function SearchMetadata({ locale, version, tag }) {
     const { siteConfig } = useDocusaurusContext();

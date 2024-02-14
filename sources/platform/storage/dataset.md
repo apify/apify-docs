@@ -306,7 +306,7 @@ In `XML` and `RSS` export formats, object property name are converted into XML t
 
 For example, the JavaScript object:
 
-```javascript
+```json5
 {
     name: "Rashida Jones",
     address: [
@@ -344,7 +344,7 @@ In a JavaScript object, if a property is named `@`, its sub-properties are expor
 
 For example, the following JavaScript object:
 
-```json
+```json5
 {
     "address": [{
         "@": {

@@ -23,12 +23,10 @@ Input schema can be embedded as an object in the **.actor/actor.json** file unde
 
 Imagine you are building a simple crawler whose inputs are an array of start URLs and a JavaScript function that will be executed at each page the crawler visits. Its input schema will look like this:
 
-```json
+```json5
 {
     "title": "Cheerio Crawler input",
-    "description": "To update crawler to another site,
-        you need to change startUrls and
-        pageFunction options!",
+    "description": "To update crawler to another site, you need to change startUrls and pageFunction options!",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
@@ -188,13 +186,12 @@ Beware that the `boolean` input type doesn't support the `prefill` property, sin
 
 Example options with group caption:
 
-```json
+```json5
 {
     "verboseLog": {
         "title": "Verbose log",
         "type": "boolean",
-        "description": "Debug messages will be included
-            in the log.",
+        "description": "Debug messages will be included in the log.",
         "default": true,
         "groupCaption": "Options",
         "groupDescription": "Various options for this Actor"
@@ -271,7 +268,7 @@ Rendered input:
 
 The object where the proxy configuration is stored has the following structure:
 
-```json
+```json5
 {
     // Indicates whether Apify Proxy was selected.
     "useApifyProxy": Boolean,

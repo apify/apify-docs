@@ -90,15 +90,15 @@ await Actor.init();
  * Actor code
  */
 await Actor.pushData({
-    "___EXAMPLE_NUMERIC_FIELD___": 10,
-    "___EXAMPLE_PICTURE_URL_FIELD___": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png",
-    "___EXAMPLE_LINK_URL_FIELD___": "https://google.com",
-    "___EXAMPLE_TEXT_FIELD___": "Google",
-    "___EXAMPLE_BOOLEAN_FIELD___": true,
-    "___EXAMPLE_DATE_FIELD___": new Date(),
-    "___EXAMPLE_ARRAY_FIELD___": ['#hello', "#world"],
-    "___EXAMPLE_OBJECT_FIELD___": {},
-})
+    ___EXAMPLE_NUMERIC_FIELD___: 10,
+    ___EXAMPLE_PICTURE_URL_FIELD___: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png',
+    ___EXAMPLE_LINK_URL_FIELD___: 'https://google.com',
+    ___EXAMPLE_TEXT_FIELD___: 'Google',
+    ___EXAMPLE_BOOLEAN_FIELD___: true,
+    ___EXAMPLE_DATE_FIELD___: new Date(),
+    ___EXAMPLE_ARRAY_FIELD___: ['#hello', '#world'],
+    ___EXAMPLE_OBJECT_FIELD___: {},
+});
 
 // Exit successfully
 await Actor.exit();
@@ -184,7 +184,7 @@ Example of an Actor output UI generated using basic template:
 
 ## Example with inline comments
 
-```json
+```json5
 // file: .actor/actor.json
 {
     "actorSpecification": 1,                // mandatory

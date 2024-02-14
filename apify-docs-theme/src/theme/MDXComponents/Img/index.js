@@ -1,6 +1,6 @@
-import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import clsx from 'clsx';
+import React from 'react';
+
 import styles from './styles.module.css';
 
 function transformImgClassName(className) {
