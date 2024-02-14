@@ -86,7 +86,7 @@ const crawler = new CheerioCrawler({
     proxyConfiguration,
     async requestHandler({ body }) {
         // ...
-        console.log(body)
+        console.log(body);
     },
 });
 
@@ -175,7 +175,7 @@ const proxy = {
     port: 8000,
     // Replace <YOUR_PROXY_PASSWORD> below with your password
     // found at https://console.apify.com/proxy
-    auth: { username: 'groups-GOOGLE_SERP', password: <YOUR_PROXY_PASSWORD> },
+    auth: { username: 'groups-GOOGLE_SERP', password: '<YOUR_PROXY_PASSWORD>' },
 };
 
 const url = 'http://www.google.com/search';

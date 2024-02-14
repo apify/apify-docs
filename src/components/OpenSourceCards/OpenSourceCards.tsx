@@ -1,17 +1,15 @@
-import React from 'react';
-
-import ThemedImage from '@theme/ThemedImage';
+import { theme } from '@apify-packages/ui-components';
+import Link from '@docusaurus/Link';
 import { useColorMode } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import Link from '@docusaurus/Link';
-
+import ThemedImage from '@theme/ThemedImage';
+import React from 'react';
 import GitHubButton from 'react-github-btn';
-import { theme } from '@apify-packages/ui-components';
+
+import styles from './styles.module.css';
 import CardWithImageAndContent from '../CardWithImageAndContent/ImageWithContent';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
-
-import styles from './styles.module.css';
 
 const OpenSourceCards: React.FC = () => {
     const { colorMode } = useColorMode();

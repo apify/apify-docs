@@ -1,13 +1,13 @@
-import React from 'react';
+import { HorizontalTile, theme } from '@apify-packages/ui-components';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { HorizontalTile, theme } from '@apify-packages/ui-components';
+import React from 'react';
 import styled from 'styled-components';
-import styles from './styles.module.css';
-import { Text } from '../Text';
-import { Heading } from '../Heading';
 
+import styles from './styles.module.css';
 import ArrowRight20 from '../../pages/img/arrow-right-20.svg';
+import { Heading } from '../Heading';
+import { Text } from '../Text';
 
 const StyledHorizontalTile = styled(HorizontalTile)`
   height: 100%;

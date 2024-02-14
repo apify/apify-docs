@@ -1,15 +1,15 @@
-import React,
-{
-    useState,
-    useEffect,
-} from 'react';
-import styled from 'styled-components';
 import {
     ActorTemplateCard,
     theme,
 } from '@apify-packages/ui-components';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import React,
+{
+    useState,
+    useEffect,
+} from 'react';
+import styled from 'styled-components';
 
 interface ActorTemplate {
     id: string,

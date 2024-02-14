@@ -79,7 +79,7 @@ const proxyConfiguration = await Actor.createProxyConfiguration();
 const crawler = new PuppeteerCrawler({
     proxyConfiguration,
     async requestHandler({ page }) {
-        console.log(await page.content())
+        console.log(await page.content());
     },
 });
 
@@ -211,7 +211,7 @@ const proxyConfiguration = await Actor.createProxyConfiguration();
 const crawler = new PuppeteerCrawler({
     proxyConfiguration,
     sessionPoolOptions: { maxPoolSize: 1 },
-    async requestHandler({ page}) {
+    async requestHandler({ page }) {
         console.log(await page.content());
     },
 });
@@ -307,7 +307,7 @@ const response2 = await gotScraping({
 });
 
 console.log(response1.body.clientIp);
-console.log("Should be the same as");
+console.log('Should be the same as');
 console.log(response2.body.clientIp);
 
 await Actor.exit();
@@ -340,7 +340,7 @@ const proxy = {
     port: 8000,
     // Replace <YOUR_PROXY_PASSWORD> below with your password
     // found at https://console.apify.com/proxy
-    auth: { username: 'auto', password: <YOUR_PROXY_PASSWORD> },
+    auth: { username: 'auto', password: '<YOUR_PROXY_PASSWORD>' },
 };
 
 const url = 'http://proxy.apify.com/?format=json';

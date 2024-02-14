@@ -35,7 +35,7 @@ import TabItem from '@theme/TabItem';
     "readme": "./ACTOR.md",
     "input": "./input_schema.json",
     "storages": {
-        "dataset": "./dataset_schema.json",
+        "dataset": "./dataset_schema.json"
     }
 }
 ```

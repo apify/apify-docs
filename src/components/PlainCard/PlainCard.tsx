@@ -1,10 +1,11 @@
-import React from 'react';
+import { VerticalTile, theme } from '@apify-packages/ui-components';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { VerticalTile, theme } from '@apify-packages/ui-components';
+import React from 'react';
+
 import styles from './styles.module.css';
-import { Text } from '../Text';
 import { Heading } from '../Heading';
+import { Text } from '../Text';
 
 interface PlainCardProps {
     icon: React.ReactNode;

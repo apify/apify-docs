@@ -1,7 +1,9 @@
-const postcssPreset = require('postcss-preset-env');
-const path = require('path');
 const fs = require('fs');
+const path = require('path');
+
 const axios = require('axios');
+const postcssPreset = require('postcss-preset-env');
+
 const { updateChangelog } = require('./markdown');
 
 function findPathInParent(endPath) {

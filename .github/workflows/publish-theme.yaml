@@ -44,9 +44,11 @@ jobs:
                     node-version: 18
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
+                    always-auth: 'true'
                     registry-url: 'https://npm.pkg.github.com/'
                     scope: '@apify-packages'
-    
+                env:
+                    NODE_AUTH_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}
 
             -   name: Setup git user and npm
                 run: |
