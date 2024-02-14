@@ -42,7 +42,7 @@ const proxyConfiguration = await Actor.createProxyConfiguration();
 const crawler = new PuppeteerCrawler({
     proxyConfiguration,
     async requestHandler({ page }) {
-        console.log(await page.content())
+        console.log(await page.content());
     },
 });
 

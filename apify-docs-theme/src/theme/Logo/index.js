@@ -1,9 +1,9 @@
-import React from 'react';
 import Link from '@docusaurus/Link';
+import { useThemeConfig } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { useThemeConfig } from '@docusaurus/theme-common';
 import ThemedImage from '@theme/ThemedImage';
+import React from 'react';
 
 function LogoThemedImage({ logo, alt, imageClassName }) {
     const sources = {
