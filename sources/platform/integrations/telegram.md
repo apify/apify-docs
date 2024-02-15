@@ -16,7 +16,7 @@ Your Zapier workflows can start Apify Actors or tasks, fetch items from a datase
 
 You can use the Zapier integration to trigger a workflow whenever an Actor or a task finishes.
 
-Completementary to the following guide we've created a detailed video, that will guide you through whole process of setting up your Telegram integratin through Zapier.
+Completementary to the following guide we've created a detailed video, that will guide you through the process of setting up your Telegram integration through Zapier.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XldEuQleq3c?si=86qbdrzWpVLoY_fr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -97,7 +97,7 @@ The best way to do it's to:
 
     ![BotFather conversation](./images/botfather-start.png)
 
-2. Issue the `/newbot` command in conversation with it and follow the instructions, until you get your HTTP API token.
+1. Issue the `/newbot` command in conversation with it and follow the instructions, until you get your HTTP API token.
 
     ![BotFather conversation with new HTTP API token](./images/botfather-HTTP-API-blurred.png)
 
