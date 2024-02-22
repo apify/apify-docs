@@ -13,7 +13,7 @@ slug: /tools/modheader
 
 If you read about [Postman](./postman.md), you might remember that you can use it to modify request headers before sending a request. This is great, but the main problem is that Postman can only make static requests - meaning, it is unable to load JavaScript or any [dynamic content](../concepts/dynamic_pages.md).
 
-[ModHeader](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj?hl=en) is a Chrome extension which can be used to modify the HTTP headers of the requests you make with your browser. This means that, for example, if your scraper using a headless browser Puppeteer is being blocked due to an improper **User-Agent** header, you can use ModHeader to test the target website and quickly solve the issue.
+[ModHeader](https://chromewebstore.google.com/detail/modheader-modify-http-hea/idgpnmonknjnojddfkpgkljpfnnfcklj) is a Chrome extension which can be used to modify the HTTP headers of the requests you make with your browser. This means that, for example, if your scraper using a headless browser Puppeteer is being blocked due to an improper **User-Agent** header, you can use ModHeader to test the target website and quickly solve the issue.
 
 ## The ModHeader interface {#interface}
 

@@ -19,4 +19,4 @@ HTTP cookies are small pieces of data sent by the server to the user's web brows
 2. To make the website show location-specific data (works for websites where you could set a zip code or country directly on the page, but unfortunately doesn't work for some location-based ads).
 3. To make the website less suspicious of the crawler and let the crawler's traffic blend in with regular user traffic.
 
-For local testing, we recommend using the [**EditThisCookie**](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?hl=en) Chrome extension.
+For local testing, we recommend using the [**EditThisCookie**](https://chromewebstore.google.com/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg) Chrome extension.

@@ -47,7 +47,7 @@ To view or download a dataset:
 2. Select the format & configure other options if desired in **Export dataset** section.
 3. Click **Download**.
 
-Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](./index#data-retention-data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2#/reference/datasets).
+Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](./usage.md#data-retention-data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2#/reference/datasets).
 
 ![Datasets detail view](./images/datasets-detail.png)
 
@@ -178,7 +178,7 @@ async def main():
         hotel_and_cafe_data = await dataset.get_data(fields=['hotel', 'cafe'])
 ```
 
-For more information, visit our [Python SDK documentation](/sdk/python/docs/guides/result-storage#dataset) and the `Dataset` class's [API reference](/sdk/python/reference/class/Dataset) for details on managing datasets with the Python SDK.
+For more information, visit our [Python SDK documentation](/sdk/python/docs/concepts/storages#working-with-datasets) and the `Dataset` class's [API reference](/sdk/python/reference/class/Dataset) for details on managing datasets with the Python SDK.
 
 ### JavaScript API client {#javascript-api-client}
 

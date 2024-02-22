@@ -179,7 +179,7 @@ async def main():
         await queue.drop()
 ```
 
-Check out the [Python SDK documentation](/sdk/python/docs/guides/request-storage#request-queue) and the `RequestQueue` class's [API reference](/sdk/python/reference/class/RequestQueue) for details on managing your request queues with the Python SDK.
+Check out the [Python SDK documentation](/sdk/python/docs/concepts/storages#working-with-request-queues) and the `RequestQueue` class's [API reference](/sdk/python/reference/class/RequestQueue) for details on managing your request queues with the Python SDK.
 
 ### JavaScript API client {#javascript-api-client}
 
