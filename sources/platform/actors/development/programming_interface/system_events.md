@@ -25,7 +25,7 @@ Currently, the system sends the following events:
 
 Under the hood, Actors receive system events by connecting to a web socket address specified by the `ACTOR_EVENTS_WEBSOCKET_URL` environment variable. The system sends messages in JSON format in the following structure:
 
-```js
+```json5
 {
     // Event name
     name: String,

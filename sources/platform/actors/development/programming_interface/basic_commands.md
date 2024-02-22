@@ -322,7 +322,7 @@ await Actor.init();
 // Note that the handler has `timeoutSecs` to finish its job.
 Actor.on('exit', ({ statusMessage, exitCode, timeoutSecs }) => {
     // Perform cleanup...
-})
+});
 
 await Actor.exit();
 ```

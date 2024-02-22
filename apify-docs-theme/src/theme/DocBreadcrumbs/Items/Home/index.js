@@ -1,9 +1,10 @@
-import React from 'react';
 import Link from '@docusaurus/Link';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import { useLocation } from '@docusaurus/router';
 import { translate } from '@docusaurus/Translate';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import IconHome from '@theme/Icon/Home';
+import React from 'react';
+
 import styles from './styles.module.css';
 
 export default function HomeBreadcrumbItem() {

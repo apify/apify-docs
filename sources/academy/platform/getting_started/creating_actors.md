@@ -24,9 +24,9 @@ You'll be presented with a page featuring two ways to get started with a new Act
 1. Creating an Actor from existing source code (using Git providers or pushing the code from your local machine using Apify CLI)
 2. Creating an Actor from a code template
 
-| Existing source code             |  Code templates |
-:-------------------------:|:-------------------------:
-![Create and Actor from source code](./images/create-actor-from-source-code.png)  |  ![Create an Actor from code templates](./images/create-actor-from-templates.png)
+|                               Existing source code                                |                                  Code templates                                  |
+|:---------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
+|  ![Create and Actor from source code](./images/create-actor-from-source-code.png) | ![Create an Actor from code templates](./images/create-actor-from-templates.png) |
 
 ## Creating Actor from existing source code {#existing-source-code}
 
@@ -89,11 +89,11 @@ Let's see what's inside the **Start with JavaScript** template. The main logic o
 
 ```js
 // Axios - Promise based HTTP client for the browser and node.js (Read more at https://axios-http.com/docs/intro).
+import { Actor } from 'apify';
 import axios from 'axios';
 // Cheerio - The fast, flexible & elegant library for parsing and manipulating HTML and XML (Read more at https://cheerio.js.org/).
 import * as cheerio from 'cheerio';
 // Apify SDK - toolkit for building Apify Actors (Read more at https://docs.apify.com/sdk/js/).
-import { Actor } from 'apify';
 
 // The init() call configures the Actor for its environment. It's recommended to start every Actor with an init().
 await Actor.init();

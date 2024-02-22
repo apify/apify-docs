@@ -11,13 +11,13 @@ Apify documentation consists of six different repositories:
 - apify-cli
 - apify-docs (this repository)
 
-The main documentation content for Platform docs and Academy is inside the `./sources` directory. Every project repository then has its own Docusaurus instance and is available on a URL prefix (used as the `baseUrl` in Docusaurus) that's  routed via nginx reverse proxy to the main domain. All those Docusaurus instances are deployed to GH pages on push.
+The main documentation content for Platform docs and Academy is inside the `./sources` directory. Every project repository then has its own Docusaurus instance and is available on a URL prefix (used as the `baseUrl` in Docusaurus) that's routed via nginx reverse proxy to the main domain. All those Docusaurus instances are deployed to GH pages on push.
 
 We use a shared Docusaurus theme published to NPM as `@apify/docs-theme`, which is automatically synced in all the repositories via CI.
 
 ### Shared theme
 
-The `@apify/docs-theme` is a Docusaurus theme package with custom components and styles to be used in all the Apify Docuaurus instances.
+The `@apify/docs-theme` is a Docusaurus theme package with custom components and styles to be used in all the Apify Docusaurus instances.
 Aside from the regular Docusaurus theme interface, it also exports the common parts of the Docusaurus config, such as the navbar contents, URL, `og:image`, etc.
 
 The theme is available on npm as `@apify/docs-theme` and can be installed in any Docusaurus instance by running `npm install @apify/docs-theme`.
@@ -40,8 +40,9 @@ The `./sources/platform/api_v2` directory contains the source file for the API r
 #### Local testing
 
 1. Install Apiary gem `gem install apiaryio`
-2. After that, you can open the generated doc with the
-   command: `apiary preview --path="./sources/platform/api_v2/api_v2_reference.apib"`
+2. After that, you can:
+    - Open the generated doc with the command: `apiary preview --path="./sources/platform/api_v2/api_v2_reference.apib"`
+    - Log into [Apiary](https://apiary.io/) to get the document analyzed for warnings (there is no automatic linter)
 
 #### Pre-release testing
 

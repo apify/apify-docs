@@ -1,8 +1,7 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-
 import { TextBaseComponent, theme } from '@apify-packages/ui-components';
 import { TextProps } from '@apify-packages/ui-components/src/text/text';
+import React from 'react';
+import styled, { css } from 'styled-components';
 
 /**
  * @typedef {Object} HeadingProps

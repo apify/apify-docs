@@ -1,6 +1,6 @@
 {
     "name": "@apify/docs-theme",
-    "version": "1.0.102",
+    "version": "1.0.104",
     "description": "",
     "main": "./src/index.js",
     "files": [
@@ -29,6 +29,7 @@
         "prism-react-renderer": "^2.0.6"
     },
     "peerDependencies": {
+        "clsx": "*",
         "react": "*",
         "react-dom": "*"
     }

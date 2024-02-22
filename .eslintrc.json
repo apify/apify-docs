@@ -12,19 +12,59 @@
         },
         "ecmaVersion": 2022
     },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "root": true,
     "env": {
-        "browser": true
+        "browser": true,
+        "es2020": true,
+        "node": true
     },
     "settings": {
         "react": {
             "version": "detect"
         }
     },
-    "root": true,
     "rules": {
         "quote-props": ["error", "consistent"],
         "react/prop-types": ["off"],
         "import/extensions": ["off"],
         "no-void": ["off"]
-    }
+    },
+    "overrides": [
+        {
+            "files": [
+                "CONTRIBUTING.md",
+                "README.md",
+                "./sources/**/*.{js,json,ts,md}"
+            ],
+            "parserOptions": {
+                "files": ["*.js", "*.jsx", "*.ts", "*.tsx", "*.md", "*.mdx"],
+                "project": null,
+                "ecmaFeatures": {
+                    "jsx": true
+                },
+                "ecmaVersion": 2022
+            },
+            "extends":[
+                "@apify/eslint-config-ts",
+                "plugin:markdown/recommended",
+                "plugin:json/recommended-with-comments"
+            ],
+            "rules": {
+                // general things that are fine to have in code snippets
+                "import/no-extraneous-dependencies": "off",
+                "import/order": "off",
+                "no-console": "off",
+                "no-underscore-dangle": "off",
+                "@typescript-eslint/no-unused-vars": "off",
+                // not possible to use those for markdown code snippets
+                "@typescript-eslint/no-floating-promises": "off",
+                "@typescript-eslint/await-thenable": "off",
+                "@typescript-eslint/no-misused-promises": "off",
+                "@typescript-eslint/promise-function-async": "off"
+            }
+        }
+    ]
 }

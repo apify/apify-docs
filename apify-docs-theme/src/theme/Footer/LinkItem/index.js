@@ -1,9 +1,9 @@
-import React from 'react';
+import isInternalUrl_ from '@docusaurus/isInternalUrl';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import isInternalUrl_ from '@docusaurus/isInternalUrl';
-import IconExternalLink from '@theme/Icon/ExternalLink';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import IconExternalLink from '@theme/Icon/ExternalLink';
+import React from 'react';
 
 export default function FooterLinkItem({ item }) {
     const {

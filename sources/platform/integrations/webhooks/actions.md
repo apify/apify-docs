@@ -33,7 +33,7 @@ The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`. The variab
 
 #### Default payload template
 
-```json
+```json5
 {
     "userId": {{userId}},
     "createdAt": {{createdAt}},
@@ -45,7 +45,7 @@ The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`. The variab
 
 #### Default payload example
 
-```json
+```json5
 {
     "userId": "abf6vtB2nvQZ4nJzo",
     "createdAt": "2019-01-09T15:59:56.408Z",
@@ -61,7 +61,7 @@ The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`. The variab
         "startedAt": "2019-01-09T15:59:40.750Z",
         "finishedAt": "2019-01-09T15:59:56.408Z",
         "status": "SUCCEEDED",
-        ...
+        // ...
     }
 }
 ```
@@ -86,7 +86,7 @@ Notice that `resource` and `eventData` will actually become an object, even thou
 
 If the string being interpolated only contains the variable, the actual variable value is used in the payload. For example `"{{eventData}}"` results in an object. If the string contains more than just the variable, the string value of the variable will occur in the payload:
 
-```json
+```json5
 { "text": "My user id is {{userId}}" }
 { "text": "My user id is abf6vtB2nvQZ4nJzo" }
 ```
@@ -98,7 +98,7 @@ To turn on this new syntax, use **Interpolate variables in string fields** switc
 
 This example shows how you can use the payload template variables to send a custom object that displays the status of a RUN, its ID and a custom property:
 
-```json
+```json5
 {
     "runId": {{resource.id}},
     "runStatus": {{resource.status}},

@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable import/order */
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
