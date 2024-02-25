@@ -27,9 +27,7 @@ let exclusiveStartId = null;
 // List all requests from the queue, we have to do it in a loop because the request queue list is paginated
 for (; ;) {
     const { items: requests } = await Actor.apifyClient.requestQueue(REQUEST_QUEUE_ID).listRequests({ exclusiveStartId, limit: 1000 });
-    for (const request of requests) {
-        allRequests.push(requests);
-    }
+    allRequests.push(...requests);
     // If we didn't get full 1000 requests, we have all and can finish the loop
     if (requests.length < 1000) {
         break;
