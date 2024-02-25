@@ -53,7 +53,7 @@ for (const request of failedRequests) {
     await Actor.apifyClient.requestQueue(REQUEST_QUEUE_ID).updateRequest(request);
 }
 
-// And now we can resurrect our scraper again, it will only process the failed requests
+// And now we can resurrect our scraper again; it will only process the failed requests.
 ```
 
 ## Resurrect automatically with a free public Actor {#resurrect-automatically-with-a-free-public-actor}
