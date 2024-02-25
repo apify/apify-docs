@@ -9,7 +9,7 @@ slug: /api/retry-failed-requests
 
 ---
 
-There are many reasons why requests for a scraper could fail. The most popular causes are different page layouts or proxy blocking issues ([check here on how to effectively analyze errors](https://docs.apify.com/academy/node-js/analyzing-pages-and-fixing-errors)). Both Apify and [Crawlee](https://crawlee.dev/) allow you to restart your scraper run from the point where it ended but there is no native functionality to re-scrape only failed requests. Usually, you also want to first analyze the problem, update the code and build it before trying again.
+There are many reasons why requests for a scraper could fail. The most common causes are different page layouts or proxy blocking issues ([check here on how to effectively analyze errors](https://docs.apify.com/academy/node-js/analyzing-pages-and-fixing-errors)). Both [Apify](https://apify.com) and [Crawlee](https://crawlee.dev/) allow you to restart your scraper run from the point where it ended, but there is no native functionality to re-scrape only failed requests. Usually, you also want to first analyze the problem, update the code, and build it before trying again.
 
 If you attempt to re-run an already finished run, it will likely immediately finish because all the requests in the [request queue](https://crawlee.dev/docs/guides/request-storage) are marked as handled. So you need to update the failed requests in the queue to be marked as pending again.
 
