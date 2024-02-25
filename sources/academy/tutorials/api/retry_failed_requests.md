@@ -13,7 +13,7 @@ There are many reasons why requests for a scraper could fail. The most common ca
 
 If you attempt to re-run an already finished run, it will likely immediately finish because all the requests in the [request queue](https://crawlee.dev/docs/guides/request-storage) are marked as handled. So you need to update the failed requests in the queue to be marked as pending again.
 
-The additional complication is that the [Request](https://crawlee.dev/api/core/class/Request) object doesn't have anything like `isFailed` property, we have to approximate it using other fields. Fortunately, we can use the `errorMessages` and `retryCount` properties to identify failed requests. Unless the user explicitly overrode these properties, we can identify failed requests by having a larger amount of `errorMessages` than `retryCount`. That happens because the last error that doesn't cause a retry anymore is added to `errorMessages`.
+The additional complication is that the [Request](https://crawlee.dev/api/core/class/Request) object doesn't have anything like the `isFailed` property. We have to approximate it using other fields. Fortunately, we can use the `errorMessages` and `retryCount` properties to identify failed requests. Unless the user explicitly has overridden these properties, we can identify failed requests with a larger amount of `errorMessages` than `retryCount`. That happens because the last error that doesn't cause a retry anymore is added to `errorMessages`.
 
 A simplified code example can look like this:
 
