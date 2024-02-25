@@ -30,7 +30,7 @@ for (; ;) {
         .requestQueue(REQUEST_QUEUE_ID)
         .listRequests({ exclusiveStartId, limit: 1000 });
     allRequests.push(...requests);
-    // If we didn't get full 1000 requests, we have all and can finish the loop
+    // If we didn't get the full 1,000 requests, we have all and can finish the loop
     if (requests.length < 1000) {
         break;
     }
