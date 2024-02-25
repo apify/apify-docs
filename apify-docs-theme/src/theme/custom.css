@@ -601,6 +601,10 @@ article .card h2 {
     user-select: none;
 }
 
+.tsd-panel .tsd-flag {
+    color: #f2f3fb;
+}
+
 .menu__caret:before,
 .menu__link--sublist:after {
     float: right;
