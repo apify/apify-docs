@@ -74,7 +74,7 @@ async def main():
 </TabItem>
 </Tabs>
 
-To learn more, see the [JavaScript SDK documentation](/sdk/js/reference/class/Actor#addWebhook) or the [Python SDK documentation]([/sdk/python/reference/class/Actor#add_webhook).
+To learn more, see the [JavaScript SDK documentation](/sdk/js/reference/class/Actor#addWebhook) or the [Python SDK documentation](/sdk/python/reference/class/Actor#add_webhook).
 
 To ensure that duplicate ad-hoc webhooks won't get created in the case of Actor restart, you can use the idempotency key parameter. The idempotency key must be unique across all the webhooks of a user so that only one webhook gets created for a given value. You can use, for example, the Actor run ID as an idempotency key:
 
