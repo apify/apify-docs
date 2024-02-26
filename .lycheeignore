@@ -3,4 +3,5 @@ https:\/\/www\.youtube.*
 \.(jpg|jpeg|png|gif|bmp|webp|svg)$
 https:\/\/github\.com\/apify\/apify-docs\/edit\/[^ ]*a
 https:\/\/docs\.apify\.com\/assets\/[^ ]*
-<(https:\/\/)>
+^<https:\/\/>$
+https?:\/\/(www\.)?npmjs\.com\/.*

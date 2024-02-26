@@ -274,7 +274,7 @@ Example of an Actor output UI generated using basic template:
 
 The most frequently used data formats present the data in a tabular format (Output tab table, Excel, CSV). In case an Actor produces nested JSON structures, there is a need to transform the nested data into a flat tabular format. You can flatten the data in following ways:
 
-**1)** use `transformation.flatten` to flatten the nested structure of specified fields. Flatten transforms the nested object into a flat structure. e.g. with `flatten:["foo"]`, the object `{"foo": {"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`. Once the structure is flattened, it is necessary to use the flattened property name in both `transformation.fields` and [`display.properties`](http://display.properties), otherwise, fields might not be fetched or configured properly in the UI visualization.
+**1)** use `transformation.flatten` to flatten the nested structure of specified fields. Flatten transforms the nested object into a flat structure. e.g. with `flatten:["foo"]`, the object `{"foo": {"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`. Once the structure is flattened, it is necessary to use the flattened property name in both `transformation.fields` and `display.properties`, otherwise, fields might not be fetched or configured properly in the UI visualization.
 
 **2)** use `transformation.unwind` to deconstruct the nested children into parent objects.
 
