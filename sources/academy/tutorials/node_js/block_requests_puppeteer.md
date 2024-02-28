@@ -6,7 +6,7 @@ slug: /node-js/block-requests-puppeteer
 ---
 
 :::caution Improve Performance: Use `blockRequests`
-Unfortunately, in the recent version of Puppeteer, request interception disables native cache and slows down the Actor significantly. Therefore, it's not recommended to follow examples shown in this article. Instead, use [<code>blockRequests</code>](https://crawlee.dev/api/puppeteer-crawler/namespace/puppeteerUtils#BlockRequestsOptions) _utility function from_ [_Apify SDK_](/sdk/js/). It works through different paths and doesn't slow down your process.
+Unfortunately, in the recent version of Puppeteer, request interception disables the native cache and slows down the Actor significantly. Therefore, it's not recommended to follow the examples shown in this article. Instead, use [<code>blockRequests</code>](https://crawlee.dev/api/puppeteer-crawler/namespace/puppeteerUtils#BlockRequestsOptions) _utility function from_ [_Crawlee_](https://crawlee.dev). It works through different paths and doesn't slow down your process.
 :::
 
 When using Puppeteer, often a webpage will load many resources that are not actually necessary for your use case. For example page could be loading many tracking libraries, that are completely unnecessary for most crawlers, but will cause the page to use more traffic and load slower.
