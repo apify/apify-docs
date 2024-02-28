@@ -1505,3 +1505,32 @@ html[data-theme='dark'] .runnable-code-block svg .apify-logo {
     padding-right: 8rem !important;
     padding-left: 8rem !important;
 }
+
+/*
+ * Reset the line-number counter for each .prism-code scope
+ */
+.prism-code {
+    counter-reset: line-number;
+}
+
+/*
+ * Notice the chained .language-ts class name to .prism-code
+ * You can chain more languages in order to add line numbers
+ */
+.prism-code.language-ts .token-line::before,
+.prism-code.language-typescript .token-line::before,
+.prism-code.language-javascript .token-line::before,
+.prism-code.language-json .token-line::before,
+.prism-code.language-json5 .token-line::before,
+.prism-code.language-XML .token-line::before,
+.prism-code.language-js .token-line::before {
+    counter-increment: line-number;
+    content: counter(line-number);
+    margin-right: calc(var(--ifm-pre-padding) * 1.5);
+    text-align: right;
+    min-width: 2.5rem;
+    display: inline-block;
+    opacity: .3;
+    position: sticky;
+    left: var(--ifm-pre-padding);
+}
