@@ -1526,9 +1526,9 @@ html[data-theme='dark'] .runnable-code-block svg .apify-logo {
 .prism-code.language-js .token-line::before {
     counter-increment: line-number;
     content: counter(line-number);
-    margin-right: calc(var(--ifm-pre-padding) * 1.5);
+    margin-right: calc(var(--ifm-pre-padding) * 0.8);
     text-align: right;
-    min-width: 2.5rem;
+    min-width: 1.5rem;
     display: inline-block;
     opacity: .3;
     position: sticky;
