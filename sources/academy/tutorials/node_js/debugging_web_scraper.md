@@ -23,7 +23,7 @@ jq.src = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js';
 document.getElementsByTagName('head')[0].appendChild(jq);
 ```
 
-If that doesn't work because of CORS violation, you can install [this extension](https://chromewebstore.google.com/detail/jquery-injector/ekkjohcjbjcjjifokpingdbdlfekjcgi) that injects jQuery on a button click.
+If that doesn't work because of CORS violation, you can install [this extension](https://chrome.google.com/webstore/detail/ekkjohcjbjcjjifokpingdbdlfekjcgi) that injects jQuery on a button click.
 
 There are 2 main ways how to test a pageFunction code in your console:
 
