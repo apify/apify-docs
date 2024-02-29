@@ -41,7 +41,7 @@ Instead, try to be more descriptive, for example:
 - For consistency, use **bold** to highlight UI text when dealing with UI-focused documentation (for example, Apify Console).
 - For consistency, use _italics_ to emphasize text.
 - For inline `code` examples, use **back-ticks** (\` \`).
-- For multi-line code examples, use code fences and specify the language. Next to the language declaration, add `showLineNumbers` so that the code fence displays line numbers. Preferably, specify the title as well.
+- For multi-line code examples, use code fences and specify the language. Preferably, specify the title as well.
   - Within platform documentation, always use [Code tabs](README.md#code-tabs) and declare the language.
 
     ```markdown
@@ -55,6 +55,26 @@ Instead, try to be more descriptive, for example:
     ```
 
     Check out [Markdown features](https://docusaurus.io/docs/markdown-features) in the Docusaurus docs for more information.
+
+### Admonitions
+
+In Apify platform documentation, always use admonitions to emphasize crucial information, warnings, tips, or additional context. The available admonitions include:
+
+- `note`
+- `tip`
+- `info`
+- `caution`
+- `danger`
+
+Consult the [Docusaurus documentation](https://docusaurus.io/docs/2.x/markdown-features/admonitions) for visual distinctions between each type and guidelines on usage. Choose the most relevant type for your content. Maintain proper formatting by adding blank lines following the admonition blocks. Title your admonition next to its type, as shown below:
+
+```markdown
+:::note Your Title Here
+
+Your important message here.
+
+:::
+```
 
 ### Code tabs
 
@@ -129,7 +149,7 @@ My Document Markdown content
 
     AVOID:
 
-    > "Documentation of Apify actors - the easy way to build serverless cloud programs."
+    > "Documentation of Apify Actors - the easy way to build serverless cloud programs."
 
 - Avoid _keyword stuffing_, i.e., repeating the article's name too much; view the [Wikipedia article](https://en.wikipedia.org/wiki/Keyword_stuffing) for more.
 
@@ -149,11 +169,11 @@ My Document Markdown content
 
     GOOD:
 
-    > Learn how to make your actor available to the public or keep it private. Prepare your actor for Apify Store with a description and README file.
+    > Learn how to make your Actor available to the public or keep it private. Prepare your Actor for Apify Store with a description and README file.
 
     AVOID:
 
-    > Description of the processes regarding the optimizing and preparing for publishing of one's actor in Apify Store.
+    > Description of the processes regarding the optimizing and preparing for publishing of one's Actor in Apify Store.
 
 ### Screenshots
 
