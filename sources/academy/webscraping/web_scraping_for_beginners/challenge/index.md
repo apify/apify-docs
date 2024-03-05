@@ -83,4 +83,6 @@ Each of the items in the dataset will represent a scraped offer, and will have t
 
 From this course, you should have all the knowledge to build this scraper by yourself. Give it a try, then come back to compare your scraper with our solution.
 
+The challenge can be completed using either [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler) or [PlaywrightCrawler](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler). Playwright is significantly slower but doesn't get blocked as much. You will learn the most by implementing both.
+
 Let's start off this section easy by [initializing and setting up](./initializing_and_setting_up.md) our project with the Crawlee CLI (don't worry, no additional install is required).
