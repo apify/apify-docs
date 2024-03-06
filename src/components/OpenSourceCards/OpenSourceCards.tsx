@@ -43,9 +43,7 @@ const OpenSourceCards: React.FC = () => {
                         <div className={styles.githubButtonWrapper}>
                             <GitHubButton
                                 href="https://github.com/apify/crawlee"
-                                data-color-scheme={
-                                    colorMode === 'dark' ? 'dark' : 'light'
-                                }
+                                data-color-scheme={colorMode}
                                 data-size="large"
                                 data-show-count="true"
                                 aria-label="Star apify/crawlee on GitHub"
@@ -83,9 +81,7 @@ const OpenSourceCards: React.FC = () => {
                         <div className={styles.githubButtonWrapper}>
                             <GitHubButton
                                 href="https://github.com/apify/got-scraping"
-                                data-color-scheme={
-                                    colorMode === 'dark' ? 'dark' : 'light'
-                                }
+                                data-color-scheme={colorMode}
                                 data-size="large"
                                 data-show-count="true"
                                 aria-label="Star apify/got-scraping on GitHub"
@@ -124,9 +120,7 @@ const OpenSourceCards: React.FC = () => {
                         <div className={styles.githubButtonWrapper}>
                             <GitHubButton
                                 href="https://github.com/apify/fingerprint-suite"
-                                data-color-scheme={
-                                    colorMode === 'dark' ? 'dark' : 'light'
-                                }
+                                data-color-scheme={colorMode}
                                 data-size="large"
                                 data-show-count="true"
                                 aria-label="Star apify/fingerprint-suite on GitHub"
