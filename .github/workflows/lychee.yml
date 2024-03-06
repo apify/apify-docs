@@ -31,4 +31,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
         with:
           fail: true
-          args: --base https://docs.apify.com --exclude-path 'build/versions.html' --exclude-path 'node_modules/**/*.html' --verbose --no-progress './**/*.html'
+          args: --base https://docs.apify.com --exclude-path 'build/versions.html' --exclude-path 'node_modules' --verbose --no-progress './**/*.html'
