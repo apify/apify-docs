@@ -2,7 +2,7 @@
 
 ## Architecture
 
-Currently, there are 6 separate projects outside of this repo:
+Apify documentation consists of six different repositories:
 
 - apify-client-js
 - apify-client-python
@@ -11,22 +11,22 @@ Currently, there are 6 separate projects outside of this repo:
 - apify-cli
 - apify-docs (this repository)
 
-The main documentation content for Platform docs and Academy is inside the `./sources` directory. Every project repository then has its own Docusaurus instance and is available on a URL prefix (used as the `baseUrl` in Docusaurus) that is routed via nginx reverse proxy to the main domain. All those Docusaurus instances are deployed to GH pages on push.
+The main documentation content for Platform docs and Academy is inside the `./sources` directory. Every project repository then has its own Docusaurus instance and is available on a URL prefix (used as the `baseUrl` in Docusaurus) that's routed via nginx reverse proxy to the main domain. All those Docusaurus instances are deployed to GH pages on push.
 
 We use a shared Docusaurus theme published to NPM as `@apify/docs-theme`, which is automatically synced in all the repositories via CI.
 
 ### Shared theme
 
-The `@apify/docs-theme` is a Docusaurus theme package with custom components and styles to be used in all the Apify Docuaurus instances.
+The `@apify/docs-theme` is a Docusaurus theme package with custom components and styles to be used in all the Apify Docusaurus instances.
 Aside from the regular Docusaurus theme interface, it also exports the common parts of the Docusaurus config, such as the navbar contents, URL, `og:image`, etc.
 
 The theme is available on npm as `@apify/docs-theme` and can be installed in any Docusaurus instance by running `npm install @apify/docs-theme`.
 
 #### Publishing the theme
 
-There is a GitHub Action that automatically publishes the theme to npm whenever any changes are pushed to the `master` branch. However, this only happens if you update the version in the `package.json` file manually - if the current version already exists on npm, the publish will be skipped.
+A GitHub Action automatically publishes the theme to npm whenever any changes are pushed to the `master` branch. However, this only happens if you update the version in the `package.json` file manually - if the current version already exists on npm, the publish will be skipped.
 
-Additionally, if there are any changes to the `apify-docs-theme` folder detected, the GitHub action will invoke docs builds in all the subprojects to make sure that all the pages are using the latest theme version. This is done in the `rebuild-docs` job. This job utilizes a matrix strategy to run the builds in parallel. The actual rebuild is initiated by the `workflow_dispatch` event in the respective repositories. Because of this, the `GITHUB_TOKEN` env var has to be replaced by the PAT token stored in the `GH_TOKEN` secret - the original token does not have the necessary permissions to trigger the workflows in other repositories.
+Additionally, if there are any changes to the `apify-docs-theme` folder detected, the GitHub action will invoke docs builds in all the subprojects to make sure that all the pages are using the latest theme version. This is done in the `rebuild-docs` job. This job utilizes a matrix strategy to run the builds in parallel. The actual rebuild is initiated by the `workflow_dispatch` event in the respective repositories. Because of this, the `GITHUB_TOKEN` env var has to be replaced by the PAT token stored in the `GH_TOKEN` secret - the original token doesn't have the necessary permissions to trigger the workflows in other repositories.
 
 ### Redirects
 
@@ -40,8 +40,9 @@ The `./sources/platform/api_v2` directory contains the source file for the API r
 #### Local testing
 
 1. Install Apiary gem `gem install apiaryio`
-2. After that, you can open the generated doc with the
-   command: `apiary preview --path="./sources/platform/api_v2/api_v2_reference.apib"`
+2. After that, you can:
+    - Open the generated doc with the command: `apiary preview --path="./sources/platform/api_v2/api_v2_reference.apib"`
+    - Log into [Apiary](https://apiary.io/) to get the document analyzed for warnings (there is no automatic linter)
 
 #### Pre-release testing
 
@@ -51,15 +52,15 @@ After updating the API docs, you should ALWAYS log into [Apiary](https://apiary.
 
 The homepage menu card items are in the `docs/homepage_content.json` file. The cards aim to suit three types of use cases:
 
-- Beginners and people who just want to use the actors (**Get started**, **Use actors and scrapers**).
+- Beginners and people who just want to use the Actors (**Get started**, **Use Actors and scrapers**).
 
-- Experienced actor and platform users (**Reduce blocking**, **Use platform features**).
+- Experienced Actor and platform users (**Reduce blocking**, **Use platform features**).
 
-- Actor builders and advanced users (**Build actors**, **Advanced tutorials and debugging**).
+- Actor builders and advanced users (**Build Actors**, **Advanced tutorials and debugging**).
 
 Each item has its own JSON object, in which "cardItem" is the title and "href" is the link. If the link leads to outside the Apify Docs site, add the `"isExternalLink": true` property. For local links, just use the article's path. E.g. `"/tutorials/apify-scrapers/web-scraper"`.
 
-In the title (`cardItem`), do not just give the article's name. Phrase the title in a way that answers a question or fulfills a goal the user might have.
+In the title (`cardItem`), don't just give the article's name. Phrase the title in a way that answers a question or fulfills a goal the user might have.
 
 For example:
 
@@ -77,7 +78,7 @@ Over time, we should track which items are useful and which don't get any traffi
 
 ## Local setup
 
-If you want to work only on the main documentation content, cloning this repository is enough. Once you install and run `npm start`, the main portal will open on <http://localhost:3000>. All the links in the navbar and footer need to be absolute, and they will use a different hostname, configured to `docs.apify.loc` - to use that, follow the steps below and set up the Nginx server.
+If you want to work only on the main documentation content, cloning this repository is enough. Once you run `npm install` to install all dependencies and run `npm start`, the main portal will open on <http://localhost:3000>. All the links in the navbar and footer need to be absolute, and they will use a different hostname, configured to `docs.apify.loc` - to use that, follow the steps below and set up the Nginx server.
 
 Alternatively, you can skip the Nginx part and navigate to <http://localhost:3000/academy> or <http://localhost:3000/platform> manually instead of using links in the navbar. All relative links should work fine there. The problem with absolute links is only with shared components. The Nginx server is needed only for testing the whole setup and mapping all the different ports to a single one.
 
@@ -121,13 +122,15 @@ server {
 }
 ```
 
-And add a record to `/etc/hosts` to map the docs.apify.loc hostname to localhost:
+And add a record to `/etc/hosts` to map the `docs.apify.loc` hostname to localhost:
 
 ```text
 127.0.0.1 docs.apify.loc
 ```
 
 ## Linting
+
+### Markdownlint
 
 The **apify-docs** repo contains both Markdown and JavaScript/TypeScript files. We have two commands for linting them:
 
@@ -137,6 +140,14 @@ The **apify-docs** repo contains both Markdown and JavaScript/TypeScript files. 
 For Markdown, we use the [markdownlint](https://github.com/DavidAnson/markdownlint) package, which also has a handy VSCode [extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
 
 For JavaScript, we use the [ESLint Markdown plugin](https://github.com/eslint/eslint-plugin-markdown).
+
+### Vale
+
+Apart from `markdownlint` we also utilize Vale as linting solution for prose. You can either use Vale as a CLI tool (for more information how to set it up go [here](https://vale.sh/docs/vale-cli/installation/)) or you can use Vale with a VSCode [extension](https://marketplace.visualstudio.com/items?itemName=ChrisChinchilla.vale-vscode). The rulesets that Vale will utilize while linting can be found within `.github/styles` directory.
+
+#### Exceptions for Vale
+
+If Vale catches some specific words that you feel that should not be subjected to linting you can add them to the `accept.txt` found within the `.github/styles/Vocab/Docs` directory. For more information hw it works visit Vale [docs](https://vale.sh/docs/topics/vocab/).
 
 ## Pull requests
 

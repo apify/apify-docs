@@ -27,15 +27,13 @@ For safety reasons, the webhook URL should contain a secret token to ensure only
 
 The payload template is a JSON-like string, whose syntax is extended with the use of variables. This is useful when a custom payload structure is needed, but at the same time dynamic data, that is only known at the time of the webhook's invocation, need to be injected into the payload. Aside from the variables, the string must be a valid JSON.
 
-Variables contained in strings are not injected by default, meaning `"userId": {{userId}}` will result to `"userId": "abf6vtB2nvQZ4nJzo"`, but `"userId": "{{userId}}"` will not. This behavior can be switched on/off by using `shouldInterpolateStrings` field.
-
 The variables need to be enclosed in double curly braces and cannot be chosen arbitrarily. A pre-defined list, [that can be found below](#available-variables), shows all the currently available variables. Using any other variable than one of the pre-defined will result in a validation error.
 
 The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`. The variables support accessing nested properties with dot notation: `{{variable.property}}`.
 
 #### Default payload template
 
-```json
+```json5
 {
     "userId": {{userId}},
     "createdAt": {{createdAt}},
@@ -47,7 +45,7 @@ The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`. The variab
 
 #### Default payload example
 
-```json
+```json5
 {
     "userId": "abf6vtB2nvQZ4nJzo",
     "createdAt": "2019-01-09T15:59:56.408Z",
@@ -63,16 +61,44 @@ The syntax of a variable therefore is: `{{oneOfAvailableVariables}}`. The variab
         "startedAt": "2019-01-09T15:59:40.750Z",
         "finishedAt": "2019-01-09T15:59:56.408Z",
         "status": "SUCCEEDED",
-        ...
+        // ...
     }
 }
 ```
+
+#### String interpolation
+
+The payload template _is not_ a valid JSON by default. The resulting payload is, but not the template. In some cases this is limiting, so there is also updated syntax available, that allows to use templates that provide the same functionality, and are valid JSON at the same time.
+
+With this new syntax, the default payload template - resulting in the same payload - looks like this:
+
+```json
+{
+    "userId": "{{userId}}",
+    "createdAt": "{{createdAt}}",
+    "eventType": "{{eventType}}",
+    "eventData": "{{eventData}}",
+    "resource": "{{resource}}"
+}
+```
+
+Notice that `resource` and `eventData` will actually become an object, even though in the template it's a string.
+
+If the string being interpolated only contains the variable, the actual variable value is used in the payload. For example `"{{eventData}}"` results in an object. If the string contains more than just the variable, the string value of the variable will occur in the payload:
+
+```json5
+{ "text": "My user id is {{userId}}" }
+{ "text": "My user id is abf6vtB2nvQZ4nJzo" }
+```
+
+
+To turn on this new syntax, use **Interpolate variables in string fields** switch within Apify Console. In API it's called `shouldInterpolateStrings`. The field is always `true` when integrating Actors or tasks.
 
 #### Payload template example
 
 This example shows how you can use the payload template variables to send a custom object that displays the status of a RUN, its ID and a custom property:
 
-```json
+```json5
 {
     "runId": {{resource.id}},
     "runStatus": {{resource.status}},

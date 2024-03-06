@@ -19,7 +19,7 @@
 }
 
 .cardContentDescription {
-    padding-left: 2.8rem;
+    padding-left: 3.0rem;
 }
 
 .cardContentHeader {
@@ -27,4 +27,8 @@
     align-items: center;
     gap: 0.8rem;
     align-self: stretch;
+}
+
+.cardContentHeader h4 {
+    margin: 0.2rem;
 }

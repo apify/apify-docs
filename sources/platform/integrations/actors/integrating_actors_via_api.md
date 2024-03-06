@@ -25,7 +25,7 @@ Not meeting the conditions does not mean that the webhook won't work; it will ju
 
 The webhook should look something like this:
 
-```json
+```json5
 {
     "requestUrl": "https://api.apify.com/v2/acts/<integration-actor-id>/runs",
     "eventTypes": ["ACTOR.RUN.SUCCEEDED"],

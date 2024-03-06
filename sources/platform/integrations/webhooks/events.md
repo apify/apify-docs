@@ -30,7 +30,7 @@ Actor run events are triggered when an Actor run gets created or transitions int
 
 ### Run event data
 
-```json
+```json5
 {
     "actorId": "ID of the triggering Actor.",
     "actorTaskId": "If task was used, its ID.",
@@ -62,7 +62,7 @@ Actor build events are triggered when an Actor build is created or transitions i
 
 ### Build event data
 
-```json
+```json5
 {
     "actorId": "ID of the triggering Actor.",
     "actorBuildId": "ID of the triggering Actor build.",

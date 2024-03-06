@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
-import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
+import React, { useCallback } from 'react';
 
 function setupApiary(subdomain) {
     // See http://embed.apiary.io/api-reference.html for description

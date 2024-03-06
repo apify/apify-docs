@@ -1,6 +1,8 @@
+const { join } = require('path');
+
 const { config } = require('./apify-docs-theme');
-const { externalLinkProcessor } = require('./tools/utils/externalLink');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
+const { externalLinkProcessor } = require('./tools/utils/externalLink');
 
 /** @type {Partial<import('@docusaurus/types').DocusaurusConfig>} */
 module.exports = {
@@ -30,21 +32,21 @@ module.exports = {
                         {
                             label: 'Courses',
                             to: `/academy`,
-                            activeBaseRegex: [
+                            activeBaseRegex: `${[
                                 'academy$',
-                                ...collectSlugs(`${__dirname}/sources/academy/webscraping`),
-                                ...collectSlugs(`${__dirname}/sources/academy/platform`),
-                            ].join('|'),
+                                ...collectSlugs(join(__dirname, 'sources', 'academy', 'webscraping')),
+                                ...collectSlugs(join(__dirname, 'sources', 'academy', 'platform')),
+                            ].join('$|')}$`,
                         },
                         {
                             label: 'Tutorials',
                             to: `/academy/tutorials`,
-                            activeBaseRegex: collectSlugs(`${__dirname}/sources/academy/tutorials`).join('|'),
+                            activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'tutorials')).join('$|')}$`,
                         },
                         {
                             label: 'Glossary',
                             to: `/academy/glossary`,
-                            activeBaseRegex: collectSlugs(`${__dirname}/sources/academy/glossary`).join('|'),
+                            activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'glossary')).join('$|')}$`,
                         },
                     ],
                 },
@@ -91,6 +93,23 @@ module.exports = {
                 sidebarPath: require.resolve('./sources/academy/sidebars.js'),
             },
         ],
+        () => ({
+            configureWebpack() {
+                return {
+                    module: {
+                        rules: [
+                            {
+                                test: /@apify-packages\/ui-components\/.*/,
+                                resolve: {
+                                    fullySpecified: false,
+                                },
+                                loader: 'babel-loader',
+                            },
+                        ],
+                    },
+                };
+            },
+        }),
         // TODO this should be somehow computed from all the external sources
         // [
         //     '@docusaurus/plugin-client-redirects',
