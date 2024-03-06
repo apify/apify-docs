@@ -121,6 +121,7 @@ interface HeadingCssProps {
 const getHeadingCss = ({ $type = 'titleXs' }: HeadingCssProps) => HEADING_VARIANTS_CSS[$type];
 
 const StyledHeading = styled(TextBaseComponent)<HeadingCssProps>`
+    margin: 0;
     ${getHeadingCss}
 `;
 
