@@ -192,10 +192,12 @@ export default function Home() {
                         }
                         content={
                             <div className={styles.cardContentWrapper}>
-                                <Heading type='titleXl' as="h3">SDK</Heading>
-                                <Text color={theme.color.neutral.textMuted}>
+                                <div className="cardContentWrapperText">
+                                    <Heading type='titleXl' as="h3">SDK</Heading>
+                                    <Text color={theme.color.neutral.textMuted}>
                                     Toolkit for building Actors on Apify platform. Transfer crawler into an Actor.
-                                </Text>
+                                    </Text>
+                                </div>
                                 <Text>
                                     <ul className={styles.cardContentList}>
                                         <li><Link to={new URL('/sdk/python', siteConfig.url).href}>SDK for Python</Link></li>
@@ -217,10 +219,12 @@ export default function Home() {
                         }
                         content={
                             <div className={styles.cardContentWrapper}>
-                                <Heading type='titleXl' as="h3">API</Heading>
-                                <Text color={theme.color.neutral.textMuted}>
+                                <div className="cardContentWrapperText">
+                                    <Heading type='titleXl' as="h3">API</Heading>
+                                    <Text color={theme.color.neutral.textMuted}>
                                     Use API to integrate Apify Actors with your applications.
-                                </Text>
+                                    </Text>
+                                </div>
                                 <Text>
                                     <ul className={styles.cardContentList}>
                                         <li><Link to={new URL('/api/v2', siteConfig.url).href}>Reference</Link></li>
@@ -243,10 +247,12 @@ export default function Home() {
                         }
                         content={
                             <div className={styles.cardContentWrapper}>
-                                <Heading type='titleXl' as="h3">CLI</Heading>
-                                <Text color={theme.color.neutral.textMuted}>
+                                <div className="cardContentWrapperText">
+                                    <Heading type='titleXl' as="h3">CLI</Heading>
+                                    <Text color={theme.color.neutral.textMuted}>
                                     Create, develop, build, and run Apify Actors from your terminal.
-                                </Text>
+                                    </Text>
+                                </div>
                                 <Text>
                                     <ul className={styles.cardContentList}>
                                         <li><Link to={new URL('/cli', siteConfig.url).href}>CLI reference</Link></li>
