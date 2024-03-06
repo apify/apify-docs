@@ -94,7 +94,7 @@ and hence it should be used only for informative purposes.
 
 ### What is a compute unit (CU)?
 
-> **TL;DR: An [Actor](..) running with 1 GB of memory for one hour consumes 1 compute unit.**
+> **TL;DR: An [Actor](../index.mdx) running with 1 GB of memory for one hour consumes 1 compute unit.**
 
 A compute unit (CU) is the unit of measurement for the resources consumed by Actor runs and builds. We charge you for using Actors based on CU consumption.
 

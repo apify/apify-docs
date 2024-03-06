@@ -44,7 +44,7 @@ import CardGrid from "@site/src/components/CardGrid";
     />
     <Card
         title="Performance"
-        to="/platform/actors/development/Performance"
+        to="/platform/actors/development/performance"
         desc="Learn how to get the maximum value out of your Actors, minimize costs, and maximize results."
     />
 </CardGrid>
