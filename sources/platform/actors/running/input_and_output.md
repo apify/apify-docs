@@ -29,7 +29,7 @@ When running an Actor using the [API](https://docs.apify.com/api/v2) you can pas
 
 ### Options - Build, Timeout, and Memory
 
-As part of the input, you can also specify run options such as [build](../development/builds_and_runs/builds.md), timeout, and [memory](./usage_and_resources.md) for your Actor run.
+As part of the input, you can also specify run options such as [Build](../development/builds_and_runs/builds.md), Timeout, and [Memory](./usage_and_resources.md) for your Actor run.
 
 ![Run options](./images/input_and_output/actor-options.png)
 
@@ -51,16 +51,16 @@ As part of the input, you can also specify run options such as [build](../develo
 
 ## Output
 
-While the input object provides a way to instruct Actors, an Actor can also generate an output, usually stored in its default [dataset](../../storage/dataset), but some additional files might be stored in its [key-value store](../../storage/key-value-store). Always read the Actor's README to learn more about its output.
+While the input object provides a way to instruct Actors, an Actor can also generate an output, usually stored in its default [Dataset](../../storage/dataset), but some additional files might be stored in its [Key-value store](../../storage/key-value-store). Always read the Actor's README to learn more about its output.
 
-> For more details about storages, visit the [storage](../../storage/index.md) section.
+For more details about storages, visit the [Storage](../../storage/index.md) section.
 
 You can quickly access the Actor's output from the run detail page:
 
 ![Actor output](./images/input_and_output/actor-output.png)
 
-And to access all the data associated with the run, see the **storage** tab, where you can explore the Actor's default [dataset](../../storage/dataset), [key-value store](../../storage/key-value-store), and [request queue](../../storage/request-queue):
+And to access all the data associated with the run, see the **Storage** tab, where you can explore the Actor's default [Dataset](../../storage/dataset), [Key-value store](../../storage/key-value-store), and [Request queue](../../storage/request-queue):
 
 ![Actor output](./images/input_and_output/actor-storage.png)
 
-> You can also use [API](https://docs.apify.com/api/v2) to retrieve the output. To learn more about this, read the [Run an Actor or task and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api) tutorial.
+You can also use [API](https://docs.apify.com/api/v2) to retrieve the output. To learn more about this, read the [Run an Actor or task and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api) tutorial.
