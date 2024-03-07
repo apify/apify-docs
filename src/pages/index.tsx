@@ -189,10 +189,12 @@ export default function Home() {
                         }
                         content={
                             <div className={styles.cardContentWrapper}>
-                                <Heading type='titleXl' as="h3">SDK</Heading>
-                                <Text color={theme.color.neutral.textMuted}>
-                                    Software toolkits for developing new Actors.
-                                </Text>
+                                <div className="cardContentWrapperText">
+                                    <Heading type='titleXl' as="h3">SDK</Heading>
+                                    <Text color={theme.color.neutral.textMuted}>
+                                        Software toolkits for developing new Actors.
+                                    </Text>
+                                </div>
                                 <Text>
                                     <ul className={styles.cardContentList}>
                                         <li><Link to={new URL('/sdk/js', siteConfig.url).href}>SDK for JavaScript</Link></li>
@@ -214,10 +216,12 @@ export default function Home() {
                         }
                         content={
                             <div className={styles.cardContentWrapper}>
-                                <Heading type='titleXl' as="h3">API</Heading>
-                                <Text color={theme.color.neutral.textMuted}>
-                                    Interact with the Apify platform from your applications.
-                                </Text>
+                                <div className="cardContentWrapperText">
+                                    <Heading type='titleXl' as="h3">API</Heading>
+                                    <Text color={theme.color.neutral.textMuted}>
+                                        Interact with the Apify platform from your applications.
+                                    </Text>
+                                </div>
                                 <Text>
                                     <ul className={styles.cardContentList}>
                                         <li><Link to={new URL('/api/client/js', siteConfig.url).href}>API client for JavaScript</Link></li>
@@ -240,10 +244,12 @@ export default function Home() {
                         }
                         content={
                             <div className={styles.cardContentWrapper}>
-                                <Heading type='titleXl' as="h3">CLI</Heading>
-                                <Text color={theme.color.neutral.textMuted}>
-                                    Control the Apify platform from terminal or shell scripts.
-                                </Text>
+                                <div className="cardContentWrapperText">
+                                    <Heading type='titleXl' as="h3">CLI</Heading>
+                                    <Text color={theme.color.neutral.textMuted}>
+                                        Control the Apify platform from terminal or shell scripts.
+                                    </Text>
+                                </div>
                                 <Text>
                                     <ul className={styles.cardContentList}>
                                         <li><Link to={new URL('/cli', siteConfig.url).href}>CLI Reference</Link></li>

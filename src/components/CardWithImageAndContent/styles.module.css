@@ -28,3 +28,16 @@
     gap: 0.8rem;
     align-self: stretch;
 }
+
+.cardWithImageAndContentImage {
+    display: inherit;
+}
+
+.cardWithImageAndContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardWithImageAndContentContent {
+    flex: 1;
+}
