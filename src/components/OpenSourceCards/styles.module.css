@@ -4,10 +4,11 @@
  */
 
 .headingLink {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    width: fit-content;
 }
 
 .headingLink :hover {
@@ -37,4 +38,8 @@ html[data-theme='dark'] .headingLink::after {
 
 html[data-theme='dark'] .headingLink:hover::after {
     background-image: url('/img/external_link_icon_primary_dark.svg');
+}
+
+.githubButtonWrapper {
+    margin-top: auto;
 }
