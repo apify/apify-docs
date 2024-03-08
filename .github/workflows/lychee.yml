@@ -26,7 +26,7 @@ jobs:
             APIFY_SIGNING_TOKEN: ${{ secrets.APIFY_SIGNING_TOKEN }}
             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - uses: lycheeverse/lychee-action@v1.9.0
+      - uses: lycheeverse/lychee-action@v1.9.3
         env:
           GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
         with:
