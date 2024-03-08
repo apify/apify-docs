@@ -128,4 +128,4 @@ await browser.close();
 
 ## Next up {#next}
 
-Next, we'll be learning a bit about how to extract data using Playwright/Puppeteer. There are two main ways to do this, so [next exciting lesson](./extracting_data.md) will be about both of them!
+Next, we'll be learning a bit about how to extract data using Playwright/Puppeteer. You can use one of the two main ways to do this, so [next exciting lesson](./extracting_data.md) will be about both of them!

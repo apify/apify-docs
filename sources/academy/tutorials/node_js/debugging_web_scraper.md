@@ -25,13 +25,13 @@ document.getElementsByTagName('head')[0].appendChild(jq);
 
 If that doesn't work because of CORS violation, you can install [this extension](https://chrome.google.com/webstore/detail/ekkjohcjbjcjjifokpingdbdlfekjcgi) that injects jQuery on a button click.
 
-There are 2 main ways how to test a pageFunction code in your console:
+You can test a `pageFunction` code in two ways in your console:
 
 ## Pasting and running a small code snippet
 
 Usually, you don't need to paste in the whole pageFunction as you can simply isolate the critical part of the code you are trying to debug. You will need to remove any references to the `context` object and its properties like `request` and the final return statement but otherwise, the code should work 1:1.
 
-I will also usually remove `const` declarations on the top level variables. This helps you to run the same code many times over without needing to restart the console (you cannot declare constants more than once). So my declaration will change from:
+I will also usually remove `const` declarations on the top level variables. This helps you to run the same code many times over without needing to restart the console (you cannot declare constants more than once). My declaration will change from:
 
 ```js
 const results = [];

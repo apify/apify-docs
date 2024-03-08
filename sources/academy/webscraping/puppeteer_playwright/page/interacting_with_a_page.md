@@ -73,7 +73,7 @@ Finally, we can press a single key by accessing the `keyboard` property of `page
 await page.keyboard.press('Enter');
 ```
 
-So far, we've got this:
+This is what we've got so far:
 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
@@ -132,7 +132,7 @@ When we run it, we leave off on the results page:
 
 ![Google results page reached by headless browser](./images/google-results.png)
 
-Great! So now all we have to do is click the first result which matches the CSS selector `.g a`:
+Great! Now all we have to do is click the first result which matches the CSS selector `.g a`:
 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
