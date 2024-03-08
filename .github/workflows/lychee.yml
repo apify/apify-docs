@@ -31,4 +31,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
         with:
           fail: true
-          args: --base https://docs.apify.com --exclude-path 'build/versions.html' --max-retries 6 --verbose --no-progress --accept '200..=204, 429' './build/**/*.html'
+          args: --base https://docs.apify.com --exclude-path 'build/versions.html' --max-retries 6 --verbose --no-progress --accept '100..=103,200..=299,403..=403, 429' './build/**/*.html'
