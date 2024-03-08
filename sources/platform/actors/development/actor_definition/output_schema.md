@@ -17,7 +17,7 @@ In the future, output schema will also help with strict output data format valid
 
 An Actor's output schema defines the structure and both API and visual representation of data produced by an Actor. Output configuration files have to be located in the `.actor` folder in the Actor's root directory.
 
-## How to organize files in the .actor folder: two options
+## How to organize files in the .actor folder: Two options
 
 **A)** all config options are being set in a **.actor/actor.json** file, e.g.:
 
@@ -175,7 +175,7 @@ Let's say we are going to use a single file to set up an Actor's output tab UI. 
 }
 ```
 
-The template above defines the configuration for the default dataset output view. Under the **views** property, there is one view with the title **Overview**. The view configuration consists of two basic steps: 1) set up how to fetch the data, aka **transformation,** and 2) set up how to **display** the data fetched in step 1). The default behaviour is that the Output tab UI table will display **all the fields** from `transformation.fields` **in that same order**. So, theoretically, there should be no need to set up `[**display.properties**](http://display.properties)` at all. However, it can be customized in case it is visually worth setting up some specific display format or column labels. The customization is carried out by using one of the `transformation.fields` names inside `display.properties` and overriding either the label or the format, as demonstrated in the basic template above.
+The template above defines the configuration for the default dataset output view. Under the **views** property, there is one view with the title **Overview**. The view configuration consists of two basic steps: 1) set up how to fetch the data, aka **transformation,** and 2) set up how to **display** the data fetched in step 1). The default behaviour is that the Output tab UI table will display **all the fields** from `transformation.fields` **in that same order**. Theoretically, there should be no need to set up `display.properties` at all. However, it can be customized in case it is visually worth setting up some specific display format or column labels. The customization is carried out by using one of the `transformation.fields` names inside `display.properties` and overriding either the label or the format, as demonstrated in the basic template above.
 
 A 2-step configuration (transform & display) was implemented to provide a way to fetch data in the format presented in both API and UI consistently. Consistency between API data and UI data is crucial for Actor end-users for them to experience the same results in both API and UI. Thus for the best end-user experience, we recommend overriding as few display properties as possible.
 
@@ -272,9 +272,9 @@ Example of an Actor output UI generated using basic template:
 
 ### Nested structures
 
-The most frequently used data formats present the data in a tabular format (Output tab table, Excel, CSV). In case an Actor produces nested JSON structures, there is a need to transform the nested data into a flat tabular format. There are three ways to flatten the data:
+The most frequently used data formats present the data in a tabular format (Output tab table, Excel, CSV). In case an Actor produces nested JSON structures, there is a need to transform the nested data into a flat tabular format. You can flatten the data in following ways:
 
-**1)** use `transformation.flatten` to flatten the nested structure of specified fields. Flatten transforms the nested object into a flat structure. e.g. with `flatten:["foo"]`, the object `{"foo": {"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`. Once the structure is flattened, it is necessary to use the flattened property name in both `transformation.fields` and [`display.properties`](http://display.properties), otherwise, fields might not be fetched or configured properly in the UI visualization.
+**1)** use `transformation.flatten` to flatten the nested structure of specified fields. Flatten transforms the nested object into a flat structure. e.g. with `flatten:["foo"]`, the object `{"foo": {"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`. Once the structure is flattened, it is necessary to use the flattened property name in both `transformation.fields` and `display.properties`, otherwise, fields might not be fetched or configured properly in the UI visualization.
 
 **2)** use `transformation.unwind` to deconstruct the nested children into parent objects.
 
@@ -287,7 +287,7 @@ The most frequently used data formats present the data in a tabular format (Outp
 | Property           | Type                         | Required | Description                                                                                        |
 | ------------------ | ---------------------------- | -------- | -------------------------------------------------------------------------------------------------- |
 | actorSpecification | integer                      | true     | Specifies the version of dataset schema <br/>structure document. <br/>Currently only version 1 is available. |
-| fields             | JSONSchema compatible object | true     | Schema of one dataset object. <br/>Use JsonSchema Draft 2020-12 or <br/>other compatible formats.             |
+| fields             | JSONSchema compatible object | true     | Schema of one dataset object. <br/>Use JsonSchema Draft 2020–12 or <br/>other compatible formats.             |
 | views              | DatasetView object           | true     | An object with a description of an API <br/>and UI views.                                                  |
 
 ### DatasetView object definition

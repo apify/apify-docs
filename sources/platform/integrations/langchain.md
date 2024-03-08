@@ -118,7 +118,7 @@ LangChain is a standard interface through which you can interact with a variety 
 
 ## Resources
 
-- <https://python.langchain.com/en/latest/getting_started/getting_started.html>
-- <https://python.langchain.com/en/latest/integrations/apify.html>
-- <https://python.langchain.com/en/latest/modules/agents/tools/examples/apify.html>
-- <https://python.langchain.com/en/latest/modules/models/llms.html>
+- <https://python.langchain.com/docs/get_started>
+- <https://python.langchain.com/docs/integrations/providers/apify>
+- <https://python.langchain.com/docs/integrations/tools/apify>
+- <https://python.langchain.com/docs/modules/model_io/llms/>

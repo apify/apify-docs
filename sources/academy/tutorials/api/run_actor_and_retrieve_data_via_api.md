@@ -9,11 +9,12 @@ slug: /api/run-actor-and-retrieve-data-via-api
 
 ---
 
-The most popular way of [integrating](https://help.apify.com/en/collections/1669767-integrating-with-apify) the Apify platform with an external project/application is by programmatically running an [Actor](/platform/actors) or [task](/platform/actors/running/tasks), waiting for it to complete its run, then collecting its data and using it within the project. Though this process sounds somewhat complicated, it's actually quite easy to do; however, due to the plethora of features offered on the Apify platform, new users may not be sure how exactly to implement this type of integration. So, let's dive in and see how you can do it.
+The most popular way of [integrating](https://help.apify.com/en/collections/1669769-integrations) the Apify platform with an external project/application is by programmatically running an [Actor](/platform/actors) or [task](/platform/actors/running/tasks), waiting for it to complete its run, then collecting its data and using it within the project. Though this process sounds somewhat complicated, it's actually quite easy to do; however, due to the plethora of features offered on the Apify platform, new users may not be sure how exactly to implement this type of integration. Let's dive in and see how you can do it.
 
 > Remember to check out our [API documentation](/api/v2) with examples in different languages and a live API console. We also recommend testing the API with a nice desktop client like [Postman](https://www.getpostman.com/) or [Insomnia](https://insomnia.rest).
 
-There are 2 main ways of using the Apify API:
+
+Apify API offers two ways of interacting with it:
 
 - [Synchronously](#synchronous-flow)
 - [Asynchronously](#asynchronous-flow)
@@ -36,7 +37,7 @@ To run, or **call**, an Actor/task, you will need a few things:
 
 - Some other optional settings if you'd like to change the default values (such as allocated memory or the build).
 
-The URL for a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to run an actor looks like this:
+The URL of [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to run an actor looks like this:
 
 ```cURL
 https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN
@@ -261,9 +262,9 @@ https://api.apify.com/v2/datasets/DATASET_ID/items
 
 By default, it will return the data in JSON format with some metadata. The actual data are in the `items` array.
 
-There are plenty of additional parameters that you can use. You can learn about them in the [documentation](/api/v2#/reference/datasets/item-collection/get-items). We will only mention that you can pass a `format` parameter that transforms the response into popular formats like CSV, XML, Excel, RSS, etc.
+You can use plenty of additional parameters, to learn more about them, visit our API reference [documentation](/api/v2#/reference/datasets/item-collection/get-items). We will only mention that you can pass a `format` parameter that transforms the response into popular formats like CSV, XML, Excel, RSS, etc.
 
-The items are paginated, which means you can ask only for a subset of the data. Specify this using the `limit` and `offset` parameters. There is actually an overall limit of 250,000 items that the endpoint can return per request. To retrieve more, you will need to send more requests incrementing the `offset` parameter.
+The items are paginated, which means you can ask only for a subset of the data. Specify this using the `limit` and `offset` parameters. This endpoint has a limit of 250,000 items that it can return per request. To retrieve more, you will need to send more requests incrementing the `offset` parameter.
 
 ```cURL
 https://api.apify.com/v2/datasets/DATASET_ID/items?format=csv&offset=250000
