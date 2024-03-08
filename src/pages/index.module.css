@@ -91,6 +91,13 @@
     align-self: stretch;
 }
 
+.cardContentWrapperText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+}
+
 .cardContentList {
     display: flex;
     flex-direction: column;
@@ -130,7 +137,7 @@
     .bannerContentImage {
         width: 38.4rem;
         position: absolute;
-        margin-top: 20rem;
+        margin-top: 18.4rem;
     }
 }
 
@@ -139,7 +146,7 @@
     .bannerContentDescription { width: 50.2rem; }
     .bannerContentImage {
         width: 50.2rem;
-        margin-top: 15.8rem;
+        margin-top: 14.2rem;
     }
 
 }
