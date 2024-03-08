@@ -47,7 +47,7 @@ const themeConfig = ({
                 items: [
                     {
                         label: 'Reference',
-                        href: `${absoluteUrl}/api/v2/`,
+                        href: `${absoluteUrl}/api/v2`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -170,7 +170,7 @@ const themeConfig = ({
                 items: [
                     {
                         label: 'Reference',
-                        href: `${absoluteUrl}/api/v2/`,
+                        href: `${absoluteUrl}/api/v2`,
                         target: '_self',
                         rel: 'dofollow',
                     },
