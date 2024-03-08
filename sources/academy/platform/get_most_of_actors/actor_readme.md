@@ -43,7 +43,7 @@ Aim for sections 1-6 below and try to include at least 300 words. You can move t
 3. **How much will it cost to scrape (target site)?**
 
     - Simple text explaining what type of proxies are needed and how many platform credits (calculated mainly from consumption units) are needed for 1000 results.
-    - This is calculated from carrying out several runs (or from runs saved in the DB). @Zuzka can help if needed. [Information in this table](https://docs.google.com/spreadsheets/d/1NOkob1eYqTsRPTVQdltYiLUsIipvSFXswRcWQPtCW9M/edit#gid=1761542436), tab "cost of usage".
+    - This is calculated from carrying out several runs (or from runs saved in the DB).<!--  @Zuzka can help if needed. [Information in this table](https://docs.google.com/spreadsheets/d/1NOkob1eYqTsRPTVQdltYiLUsIipvSFXswRcWQPtCW9M/edit#gid=1761542436), tab "cost of usage". -->
     - Here’s an example for this section:
 
     > ## How much will it cost me to scrape Google Maps reviews?
@@ -94,4 +94,4 @@ If you want some general tips on how to make GitHub README that stands out, chec
 
 ## Next up {#next}
 
-If you followed all the tips described above, your Actor README is almost good to go! In the [next lesson](./guidelines_for_writing.md) we will give you a few instructions on how you can create a tutorial for your Actor.  
+If you followed all the tips described above, your Actor README is almost good to go! In the [next lesson](./guidelines_for_writing.md) we will give you a few instructions on how you can create a tutorial for your Actor.
