@@ -922,6 +922,14 @@ html[data-theme='dark'] .actionLink:hover::after {
     align-items: flex-start;
     gap: 1.6rem;
     align-self: stretch;
+    height: 100%;
+}
+
+.cardContentWrapperText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
 }
 
 .cardContentList {
