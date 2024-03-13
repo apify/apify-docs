@@ -61,7 +61,7 @@ The final flow can answer questions about Apify docs.
 
 ![Flowise and Apify](images/flowise-2.png)
 
-For more information visit the Flowise's [documentation](https://flowiseai.com/).
+For more information visit the Flowise [documentation](https://flowiseai.com/).
 
 ## Resources
 
