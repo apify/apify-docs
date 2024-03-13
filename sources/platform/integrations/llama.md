@@ -57,6 +57,5 @@ documents = reader.load_data(
 
 ## Resources
 
-* [Apify Actor loader](https://llamahub.ai/l/apify-actor)
-* [Apify dataset loader](https://llamahub.ai/l/apify-dataset)
+* [Apify loaders](https://llamahub.ai/l/readers/llama-index-readers-apify)
 * [LlamaIndex documentation](https://gpt-index.readthedocs.io/en/stable/)

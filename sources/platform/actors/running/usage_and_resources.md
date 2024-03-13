@@ -55,7 +55,9 @@ Autoscaling only applies to solutions that run multiple tasks (URLs) for at leas
 > Most Actors in [Apify Store](https://apify.com/store) have some information in their README about how many CUs they consume per certain amount of data scraped.
 
 [//]: # (TODO: It's pretty outdated, we now have platform credits in pricing)
+<!-- vale off -->
 [//]: # (If you read that you can scrape 1000 pages of data for 1 CU and you want to scrape approximately 2 million of them monthly, that means you need 2000 CUs monthly and should [subscribe to the Business plan]&#40;https://console.apify.com/billing-new#/subscription&#41;.)
+<!-- vale on -->
 
 If the Actor doesn't have this information, or you want to use your own solution, just run your solution like you want to use it long term. Let's say that you want to scrape the data **every hour for the whole month**. You set up a reasonable memory allocation like 4096 MB, and the whole run takes 15 minutes. That should consume 1 CU (4 \* 0.25 = 1). Now, you just need to multiply that by the number of hours in the day and by the number of days in the month, and you get an estimated usage of 720 (1 \* 24 \* 30) CUs monthly.
 
@@ -94,7 +96,7 @@ and hence it should be used only for informative purposes.
 
 ### What is a compute unit (CU)?
 
-> **TL;DR: An [Actor](..) running with 1 GB of memory for one hour consumes 1 compute unit.**
+> **TL;DR: An [Actor](../index.mdx) running with 1 GB of memory for one hour consumes 1 compute unit.**
 
 A compute unit (CU) is the unit of measurement for the resources consumed by Actor runs and builds. We charge you for using Actors based on CU consumption.
 
