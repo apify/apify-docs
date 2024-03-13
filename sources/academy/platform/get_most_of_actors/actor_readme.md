@@ -26,11 +26,11 @@ slug: /get-most-of-actors/actor-readme
 
 ## What should you add to your Actor README?
 
-Aim for sections 1-6 below and try to include at least 300 words. You can move the sections around to some extent if it makes sense, e.g. 3 might come after 6. Consider using emojis as bullet points or otherwise trying to break up the text.
+Aim for sections 1–6 below and try to include at least 300 words. You can move the sections around to some extent if it makes sense, e.g. 3 might come after 6. Consider using emojis as bullet points or otherwise trying to break up the text.
 
 1. **What does (Actor name) do?**
 
-    - in 1-2 sentences describe what the Actor does and what it does not do
+    - in 1–2 sentences describe what the Actor does and what it does not do
     - consider adding keywords like API, e.g. Instagram API
     - always have a link to the target website in this section
 
@@ -43,12 +43,12 @@ Aim for sections 1-6 below and try to include at least 300 words. You can move t
 3. **How much will it cost to scrape (target site)?**
 
     - Simple text explaining what type of proxies are needed and how many platform credits (calculated mainly from consumption units) are needed for 1000 results.
-    - This is calculated from carrying out several runs (or from runs saved in the DB). @Zuzka can help if needed. [Information in this table](https://docs.google.com/spreadsheets/d/1NOkob1eYqTsRPTVQdltYiLUsIipvSFXswRcWQPtCW9M/edit#gid=1761542436), tab "cost of usage".
+    - This is calculated from carrying out several runs (or from runs saved in the DB).<!--  @Zuzka can help if needed. [Information in this table](https://docs.google.com/spreadsheets/d/1NOkob1eYqTsRPTVQdltYiLUsIipvSFXswRcWQPtCW9M/edit#gid=1761542436), tab "cost of usage". -->
     - Here’s an example for this section:
 
     > ## How much will it cost me to scrape Google Maps reviews?
     >
-    > <br/> Apify provides you with $5 free usage credits to use every month on the Apify Free plan and you can get up to 100,000 reviews from this Google Maps Reviews Scraper for those credits. So 100k results will be completely free!
+    > <br/> Apify provides you with $5 free usage credits to use every month on the Apify Free plan and you can get up to 100,000 reviews from this Google Maps Reviews Scraper for those credits. This means 100k results will be completely free!
     > <br/> But if you need to get more data or to get your data regularly you should grab an Apify subscription. We recommend our $49/month Starter plan - you can get up to 1 million Google Maps reviews every month with the $49 monthly plan! Or 10 million with the $499 Scale plan - wow!
 
 4. **How to scrape (target site)**
@@ -94,4 +94,4 @@ If you want some general tips on how to make GitHub README that stands out, chec
 
 ## Next up {#next}
 
-If you followed all the tips described above, your Actor README is almost good to go! In the [next lesson](./guidelines_for_writing.md) we will give you a few instructions on how you can create a tutorial for your Actor.  
+If you followed all the tips described above, your Actor README is almost good to go! In the [next lesson](./guidelines_for_writing.md) we will give you a few instructions on how you can create a tutorial for your Actor.

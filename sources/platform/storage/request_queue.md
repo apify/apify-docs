@@ -24,7 +24,7 @@ The storage system for request queues accomoodates both breadth-first and depth-
 
 ## Basic usage {#basic-usage}
 
-There are several ways to access your request queues:
+You can access your request queues in several ways:
 
 * [Apify Console](https://console.apify.com/storage?tab=requestQueues) - provides an easy-to-understand interface.
 * [JavaScript SDK](/sdk/js/docs/guides/result-storage#request-queue) - when building your own JavaScript Actor.
@@ -179,7 +179,7 @@ async def main():
         await queue.drop()
 ```
 
-Check out the [Python SDK documentation](/sdk/python/docs/guides/request-storage#request-queue) and the `RequestQueue` class's [API reference](/sdk/python/reference/class/RequestQueue) for details on managing your request queues with the Python SDK.
+Check out the [Python SDK documentation](/sdk/python/docs/concepts/storages#working-with-request-queues) and the `RequestQueue` class's [API reference](/sdk/python/reference/class/RequestQueue) for details on managing your request queues with the Python SDK.
 
 ### JavaScript API client {#javascript-api-client}
 
