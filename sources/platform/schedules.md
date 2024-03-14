@@ -153,7 +153,3 @@ Additionally, you can use the following shortcut expressions:
 * `@weekly` = `0 0 * * 0` - once a week, on Sunday at midnight.
 * `@daily` = `0 0 * * *` - run once a day, at midnight.
 * `@hourly` = `0 * * * *` - on the hour, every hour.
-
-## Sharing
-
-You can invite other Apify users to view or modify your schedules with the [access rights](../platform/collaboration/index.md) system. See the [full list of permissions](../platform/collaboration/list_of_permissions.md).
