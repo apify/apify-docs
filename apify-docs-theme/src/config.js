@@ -13,6 +13,7 @@ const themeConfig = ({
             hideable: true,
         },
     },
+    smartlook: { projectKey: process.env.SMARTLOOK_PROJECT_KEY },
     navbar: {
         title: 'Apify Docs',
         logo: {
@@ -255,6 +256,7 @@ const themeConfig = ({
 });
 
 const plugins = [
+    'docusaurus/plugin-smartlook',
     [
         'docusaurus-gtm-plugin',
         {
