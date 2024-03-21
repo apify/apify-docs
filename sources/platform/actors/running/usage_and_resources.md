@@ -23,7 +23,7 @@ Check out the [Limits](../../limits.md) page for detailed information on Actor m
 
 ### Memory
 
-When invoking an Actor, the caller must specify the memomy allocation for the Actor run. The memory allocation must follow these requirements:
+When invoking an Actor, the caller must specify the memory allocation for the Actor run. The memory allocation must follow these requirements:
 
 - It must be a power of 2.
 - The minimum allowed value is `128MB`
@@ -112,6 +112,13 @@ When you run an Actor it generates platform usage that's charged to the user acc
 
 The platform usage can be represented either in raw units (e.g. gigabytes for data transfer, or number of writes for dataset operations), or in the dollar equivalents.
 
+To view the usage of an Actor run, navigate to the **Runs** section and check out the **Usage** column.
+
+<!-- here add screenshot of runs lins with arrow pointing to usage column -->
+
+ For a more detailed breakdown, click on the specific run you want to examine
+
+<!-- here add screenshot of detailed run usage breakdown -->
 
 :::note Usage billing elements
 
@@ -122,7 +129,7 @@ This should be used for informational purposes only.
 
 For detailed information, FAQ, and, pricing check out the [platform pricing page](https://apify.com/pricing/actors).
 
-### What is a compute unit (CU)?
+### What is a compute unit
 
 A compute unit (CU) is the unit of measurement for the resources consumed by Actor runs and builds. You are charged for using Actors based on CU consumption.
 
