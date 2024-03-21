@@ -256,7 +256,7 @@ const themeConfig = ({
 });
 
 const plugins = [
-    'docusaurus/plugin-smartlook',
+    'docusaurus-plugin-smartlook',
     [
         'docusaurus-gtm-plugin',
         {
