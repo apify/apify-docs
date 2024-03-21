@@ -27,6 +27,7 @@ jobs:
                 run: npm ci --force
                 env:
                     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                    SMARTLOOK_PROJECT_KEY: ${{ secrets.SMARTLOOK_PROJECT_KEY }}
 
             -   run: npm run build
 
