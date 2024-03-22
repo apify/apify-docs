@@ -915,6 +915,17 @@ html[data-theme='dark'] .actionLink:hover::after {
     margin-left: 8px;
 }
 
+
+.card {
+    [class^="cardTitle"] {
+        font-size: 1.6rem !important;
+    }
+
+    [class^="cardDescription"] {
+        font-size: 1.2rem !important;
+    }
+}
+
 .cardContentWrapper {
     display: flex;
     padding-top: 1.6rem;
