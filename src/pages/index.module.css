@@ -82,6 +82,16 @@
     margin: 0;
 }
 
+.card {
+    [class^="cardTitle"] {
+        font-size: 1.6rem !important;
+    }
+
+    [class^="cardDescription"] {
+        font-size: 1.2rem !important;
+    }
+}
+
 .cardContentWrapper {
     display: flex;
     padding-top: 1.6rem;
@@ -113,12 +123,12 @@
     .bannerContentActions { width: 38.4rem; }
     .bannerContentDescription { width: 25rem; margin-bottom: 0; }
     .actionCards { grid-template-columns: repeat(2, 1fr); }
-    .smallBannerContent { 
+    .smallBannerContent {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         align-self: stretch;
-        text-align: left; 
+        text-align: left;
     }
     .smallBannerContent h2 { align-self: flex-start; }
     .smallBannerContentText { width: 41.8rem; }
@@ -132,7 +142,7 @@
 @media (min-width: 1024px) {
     .cards { grid-template-columns: repeat(3, 1fr); }
     .actionCards { width: 896px; }
-    .bannerContentActions { width: 41.8rem; } 
+    .bannerContentActions { width: 41.8rem; }
     .bannerContentDescription { width: 38.4rem; }
     .bannerContentImage {
         width: 38.4rem;
