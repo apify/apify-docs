@@ -1,8 +1,9 @@
 ---
 title: Actor tasks
-description: Save configurations of your Apify Actors for later. Create multiple configurations of the same Actor tailored to various use cases.
+description: Create and save reusable configurations of Apify Actors tailored to specific use cases.
 sidebar_position: 7.2
 slug: /actors/running/tasks
+sidebar_label: Tasks
 ---
 
 **Create and save reusable configurations of Apify Actors tailored to specific use cases.**
@@ -29,13 +30,9 @@ An Actors' input fields may vary depending on their purpose, but they all follow
 
 You can set run options such as timeout and [memory](./usage_and_resources.md) at the bottom of the input section.
 
-### Identification
+### Naming
 
 To make a task easier to identify, you can give it a name, title, and description by clicking its caption on the detail page. A task's name should be at least 3 characters long with 63 characters limit.
-
-### Settings
-
-You can grant [access rights](../../collaboration/index.md) to other Apify users under the **Settings** tab of the task's detail page.
 
 ## Run
 
