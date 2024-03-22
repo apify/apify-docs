@@ -22,7 +22,7 @@ To create a task, open any Actor from [Apify Store](https://console.apify.com/st
 
 ## Configure
 
-You can set up your task's input under the **Input and options** tab. A task's input configuration works just like an Actor's. After all, it's just a copy of an Actor you can pre-configure for a specific scenario. You can use either JSON or the visual input UI.
+You can set up your task's input under the **Input** tab. A task's input configuration works just like an Actor's. After all, it's just a copy of an Actor you can pre-configure for a specific scenario. You can use either JSON or the visual input UI.
 
 ![Apify task configuration](./images/tasks/create-task-configure.png)
 
@@ -36,7 +36,7 @@ To make a task easier to identify, you can give it a name, title, and descriptio
 
 ## Run
 
-Once you've configured your task, you can run it using the **Run** button in the bottom-left side of the **Input and options** tab.
+Once you've configured your task, you can run it using the **Run** button in the top-right side of the screen.
 
 ![Run an Apify task](./images/tasks/create-task-run.png)
 
