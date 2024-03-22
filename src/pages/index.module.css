@@ -83,11 +83,11 @@
 }
 
 .card {
-    [class^="cardTitle"] {
+    [class*="cardTitle"] {
         font-size: 1.6rem !important;
     }
 
-    [class^="cardDescription"] {
+    [class*="cardDescription"] {
         font-size: 1.2rem !important;
     }
 }
