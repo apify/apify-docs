@@ -63,10 +63,10 @@ Unfortunately for these websites, they have to make compromises and tradeoffs. W
 
 Anti-scraping protections can work on many different layers and use a large amount of bot-identification techniques. There are 4 main principles that anti-scraping protections are based on:
 
-1. **Where you are coming from** - IP address of the incoming traffic is always available to the website. Proxies are used to emulate a different IP addresses but their quality matters a lot.
-2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, cyphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to clasify your hardware (like graphics hardware acceleration).
+1. **Where you are coming from** - The IP address of the incoming traffic is always available to the website. Proxies are used to emulate a different IP addresses but their quality matters a lot.
+2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, cyphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to classify your hardware (like graphics hardware acceleration).
 3. **What you are scraping** - There are many ways to extract the same data from a website. You can just get the inital HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
-4. **How you behave** - The website can see patterns in how you are ordering your requests, how fast you are scraping, etc. It can also analyse browser behavior like mouse movement, clicks or key presses.
+4. **How you behave** - The website can see patterns in how you are ordering your requests, how fast you are scraping, etc. It can also analyze browser behavior like mouse movement, clicks or key presses.
 
 Not all websites use all of these principles but they encompass the possibilities websites have to track and block bots. All techniques that help you mitigate anti-scraping protections are based on making yourself blend in with the crowd of regular users with each of these principles.
 
@@ -110,7 +110,7 @@ This type of bot identification is based on the given fact that humans are acces
 
 ### URL analysis
 
-Solely based on the way how the bots operate. It comperes data-rich pages visits and the other pages visits. The ratio of the data-rich and regular pages has to be high to identify the bot and reduce false positives successfully.
+Solely based on the way how the bots operate. It compares data-rich page visits and the other page visits. The ratio of the data-rich and regular pages has to be high to identify the bot and reduce false positives successfully.
 
 ### Regular structure changes
 

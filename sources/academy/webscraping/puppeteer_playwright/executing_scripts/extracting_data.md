@@ -25,7 +25,7 @@ There are two main ways to extract data with Playwright and Puppeteer:
 
 ## Setup
 
-Here is the base set up for our code, upon which we'll be building off of in this lesson:
+Here is the base setup for our code, upon which we'll be building off of in this lesson:
 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">

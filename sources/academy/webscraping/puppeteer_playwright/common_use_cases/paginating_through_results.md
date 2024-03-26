@@ -685,7 +685,7 @@ await browser.close();
 
 ## Quick note {#quick-note}
 
-The examples shown in this lesson are not the only ways to paginate through websites. They are here to serve as solid examples, but don't view them as the end-all be-all of scraping paginated websites. The methods you use and algorithms you write might differ to various degrees based on what pages you're scraping and how your specific target website implemented pagination.
+The examples shown in this lesson are not the only ways to paginate through websites. They are here to serve as solid examples, but don't view them as the end-all be-all of scraping paginated websites. The methods you use and the algorithms you write might differ to various degrees based on what pages you're scraping and how your specific target website implemented pagination.
 
 ## Next up {#next}
 

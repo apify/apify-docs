@@ -5,7 +5,7 @@ sidebar_position: 15.5
 slug: /node-js/submitting-form-with-file-attachment
 ---
 
-When doing web automation with Apify, it can sometimes be necessary to submit an HTML form with file attachment. This article will cover a situation where the file is publicly accessible (e.g. hosted somewhere) and will use an Apify actor. If it is not possible to use request-promise, it might be necessary to use [Puppeteer.](http://kb.apify.com/actor/submitting-a-form-with-file-attachment-using-puppeteer)
+When doing web automation with Apify, it can sometimes be necessary to submit an HTML form with a file attachment. This article will cover a situation where the file is publicly accessible (e.g. hosted somewhere) and will use an Apify actor. If it is not possible to use request-promise, it might be necessary to use [Puppeteer.](http://kb.apify.com/actor/submitting-a-form-with-file-attachment-using-puppeteer)
 
 # Downloading the file to memory
 
@@ -32,7 +32,7 @@ const fileData = await request({
 });
 ```
 
-In this case, fileData will be a Buffer instead of String.
+In this case, fileData will be a Buffer instead of a String.
 
 # Submitting the form
 

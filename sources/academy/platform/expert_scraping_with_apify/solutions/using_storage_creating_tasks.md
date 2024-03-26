@@ -65,9 +65,9 @@ That's it! Now, our actor will push its data to a dataset named **amazon-offers-
 
 ## Using a key-value store {#using-key-value-store}
 
-We now want to store the cheapest item in the default key-value store under a key named **CHEAPEST-ITEM**. The most efficient and practical way of doing this is by filtering through all of the new named dataset's items and pushing the cheapest one to the store.
+We now want to store the cheapest item in the default key-value store under a key named **CHEAPEST-ITEM**. The most efficient and practical way of doing this is by filtering through all of the newly named dataset's items and pushing the cheapest one to the store.
 
-Let's add the following code to the bottom of the actor, after **Crawl finished.** is logged to the console:
+Let's add the following code to the bottom of the actor after **Crawl** finished** is logged to the console:
 
 ```js
 // ...
@@ -264,4 +264,4 @@ After saving it, you'll be able to see the newly created task in the **Tasks** t
 
 ## Wrap up {#wrap-up}
 
-You've learned how to use the different storage options available on with Apify, the two different types of storages, as well as how to create tasks for actors.
+You've learned how to use the different storage options available on Apify, the two different types of storage, as well as how to create tasks for actors.

@@ -24,7 +24,7 @@ With so many point-and-click tools and no-code software that can help you extrac
 
 Any software can do only what it was programmed to do. If you build your own scraper, it can do anything you want. And you can always quickly change it to do more, less, or the same, but faster or cheaper. The possibilities are endless once you know how scraping really works.
 
-Scraper development is a fun and challenging way to learn web development, web technologies, and understand the internet. You will reverse-engineer websites and understand how they work internally, what technologies they use and how they communicate with their servers. You will also master your chosen programming language and core programming concepts. When you truly understand web scraping, learning other technology like React or Next.js will be a piece of cake.
+Scraper development is a fun and challenging way to learn web development, web technologies, and understand the internet. You will reverse-engineer websites and understand how they work internally, what technologies they use and how they communicate with their servers. You will also master your chosen programming language and core programming concepts. When you truly understand web scraping, learning other technologies like React or Next.js will be a piece of cake.
 
 ## Course Summary {#summary}
 
@@ -57,7 +57,7 @@ It is recommended to understand at least the fundamentals of JavaScript and be p
 
 ### General web development {#general-web-development}
 
-Throughout the next lessons, we will sometimes use certain technologies and terms related to the web without explaining them. This is because the knowledge of them will be **assumed** (unless we're showing something out of the ordinary).
+Throughout the next lessons, we will sometimes use certain technologies and terms related to the web without explaining them. This is because their knowledge will be **assumed** (unless we're showing something out of the ordinary).
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [HTTP protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP)

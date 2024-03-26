@@ -15,9 +15,9 @@ At the [very beginning of this course](../index.md), we learned that the term we
 
 ## Extracting data from a product detail page {#extracting-data}
 
-The term product detail page (or PDP) is commonly used on e-commerce websites to describe the page where you can find detailed information about a product. In the Warehouse store, it's, for example, [this page describing Denon headphones](https://warehouse-theme-metal.myshopify.com/products/denon-ah-c720-in-ear-headphones).
+The term product detail page (or PDP) is commonly used on e-commerce websites to describe the page where you can find detailed information about a product. In the Warehouse store, there's, for example, [this page describing Denon headphones](https://warehouse-theme-metal.myshopify.com/products/denon-ah-c720-in-ear-headphones).
 
-Let's start writing a script that extracts data from this single PDP. We can use this familiar code as boilerplate.
+Let's start writing a script that extracts data from this single PDP. We can use this familiar code as a boilerplate.
 
 ```js title=product.js
 import { gotScraping } from 'got-scraping';
@@ -157,7 +157,7 @@ for (const url of productUrls) {
 We can see that the code is quite similar. Both scripts download HTML and then process the HTML. To understand how to put them together, we'll go back to the [original process of crawling](./index.md).
 
 1. Visit the start URL.
-2. Extract next URLs (and data) and save them.
+2. Extract the next URLs (and data) and save them.
 3. Visit one of the collected URLs and save data and/or more URLs.
 4. Repeat step 3 until you have everything you need.
 

@@ -24,4 +24,4 @@ Now that you have an account, you have access to the [Apify Console](https://con
 
 ## Next up {#next}
 
-In our next lesson, we'll learn about something super exciting - **actors**. Actors are the living and breathing core of the Apify platform, and are an extremely powerful concept. What are you waiting for? Let's jump [right into the next lesson](./actors.md)!
+In our next lesson, we'll learn about something super exciting - **actors**. Actors are the living and breathing core of the Apify platform and are an extremely powerful concept. What are you waiting for? Let's jump [right into the next lesson](./actors.md)!

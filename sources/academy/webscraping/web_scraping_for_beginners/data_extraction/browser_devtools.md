@@ -1,17 +1,17 @@
 ---
 title: Browser DevTools - I
-description: Learn about browser DevTools, a valuable tool in the world of web scraping , and how you can use them to extract data from a website.
+description: Learn about browser DevTools, a valuable tool in the world of web scraping, and how you can use them to extract data from a website.
 sidebar_position: 1
 slug: /web-scraping-for-beginners/data-extraction/browser-devtools
 ---
 
 # Browser DevTools {#devtools}
 
-**Learn about browser DevTools, a valuable tool in the world of web scraping , and how you can use them to extract data from a website.**
+**Learn about browser DevTools, a valuable tool in the world of web scraping, and how you can use them to extract data from a website.**
 
 ---
 
-Even though DevTools stands for developer tools, everyone can use them to inspect a website. Each major browser has their own DevTools. We will use Chrome DevTools as an example, but the advice is applicable to any browser, as the tools are extremely similar. To open Chrome DevTools, you can press **F12** or right-click anywhere in the page and choose **Inspect**.
+Even though DevTools stands for developer tools, everyone can use them to inspect a website. Each major browser has its own DevTools. We will use Chrome DevTools as an example, but the advice is applicable to any browser, as the tools are extremely similar. To open Chrome DevTools, you can press **F12** or right-click anywhere in the page and choose **Inspect**.
 
 Now go to [Wikipedia](https://wikipedia.com) and open your DevTools there. Inspecting the same website as us will make this lesson easier to follow.
 

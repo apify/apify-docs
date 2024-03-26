@@ -15,7 +15,7 @@ When publishing your Actor on the Apify platform you have the choice to make it 
 
 ## Rental pricing model {#rental-pricing-model}
 
-When you choose to make your Actor rental, you will specify the length of the free trial and a monthly rental price. Any user that wants to use your Actor will need to first activate the free trial, and once that's concluded, they will be charged the monthly rent set by you. Note that after the free trial, the user will need to have one of Apify [paid plans](https://apify.com/pricing) to be able to pay the monthly rental and use the Actor further.
+When you choose to make your Actor rental, you will specify the length of the free trial and a monthly rental price. Any user that wants to use your Actor will need to first activate the free trial, and once that's concluded, they will be charged the monthly rent set by you. Note that after the free trial, the user will need to have one of Apify's [paid plans](https://apify.com/pricing) to be able to pay the monthly rental and use the Actor further.
 
 At the end of each month, we will then add up all rental fees collected in that month, and 80% of the total goes to you.
 
@@ -33,7 +33,7 @@ At the end of each month, we will then add up all rental fees collected in that 
 
 If you make your Actor pay-per-result instead, you will set the price per 1,000 results, and users will be charged for your Actor solely based on the number of results your Actor produces. That's your **revenue**. The underlying [platform usage](https://docs.apify.com/platform/actors/running/usage-and-resources) the Actor generates is your **cost**. Your profit which is then paid to you is computed as 80% of the revenue minus the costs, i.e. `(0.8 * revenue) - costs = profit`. This profit is also paid out monthly.
 
-Note that only revenue and cost for Apify customers on [paid plans](https://apify.com/pricing) is taken into consideration when computing your profit. Users on free plans are not reflected there, although you can see statistics about the potential revenue of users that are currently on free plans in Actor insights in the Apify Console.
+Note that only revenue and cost for Apify customers on [paid plans](https://apify.com/pricing) are taken into consideration when computing your profit. Users on free plans are not reflected there, although you can see statistics about the potential revenue of users that are currently on free plans in Actor insights in the Apify Console.
 
 > **Example - pay-per-result pricing model**
 >
@@ -42,11 +42,11 @@ use your Actor to get 50,000 and 20,000 results, costing them $50 and $20 respec
 >
 > Your profit is computed only from the first two users, since they are on Apify paid plans. The revenue for the first user is $50 and for the second $20, i.e. total revenue is $70. The total underlying cost is $5 + $2 = $7. Since your profit is 80% of the revenue minus the cost, it would be `0.8 * 70 - 7 = $49`.
 
-You can read more about Actors in store and different pricing models from the perspective of your users in our [Store documentation](https://docs.apify.com/platform/actors/running/actors-in-store).
+You can read more about Actors in the Store and different pricing models from the perspective of your users in our [Store documentation](https://docs.apify.com/platform/actors/running/actors-in-store).
 
 ### Best practices for pay-per-result Actors
 
-1. Set `minMemoryMbytes` and `maxMemoryMBytes` in [`actor.json`](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) in your Actor folder. If users use more memory than you counted with in your price estimations, their runs will generate more underlying platform usage and will cost your more, which might affect your profit margin.
+1. Set `minMemoryMbytes` and `maxMemoryMBytes` in [`actor.json`](https://docs.apify.com/platform/actors/development/actor-definition/actor-json) in your Actor folder. If users use more memory than you counted with in your price estimations, their runs will generate more underlying platform usage and will cost you more, which might affect your profit margin.
 
 2. Always check `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable in your Actor code. Your Actor should never return more than `ACTOR_MAX_PAID_DATASET_ITEMS` results, because the user will be not charged for more and you could start generating losses. This variable is configurable by the user to limit how much the run will cost them.
 
@@ -62,15 +62,15 @@ If you haven't already, you will need to fill in the billing and payment details
 
 ![Set up monetization](./images/monetize_actor_set_up_monetization.png)
 
-Once you have your details setup, you can click the **Set up monetization** button that will lead you through a wizard where you will choose the monetization model and any respective fees.
+Once you have your details set up, you can click the **Set up monetization** button that will lead you through a wizard where you will choose the monetization model and any respective fees.
 
 ![Monetization wizard](./images/monetization_wizard.png)
 
 ## Changing monetization {#changing-monetization}
 
-You can always change the monetization settings of your Actor. Note that any changes made to an already published Actor will always take 14 days to come into effect, to give users of your Actor, many of which might be using it in their critical business flows, time to prepare for the change. To change the monetization, use the same wizard as for the setup, found in Monetization section of the Actor Publication tab.
+You can always change the monetization settings of your Actor. Note that any changes made to an already published Actor will always take 14 days to come into effect, to give users of your Actor, many of whom might be using it in their critical business flows, time to prepare for the change. To change the monetization, use the same wizard as for the setup, found in the Monetization section of the Actor Publication tab.
 
-Also note that your are allowed to adjust the monetization settings of the Actor only once per month. Please refer to our [Terms & Conditions](https://apify.com/store-terms-and-conditions) for further details and guidelines.
+Also, note that you are allowed to adjust the monetization settings of the Actor only once per month. Please refer to our [Terms & Conditions](https://apify.com/store-terms-and-conditions) for further details and guidelines.
 
 ## How you will be paid out {#payouts}
 
@@ -88,7 +88,7 @@ To dive deep into numbers for a specific Actor, you can visit the Actor insights
 
 ## Setting Actor prices {#setting-actor-prices}
 
-**You choose the price and, in case of the rental model, free trial length of your Actor.** Apify can give you advice about the best practices of the most successful Actors, but at the end of the day, we give developers full control over the pricing strategy of their tools. You can browse Apify Store to see how similar tools are priced to give you an idea about any potential competing solutions.
+**You choose the price and, in the case of the rental model, a free trial length of your Actor.** Apify can give you advice about the best practices of the most successful Actors, but at the end of the day, we give developers full control over the pricing strategy of their tools. You can browse Apify Store to see how similar tools are priced to give you an idea about any potential competing solutions.
 
 ## Promote your Actor {#promote-your-actor}
 

@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Web pages are full of links, but frankly, most of them are useless to us when scraping. There are two approaches to filtering links: Targeting the links we're interested in by using unique CSS selectors, and extracting all links and then using pattern matching to find the sought after URLs. In real scraping scenarios, both of these two approaches are often combined for the most effective URL filtering.
+Web pages are full of links, but frankly, most of them are useless to us when scraping. There are two approaches to filtering links: Targeting the links we're interested in by using unique CSS selectors, or extracting all links and then using pattern matching to find the sought after URLs. In real scraping scenarios, both of these two approaches are often combined for the most effective URL filtering.
 
 ## Filtering with unique CSS selectors {#css-filtering}
 

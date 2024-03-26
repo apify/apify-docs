@@ -25,11 +25,11 @@ Let's break down the main sections:
 
 ### List of requests
 
-You can configure multiple request with a custom payload, headers, cookies, parameters, etc. They are automatically saved in the list of requests until deleted.
+You can configure multiple requests with a custom payload, headers, cookies, parameters, etc. They are automatically saved in the list of requests until deleted.
 
 ### Address bar
 
-The place where you select the type of request to send (**GET**, **POST**, **PUT**, **DELETE**, etc.), specify the URI of the request, and send the request with the **Send** button.
+The place where you select the type of request to send (**GET**, **POST**, **PUT**, **DELETE**, etc.), specify the URI of the request and send the request with the **Send** button.
 
 ### Request options
 
@@ -55,11 +55,11 @@ In order to use a proxy, you need to specify the proxy's parameters in Insomnia'
 
 ## Managing the cookies cache {#managing-cookies-cache}
 
-Insomnia keeps the cookies for the requests you have already sent before. This might result in you receiving a difference response within your scraper from what you're receiving in Insomnia, as a necessary cookie is not present in the request sent by the scraper. To check whether or not some cookies associated with a certain request have been cached, click on the **Cookies** button at top of the list of requests:
+Insomnia keeps the cookies for the requests you have already sent before. This might result in you receiving a different response within your scraper from what you're receiving in Insomnia, as a necessary cookie is not present in the request sent by the scraper. To check whether or not some cookies associated with a certain request have been cached, click on the **Cookies** button at the top of the list of requests:
 
 ![Click on the "Cookies" button](./images/insomnia-cookies.png)
 
-This'll bring up the **Manage cookies** window, where all cached cookies can be viewed, edited, or deleted.
+This will bring up the **Manage cookies** window, where all cached cookies can be viewed, edited, or deleted.
 
 ![The "Manage Cookies" tab](./images/insomnia-manage-cookies.jpg)
 

@@ -21,7 +21,7 @@ Limited pagination is a common practice on e-commerce sites and is becoming more
 
 Websites usually limit the pagination of a single (sub)category to somewhere between 1,000 to 20,000 listings. The site might have over a million listings in total. Without a proven algorithm, it will be very manual and almost impossible to scrape all listings.
 
-We will first look at a couple ideas that don't work so well and then present the [final robust solution](#using-filter-ranges).
+We will first look at a couple of ideas that don't work so well and then present the [final robust solution](#using-filter-ranges).
 
 ### Going deeper into subcategories {#going-deeper-into-subcategories}
 
@@ -36,9 +36,9 @@ While you can often manually test if the second problem is true on the site, the
 
 Most websites also provide a way for the user to select search filters. These allow a more granular level of search than categories and can be combined with them. Common filters allow you to select a **color**, **size**, **location** and similar attributes.
 
-At first, it might seem as an easy solution. Enqueue all possible filter combinations and that should be so granular that it will never hit a pagination limit. Unfortunately, this solution is still far from good.
+At first, it might seem like an easy solution. Enqueue all possible filter combinations and that should be so granular that it will never hit a pagination limit. Unfortunately, this solution is still far from good.
 
-1. There is no guarantee that some products don't slip through the chosen filter combinations.
+1. There is no guarantee that some products won't slip through the chosen filter combinations.
 2. The resulting split might be too granular and end up having too many tiny paginations with many duplicate products. This leads to scraping a lot more pages than necessary and makes analytics much harder.
 
 ### Using filter ranges {#using-filter-ranges}
@@ -49,7 +49,7 @@ This has several benefits:
 
 1. All listings can eventually be found in a range.
 2. The ranges do not overlap, so we scrape the smallest possible number of pages and avoid duplicate listings.
-3. Ranges can be controlled by a generic algorithm that is simple to re-use for different sites.
+3. Ranges can be controlled by a generic algorithm that is simple to reuse for different sites.
 
 ## Splitting pages with range filters {#splitting-pages-with-range-filters}
 
@@ -99,15 +99,15 @@ In addition, XHRs are smaller and faster than loading an HTML page. On the other
 
 If it does, it is a nice bonus. It gives us an easy way to check if we are over or below the pagination limit and helps with analytics.
 
-If it doesn't, we have to find a different way to check if the number of listings is within a limit. One option is to go to the last allowed page of the pagination. If that page is still full products, we can assume the filter is over the limit.
+If it doesn't, we have to find a different way to check if the number of listings is within a limit. One option is to go to the last allowed page of the pagination. If that page is still full of products, we can assume the filter is over the limit.
 
 #### How to handle (open) ends of the range {#how-to-handle-open-ends-of-the-range}
 
 Logically, every full (price) range starts at 0 and ends at infinity. But the way this is encoded will differ on each site. The end of the price range can be either closed (0) or open (infinity). Open ranges require special handling when you split them (we will get to that).
 
-Most sites will let you start with 0 (there might be exceptions, where you will have make the start open), so we can use just that. The high end is more complicated. Because you don't know the biggest price, it is best to leave it open and handle it specially. Internally you can just assign `null` to the value.
+Most sites will let you start with 0 (there might be exceptions, where you will have to make the start open), so we can use just that. The high end is more complicated. Because you don't know the biggest price, it is best to leave it open and handle it specially. Internally you can just assign `null` to the value.
 
-Here are few examples of a query parameter with an open and closed high-end range:
+Here are a few examples of a query parameter with an open and closed high-end range:
 
 - Open: `p:100-` (higher than 100), Closed: `p:100-200` (between 100 and 200)
 - Open: `min_price=100`, Closed: `min_price=100&max_price=200`

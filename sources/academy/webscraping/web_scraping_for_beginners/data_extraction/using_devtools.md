@@ -11,7 +11,7 @@ slug: /web-scraping-for-beginners/data-extraction/using-devtools
 
 ---
 
-With the knowledge of the basics of DevTools and we can finally try doing something more practical - extracting data from a website. Let's try collecting the on-sale products from the [Warehouse store](https://warehouse-theme-metal.myshopify.com/). We will use [CSS selectors](../../../glossary/concepts/css_selectors.md), JavaScript, and DevTools to achieve this task.
+With the knowledge of the basics of DevTools we can finally try doing something more practical - extracting data from a website. Let's try collecting the on-sale products from the [Warehouse store](https://warehouse-theme-metal.myshopify.com/). We will use [CSS selectors](../../../glossary/concepts/css_selectors.md), JavaScript, and DevTools to achieve this task.
 
 > **Why use a Shopify demo and not a real e-commerce store like Amazon?** Because real websites are usually bulkier, littered with promotions, and they change very often. Many have multiple versions of pages, and you never know in advance which one you will get. It will be important to learn how to deal with these challenges in the future, but for this beginner course, we want to have a light and stable environment.
 >
@@ -35,7 +35,7 @@ The element that contains all the information about the subwoofer is called a **
 
 ![Selecting an element with hover](./images/devtools-collection-product-hover.png)
 
-Now that we know how the parent element looks like, we can extract its data, including the data of its children. Notice that the element has a `class` attribute with multiple values like `product-item` or `product-item--vertical`. Let's use those classes in the Console to extract data.
+Now that we know how the parent element looks, we can extract its data, including the data of its children. Notice that the element has a `class` attribute with multiple values like `product-item` or `product-item--vertical`. Let's use those classes in the Console to extract data.
 
 ![Class attribute in DevTools](./images/devtools-collection-class.png)
 

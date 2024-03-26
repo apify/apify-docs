@@ -25,7 +25,7 @@ By now, you're already familiar with what type inference is. Even when creating 
 
 ![Object type correctly inferred](./images/object-inference.png)
 
-Notice that the value showed in the popup when hovering over the `course` variable looks very much like a regular JavaScript object; however, it is not an object at all - instead, it is an object **type**.
+Notice that the value that appeared in the popup when hovering over the `course` variable looks very much like a regular JavaScript object; however, it is not an object at all - instead, it is an object **type**.
 
 > Object types differ slightly in syntax from regular JavaScript objects. Firstly, the properties are separated by semicolons (`;`) instead of commas. Also, instead of being key-value pairs like objects, object types are key-**type** pairs.
 
@@ -33,7 +33,7 @@ This inference from TypeScript is totally valid and correct; however, what if we
 
 ![Error adding a new property to the object](./images/object-type-error.png)
 
-So what's the problem? The problem is that we didn't tell TypeScript that the `course` object can have a property called `learningBasicTypes` of a boolean type in the variable's initial state, which is what TypeScript's inference is based off of. Because of this, we have to write our own custom object type.
+So what's the problem? The problem is that we didn't tell TypeScript that the `course` object can have a property called `learningBasicTypes` of a boolean type in the variable's initial state, which is what TypeScript's inference is based on. Because of this, we have to write our own custom object type.
 
 Just as we did before when assigning types like `number` and `string` to variables, we'll annotate the variable's type with a colon (`:`) followed by the type. However, instead of using a basic type name such as `boolean` or `number`, we'll put a custom object type there instead.
 
@@ -70,7 +70,7 @@ const course: {
 course.learningBasicTypes = true;
 ```
 
-What this question mark does is tells TypeScript that the property doesn't necessarily have to exist on the `course` object (it can be undefined), but if it does exist, it must be a boolean.
+What this question mark does is tell TypeScript that the property doesn't necessarily have to exist on the `course` object (it can be undefined), but if it does exist, it must be a boolean.
 
 ## Arrays {#arrays}
 
@@ -140,7 +140,7 @@ const course: {
 };
 ```
 
-This is actually how TypeScript infers the type of `courseInfo` as well. It tells the compiler that `courseInfo` is an array of any length that can hold both numbers and strings. However, we want to be more specific than that in this case. The length of `courseInfo` should always going to be 2, the first value should always be a number, and second one always a string. We should use a tuple instead.
+This is actually how TypeScript infers the type of `courseInfo` as well. It tells the compiler that `courseInfo` is an array of any length that can hold both numbers and strings. However, we want to be more specific than that in this case. The length of `courseInfo` should always be 2, the first value should always be a number, and the second one always be a string. We should use a tuple instead.
 
 ```ts
 const course: {

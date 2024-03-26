@@ -15,7 +15,7 @@ Browser fingerprinting is a method that some websites use to collect information
 
 Yup! Surprisingly enough, browsers provide a lot of information about the user (and even their machine) that is easily accessible to websites! Browser fingerprinting wouldn't even be possible if it weren't for the sheer amount of information browsers provide, and the fact that each fingerprint is unique.
 
-Based on [research](https://www.eff.org/press/archives/2010/05/13) carried out by the Electronic Frontier Foundation, 84% of collected fingerprints are globally exclusive, and they found that the next 9% were in sets with a size of two. They also stated that even though fingerprints are dynamic, new ones can be matched up with old ones with 99.1% correctness. This makes fingerprinting a very viable option for websites who want to track the online behavior of their users in order to serve hyper-personalized advertisements to them. In some cases, it is also used to aid in preventing bots from accessing the websites (or certain sections of it).
+Based on [research](https://www.eff.org/press/archives/2010/05/13) carried out by the Electronic Frontier Foundation, 84% of collected fingerprints are globally exclusive, and they found that the next 9% were in sets with a size of two. They also stated that even though fingerprints are dynamic, new ones can be matched up with old ones with 99.1% correctness. This makes fingerprinting a very viable option for websites that want to track the online behavior of their users in order to serve hyper-personalized advertisements to them. In some cases, it is also used to aid in preventing bots from accessing the websites (or certain sections of it).
 
 ## What makes up a fingerprint? {#what-makes-up-a-fingerprint}
 
@@ -25,7 +25,7 @@ To collect a good fingerprint, websites must collect them from various places.
 
 There are a few [HTTP headers](../../../glossary/concepts/http_headers.md) which can be used to create a fingerprint about a user. Here  are some of the main ones:
 
-1. **User-Agent** provides information about the  browser and its operating system (including its versions).
+1. **User-Agent** provides information about the browser and its operating system (including its versions).
 2. **Accept** tells the server what content types the browser can render and send, and **Content-Encoding** provides data about the content compression.
 3. **Content-Language** and **Accept-Language** both indicate the user's (and browser's) preferred language.
 4. **Referer** gives the server the address of the previous page from which the link was followed.
@@ -36,7 +36,7 @@ A few other headers commonly used for fingerprinting can be seen below:
 
 ### From window properties {#from-window-properties}
 
-The `window` is defined as a global variable that is accessible from an JavaScript running in the browser. It is home to a vast amount of functions, variables, and constructors, and most of the global configuration is stored there.
+The `window` is defined as a global variable that is accessible from JavaScript running in the browser. It is home to a vast amount of functions, variables, and constructors, and most of the global configuration is stored there.
 
 Most of the attributes that are used for fingerprinting are stored under the `window.navigator` object, which holds methods and info about the user's state and identity starting with the **User-Agent** itself and ending with the device's battery status. All of these properties can be used to fingerprint a device; however, most fingerprinting solutions (such as [Valve](https://valve.github.io/fingerprintjs/)) only use the most crucial ones.
 
@@ -166,7 +166,7 @@ When all is said and done, this is what a browser fingerprint might look like:
 
 ## How it works {#how-it-works}
 
-There are multiple levels and different approaches sites take to collect browser fingerprints; however, they all have one thing in common: they are using a script written in JavaScript to evaluate the target browser's context and collect information about it (often times also storing it in their database, or in a cookie). These scripts are often obfuscated and difficult to track down and understand, especially if they are anti-bot scripts.
+There are multiple levels and different approaches sites take to collect browser fingerprints; however, they all have one thing in common: they are using a script written in JavaScript to evaluate the target browser's context and collect information about it (oftentimes also storing it in their database, or in a cookie). These scripts are often obfuscated and difficult to track down and understand, especially if they are anti-bot scripts.
 
 There are multiple levels of script obfuscation that are used to make fingerprinting scripts unreadable and hard to find:
 
@@ -181,7 +181,7 @@ There are two main data obfuscation techniques which are widely used:
 1. **String splitting** uses the concatenation of multiple substrings. It is mostly used alongside an `eval()` or `document.write()`.
 2. **Keyword replacement** allows the script to mask the accessed properties. This allows the script to have a random order of the substrings and makes it harder to detect.
 
-Often times, both of these data obfuscation techniques are used together.
+Oftentimes, both of these data obfuscation techniques are used together.
 
 ### Encoding
 
@@ -195,17 +195,17 @@ As mentioned above, many sites obfuscate their fingerprinting scripts to make th
 
 Almost all sites using fingerprinting and tracking scripts try to protect them as much as much as they can. However, it is impossible to make client-side JavaScript immune to reverse engineering. It is only possible to make reverse engineering difficult and unpleasant for the developer. The procedure used to make the code as unreadable as possible is called [obfuscation](https://www.techtarget.com/searchsecurity/definition/obfuscation#:~:text=Obfuscation%20means%20to%20make%20something,code%20is%20one%20obfuscation%20method.).
 
-When you want to dig inside the protection code to determine exactly which data is collected, you will probably have to deobfuscate it. Be aware that this can be a very time-consuming process. Code deobfuscation can take anywhere up to 1-2-days to be at a semi-readable state.
+When you want to dig inside the protection code to determine exactly which data is collected, you will probably have to deobfuscate it. Be aware that this can be a very time-consuming process. Code deobfuscation can take anywhere up to 1-2 days to be in a semi-readable state.
 
 We recommend watching some videos from [Jarrod Overson on YouTube](https://www.youtube.com/channel/UCJbZGfomrHtwpdjrARoMVaA/videos) to learn the tooling necessary to deobfuscate code.
 
 ### Using browser extensions
 
-Because of how common it has become to obfuscate fingerprinting scripts, there are many extensions help identify fingerprinting scripts due to the fact that browser fingerprinting is such a big privacy question. Browser extensions such as [**Don't Fingerprint Me**](https://github.com/freethenation/DFPM) have been created to help detect them. In the extension's window, you can see a report on which functions commonly used for fingerprinting have been called, and which navigator properties have been accessed.
+Because of how common it has become to obfuscate fingerprinting scripts, there are many extensions that help identify fingerprinting scripts due to the fact that browser fingerprinting is such a big privacy question. Browser extensions such as [**Don't Fingerprint Me**](https://github.com/freethenation/DFPM) have been created to help detect them. In the extension's window, you can see a report on which functions commonly used for fingerprinting have been called, and which navigator properties have been accessed.
 
 ![Don't Fingerprint Me extension window](./images/dont-fingerprint-me.png)
 
-This extension provides monitoring of only a few critical attributes, but in order to to deceive anti-scraping protections, the full list is needed. However, the extension does reveal the scripts that collect the fingerprints.
+This extension provides monitoring of only a few critical attributes, but in order to deceive anti-scraping protections, the full list is needed. However, the extension does reveal the scripts that collect the fingerprints.
 
 ## Anti-bot fingerprinting {#anti-bot-fingerprinting}
 

@@ -21,7 +21,7 @@ If you're on macOS, use [this tutorial to install Node.js](https://blog.apify.co
 
 ## Install a text editor {#install-an-editor}
 
-There are many text editors you can choose from for programming. You might already have a preferred one so feel free to use that. Just make sure it has syntax highlighting and support for Node.js. If you don't have any text editor, we suggest starting with VSCode. It's free, very popular, and well maintained. [Download it here](https://code.visualstudio.com/download).
+There are many text editors you can choose from for programming. You might already have a preferred one so feel free to use that. Just make sure it has syntax highlighting and support for Node.js. If you don't have a text editor, we suggest starting with VSCode. It's free, very popular, and well maintained. [Download it here](https://code.visualstudio.com/download).
 
 Once you downloaded and installed it, you can open a folder where we will build your scraper. We recommend starting with a new, empty folder.
 

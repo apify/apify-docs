@@ -114,7 +114,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 
 ## Saving stats with dataset items {#saving-stats-with-dataset-items}
 
-Still in the **OFFERS** handler, we need to add a few extra keys to the items which are pushed to the dataset. Luckily, all of the data required by the task is easily accessible in the context object.
+Still, in the **OFFERS** handler, we need to add a few extra keys to the items which are pushed to the dataset. Luckily, all of the data required by the task is easily accessible in the context object.
 
 ```js
 router.addHandler(labels.OFFERS, async ({ $, request }) => {
@@ -164,4 +164,4 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 
 **Q: What is the difference between the `failedRequestHandler` and `errorHandler`?**
 
-**A:** `failedRequestHandler` runs after a request has failed and reached it's `maxRetries` count. `errorHandler` runs on every failure and retry.
+**A:** `failedRequestHandler` runs after a request has failed and reached its `maxRetries` count. `errorHandler` runs on every failure and retry.

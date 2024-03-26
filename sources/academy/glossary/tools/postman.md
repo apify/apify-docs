@@ -13,7 +13,7 @@ slug: /tools/postman
 
 [Postman](https://www.postman.com/) is a powerful collaboration platform for API development and testing. For scraping use-cases, it's mainly used to test requests and proxies (such as checking the response body of a raw request, without loading any additional resources such as JavaScript or CSS). This tool can do much more than that, but we will not be discussing all of its capabilities here. Postman allows us to easily test requests with cookies, headers, and payloads so that we can be entirely sure what the response looks like for a request URL we plan to eventually use in a scraper.
 
-The desktop app can be downloaded from its [official download page](https://www.postman.com/downloads/), or the web-app can be used with a simple signup - no download required. If this is your first time working with a tool like Postman, we recommend checking out their [Getting Started guide](https://learning.postman.com/docs/getting-started/introduction/).
+The desktop app can be downloaded from its [official download page](https://www.postman.com/downloads/), or the web app can be used with a simple signup - no download required. If this is your first time working with a tool like Postman, we recommend checking out their [Getting Started guide](https://learning.postman.com/docs/getting-started/introduction/).
 
 ## Understanding the interface {#understanding-the-interface}
 
