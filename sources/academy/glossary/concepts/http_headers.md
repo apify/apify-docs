@@ -41,9 +41,9 @@ You could use Chrome DevTools to inspect request headers, and [Insomnia](../tool
 
 ## HTTP/1.1 vs HTTP/2 headers {#http1-vs-http2}
 
-There are some differences between HTTP/1.1 and HTTP/2 headers. We won't cover all the differences in this lesson, but you should overall keep these three in mind:
+HTTP/1.1 and HTTP/2 hedaers have several differences. Here are the three key differences that you should be aware of:
 
-1. There are no status messages in HTTP/2 headers (only status codes).
+1. HTTP/2 headers do not include status messages. They only contain status codes.
 2. Certain headers are no longer used in HTTP/2 (such as **Connection** along with a few others related to it like **Keep-Alive**). In HTTP/2, connection-specific headers are prohibited. While some browsers will simply ignore them, Safari and other Webkit-based browsers will outright reject any response that contains them. Easy to do by accident, and a big problem.
 3. While HTTP/1.1 headers are case-insensitive and could be sent by the browsers with capitalized letters (e.g. **Accept-Encoding**, **Cache-Control**, **User-Agent**), HTTP/2 headers must be lower-cased (e.g. **accept-encoding**, **cache-control**, **user-agent**).
 
