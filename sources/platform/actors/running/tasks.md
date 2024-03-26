@@ -32,11 +32,11 @@ You can set run options such as timeout and [memory](./usage_and_resources.md) i
 
 ### Naming
 
-To make a task easier to identify, you can give it a name, title, and description by clicking its caption on the detail page. A task's name should be at least `3` characters long with `63` characters limit.
+To make a task easier to identify, you can give it a name, title, and description by clicking its caption on the detail page. A task's name should be at least `3` characters long with a limit of `63` characters.
 
 ## Run
 
-Once you've configured your task, you can run it using the **Start** button in the top-right side of the screen.
+Once you've configured your task, you can run it using the **Start** button on the top-right side of the screen.
 
 ![Run an Apify task](./images/tasks/tasks-start-button.png)
 
