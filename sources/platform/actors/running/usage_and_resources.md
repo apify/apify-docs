@@ -62,12 +62,6 @@ A good middle ground is `4096MB`. If you need the results faster, increase the m
 
 Autoscaling only applies to solutions that run multiple tasks (URLs) for at least 30 seconds. If you need to scrape just one URL or use Actors like [Google Sheets](https://apify.com/lukaskrivka/google-sheets) that do just a single isolated job, we recommend you lower the memory.
 
-:::note Actors resource usage
-
-Most Actors in [Apify Store](https://apify.com/store) have some information in their README about how many CUs they consume per certain amount of data scraped.
-
-:::
-
 [//]: # (TODO: It's pretty outdated, we now have platform credits in pricing)
 <!-- vale off -->
 [//]: # (If you read that you can scrape 1000 pages of data for 1 CU and you want to scrape approximately 2 million of them monthly, that means you need 2000 CUs monthly and should [subscribe to the Business plan]&#40;https://console.apify.com/billing-new#/subscription&#41;.)
