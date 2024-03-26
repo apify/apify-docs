@@ -13,6 +13,7 @@ const themeConfig = ({
             hideable: true,
         },
     },
+    smartlook: { projectKey: process.env.SMARTLOOK_PROJECT_KEY },
     navbar: {
         title: 'Apify Docs',
         logo: {
@@ -145,7 +146,7 @@ const themeConfig = ({
         additionalLanguages: ['docker', 'log', 'php'],
     },
     // this needs to be absolute link otherwise it gets resolved wrongly in project docs
-    image: 'https://apify.com/api/og-image/docs-article',
+    image: 'https://apify.com/og-image/docs-article',
     footer: {
         links: [
             {
@@ -255,6 +256,7 @@ const themeConfig = ({
 });
 
 const plugins = [
+    'docusaurus-plugin-smartlook',
     [
         'docusaurus-gtm-plugin',
         {
