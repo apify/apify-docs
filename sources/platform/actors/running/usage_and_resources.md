@@ -17,7 +17,7 @@ slug: /actors/running/usage-and-resources
 
 ![Setting an Actor's memory](./images/usage_and_resources/memory-settings.png)
 
-By assigning an Actor's **Memory** capacity, you also assign it a proportional amount of CPU power. The memory allocation also influences the disk size, which amounts to 2x the allocated memory.
+Assigning an Actor a specific **Memory** capacity, also determines the allocated CPU power and its disk size.
 
 Check out the [Limits](../../limits.md) page for detailed information on Actor memory, CPU limits, disk size and other limits.
 
@@ -91,13 +91,13 @@ Each use case has its own memory requirements. The larger and more complex your 
 
 ### Maximum memory
 
-Apify Actors are most commonly written in [Node.js](https://nodejs.org/en/), which uses a [single process thread](https://betterprogramming.pub/is-node-js-really-single-threaded-7ea59bcc8d64). Unless you use external binaries such as the Chrome browser, Puppeteer, Playwright, or other multi-threaded libraries you will not gain more CPU power from assigning your Actor more than `4096MB` of memory because Node.js cannot use more than 1 core.
+Apify Actors are most commonly written in [Node.js](https://nodejs.org/en/), which uses a [single process thread](https://dev.to/arealesramirez/is-node-js-single-threaded-or-multi-threaded-and-why-ab1). Unless you use external binaries such as the Chrome browser, Puppeteer, Playwright, or other multi-threaded libraries you will not gain more CPU power from assigning your Actor more than `4096MB` of memory because Node.js cannot use more than 1 core.
 
 In other words, giving a [Cheerio-based crawler](https://apify.com/apify/cheerio-scraper) `16384MB` of memory (4 CPU cores) will not improve its performance, because these crawlers cannot use more than 1 CPU core.
 
 :::note Multi-threaded Node.js configuration
 
-It is possible to [use multiple threads in Node.js-based Actor](https://dev.to/reevranj/multiple-threads-in-nodejs-how-and-what-s-new-b23) with some configuration. This can be useful if you need to offload a part of your workload.
+It's possible to [use multiple threads in Node.js-based Actor](https://dev.to/reevranj/multiple-threads-in-nodejs-how-and-what-s-new-b23) with some configuration. This can be useful if you need to offload a part of your workload.
 
 :::
 
@@ -114,11 +114,15 @@ The platform usage can be represented either in raw units (e.g. gigabytes for da
 
 To view the usage of an Actor run, navigate to the **Runs** section and check out the **Usage** column.
 
-<!-- here add screenshot of runs lins with arrow pointing to usage column -->
+<!-- here add screenshot of runs lines with arrow pointing to usage column -->
+
+![Runs usage](./images/usage_and_resources/usage-and-resources-runs-usage.png)
 
  For a more detailed breakdown, click on the specific run you want to examine
 
 <!-- here add screenshot of detailed run usage breakdown -->
+
+![Actors run usage details](./images/usage_and_resources/usage-and-resources-runs-usage-details.png)
 
 :::note Usage billing elements
 
