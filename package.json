@@ -63,7 +63,7 @@
         "@docusaurus/preset-classic": "^2.4.1",
         "@docusaurus/theme-common": "^2.4.1",
         "@docusaurus/theme-mermaid": "^2.4.1",
-        "@giscus/react": "^2.2.8",
+        "@giscus/react": "^3.0.0",
         "clsx": "^2.0.0",
         "form-data": "^4.0.0",
         "postcss-preset-env": "^9.3.0",
