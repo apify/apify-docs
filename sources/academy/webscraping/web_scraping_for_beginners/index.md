@@ -69,6 +69,6 @@ We'll be using the [**Cheerio**](https://www.npmjs.com/package/cheerio) package 
 
 ## Next up {#next}
 
-The course begins with a small bit of theory and moves into some realistic and practical examples of extracting data from the most popular websites on the internet using your browser console. So [let's get to it!](./introduction.md)
+The course begins with a small bit of theory and moves into some realistic and practical examples of extracting data from the most popular websites on the internet using your browser console. [Let's get to it!](./introduction.md)
 
 > If you already have experience with HTML, CSS, and browser DevTools, feel free to skip to the [Basics of crawling](./crawling/index.md) section.
