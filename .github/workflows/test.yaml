@@ -29,6 +29,8 @@ jobs:
                     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             -   run: npm run build
+                env:
+                    SMARTLOOK_PROJECT_KEY: ${{ secrets.SMARTLOOK_PROJECT_KEY }}
 
     lint_content:
         name: Lint markdown content
