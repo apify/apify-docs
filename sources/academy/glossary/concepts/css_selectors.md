@@ -5,13 +5,13 @@ sidebar_position: 8.4
 slug: /concepts/css-selectors
 ---
 
-CSS selectors are patterns used to select [HTML elements](./html_elements.md) on a web page. They are used in combination with CSS styles to change the appearance of web pages, and also in JavaScript to access and manipulate the elements on a web page..
+CSS selectors are patterns used to select [HTML elements](./html_elements.md) on a web page. They are used in combination with CSS styles to change the appearance of web pages, and also in JavaScript to access and manipulate the elements on a web page.
 
 > Querying of CSS selectors with JavaScript is done using [query selector functions](./querying_css_selectors.md).
 
 ## Common types of CSS selectors
 
-There are several types of CSS selectors, some of the most common are:
+There are, several types of CSS selectors, some of the most common are:
 
 ### Element selector
 
