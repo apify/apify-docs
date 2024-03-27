@@ -10,19 +10,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v44.0.0
-        with:
-          files: |
-            **/*.{md,mdx}
-          separator: ","
-
       - uses: errata-ai/vale-action@reviewdog
-        if: steps.changed-files.outputs.any_changed == 'true'
         with:
-          files: ${{ steps.changed-files.outputs.all_changed_files }}
-          separator: ","
+          filter: file
           fail_on_error: true
           vale_flags: "--minAlertLevel=error"
           reporter: github-pr-annotations
