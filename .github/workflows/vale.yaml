@@ -25,4 +25,3 @@ jobs:
           separator: ","
           fail_on_error: true
           vale_flags: "--no-exit --minAlertLevel=error"
-          reporter: github-pr-check
