@@ -14,5 +14,5 @@ jobs:
         with:
           filter_mode: file
           fail_on_error: true
-          vale_flags: "--minAlertLevel=error"
+          vale_flags: "--no-exit --minAlertLevel=error"
           reporter: github-pr-annotations
