@@ -274,6 +274,38 @@ Example payload:
 
 For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2#/reference/key-value-stores).
 
+## Features {#features}
+
+Request queues in Apify offer a set of powerful features designed to support complex web crawling and data scraping operations.
+These features enhance the flexibility, efficiency, and scalability of your projects. All these feature are implemented
+in the Apify tooling like crawlee and Apify SDKs and user can use them without any additional configuration.
+
+### Persistence and retention {#persistence-and-retention}
+
+Request queues are designed with persistence in mind. This means that your requests are retained indefinitely in named request queue and for data retention in unnamed request queues.
+This feature allows to use request queue for incremental crawling, where you can add new URLs to the queue and continue where you left off in the next run.
+Imagine you need to scrape an e-commerce website with thousands of products. Incremental scroll allows you to scrape only new products added since the last run.
+
+TBD Incremental scrape example
+
+### Batch operations {#batch-operations}
+
+To optimize performance and reduce API calls and network latency of adding or removing individual requests, request queues support batch operations.
+This feature allows you to enqueue or retrieve multiple requests in a single operation, significantly improving efficiency,
+especially when dealing with a large volume of URLs. Batch operations streamline process flows, reduce API calls, and minimize latency,
+making your web crawling processes faster and more reliable.
+
+TBD JS/python example/API
+
+### Distributivity {#distributivity}
+
+This design allows for the concurrent processing of requests by multiple Actor runs or server instances,
+making it an ideal solution for large-scale web crawling tasks. Distributivity ensures that scraping jobs can scale horizontally.
+Under the hood, the request queue offers locking mechanisms to prevent multiple runs from processing the same request simultaneously.
+This feature is by default build in the crawlee and users can use it without little additional configuration, see crawlee documentation for more details.
+
+TBD Example of locking mechanism
+
 ## Sharing {#sharing}
 
 You can grant [access rights](../collaboration/index.md) to your request queue through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../collaboration/list_of_permissions.md).
