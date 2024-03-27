@@ -65,7 +65,7 @@ Before we start, let's do a quick recap of the data we chose to scrape:
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/scraping-practice.webp)
 
-We've already scraped number 1 and 2 in the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started)
+We've already scraped numbers 1 and 2 in the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started)
 tutorial, so let's get to the next one on the list: title.
 
 ### [](#title) Title
@@ -170,7 +170,7 @@ the return value of the function will be passed back to the Node.js context.
 
 It might look a little too complex at first glance, but let us walk you through it. We find all the `<time>` elements. Then, we read its `datetime` attribute, because that's where a unix timestamp is stored as a `string`.
 
-But we would much rather see a readable date in our results, not a unix timestamp, so we need to convert it. Unfortunately the `new Date()`
+But we would much rather see a readable date in our results, not a unix timestamp, so we need to convert it. Unfortunately, the `new Date()`
 constructor will not accept a `string`, so we cast the `string` to a `number` using the `Number()` function before actually calling `new Date()`.
 Phew!
 
@@ -348,7 +348,7 @@ to run them concurrently to speed things up.
 
 ### [](#test-run) Test run
 
-As always, try hitting that **Save & Run** button  and visit
+As always, try hitting that **Save & Run** button and visit
 the **Dataset** preview of clean items. You should see a nice table of all the attributes correctly scraped.
 You nailed it!
 
@@ -579,7 +579,7 @@ async function pageFunction(context) {
 ```
 
 That's it! You can now remove the **Max pages per run** limit, **Save & Run** your task and watch the scraper paginate
-through all the actors and then scrape all of their data. After it succeeds, open the **Dataset** tab again click on **Preview**. You should have a table of all the actor's details in front of you. If you do, great job!
+through all the actors and then scrape all of their data. After it succeeds, open the **Dataset** tab again and click on **Preview****. You should have a table of all the actor's details in front of you. If you do, great job!
 You've successfully scraped Apify Store. And if not, no worries, just go through the code examples again,
 it's probably just some typo.
 

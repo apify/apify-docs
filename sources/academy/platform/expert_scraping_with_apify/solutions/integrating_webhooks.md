@@ -11,7 +11,7 @@ slug: /expert-scraping-with-apify/solutions/integrating-webhooks
 
 ---
 
-In this lesson we'll be writing a new actor and integrating it with our beloved Amazon scraping actor. First, we'll navigate to the same directory our **demo-actor** folder lives, and run `apify create filter-actor` _(once again, you can name the actor whatever you want, but for this lesson, we'll be calling the new actor **filter-actor**)_. When prompted for which type of boilerplate to start out with, select **Empty**.
+In this lesson we'll be writing a new actor and integrating it with our beloved Amazon scraping actor. First, we'll navigate to the same directory where our **demo-actor** folder lives, and run `apify create filter-actor` _(once again, you can name the actor whatever you want, but for this lesson, we'll be calling the new actor **filter-actor**)_. When prompted for which type of boilerplate to start out with, select **Empty**.
 
 ![Selecting an empty template to start with](./images/select-empty.jpg)
 
@@ -139,7 +139,7 @@ We can also use our username and the name of the actor like this:
 https://api.apify.com/v2/acts/USERNAME~filter-actor/runs?token=YOUR_TOKEN_HERE
 ```
 
-Whichever one you choose is totally up to preference.
+Whichever one you choose is totally up to your preference.
 
 Next, within the actor, we will click the **Integrations** tab and choose **Webhook**, then fill out the details to look like this:
 
@@ -163,7 +163,7 @@ Additionally, we should be able to see that our **filter-actor** was run, and ha
 
 **Q: How do you allocate more CPU for an actor's run?**
 
-**A:** On the platform, more memory can be allocated in the actor's input configuration, and the default allocated CPU can be changed in the actor's **Settings** tab. When running locally, you can used the **APIFY_MEMORY_MBYTES** environment variable to set allocated CPU. 4GB is equal to 1 CPU core on the Apify platform.
+**A:** On the platform, more memory can be allocated in the actor's input configuration, and the default allocated CPU can be changed in the actor's **Settings** tab. When running locally, you can use the **APIFY_MEMORY_MBYTES**** environment variable to set the allocated CPU. 4GB is equal to 1 CPU core on the Apify platform.
 
 **Q: Within itself, can you get the exact time that an actor was started?**
 
@@ -171,7 +171,7 @@ Additionally, we should be able to see that our **filter-actor** was run, and ha
 
 **Q: What are the types of default storages connected to an actor's run?**
 
-Every actor's run is given a default key-value store and a default dataset. The default key value store by default has the `INPUT` and `OUTPUT` keys. The actor's request queue is also stored.
+Every actor's run is given a default key-value store and a default dataset. The default key-value store by default has the `INPUT` and `OUTPUT` keys. The actor's request queue is also stored.
 
 **Q: Can you change the allocated memory of an actor while it's running?**
 

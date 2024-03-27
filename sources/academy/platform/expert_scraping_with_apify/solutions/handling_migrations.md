@@ -127,7 +127,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 
 ## Persisting state {#persisting-state}
 
-The **persistState** event is automatically fired (by default) every 60 seconds by the Apify SDK while the actor is running, and is also fired when the **migrating** event occurs.
+The **persistState** event is automatically fired (by default) every 60 seconds by the Apify SDK while the actor is running and is also fired when the **migrating** event occurs.
 
 In order to persist our ASIN tracker object, let's use the `Actor.on` function to listen for the **persistState** event and store it in the key-value store each time it is emitted.
 
@@ -223,13 +223,13 @@ await tracker.initialize();
 // ...
 ```
 
-That's everything! Now, even if the actor migrates (or is gracefully aborted then resurrected), this `state` object will always be persisted.
+That's everything! Now, even if the actor migrates (or is gracefully aborted and then resurrected), this `state` object will always be persisted.
 
 ## Quiz answers 📝 {#quiz-answers}
 
-**Q: Actors have an option the Settings tab to Restart on error. Would you use this feature for regular actors? When would you use this feature?**
+**Q: Actors have an option in the Settings tab to Restart on error. Would you use this feature for regular actors? When would you use this feature?**
 
-**A:** It's not best to use this option by default. If it fails, there must be reason, which would need to be thought through first - meaning that the edge case of failing should be handled when resurrecting the actor. State should be persisted beforehand.
+**A:** It's not best to use this option by default. If it fails, there must be a reason, which would need to be thought through first - meaning that the edge case of failing should be handled when resurrecting the actor. The state should be persisted beforehand.
 
 **Q: Migrations happen randomly, but by [aborting gracefully](/platform/actors/running#aborting-runs), you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted actor's run?**
 
@@ -249,6 +249,6 @@ That's everything! Now, even if the actor migrates (or is gracefully aborted the
 
 ## Wrap up {#wrap-up}
 
-In this activity, we learned how to persist custom values on an interval as well as after actor migrations by using the `persistState` event and the key-value store. With this knowledge, you can safely increase your actor's performance by storing data in variables then pushing them to the dataset periodically/at the end of the actor's run as opposed to pushing data immediately after it's been collected.
+In this activity, we learned how to persist custom values on an interval as well as after actor migrations by using the `persistState` event and the key-value store. With this knowledge, you can safely increase your actor's performance by storing data in variables and then pushing them to the dataset periodically/at the end of the actor's run as opposed to pushing data immediately after it's been collected.
 
 One important thing to note is that this workflow can be used to replace the usage of `userData` to pass data between requests, as it allows for the creation of a "global store" which all requests have access to at any time.

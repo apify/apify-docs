@@ -28,7 +28,7 @@ myValue = 55;
 console.log(returnValueAsString(myValue));
 ```
 
-This is fine, but we had to write `string | number | boolean` twice, and if this were a large project, we'd likely find ourselves writing it even more times. The solution for this is to define the type elsewhere, giving it a name by which it can be identified, then to use that name within the type annotations for `returnValueAsString` and `myValue`.
+This is fine, but we had to write `string | number | boolean` twice, and if this were a large project, we'd likely find ourselves writing it even more times. The solution for this is to define the type elsewhere, giving it a name by which it can be identified, and then to use that name within the type annotations for `returnValueAsString` and `myValue`.
 
 ## Creating types {#creating-types}
 
@@ -72,7 +72,7 @@ console.log(returnValueAsString(myValue));
 
 ## Function types {#function-types}
 
-Before we learn about how to write function types, let's learn about a problem they can solve. We have a simple function called `addAll` which takes in array of numbers, adds them all up, then returns the result.
+Before we learn about how to write function types, let's learn about a problem they can solve. We have a simple function called `addAll` which takes in array of numbers, adds them all up, and then returns the result.
 
 ```ts
 const addAll = (nums: number[]) => {
@@ -125,7 +125,7 @@ What we're left with is a massive function declaration that is very verbose. Thi
 
 ### Creating & using function types {#creating-and-using-function-types}
 
-Function types are declared with the `type` keyword (or directly within a type annotation), and are written in a similar fashion to regular arrow functions. All parameters and their types go inside of the parentheses (`()`), and the return type of the function goes after the arrow (`=>`).
+Function types are declared with the `type` keyword (or directly within a type annotation), and are written in a similar fashion to regular arrow functions. All parameters and their types go inside the parentheses (`()`), and the return type of the function goes after the arrow (`=>`).
 
 ```ts
 type AddFunction = (numbers: number[], toString?: boolean, printResult?: boolean, printWithMessage?: string) => number | string | void;

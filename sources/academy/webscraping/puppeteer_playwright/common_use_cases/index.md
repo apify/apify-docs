@@ -1,13 +1,13 @@
 ---
 title: Common use cases
-description: Learn about some of the most common uses cases of Playwright and Puppeteer, and how to handle these use cases when you run into them.
+description: Learn about some of the most common use cases of Playwright and Puppeteer, and how to handle these use cases when you run into them.
 sidebar_position: 7.7
 slug: /puppeteer-playwright/common-use-cases
 ---
 
 # Common use cases {#common-use-cases}
 
-**Learn about some of the most common uses cases of Playwright and Puppeteer, and how to handle these use cases when you run into them.**
+**Learn about some of the most common use cases of Playwright and Puppeteer, and how to handle these use cases when you run into them.**
 
 ---
 

@@ -33,7 +33,7 @@ The function has these parameters:
 
 `submitButtonSelector` - selector for a button for submit form e.g. '#nextPageButton'
 
-`async` - if true, request returns only params not HTML content
+`async` - if true, request returns only params, not HTML content
 
 Then you can use it in your Page function as follows:
 

@@ -17,7 +17,7 @@ Work on your Actors does not end when you publish it. Now, it's time to promote 
 
 Think of it this way: your content, URLs, keywords, titles, links, etc. determine the kind of search queries your page is shown in. The quality of the content determines how high it ranks in those results.
 
-For example, if you over-optimize your URLs and title to rank higher in results for high-volume queries, but most people who visit your page immediately leave, Google notices, penalizes you, and your pages sinks in the results.
+For example, if you over-optimize your URLs and title to rank higher in results for high-volume queries, but most people who visit your page immediately leave, Google notices, penalizes you, and your pages sink in the results.
 
 On the other hand, if you precisely address a niche segment of users who will benefit from your Actor and people who open it use your Actor, then Google will love it and push it up in results. Read more about the basics of [content marketing](https://techcrunch.com/2019/04/13/how-do-startups-actually-get-their-content-marketing-to-work/).
 
@@ -29,7 +29,7 @@ There are several freemium tools that make it easy to identify the right phrases
 - [neilpatel.com/ubersuggest](https://neilpatel.com/ubersuggest/)
 - [keywordtool.io](https://keywordtool.io/)
 
-Enter the desired phrase or topic (e.g. Facebook scraper, Web scraping, Facebook API...) and set the **language** to **English**. Ideally, set the **location** to **United States**. After submitting the form, you will see a list of relevant phrases for your query with the information about **search volume** (how many people are searching for this) and **competition** (number of results).
+Enter the desired phrase or topic (e.g. Facebook scraper, Web scraping, Facebook API...) and set the **language** to **English**. Ideally, set the **location** to **United States**. After submitting the form, you will see a list of relevant phrases for your query with information about **search** volume** (how many people are searching for this) and **competition** (number of results).
 
 The best combinations are those with **high search volume** and **low competition**. Try to find keywords (or topics) relevant to your Actor based on these criteria.
 
@@ -57,7 +57,7 @@ However, the name should also be readable and clear enough, so that people using
 
 ### Title
 
-The Actor title provides a human-readable name. The title is the most important real estate from SEO standpoint. It should exactly match the most likely search query that potential users of your Actor will use.
+The Actor title provides a human-readable name. The title is the most important real estate from an SEO standpoint. It should exactly match the most likely search query that potential users of your Actor will use.
 
 At the same time, it should give your Actor a clear name for people who will use it every day. So if you’re working on an "Amazon crawler" or a "Google Places API", use the following formats for your Actor's name:
 
@@ -97,7 +97,7 @@ If you’ve created other Actors, it’s completely fine to pop in a promo for t
 
 ## Promotion
 
-Now that you’ve created a cool new Actor, let others see it! Share it on your personal Twitter, Facebook, Reddit or any other social platform. Always provide a link with the Actor's name. Use #hashtags on Twitter to catch attention. Provide a small “why is this good” segment when sharing inside any group discussions. We will promote your Actor sooner or later, but more links means more attention from Google from the beginning.
+Now that you’ve created a cool new Actor, let others see it! Share it on your personal Twitter, Facebook, Reddit or any other social platform. Always provide a link with the Actor's name. Use #hashtags on Twitter to catch attention. Provide a small “why is this good” segment when sharing inside any group discussions. We will promote your Actor sooner or later, but more links mean more attention from Google from the beginning.
 
 ### External promotion
 
@@ -121,7 +121,7 @@ Now that you’ve created a cool new Actor, let others see it! Share it on your 
 - Always use the most relevant URL as the backlink's landing page.
 - Use other relevant websites for promotion. For example, [news.ycombinator.com](https://news.ycombinator.com/), [producthunt.com](https://www.producthunt.com/), [indiehackers.com](https://www.indiehackers.com/), and [dev.to](https://dev.to/)
 - While promoting the Actor on forums like Reddit or Quora, try not to post strictly promotional answers. If you help someone with their problem, all readers will be more willing to upvote your posts or check the Actor.
-- If it's possible to upvote your posts, do it and get others help you.
+- If it's possible to upvote your posts, do it and get others to help you.
 
 ## Next up {#next}
 

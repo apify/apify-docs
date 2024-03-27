@@ -31,6 +31,6 @@ use
 COPY --chown=myuser:myuser . ./
 ```
 
-where `myuser`  is the user and group defined by the `USER`  instruction in the base Docker image. To learn more, see [Dockerfile documentation](https://docs.docker.com/engine/reference/builder/#copy).
+where `myuser` is the user and group defined by the `USER`  instruction in the base Docker image. To learn more, see [Dockerfile documentation](https://docs.docker.com/engine/reference/builder/#copy).
 
 Hope this helps!

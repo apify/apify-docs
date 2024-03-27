@@ -41,7 +41,7 @@ const bodyHTML = await context.page.evaluate(() => {
 });
 ```
 
-The `context.page.evaluate()` call executes the provided function in the browser environment and passes back the return value back to Node.js environment. There is one very important caveat though! Since we're in different environments, we cannot simply use our existing variables, such as `context` inside of the evaluated function, because they are not available there. Different environments, different variables.
+The `context.page.evaluate()` call executes the provided function in the browser environment and passes back the return value back to the Node.js environment. There is one very important caveat though! Since we're in different environments, we cannot simply use our existing variables, such as `context` inside of the evaluated function, because they are not available there. Different environments, different variables.
 
 _See the_ `page.evaluate()` _[documentation](https://pptr.dev/#?product=Puppeteer&show=api-pageevaluatepagefunction-args) for info on how to pass variables from Node.js to browser._
 
@@ -67,7 +67,7 @@ You can do a lot of DOM manipulation directly from Node.js / Puppeteer, but when
 
 In Web Scraper, your page function literally runs within a page so it makes sense that when this page gets destroyed, the page function throws an error. Sadly, navigation (going to a different URL) destroys pages, so whenever you click a button in Web Scraper that forces the browser to navigate somewhere else, you end up with an error. In Puppeteer Scraper, this is not an issue, because the `page` object gets updated with new data seamlessly.
 
-Imagine that you currently have `https://example.com/page-1` open and there's a button on the page that will take you to `https://example.com/page-2`.Or that you're on `https://google.com` and you  fill in the search bar and click on the search button.
+Imagine that you currently have `https://example.com/page-1` open and there's a button on the page that will take you to `https://example.com/page-2`.Or that you're on `https://google.com` and you fill in the search bar and click on the search button.
 
 Consider the following code inside Web Scraper page function:
 
@@ -118,7 +118,7 @@ A large number of websites use either form submissions or JavaScript redirects f
 
 If it seems complicated, don't worry. We've abstracted all the complexity away into a simple `Clickable elements selector` input option. When left empty, none of the said clicking and intercepting happens, but once you choose a selector, Puppeteer Scraper will automatically click all the selected elements, watch for page navigations and enqueue them into the `RequestQueue`.
 
-_The_ `Clickable elements selector` _will also work on regular non-JavaScript links, however, its significantly slower than using the plain_ `Link selector`_. Unless you know you need it, use the_ `Link selector` _for best performance._
+_The_ `Clickable elements selector` _will also work on regular non-JavaScript links, however, it is significantly slower than using the plain_ `Link selector`_. Unless you know you need it, use the_ `Link selector` _for best performance._
 
 ## Word of caution
 

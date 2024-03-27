@@ -10,13 +10,13 @@ slug: /switching-to-typescript
 
 > In this course, learn what TypeScript is, why you should use it instead of vanilla JavaScript, and how to start using it in your own projects.
 
-As the world of JavaScript moves forward, [TypeScript](https://www.typescriptlang.org/) continues to become more popular. More companies than ever before are using TypeScript in their codebases, and are heavily preferring it over vanilla JavaScript. But why? What is TypeScript, and why is is so great for developers?
+As the world of JavaScript moves forward, [TypeScript](https://www.typescriptlang.org/) continues to become more popular. More companies than ever before are using TypeScript in their codebases, and are heavily preferring it over vanilla JavaScript. But why? What is TypeScript, and why it is so great for developers?
 
 ![TypeScript logo](./images/typescript-logo.webp)
 
 ## What is TypeScript? {#what-is-typescript}
 
-If you're familiar with the fundamentals of any programming language (JavaScript included), then you're familiar with the concept of **types**. String, boolean, array, object, number - these are all types. What TypeScript does is bring [type safety](https://en.wikipedia.org/wiki/Type_safety) to JavaScript, which is normally a [dynamically typed](https://developer.mozilla.org/en-US/docs/Glossary/Dynamic_typing) and [interpreted](https://www.geeksforgeeks.org/difference-between-compiled-and-interpreted-language/) programming language. This means that if you have declare a variable like this: `const foo = 'bar'`, then later try to access the non-existent property of `foo.baz`, you'll only know about the error once it happens during runtime.
+If you're familiar with the fundamentals of any programming language (JavaScript included), then you're familiar with the concept of **types**. String, boolean, array, object, number - these are all types. What TypeScript does is bring [type safety](https://en.wikipedia.org/wiki/Type_safety) to JavaScript, which is normally a [dynamically typed](https://developer.mozilla.org/en-US/docs/Glossary/Dynamic_typing) and [interpreted](https://www.geeksforgeeks.org/difference-between-compiled-and-interpreted-language/) programming language. This means that if you have declared a variable like this: `const foo = 'bar'`, then later try to access the non-existent property of `foo.baz`, you'll only know about the error once it happens during runtime.
 
 To sum everything said up above, here's a code example written in JavaScript that has a couple of problems with it:
 
@@ -43,7 +43,7 @@ With TypeScript, these types of issues stick out like a sore thumb, and dependin
 
 ![TS Error 2345](./images/typescript-error.png)
 
-This means that when using TS (a popular acronym for "TypeScript") on a large project, you'll run into much less runtime errors and catch the majority of them during the development process.
+This means that when using TS (a popular acronym for "TypeScript") on a large project, you'll run into much fewer runtime errors and catch the majority of them during the development process.
 
 ## What are the advantages of using TypeScript? {#advantages-of-typescript}
 

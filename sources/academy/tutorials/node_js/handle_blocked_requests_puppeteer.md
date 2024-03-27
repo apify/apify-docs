@@ -31,11 +31,11 @@ const crawler = new Apify.BasicCrawler({
 });
 ```
 
-Each time handleRequestFunction is executed in this example, requestPromise will send a request through the least used proxy for that target domain. This way you will not easily burn you through your proxies.
+Each time handleRequestFunction is executed in this example, requestPromise will send a request through the least used proxy for that target domain. This way you will not easily burn through your proxies.
 
 # Puppeteer Crawler
 
-With [PuppeteerCrawler](/sdk/js/docs/api/puppeteer-crawler) the situation is little more complicated. That's because you have to restart the browser to change the proxy the browser is using. By default, PuppeteerCrawler restarts the browser every 100 requests, which can lead to a number of requests being wasted because the IP address the browser is using is already blocked by the website.
+With [PuppeteerCrawler](/sdk/js/docs/api/puppeteer-crawler) the situation is a little more complicated. That's because you have to restart the browser to change the proxy the browser is using. By default, PuppeteerCrawler restarts the browser every 100 requests, which can lead to a number of requests being wasted because the IP address the browser is using is already blocked by the website.
 
 The straightforward solution would be to set the 'retireInstanceAfterRequestCount' option to 1. PuppeteerCrawler would then rotate the proxies in the same way as BasicCrawler. While this approach could sometimes be useful for the toughest websites, the price you pay is in performance. Restarting the browser is an expensive operation.
 

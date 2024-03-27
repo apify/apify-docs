@@ -60,7 +60,7 @@ Don't be shy to add comments to your code! Even when using descriptive function 
 
 ## Logging {#logging}
 
-Logging helps you understand exact what your scraper is doing. Generally, having more logs is better than having less. Especially make sure to log your `catch` blocks - no error should pass unseen unless there is a good reason.
+Logging helps you understand exactly what your scraper is doing. Generally, having more logs is better than having fewer. Especially make sure to log your `catch` blocks - no error should pass unseen unless there is a good reason.
 
 For scrapers that will run longer than usual, keep track of some useful stats (such as **itemsScraped** or **errorsHit**) and log them to the console on an interval.
 
@@ -126,6 +126,6 @@ This really depends on your use case though. If you want 100% clean data, you mi
 
 Wow, that's a whole lot of things to abide by! How will you remember all of them? Well, to simplify everything, just try to follow these three points:
 
-1. Describe your code as you write it with good naming, constants, comments. It **should read like a book**.
+1. Describe your code as you write it with good naming, constants, and comments. It **should read like a book**.
 2. Add log messages at points throughout your code so that when it's running, you (and everyone else) know what's going on.
 3. Handle errors appropriately. Log the error and either retry, or continue on. Only throw if the error will be caught or if the error is absolutely detrimental to the scraper's run.

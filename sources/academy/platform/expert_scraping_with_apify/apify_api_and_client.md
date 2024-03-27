@@ -24,8 +24,8 @@ There are two main ways to programmatically interact with the Apify platform: by
 
 ## Knowledge check 📝 {#quiz}
 
-1. What is the relationship between the Apify API and Apify client? Are there any significant differences?
-2. How do you pass input when running actor or task via API?
+1. What is the relationship between the Apify API and the Apify client? Are there any significant differences?
+2. How do you pass input when running an actor or task via API?
 3. Do you need to install the `apify-client` NPM package when already using the `apify` package?
 
 ## Our task

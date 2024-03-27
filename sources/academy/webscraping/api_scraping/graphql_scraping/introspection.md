@@ -1,23 +1,25 @@
 ---
 title: Introspection
-description: Understand what introspection is, and how it can help you understand a GraphQL API to take advantage the features it has to offer before writing any code.
+description: Understand what introspection is, and how it can help you understand a GraphQL API to take advantage of the features it has to offer before writing any code.
 sidebar_position: 2
 slug: /api-scraping/graphql-scraping/introspection
 ---
 
 # Introspection {#introspection}
 
-**Understand what introspection is, and how it can help you understand a GraphQL API to take advantage the features it has to offer before writing any code.**
+**Understand what introspection is, and how it can help you understand a GraphQL API to take advantage of the features it has to offer before writing any code.**
 
 ---
 
 [Introspection](https://graphql.org/learn/introspection/) is when you make a query to the target GraphQL API requesting information about its schema. When done properly, this can provide a whole lot of information about the API and the different **queries** and **mutations** it supports.
 
-Just like when working with regular RESTful APIs in the [**General API scraping**](../general_api_scraping/locating_and_learning.md) section, it's important to learn a bit about the different available features of the GraphQL API (or at least of the the query/mutation) you are scraping before actually writing any code.
+Just like when working with regular RESTful APIs in the [**General API scraping**](../general_api_scraping/locating_and_learning.md) section, it's important to learn a bit about the different available features of the GraphQL API (or at least of the query/mutation) you are scraping before actually writing any code.
 
 Not only does becoming comfortable with and understanding the ins and outs of using the API make the development process easier, but it can also sometimes expose features which will return data you'd otherwise be scraping from a different location.
 
 ## Making the query {#making-the-query}
+
+! Cheddar website was changed and the below example no longer works there. Nonetheless, the general approach is still viable on some websites even though introspection is disabled on most.
 
 In order to perform introspection on our [target website](https://cheddar.com), we just need to make a request to their GraphQL API with this introspection query using [Insomnia](../../../glossary/tools/insomnia.md) or another HTTP client that supports GraphQL:
 
@@ -201,4 +203,4 @@ In these cases, it is still possible to get some information about the API when 
 
 ## Next up {#next}
 
-[Next lesson](./custom_queries.md)'s code-along project will walk you through how to  construct a custom GraphQL query for scraping purposes, how to accept input into it, and how to retrieve and output the data.
+[Next lesson](./custom_queries.md)'s code-along project will walk you through how to construct a custom GraphQL query for scraping purposes, how to accept input into it, and how to retrieve and output the data.
