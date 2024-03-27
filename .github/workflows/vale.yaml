@@ -1,5 +1,4 @@
-name: Vale
-
+name: reviewdog
 on: [pull_request]
 
 jobs:
@@ -25,4 +24,5 @@ jobs:
           files: ${{ steps.changed-files.outputs.all_changed_files }}
           separator: ","
           fail_on_error: true
+          level: error
           reporter: github-pr-check
