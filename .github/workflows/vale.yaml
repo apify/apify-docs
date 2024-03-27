@@ -21,6 +21,8 @@ jobs:
       - uses: errata-ai/vale-action@reviewdog
         if: steps.changed-files.outputs.any_changed == 'true'
         with:
+          files: ${{ steps.changed-files.outputs.all_changed_files }}
+          separator: ","
           filter_mode: file
           fail_on_error: true
           vale_flags: "--no-exit --minAlertLevel=error"
