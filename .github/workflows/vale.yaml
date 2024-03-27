@@ -12,7 +12,7 @@ jobs:
 
       - uses: errata-ai/vale-action@reviewdog
         with:
-          filter: file
+          filter_mode: file
           fail_on_error: true
           vale_flags: "--minAlertLevel=error"
           reporter: github-pr-annotations
