@@ -59,11 +59,11 @@ Notice that in the Playwright example, we are using a different selector than in
 
 > If you're not already familiar with CSS selectors and how to find them, we recommend referring to [this lesson](../../web_scraping_for_beginners/data_extraction/using_devtools.md) in the **Web scraping for beginners** course.
 
-Then, we can type some text into an input field with `page.type()`; passing a CSS selector as the first, and the string to input as the second parameter:
+Then, we can type some text into a textarea field with `page.type()`; passing a CSS selector as the first, and the string to textarea as the second parameter (Note that "Search" might differ depending on the default language for Google):
 
 ```js
 // Type the query into the search box
-await page.type('input[title="Search"]', 'hello world');
+await page.type('textarea[title="Search"]', 'hello world');
 ```
 
 Finally, we can press a single key by accessing the `keyboard` property of `page` and calling the `press()` function on it:
@@ -91,7 +91,7 @@ await page.goto('https://google.com/');
 await page.click('button:has-text("I agree")');
 
 // Type the query into the search box
-await page.type('input[title="Search"]', 'hello world');
+await page.type('textarea[title="Search"]', 'hello world');
 
 // Press enter
 await page.keyboard.press('Enter');
@@ -116,7 +116,7 @@ await page.goto('https://google.com/');
 await page.click('button + button');
 
 // Type the query into the search box
-await page.type('input[title="Search"]', 'hello world');
+await page.type('textarea[title="Search"]', 'hello world');
 
 // Press enter
 await page.keyboard.press('Enter');
@@ -148,7 +148,7 @@ await page.goto('https://google.com/');
 
 await page.click('button:has-text("I agree")');
 
-await page.type('input[title="Search"]', 'hello world');
+await page.type('textarea[title="Search"]', 'hello world');
 
 await page.keyboard.press('Enter');
 
@@ -174,7 +174,7 @@ await page.goto('https://google.com/');
 
 await page.click('button + button');
 
-await page.type('input[title="Search"]', 'hello world');
+await page.type('textarea[title="Search"]', 'hello world');
 
 await page.keyboard.press('Enter');
 
