@@ -102,7 +102,7 @@ await crawler.run();
 log.info('Crawl finished.');
 ```
 
-One of the main reasons we **modularize** our code is to prevent massive and difficult to read files by separating concerns into separate files. In our **main.js** file, we're  handling the initialization, configuration, and running of our crawler. In **routes.js**, we determine how the crawler should handle different routes, and in **consts.js** we define non-changing values that will be used throughout the project.
+One of the main reasons we **modularize** our code is to prevent massive and difficult to read files by separating concerns into separate files. In our **main.js** file, we're handling the initialization, configuration, and running of our crawler. In **routes.js**, we determine how the crawler should handle different routes, and in **consts.js** we define non-changing values that will be used throughout the project.
 
 Organized code makes everyone happy, including you - the one developing the scraper! Spaghetti is super awesome, [but not when it comes to programming](https://www.urbandictionary.com/define.php?term=spaghetti+code) 🍝
 

@@ -31,7 +31,7 @@ Depending on how you arrived at this tutorial, you may already have your first t
 
 ### [](#running-a-task) Running a task
 
-This takes you to the **Input and options** tab of the task configuration. Before we delve into the details, let's just see how the example works. There are already some pre-configured input values. It says that the task should visit **<https://apify.com>** and all its subpages, such as **<https://apify.com/contact>** and scrape some data using the provided `pageFunction`, specifically the `<title>` of the page and its URL.
+This takes you to the **Input and options** tab of the task configuration. Before we delve into the details, let's just see how the example works. You can see that there are already some pre-configured input values. It says that the task should visit **<https://apify.com>** and all its subpages, such as **<https://apify.com/contact>** and scrape some data using the provided `pageFunction`, specifically the `<title>` of the page and its URL.
 
 Scroll down to the **Performance and limits** section and set the **Max pages per run** option to **10**. This tells your task to finish after 10 pages have been visited. We don't need to crawl the whole domain just to see that the actor works.
 
@@ -77,7 +77,7 @@ You can find all the task runs and their detail pages here. Every time you start
 
 ### [](#webhooks) Webhooks
 
-Webhooks are a feature that help keep you aware of what's happening with your tasks. You can set them up to inform you when a task starts, finishes, fails and so on, or you can even use them to run more tasks, depending on the outcome of the original one. [See webhooks documentation](/platform/integrations/webhooks).
+Webhooks are a feature that help keep you aware of what's happening with your tasks. You can set them up to inform you when a task starts, finishes, fails etc., or you can even use them to run more tasks, depending on the outcome of the original one. [See webhooks documentation](/platform/integrations/webhooks).
 
 ### [](#readme) Information
 
@@ -91,7 +91,7 @@ The API tab gives you a quick overview of all the available API calls in case yo
 
 ## [](#scraping-theory) Scraping theory
 
-Since this is a tutorial, we'll be scraping our own website. [Apify Store](https://apify.com/store) is great candidate for some scraping practice. It's a page that uses modern web technologies and displays a lot of different items in various categories, just like an online store, a typical scraping target, would.
+Since this is a tutorial, we'll be scraping our own website. [Apify Store](https://apify.com/store) is a great candidate for some scraping practice. It's a page that uses modern web technologies and displays a lot of different items in various categories, just like an online store, a typical scraping target, would.
 
 ### [](#the-goal) The goal
 
@@ -154,7 +154,7 @@ In the structures, only the `OWNER` and `NAME` change. We can leverage this in a
 
 **Pseudo URL**s are really just URLs with some variable parts in them. Those variable parts are represented by [regular expressions](https://regexone.com/) enclosed in brackets `[]`.
 
-So, working with our actor details example, we could produce a **Pseudo URL** like this:
+Working with our actor details example, we could produce a **Pseudo URL** like this:
 
 ```text
 https://apify.com/[.+]/[.+]
@@ -339,9 +339,9 @@ Up until now, everything has been the same for all the Apify scrapers. Whether y
 Puppeteer Scraper or Cheerio Scraper, what you've learned now will always be the same.
 This is great if you ever need to switch scrapers, because there's no need to learn everything from scratch.
 
-There are differences in the code we use in the `pageFunction` though. Often subtle, sometimes large.
+Differences can be found in the code we use in the `pageFunction`. Often subtle, sometimes large.
 In the next part of the tutorial, we'll focus on the individual scrapers' specific implementation details.
-So, it's time to choose sides. But don't worry, at Apify, no side is the dark side.
+It's time to choose sides. But don't worry, at Apify, no side is the dark side.
 
 - [Web Scraper tutorial](/academy/apify-scrapers/web-scraper)
 - [Cheerio Scraper tutorial](/academy/apify-scrapers/cheerio-scraper)

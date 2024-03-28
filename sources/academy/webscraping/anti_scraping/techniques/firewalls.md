@@ -22,7 +22,7 @@ One of the most common WAFs one can come across is the one from [Cloudflare](htt
 WAPs work on a similar premise as regular firewalls. Web admins define the rules, and the firewall executes them. As an example of how the WAF can work, we will take a look at Cloudflare's solution:
 
 1. The visitor sends a request to the webpage.
-2. Request is intercepted by the firewall.
+2. The request is intercepted by the firewall.
 3. The firewall decides if presenting a challenge (captcha) is necessary. If the user already solved a captcha in the past or nothing is suspicious, it will immediately forward the request to the application's server.
 4. A captcha is presented which must be solved. Once it is solved, a [cookie](../../../glossary/concepts/http_cookies.md) is stored in the visitor's browser.
 5. The request is forwarded to the application's server.

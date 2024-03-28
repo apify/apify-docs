@@ -24,27 +24,26 @@ This function takes the parameters page (an instance of a puppeteer page) and ke
 
 Because this is so common use-case Apify SDK has a utility function called [saveSnapshot](/sdk/js/docs/api/puppeteer#puppeteersavesnapshot) that does exactly this and a little bit more:
 
-- You can choose a quality of your screenshots (high-quality images take more size)
+- You can choose the quality of your screenshots (high-quality images take more size)
 
-- You can also save HTML of the page
+- You can also save the HTML of the page
 
-A simple example of usage function in an Apify actor:
+A simple example in an Apify actor:
 
 ```js
-const Apify = require('apify');
+import { Actor } from 'apify';
+import { puppeteerUtils, launchPuppeteer } from 'crawlee';
 
-const { saveSnapshot } = Apify.utils.puppeteer;
-
-Apify.main(async () => {
-    const input = await Apify.getValue('INPUT');
+Actor.main(async () => {
+    const input = await Actor.getValue('INPUT');
 
     console.log('Launching Puppeteer...');
-    const browser = await Apify.launchPuppeteer();
+    const browser = await launchPuppeteer();
 
     const page = await browser.newPage();
     await page.goto(input.url);
 
-    await saveSnapshot(page, { key: 'test-screen' });
+    await puppeteerUtils.saveSnapshot(page, { key: 'test-screen' });
 
     console.log('Closing Puppeteer...');
     await browser.close();

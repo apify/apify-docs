@@ -234,7 +234,7 @@ Once your server receives this request from the webhook, you know that the event
 
 What if you don't have a server, and the run you'd like to do is much too long to use a synchronous call? In cases like these, periodic **polling** of the run's status is the solution.
 
-When we run the actor with the [usual API call](#run-an-actor-or-task) shown above, we will be responded back with the **run info** object. From this JSON object, we can then extract the ID of the actor run that we just started from the `id` field. Then, we can set an interval that will poll the Apify API (let's say every 5 seconds) by calling the [**Get run**](https://apify.com/docs/api/v2#/reference/actors/run-object/get-run) endpoint to retrieve the run's status.
+When we run the actor with the [usual API call](#run-an-actor-or-task) shown above, we will back a response with the **run info** object. From this JSON object, we can then extract the ID of the actor run that we just started from the `id` field. Then, we can set an interval that will poll the Apify API (let's say every 5 seconds) by calling the [**Get run**](https://apify.com/docs/api/v2#/reference/actors/run-object/get-run) endpoint to retrieve the run's status.
 
 Simply replace the `RUN_ID` in the following URL with the ID you extracted earlier:
 

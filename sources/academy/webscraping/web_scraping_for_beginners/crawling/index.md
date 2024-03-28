@@ -27,7 +27,7 @@ At any point, we can extract URLs, data, or both. Crawling can be separate from 
 1. Visit the start URL.
 2. Extract new URLs (and data) and save them.
 3. Visit one of the new-found URLs and save data and/or more URLs from them.
-4. Repeat 2 and 3 until you have everything you needed.
+4. Repeat 2 and 3 until you have everything you need.
 
 ## Next up {#next}
 

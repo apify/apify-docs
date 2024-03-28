@@ -11,11 +11,11 @@ slug: /api-scraping/general-api-scraping/locating-and-learning
 
 ---
 
-In order to retrieve a website's API endpoints, as well as other data about them, the **Network** tab within Chrome's (or another browser's) DevTools can be used. This tab allows you to see the all of the various network requests being made, and even allows you to filter them based on request type, response type, or by a keyword.
+In order to retrieve a website's API endpoints, as well as other data about them, the **Network** tab within Chrome's (or another browser's) DevTools can be used. This tab allows you to see all of the various network requests being made, and even allows you to filter them based on request type, response type, or by a keyword.
 
 On our target page, we'll open up the Network tab, and filter by request type of `Fetch/XHR`, as opposed to the default of `All`. Next, we'll do some action on the page which causes the request for the target data to be sent, which will enable us to view the request in DevTools. The types of actions that need to be done can vary depending on the website, the type of page, and the type of data being returned. Sometimes, reloading the page is enough, while other times, a button must be clicked, or the page must be scrolled. For our example use case, reloading the page is sufficient.
 
-_Here's what we can see see in the Network tab after reloading the page:_
+_Here's what we can see in the Network tab after reloading the page:_
 
 ![Network tab results after completing an action on the page which results in the API being called](./images/results-in-network-tab.png)
 

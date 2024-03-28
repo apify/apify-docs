@@ -20,12 +20,14 @@ If you are using basic methods of page objects like `page.evaluate()`, you are a
 As a simple demonstration, we'll scrape the Twitter widget iFrame from [IMDB](https://www.imdb.com/).
 
 ```js
+import puppeteer from 'puppeteer';
+
 const browser = await puppeteer.launch();
 
 const page = await browser.newPage();
 
 await page.goto('https://www.imdb.com');
-await page.waitFor(5000); // we need to wait for Twitter widget to load
+await page.waitForTimeout(5000); // we need to wait for Twitter widget to load
 
 let twitterFrame; // this will be populated later by our identified frame
 

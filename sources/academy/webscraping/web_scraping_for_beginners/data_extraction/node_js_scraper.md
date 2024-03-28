@@ -1,13 +1,13 @@
 ---
 title: Node.js scraper - I
-description: Learn how to use JavaScript and Node.js to create a web scraper, plus take advantage of the cheerio and got-scraping libraries to make your job easier.
+description: Learn how to use JavaScript and Node.js to create a web scraper, plus take advantage of the Cheerio and Got-scraping libraries to make your job easier.
 sidebar_position: 6
 slug: /web-scraping-for-beginners/data-extraction/node-js-scraper
 ---
 
 # First Node.js scraper {#first-scraper}
 
-**Learn how to use JavaScript and Node.js to create a web scraper, plus take advantage of the cheerio and got-scraping libraries to make your job easier.**
+**Learn how to use JavaScript and Node.js to create a web scraper, plus take advantage of the Cheerio and Got-scraping libraries to make your job easier.**
 
 ---
 
@@ -30,13 +30,13 @@ const html = response.body;
 console.log(html);
 ```
 
-Now run the script using the `node main.js` command from previous lesson. After a brief moment, you should see the page's HTML printed to your terminal.
+Now run the script using the `node main.js` command from the previous lesson. After a brief moment, you should see the page's HTML printed to your terminal.
 
 > `gotScraping` is an `async` function and the `await` keyword is used to pause execution of the script until it returns the `response`. [Learn more about `async` and `await`](https://javascript.info/async-await)
 
 ## Parsing HTML {#parsing-html}
 
-Having the HTML printed to the terminal is not very helpful. To extract the data, we first have to parse it. Parsing the HTML allows us to query the individual HTML elements, similarly to the way we did it in browser in the [Extracting Data with DevTools](./using_devtools.md) lessons.
+Having the HTML printed to the terminal is not very helpful. To extract the data, we first have to parse it. Parsing the HTML allows us to query the individual HTML elements, similarly to the way we did it in the browser in the [Extracting Data with DevTools](./using_devtools.md) lessons.
 
 To parse the HTML with the `cheerio` library. Replace the code in your **main.js** with the following code:
 

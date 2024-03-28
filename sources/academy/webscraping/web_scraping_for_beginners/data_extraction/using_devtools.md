@@ -11,7 +11,7 @@ slug: /web-scraping-for-beginners/data-extraction/using-devtools
 
 ---
 
-With the knowledge of the basics of DevTools and we can finally try doing something more practical - extracting data from a website. Let's try collecting the on-sale products from the [Warehouse store](https://warehouse-theme-metal.myshopify.com/). We will use [CSS selectors](../../../glossary/concepts/css_selectors.md), JavaScript, and DevTools to achieve this task.
+With the knowledge of the basics of DevTools we can finally try doing something more practical - extracting data from a website. Let's try collecting the on-sale products from the [Warehouse store](https://warehouse-theme-metal.myshopify.com/). We will use [CSS selectors](../../../glossary/concepts/css_selectors.md), JavaScript, and DevTools to achieve this task.
 
 > **Why use a Shopify demo and not a real e-commerce store like Amazon?** Because real websites are usually bulkier, littered with promotions, and they change very often. Many have multiple versions of pages, and you never know in advance which one you will get. It will be important to learn how to deal with these challenges in the future, but for this beginner course, we want to have a light and stable environment.
 >
@@ -27,15 +27,15 @@ Open DevTools and select the name of the **Sony SACS9 Active Subwoofer**. When y
 
 ![Selecting an element with DevTools](./images/devtools-collection-product-name.png)
 
-Great, you have selected the element which contains the name of the subwoofer. Now we want to find all the elements that contain all the information about this subwoofer. Price, number of reviews, image and so on. We will use the **Elements** tab to do that. You can hover over the elements in the Elements tab, and they will get highlighted on the page as you move the mouse.
+Great, you have selected the element which contains the name of the subwoofer. Now we want to find all the elements that contain all the information about this subwoofer. Price, number of reviews, image and everything else you might need. We will use the **Elements** tab to do that. You can hover over the elements in the Elements tab, and they will get highlighted on the page as you move the mouse.
 
 Start from the previously selected element with the subwoofer's name and move your mouse up, hovering over each element, until you find the one that highlights the entire product card. Alternatively, you can press the up arrow a few times to get the same result.
 
-The element that contains all the information about the subwoofer is called a **parent element**, and all the nested elements, including the subwoofer's name, price and so on, are **child elements**.
+The element that contains all the information about the subwoofer is called a **parent element**, and all the nested elements, including the subwoofer's name, price and everything else, are **child elements**.
 
 ![Selecting an element with hover](./images/devtools-collection-product-hover.png)
 
-Now that we know how the parent element looks like, we can extract its data, including the data of its children. Notice that the element has a `class` attribute with multiple values like `product-item` or `product-item--vertical`. Let's use those classes in the Console to extract data.
+Now that we know how the parent element looks, we can extract its data, including the data of its children. Notice that the element has a `class` attribute with multiple values like `product-item` or `product-item--vertical`. Let's use those classes in the Console to extract data.
 
 ![Class attribute in DevTools](./images/devtools-collection-class.png)
 
@@ -147,7 +147,7 @@ It worked, but the price was not alone in the result. We extracted it together w
 
 ### Cleaning extracted data {#cleaning-extracted-data}
 
-There are two approaches to cleaning the data. It's useful to know both, because often one of them is feasible to use and the other isn't.
+When it comes to data cleaning, there are two main approaches you can take. It's beneficial to understand both, as one approach may be feasible in a given situation while the other is not.
 
 1. Remove the elements that add noise to your data from the selection. Then extract the pre-cleaned data.
 2. Extract the data with noise. Use regular expressions or other text manipulation techniques to parse the data and keep only the parts we're interested in.
@@ -174,7 +174,7 @@ The second option we have is to **take the noisy price data and clean it with st
 \n                Sale price$158.00
 ```
 
-There are numerous ways how we could approach this. Let's try a very naive solution:
+This can be approached in a variety of ways. To start let's look at a naive solution:
 
 ```js
 price.textContent.split('$')[1];
@@ -184,7 +184,7 @@ price.textContent.split('$')[1];
 
 And there you go. Notice that this time we extracted the price without the `$` dollar sign. This could be desirable, because we wanted to convert the price from a string to a number, or not, depending on individual circumstances of the scraping project.
 
-So which method to choose? Neither is the perfect solution. The first method could easily break if the website's developers change the structure of the `<span>` elements and the price will no longer be in the third position - a very small change that can happen at any moment.
+Which method to choose? Neither is the perfect solution. The first method could easily break if the website's developers change the structure of the `<span>` elements and the price will no longer be in the third position - a very small change that can happen at any moment.
 
 The second method seems more reliable, but only until the website adds prices in other currency or decides to replace `$` with `USD`. It's up to you, the scraping developer to decide which of the methods will be more resilient on the website you scrape.
 

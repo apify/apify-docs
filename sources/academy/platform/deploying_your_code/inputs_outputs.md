@@ -1,33 +1,33 @@
 ---
 title: Inputs & outputs
-description: Learn to accept input into your actor, do something with it, then return output. Actors can be written in any language, so this concept is language agnostic.
+description: Learn to accept input into your actor, do something with it, and then return output. Actors can be written in any language, so this concept is language agnostic.
 sidebar_position: 1
 slug: /deploying-your-code/inputs-outputs
 ---
 
 # Inputs & outputs {#inputs-outputs}
 
-**Learn to accept input into your actor, do something with it, then return output. Actors can be written in any language, so this concept is language agnostic.**
+**Learn to accept input into your actor, do something with it, and then return output. Actors can be written in any language, so this concept is language agnostic.**
 
 ---
 
-Most of the time when you're creating a project, you are expecting some sort of input off of which your software will run off of. Often times as well, you want to provide some sort of output once your software has completed running. With Apify, it is extremely easy to take in inputs and deliver outputs.
+Most of the time when you're creating a project, you are expecting some sort of input from which your software will run off. Oftentimes as well, you want to provide some sort of output once your software has completed running. With Apify, it is extremely easy to take in inputs and deliver outputs.
 
 An important thing to understand regarding inputs and outputs is that they are read/written differently depending on where the actor is running:
 
-- If your actor is running locally, the inputs/outputs are usually provided in the filesystem, and environment variables are injected either by you, the developer, and by the Apify CLI by running the project with the `apify run` command.
+- If your actor is running locally, the inputs/outputs are usually provided in the filesystem, and environment variables are injected either by you, the developer, or by the Apify CLI by running the project with the `apify run` command.
 
 - While running in a Docker container on the platform, environment variables are automatically injected, and inputs & outputs are provided and modified using Apify's REST API.
 
 ## A bit about storage {#about-storage}
 
-There are two different places you can read/write your inputs/outputs: to the [key-value store](/platform/storage/key-value-store), or to the [dataset](/platform/storage/dataset). They key-value store can be used to store any sort of unorganized/unrelated data in any formats, while the data pushed to a dataset typically resembles a table with columns (fields) and rows (items). Each actor's run is allocated both a default dataset and key-value store.
+You can read/write your inputs/outputs: to the [key-value store](/platform/storage/key-value-store), or to the [dataset](/platform/storage/dataset). The key-value store can be used to store any sort of unorganized/unrelated data in any format, while the data pushed to a dataset typically resembles a table with columns (fields) and rows (items). Each actor's run is allocated both a default dataset and a default key-value store.
 
 When running locally, these storages are accessible through the **storage** folder within your project's root directory, while on the platform they are accessible via Apify's API.
 
 ## Accepting input {#accepting-input}
 
-There are multiple ways to accept input into your project. The option you go with depends on the language you have written your project in. If you are using Node.js for your repo's code, you can use the [`apify`](https://www.npmjs.com/package/apify) package. Otherwise, you can use the useful environment variables automatically set up for you by Apify to write utility functions which read the actor's input and return it.
+You can utilize multiple ways to accept input into your project. The option you go with depends on the language you have written your project in. If you are using Node.js for your repo's code, you can use the [`apify`](https://www.npmjs.com/package/apify) package. Otherwise, you can use the useful environment variables automatically set up for you by Apify to write utility functions which read the actor's input and return it.
 
 ### Accepting input with the Apify SDK
 
@@ -65,7 +65,7 @@ We'll now add an **INPUT.json** file within **storage/key_value_stores/default**
 }
 ```
 
-Then we can add our example project code from earlier. It will grab the input and use it to generate a solution which is logged to the console.
+Then we can add our example project code from earlier. It will grab the input and use it to generate a solution which is logged into the console.
 
 ```js
 // index.js
@@ -131,7 +131,7 @@ print(solution)
 
 ## Writing output {#writing-output}
 
-Similarly to reading input, you can write the actor's output either by using the Apify SDK in Node.js, or by manually writing a utility function to do so.
+Similarly to reading input, you can write the actor's output either by using the Apify SDK in Node.js or by manually writing a utility function to do so.
 
 ### Writing output with the Apify SDK
 
