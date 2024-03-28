@@ -285,10 +285,56 @@ incorporates all these features, enabling users to leverage them effortlessly wi
 
 Request queues prioritize persistence, ensuring indefinite retention of your requests in named request queues and for data retention in unnamed request queues.
 This capability facilitates incremental crawling, where you can append new URLs to the queue and resume from where you stopped in the subsequent run.
-Consider the scenario of scraping an e-commerce website with thousands of products. Incremental scrolling allows you to scrape only the products
+Consider the scenario of scraping an e-commerce website with thousands of products. Incremental scraping allows you to scrape only the products
 added since the last run.
 
-TBD Incremental scrape example
+In the following code example, we demonstrate how to use the Apify SDK and Crawlee to create an incremental crawler that saves the title of each new found page on Apify documentation to a dataset.
+By running this Actor multiple times, you can incrementally crawl the website and save only the new pages as the same request queue ensures that only not yet visited URLs are processed.
+
+```ts
+// Basic example of incremental crawling with Crawlee.
+import { Actor } from 'apify';
+import { CheerioCrawler, Dataset } from 'crawlee';
+
+interface Input {
+    startUrls: string[];
+    persistDatasetName: string;
+}
+
+await Actor.init();
+
+// Structure of input is defined in input_schema.json
+const {
+    startUrls = ['https://docs.apify.com/'],
+    persistDatasetName = 'persist-dataset',
+} = await Actor.getInput<Input>() ?? {} as Input;
+
+// Open or create request queue for incremental scrape.
+// By opening same request queue, the crawler will continue where it left off and skips already visited URLs.
+const requestQueue = await Actor.openRequestQueue(persistDatasetName);
+
+const proxyConfiguration = await Actor.createProxyConfiguration();
+
+const crawler = new CheerioCrawler({
+    proxyConfiguration,
+    requestQueue, // Pass incremental request queue to the crawler.
+    requestHandler: async ({ enqueueLinks, request, $, log }) => {
+        log.info('enqueueing new URLs');
+        await enqueueLinks();
+
+        // Extract title from the page.
+        const title = $('title').text();
+        log.info(`New page with ${title}`, { url: request.loadedUrl });
+
+        // Save url of new URL and title to Dataset.
+        await Dataset.pushData({ url: request.loadedUrl, title });
+    },
+});
+
+await crawler.run(startUrls);
+
+await Actor.exit();
+```
 
 ### Batch operations {#batch-operations}
 
@@ -296,16 +342,124 @@ Request queues enhance performance and cut down on API calls and network latency
 This efficiency booster enables you to enqueue or retrieve requests in bulk, enhancing efficiency when handling numerous URLs.
 Batch operations simplify process flows, decrease API calls, and reduce latency, thus accelerating your web crawling processes and enhancing reliability.
 
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
 
-TBD JS/python example/API
+```js
+const { ApifyClient } = require('apify-client');
+
+const client = new ApifyClient({
+    token: 'MY-APIFY-TOKEN',
+});
+
+const requestQueueClient = client.requestQueue('my-queue-id');
+
+// Add multiple requests to the queue
+await requestQueueClient.batchAddRequests([
+    { url: 'http://example.com/foo', uniqueKey: 'http://example.com/foo', method: 'GET' },
+    { url: 'http://example.com/bar', uniqueKey: 'http://example.com/bar', method: 'GET' },
+]);
+
+// Remove multiple requests from the queue
+await requestQueueClient.batchDeleteRequests([
+    { uniqueKey: 'http://example.com/foo' },
+    { uniqueKey: 'http://example.com/bar' },
+]);
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify_client import ApifyClient
+
+apify_client = ApifyClient('MY-APIFY-TOKEN')
+
+request_queue_client = apify_client.request_queue('my-queue-id')
+
+# Add multiple requests to the queue
+request_queue_client.batch_add_requests([
+    {'url': 'http://example.com/foo', 'uniqueKey': 'http://example.com/foo', 'method': 'GET'},
+    {'url': 'http://example.com/bar', 'uniqueKey': 'http://example.com/bar', 'method': 'GET'},
+])
+
+# Remove multiple requests from the queue
+request_queue_client.batch_delete_requests([
+    {'uniqueKey': 'http://example.com/foo'},
+    {'uniqueKey': 'http://example.com/bar'},
+])
+```
+
+</TabItem>
+</Tabs>
 
 ### Distributivity {#distributivity}
 
 Our design facilitates the simultaneous processing of requests by multiple Actor runs or server instances, perfectly suiting large-scale web crawling projects.
-Distributivity ensures your scraping tasks can expand horizontally. The request queue system includes locking mechanisms to avoid concurrent
+Distributivity ensures your scraping tasks can expand horizontally. The request queue includes locking mechanisms to avoid concurrent
 processing of the same request, a feature seamlessly integrated into Crawlee, requiring minimal extra setup. For more details, refer to the Crawlee documentation.
 
-TBD Example of locking mechanism
+In the following example, we demonstrate how we can use locking mechanisms to avoid concurrent processing of the same request.
+
+```js
+import { Actor, ApifyClient } from 'apify';
+
+await Actor.init();
+
+const client = new ApifyClient({
+    token: 'MY-APIFY-TOKEN',
+});
+
+// Creates a new request queue.
+const requestQueue = await client.requestQueues().getOrCreate('example-queue');
+
+// Creates two clients with different keys for the same request queue.
+const requestQueueClientOne = client.requestQueue(requestQueue.id, { clientKey: 'requestqueueone' });
+const requestQueueClientTwo = client.requestQueue(requestQueue.id, { clientKey: 'requestqueuetwo' });
+
+// Adds multiple requests to the queue.
+await requestQueueClientOne.batchAddRequests([
+    { url: 'http://example.com/foo', uniqueKey: 'http://example.com/foo', method: 'GET' },
+    { url: 'http://example.com/bar', uniqueKey: 'http://example.com/bar', method: 'GET' },
+    { url: 'http://example.com/baz', uniqueKey: 'http://example.com/baz', method: 'GET' },
+    { url: 'http://example.com/qux', uniqueKey: 'http://example.com/qux', method: 'GET' },
+]);
+
+// Locks the first two requests at the head of the queue.
+const processingRequestsClientOne = await requestQueueClientOne.listAndLockHead({
+    limit: 2,
+    lockSecs: 60,
+});
+
+// Other clients cannot list and lock these requests; the listAndLockHead call returns other requests from the queue.
+const processingRequestsClientTwo = await requestQueueClientTwo.listAndLockHead({
+    limit: 2,
+    lockSecs: 60,
+});
+
+// Checks when the lock will expire. The locked request will have a lockExpiresAt attribute.
+const theFirstRequestLockedByClientOne = processingRequestsClientOne.items[0];
+const requestLockedByClientOne = await requestQueueClientOne.getRequest(theFirstRequestLockedByClientOne.id);
+console.log(`Request locked until ${requestLockedByClientOne?.lockExpiresAt}`);
+
+// Other clients cannot modify the lock; attempting to do so will throw an error.
+try {
+    await requestQueueClientTwo.prolongRequestLock(theFirstRequestLockedByClientOne.id, { lockSecs: 60 });
+} catch (err) {
+    // This will throw an error.
+}
+
+// Prolongs the lock of the first request or unlocks it.
+await requestQueueClientOne.prolongRequestLock(theFirstRequestLockedByClientOne.id, { lockSecs: 60 });
+await requestQueueClientOne.deleteRequestLock(theFirstRequestLockedByClientOne.id);
+
+// Cleans up the queue.
+await requestQueueClientOne.delete();
+
+await Actor.exit();
+```
+
+The detailed tutorial on how to crawl one request queue from multiple Actor runs can be found in [Advanced web scraping academy](https://docs.apify.com/academy/advanced-web-scraping/multiple-runs-scrape).
 
 ## Sharing {#sharing}
 
