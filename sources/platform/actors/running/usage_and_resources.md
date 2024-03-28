@@ -56,7 +56,7 @@ The Actor has hard disk space limited by twice the amount of memory. For example
 
 ## Requirements
 
-Actors built with [Apify JS SDK](/sdk/js) and [Crawlee](https://crawlee.dev/) use autoscaling. This means that they will always run as efficiently as they can based on the allocated memory. So, if you double the allocated memory, the run should be twice as fast and consume the same amount of compute units (1 * 1 = 0.5 * 2).
+Actors built with [Crawlee](https://crawlee.dev/) use autoscaling. This means that they will always run as efficiently as they can based on the allocated memory. So, if you double the allocated memory, the run should be twice as fast and consume the same amount of compute units (1 * 1 = 0.5 * 2).
 
 A good middle ground is `4096MB`. If you need the results faster, increase the memory (bear in mind the [next point](#maximum-memory), though). You can also try decreasing it to lower the pressure on the target site.
 
