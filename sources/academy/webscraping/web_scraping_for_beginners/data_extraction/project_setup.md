@@ -53,7 +53,7 @@ npm install got-scraping cheerio
 
 ## Test everything {#testing}
 
-With the libraries installed, create a new file in the project's folder called **main.js**. This is where we will put all our code. Before we start scraping, though, let's do a simple check that everything installed correctly. Add this piece of code inside **main.js**.
+With the libraries installed, create a new file in the project's folder called **main.js**. This is where we will put all our code. Before we start scraping, though, let's do a simple check that everything was installed correctly. Add this piece of code inside **main.js**.
 
 ```js
 import { gotScraping } from 'got-scraping';

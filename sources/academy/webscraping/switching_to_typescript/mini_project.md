@@ -11,7 +11,7 @@ slug: /switching-to-typescript/mini-project
 
 ---
 
-You're here! If you made it this far, that means that you've familiarized yourself with all the core concepts in TypeScript (and some of the more advanced ones too). We're going to scrape product data from [this API endpoint](https://dummyjson.com/products), then manipulate it based on user input.
+You're here! If you made it this far, that means that you've familiarized yourself with all the core concepts in TypeScript (and some of the more advanced ones too). We're going to scrape product data from [this API endpoint](https://dummyjson.com/products), and then manipulate it based on user input.
 
 ## Project overview {#project-overview}
 
@@ -91,7 +91,7 @@ export interface ResponseData {
 
 ### Defining output types {#defining-output-types}
 
-Luckily for us, we'll be outputting an array of `Product`s, for which we've already written a type. However, the user will have an option to modify each product by removing the **images** property from each one. So, we need to create a new `ModifiedProduct` that has all the same properties as `Product` **EXCEPT** for **images**.
+Luckily for us, we'll be outputting an array of `Product`s, for which we've already written a type. However, the user will have an option to modify each product by removing the **images** property from each one. We need to create a new `ModifiedProduct` that has all the same properties as `Product` **EXCEPT** for **images**.
 
 For this, we can use a [utility type](https://www.typescriptlang.org/docs/handbook/utility-types.html) called `Omit`, which is natively available in TypeScript.
 

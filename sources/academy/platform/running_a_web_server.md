@@ -49,6 +49,8 @@ First, we'll import `express` and create an Express.js app. Then, we'll add some
 import { Actor } from 'apify';
 import express from 'express';
 
+await Actor.init();
+
 const app = express();
 
 app.use(express.json());
@@ -98,7 +100,7 @@ app.get('/', (req, res) => {
     const pageHtml = `<html>
     <head><title>Example</title></head>
     <body>
-        <form method="POST" action="${APIFY_CONTAINER_URL}/add-url">
+        <form method="POST" action="/add-url">
             URL: <input type="text" name="url" placeholder="http://example.com" />
             <input type="submit" value="Add" />
             <hr />
@@ -111,15 +113,17 @@ app.get('/', (req, res) => {
 });
 ```
 
-And then the a second path that receives the new URL submitted using the HTML form; after the URL is processed, it redirects the user back to the root path.
+And then a second path that receives the new URL submitted using the HTML form; after the URL is processed, it redirects the user back to the root path.
 
 ```js
+import { launchPuppeteer } from 'crawlee';
+
 app.post('/add-url', async (req, res) => {
     const { url } = req.body;
     console.log(`Got new URL: ${url}`);
 
     // Start chrome browser and open new page ...
-    const browser = await Actor.launchPuppeteer();
+    const browser = await launchPuppeteer();
     const page = await browser.newPage();
 
     // ... go to our URL and grab a screenshot ...
@@ -138,7 +142,7 @@ app.post('/add-url', async (req, res) => {
 });
 ```
 
-And finally we need to start the web server.
+And finally, we need to start the web server.
 
 ```js
 // Start the web server!
@@ -152,6 +156,8 @@ app.listen(APIFY_CONTAINER_PORT, () => {
 ```js
 import { Actor } from 'apify';
 import express from 'express';
+
+await Actor.init();
 
 const app = express();
 
@@ -228,6 +234,6 @@ app.listen(APIFY_CONTAINER_PORT, () => {
 
 When we deploy and run this actor on the Apify platform, then we can open the **Live View** tab in the actor console to submit the URL to your actor through the form. After the URL is successfully submitted, it appears in the actor log.
 
-With that we're done! And our application works like a charm :)
+With that, we're done! And our application works like a charm :)
 
 The complete code of this actor is available [here](https://www.apify.com/apify/example-web-server). You can run it there or copy it to your account.

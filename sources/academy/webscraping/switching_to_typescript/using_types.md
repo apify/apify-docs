@@ -33,9 +33,9 @@ When hovering over the variable, we see that TypeScript was smart enough to infe
 
 ![Type of variable automatically inferred](./images/number-inference.png)
 
-Attempting to reassign `value` to be a type other than a number will result in a compiler error.
+Attempting to reassign `value` to a type other than a number will result in a compiler error.
 
-But what if we want to declare the variable with no initial value, then change it later?
+But what if we want to declare the variable with no initial value, and then change it later?
 
 <!-- eslint-disable -->
 ```ts
@@ -64,7 +64,7 @@ value = 10;
 value = 'hello academy!';
 ```
 
-To allow for the `value` variable to hold multiple different types, we can use a [union type](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html). It works just the same was as the **or** (`||`) operator in JavaScript, but only uses one pipe (`|`) character and only works with types and type annotations.
+To allow for the `value` variable to hold multiple different types, we can use a [union type](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html). It works just the same way as the **or** (`||`) operator in JavaScript, but only uses one pipe (`|`) character and only works with types and type annotations.
 
 ```ts
 // "value" can hold either a number or a string
@@ -95,7 +95,7 @@ const totalLengthIsGreaterThan10 = (string1, string2) => {
 };
 ```
 
-Just like with the parameters in the function from last lesson, and similar to variables, these parameters can be annotated with a colon (`:`) and a type name. In this case, we are expecting two strings into this function.
+Just like with the parameters in the function from the last lesson, and similar to variables, these parameters can be annotated with a colon (`:`) and a type name. In this case, we are expecting two strings into this function.
 
 ```ts
 const totalLengthIsGreaterThan10 = (string1: string, string2: string) => {

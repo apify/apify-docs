@@ -11,13 +11,13 @@ slug: /expert-scraping-with-apify/managing-source-code
 
 ---
 
-In this brief lesson, we'll discuss how to better manage an actor's source code. Up 'til now, you've been developing your scripts locally, then pushing the code directly to the actor on the Apify platform; however, there is a much more optimal (and standard) way.
+In this brief lesson, we'll discuss how to better manage an actor's source code. Up 'til now, you've been developing your scripts locally, and then pushing the code directly to the actor on the Apify platform; however, there is a much more optimal (and standard) way.
 
 ## Learning 🧠 {#learning}
 
 Thus far, every time we've updated our code on the Apify platform, we've used the `apify push` CLI command; however, this can be problematic for a few reasons - mainly because, if someone else wants to make a change to/maintain your code, they don't have access to it, as it is on your local machine.
 
-If you're not yet familiar with Git, please get familiar with it through the [Git documentation](https://git-scm.com/docs), then take a quick moment to read about [GitHub integration](/platform/actors/development/actor-definition/source-code#github-integration) in the Apify docs.
+If you're not yet familiar with Git, please get familiar with it through the [Git documentation](https://git-scm.com/docs), then take a quick moment to read about [GitHub integration](/platform/integrations/github) in the Apify docs.
 
 Also, try to explore the **Multifile editor** in one of the actors you developed in the previous lessons before moving forward.
 
@@ -37,11 +37,11 @@ First, we must initialize a GitHub repository (you can use Gitlab if you like, b
 
 ## Integrating GitHub source code {#integrating-github}
 
-First, let's create a repository. This can be done [in a number of ways](https://kbroman.org/github_tutorial/pages/init.html), but in this lesson we'll do it by creating the remote repository on GitHub's website:
+First, let's create a repository. This can be done [in a number of ways](https://kbroman.org/github_tutorial/pages/init.html), but in this lesson, we'll do it by creating the remote repository on GitHub's website:
 
 ![Create a new GitHub repo](./images/github-new-repo.png)
 
-Then, we'll run the commands it tells us in our terminal (while within the **demo-actor** directory) to initialize the repository locally, then push all of the files to the remote one.
+Then, we'll run the commands it tells us in our terminal (while within the **demo-actor** directory) to initialize the repository locally, and then push all of the files to the remote one.
 
 After you've created your repo, navigate on the Apify platform to the actor we called **demo-actor**. In the **Source** tab, click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Web IDE**, which is what we've been using so far.
 
@@ -61,7 +61,7 @@ And you're done! 🎉
 
 ## Quick chat about code management {#code-management}
 
-So, it was bit of overhead, but the good news is that you don't ever have to configure this stuff again for this actor. Now, every time the content of your **main**/**master** branch changes, the actor on the Apify platform will rebuild based off of the newest code.
+This was a bit of overhead, but the good news is that you don't ever have to configure this stuff again for this actor. Now, every time the content of your **main**/**master** branch changes, the actor on the Apify platform will rebuild based on the newest code.
 
 Think of it as combining two steps into one! Normally, you'd have to do a `git push` from your terminal in order to get the newest code onto GitHub, then run `apify push` to push it to the platform.
 

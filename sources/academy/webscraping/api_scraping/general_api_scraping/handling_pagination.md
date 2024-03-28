@@ -17,7 +17,7 @@ If you've never dealt with it before, trying to scrape thousands to hundreds of 
 
 ## Page-number pagination {#page-number}
 
-The most common and rudimentary form of pagination is by simply having page numbers, which can be compared to paginating through a typical e-commerce website.
+The most common and rudimentary form of pagination is simply having page numbers, which can be compared to paginating through a typical e-commerce website.
 
 ![Amazon pagination](https://apify-docs.s3.amazonaws.com/master/docs/assets/tutorials/images/pagination.jpg)
 
@@ -73,38 +73,36 @@ Now, make a new file called **scrapeClientId**, copying the **client_id** scrapi
 
 ```js
 // scrapeClientId.js
-const puppeteer = require('puppeteer');
+import puppeteer from 'puppeteer';
 
-const scrapeClientId = async () => {
+// export the function to be used in a different file
+export const scrapeClientId = async () => {
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
     let clientId = null;
 
     page.on('response', async (res) => {
-        const id = new URL(res._url).searchParams.get('client_id') ?? null;
+        const id = new URL(res.url()).searchParams.get('client_id') ?? null;
         if (id) clientId = id;
     });
 
     await page.goto('https://soundcloud.com/tiesto/tracks');
-    await page.waitForSelector('.sc-classic');
+    await page.waitForSelector('.profileHeader__link');
     await browser.close();
 
     // return the client_id
     return clientId;
 };
-
-// export the function to be used in a different file
-module.exports = scrapeClientId;
 ```
 
 Now, in a new file called **index.js** we'll write the skeleton for our pagination and item-scraping code:
 
 ```js
 // index.js
-const { gotScraping } = require('got-scraping');
-const scrapeClientId = require('./scrapeClientId');
 // we will need gotScraping to make HTTP requests
+import { gotScraping } from 'got-scraping';
+import { scrapeClientId } from './scrapeClientId';
 
 const scrape100Items = async () => {
     // the initial request URL
@@ -148,8 +146,8 @@ All that's left to do now is flesh out this `while` loop with pagination logic a
 
 ```js
 // index.js
-const { gotScraping } = require('got-scraping');
-const scrapeClientId = require('./scrapeClientId');
+import { gotScraping } from 'got-scraping';
+import { scrapeClientId } from './scrapeClientId';
 
 const scrape100Items = async () => {
     let nextHref = 'https://api-v2.soundcloud.com/users/141707/tracks?limit=20&offset=0';
@@ -206,7 +204,7 @@ Sometimes, APIs have limited pagination. That means that they limit the total nu
 
 [//]: # (In this lesson, you learned about how to use API parameters and properties returned in an API response to paginate through results. [Next up]&#40;link api_scraping/general_api_scraping/using_api_filters.md&#41;, you'll gain a solid understanding of using API filtering parameters.)
 
-This is the last lesson in the API scraping tutorial for now, but be on the lookout for more lessons soon to come! So far, you've learned how to:
+This is the last lesson in the API scraping tutorial for now, but be on the lookout for more lessons soon to come! Thus far, you've learned how to:
 
 1. Locate API endpoints
 2. Understand located API endpoints and their parameters
@@ -216,4 +214,4 @@ This is the last lesson in the API scraping tutorial for now, but be on the look
 6. Use paginated APIs
 <!-- 7. Utilize API filters to narrow down results -->
 
-If you'd still like to read more API scraping, check out the [**GraphQL scraping**](../graphql_scraping/index.md) course! GraphQL is the king of API scraping.
+If you'd still like to read more about API scraping, check out the [**GraphQL scraping**](../graphql_scraping/index.md) course! GraphQL is the king of API scraping.

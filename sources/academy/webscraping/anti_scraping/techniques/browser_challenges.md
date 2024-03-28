@@ -27,8 +27,8 @@ When you encounter a Cloudflare browser challenge, the platform checks your canv
 
 It's worth noting that Cloudflare's protection is highly customizable, and can be adjusted to be extremely strict or relatively loose. This makes it a powerful tool for website owners who want to protect against automated traffic, while still allowing legitimate traffic to flow through.
 
-If you want to learn how to bypass cloudflare challenge visit the [Bypassing Cloudflare challenge](../mitigation/cloudflare_challenge.md) article.
+If you want to learn how to bypass Cloudflare challenge visit the [Bypassing Cloudflare challenge](../mitigation/cloudflare_challenge.md) article.
 
 ## Next up {#next}
 
-In the [next lesson](./captchas.md), we'll be covering **captchas**, which were mentioned throughout this lesson. It's important to note that attempting to solve a captcha programmatically is the last resort - always try to avoid being presented the captcha in the first place by using the techniques mentioned in this lesson.
+In the [next lesson](./captchas.md), we'll be covering **captchas**, which were mentioned throughout this lesson. It's important to note that attempting to solve a captcha programmatically is the last resort - always try to avoid being presented with the captcha in the first place by using the techniques mentioned in this lesson.

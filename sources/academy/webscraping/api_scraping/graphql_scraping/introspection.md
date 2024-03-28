@@ -1,23 +1,25 @@
 ---
 title: Introspection
-description: Understand what introspection is, and how it can help you understand a GraphQL API to take advantage the features it has to offer before writing any code.
+description: Understand what introspection is, and how it can help you understand a GraphQL API to take advantage of the features it has to offer before writing any code.
 sidebar_position: 2
 slug: /api-scraping/graphql-scraping/introspection
 ---
 
 # Introspection {#introspection}
 
-**Understand what introspection is, and how it can help you understand a GraphQL API to take advantage the features it has to offer before writing any code.**
+**Understand what introspection is, and how it can help you understand a GraphQL API to take advantage of the features it has to offer before writing any code.**
 
 ---
 
 [Introspection](https://graphql.org/learn/introspection/) is when you make a query to the target GraphQL API requesting information about its schema. When done properly, this can provide a whole lot of information about the API and the different **queries** and **mutations** it supports.
 
-Just like when working with regular RESTful APIs in the [**General API scraping**](../general_api_scraping/locating_and_learning.md) section, it's important to learn a bit about the different available features of the GraphQL API (or at least of the the query/mutation) you are scraping before actually writing any code.
+Just like when working with regular RESTful APIs in the [**General API scraping**](../general_api_scraping/locating_and_learning.md) section, it's important to learn a bit about the different available features of the GraphQL API (or at least of the query/mutation) you are scraping before actually writing any code.
 
 Not only does becoming comfortable with and understanding the ins and outs of using the API make the development process easier, but it can also sometimes expose features which will return data you'd otherwise be scraping from a different location.
 
 ## Making the query {#making-the-query}
+
+! Cheddar website was changed and the below example no longer works there. Nonetheless, the general approach is still viable on some websites even though introspection is disabled on most.
 
 In order to perform introspection on our [target website](https://cheddar.com), we just need to make a request to their GraphQL API with this introspection query using [Insomnia](../../../glossary/tools/insomnia.md) or another HTTP client that supports GraphQL:
 
@@ -150,7 +152,7 @@ Right now, our goal is to fetch the 1000 most recent articles on [Cheddar](https
 
 ![The media field pointing to datatype slugable](./images/media-field.jpg)
 
-Cool. So now we know we need to access **media** through the **organization** query. The **media** field also takes in some arguments, of which we will be using the **first** parameter set to **1000**. Let's start writing our query in Insomnia!
+Cool. Now we know we need to access **media** through the **organization** query. The **media** field also takes in some arguments, of which we will be using the **first** parameter set to **1000**. Let's start writing our query in Insomnia!
 
 ![Receiving a suggestion for a field titled edges](./images/edges-suggested.png)
 
@@ -177,7 +179,7 @@ Let's send it!
 
 ![Unauthorized](./images/unauthorized.png)
 
-Oh, okay. So that didn't work. But **why**?
+Oh, okay. That didn't work. But **why**?
 
 Rest assured, nothing is wrong with our query. We are most likely just missing an authorization token/parameter. Let's check back on the Cheddar website within our browser to see what types of headers are being sent with the requests there:
 
@@ -201,4 +203,4 @@ In these cases, it is still possible to get some information about the API when 
 
 ## Next up {#next}
 
-[Next lesson](./custom_queries.md)'s code-along project will walk you through how to  construct a custom GraphQL query for scraping purposes, how to accept input into it, and how to retrieve and output the data.
+[Next lesson](./custom_queries.md)'s code-along project will walk you through how to construct a custom GraphQL query for scraping purposes, how to accept input into it, and how to retrieve and output the data.

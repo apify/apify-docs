@@ -232,7 +232,7 @@ await Actor.exit();
 
 The one main difference is that the Apify client automatically uses [**exponential backoff**](/api/client/js#retries-with-exponential-backoff) to deal with errors.
 
-**Q: How do you pass input when running actor or task via API?**
+**Q: How do you pass input when running an actor or task via API?**
 
 **A:** The input should be passed into the **body** of the request when running an actor/task via API.
 

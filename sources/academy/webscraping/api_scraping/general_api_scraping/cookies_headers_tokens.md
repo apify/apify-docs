@@ -16,15 +16,15 @@ Unfortunately, most APIs will require a valid cookie to be included in the `cook
 Luckily, there are ways to retrieve and set cookies for requests prior to sending them, which will be covered more in-depth within future Scraping Academy modules. The most important things to know at the moment are:
 
 ## Cookies {#cookies}
-
+<!-- vale off -->
 1. For sites that heavily rely on cookies for user-verification and request authorization, certain generic requests (such as to the website's main page, or to the target page) will return back a (or multiple) `set-cookie` header(s).
 2. The `set-cookie` response header(s) can be parsed and used as the `cookie` header in the headers of a request. A great package for parsing these values from a response's headers is [`set-cookie-parser`](https://www.npmjs.com/package/set-cookie-parser). With this package, cookies can be parsed from headers like so:
-
+<!-- vale on -->
 ```js
-const axios = require('axios');
+import axios from 'axios';
 
 // import the set-cookie-parser module
-const setCookieParser = require('set-cookie-parser');
+import setCookieParser from 'set-cookie-parser';
 
 const getCookie = async () => {
     // make a request to the target site
@@ -98,7 +98,7 @@ Here is a way you could dynamically scrape the `client_id` using Puppeteer:
 
 ```js
 // import the puppeteer module
-const puppeteer = require('puppeteer');
+import puppeteer from 'puppeteer';
 
 const scrapeClientId = async () => {
     const browser = await puppeteer.launch({ headless: false });
@@ -110,7 +110,7 @@ const scrapeClientId = async () => {
     // handle each response
     page.on('response', async (res) => {
         // try to grab the 'client_id' parameter from each URL
-        const id = new URL(res._url).searchParams.get('client_id') ?? null;
+        const id = new URL(res.url()).searchParams.get('client_id') ?? null;
 
         // if the parameter exists, set our clientId variable to the newly parsed value
         if (id) clientId = id;
@@ -120,7 +120,7 @@ const scrapeClientId = async () => {
     await page.goto('https://soundcloud.com/tiesto/tracks');
 
     // wait for a selector that ensures the page has time to load and make requests to its API
-    await page.waitForSelector('.sc-classic');
+    await page.waitForSelector('.profileHeader__link');
 
     await browser.close();
     console.log(clientId); // log the retrieved client_id

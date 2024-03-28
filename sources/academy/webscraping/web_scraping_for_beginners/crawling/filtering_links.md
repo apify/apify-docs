@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Web pages are full of links, but frankly, most of them are useless to us when scraping. There are two approaches to filtering links: Targeting the links we're interested in by using unique CSS selectors, and extracting all links and then using pattern matching to find the sought after URLs. In real scraping scenarios, both of these two approaches are often combined for the most effective URL filtering.
+Web pages are full of links, but frankly, most of them are useless to us when scraping. Filtering links can be approached in two ways: Targeting the links we're interested in by using unique CSS selectors, or extracting all links and then using pattern matching to find the sought after URLs. In real scraping scenarios, both of these two approaches are often combined for the most effective URL filtering.
 
 ## Filtering with unique CSS selectors {#css-filtering}
 
@@ -121,7 +121,7 @@ That is, they all begin with exactly the same pattern and only differ in the las
 https://warehouse-theme-metal.myshopify.com/products/{PRODUCT_NAME}
 ```
 
-This means that we can create a regular expression that matches those URLs. There are many ways to do this. For simplicity, let's go with this one:
+This means that we can create a regular expression that matches those URLs. You can do it in many ways . For simplicity, let's go with this one:
 
 ```RegExp
 https?:\/\/warehouse-theme-metal\.myshopify\.com\/products\/[\w\-]+

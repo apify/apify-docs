@@ -69,9 +69,9 @@ Next, copy-paste the following template code into your `actor.json` file.
 }
 ```
 
-To configure the output schema, simply replace the fields in the template with the relevant fields to you actor.
+To configure the output schema, simply replace the fields in the template with the relevant fields to your actor.
 
-For reference, you can use the [Zappos Scraper source code](https://github.com/PerVillalva/zappos-scraper-actor/blob/main/.actor/actor.json) as an example of how the final implementation of the output tab should look like in a live actor.
+For reference, you can use the [Zappos Scraper source code](https://github.com/PerVillalva/zappos-scraper-actor/blob/main/.actor/actor.json) as an example of how the final implementation of the output tab should look in a live actor.
 
 ```json
 {
@@ -143,7 +143,7 @@ Note that the fields specified in the output schema should match the object keys
 
 Also, if your desired label has the same name as the defined object key, then you don't need to specify a label name. The schema will, by default, show a capitalized version of the key and even split camel case into separate words and capitalize all of them.
 
-So, the matching object for the Zappos Scraper shown in the example above will look something like this:
+The matching object for the Zappos Scraper shown in the example above will look something like this:
 
 ```js
 const results = {

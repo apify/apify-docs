@@ -1,13 +1,13 @@
 ---
 title: VI - Rotating proxies/sessions
-description: Learn first hand how to rotate proxies and sessions in order to avoid the majority of the most common anti-scraping protections.
+description: Learn firsthand how to rotate proxies and sessions in order to avoid the majority of the most common anti-scraping protections.
 sidebar_position: 6
 slug: /expert-scraping-with-apify/solutions/rotating-proxies
 ---
 
 # Rotating proxies/sessions {#rotating-proxy-sessions}
 
-**Learn first hand how to rotate proxies and sessions in order to avoid the majority of the most common anti-scraping protections.**
+**Learn firsthand how to rotate proxies and sessions in order to avoid the majority of the most common anti-scraping protections.**
 
 ---
 
@@ -23,7 +23,7 @@ We didn't provide much explanation for this initially, as it was not directly re
 
 > Go ahead and try commenting out the proxy configuration code then running the scraper. What happens?
 
-In order to rotate sessions, we must utilize the [**SessionPool**](https://crawlee.dev/api/core/class/AutoscaledPool), which we've actually also already been using by setting the **useSessionPool** option in our crawler's configuration to **true**. The SessionPool advances the concept of proxy rotation by tying proxies to user-like sessions and rotating those instead. In addition to a proxy, each user-like session has cookies attached to it (and potentially a browser-fingerprint as well).
+In order to rotate sessions, we must utilize the [**SessionPool**](https://crawlee.dev/api/core/class/AutoscaledPool), which we've actually also already been using by setting the **useSessionPool** option in our crawler's configuration to **true**. The SessionPool advances the concept of proxy rotation by tying proxies to user-like sessions and rotating those instead. In addition to a proxy, each user-like session has cookies attached to it (and potentially a browser fingerprint as well).
 
 ## Configuring SessionPool {#configuring-session-pool}
 
@@ -50,7 +50,7 @@ const crawler = new CheerioCrawler({
 });
 ```
 
-Now, we'll use the **maxUsageCount** key to force each session to be thrown away after 5 uses, and **maxErrorScore** to trash a session once it receives an error.
+Now, we'll use the **maxUsageCount** key to force each session to be thrown away after 5 uses and **maxErrorScore**** to trash a session once it receives an error.
 
 ```js
 const crawler = new CheerioCrawler({
@@ -86,7 +86,7 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
 
 **Q: What are the different types of proxies that Apify proxy offers? What are the main differences between them?**
 
-**A:** Datacenter, residential, and Google SERP proxies with sub-groups. Datacenter proxies are fast and cheap, but have a higher chance of being blocked on certain sites in comparison to residential proxies, which are IP addresses located in homes and offices around the world. Google SERP proxies are specifically for Google.
+**A:** Datacenter, residential, and Google SERP proxies with sub-groups. Datacenter proxies are fast and cheap but have a higher chance of being blocked on certain sites in comparison to residential proxies, which are IP addresses located in homes and offices around the world. Google SERP proxies are specifically for Google.
 
 **Q: Which proxy groups do users get on the free plan? Can they access the proxy from their computer?**
 
@@ -94,7 +94,7 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
 
 **Q: How can you prevent an error from occurring if one of the proxy groups that a user has is removed? What are the best practices for these scenarios?**
 
-**A:** By making the proxy for the scraper to use be configurable by the user through the actor's input. That way, they can easily switch proxies if the actor stop working due to proxy-related issues. It can also be done by using the **AUTO** proxy instead of specific groups.
+**A:** By making the proxy for the scraper to use be configurable by the user through the actor's input. That way, they can easily switch proxies if the actor stops working due to proxy-related issues. It can also be done by using the **AUTO** proxy instead of specific groups.
 
 **Q: Does it make sense to rotate proxies when you are logged into a website?**
 
@@ -108,10 +108,10 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
 
 **A:** Simply making a new request with the proxy endpoint above will automatically rotate it. Sessions can also be used to automatically do this. While proxy rotation is fairly straightforward for Cheerio, it's more complex in Puppeteer, as you have to retire the browser each time a new proxy is rotated in. The SessionPool will automatically retire a browser when a session is retired. Sessions can be manually retired with `session.retire()`.
 
-**Q: Name a few different ways of how a website can prevent you from scraping it.**
+**Q: Name a few different ways how a website can prevent you from scraping it.**
 
 **A:** IP detection and rate-limiting, browser/fingerprint detection, user behavior tracking, etc.
 
 ## Wrap up {#wrap-up}
 
-In this solution, you learned one of the most important concepts in web-scraping - proxy/session rotation. With your newfound knowledge of the SessionPool, you'll be (practically) unstoppable!
+In this solution, you learned one of the most important concepts in web scraping - proxy/session rotation. With your newfound knowledge of the SessionPool, you'll be (practically) unstoppable!

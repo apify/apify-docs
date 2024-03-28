@@ -47,4 +47,4 @@ We already discussed the advantages and disadvantages of API scraping in general
 
 ## Next up {#next}
 
-This course section's [first lesson](./modifying_variables.md) will be discussing how to customize GraphQL queries without ever having to write any GraphQL language.
+This course section's [first lesson](./modifying_variables.md) will discuss how to customize GraphQL queries without ever having to write any GraphQL language.

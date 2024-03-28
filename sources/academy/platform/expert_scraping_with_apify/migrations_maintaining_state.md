@@ -1,13 +1,13 @@
 ---
 title: V - Migrations & maintaining state
-description: Learn about what actor migrations are and how to handle them properly so that state is not lost and it can safely be resurrected.
+description: Learn about what actor migrations are and how to handle them properly so that the state is not lost and runs can safely be resurrected.
 sidebar_position: 6.5
 slug: /expert-scraping-with-apify/migrations-maintaining-state
 ---
 
 # Migrations & maintaining state {#migrations-maintaining-state}
 
-**Learn about what actor migrations are and how to handle them properly so that state is not lost and it can safely be resurrected.**
+**Learn about what actor migrations are and how to handle them properly so that the state is not lost and runs can safely be resurrected.**
 
 ---
 
@@ -25,8 +25,8 @@ Before moving forward, read about actor [events](/sdk/js/docs/upgrading/upgradin
 
 ## Knowledge check 📝 {#quiz}
 
-1. Actors have an option the **Settings** tab to **Restart on error**. Would you use this feature for regular actors? When would you use this feature?
-2. Migrations happen randomly, but by [aborting **gracefully**](/platform/actors/running#aborting-runs), you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted actor's run?
+1. Actors have an option in the **Settings** tab to **Restart on error**. Would you use this feature for regular actors? When would you use this feature?
+2. Migrations happen randomly, but by [aborting **gracefully**](/platform/actors/running/runs-and-builds#aborting-runs), you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted actor's run?
 3. Why don't you (usually) need to add any special migration handling code for a standard crawling/scraping actor? Are there any features in the Crawlee/Apify SDK that handle this under the hood?
 4. How can you intercept the migration event? How much time do you have after this event happens and before the actor migrates?
 5. When would you persist data to the default key-value store instead of to a named key-value store?
