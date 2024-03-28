@@ -108,13 +108,9 @@ The platform usage can be represented either in raw units (e.g. gigabytes for da
 
 To view the usage of an Actor run, navigate to the **Runs** section and check out the **Usage** column.
 
-<!-- here add screenshot of runs lines with arrow pointing to usage column -->
-
 ![Runs usage](./images/usage_and_resources/usage-and-resources-runs-usage.png)
 
- For a more detailed breakdown, click on the specific run you want to examine
-
-<!-- here add screenshot of detailed run usage breakdown -->
+ For a more detailed breakdown, click on the specific run you want to examine and then on the **?** icon next to the **Usage** label.
 
 ![Actors run usage details](./images/usage_and_resources/usage-and-resources-runs-usage-details.png)
 
