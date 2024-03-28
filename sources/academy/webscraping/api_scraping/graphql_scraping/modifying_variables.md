@@ -112,7 +112,7 @@ If the query provided in the payload you find in the **Network** tab is good eno
 }
 ```
 
-Depending on the API, just doing this can be sufficient. However, sometimes we want to utilize complex GraphQL features in order to optimize our scrapers or just to receive more data than is being provided in the response of the requst found in the **Network** tab. This is what we will be discussing in the next lessons.
+Depending on the API, just doing this can be sufficient. However, sometimes we want to utilize complex GraphQL features in order to optimize our scrapers or just to receive more data than is being provided in the response of the request found in the **Network** tab. This is what we will be discussing in the next lessons.
 
 ## Next up {#next}
 

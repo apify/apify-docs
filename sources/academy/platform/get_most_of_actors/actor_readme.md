@@ -38,7 +38,7 @@ Aim for sections 1–6 below and try to include at least 300 words. You can move
 
     - How it can be beneficial for the user
     - Business use cases
-    - Link to a success story, or a business use case, or a blog post.
+    - Link to a success story, a business use case, or a blog post.
 
 3. **How much will it cost to scrape (target site)?**
 
@@ -65,7 +65,7 @@ Aim for sections 1–6 below and try to include at least 300 words. You can move
 
 5. **Is it legal to scrape (target site)?**
 
-    - This can be used as boilerplate text for the legal section, but you should use your own judgement and also customize it with the site name.
+    - This can be used as a boilerplate text for the legal section, but you should use your own judgement and also customize it with the site name.
 
     > Our scrapers are ethical and do not extract any private user data, such as email addresses, gender, or location. They only extract what the user has chosen to share publicly. We therefore believe that our scrapers, when used for ethical purposes by Apify users, are safe. However, you should be aware that your results could contain personal data. Personal data is protected by the [GDPR](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) in the European Union and by other regulations around the world. You should not scrape personal data unless you have a legitimate reason to do so. If you're unsure whether your reason is legitimate, consult your lawyers. You can also read our blog post on the [legality of web scraping](https://blog.apify.com/is-web-scraping-legal/)
 

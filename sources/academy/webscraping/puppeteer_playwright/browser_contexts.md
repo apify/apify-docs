@@ -38,9 +38,9 @@ const myNewContext = await browser.createIncognitoBrowserContext();
 
 ## Persistent vs non-persistent browser contexts {#persistent-vs-non-persistent}
 
-In both examples above, we are creating a new **non-persistent** browser context, which means that once it closes, all of its cookies, cache, etc. will be lost. For some cases, that's okay, but in most situations the performance hit from this is too large. This is why we have **persistent** browser contexts. Persistent browser contexts open up a bit slower and they store all their cache, cookies, session storage, and local storage in a file on disk.
+In both examples above, we are creating a new **non-persistent** browser context, which means that once it closes, all of its cookies, cache, etc. will be lost. For some cases, that's okay, but in most situations, the performance hit from this is too large. This is why we have **persistent** browser contexts. Persistent browser contexts open up a bit slower and they store all their cache, cookies, session storage, and local storage in a file on disk.
 
-In Puppeteer, the **default** browser context is the persistent one, while in Playwright we have to use use [`BrowserType.launchPersistentContext()`](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context) instead of `BrowserType.launch()` in order for the default context to be persistent.
+In Puppeteer, the **default** browser context is the persistent one, while in Playwright we have to use [`BrowserType.launchPersistentContext()`](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context) instead of `BrowserType.launch()` in order for the default context to be persistent.
 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
@@ -138,7 +138,7 @@ await browser.close();
 </TabItem>
 </Tabs>
 
-Then, we'll make both `iPhonePage` and `androidPage` visit [deviceinfo.me](https://www.deviceinfo.me/), which is a website that  displays the type of device you have, the operating system you're using, and more device and location-specific information.
+Then, we'll make both `iPhonePage` and `androidPage` visit [deviceinfo.me](https://www.deviceinfo.me/), which is a website that displays the type of device you have, the operating system you're using, and more device and location-specific information.
 
 ```js
 // Go to deviceinfo.me on both at the same time
@@ -152,11 +152,11 @@ Let's go ahead and run our code and analyze the data on each **deviceinfo.me** p
 
 ![deviceinfo.me results for both browser contexts](./images/dual-contexts.jpg)
 
-We see that **deviceinfo.me** detects both contexts as using different devices, despite the fact they're visiting the same page at the same time.  This shows firsthand that different browser contexts can have totally different configurations, as they all have separate sessions.
+We see that **deviceinfo.me** detects both contexts as using different devices, despite the fact they're visiting the same page at the same time. This shows firsthand that different browser contexts can have totally different configurations, as they all have separate sessions.
 
 ## Accessing browser contexts {#accessing-browser-contexts}
 
-When working with multiple browser contexts, it can be difficult to keep track of all of them and repetitive when making changes to all of them. This is why the **Browser** instance returned from the `launch()` function also has a `contexts()` function (`browserContexts()` in Puppeteer). This function returns an array of all the contexts that are currently attached to the browser.
+When working with multiple browser contexts, it can be difficult to keep track of all of them and making changes becomes a repetitive job. This is why the **Browser** instance returned from the `launch()` function also has a `contexts()` function (`browserContexts()` in Puppeteer). This function returns an array of all the contexts that are currently attached to the browser.
 
 Let's go ahead and use this function to loop through all of our browser contexts and make them log **Site visited** to the console whenever the website is visited:
 
@@ -192,7 +192,7 @@ Site visited
 Site visited
 ```
 
-Cool! So we've modified both our `iPhoneContext` and `androidContext`, as well as our default context, to log the message.
+Cool! We've modified both our `iPhoneContext` and `androidContext`, as well as our default context, to log the message.
 
 > Note that the Puppeteer code and Playwright code are slightly different in the examples above. The Playwright code will log **Site visited** any time the specific URL is visited, while the Puppeteer code will log any time the target URL is changed to anything.
 
@@ -200,4 +200,4 @@ Finally, in Puppeteer, you can use the `browser.defaultBrowserContext()` functio
 
 ## Wrap up
 
-So far in this course, you've learned how to launch a browser, open a page, run scripts on a page, extract data from a page, intercept requests made on the page, use proxies, and use multiple browser contexts. Stay tuned for new lessons!
+Thus far in this course, you've learned how to launch a browser, open a page, run scripts on a page, extract data from a page, intercept requests made on the page, use proxies, and use multiple browser contexts. Stay tuned for new lessons!

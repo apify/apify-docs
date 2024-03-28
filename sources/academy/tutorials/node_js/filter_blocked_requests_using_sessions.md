@@ -70,7 +70,7 @@ You don't necessarily need to understand the solution below - it should be fine 
 }
 ```
 
-Now let's get to the algorithm that will define which sessions to pick for a request. There are many ways to do this and this is by no means the ideal way, so I encourage you to find a more intelligent algorithm and paste it into the comments of this article.
+Now let's get to the algorithm that will define which sessions to pick for a request. It can be done in many ways and this is by no means the ideal way, so I encourage you to find a more intelligent algorithm and paste it into the comments of this article.
 
 This function takes `sessions`  as an argument and returns a `session`  object which will either be a random object from `sessions`  or a new one with random user agent.
 
@@ -162,9 +162,9 @@ const crawler = new Apify.PuppeteerCrawler({
 });
 ```
 
-We picked the session and added it to the browser as `apifyProxySession`  but for userAgent, we didn't simply passed the user agent as it is but added the session name into it. That is the hack because we can retrieve the user agent from the Puppeteer browser itself.
+We picked the session and added it to the browser as `apifyProxySession` but for userAgent, we didn't simply passed the user agent as it is but added the session name into it. That is the hack because we can retrieve the user agent from the Puppeteer browser itself.
 
-Now we need to retrieve the session name back in the `gotoFunction` , pass it into userData and fix the hacked userAgent back to normal so it is not suspicious for the website.
+Now we need to retrieve the session name back in the `gotoFunction`, pass it into userData and fix the hacked userAgent back to normal so it is not suspicious for the website.
 
 ```js
 const gotoFunction = async ({ request, page }) => {
@@ -180,7 +180,7 @@ const gotoFunction = async ({ request, page }) => {
 };
 ```
 
-Now he have access to the session in the `handlePageFunction`  and the rest of the logic is the same as in the first example. We extract the session from the userData, try/catch the whole code and on success we add the session and on error we delete it. Also it is useful to retire the browser completely (check [here](http://kb.apify.com/actor/how-to-handle-blocked-requests-in-puppeteercrawler) for reference) since the other requests will probably have similar problem.
+Now we have access to the session in the `handlePageFunction` and the rest of the logic is the same as in the first example. We extract the session from the userData, try/catch the whole code and on success we add the session and on error we delete it. Also it is useful to retire the browser completely (check [here](http://kb.apify.com/actor/how-to-handle-blocked-requests-in-puppeteercrawler) for reference) since the other requests will probably have similar problem.
 
 ```js
 const handlePageFunction = async ({ request, page, puppeteerPool }) => {
@@ -204,6 +204,6 @@ Things to consider
 
 2. This solution will not help you if you simply don't have enough proxies for your job. It can even get your proxies banned faster (since the good ones will be used more often), so you should be cautious about the speed of your crawl.
 
-3. If you are more concerned about the speed of your crawler and less about banning proxies, set the `maxSessions` parameter of `pickSession` function to a number relatively lower to your total number of proxies. If on the other hand, keeping your proxies alive is more important, set `maxSessions`  relatively higher so you will always pick new proxies.
+3. If you are more concerned about the speed of your crawler and less about banning proxies, set the `maxSessions` parameter of `pickSession` function to a number relatively lower than your total number of proxies. If on the other hand, keeping your proxies alive is more important, set `maxSessions`  relatively higher so you will always pick new proxies.
 
 4. Since sessions only last 24 hours, if you have bigger intervals between your crawler runs, they will start fresh each time.

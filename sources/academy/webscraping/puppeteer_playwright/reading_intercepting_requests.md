@@ -98,7 +98,7 @@ page.on('request', (req) => {
 
 > Note that you should always define any request reading/interception code prior to calling the `page.goto()` function.
 
-Cool! So now when we run our code, we'll see this logged to the console:
+Cool! Now when we run our code, we'll see this logged to the console:
 
 ```text
 Request for followers was made!
@@ -307,7 +307,7 @@ This confirms that we've successfully blocked the CSS and image resources from l
 
 #### Quick note about resource blocking {#quick-note}
 
-Something **very** important to note is that by using request interception, the browser's cache is turned **off**. This means that resources on websites that would normally be cached (and pulled from the cache instead on the next request for those resources) will not be cached, which can have varying negative effects on performance, especially when making many requests to the same domain, which is very common in web scraping. You can learn how to solve this problem in [this short tutorial](../../tutorials/node_js/caching_responses_in_puppeteer.md)
+Something **very** important to note is that by using request interception, the browser's cache is turned **off**. This means that resources on websites that would normally be cached (and pulled from the cache instead on the next request for those resources) will not be cached, which can have varying negative effects on performance, especially when making many requests to the same domain, which is very common in web scraping. You can learn how to solve this problem in [this short tutorial](../../tutorials/node_js/caching_responses_in_puppeteer.md).
 
 To block resources, it is better to use a CDP (Chrome DevTools Protocol) Session ([Playwright](https://playwright.dev/docs/api/class-cdpsession)/[Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v14.1.0&show=api-class-cdpsession)) to set the blocked URLs. Here is an implementation that achieves the same goal as our above example above; however, the browser's cache remains enabled.
 
@@ -326,7 +326,8 @@ const page = await browser.newPage();
 const blockedExtensions = ['.png', '.css', '.jpg', '.jpeg', '.pdf', '.svg'];
 
 // Use CDP session to block resources
-const client = await page.context().newCDPSession();
+const client = await page.context().newCDPSession(page);
+
 await client.send('Network.setBlockedURLs', { urls: blockedExtensions });
 
 await page.goto('https://soundcloud.com/tiesto/following');
@@ -423,4 +424,4 @@ Here's what we see when we run `node index.js`:
 
 ## Next up {#next}
 
-The [next lesson](./proxies.md) will teach you how to use proxies in Playwright and Puppeteer in order to avoid blocking or appear as if you are requesting from a different location.
+The [next lesson](./proxies.md) will teach you how to use proxies in Playwright and Puppeteer in order to avoid blocking or to appear as if you are requesting from a different location.

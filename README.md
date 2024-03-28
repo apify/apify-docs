@@ -173,7 +173,7 @@ My Document Markdown content
 
     AVOID:
 
-    > Description of the processes regarding the optimizing and preparing for publishing of one's Actor in Apify Store.
+    > Description of the processes regarding optimizing and preparing for publishing of one's Actor in Apify Store.
 
 ### Screenshots
 

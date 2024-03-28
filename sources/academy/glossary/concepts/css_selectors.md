@@ -11,7 +11,7 @@ CSS selectors are patterns used to select [HTML elements](./html_elements.md) on
 
 ## Common types of CSS selectors
 
-There are several types of CSS selectors, some of the most common are:
+Some of the most common types of CSS selectors are:
 
 ### Element selector
 

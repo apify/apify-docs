@@ -5,7 +5,4 @@ level: error
 tokens:
   - '(?<!\W)\bactor\b'
   - '(?<!\W)\bactors\b'
-  - '(?<!@)\bapify\b(?!-\w+)'
-  - '(?<!\()\bhttps?://[^\s]*\bapify\b[^\s]*\b(?!\))|(?<!\[)\bhttps?://[^\s]*\bapify\b[^\s]*\b(?!\])'
-
 nonword: false

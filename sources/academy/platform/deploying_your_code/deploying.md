@@ -11,7 +11,7 @@ slug: /deploying-your-code/deploying
 
 ---
 
-Once you've **actorified** your code, there are two ways to deploy your it to the Apify platform. You can either push the code directly from your local machine onto the platform, or you can create a blank actor in the web-interface, then integrate its source code with a GitHub repository.
+Once you've **actorified** your code, there are two ways to deploy it to the Apify platform. You can either push the code directly from your local machine onto the platform, or you can create a blank actor in the web interface, and then integrate its source code with a GitHub repository.
 
 ## With a Git repository {#with-git-repository}
 
@@ -45,7 +45,7 @@ And scroll through all of the links until we find the **Build Actor** API endpoi
 
 ![Adding a webhook to your GitHub repo](../../../platform/actors/development/deployment/images/ci-github-integration.png)
 
-That's it! the Actor should now pull its source code from the repo and automatically build.
+That's it! The Actor should now pull its source code from the repo and automatically build.
 
 ## Without a GitHub repository (using the Apify CLI) {#with-apify-cli}
 
@@ -53,7 +53,7 @@ That's it! the Actor should now pull its source code from the repo and automatic
 
 If you're logged in to the Apify CLI, the `apify push` command can be used to push the code straight onto the Apify platform from your local machine (no GitHub repository required), where it will automatically be built for you. Prior to running this command, make sure that you have an **.actor/actor.json** file at the root of the project. If you don't already have one, you can use `apify init .` to automatically generate one for you.
 
-One important thing to note is that you can use a `.gitignore` file to exclude files from being pushed. When you use `apify push` without a `.gitignore`, the full folder contents will be pushed, meaning that even the even **storage** and **node_modules** will be pushed. These files are unnecessary to push, as they are both generated on the platform.
+One important thing to note is that you can use a `.gitignore` file to exclude files from being pushed. When you use `apify push` without a `.gitignore`, the full folder contents will be pushed, meaning that even the **storage** and **node_modules** will be pushed. These files are unnecessary to push, as they are both generated on the platform.
 
 > The `apify push` command should only really be used for quickly pushing and testing actors on the platform during development. If you are ready to make your actor public, use a Git repository instead, as you will reap the benefits of using Git and others will be able to contribute to the project.
 

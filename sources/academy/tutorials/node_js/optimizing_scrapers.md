@@ -13,11 +13,11 @@ slug: /node-js/optimizing-scrapers
 
 Especially if you are running your scrapers on [Apify](https://apify.com), performance is directly related to your wallet (or rather bank account). The slower and heavier your program is, the more proxy bandwidth, storage, [compute units](https://help.apify.com/en/articles/3490384-what-is-a-compute-unit) and higher [subscription plan](https://apify.com/pricing) you'll need.
 
-The goal of optimization is simple: Make the code run as fast possible and use the least resources possible. On Apify, the resources are memory and CPU usage (don't forget that the more memory you allocate to a run, the bigger share of CPU you get - proportionally). Memory alone should never be a bottleneck though. If it is, that means either a bug (memory leak) or bad architecture of the program (you need to split the computation to smaller parts). The rest of this article, will focus only on optimizing CPU usage. You allocate more memory only to get more power from the CPU.
+The goal of optimization is simple: Make the code run as fast as possible and use the least resources possible. On Apify, the resources are memory and CPU usage (don't forget that the more memory you allocate to a run, the bigger share of CPU you get - proportionally). The memory alone should never be a bottleneck though. If it is, that means either a bug (memory leak) or bad architecture of the program (you need to split the computation into smaller parts). The rest of this article will focus only on optimizing CPU usage. You allocate more memory only to get more power from the CPU.
 
 One more thing to remember. Optimization has its own cost: development time. You should always think about how much time you're able to spend on it and if it's worth it.
 
-Before we dive into the practical side of things, lets diverge with an analogy to help us think about the performance of scrapers.
+Before we dive into the practical side of things, let us diverge with an analogy to help us think about the performance of scrapers.
 
 ## Game development analogy {#analogy}
 
@@ -37,5 +37,5 @@ It is about how you use these tools. The small amount of code you write in your 
 
 1. **JSON API** (HTTP call + JSON parse) - Scraping an API (public or internal) is the best option. The response is usually smaller than the HTML page and the data are already structured and cheap to parse. Usable for about 30% of websites.
 2. **Pure HTML** (HTTP call + HTML parse) -  All data is on the main single HTML page. Often the HTML contains script and JSON data that are rich and nicely structured. Some pages can be quite big and the parsing is slower than for JSON. But it is still 10–20 times faster than a browser. Usable for about 90% of websites.
-3. **Browser** (hundreds of HTTP calls, script execution, rendering) - Browsers are huge beasts. They do so much work to allow for smooth human interaction which makes them really inefficient for scraping. Use a browser only if it helps you bypass anti-scraping protection or you need to interact with the page.
+3. **Browser** (hundreds of HTTP calls, script execution, rendering) - Browsers are huge beasts. They do so much work to allow for smooth human interaction which makes them really inefficient for scraping. Use a browser only if it helps you bypass anti-scraping protection or if you need to interact with the page.
 

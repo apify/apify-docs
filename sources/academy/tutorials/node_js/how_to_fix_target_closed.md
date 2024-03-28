@@ -31,7 +31,7 @@ If you close the page before executing all code that tries to access the page, y
 
 ### Page closed solution
 
-[Add logs to your code](https://docs.apify.com/academy/node-js/analyzing-pages-and-fixing-errors) to see exactly at which point the crash occurs. See if you can spot one of the above mentioned problems. Adding missing `await` is simple but if your code runs in an event handler, you will need to wrap it in try/catch block and ensure the you give it enough time to execute before you close the main crawling handler.
+[Add logs to your code](https://docs.apify.com/academy/node-js/analyzing-pages-and-fixing-errors) to see exactly at which point the crash occurs. See if you can spot one of the above mentioned problems. Adding missing `await` is simple but if your code runs in an event handler, you will need to wrap it in try/catch block and ensure that you give it enough time to execute before you close the main crawling handler.
 
 If you use Crawlee and utilize [preNavigationHooks](https://crawlee.dev/api/playwright-crawler/interface/PlaywrightCrawlerOptions#preNavigationHooks) to execute event handlers like `page.on` asynchronously be aware that this can cause the above mentioned problem that the [requestHandler](https://crawlee.dev/api/playwright-crawler/interface/PlaywrightCrawlerOptions#requestHandler) already finishes before we access the `page` in the event handler. You can solve this issue by making sure the `requestHandler` waits for all promises from the `preNavigationHooks`. This can be achieved by passing the promises to the `context` which is accessible to both functions and awaiting them before the scraping code starts.
 

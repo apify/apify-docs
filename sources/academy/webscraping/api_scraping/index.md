@@ -24,7 +24,7 @@ An API is a custom service that lives on the server of any given website. They p
 
 ## Different types of APIs
 
-The vast majority of APIs our there are standard REST APIs that have different endpoints. Even though this is the case, it is important to be aware that newer API technologies such as [GraphQL](https://graphql.org/) are becoming more popular, and therefore more utilized in modern web applications.
+The vast majority of APIs out there are standard REST APIs that have different endpoints. Even though this is the case, it is important to be aware that newer API technologies such as [GraphQL](https://graphql.org/) are becoming more popular, and therefore more utilized in modern web applications.
 
 A GraphQL API works differently from a standard API. All requests are `POST` requests to a single endpoint - typically `https://targetdomain.com/graphql`. Queries are passed as a payload, and are very specific (which can be difficult to deal with). Additionally, GraphQL is a language in of itself; therefore, one must at least skim their documentation for a light understanding of the technology in order to be able to effectively scrape an API that uses it.
 
@@ -36,7 +36,7 @@ A GraphQL API works differently from a standard API. All requests are `POST` req
 
 ### 1. More reliable
 
-Since the data is coming directly from the site's API, as opposed from the parsing of HTML content based on CSS selectors, it can be relied on more, as it is less likely to change. Typically, websites change their APIs much less frequently than they change the structure/selectors of their pages.
+Since the data is coming directly from the site's API, as opposed to the parsing of HTML content based on CSS selectors, it can be relied on more, as it is less likely to change. Typically, websites change their APIs much less frequently than they change the structure/selectors of their pages.
 
 ### 2. Configurable
 
@@ -70,11 +70,11 @@ For complex APIs that require certain headers and/or payloads in order to make a
 
 ### 1. Different data formats
 
-APIs come in all different shapes and sizes. That means every API will vary in not only the quality of the data that it returns, but also that format that it is in. The two most common formats are JSON and HTML.
+APIs come in all different shapes and sizes. That means every API will vary in not only the quality of the data that it returns, but also the format that it is in. The two most common formats are JSON and HTML.
 
-JSON responses are the most ideal, as they are easily manipulatable in JavaScript code. In general, no serious parsing is necessary, and the data can be easily filtered and formatted to fit a scraper's output schema.
+JSON responses are the most ideal, as they are easily manipulated in JavaScript code. In general, no serious parsing is necessary, and the data can be easily filtered and formatted to fit a scraper's output schema.
 
-APIs which output HTML are generally returning the raw HTML of a small component of the page which is already hydrated with data. In these cases, it is still worth using the API, as it is still more efficient than making a request to the entire page; even though the data does still need to be parsed from the HTML response.
+APIs which output HTML generally return the raw HTML of a small component of the page which is already hydrated with data. In these cases, it is still worth using the API, as it is still more efficient than making a request to the entire page; even though the data does still need to be parsed from the HTML response.
 
 ### 2. Encoded data
 
