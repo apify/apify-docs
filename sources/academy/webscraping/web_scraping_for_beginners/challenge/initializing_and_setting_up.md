@@ -17,7 +17,7 @@ The Crawlee CLI makes it extremely easy for us to set up a project in Crawlee an
 npx crawlee create amazon-crawler
 ```
 
-Once you run this command, you'll get prompted into a menu which you can navigate using your arrow keys. Each of these options will generate different boilerplate code when selected. We're going to work with CheerioCrawler today, so we'll select the **CheerioCrawler template project** template, then press **Enter**.
+Once you run this command, you'll get prompted into a menu which you can navigate using your arrow keys. Each of these options will generate a different boilerplate code when selected. We're going to work with CheerioCrawler today, so we'll select the **CheerioCrawler template project** template, and then press **Enter**.
 
 ![Crawlee CLI "create" command](./images/crawlee-create.png)
 

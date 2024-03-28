@@ -16,11 +16,11 @@ import TabItem from '@theme/TabItem';
 
 Other than having methods for interacting with a page and waiting for events and elements, the **Page** object also supports various methods for doing other things, such as [reloading](https://pptr.dev/#?product=Puppeteer&version=v13.7.0&show=api-pagereloadoptions), [screenshotting](https://playwright.dev/docs/api/class-page#page-screenshot), [changing headers](https://playwright.dev/docs/api/class-page#page-set-extra-http-headers), and extracting the [page's content](https://pptr.dev/#?product=Puppeteer&show=api-pagecontent).
 
-Last lesson, we left off at a point where we are waiting for the page to navigate so that we can extract the page's title and take a screenshot of it. In this lesson, we'll be learning about the two methods we can use to easily achieve both of those things.
+Last lesson, we left off at a point where we were waiting for the page to navigate so that we can extract the page's title and take a screenshot of it. In this lesson, we'll be learning about the two methods we can use to easily achieve both of those things.
 
 ## Grabbing the title {#grabbing-the-title}
 
-There are two main page functions which will return general data:
+Two main page functions exist that will return general data:
 
 1. `page.content()` will return the entire HTML content of the page.
 2. `page.title()` will return the title of the current page found in the `<title>` tag.
@@ -120,7 +120,7 @@ await browser.close();
 </TabItem>
 </Tabs>
 
-When you run this code, you should see this logged to console:
+When you run this code, you should see this logged to the console:
 
 ```text
 "Hello, World!" program - Wikipedia

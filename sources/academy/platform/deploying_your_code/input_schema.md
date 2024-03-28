@@ -74,7 +74,7 @@ Within our new **numbers** property, there are two more fields we must specify. 
 
 ## Required fields {#required-fields}
 
-The great thing about building an input schema is that it will automatically validate your inputs based on their type, maximum value, minimum value, etc. Sometimes, you want to ensure that the user will always provide input for certain fields, as they are crucial to the actor's run. This can be done by using the **required** field, and passing in the names of the fields you'd like to require.
+The great thing about building an input schema is that it will automatically validate your inputs based on their type, maximum value, minimum value, etc. Sometimes, you want to ensure that the user will always provide input for certain fields, as they are crucial to the actor's run. This can be done by using the **required** field and passing in the names of the fields you'd like to require.
 
 ```json
 {

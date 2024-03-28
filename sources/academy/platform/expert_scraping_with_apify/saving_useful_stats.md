@@ -11,7 +11,7 @@ slug: /expert-scraping-with-apify/saving-useful-stats
 
 ---
 
-Using Crawlee and the Apify SDK, we are now able to collect and format data coming directly from websites and save it into a Key-Value store or Dataset. This is great, but sometimes, we want to store some extra data about the run itself, or about each request. We might want to store some extra general run information separately from our results, or potentially include statistics about each request within its corresponding dataset item.
+Using Crawlee and the Apify SDK, we are now able to collect and format data coming directly from websites and save it into a Key-Value store or Dataset. This is great, but sometimes, we want to store some extra data about the run itself, or about each request. We might want to store some extra general run information separately from our results or potentially include statistics about each request within its corresponding dataset item.
 
 The types of values that are saved are totally up to you, but the most common are error scores, number of total saved items, number of request retries, number of captchas hit, etc. Storing these values is not always necessary, but can be valuable when debugging and maintaining an actor. As your projects scale, this will become more and more useful and important.
 
@@ -62,6 +62,6 @@ Also, an object including these values should be persisted during the run in th 
 
 ## Wrap up
 
-Wow, you've learned a whole lot in this course, so give yourself the pat on the back that you deserve! If you were able to follow along with this course, that means that you're officially an **Apify pro**, and that you're equipped with all of the knowledge and tools you need to build awesome scalable web-scrapers either for your own personal projects, or for the Apify platform.
+Wow, you've learned a whole lot in this course, so give yourself the pat on the back that you deserve! If you were able to follow along with this course, that means that you're officially an **Apify pro**, and that you're equipped with all of the knowledge and tools you need to build awesome scalable web-scrapers either for your own personal projects or for the Apify platform.
 
 Congratulations! 🎉

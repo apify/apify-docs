@@ -1,17 +1,17 @@
 ---
 title: Unknown, any, type guards & type assertions
-description: Understand the "unknown" and "any" types, as well as using type guards to make your code safer and type assertions to avoid common TypeScript compiler errors.
+description: Understand the "unknown" and "any" types, as well as how to use type guards to make your code safer and type assertions to avoid common TypeScript compiler errors.
 sidebar_position: 7.6
 slug: /switching-to-typescript/unknown-and-type-assertions
 ---
 
 # Unknown & type assertions {#unknown-and-type-assertions}
 
-**Understand the "unknown" and "any" types, as well as using type guards to make your code safer and type assertions to avoid common TypeScript compiler errors.**
+**Understand the "unknown" and "any" types, as well as how to use type guards to make your code safer and type assertions to avoid common TypeScript compiler errors.**
 
 ---
 
-There are two types we haven't discussed yet - `any` and `unknown`.
+Two types we haven't discussed yer are `any` and `unknown`
 
 ## Let's talk about "any" {#the-any-type}
 
@@ -76,11 +76,11 @@ if (typeof userInput === 'string') {
 }
 ```
 
-This works, and in fact, it's the most optimal solution for this use case. But what if we were 100% sure that the value stored in `userInput` was a string? Thats when **type assertions** comes in handy.
+This works, and in fact, it's the most optimal solution for this use case. But what if we were 100% sure that the value stored in `userInput` was a string? Thats when **type assertions** come in handy.
 
 ## Type assertions {#type-assertions}
 
-Despite the fancy name, [type assertions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions) is a simple concept based around a single keyword: `as`. We usually use this on values that we can't control the return type of, or values that we're sure have a certain type, but TypeScript needs a bit of help understanding that.
+Despite the fancy name, [type assertions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions) are a simple concept based around a single keyword: `as`. We usually use this on values that we can't control the return type of, or values that we're sure have a certain type, but TypeScript needs a bit of help understanding that.
 
 <!-- eslint-disable -->
 ```ts
@@ -123,9 +123,9 @@ Even though you've learned about them in the same lesson, type guards and type a
 
 **Type guards** make a runtime check of whether or not a value passes a check that determines that it can be safely used as a certain type. They are great when dealing with values that might hold inconsistent data types (such as user input) where you aren't 100% sure if a certain property will exist.
 
-**Type assertions** tells TypeScript to take a value of one type and to treat it as if it were another type. No runtime checks are made. A common use case is asserting the response body of an API call (usually has the `any` type depending on what you're using to fetch the data) to a custom type to receive TypeScript support on the data.
+**Type assertions** tell TypeScript to take a value of one type and to treat it as if it were another type. No runtime checks are made. A common use case is asserting the response body of an API call (usually has the `any` type depending on what you're using to fetch the data) to a custom type to receive TypeScript support on the data.
 
-Often times, these features are used in tandem.
+Oftentimes, these features are used in tandem.
 
 ## Next up {#next}
 

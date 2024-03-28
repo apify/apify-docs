@@ -21,7 +21,7 @@ In the lesson corresponding to this solution, we discussed an extremely importan
 
 **Q: In Git, what is the difference between pushing changes and making a pull request?**
 
-**A:** Pushing changes the remote branch based on the content on the local branch. The pushing of code changes is usually made to a branch parallel to the one you want to eventually push it to.
+**A:** Pushing changes to the remote branch based on the content on the local branch. The pushing of code changes is usually made to a branch parallel to the one you want to eventually push it to.
 
 When creating a pull request, the code is meant to be reviewed, or at least pass all the test suites before being merged into the target branch.
 

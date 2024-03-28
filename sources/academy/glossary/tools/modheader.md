@@ -17,7 +17,7 @@ If you read about [Postman](./postman.md), you might remember that you can use i
 
 ## The ModHeader interface {#interface}
 
-After you install the ModHeader extension, you should see in pinned in Chrome's task bar. When you click it, you'll see an interface like this pop up:
+After you install the ModHeader extension, you should see it pinned in Chrome's task bar. When you click it, you'll see an interface like this pop up:
 
 ![Modheader's simple interface](./images/modheader.jpg)
 

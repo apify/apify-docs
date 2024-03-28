@@ -22,7 +22,7 @@ In development, it is crucial to check and adjust the configurations related to 
 
 If you don't have time to read about the theory behind anti-scraping protections to fine-tune your scraping project and instead you just need to get unblocked ASAP, here are some quick tips:
 
-- Use high-quality proxies. [Residential proxies](/platform/proxy/residential-proxy) are the least blocked. There are many providers out there like Apify, BrightData, Oxylabs, NetNut, etc.
+- Use high-quality proxies. [Residential proxies](/platform/proxy/residential-proxy) are the least blocked. You can find many providers out there like Apify, BrightData, Oxylabs, NetNut, etc.
 - Set **real-user-like HTTP settings** and **browser fingerprints**. [Crawlee](https://crawlee.dev/) uses statistically generated realistic HTTP headers and browser fingerprints by default for all of its crawlers.
 - Use a modern browser to pass bot capture challenges. We recommend [Playwright with Firefox](https://crawlee.dev/docs/examples/playwright-crawler-firefox) because it is not that common for scraping. You can also play with [non-headless mode](https://crawlee.dev/api/playwright-crawler/interface/PlaywrightCrawlerOptions#headless) and adjust other [fingerprint settings](https://crawlee.dev/api/browser-pool/interface/FingerprintGeneratorOptions).
 - Consider extracting data from **[private APIs](../api_scraping/index.md)** or **mobile app APIs**. They are usually much less protected.
@@ -40,11 +40,11 @@ If the above tips didn't help, you can try to fiddle with the following:
 - Find different sources of the data. The data might be rendered to the HTML but you could also find it in JavaScript (inlined in the HTML or in files) or in the API responses. Especially the APIs are often much less protected (if you use the right headers).
 - Reverse engineer the JavaScript challenges that run on the page so you can figure out how the bypass them. This is a very advanced topic that you can read about online. We plan to introduce more content about this.
 
-Keep in mind that there is no silver bullet solution. There are many anti-scraping systems and each of them behaves differently depending the website's configuration. That is why "trying a few things" usually leads to success. You will find more details about these tricks in the [mitigation](./mitigation/index.md) section below.
+Keep in mind that there is no silver bullet solution. You can find many anti-scraping systems and each of them behaves differently depending the website's configuration. That is why "trying a few things" usually leads to success. You will find more details about these tricks in the [mitigation](./mitigation/index.md) section below.
 
 ## First of all, why do websites want to block bots? {#why-block-bots}
 
-What's up with that?! There are various reasons why a website might want to block bots from accessing it. Here are a few of the main ones:
+What's up with that?! A website might have a variety of reasons to block bots from accessing it. Here are a few of the main ones:
 
 - To prevent the possibility of malicious bots from crawling the site to steal sensitive data like passwords or personal data about users.
 - In order to avoid server performance hits due to bots making a large amount of requests to the website at a single time.
@@ -61,16 +61,18 @@ Unfortunately for these websites, they have to make compromises and tradeoffs. W
 
 ## The principles of anti-scraping protections {#the-principles}
 
-Anti-scraping protections can work on many different layers and use a large amount of bot-identification techniques. There are 4 main principles that anti-scraping protections are based on:
+Anti-scraping protections can work on many different layers and use a large amount of bot-identification techniques.
 
-1. **Where you are coming from** - IP address of the incoming traffic is always available to the website. Proxies are used to emulate a different IP addresses but their quality matters a lot.
-2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, cyphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to clasify your hardware (like graphics hardware acceleration).
-3. **What you are scraping** - There are many ways to extract the same data from a website. You can just get the inital HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
-4. **How you behave** - The website can see patterns in how you are ordering your requests, how fast you are scraping, etc. It can also analyse browser behavior like mouse movement, clicks or key presses.
+1. **Where you are coming from** - The IP address of the incoming traffic is always available to the website. Proxies are used to emulate a different IP addresses but their quality matters a lot.
+2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, cyphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to classify your hardware (like graphics hardware acceleration).
+3. **What you are scraping** - The same data can be extracted in many ways from a website. You can just get the inital HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
+4. **How you behave** - The website can see patterns in how you are ordering your requests, how fast you are scraping, etc. It can also analyze browser behavior like mouse movement, clicks or key presses.
+
+These are the 4 main principles that anti-scraping protections are based on.
 
 Not all websites use all of these principles but they encompass the possibilities websites have to track and block bots. All techniques that help you mitigate anti-scraping protections are based on making yourself blend in with the crowd of regular users with each of these principles.
 
-There are two main ways a bot can be detected, which follow two different types of web scraping:
+A bot can usually be detected in one of two ways, which follow two different types of web scraping:
 
 1. Crawlers using **HTTP requests**
 2. Crawlers using **browser automation** (usually with a headless browser)
@@ -110,7 +112,7 @@ This type of bot identification is based on the given fact that humans are acces
 
 ### URL analysis
 
-Solely based on the way how the bots operate. It comperes data-rich pages visits and the other pages visits. The ratio of the data-rich and regular pages has to be high to identify the bot and reduce false positives successfully.
+Solely based on the way how the bots operate. It compares data-rich page visits and the other page visits. The ratio of the data-rich and regular pages has to be high to identify the bot and reduce false positives successfully.
 
 ### Regular structure changes
 

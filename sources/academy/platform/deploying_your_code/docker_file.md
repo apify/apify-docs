@@ -182,4 +182,4 @@ CMD ["julia", "main.jl"]
 
 ## Next up {#next}
 
-In the [next lesson](./deploying.md), we'll be push our code directly to the Apify platform, or create and integrate a new actor on the Apify platform with our project's GitHub repository.
+In the [next lesson](./deploying.md), we'll push our code directly to the Apify platform, or create and integrate a new actor on the Apify platform with our project's GitHub repository.

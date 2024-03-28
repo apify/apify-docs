@@ -25,7 +25,7 @@ Storage allows us to save persistent data for further processing. As you'll lear
 
 - Check out [the docs about actor tasks](/platform/actors/running/tasks).
 - Read about the [two main storage options](/platform/storage#dataset) on the Apify platform.
-- Understand the [crucial differences between named and unnamed storages](/platform/storage#named-and-unnamed-storages).
+- Understand the [crucial differences between named and unnamed storages](/platform/storage/usage#named-and-unnamed-storages).
 - Learn about the [`Dataset`](/sdk/js/reference/class/Dataset) and [`KeyValueStore`](/sdk/js/reference/class/KeyValueStore) objects in the Apify SDK.
 
 ## Knowledge check 📝 {#quiz}
@@ -40,7 +40,7 @@ Once again, we'll be adding onto our main Amazon-scraping actor in this activity
 
 We have decided that we want to retain the data scraped by the actor for a long period of time, so instead of pushing to the default dataset, we will be pushing to a named dataset. Additionally, we want to save the absolute cheapest item found by the scraper into the default key-value store under a key named **CHEAPEST-ITEM**.
 
-Finally, we'll create a task for the actor that saves the configuration with the **keyword** set to be **google pixel**.
+Finally, we'll create a task for the actor that saves the configuration with the **keyword** set to **google pixel****.
 
 [**Solution**](./solutions/using_storage_creating_tasks.md)
 

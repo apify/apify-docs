@@ -18,14 +18,14 @@ Now that we know how to execute scripts on a page, we're ready to learn a bit ab
 
 > Most web data extraction cases involve looping through a list of items of some sort.
 
-There are two main ways to extract data with Playwright and Puppeteer:
+Playwright & Puppeteer offer two main methods for data extraction
 
 1. Directly in `page.evaluate()` and other evaluate functions such as `page.$$eval()`.
 2. In the Node.js context using a parsing library such as [Cheerio](https://www.npmjs.com/package/cheerio)
 
 ## Setup
 
-Here is the base set up for our code, upon which we'll be building off of in this lesson:
+Here is the base setup for our code, upon which we'll be building off of in this lesson:
 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
