@@ -85,7 +85,7 @@ Each use case has its own memory requirements. The larger and more complex your 
 
 ### Maximum memory
 
-Apify Actors are most commonly written in [Node.js](https://nodejs.org/en/), which uses a [single process thread](https://dev.to/arealesramirez/is-node-js-single-threaded-or-multi-threaded-and-why-ab1). Unless you use external binaries such as the Chrome browser, Puppeteer, Playwright, or other multi-threaded libraries you will not gain more CPU power from assigning your Actor more than `4096MB` of memory because Node.js cannot use more than 1 core.
+Apify Actors are most commonly written in [Node.js](https://nodejs.org/en/), which uses a [single thread process](https://dev.to/arealesramirez/is-node-js-single-threaded-or-multi-threaded-and-why-ab1). Unless you use external binaries such as the Chrome browser, Puppeteer, Playwright, or other multi-threaded libraries you will not gain more CPU power from assigning your Actor more than `4096MB` of memory because Node.js cannot use more than 1 core.
 
 In other words, giving a [Cheerio-based crawler](https://apify.com/apify/cheerio-scraper) `16384MB` of memory (4 CPU cores) will not improve its performance, because these crawlers cannot use more than 1 CPU core.
 
