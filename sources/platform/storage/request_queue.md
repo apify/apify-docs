@@ -276,33 +276,34 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 
 ## Features {#features}
 
-Request queues in Apify offer a set of powerful features designed to support complex web crawling and data scraping operations.
-These features enhance the flexibility, efficiency, and scalability of your projects. All these feature are implemented
-in the Apify tooling like crawlee and Apify SDKs and user can use them without any additional configuration.
+Request queues in Apify power complex web crawling and data scraping operations with a set of robust features.
+These features boost your projects' flexibility, efficiency, and scalability. The Apify tooling, including Crawlee and Apify SDKs,
+incorporates all these features, enabling users to leverage them effortlessly without extra configuration.
+
 
 ### Persistence and retention {#persistence-and-retention}
 
-Request queues are designed with persistence in mind. This means that your requests are retained indefinitely in named request queue and for data retention in unnamed request queues.
-This feature allows to use request queue for incremental crawling, where you can add new URLs to the queue and continue where you left off in the next run.
-Imagine you need to scrape an e-commerce website with thousands of products. Incremental scroll allows you to scrape only new products added since the last run.
+Request queues prioritize persistence, ensuring indefinite retention of your requests in named request queues and for data retention in unnamed request queues.
+This capability facilitates incremental crawling, where you can append new URLs to the queue and resume from where you stopped in the subsequent run.
+Consider the scenario of scraping an e-commerce website with thousands of products. Incremental scrolling allows you to scrape only the products
+added since the last run.
 
 TBD Incremental scrape example
 
 ### Batch operations {#batch-operations}
 
-To optimize performance and reduce API calls and network latency of adding or removing individual requests, request queues support batch operations.
-This feature allows you to enqueue or retrieve multiple requests in a single operation, significantly improving efficiency,
-especially when dealing with a large volume of URLs. Batch operations streamline process flows, reduce API calls, and minimize latency,
-making your web crawling processes faster and more reliable.
+Request queues enhance performance and cut down on API calls and network latency for adding or removing individual requests by supporting batch operations.
+This efficiency booster enables you to enqueue or retrieve requests in bulk, enhancing efficiency when handling numerous URLs.
+Batch operations simplify process flows, decrease API calls, and reduce latency, thus accelerating your web crawling processes and enhancing reliability.
+
 
 TBD JS/python example/API
 
 ### Distributivity {#distributivity}
 
-This design allows for the concurrent processing of requests by multiple Actor runs or server instances,
-making it an ideal solution for large-scale web crawling tasks. Distributivity ensures that scraping jobs can scale horizontally.
-Under the hood, the request queue offers locking mechanisms to prevent multiple runs from processing the same request simultaneously.
-This feature is by default build in the crawlee and users can use it without little additional configuration, see crawlee documentation for more details.
+Our design facilitates the simultaneous processing of requests by multiple Actor runs or server instances, perfectly suiting large-scale web crawling projects.
+Distributivity ensures your scraping tasks can expand horizontally. The request queue system includes locking mechanisms to avoid concurrent
+processing of the same request, a feature seamlessly integrated into Crawlee, requiring minimal extra setup. For more details, refer to the Crawlee documentation.
 
 TBD Example of locking mechanism
 
