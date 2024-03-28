@@ -204,7 +204,7 @@ Sometimes, APIs have limited pagination. That means that they limit the total nu
 
 [//]: # (In this lesson, you learned about how to use API parameters and properties returned in an API response to paginate through results. [Next up]&#40;link api_scraping/general_api_scraping/using_api_filters.md&#41;, you'll gain a solid understanding of using API filtering parameters.)
 
-This is the last lesson in the API scraping tutorial for now, but be on the lookout for more lessons soon to come! So far, you've learned how to:
+This is the last lesson in the API scraping tutorial for now, but be on the lookout for more lessons soon to come! Thus far, you've learned how to:
 
 1. Locate API endpoints
 2. Understand located API endpoints and their parameters

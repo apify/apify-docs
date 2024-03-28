@@ -61,7 +61,7 @@ And you're done! 🎉
 
 ## Quick chat about code management {#code-management}
 
-So, it was a bit of overhead, but the good news is that you don't ever have to configure this stuff again for this actor. Now, every time the content of your **main**/**master** branch changes, the actor on the Apify platform will rebuild based on the newest code.
+This was a bit of overhead, but the good news is that you don't ever have to configure this stuff again for this actor. Now, every time the content of your **main**/**master** branch changes, the actor on the Apify platform will rebuild based on the newest code.
 
 Think of it as combining two steps into one! Normally, you'd have to do a `git push` from your terminal in order to get the newest code onto GitHub, then run `apify push` to push it to the platform.
 

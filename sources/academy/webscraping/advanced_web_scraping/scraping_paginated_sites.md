@@ -11,7 +11,7 @@ slug: /advanced-web-scraping/scraping-paginated-sites
 
 ---
 
-Limited pagination is a common practice on e-commerce sites and is becoming more popular over time. It makes sense: a real user will never want to look through more than 200 pages of results – only bots love unlimited pagination. Fortunately, there are ways to overcome this limit while keeping our code clean and generic.
+Limited pagination is a common practice on e-commerce sites and is becoming more popular over time. It makes sense: a real user will never want to look through more than 200 pages of results, only bots love unlimited pagination. Fortunately, there are ways to overcome this limit while keeping our code clean and generic.
 
 ![Pagination in on Google search results page](./images/pagination.png)
 
@@ -38,7 +38,7 @@ Most websites also provide a way for the user to select search filters. These al
 
 At first, it might seem like an easy solution. Enqueue all possible filter combinations and that should be so granular that it will never hit a pagination limit. Unfortunately, this solution is still far from good.
 
-1. There is no guarantee that some products won't slip through the chosen filter combinations.
+1. No guarantee that some products won't slip through the chosen filter combinations.
 2. The resulting split might be too granular and end up having too many tiny paginations with many duplicate products. This leads to scraping a lot more pages than necessary and makes analytics much harder.
 
 ### Using filter ranges {#using-filter-ranges}
@@ -77,13 +77,13 @@ Some sites will allow you to construct non-overlapping ranges. For example, you 
 
 Non-overlapping ranges should remove the possibility of duplicate products (unless a [listing has multiple values](#can-a-listing-have-more-values)) and the lowest number of pages.
 
-If the website supports only overlapping ranges (e.g. **$0-$5**, **$5-10**), it is not a big problem. Only a small portion of the listings will be duplicates, and they can be removed using a [request queue](/platform/storage/request-queue).
+If the website supports only overlapping ranges (e.g. **$0-$5**, **$5–10**), it is not a big problem. Only a small portion of the listings will be duplicates, and they can be removed using a [request queue](/platform/storage/request-queue).
 
 #### Can a listing have more values? {#can-a-listing-have-more-values}
 
 In rare cases, a listing can have more than one value that you are filtering in a range. A typical example is [amazon.com](https://amazon.com), where each product has several offers and those offers have different prices. If any of those offers is within the range, the product is shown.
 
-There is no easy way to get around this but the price range split works even with duplicate listings, just use a [JS set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) or request queue to deduplicate them.
+No easy way exists to get around this but the price range split works even with duplicate listings, just use a [JS set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) or request queue to deduplicate them.
 
 #### How is the range passed to the URL? {#how-is-the-range-passed-to-the-url}
 

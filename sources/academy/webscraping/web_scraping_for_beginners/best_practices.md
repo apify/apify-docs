@@ -1,6 +1,6 @@
 ---
 title: Best practices
-description: Understand the standards and best practices that we here at Apify abide by to write readable, scalable, and maintainable code. 
+description: Understand the standards and best practices that we here at Apify abide by to write readable, scalable, and maintainable code.
 sidebar_position: 1.5
 slug: /web-scraping-for-beginners/best-practices
 ---
@@ -17,7 +17,7 @@ The goal of this lesson is not to force you into a specific paradigm or to make 
 
 ## Code style {#code-style}
 
-There are some general things we recommend when it comes to your code style when writing scrapers.
+When it comes to your code style when writing scrapers, there are some general things we recommend.
 
 ### Clean code {#clean-code}
 
@@ -80,7 +80,7 @@ Index 1234 --- https://example.com/1234 --- took 300 ms
 
 ## Input {#input}
 
-There are two main best practices when it comes to accepting input into a scraper.
+When it comes to accepting input into a scraper, two main best practices should be followed.
 
 ### Set limits {#set-limits}
 

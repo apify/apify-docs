@@ -274,7 +274,7 @@ After running the code, go back to the **Settings** page of **adding-actor**. If
 
 ## Overview {#overview}
 
-There is so much more you can do with the Apify client than just running actors, updating actors, and downloading dataset items. The purpose of this lesson was just to get you comfortable using the client in your own projects, as it is the absolute best developer tool for integrating the Apify platform with an external system.
+You can do so much more with the Apify client than just running actors, updating actors, and downloading dataset items. The purpose of this lesson was just to get you comfortable using the client in your own projects, as it's the absolute best developer tool for integrating the Apify platform with an external system.
 
 For a more in-depth understanding of the Apify API client, give these a quick lookover:
 

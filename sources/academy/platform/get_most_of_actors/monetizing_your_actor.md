@@ -92,7 +92,7 @@ To dive deep into numbers for a specific Actor, you can visit the Actor insights
 
 ## Promote your Actor {#promote-your-actor}
 
-Your paid Actors’ profits are directly related to the amount of paying users you have for your tool. So, after publishing and monetizing your software, comes a crucial step for your Actor’s success: **attracting users**.
+Your paid Actors’ profits are directly related to the amount of paying users you have for your tool. After publishing and monetizing your software, comes a crucial step for your Actor’s success: **attracting users**.
 
 Getting new users can be an art in itself, but there are **two simple steps** you can take to ensure your Actor is getting the attention it deserves.
 
@@ -108,7 +108,7 @@ Getting new users can be an art in itself, but there are **two simple steps** yo
 
     Promoting your Actor on the right channels can be the deciding factor in successfully attracting users.
 
-    While there are various ways to effectively promote your tool, it is usually best to share it on multiple channels. So, here are a few suggestions of channels you can use to promote your Actor:
+    While there are various ways to effectively promote your tool, it is usually best to share it on multiple channels. Here are a few suggestions of channels you can use to promote your Actor:
 
     - **Reddit and Quora**
 

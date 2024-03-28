@@ -44,7 +44,7 @@ class ASINTracker {
 module.exports = new ASINTracker();
 ```
 
-There are multiple techniques for storing data in memory; however, this is the most modular way, as all state-persistence and modification logic will be held in this file.
+Multiple techniques exist for storing data in memory; however, this is the most modular way, as all state-persistence and modification logic will be held in this file.
 
 Here is our updated **routes.js** file which is now utilizing this utility class to track the number of offers for each product ASIN:
 
@@ -164,7 +164,7 @@ module.exports = new ASINTracker();
 
 ## Handling resurrections {#handling-resurrections}
 
-Great! So now our state will be persisted every 60 seconds in the key-value store. However, we're not done. Let's say that the actor migrates and is resurrected. We never actually update the `state` variable of our `ASINTracker` class with the state stored in the key-value store, so as our code currently stands, we still don't support state-persistence on migrations.
+Great! Now our state will be persisted every 60 seconds in the key-value store. However, we're not done. Let's say that the actor migrates and is resurrected. We never actually update the `state` variable of our `ASINTracker` class with the state stored in the key-value store, so as our code currently stands, we still don't support state-persistence on migrations.
 
 In order to fix this, let's create a method called `initialize` which will be called at the very beginning of the actor's run, and will check the key-value store for a previous state under the key **ASIN-TRACKER**. If a previous state does live there, then it will update the class' `state` variable with the value read from the key-value store:
 

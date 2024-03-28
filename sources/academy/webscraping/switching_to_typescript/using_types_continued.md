@@ -33,7 +33,7 @@ This inference from TypeScript is totally valid and correct; however, what if we
 
 ![Error adding a new property to the object](./images/object-type-error.png)
 
-So what's the problem? The problem is that we didn't tell TypeScript that the `course` object can have a property called `learningBasicTypes` of a boolean type in the variable's initial state, which is what TypeScript's inference is based on. Because of this, we have to write our own custom object type.
+What's the problem? The problem is that we didn't tell TypeScript that the `course` object can have a property called `learningBasicTypes` of a boolean type in the variable's initial state, which is what TypeScript's inference is based on. Because of this, we have to write our own custom object type.
 
 Just as we did before when assigning types like `number` and `string` to variables, we'll annotate the variable's type with a colon (`:`) followed by the type. However, instead of using a basic type name such as `boolean` or `number`, we'll put a custom object type there instead.
 
@@ -159,7 +159,7 @@ const course: {
 };
 ```
 
-By placing types inside of the square brackets in a specific order, we tell TypeScript that the property is not of an array type, but a tuple instead. So, when we try to reassign the properties to an incorrect data type, we get an error.
+By placing types inside of the square brackets in a specific order, we tell TypeScript that the property is not of an array type, but a tuple instead. When we try to reassign the properties to an incorrect data type, we get an error.
 
 ![Epic autocomplete](./images/string-not-number.png)
 

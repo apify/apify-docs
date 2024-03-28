@@ -186,7 +186,7 @@ const response = await gotScraping(storeUrl);
 const html = response.body;
 ```
 
-After that, we need to **extract the next URLs** we want to visit (the product detail page URLs). So far, the code is exactly the same as the **crawler.js** code.
+After that, we need to **extract the next URLs** we want to visit (the product detail page URLs). Thus far, the code is exactly the same as the **crawler.js** code.
 
 ```js
 // ...

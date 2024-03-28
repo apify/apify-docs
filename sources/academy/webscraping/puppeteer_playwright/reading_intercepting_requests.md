@@ -98,7 +98,7 @@ page.on('request', (req) => {
 
 > Note that you should always define any request reading/interception code prior to calling the `page.goto()` function.
 
-Cool! So now when we run our code, we'll see this logged to the console:
+Cool! Now when we run our code, we'll see this logged to the console:
 
 ```text
 Request for followers was made!

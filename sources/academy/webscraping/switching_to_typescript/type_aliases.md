@@ -151,4 +151,4 @@ We've significantly cleaned up the function by moving its verbose type annotatio
 
 ## Next up {#next}
 
-There is a special type you haven't learned about called `unknown`. We haven't yet discussed it, because it's best learned alongside **type casting**, which is yet another feature offered by TypeScript. Learn all about the `unknown` type and typecasting in the [next lesson](./unknown_and_type_assertions.md).
+A special type exists that you haven't learned about yet called `unknown`. We haven't yet discussed it, because it's best learned alongside **type casting**, which is yet another feature offered by TypeScript. Learn all about the `unknown` type and typecasting in the [next lesson](./unknown_and_type_assertions.md).

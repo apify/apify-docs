@@ -46,7 +46,7 @@ Next, we'll grab hold of the dataset's items with the `dataset.getData()` functi
 const { items } = await dataset.getData();
 ```
 
-There are a few different methods that can be used to achieve the goal output of this actor, but using the [`Array.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) is the most concise:
+While several methods can achieve the goal output of this actor, using the [`Array.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) is the most concise approach
 
 ```js
 const filtered = items.reduce((acc, curr) => {

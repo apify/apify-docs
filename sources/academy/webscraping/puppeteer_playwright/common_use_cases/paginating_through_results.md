@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-If you're trying to [collect data](../executing_scripts/extracting_data.md) on a website that has millions, thousands, or even just hundreds of results, it is very likely that they are paginating their results to reduce strain on their backend as well as on the users loading and rendering the content.
+If you're trying to [collect data](../executing_scripts/extracting_data.md) on a website that has millions, thousands, or even just hundreds of results, it is very likely that they are paginating their results to reduce strain on their back-end as well as on the users loading and rendering the content.
 
 ![Amazon pagination](../../advanced_web_scraping/images/pagination.png)
 
@@ -206,7 +206,7 @@ await browser.close();
 
 ### Making a request for each results page {#making-a-request-for-each-results-page}
 
-Cool, so now we have all the tools we need to write concise logic that will be run for every single page. First, we'll create an array of numbers from 0-4:
+Cool, so now we have all the tools we need to write concise logic that will be run for every single page. First, we'll create an array of numbers from 0–4:
 
 ```js
 // We must add 1 to the lastPage, since the array starts at 0 and we
@@ -435,9 +435,9 @@ await browser.close();
 </Tabs>
 
 ### Auto scrolling {#auto-scrolling}
-
+<!-- vale off -->
 Now, what we'll do is grab the height in pixels of a result item to have somewhat of a reference to how much we should scroll each time, as well as create a variable for keeping track of how many pixels have been scrolled.
-
+<!-- vale on -->
 ```js
 // Grab the height of result item in pixels, which will be used to scroll down
 const itemHeight = await page.$eval('a[data-testid*="productTile"]', (elem) => elem.clientHeight);

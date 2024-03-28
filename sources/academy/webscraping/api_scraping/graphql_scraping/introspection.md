@@ -152,7 +152,7 @@ Right now, our goal is to fetch the 1000 most recent articles on [Cheddar](https
 
 ![The media field pointing to datatype slugable](./images/media-field.jpg)
 
-Cool. So now we know we need to access **media** through the **organization** query. The **media** field also takes in some arguments, of which we will be using the **first** parameter set to **1000**. Let's start writing our query in Insomnia!
+Cool. Now we know we need to access **media** through the **organization** query. The **media** field also takes in some arguments, of which we will be using the **first** parameter set to **1000**. Let's start writing our query in Insomnia!
 
 ![Receiving a suggestion for a field titled edges](./images/edges-suggested.png)
 
@@ -179,7 +179,7 @@ Let's send it!
 
 ![Unauthorized](./images/unauthorized.png)
 
-Oh, okay. So that didn't work. But **why**?
+Oh, okay. That didn't work. But **why**?
 
 Rest assured, nothing is wrong with our query. We are most likely just missing an authorization token/parameter. Let's check back on the Cheddar website within our browser to see what types of headers are being sent with the requests there:
 

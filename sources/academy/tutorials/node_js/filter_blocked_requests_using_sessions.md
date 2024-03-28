@@ -70,7 +70,7 @@ You don't necessarily need to understand the solution below - it should be fine 
 }
 ```
 
-Now let's get to the algorithm that will define which sessions to pick for a request. There are many ways to do this and this is by no means the ideal way, so I encourage you to find a more intelligent algorithm and paste it into the comments of this article.
+Now let's get to the algorithm that will define which sessions to pick for a request. It can be done in many ways and this is by no means the ideal way, so I encourage you to find a more intelligent algorithm and paste it into the comments of this article.
 
 This function takes `sessions`  as an argument and returns a `session`  object which will either be a random object from `sessions`  or a new one with random user agent.
 

@@ -20,7 +20,7 @@ Last lesson, we left off at a point where we were waiting for the page to naviga
 
 ## Grabbing the title {#grabbing-the-title}
 
-There are two main page functions which will return general data:
+Two main page functions exist that will return general data:
 
 1. `page.content()` will return the entire HTML content of the page.
 2. `page.title()` will return the title of the current page found in the `<title>` tag.

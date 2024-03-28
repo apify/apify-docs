@@ -16,10 +16,10 @@ Unfortunately, most APIs will require a valid cookie to be included in the `cook
 Luckily, there are ways to retrieve and set cookies for requests prior to sending them, which will be covered more in-depth within future Scraping Academy modules. The most important things to know at the moment are:
 
 ## Cookies {#cookies}
-
+<!-- vale off -->
 1. For sites that heavily rely on cookies for user-verification and request authorization, certain generic requests (such as to the website's main page, or to the target page) will return back a (or multiple) `set-cookie` header(s).
 2. The `set-cookie` response header(s) can be parsed and used as the `cookie` header in the headers of a request. A great package for parsing these values from a response's headers is [`set-cookie-parser`](https://www.npmjs.com/package/set-cookie-parser). With this package, cookies can be parsed from headers like so:
-
+<!-- vale on -->
 ```js
 import axios from 'axios';
 

@@ -54,7 +54,7 @@ const crawler = new PuppeteerCrawler({
 });
 ```
 
-It is really up to a developer to spot if something is wrong with his request. There are [many ways](https://kb.apify.com/tips-and-tricks/several-tips-how-to-bypass-website-anti-scraping-protections) a website can interfere with your crawling. Page loading can be cancelled right away, it can timeout, the page can display a captcha, some error or warning message, or the data may be just missing or corrupted. The developer can then choose if he will try to handle these problems in the code or just focus on receiving the proper data. Either way, if the request went wrong, you should throw a proper error.
+It is really up to a developer to spot if something is wrong with his request. A website can interfere with your crawling in [many ways](https://kb.apify.com/tips-and-tricks/several-tips-how-to-bypass-website-anti-scraping-protections). Page loading can be cancelled right away, it can timeout, the page can display a captcha, some error or warning message, or the data may be just missing or corrupted. The developer can then choose if he will try to handle these problems in the code or just focus on receiving the proper data. Either way, if the request went wrong, you should throw a proper error.
 
 Now that we know when the request is blocked, we can use the retire() function and continue crawling with a new proxy. Google is one of the most popular websites for scrapers, so let's code some simple Google search crawler. The two main blocking mechanisms used by Google is either to display their (in)famous 'sorry' captcha or to not load the page at all so we will focus on covering these.
 
@@ -88,4 +88,4 @@ Apify.main(async () => {
 });
 ```
 
-So now we have a crawler that catches the most common blocking issues on Google. In gotoFunction we will catch if the page doesn't load and in the handlePageFunction we check if we were redirected to the 'sorry page'. In both cases we throw an error afterwards so the request is added back to the crawling queue (otherwise the crawler would think everything was okay and would treat that request as handled).
+Now we have a crawler that catches the most common blocking issues on Google. In gotoFunction we will catch if the page doesn't load and in the handlePageFunction we check if we were redirected to the 'sorry page'. In both cases we throw an error afterwards so the request is added back to the crawling queue (otherwise the crawler would think everything was okay and would treat that request as handled).

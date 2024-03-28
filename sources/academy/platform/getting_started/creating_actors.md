@@ -11,7 +11,7 @@ slug: /getting-started/creating-actors
 
 ---
 
-There are several ways to create an Actor. You can create one from your own source code hosted in a Git repository or in your local machine, for example. But in this tutorial, we'll focus on the easiest method: selecting an Actor code template. We don't need to install any special software, and everything can be done directly in Apify Console using an Apify account.
+You can create an Actor in several ways. You can create one from your own source code hosted in a Git repository or in your local machine, for example. But in this tutorial, we'll focus on the easiest method: selecting an Actor code template. We don't need to install any special software, and everything can be done directly in Apify Console using an Apify account.
 
 ## Choose the source {#choose-the-source}
 
@@ -40,7 +40,7 @@ You can also push your existing code from your local machine using [Apify CLI](/
 
 ## Creating Actor from code template {#code-template}
 
-There are several template options in Python, JavaScript, and TypeScript.
+Python, JavaScript, and TypeScript have several template options that you can use.
 
 > You can select one from the list on this page or you can browse all the templates in the template library by clicking on the **View all templates** button in the right corner.
 
@@ -143,7 +143,7 @@ In order to run the Actor, you need to [build](/platform/actors/development/buil
 
 ![Build the actor](./images/build-actor.png)
 
-After you've clicked the **Build** button, it'll take around 5-10 seconds to complete the build. You'll know it's finished when you see a green **Start** button.
+After you've clicked the **Build** button, it'll take around 5–10 seconds to complete the build. You'll know it's finished when you see a green **Start** button.
 
 ![Start button](./images/start.png)
 
@@ -177,4 +177,4 @@ If you ever get stuck, you can always click on the **Tips** button in the top ri
 
 ## Next up {#next}
 
-So we've created an Actor, but how can we give it more complex inputs and make it do stuff based on these inputs? This is exactly what we'll be discussing in the [next lesson](./inputs_outputs.md)'s activity.
+We've created an Actor, but how can we give it more complex inputs and make it do stuff based on these inputs? This is exactly what we'll be discussing in the [next lesson](./inputs_outputs.md)'s activity.

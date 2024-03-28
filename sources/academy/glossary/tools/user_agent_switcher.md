@@ -23,6 +23,6 @@ After setting the **User-Agent**, the page will be refreshed.
 
 ## Configuration
 
-The extension configuration page allows you to edit the **User-Agent** list in case you want to add a specific user-agent that isn't already provided. There are some other options, but most likely you will never need to modify those.
+The extension configuration page allows you to edit the **User-Agent** list in case you want to add a specific user-agent that isn't already provided. You can find some other options, but most likely you will never need to modify those.
 
 ![User-Agent Switcher configuration page](./images/user-agent-switcher-config.png)

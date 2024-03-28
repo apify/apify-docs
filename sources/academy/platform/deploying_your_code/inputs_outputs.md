@@ -21,13 +21,13 @@ An important thing to understand regarding inputs and outputs is that they are r
 
 ## A bit about storage {#about-storage}
 
-There are two different places you can read/write your inputs/outputs: to the [key-value store](/platform/storage/key-value-store), or to the [dataset](/platform/storage/dataset). The key-value store can be used to store any sort of unorganized/unrelated data in any format, while the data pushed to a dataset typically resembles a table with columns (fields) and rows (items). Each actor's run is allocated both a default dataset and a default key-value store.
+You can read/write your inputs/outputs: to the [key-value store](/platform/storage/key-value-store), or to the [dataset](/platform/storage/dataset). The key-value store can be used to store any sort of unorganized/unrelated data in any format, while the data pushed to a dataset typically resembles a table with columns (fields) and rows (items). Each actor's run is allocated both a default dataset and a default key-value store.
 
 When running locally, these storages are accessible through the **storage** folder within your project's root directory, while on the platform they are accessible via Apify's API.
 
 ## Accepting input {#accepting-input}
 
-There are multiple ways to accept input into your project. The option you go with depends on the language you have written your project in. If you are using Node.js for your repo's code, you can use the [`apify`](https://www.npmjs.com/package/apify) package. Otherwise, you can use the useful environment variables automatically set up for you by Apify to write utility functions which read the actor's input and return it.
+You can utilize multiple ways to accept input into your project. The option you go with depends on the language you have written your project in. If you are using Node.js for your repo's code, you can use the [`apify`](https://www.npmjs.com/package/apify) package. Otherwise, you can use the useful environment variables automatically set up for you by Apify to write utility functions which read the actor's input and return it.
 
 ### Accepting input with the Apify SDK
 

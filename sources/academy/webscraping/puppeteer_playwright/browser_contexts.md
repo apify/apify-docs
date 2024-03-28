@@ -152,7 +152,7 @@ Let's go ahead and run our code and analyze the data on each **deviceinfo.me** p
 
 ![deviceinfo.me results for both browser contexts](./images/dual-contexts.jpg)
 
-We see that **deviceinfo.me** detects both contexts as using different devices, despite the fact they're visiting the same page at the same time.  This shows firsthand that different browser contexts can have totally different configurations, as they all have separate sessions.
+We see that **deviceinfo.me** detects both contexts as using different devices, despite the fact they're visiting the same page at the same time. This shows firsthand that different browser contexts can have totally different configurations, as they all have separate sessions.
 
 ## Accessing browser contexts {#accessing-browser-contexts}
 
@@ -192,7 +192,7 @@ Site visited
 Site visited
 ```
 
-Cool! So we've modified both our `iPhoneContext` and `androidContext`, as well as our default context, to log the message.
+Cool! We've modified both our `iPhoneContext` and `androidContext`, as well as our default context, to log the message.
 
 > Note that the Puppeteer code and Playwright code are slightly different in the examples above. The Playwright code will log **Site visited** any time the specific URL is visited, while the Puppeteer code will log any time the target URL is changed to anything.
 
@@ -200,4 +200,4 @@ Finally, in Puppeteer, you can use the `browser.defaultBrowserContext()` functio
 
 ## Wrap up
 
-So far in this course, you've learned how to launch a browser, open a page, run scripts on a page, extract data from a page, intercept requests made on the page, use proxies, and use multiple browser contexts. Stay tuned for new lessons!
+Thus far in this course, you've learned how to launch a browser, open a page, run scripts on a page, extract data from a page, intercept requests made on the page, use proxies, and use multiple browser contexts. Stay tuned for new lessons!

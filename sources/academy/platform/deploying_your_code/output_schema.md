@@ -143,7 +143,7 @@ Note that the fields specified in the output schema should match the object keys
 
 Also, if your desired label has the same name as the defined object key, then you don't need to specify a label name. The schema will, by default, show a capitalized version of the key and even split camel case into separate words and capitalize all of them.
 
-So, the matching object for the Zappos Scraper shown in the example above will look something like this:
+The matching object for the Zappos Scraper shown in the example above will look something like this:
 
 ```js
 const results = {

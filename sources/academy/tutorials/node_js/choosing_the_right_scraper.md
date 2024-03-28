@@ -11,7 +11,7 @@ slug: /node-js/choosing-the-right-scraper
 
 ---
 
-There are two main ways you can proceed with building your crawler:
+You can use one of the two main ways to proceed with building your crawler:
 
 1. Using plain HTTP requests.
 2. Using an automated browser.

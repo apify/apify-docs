@@ -74,7 +74,7 @@ tutorial, so let's get to the next one on the list: title.
 
 By using the element selector tool, we find out that the title is there under an `<h1>` tag, as titles should be.
 Maybe surprisingly, we find that there are actually two `<h1>` tags on the detail page. This should get us thinking.
-Is there any parent element that includes our `<h1>` tag, but not the other ones? Yes, there is! There is a `<header>`
+Is there any parent element that includes our `<h1>` tag, but not the other ones? Yes, there is! A `<header>`
 element that we can use to select only the heading we're interested in.
 
 > Remember that you can press CTRL+F (CMD+F) in the Elements tab of DevTools to open the search bar where you can quickly search for elements using
@@ -213,7 +213,7 @@ async function pageFunction(context) {
 ```
 
 The `ul.ActorHeader-stats > li:nth-of-type(3)` looks complicated, but it only reads that we're looking for a `<ul class="ActorHeader-stats ...">` element and within that
-element we're looking for the third `<li>` element. We grab its text, but we're only interested in the number of runs. So we parse the number out
+element we're looking for the third `<li>` element. We grab its text, but we're only interested in the number of runs. We parse the number out
 using a regular expression, but its type is still a `string`, so we finally convert the result to a `number` by wrapping it with a `Number()` call.
 
 > The numbers are formatted with commas as thousands separators (e.g. `'1,234,567'`), so to extract it, we
@@ -713,7 +713,7 @@ To be able to use jQuery, we first need to introduce it to the browser. Fortunat
 do just that: [`Apify.utils.puppeteer.injectJQuery`](https://sdk.apify.com/docs/api/puppeteer#puppeteerinjectjquerypage)
 
 > Just a friendly warning. Injecting jQuery into a page may break the page itself, if it expects a specific version
-of jQuery to be available and you override it with an incompatible one. So, be careful.
+of jQuery to be available and you override it with an incompatible one. Be careful.
 
 You can either call this function directly in your `pageFunction`, or you can set up jQuery injection in the
 **Pre goto function** in the **Input and options** section.

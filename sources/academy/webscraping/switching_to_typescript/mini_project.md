@@ -91,7 +91,7 @@ export interface ResponseData {
 
 ### Defining output types {#defining-output-types}
 
-Luckily for us, we'll be outputting an array of `Product`s, for which we've already written a type. However, the user will have an option to modify each product by removing the **images** property from each one. So, we need to create a new `ModifiedProduct` that has all the same properties as `Product` **EXCEPT** for **images**.
+Luckily for us, we'll be outputting an array of `Product`s, for which we've already written a type. However, the user will have an option to modify each product by removing the **images** property from each one. We need to create a new `ModifiedProduct` that has all the same properties as `Product` **EXCEPT** for **images**.
 
 For this, we can use a [utility type](https://www.typescriptlang.org/docs/handbook/utility-types.html) called `Omit`, which is natively available in TypeScript.
 

@@ -19,7 +19,7 @@ The desktop app can be downloaded from its [official download page](https://www.
 
 ![A basic outline of Postman's interface](./images/postman-interface.png)
 
-There are four main sections to get familiar when starting out with Postman:
+Following four sections are essential to get familiar with Postman:
 
 ### Tabs
 

@@ -25,4 +25,5 @@ jobs:
           files: ${{ steps.changed-files.outputs.all_changed_files }}
           separator: ","
           fail_on_error: true
-          reporter: github-pr-check
+          vale_flags: "--minAlertLevel=error"
+          reporter: github-pr-annotations

@@ -45,7 +45,7 @@ Let's say we want to run our **adding-actor** via API and view its results in CS
 https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv
 ```
 
-There are many more parameters which can be passed to this endpoint. You can learn about them [here](/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items)
+Additional parameters can be passed to this endpoint. You can learn about them [here](/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items)
 
 > Note: It is safer to put your API token in the **Authorization** header like so: `Authorization: Bearer YOUR_TOKEN`. This is very easy to configure in [Postman](../../glossary/tools/postman.md), [Insomnia](../../glossary/tools/insomnia.md), or any other modern HTTP client.
 

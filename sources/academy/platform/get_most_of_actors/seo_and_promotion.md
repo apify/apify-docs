@@ -23,7 +23,7 @@ On the other hand, if you precisely address a niche segment of users who will be
 
 ## Keywords
 
-There are several freemium tools that make it easy to identify the right phrases and keywords:
+Several freemium tools exist that make it easy to identify the right phrases and keywords:
 
 - [wordstream.com/keywords](https://www.wordstream.com/keywords)
 - [neilpatel.com/ubersuggest](https://neilpatel.com/ubersuggest/)
@@ -49,7 +49,7 @@ While blog posts and promotion are important, your Actor is the main product. He
 
 ### Name
 
-The Actor name is your Actor's developer-style name, which is prefixed by your username (e.g. `jancurn/find-broken-links`). The name is used to generate a URL for your Actor (e.g. <https://apify.com/jancurn/find-broken-links>), making it an important signal for search engines.
+The Actor name is your Actor's developer-style name, which is prefixed by your username (e.g. `jancurn/find-broken-links`). The name is used to generate URL used for your Actor (e.g. <https://apify.com/jancurn/find-broken-links>), making it an important signal for search engines.
 
 However, the name should also be readable and clear enough, so that people using your Actor can understand what it does just from the name.
 
@@ -59,7 +59,7 @@ However, the name should also be readable and clear enough, so that people using
 
 The Actor title provides a human-readable name. The title is the most important real estate from an SEO standpoint. It should exactly match the most likely search query that potential users of your Actor will use.
 
-At the same time, it should give your Actor a clear name for people who will use it every day. So if you’re working on an "Amazon crawler" or a "Google Places API", use the following formats for your Actor's name:
+At the same time, it should give your Actor a clear name for people who will use it every day. If you’re working on an "Amazon crawler" or a "Google Places API", use the following formats for your Actor's name:
 
 > **GOOD**: Crawler for Amazon, API for Google Places, Search in Kickstarter.
 > <br/> **BETTER**: Amazon crawler, Google Places API, Kickstarter search.

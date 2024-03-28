@@ -11,7 +11,7 @@ slug: /switching-to-typescript/unknown-and-type-assertions
 
 ---
 
-There are two types we haven't discussed yet - `any` and `unknown`.
+Two types we haven't discussed yer are `any` and `unknown`
 
 ## Let's talk about "any" {#the-any-type}
 

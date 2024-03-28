@@ -11,7 +11,7 @@ slug: /switching-to-typescript/watch-mode-and-tsconfig
 
 ---
 
-So far, each time we've made changes to our TypeScript code, we've had to run the `tsc FILE_NAME.ts` command in the terminal. Very quickly, this becomes repetitive and cumbersome, especially for large projects with more than one file. Luckily, the TypeScript compiler has a special feature called **watch mode**, which will watch a specific file (or all **.ts** files) for any changes. If any changes are made, it will automatically recompile.
+Thus far, each time we've made changes to our TypeScript code, we've had to run the `tsc FILE_NAME.ts` command in the terminal. Very quickly, this becomes repetitive and cumbersome, especially for large projects with more than one file. Luckily, the TypeScript compiler has a special feature called **watch mode**, which will watch a specific file (or all **.ts** files) for any changes. If any changes are made, it will automatically recompile.
 
 > Test out watch mode on a single file by using the `--watch` (or `-w` for short) flag like so: `tsc FILE_NAME --watch`.
 
@@ -160,7 +160,7 @@ In our case, we don't want to compile any TypeScript code that could possibly be
 
 Along with the **exclude** property is the **include** property, which holds an array of files/paths to check when compiling. Anything not included within the array will be ignored.
 
-In the next project, we are going to follow a very common pattern with TypeScript projects by keeping all of our TS files in a folder named **src**. So, let's create a **src** folder within **my-first-typescript-project**, then add its path to the **include** property's array.
+In the next project, we are going to follow a very common pattern with TypeScript projects by keeping all of our TS files in a folder named **src**. Let's create a **src** folder within **my-first-typescript-project**, then add its path to the **include** property's array.
 
 ```json
 {

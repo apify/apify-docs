@@ -58,7 +58,7 @@ tutorial, so let's get to the next one on the list: title.
 
 By using the element selector tool, we find out that the title is there under an `<h1>` tag, as titles should be.
 Maybe surprisingly, we find that there are actually two `<h1>` tags on the detail page. This should get us thinking.
-Is there any parent element that includes our `<h1>` tag, but not the other ones? Yes, there is! There is a `<header>`
+Is there any parent element that includes our `<h1>` tag, but not the other ones? Yes, there is! A `<header>`
 element that we can use to select only the heading we're interested in.
 
 > Remember that you can press CTRL+F (CMD+F) in the Elements tab of DevTools to open the search bar where you can quickly search for elements using
@@ -154,7 +154,7 @@ async function pageFunction(context) {
 ```
 
 The `ul.ActorHeader-stats > li:nth-of-type(3)` looks complicated, but it only reads that we're looking for a `<ul class="ActorHeader-stats ...">` element and within that
-element we're looking for the third `<li>` element. We grab its text, but we're only interested in the number of runs. So we parse the number out
+element we're looking for the third `<li>` element. We grab its text, but we're only interested in the number of runs. We parse the number out
 using a regular expression, but its type is still a `string`, so we finally convert the result to a `number` by wrapping it with a `Number()` call.
 
 > The numbers are formatted with commas as thousands separators (e.g. `'1,234,567'`), so to extract it, we
@@ -261,7 +261,7 @@ will be automatically enqueued to the request queue. Use a label to let the scra
 it's processing.
 
 If you paid close attention, you may now see a problem. How do we click a button in the page when we're working
-with Cheerio? We don't have a browser to do it and we only have the HTML of the page to work with. So the simple
+with Cheerio? We don't have a browser to do it and we only have the HTML of the page to work with. The simple
 answer is that we can't click a button. Does that mean that we cannot get the data at all? Usually not,
 but it requires some clever DevTools-Fu.
 
@@ -285,7 +285,7 @@ data. This means that the data about actors must already be available in the pag
 
 Now that we know the information we seek is already in the page, we just need to find it. The first actor in the store
 is Web Scraper, so let's try using the search tool in the **Elements** tab to find some reference to it. The first
-few hits do not provide any interesting information, but in the end, we find our goldmine. There is a `<script>` tag,
+few hits do not provide any interesting information, but in the end, we find our goldmine. A `<script>` tag,
 with the ID `__NEXT_DATA__` that seems to hold a lot of information about Web Scraper. In DevTools,
 you can right click an element and click **Store as global variable** to make this element available in the **Console**.
 
@@ -410,7 +410,7 @@ scraped Apify Store. And if not, no worries, just go through the code examples a
 use with other websites. Cheerio is fast (and that means it's cheap), but it's not easy. Sometimes there's just no way
 to get all results with Cheerio only and other times it takes hours of research. Keep this in mind when choosing
 the right scraper for your job. But don't get discouraged. Often times, the only thing you will ever need is to
-define a correct Pseudo URL. So do your research first before giving up on Cheerio Scraper.
+define a correct Pseudo URL. Do your research first before giving up on Cheerio Scraper.
 
 ## [](#downloading-our-scraped-data) Downloading the scraped data
 
@@ -500,7 +500,7 @@ of JavaScript. It helps you put what matters on top, if you so desire.
 
 Thank you for reading this whole tutorial! Really! It's important to us that our users have the best information available to them so that they can use Apify easily and effectively. We're glad that you made it all the way here and congratulations on creating your first scraping task. We hope that you liked the tutorial and if there's anything you'd like to ask, [join us on Discord](https://discord.gg/jyEM2PRvMU)!
 
-## [](#whats-next) What's next?
+## [](#whats-next) What's next
 
 * Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
 * [Take a deep dive into actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on actors.
