@@ -276,10 +276,10 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 
 ## Features {#features}
 
-Request queues in Apify power complex web crawling and data scraping operations with a set of robust features.
-These features boost your projects' flexibility, efficiency, and scalability. The Apify tooling, including Crawlee and Apify SDKs,
-incorporates all these features, enabling users to leverage them effortlessly without extra configuration.
+Request queue is a storage type built with scraping in mind, enabling developers to write scraping logic efficiently and scalable.
+The Apify tooling, including [Crawlee](https://crawlee.dev/) and [Apify SDKs](https://docs.apify.com/sdk/js/), incorporates all these features, enabling users to leverage them effortlessly without extra configuration.
 
+In the following section, we will discuss each main features in depth.
 
 ### Persistence and retention {#persistence-and-retention}
 
@@ -395,9 +395,11 @@ request_queue_client.batch_delete_requests([
 
 ### Distributivity {#distributivity}
 
-Our design facilitates the simultaneous processing of requests by multiple Actor runs or server instances, perfectly suiting large-scale web crawling projects.
+Our design facilitates the simultaneous processing of requests by multiple clients (for example,  Actor runs) or server instances, perfectly suiting large-scale web crawling projects.
 Distributivity ensures your scraping tasks can expand horizontally. The request queue includes locking mechanisms to avoid concurrent
-processing of the same request, a feature seamlessly integrated into Crawlee, requiring minimal extra setup. For more details, refer to the Crawlee documentation.
+processing of the same request, a feature seamlessly integrated into Crawlee, requiring minimal extra setup. The lock mechanism ensures that only one client can process a request at a time. The base scenario is that
+the lock is created for the same amount of time as the timeout for processing requests in the crawler (requestHandlerTimeoutSecs), and if the request timeouts, the lock is prolonged or expired.
+For more details, refer to the Crawlee documentation.
 
 In the following example, we demonstrate how we can use locking mechanisms to avoid concurrent processing of the same request.
 
