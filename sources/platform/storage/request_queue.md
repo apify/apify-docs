@@ -277,11 +277,11 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 ## Features {#features}
 
 Request queue is a storage type built with scraping in mind, enabling developers to write scraping logic efficiently and scalable.
-The Apify tooling, including [Crawlee](https://crawlee.dev/) and [Apify SDKs](https://docs.apify.com/sdk/js/), incorporates all these features, enabling users to leverage them effortlessly without extra configuration.
+The Apify tooling, including [Crawlee](https://crawlee.dev/), [Apify JS SDK](https://docs.apify.com/sdk/js/), and [Apify Python SDK](https://docs.apify.com/sdk/python/) , incorporates all these features, enabling users to leverage them effortlessly without extra configuration.
 
 In the following section, we will discuss each main features in depth.
 
-### Persistence and retention {#persistence-and-retention}
+### Persistence and retention
 
 Request queues prioritize persistence, ensuring indefinite retention of your requests in named request queues and for data retention in unnamed request queues.
 This capability facilitates incremental crawling, where you can append new URLs to the queue and resume from where you stopped in the subsequent run.
