@@ -13,10 +13,10 @@ jobs:
             -   name: Checkout Source code
                 uses: actions/checkout@v4
 
-            -   name: Use Node.js 18
+            -   name: Use Node.js 20
                 uses: actions/setup-node@v4
                 with:
-                    node-version: 18
+                    node-version: 20
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
                     always-auth: 'true'
@@ -48,10 +48,10 @@ jobs:
                     **/*.mdx
                 separator: ","
 
-            - name: Use Node.js 18
+            - name: Use Node.js 20
               uses: actions/setup-node@v4
               with:
-                node-version: 18
+                node-version: 20
                 cache: 'npm'
                 cache-dependency-path: 'package-lock.json'
                 registry-url: 'https://npm.pkg.github.com/'
@@ -79,10 +79,10 @@ jobs:
             -   name: Checkout Source code
                 uses: actions/checkout@v4
 
-            -   name: Use Node.js 18
+            -   name: Use Node.js 20
                 uses: actions/setup-node@v4
                 with:
-                    node-version: 18
+                    node-version: 20
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
                     registry-url: 'https://npm.pkg.github.com/'
