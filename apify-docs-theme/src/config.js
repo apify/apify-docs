@@ -13,7 +13,7 @@ const themeConfig = ({
             hideable: true,
         },
     },
-    smartlook: { projectKey: process.env.SMARTLOOK_PROJECT_KEY ?? '-' },
+    smartlook: { projectKey: process.env.SMARTLOOK_PROJECT_KEY || '-' },
     navbar: {
         title: 'Apify Docs',
         logo: {
