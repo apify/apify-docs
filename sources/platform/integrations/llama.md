@@ -13,7 +13,7 @@ slug: /integrations/llama
 
 ## What is LlamaIndex?
 
-LlamaIndex is a platform that allows you to create and manage vector databases and LLMs. It is a part of the [LangChain](https://langchain.ai/) ecosystem.
+LlamaIndex is a platform that allows you to create and manage vector databases and LLMs. It is a part of the [LangChain](https://langchain.com/) ecosystem.
 
 ## How to integrate Apify with LlamaIndex?
 
