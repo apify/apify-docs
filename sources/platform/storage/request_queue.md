@@ -276,20 +276,20 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 
 ## Features {#features}
 
-Request queue is a storage type built with scraping in mind, enabling developers to write scraping logic efficiently and scalable.
-The Apify tooling, including [Crawlee](https://crawlee.dev/), [Apify JS SDK](https://docs.apify.com/sdk/js/), and [Apify Python SDK](https://docs.apify.com/sdk/python/) , incorporates all these features, enabling users to leverage them effortlessly without extra configuration.
+Request queue is a storage type built with scraping in mind, enabling developers to write scraping logic efficiently and scalably.
+The Apify tooling, including [Crawlee](https://crawlee.dev/), [Apify SDK for JavaScript](https://docs.apify.com/sdk/js/), and [Apify SDK for Python](https://docs.apify.com/sdk/python/), incorporates all these features, enabling users to leverage them effortlessly without extra configuration.
 
-In the following section, we will discuss each main features in depth.
+In the following section, we will discuss each of the main features in depth.
 
 ### Persistence and retention
 
-Request queues prioritize persistence, ensuring indefinite retention of your requests in named request queues and for data retention in unnamed request queues.
-This capability facilitates incremental crawling, where you can append new URLs to the queue and resume from where you stopped in the subsequent run.
+Request queues prioritize persistence, ensuring indefinite retention of your requests in named request queues, and for the data retention period in your subscription in unnamed request queues.
+This capability facilitates incremental crawling, where you can append new URLs to the queue and resume from where you stopped in subsequent Actor runs.
 Consider the scenario of scraping an e-commerce website with thousands of products. Incremental scraping allows you to scrape only the products
-added since the last run.
+added since the last product discovery.
 
-In the following code example, we demonstrate how to use the Apify SDK and Crawlee to create an incremental crawler that saves the title of each new found page on Apify documentation to a dataset.
-By running this Actor multiple times, you can incrementally crawl the website and save only the new pages as the same request queue ensures that only not yet visited URLs are processed.
+In the following code example, we demonstrate how to use the Apify SDK and Crawlee to create an incremental crawler that saves the title of each new found page in Apify Docs to a dataset.
+By running this Actor multiple times, you can incrementally crawl the source website and save only pages added since the last crawl, as reusing a single request queue ensures that only URLs not yet visited are processed.
 
 ```ts
 // Basic example of incremental crawling with Crawlee.
@@ -326,7 +326,7 @@ const crawler = new CheerioCrawler({
         const title = $('title').text();
         log.info(`New page with ${title}`, { url: request.loadedUrl });
 
-        // Save url of new URL and title to Dataset.
+        // Save the URL and title of the loaded page to the output dataset.
         await Dataset.pushData({ url: request.loadedUrl, title });
     },
 });
@@ -338,9 +338,7 @@ await Actor.exit();
 
 ### Batch operations {#batch-operations}
 
-Request queues enhance performance and cut down on API calls and network latency for adding or removing individual requests by supporting batch operations.
-This efficiency booster enables you to enqueue or retrieve requests in bulk, enhancing efficiency when handling numerous URLs.
-Batch operations simplify process flows, decrease API calls, and reduce latency, thus accelerating your web crawling processes and enhancing reliability.
+Request queues support batch operations on requests to enqueue or retrieve multiple requests in bulk, to cut down on network latency and enable easier parallel processing of requests.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -395,11 +393,9 @@ request_queue_client.batch_delete_requests([
 
 ### Distributivity {#distributivity}
 
-Our design facilitates the simultaneous processing of requests by multiple clients (for example,  Actor runs) or server instances, perfectly suiting large-scale web crawling projects.
-Distributivity ensures your scraping tasks can expand horizontally. The request queue includes locking mechanisms to avoid concurrent
-processing of the same request, a feature seamlessly integrated into Crawlee, requiring minimal extra setup. The lock mechanism ensures that only one client can process a request at a time. The base scenario is that
-the lock is created for the same amount of time as the timeout for processing requests in the crawler (requestHandlerTimeoutSecs), and if the request timeouts, the lock is prolonged or expired.
-For more details, refer to the Crawlee documentation.
+Request queue includes a locking mechanism to avoid concurrent processing of one request by multiple clients (for example Actor runs). You can lock a request so that no other clients receive it when they fetch the queue head, with an expiration period on the lock so that requests which fail processing are eventually unlocked and retried.
+
+This feature is seamlessly integrated into Crawlee, requiring minimal extra setup. By default, requests are locked for the same duration as the timeout for processing requests in the crawler (`requestHandlerTimeoutSecs`) (TODO link). If the Actor processing the request fails, the lock expires, and the request is processed again eventually. For more details, refer to the Crawlee documentation (TODO link).
 
 In the following example, we demonstrate how we can use locking mechanisms to avoid concurrent processing of the same request.
 
@@ -461,7 +457,7 @@ await requestQueueClientOne.delete();
 await Actor.exit();
 ```
 
-The detailed tutorial on how to crawl one request queue from multiple Actor runs can be found in [Advanced web scraping academy](https://docs.apify.com/academy/advanced-web-scraping/multiple-runs-scrape).
+A detailed tutorial on how to crawl one request queue from multiple Actor runs can be found in [Advanced web scraping academy](https://docs.apify.com/academy/advanced-web-scraping/multiple-runs-scrape).
 
 ## Sharing {#sharing}
 
