@@ -60,7 +60,7 @@ In the next step, you can choose the action you want to perform:
 
 #### Authentication
 
-After selecting the action, you will need to provide your Apify API credentials. You can find these credentials in your Apify account page and copy them into the provided form.
+After selecting the action, you will need to provide your Apify API credentials. You can find these credentials in your Apify account page by navigating to **Settings > Integrations** and copy them into the provided form.
 
 ![Keboola API authentication](./images/keboola/keboola-setup-api-token.png)
 
