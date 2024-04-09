@@ -306,12 +306,12 @@ await Actor.init();
 // Structure of input is defined in input_schema.json
 const {
     startUrls = ['https://docs.apify.com/'],
-    persistRquestQueueName = 'persist-request-queue',
+    persistRequestQueueName = 'persist-request-queue',
 } = await Actor.getInput<Input>() ?? {} as Input;
 
 // Open or create request queue for incremental scrape.
 // By opening same request queue, the crawler will continue where it left off and skips already visited URLs.
-const requestQueue = await Actor.openRequestQueue(persistDatasetName);
+const requestQueue = await Actor.openRequestQueue(persistRequestQueueName);
 
 const proxyConfiguration = await Actor.createProxyConfiguration();
 
