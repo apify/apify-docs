@@ -21,7 +21,7 @@ To use the Apify integration on Keboola, you will need to:
 - Have an [Apify account](https://console.apify.com/).
 - Have a [Keboola account](https://www.keboola.com/).
 
-### Step 1: Create a New Extractor in Keboola
+### Step 1: Create a New Data Source in Keboola
 
 Once you have your Keboola account ready and you are logged in, navigate to the **Components** section in the top menu and click on the **Add Component** button.
 
@@ -79,9 +79,9 @@ Once you have filled in all the necessary options, click the **Save** button to 
 
 ![Keboola component specification setup](./images/keboola/keboola-setup-specification.png)
 
-### Step 4: Run the Configured Extractor
+### Step 4: Run the Configured Data Source
 
-After your extractor has been configured, you can run it by clicking the **Run** button in the upper-right corner of your configuration.
+After your data source has been configured, you can run it by clicking the **Run** button in the upper-right corner of your configuration.
 
 ![Keboola run configured component](./images/keboola/keboola-run-component.png)
 
