@@ -298,7 +298,7 @@ import { CheerioCrawler, Dataset } from 'crawlee';
 
 interface Input {
     startUrls: string[];
-    persistDatasetName: string;
+    persistRquestQueueName: string;
 }
 
 await Actor.init();
@@ -306,7 +306,7 @@ await Actor.init();
 // Structure of input is defined in input_schema.json
 const {
     startUrls = ['https://docs.apify.com/'],
-    persistDatasetName = 'persist-dataset',
+    persistRquestQueueName = 'persist-request-queue',
 } = await Actor.getInput<Input>() ?? {} as Input;
 
 // Open or create request queue for incremental scrape.
@@ -339,6 +339,7 @@ await Actor.exit();
 ### Batch operations {#batch-operations}
 
 Request queues support batch operations on requests to enqueue or retrieve multiple requests in bulk, to cut down on network latency and enable easier parallel processing of requests.
+You can find the batch operations in the [Apify API](https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations), as well in the Apify API client for [JavaScript](https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#batchAddRequests) and [Python](https://docs.apify.com/api/client/python/reference/class/RequestQueueClient#batch_add_requests).
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -393,9 +394,11 @@ request_queue_client.batch_delete_requests([
 
 ### Distributivity {#distributivity}
 
-Request queue includes a locking mechanism to avoid concurrent processing of one request by multiple clients (for example Actor runs). You can lock a request so that no other clients receive it when they fetch the queue head, with an expiration period on the lock so that requests which fail processing are eventually unlocked and retried.
+Request queue includes a locking mechanism to avoid concurrent processing of one request by multiple clients (for example Actor runs).
+You can lock a request so that no other clients receive it when they fetch the queue head, with an expiration period on the lock so that requests which fail processing are eventually unlocked and retried.
 
-This feature is seamlessly integrated into Crawlee, requiring minimal extra setup. By default, requests are locked for the same duration as the timeout for processing requests in the crawler (`requestHandlerTimeoutSecs`) (TODO link). If the Actor processing the request fails, the lock expires, and the request is processed again eventually. For more details, refer to the Crawlee documentation (TODO link).
+This feature is seamlessly integrated into Crawlee, requiring minimal extra setup. By default, requests are locked for the same duration as the timeout for processing requests in the crawler ([`requestHandlerTimeoutSecs`](https://crawlee.dev/api/next/basic-crawler/interface/BasicCrawlerOptions#requestHandlerTimeoutSecs)).
+If the Actor processing the request fails, the lock expires, and the request is processed again eventually. For more details, refer to the [Crawlee documentation](https://crawlee.dev/docs/next/experiments/experiments-request-locking).
 
 In the following example, we demonstrate how we can use locking mechanisms to avoid concurrent processing of the same request.
 
