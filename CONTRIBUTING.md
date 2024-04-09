@@ -2,27 +2,33 @@
 
 ## Architecture
 
-Apify documentation consists of six different repositories:
+Apify documentation consists of the following top-level areas:
 
+- **Academy** - Collection of mostly platform-independent courses on scraping techniques.
+- **Platform** - The main docs on how to use Apify as a product.
+- **API** - API reference and API client libraries docs, i.e. interacting with the platform from outside.
+- **SDK** - SDK libraries docs, i.e. interacting with the platform from code which runs inside it.
+- **CLI** - Tool for building code for the platform, and for interacting with the platform from outside.
+
+Thus the source code of the docs is spread across six different repositories:
+
+- apify-docs (this repository)
 - apify-client-js
 - apify-client-python
 - apify-sdk-js
 - apify-sdk-python
 - apify-cli
-- apify-docs (this repository)
 
-The main documentation content for Platform docs and Academy is inside the `./sources` directory. Every project repository then has its own Docusaurus instance and is available on a URL prefix (used as the `baseUrl` in Docusaurus) that's routed via nginx reverse proxy to the main domain. All those Docusaurus instances are deployed to GH pages on push.
-
-We use a shared Docusaurus theme published to NPM as `@apify/docs-theme`, which is automatically synced in all the repositories via CI.
+The main documentation content for Platform docs and Academy is inside the `./sources` directory. Every project repository has its own [Docusaurus](https://docusaurus.io/) instance and is available on a URL prefix (used as the `baseUrl` in Docusaurus) that's routed via nginx reverse proxy to the main domain. All those Docusaurus instances are deployed to GH pages on push.
 
 ### Shared theme
 
-The `@apify/docs-theme` is a Docusaurus theme package with custom components and styles to be used in all the Apify Docusaurus instances.
+We use a shared Docusaurus theme published to npm as `@apify/docs-theme`. It contains custom components and styles to be used in all the Apify Docusaurus instances.
 Aside from the regular Docusaurus theme interface, it also exports the common parts of the Docusaurus config, such as the navbar contents, URL, `og:image`, etc.
 
-The theme is available on npm as `@apify/docs-theme` and can be installed in any Docusaurus instance by running `npm install @apify/docs-theme`.
+#### Theme synchronization
 
-#### Publishing the theme
+The theme can be installed in any Docusaurus instance by running `npm install @apify/docs-theme`. It is automatically synced in all the existing repositories via CI.
 
 A GitHub Action automatically publishes the theme to npm whenever any changes are pushed to the `master` branch. However, this only happens if you update the version in the `package.json` file manually - if the current version already exists on npm, the publish will be skipped.
 
@@ -30,7 +36,7 @@ Additionally, if there are any changes to the `apify-docs-theme` folder detected
 
 ### Redirects
 
-[Here](./nginx.conf), you can find the production version of the Nginx configuration that handles the serving of content from all the different repositories. It also handles redirects from old URLs to new ones so that we don't lose any SEO juice.
+In [`./nginx.conf`](./nginx.conf) you can find the production version of the Nginx configuration that handles the serving of content from all the different repositories. It also handles redirects from old URLs to new ones so that we don't lose any SEO juice.
 
 
 ### API reference
@@ -40,9 +46,8 @@ The `./sources/platform/api_v2` directory contains the source file for the API r
 #### Local testing
 
 1. Install Apiary gem `gem install apiaryio`
-2. After that, you can:
-    - Open the generated doc with the command: `apiary preview --path="./sources/platform/api_v2/api_v2_reference.apib"`
-    - Log into [Apiary](https://apiary.io/) to get the document analyzed for warnings (there is no automatic linter)
+2. Open the generated doc with the command: `apiary preview --path="./sources/platform/api_v2/api_v2_reference.apib"`
+3. Log into [Apiary](https://apiary.io/) to get the document analyzed for warnings (there is no automatic linter)
 
 #### Pre-release testing
 
@@ -52,13 +57,11 @@ After updating the API docs, you should ALWAYS log into [Apiary](https://apiary.
 
 The homepage menu card items are in the `docs/homepage_content.json` file. The cards aim to suit three types of use cases:
 
-- Beginners and people who just want to use the Actors (**Get started**, **Use Actors and scrapers**).
+- **Get started**, **Use Actors and scrapers** - Beginners and people who just want to use the Actors.
+- **Reduce blocking**, **Use platform features** - Experienced Actor and platform users.
+- **Build Actors**, **Advanced tutorials and debugging** - Actor builders and advanced users.
 
-- Experienced Actor and platform users (**Reduce blocking**, **Use platform features**).
-
-- Actor builders and advanced users (**Build Actors**, **Advanced tutorials and debugging**).
-
-Each item has its own JSON object, in which "cardItem" is the title and "href" is the link. If the link leads to outside the Apify Docs site, add the `"isExternalLink": true` property. For local links, just use the article's path. E.g. `"/tutorials/apify-scrapers/web-scraper"`.
+Each item has its own JSON object, in which `cardItem` is the title and `href` is the link. If the link leads to outside the Apify Docs site, add the `"isExternalLink": true` property. For local links, just use the article's path. E.g. `"/tutorials/apify-scrapers/web-scraper"`.
 
 In the title (`cardItem`), don't just give the article's name. Phrase the title in a way that answers a question or fulfills a goal the user might have.
 
@@ -130,7 +133,7 @@ And add a record to `/etc/hosts` to map the `docs.apify.loc` hostname to localho
 
 ## Linting
 
-### Markdownlint
+### Markdown and code
 
 The **apify-docs** repo contains both Markdown and JavaScript/TypeScript files. We have two commands for linting them:
 
@@ -141,13 +144,13 @@ For Markdown, we use the [markdownlint](https://github.com/DavidAnson/markdownli
 
 For JavaScript, we use the [ESLint Markdown plugin](https://github.com/eslint/eslint-plugin-markdown).
 
-### Vale
+### Prose
 
-Apart from `markdownlint` we also utilize Vale as linting solution for prose. You can either use Vale as a CLI tool (for more information how to set it up go [here](https://vale.sh/docs/vale-cli/installation/)) or you can use Vale with a VSCode [extension](https://marketplace.visualstudio.com/items?itemName=ChrisChinchilla.vale-vscode). The rulesets that Vale will utilize while linting can be found within `.github/styles` directory.
+Apart from `markdownlint` we also utilize [Vale](https://github.com/errata-ai/vale) as linting solution for prose. You can either use Vale as a CLI tool (for more information how to set it up go [here](https://vale.sh/docs/vale-cli/installation/)) or you can use Vale with a VSCode [extension](https://marketplace.visualstudio.com/items?itemName=ChrisChinchilla.vale-vscode). The rulesets that Vale will utilize while linting can be found within `.github/styles` directory.
 
 #### Exceptions for Vale
 
-If Vale catches some specific words that you feel that should not be subjected to linting you can add them to the `accept.txt` found within the `.github/styles/Vocab/Docs` directory. For more information hw it works visit Vale [docs](https://vale.sh/docs/topics/vocab/).
+If Vale catches some specific words that you feel that should not be subjected to linting you can add them to the `accept.txt` found within the `.github/styles/Vocab/Docs` directory. For more information how it works visit Vale [docs](https://vale.sh/docs/topics/vocab/).
 
 ## Pull requests
 
