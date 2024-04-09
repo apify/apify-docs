@@ -6,7 +6,7 @@ sidebar_position: 11.16
 slug: /integrations/keboola
 ---
 
-**Integrate Your Apify Actors with Keboola**
+**Integrate your Apify Actors with Keboola.**
 
 ---
 
