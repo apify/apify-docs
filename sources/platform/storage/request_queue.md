@@ -274,6 +274,194 @@ Example payload:
 
 For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2#/reference/key-value-stores).
 
+## Features {#features}
+
+Request queue is a storage type built with scraping in mind, enabling developers to write scraping logic efficiently and scalably.
+The Apify tooling, including [Crawlee](https://crawlee.dev/), [Apify SDK for JavaScript](https://docs.apify.com/sdk/js/), and [Apify SDK for Python](https://docs.apify.com/sdk/python/), incorporates all these features, enabling users to leverage them effortlessly without extra configuration.
+
+In the following section, we will discuss each of the main features in depth.
+
+### Persistence and retention
+
+Request queues prioritize persistence, ensuring indefinite retention of your requests in named request queues, and for the data retention period in your subscription in unnamed request queues.
+This capability facilitates incremental crawling, where you can append new URLs to the queue and resume from where you stopped in subsequent Actor runs.
+Consider the scenario of scraping an e-commerce website with thousands of products. Incremental scraping allows you to scrape only the products
+added since the last product discovery.
+
+In the following code example, we demonstrate how to use the Apify SDK and Crawlee to create an incremental crawler that saves the title of each new found page in Apify Docs to a dataset.
+By running this Actor multiple times, you can incrementally crawl the source website and save only pages added since the last crawl, as reusing a single request queue ensures that only URLs not yet visited are processed.
+
+```ts
+// Basic example of incremental crawling with Crawlee.
+import { Actor } from 'apify';
+import { CheerioCrawler, Dataset } from 'crawlee';
+
+interface Input {
+    startUrls: string[];
+    persistRquestQueueName: string;
+}
+
+await Actor.init();
+
+// Structure of input is defined in input_schema.json
+const {
+    startUrls = ['https://docs.apify.com/'],
+    persistRequestQueueName = 'persist-request-queue',
+} = await Actor.getInput<Input>() ?? {} as Input;
+
+// Open or create request queue for incremental scrape.
+// By opening same request queue, the crawler will continue where it left off and skips already visited URLs.
+const requestQueue = await Actor.openRequestQueue(persistRequestQueueName);
+
+const proxyConfiguration = await Actor.createProxyConfiguration();
+
+const crawler = new CheerioCrawler({
+    proxyConfiguration,
+    requestQueue, // Pass incremental request queue to the crawler.
+    requestHandler: async ({ enqueueLinks, request, $, log }) => {
+        log.info('enqueueing new URLs');
+        await enqueueLinks();
+
+        // Extract title from the page.
+        const title = $('title').text();
+        log.info(`New page with ${title}`, { url: request.loadedUrl });
+
+        // Save the URL and title of the loaded page to the output dataset.
+        await Dataset.pushData({ url: request.loadedUrl, title });
+    },
+});
+
+await crawler.run(startUrls);
+
+await Actor.exit();
+```
+
+### Batch operations {#batch-operations}
+
+Request queues support batch operations on requests to enqueue or retrieve multiple requests in bulk, to cut down on network latency and enable easier parallel processing of requests.
+You can find the batch operations in the [Apify API](https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations), as well in the Apify API client for [JavaScript](https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#batchAddRequests) and [Python](https://docs.apify.com/api/client/python/reference/class/RequestQueueClient#batch_add_requests).
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+const { ApifyClient } = require('apify-client');
+
+const client = new ApifyClient({
+    token: 'MY-APIFY-TOKEN',
+});
+
+const requestQueueClient = client.requestQueue('my-queue-id');
+
+// Add multiple requests to the queue
+await requestQueueClient.batchAddRequests([
+    { url: 'http://example.com/foo', uniqueKey: 'http://example.com/foo', method: 'GET' },
+    { url: 'http://example.com/bar', uniqueKey: 'http://example.com/bar', method: 'GET' },
+]);
+
+// Remove multiple requests from the queue
+await requestQueueClient.batchDeleteRequests([
+    { uniqueKey: 'http://example.com/foo' },
+    { uniqueKey: 'http://example.com/bar' },
+]);
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify_client import ApifyClient
+
+apify_client = ApifyClient('MY-APIFY-TOKEN')
+
+request_queue_client = apify_client.request_queue('my-queue-id')
+
+# Add multiple requests to the queue
+request_queue_client.batch_add_requests([
+    {'url': 'http://example.com/foo', 'uniqueKey': 'http://example.com/foo', 'method': 'GET'},
+    {'url': 'http://example.com/bar', 'uniqueKey': 'http://example.com/bar', 'method': 'GET'},
+])
+
+# Remove multiple requests from the queue
+request_queue_client.batch_delete_requests([
+    {'uniqueKey': 'http://example.com/foo'},
+    {'uniqueKey': 'http://example.com/bar'},
+])
+```
+
+</TabItem>
+</Tabs>
+
+### Distributivity {#distributivity}
+
+Request queue includes a locking mechanism to avoid concurrent processing of one request by multiple clients (for example Actor runs).
+You can lock a request so that no other clients receive it when they fetch the queue head, with an expiration period on the lock so that requests which fail processing are eventually unlocked and retried.
+
+This feature is seamlessly integrated into Crawlee, requiring minimal extra setup. By default, requests are locked for the same duration as the timeout for processing requests in the crawler ([`requestHandlerTimeoutSecs`](https://crawlee.dev/api/next/basic-crawler/interface/BasicCrawlerOptions#requestHandlerTimeoutSecs)).
+If the Actor processing the request fails, the lock expires, and the request is processed again eventually. For more details, refer to the [Crawlee documentation](https://crawlee.dev/docs/next/experiments/experiments-request-locking).
+
+In the following example, we demonstrate how we can use locking mechanisms to avoid concurrent processing of the same request.
+
+```js
+import { Actor, ApifyClient } from 'apify';
+
+await Actor.init();
+
+const client = new ApifyClient({
+    token: 'MY-APIFY-TOKEN',
+});
+
+// Creates a new request queue.
+const requestQueue = await client.requestQueues().getOrCreate('example-queue');
+
+// Creates two clients with different keys for the same request queue.
+const requestQueueClientOne = client.requestQueue(requestQueue.id, { clientKey: 'requestqueueone' });
+const requestQueueClientTwo = client.requestQueue(requestQueue.id, { clientKey: 'requestqueuetwo' });
+
+// Adds multiple requests to the queue.
+await requestQueueClientOne.batchAddRequests([
+    { url: 'http://example.com/foo', uniqueKey: 'http://example.com/foo', method: 'GET' },
+    { url: 'http://example.com/bar', uniqueKey: 'http://example.com/bar', method: 'GET' },
+    { url: 'http://example.com/baz', uniqueKey: 'http://example.com/baz', method: 'GET' },
+    { url: 'http://example.com/qux', uniqueKey: 'http://example.com/qux', method: 'GET' },
+]);
+
+// Locks the first two requests at the head of the queue.
+const processingRequestsClientOne = await requestQueueClientOne.listAndLockHead({
+    limit: 2,
+    lockSecs: 60,
+});
+
+// Other clients cannot list and lock these requests; the listAndLockHead call returns other requests from the queue.
+const processingRequestsClientTwo = await requestQueueClientTwo.listAndLockHead({
+    limit: 2,
+    lockSecs: 60,
+});
+
+// Checks when the lock will expire. The locked request will have a lockExpiresAt attribute.
+const theFirstRequestLockedByClientOne = processingRequestsClientOne.items[0];
+const requestLockedByClientOne = await requestQueueClientOne.getRequest(theFirstRequestLockedByClientOne.id);
+console.log(`Request locked until ${requestLockedByClientOne?.lockExpiresAt}`);
+
+// Other clients cannot modify the lock; attempting to do so will throw an error.
+try {
+    await requestQueueClientTwo.prolongRequestLock(theFirstRequestLockedByClientOne.id, { lockSecs: 60 });
+} catch (err) {
+    // This will throw an error.
+}
+
+// Prolongs the lock of the first request or unlocks it.
+await requestQueueClientOne.prolongRequestLock(theFirstRequestLockedByClientOne.id, { lockSecs: 60 });
+await requestQueueClientOne.deleteRequestLock(theFirstRequestLockedByClientOne.id);
+
+// Cleans up the queue.
+await requestQueueClientOne.delete();
+
+await Actor.exit();
+```
+
+A detailed tutorial on how to crawl one request queue from multiple Actor runs can be found in [Advanced web scraping academy](https://docs.apify.com/academy/advanced-web-scraping/multiple-runs-scrape).
+
 ## Sharing {#sharing}
 
 You can grant [access rights](../collaboration/index.md) to your request queue through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../collaboration/list_of_permissions.md).
