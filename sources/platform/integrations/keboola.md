@@ -10,16 +10,16 @@ slug: /integrations/keboola
 
 ---
 
-With Apify integration for [Keboola](https://www.keboola.com/), you can extract data from various sources using your Apify Actors and load it into Keboola for further processing, transformation, and integration with other platforms.
+With the Apify integration for [Keboola](https://www.keboola.com/), you can extract data from various sources using your Apify Actors and load it into Keboola for further processing, transformation, and integration with other platforms.
 
 The Keboola integration allows you to run your Actors, fetch items from datasets, and retrieve results, all within the Keboola platform.
 
 ## Connect Apify with Keboola
 
-To use the Apify integration on Keboola, you will need to:
+To use the Apify integration on Keboola, you will need:
 
-- Have an [Apify account](https://console.apify.com/).
-- Have a [Keboola account](https://www.keboola.com/).
+- An [Apify account](https://console.apify.com/).
+- A [Keboola account](https://www.keboola.com/).
 
 ### Step 1: Create a New Data Source in Keboola
 
@@ -27,7 +27,7 @@ Once your Keboola account is ready and you are logged in, navigate to the **Comp
 
 ![Keboola dashboard](./images/keboola/keboola-dashboard.png)
 
-In the list of available Components, find and select the **Apify** from Data Sources and click on the **Add Component** button.
+In the list of available Components, find and select the **Apify** option from Data Sources and click on the **Add Component** button.
 
 ![Keboola component search](./images/keboola/keboola-components.png)
 
@@ -46,7 +46,7 @@ With the new configuration created, you can now configure the data source to ret
 ![Keboola component configuration](./images/keboola/keboola-configure-component.png)
 
 
-#### Choose an Action
+#### Choose an action
 
 In the next step, you can choose the action you want to perform:
 
@@ -89,7 +89,7 @@ You can monitor the progress of your run in the job detail section on the right-
 
 Once the run finishes successfully, you can find the results by following the link in the Storage Stats section of the job detail page.
 
-## Next Steps
+## Next steps
 
 With your data now in Keboola, you can integrate it with dozens of other services that Keboola supports. Check out the [full list of integrations](https://www.keboola.com/integrations) to explore your options.
 
