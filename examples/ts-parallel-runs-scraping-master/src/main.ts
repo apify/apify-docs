@@ -17,10 +17,12 @@ await Actor.init();
 const {
     parallelRunsCount= 1,
     targetActorId,
-    targetActorInput,
-    targetActorRunOptions
+    targetActorInput = {},
+    targetActorRunOptions = {},
 } = await Actor.getInput<Input>() ?? {} as Input;
 const apifyClient = new ApifyClient();
+
+if (!targetActorId) throw new Error('Missing the "targetActorId" input!');
 
 // Get the current run request queue and dataset, we use the default ones.
 const requestQueue = await Actor.openRequestQueue();

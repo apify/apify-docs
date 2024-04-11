@@ -1,0 +1,18 @@
+{
+    "title": "CheerioCrawler Template",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "requestQueueId": {
+            "title": "Request Queue ID",
+            "type": "string",
+            "description": "Request queue to use in scraper."
+        },
+        "datasetId": {
+            "title": "Dataset ID",
+            "type": "string",
+            "description": "Dataset to use in scraper."
+        }
+    },
+    "required": ["requestQueueId", "datasetId"]
+}
