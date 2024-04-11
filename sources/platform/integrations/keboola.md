@@ -97,7 +97,7 @@ You can set up a writer for a selected service using Keboola Writer or create [o
 
 :::note Keboola Helper
 
-In Apify Store, you'll find the [Keboola Input Mapping Actor](https://apify.com/drobnikj/keboola-input-mapping), designed to streamline the integration between Apify and Keboola. This helper Actor parses the input table received from the Apify <> Keboola Data Source and maps the data into the required input format for another task or Actor within the Keboola platform.
+In Apify Store, you'll find the [Keboola Input Mapping Actor](https://apify.com/drobnikj/keboola-input-mapping), designed to streamline the integration between Apify and Keboola. This helper Actor parses the input table received from the Apify &#60;&#62; Keboola Data Source and maps the data into the required input format for another task or Actor within the Keboola platform.
 
 :::
 
