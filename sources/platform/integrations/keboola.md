@@ -91,7 +91,7 @@ Once the run finishes successfully, you can find the results by following the li
 
 ## Next Steps
 
-With your data now in Keboola, you can integrate it with dozens of other services that Keboola supports. Check out the [complete list of integrations](https://www.keboola.com/integrations) to explore your options.
+With your data now in Keboola, you can integrate it with dozens of other services that Keboola supports. Check out the [complete list of integrations](https://www.keboola.com/product/integrations) to explore your options.
 
 You can set up a writer for a selected service using Keboola Writer or create [orchestrations](https://help.keboola.com/orchestrator/) to transform, merge, or split your data.
 
