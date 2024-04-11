@@ -6,20 +6,20 @@ sidebar_position: 11.16
 slug: /integrations/keboola
 ---
 
-**Integrate your Apify Actors with Keboola.**
+**Integrate your Apify Actors with Keboola, a cloud-based data integration platform that consolidates data from various sources into a centralized storage.**
 
 ---
 
-With the Apify integration for [Keboola](https://www.keboola.com/), you can extract data from various sources using your Apify Actors and load it into Keboola for further processing, transformation, and integration with other platforms.
+With Apify integration for [Keboola](https://www.keboola.com/), you can extract data from various sources using your Apify Actors and load it into Keboola for further processing, transformation, and integration with other platforms.
 
 The Keboola integration allows you to run your Actors, fetch items from datasets, and retrieve results, all within the Keboola platform.
 
 ## Connect Apify with Keboola
 
-To use the Apify integration on Keboola, you will need:
+To use the Apify integration on Keboola, you will need to:
 
-- An [Apify account](https://console.apify.com/).
-- A [Keboola account](https://www.keboola.com/).
+- Have an [Apify account](https://console.apify.com/).
+- Have a [Keboola account](https://www.keboola.com/).
 
 ### Step 1: Create a New Data Source in Keboola
 
@@ -27,7 +27,7 @@ Once your Keboola account is ready and you are logged in, navigate to the **Comp
 
 ![Keboola dashboard](./images/keboola/keboola-dashboard.png)
 
-In the list of available Components, find and select the **Apify** option from Data Sources and click on the **Add Component** button.
+In the list of available Components, find and select the **Apify** from Data Sources and click on the **Add Component** button.
 
 ![Keboola component search](./images/keboola/keboola-components.png)
 
@@ -35,7 +35,7 @@ On the new window, click **Connect** to my data**
 
 ![Keboola Connector](./images/keboola/keboola-connector.png)
 
-Provide a name and description for your configuration, and then click on the **Create Configuration** button.
+Provide a name and description for your configuration, then click the **Create** Configuration** button.
 
 ![Keboola configuration setup](./images/keboola/keboola-create-configuration.png)
 
@@ -46,7 +46,7 @@ With the new configuration created, you can now configure the data source to ret
 ![Keboola component configuration](./images/keboola/keboola-configure-component.png)
 
 
-#### Choose an action
+#### Choose an Action
 
 In the next step, you can choose the action you want to perform:
 
@@ -89,10 +89,16 @@ You can monitor the progress of your run in the job detail section on the right-
 
 Once the run finishes successfully, you can find the results by following the link in the Storage Stats section of the job detail page.
 
-## Next steps
+## Next Steps
 
-With your data now in Keboola, you can integrate it with dozens of other services that Keboola supports. Check out the [full list of integrations](https://www.keboola.com/integrations) to explore your options.
+With your data now in Keboola, you can integrate it with dozens of other services that Keboola supports. Check out the [complete list of integrations](https://www.keboola.com/integrations) to explore your options.
 
-You can set up a writer for a selected service using Keboola Writer or create orchestrations to transform, merge, or split your data as needed.
+You can set up a writer for a selected service using Keboola Writer or create [orchestrations](https://help.keboola.com/orchestrator/) to transform, merge, or split your data.
+
+:::note Keboola Helper
+
+In Apify Store, you'll find the [Keboola Input Mapping Actor](https://apify.com/drobnikj/keboola-input-mapping), designed to streamline the integration between Apify and Keboola. This helper Actor parses the input table received from the Apify <> Keboola Data Source and maps the data into the required input format for another task or Actor within the Keboola platform.
+
+:::
 
 If you have any questions or need assistance, feel free to contact us at [info@apify.com](mailto:info@apify.com), through our live chat, or in our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
