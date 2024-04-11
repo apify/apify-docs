@@ -4,14 +4,14 @@
 
 ## Intro
 
-This repository is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). Source files of the [platform documentation](https://docs.apify.com/platform) are located in the [/sources](https://github.com/apify/apify-docs/tree/master/sources) directory. However, other sections, such as [SDK](https://docs.apify.com/sdk) or [CLI](https://docs.apify.com/cli), have their own repositories. For more information, see the [Contributing guidelines](./CONTRIBUTING.md).
+This repository is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). Source files of the [platform documentation](https://docs.apify.com/platform) are located in the [/sources](https://github.com/apify/apify-docs/tree/master/sources) directory. However, other sections, such as SDKs for [Javascript/Node.js](https://docs.apify.com/sdk/js/), [Python](https://docs.apify.com/sdk/python/), or [CLI](https://docs.apify.com/cli), have their own repositories. For more information, see the [Contributing guidelines](./CONTRIBUTING.md).
 
 ## Before you start contributing
 
 > [!IMPORTANT]
 > Before you contribute to Apify documentation with your first pull request, please read the following 2 articles:
 >
-> - [Contributing guidelines](CONTRIBUTING.md), where you learn about the project structure, local development, testing, and setting up the [redirects](./CONTRIBUTING.md#redirects) to make sure we keep our SEO juice 🍊.
+> - [Contributing guidelines](CONTRIBUTING.md), where you learn about the project structure, local development, testing, and setting up redirects.
 > - [Style guide](#style-guide), here below 👇, where you learn how to keep the documentation style consistent.
 
 ## Style guide
@@ -41,20 +41,19 @@ Instead, try to be more descriptive, for example:
 - For consistency, use **bold** to highlight UI text when dealing with UI-focused documentation (for example, Apify Console).
 - For consistency, use _italics_ to emphasize text.
 - For inline `code` examples, use **back-ticks** (\` \`).
-- For multi-line code examples, use code fences and specify the language. Preferably, specify the title as well.
-  - Within platform documentation, always use [Code tabs](README.md#code-tabs) and declare the language.
+- For multi-line code examples, use code fences and specify the language. Preferably, specify the title as well. Within platform documentation, always use [Code tabs](README.md#code-tabs) and declare the language.
 
-    ```markdown
-    \`\`\`js showLineNumbers title='foo.js'
+  ``````markdown
+  ```js showLineNumbers title='foo.js'
 
-    const docsAreCool = require('coolDocs'); <br/>
-    ...<br/>
-    return docsAreCool;<br/>
+  const docsAreCool = require('coolDocs'); <br/>
+  ...<br/>
+  return docsAreCool;<br/>
 
-    \`\`\`
-    ```
+  ```
+  ``````
 
-    Check out [Markdown features](https://docusaurus.io/docs/markdown-features) in the Docusaurus docs for more information.
+Check out [Markdown features](https://docusaurus.io/docs/markdown-features) in the Docusaurus docs for more information.
 
 ### Admonitions
 
