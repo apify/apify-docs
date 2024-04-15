@@ -75,7 +75,7 @@ The tables below demonstrate the Apify platform's default resource limits. For A
     </tbody>
 </table>
 
-#### Apify platform limits {#platform-limits}
+## Apify platform limits {#platform-limits}
 
 <table>
     <thead>
