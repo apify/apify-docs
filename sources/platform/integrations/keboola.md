@@ -79,7 +79,7 @@ Once you have filled in all the necessary options, click the **Save** button to 
 
 ![Keboola component specification setup](./images/keboola/keboola-setup-specification.png)
 
-### Step 4: Run the configured Data Source
+### Step 3: Run the configured Data Source
 
 After your data source has been configured, you can run it by clicking the **Run** button in the upper-right corner of your configuration.
 
