@@ -460,7 +460,7 @@ await requestQueueClientOne.delete();
 await Actor.exit();
 ```
 
-A detailed tutorial on how to crawl one request queue from multiple Actor runs can be found in [Advanced web scraping academy](https://docs.apify.com/academy/advanced-web-scraping/multiple-runs-scrape).
+A detailed tutorial on how to crawl one request queue from multiple Actor runs can be found in [Academy tutorials](https://docs.apify.com/academy/node-js/multiple-runs-scrape).
 
 ## Sharing {#sharing}
 
