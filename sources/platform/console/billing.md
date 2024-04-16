@@ -59,6 +59,14 @@ The **Invoices** tab is where you can find your current and previous invoices fo
 
 ## Limits
 
-The **Limits** tab showcases the limits of Apify platform usage based on your current subscription plan.
+The **Limits** tab displays the usage limits for the Apify platform based on your current subscription plan. As you approach the defined limits, you will receive a notification about potential service suspension or overage charges. If your usage exceeds the specified limits, Apify platform services will be suspended to prevent incurring charges beyond your subscription plan.
+
+You can adjust the platform usage limits and enable overage, allowing you to continue using the platform beyond your subscription plan on a _pay-as-you-go_ basis. Any usage, beyond your plan will be charged as overage to your account.
+
+:::caution Immediate overage invoicing
+
+If your overage platform usage reaches _200$_ before your next billing cycle, you will be invoiced for the overage charges immediately. Otherwise, the overage charges will be added to your next subscription invoice.
+
+:::
 
 ![Apify Console limits view](./images/console-billing-limits.png)
