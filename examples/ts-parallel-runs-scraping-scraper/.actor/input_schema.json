@@ -6,11 +6,13 @@
         "requestQueueId": {
             "title": "Request Queue ID",
             "type": "string",
+            "editor": "textfield",
             "description": "Request queue to use in scraper."
         },
         "datasetId": {
             "title": "Dataset ID",
             "type": "string",
+            "editor": "textfield",
             "description": "Dataset to use in scraper."
         }
     },

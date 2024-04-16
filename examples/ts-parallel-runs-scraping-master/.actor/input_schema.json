@@ -1,5 +1,5 @@
 {
-    "title": "Example master Actor",
+    "title": "Master Actor Input",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
@@ -12,6 +12,7 @@
         "targetActorId": {
             "title": "Actor ID",
             "type": "string",
+            "editor": "textfield",
             "description": "ID of the Actor to run."
         },
         "targetActorInput": {

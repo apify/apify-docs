@@ -28,7 +28,7 @@ const crawler = new CheerioCrawler({
         });
         log.info(`Enqueued ${newPages.processedRequests.length} new pages.`);
         // If the product page is loaded, save the title and URL to the Dataset.
-        if (request.loadedUrl.includes('/products/')) {
+        if (request?.loadedUrl?.includes('/products/')) {
             const title = $('title').text();
             await dataset.pushData({ url: request.loadedUrl, title });
         }
