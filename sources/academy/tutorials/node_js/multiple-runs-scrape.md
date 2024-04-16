@@ -183,7 +183,7 @@ const dataset = await Actor.openDataset(datasetId);
 ```
 
 Once you initialized the request queue and dataset, you can start scraping the website.
-In this example, we will use the CheerioCrawler to scrape the https://warehouse-theme-metal.myshopify.com/.
+In this example, we will use the CheerioCrawler to scrape [the example of ecommerce website](https://warehouse-theme-metal.myshopify.com/).
 You can create your scraper from the [Crawlee + Cheerio TypeScript Actor template](https://apify.com/templates/ts-crawlee-cheerio).
 
 <Tabs groupId="main">
@@ -226,11 +226,3 @@ The Master Actor initialized the Scraper Actor runs and managed their state. The
 You could speed up the scraping process by running multiple instances of the Scraper Actor in parallel.
 
 The code in this tutorial is for learning purposes and does not cover all specific edge cases. You can modify it to suit your exact requirements and use cases.
-
-
-
-
-
-
-
-
