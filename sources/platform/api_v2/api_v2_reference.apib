@@ -336,6 +336,7 @@ and for unauthenticated requests, it is counted per IP address.
 ### Per-resource rate limit
 The default per-resource rate limit is 30 requests per second per resource, which in this context means a single Actor, a single Actor run, a single dataset, single key-value store etc.
 The default rate limit is applied to every API endpoint except a few select ones, which have higher rate limits.
+Each API endpoint returns its rate limit in `X-RateLimit-Limit` header.
 
 These endpoints have a rate limit of 100 requests per second per resource:
 * CRUD ([get](#reference/key-value-stores/record/get-record),
@@ -356,9 +357,7 @@ These endpoints have a rate limit of 200 requests per second per resource:
   [delete](#reference/request-queues/request-collection/delete-request))
   operations on requests in request queues
 
-> For authenticated API endpoints (if you use an [authentication token](#authentication)), the limit is counted per user.
-Storage API endpoints (when a token isn't used) count the limit per store ID.
-Anonymous API endpoints count the limit per client IP adress. Each API endpoint returns its rate limit in `X-RateLimit-Limit` header.
+### Rate limit exceeded errors
 
 If the client is sending too many requests, the API endpoints respond with the HTTP status code `429 Too Many Requests`
 and the following body:
@@ -371,6 +370,8 @@ and the following body:
     }
 }
 ```
+
+### Retrying rate-limited requests with exponential backoff
 
 If the client receives the rate limit error, it should wait a certain period of time and then retry the request.
 If the error happens again, the client should double the wait period and retry the request,
