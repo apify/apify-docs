@@ -61,7 +61,7 @@ Here’s the breakdown of the necessary input:
 <TabItem value="main.ts" label="main.ts">
 
 ```typescript
-import { Actor, ApifyClient, log } from 'apify';
+import { Actor, log } from 'apify';
 
 interface Input {
     parallelRunsCount: number;
@@ -78,7 +78,7 @@ const {
     targetActorInput = {},
     targetActorRunOptions = {},
 } = await Actor.getInput<Input>() ?? {} as Input;
-const apifyClient = new ApifyClient();
+const { apifyClient } = Actor;
 
 if (!targetActorId) throw new Error('Missing the "targetActorId" input!');
 ```
@@ -104,9 +104,9 @@ The Orchestrator Actor will maintain the state of the scraping runs to track pro
 This persistent state ensures that, in migration or restart (resurrection) cases, the Actor can resume the same runs without losing progress.
 
 ```typescript
-import { Actor, ApifyClient, log } from 'apify';
+import { Actor, log } from 'apify';
 
-const apifyClient = new ApifyClient();
+const { apifyClient } = Actor;
 const state = await Actor.useState<State>('actor-state', { parallelRunIds: [], isInitialized: false });
 
 if (state.isInitialized) {
