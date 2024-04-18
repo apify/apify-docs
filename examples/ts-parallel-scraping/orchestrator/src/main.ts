@@ -1,4 +1,4 @@
-import { Actor, ApifyClient, log } from 'apify';
+import { Actor, log } from 'apify';
 
 interface Input {
     parallelRunsCount: number;
@@ -20,9 +20,9 @@ const {
     targetActorInput = {},
     targetActorRunOptions = {},
 } = await Actor.getInput<Input>() ?? {} as Input;
-const apifyClient = new ApifyClient();
+const { apifyClient} = Actor;
 
-if (!targetActorId) throw new Error('Missing the "targetActorId" input!');
+if (!targetActorId) throw await Actor.fail('Missing the "targetActorId" input!');
 
 // Get the current run request queue and dataset, we use the default ones.
 const requestQueue = await Actor.openRequestQueue();
@@ -37,7 +37,7 @@ if (state.isInitialized) {
         const run = await runClient.get();
 
         // This should happen only if the run was deleted or the state was incorectly saved.
-        if (!run) throw new Error(`The run ${runId} from state does not exists.`);
+        if (!run) throw await Actor.fail(`The run ${runId} from state does not exists.`);
 
         if (run.status === 'RUNNING') {
             log.info('Parallel run is already running.', { runId });
