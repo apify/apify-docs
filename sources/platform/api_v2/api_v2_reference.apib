@@ -324,9 +324,27 @@ Here is the table of the most common errors that can occur for many API endpoint
 ## Rate limiting
 
 All API endpoints limit the rate of requests in order to prevent overloading of Apify servers by misbehaving clients.
-The default rate limit is 30 requests per second and is applied to every API endpoint except the following list
-of endpoints that are rate limited to 200 requests per second:
 
+There are two kinds of rate limits - a global rate limit and a per-resource rate limit.
+
+### Global rate limit
+
+The global rate limit is set to _250 000 requests per minute_.
+For [authenticated]((#authentication) requests, it is counted per user,
+and for unauthenticated requests, it is counted per IP address.
+
+### Per-resource rate limit
+The default per-resource rate limit is _30 requests per second per resource_, which in this context means a single Actor, a single Actor run, a single dataset, single key-value store etc.
+The default rate limit is applied to every API endpoint except a few select ones, which have higher rate limits.
+Each API endpoint returns its rate limit in `X-RateLimit-Limit` header.
+
+These endpoints have a rate limit of _100 requests per second per resource_:
+* CRUD ([get](#reference/key-value-stores/record/get-record),
+  [put](#reference/key-value-stores/record/put-record),
+  [delete](#reference/key-value-stores/record/delete-record))
+operations on key-value store records
+
+These endpoints have a rate limit of _200 requests per second per resource_:
 * [Run actor](#reference/actors/run-collection/run-actor)
 * [Run actor task asynchronously](#reference/actor-tasks/runs-collection/run-task-asynchronously)
 * [Run actor task synchronously](#reference/actor-tasks/runs-collection/run-task-synchronously)
@@ -337,11 +355,9 @@ of endpoints that are rate limited to 200 requests per second:
   [get](#reference/request-queues/request-collection/get-request),
   [update](#reference/request-queues/request-collection/update-request),
   [delete](#reference/request-queues/request-collection/delete-request))
-  operations of request queue requests
+  operations on requests in request queues
 
-> For authenticated API endpoints (if you use an [authentication token](#authentication)), the limit is counted per user.
-Storage API endpoints (when a token isn't used) count the limit per store ID.
-Anonymous API endpoints count the limit per client IP adress. Each API endpoint returns its rate limit in `X-RateLimit-Limit` header.
+### Rate limit exceeded errors
 
 If the client is sending too many requests, the API endpoints respond with the HTTP status code `429 Too Many Requests`
 and the following body:
@@ -354,6 +370,8 @@ and the following body:
     }
 }
 ```
+
+### Retrying rate-limited requests with exponential backoff
 
 If the client receives the rate limit error, it should wait a certain period of time and then retry the request.
 If the error happens again, the client should double the wait period and retry the request,
