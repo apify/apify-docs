@@ -329,22 +329,22 @@ There are two kinds of rate limits - a global rate limit and a per-resource rate
 
 ### Global rate limit
 
-The global rate limit is set to 250 000 requests per minute.
+The global rate limit is set to _250 000 requests per minute_.
 For [authenticated]((#authentication) requests, it is counted per user,
 and for unauthenticated requests, it is counted per IP address.
 
 ### Per-resource rate limit
-The default per-resource rate limit is 30 requests per second per resource, which in this context means a single Actor, a single Actor run, a single dataset, single key-value store etc.
+The default per-resource rate limit is _30 requests per second per resource_, which in this context means a single Actor, a single Actor run, a single dataset, single key-value store etc.
 The default rate limit is applied to every API endpoint except a few select ones, which have higher rate limits.
 Each API endpoint returns its rate limit in `X-RateLimit-Limit` header.
 
-These endpoints have a rate limit of 100 requests per second per resource:
+These endpoints have a rate limit of _100 requests per second per resource_:
 * CRUD ([get](#reference/key-value-stores/record/get-record),
   [put](#reference/key-value-stores/record/put-record),
   [delete](#reference/key-value-stores/record/delete-record))
 operations on key-value store records
 
-These endpoints have a rate limit of 200 requests per second per resource:
+These endpoints have a rate limit of _200 requests per second per resource_:
 * [Run actor](#reference/actors/run-collection/run-actor)
 * [Run actor task asynchronously](#reference/actor-tasks/runs-collection/run-task-asynchronously)
 * [Run actor task synchronously](#reference/actor-tasks/runs-collection/run-task-synchronously)
