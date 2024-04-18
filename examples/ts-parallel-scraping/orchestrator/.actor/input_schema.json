@@ -1,5 +1,5 @@
 {
-    "title": "Master Actor Input",
+    "title": "Orchestrator Actor Input",
     "type": "object",
     "schemaVersion": 1,
     "properties": {

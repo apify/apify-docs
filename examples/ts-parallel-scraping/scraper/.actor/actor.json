@@ -1,8 +1,8 @@
 {
 	"actorSpecification": 1,
-	"name": "ts-parallel-runs-scraping-scraper",
-	"title": "Project Cheerio Crawler Typescript",
-	"description": "Crawlee and Cheerio project in typescript.",
+	"name": "ts-parallel-scraping-scraper",
+	"title": "Scraper Actor in TypeScript",
+	"description": "",
 	"version": "0.0",
 	"meta": {
 		"templateId": "ts-crawlee-cheerio"

@@ -1,5 +1,5 @@
 ---
-title: Scrape website from multiple Actor runs
+title: Scrape website in parallel with multiple Actor runs
 description: Learn how to run multiple instances of an Actor to scrape a website faster. This tutorial will guide you through the process of setting up your scraper.
 sidebar_position: 15.10
 slug: /node-js/multiple-runs-scrape
@@ -14,44 +14,44 @@ slug: /node-js/multiple-runs-scrape
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import MasterActorMainTs from '!!raw-loader!../../../../examples/ts-parallel-runs-scraping-master/src/main.ts';
-import MasterActorInputSchemaJson from '!!raw-loader!../../../../examples/ts-parallel-runs-scraping-master/.actor/input_schema.json';
-import ScraperActorMainTs from '!!raw-loader!../../../../examples/ts-parallel-runs-scraping-scraper/src/main.ts';
-import ScraperActorInputSchemaJson from '!!raw-loader!../../../../examples/ts-parallel-runs-scraping-scraper/.actor/input_schema.json';
+import OrchestratorActorMainTs from '!!raw-loader!../../../../examples/ts-parallel-scraping/orchestrator/src/main.ts';
+import OrchestratorActorInputSchemaJson from '!!raw-loader!../../../../examples/ts-parallel-scraping/orchestrator/.actor/input_schema.json';
+import ScraperActorMainTs from '!!raw-loader!../../../../examples/ts-parallel-scraping/scraper/src/main.ts';
+import ScraperActorInputSchemaJson from '!!raw-loader!../../../../examples/ts-parallel-scraping/scraper/.actor/input_schema.json';
 
 Imagine a large website that you need to scrape. You have a scraper that works well, but scraping the whole website is slow.
 You can speed up the scraping process by running multiple instances of the scraper in parallel.
 This tutorial will guide you through setting up your scraper to run multiple instances in parallel.
 
-> In a rush? You can check [full code example](https://github.com/apify/apify-docs/tree/master/examples/ts-parallel-runs-scraping-master) right away.
+> In a rush? You can check [full code example](https://github.com/apify/apify-docs/tree/master/examples/ts-parallel-scraping/orchestrator) right away.
 
 ## Managing Multiple Scraper Runs
 
-To manage multiple instances of the scraper, we need to build a Master Actor to oversee the process. This Master Actor will initiate several scraper runs and manage their operations.
-It will set up a request queue and a dataset that the other Actor runs will utilize to crawl the website and store results. In this tutorial, we set up the Master Actor and the scraper Actor.
+To manage multiple instances of the scraper, we need to build an Orchestrator Actor to oversee the process. This Orchestrator Actor will initiate several scraper runs and manage their operations.
+It will set up a request queue and a dataset that the other Actor runs will utilize to crawl the website and store results. In this tutorial, we set up the Orchestrator Actor and the scraper Actor.
 
-## Master Actor Configuration
+## Orchestrator Actor Configuration
 
-The Master Actor orchestrates the parallel execution of scraper Actor runs.
+The Orchestrator Actor orchestrates the parallel execution of scraper Actor runs.
 It runs multiple instances of the scraper Actor and passes the request queue and dataset to them.
 For the Actor's base structure, we use Apify CLI and create a new Actor with the following command and use the [Empty TypeScript Actor template](https://apify.com/templates/ts-empty).
 
 ```bash
-apify create master-actor
+apify create orchestrator-actor
 ````
 
 > If you don't have Apify CLI installed, you can find the installation instructions [here](https://docs.apify.com/cli).
 
 ### Input Configuration
 
-Let's start by defining the Input Schema for the Master Actor.
+Let's start by defining the Input Schema for the Orchestrator Actor.
 The input for the Actor will specify configurations needed to initiate and manage multiple scraper Actors in parallel.
 Here’s the breakdown of the necessary input:
 
 <Tabs groupId="main">
 <TabItem value="input_schema.json" label="input_schema.json">
 
-<CodeBlock language="json">{MasterActorInputSchemaJson}</CodeBlock>
+<CodeBlock language="json">{OrchestratorActorInputSchemaJson}</CodeBlock>
 
 </TabItem>
 <TabItem value="main.ts" label="main.ts">
@@ -84,7 +84,7 @@ if (!targetActorId) throw new Error('Missing the "targetActorId" input!');
 
 ### Reusing dataset and request queue
 
-The Master Actor will reuse its default dataset and request queue. The dataset stores the results of the scraping process, and the request queue is used as shared storage for processing requests.
+The Orchestrator Actor will reuse its default dataset and request queue. The dataset stores the results of the scraping process, and the request queue is used as shared storage for processing requests.
 
 ```typescript
 import { Actor } from 'apify';
@@ -96,7 +96,7 @@ const dataset = await Actor.openDataset();
 
 ### State
 
-The Master Actor will maintain the state of the scraping runs to track progress and manage continuity. It will record the state of Actor runs, initializing this tracking with the first run.
+The Orchestrator Actor will maintain the state of the scraping runs to track progress and manage continuity. It will record the state of Actor runs, initializing this tracking with the first run.
 This persistent state ensures that, in migration or restart (resurrection) cases, the Actor can resume the same runs without losing progress.
 
 ```typescript
@@ -139,16 +139,16 @@ Additionally, by registering for abort events, the Actor can terminate all paral
 
 <Tabs groupId="main">
 <TabItem value="main.ts" label="main.ts">
-<CodeBlock language="typescript">{MasterActorMainTs}</CodeBlock>
+<CodeBlock language="typescript">{OrchestratorActorMainTs}</CodeBlock>
 </TabItem>
 <TabItem value="input_schema.json" label="input_schema.json">
-<CodeBlock language="json">{MasterActorInputSchemaJson}</CodeBlock>
+<CodeBlock language="json">{OrchestratorActorInputSchemaJson}</CodeBlock>
 </TabItem>
 </Tabs>
 
 ### Pushing to Apify
 
-Once you have the Master Actor ready, you can push it to Apify using the following command from the root directory of the Actor project:
+Once you have the Orchestrator Actor ready, you can push it to Apify using the following command from the root directory of the Actor project:
 
 ```bash
 apify push
@@ -158,12 +158,12 @@ apify push
 
 By running this command, you will be prompted to provide the Actor ID, which you can find in the Apify Console under the Actors tab.
 
-![master-actor.png](./images/master-actor.png)
+![orchestrator-actor.png](./images/orchestrator-actor.png)
 
 ## Scraper Actor Configuration
 
-The Scraper Actor performs website scraping. It operates using the request queue and dataset provided by the Master Actor.
-You will need to integrate your chosen scraper logic into this framework. The only thing you need to do is utilize the request queue and dataset initialized by the Master Actor.
+The Scraper Actor performs website scraping. It operates using the request queue and dataset provided by the Orchestrator Actor.
+You will need to integrate your chosen scraper logic into this framework. The only thing you need to do is utilize the request queue and dataset initialized by the Orchestrator Actor.
 
 ```typescript
 import { Actor } from 'apify';
@@ -195,7 +195,7 @@ You can create your scraper from the [Crawlee + Cheerio TypeScript Actor templat
 </TabItem>
 </Tabs>
 
-> You can check [full code example](https://github.com/apify/apify-docs/tree/master/examples/ts-parallel-runs-scraping-scraper).
+> You can check [full code example](https://github.com/apify/apify-docs/tree/master/examples/ts-parallel-scraping/scraper).
 
 You need to push the Scraper Actor to Apify using the following command from the root directory of the Actor project:
 
@@ -209,20 +209,20 @@ After pushing the Scraper Actor to Apify, you must get the Actor ID from the Api
 
 ## Run orchestration in Apify Console
 
-Once you have the Master Actor and Scraper Actor pushed to Apify, you can run the Master Actor in the Apify Console.
-You can set the input for the Master Actor to specify the number of parallel runs and the target Actor ID, input, and run options.
-After you hit the Run button, the Master Actor will start the parallel runs of the Scraper Actor.
+Once you have the Orchestrator Actor and Scraper Actor pushed to Apify, you can run the Orchestrator Actor in the Apify Console.
+You can set the input for the Orchestrator Actor to specify the number of parallel runs and the target Actor ID, input, and run options.
+After you hit the Run button, the Orchestrator Actor will start the parallel runs of the Scraper Actor.
 
-![scraper-actor-input.png](./images/master-actor-input.png)
+![orchestrator-actor-input.png](./images/orchestrator-actor-input.png)
 
-After starting the Master Actor, you will see the parallel runs initiated in the Apify Console.
+After starting the Orchestrator Actor, you will see the parallel runs initiated in the Apify Console.
 
 ![scraper-actor-runs.png](./images/scraper-actor-runs.png)
 
 ## Summary
 
-In this tutorial, you learned how to run multiple instances of an Actor to scrape a website faster. You created a Master Actor to manage the parallel execution of the Scraper Actor runs.
-The Master Actor initialized the Scraper Actor runs and managed their state. The Scraper Actor utilized the request queue and dataset provided by the Master Actor to scrape the website.
+In this tutorial, you learned how to run multiple instances of an Actor to scrape a website faster. You created an Orchestrator Actor to manage the parallel execution of the Scraper Actor runs.
+The Orchestrator Actor initialized the Scraper Actor runs and managed their state. The Scraper Actor utilized the request queue and dataset provided by the Orchestrator Actor to scrape the website.
 You could speed up the scraping process by running multiple instances of the Scraper Actor in parallel.
 
 The code in this tutorial is for learning purposes and does not cover all specific edge cases. You can modify it to suit your exact requirements and use cases.

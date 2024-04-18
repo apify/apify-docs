@@ -1,5 +1,5 @@
 {
-	"name": "ts-parallel-runs-scraping-scraper",
+	"name": "ts-parallel-scraping-orchestrator",
 	"version": "0.0.1",
 	"type": "module",
 	"description": "This is a boilerplate of an Apify actor.",
