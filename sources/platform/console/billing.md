@@ -40,14 +40,21 @@ Below the bar chart, there is a table titled **Usage by Actors**. This table pre
 
 The **Subscriptions** tab offers a central location to manage various aspects of your subscription plan. Here, you can access details about your current plan and explore options to upgrade to a different one.
 
+:::info Unused credits
+
+Unused prepaid usage does not rollover, it expires at the end of the billing cycle.
+
+:::
+
 This tab also allows you to manage your payment methods. Additionally, you can adjust your billing details to ensure they remain up-to-date.
 Another feature of this tab is the visibility of any special offers currently applied to your account.
 
 :::info Plan add-ons
 
+_This option is available only if you are on a subscription plan_.
+
 You can extend your subscription plans with add-ons, like extra proxies, actor memory, and more.
 Navigate to [Subscription](https://console.apify.com/billing/subscription) section in Apify Console, and click the **Buy add-ons** button to explore the available options.
-This option is available only if you are on a subscription plan.
 
 :::
 
