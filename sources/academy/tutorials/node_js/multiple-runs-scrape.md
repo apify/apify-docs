@@ -23,7 +23,11 @@ Imagine a large website that you need to scrape. You have a scraper that works w
 You can speed up the scraping process by running multiple instances of the scraper in parallel.
 This tutorial will guide you through setting up your scraper to run multiple instances in parallel.
 
-> In a rush? You can check [full code example](https://github.com/apify/apify-docs/tree/master/examples/ts-parallel-scraping/orchestrator) right away.
+:::note In a rush?
+
+You can check [full code example](https://github.com/apify/apify-docs/tree/master/examples/ts-parallel-scraping/orchestrator) right away.
+
+:::
 
 ## Managing Multiple Scraper Runs
 
@@ -40,7 +44,7 @@ For the Actor's base structure, we use Apify CLI and create a new Actor with the
 apify create orchestrator-actor
 ````
 
-> If you don't have Apify CLI installed, you can find the installation instructions [here](https://docs.apify.com/cli).
+If you don't have Apify CLI installed, check out our installation [instructions](https://docs.apify.com/cli).
 
 ### Input Configuration
 
@@ -138,11 +142,11 @@ Once Actor is initialized, it launches parallel scraper runs and waits for them 
 Additionally, by registering for abort events, the Actor can terminate all parallel runs if the Coordinator Actor is stopped.
 
 <Tabs groupId="main">
-<TabItem value="main.ts" label="main.ts">
-<CodeBlock language="typescript">{OrchestratorActorMainTs}</CodeBlock>
-</TabItem>
 <TabItem value="input_schema.json" label="input_schema.json">
 <CodeBlock language="json">{OrchestratorActorInputSchemaJson}</CodeBlock>
+</TabItem>
+<TabItem value="main.ts" label="main.ts">
+<CodeBlock language="typescript">{OrchestratorActorMainTs}</CodeBlock>
 </TabItem>
 </Tabs>
 
@@ -154,7 +158,11 @@ Once you have the Orchestrator Actor ready, you can push it to Apify using the f
 apify push
 ```
 
-> If you are pushing the Actor for the first time, you will need to [login to your Apify account](https://docs.apify.com/cli/docs/reference#apify-login).
+:::tip First log in
+
+If you are pushing the Actor for the first time, you will need to [login to your Apify account](https://docs.apify.com/cli/docs/reference#apify-login).
+
+:::
 
 By running this command, you will be prompted to provide the Actor ID, which you can find in the Apify Console under the Actors tab.
 
@@ -195,7 +203,7 @@ You can create your scraper from the [Crawlee + Cheerio TypeScript Actor templat
 </TabItem>
 </Tabs>
 
-> You can check [full code example](https://github.com/apify/apify-docs/tree/master/examples/ts-parallel-scraping/scraper).
+You can check [full code example](https://github.com/apify/apify-docs/tree/master/examples/ts-parallel-scraping/scraper).
 
 You need to push the Scraper Actor to Apify using the following command from the root directory of the Actor project:
 
@@ -211,7 +219,7 @@ After pushing the Scraper Actor to Apify, you must get the Actor ID from the Api
 
 Once you have the Orchestrator Actor and Scraper Actor pushed to Apify, you can run the Orchestrator Actor in the Apify Console.
 You can set the input for the Orchestrator Actor to specify the number of parallel runs and the target Actor ID, input, and run options.
-After you hit the Run button, the Orchestrator Actor will start the parallel runs of the Scraper Actor.
+After you hit the **Start** button, the Orchestrator Actor will start the parallel runs of the Scraper Actor.
 
 ![orchestrator-actor-input.png](./images/orchestrator-actor-input.png)
 
