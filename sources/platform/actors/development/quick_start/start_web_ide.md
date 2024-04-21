@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 
 :::note Prerequisites
 
-To use Web IDE you will need an Apify account. You can [sign-up for a free account](https://console.apify.com/sign-up) on the Apify website.
+To use Web IDE, you will need an Apify account. You can [sign-up for a free account](https://console.apify.com/sign-up) on the Apify website.
 
 :::
 
@@ -75,7 +75,7 @@ Once the Actor is built, you can look at its input, which consists of one field 
 
 ![Actor input](./images/actor-input.png)
 
-To initiate an Actor run, click the **Start** button at the bottom of the page. Once the run is created, you can monitor its progress and view the log in real-time. The **Output** tab will display the results of the Actor's execution, which will be popultated as the run progresses. You can abort the run at any time using the **Abort** button.
+To initiate an Actor run, click the **Start** button at the bottom of the page. Once the run is created, you can monitor its progress and view the log in real-time. The **Output** tab will display the results of the Actor's execution, which will be populated as the run progresses. You can abort the run at any time using the **Abort** button.
 
 ![Actor run](./images/actor-run.png)
 
@@ -138,4 +138,4 @@ Once you've made the desired changes, you can push the updated code back to the 
 To learn more about the Apify platform's features and best practices for Actor development:
 
 - Continue to the next chapter of this section for in-depth guidance and examples
-- Visit the [Apify Academy](/academy)  to access a comprehensive collection of tutorials, documentation, and learning resources.
+- Visit the [Apify Academy](/academy) to access a comprehensive collection of tutorials, documentation, and learning resources.
