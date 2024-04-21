@@ -108,24 +108,24 @@ Once you are satisfied with your Actor, to deploy it to the Apify platform, foll
 
 1. _Sign in to Apify with the CLI tool_
 
-```bash
-apify login
-```
+    ```bash
+    apify login
+    ```
 
-This command will prompt you to provide your API token that you can find in Console.
-<!-- markdownlint-disable-next-line -->
-2. _Push your Actor to the Apify platform_
+    This command will prompt you to provide your API token that you can find in Console.
 
-```bash
-apify push
-```
+1. _Push your Actor to the Apify platform_
 
-This command will upload your Actor's code and configuration to the Apify platform, where it can be executed and managed.
+    ```bash
+    apify push
+    ```
 
-:::note
+    This command will upload your Actor's code and configuration to the Apify platform, where it can be executed and managed.
 
-If you have successfully completed your first Actor, you may consider [sharing it with other users and monetizing it](../../publishing/index.mdx). The Apify platform provides opportunities to publish and monetize your Actors, allowing you to share your work with the community and potentially generate revenue.
+    :::note
 
-:::
+    If you have successfully completed your first Actor, you may consider [sharing it with other users and monetizing it](../../publishing/index.mdx). The Apify platform provides opportunities to publish and monetize your Actors, allowing you to share your work with the community and potentially generate revenue.
+
+    :::
 
 By following these steps, you can seamlessly deploy your Actors to the Apify platform, enabling you to leverage its scalability, reliability, and advanced features for your web scraping and data processing projects.
