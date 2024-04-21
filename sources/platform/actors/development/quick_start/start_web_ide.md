@@ -131,7 +131,7 @@ To pull your Actor, you need to:
 ## Iterate & customize
 
 After pulling the Actor's source code to your local machine, you can modify and customize it to match your specific requirements.
-Leverage your preferred code editor or development environments to make the necessary changes and enhancements.
+Leverage your preferred code editor or development environment to make the necessary changes and enhancements.
 
 Once you've made the desired changes, you can push the updated code back to the Apify platform for deployment & execution, leveraging the platform's scalability and reliability.
 
