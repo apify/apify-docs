@@ -77,10 +77,10 @@ After creating your Actor, explore the source code in your preferred code editor
 
 ### `storage` Directory
 
-- This directory emulates the [Apify Storage](/storage)
-  - [Dataset](/storage/dataset)
-  - [Key-Value Store](/storage/key-value-store)
-  - [Request Queue](/storage/request-queue)
+- This directory emulates the [Apify Storage](../../../storage/index.md)
+  - [Dataset](../../../storage/dataset.md)
+  - [Key-Value Store](../../../storage/key_value_store.md)
+  - [Request Queue](../../../storage/request_queue.md)
 
 ![Actor source code](./images/actor-local-code.png)
 
@@ -124,7 +124,7 @@ This command will upload your Actor's code and configuration to the Apify platfo
 
 :::note
 
-If you have successfully completed your first Actor, you may consider [sharing it with other users and monetizing it](/actors/publishing). The Apify platform provides opportunities to publish and monetize your Actors, allowing you to share your work with the community and potentially generate revenue.
+If you have successfully completed your first Actor, you may consider [sharing it with other users and monetizing it](../../publishing/index.mdx). The Apify platform provides opportunities to publish and monetize your Actors, allowing you to share your work with the community and potentially generate revenue.
 
 :::
 
