@@ -113,9 +113,9 @@ apify login
 ```
 
 This command will prompt you to provide your API token that you can find in Console.
-<!-- markdownlint-disable -->
+<!-- markdownlint-disable-next-line -->
 2. _Push your Actor to the Apify platform_
-<!-- markdownlint-enable  -->
+
 ```bash
 apify push
 ```
