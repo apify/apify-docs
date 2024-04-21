@@ -93,6 +93,20 @@ module.exports = {
                 sidebarPath: require.resolve('./sources/academy/sidebars.js'),
             },
         ],
+        [
+            '@docusaurus/plugin-content-docs',
+            {
+                id: 'legal',
+                path: './sources/legal',
+                routeBasePath: 'legal',
+                rehypePlugins: [externalLinkProcessor],
+                // Docusaurus shows the author and date of last commit to entire repo, which doesn't make sense,
+                // so let's just disable showing author and last modification
+                showLastUpdateAuthor: false,
+                showLastUpdateTime: false,
+                sidebarPath: require.resolve('./sources/legal/sidebars.js'),
+            },
+        ],
         () => ({
             configureWebpack() {
                 return {
@@ -130,4 +144,10 @@ module.exports = {
     },
     themeConfig: config.themeConfig,
     staticDirectories: ['apify-docs-theme/static', 'static'],
+    customFields: {
+        forbiddenGiscusDocRegExpStrings: [
+            '^/legal',
+            '^/legal/*',
+        ],
+    },
 };
