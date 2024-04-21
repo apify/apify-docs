@@ -42,7 +42,7 @@ The provided boilerplate code utilizes the [Apify SDK](https://docs.apify.com/sd
 
 :::
 
-To run you Actor, you need to build it first. Click the **Build** button below the source code to initiate the build process.
+To run your Actor, you need to build it first. Click the **Build** button below the source code to initiate the build process.
 
 ![Actor source code](./images/actor-source-code.png)
 
