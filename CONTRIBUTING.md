@@ -79,9 +79,29 @@ For example:
 
 Over time, we should track which items are useful and which don't get any traffic. Also, as Apify Docs expand, we may need to add more cards and update which articles we link to.
 
-## Local setup
+## Installation and setup
 
-If you want to work only on the main documentation content, cloning this repository is enough. Once you run `npm install` to install all dependencies and run `npm start`, the main portal will open on <http://localhost:3000>. All the links in the navbar and footer need to be absolute, and they will use a different hostname, configured to `docs.apify.loc` - to use that, follow the steps below and set up the Nginx server.
+1.  Use Git to clone this repository.
+1.  Go to GitHub and navigate to [Settings / Personal access tokens / Tokens (classic)](https://github.com/settings/tokens).
+    Despite the UI suggesting you should use the new fine-grained tokens, generate a **classic token** with scopes **repo** and **write:packages**.
+    Keep the token somewhere safe.
+    Then run the following command and use your GitHub username together with the token as credentials:
+    ```
+    npm login --scope=@apify-packages --registry=https://npm.pkg.github.com --auth-type=legacy
+    ```
+
+    > [!IMPORTANT]
+    > Read [#909](https://github.com/apify/apify-docs/issues/909) to understand why this is needed.
+    > If you work at Apify and can install packages prefixed with `@apify-packages`, you can skip this step.
+1.  Run `npm install`.
+1.  Run `npm start`. The website should open at <http://localhost:3000>.
+
+This is sufficient to work on the main content, i.e. the Academy and Platform docs.
+If you want to also work on the other parts of the docs, you may want to first join them all together using Nginx.
+
+### Join all the docs repos together using Nginx
+
+All the links in the navbar and footer need to be absolute, and they will use a different hostname, configured to `docs.apify.loc` - to use that, follow the steps below and set up the Nginx server.
 
 Alternatively, you can skip the Nginx part and navigate to <http://localhost:3000/academy> or <http://localhost:3000/platform> manually instead of using links in the navbar. All relative links should work fine there. The problem with absolute links is only with shared components. The Nginx server is needed only for testing the whole setup and mapping all the different ports to a single one.
 
