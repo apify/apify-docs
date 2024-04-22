@@ -21,7 +21,7 @@ The full connection string has the following format:
 http://<username>:<password>@<hostname>:<port>
 ```
 
-> **WARNING:** All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks – **the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
+> **WARNING:** All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks—**the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
 
 ### External connection
 
@@ -136,8 +136,8 @@ Web scrapers can rotate the IP addresses they use to access websites. They assig
 
 Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or [HTTP requests](https://apify.com/apify/cheerio-scraper) for your scraping jobs, IP address rotation works differently.
 
-* Browser – a different IP address is used for each browser.
-* HTTP request – a different IP address is used for each request.
+* Browser—a different IP address is used for each browser.
+* HTTP request—a different IP address is used for each request.
 
 Use [sessions](#sessions) to controll how you rotate and [persist](#session-persistence) IP addresses. See our guide [Anti-scraping techniques](/academy/anti-scraping/techniques) to learn more about IP address rotation and our findings on how blocking works.
 
@@ -167,12 +167,12 @@ To test that your requests are proxied and IP addresses are being [rotated](/aca
 
 ### A different approach to `502 Bad Gateway`
 
-There are times when the `502` status code is not comprehensive enough. Therefore, we have modified our server with `590-599` codes instead to provide more insight:
+Sometimes when the `502` status code is not comprehensive enough. Therefore, we have modified our server with `590-599` codes instead to provide more insight:
 
 * `590 Non Successful`: upstream responded with non-200 status code.
 * `591 RESERVED`: *this status code is reserved for further use.*
 * `592 Status Code Out Of Range`: upstream responded with status code different than 100-999.
-* `593 Not Found`: DNS lookup failed - [`EAI_NODATA`](https://github.com/libuv/libuv/blob/cdbba74d7a756587a696fb3545051f9a525b85ac/include/uv.h#L82) or [`EAI_NONAME`](https://github.com/libuv/libuv/blob/cdbba74d7a756587a696fb3545051f9a525b85ac/include/uv.h#L83).
+* `593 Not Found`: DNS lookup failed—[`EAI_NODATA`](https://github.com/libuv/libuv/blob/cdbba74d7a756587a696fb3545051f9a525b85ac/include/uv.h#L82) or [`EAI_NONAME`](https://github.com/libuv/libuv/blob/cdbba74d7a756587a696fb3545051f9a525b85ac/include/uv.h#L83).
 * `594 Connection Refused`: upstream refused connection.
 * `595 Connection Reset`: connection reset due to loss of connection or timeout.
 * `596 Broken Pipe`: trying to write on a closed socket.
