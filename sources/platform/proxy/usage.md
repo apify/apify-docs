@@ -22,7 +22,7 @@ http://<username>:<password>@<hostname>:<port>
 ```
 
 :::caution
-All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks—**the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
+All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks, as **the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
 :::
 
 ### External connection
@@ -175,8 +175,8 @@ Sometimes when the `502` status code is not comprehensive enough. Therefore, we 
 
 * `590 Non Successful`: upstream responded with non-200 status code.
 * `591 RESERVED`: *this status code is reserved for further use.*
-* `592 Status Code Out Of Range`: upstream responded with status code different than 100-999.
-* `593 Not Found`: DNS lookup failed—[`EAI_NODATA`](https://github.com/libuv/libuv/blob/cdbba74d7a756587a696fb3545051f9a525b85ac/include/uv.h#L82) or [`EAI_NONAME`](https://github.com/libuv/libuv/blob/cdbba74d7a756587a696fb3545051f9a525b85ac/include/uv.h#L83).
+* `592 Status Code Out Of Range`: upstream responded with status code different than 100–999.
+* `593 Not Found`: DNS lookup failed, indicating either [`EAI_NODATA`](https://github.com/libuv/libuv/blob/cdbba74d7a756587a696fb3545051f9a525b85ac/include/uv.h#L82) or [`EAI_NONAME`](https://github.com/libuv/libuv/blob/cdbba74d7a756587a696fb3545051f9a525b85ac/include/uv.h#L83).
 * `594 Connection Refused`: upstream refused connection.
 * `595 Connection Reset`: connection reset due to loss of connection or timeout.
 * `596 Broken Pipe`: trying to write on a closed socket.
