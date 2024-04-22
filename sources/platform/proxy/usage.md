@@ -13,23 +13,56 @@ slug: /proxy/usage
 
 ## Connection settings
 
-To connect to the Apify Proxy, you use the [HTTP proxy protocol](https://en.wikipedia.org/wiki/Proxy_server#Web_proxy_servers). This means that you need to configure your HTTP client to use the proxy server at `proxy.apify.com:8000` and provide it with your Apify Proxy password and the other parameters described below.
+To connect to Apify Proxy, you use the [HTTP proxy protocol](https://en.wikipedia.org/wiki/Proxy_server#Web_proxy_servers). This means that you need to configure your HTTP client to use the proxy server at the Apify Proxy hostname and provide it with your Apify Proxy password and the other parameters described below.
 
 The full connection string has the following format:
 
 ```text
-http://<username>:<password>@proxy.apify.com:8000
+http://<username>:<password>@<hostname>:<port>
 ```
+
+> **WARNING:** All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks – **the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
+
+### External connection
+
+If you want to connect to Apify Proxy from outside of the Apify Platform, you need to have a paid Apify plan (to prevent abuse).
+If you need to test Apify Proxy before you subscribe, please [contact our support](https://apify.com/contact).
 
 | Parameter           | Value / explanation |
 |---------------------|---------------------|
-| Proxy type          | `HTTP`              |
 | Hostname            | `proxy.apify.com`, alternatively you can use static IP addresses `18.208.102.16`, `35.171.134.41`. |
 | Port                | `8000`              |
 | Username            | Specifies the proxy parameters such as groups, [session](#sessions) and location. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username.|
-| Password            | Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. In Apify [Actors](../actors/index.mdx), it is passed as the `APIFY_PROXY_PASSWORD`  environment variable. See the [environment variables docs](../actors/development/programming_interface/environment_variables.md) for more details. |
+| Password            | Apify Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. <br/>**Note**: this is not your Apify account password. |
 
-> **WARNING:** All usage of Apify Proxy with your password is charged towards your account. Do not share the password with untrusted parties or use it from insecure networks – **the password is sent unencrypted** due to the HTTP protocol's [limitations](https://www.guru99.com/difference-http-vs-https.html).
+> **WARNING:** If you use these connection parameters for connecting to Apify Proxy from your Actors running on the Apify Platform, the connection will still be considered external, it will not work on the Free plan, and on paid plans you will be charged for external data transfer. Please use the connection parameters from the [Connection from Actors](#connection-from-actors) section when using Apify Proxy from Actors.
+
+Example connection string for external connections:
+
+```text
+http://auto:apify_proxy_EaAFg6CFhc4eKk54Q1HbGDEiUTrk480uZv03@proxy.apify.com:8000
+```
+
+### Connection from Actors
+
+If you want to connect to Apify Proxy from Actors running on the Apify Platform, the recommended way is to use built-in proxy configuration tools in the [Apify SDK JavaScript](/sdk/js/docs/guides/proxy-management) or [Apify SDK Python](/sdk/python/docs/concepts/proxy-management)
+
+If you don't want to use these helpers, and want to connect to Apify Proxy manually, you can find the right configuration values in [environment variables](../actors/development/programming_interface/environment_variables.md) provided to the Actor.
+By using this configuration, you ensure that you connect to Apify Proxy directly through the Apify infrastructure, bypassing any external connection via the Internet, thereby improving the connection speed, and ensuring you don't pay for external data transfer.
+
+| Parameter           | Source / explanation |
+|---------------------|---------------------|
+| Hostname            | `APIFY_PROXY_HOSTNAME` environment variable  |
+| Port                | `APIFY_PROXY_PORT` environment variable      |
+| Username            | Specifies the proxy parameters such as groups, [session](#sessions) and location. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username.|
+| Password            | `APIFY_PROXY_PASSWORD` environment variable |
+
+Example connection string creation:
+
+```js
+const { APIFY_PROXY_HOSTNAME, APIFY_PROXY_PORT, APIFY_PROXY_PASSWORD } = process.env;
+const connectionString = `http://auto:${APIFY_PROXY_PASSWORD}@${APIFY_PROXY_HOSTNAME}:${APIFY_PROXY_PORT}`;
+```
 
 ### Username parameters
 
