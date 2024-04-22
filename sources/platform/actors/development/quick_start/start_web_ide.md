@@ -30,7 +30,7 @@ You will be redirected to a page containing various Actor development templates 
 
 ![Templates](./images/actor-create-templates.png)
 
-You will be prompted to give your Actor a name and then redirected to your Actor configuration page.
+A prompt will ask you to give your Actor a name and then redirected to your Actor configuration page.
 
 ### Explore the source code
 
