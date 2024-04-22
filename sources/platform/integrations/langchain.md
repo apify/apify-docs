@@ -20,7 +20,7 @@ but if you prefer to use JavaScript, you can follow the same steps in the [JavaS
 
 Before we start with the integration, we need to install all dependencies:
 
-`pip install apify-client langchain langchain_community tiktoken`
+`pip install apify-client langchain langchain_community openai tiktoken`
 
 After successful installation of all dependencies, we can start writing code.
 
