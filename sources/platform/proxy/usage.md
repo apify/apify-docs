@@ -104,7 +104,7 @@ The table below describes the available parameters.
         <td>Optional</td>
         <td>
             <p>If specified to <code>session-new_job_123</code>, for example, all proxied requests with the same session identifier are routed through the same IP address. If not specified, each proxied request is assigned a randomly picked least used IP address.</p>
-            <p>The session string can only contain numbers (0-9), letters (a-z or A-Z), dot (.), underscore (_), a tilde (~). The maximum length is 50 characters.</p>
+            <p>The session string can only contain numbers (0–9), letters (a-z or A-Z), dot (.), underscore (_), a tilde (~). The maximum length is 50 characters.</p>
             <p>Session management may work differently for residential and SERP proxies. Check relevant documentations for more details.</p>
         </td>
     </tr>
