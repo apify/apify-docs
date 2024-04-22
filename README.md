@@ -4,7 +4,7 @@
 
 ## Intro
 
-This repository is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). Source files of the [platform documentation](https://docs.apify.com/platform) are located in the [/sources](https://github.com/apify/apify-docs/tree/master/sources) directory. However, other sections, such as SDKs for [Javascript/Node.js](https://docs.apify.com/sdk/js/), [Python](https://docs.apify.com/sdk/python/), or [CLI](https://docs.apify.com/cli), have their own repositories. For more information, see the [Contributing guidelines](./CONTRIBUTING.md).
+This repository is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). Source files of the [platform documentation](https://docs.apify.com/platform) are located in the [/sources](https://github.com/apify/apify-docs/tree/master/sources) directory. However, other sections, such as SDKs for [JavaScript/Node.js](https://docs.apify.com/sdk/js/), [Python](https://docs.apify.com/sdk/python/), or [CLI](https://docs.apify.com/cli), have their own repositories. For more information, see the [Contributing guidelines](./CONTRIBUTING.md).
 
 ## Before you start contributing
 
