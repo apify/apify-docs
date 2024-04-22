@@ -81,20 +81,20 @@ Over time, we should track which items are useful and which don't get any traffi
 
 ## Installation and setup
 
-1.  Use Git to clone this repository.
-1.  Go to GitHub and navigate to [Settings / Personal access tokens / Tokens (classic)](https://github.com/settings/tokens).
-    Despite the UI suggesting you should use the new fine-grained tokens, generate a **classic token** with scopes **repo** and **write:packages**.
-    Keep the token somewhere safe.
-    Then run the following command and use your GitHub username together with the token as credentials:
-    ```
-    npm login --scope=@apify-packages --registry=https://npm.pkg.github.com --auth-type=legacy
-    ```
+1. Use Git to clone this repository.
+2. If you work at Apify and can install packages prefixed with `@apify-packages`, you can skip this step.
+   Otherwise go to GitHub and navigate to [Settings / Personal access tokens / Tokens (classic)](https://github.com/settings/tokens).
+   Despite the UI suggesting you should use the new fine-grained tokens, generate a **classic token** with scopes **repo** and **write:packages**.
+   Keep the token somewhere safe.
+   Then run the following command and use your GitHub username together with the token as credentials:
 
-    > [!IMPORTANT]
-    > Read [#909](https://github.com/apify/apify-docs/issues/909) to understand why this is needed.
-    > If you work at Apify and can install packages prefixed with `@apify-packages`, you can skip this step.
-1.  Run `npm install`.
-1.  Run `npm start`. The website should open at <http://localhost:3000>.
+   ```bash
+   npm login --scope=@apify-packages --registry=https://npm.pkg.github.com --auth-type=legacy
+   ```
+
+   Read [#909](https://github.com/apify/apify-docs/issues/909) if you want to understand why this is needed.
+3. Run `npm install`.
+4. Run `npm start`. The website should open at <http://localhost:3000>.
 
 This is sufficient to work on the main content, i.e. the Academy and Platform docs.
 If you want to also work on the other parts of the docs, you may want to first join them all together using Nginx.
