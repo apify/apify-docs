@@ -17,7 +17,7 @@ In the past, most websites had their own anti-scraping solutions, the most commo
 
 In cases when a higher number of requests is expected for the crawler, using a [proxy](../mitigation/proxies.md) and rotating the IPs is essential to let the crawler run as smoothly as possible and avoid being blocked.
 
-## Dealing rate limiting with proxy/session rotating {#dealing-with-rate-limiting}
+## Dealing with rate limiting by rotating proxy or session {#dealing-with-rate-limiting}
 
 The most popular and effective way of avoiding rate-limiting issues is by rotating [proxies](../mitigation/proxies.md) after every **n** number of requests, which makes your scraper appear as if it is making requests from various different places. Since the majority of rate-limiting solutions are based on IP addresses, rotating IPs allows a scraper to make large amounts to a website without getting restricted.
 

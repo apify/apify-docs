@@ -290,7 +290,7 @@ The scraper:
 
 ## [](#scraping-practice) Scraping practice
 
-We've covered all the concepts that we need to understand to successfully scrape the data in our goal, so let's get to it. We will only output data that are already available to us in the page's URL. Remember from [our goal](#the-goal) that we also want to include the **URL** and a **Unique identifier** in our results. To get those, we need the `request.url`  because it is the URL and includes the Unique identifier.
+We've covered all the concepts that we need to understand to successfully scrape the data in our goal, so let's get to it. We will only output data that are already available to us in the page's URL. Remember from [our goal](#the-goal) that we also want to include the **URL** and a **Unique identifier** in our results. To get those, we need the `request.url`, because it is the URL and includes the Unique identifier.
 
 ```js
 const { url } = request;
