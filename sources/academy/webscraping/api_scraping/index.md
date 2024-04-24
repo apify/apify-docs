@@ -24,7 +24,7 @@ An API is a custom service that lives on the server of any given website. They p
 
 ## Different types of APIs
 
-There are two mainstream approaches to APIs: REST and GraphQL. While REST is a vague architectural style based just on conventions, GraphQL has a specification everyone must follow.
+Websites use APIs which can be either REST or GraphQL. While REST is a vague architectural style based only on conventions, GraphQL is a specification.
 
 The REST APIs usually consists of many so-called endpoints, to which you can send your requests. In the responses you are provided with information about various resources, such as users, products, etc. Examples of typical REST API requests:
 
