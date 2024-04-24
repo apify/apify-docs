@@ -112,10 +112,6 @@ await page.goto('https://google.com');
 
 > Note that [Crawlee](https://crawlee.dev) automatically applies wide variety of fingerprints by default, so it is not required to do this unless you aren't using Crawlee or if you need a super specific custom fingerprint to scrape with.
 
-## Wrap up
-
-That's it for the **Mitigation** course for now, but be on the lookout for future lessons! We release lessons as we write them, and will be updating the Academy frequently, so be sure to check back every once in a while for new content! Alternatively, you can subscribe to our mailing list to get periodic updates on the Academy, as well as what Apify is up to.
-
 ## Generating headers {#generating-headers}
 
 Headers are also used by websites to fingerprint users (or bots), so it might sometimes be necessary to generate some user-like headers to mitigate anti-scraping protections. Similarly with fingerprints, **Crawlee** automatically generates headers for you, but you can have full control by using the [**browser-headers-generator**](https://github.com/apify/browser-headers-generator) package.
@@ -132,3 +128,7 @@ await browserHeadersGenerator.initialize();
 
 const randomBrowserHeaders = await browserHeadersGenerator.getRandomizedHeaders();
 ```
+
+## Wrap up
+
+That's it for the **Mitigation** course for now, but be on the lookout for future lessons! We release lessons as we write them, and will be updating the Academy frequently, so be sure to check back every once in a while for new content! Alternatively, you can subscribe to our mailing list to get periodic updates on the Academy, as well as what Apify is up to.
