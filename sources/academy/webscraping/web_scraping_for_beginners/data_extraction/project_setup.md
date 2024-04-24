@@ -70,7 +70,7 @@ Now run this command in your terminal:
 node main.js
 ```
 
-If you see **it works!** printed in your terminal, great job! You set up everything correctly. If you see an error that says **Cannot use import statement outside a module**, go back to the [Use modern JavaScript](#modern-javascript) paragraph and add the `type` property to your **package.json**. If you see a different error, try copying and pasting it into Google, and you'll find a solution soon.
+If you see **it works!** printed in your terminal, great job! You set up everything correctly. If you see an error that says _Cannot use import statement outside a module_, go back to the [Use modern JavaScript](#modern-javascript) paragraph and add the `type` property to your **package.json**. If you see a different error, try copying and pasting it into Google, and you'll find a solution soon.
 
 ![Test your setup with VSCode](./images/vscode-test-setup.png)
 

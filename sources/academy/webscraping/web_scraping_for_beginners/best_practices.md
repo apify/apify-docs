@@ -29,7 +29,7 @@ Define any [constant variables](https://softwareengineering.stackexchange.com/qu
 
 > If you have a whole lot of constant variables, they can be in a folder named **constants** organized into different files.
 
-### Use modern ES6 JavaScript {#use-es6}
+### Use ES6 JavaScript {#use-es6}
 
 If you're writing your scraper in JavaScript, use [ES6](https://www.w3schools.com/js/js_es6.asp) features and ditch the old ones which they replace. This means using `const` and `let` instead of `var`, `includes` instead of `indexOf`, etc.
 
