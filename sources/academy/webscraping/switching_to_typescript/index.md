@@ -50,7 +50,7 @@ This means that when using TS (a popular acronym for "TypeScript") on a large pr
 1. The ability to **optionally** [statically type](https://developer.mozilla.org/en-US/docs/Glossary/Static_typing) your variables and functions.
 2. [Type Inference](https://www.typescriptlang.org/docs/handbook/type-inference.html), which provides you the benefits of using types, but without having to actually statically type anything. For example, if you create a variable like this: `let num = 5`, TypeScript will automatically infer that `num` is of a **number** type.
 3. Access to the newest features in JavaScript before they are officially supported everywhere.
-4. Fantastic support with [IntelliSense](https://en.wikipedia.org/wiki/Intelligent_code_completion) and epic autocomplete when writing functions, accessing object properties, etc. Most modern IDEs have TypeScript support.
+4. Fantastic support with [IntelliSense](https://en.wikipedia.org/wiki/Intelligent_code_completion) and epic autocomplete when writing functions, accessing object properties, etc. Most IDEs have TypeScript support.
 5. Access to exclusive TypeScript features such as [Enums](https://www.typescriptlang.org/docs/handbook/enums.html).
 <!-- and [Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html). -->
 

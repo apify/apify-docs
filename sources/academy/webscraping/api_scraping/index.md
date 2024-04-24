@@ -20,15 +20,34 @@ In this module, we will discuss the benefits and drawbacks of API scraping, how 
 
 ## What's an API? {#what-is-api}
 
-An API is a custom service that lives on the server of any given website. They provide an intuitive way for the website's client-side pages to send and receive data to and from the server, where it can be stored in a database, manipulated, or used to perform an operation. Though not **all** sites have APIs, the majority do - especially modern web-applications. Learn more about APIs [in this article](https://blog.apify.com/what-is-an-api/).
+An API is a custom service that lives on the server of any given website. They provide an intuitive way for the website's client-side pages to send and receive data to and from the server, where it can be stored in a database, manipulated, or used to perform an operation. Though not **all** sites have APIs, many do, especially those built as complex web applications. Learn more about APIs [in this article](https://blog.apify.com/what-is-an-api/).
 
 ## Different types of APIs
 
-The vast majority of APIs out there are standard REST APIs that have different endpoints. Even though this is the case, it is important to be aware that newer API technologies such as [GraphQL](https://graphql.org/) are becoming more popular, and therefore more utilized in modern web applications.
+There are two mainstream approaches to APIs: REST and GraphQL. While REST is a vague architectural style based just on conventions, GraphQL has a specification everyone must follow.
 
-A GraphQL API works differently from a standard API. All requests are `POST` requests to a single endpoint - typically `https://targetdomain.com/graphql`. Queries are passed as a payload, and are very specific (which can be difficult to deal with). Additionally, GraphQL is a language in of itself; therefore, one must at least skim their documentation for a light understanding of the technology in order to be able to effectively scrape an API that uses it.
+The REST APIs usually consists of many so-called endpoints, to which you can send your requests. In the responses you are provided with information about various resources, such as users, products, etc. Examples of typical REST API requests:
 
-> **Note:** these concepts will be covered more in-depth later on, but it is good to be aware of them now.
+```text
+GET https://api.example.com/users/123
+GET https://api.example.com/comments/abc123?limit=100
+POST https://api.example.com/orders
+```
+
+In a GraphQL API, all requests are `POST` and point to a single URL, typically something like `https://api.example.com/graphql`. To get data, you send along a query in the GraphQL query language, optionally with variables. Example of such query:
+
+```graphql
+query($number_of_repos: Int!) {
+  viewer {
+    name
+     repositories(last: $number_of_repos) {
+       nodes {
+         name
+       }
+     }
+   }
+}
+```
 
 ## Advantages of API scraping {#advantages}
 
@@ -60,7 +79,7 @@ Many APIs will require the session cookie, an API key, or some other special val
 
 ### 2. Potential overhead
 
-For complex APIs that require certain headers and/or payloads in order to make a successful request, return encoded data, have rate limits, or that use modern technologies such as GraphQL, there can be a slight overhead in figuring out how to utilize them in a scraper.
+For complex APIs that require certain headers and/or payloads in order to make a successful request, return encoded data, have rate limits, or that use GraphQL, there can be a slight overhead in figuring out how to utilize them in a scraper.
 
 <!-- These will be articles in the future -->
 
