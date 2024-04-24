@@ -33,7 +33,7 @@ const crawler = new PlaywrightCrawler({
 
 ## Using the fingerprint-generator package {#using-fingerprint-generator}
 
-Crawlee uses the [Fingerprint generator](https://github.com/apify/fingerprint-generator) NPM package to do its fingerprint generating magic. For maximum control outside of Crawlee, you can install it on its own. With this package, you can easily generate browser fingerprints.
+Crawlee uses the [Fingerprint generator](https://github.com/apify/fingerprint-suite) npm package to do its fingerprint generating magic. For maximum control outside of Crawlee, you can install it on its own. With this package, you can easily generate browser fingerprints.
 
 > It is crucial to generate fingerprints for the specific browser and operating system being used to trick the protections successfully. For example, if you are trying to overcome protection locally with Firefox on a macOS system, you should generate fingerprints for Firefox and macOS to achieve the best results.
 
