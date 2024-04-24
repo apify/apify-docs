@@ -190,7 +190,7 @@ const GET_LATEST = gql`
 `;
 ```
 
-Alternatively, if you don't want to write your GraphQL queries right within your Javascript code, you can write them in files using the **.graphql** format, then read them from the filesystem or import them.
+Alternatively, if you don't want to write your GraphQL queries right within your JavaScript code, you can write them in files using the **.graphql** format, then read them from the filesystem or import them.
 
 > In order to receive nice GraphQL syntax highlighting in these template literals, download the [GraphQL VSCode extension](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql)
 
