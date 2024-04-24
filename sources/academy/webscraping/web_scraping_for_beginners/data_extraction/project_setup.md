@@ -13,7 +13,7 @@ slug: /web-scraping-for-beginners/data-extraction/project-setup
 
 When you open a website in a browser, the browser first downloads the page's HTML. To do the same thing with Node.js, we will install a program - an npm module - to help us with it. npm modules are installed using `npm`, which is another program, automatically installed with Node.js.
 
-> There is a huge collection of open-source libraries for Node.js at [npmjs.com](https://www.npmjs.com/). You can (and you should) utilize it to save time and tap into the amazing open-source community around JavaScript and Node.js.
+> The [npmjs.com](https://www.npmjs.com/) registry offers a huge collection of open-source libraries for Node.js. You can (and you should) utilize it to save time and tap into the amazing open-source community around JavaScript and Node.js.
 
 ## Creating a new project with npm {#creating-a-project}
 
