@@ -57,6 +57,8 @@ It will produce a result like this, but it **won't be** the Sony subwoofer.
 
 ![Query a selector with JavaScript](./images/devtools-collection-query.png)
 
+> In the screenshot, there is a missing semicolon `;` at the end of the line. In JavaScript, semicolons are optional, so it makes no difference.
+
 When we look more closely by hovering over the result in the Console, we find that instead of the Sony subwoofer, we found a JBL Flip speaker. Why? Because earlier we explained that `document.querySelector('.product-item')` finds the **first element** with the `product-item` class, and the JBL speaker is the first product in the list.
 
 ![Hover over a query result](./images/devtools-collection-query-hover.png)
