@@ -77,6 +77,8 @@ It will return a `NodeList` (a type of array) with many results. Expand the resu
 
 Naturally, this is the method we use mostly in web scraping, because we're usually interested in scraping all the products from a page, not just a single product.
 
+> The list is called a `NodeList`, because HTML document is understood by the browser as a tree of nodes. Most of the nodes are HTML elements, but there can be also text nodes for plain text, and others.
+
 ## How to choose good selectors {#choose-good-selectors}
 
 There are always multiple ways to select an element using CSS selectors. Try to choose selectors that are **simple**, **human-readable**, **unique** and **semantically connected** to the data. Selectors that meet these criteria are sometimes called **resilient selectors**, because they're the most reliable and least likely to change with website updates. If you can, avoid randomly generated attributes like `class="F4jsL8"`. They change often and without warning.
