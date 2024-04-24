@@ -20,7 +20,7 @@ Luckily, there are ways to retrieve and set cookies for requests prior to sendin
 1. For sites that heavily rely on cookies for user-verification and request authorization, certain generic requests (such as to the website's main page, or to the target page) will return back a (or multiple) `set-cookie` header(s).
 2. The `set-cookie` response header(s) can be parsed and used as the `cookie` header in the headers of a request. A great package for parsing these values from a response's headers is [`set-cookie-parser`](https://www.npmjs.com/package/set-cookie-parser). With this package, cookies can be parsed from headers like so:
 <!-- vale on -->
-```js
+```javascript
 import axios from 'axios';
 
 // import the set-cookie-parser module
@@ -54,7 +54,7 @@ Other APIs may not require a valid cookie header, but instead will require certa
 
 Headers required by the target API can be configured manually in a manner such as this, and attached to every single request the scraper sends:
 
-```js
+```javascript
 const HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)'
         + 'Chrome/96.0.4664.110 YaBrowser/22.1.0.2500 Yowser/2.5 Safari/537.36',
@@ -67,7 +67,7 @@ However, a much better option is to use either a custom implementation of genera
 
 With `got-scraping`, generating request-specific headers can be done right within a request with `headerGeneratorOptions`. Specific headers can also be set with the `headers` option:
 
-```js
+```javascript
 const response = await gotScraping({
     url: 'https://example.com',
     headerGeneratorOptions: {
@@ -96,7 +96,7 @@ Ideally, this `client_id` should be scraped dynamically, especially since it cha
 
 Here is a way you could dynamically scrape the `client_id` using Puppeteer:
 
-```js
+```javascript
 // import the puppeteer module
 import puppeteer from 'puppeteer';
 

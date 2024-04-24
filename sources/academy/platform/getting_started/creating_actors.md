@@ -70,11 +70,11 @@ When you click on the **Use locally** button, you'll be presented with instructi
 
 With the Apify CLI installed, you can simply run the following commands in your terminal:
 
-```bash
+```shell
 apify create my-actor -t getting_started_node
 ```
 
-```bash
+```shell
 cd my-actor
 apify run
 ```
@@ -87,7 +87,7 @@ This template is a great starting point for web scraping as it extracts data fro
 
 Let's see what's inside the **Start with JavaScript** template. The main logic of the template lives in the `src/main.js` file.
 
-```js
+```javascript
 // Axios - Promise based HTTP client for the browser and node.js (Read more at https://axios-http.com/docs/intro).
 import { Actor } from 'apify';
 import axios from 'axios';

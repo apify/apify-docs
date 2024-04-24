@@ -19,7 +19,7 @@ Now that we've gotten our first request going, the first challenge is going to b
 
 But, before we start scraping, let's pause to talk a bit about the important concept of **modularity**. You may have noticed the **src** folder inside of your project, which by default has a **routes.js** file in it. We're going to use this to create modularized functions which can then be conditionally executed by our crawler.
 
-```js
+```javascript
 // routes.js
 import { createCheerioRouter } from 'crawlee';
 import { BASE_URL } from './constants.js';
@@ -67,14 +67,14 @@ router.addHandler('PRODUCT', ({ log }) => log.info('on a product page!'));
 
 Also notice that we are importing `BASE_URL` from **constants.js**. Here is what that file looks like:
 
-```js
+```javascript
 // constants.js
 export const BASE_URL = 'https://www.amazon.com';
 ```
 
 And here is what our **main.js** file currently looks like:
 
-```js
+```javascript
 // main.js
 import { CheerioCrawler, log, KeyValueStore } from 'crawlee';
 import { router } from './routes.js';
@@ -108,7 +108,7 @@ Organized code makes everyone happy, including you - the one developing the scra
 
 This can even be optimized further by putting our `label` items into **constants.js**, like so:
 
-```js
+```javascript
 // constants.js
 export const BASE_URL = 'https://www.amazon.com';
 

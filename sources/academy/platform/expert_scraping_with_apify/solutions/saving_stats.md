@@ -13,7 +13,7 @@ slug: /expert-scraping-with-apify/solutions/saving-stats
 
 The code in this solution will be similar to what we already did in the **Handling migrations** solution; however, we'll be storing and logging different data. First, let's create a new file called **Stats.js** and write a utility class for storing our run stats:
 
-```js
+```javascript
 import Actor from 'apify';
 
 class Stats {
@@ -51,7 +51,7 @@ module.exports = new Stats();
 
 Cool, very similar to the **AsinTracker** class we wrote earlier. We'll now import **Stats** into our **main.js** file and initialize it along with the ASIN tracker:
 
-```js
+```javascript
 // ...
 import Stats from './Stats.js';
 
@@ -65,7 +65,7 @@ await Stats.initialize();
 
 In order to keep track of errors, we must write a new function within the crawler's configuration called **failedRequestHandler**. Passed into this function is an object containing an **Error** object for the error which occurred and the **Request** object, as well as information about the session and proxy which were used for the request.
 
-```js
+```javascript
 const crawler = new CheerioCrawler({
     proxyConfiguration,
     useSessionPool: true,
@@ -90,7 +90,7 @@ const crawler = new CheerioCrawler({
 
 Now, we'll just increment our **totalSaved** count for every offer added to the dataset.
 
-```js
+```javascript
 router.addHandler(labels.OFFERS, async ({ $, request }) => {
     const { data } = request.userData;
 
@@ -116,7 +116,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 
 Still, in the **OFFERS** handler, we need to add a few extra keys to the items which are pushed to the dataset. Luckily, all of the data required by the task is easily accessible in the context object.
 
-```js
+```javascript
 router.addHandler(labels.OFFERS, async ({ $, request }) => {
     const { data } = request.userData;
 

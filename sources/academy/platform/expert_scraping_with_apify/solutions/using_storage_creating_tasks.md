@@ -17,7 +17,7 @@ Last lesson, our task was outlined for us. In this lesson, we'll be completing t
 
 Something important to understand is that, in the Apify SDK, when you use `Actor.pushData()`, the data will always be pushed to the default dataset. To open up a named dataset, we'll use the `Actor.openDataset()` function:
 
-```js
+```javascript
 // main.js
 // ...
 
@@ -33,13 +33,13 @@ const dataset = await Actor.openDataset(`amazon-offers-${keyword.replace(' ', '-
 
 If we remember correctly, we are pushing data to the dataset in the `labels.OFFERS` handler we created in **routes.js**. Let's export the `dataset` variable pointing to our named dataset so we can import it in **routes.js** and use it in the handler:
 
-```js
+```javascript
 export const dataset = await Actor.openDataset(`amazon-offers-${keyword.replace(' ', '-')}`);
 ```
 
 Finally, let's modify the function to use the new `dataset` variable rather than the `Actor` class:
 
-```js
+```javascript
 // Import the dataset pointer
 import { dataset } from './main.js';
 
@@ -69,7 +69,7 @@ We now want to store the cheapest item in the default key-value store under a ke
 
 Let's add the following code to the bottom of the actor after **Crawl** finished** is logged to the console:
 
-```js
+```javascript
 // ...
 
 const cheapest = items.reduce((prev, curr) => {
@@ -91,7 +91,7 @@ await Actor.exit();
 
 You might have noticed that we are using a variable instead of a string for the key name in the key-value store. This is because we're using an exported variable from **constants.js** (which is best practice, as discussed in the [**modularity**](../../../webscraping/web_scraping_for_beginners/challenge/modularity.md)) lesson back in the **Web scraping for beginners** course. Here is what our **constants.js** file looks like:
 
-```js
+```javascript
 // constants.js
 export const BASE_URL = 'https://www.amazon.com';
 
@@ -110,7 +110,7 @@ export const CHEAPEST_ITEM = 'CHEAPEST-ITEM';
 
 Just to ensure we're all on the same page, here is what the **main.js** file looks like now:
 
-```js
+```javascript
 // main.js
 import { Actor } from 'apify';
 import { CheerioCrawler, log } from '@crawlee/cheerio';
@@ -164,7 +164,7 @@ await Actor.exit();
 
 And here is **routes.js**:
 
-```js
+```javascript
 // routes.js
 import { createCheerioRouter } from '@crawlee/cheerio';
 import { dataset } from './main.js';

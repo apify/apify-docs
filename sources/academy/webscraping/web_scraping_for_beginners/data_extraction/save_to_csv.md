@@ -19,25 +19,25 @@ It might look like a big programming challenge to transform a JavaScript object 
 
 To install `json2csv`, run this command in your terminal. You need to be in the project's folder - the folder which has the `package.json` file.
 
-```bash
+```shell
 npm i json2csv
 ```
 
 First, we need to import the `parse()` function from the library.
 
-```js
+```javascript
 import { parse } from 'json2csv';
 ```
 
 Next, we need to parse the `results` array from the previous lesson with the imported function.
 
-```js
+```javascript
 const csv = parse(results);
 ```
 
 The full code including the earlier scraping part now looks like this. Replace the contents of your **main.js** file with this code:
 
-```js
+```javascript
 // main.js
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
@@ -89,19 +89,19 @@ The final task that remains is to save our CSV formatted data to a file on our d
 
 First, we import the `writeFileSync` function from the `fs` (file system) package.
 
-```js
+```javascript
 import { writeFileSync } from 'fs';
 ```
 
 and then call it with a file name and the CSV data.
 
-```js
+```javascript
 writeFileSync('products.csv', csv);
 ```
 
 When we complete the code, it looks like this. Replace the code in your **main.js** file with this new code.
 
-```js
+```javascript
 // main.js
 import { writeFileSync } from 'fs'; // <---- added a new import
 import { gotScraping } from 'got-scraping';

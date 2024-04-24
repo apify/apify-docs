@@ -25,7 +25,7 @@ In the previous lesson, we got a rough idea of how types are used by utilizing t
 
 Just because we're writing TS files doesn't mean we need to explicitly define the type of every single value/parameter though. We'll create a new file called **using-types.ts** and create a basic variable:
 
-```ts
+```typescript
 const value = 10;
 ```
 
@@ -38,7 +38,7 @@ Attempting to reassign `value` to a type other than a number will result in a co
 But what if we want to declare the variable with no initial value, and then change it later?
 
 <!-- eslint-disable -->
-```ts
+```typescript
 let value;
 
 value = 10;
@@ -54,7 +54,7 @@ Because of this, we can set `value` to be absolutely anything without receiving 
 
 To resolve this, we can annotate the variable by adding a colon (`:`) after the name followed by the name of the type we'd like to be tied to the variable.
 
-```ts
+```typescript
 let value: number;
 
 // Totally ok
@@ -66,7 +66,7 @@ value = 'hello academy!';
 
 To allow for the `value` variable to hold multiple different types, we can use a [union type](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html). It works just the same way as the **or** (`||`) operator in JavaScript, but only uses one pipe (`|`) character and only works with types and type annotations.
 
-```ts
+```typescript
 // "value" can hold either a number or a string
 let value: number | string;
 
@@ -87,7 +87,7 @@ Later in this course, we'll be getting more into union types.
 
 With functions, you can define the types of both the parameters and the return type. Here's a basic function:
 
-```ts
+```typescript
 const totalLengthIsGreaterThan10 = (string1, string2) => {
     // Returns true if the total length of both strings is greater
     // than 10, and false if it's less than 10.
@@ -97,7 +97,7 @@ const totalLengthIsGreaterThan10 = (string1, string2) => {
 
 Just like with the parameters in the function from the last lesson, and similar to variables, these parameters can be annotated with a colon (`:`) and a type name. In this case, we are expecting two strings into this function.
 
-```ts
+```typescript
 const totalLengthIsGreaterThan10 = (string1: string, string2: string) => {
     return (string1 + string2).length > 10;
 };
@@ -109,7 +109,7 @@ The return value of this function is a boolean, which TypeScript has intelligent
 
 Despite the correct inference, if we wanted to explicitly annotate this function's return type, we could. Return type annotations go after the parentheses (`()`) where the function's parameters are defined.
 
-```ts
+```typescript
 const totalLengthIsGreaterThan10 = (string1: string, string2: string): boolean => {
     return (string1 + string2).length > 10;
 };
@@ -117,7 +117,7 @@ const totalLengthIsGreaterThan10 = (string1: string, string2: string): boolean =
 
 For non-arrow functions, the type annotation syntax is the exact same:
 
-```ts
+```typescript
 function totalLengthIsGreaterThan10(string1: string, string2: string): boolean {
     return (string1 + string2).length > 10;
 }

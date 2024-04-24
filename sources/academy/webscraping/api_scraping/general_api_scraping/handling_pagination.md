@@ -29,7 +29,7 @@ The second most popular pagination technique used is based on using a **limit** 
 
 For example, let's say that we have this dataset and an API route to retrieve its items:
 
-```js
+```javascript
 const myAwesomeDataset = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 ```
 
@@ -49,7 +49,7 @@ In a minute, we're going to create a mini-project which will scrape the first 10
 
 Luckily for us, SoundCloud's API (and many others) provides a **next_href** property in each response, which means we don't have to directly deal with setting the **offset** (cursor) parameter:
 
-```json
+```javascripton
 //...
 {
     "next_href": "https://api-v2.soundcloud.com/users/141707/tracks?offset=2020-03-13T00%3A00%3A00.000Z%2Ctracks%2C00774168919&limit=20&representation=https%3A%2F%2Fapi-v2.soundcloud.com%2Fusers%2F141707%2Ftracks%3Flimit%3D20",
@@ -71,7 +71,7 @@ npm init -y && npm i puppeteer got-scraping
 
 Now, make a new file called **scrapeClientId**, copying the **client_id** scraping code from the previous lesson and making a slight modification:
 
-```js
+```javascript
 // scrapeClientId.js
 import puppeteer from 'puppeteer';
 
@@ -98,7 +98,7 @@ export const scrapeClientId = async () => {
 
 Now, in a new file called **index.js** we'll write the skeleton for our pagination and item-scraping code:
 
-```js
+```javascript
 // index.js
 // we will need gotScraping to make HTTP requests
 import { gotScraping } from 'got-scraping';
@@ -126,7 +126,7 @@ Let's now take a step back and think about the condition on which we should cont
 
 With a full understanding of this condition, we can translate it into code:
 
-```js
+```javascript
 const scrape100Items = async () => {
     // ...previous code
     // continue making requests until either we've reached 100+ items
@@ -144,7 +144,7 @@ All that's left to do now is flesh out this `while` loop with pagination logic a
 
 > Note that it's better to add requests to a requests queue rather than processing them in memory. The crawlers offered by [Crawlee](https://crawlee.dev/docs/) provide this functionality out of the box.
 
-```js
+```javascript
 // index.js
 import { gotScraping } from 'got-scraping';
 import { scrapeClientId } from './scrapeClientId';

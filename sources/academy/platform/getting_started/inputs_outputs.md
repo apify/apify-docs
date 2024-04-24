@@ -21,7 +21,7 @@ Let's first create another new actor using the same template as before. Feel fre
 
 Replace all of the code in **main.js** with this code snippet:
 
-```js
+```javascript
 import { Actor } from 'apify';
 
 await Actor.init();
@@ -42,7 +42,7 @@ Then, replace everything in **INPUT_SCHEMA.json**  with this:
 
 > This step isn't necessary, as the actor will still be able to take input in JSON format without it; however, we are providing the content for this actor's input schema in this lesson, as it will give the Apify platform a blueprint off of which it can generate a nice UI for your inputs, as well as validate their values.
 
-```json
+```javascripton
 {
     "title": "Number adder",
     "type": "object",

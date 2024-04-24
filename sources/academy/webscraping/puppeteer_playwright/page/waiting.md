@@ -28,7 +28,7 @@ In the previous lesson, we ran into an error with Puppeteer due to the fact that
 
 Elements with specific selectors can be waited for by using the `page.waitForSelector()` function. Let's use this knowledge to wait for the first result to be present on the page prior to clicking on it:
 
-```js
+```javascript
 // This example is relevant for Puppeteer only!
 import puppeteer from 'puppeteer';
 
@@ -62,20 +62,20 @@ If we remember properly, after clicking the first result, we want to console log
 
 Naively, you might immediately think that this is the way we should wait for navigation after clicking the first result:
 
-```js
+```javascript
 await page.click('.g a');
 await page.waitForNavigation();
 ```
 
 Though in theory this is correct, it can result in a race condition in which the page navigates quickly before the `page.waitForNavigation()` function is ever run, which means that once it is finally called, it will hang and wait forever for the [`load` event](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event) event to fire even though it already fired. To solve this, we can stick the waiting logic and the clicking logic into a `Promise.all()` call (placing `page.waitForNavigation()` first).
 
-```js
+```javascript
 await Promise.all([page.waitForNavigation(), page.click('.g a')]);
 ```
 
 Though the line of code above is also valid in Playwright, it is recommended to use [`page.waitForLoadState('load')`](https://playwright.dev/docs/api/class-page#page-wait-for-load-state) instead of `page.waitForNavigation()`, as it automatically handles the issues being solved by using `Promise.all()`.
 
-```js
+```javascript
 await page.click('.g a');
 await page.waitForLoadState('load');
 ```

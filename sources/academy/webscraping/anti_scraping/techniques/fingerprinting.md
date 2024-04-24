@@ -66,7 +66,7 @@ Here is a list of some of the most crucial properties on the `window` object use
 
 Fingerprinting tools can also collect pieces of information that are retrieved by calling specific functions:
 
-```js
+```javascript
 // Get the WebGL vendor information
 WebGLRenderingContext.getParameter(37445);
 
@@ -121,7 +121,7 @@ On its own this method is quite weak, but it can be potent when combined with th
 
 When all is said and done, this is what a browser fingerprint might look like:
 
-```json
+```javascripton
 {
   "userAgent": "Mozilla/5.0 (X11; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0",
   "cookiesEnabled": true,

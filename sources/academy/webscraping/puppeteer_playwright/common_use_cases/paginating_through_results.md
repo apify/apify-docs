@@ -28,7 +28,7 @@ We want to scrape all of the titles, links, and descriptions for Facebook's repo
 
 Let's first start off by defining some basic variables:
 
-```js
+```javascript
 // This is where we'll push all of the scraped repos
 const repositories = [];
 
@@ -208,7 +208,7 @@ await browser.close();
 
 Cool, so now we have all the tools we need to write concise logic that will be run for every single page. First, we'll create an array of numbers from 0–4:
 
-```js
+```javascript
 // We must add 1 to the lastPage, since the array starts at 0 and we
 // are creating an array from its index values
 Array(lastPage + 1).keys(); // -> [0, 1, 2, 3, 4]
@@ -216,13 +216,13 @@ Array(lastPage + 1).keys(); // -> [0, 1, 2, 3, 4]
 
 Then, we'll slice the first two values from that array so that it starts from 2 and ends at 4:
 
-```js
+```javascript
 [...Array(lastPage + 1).keys()].slice(2); // -> [2, 3, 4]
 ```
 
 This array now accurately represents the pages we need to go through. We'll map through it and create an array of promises, all of which make a request to each page, scrape its data, then push it to the **repositories** array:
 
-```js
+```javascript
 // Map through the range. The value from the array is the page number
 // to make a request for
 const promises = [...Array(lastPage + 1).keys()].slice(2).map((pageNumber) => (async () => {
@@ -438,7 +438,7 @@ await browser.close();
 <!-- vale off -->
 Now, what we'll do is grab the height in pixels of a result item to have somewhat of a reference to how much we should scroll each time, as well as create a variable for keeping track of how many pixels have been scrolled.
 <!-- vale on -->
-```js
+```javascript
 // Grab the height of result item in pixels, which will be used to scroll down
 const itemHeight = await page.$eval('a[data-testid*="productTile"]', (elem) => elem.clientHeight);
 
@@ -538,7 +538,7 @@ Now, the `while` loop will exit out if we've reached the bottom of the page.
 
 Within the loop, we can grab hold of the total number of items on the page. To avoid extracting and pushing duplicate items to the **products** array, we can use the `.slice()` method to cut out the items we've already scraped.
 
-```js
+```javascript
 import * as cheerio from 'cheerio';
 
 const $ = cheerio.load(await page.content());

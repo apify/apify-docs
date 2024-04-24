@@ -47,7 +47,7 @@ You can also combine selectors. `document.querySelector('p.my-class')` will find
 
 Let's try to use `document.querySelector()` to find the **Sony subwoofer**. Earlier we mentioned that the parent element of the subwoofer had, among others, the `product-item` class. We can use the class to look up the element. Copy or type (don't miss the period `.` in `.product-item`) the following function into the Console and press Enter.
 
-```js
+```javascript
 document.querySelector('.product-item');
 ```
 
@@ -69,7 +69,7 @@ We need a different function: [`document.querySelectorAll()`](../../../glossary/
 
 Run the following function in the Console:
 
-```js
+```javascript
 document.querySelectorAll('.product-item');
 ```
 
@@ -95,7 +95,7 @@ The `product-item` class is simple, human-readable, and semantically connected w
 
 Now that we found the element, we can start poking into it to extract data. First, let's save the element to a variable so that we can work with it repeatedly. Run these commands in the Console:
 
-```js
+```javascript
 const products = document.querySelectorAll('.product-item');
 const subwoofer = products[2];
 ```
@@ -104,7 +104,7 @@ const subwoofer = products[2];
 
 Now that we have the subwoofer saved in a variable, run another command in the Console to print its text:
 
-```js
+```javascript
 subwoofer.textContent;
 ```
 
@@ -133,7 +133,7 @@ Earlier we selected the parent element of the Sony subwoofer and saved it to a v
 
 Run two commands in the Console. The first will find the element with the subwoofer's name and save it to a variable called `title`. The second will extract the name and print it.
 
-```js
+```javascript
 const title = subwoofer.querySelector('a.product-item__title');
 title.textContent;
 ```
@@ -144,7 +144,7 @@ Great! We found a way how to programmatically extract the name of the product. W
 
 Next, run the following two commands in the Console.
 
-```js
+```javascript
 const price = subwoofer.querySelector('span.price');
 price.textContent;
 ```
@@ -168,7 +168,7 @@ When we call `subwoofer.querySelector('span.price')` it selects the whole `<span
 
 We can, however, use JavaScript to get only the actual text of the selected element, without any child elements. Run this command in the Console:
 
-```js
+```javascript
 price.childNodes[2].nodeValue;
 ```
 
@@ -184,7 +184,7 @@ The second option we have is to **take the noisy price data and clean it with st
 
 This can be approached in a variety of ways. To start let's look at a naive solution:
 
-```js
+```javascript
 price.textContent.split('$')[1];
 ```
 
@@ -198,7 +198,7 @@ The second method seems more reliable, but only until the website adds prices in
 
 In production, we would probably use a regular expression like the following, or a specialized library for parsing prices from strings, but for this tutorial, we'll keep it simple.
 
-```js
+```javascript
 price.textContent.match(/((\d+,?)+.?(\d+)?)/)[0];
 ```
 

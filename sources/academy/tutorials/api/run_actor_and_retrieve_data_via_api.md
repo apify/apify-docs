@@ -151,7 +151,7 @@ Most Actor runs will store their data in the default [dataset](/platform/storage
 
 Here is a simple Node.js example of calling a task via the API and logging the dataset items to the console:
 
-```js
+```javascript
 // Use your favorite HTTP client
 import got from 'got';
 

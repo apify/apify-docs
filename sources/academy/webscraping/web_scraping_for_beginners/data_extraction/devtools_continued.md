@@ -17,7 +17,7 @@ First, we will use the `querySelectorAll()` function from the previous lessons t
 
 Run this command in your Console:
 
-```js
+```javascript
 const products = document.querySelectorAll('.product-item');
 products.length;
 ```
@@ -38,7 +38,7 @@ Run the following command in the Console. Some notes:
 - The `console.log()` function prints the results to the Console.
 - The `trim()` function makes sure there are no useless whitespace characters around our data.
 
-```js
+```javascript
 for (const product of products) {
     const titleElement = product.querySelector('a.product-item__title');
     const title = titleElement.textContent.trim();
@@ -56,7 +56,7 @@ We will add the price extraction from the previous lesson to the loop. We will a
 
 > The `results.push()` function takes its argument and pushes (adds) it to the `results` array. [Learn more about it here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push).
 
-```js
+```javascript
 const results = [];
 
 for (const product of products) {
@@ -74,7 +74,7 @@ After running the code, you'll see **24** printed to the Console. That's because
 
 Now, run this command in the Console to print all the products:
 
-```js
+```javascript
 console.log(results);
 ```
 

@@ -20,7 +20,7 @@ An important concept to understand when dealing with headless browsers is the **
 
 Here is an example of a common mistake made by beginners to Puppeteer/Playwright:
 
-```js
+```javascript
 // This code is incorrect!
 import { chromium } from 'playwright';
 
@@ -101,7 +101,7 @@ Here's what we see in the automated browser when we run this code:
 
 Within our code, we generate a `randomString` in the Node.js context:
 
-```js
+```javascript
 const randomString = Math.random().toString(36).slice(2);
 ```
 

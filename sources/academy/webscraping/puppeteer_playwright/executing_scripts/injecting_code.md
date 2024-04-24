@@ -73,7 +73,7 @@ await browser.close();
 
 Here's a super awesome function we've created called `returnMessage()`, which simply returns the string **Apify Academy!**:
 
-```js
+```javascript
 const returnMessage = () => 'Apify academy!';
 ```
 

@@ -19,26 +19,26 @@ These techniques are only necessary when we don't have a direct file link, which
 
 Let's start with the easiest technique. This method tells the browser in what folder we want to download a file from Puppeteer after clicking on it.
 
-```js
+```javascript
 const client = await page.target().createCDPSession();
 await client.send('Page.setDownloadBehavior', { behavior: 'allow', downloadPath: './my-downloads' });
 ```
 
 We use the mysterious `client` API which gives us access to all the functions of the underlying [Chrome DevTools Protocol](https://pptr.dev/api/puppeteer.cdpsession) (Puppeteer & Playwright are built on top of it). Basically, it extends Puppeteer's functionality. Then we can download the file by clicking on the button.
 
-```js
+```javascript
 await page.click('.export-button');
 ```
 
 Let's wait for one minute. In a real use case, you want to check the state of the file in the file system.
 
-```js
+```javascript
 await page.waitFor(60000);
 ```
 
 To extract the file from the file system into memory, we have to first find its name, and then we can read it.
 
-```js
+```javascript
 import fs from 'fs';
 
 const fileNames = fs.readdirSync('./my-downloads');
@@ -53,13 +53,13 @@ const fileData = fs.readFileSync(`./my-downloads/${fileNames[0]}`);
 
 For this second option, we can trigger the file download, intercept the request going out, and then replicate it to get the actual data. First, we need to enable request interception. This is done using the following line of code:
 
-```js
+```javascript
 await page.setRequestInterception(true);
 ```
 
 Next, we need to trigger the actual file export. We might need to fill in some form, select an exported file type, etc. In the end, it will look something like this:
 
-```js
+```javascript
 await page.click('.export-button');
 ```
 
@@ -67,7 +67,7 @@ We don't need to await this promise since we'll be waiting for the result of thi
 
 The crucial part is intercepting the request that would result in downloading the file. Since the interception is already enabled, we just need to wait for the request to be sent.
 
-```js
+```javascript
 const xRequest = await new Promise((resolve) => {
     page.on('request', (interceptedRequest) => {
         interceptedRequest.abort(); // stop intercepting requests
@@ -78,13 +78,13 @@ const xRequest = await new Promise((resolve) => {
 
 The last thing is to convert the intercepted Puppeteer request into a request-promise options object. We need to have the `request-promise` package installed.
 
-```js
+```javascript
 import request from 'request-promise';
 ```
 
 Since the request interception does not include cookies, we need to add them subsequently.
 
-```js
+```javascript
 const options = {
     encoding: null,
     method: xRequest._method,

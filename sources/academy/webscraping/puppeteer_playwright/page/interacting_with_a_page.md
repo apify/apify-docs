@@ -61,14 +61,14 @@ Notice that in the Playwright example, we are using a different selector than in
 
 Then, we can type some text into an input field with `page.type()`; passing a CSS selector as the first, and the string to input as the second parameter:
 
-```js
+```javascript
 // Type the query into the search box
 await page.type('input[title="Search"]', 'hello world');
 ```
 
 Finally, we can press a single key by accessing the `keyboard` property of `page` and calling the `press()` function on it:
 
-```js
+```javascript
 // Press enter
 await page.keyboard.press('Enter');
 ```

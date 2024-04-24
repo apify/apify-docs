@@ -21,7 +21,7 @@ Now we have two options. Inject the library using plain JavaScript, or if you pr
 
 ## Injecting a library with plain JavaScript
 
-```js
+```javascript
 async function pageFunction(context) {
     const libraryUrl = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js';
 
@@ -45,7 +45,7 @@ We're creating a script element in the page's DOM and waiting for the script to 
 
 After you select the Inject jQuery input option, jQuery will become available in your page function as `context.jQuery` .
 
-```js
+```javascript
 async function pageFunction(context) {
     const libraryUrl = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js';
 

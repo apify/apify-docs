@@ -13,7 +13,7 @@ slug: /web-scraping-for-beginners/crawling/recap-extraction-basics
 
 We finished off the [first section](../data_extraction/index.md) of the _Web Scraping for Beginners_ course by creating a simple web scraper in Node.js. The scraper collected all the on-sale products from [Warehouse store](https://warehouse-theme-metal.myshopify.com/collections/sales). Let's see the code with some comments added.
 
-```js
+```javascript
 // First, we imported all the libraries we needed to
 // download, extract, and convert the data we wanted
 import { writeFileSync } from 'fs';

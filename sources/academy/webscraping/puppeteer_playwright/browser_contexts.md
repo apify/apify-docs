@@ -140,7 +140,7 @@ await browser.close();
 
 Then, we'll make both `iPhonePage` and `androidPage` visit [deviceinfo.me](https://www.deviceinfo.me/), which is a website that displays the type of device you have, the operating system you're using, and more device and location-specific information.
 
-```js
+```javascript
 // Go to deviceinfo.me on both at the same time
 await Promise.all([iPhonePage.goto('https://www.deviceinfo.me/'), androidPage.goto('https://www.deviceinfo.me/')]);
 
