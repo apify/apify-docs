@@ -105,7 +105,7 @@ If you try this in Node.js instead of DevTools, you will not get the full URLs, 
 
 Another common way to filter links (or any text, really) is by matching patterns with regular expressions.
 
-> [Learn more about regular expressions](https://javascript.info/regexp-introduction)
+> [Learn more about regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 
 When we inspect the product URLs, we'll find that they all look like the following:
 

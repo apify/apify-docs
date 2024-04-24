@@ -92,7 +92,7 @@ const products = document.querySelectorAll('.product-item');
 const subwoofer = products[2];
 ```
 
-> If you're wondering what an array is or what `products[2]` means, learn more in [this tutorial on JavaScript arrays](https://javascript.info/array).
+> If you're wondering what an array is or what `products[2]` means, read the [JavaScript arrays basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Arrays).
 
 Now that we have the subwoofer saved into a variable, run another command in the Console to print its text:
 

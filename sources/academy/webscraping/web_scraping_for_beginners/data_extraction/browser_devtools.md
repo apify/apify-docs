@@ -67,7 +67,7 @@ By changing HTML elements from the Console, you can change what's displayed on t
 
 ![Chrome DevTools JavaScript command execution](./images/browser-devtools-console-commands.png)
 
-> You can interact with the page in many more ways using the Console. If you want to dive deeper we recommend this [tutorial on documents](https://javascript.info/document). A web page in a browser is called a document.
+> In JavaScript, the web page is called `document`. From the Console you can interact with it in many ways. Go through [document basics](https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Using_the_Document_Object_Model) to learn more.
 
 ## Next up {#next}
 

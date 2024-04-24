@@ -101,7 +101,7 @@ await browser.close();
 </TabItem>
 </Tabs>
 
-> Learn more about the `:nth-last-child` pseudo-class [on W3Schools](https://www.w3schools.com/cssref/sel_nth-last-child.asp). It works similar to `:nth-child`, but starts from the bottom of the parent element's children instead of from the top.
+> [Learn more](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-last-child) about the `:nth-last-child` pseudo-class. It works similar to `:nth-child`, but starts from the bottom of the parent element's children instead of from the top.
 
 When we run this code, here's what we see:
 
