@@ -66,5 +66,6 @@
                 "@typescript-eslint/promise-function-async": "off"
             }
         }
-    ]
+    ],
+    "ignorePatterns": ["examples/"]
 }
