@@ -12,7 +12,7 @@ slug: /anti-scraping
 
 ---
 
-If at any point in time you've strayed away from the Academy's demo content, and into the wild west by writing some scrapers of your own, you may have been hit with anti-scraping measures. This is extremely common in the scraping world; however, the good thing is that there are always solutions.
+If at any point in time you've strayed away from the Academy's demo content, and into the Wild West by writing some scrapers of your own, you may have been hit with anti-scraping measures. This is extremely common in the scraping world; however, the good thing is that there are always solutions.
 
 This section covers the essentials of mitigating anti-scraping protections, such as proxies, HTTP headers and cookies, and a few other things to consider when working on a reliable and scalable crawler. Proper usage of the methods taught in the next lessons will allow you to extract data which is specific to a certain location, enable your crawler to browse websites as a logged-in user, and more.
 
@@ -65,7 +65,7 @@ Unfortunately for these websites, they have to make compromises and tradeoffs. W
 Anti-scraping protections can work on many different layers and use a large amount of bot-identification techniques.
 
 1. **Where you are coming from** - The IP address of the incoming traffic is always available to the website. Proxies are used to emulate a different IP addresses but their quality matters a lot.
-2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, cyphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to classify your hardware (like graphics hardware acceleration).
+2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, ciphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to classify your hardware (like graphics hardware acceleration).
 3. **What you are scraping** - The same data can be extracted in many ways from a website. You can just get the inital HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
 4. **How you behave** - The website can see patterns in how you are ordering your requests, how fast you are scraping, etc. It can also analyze browser behavior like mouse movement, clicks or key presses.
 
@@ -91,7 +91,7 @@ A common workflow of a website after it has detected a bot goes as follows:
 2. A [Turing test](https://en.wikipedia.org/wiki/Turing_test) is provided to the bot. Typically a **captcha**. If the bot succeeds, it is added to the whitelist.
 3. If the captcha is failed, the bot is added to the blacklist.
 
-One thing to keep in mind while navigating through this course is that advanced scraping methods are able to identify non-humans not only by one value (such as a single header value, or IP address), but are able to identify them through more complex things such as header combinations.
+One thing to keep in mind while navigating through this course is that advanced anti-scraping methods are able to identify non-humans not only by one value (such as a single header value, or IP address), but are able to identify them through more complex things such as header combinations.
 
 Watch a conference talk by [Ondra Urban](https://github.com/mnmkng), which provides an overview of various anti-scraping measures and tactics for circumventing them.
 
@@ -111,7 +111,7 @@ Because we here at Apify scrape for a living, we have discovered many popular an
 
 ### IP rate-limiting
 
-This is the most straightforward and standard protection, which is mainly implemented to prevent DDoS attacks, but it also works for blocking scrapers. Websites using rating don't allow to more than some defined number of requests from one IP address in a certain time span. If the max-request number is low, then there is a high potential for false-positive due to IP address uniqueness, such as in large companies where hundreds of employees can share the same IP address.
+This is the most straightforward and standard protection, which is mainly implemented to prevent DDoS attacks, but it also works for blocking scrapers. Websites using rate limiting don't allow to more than some defined number of requests from one IP address in a certain time span. If the max-request number is low, then there is a high potential for false-positive due to IP address uniqueness, such as in large companies where hundreds of employees can share the same IP address.
 
 > Learn more about rate limiting [here](./techniques/rate_limiting.md)
 

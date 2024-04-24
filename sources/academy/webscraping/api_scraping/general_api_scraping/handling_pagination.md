@@ -37,7 +37,7 @@ If we were to make a request with the **limit** set to **5** and the **offset** 
 
 ## Cursor pagination {#cursor-pagination}
 
-Becoming more and more common is cursor-based pagination. Like with offset-based pagination, a **limit** parameter is usually present; however, instead of **offset**, **cursor** is used instead. A cursor is just a marker (sometimes a token, a date, or just a number) for an item in the dataset. All results returned back from the API will be records that come after the item matching the **cursor** parameter provided.
+Sometimes pagination uses **cursor** instead of **offset**. Cursor is a marker of an item in the dataset. It can be a date, number, or a more or less random string of letters and numbers. Request with a **cursor** parameter will result in an API response containing items which follow after the item which the cursor points to.
 
 One of the most painful things about scraping APIs with cursor pagination is that you can't skip to, for example, the 5th page. You have to paginate through each page one by one.
 

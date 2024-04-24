@@ -176,7 +176,7 @@ The script is modified with some random JavaScript elements. Additionally, it al
 
 ### Data obfuscation
 
-Two main data obfuscation techniues are widely employed:
+Two main data obfuscation techniques are widely employed:
 
 1. **String splitting** uses the concatenation of multiple substrings. It is mostly used alongside an `eval()` or `document.write()`.
 2. **Keyword replacement** allows the script to mask the accessed properties. This allows the script to have a random order of the substrings and makes it harder to detect.
