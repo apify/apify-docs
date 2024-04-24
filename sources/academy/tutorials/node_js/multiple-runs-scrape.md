@@ -5,7 +5,7 @@ sidebar_position: 15.10
 slug: /node-js/multiple-runs-scrape
 ---
 
-# Scraping website from multiple Actor runs
+# Scrape website in parallel with multiple Actor runs
 
 **Learn how to run multiple instances of an Actor to scrape a website faster. This tutorial will guide you through the process of setting up your scraper.**
 
@@ -195,11 +195,11 @@ In this example, we will use the CheerioCrawler to scrape [the example of ecomme
 You can create your scraper from the [Crawlee + Cheerio TypeScript Actor template](https://apify.com/templates/ts-crawlee-cheerio).
 
 <Tabs groupId="main">
-<TabItem value="main.ts" label="main.ts">
-<CodeBlock language="typescript">{ScraperActorMainTs}</CodeBlock>
-</TabItem>
 <TabItem value="input_schema.json" label="input_schema.json">
 <CodeBlock language="json">{ScraperActorInputSchemaJson}</CodeBlock>
+</TabItem>
+<TabItem value="main.ts" label="main.ts">
+<CodeBlock language="typescript">{ScraperActorMainTs}</CodeBlock>
 </TabItem>
 </Tabs>
 
