@@ -25,7 +25,7 @@ This tutorial will guide you through setting up your scraper to run multiple ins
 
 :::note In a rush?
 
-You can check [full code example](https://github.com/apify/apify-docs/tree/master/examples/ts-parallel-scraping/orchestrator) right away.
+You can check [full code example](https://github.com/apify/apify-docs/tree/master/examples/ts-parallel-scraping) right away.
 
 :::
 
@@ -44,7 +44,7 @@ For the Actor's base structure, we use Apify CLI and create a new Actor with the
 apify create orchestrator-actor
 ````
 
-If you don't have Apify CLI installed, check out our installation [instructions](https://docs.apify.com/cli).
+If you don't have Apify CLI installed, check out our installation [instructions](https://docs.apify.com/cli/docs/installation).
 
 ### Input Configuration
 
