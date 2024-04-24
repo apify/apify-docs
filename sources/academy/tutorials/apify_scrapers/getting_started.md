@@ -152,7 +152,7 @@ In the structures, only the `OWNER` and `NAME` change. We can leverage this in a
 
 #### Making a pseudo URL
 
-**Pseudo URL**s are really just URLs with some variable parts in them. Those variable parts are represented by [regular expressions](https://regexone.com/) enclosed in brackets `[]`.
+**Pseudo URL**s are really just URLs with some variable parts in them. Those variable parts are represented by [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) enclosed in brackets `[]`.
 
 Working with our actor details example, we could produce a **Pseudo URL** like this:
 
