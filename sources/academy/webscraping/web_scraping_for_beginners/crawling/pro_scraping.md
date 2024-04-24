@@ -43,11 +43,11 @@ Crawlee and its resources can be found in various different places:
 
 1. [Official Crawlee documentation](https://crawlee.dev/)
 2. [Crawlee GitHub repository (source code, issues)](https://github.com/apify/crawlee)
-3. [Crawlee on NPM](https://www.npmjs.com/package/crawlee)
+3. [Crawlee on npm](https://www.npmjs.com/package/crawlee)
 
 ## Install Crawlee {#crawlee-installation}
 
-To use Crawlee, we have to install it from NPM. Let's add it to our project from the previous lessons by executing this command in your project's folder.
+To use Crawlee, we have to install it from npm. Let's add it to our project from the previous lessons by executing this command in your project's folder.
 
 ```shell
 npm install crawlee

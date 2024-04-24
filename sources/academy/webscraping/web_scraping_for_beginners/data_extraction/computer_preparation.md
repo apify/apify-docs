@@ -1,13 +1,13 @@
 ---
 title: Computer preparation
-description: Set up your computer to be able to code scrapers with Node.js and JavaScript. Download Node.js and NPM and run a Hello World script.
+description: Set up your computer to be able to code scrapers with Node.js and JavaScript. Download Node.js and npm and run a Hello World script.
 sidebar_position: 4
 slug: /web-scraping-for-beginners/data-extraction/computer-preparation
 ---
 
 # Prepare your computer for programming {#prepare-computer}
 
-**Set up your computer to be able to code scrapers with Node.js and JavaScript. Download Node.js and NPM and run a Hello World script.**
+**Set up your computer to be able to code scrapers with Node.js and JavaScript. Download Node.js and npm and run a Hello World script.**
 
 ---
 
@@ -29,7 +29,7 @@ Once you downloaded and installed it, you can open a folder where we will build 
 
 ## Hello world! 👋 {#hello-world}
 
-Before we start, let's confirm that Node.js was successfully installed on your computer. To do that, run those two commands in your terminal and see if they correctly print your Node.js and NPM versions. The next lessons **require Node.js version 16 or higher**. If you skipped Node.js installation and want to use your existing version of Node.js, **make sure that it's 16 or higher**.
+Before we start, let's confirm that Node.js was successfully installed on your computer. To do that, run those two commands in your terminal and see if they correctly print your Node.js and npm versions. The next lessons **require Node.js version 16 or higher**. If you skipped Node.js installation and want to use your existing version of Node.js, **make sure that it's 16 or higher**.
 
 ```shell
 node -v

@@ -36,7 +36,7 @@ To make sure we're all on the same page, we're going to set up the project toget
 npm init -y && npm install graphql-tag puppeteer got-scraping
 ```
 
-This command will first initialize the project with NPM, then will install the `puppeteer`, `graphql-tag`, and `got-scraping` packages, which we will need in this lesson.
+This command will first initialize the project with npm, then will install the `puppeteer`, `graphql-tag`, and `got-scraping` packages, which we will need in this lesson.
 
 Finally, create a file called **index.js**. This is the file we will be working in for the rest of the lesson.
 
@@ -113,7 +113,7 @@ Also in the previous lesson, we learned that the **media** type is dependent on 
 query SearchQuery($query: String!, $max_age: Int!) {
   organization {
     media(query: $query, max_age: $max_age , first: 1000) {
-        
+
     }
   }
 }

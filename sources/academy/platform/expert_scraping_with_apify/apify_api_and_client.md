@@ -18,7 +18,7 @@ You can use one of the two main ways to programmatically interact with the Apify
 ## Learning 🧠 {#learning}
 
 - Scroll through the [Apify API docs](/api/v2) (there's a whole lot there, so you're not expected to memorize everything).
-- Read about the Apify client in [Apify's docs](/api/client/js). It can also be seen on [GitHub](https://github.com/apify/apify-client-js) and [NPM](https://www.npmjs.com/package/apify-client).
+- Read about the Apify client in [Apify's docs](/api/client/js). It can also be seen on [GitHub](https://github.com/apify/apify-client-js) and [npm](https://www.npmjs.com/package/apify-client).
 - Learn about the [`Actor.newClient()`](/sdk/js/reference/class/Actor#newClient) function in the Apify SDK.
 - Skim through [this article](https://help.apify.com/en/articles/2868670-how-to-pass-data-from-web-scraper-to-another-actor) about API integration (this article is old; however, still relevant).
 
@@ -26,7 +26,7 @@ You can use one of the two main ways to programmatically interact with the Apify
 
 1. What is the relationship between the Apify API and the Apify client? Are there any significant differences?
 2. How do you pass input when running an actor or task via API?
-3. Do you need to install the `apify-client` NPM package when already using the `apify` package?
+3. Do you need to install the `apify-client` npm package when already using the `apify` package?
 
 ## Our task
 

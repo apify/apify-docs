@@ -49,22 +49,22 @@ Here's the Dockerfile for our Node.js example project's actor:
 FROM apify/actor-node:16
 
 # Second, copy just package.json and package-lock.json since they are the only files
-# that affect NPM install in the next step
+# that affect npm install in the next step
 COPY package*.json ./
 
-# Install NPM packages, skip optional and development dependencies to keep the
+# Install npm packages, skip optional and development dependencies to keep the
 # image small. Avoid logging too much and print the dependency tree for debugging
 RUN npm --quiet set progress=false \
  && npm install --only=prod --no-optional \
- && echo "Installed NPM packages:" \
+ && echo "Installed npm packages:" \
  && (npm list --all || true) \
  && echo "Node.js version:" \
  && node --version \
- && echo "NPM version:" \
+ && echo "npm version:" \
  && npm --version
 
 # Next, copy the remaining files and directories with the source code.
-# Since we do this after NPM install, quick build will be really fast
+# Since we do this after npm install, quick build will be really fast
 # for simple source file changes.
 COPY . ./
 
