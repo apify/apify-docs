@@ -83,9 +83,7 @@ The `product-item` class is simple, human-readable, and semantically connected w
 
 ## Extracting data from elements {#extraction-from-elements}
 
-Now that we found the element, we can start poking into it to extract data. First, let's save the element to a variable so that we can work with it repeatedly.
-
-Run the commands in the Console:
+Now that we found the element, we can start poking into it to extract data. First, let's save the element to a variable so that we can work with it repeatedly. Run these commands in the Console:
 
 ```js
 const products = document.querySelectorAll('.product-item');
@@ -94,7 +92,7 @@ const subwoofer = products[2];
 
 > If you're wondering what an array is or what `products[2]` means, read the [JavaScript arrays basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Arrays).
 
-Now that we have the subwoofer saved into a variable, run another command in the Console to print its text:
+Now that we have the subwoofer saved in a variable, run another command in the Console to print its text:
 
 ```js
 subwoofer.textContent;
@@ -150,7 +148,7 @@ It worked, but the price was not alone in the result. We extracted it together w
 When it comes to data cleaning, there are two main approaches you can take. It's beneficial to understand both, as one approach may be feasible in a given situation while the other is not.
 
 1. Remove the elements that add noise to your data from the selection. Then extract the pre-cleaned data.
-2. Extract the data with noise. Use regular expressions or other text manipulation techniques to parse the data and keep only the parts we're interested in.
+2. Extract the data with noise. Use [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) or other text manipulation techniques to parse the data and keep only the parts we're interested in.
 
 First, let's look at **removing the noise before extraction**. When you look closely at the element that contains the price, you'll see that it includes another `<span>` element with the text **Sale price**. This `<span>` is what adds noise to our data, and we have to get rid of it.
 
