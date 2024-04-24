@@ -60,7 +60,7 @@ To fill in any necessary form inputs, we can use the `page.type()` function. Thi
 ```js
 await page.type('input[name=firstName]', 'John');
 await page.type('input[name=surname]', 'Doe');
-await page.type('input[name=email]', 'john.doe@mail.com');
+await page.type('input[name=email]', 'john.doe@example.com');
 ```
 
 To add the file to the appropriate input, we first need to find it and then use the [`uploadFile()`](https://pptr.dev/next/api/puppeteer.elementhandle.uploadfile) function.
