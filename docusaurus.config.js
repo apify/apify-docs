@@ -99,7 +99,7 @@ module.exports = {
                     module: {
                         rules: [
                             {
-                                test: /@apify-packages\/ui-components\/.*/,
+                                test: /@apify-packages\/ui-library\/.*/,
                                 resolve: {
                                     fullySpecified: false,
                                 },

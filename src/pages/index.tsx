@@ -6,7 +6,7 @@ import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import { Banner, theme } from '@apify-packages/ui-components';
+import { Banner, theme } from '@apify-packages/ui-library';
 
 import styled from 'styled-components';
 import { Heading } from '../components/Heading';
@@ -39,6 +39,14 @@ import ApiScraping from './img/academy_icons/api_scraping.svg';
 import AntiScrapingProtections from './img/academy_icons/anti_scraping_protections.svg';
 import ExpertScrapingWithApify from './img/academy_icons/expert_scraping_with_apify.svg';
 import DeployYourCode from './img/academy_icons/deploy_your_code.svg';
+
+/* interface DocsUiDependencyProviderProps {
+    children: React.ReactNode;
+}
+
+export const DocsUiDependencyProvider: React.FC<DocsUiDependencyProviderProps> = ({ children }) => {
+    return <UiDependencyProvider dependencies={uiDependencies}>{children}</UiDependencyProvider>;
+}; */
 
 const StyledBanner = styled(Banner)`
     width: 100%;
