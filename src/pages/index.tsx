@@ -40,14 +40,6 @@ import AntiScrapingProtections from './img/academy_icons/anti_scraping_protectio
 import ExpertScrapingWithApify from './img/academy_icons/expert_scraping_with_apify.svg';
 import DeployYourCode from './img/academy_icons/deploy_your_code.svg';
 
-/* interface DocsUiDependencyProviderProps {
-    children: React.ReactNode;
-}
-
-export const DocsUiDependencyProvider: React.FC<DocsUiDependencyProviderProps> = ({ children }) => {
-    return <UiDependencyProvider dependencies={uiDependencies}>{children}</UiDependencyProvider>;
-}; */
-
 const StyledBanner = styled(Banner)`
     width: 100%;
     padding: 40px 16px 24px 16px;
