@@ -108,7 +108,7 @@ const request2 = await queue.fetchNextRequest();
 const specificRequest = await queue.getRequest('shi6Nh3bfs3');
 
 // Reclaim a failed request back to the queue
-// and crawl it again
+// and process it again
 await queue.reclaimRequest(request2);
 
 // Remove a queue
@@ -172,7 +172,7 @@ async def main():
         # Get a specific request
         specific_request = await queue.get_request('shi6Nh3bfs3')
 
-        # Reclaim a failed request back to the queue and crawl it again
+        # Reclaim a failed request back to the queue and process it again
         await queue.reclaim_request(request2)
 
         # Remove a queue
@@ -460,7 +460,7 @@ await requestQueueClientOne.delete();
 await Actor.exit();
 ```
 
-A detailed tutorial on how to crawl one request queue from multiple Actor runs can be found in [Advanced web scraping academy](https://docs.apify.com/academy/advanced-web-scraping/multiple-runs-scrape).
+A detailed tutorial on how to process one request queue with multiple Actor runs can be found in [Academy tutorials](https://docs.apify.com/academy/node-js/multiple-runs-scrape).
 
 ## Sharing {#sharing}
 

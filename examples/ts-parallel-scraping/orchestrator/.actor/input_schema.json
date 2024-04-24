@@ -1,0 +1,34 @@
+{
+    "title": "Orchestrator Actor Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "parallelRunsCount": {
+            "title": "Parallel Actor runs count",
+            "type": "integer",
+            "description": "Number of parallel runs of the Actor.",
+            "default": 1
+        },
+        "targetActorId": {
+            "title": "Actor ID",
+            "type": "string",
+            "editor": "textfield",
+            "description": "ID of the Actor to run."
+        },
+        "targetActorInput": {
+            "title": "Actor Input",
+            "type": "object",
+            "description": "Input of the Actor to run",
+            "editor": "json",
+            "prefill": {}
+        },
+        "targetActorRunOptions": {
+            "title": "Actor Run Options",
+            "type": "object",
+            "description": "Options for the Actor run",
+            "editor": "json",
+            "prefill": {}
+        }
+    },
+    "required": ["parallelRunsCount", "targetActorId"]
+}
