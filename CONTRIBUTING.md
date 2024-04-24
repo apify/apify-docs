@@ -98,7 +98,7 @@ This is sufficient to work on the main content, i.e. the Academy and Platform do
 
 By default, the parts of the docs sourced from other repositories will give you 404s. If you need to locally run the project with all the other repositories included, clone them all and setup an Nginx server according to the steps below.
 
-For the setup to work, use `npm start:dev` instead of `npm start` when starting `apify-docs`. This causes all links in the top navigation and the footer to be absolute. They will now use `docs.apify.loc` as a host. Clone all the remaining docs repositories, and start their Docusaurus instances. To run Docusaurus on a specific port, use `npm start -- --port XXXX`.
+For the setup to work, use `npm start:dev` instead of `npm start` when starting `apify-docs`. This causes all links in the top navigation and the footer to be absolute. They will now use `docs.apify.loc` as a hostname. Clone all the remaining docs repositories, and start their Docusaurus instances. To run Docusaurus on a specific port, use `npm start -- --port XXXX`.
 
 | repo                | port |
 |---------------------|------|
@@ -136,7 +136,7 @@ server {
 }
 ```
 
-Add a record to `/etc/hosts`, which maps the `docs.apify.loc` host to a localhost:
+Add a record to `/etc/hosts`, which maps the `docs.apify.loc` hostname to a localhost:
 
 ```text
 127.0.0.1 docs.apify.loc
