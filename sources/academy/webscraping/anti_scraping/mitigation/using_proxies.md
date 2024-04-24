@@ -140,4 +140,4 @@ Notice that we didn't provide it a list of proxy URLs. This is because the `SHAD
 
 ## Next up {#next}
 
-[Next up](./generating_fingerprints.md), we'll be checking out how to use two NPM packages to generate and inject [browser fingerprints](../techniques/fingerprinting.md).
+[Next up](./generating_fingerprints.md), we'll be checking out how to use two npm packages to generate and inject [browser fingerprints](../techniques/fingerprinting.md).
