@@ -104,7 +104,7 @@ Now that we all know how to log into a website let's try and solve a more comple
 
 Here is an object we'll create which represents the three different emails we want to send:
 
-```js
+```javascript
 const emailsToSend = [
     {
         to: 'alice@example.com',

@@ -19,7 +19,7 @@ The term product detail page (or PDP) is commonly used on e-commerce websites to
 
 Let's start writing a script that extracts data from this single PDP. We can use this familiar code as a boilerplate.
 
-```js title=product.js
+```javascript title=product.js
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
 
@@ -48,7 +48,7 @@ We will use the techniques learned in the [Basics of data extraction](../data_ex
 
 Getting the title is quite straightforward. We recommend using `h1` for titles where available, because it's the semantically correct way and therefore unlikely to change.
 
-```js
+```javascript
 const title = $('h1').text().trim();
 ```
 
@@ -56,7 +56,7 @@ const title = $('h1').text().trim();
 
 Vendor name is available as a link with the `product-meta__vendor` class. We're only interested in the text though.
 
-```js
+```javascript
 const vendor = $('a.product-meta__vendor').text().trim();
 ```
 
@@ -64,7 +64,7 @@ const vendor = $('a.product-meta__vendor').text().trim();
 
 We will take a shortcut here and only extract the price as a string that includes currency. In production scrapers, you might want to split it into two fields.
 
-```js
+```javascript
 const price = $('span.price').contents()[2].nodeValue;
 ```
 
@@ -72,7 +72,7 @@ const price = $('span.price').contents()[2].nodeValue;
 
 For the review count, we use the `parseInt()` function to get only the number. Otherwise, we would receive a string like **2 reviews** from this element.
 
-```js
+```javascript
 const reviewCount = parseInt($('span.rating__caption').text(), 10);
 ```
 
@@ -80,7 +80,7 @@ const reviewCount = parseInt($('span.rating__caption').text(), 10);
 
 Getting the description is fairly straightforward as well, but notice the two selectors separated by a space: `div[class*="description"] div.rte`. This is called a [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator), and it allows you to search for child elements within parent elements. Using any of the selectors separately would lead to unwanted strings in our result.
 
-```js
+```javascript
 const description = $('div[class*="description"] div.rte').text().trim();
 ```
 
@@ -90,7 +90,7 @@ This is the final code after putting all the extractors together with the initia
 
 Save it into a new file called `product.js` and run it with `node product.js` to see for yourself.
 
-```js title=product.js
+```javascript title=product.js
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
 
@@ -121,7 +121,7 @@ console.log(product);
 
 Let's compare the above data extraction example with the crawling code we wrote in the last lesson:
 
-```js title=crawler.js
+```javascript title=crawler.js
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
 
@@ -169,7 +169,7 @@ Let's create a brand-new file called **final.js** and write our scraper code the
 
 We'll start by adding our imports and constants at the top of the file, no changes there.
 
-```js title=final.js
+```javascript title=final.js
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
 
@@ -178,7 +178,7 @@ const WEBSITE_URL = 'https://warehouse-theme-metal.myshopify.com';
 
 Then we need to **visit the start URL**. To scrape all the on-sale product links, we need the Sales page as the start URL.
 
-```js
+```javascript
 // ...
 const storeUrl = `${WEBSITE_URL}/collections/sales`;
 
@@ -188,7 +188,7 @@ const html = response.body;
 
 After that, we need to **extract the next URLs** we want to visit (the product detail page URLs). Thus far, the code is exactly the same as the **crawler.js** code.
 
-```js
+```javascript
 // ...
 const $ = cheerio.load(html);
 const productLinks = $('a.product-item__title');
@@ -203,7 +203,7 @@ for (const link of productLinks) {
 
 Now the code will start to differ. We will use the crawling logic from earlier to visit all the URLs, but we will replace the placeholder extraction logic we had there. The placeholder logic only extracted the product's title, but we want the vendor, price, number of reviews and description as well.
 
-```js
+```javascript
 // ...
 
 // A new array to save each product in.
@@ -243,7 +243,7 @@ for (const url of productUrls) {
 
 Finally, let's combine the above code blocks into a full runnable example. When you run the below code, it will scrape detailed information about all the products on the first page of the [Warehouse Sales category](https://warehouse-theme-metal.myshopify.com/collections/sales). We added a few console logs throughout the code to see what's going on.
 
-```js title=final.js
+```javascript title=final.js
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
 
@@ -299,7 +299,7 @@ console.log('ERRORS:', errors);
 
 And here's an example of the results you will see after running the above code. We truncated the descriptions for readability. There should be 24 products in your list.
 
-```js
+```javascript
 [
     {
         title: 'JBL Flip 4 Waterproof Portable Bluetooth Speaker',

@@ -13,7 +13,7 @@ One of the main defense mechanisms websites use to ensure they are not scraped b
 
 Setting proxy rotation in [BasicCrawler](https://crawlee.dev/api/basic-crawler/class/BasicCrawler) is pretty simple. When using plain HTTP requests (like with the popular '[request-promise](https://www.npmjs.com/package/request-promise)' npm package), a fresh proxy is set up on each request.
 
-```js
+```javascript
 const Apify = require('apify');
 const requestPromise = require('request-promise');
 
@@ -41,7 +41,7 @@ The straightforward solution would be to set the 'retireInstanceAfterRequestCoun
 
 That's why PuppeteerCrawler offers a utility retire() function through a PuppeteerPool class. You can access PuppeteerPool by simply passing it into the object parameter of gotoFunction or handlePageFunction.
 
-```js
+```javascript
 const crawler = new PuppeteerCrawler({
     requestList: someInitializedRequestList,
     launchPuppeteerOptions: {
@@ -60,7 +60,7 @@ Now that we know when the request is blocked, we can use the retire() function a
 
 For example, let's assume we have already initialized a requestList of Google search pages. Let's show how you can use the retire() function in both gotoFunction and handlePageFunction.
 
-```js
+```javascript
 const crawler = new Apify.PuppeteerCrawler({
     requestList: someInitializedRequestList,
     launchPuppeteerOptions: {

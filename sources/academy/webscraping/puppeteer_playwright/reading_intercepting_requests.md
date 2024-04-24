@@ -239,7 +239,7 @@ With Playwright, request interception is a bit different. We use the [`page.rout
 
 We'll first create an array of some file extensions that we'd like to block:
 
-```js
+```javascript
 const blockedExtensions = ['.png', '.css', '.jpg', '.jpeg', '.pdf', '.svg'];
 ```
 

@@ -19,7 +19,7 @@ This time, let's call our project **actor-caller**.
 
 Let's also set up some boilerplate, grabbing our inputs and creating a constant variable for the task:
 
-```js
+```javascript
 import { Actor } from 'apify';
 import axios from 'axios';
 
@@ -40,7 +40,7 @@ When using the `apify-client` package, you can create a new client instance by u
 
 We'll start by creating a function called `withClient()` and creating a new client, then calling the task:
 
-```js
+```javascript
 const withClient = async () => {
     const client = Actor.newClient();
     const task = client.task(TASK);
@@ -51,7 +51,7 @@ const withClient = async () => {
 
 After the task has run, we'll grab hold of its dataset, then attempt to download the items, plugging in our `maxItems` and `fields` inputs. Then, once the data has been downloaded, we'll push it to the default key-value store under a key named **OUTPUT.csv**.
 
-```js
+```javascript
 const withClient = async () => {
     const client = Actor.newClient();
     const task = client.task(TASK);
@@ -75,7 +75,7 @@ const withClient = async () => {
 
 First, we'll create a function (right under the `withClient()`) function named `withAPI` and instantiate a new variable which represents the API endpoint to run our task:
 
-```js
+```javascript
 const withAPI = async () => {
     const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
 };
@@ -83,7 +83,7 @@ const withAPI = async () => {
 
 To add the query parameters to the URL, we could create a super long string literal, plugging in all of our input values; however, there is a much better way: [`URLSearchParams`](https://nodejs.org/api/url.html#new-urlsearchparams). By using `URLSearchParams`, we can add the query parameters in an object:
 
-```js
+```javascript
 const withAPI = async () => {
     const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
     const url = new URL(uri);
@@ -100,7 +100,7 @@ const withAPI = async () => {
 
 Finally, let's make a `POST` request to our endpoint. You can use any library you want, but in this example, we'll use [`axios`](https://www.npmjs.com/package/axios). Don't forget to run `npm install axios` if you're going to use this package too!
 
-```js
+```javascript
 const withAPI = async () => {
     const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
     const url = new URL(uri);
@@ -123,14 +123,14 @@ const withAPI = async () => {
 
 Now, since we've written both of these functions, all we have to do is write a conditional statement based on the boolean value from `useClient`:
 
-```js
+```javascript
 if (useClient) await withClient();
 else await withAPI();
 ```
 
 And before we push to the platform, let's not forget to write an input schema in the **INPUT_SCHEMA.JSON** file:
 
-```json
+```javascripton
 {
   "title": "Actor Caller",
   "type": "object",
@@ -172,7 +172,7 @@ And before we push to the platform, let's not forget to write an input schema in
 
 To ensure we're on the same page, here is what the final code looks like:
 
-```js
+```javascript
 import { Actor } from 'apify';
 import axios from 'axios';
 

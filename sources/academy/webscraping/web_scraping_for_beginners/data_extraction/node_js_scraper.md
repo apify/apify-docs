@@ -17,7 +17,7 @@ We will use the `got-scraping` library to download the HTML of products that are
 
 Replace the contents of your **main.js** file with this code:
 
-```js
+```javascript
 // main.js
 import { gotScraping } from 'got-scraping';
 
@@ -38,7 +38,7 @@ Having the HTML printed to the terminal is not very helpful. To extract the data
 
 To parse the HTML with the `cheerio` library. Replace the code in your **main.js** with the following code:
 
-```js
+```javascript
 // main.js
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';

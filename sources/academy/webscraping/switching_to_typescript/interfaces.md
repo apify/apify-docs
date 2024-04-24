@@ -13,7 +13,7 @@ slug: /switching-to-typescript/interfaces
 
 In the [**Using types - II**](./using_types_continued.md) lesson, you learned about object types and how to create them. Let's create a new custom object type using the `type` keyword that we're already familiar with.
 
-```ts
+```typescript
 type Person = {
     name: string;
     age: number;
@@ -31,7 +31,7 @@ We can keep this just as it is, which would be totally okay, or we could use an 
 
 Using the `interface` keyword, we can easily turn our `Person` type into an interface.
 
-```ts
+```typescript
 // Interfaces don't need an "=" sign
 interface Person {
     name: string;
@@ -42,7 +42,7 @@ interface Person {
 
 When creating a new interface, you can also use the `extends` keyword to inherit all of the object properties from another interface (or type alias):
 
-```ts
+```typescript
 interface Person {
     name: string;
     age: number;
@@ -58,7 +58,7 @@ interface Employee extends Person {
 
 This is functionality is not unique to interfaces though, as it can be done with something called an [intersection type](https://www.typescriptlang.org/docs/handbook/2/objects.html#intersection-types) when using the `type` keyword.
 
-```ts
+```typescript
 type Employee = Person & {
     occupation: string;
 };

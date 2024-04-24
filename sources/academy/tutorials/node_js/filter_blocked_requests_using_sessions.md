@@ -35,7 +35,7 @@ First we define `sessions`  object at the top of our code (in global scope) to 
 
 Then we need to define an interval that will ensure our sessions are periodically saved to the key-value store, so if the actor restarts, we can load them.
 
-```js
+```javascript
 setInterval(async () => {
     await Apify.setValue('SESSIONS', sessions);
 }, 30 * 1000);
@@ -43,7 +43,7 @@ setInterval(async () => {
 
 And inside our main function, we load the sessions the same way we load an input. If they were not saved yet (the actor was not restarted), we instantiate them as an empty object.
 
-```js
+```javascript
 Apify.main(async () => {
     sessions = (await Apify.getValue('SESSIONS')) || {};
     // ...the rest of your code
@@ -56,7 +56,7 @@ You don't necessarily need to understand the solution below - it should be fine 
 
 `sessions`  will be an object whose keys will be the names of the sessions and values will be objects with the name of the session (we choose a random number as a name here) and user agent (you can add any other useful properties that you want to match with each session.) This will be created automatically, for example:
 
-```json
+```javascripton
 {
     "0.7870849452667994": {
         "name": "0.7870849452667994",
@@ -74,7 +74,7 @@ Now let's get to the algorithm that will define which sessions to pick for a req
 
 This function takes `sessions`  as an argument and returns a `session`  object which will either be a random object from `sessions`  or a new one with random user agent.
 
-```js
+```javascript
 const pickSession = (sessions, maxSessions = 100) => {
 
     // sessions is our sessions object, at the beginning instantiated as {}
@@ -125,7 +125,7 @@ const pickSession = (sessions, maxSessions = 100) => {
 
 We then use this function whenever we want to get the session for our request. Here is an example of how we would use it for bare bones Puppeteer (for example as a part of `BasicCrawler` class).
 
-```js
+```javascript
 const session = pickSession(sessions);
 const browser = await Apify.launchPuppeteer({
     useApifyProxy: true,
@@ -148,7 +148,7 @@ Now you might start to wonder, "I have already prepared an actor using Puppeteer
 
 First we define `lauchPuppeteerFunction` which tells the crawler how to create new browser instances and we pass the picked session there.
 
-```js
+```javascript
 const crawler = new Apify.PuppeteerCrawler({
     launchPuppeteerFunction: async () => {
         const session = pickSession(sessions);
@@ -166,7 +166,7 @@ We picked the session and added it to the browser as `apifyProxySession` but for
 
 Now we need to retrieve the session name back in the `gotoFunction`, pass it into userData and fix the hacked userAgent back to normal so it is not suspicious for the website.
 
-```js
+```javascript
 const gotoFunction = async ({ request, page }) => {
     const userAgentWithSession = await page.browser().userAgent();
     const match = userAgentWithSession.match(/(.+) s=(.+)/);
@@ -182,7 +182,7 @@ const gotoFunction = async ({ request, page }) => {
 
 Now we have access to the session in the `handlePageFunction` and the rest of the logic is the same as in the first example. We extract the session from the userData, try/catch the whole code and on success we add the session and on error we delete it. Also it is useful to retire the browser completely (check [here](http://kb.apify.com/actor/how-to-handle-blocked-requests-in-puppeteercrawler) for reference) since the other requests will probably have similar problem.
 
-```js
+```javascript
 const handlePageFunction = async ({ request, page, puppeteerPool }) => {
     const { session } = request.userData;
     console.log(`URL: ${request.url}, session: ${session.name}, userAgent: ${session.userAgent}`);

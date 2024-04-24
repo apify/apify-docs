@@ -19,19 +19,19 @@ You can also add **attributes** to an element to provide additional information 
 
 In JavaScript, you can use the **DOM** (Document Object Model) to interact with elements on a web page. For example, you can use the [`querySelector()` method](./querying_css_selectors.md) to select an element by its [CSS selector](./css_selectors.md), like this:
 
-```js
+```javascript
 const myElement = document.querySelector('#myId');
 ```
 
 You can also use `getElementById()` method to select an element by its `id`, like this:
 
-```js
+```javascript
 const myElement = document.getElementById('myId');
 ```
 
 You can also use `getElementsByTagName()` method to select all elements of a certain type, like this:
 
-```js
+```javascript
 const myElements = document.getElementsByTagName('p');
 ```
 

@@ -21,7 +21,7 @@ Cool! Now, we're ready to get started.
 
 First of all, we should clear out any of the boilerplate code within **main.js** to get a clean slate:
 
-```js
+```javascript
 // main.js
 import { Actor } from 'apify';
 
@@ -34,7 +34,7 @@ await Actor.exit();
 
 We'll be passing the ID of the Amazon actor's default dataset along to the new actor, so we can expect that as an input:
 
-```js
+```javascript
 const { datasetId } = await Actor.getInput();
 const dataset = await Actor.openDataset(datasetId);
 // ...
@@ -42,13 +42,13 @@ const dataset = await Actor.openDataset(datasetId);
 
 Next, we'll grab hold of the dataset's items with the `dataset.getData()` function:
 
-```js
+```javascript
 const { items } = await dataset.getData();
 ```
 
 While several methods can achieve the goal output of this actor, using the [`Array.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) is the most concise approach
 
-```js
+```javascript
 const filtered = items.reduce((acc, curr) => {
     // Grab the price of the item matching our current
     // item's ASIN in the map. If it doesn't exist, set
@@ -70,13 +70,13 @@ const filtered = items.reduce((acc, curr) => {
 
 The results should be an array, so finally, we can take the map we just created and push an array of all of its values to the actor's default dataset:
 
-```js
+```javascript
 await Actor.pushData(Object.values(filtered));
 ```
 
 Our final code looks like this:
 
-```js
+```javascript
 import { Actor } from 'apify';
 
 await Actor.init();
@@ -102,7 +102,7 @@ await Actor.exit();
 
 Cool! But **wait**, don't forget to configure the **INPUT_SCHEMA.json** file as well! It's not necessary to do this step, as we'll be calling the actor through Apify's API within a webhook, but it's still good to get into the habit of writing quality input schemas that describe the input values your actors are expecting.
 
-```json
+```javascripton
 {
     "title": "Amazon Filter Actor",
     "type": "object",

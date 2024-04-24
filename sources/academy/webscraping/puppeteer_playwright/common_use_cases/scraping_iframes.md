@@ -19,7 +19,7 @@ If you are using basic methods of page objects like `page.evaluate()`, you are a
 
 As a simple demonstration, we'll scrape the Twitter widget iFrame from [IMDB](https://www.imdb.com/).
 
-```js
+```javascript
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch();
@@ -45,7 +45,7 @@ await browser.close();
 
 If it is hard to identify the iframe you want to access, don't worry. You can already use any Puppeteer method on the frame object to help you identify it, scrape it or manipulate it. You can also go through any nested frames.
 
-```js
+```javascript
 let twitterFrame;
 
 for (const frame of page.mainFrame().childFrames()) {
@@ -63,7 +63,7 @@ for (const frame of page.mainFrame().childFrames()) {
 
 Here we used some more advanced techniques to find a nested `<iframe>`. Now when we have it assigned to our twitterFrame object, the hard work is over and we can start working with it (almost) like with a regular page object.
 
-```js
+```javascript
 const textFeed = await twitterFrame.$$eval('.timeline-Tweet-text', (pElements) => pElements.map((elem) => elem.textContent));
 
 for (const text of textFeed) {

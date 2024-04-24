@@ -86,7 +86,7 @@ $('a.product-item__title');
 
 When we print all the URLs in the DevTools console, we can see that we've correctly filtered only the product detail page URLs.
 
-```js title=DevTools
+```javascript title=DevTools
 for (const a of document.querySelectorAll('a.product-item__title')) {
     console.log(a.href);
 }
@@ -133,7 +133,7 @@ This regular expression matches all URLs that use either `http` or `https` proto
 
 To test our regular expression in the DevTools console, we'll first create a [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) object and then test the URLs with the [`regExp.test(string)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) function.
 
-```js
+```javascript
 // To demonstrate pattern matching, we use only the 'a'
 // selector to select all links on the page.
 for (const a of document.querySelectorAll('a')) {

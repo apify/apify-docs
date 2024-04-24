@@ -13,7 +13,7 @@ slug: /web-scraping-for-beginners/challenge/scraping-amazon
 
 In our quick chat about modularity, we finished the code for the results page and added a request for each product to the crawler's **RequestQueue**. Here, we just need to scrape the description, so it shouldn't be too hard:
 
-```js
+```javascript
 // routes.js
 
 // ...
@@ -52,7 +52,7 @@ Wow, that's ugly. But for our scenario, this is really great. When we click the 
 
 First, we'll create a request for each product's offers page:
 
-```js
+```javascript
 // routes.js
 
 // ...
@@ -78,7 +78,7 @@ router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
 
 Finally, we can handle the offers in a separate handler:
 
-```js
+```javascript
 // routes.js
 
 router.addHandler(labels.OFFERS, async ({ $, request }) => {
@@ -101,7 +101,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 
 That should be it! Let's just make sure we've all got the same code:
 
-```js
+```javascript
 // constants.js
 export const BASE_URL = 'https://www.amazon.com';
 
@@ -112,7 +112,7 @@ export const labels = {
 };
 ```
 
-```js
+```javascript
 // routes.js
 import { createCheerioRouter, Dataset } from 'crawlee';
 import { BASE_URL, labels } from './constants';
@@ -181,7 +181,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 });
 ```
 
-```js
+```javascript
 // main.js
 import { CheerioCrawler, KeyValueStore, log } from 'crawlee';
 import { router } from './routes.js';

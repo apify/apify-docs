@@ -19,12 +19,12 @@ As a reminder, the data we need for each product on the page is available in the
 
 To get all the elements with that class using Cheerio, we call the `$` function with the appropriate CSS selector. Same as we would with the `document.querySelectorAll()` function.
 
-```js
+```javascript
 // In browser DevTools Console
 const products = document.querySelectorAll('.product-item');
 ```
 
-```js
+```javascript
 // In Node.js with Cheerio
 const products = $('.product-item');
 ```
@@ -33,7 +33,7 @@ We will use the same approach as in the previous DevTools lessons. Using a `for.
 
 Replace the code in your **main.js** with the following, and run it with `node main.js` in your terminal.
 
-```js
+```javascript
 // main.js
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
@@ -70,7 +70,7 @@ To clean the output, we need to repeat the process from the DevTools lessons and
 
 We will loop over all the `products` and extract the data points from each of them using the `for..of` loop. For reference, this a part of the code from the DevTools lesson, where we collected the data using the browser **DevTools Console**:
 
-```js
+```javascript
 // This code will only work in the browser, and NOT in Node.js
 const results = [];
 
@@ -87,7 +87,7 @@ for (const product of products) {
 
 And this snippet shows the same piece of code when using **Node.js and Cheerio**:
 
-```js
+```javascript
 const results = [];
 
 for (const product of products) {
@@ -105,7 +105,7 @@ The main difference is that we used the [`.find()`](https://cheerio.js.org/class
 
 The final scraper code looks like this. Replace the code in your **main.js** file with this code and run it using `node main.js` in your terminal.
 
-```js
+```javascript
 // main.js
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
@@ -138,7 +138,7 @@ console.log(results);
 
 After running the code, you will see this output in your terminal:
 
-```js
+```javascript
 [
     {
         title: 'JBL Flip 4 Waterproof Portable Bluetooth Speaker',

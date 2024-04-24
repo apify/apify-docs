@@ -25,7 +25,7 @@ Firstly, create a `.actor` folder in the root of your actor's source code. Then,
 
 Next, copy-paste the following template code into your `actor.json` file.
 
-```json
+```javascripton
 {
     "actorSpecification": 1,
     "name": "___ENTER_ACTOR_NAME____",
@@ -73,7 +73,7 @@ To configure the output schema, simply replace the fields in the template with t
 
 For reference, you can use the [Zappos Scraper source code](https://github.com/PerVillalva/zappos-scraper-actor/blob/main/.actor/actor.json) as an example of how the final implementation of the output tab should look in a live actor.
 
-```json
+```javascripton
 {
     "actorSpecification": 1,
     "name": "zappos-scraper",
@@ -145,7 +145,7 @@ Also, if your desired label has the same name as the defined object key, then yo
 
 The matching object for the Zappos Scraper shown in the example above will look something like this:
 
-```js
+```javascript
 const results = {
     url: request.loadedUrl,
     imgUrl: $('#stage button[data-media="image"] img[itemprop="image"]').attr('src'),

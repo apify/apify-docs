@@ -30,7 +30,7 @@ npm install playwright
 
 After Playwright installs, we can proceed with updating the scraper code. Let's create a new file called `browser.js` and put the new code there. As always, the comments in the example describe changes in the code. Everything else is the same as before.
 
-```js title=browser.js
+```javascript title=browser.js
 // First, import PlaywrightCrawler instead of CheerioCrawler
 import { PlaywrightCrawler, Dataset } from 'crawlee';
 
@@ -135,7 +135,7 @@ If we added an appropriate selector to our original `CheerioCrawler` code, it wo
 
 Let's add this new extractor to our code. It collects the names of the recommended products.
 
-```js title=browser.js
+```javascript title=browser.js
 // ...
 const recommendedProducts = $('.product-recommendations a.product-item__title')
     .map((i, el) => $(el).text().trim())
@@ -149,7 +149,7 @@ await Dataset.pushData({
 
 And here's the complete, runnable code:
 
-```js title=browser.js
+```javascript title=browser.js
 import { PlaywrightCrawler, Dataset } from 'crawlee';
 
 const crawler = new PlaywrightCrawler({

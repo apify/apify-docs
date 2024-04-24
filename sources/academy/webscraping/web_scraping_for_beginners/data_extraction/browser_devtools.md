@@ -45,19 +45,19 @@ After you select the subtitle element, right-click the highlighted element in th
 
 For example, if you wanted to scrape the text inside the element, you could use the `textContent` property to get it. Copy and paste (or type) the following command into your Console and press Enter. The text of your `temp1` element - The Free Encyclopedia - will display in the Console.
 
-```js
+```javascript
 temp1.textContent;
 ```
 
 Now run this command to get the HTML of the element:
 
-```js
+```javascript
 temp1.outerHTML;
 ```
 
 And finally, run the next command to change the text of the element.
 
-```js
+```javascript
 temp1.textContent = 'Hello World!';
 ```
 

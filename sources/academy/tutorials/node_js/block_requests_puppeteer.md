@@ -21,13 +21,13 @@ If we run an Actor that measures extracted downloaded data from each response un
 
 Now if we want to optimize this to keep the webpage looking the same, but ignore unnecessary requests, then after
 
-```js
+```javascript
 const page = await browser.newPage();
 ```
 
 we could can use this piece of code
 
-```js
+```javascript
 await page.setRequestInterception(true);
 page.on('request', (request) => {
     if (someCondition) request.abort();
@@ -41,7 +41,7 @@ For our example we will only disable some tracking scripts and then check if eve
 
 Here is the code used:
 
-```js
+```javascript
 await page.setRequestInterception(true);
 page.on('request', (request) => {
     const url = request.url();

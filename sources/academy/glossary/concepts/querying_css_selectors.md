@@ -11,7 +11,7 @@ slug: /concepts/querying-css-selectors
 
 Here's an example of how you can use it:
 
-```js
+```javascript
 const firstButton = document.querySelector('button');
 ```
 
@@ -21,7 +21,7 @@ This will select the first button element on the page and store it in the variab
 
 Here's an example of how you can use it:
 
-```js
+```javascript
 const buttons = document.querySelectorAll('button');
 ```
 
@@ -29,7 +29,7 @@ This will select all button elements on the page and store them in the variable 
 
 Both functions can be used to access and manipulate the elements in the web page. Here's an example on how you can use it to extract the text of all buttons.
 
-```js
+```javascript
 const buttons = document.querySelectorAll('button');
 const buttonTexts = buttons.forEach((button) => button.textContent);
 ```

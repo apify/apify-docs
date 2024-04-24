@@ -40,7 +40,7 @@ The Orchestrator Actor orchestrates the parallel execution of scraper Actor runs
 It runs multiple instances of the scraper Actor and passes the request queue and dataset to them.
 For the Actor's base structure, we use Apify CLI and create a new Actor with the following command and use the [Empty TypeScript Actor template](https://apify.com/templates/ts-empty).
 
-```bash
+```shell
 apify create orchestrator-actor
 ````
 
@@ -154,7 +154,7 @@ Additionally, by registering for abort events, the Actor can terminate all paral
 
 Once you have the Orchestrator Actor ready, you can push it to Apify using the following command from the root directory of the Actor project:
 
-```bash
+```shell
 apify push
 ```
 
@@ -207,7 +207,7 @@ You can check [full code example](https://github.com/apify/apify-docs/tree/maste
 
 You need to push the Scraper Actor to Apify using the following command from the root directory of the Actor project:
 
-```bash
+```shell
 apify push
 ```
 

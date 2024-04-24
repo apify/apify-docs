@@ -84,7 +84,7 @@ element that we can use to select only the heading we're interested in.
 To get the title we just need to find it using a `header h1` selector, which selects all `<h1>` elements that have a `<header>` ancestor.
 And as we already know, there's only one.
 
-```js
+```javascript
 // Using Puppeteer
 async function pageFunction(context) {
     const { page } = context;
@@ -112,7 +112,7 @@ the `<header>` element too, same as the title. Moreover, the actual description 
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.webp)
 
-```js
+```javascript
 async function pageFunction(context) {
     const { page } = context;
     const title = await page.$eval(
@@ -137,7 +137,7 @@ The DevTools tell us that the `modifiedDate` can be found in a `<time>` element.
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/modified-date.webp)
 
-```js
+```javascript
 async function pageFunction(context) {
     const { page } = context;
     const title = await page.$eval(
@@ -179,7 +179,7 @@ Phew!
 And so we're finishing up with the `runCount`. There's no specific element like `<time>`, so we need to create
 a complex selector and then do a transformation on the result.
 
-```js
+```javascript
 async function pageFunction(context) {
     const { page } = context;
     const title = await page.$eval(
@@ -229,7 +229,7 @@ using a regular expression, but its type is still a `string`, so we finally conv
 And there we have it! All the data we needed in a single object. For the sake of completeness, let's add
 the properties we parsed from the URL earlier and we're good to go.
 
-```js
+```javascript
 async function pageFunction(context) {
     const { page, request } = context;
     const { url } = request;
@@ -275,7 +275,7 @@ async function pageFunction(context) {
 
 All we need to do now is add this to our `pageFunction`:
 
-```js
+```javascript
 async function pageFunction(context) {
     // page is Puppeteer's page
     const { request, log, skipLinks, page } = context;
@@ -496,7 +496,7 @@ no button.
 We've got the general algorithm ready, so all that's left is to integrate it into our earlier `pageFunction`.
 Remember the `// Do some stuff later` comment? Let's replace it.
 
-```js
+```javascript
 async function pageFunction(context) {
     const { request, log, skipLinks, page } = context;
     if (request.userData.label === 'START') {
@@ -606,7 +606,7 @@ You may have noticed that the `pageFunction` gets quite bulky. To make better se
 time maintaining or extending your task, feel free to define other functions inside the `pageFunction`
 that encapsulate all the different logic. You can, for example, define a function for each of the different pages:
 
-```js
+```javascript
 async function pageFunction(context) {
     switch (context.request.userData.label) {
         case 'START': return handleStart(context);
@@ -717,7 +717,7 @@ of jQuery to be available and you override it with an incompatible one. Be caref
 You can either call this function directly in your `pageFunction`, or you can set up jQuery injection in the
 **Pre goto function** in the **Input and options** section.
 
-```js
+```javascript
 async function pageFunction(context) {
     const { Apify, page } = context;
     await Apify.utils.puppeteer.injectJQuery(page);
@@ -726,7 +726,7 @@ async function pageFunction(context) {
 }
 ```
 
-```js
+```javascript
 async function preGotoFunction({ page, Apify }) {
     await Apify.utils.puppeteer.injectJQuery(page);
 }
@@ -737,7 +737,7 @@ or one might work while the other does not. Depending on the target website.
 
 Let's try refactoring the Bonus 1 version of the `pageFunction` to use jQuery.
 
-```js
+```javascript
 async function pageFunction(context) {
     switch (context.request.userData.label) {
         case 'START': return handleStart(context);

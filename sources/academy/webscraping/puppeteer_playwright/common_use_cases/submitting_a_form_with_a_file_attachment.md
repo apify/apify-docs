@@ -17,20 +17,20 @@ We can use Puppeteer or Playwright to simulate submitting the same way a human-o
 
 The first thing necessary is to download the file, which can be done using the `request-promise` module. We will also be using the `fs/promises` module to save it to the disk, so make sure they are included.
 
-```js
+```javascript
 import * as fs from 'fs/promises';
 import request from 'request-promise';
 ```
 
 The actual downloading is slightly different for text and binary files. For a text file, it can simply be done like this:
 
-```js
+```javascript
 const fileData = await request('https://some-site.com/file.txt');
 ```
 
 For a binary data file, we need to provide an additional parameter so as not to interpret it as text:
 
-```js
+```javascript
 const fileData = await request({
     uri: 'https://some-site.com/file.pdf',
     encoding: null,
@@ -41,7 +41,7 @@ In this case, `fileData` will be a `Buffer` instead of a string.
 
 To use the file in Puppeteer/Playwright, we need to save it to the disk. This can be done using the `fs/promises` module.
 
-```js
+```javascript
 await fs.writeFile('./file.pdf', fileData);
 ```
 
@@ -49,7 +49,7 @@ await fs.writeFile('./file.pdf', fileData);
 
 The first step necessary is to open the form page in Puppeteer. This can be done as follows:
 
-```js
+```javascript
 const browser = await puppeteer.launch();
 const page = await browser.newPage();
 await page.goto('https://some-site.com/file-upload.php');
@@ -57,7 +57,7 @@ await page.goto('https://some-site.com/file-upload.php');
 
 To fill in any necessary form inputs, we can use the `page.type()` function. This works even in cases when `elem.value = 'value'` is not usable.
 
-```js
+```javascript
 await page.type('input[name=firstName]', 'John');
 await page.type('input[name=surname]', 'Doe');
 await page.type('input[name=email]', 'john.doe@example.com');
@@ -65,13 +65,13 @@ await page.type('input[name=email]', 'john.doe@example.com');
 
 To add the file to the appropriate input, we first need to find it and then use the [`uploadFile()`](https://pptr.dev/next/api/puppeteer.elementhandle.uploadfile) function.
 
-```js
+```javascript
 const fileInput = await page.$('input[type=file]');
 await fileInput.uploadFile('./file.pdf');
 ```
 
 Now we can finally submit the form.
 
-```js
+```javascript
 await page.click('input[type=submit]');
 ```

@@ -39,7 +39,7 @@ Though it's a bit unintuitive, this is a perfect activity for learning how to us
 
 The new actor should take the following input values, which be mapped to parameters in the API calls:
 
-```json
+```javascripton
 {
     // How much memory to allocate to the Amazon actor
     // Must be a power of 2

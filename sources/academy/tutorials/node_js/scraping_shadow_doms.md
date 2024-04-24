@@ -21,7 +21,7 @@ The rest of the content is rendered the same way. This makes it hard to scrape b
 
 The content of the menu can be accessed only via the [`shadowRoot`](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot) property. If you use jQuery you can do the following:
 
-```js
+```javascript
 // Find element that is shadow root of menu DOM tree.
 const { shadowRoot } = document.getElementById('top-navbar-view');
 
@@ -36,7 +36,7 @@ However, this isn't very convenient, because you have to find the root element o
 
 So instead of that, we can replace the content of each element containing shadow DOM with the HTML of shadow DOM.
 
-```js
+```javascript
 // Iterate over all elements in the main DOM.
 for (const el of document.getElementsByTagName('*')) {
     // If element contains shadow root then replace its
@@ -49,7 +49,7 @@ After you run this, you can access all the elements and content easily using jQu
 
 Some websites may contain shadow DOMs recursively inside of shadow DOMs. In these cases, we must replace them with HTML recursively:
 
-```js
+```javascript
 // Returns HTML of given shadow DOM.
 const getShadowDomHtml = (shadowRoot) => {
     let shadowHTML = '';

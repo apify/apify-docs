@@ -19,7 +19,7 @@ If you've followed along with any of the more advanced courses in the Apify acad
 
 Here's an object of constant values that we've prepared for use within our project.
 
-```ts
+```typescript
 const fileExtensions = {
     JAVASCRIPT: '.js',
     TYPESCRIPT: '.ts',
@@ -30,7 +30,7 @@ const fileExtensions = {
 
 No problem, this will totally work; however, the issue is that TypeScript doesn't know what these values are - it infers them to just be strings. We can solve this by adding a type annotation with a custom type definition:
 
-```ts
+```typescript
 // Since TypeScript infers these values to be just strings,
 // we have to create a type definition telling it that these
 // properties hold super specific strings.
@@ -68,7 +68,7 @@ Because of the custom type definition for `fileExtensions` and the type annotati
 
 The [`enum`](https://www.typescriptlang.org/docs/handbook/enums.html) keyword is a new keyword brought to us by TypeScript that allows us the same functionality we implemented in the above section, plus more. To create one, simply use the keyword followed by the name you'd like to use (the naming convention is generally **CapitalizeEachFirstLetterAndSingular**).
 
-```ts
+```typescript
 enum FileExtension {
     // Use an "=" sign instead of a ":"
     JAVASCRIPT = '.js',
@@ -82,7 +82,7 @@ enum FileExtension {
 
 Using enums is straightforward. Simply use dot notation as you normally would with a regular object.
 
-```ts
+```typescript
 enum FileExtension {
     JAVASCRIPT = '.js',
     TYPESCRIPT = '.ts',
@@ -99,7 +99,7 @@ console.log(value); // => ".js"
 
 The nice thing about enums is that they can be used directly in type annotations as somewhat of a custom type. Observe this function:
 
-```ts
+```typescript
 const createFileName = (name: string, extension: string) => {
     return name + extension;
 };
@@ -107,7 +107,7 @@ const createFileName = (name: string, extension: string) => {
 
 We can restrict `extension` so that it can only be a value in the enum by replacing `extension: string` with `extension: FileExtension`:
 
-```ts
+```typescript
 enum FileExtension {
     JAVASCRIPT = '.js',
     TYPESCRIPT = '.ts',
