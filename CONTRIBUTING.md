@@ -82,11 +82,7 @@ Over time, we should track which items are useful and which don't get any traffi
 ## Installation and setup
 
 1. Use Git to clone this repository.
-2. If you work at Apify and can install packages prefixed with `@apify-packages`, you can skip this step.
-   Otherwise go to GitHub and navigate to [Settings / Personal access tokens / Tokens (classic)](https://github.com/settings/tokens).
-   Despite the UI suggesting you should use the new fine-grained tokens, generate a **classic token** with scopes **repo** and **write:packages**.
-   Keep the token somewhere safe.
-   Then run the following command and use your GitHub username together with the token as credentials:
+2. If you work at Apify and can install packages prefixed with `@apify-packages`, you can skip this step. Otherwise go to GitHub and navigate to [Settings / Personal access tokens / Tokens (classic)](https://github.com/settings/tokens). Despite the UI suggesting you should use the new fine-grained tokens, generate a **classic token** with scopes **repo** and **write:packages**. Keep the token somewhere safe. Then run the following command and use your GitHub username together with the token as credentials:
 
    ```bash
    npm login --scope=@apify-packages --registry=https://npm.pkg.github.com --auth-type=legacy
@@ -96,18 +92,13 @@ Over time, we should track which items are useful and which don't get any traffi
 3. Run `npm install`.
 4. Run `npm start`. The website should open at <http://localhost:3000>.
 
-This is sufficient to work on the main content, i.e. the Academy and Platform docs.
-If you want to also work on the other parts of the docs, you may want to first join them all together using Nginx.
+This is sufficient to work on the main content, i.e. the Academy and Platform docs. If you want to also work on the other parts of the docs, you may want to first join them all together using Nginx.
 
 ### Join all the docs repos together using Nginx
 
 By default, the parts of the docs sourced from other repositories will give you 404s. If you need to locally run the project with all the other repositories included, clone them all and setup an Nginx server according to the steps below.
 
-For the setup to work, use `npm start:dev` instead of `npm start` when starting `apify-docs`.
-This causes all links in the top navigation and the footer to be absolute.
-They will now use `docs.apify.loc` as a host.
-Clone all the remaining docs repositories, and start their Docusaurus instances.
-To run Docusaurus on a specific port, use `npm start -- --port XXXX`.
+For the setup to work, use `npm start:dev` instead of `npm start` when starting `apify-docs`. This causes all links in the top navigation and the footer to be absolute. They will now use `docs.apify.loc` as a host. Clone all the remaining docs repositories, and start their Docusaurus instances. To run Docusaurus on a specific port, use `npm start -- --port XXXX`.
 
 | repo                | port |
 |---------------------|------|
