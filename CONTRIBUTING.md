@@ -82,7 +82,7 @@ Over time, we should track which items are useful and which don't get any traffi
 ## Installation and setup
 
 1. Use Git to clone this repository.
-2. If you work at Apify and can install packages prefixed with `@apify-packages`, you can skip this step. Otherwise go to GitHub and navigate to [Settings / Personal access tokens / Tokens (classic)](https://github.com/settings/tokens). Despite the UI suggesting you should use the new fine-grained tokens, generate a **classic token** with scopes **repo** and **write:packages**. Keep the token somewhere safe. Then run the following command and use your GitHub username together with the token as credentials:
+2. To install packages prefixed with `@apify-packages`, first go to GitHub and navigate to [Settings / Personal access tokens / Tokens (classic)](https://github.com/settings/tokens). Despite the UI suggesting you should use the new fine-grained tokens, generate a **classic token** with scopes **repo** and **write:packages**. Keep the token somewhere safe. Then run the following command and use your GitHub username together with the token as credentials:
 
    ```bash
    npm login --scope=@apify-packages --registry=https://npm.pkg.github.com --auth-type=legacy
