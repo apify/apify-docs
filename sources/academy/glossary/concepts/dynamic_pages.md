@@ -36,6 +36,6 @@ Sometimes, it can be quite obvious when content is dynamically being rendered. F
 
 ![Image](https://blog.apify.com/content/images/2022/02/dynamicLoading-1--1--2.gif)
 
-Here, it's very clear that new content is being generated. As we scroll down the Twitter feed, we can see the scroll bar jumping back up, signifying that more elements have been created using Javascript.
+Here, it's very clear that new content is being generated. As we scroll down the Twitter feed, we can see the scroll bar jumping back up, signifying that more elements have been created using JavaScript.
 
 Other times, it's less obvious though. Content can appear to be static (non-dynamic) when it is not, or even sometimes the other way around.
