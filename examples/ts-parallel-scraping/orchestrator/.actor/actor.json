@@ -1,0 +1,12 @@
+{
+	"actorSpecification": 1,
+	"name": "ts-parallel-scraping-orchestrator",
+	"title": "Orchestrator Actor in Typescript",
+	"description": "",
+	"version": "0.0",
+	"meta": {
+		"templateId": "ts-crawlee-cheerio"
+	},
+	"input": "./input_schema.json",
+	"dockerfile": "./Dockerfile"
+}
