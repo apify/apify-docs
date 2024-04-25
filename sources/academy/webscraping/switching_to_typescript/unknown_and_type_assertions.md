@@ -80,7 +80,7 @@ This works, and in fact, it's the most optimal solution for this use case. But w
 
 ## Type assertions {#type-assertions}
 
-Despite the fancy name, [type assertions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions) are a simple concept based around a single keyword: `as`. We usually use this on values that we can't control the return type of, or values that we're sure have a certain type, but TypeScript needs a bit of help understanding that.
+Despite the fancy name, [type assertions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions) are a concept based around a single keyword: `as`. We usually use this on values that we can't control the return type of, or values that we're sure have a certain type, but TypeScript needs a bit of help understanding that.
 
 <!-- eslint-disable -->
 ```ts

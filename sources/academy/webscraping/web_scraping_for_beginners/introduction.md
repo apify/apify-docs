@@ -12,7 +12,7 @@ slug: /web-scraping-for-beginners/introduction
 
 ---
 
-Web scraping or crawling? Web data extraction, mining, or collection? You can find various definitions on the web. Let's agree on simple explanations that we will use throughout this beginner course on web scraping.
+Web scraping or crawling? Web data extraction, mining, or collection? You can find various definitions on the web. Let's agree on explanations that we will use throughout this beginner course on web scraping.
 
 ## What is web data extraction? {#what-is-data-extraction}
 

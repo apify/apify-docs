@@ -166,7 +166,7 @@ $data = $parsedResponse['data'];
 echo \json_encode($data, JSON_PRETTY_PRINT);
 ```
 
-We can see that there are two record keys: `INPUT` and `OUTPUT`. The HTML String to PDF Actor's README states that the PDF is stored under the `OUTPUT` key. Downloading it is simple:
+We can see that there are two record keys: `INPUT` and `OUTPUT`. The HTML String to PDF Actor's README states that the PDF is stored under the `OUTPUT` key. Let's download it:
 
 ```php
 // Don't forget to replace the <RUN_ID>

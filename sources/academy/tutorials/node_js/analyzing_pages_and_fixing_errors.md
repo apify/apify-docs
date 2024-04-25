@@ -123,7 +123,7 @@ To make the error snapshot descriptive, we name it **ERROR-LOGIN**. We add a ran
 
 ### Error reporting {#error-reporting}
 
-Logging and snapshotting are great tools but once you reach a certain run size, it may be hard to read through them all. For a large project, it is handy to create a more sophisticated reporting system. For example, let's look at simple **dataset** reporting.
+Logging and snapshotting are great tools but once you reach a certain run size, it may be hard to read through them all. For a large project, it is handy to create a more sophisticated reporting system.
 
 ## With the Apify SDK {#with-the-apify-sdk}
 

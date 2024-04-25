@@ -30,7 +30,7 @@ The `length` property of `products` tells us how many products we have in the li
 
 > [Visit this tutorial](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration) if you need to refresh the concept of loops in programming.
 
-Now, we will loop over each product and print their titles. We will use a so-called `for..of` loop to do it. It is a simple loop that iterates through all items of an array.
+Now, we will loop over each product and print their titles. We will use a so-called `for..of` loop to do it. It is a loop that iterates through all items of an array.
 
 Run the following command in the Console. Some notes:
 

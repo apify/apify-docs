@@ -72,7 +72,7 @@ console.log(returnValueAsString(myValue));
 
 ## Function types {#function-types}
 
-Before we learn about how to write function types, let's learn about a problem they can solve. We have a simple function called `addAll` which takes in array of numbers, adds them all up, and then returns the result.
+Before we learn about how to write function types, let's learn about a problem they can solve. We have a function called `addAll` which takes in array of numbers, adds them all up, and then returns the result.
 
 ```ts
 const addAll = (nums: number[]) => {

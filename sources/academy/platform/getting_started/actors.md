@@ -15,7 +15,7 @@ After you've followed the **Getting started** lesson, you're almost ready to sta
 
 ## What's an Actor? {#what-is-an-actor}
 
-When you deploy your script to the Apify platform, it is then called an **Actor**, which is a [serverless microservice](https://www.datadoghq.com/knowledge-center/serverless-architecture/serverless-microservices/#:~:text=Serverless%20microservices%20are%20cloud-based,suited%20for%20microservice-based%20architectures.) that accepts an input and produces an output. Actors can run for a few seconds, hours or even infinitely. An Actor can perform anything from a simple action such as filling out a web form or sending an email, to complex operations such as crawling an entire website and removing duplicates from a large dataset.
+When you deploy your script to the Apify platform, it is then called an **Actor**, which is a [serverless microservice](https://www.datadoghq.com/knowledge-center/serverless-architecture/serverless-microservices/#:~:text=Serverless%20microservices%20are%20cloud-based,suited%20for%20microservice-based%20architectures.) that accepts an input and produces an output. Actors can run for a few seconds, hours or even infinitely. An Actor can perform anything from a basic action such as filling out a web form or sending an email, to complex operations such as crawling an entire website and removing duplicates from a large dataset.
 
 Once an Actor has been pushed to the Apify platform, they can be shared to the world through the [Apify Store](https://apify.com/store), and even monetized after going public.
 

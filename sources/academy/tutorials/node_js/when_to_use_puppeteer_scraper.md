@@ -102,7 +102,7 @@ await context.page.goto('https://some-new-page.com');
 
 Some very useful scraping techniques revolve around listening to network requests and responses and even modifying them on the fly. Web Scraper's page function doesn't have access to the network, besides calling JavaScript APIs such as `fetch()`. Puppeteer Scraper, on the other hand, has full control over the browser's network activity.
 
-With a simple call, you can listen to all the network requests that are being dispatched from the browser. For example, the following code will print all their URLs to the console.
+You can listen to all the network requests that are being dispatched from the browser. For example, the following code will print all their URLs to the console.
 
 ```js
 context.page.on('request', (req) => console.log(req.url()));
@@ -116,7 +116,7 @@ _Explaining how to do interception properly is out of scope of this article. See
 
 A large number of websites use either form submissions or JavaScript redirects for navigation and displaying of data. With Web Scraper, you cannot crawl those websites, because there are no links to find and enqueue on those pages. Puppeteer Scraper enables you to automatically click all those elements that cause navigation, intercept the navigation requests and enqueue them to the request queue.
 
-If it seems complicated, don't worry. We've abstracted all the complexity away into a simple `Clickable elements selector` input option. When left empty, none of the said clicking and intercepting happens, but once you choose a selector, Puppeteer Scraper will automatically click all the selected elements, watch for page navigations and enqueue them into the `RequestQueue`.
+If it seems complicated, don't worry. We've abstracted all the complexity away to a `Clickable elements selector` input option. When left empty, none of the said clicking and intercepting happens, but once you choose a selector, Puppeteer Scraper will automatically click all the selected elements, watch for page navigations and enqueue them into the `RequestQueue`.
 
 _The_ `Clickable elements selector` _will also work on regular non-JavaScript links, however, it is significantly slower than using the plain_ `Link selector`_. Unless you know you need it, use the_ `Link selector` _for best performance._
 
@@ -170,6 +170,6 @@ And we're only scratching the surface here.
 
 ## Wrapping it up
 
-Many more techniques are available to Puppeteer Scraper that are either too complicated to replicate in Web Scraper or downright impossible to do. For basic scraping of simple websites Web Scraper is a great tool, because it goes right to the point and uses in-browser JavaScript which is well-known to millions of people, even non-developers.
+Many more techniques are available to Puppeteer Scraper that are either too complicated to replicate in Web Scraper or downright impossible to do. Web Scraper is a great tool for basic scraping, because it goes right to the point and uses in-browser JavaScript which is well-known to millions of people, even non-developers.
 
 Once you start hitting some roadblocks, you may find that Puppeteer Scraper is just what you need to overcome them. And if Puppeteer Scraper still doesn't cut it, there's still Apify SDK to rule them all. We hope you found this tutorial helpful and happy scraping.
