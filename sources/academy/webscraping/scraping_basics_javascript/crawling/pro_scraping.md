@@ -165,7 +165,7 @@ const crawler = new CheerioCrawler({
     },
 });
 
-// Instead of using a simple URL string, we're now
+// Instead of using a string with URL, we're now
 // using a request object to add more options.
 await crawler.addRequests([{
     url: 'https://warehouse-theme-metal.myshopify.com/collections/sales',
@@ -237,7 +237,7 @@ When you run the code as usual, you'll see the product URLs printed to the termi
 ./storage/datasets/default/*.json
 ```
 
-Thanks to **Crawlee**, we were able to create a **faster and more robust scraper**, but **with less code** than what was needed for the simple scraper in the earlier lessons.
+Thanks to **Crawlee**, we were able to create a **faster and more robust scraper**, but **with less code** than what was needed for the scraper in the earlier lessons.
 
 ## Next up {#next}
 

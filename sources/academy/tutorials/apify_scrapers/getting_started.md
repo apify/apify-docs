@@ -108,7 +108,7 @@ Some of this information may be scraped directly from the listing pages, but for
 
 ### [](#the-start-url) The start URL
 
-Let's start with something simple. In the **Input** tab of the task we have, we'll change the **Start URL** from **https://apify.com**. This will tell the scraper to start by opening a different URL. You can add more **Start URL**s or even [use a file with a list of thousands of them](#-crawling-the-website-with-pseudo-urls), but in this case, we'll be good with just one.
+In the **Input** tab of the task we have, we'll change the **Start URL** from **https://apify.com**. This will tell the scraper to start by opening a different URL. You can add more **Start URL**s or even [use a file with a list of thousands of them](#-crawling-the-website-with-pseudo-urls), but in this case, we'll be good with just one.
 
 How do we choose the new **Start URL**? The goal is to scrape all Actors in the store, which is available at https://apify.com/store, so we choose this URL as our **Start URL**.
 
@@ -128,7 +128,7 @@ We also need to somehow distinguish the **Start URL** from all the other URLs th
 
 The **Link selector**, together with **Pseudo URL**s, are your URL matching arsenal. The Link selector is a CSS selector and its purpose is to select the HTML elements where the scraper should look for URLs. And by looking for URLs, we mean finding the elements' `href` attributes. For example, to enqueue URLs from `<div class="my-class" href=...>` tags, we would enter `'div.my-class'`.
 
-What's the connection to **Pseudo URL**s? Well, first, all the URLs found in the elements that match the Link selector are collected. Then, **Pseudo URL**s are used to filter through those URLs and enqueue only the ones that match the **Pseudo URL** structure. Simple.
+What's the connection to **Pseudo URL**s? Well, first, all the URLs found in the elements that match the Link selector are collected. Then, **Pseudo URL**s are used to filter through those URLs and enqueue only the ones that match the **Pseudo URL** structure.
 
 To scrape all the Actors in Apify Store, we should use the Link selector to tell the scraper where to find the URLs we need. For now, let us tell you that the Link selector you're looking for is:
 
@@ -290,11 +290,7 @@ The scraper:
 
 ## [](#scraping-practice) Scraping practice
 
-We've covered all the concepts that we need to understand to successfully scrape the data in our goal,
-so let's get to it and start with something really simple. We will only output data that are already available
-to us in the page's URL. Remember from [our goal](#the-goal) that we also want to include the **URL** and a **Unique
-identifier** in our results. To get those, we need the `request.url` because it is the URL and
-includes the Unique identifier.
+We've covered all the concepts that we need to understand to successfully scrape the data in our goal, so let's get to it. We will only output data that are already available to us in the page's URL. Remember from [our goal](#the-goal) that we also want to include the **URL** and a **Unique identifier** in our results. To get those, we need the `request.url`  because it is the URL and includes the Unique identifier.
 
 ```js
 const { url } = request;

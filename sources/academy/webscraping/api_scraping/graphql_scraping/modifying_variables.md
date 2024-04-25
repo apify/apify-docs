@@ -116,4 +116,4 @@ Depending on the API, doing just this can be sufficient. However, sometimes we w
 
 ## Next up {#next}
 
-In the [next lesson](./introspection.md) we will be walking you through how to learn about a GraphQL API before scraping it by using **introspection** (don't worry - it's a fancy word, but a simple concept).
+In the [next lesson](./introspection.md) we will be walking you through how to learn about a GraphQL API before scraping it by using **introspection**.
