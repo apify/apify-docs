@@ -44,8 +44,7 @@ It's also much easier to work with external APIs, databases or the [Apify SDK](h
 in the Node.js context. The tradeoff is simple. Power vs simplicity. Web Scraper is simple,
 Puppeteer Scraper is powerful (and the [Apify SDK](https://sdk.apify.com) is super-powerful).
 
-> Simply put, Web Scraper's `pageFunction` is just a single
-[page.evaluate()](https://pptr.dev/#?product=Puppeteer&show=api-pageevaluatepagefunction-args) call.
+> In other words, Web Scraper's `pageFunction` is just a single [page.evaluate()](https://pptr.dev/#?product=Puppeteer&show=api-pageevaluatepagefunction-args) call.
 
 Now that's out of the way, let's open one of the Actor detail pages in the Store, for example the Web Scraper page and use our DevTools-Fu to scrape some data.
 
@@ -106,8 +105,7 @@ is automatically passed back to the Node.js context, so we receive an actual `st
 
 ### [](#description) Description
 
-Getting the Actor's description is a little more involved, but still pretty straightforward. We can't just simply search for a `<p>` tag, because
-there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the Actor description is nested within
+Getting the Actor's description is a little more involved, but still pretty straightforward. We cannot search for a `<p>` tag, because there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the Actor description is nested within
 the `<header>` element too, same as the title. Moreover, the actual description is nested inside a `<span>` tag with a class `actor-description`.
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.webp)

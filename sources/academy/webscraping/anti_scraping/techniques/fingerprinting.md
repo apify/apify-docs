@@ -103,7 +103,7 @@ Here's an example of multiple WebGL scenes visibly being rendered differently on
 
 The [AudioContext](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext) API represents an audio-processing graph built from audio modules linked together, each represented by an [AudioNode](https://developer.mozilla.org/en-US/docs/Web/API/AudioNode) ([OscillatorNode](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode)).
 
-In the simplest cases, the fingerprint can be obtained by simply checking for the existence of AudioContext. However, this doesn't provide very much information. In advanced cases, the technique used to collect a fingerprint from AudioContext is quite similar to the `<canvas>` method:
+In the simplest cases, the fingerprint can be obtained by checking for the existence of AudioContext. However, this doesn't provide very much information. In advanced cases, the technique used to collect a fingerprint from AudioContext is quite similar to the `<canvas>` method:
 
 1. Audio is passed through an OscillatorNode.
 2. The signal is processed and collected.

@@ -21,7 +21,7 @@ At the top of the popup, there is a row of buttons. From left to right, here is 
 
 ### Delete all cookies
 
-Clicking this button will simply remove all cookies associated with the current domain. For example, if you're logged into your Apify account and delete all the cookies, the website will ask you to log in again.
+Clicking this button will remove all cookies associated with the current domain. For example, if you're logged into your Apify account and delete all the cookies, the website will ask you to log in again.
 
 ### Reset
 

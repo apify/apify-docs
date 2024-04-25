@@ -39,7 +39,7 @@ With [PuppeteerCrawler](/sdk/js/docs/api/puppeteer-crawler) the situation is a l
 
 The straightforward solution would be to set the 'retireInstanceAfterRequestCount' option to 1. PuppeteerCrawler would then rotate the proxies in the same way as BasicCrawler. While this approach could sometimes be useful for the toughest websites, the price you pay is in performance. Restarting the browser is an expensive operation.
 
-That's why PuppeteerCrawler offers a utility retire() function through a PuppeteerPool class. You can access PuppeteerPool by simply passing it into the object parameter of gotoFunction or handlePageFunction.
+That's why PuppeteerCrawler offers a utility retire() function through a PuppeteerPool class. You can access PuppeteerPool by passing it into the object parameter of gotoFunction or handlePageFunction.
 
 ```js
 const crawler = new PuppeteerCrawler({

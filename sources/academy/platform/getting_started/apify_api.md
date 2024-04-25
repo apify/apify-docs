@@ -39,7 +39,7 @@ Our **adding-actor** takes in two input values (`num1` and `num2`). When using t
 
 ## Parameters {#parameters}
 
-Let's say we want to run our **adding-actor** via API and view its results in CSV format at the end. We'll achieve this by simply passing the **format** parameter with a value of **csv** to change the output format:
+Let's say we want to run our **adding-actor** via API and view its results in CSV format at the end. We'll achieve this by passing the **format** parameter with a value of **csv** to change the output format:
 
 ```text
 https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv

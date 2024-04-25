@@ -44,7 +44,7 @@ Finally, create a file called **index.js**. This is the file we will be working 
 
 If we remember from the last lesson, we need to pass a valid "app token" within the **X-App-Token** header of every single request we make, or else we will be blocked. When testing queries, we just copied this value straight from the **Network** tab; however, since this is a dynamic value, we should farm it.
 
-Since we know requests with this header are sent right when the front page is loaded, it can be farmed by simply visiting the page and intercepting requests in Puppeteer like so:
+Since we know requests with this header are sent right when the front page is loaded, it can be farmed by visiting the page and intercepting requests in Puppeteer like so:
 
 ```js
 // scrapeAppToken.js

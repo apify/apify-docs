@@ -60,7 +60,7 @@ async function pageFunction(context) {
 }
 ```
 
-With jQuery, we're simply using the `$.getScript()` helper to fetch the script for us and wait for it to load.
+With jQuery, we're using the `$.getScript()` helper to fetch the script for us and wait for it to load.
 
 ## Dealing with errors
 

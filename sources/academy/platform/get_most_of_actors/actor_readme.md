@@ -57,7 +57,7 @@ Aim for sections 1–6 below and try to include at least 300 words. You can move
 
     - Add a video tutorial or GIF from an ideal Actor run.
 
-    > Tip: For better user experience, Apify Console automatically renders every YouTube URL as an embedded video player. Simply add a separate line with the URL of your YouTube video.
+    > Tip: For better user experience, Apify Console automatically renders every YouTube URL as an embedded video player. Add a separate line with the URL of your YouTube video.
 
     - Consider adding a short numbered tutorial as Google will sometimes pick these up as rich snippets. Remember that this might be in search results, so you can repeat the name of the Actor and give a link, e.g.
 

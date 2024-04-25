@@ -107,7 +107,7 @@ let job: undefined | string;
 const chars = job.split('');
 ```
 
-TypeScript will yell at you when trying to compile this code, stating that **Object is possibly 'undefined'**, which is true. In order to assert that `job` will not be `undefined` in this case, we can simply add an exclamation mark before the dot.
+TypeScript will yell at you when trying to compile this code, stating that **Object is possibly 'undefined'**, which is true. To assert that `job` will not be `undefined` in this case, we can add an exclamation mark before the dot.
 
 ```ts
 let job: undefined | string;

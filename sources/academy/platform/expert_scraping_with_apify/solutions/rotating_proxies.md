@@ -106,7 +106,7 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
 
 **Q: What do you need to do to rotate a proxy (one proxy usually has one IP)? How does this differ for CheerioCrawler and PuppeteerCrawler?**
 
-**A:** Simply making a new request with the proxy endpoint above will automatically rotate it. Sessions can also be used to automatically do this. While proxy rotation is fairly straightforward for Cheerio, it's more complex in Puppeteer, as you have to retire the browser each time a new proxy is rotated in. The SessionPool will automatically retire a browser when a session is retired. Sessions can be manually retired with `session.retire()`.
+**A:** Making a new request with the proxy endpoint above will automatically rotate it. Sessions can also be used to automatically do this. While proxy rotation is fairly straightforward for Cheerio, it's more complex in Puppeteer, as you have to retire the browser each time a new proxy is rotated in. The SessionPool will automatically retire a browser when a session is retired. Sessions can be manually retired with `session.retire()`.
 
 **Q: Name a few different ways how a website can prevent you from scraping it.**
 

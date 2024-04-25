@@ -68,7 +68,7 @@ If you want to use the template locally, you can again use our [Apify CLI](/cli)
 
 When you click on the **Use locally** button, you'll be presented with instructions on how to create an Actor from this template in your local environment.
 
-With the Apify CLI installed, you can simply run the following commands in your terminal:
+With the Apify CLI installed, you can run the following commands in your terminal:
 
 ```shell
 apify create my-actor -t getting_started_node
@@ -153,7 +153,7 @@ And now we are ready to run the Actor. But before we do that, let's give the Act
 
 The input tab is where you can provide the Actor with some meaningful input. In this case, we'll be providing the Actor with a URL to scrape. For now, we'll use the prefilled value of [Apify website](https://apify.com/) (`https://apify.com/`).
 
-You can change the website you want to extract the data from by simply changing the URL in the input field.
+You can change the website you want to extract the data from by changing the URL in the input field.
 
 ![Input tab](./images/actor-input-tab.png)
 
@@ -163,7 +163,7 @@ Once you have provided the Actor with some URL you want to extract the data from
 
 ![Actor run logs](./images/actor-run.png)
 
-After the Actor finishes, you can preview or download the extracted data simply by clicking on the **Export X results** button.
+After the Actor finishes, you can preview or download the extracted data by clicking on the **Export X results** button.
 
 ![Export results](./images/actor-run-dataset.png)
 

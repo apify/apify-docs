@@ -29,7 +29,7 @@ You can test a `pageFunction` code in two ways in your console:
 
 ## Pasting and running a small code snippet
 
-Usually, you don't need to paste in the whole pageFunction as you can simply isolate the critical part of the code you are trying to debug. You will need to remove any references to the `context` object and its properties like `request` and the final return statement but otherwise, the code should work 1:1.
+Usually, you don't need to paste in the whole pageFunction as you can isolate the critical part of the code you are trying to debug. You will need to remove any references to the `context` object and its properties like `request` and the final return statement but otherwise, the code should work 1:1.
 
 I will also usually remove `const` declarations on the top level variables. This helps you to run the same code many times over without needing to restart the console (you cannot declare constants more than once). My declaration will change from:
 
@@ -56,7 +56,7 @@ $('.my-list-item').each((i, el) => {
 });
 ```
 
-Now the `results` variable stays on the page and you can do whatever you wish with it. Usually, simply log it to analyze if your scraping code is correct. Writing a single expression will also log it in a browser console.
+Now the `results` variable stays on the page and you can do whatever you wish with it. Log it to analyze if your scraping code is correct. Writing a single expression will also log it in a browser console.
 
 ```js
 results;
