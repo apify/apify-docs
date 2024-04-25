@@ -53,7 +53,7 @@ If we send a correct POST request to one of these endpoints, the actor/actor-tas
 
 ### Additional settings {#additional-settings}
 
-We can also add settings for the actor (which will override the default settings) as additional query parameters. For example, if we wanted to change how much memory the actor's run should be allocated and which build to run, we could simply add the `memory` and `build` parameters separated by `&`.
+We can also add settings for the actor (which will override the default settings) as additional query parameters. For example, if we wanted to change how much memory the actor's run should be allocated and which build to run, we could add the `memory` and `build` parameters separated by `&`.
 
 ```cURL
 https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN&memory=8192&build=beta
@@ -198,7 +198,7 @@ For runs longer than 5 minutes, the process consists of three steps:
 
 ### Wait for the run to finish {#wait-for-the-run-to-finish}
 
-There may be cases where we need to simply run the actor and go away. But in any kind of integration, we are usually interested in its output. We have three basic options for how to wait for the actor/task to finish.
+There may be cases where we need to run the actor and go away. But in any kind of integration, we are usually interested in its output. We have three basic options for how to wait for the actor/task to finish.
 
 - [`waitForFinish` parameter](#waitforfinish-parameter)
 - [Webhooks](#webhooks)
@@ -218,7 +218,7 @@ Once again, the final response will be the **run info object**; however, now its
 
 #### Webhooks {#webhooks}
 
-If you have a server, [webhooks](/platform/integrations/webhooks) are the most elegant and flexible solution for integrations with Apify. You can simply set up a webhook for any Actor or task, and that webhook will send a POST request to your server after an [event](/platform/integrations/webhooks/events) has occurred.
+If you have a server, [webhooks](/platform/integrations/webhooks) are the most elegant and flexible solution for integrations with Apify. You can set up a webhook for any Actor or task, and that webhook will send a POST request to your server after an [event](/platform/integrations/webhooks/events) has occurred.
 
 Usually, this event is a successfully finished run, but you can also set a different webhook for failed runs, etc.
 
@@ -236,7 +236,7 @@ What if you don't have a server, and the run you'd like to do is much too long t
 
 When we run the actor with the [usual API call](#run-an-actor-or-task) shown above, we will back a response with the **run info** object. From this JSON object, we can then extract the ID of the actor run that we just started from the `id` field. Then, we can set an interval that will poll the Apify API (let's say every 5 seconds) by calling the [**Get run**](https://apify.com/docs/api/v2#/reference/actors/run-object/get-run) endpoint to retrieve the run's status.
 
-Simply replace the `RUN_ID` in the following URL with the ID you extracted earlier:
+Replace the `RUN_ID` in the following URL with the ID you extracted earlier:
 
 ```cURL
 https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs/RUN_ID

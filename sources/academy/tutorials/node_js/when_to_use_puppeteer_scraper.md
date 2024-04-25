@@ -41,7 +41,7 @@ const bodyHTML = await context.page.evaluate(() => {
 });
 ```
 
-The `context.page.evaluate()` call executes the provided function in the browser environment and passes back the return value back to the Node.js environment. One very important caveat though! Since we're in different environments, we cannot simply use our existing variables, such as `context` inside of the evaluated function, because they are not available there. Different environments, different variables.
+The `context.page.evaluate()` call executes the provided function in the browser environment and passes back the return value back to the Node.js environment. One very important caveat though! Since we're in different environments, we cannot use our existing variables, such as `context` inside of the evaluated function, because they are not available there. Different environments, different variables.
 
 _See the_ `page.evaluate()` _[documentation](https://pptr.dev/#?product=Puppeteer&show=api-pageevaluatepagefunction-args) for info on how to pass variables from Node.js to browser._
 

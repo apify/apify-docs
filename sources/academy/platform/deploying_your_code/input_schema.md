@@ -28,7 +28,7 @@ In the root of our project, we'll create a file named **INPUT_SCHEMA.json** and 
 }
 ```
 
-The **title** and **description** simply describe what the input schema is for, and a bit about what the actor itself does.
+The **title** and **description** describe what the input schema is for, and a bit about what the actor itself does.
 
 ## Properties {#properties}
 

@@ -66,7 +66,7 @@ Because of the custom type definition for `fileExtensions` and the type annotati
 
 ## Creating enums {#creating-enums}
 
-The [`enum`](https://www.typescriptlang.org/docs/handbook/enums.html) keyword is a new keyword brought to us by TypeScript that allows us the same functionality we implemented in the above section, plus more. To create one, simply use the keyword followed by the name you'd like to use (the naming convention is generally **CapitalizeEachFirstLetterAndSingular**).
+The [`enum`](https://www.typescriptlang.org/docs/handbook/enums.html) keyword is a new keyword brought to us by TypeScript that allows us the same functionality we implemented in the above section, plus more. To create one, use the keyword followed by the name you'd like to use (the naming convention is generally **CapitalizeEachFirstLetterAndSingular**).
 
 ```ts
 enum FileExtension {
@@ -80,7 +80,7 @@ enum FileExtension {
 
 ## Using enums {#using-enums}
 
-Using enums is straightforward. Simply use dot notation as you normally would with a regular object.
+Using enums is straightforward. Use dot notation as you would with a regular object.
 
 ```ts
 enum FileExtension {
