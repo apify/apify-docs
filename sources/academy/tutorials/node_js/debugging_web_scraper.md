@@ -44,7 +44,7 @@ into
 results = [];
 ```
 
-You can easily get all the information you need by running a small snippet of your pageFunction like this
+You can get all the information you need by running a snippet of your `pageFunction` like this:
 
 ```js
 results = [];

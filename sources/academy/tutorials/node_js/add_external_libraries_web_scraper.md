@@ -13,7 +13,7 @@ In this tutorial, we'll learn how to inject any JavaScript library into your pag
 
 Moment.js is a very popular library for working with date and time. It helps you with the parsing, manipulation, and formatting of datetime values in multiple locales and has become the de-facto standard for this kind of work in JavaScript.
 
-To inject Moment.js into our page function (or any other library using the same method), we first need to find a link to download it from. We can easily find it in [Moment.js' documentation](https://momentjs.com/docs/#/use-it/browser/) under the CDN links.
+To inject Moment.js into our page function (or any other library using the same method), we first need to find a link to download it from. We can find it in [Moment.js' documentation](https://momentjs.com/docs/#/use-it/browser/) under the CDN links.
 
 > https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js
 
@@ -64,6 +64,6 @@ With jQuery, we're using the `$.getScript()` helper to fetch the script for us a
 
 ## Dealing with errors
 
-Some websites employ security measures that disallow loading external scripts within their pages. Luckily, those measures can be easily overridden with Web Scraper. If you are encountering errors saying that your library cannot be loaded due to a security policy, select the Ignore CORS and CSP input option at the very bottom of Web Scraper input and the errors should go away.
+Some websites employ security measures that disallow loading external scripts within their pages. Luckily, those measures can be overridden with Web Scraper. If you are encountering errors saying that your library cannot be loaded due to a security policy, select the Ignore CORS and CSP input option at the very bottom of Web Scraper input and the errors should go away.
 
 Happy scraping!
