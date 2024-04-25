@@ -124,7 +124,7 @@ This really depends on your use case though. If you want 100% clean data, you mi
 
 ## Recap {#recap}
 
-Wow, that's a whole lot of things to abide by! How will you remember all of them? Well, to simplify everything, just try to follow these three points:
+Wow, that's a whole lot of things to abide by! How will you remember all of them? Try to follow these three points:
 
 1. Describe your code as you write it with good naming, constants, and comments. It **should read like a book**.
 2. Add log messages at points throughout your code so that when it's running, you (and everyone else) know what's going on.

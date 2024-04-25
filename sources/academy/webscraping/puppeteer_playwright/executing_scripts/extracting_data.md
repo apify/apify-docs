@@ -302,4 +302,4 @@ await browser.close();
 
 ## Next up {#next}
 
-Our [next lesson](../reading_intercepting_requests.md) will be discussing something super cool - request interception and reading data from requests and responses. It's just like using DevTools, except programmatically!
+Our [next lesson](../reading_intercepting_requests.md) will be discussing something super cool - request interception and reading data from requests and responses. It's like using DevTools, except programmatically!

@@ -23,7 +23,7 @@ If the Actor being run via API takes 5 minutes or less to complete a typical run
 
 ## Run an Actor or task {#run-an-actor-or-task}
 
-> If you are unsure about the differences between an Actor and a task, you can read about them in the [tasks](/platform/actors/running/tasks) documentation. In brief, tasks are just pre-configured inputs for Actors.
+> If you are unsure about the differences between an Actor and a task, you can read about them in the [tasks](/platform/actors/running/tasks) documentation. In brief, tasks are pre-configured inputs for Actors.
 
 The API endpoints and usage (for both sync and async) for [Actors](/api/v2#/reference/actors/run-collection/run-actor) and [tasks](/api/v2#/reference/actor-tasks/run-collection/run-task) are essentially the same.
 
@@ -43,7 +43,7 @@ The URL of [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Meth
 https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN
 ```
 
-For tasks, we can just switch the path from **acts** to **actor-tasks** and keep the rest the same:
+For tasks, we can switch the path from **acts** to **actor-tasks** and keep the rest the same:
 
 ```cURL
 https://api.apify.com/v2/actor-tasks/TASK_NAME_OR_ID/runs?token=YOUR_TOKEN
@@ -224,7 +224,7 @@ Usually, this event is a successfully finished run, but you can also set a diffe
 
 ![Webhook example](./images/webhook.png)
 
-The webhook will send you a pretty complicated [JSON object](/platform/integrations/webhooks/actions), but usually, you would only be interested in the `resource` object within the response, which is essentially just the **run info** JSON from the previous sections. We can leave the payload template as is for our example since it is all we need.
+The webhook will send you a pretty complicated [JSON object](/platform/integrations/webhooks/actions), but usually, you would only be interested in the `resource` object within the response, which is like the **run info** JSON from the previous sections. We can leave the payload template as is for our example since it is all we need.
 
 Once your server receives this request from the webhook, you know that the event happened, and you can ask for the complete data.
 
@@ -254,7 +254,7 @@ The **run info** JSON also contains the IDs of the default [dataset](/platform/s
 
 > If you are scraping products, or any list of items with similar fields, the [dataset](/platform/storage/dataset) should be your storage of choice. Don't forget though, that dataset items are immutable. This means that you can only add to the dataset, and not change the content that is already inside it.
 
-Retrieving the data from a dataset is simple. Just send a GET request to the [**Get items**](/api/v2#/reference/datasets/item-collection/get-items) endpoint and pass the `defaultDatasetId` into the URL. For a GET request to the default dataset, no token is needed.
+Retrieving the data from a dataset is simple. Send a GET request to the [**Get items**](/api/v2#/reference/datasets/item-collection/get-items) endpoint and pass the `defaultDatasetId` into the URL. For a GET request to the default dataset, no token is needed.
 
 ```cURL
 https://api.apify.com/v2/datasets/DATASET_ID/items

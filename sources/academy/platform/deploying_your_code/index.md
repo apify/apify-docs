@@ -1,6 +1,6 @@
 ---
 title: Deploying your code
-description: In this course learn how to take an existing project of yours and deploy it to the Apify platform as an Actor in just a few minutes!
+description: In this course learn how to take an existing project of yours and deploy it to the Apify platform as an actor.
 sidebar_position: 9
 category: apify platform
 slug: /deploying-your-code
@@ -11,25 +11,24 @@ import TabItem from '@theme/TabItem';
 
 # Deploying your code to Apify {#deploying}
 
-**In this course learn how to take an existing project of yours and deploy it to the Apify platform as an Actor in just a few minutes!**
+**In this course learn how to take an existing project of yours and deploy it to the Apify platform as an Actor.**
 
 ---
 
 This section will discuss how to use your newfound knowledge of the Apify platform and Actors from the [**Getting started**](../getting_started/index.md) section to deploy your existing project's code to the Apify platform as an Actor.
-
-Because Actors are basically just chunks of code running in Docker containers, you're able to **_Actorify_** just about anything!
+Any program running in a Docker container can become an Apify Actor.
 
 ![The deployment workflow](../../images/deployment-workflow.png)
 
-Actors are language agnostic, which means that the language your project is written in does not affect your ability to actorify it.
+Apify provides detailed guidance on how to deploy Node.js and Python programs as Actors, but apart from that you're not limited in what programming language you choose for your scraper.
 
 ![Supported languages](../../images/supported-languages.jpg)
 
-Though the majority of Actors currently on the platform were written in Node.js, and despite the fact our current preferred languages are JavaScript and Python, there are a few examples of Actors in other languages:
+Here are a few examples of Actors in other languages:
 
-- [Actor written in Rust](https://apify.com/lukaskrivka/rust-actor-example)
-- [GO Actor](https://apify.com/jirimoravcik/go-actor-example)
-- [Actor written with Julia](https://apify.com/jirimoravcik/julia-actor-example)
+- [Rust actor](https://apify.com/lukaskrivka/rust-actor-example)
+- [Go actor](https://apify.com/jirimoravcik/go-actor-example)
+- [Julia actor](https://apify.com/jirimoravcik/julia-actor-example)
 
 ## The "actorification" workflow {#workflow}
 

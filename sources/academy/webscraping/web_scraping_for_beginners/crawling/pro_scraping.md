@@ -170,7 +170,7 @@ When you run the code, you'll see the names and URLs of all the products printed
 
 ## Extracting data {#extracting-data}
 
-We have the crawler in place, and it's time to extract data. We already have the extraction code from the previous lesson, so we can just copy and paste it into the `requestHandler` with tiny changes. Instead of printing results to the terminal, we will save it to disk.
+We have the crawler in place, and it's time to extract data. We already have the extraction code from the previous lesson, so we can copy and paste it into the `requestHandler` with tiny changes. Instead of printing results to the terminal, we will save it to disk.
 
 ```js title=crawlee.js
 // To save data to disk, we need to import Dataset.
