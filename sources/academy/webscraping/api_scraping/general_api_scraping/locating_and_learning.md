@@ -41,7 +41,7 @@ Since our request doesn't have any body/payload, we just need to analyze the URL
 
 ![Breaking down the request url into understandable chunks](./images/analyzing-the-url.png)
 
-Understanding an API's various configurations helps with creating a game-plan on how to best scrape it, as many of the parameters can be utilized for easy pagination, or easy data-filtering. Additionally, these values can be mapped to a scraper's configuration options, which overall makes the scraper more versatile.
+Understanding an API's various configurations helps with creating a game-plan on how to best scrape it, as many of the parameters can be utilized for pagination, or data-filtering. Additionally, these values can be mapped to a scraper's configuration options, which overall makes the scraper more versatile.
 
 Let's say we want to receive all of the user's tracks in one request. Based on our observations of the endpoint's different parameters, we can modify the URL and utilize the `limit` option to return more than just twenty songs. The `limit` option is extremely common with most APIs, and allows the person making the request to literally limit the maximum number of results to be returned in the request:
 

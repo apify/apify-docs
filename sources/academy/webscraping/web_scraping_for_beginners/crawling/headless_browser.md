@@ -20,7 +20,7 @@ A headless browser is simply a browser that runs without a user interface (UI). 
 
 > Our focus will be on Playwright, which boasts additional features and better documentation. Notably, it originates from the same team responsible for Puppeteer.
 
-Building a Playwright scraper with Crawlee is extremely easy. To show you how easy it really is, we'll reuse the Cheerio scraper code from the previous lesson. By changing only a few lines of code, we'll turn it into a full headless scraper.
+Crawlee has a built-in support for building Playwright scrapers. Let's reuse code of the Cheerio scraper from the previous lesson. It'll take us just a few changes to turn it into a full headless scraper.
 
 First, we must install Playwright into our project. It's not included in Crawlee, because it's quite large as it bundles all the browsers.
 
