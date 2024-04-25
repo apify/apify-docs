@@ -17,7 +17,7 @@ The `Target closed` error happens when you try to access the `page` object (or s
 
 ![Chrome crashed tab](./images/chrome-crashed-tab.png)
 
-Browsers create a separate process for each tab. That means each tab lives with a separate memory space. If you have a lot of tabs open, you might run out of memory. The browser cannot simply close your old tabs to free extra memory so it will usually kill your current memory hungry tab.
+Browsers create a separate process for each tab. That means each tab lives with a separate memory space. If you have a lot of tabs open, you might run out of memory. The browser cannot close your old tabs to free extra memory so it will usually kill your current memory hungry tab.
 
 ### Memory solution
 
