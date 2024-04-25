@@ -26,7 +26,7 @@ we've confirmed that the scraper works as expected, so now it's time to add more
 To do that, we'll be using the [jQuery library](https://jquery.com/), because it provides some nice tools
 and a lot of people familiar with JavaScript already know how to use it.
 
-> [Check out the jQuery docs](https://api.jquery.com/) if you're not familiar with it. And if you just don't want to use it, that's okay. Everything can be done using pure JavaScript, too.
+> [Check out the jQuery docs](https://api.jquery.com/) if you're not familiar with it. And if you don't want to use it, that's okay. Everything can be done using pure JavaScript, too.
 
 To add jQuery, all we need to do is turn on **Inject jQuery** under the  **Input and options** tab.
 This will add a `context.jQuery` function that you can use.
@@ -63,7 +63,7 @@ element that we can use to select only the heading we're interested in.
 > their selectors. And always make sure to use the DevTools to verify your scraping process and assumptions. It's faster than changing the crawler
 > code all the time.
 
-To get the title we just need to find it using a `header h1` selector, which selects all `<h1>` elements that have a `<header>` ancestor.
+To get the title we need to find it using a `header h1` selector, which selects all `<h1>` elements that have a `<header>` ancestor.
 And as we already know, there's only one.
 
 ```js
@@ -251,12 +251,12 @@ You nailed it!
 
 ## [](#pagination) Pagination
 
-Pagination is just a term that represents "going to the next page of results". You may have noticed that we did not
+Pagination is a term that represents "going to the next page of results". You may have noticed that we did not
 actually scrape all the Actors, just the first page of results. That's because to load the rest of the Actors,
 one needs to click the **Show more** button at the very bottom of the list. This is pagination.
 
-> This is a typical form of JavaScript pagination, sometimes called infinite scroll. Other pages may just use links
-that take you to the next page. If you encounter those, just make a **Pseudo URL** for those links and they will
+> This is a typical form of JavaScript pagination, sometimes called infinite scroll. Other pages may use links
+that take you to the next page. If you encounter those, make a **Pseudo URL** for those links and they will
 be automatically enqueued to the request queue. Use a label to let the scraper know what kind of URL it's processing.
 
 ### [](#waiting-for-dynamic-content) Waiting for dynamic content
@@ -324,7 +324,7 @@ div.show-more > button
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/waiting-for-the-button.webp)
 
-Now that we know what to wait for, we just plug it into the `waitFor()` function.
+Now that we know what to wait for, we plug it into the `waitFor()` function.
 
 ```js
 await waitFor('div.show-more > button');
@@ -374,11 +374,11 @@ async function pageFunction(context) {
 ```
 
 We want to run this until the `waitFor()` function throws, so that's why we use a `while(true)` loop. We're also not
-interested in the error, because we're expecting it, so we just ignore it and print a log message instead.
+interested in the error, because we're expecting it, so we ignore it and print a log message instead.
 
 You might be wondering what's up with the `timeoutMillis`. Well, for the first page load, we want to wait longer,
 so that all the page's JavaScript has had a chance to execute, but for the other iterations, the JavaScript is
-already loaded and we're just waiting for the page to re-render so waiting for `2` seconds is enough to confirm
+already loaded and we're waiting for the page to re-render so waiting for `2` seconds is enough to confirm
 that the button is not there. We don't want to stall the scraper for `20` seconds just to make sure that there's
 no button.
 
@@ -452,8 +452,8 @@ async function pageFunction(context) {
 
 That's it! You can now remove the **Max pages per run** limit, **Save & Run** your task and watch the scraper paginate
 through all the Actors and then scrape all of their data. After it succeeds, open the **Dataset** tab again click on **Preview**. You should have a table of all the Actor's details in front of you. If you do, great job!
-You've successfully scraped Apify Store. And if not, no worries, just go through the code examples again,
-it's probably just some typo.
+You've successfully scraped Apify Store. And if not, no worries, go through the code examples again,
+it's probably just a typo.
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/plugging-it-into-the-pagefunction.webp)
 
