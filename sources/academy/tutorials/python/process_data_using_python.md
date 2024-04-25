@@ -29,7 +29,7 @@ First, we need to create another actor. You can do it the same way as before - g
 
 In the page that opens, you can see your newly created actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-parser`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the actor. There are several of them, but only two are important for us now, `main.py` and `requirements.txt`.
 
-First, we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your actor will use. We will be using the `pandas` package for parsing the downloaded weather data, and the `matplotlib` package for visualizing it. We don't particularly care about the specific versions of these packages, so we just list them in the file:
+First, we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your actor will use. We will be using the `pandas` package for parsing the downloaded weather data, and the `matplotlib` package for visualizing it. We don't care about versions of these packages, so we list just their names:
 
 ```python
 # Add your dependencies here.
@@ -77,7 +77,7 @@ dataset_client = client.dataset(scraper_run['defaultDatasetId'])
 
 ### Processing the data
 
-Now, we need to load the data from the dataset to a Pandas dataframe. Pandas supports reading data from a CSV file stream, so we just create a stream with the dataset items in the right format and supply it to `pandas.read_csv()`.
+Now, we need to load the data from the dataset to a Pandas dataframe. Pandas supports reading data from a CSV file stream, so we create a stream with the dataset items in the right format and supply it to `pandas.read_csv()`.
 
 ```python
 # Load the dataset items into a pandas dataframe

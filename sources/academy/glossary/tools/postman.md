@@ -43,7 +43,7 @@ In order to use a proxy, the proxy's server and configuration must be provided i
 
 ![Proxy configuration in Postman settings](./images/postman-proxy.png)
 
-After configuring a proxy, the next request sent will attempt to use it. To switch off the proxy, its details don't need to be deleted. The **Add a custom proxy configuration** option in settings just needs to be un-ticked to disable it.
+After configuring a proxy, the next request sent will attempt to use it. To switch off the proxy, its details don't need to be deleted. The **Add a custom proxy configuration** option in settings needs to be un-ticked to disable it.
 
 ## Managing the cookies cache {#managing-cookies}
 

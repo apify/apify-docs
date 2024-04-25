@@ -107,7 +107,7 @@ for (const url of productUrls) {
         console.log(productPageTitle);
     } catch (error) {
         // In the catch block, we handle errors.
-        // This time, we will just print
+        // This time, we will print
         // the error message and the url.
         console.error(error.message, url);
     }

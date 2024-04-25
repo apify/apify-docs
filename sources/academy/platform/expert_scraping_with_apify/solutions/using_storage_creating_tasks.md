@@ -108,7 +108,7 @@ export const CHEAPEST_ITEM = 'CHEAPEST-ITEM';
 
 ## Code check-in {#code-check-in}
 
-Just to ensure we're all on the same page, here is what the **main.js** file looks like now:
+Here is what the **main.js** file looks like now:
 
 ```js
 // main.js

@@ -19,7 +19,7 @@ Ok, so both Web Scraper and Puppeteer Scraper use Puppeteer to give commands to 
 
 ## Execution environment
 
-It may sound fancy, but it's just a technical term for "where does my code run". When you open the DevTools and start typing JavaScript in the browser Console, it gets executed in the browser. Browser is the code's execution environment. But you can't control the browser from the inside. For that, you need a different environment. Puppeteer's environment is Node.js. If you don't know what Node.js is, don't worry about it too much. Just remember that it's the environment where Puppeteer runs.
+It may sound fancy, but it's just a technical term for "where does my code run". When you open the DevTools and start typing JavaScript in the browser Console, it gets executed in the browser. Browser is the code's execution environment. But you can't control the browser from the inside. For that, you need a different environment. Puppeteer's environment is Node.js. If you don't know what Node.js is, don't worry about it too much. Remember that it's the environment where Puppeteer runs.
 
 By now you probably figured this out on your own, so this will not come as a surprise. The difference between Web Scraper and Puppeteer Scraper is where your page function gets executed. When using the Web Scraper, it's executed in the browser environment. It means that it gets access to all the browser specific features such as the `window` or `document` objects, but it cannot control the browser with Puppeteer directly. This is done automatically in the background by the scraper. Whereas in Puppeteer Scraper, the page function is executed in the Node.js environment, giving you full access to Puppeteer and all its features.
 
@@ -32,7 +32,7 @@ Ok, cool, different environments, but how does that help you scrape stuff? Actua
 
 ## Evaluating in-browser code
 
-In Web Scraper, everything runs in the browser, so there's really not much to talk about there. With Puppeteer Scraper, it's just a single function call away.
+In Web Scraper, everything runs in the browser, so there's really not much to talk about there. With Puppeteer Scraper, it's a single function call away.
 
 ```js
 const bodyHTML = await context.page.evaluate(() => {
@@ -126,7 +126,7 @@ Since we're actually clicking in the page, which may or may not trigger some nas
 
 ## Plain form submit navigations
 
-This works out of the box. It's typically used on older websites such as [Turkish Remax](https://www.remax.com.tr/ofis-office-franchise-girisimci-agent-arama). For a site like this you can just set the `Clickable elements selector` and you're good to go:
+This works out of the box. It's typically used on older websites such as [Turkish Remax](https://www.remax.com.tr/ofis-office-franchise-girisimci-agent-arama). For a site like this you can set the `Clickable elements selector` and you're good to go:
 
 ```js
 'a[onclick ^= getPage]';
@@ -142,7 +142,7 @@ Those are similar to the ones above with an important caveat. Once you click the
 
 ## Frontend navigations
 
-Websites often won't navigate away just to fetch the next set of results. They will do it in the background and just update the displayed data. You can paginate such websites with either Web Scraper or Puppeteer Scraper. Try it on [Udemy](https://www.udemy.com/topic/javascript/) for example. Click the next button to load the next set of courses.
+Websites often won't navigate away just to fetch the next set of results. They will do it in the background and update the displayed data. You can paginate such websites with either Web Scraper or Puppeteer Scraper. Try it on [Udemy](https://www.udemy.com/topic/javascript/) for example. Click the next button to load the next set of courses.
 
 ```js
 // Web Scraper\
