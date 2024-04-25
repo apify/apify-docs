@@ -1,13 +1,13 @@
 ---
 title: Enums
-description: Learn how to easily define, use, and manage constant values using a cool feature called "enums" that TypeScript brings to the table.
+description: Learn how to define, use, and manage constant values using a cool feature called "enums" that TypeScript brings to the table.
 sidebar_position: 7.4
 slug: /switching-to-typescript/enums
 ---
 
 # Enums! {#enums}
 
-**Learn how to easily define, use, and manage constant values using a cool feature called "enums" that TypeScript brings to the table.**
+**Learn how to define, use, and manage constant values using a cool feature called "enums" that TypeScript brings to the table.**
 
 ---
 
