@@ -20,7 +20,7 @@ In development, it is crucial to check and adjust the configurations related to 
 
 ## Quick start {#quick-start}
 
-If you don't have time to read about the theory behind anti-scraping protections to fine-tune your scraping project and instead you just need to get unblocked ASAP, here are some quick tips:
+If you don't have time to read about the theory behind anti-scraping protections to fine-tune your scraping project and instead you need to get unblocked ASAP, here are some quick tips:
 
 - Use high-quality proxies. [Residential proxies](/platform/proxy/residential-proxy) are the least blocked. You can find many providers out there like Apify, BrightData, Oxylabs, NetNut, etc.
 - Set **real-user-like HTTP settings** and **browser fingerprints**. [Crawlee](https://crawlee.dev/) uses statistically generated realistic HTTP headers and browser fingerprints by default for all of its crawlers.
@@ -65,8 +65,8 @@ Unfortunately for these websites, they have to make compromises and tradeoffs. W
 Anti-scraping protections can work on many different layers and use a large amount of bot-identification techniques.
 
 1. **Where you are coming from** - The IP address of the incoming traffic is always available to the website. Proxies are used to emulate a different IP addresses but their quality matters a lot.
-2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, cyphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to classify your hardware (like graphics hardware acceleration).
-3. **What you are scraping** - The same data can be extracted in many ways from a website. You can just get the initial HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
+2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, ciphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to classify your hardware (like graphics hardware acceleration).
+3. **What you are scraping** - The same data can be extracted in many ways from a website. You can get the initial HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
 4. **How you behave** - The website can see patterns in how you are ordering your requests, how fast you are scraping, etc. It can also analyze browser behavior like mouse movement, clicks or key presses.
 
 These are the 4 main principles that anti-scraping protections are based on.
@@ -107,7 +107,7 @@ Although the talk, given in 2021, features some outdated code examples, it still
 
 Because we here at Apify scrape for a living, we have discovered many popular and niche anti-scraping techniques. We've compiled them into a short and comprehensible list here to help understand the roadblocks before this course teaches you how to get around them.
 
-> However, not all issues you encounter are caused by anti-scraping systems. Sometimes, it's just a simple configuration issue. Learn [how to effectively debug your programs here](/academy/node-js/analyzing-pages-and-fixing-errors).
+> Not all issues you encounter are caused by anti-scraping systems. Sometimes, it's a simple configuration issue. Learn [how to effectively debug your programs here](/academy/node-js/analyzing-pages-and-fixing-errors).
 
 ### IP rate-limiting
 

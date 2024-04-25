@@ -25,7 +25,7 @@ Clicking this button will remove all cookies associated with the current domain.
 
 ### Reset
 
-Basically just a refresh button.
+A refresh button.
 
 ### Add a new cookie
 
