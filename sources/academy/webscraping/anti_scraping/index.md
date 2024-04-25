@@ -16,7 +16,7 @@ If at any point in time you've strayed away from the Academy's demo content, and
 
 This section covers the essentials of mitigating anti-scraping protections, such as proxies, HTTP headers and cookies, and a few other things to consider when working on a reliable and scalable crawler. Proper usage of the methods taught in the next lessons will allow you to extract data which is specific to a certain location, enable your crawler to browse websites as a logged-in user, and more.
 
-In development, it is crucial to check and adjust the configurations related to our next lessons' topics, as simply doing this can fix blocking issues on the majority of websites.
+In development, it is crucial to check and adjust the configurations related to our next lessons' topics, as doing this can fix blocking issues on the majority of websites.
 
 ## Quick start {#quick-start}
 
