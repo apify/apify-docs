@@ -221,4 +221,4 @@ After running our script, there should be a single item in the default dataset t
 
 ## Next up {#next}
 
-That's it! We've now added all of the files and code necessary to convert our software into an Actor. In the [next lesson](./input_schema.md), we'll be learning how to easily generate a user interface for our Actor's input so that users don't have to provide the input in raw JSON format.
+That's it! We've now added all of the files and code necessary to convert our software into an Actor. In the [next lesson](./input_schema.md), we'll be learning how to generate a user interface for our Actor's input so that users don't have to provide the input in raw JSON format.

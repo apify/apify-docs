@@ -5,7 +5,7 @@ sidebar_position: 15.1
 slug: /node-js/request-labels-in-apify-actors
 ---
 
-Are you trying to use Actors for the first time and don't know how to deal with the request label or how to pass data to the request easily?
+Are you trying to use Actors for the first time and don't know how to deal with the request label or how to pass data to the request?
 
 Here's how to do it.
 

@@ -75,7 +75,7 @@ Read more information about logging and error handling in our developer [best pr
 
 ### Saving snapshots {#saving-snapshots}
 
-By snapshots, we mean **screenshots** if you use a [browser with Puppeteer/Playwright](../../webscraping/puppeteer_playwright/index.md) and HTML saved into a [key-value store](https://crawlee.dev/api/core/class/KeyValueStore) that you can easily display in your own browser. Snapshots are useful throughout your code but especially important in error handling.
+By snapshots, we mean **screenshots** if you use a [browser with Puppeteer/Playwright](../../webscraping/puppeteer_playwright/index.md) and HTML saved into a [key-value store](https://crawlee.dev/api/core/class/KeyValueStore) that you can display in your own browser. Snapshots are useful throughout your code but especially important in error handling.
 
 Note that an error can happen only in a few pages out of a thousand and look completely random. There is not much you can do other than save and analyze a snapshot.
 
