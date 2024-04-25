@@ -61,7 +61,7 @@ Now we need to read the following environment variables:
 
 - **APIFY_CONTAINER_PORT** contains a port number where we must start the server.
 - **APIFY_CONTAINER_URL** contains a URL under which we can access the container.
-- **APIFY_DEFAULT_KEY_VALUE_STORE_ID** is simply the ID of the default key-value store of this Actor where we can store screenshots.
+- **APIFY_DEFAULT_KEY_VALUE_STORE_ID** is the ID of the default key-value store of this Actor where we can store screenshots.
 
 ```js
 const {

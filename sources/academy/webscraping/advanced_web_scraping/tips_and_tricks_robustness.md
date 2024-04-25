@@ -36,7 +36,7 @@ async function isPaymentSuccessful() {
 }
 ```
 
-**Avoid**: Relying on the absence of an element that may have been simply updated or changed.
+**Avoid**: Relying on the absence of an element that may have been updated or changed.
 
 ```js
 async function isPaymentSuccessful() {
