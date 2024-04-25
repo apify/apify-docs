@@ -80,7 +80,7 @@ async function submitPayment() {
 }
 ```
 
-**Avoid**: Not verifying an outcome. It can easily fail despite output claiming otherwise.
+**Avoid**: Not verifying an outcome. It can fail despite output claiming otherwise.
 
 ```js
 async function submitPayment() {

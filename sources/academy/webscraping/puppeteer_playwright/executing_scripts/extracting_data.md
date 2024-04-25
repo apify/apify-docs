@@ -142,7 +142,7 @@ This will output the same exact result as the code in the previous section.
 
 One of the most popular parsing libraries for Node.js is [Cheerio](https://www.npmjs.com/package/cheerio), which can be used in tandem with Playwright and Puppeteer. It is extremely beneficial to parse the page's HTML in the Node.js context for a number of reasons:
 
-- You can easily port the code between headless browser data extraction and plain HTTP data extraction
+- You can port the code between headless browser data extraction and plain HTTP data extraction
 - You don't have to worry in which context you're working (which can sometimes be confusing)
 - Errors are easier to handle when running in the base Node.js context
 

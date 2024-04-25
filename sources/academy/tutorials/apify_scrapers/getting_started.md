@@ -19,7 +19,7 @@ It doesn't matter whether you arrived here from **Web Scraper** ([apify/web-scra
 
 > If you need help choosing the right scraper, see this [great article](https://help.apify.com/en/articles/3024655-choosing-the-right-solution). If you want to learn more about actors in general, you can read our [actors page](https://apify.com/actors) or [browse the documentation](/platform/actors).
 
-You can create 10 different **tasks** for 10 different websites, with very different options, but there will always be just one **actor**, the `apify/*-scraper` you chose. This is the essence of tasks. They are nothing but **saved configurations** of the actor that you can run easily and repeatedly.
+You can create 10 different **tasks** for 10 different websites, with very different options, but there will always be just one **actor**, the `apify/*-scraper` you chose. This is the essence of tasks. They are nothing but **saved configurations** of the actor that you can run repeatedly.
 
 ## [](#trying-it-out) Trying it out
 
@@ -59,7 +59,7 @@ Before we jump into the scraping itself, let's have a quick look at the user int
 
 ### [](#input) Input and options
 
-The **Input** tab is where we started and it's the place where you create your scraping configuration. The actor's creator prepares the **Input** form so that you can easily tell the actor what to do. Feel free to check the tooltips of the various options to get a better idea of what they do. To display the tooltip, click the question mark next to each input field's name.
+The **Input** tab is where we started and it's the place where you create your scraping configuration. The actor's creator prepares the **Input** form so that you can tell the actor what to do. Feel free to check the tooltips of the various options to get a better idea of what they do. To display the tooltip, click the question mark next to each input field's name.
 
 > We will not go through all the available input options in this tutorial. See the actor's README for detailed information.
 

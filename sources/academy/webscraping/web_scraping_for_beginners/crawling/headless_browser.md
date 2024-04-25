@@ -121,7 +121,7 @@ $env:CRAWLEE_HEADLESS=1; & node browser.js
 
 ## Dynamically loaded data {#dynamic-data}
 
-One of the important benefits of using a browser is that it allows you to easily extract data that's dynamically loaded, such as data that's only fetched after a user scrolls or interacts with the page. In our case, it's the "**You may also like**" section of the product detail pages. Those products aren't available in the initial HTML, but the browser loads them later using an API.
+One of the important benefits of using a browser is that it allows you to extract data that's dynamically loaded, such as data that's only fetched after a user scrolls or interacts with the page. In our case, it's the "**You may also like**" section of the product detail pages. Those products aren't available in the initial HTML, but the browser loads them later using an API.
 
 ![headless-dynamic-data.png](./images/headless-dynamic-data.png)
 

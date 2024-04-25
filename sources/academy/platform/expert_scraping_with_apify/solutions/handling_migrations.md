@@ -11,7 +11,7 @@ slug: /expert-scraping-with-apify/solutions/handling-migrations
 
 ---
 
-Let's first head into our **demo-actor** and create a new file named **asinTracker.js** in the **src** folder. Within this file, we are going to build a utility class which will allow us to easily store, modify, persist, and log our tracked ASIN data.
+Let's first head into our **demo-actor** and create a new file named **asinTracker.js** in the **src** folder. Within this file, we are going to build a utility class which will allow us to store, modify, persist, and log our tracked ASIN data.
 
 Here's the skeleton of our class:
 

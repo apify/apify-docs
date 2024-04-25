@@ -21,7 +21,7 @@ After you install the ModHeader extension, you should see it pinned in Chrome's 
 
 ![Modheader's simple interface](./images/modheader.jpg)
 
-Here, you can add headers, remove headers, and even save multiple collections of headers that you can easily toggle between (which are called **Profiles** within the extension itself).
+Here, you can add headers, remove headers, and even save multiple collections of headers that you can toggle between (which are called **Profiles** within the extension itself).
 
 ## Use cases {#use-cases}
 
