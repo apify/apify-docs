@@ -52,7 +52,7 @@ for (const product of products) {
 
 ## Extracting more data {#extracting-data-in-loop}
 
-We will add the price extraction from the previous lesson to the loop. We will also save all the data to an array so that we can easily work with it. Run this in the Console:
+We will add the price extraction from the previous lesson to the loop. We will also save all the data to an array so that we can work with it. Run this in the Console:
 
 > The `results.push()` function takes its argument and pushes (adds) it to the `results` array. [Learn more about it here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push).
 

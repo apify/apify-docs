@@ -405,7 +405,7 @@ scrape all of the Actors' data. After it succeeds, open the **Dataset** tab agai
 You should have a table of all the Actor's details in front of you. If you do, great job! You've successfully
 scraped Apify Store. And if not, no worries, go through the code examples again, it's probably just a typo.
 
-> There's an important caveat. The way we implemented pagination here is in no way a generic system that you can easily
+> There's an important caveat. The way we implemented pagination here is in no way a generic system that you can
 use with other websites. Cheerio is fast (and that means it's cheap), but it's not easy. Sometimes there's just no way
 to get all results with Cheerio only and other times it takes hours of research. Keep this in mind when choosing
 the right scraper for your job. But don't get discouraged. Often times, the only thing you will ever need is to
@@ -497,7 +497,7 @@ of JavaScript. It helps you put what matters on top, if you so desire.
 
 ## [](#final-word) Final word
 
-Thank you for reading this whole tutorial! Really! It's important to us that our users have the best information available to them so that they can use Apify easily and effectively. We're glad that you made it all the way here and congratulations on creating your first scraping task. We hope that you liked the tutorial and if there's anything you'd like to ask, [join us on Discord](https://discord.gg/jyEM2PRvMU)!
+Thank you for reading this whole tutorial! Really! It's important to us that our users have the best information available to them so that they can use Apify and effectively. We're glad that you made it all the way here and congratulations on creating your first scraping task. We hope that you liked the tutorial and if there's anything you'd like to ask, [join us on Discord](https://discord.gg/jyEM2PRvMU)!
 
 ## [](#whats-next) What's next
 
