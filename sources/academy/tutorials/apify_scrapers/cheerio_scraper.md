@@ -502,7 +502,7 @@ Thank you for reading this whole tutorial! Really! It's important to us that our
 ## [](#whats-next) What's next
 
 * Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own Actors. It's a bit more complex and involved than writing a `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
-* [Take a deep dive into Actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on actors.
+* [Take a deep dive into Actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on Actors.
 * Found out you're not into the coding part but would still to use Apify Actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom actor](https://apify.com/custom-solutions) from an Apify-certified developer.
 
 
