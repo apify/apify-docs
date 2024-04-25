@@ -107,7 +107,7 @@ Although the talk, given in 2021, features some outdated code examples, it still
 
 Because we here at Apify scrape for a living, we have discovered many popular and niche anti-scraping techniques. We've compiled them into a short and comprehensible list here to help understand the roadblocks before this course teaches you how to get around them.
 
-> Not all issues you encounter are caused by anti-scraping systems. Sometimes, it's a simple configuration issue. Learn [how to effectively debug your programs here](/academy/node-js/analyzing-pages-and-fixing-errors).
+> Not all issues you encounter are caused by anti-scraping systems. Sometimes, it's a configuration issue. Learn [how to effectively debug your programs here](/academy/node-js/analyzing-pages-and-fixing-errors).
 
 ### IP rate-limiting
 

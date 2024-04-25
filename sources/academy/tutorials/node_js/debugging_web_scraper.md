@@ -7,7 +7,7 @@ slug: /node-js/debugging-web-scraper
 
 A lot of beginners struggle through trial and error while scraping a simple site. They write some code that might work, press the run button, see that error happened and they continue writing more code that might work but probably won't. This is extremely inefficient and gets tedious really fast.
 
-What beginners are missing are simple tools and tricks to get things done quickly. One of these wow tricks is the option to run the JavaScript code directly in your browser.
+What beginners are missing are basic tools and tricks to get things done quickly. One of these wow tricks is the option to run the JavaScript code directly in your browser.
 
 Pressing F12 while browsing with Chrome, Firefox, or other popular browsers opens up the browser console, the magic toolbox of any web developer. The console allows you to run a code in the context of the website you are in. Don't worry, you cannot mess the site up (well, unless you start doing really nasty tricks) as the page content is downloaded on your computer and any change is only local to your PC.
 
