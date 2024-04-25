@@ -17,7 +17,7 @@ If you've never dealt with it before, trying to scrape thousands to hundreds of 
 
 ## Page-number pagination {#page-number}
 
-The most common and rudimentary form of pagination is simply having page numbers, which can be compared to paginating through a typical e-commerce website.
+The most common and rudimentary forms of pagination have page numbers. Imagine paginating through a typical e-commerce website.
 
 ![Amazon pagination](./images/pagination.png)
 
