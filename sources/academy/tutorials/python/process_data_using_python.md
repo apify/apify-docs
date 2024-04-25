@@ -21,7 +21,7 @@ In this tutorial, we will use the actor we created in the [previous tutorial](/a
 
 In the previous tutorial, we set out to select our next holiday destination based on the forecast of the upcoming weather there. We have written an actor that scrapes the BBC Weather forecast for the upcoming two weeks for three destinations: Prague, New York, and Honolulu. It then saves the scraped data to a [dataset](/platform/storage/dataset) on the Apify platform.
 
-Now, we need to process the scraped data and make a simple visualization that will help us decide which location has the best weather, and will therefore become our next holiday destination.
+Now, we need to process the scraped data and make a visualization that will help us decide which location has the best weather, and will therefore become our next holiday destination.
 
 ### Setting up the actor {#setting-up-the-actor}
 

@@ -41,7 +41,7 @@ Where Web Scraper only gives you access to in-browser JavaScript and the `pageFu
 in the browser context, Puppeteer Scraper's `pageFunction` is executed in Node.js context, giving you
 much more freedom to bend the browser to your will. You're the puppeteer and the browser is your puppet.
 It's also much easier to work with external APIs, databases or the [Apify SDK](https://sdk.apify.com)
-in the Node.js context. The tradeoff is simple. Power vs simplicity. Web Scraper is simple,
+in the Node.js context. The tradeoff is simplicity vs power. Web Scraper is simple,
 Puppeteer Scraper is powerful (and the [Apify SDK](https://sdk.apify.com) is super-powerful).
 
 > In other words, Web Scraper's `pageFunction` is like a single [page.evaluate()](https://pptr.dev/#?product=Puppeteer&show=api-pageevaluatepagefunction-args) call.
@@ -821,7 +821,7 @@ Thank you for reading this whole tutorial! Really! It's important to us that our
 
 ## [](#whats-next) What's next?
 
-- Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
+- Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own actors. It's a bit more complex and involved than writing a `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
 - [Take a deep dive into actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on actors.
 - Found out you're not into the coding part but would still to use Apify actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom actor](https://apify.com/custom-solutions) from an Apify-certified developer.
 

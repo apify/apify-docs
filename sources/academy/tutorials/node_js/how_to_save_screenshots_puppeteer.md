@@ -28,7 +28,7 @@ Because this is so common use-case Apify SDK has a utility function called [save
 
 - You can also save the HTML of the page
 
-A simple example in an Apify actor:
+An example of such Apify actor:
 
 ```js
 import { Actor } from 'apify';
