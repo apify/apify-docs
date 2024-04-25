@@ -1,13 +1,13 @@
 ---
 title: Using proxies
-description: Learn how to use and automagically rotate proxies in your scrapers by using Crawlee, and a bit about how to easily obtain pools of proxies.
+description: Learn how to use and automagically rotate proxies in your scrapers by using Crawlee, and a bit about how to obtain pools of proxies.
 sidebar_position: 2
 slug: /anti-scraping/mitigation/using-proxies
 ---
 
 # Using proxies {#using-proxies}
 
-**Learn how to use and automagically rotate proxies in your scrapers by using Crawlee, and a bit about how to easily obtain pools of proxies.**
+**Learn how to use and automagically rotate proxies in your scrapers by using Crawlee, and a bit about how to obtain pools of proxies.**
 
 ---
 
@@ -53,8 +53,8 @@ const crawler = new CheerioCrawler({
 
 await crawler.addRequests([{
     url: 'https://demo-webstore.apify.org/search/on-sale',
-    // By labeling the Request, we can very easily
-    // identify it later in the requestHandler.
+    // By labeling the Request, we can identify it
+    // later in the requestHandler.
     label: 'START',
 }]);
 

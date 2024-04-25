@@ -28,7 +28,7 @@ _This does not mean that you can't execute in-browser code with Puppeteer Scrape
 
 ## Practical differences
 
-Ok, cool, different environments, but how does that help you scrape stuff? Actually, quite a lot. Some things you just can't do from within the browser, but you can easily do them with Puppeteer. We will not attempt to create an exhaustive list, but rather show you some very useful features that we use every day in our scraping.
+Ok, cool, different environments, but how does that help you scrape stuff? Actually, quite a lot. Some things you just can't do from within the browser, but you can do them with Puppeteer. We will not attempt to create an exhaustive list, but rather show you some very useful features that we use every day in our scraping.
 
 ## Evaluating in-browser code
 

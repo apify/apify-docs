@@ -41,7 +41,7 @@ Node.js and npm support two types of projects, let's call them legacy and modern
 
 ## Installing necessary libraries {#install-libraries}
 
-Now that we have a project set up, we can install npm modules into the project. Let's install libraries that will help us easily download and process websites' HTML. In the project directory, run the following command, which will install two libraries into your project. **got-scraping** and Cheerio.
+Now that we have a project set up, we can install npm modules into the project. Let's install libraries that will help us with downloading and processing websites' HTML. In the project directory, run the following command, which will install two libraries into your project. **got-scraping** and Cheerio.
 
 ```shell
 npm install got-scraping cheerio

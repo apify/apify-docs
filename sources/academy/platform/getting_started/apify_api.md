@@ -69,7 +69,7 @@ What we've done in this lesson only scratches the surface of what the Apify API 
 
 ## Next up {#next}
 
-[Next up](./apify_client.md), we'll be learning about how to use Apify's JavaScript and Python clients to easily interact with the API right within our code.
+[Next up](./apify_client.md), we'll be learning about how to use Apify's JavaScript and Python clients to interact with the API right within our code.
 
 <!-- Note: From the previous version of this lesson, some now unused but useful images still remain.
 

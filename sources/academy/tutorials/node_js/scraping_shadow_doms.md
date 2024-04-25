@@ -11,7 +11,7 @@ slug: /node-js/scraping-shadow-doms
 
 ---
 
-Each website is represented by an HTML DOM, a tree-like structure consisting of HTML elements (e.g. paragraphs, images, videos) and text. [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) allows the separate DOM trees to be attached to the main DOM while remaining isolated in terms of CSS inheritance and JavaScript DOM manipulation. The CSS and JavaScript codes of separate shadow DOM components do not clash, but the downside is that you can't easily access the content from outside.
+Each website is represented by an HTML DOM, a tree-like structure consisting of HTML elements (e.g. paragraphs, images, videos) and text. [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) allows the separate DOM trees to be attached to the main DOM while remaining isolated in terms of CSS inheritance and JavaScript DOM manipulation. The CSS and JavaScript codes of separate shadow DOM components do not clash, but the downside is that you can't access the content from outside.
 
 Let's take a look at this page [alodokter.com](https://www.alodokter.com/). If you click on the menu and open a Chrome debugger, you will see that the menu tree is attached to the main DOM as shadow DOM under the element `<top-navbar-view id="top-navbar-view">`.
 
@@ -32,7 +32,7 @@ const links = $(shadowRoot.innerHTML).find('a');
 const urls = links.map((obj, el) => el.href);
 ```
 
-However, this isn't very convenient, because you have to find the root element of each component you want to work with, and you can't easily take advantage of all the scripts and tools you already have.
+However, this isn't very convenient, because you have to find the root element of each component you want to work with, and you can't take advantage of all the scripts and tools you already have.
 
 So instead of that, we can replace the content of each element containing shadow DOM with the HTML of shadow DOM.
 
@@ -45,7 +45,7 @@ for (const el of document.getElementsByTagName('*')) {
 }
 ```
 
-After you run this, you can access all the elements and content easily using jQuery or plain JavaScript. The downside is that it breaks all the interactive components because you create a new copy of the shadow DOM HTML content without the JavaScript code and CSS attached, so this must be done after all the content has been rendered.
+After you run this, you can access all the elements and content using jQuery or plain JavaScript. The downside is that it breaks all the interactive components because you create a new copy of the shadow DOM HTML content without the JavaScript code and CSS attached, so this must be done after all the content has been rendered.
 
 Some websites may contain shadow DOMs recursively inside of shadow DOMs. In these cases, we must replace them with HTML recursively:
 

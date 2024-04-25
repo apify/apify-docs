@@ -16,7 +16,7 @@ Web scraping or crawling? Web data extraction, mining, or collection? You can fi
 
 ## What is web data extraction? {#what-is-data-extraction}
 
-Web data extraction (or collection) is a process that takes a web page, like an Amazon product page, and collects useful information from the page, such as the product's name and price. Web pages are an unstructured data source and the goal of web data extraction is to make information from websites structured, so that it can be easily processed by data analysis tools or integrated with computer systems. The main sources of data on a web page are HTML documents and API calls, but also images, PDFs, and so on.
+Web data extraction (or collection) is a process that takes a web page, like an Amazon product page, and collects useful information from the page, such as the product's name and price. Web pages are an unstructured data source and the goal of web data extraction is to make information from websites structured, so that it can be processed by data analysis tools or integrated with computer systems. The main sources of data on a web page are HTML documents and API calls, but also images, PDFs, and so on.
 
 ![product data extraction from Amazon](./images/beginners-data-extraction.png)
 

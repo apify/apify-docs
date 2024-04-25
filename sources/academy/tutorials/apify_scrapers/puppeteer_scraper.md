@@ -701,7 +701,7 @@ of JavaScript. It helps you put what matters on top, if you so desire.
 
 If you're familiar with the [jQuery library](https://jquery.com/), you may have looked at the scraping code and thought
 that it's unnecessarily complicated. That's probably up to everyone to decide on their own, but the good news is,
-you can easily use jQuery with Puppeteer Scraper too.
+you can use jQuery with Puppeteer Scraper too.
 
 ### [](#injecting-jquery) Injecting jQuery
 
@@ -817,7 +817,7 @@ function to run the script in the context of the browser and the return value is
 
 ## [](#final-word) Final word
 
-Thank you for reading this whole tutorial! Really! It's important to us that our users have the best information available to them so that they can use Apify easily and effectively. We're glad that you made it all the way here and congratulations on creating your first scraping task. We hope that you liked the tutorial and if there's anything you'd like to ask, [join us on Discord](https://discord.gg/jyEM2PRvMU)!
+Thank you for reading this whole tutorial! Really! It's important to us that our users have the best information available to them so that they can use Apify effectively. We're glad that you made it all the way here and congratulations on creating your first scraping task. We hope that you liked the tutorial and if there's anything you'd like to ask, [join us on Discord](https://discord.gg/jyEM2PRvMU)!
 
 ## [](#whats-next) What's next?
 

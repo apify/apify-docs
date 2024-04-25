@@ -5,7 +5,7 @@ sidebar_position: 15.9
 slug: /node-js/handle-blocked-requests-puppeteer
 ---
 
-One of the main defense mechanisms websites use to ensure they are not scraped by bots is allowing only a limited number of requests from a specific IP address. That's why Apify provides a [proxy](https://www.apify.com/docs/proxy) component with intelligent rotation. With a large enough pool of proxies, you can multiply the number of allowed requests per day to easily cover your crawling needs. Let's look at how we can rotate proxies when using our [JavaScript SDK](https://github.com/apify/apify-sdk-js).
+One of the main defense mechanisms websites use to ensure they are not scraped by bots is allowing only a limited number of requests from a specific IP address. That's why Apify provides a [proxy](https://www.apify.com/docs/proxy) component with intelligent rotation. With a large enough pool of proxies, you can multiply the number of allowed requests per day to cover your crawling needs. Let's look at how we can rotate proxies when using our [JavaScript SDK](https://github.com/apify/apify-sdk-js).
 
 # BasicCrawler
 
@@ -31,7 +31,7 @@ const crawler = new Apify.BasicCrawler({
 });
 ```
 
-Each time handleRequestFunction is executed in this example, requestPromise will send a request through the least used proxy for that target domain. This way you will not easily burn through your proxies.
+Each time handleRequestFunction is executed in this example, requestPromise will send a request through the least used proxy for that target domain. This way you will not burn through your proxies.
 
 # Puppeteer Crawler
 
