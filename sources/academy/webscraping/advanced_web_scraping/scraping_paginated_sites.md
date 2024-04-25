@@ -49,7 +49,7 @@ This has several benefits:
 
 1. All listings can eventually be found in a range.
 2. The ranges do not overlap, so we scrape the smallest possible number of pages and avoid duplicate listings.
-3. Ranges can be controlled by a generic algorithm that is simple to reuse for different sites.
+3. Ranges can be controlled by a generic algorithm that can be reused for different sites.
 
 ## Splitting pages with range filters {#splitting-pages-with-range-filters}
 
@@ -59,7 +59,7 @@ In the previous section, we analyzed different options to split the pages to ove
 
 ### The algorithm {#the-algorithm}
 
-The core algorithm is simple and can be used on any (even overlapping) range. This is a simplified presentation, we will discuss the details later.
+The core algorithm can be used on any (even overlapping) range. This is a simplified presentation, we will discuss the details later.
 
 1. We choose a few pivot ranges with a similar number of products and enqueue them. For example, **$0-$10**, **$100-$1000**, **$1000-$10000**, **$10000-**.
 2. For each range, we open the page and check if the listings are below the limit. If yes, we continue to step 3. If not, we split the filter in half, e.g. **$0-$10** to **$0-$5** and **$5-$10** and enqueue those again. We recursively repeat step **2** for each range as long as needed.
@@ -120,7 +120,7 @@ In this rare case, you will need to add another range or other filters to combin
 
 ### Implementing a range filter {#implementing-a-range-filter}
 
-This section shows a simple code example implementing our solution for an imaginary website. Writing a real solution will bring up more complex problems but the previous section should prepare you for some of them.
+This section shows a code example implementing our solution for an imaginary website. Writing a real solution will bring up more complex problems but the previous section should prepare you for some of them.
 
 First, let's define our imaginary site:
 
@@ -283,7 +283,7 @@ await crawler.addRequests(requestsToEnqueue);
 
 ## Summary {#summary}
 
-And that's it. We have an elegant and simple solution for a complicated problem. In a real project, you would want to make this a bit more robust and [save analytics data](../../platform/expert_scraping_with_apify/saving_useful_stats.md). This will let you know what filters you went through and how many products each of them had.
+And that's it. We have an elegant solution to a complicated problem. In a real project, you would want to make this a bit more robust and [save analytics data](../../platform/expert_scraping_with_apify/saving_useful_stats.md). This will let you know what filters you went through and how many products each of them had.
 
 Check out the [full code example](https://github.com/apify-projects/apify-extra-library/tree/master/examples/crawler-with-filters).
 

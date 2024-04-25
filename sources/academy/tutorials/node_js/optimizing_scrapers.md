@@ -13,7 +13,7 @@ slug: /node-js/optimizing-scrapers
 
 Especially if you are running your scrapers on [Apify](https://apify.com), performance is directly related to your wallet (or rather bank account). The slower and heavier your program is, the more proxy bandwidth, storage, [compute units](https://help.apify.com/en/articles/3490384-what-is-a-compute-unit) and higher [subscription plan](https://apify.com/pricing) you'll need.
 
-The goal of optimization is simple: Make the code run as fast as possible and use the least resources possible. On Apify, the resources are memory and CPU usage (don't forget that the more memory you allocate to a run, the bigger share of CPU you get - proportionally). The memory alone should never be a bottleneck though. If it is, that means either a bug (memory leak) or bad architecture of the program (you need to split the computation into smaller parts). The rest of this article will focus only on optimizing CPU usage. You allocate more memory only to get more power from the CPU.
+The goal of optimization is to make the code run as fast as possible while using the least resources possible. On Apify, the resources are memory and CPU usage (don't forget that the more memory you allocate to a run, the bigger share of CPU you get - proportionally). The memory alone should never be a bottleneck though. If it is, that means either a bug (memory leak) or bad architecture of the program (you need to split the computation into smaller parts). The rest of this article will focus only on optimizing CPU usage. You allocate more memory only to get more power from the CPU.
 
 One more thing to remember. Optimization has its own cost: development time. You should always think about how much time you're able to spend on it and if it's worth it.
 
