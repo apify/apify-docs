@@ -35,7 +35,7 @@ Here are the most common reasons your working solution may break.
 
 Web scraping and automation are very specific types of programming. It is not possible to rely on specialized debugging tools, since the code does not output the same results every time. However, there are still many ways to diagnose issues in a crawler.
 
-> Many issues are edge cases, which occur in just one of a thousand pages or are time-dependent. Because of this, you cannot rely only on [determinism](https://en.wikipedia.org/wiki/Deterministic_algorithm).
+> Many issues are edge cases, which occur in one of a thousand pages or are time-dependent. Because of this, you cannot rely only on [determinism](https://en.wikipedia.org/wiki/Deterministic_algorithm).
 
 ### Logging {#logging}
 
@@ -123,7 +123,7 @@ To make the error snapshot descriptive, we name it **ERROR-LOGIN**. We add a ran
 
 ### Error reporting {#error-reporting}
 
-Logging and snapshotting are great tools but once you reach a certain run size, it may be hard to read through them all. For a large project, it is handy to create a more sophisticated reporting system. For example, let's just look at simple **dataset** reporting.
+Logging and snapshotting are great tools but once you reach a certain run size, it may be hard to read through them all. For a large project, it is handy to create a more sophisticated reporting system. For example, let's look at simple **dataset** reporting.
 
 ## With the Apify SDK {#with-the-apify-sdk}
 

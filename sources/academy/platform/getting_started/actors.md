@@ -19,7 +19,7 @@ When you deploy your script to the Apify platform, it is then called an **Actor*
 
 Once an Actor has been pushed to the Apify platform, they can be shared to the world through the [Apify Store](https://apify.com/store), and even monetized after going public.
 
-> Though the majority of Actors that are currently on the Apify platform are scrapers, crawlers, or automation software, Actors are not limited to just scraping. They are just pieces of code running in Docker containers, which means they can be used for nearly anything.
+> Though the majority of Actors that are currently on the Apify platform are scrapers, crawlers, or automation software, Actors are not limited to scraping. They can be any program running in a Docker container.
 
 ## Actors on the Apify platform {#actors-on-platform}
 
@@ -29,7 +29,7 @@ On the front page of the Actor, click the green **Try for free** button. If you'
 
 ![Actor configuration](./images/seo-actor-config.png)
 
-This is where we can provide input to the Actor. The defaults here are just fine, so we'll just leave it as is and click the green **Start** button to run it. While the Actor is running, you'll see it log some information about itself.
+This is where we can provide input to the Actor. The defaults here are just fine, so we'll leave it as is and click the green **Start** button to run it. While the Actor is running, you'll see it log some information about itself.
 
 ![Actor logs](./images/actor-logs.jpg)
 

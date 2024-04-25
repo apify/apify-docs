@@ -88,7 +88,7 @@ const crawler = new CheerioCrawler({
 
 ## Tracking total saved {#tracking-total-saved}
 
-Now, we'll just increment our **totalSaved** count for every offer added to the dataset.
+Now, we'll increment our **totalSaved** count for every offer added to the dataset.
 
 ```js
 router.addHandler(labels.OFFERS, async ({ $, request }) => {

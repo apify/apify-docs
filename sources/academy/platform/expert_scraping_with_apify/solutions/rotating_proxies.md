@@ -73,7 +73,7 @@ And that's it! We've successfully configured the session pool to match the task'
 
 ## Limiting proxy location {#limiting-proxy-location}
 
-The final requirement was to only use proxies from the US. Back in our **ProxyConfiguration**, we just need to add the **countryCode** key and set it to **US**:
+The final requirement was to use proxies only from the US. Back in our **ProxyConfiguration**, we need to add the **countryCode** key and set it to **US**:
 
 ```js
 const proxyConfiguration = await Actor.createProxyConfiguration({

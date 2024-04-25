@@ -30,7 +30,7 @@ This is usually the first solution that comes to mind. You traverse the smallest
 1. Any subcategory might be bigger than the pagination limit.
 2. Some listings from the parent category might not be present in any subcategory.
 
-While you can often manually test if the second problem is true on the site, the first problem is a hard blocker. You might be just lucky, and it may work on this site but usually, traversing subcategories is just not enough. It can be used as a first step of the solution but not as the solution itself.
+While you can often manually test if the second problem is true on the site, the first problem is a hard blocker. You might be just lucky, and it may work on this site but usually, traversing subcategories is not enough. It can be used as a first step of the solution but not as the solution itself.
 
 ### Using filters {#using-filters}
 
@@ -83,7 +83,7 @@ If the website supports only overlapping ranges (e.g. **$0-$5**, **$5–10**), i
 
 In rare cases, a listing can have more than one value that you are filtering in a range. A typical example is Amazon, where each product has several offers and those offers have different prices. If any of those offers is within the range, the product is shown.
 
-No easy way exists to get around this but the price range split works even with duplicate listings, just use a [JS set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) or request queue to deduplicate them.
+No easy way exists to get around this but the price range split works even with duplicate listings, use a [JS set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) or request queue to deduplicate them.
 
 #### How is the range passed to the URL? {#how-is-the-range-passed-to-the-url}
 
@@ -105,7 +105,7 @@ If it doesn't, we have to find a different way to check if the number of listing
 
 Logically, every full (price) range starts at 0 and ends at infinity. But the way this is encoded will differ on each site. The end of the price range can be either closed (0) or open (infinity). Open ranges require special handling when you split them (we will get to that).
 
-Most sites will let you start with 0 (there might be exceptions, where you will have to make the start open), so we can use just that. The high end is more complicated. Because you don't know the biggest price, it is best to leave it open and handle it specially. Internally you can just assign `null` to the value.
+Most sites will let you start with 0 (there might be exceptions, where you will have to make the start open), so we can use just that. The high end is more complicated. Because you don't know the biggest price, it is best to leave it open and handle it specially. Internally you can assign `null` to the value.
 
 Here are a few examples of a query parameter with an open and closed high-end range:
 
@@ -144,7 +144,7 @@ await Actor.init();
 
 const MAX_PRODUCTS_PAGINATION = 1000;
 
-// These is just an example, choose what makes sense for your site
+// Just an example, choose what makes sense for your site
 const PIVOT_PRICE_RANGES = [
     { min: 0, max: 9.99 },
     { min: 10, max: 99.99 },
@@ -208,7 +208,7 @@ const crawler = new CheerioCrawler({
 
             // The filter is either good enough of we have to split it
             if (numberOfProducts <= MAX_PRODUCTS_PAGINATION) {
-                // We just pass the URL for scraping, we could optimize it so the page is not opened again
+                // We pass the URL for scraping, we could optimize it so the page is not opened again
                 await crawler.addRequests([{
                     url: `${request.url}&page=1`,
                     userData: { label: 'PAGINATION' },
@@ -268,7 +268,7 @@ const { min, max } = getFiltersFromUrl(request.url);
 // Our generic splitFilter function doesn't account for decimal values so we will have to convert to cents and back to dollars
 const newFilters = splitFilter({ min: min * 100, max: max * 100 });
 
-// And we just enqueue those 2 new filters so the process will recursively repeat until all pages get to the PAGINATION phase
+// And we enqueue those 2 new filters so the process will recursively repeat until all pages get to the PAGINATION phase
 const requestsToEnqueue = [];
 for (const filter of newFilters) {
     requestsToEnqueue.push({

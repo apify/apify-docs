@@ -21,7 +21,7 @@ Not only does becoming comfortable with and understanding the ins and outs of us
 
 ! Cheddar website was changed and the below example no longer works there. Nonetheless, the general approach is still viable on some websites even though introspection is disabled on most.
 
-In order to perform introspection on our [target website](https://cheddar.com), we just need to make a request to their GraphQL API with this introspection query using [Insomnia](../../../glossary/tools/insomnia.md) or another HTTP client that supports GraphQL:
+In order to perform introspection on our [target website](https://cheddar.com), we need to make a request to their GraphQL API with this introspection query using [Insomnia](../../../glossary/tools/insomnia.md) or another HTTP client that supports GraphQL:
 
 > To make a GraphQL query in Insomnia, make sure you've set the HTTP method to **POST** and the request body type to **GraphQL Query**.
 
@@ -132,7 +132,7 @@ The response body of our introspection query contains a whole lot of useful info
 
 ## Understanding the response {#understanding-the-response}
 
-An introspection query's response body size will vary depending on how big the target API is. In our case, what we got back is a 27 thousand line JSON response 🤯 If you just thought to yourself, "Wow, that's a whole lot to sift through! I don't want to look through that!", you are absolutely right. Luckily for us, there is a fantastic online tool called [GraphQL Voyager](https://graphql-kit.com/graphql-voyager/) (no install required) which can take this massive JSON response and turn it into a digestable visualization of the API.
+An introspection query's response body size will vary depending on how big the target API is. In our case, what we got back is a 27 thousand line JSON response 🤯 If you thought to yourself, "Wow, that's a whole lot to sift through! I don't want to look through that!", you are absolutely right. Luckily for us, there is a fantastic online tool called [GraphQL Voyager](https://graphql-kit.com/graphql-voyager/) (no install required) which can take this massive JSON response and turn it into a digestable visualization of the API.
 
 Let's copy the response to our clipboard by clicking inside of the response body and pressing **CMD** + **A**, then subsequently **CMD** + **C**. Now, we'll head over to [GraphQL Voyager](https://graphql-kit.com/graphql-voyager/) and click on **Change Schema**. In the modal, we'll click on the **Introspection** tab and paste our data into the text area.
 
@@ -146,9 +146,9 @@ Now that we have this visualization to work off of, it will be much easier to bu
 
 ## Building a query {#building-a-query}
 
-In future lessons, we'll be building more complex queries using **dynamic variables** and advanced features such as **fragments**; however, for now let's just  get our feet wet by using the data we have from GraphQL Voyager to build a simple query.
+In future lessons, we'll be building more complex queries using **dynamic variables** and advanced features such as **fragments**; however, for now let's get our feet wet by using the data we have from GraphQL Voyager to build a simple query.
 
-Right now, our goal is to fetch the 1000 most recent articles on [Cheddar](https://cheddar.com). From each article, we'd like to fetch the **title** and the **publish date**. After just a bit of digging through the schema, we've come across the **media** field within the **organization** type, which has both **title** and **public_at** fields - seems to check out!
+Right now, our goal is to fetch the 1000 most recent articles on [Cheddar](https://cheddar.com). From each article, we'd like to fetch the **title** and the **publish date**. After a bit of digging through the schema, we've come across the **media** field within the **organization** type, which has both **title** and **public_at** fields - seems to check out!
 
 ![The media field pointing to datatype slugable](./images/media-field.jpg)
 
@@ -181,7 +181,7 @@ Let's send it!
 
 Oh, okay. That didn't work. But **why**?
 
-Rest assured, nothing is wrong with our query. We are most likely just missing an authorization token/parameter. Let's check back on the Cheddar website within our browser to see what types of headers are being sent with the requests there:
+Rest assured, nothing is wrong with our query. We are most likely missing an authorization token/parameter. Let's check back on the Cheddar website within our browser to see what types of headers are being sent with the requests there:
 
 ![Request headers back on the Cheddar website](./images/cheddar-headers.jpg)
 

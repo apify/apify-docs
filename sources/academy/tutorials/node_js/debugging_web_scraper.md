@@ -65,7 +65,7 @@ results;
 
 ## Pasting and running a full pageFunction
 
-If you don't want to deal with copy/pasting a proper snippet, you can always paste the whole pageFunction. You will just have to mock the context object when calling it. If you use some advanced tricks, this might not work but in most cases copy pasting this code should do it. This code is only for debugging your Page Function for a particular page. It does not crawl the website and the output is not saved anywhere.
+If you don't want to deal with copy/pasting a proper snippet, you can always paste the whole pageFunction. You will have to mock the context object when calling it. If you use some advanced tricks, this might not work but in most cases copy pasting this code should do it. This code is only for debugging your Page Function for a particular page. It does not crawl the website and the output is not saved anywhere.
 
 <!-- eslint-disable -->
 ```js
