@@ -71,7 +71,7 @@ Aim for sections 1–6 below and try to include at least 300 words. You can move
 
 6. **Input**
 
-    - Each Actor detail page has an input tab, so you just need to refer to that. If you like, you can add a screenshot showing the user what the input fields will look like.
+    - Refer to the input tab on Actor's detail page. If you like, you can add a screenshot showing the user what the input fields will look like.
     - This is an example of how to refer to the input tab:
 
     > Twitter Scraper has the following input options. Click on the [input tab](https://apify.com/vdrmota/twitter-scraper/input-schema) for more information.

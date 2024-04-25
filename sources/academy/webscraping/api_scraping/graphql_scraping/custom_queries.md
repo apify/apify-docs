@@ -42,7 +42,7 @@ Finally, create a file called **index.js**. This is the file we will be working 
 
 ## Preparations {#preparations}
 
-If we remember from the last lesson, we need to pass a valid "app token" within the **X-App-Token** header of every single request we make, or else we will be blocked. When testing queries, we just copied this value straight from the **Network** tab; however, since this is a dynamic value, we should farm it.
+If we remember from the last lesson, we need to pass a valid "app token" within the **X-App-Token** header of every single request we make, or else we will be blocked. When testing queries, we copied this value straight from the **Network** tab; however, since this is a dynamic value, we should farm it.
 
 Since we know requests with this header are sent right when the front page is loaded, it can be farmed by visiting the page and intercepting requests in Puppeteer like so:
 
@@ -71,7 +71,7 @@ const scrapeAppToken = async () => {
 
     await page.waitForNetworkIdle();
 
-    // otherwise, just close the browser after networkidle
+    // otherwise, close the browser after networkidle
     // has been fired
     await browser.close();
 
@@ -135,7 +135,7 @@ query SearchQuery($query: String!) {
 }
 ```
 
-The next step is to just fill out the fields we'd like back, and we've got our final query!
+The next step is to fill out the fields we'd like back, and we've got our final query!
 
 ```graphql
 query SearchQuery($query: String!) {

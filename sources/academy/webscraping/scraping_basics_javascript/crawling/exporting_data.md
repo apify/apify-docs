@@ -43,7 +43,7 @@ After you add this one line and run the code, you'll find your CSV with all the 
 
 ## Exporting data to JSON {#export-json}
 
-Exporting to JSON is very similar to exporting to CSV, we just need to use a different function: [`Dataset.exportToJSON`](https://crawlee.dev/api/core/class/Dataset#exportToJSON). Exporting to JSON is useful when you don't want to work with each item separately, but would rather have one big JSON file with all the results.
+Exporting to JSON is very similar to exporting to CSV, but we'll use a different function: [`Dataset.exportToJSON`](https://crawlee.dev/api/core/class/Dataset#exportToJSON). Exporting to JSON is useful when you don't want to work with each item separately, but would rather have one big JSON file with all the results.
 
 ```js title=browser.js
 // ...

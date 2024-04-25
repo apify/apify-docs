@@ -24,7 +24,7 @@ so now it's time to add more data to the results.
 
 To do that, we'll be using the [Cheerio](https://github.com/cheeriojs/cheerio) library. This may not sound familiar,
 so let's try again. Does [jQuery](https://jquery.com/) ring a bell? If it does you're in luck,
-because Cheerio is just jQuery that doesn't need an actual browser to run. Everything else is the same.
+because Cheerio is like jQuery that doesn't need an actual browser to run. Everything else is the same.
 All the functions you already know are there and even the familiar `$` is used. If you still have no idea what either
 of those are, don't worry. We'll walk you through using them step by step.
 
@@ -65,7 +65,7 @@ element that we can use to select only the heading we're interested in.
 > their selectors. And always make sure to use the DevTools to verify your scraping process and assumptions. It's faster than changing the crawler
 > code all the time.
 
-To get the title we just need to find it using a `header h1` selector, which selects all `<h1>` elements that have a `<header>` ancestor.
+To get the title we need to find it using a `header h1` selector, which selects all `<h1>` elements that have a `<header>` ancestor.
 And as we already know, there's only one.
 
 ```js
@@ -250,12 +250,12 @@ You nailed it!
 
 ## [](#pagination) Pagination
 
-Pagination is just a term that represents "going to the next page of results". You may have noticed that we did not
+Pagination is a term that represents "going to the next page of results". You may have noticed that we did not
 actually scrape all the Actors, just the first page of results. That's because to load the rest of the Actors,
 one needs to click the **Show more** button at the very bottom of the list. This is pagination.
 
 > This is a typical JavaScript pagination, sometimes called infinite scroll. Other pages may use links
-that take you to the next page. If you encounter those, just make a Pseudo URL for those links and they
+that take you to the next page. If you encounter those, make a Pseudo URL for those links and they
 will be automatically enqueued to the request queue. Use a label to let the scraper know what kind of URL
 it's processing.
 
@@ -305,7 +305,7 @@ we need is there, in the `data.props.pageProps.items` array. Great!
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/inspect-data.webp)
 
 > It's obvious that all the information we set to scrape is available in this one data object,
-so you might already be wondering, can I just make one request to the store to get this JSON
+so you might already be wondering, can I make one request to the store to get this JSON
 and then parse it out and be done with it in a single request? Yes you can! And that's the power
 of clever page analysis.
 
@@ -403,7 +403,7 @@ async function pageFunction(context) {
 That's it! You can now remove the **Max pages per run** limit, **Save & Run** your task and watch the scraper
 scrape all of the Actors' data. After it succeeds, open the **Dataset** tab again click on **Preview**.
 You should have a table of all the Actor's details in front of you. If you do, great job! You've successfully
-scraped Apify Store. And if not, no worries, just go through the code examples again, it's probably just some typo.
+scraped Apify Store. And if not, no worries, go through the code examples again, it's probably just a typo.
 
 > There's an important caveat. The way we implemented pagination here is in no way a generic system that you can easily
 use with other websites. Cheerio is fast (and that means it's cheap), but it's not easy. Sometimes there's just no way

@@ -30,7 +30,7 @@ You'll be presented with a page featuring two ways to get started with a new Act
 
 ## Creating Actor from existing source code {#existing-source-code}
 
-If you already have your code hosted by a Git provider, you can use it to create an Actor by linking the repository. If you use GitHub, you can use our [GitHub integration](/platform/integrations/github) to create an Actor from your public or private repository with just a few clicks. You can also use GitLab, Bitbucket or other Git providers or external repositories.
+If you already have your code hosted by a Git provider, you can use it to create an Actor by linking the repository. If you use GitHub, you can use our [GitHub integration](/platform/integrations/github) to create an Actor from your public or private repository. You can also use GitLab, Bitbucket or other Git providers or external repositories.
 
 ![Create an Actor from Git repository](./images/create-actor-git.png)
 
@@ -135,7 +135,7 @@ The Actor takes the `url` from the input and then:
 
 The extracted data is stored in the [Dataset](/platform/storage/dataset) where you can preview it and download it. We'll show how to do that later in [Run the Actor](#run-the-actor) section.
 
-> Feel free to play around with the code and add some more features to it. For example, you can extract all the links from the page or extract all the images or completely change the logic of this template. Just keep in mind that this template uses [input schema](/academy/deploying-your-code/input-schema) defined in the `.actor/input_schema.json` file and linked to the `.actor/actor.json`. If you want to change the input schema, you need to change it in those files as well. Learn more about the Actor input and output [in the next page](/academy/getting-started/inputs-outputs).
+> Feel free to play around with the code and add some more features to it. For example, you can extract all the links from the page or extract all the images or completely change the logic of this template. Keep in mind that this template uses [input schema](/academy/deploying-your-code/input-schema) defined in the `.actor/input_schema.json` file and linked to the `.actor/actor.json`. If you want to change the input schema, you need to change it in those files as well. Learn more about the Actor input and output [in the next page](/academy/getting-started/inputs-outputs).
 
 ## Build the Actor 🧱 {#build-an-actor}
 

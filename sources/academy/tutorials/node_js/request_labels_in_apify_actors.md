@@ -50,13 +50,13 @@ await requestQueue.addRequest({
 });
 ```
 
-Now, in the "SELLERDETAIL" url, we can just evaluate the page and extracted data merge to the object from the item detail, for example like this
+Now, in the "SELLERDETAIL" url, we can evaluate the page and extracted data merge to the object from the item detail, for example like this
 
 ```js
 const result = { ...request.userData.data, ...sellerDetail };
 ```
 
-Next just save the results and we're done!
+Save the results, and we're done!
 
 ```js
 await Apify.pushData(result);
