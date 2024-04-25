@@ -97,7 +97,7 @@ In addition, XHRs are smaller and faster than loading an HTML page. On the other
 
 #### Does the website show the number of products for each filtered page? {#does-the-website-show-the-number-of-products-for-each-filtered-page}
 
-If it does, it is a nice bonus. It gives us an easy way to check if we are over or below the pagination limit and helps with analytics.
+If it does, it's a nice bonus. It gives us a way to check if we are over or below the pagination limit and helps with analytics.
 
 If it doesn't, we have to find a different way to check if the number of listings is within a limit. One option is to go to the last allowed page of the pagination. If that page is still full of products, we can assume the filter is over the limit.
 

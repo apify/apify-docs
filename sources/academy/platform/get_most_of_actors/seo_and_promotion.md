@@ -23,7 +23,7 @@ On the other hand, if you precisely address a niche segment of users who will be
 
 ## Keywords
 
-Several freemium tools exist that make it easy to identify the right phrases and keywords:
+Several freemium tools exist that help with identifying the right phrases and keywords:
 
 - [wordstream.com/keywords](https://www.wordstream.com/keywords)
 - [neilpatel.com/ubersuggest](https://neilpatel.com/ubersuggest/)

@@ -25,9 +25,7 @@ On a webpage, the link above will look like this: [This is a link to example.com
 
 ## Extracting links 🔗 {#extracting-links}
 
-If a link is just an HTML element, and the URL is just an attribute, this means that we can extract links exactly the same way as we extracted data.💡 Easy!
-
-To test this theory in the browser, we can try running the following code in our DevTools console on any website.
+If a link is just an HTML element, and the URL is just an attribute, this means that we can extract links the same way as we extracted data. To test this theory in the browser, we can try running the following code in our DevTools console on any website.
 
 ```js
 // Select all the <a> elements.
