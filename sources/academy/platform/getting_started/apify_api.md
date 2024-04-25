@@ -47,7 +47,7 @@ https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync-get-dataset-it
 
 Additional parameters can be passed to this endpoint. You can learn about them [here](/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items)
 
-> Note: It is safer to put your API token in the **Authorization** header like so: `Authorization: Bearer YOUR_TOKEN`. This is very easy to configure in popular HTTP clients, such as [Postman](../../glossary/tools/postman.md), [Insomnia](../../glossary/tools/insomnia.md).
+> Network components can record visited URLs, so it's more secure to send the token as a HTTP header, not as a parameter. The header should look like `Authorization: Bearer YOUR_TOKEN`. Popular HTTP clients, such as [Postman](../../glossary/tools/postman.md) or [Insomnia](../../glossary/tools/insomnia.md), provide a convenient way to configure the Authorization header for all your API requests.
 
 ## Sending the request {#sending-the-request}
 

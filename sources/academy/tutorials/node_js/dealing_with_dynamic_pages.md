@@ -13,13 +13,9 @@ import Example from '!!raw-loader!roa-loader!./dealing_with_dynamic_pages.js';
 
 ---
 
-<!-- In the last few lessons, we learned about Crawlee, which is a powerful library for writing reliable and efficient scrapers. We recommend reading up on those last two lessons in order to install the `crawlee` package and familiarize yourself with it before moving forward with this lesson. -->
-
-In this lesson, we'll be discussing dynamic content and how to scrape it while utilizing Crawlee.
-
 ## A quick experiment {#quick-experiment}
 
-From our adored and beloved [Fakestore](https://demo-webstore.apify.org/), we have been tasked to scrape each product's title, price, and image from the [new arrivals](https://demo-webstore.apify.org/search/new-arrivals) page. Easy enough! We did something very similar in the previous modules.
+From our adored and beloved [Fakestore](https://demo-webstore.apify.org/), we have been tasked to scrape each product's title, price, and image from the [new arrivals](https://demo-webstore.apify.org/search/new-arrivals) page.
 
 ![New arrival products in Fakestore](./images/new-arrivals.jpg)
 

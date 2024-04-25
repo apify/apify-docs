@@ -47,9 +47,9 @@ Now that we have a project set up, we can install npm modules into the project. 
 npm install got-scraping cheerio
 ```
 
-[**got-scraping**](https://github.com/apify/got-scraping) is a library that's made especially for scraping and downloading page's HTML. It's based on the very popular [**got** library](https://github.com/sindresorhus/got), which means any features of **got** are also available in **got-scraping**. Both **got** and **got-scraping** are HTTP clients. To learn more about HTTP, [visit this MDN tutorial](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP).
+[**got-scraping**](https://github.com/apify/got-scraping) is a library that's made especially for scraping and downloading page's HTML. It's based on the popular [**got** library](https://github.com/sindresorhus/got), which means any features of **got** are also available in **got-scraping**. Both **got** and **got-scraping** are HTTP clients. To learn more about HTTP, [visit this MDN tutorial](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP).
 
-[Cheerio](https://github.com/cheeriojs/cheerio) is a very popular Node.js library for parsing (processing) HTML. If you're familiar with good old [jQuery](https://jquery.com/), you'll find working with Cheerio really easy.
+[Cheerio](https://github.com/cheeriojs/cheerio) is a popular Node.js library for parsing and processing HTML. If you know how to work with [jQuery](https://jquery.com/), you'll find Cheerio familiar.
 
 ## Test everything {#testing}
 

@@ -126,7 +126,7 @@ Since we're actually clicking in the page, which may or may not trigger some nas
 
 ## Plain form submit navigations
 
-This is easy and will work out of the box. It's typically used on older websites such as [Turkish Remax](https://www.remax.com.tr/ofis-office-franchise-girisimci-agent-arama). For a site like this you can just set the `Clickable elements selector` and you're good to go:
+This works out of the box. It's typically used on older websites such as [Turkish Remax](https://www.remax.com.tr/ofis-office-franchise-girisimci-agent-arama). For a site like this you can just set the `Clickable elements selector` and you're good to go:
 
 ```js
 'a[onclick ^= getPage]';
@@ -142,7 +142,7 @@ Those are similar to the ones above with an important caveat. Once you click the
 
 ## Frontend navigations
 
-Websites often won't navigate away just to fetch the next set of results. They will do it in the background and just update the displayed data. To paginate websites like that is quite easy actually and it can be done in both Web Scraper and Puppeteer Scraper. Try it on [Udemy](https://www.udemy.com/topic/javascript/) for example. Just click the next button to load the next set of courses.
+Websites often won't navigate away just to fetch the next set of results. They will do it in the background and just update the displayed data. You can paginate such websites with either Web Scraper or Puppeteer Scraper. Try it on [Udemy](https://www.udemy.com/topic/javascript/) for example. Click the next button to load the next set of courses.
 
 ```js
 // Web Scraper\

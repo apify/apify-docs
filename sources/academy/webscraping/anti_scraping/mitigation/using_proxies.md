@@ -13,7 +13,7 @@ slug: /anti-scraping/mitigation/using-proxies
 
 In the [**Web scraping for beginners**](../../web_scraping_for_beginners/crawling/pro_scraping.md) course, we learned about the power of Crawlee, and how it can streamline the development process of web crawlers. You've already seen how powerful the `crawlee` package is; however, what you've been exposed to thus far is only the tip of the iceberg.
 
-Because proxies are so widely used in the scraping world, Crawlee has been equipped with features which make it easy to implement them in an effective way. One of the main functionalities that comes baked into Crawlee is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
+Because proxies are so widely used in the scraping world, Crawlee has built-in features for implementing them in an effective way. One of the main functionalities that comes baked into Crawlee is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
 
 ## Implementing proxies in a scraper {#implementing-proxies}
 
