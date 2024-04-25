@@ -11,7 +11,7 @@ slug: /python/scrape-data-python
 
 ---
 
-Web scraping is not limited to the JavaScript world. The Python ecosystem contains some pretty powerful scraping tools as well. One of those is [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/), a library for parsing HTML and easy navigation or modification of a DOM tree.
+Web scraping is not limited to the JavaScript world. The Python ecosystem contains some pretty powerful scraping tools as well. One of those is [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/), a library for parsing HTML and navigating or modifying of its DOM tree.
 
 This tutorial shows you how to write a Python [actor](../../platform/getting_started/actors.md) for scraping the weather forecast from [BBC Weather](https://www.bbc.com/weather) and process the scraped data using [Pandas](https://pandas.pydata.org/).
 

@@ -11,7 +11,7 @@ slug: /anti-scraping/mitigation/generating-fingerprints
 
 ---
 
-In [**Crawlee**](https://crawlee.dev), it's extremely easy to automatically generate fingerprints using the [**FingerprintOptions**](https://crawlee.dev/api/browser-pool/interface/FingerprintOptions) on a crawler.
+In [**Crawlee**](https://crawlee.dev), you can use [**FingerprintOptions**](https://crawlee.dev/api/browser-pool/interface/FingerprintOptions) on a crawler to automatically generate fingerprints.
 
 ```js
 import { PlaywrightCrawler } from 'crawlee';

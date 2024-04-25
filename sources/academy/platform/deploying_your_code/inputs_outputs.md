@@ -11,7 +11,7 @@ slug: /deploying-your-code/inputs-outputs
 
 ---
 
-Most of the time when you're creating a project, you are expecting some sort of input from which your software will run off. Oftentimes as well, you want to provide some sort of output once your software has completed running. With Apify, it is extremely easy to take in inputs and deliver outputs.
+Most of the time when you're creating a project, you are expecting some sort of input from which your software will run off. Oftentimes as well, you want to provide some sort of output once your software has completed running. Apify provides a convenient way to handle inputs and deliver outputs.
 
 An important thing to understand regarding inputs and outputs is that they are read/written differently depending on where the actor is running:
 

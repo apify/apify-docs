@@ -272,7 +272,6 @@ JavaScript had the time to run.
 At first, you may think that the scraper is broken, but it just cannot wait for all the JavaScript in the page
 to finish executing. For a lot of pages, there's always some JavaScript executing or some network requests being made.
 It would never stop waiting. It is therefore up to you, the programmer, to wait for the elements you need.
-Fortunately, we have an easy solution.
 
 #### The `context.waitFor()` function
 
@@ -304,12 +303,12 @@ With those tools, you should be able to handle any dynamic content the website t
 
 ### [](#how-to-paginate) How to paginate
 
-With the theory out of the way, this should be pretty easy. The algorithm is a loop:
+After going through the theory, let's design the algorithm:
 
 1. Wait for the **Show more** button.
 2. Click it.
 3. Is there another **Show more** button?
-    - Yes? Repeat the above. (loop)
+    - Yes? Repeat from 1. (loop)
     - No? We're done. We have all the actors.
 
 #### Waiting for the button

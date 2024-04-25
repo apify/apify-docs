@@ -11,7 +11,7 @@ slug: /getting-started/inputs-outputs
 
 ---
 
-Most of the time, when you are writing any sort of software, it will generally expect some sort of input and generate some sort of output. It is the same exact story when it comes to actors, which is why we at Apify have made it so easy to accept input into an actor and store its results somewhere.
+Actors, as any other programs, take inputs and generate outputs. The Apify platform has a way how to specify what inputs the Actor expects, and a way to temporarily or permanently store its results.
 
 In this lesson, we'll be demonstrating inputs and outputs by building an actor which takes two numbers as input, adds them up, and then outputs the result.
 

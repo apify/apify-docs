@@ -31,8 +31,6 @@ Also, try to explore the **Multifile editor** in one of the actors you developed
 
 ## Our task {#our-task}
 
-> This lesson's task is so quick and easy, we won't even be splitting this topic into two parts like the previous two topics!
-
 First, we must initialize a GitHub repository (you can use Gitlab if you like, but this lesson's examples will be using GitHub). Then, after pushing our main Amazon Actor's code to the repo, we must switch its source code to use the content of the GitHub repository instead.
 
 ## Integrating GitHub source code {#integrating-github}

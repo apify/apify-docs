@@ -230,9 +230,7 @@ $response = $client->post('acts/mhamas~html-string-to-pdf/runs', [
 
 ## How to use Apify Proxy
 
-There is another important Apify feature you will need: [proxy](/platform/proxy). Guzzle makes it really easy to use.
-
-If you just want to make sure that your server's IP address won't get blocked somewhere when making requests, you can use the automatic proxy selection mode.
+Let's use another important feature: [proxy](/platform/proxy). If you just want to make sure that your server's IP address won't get blocked somewhere when making requests, you can use the automatic proxy selection mode.
 
 ```php
 $client = new \GuzzleHttp\Client([
