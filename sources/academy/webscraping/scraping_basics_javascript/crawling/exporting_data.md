@@ -20,7 +20,7 @@ But when we look inside the folder, we see that there are a lot of files, and we
 
 ## Exporting data to CSV {#export-csv}
 
-Crawlee's `Dataset` provides an easy way to export all your scraped data into one big CSV file. You can then open it in Excel or any other data processor. To do that, you simply need to call [`Dataset.exportToCSV()`](https://crawlee.dev/api/core/class/Dataset#exportToCSV) after collecting all the data. That means, after your crawler run finishes.
+Crawlee's `Dataset` provides a way to export all your scraped data into one big CSV file. You can then open it in Excel or any other data processor. To do that, you need to call [`Dataset.exportToCSV()`](https://crawlee.dev/api/core/class/Dataset#exportToCSV) after collecting all the data. That means, after your crawler run finishes.
 
 ```js title=browser.js
 // ...
