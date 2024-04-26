@@ -119,7 +119,7 @@ const msg = await page.evaluate(() => returnMessage());
 
 console.log(msg);
 
-await page.waitForTimeout(20000);
+await page.waitForTimeout(10000);
 await browser.close();
 ```
 
