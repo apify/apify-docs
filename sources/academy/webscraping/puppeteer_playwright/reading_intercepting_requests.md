@@ -231,7 +231,7 @@ Upon running this code, we'll see the API response logged into the console:
 
 One of the most popular ways of speeding up website loading in Puppeteer and Playwright is by blocking certain resources from loading. These resources are usually CSS files, images, and other miscellaneous resources that aren't super necessary (mainly because the computer doesn't have eyes - it doesn't care how the website looks!).
 
-In Puppeteer, we must first enable request interception with the `page.setRequestInterception()` function. Then, we can check whether or not the request's resource ends with one of our blocked extensions. If so, we'll abort the request. Otherwise, we'll let it continue. All of this logic will still be within the `page.on()` method.
+In Puppeteer, we must first enable request interception with the `page.setRequestInterception()` function. Then, we can check whether or not the request's resource ends with one of our blocked file extensions. If so, we'll abort the request. Otherwise, we'll let it continue. All of this logic will still be within the `page.on()` method.
 
 With Playwright, request interception is a bit different. We use the [`page.route()`](https://playwright.dev/docs/api/class-page#page-route) function instead of `page.on()`, passing in a string, regular expression, or a function that will match the URL of the request we'd like to read from. The second parameter is also a callback function, but with the [**Route**](https://playwright.dev/docs/api/class-route) object passed into it instead.
 
