@@ -26,17 +26,27 @@ Although IP quality is still the most important factor when it comes to using pr
 
 Fixing rate-limiting issues is only the tip of the iceberg of what proxies can do for your scrapers, though. By implementing proxies properly, you can successfully avoid the majority of anti-scraping measures listed in the [previous lesson](../index.md).
 
-## A bit about proxy links {#understanding-proxy-links}
+## About proxy links {#understanding-proxy-links}
 
-When using proxies in your crawlers, you'll most likely be using them in a format that looks like this:
+To use a proxy, you need a proxy link, which contains the connection details, sometimes including credentials.
 
 ```text
 http://proxy.example.com:8080
 ```
 
-This link is separated into two main components: the **host**, and the **port**. In our case, our hostname is `http://proxy.example.com`, and our port is `8080`. Sometimes, a proxy might use an IP address as the host, such as `103.130.104.33`.
+The proxy link above has several parts:
 
-If authentication (a username and a password) is required, the format will look a bit different:
+- `http://` tells us we're using HTTP protocol,
+- `proxy.example.com` is a hostname, i.e. an address to the proxy server,
+- `8080` is a port number.
+
+Sometimes the proxy server has no name, so the link contains an IP address instead:
+
+```text
+http://123.456.789.10:8080
+```
+
+If proxy requires authentication, the proxy link can contain username and password:
 
 ```text
 http://USERNAME:PASSWORD@proxy.example.com:8080
