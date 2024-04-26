@@ -15,7 +15,7 @@ Limited pagination is a common practice on e-commerce sites and is becoming more
 
 ![Pagination in on Google search results page](./images/pagination.png)
 
-> In a rush? Skip the tutorial and get the [full code example](https://github.com/metalwarrior665/apify-utils/tree/master/examples/crawler-with-filters).
+> In a rush? Skip the tutorial and get the [full code example](https://github.com/apify-projects/apify-extra-library/tree/master/examples/crawler-with-filters).
 
 ## How to overcome the limit {#how-to-overcome-the-limit}
 
@@ -81,7 +81,7 @@ If the website supports only overlapping ranges (e.g. **$0-$5**, **$5–10**), i
 
 #### Can a listing have more values? {#can-a-listing-have-more-values}
 
-In rare cases, a listing can have more than one value that you are filtering in a range. A typical example is [amazon.com](https://amazon.com), where each product has several offers and those offers have different prices. If any of those offers is within the range, the product is shown.
+In rare cases, a listing can have more than one value that you are filtering in a range. A typical example is Amazon, where each product has several offers and those offers have different prices. If any of those offers is within the range, the product is shown.
 
 No easy way exists to get around this but the price range split works even with duplicate listings, just use a [JS set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) or request queue to deduplicate them.
 
@@ -89,7 +89,7 @@ No easy way exists to get around this but the price range split works even with 
 
 In the easiest case, you can pass the range directly in the page's URL. For example, `<https://mysite.com/products?price=0-10>`. Sometimes, you will need to do some query composition because the price range might be encoded together with more information into a single parameter.
 
-Some sites don't have page URLs with filters and instead load the filtered products via [XHRs](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest). Those can be GET or POST requests with various **URL** and **payload** syntax.
+Some sites don't have page URLs with filters and instead load the filtered products via [XHRs](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest). Those can be GET or POST requests with varying **URL** and **payload** syntax.
 
 The nice thing here is that if you get to understand how their internal API works, you can have it return more products per page or extract full product details just from this single request.
 
@@ -285,5 +285,5 @@ await crawler.addRequests(requestsToEnqueue);
 
 And that's it. We have an elegant and simple solution for a complicated problem. In a real project, you would want to make this a bit more robust and [save analytics data](../../platform/expert_scraping_with_apify/saving_useful_stats.md). This will let you know what filters you went through and how many products each of them had.
 
-Check out the [full code example](https://github.com/metalwarrior665/apify-utils/tree/master/examples/crawler-with-filters).
+Check out the [full code example](https://github.com/apify-projects/apify-extra-library/tree/master/examples/crawler-with-filters).
 
