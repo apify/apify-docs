@@ -21,7 +21,7 @@ _Here's what we can see in the Network tab after reloading the page:_
 
 Let's say that our target data is a full list of Tiësto's uploaded songs on SoundCloud. We can use the **Filter** option to search for the keyword `tracks`, and see if any endpoints have been hit that include that word. Multiple results may still be in the list when using this feature, so it is important to carefully examine the payloads and responses of each request in order to ensure that the correct one is found.
 
-> **Note:** The keyword/piece of data that is used in this filtered search should be a target keyword or a piece of target data that that can be assumed will most likely be a part of the endpoint.
+> To find what we're looking for, we must wisely choose what piece of data (in this case a keyword) we filter by. Think of something that is most likely to be part of the endpoint (in this case a string `tracks`).
 
 After a little bit of digging through the different response values of each request in our filtered list within the Network tab, we can discover this endpoint, which returns a JSON list including 20 of Tiësto's latest tracks:
 
