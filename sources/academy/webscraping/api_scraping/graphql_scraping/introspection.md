@@ -132,9 +132,9 @@ The response body of our introspection query contains a whole lot of useful info
 
 ## Understanding the response {#understanding-the-response}
 
-An introspection query's response body size will vary depending on how big the target API is. In our case, what we got back is a 27 thousand line JSON response 🤯 If you just thought to yourself, "Wow, that's a whole lot to sift through! I don't want to look through that!", you are absolutely right. Luckily for us, there is a fantastic online tool called [GraphQL Voyager](https://apis.guru/graphql-voyager/) (no install required) which can take this massive JSON response and turn it into a digestable visualization of the API.
+An introspection query's response body size will vary depending on how big the target API is. In our case, what we got back is a 27 thousand line JSON response 🤯 If you just thought to yourself, "Wow, that's a whole lot to sift through! I don't want to look through that!", you are absolutely right. Luckily for us, there is a fantastic online tool called [GraphQL Voyager](https://graphql-kit.com/graphql-voyager/) (no install required) which can take this massive JSON response and turn it into a digestable visualization of the API.
 
-Let's copy the response to our clipboard by clicking inside of the response body and pressing **CMD** + **A**, then subsequently **CMD** + **C**. Now, we'll head over to [GraphQL Voyager](https://apis.guru/graphql-voyager/) and click on **Change Schema**. In the modal, we'll click on the **Introspection** tab and paste our data into the text area.
+Let's copy the response to our clipboard by clicking inside of the response body and pressing **CMD** + **A**, then subsequently **CMD** + **C**. Now, we'll head over to [GraphQL Voyager](https://graphql-kit.com/graphql-voyager/) and click on **Change Schema**. In the modal, we'll click on the **Introspection** tab and paste our data into the text area.
 
 ![Pasting the introspection](./images/pasting-introspection.png)
 

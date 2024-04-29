@@ -21,7 +21,7 @@ Before we dive into the practical side of things, let us diverge with an analogy
 
 ## Game development analogy {#analogy}
 
-Modern games are extremely complicated beasts. Every frame (usually 60 times a second), the game has to calculate the physics of the world, run AI, user input, and render everything into a beautiful scene. You can imagine that running all of that every 16 ms in a complicated game is a developer's nightmare. That's why a significant portion of game development is spent on optimizations. Every little waste matters.
+Games are extremely complicated beasts. Every frame (usually 60 times a second), the game has to calculate the physics of the world, run AI, user input, and render everything into a beautiful scene. You can imagine that running all of that every 16 ms in a complicated game is a developer's nightmare. That's why a significant portion of game development is spent on optimizations. Every little waste matters.
 
 This is mainly true in the programming heart of the game - the engine. The engine is responsible for the heavy lifting of performance critical parts like physics, animation, AI, and rendering. Once the engine is built, you can design the game on top of it. You can add different spells, conversation chains, items, animations etc. to make your game cool. Those extra things may not run every frame and don't need to be optimized as heavily as the engine itself.
 

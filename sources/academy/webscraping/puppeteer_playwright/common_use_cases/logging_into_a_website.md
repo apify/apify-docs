@@ -107,17 +107,17 @@ Here is an object we'll create which represents the three different emails we wa
 ```js
 const emailsToSend = [
     {
-        to: 'abcdef123randomFakeEmail@gmail.com',
+        to: 'alice@example.com',
         subject: 'Hello',
         body: 'This is a message.',
     },
     {
-        to: 'testingtesting12345903@aol.com',
+        to: 'bob@example.com',
         subject: 'Testing',
         body: 'I love the academy!',
     },
     {
-        to: 'jimmyJohnBillyBob420@academy.net',
+        to: 'carol@example.com',
         subject: 'Apify is awesome!',
         body: 'Some content.',
     },
@@ -299,17 +299,17 @@ import { chromium } from 'playwright';
 
 const emailsToSend = [
     {
-        to: 'abcdef123randomFakeEmail@gmail.com',
+        to: 'alice@example.com',
         subject: 'Hello',
         body: 'This is a message.',
     },
     {
-        to: 'testingtesting12345903@aol.com',
+        to: 'bob@example.com',
         subject: 'Testing',
         body: 'I love the academy!',
     },
     {
-        to: 'jimmyJohnBillyBob420@academy.net',
+        to: 'carol@example.com',
         subject: 'Apify is awesome!',
         body: 'Some content.',
     },
@@ -371,17 +371,17 @@ import puppeteer from 'puppeteer';
 
 const emailsToSend = [
     {
-        to: 'abcdef123randomFakeEmail@gmail.com',
+        to: 'alice@example.com',
         subject: 'Hello',
         body: 'This is a message.',
     },
     {
-        to: 'testingtesting12345903@aol.com',
+        to: 'bob@example.com',
         subject: 'Testing',
         body: 'I love the academy!',
     },
     {
-        to: 'jimmyJohnBillyBob420@academy.net',
+        to: 'carol@example.com',
         subject: 'Apify is awesome!',
         body: 'Some content.',
     },

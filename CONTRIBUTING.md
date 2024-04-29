@@ -79,13 +79,26 @@ For example:
 
 Over time, we should track which items are useful and which don't get any traffic. Also, as Apify Docs expand, we may need to add more cards and update which articles we link to.
 
-## Local setup
+## Installation and setup
 
-If you want to work only on the main documentation content, cloning this repository is enough. Once you run `npm install` to install all dependencies and run `npm start`, the main portal will open on <http://localhost:3000>. All the links in the navbar and footer need to be absolute, and they will use a different hostname, configured to `docs.apify.loc` - to use that, follow the steps below and set up the Nginx server.
+1. Use Git to clone this repository.
+2. To install packages prefixed with `@apify-packages`, first go to GitHub and navigate to [Settings / Personal access tokens / Tokens (classic)](https://github.com/settings/tokens). Despite the UI suggesting you should use the new fine-grained tokens, generate a **classic token** with scopes **repo** and **write:packages**. Keep the token somewhere safe. Then run the following command and use your GitHub username together with the token as credentials:
 
-Alternatively, you can skip the Nginx part and navigate to <http://localhost:3000/academy> or <http://localhost:3000/platform> manually instead of using links in the navbar. All relative links should work fine there. The problem with absolute links is only with shared components. The Nginx server is needed only for testing the whole setup and mapping all the different ports to a single one.
+   ```bash
+   npm login --scope=@apify-packages --registry=https://npm.pkg.github.com --auth-type=legacy
+   ```
 
-Clone all the repositories, and start the Docusaurus instances in them.
+   Read [#909](https://github.com/apify/apify-docs/issues/909) if you want to understand why this is needed.
+3. Run `npm install`.
+4. Run `npm start`. The website should open at <http://localhost:3000>.
+
+This is sufficient to work on the main content, i.e. the Academy and Platform docs. If you want to also work on the other parts of the docs, you may want to first join them all together using Nginx.
+
+### Join all the docs repos together using Nginx
+
+By default, the parts of the docs sourced from other repositories will give you 404s. If you need to locally run the project with all the other repositories included, clone them all and setup an Nginx server according to the steps below.
+
+For the setup to work, use `npm start:dev` instead of `npm start` when starting `apify-docs`. This causes all links in the top navigation and the footer to be absolute. They will now use `docs.apify.loc` as a hostname. Clone all the remaining docs repositories, and start their Docusaurus instances. To run Docusaurus on a specific port, use `npm start -- --port XXXX`.
 
 | repo                | port |
 |---------------------|------|
@@ -96,9 +109,7 @@ Clone all the repositories, and start the Docusaurus instances in them.
 | apify-sdk-python    | 3004 |
 | apify-cli           | 3005 |
 
-> To run Docusaurus on a specific port, use `npm start -- --port XXXX`.
-
-To route them, you will need an Nginx server with the following config:
+To serve them together as a single website, setup an Nginx server with the following config:
 
 ```nginx
 server {
@@ -125,11 +136,13 @@ server {
 }
 ```
 
-And add a record to `/etc/hosts` to map the `docs.apify.loc` hostname to localhost:
+Add a record to `/etc/hosts`, which maps the `docs.apify.loc` hostname to a localhost:
 
 ```text
 127.0.0.1 docs.apify.loc
 ```
+
+Now you should be able to open <http://docs.apify.loc> in your browser and see all the documentation projects joined together, with the top navigation allowing you to browse not only Academy or Platform docs, but also CLI, SDK, and all the other docs.
 
 ## Linting
 

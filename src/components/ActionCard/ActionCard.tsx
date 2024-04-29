@@ -1,4 +1,4 @@
-import { HorizontalTile, theme } from '@apify-packages/ui-components';
+import { HorizontalTile, theme } from '@apify-packages/ui-library';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import React from 'react';

@@ -1,4 +1,4 @@
-import { theme } from '@apify-packages/ui-components';
+import { theme } from '@apify-packages/ui-library';
 import React from 'react';
 
 import styles from './styles.module.css';

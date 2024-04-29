@@ -1,5 +1,4 @@
-import { TextBaseComponent, theme } from '@apify-packages/ui-components';
-import { TextProps } from '@apify-packages/ui-components/src/text/text';
+import { TextBaseComponent, TextBaseProps, theme } from '@apify-packages/ui-library';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
@@ -110,10 +109,6 @@ const HEADING_DEFAULT_ELEMENTS = {
     titleXs: HEADING_ELEMENTS.H6,
 };
 
-interface HeadingComponentProps extends TextProps {
-    type?: HeadingType;
-}
-
 interface HeadingCssProps {
     $type?: string;
 }
@@ -129,7 +124,7 @@ const StyledHeading = styled(TextBaseComponent)<HeadingCssProps>`
  *
  * @param {HeadingProps} props
  */
-export const Heading: React.FC<HeadingComponentProps> = ({
+export const Heading: React.FC<TextBaseProps & { $type: HeadingType }> = ({
     type,
     as,
     ...rest
