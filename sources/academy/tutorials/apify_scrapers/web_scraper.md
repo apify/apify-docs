@@ -263,8 +263,7 @@ be automatically enqueued to the request queue. Use a label to let the scraper k
 ### [](#waiting-for-dynamic-content) Waiting for dynamic content
 
 Before we talk about paginating, we need to have a quick look at dynamic content. Since Apify Store is a JavaScript
-application (as many, if not most, modern websites are), the button might not exist in the page when the scraper
-runs the `pageFunction`.
+application (a popular approach), the button might not exist in the page when the scraper runs the `pageFunction`.
 
 How is this possible? Because the scraper only waits with executing the `pageFunction` for the page to load its HTML.
 If there's additional JavaScript that modifies the DOM afterwards, the `pageFunction` may execute before this

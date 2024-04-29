@@ -17,7 +17,7 @@ You can also add **attributes** to an element to provide additional information 
 <img src="image.jpg" alt="A description of the image">
 ```
 
-In modern JavaScript, you can use the **DOM** (Document Object Model) to interact with elements on a web page. For example, you can use the [`querySelector()` method](./querying_css_selectors.md) to select an element by its [CSS selector](./css_selectors.md), like this:
+In JavaScript, you can use the **DOM** (Document Object Model) to interact with elements on a web page. For example, you can use the [`querySelector()` method](./querying_css_selectors.md) to select an element by its [CSS selector](./css_selectors.md), like this:
 
 ```js
 const myElement = document.querySelector('#myId');
@@ -37,4 +37,4 @@ const myElements = document.getElementsByTagName('p');
 
 Once you have selected an element, you can use JavaScript to change its content, style, or behavior.
 
-In summary, an HTML element is a building block of a web page, and it is defined by a **tag**, it can also have **attributes** which provide additional information or control how the element behaves and in modern JavaScript, you can use the **DOM** (Document Object Model) to interact with elements on a web page.
+In summary, an HTML element is a building block of a web page. It is defined by a **tag** with **attributes**, which provide additional information or control how the element behaves. You can use the **DOM** (Document Object Model) to interact with elements on a web page.
