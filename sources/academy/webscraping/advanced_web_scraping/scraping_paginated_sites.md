@@ -87,7 +87,7 @@ No easy way exists to get around this but the price range split works even with 
 
 #### How is the range passed to the URL? {#how-is-the-range-passed-to-the-url}
 
-In the easiest case, you can pass the range directly in the page's URL. For example, `<https://mysite.com/products?price=0-10>`. Sometimes, you will need to do some query composition because the price range might be encoded together with more information into a single parameter.
+In the easiest case, you can pass the range directly in the page's URL. For example, `https://example.com/products?price=0-10`. Sometimes, you will need to do some query composition because the price range might be encoded together with more information into a single parameter.
 
 Some sites don't have page URLs with filters and instead load the filtered products via [XHRs](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest). Those can be GET or POST requests with varying **URL** and **payload** syntax.
 
