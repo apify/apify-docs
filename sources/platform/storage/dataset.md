@@ -26,7 +26,7 @@ Dataset storage is _append-only_ - data can only be added and cannot be modified
 
 ## Basic usage {#basic-usage}
 
-You can ccess your datasets in several ways:
+You can access your datasets in several ways:
 
 * [Apify Console](https://console.apify.com/storage?tab=datasets) - provides an easy-to-understand interface.
 * [JavaScript SDK](/sdk/js/docs/guides/result-storage#dataset) - when building your own JavaScript Actor.
