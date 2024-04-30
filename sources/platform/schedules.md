@@ -34,9 +34,9 @@ Each schedule can be associated with a maximum of _10_ Actors and _10_ Actor tas
 
 ## Setting up a new schedule
 
-Before setting up a new schedule, you should have the [Actor](./actors/index.mdx) or [task](./actors/running/tasks.md) whose run you want to schedule prepared and tested.
+Before setting up a new schedule, you should have the [Actor](./actors/index.mdx) or [task](./actors/running/tasks.md) you want to schedule prepared and tested.
 
-To schedule an Actor, you need to have run it at least once before. To run the Actor, navigate to the Actor's page through [Apify Console](https://console.apify.com/store), where you can configure and initiate the Actor's run with your preferred settings by clicking on **Start** button. After this initial run, you can then use Schedules to automate future runs of the Actor
+To schedule an Actor, you need to have run it at least once before. To run the Actor, navigate to the Actor's page through [Apify Console](https://console.apify.com/store), where you can configure and initiate the Actor's run with your preferred settings by clicking the **Start** button. After this initial run, you can then use Schedules to automate future runs.
 
 :::info Name Length
 Your schedule's name should be 3–63 characters long.
@@ -75,7 +75,7 @@ For integrations, you can also add a [webhook](/platform/integrations/webhooks) 
 
 To create a new [schedule](/api/v2#/reference/schedules) using the Apify API, send a `POST` request to the [create schedule](/api/v2#/reference/schedules/schedules-collection/create-schedule) endpoint.
 
-You can find your [secret API token](./integrations/index.mdx) in [Integrations](https://console.apify.com/account?tab=integrations) tab of your Apify account settings.
+You can find your [secret API token](./integrations/index.mdx) under the [Integrations](https://console.apify.com/account?tab=integrations) tab of your Apify account settings.
 
 :::caution API authentication recommendations
 When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL ([more info](/api/v2#/introduction/authentication)).
