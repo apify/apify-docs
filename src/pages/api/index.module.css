@@ -1,0 +1,9 @@
+
+.river {
+    display: flex;
+    gap: 2.4rem;
+}
+
+.button-height {
+    height: auto;
+}
