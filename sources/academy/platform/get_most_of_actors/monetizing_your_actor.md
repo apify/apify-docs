@@ -31,7 +31,7 @@ At the end of each month, we will then add up all rental fees collected in that 
 
 ## Pay-per-result pricing model {#pay-per-result-pricing-model}
 
-If you make your Actor pay-per-result instead, you will set the price per 1,000 results, and users will be charged for your Actor solely based on the number of results your Actor produces. That's your **revenue**. The underlying [platform usage](https://docs.apify.com/platform/actors/running/usage-and-resources) the Actor generates is your **cost**. Your profit which is then paid to you is computed as 80% of the revenue minus the costs, i.e. `(0.8 * revenue) - costs = profit`. This profit is also paid out monthly.
+If you make your Actor pay-per-result instead, you will set the price per 1,000 results, and users will be charged for your Actor solely based on the number of results your Actor produces. That's your **revenue**. The underlying [platform usage](https://docs.apify.com/platform/actors/running/usage-and-resources) the Actor generates, using the free plan unit pricing, is your **cost**. Your profit which is then paid to you is computed as 80% of the revenue minus the costs, i.e. `(0.8 * revenue) - costs = profit`. This profit is also paid out monthly.
 
 Note that only revenue and cost for Apify customers on [paid plans](https://apify.com/pricing) are taken into consideration when computing your profit. Users on free plans are not reflected there, although you can see statistics about the potential revenue of users that are currently on free plans in Actor insights in the Apify Console.
 
@@ -74,7 +74,7 @@ Also, note that you are allowed to adjust the monetization settings of the Actor
 
 ## How you will be paid out {#payouts}
 
-Payout invoices are created automatically at the beginning of the new month. You will be notified and can access the new payout invoice, and any historical invoices, in the [**Settings > Payouts**](https://console.apify.com/account/payouts) section in Apify Console. Once the new invoice is ready, you will need to review and approve it in order for the payment to be processed. Note that if you do not approve the invoice, or let us know of any discrepancies, by the 9th of the month, the invoice will be auto-approved by the system on the 10th.
+Payout invoices are created automatically on 14th of the new month. You will be notified and can access the new payout invoice, and any historical invoices, in the [**Settings > Payouts**](https://console.apify.com/account/payouts) section in Apify Console. Once the new invoice is ready, you will need to review and approve it within a week in order for the payment to be processed. Note that if you do not approve the invoice, or let us know of any discrepancies, by the 20th of the month, the invoice will be auto-approved by the system on the 21st. If you have multiple Actors, the total profit is the sum of individual profits, and any losses and gains cancel out.
 
 ## Tracking profit and user statistics {#analytics}
 
