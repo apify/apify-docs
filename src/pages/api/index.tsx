@@ -9,7 +9,6 @@ import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import ThemedImage from '@theme/ThemedImage';
-// @ts-expect-error - Ignoring ts error for importing React
 import React from 'react';
 import GitHubButton from 'react-github-btn';
 import styled from 'styled-components';
@@ -19,6 +18,10 @@ import Button from '../../components/Button';
 import Hero from '../../components/Hero/Hero';
 import Section from '../../components/Section/Section';
 import Tabs from '../../components/Tabs';
+
+const HeroWrapper = styled(Hero)`
+    background-image: url("/img/hero_background.svg");
+`;
 
 const SectionWrapper = styled(Section)`
     display: flex;
@@ -42,6 +45,18 @@ const SectionWrapper = styled(Section)`
 
         button {
             text-wrap: nowrap;
+            max-height: 36px;
+        }
+    }
+
+    .MainSectionContent {
+        display: flex;
+        flex-direction: column;
+        gap: ${theme.space.space16};
+
+        button {
+            text-wrap: nowrap;
+            font-size: 14px;
             max-height: 36px;
         }
     }
@@ -85,13 +100,12 @@ const BlogImageWrapper = styled.img`
 export default function Api() {
     return (
         <UiDependencyProvider dependencies={{
-            // @ts-expect-error - Ref not needed here
             InternalLink: (props) => <Link {...props} />,
             windowLocationHost: window.location.host,
             isHrefTrusted: () => true,
         }}>
             <Layout>
-                <Hero
+                <HeroWrapper
                     heading="Apify API"
                     isCentered
                     description={<>Apify API provides useful features like automatic retries and convenience functions.<br/>
@@ -100,11 +114,15 @@ export default function Api() {
                 <SectionWrapper
                     className={styles.LargerContent}
                     heading="API reference"
-                    description={`
+                    description={<div className="MainSectionContent">
                     The Apify API allows developers to interact programmatically apps using HTTP requests.
                     The Apify API is built around REST.
                     The API has predictable resource-oriented URLs, returns JSON-encoded responses,
-                    and uses standard HTTP response codes, authentication, and verbs.`}
+                    and uses standard HTTP response codes, authentication, and verbs.
+                        <div>
+                            <Button onClick={() => window.location.replace('/api/v2')}>Check API reference</Button>
+                        </div>
+                    </div>}
                 >
                     <ClientCodeWrapper>
                         <CodeBlock content={[{ key: 'cURL', label: 'cURL', language: 'bash', code: `
@@ -144,13 +162,12 @@ curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN
                             </TabTitleWrapper>,
                             content: (
                                 <SectionWrapper
-                                    className="TabsSection"
                                     heading="JavaScript API client"
                                     description={<div className="Description">
                                     The official library to interact with Apify API from a web browser, Node.js, JavaScript, or Typescript applications.
                                         <GitHubButton href="https://github.com/apify/apify-client-js" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" data-show-count="true">Star</GitHubButton>
                                         <div className="DescriptionLinks">
-                                            <Button size="SMALL">Get started</Button>
+                                            <Button onClick={() => window.location.replace('/api/client/js/docs')}>Get started</Button>
                                             <ActionLink to='/api/client/js'>JavaScript client reference</ActionLink>
                                         </div>
                                     </div>}
@@ -190,13 +207,12 @@ const { items } = await client.dataset(defaultDatasetId).listItems();
                             </TabTitleWrapper>,
                             content: (
                                 <SectionWrapper
-                                    className="TabsSection"
                                     heading="Python API client"
                                     description={<div className="Description">
                                         The official library to interact with Apify API from a Python applications.
                                         <GitHubButton href="https://github.com/apify/apify-client-python" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" data-show-count="true">Star</GitHubButton>
                                         <div className="DescriptionLinks">
-                                            <Button size="SMALL">Get started</Button>
+                                            <Button onClick={() => window.location.replace('/api/client/python/docs')}>Get started</Button>
                                             <ActionLink to='/api/client/python'>Python client reference</ActionLink>
                                         </div>
                                     </div>}
@@ -205,22 +221,18 @@ const { items } = await client.dataset(defaultDatasetId).listItems();
                                         <CodeBlock content='pip install apify-client' language="bash"/>
                                         <CodeBlock
                                             className="codeBlock"
-                                            language='javascript'
+                                            language='python'
                                             hideLineNumbers
                                             content={`
-// Easily run Actors, await them to finish using the convenient .call() method, and retrieve results from the resulting dataset.
+from apify_client import ApifyClient
 
-const { ApifyClient } = require('apify-client');
+apify_client = ApifyClient('MY-APIFY-TOKEN')
 
-const client = new ApifyClient({
-    token: 'MY-APIFY-TOKEN',
-});
+# Start an actor and wait for it to finish
+actor_call = apify_client.actor('john-doe/my-cool-actor').call()
 
-// Starts an actor and waits for it to finish.
-const { defaultDatasetId } = await client.actor('john-doe/my-cool-actor').call();
-
-// Fetches results from the actor's dataset.
-const { items } = await client.dataset(defaultDatasetId).listItems();
+# Fetch results from the actor run's default dataset
+dataset_items = apify_client.dataset(actor_call['defaultDatasetId']).list_items().items
                                 `}/></ClientCodeWrapper>
                                 </SectionWrapper>
                             ),
@@ -231,17 +243,17 @@ const { items } = await client.dataset(defaultDatasetId).listItems();
                     <RelatedArticlesWrapper>
                         <a href="https://blog.apify.com/web-scraping-with-client-side-vanilla-javascript/">
                             <BlogArticle
-                                imageNode={<BlogImageWrapper src='https://fastly.picsum.photos/id/687/384/216.jpg?hmac=c0MmDG_XBUiESdVUqqBB3HBNnGVBJiR79vGmSQNZP_c'/>}
+                                imageNode={<BlogImageWrapper src="https://blog.apify.com/content/images/2022/03/vanilla-js-ice-cream-js.jpg"/>}
                                 title="Web scraping with client-side Vanilla JavaScript"/>
                         </a>
                         <a href="https://blog.apify.com/apify-python-api-client/">
                             <BlogArticle
-                                imageNode={<BlogImageWrapper src='https://fastly.picsum.photos/id/687/384/216.jpg?hmac=c0MmDG_XBUiESdVUqqBB3HBNnGVBJiR79vGmSQNZP_c'/>}
+                                imageNode={<BlogImageWrapper src="https://blog.apify.com/content/images/2021/10/python.png" />}
                                 title="Apify ❤️ Python, so we’re releasing a Python API client"/>
                         </a>
                         <a href="https://blog.apify.com/api-for-dummies/">
                             <BlogArticle
-                                imageNode={<BlogImageWrapper src='https://fastly.picsum.photos/id/687/384/216.jpg?hmac=c0MmDG_XBUiESdVUqqBB3HBNnGVBJiR79vGmSQNZP_c'/>}
+                                imageNode={<BlogImageWrapper src="https://blog.apify.com/content/images/2024/02/API-for-dummies.png" />}
                                 title="API for dummies"/>
                         </a>
                     </RelatedArticlesWrapper>
