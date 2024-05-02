@@ -1,6 +1,6 @@
 import {
     theme,
-} from '@apify-packages/ui-components';
+} from '@apify-packages/ui-library';
 import clsx
     from 'clsx';
 import React from 'react';
@@ -32,7 +32,7 @@ const TabsWrapper = styled.div`
 
 interface TabsProps {
     items: {
-        title: string;
+        title: React.ReactNode;
         content: React.ReactNode;
     }[];
 }
@@ -44,8 +44,8 @@ export default function Tabs({ items }: TabsProps) {
         <TabsWrapper>
             {items.map(({ title }, index) => (
                 <Heading
+                    key={title?.toLocaleString()}
                     className={clsx('TabItem', activeTab === index && 'TabItem-active')}
-                    size="titleL"
                     onClick={() => setActiveTab(index)}
                 >{title}</Heading>
             ))}

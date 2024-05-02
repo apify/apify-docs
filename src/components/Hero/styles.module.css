@@ -14,7 +14,8 @@
 }
 
 @media (min-width: 768px) {
-    .heroBannerContent { max-width: 738px;  align-items: flex-start; text-align: left; }
+    .heroBannerContent { max-width: 738px; align-items: flex-start; text-align: left; }
+    .heroBannerContent.heroBannerContentCentered { max-width: 738px; align-items: center; }
     .heroBanner { margin-bottom: 0; }
 }
 
@@ -50,7 +51,6 @@
 html[data-theme='dark'] .heroBanner::after {
     background: linear-gradient(180deg, #1A1B21 0%, rgba(26, 27, 33, 0) 100%);
     transform: matrix(1, 0, 0, -1, 0, 0);
-
 }
 
 .heroBanner .heroDescription {
