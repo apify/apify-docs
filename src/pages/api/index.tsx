@@ -1,6 +1,7 @@
 import {
     ActionLink,
     BlogArticle,
+    Button,
     CodeBlock,
     theme,
     UiDependencyProvider,
@@ -14,7 +15,6 @@ import GitHubButton from 'react-github-btn';
 import styled from 'styled-components';
 
 import styles from './styles.module.css';
-import Button from '../../components/Button';
 import Hero from '../../components/Hero/Hero';
 import Section from '../../components/Section/Section';
 import Tabs from '../../components/Tabs';
@@ -43,7 +43,8 @@ const SectionWrapper = styled(Section)`
         display: flex;
         gap: ${theme.space.space16};
 
-        button {
+        a {
+            font-weight: bold;
             text-wrap: nowrap;
             max-height: 36px;
         }
@@ -54,8 +55,9 @@ const SectionWrapper = styled(Section)`
         flex-direction: column;
         gap: ${theme.space.space16};
 
-        button {
+        a {
             text-wrap: nowrap;
+            font-weight: bold;
             font-size: 14px;
             max-height: 36px;
         }
@@ -120,7 +122,7 @@ export default function Api() {
                     The API has predictable resource-oriented URLs, returns JSON-encoded responses,
                     and uses standard HTTP response codes, authentication, and verbs.
                         <div>
-                            <Button onClick={() => window.location.replace('/api/v2')}>Check API reference</Button>
+                            <Button to='/api/v2'>Check API reference</Button>
                         </div>
                     </div>}
                 >
@@ -167,7 +169,7 @@ curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN
                                     The official library to interact with Apify API from a web browser, Node.js, JavaScript, or Typescript applications.
                                         <GitHubButton href="https://github.com/apify/apify-client-js" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" data-show-count="true">Star</GitHubButton>
                                         <div className="DescriptionLinks">
-                                            <Button onClick={() => window.location.replace('/api/client/js/docs')}>Get started</Button>
+                                            <Button to='/api/client/js/docs'>Get started</Button>
                                             <ActionLink to='/api/client/js'>JavaScript client reference</ActionLink>
                                         </div>
                                     </div>}
@@ -212,7 +214,7 @@ const { items } = await client.dataset(defaultDatasetId).listItems();
                                         The official library to interact with Apify API from a Python applications.
                                         <GitHubButton href="https://github.com/apify/apify-client-python" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" data-show-count="true">Star</GitHubButton>
                                         <div className="DescriptionLinks">
-                                            <Button onClick={() => window.location.replace('/api/client/python/docs')}>Get started</Button>
+                                            <Button to='/api/client/python/docs'>Get started</Button>
                                             <ActionLink to='/api/client/python'>Python client reference</ActionLink>
                                         </div>
                                     </div>}
