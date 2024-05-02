@@ -103,7 +103,7 @@ export default function Api() {
     return (
         <UiDependencyProvider dependencies={{
             InternalLink: (props) => <Link {...props} />,
-            windowLocationHost: window.location.host,
+            windowLocationHost: useBaseUrl(''),
             isHrefTrusted: () => true,
         }}>
             <Layout>
