@@ -1,14 +1,9 @@
-import {
-    theme,
-} from '@apify-packages/ui-library';
-import clsx
-    from 'clsx';
+import { theme } from '@apify-packages/ui-library';
+import clsx from 'clsx';
 import React from 'react';
 import styled from 'styled-components';
 
-import {
-    Heading
-} from "./Heading";
+import { Heading } from './Heading';
 
 const TabsWrapper = styled.div`
     display: flex;
@@ -45,6 +40,7 @@ export default function Tabs({ items }: TabsProps) {
             {items.map(({ title }, index) => (
                 <Heading
                     key={title?.toLocaleString()}
+                    $type="titleS"
                     className={clsx('TabItem', activeTab === index && 'TabItem-active')}
                     onClick={() => setActiveTab(index)}
                 >{title}</Heading>

@@ -6,12 +6,10 @@ import {
     UiDependencyProvider,
 } from '@apify-packages/ui-library';
 import Link from '@docusaurus/Link';
-import useBaseUrl
-    from '@docusaurus/useBaseUrl';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
+import ThemedImage from '@theme/ThemedImage';
 // @ts-expect-error - Ignoring ts error for importing React
-import ThemedImage
-    from '@theme/ThemedImage';
 import React from 'react';
 import GitHubButton from 'react-github-btn';
 import styled from 'styled-components';
