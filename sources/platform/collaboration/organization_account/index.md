@@ -13,7 +13,7 @@ slug: /collaboration/organization-account
 
 Organization accounts allow groups to collaborate on projects. It enables you to manage your team members' [permissions](../list_of_permissions.md) and to centralize your billing without having to share the credentials of a single personal account.
 
-You can [switch](./how_to_use.md) between your personal and organization accounts in just two clicks: in the [Apify Console](https://console.apify.com), click the account button in the top-left corner, then select the organization.
+You can [switch](./how_to_use.md) between your personal and organization accounts in just two clicks: in [Apify Console](https://console.apify.com), click the account button in the top-left corner, then select the organization.
 
 You can set up an organization in two ways.
 
@@ -59,9 +59,5 @@ For information on [adding members and assigning roles](./setup.md), see the Set
 ## Billing {#billing}
 
 Actor and task runs are billed to the account they are started from. **Always make sure you start your runs from the correct account** to avoid having an organization's runs billed to your personal account.
-
-The Free and Personal plans are [restricted to 9 seats](https://apify.com/pricing), while the Team plan comes with a minimum of 9, which you can increase later. If you are on the Team plan and want to add some more seats to the 9 it comes with, head over to your [Billing page and click on Subscriptions](https://console.apify.com/billing-new#/subscription). Click on **Upgrade**, and, in the **Add-ons** section, and add as many additional seats as you need. Then, just complete the upgrade process, and you're done.
-
-![Adding more teams account seats](../images/organizations/upgrade.png)
 
 To find out about organization pricing, get in touch at [support@apify.com](mailto:support@apify.com?subject=Organization%20account%20pricing) or [visit the pricing page](https://apify.com/pricing).
