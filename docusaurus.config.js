@@ -104,6 +104,7 @@ module.exports = {
                 // so let's just disable showing author and last modification
                 showLastUpdateAuthor: false,
                 showLastUpdateTime: false,
+                breadcrumbs: false,
                 sidebarPath: require.resolve('./sources/legal/sidebars.js'),
             },
         ],
