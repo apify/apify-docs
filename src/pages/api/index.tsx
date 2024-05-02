@@ -169,8 +169,8 @@ curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN
                                     The official library to interact with Apify API from a web browser, Node.js, JavaScript, or Typescript applications.
                                         <GitHubButton href="https://github.com/apify/apify-client-js" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" data-show-count="true">Star</GitHubButton>
                                         <div className="DescriptionLinks">
-                                            <Button to='/api/client/js/docs'>Get started</Button>
-                                            <ActionLink to='/api/client/js'>JavaScript client reference</ActionLink>
+                                            <Button to='https://docs.apify.com/api/client/js/docs'>Get started</Button>
+                                            <ActionLink to='https://docs.apify.com/api/client/js'>JavaScript client reference</ActionLink>
                                         </div>
                                     </div>}
                                 >
@@ -214,8 +214,8 @@ const { items } = await client.dataset(defaultDatasetId).listItems();
                                         The official library to interact with Apify API from a Python applications.
                                         <GitHubButton href="https://github.com/apify/apify-client-python" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" data-show-count="true">Star</GitHubButton>
                                         <div className="DescriptionLinks">
-                                            <Button to='/api/client/python/docs'>Get started</Button>
-                                            <ActionLink to='/api/client/python'>Python client reference</ActionLink>
+                                            <Button to='https://docs.apify.com/api/client/python/docs'>Get started</Button>
+                                            <ActionLink to='https://docs.apify.com/api/client/python'>Python client reference</ActionLink>
                                         </div>
                                     </div>}
                                 >
