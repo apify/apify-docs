@@ -16,7 +16,7 @@ import styles from './styles.module.css';
 function NavbarItems({ items }) {
     return (
         <>
-            {items.map((item, i) => <NavbarItem {...item} key={i}/>)}
+            {items.map((item, i) => <NavbarItem {...item} key={i} />)}
         </>
     );
 }
@@ -45,9 +45,13 @@ function SubNavbar() {
                 <div className="navbar__container">
                     <div className="navbar__items">
                         <div className="navbar__sub--title">
-                            <NavbarItem label={subNavbar.title} to={subNavbar.to ?? '/'} activeBaseRegex='(?!)' />
+                            <NavbarItem
+                                label={subNavbar.titleIcon ? <><img src={`/img/${subNavbar.titleIcon}`} />{subNavbar.title}</> : subNavbar.title}
+                                to={subNavbar.to ?? '/'}
+                                activeBaseRegex='(?!)'
+                            />
                         </div>
-                        <NavbarItems items={subNavbar.items}/>
+                        <NavbarItems items={subNavbar.items} />
                     </div>
                 </div>
             </div>
@@ -72,24 +76,24 @@ export default function NavbarContent() {
             <NavbarContentLayout
                 left={
                     <>
-                        <NavbarMobileSidebarToggle/>
-                        <NavbarLogo/>
-                        <NavbarItems items={leftItems}/>
+                        <NavbarMobileSidebarToggle />
+                        <NavbarLogo />
+                        <NavbarItems items={leftItems} />
                     </>
                 }
                 right={
                     <>
-                        <NavbarColorModeToggle className={styles.colorModeToggle}/>
-                        <NavbarItems items={rightItems}/>
+                        <NavbarColorModeToggle className={styles.colorModeToggle} />
+                        <NavbarItems items={rightItems} />
                         {!searchBarItem && (
                             <NavbarSearch>
-                                <SearchBar/>
+                                <SearchBar />
                             </NavbarSearch>
                         )}
                     </>
                 }
             />
-            <SubNavbar/>
+            <SubNavbar />
         </div>
     );
 }

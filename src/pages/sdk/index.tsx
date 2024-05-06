@@ -1,14 +1,14 @@
-/* eslint-disable import/order */
-import React from 'react';
-import Layout from '@theme/Layout';
-
 import { Banner, UiDependencyProvider, theme } from '@apify-packages/ui-library';
-
+import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Layout from '@theme/Layout';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-import { Text } from '../../components/Text';
+
+import SdkSection from './sdk_section';
 import Hero from '../../components/Hero/Hero';
 import Section from '../../components/Section/Section';
-import SdkSection from './sdk_section';
+import { Text } from '../../components/Text';
 
 const javascriptExample = `// Apify SDK v3 uses named exports instead of the Apify object.
 // You can import Dataset, KeyValueStore and more.
@@ -35,40 +35,80 @@ async def main():
         soup = BeautifulSoup(response.content, 'html.parser')
         await Actor.push_data({ 'url': actor_input['url'], 'title': soup.title.string })`;
 
-const StyledSection = styled(Section)`
-    margin: 0;
-    @media (max-width: ${theme.layout.largeDesktop}) {
-        margin: 0;
-    }
-`;
+const HeroWrapper = styled(Hero)`
+        background-image: url("/img/hero_background.svg");
+    `;
+
+const SectionWrapper = styled(Section)`
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: ${theme.space.space24};
+        @media (min-width: ${theme.layout.desktop}) {
+            flex-direction: row;
+        }
+        /* .Description {
+            display: flex;
+            flex-direction: column;
+            gap: ${theme.space.space24};
+        }
+        .DescriptionLinks {
+            display: flex;
+            gap: ${theme.space.space16};
+            a {
+                font-weight: bold;
+                text-wrap: nowrap;
+                max-height: 36px;
+            }
+        }
+        .MainSectionContent {
+            display: flex;
+            flex-direction: column;
+            gap: ${theme.space.space16};
+            a {
+                text-wrap: nowrap;
+                font-weight: bold;
+                font-size: 14px;
+                max-height: 36px;
+            }
+        } */
+    `;
 
 const StyledBanner = styled(Banner)`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: ${theme.space.space80};
 
     @media (max-width: ${theme.layout.tablet}) {
         /* width: 738px; */
-        padding: 0 16px 80px 16px;
+        padding: 0 ${theme.space.space16} ${theme.space.space80} ${theme.space.space16};
     }
 
     @media (min-width: ${theme.layout.tablet}) {
-        padding: 40px 24px 80px 24px;
+        padding: ${theme.space.space40} ${theme.space.space24} ${theme.space.space80} ${theme.space.space24};
     }
 
     @media (min-width: ${theme.layout.largeDesktop}) {
         max-width: 1200px;
-        padding: 40px 40px 80px 40px;
+        padding: ${theme.space.space40} ${theme.space.space40} ${theme.space.space80} ${theme.space.space40};
     }
 `;
 
 export default function Home() {
+    const WebInternalLink = forwardRef<HTMLAnchorElement, any >((props, ref) => <Link ref={ref} {...props} />);
+    WebInternalLink.displayName = 'WebInternalLink';
+
     return (
-        <UiDependencyProvider dependencies={[]}>
+        <UiDependencyProvider dependencies={{
+            InternalLink: WebInternalLink,
+            windowLocationHost: useBaseUrl(''),
+            isHrefTrusted: () => true,
+        }}>
             <Layout>
-                <Hero
+                <HeroWrapper
                     heading="Apify SDK"
+                    isCentered
                     description={
                         <Text color={theme.color.neutral.textMuted} size='large'>
                             The Apify SDK is a toolkit for building Actors—serverless microservices running (not only) on the Apify platform.
@@ -77,7 +117,7 @@ export default function Home() {
                         </Text>
                     }
                 />
-                <StyledSection>
+                <SectionWrapper>
                     <StyledBanner useGradientBackground={false} background='rgba(255, 255, 255, 0.6)'>
                         <SdkSection
                             title="SDK for JavaScript"
@@ -97,7 +137,7 @@ export default function Home() {
                             githubRepoUrl="https://github.com/apify/apify-sdk-python"
                         />
                     </StyledBanner>
-                </StyledSection>
+                </SectionWrapper>
             </Layout>
         </UiDependencyProvider>);
 }

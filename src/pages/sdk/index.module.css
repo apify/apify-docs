@@ -2,16 +2,18 @@
     flex: 1 0 0;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 24px;
 }
 
 .sdkSectionActionButtons {
     display: flex;
-    gap: 16px;
     align-items: center;
+    gap: 16px;
 
     @media (max-width: 768px) {
         flex-direction: column;
+        align-items: flex-start;
     }
 }
 
