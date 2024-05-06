@@ -15,7 +15,7 @@
 
 @media (min-width: 768px) {
     .heroBannerContent { max-width: 738px; align-items: flex-start; text-align: left; }
-    .heroBannerContent.heroBannerContentCentered { max-width: 738px; align-items: center; }
+    .heroBannerContent.heroBannerContentCentered { max-width: 738px; align-items: center; text-align: center; }
     .heroBanner { margin-bottom: 0; }
 }
 

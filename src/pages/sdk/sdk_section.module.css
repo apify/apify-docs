@@ -1,3 +1,12 @@
+.sdkSection {
+    display: flex;
+    gap: 24px;
+
+    @media (max-width: 768px) { /* max-width: ${theme.layout.tablet} */
+        flex-direction: column;
+    }
+}
+
 .sdkSectionDescription {
     flex: 1 0 0;
     display: flex;
@@ -11,7 +20,7 @@
     align-items: center;
     gap: 16px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 768px) { /* max-width: ${theme.layout.tablet} */
         flex-direction: column;
         align-items: flex-start;
     }
