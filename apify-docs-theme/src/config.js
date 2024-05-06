@@ -69,6 +69,7 @@ const themeConfig = ({
             {
                 label: 'SDK',
                 type: 'dropdown',
+                to: '/sdk',
                 activeBasePath: 'sdk',
                 position: 'left',
                 items: [
@@ -90,6 +91,7 @@ const themeConfig = ({
                 label: 'CLI',
                 href: `${absoluteUrl}/cli/`, // we need a trailing slash here, we'd get redirected there anyway
                 position: 'left',
+                activeBasePath: 'cli',
                 target: '_self',
                 rel: 'dofollow',
             },
