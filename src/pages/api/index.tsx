@@ -97,6 +97,12 @@ const TabTitleWrapper = styled.div`
 const BlogImageWrapper = styled.img`
     border-radius: 12px;
     height: 100%;
+    object-fit: cover;
+    transition: transform 120ms;
+
+    &:hover {
+        transform: scale(1.05);
+    }
 `;
 
 export default function Api() {
@@ -164,7 +170,7 @@ curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN
                                     The official library to interact with Apify API from a web browser, Node.js, JavaScript, or Typescript applications.
                                         <GitButton href="https://github.com/apify/apify-client-js" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
-                                            <Button hideExternalIcon to='https://docs.apify.com/api/client/js/docs'>Get started</Button>
+                                            <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/js/docs'>Get started</Button>
                                             <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/js'>JavaScript client reference</ActionLink>
                                         </div>
                                     </div>}
@@ -209,7 +215,7 @@ const { items } = await client.dataset(defaultDatasetId).listItems();
                                         The official library to interact with Apify API from a Python applications.
                                         <GitButton href="https://github.com/apify/apify-client-python" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
-                                            <Button hideExternalIcon to='https://docs.apify.com/api/client/python/docs'>Get started</Button>
+                                            <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/python/docs'>Get started</Button>
                                             <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/python'>Python client reference</ActionLink>
                                         </div>
                                     </div>}
