@@ -42,11 +42,12 @@ The provided boilerplate code utilizes the [Apify SDK](https://docs.apify.com/sd
 
 :::
 
-To run your Actor, you need to build it first. Click the **Build** button below the source code to initiate the build process.
 
 ![Actor source code](./images/actor-source-code.png)
 
 ### Build the Actor
+
+To run your Actor, you need to build it first. Click the **Build** button below the source code to start the build process.
 
 Once the build has been initiated, the UI will transition to the **Last build** tab, displaying the progress of the build and the Docker build log.
 
@@ -81,9 +82,7 @@ To initiate an Actor run, click the **Start** button at the bottom of the page. 
 
 ### Pull the Actor
 
-To continue development locally, you can pull the Actor's source code to your local machine. Instructions for pulling your Actor are available on the Actor detail page.
-
-![Actor pull](./images/actor-pull.png)
+To continue development locally, you can pull the Actor's source code to your local machine.
 
 :::note Prerequisites
 
@@ -127,6 +126,13 @@ To pull your Actor, you need to:
     ```bash
     apify pull [actor_name] --version [version_number]
     ```
+
+    As `actor_name`, you can use either:
+
+    - The unique name of the Actor (e.g., `apify/hello-world`)
+    - The ID of the Actor (e.g., `E2jjCZBezvAZnX8Rb`)
+
+You can find both by clicking on the Actor title at the top of the page, which will open a new window containing the Actor's unique name and ID.
 
 ## Iterate & customize
 
