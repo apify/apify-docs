@@ -4,20 +4,20 @@ import {
     Button,
     CodeBlock,
     theme,
-    UiDependencyProvider,
 } from '@apify-packages/ui-library';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import ThemedImage from '@theme/ThemedImage';
 import React from 'react';
-import GitHubButton from 'react-github-btn';
 import styled from 'styled-components';
 
 import styles from './styles.module.css';
+import GitButton from '../../components/GitButton';
 import Hero from '../../components/Hero/Hero';
 import Section from '../../components/Section/Section';
 import Tabs from '../../components/Tabs';
+import UiLibraryWrapper from '../../components/UiLibraryWrapper';
 
 const HeroWrapper = styled(Hero)`
     background-image: url("/img/hero_background.svg");
@@ -29,7 +29,7 @@ const SectionWrapper = styled(Section)`
     justify-content: space-between;
     gap: ${theme.space.space24};
 
-    @media (min-width: ${theme.layout.desktop}) {
+    @media (min-width: ${theme.layout.tablet}) {
         flex-direction: row;
     }
 
@@ -69,7 +69,7 @@ const RelatedArticlesWrapper = styled.div`
     flex-direction: column;
     gap: 2.4rem;
 
-    @media (min-width: ${theme.layout.desktop}) {
+    @media (min-width: ${theme.layout.tablet}) {
         flex-direction: row;
     }
 
@@ -83,7 +83,7 @@ const ClientCodeWrapper = styled.div`
     flex-direction: column;
     gap: ${theme.space.space24};
 
-    @media (min-width: ${theme.layout.desktop}) {
+    @media (min-width: ${theme.layout.tablet}) {
         max-width: 50%;
     }
 `;
@@ -101,26 +101,21 @@ const BlogImageWrapper = styled.img`
 
 export default function Api() {
     return (
-        <UiDependencyProvider dependencies={{
-            InternalLink: (props) => <Link {...props} />,
-            windowLocationHost: useBaseUrl(''),
-            isHrefTrusted: () => true,
-        }}>
-            <Layout>
+        <Layout>
+            <UiLibraryWrapper>
                 <HeroWrapper
                     heading="Apify API"
                     isCentered
-                    description={<>Apify API provides useful features like automatic retries and convenience functions.<br/>
-                It connects you with any Actors and their tasks either in the Store or your own.</>}
+                    description={<>Apify API provides programmatic access to the <Link to="/">Apify Platform</Link></>}
                 />
                 <SectionWrapper
                     className={styles.LargerContent}
                     heading="API reference"
                     description={<div className="MainSectionContent">
-                    The Apify API allows developers to interact programmatically apps using HTTP requests.
-                    The Apify API is built around REST.
-                    The API has predictable resource-oriented URLs, returns JSON-encoded responses,
-                    and uses standard HTTP response codes, authentication, and verbs.
+                        <p>The Apify API allows developers to interact programmatically apps using HTTP requests.
+                        The Apify API is built around <Link to="https://en.wikipedia.org/wiki/REST">REST</Link>.</p>
+                        <p>The API has predictable resource-oriented URLs, returns JSON-encoded responses,
+                        and uses standard HTTP response codes, authentication, and verbs.</p>
                         <div>
                             <Button to='/api/v2'>Check API reference</Button>
                         </div>
@@ -167,10 +162,10 @@ curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN
                                     heading="JavaScript API client"
                                     description={<div className="Description">
                                     The official library to interact with Apify API from a web browser, Node.js, JavaScript, or Typescript applications.
-                                        <GitHubButton href="https://github.com/apify/apify-client-js" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" data-show-count="true">Star</GitHubButton>
+                                        <GitButton href="https://github.com/apify/apify-client-js" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
-                                            <Button to='https://docs.apify.com/api/client/js/docs'>Get started</Button>
-                                            <ActionLink to='https://docs.apify.com/api/client/js'>JavaScript client reference</ActionLink>
+                                            <Button hideExternalIcon to='https://docs.apify.com/api/client/js/docs'>Get started</Button>
+                                            <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/js'>JavaScript client reference</ActionLink>
                                         </div>
                                     </div>}
                                 >
@@ -212,10 +207,10 @@ const { items } = await client.dataset(defaultDatasetId).listItems();
                                     heading="Python API client"
                                     description={<div className="Description">
                                         The official library to interact with Apify API from a Python applications.
-                                        <GitHubButton href="https://github.com/apify/apify-client-python" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" data-show-count="true">Star</GitHubButton>
+                                        <GitButton href="https://github.com/apify/apify-client-python" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
-                                            <Button to='https://docs.apify.com/api/client/python/docs'>Get started</Button>
-                                            <ActionLink to='https://docs.apify.com/api/client/python'>Python client reference</ActionLink>
+                                            <Button hideExternalIcon to='https://docs.apify.com/api/client/python/docs'>Get started</Button>
+                                            <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/python'>Python client reference</ActionLink>
                                         </div>
                                     </div>}
                                 >
@@ -260,7 +255,7 @@ dataset_items = apify_client.dataset(actor_call['defaultDatasetId']).list_items(
                         </a>
                     </RelatedArticlesWrapper>
                 </Section>
-            </Layout>
-        </UiDependencyProvider>
+            </UiLibraryWrapper>
+        </Layout>
     );
 }
