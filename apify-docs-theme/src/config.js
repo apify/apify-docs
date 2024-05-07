@@ -43,6 +43,9 @@ const themeConfig = ({
             {
                 label: 'API',
                 type: 'dropdown',
+                to: `${absoluteUrl}/api`,
+                target: '_self',
+                rel: 'dofollow',
                 activeBasePath: 'api',
                 position: 'left',
                 items: [
