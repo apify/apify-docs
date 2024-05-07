@@ -76,6 +76,13 @@ const RelatedArticlesWrapper = styled.div`
     a {
         width: 100%;
     }
+
+    .ImageWrapper {
+        transition: transform 120ms;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
 `;
 
 const ClientCodeWrapper = styled.div`
@@ -98,11 +105,6 @@ const BlogImageWrapper = styled.img`
     border-radius: 12px;
     height: 100%;
     object-fit: cover;
-    transition: transform 120ms;
-
-    &:hover {
-        transform: scale(1.05);
-    }
 `;
 
 export default function Api() {
