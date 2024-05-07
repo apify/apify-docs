@@ -69,7 +69,7 @@ const themeConfig = ({
             {
                 label: 'SDK',
                 type: 'dropdown',
-                to: `${absoluteUrl}/sdk`,
+                to: '/sdk',
                 activeBasePath: 'sdk',
                 position: 'left',
                 target: '_self',
