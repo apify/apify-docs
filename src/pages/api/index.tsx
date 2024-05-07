@@ -65,12 +65,17 @@ const SectionWrapper = styled(Section)`
 `;
 
 const RelatedArticlesWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 2.4rem;
 
     @media (min-width: ${theme.layout.tablet}) {
         flex-direction: row;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: ${theme.layout.desktop}) {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
     a {
