@@ -6,9 +6,9 @@ import React from 'react';
 import GitHubButton from 'react-github-btn';
 import styled from 'styled-components';
 
-import styles from './sdk_section.module.css';
-import { Heading } from '../../components/Heading';
-import { Text } from '../../components/Text';
+import styles from './SdkSection.module.css';
+import { Heading } from '../Heading';
+import { Text } from '../Text';
 
 const StyledButton = styled(Button)`
     font-weight: 650;

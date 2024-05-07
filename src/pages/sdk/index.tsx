@@ -3,8 +3,8 @@ import Layout from '@theme/Layout';
 import React from 'react';
 import styled from 'styled-components';
 
-import SdkSection from './sdk_section';
 import Hero from '../../components/Hero/Hero';
+import SdkSection from '../../components/SdkSection/SdkSection';
 import Section from '../../components/Section/Section';
 import UiLibraryWrapper from '../../components/UiLibraryWrapper';
 
