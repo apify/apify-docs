@@ -75,12 +75,19 @@ const RelatedArticlesWrapper = styled.div`
 
     a {
         width: 100%;
-    }
 
-    .ImageWrapper {
-        transition: transform 120ms;
+        .ImageWrapper {
+            overflow: hidden;
+        }
+
+        img {
+            transition: transform 120ms;
+        }
+
         &:hover {
-            transform: scale(1.05);
+            img {
+                transform: scale(1.05);
+            }
         }
     }
 `;
@@ -104,7 +111,6 @@ const TabTitleWrapper = styled.div`
 const BlogImageWrapper = styled.img`
     border-radius: 12px;
     height: 100%;
-    object-fit: cover;
 `;
 
 export default function Api() {
