@@ -1,17 +1,18 @@
-import React from 'react';
+import { useLocation } from '@docusaurus/router';
 import { useThemeConfig, isRegexpStringMatch } from '@docusaurus/theme-common';
-import { usePluginData } from '@docusaurus/useGlobalData';
 import {
     splitNavbarItems,
 } from '@docusaurus/theme-common/internal';
-import NavbarLogo from '@theme/Navbar/Logo';
-import NavbarItem from '@theme/NavbarItem';
+import { usePluginData } from '@docusaurus/useGlobalData';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
-import NavbarSearch from '@theme/Navbar/Search';
+import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
-import { useLocation } from '@docusaurus/router';
-import SearchBar from '../../SearchBar';
+import NavbarSearch from '@theme/Navbar/Search';
+import NavbarItem from '@theme/NavbarItem';
+import React from 'react';
+
 import styles from './styles.module.css';
+import SearchBar from '../../SearchBar';
 
 function NavbarItems({ items }) {
     return (
@@ -35,6 +36,14 @@ function NavbarContentLayout({
     );
 }
 
+function SubNavbarTitle({ titleIcon, title }) {
+    return titleIcon
+        ? <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+            <img src={`img/${titleIcon}`} width={24} height={24} /> {title}
+        </div>
+        : title;
+}
+
 function SubNavbar() {
     const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
     const location = useLocation();
@@ -46,7 +55,7 @@ function SubNavbar() {
                     <div className="navbar__items">
                         <div className="navbar__sub--title">
                             <NavbarItem
-                                label={subNavbar.titleIcon ? <><img src={`/img/${subNavbar.titleIcon}`} />{subNavbar.title}</> : subNavbar.title}
+                                label={<SubNavbarTitle title={subNavbar.title} titleIcon={subNavbar.titleIcon} />}
                                 to={subNavbar.to ?? '/'}
                                 activeBaseRegex='(?!)'
                             />
