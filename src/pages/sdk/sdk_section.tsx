@@ -41,14 +41,19 @@ export default function SdkSection({
     return (
         <div className={styles.sdkSection}>
             <div className={styles.sdkSectionDescription}>
-                <Heading type="titleXl"><ThemedImage
-                    height={24}
-                    width={24}
-                    sources={{ dark: useBaseUrl(`/img/${lowerCaseLanguage}-40x40.svg`), light: useBaseUrl(`/img/${lowerCaseLanguage}-40x40.svg`) }}
-                /> {title}</Heading>
-                <Text size='medium' color={theme.color.neutral.textMuted}>
-                    {description}
-                </Text>
+                <div>
+                    <div className={styles.sdkSectionTitle}>
+                        <ThemedImage
+                            height={24}
+                            width={24}
+                            sources={{ dark: useBaseUrl(`/img/${lowerCaseLanguage}-40x40.svg`), light: useBaseUrl(`/img/${lowerCaseLanguage}-40x40.svg`) }}
+                        />
+                        <Heading type="titleXl" style={{ verticalAlign: 'center' }}>{title}</Heading>
+                    </div>
+                    <Text size='medium' color={theme.color.neutral.textMuted}>
+                        {description}
+                    </Text>
+                </div>
                 <GitHubButton
                     href={githubRepoUrl}
                     data-color-scheme={colorMode}
