@@ -138,7 +138,6 @@ export default function Api() {
                     <ClientCodeWrapper>
                         <CodeBlock content={[{ key: 'cURL', label: 'cURL', language: 'bash', code: `
                 # Prepare Actor input
-
 cat > input.json <<'EOF'
 {
  // Define the input in JSON here
@@ -152,7 +151,6 @@ curl "https://api.apify.com/v2/acts/username~actorname/runs?token=<YOUR_API_TOKE
   -H 'Content-Type: application/json'
 
 # Use the defaultDatasetId from response and pass it instead of <DATASET_ID>
-
 curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN>"` }]} hideBashPromptPrefixes hideLineNumbers defaultTabKey="cURL" />
                     </ClientCodeWrapper>
                 </SectionWrapper>
@@ -190,7 +188,6 @@ curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN
                                             hideLineNumbers
                                             content={`
 // Easily run Actors, await them to finish using the convenient .call() method, and retrieve results from the resulting dataset.
-
 const { ApifyClient } = require('apify-client');
 
 const client = new ApifyClient({
