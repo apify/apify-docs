@@ -11,7 +11,7 @@ slug: /collaboration/organization-account/how-to-use
 
 ---
 
-Once an account becomes an organization, you can no longer log into it. Instead, you can switch into the organization to manage account information, memberships and Actor runs.
+Once an account becomes an organization, you can no longer log into it. Instead, you can switch into the organization from one of its member accounts to manage account information, memberships, and Actor runs.
 
 While you can't manage an organization account via [API](/api/v2), you can still manage its runs and resources via API like you would with any other account.
 
