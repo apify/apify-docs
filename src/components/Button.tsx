@@ -36,11 +36,11 @@ const BUTTON_SIZES_CSS = {
         font-size: 1.6rem;
         font-style: normal;
         font-weight: 600;
-        line-height: 2.4rem; 
+        line-height: 2.4rem;
 
         @media (min-width: ${theme.layout.desktop}) {
             font-size: 1.8rem;
-            line-height: 2.8rem; 
+            line-height: 2.8rem;
         }
     `,
 };
@@ -81,9 +81,8 @@ const StyledButton = styled.button<ButtonProps>`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
     font-family: var(--ifm-font-family-base);
-    
+
     ${getButtonVariantCss}
     ${getButtonSizeCss}
 `;
