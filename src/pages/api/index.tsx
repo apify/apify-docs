@@ -160,6 +160,7 @@ curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN
                     </ClientCodeWrapper>
                 </SectionWrapper>
                 <Section
+                    headingClassName={styles.ApiSectionHeading}
                     className={styles.LargerContent}
                     heading="API client"
                     description="The official library to interact with Apify API."
