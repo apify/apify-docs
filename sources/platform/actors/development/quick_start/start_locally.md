@@ -72,8 +72,8 @@ After creating your Actor, explore the source code in your preferred code editor
 
 ### `actor` Directory
 
-- `actor/json`: This file diefines the Actor's configuration, such as input and output specifications.
-- `Dockerfile`: This file contains instructions for building the Docker image for your Actor.
+- `[actor/json](https://docs.apify.com/platform/actors/development/actor-definition/actor-json)`: This file defines the Actor's configuration, such as input and output specifications.
+- `[Dockerfile](https://docs.apify.com/platform/actors/development/actor-definition/dockerfile)`: This file contains instructions for building the Docker image for your Actor.
 
 ### `storage` Directory
 
