@@ -10,14 +10,15 @@ interface SectionProps {
     heading?: string;
     description?: React.ReactNode;
     className?: string;
+    headingClassName?: string;
     children?: React.ReactNode;
 }
 
-export default function Section({ heading, description, className, children }: SectionProps) {
+export default function Section({ heading, description, className, children, headingClassName }: SectionProps) {
     return (
         <section className={clsx(styles.section, className)}>
             {(heading || description) && <div className={styles.sectionHeader}>
-                {heading && <Heading type='titleXl'>{heading}</Heading>}
+                {heading && <Heading className={headingClassName} type='titleXl'>{heading}</Heading>}
                 {description && <Text color={theme.color.neutral.textMuted}>{description}</Text>}
             </div>}
             {children}
