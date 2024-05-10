@@ -6,12 +6,54 @@ import React from 'react';
 import GitHubButton from 'react-github-btn';
 import styled from 'styled-components';
 
-import styles from './SdkSection.module.css';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
 
 const StyledButton = styled(Button)`
     font-weight: 650;
+`;
+
+const StyledSdkSection = styled.div`
+    display: flex;
+    gap: ${theme.space.space24};
+
+    @media (max-width: ${theme.layout.tablet}) {
+        flex-direction: column;
+    }
+
+    .SdkSectionTitle {
+        display: flex;
+        align-items: center;
+        gap: ${theme.space.space8};
+        margin-bottom: ${theme.space.space8};
+    }
+
+    .SdkSectionDescription {
+        flex: 1 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: ${theme.space.space24};
+    }
+
+    .SdkSectionActionButtons {
+        display: flex;
+        align-items: center;
+        gap: ${theme.space.space16};
+
+        @media (max-width: ${theme.layout.tablet}) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    .SdkSectionCodeExamples {
+        flex: 1 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: ${theme.space.space16};
+        width: 50%;
+    }
 `;
 
 interface SdkSectionProps {
@@ -39,10 +81,10 @@ export default function SdkSection({
     const lowerCaseLanguage = language.toLowerCase();
 
     return (
-        <div className={styles.SdkSection}>
-            <div className={styles.SdkSectionDescription}>
+        <StyledSdkSection>
+            <div className="SdkSectionDescription">
                 <div>
-                    <div className={styles.SdkSectionTitle}>
+                    <div className="SdkSectionTitle">
                         <ThemedImage
                             height={24}
                             width={24}
@@ -63,15 +105,15 @@ export default function SdkSection({
                 >
                     Star
                 </GitHubButton>
-                <div className={styles.SdkSectionActionButtons}>
+                <div className="SdkSectionActionButtons">
                     <StyledButton hideExternalIcon color='success' to={gettingStartedUrl}>Get started</StyledButton>
                     <ActionLink hideExternalIcon to={referenceUrl} >{`${language} SDK Reference`}</ActionLink>
                 </div>
             </div>
-            <div className={styles.SdkSectionCodeExamples}>
+            <div className="SdkSectionCodeExamples">
                 <CodeBlock language="bash" content={installCodeSnippet} />
                 <CodeBlock language={lowerCaseLanguage} hideLineNumbers content={exampleCodeSnippet} fullHeight />
             </div>
-        </div>
+        </StyledSdkSection>
     );
 }
