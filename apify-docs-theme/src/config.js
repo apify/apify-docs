@@ -43,6 +43,9 @@ const themeConfig = ({
             {
                 label: 'API',
                 type: 'dropdown',
+                to: `${absoluteUrl}/api`,
+                target: '_self',
+                rel: 'dofollow',
                 activeBasePath: 'api',
                 position: 'left',
                 items: [
@@ -69,8 +72,11 @@ const themeConfig = ({
             {
                 label: 'SDK',
                 type: 'dropdown',
+                to: '/sdk',
                 activeBasePath: 'sdk',
                 position: 'left',
+                target: '_self',
+                rel: 'dofollow',
                 items: [
                     {
                         label: 'SDK for JavaScript',
@@ -90,6 +96,7 @@ const themeConfig = ({
                 label: 'CLI',
                 href: `${absoluteUrl}/cli/`, // we need a trailing slash here, we'd get redirected there anyway
                 position: 'left',
+                activeBasePath: 'cli',
                 target: '_self',
                 rel: 'dofollow',
             },

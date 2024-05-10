@@ -10,7 +10,7 @@ slug: /integrations/langchain
 
 ---
 
-> For more information on LangChain visit its [documentation](https://python.langchain.com/en/latest/index.html).
+> For more information on LangChain visit its [documentation](https://python.langchain.com/v0.1/docs/get_started/introduction/).
 
 In this example, we'll use the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor, which can deeply crawl websites such as documentation, knowledge bases, help centers, or blogs and extract text content from the web pages.
 Then we feed the documents into a vector index and answer questions from it.
@@ -111,7 +111,7 @@ After running the code, you should see the following output:
 ```text
 LangChain is a framework for developing applications powered by language models. It provides standard, extendable interfaces, external integrations, and end-to-end implementations for off-the-shelf use. It also integrates with other LLMs, systems, and products to create a vibrant and thriving ecosystem.
 
-https://python.langchain.com/en/latest/
+https://python.langchain.com
 ```
 
 LangChain is a standard interface through which you can interact with a variety of large language models (LLMs). It provides modules you can use to build language model applications. It also provides chains and agents with memory capabilities.

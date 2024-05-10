@@ -6,6 +6,7 @@ import styled, { css } from 'styled-components';
 export const BUTTON_VARIANTS = {
     DEFAULT: 'DEFAULT',
     PRIMARY: 'PRIMARY',
+    SUCCESS: 'SUCCESS',
 };
 
 export const BUTTON_SIZES = {
@@ -36,11 +37,11 @@ const BUTTON_SIZES_CSS = {
         font-size: 1.6rem;
         font-style: normal;
         font-weight: 600;
-        line-height: 2.4rem; 
+        line-height: 2.4rem;
 
         @media (min-width: ${theme.layout.desktop}) {
             font-size: 1.8rem;
-            line-height: 2.8rem; 
+            line-height: 2.8rem;
         }
     `,
 };
@@ -67,6 +68,16 @@ const BUTTON_VARIANTS_CSS = {
             background-color: ${theme.color.primary.actionActive};
         }
     `,
+    [BUTTON_VARIANTS.SUCCESS]: css`
+        background-color: ${theme.color.success.action};
+        color: ${theme.color.neutral.textOnPrimary};
+        &:hover, &:focus {
+            background-color: ${theme.color.success.actionHover};
+        }
+        &:active {
+            background-color: ${theme.color.success.actionActive};
+        }
+    `,
 };
 
 const getButtonSizeCss = ({ size = BUTTON_SIZES.MEDIUM }: ButtonProps) => BUTTON_SIZES_CSS[size];
@@ -81,9 +92,8 @@ const StyledButton = styled.button<ButtonProps>`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
     font-family: var(--ifm-font-family-base);
-    
+
     ${getButtonVariantCss}
     ${getButtonSizeCss}
 `;
