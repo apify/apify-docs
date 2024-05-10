@@ -8,8 +8,8 @@ import SdkSection from '../../components/SdkSection/SdkSection';
 import Section from '../../components/Section/Section';
 import UiLibraryWrapper from '../../components/UiLibraryWrapper';
 
-const javascriptExample = `// the Apify SDK makes it easy to initialize the actor on the platform with the Actor.init() method,
-// and to save scraped data from your actors to a dataset by simply using the Actor.pushData() method.
+const javascriptExample = `// The Apify SDK makes it easy to initialize the actor on the platform with the Actor.init() method,
+// and to save the scraped data from your Actors to a dataset by simply using the Actor.pushData() method.
 
 import { Actor } from 'apify';
 import { PlaywrightCrawler } from 'crawlee';
@@ -26,8 +26,8 @@ const crawler = new PlaywrightCrawler({
 await crawler.run(['https://crawlee.dev']);
 await Actor.exit();`;
 
-const pythonExample = `# the Apify SDK makes it easy to read the actor input with the Actor.get_input() method,
-# and to save scraped data from your actors to a dataset by simply using the Actor.push_data() method.
+const pythonExample = `# The Apify SDK makes it easy to read the actor input with the Actor.get_input() method,
+# and to save the scraped data from your Actors to a dataset by simply using the Actor.push_data() method.
 
 from apify import Actor
 from bs4 import BeautifulSoup
