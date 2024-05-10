@@ -53,6 +53,9 @@ const StyledSdkSection = styled.div`
         flex-direction: column;
         gap: ${theme.space.space16};
         width: 50%;
+        .ExampleCodeSnippet {
+            max-height: 310px;
+        }
     }
 `;
 
@@ -111,8 +114,8 @@ export default function SdkSection({
                 </div>
             </div>
             <div className="SdkSectionCodeExamples">
-                <CodeBlock language="bash" content={installCodeSnippet} />
-                <CodeBlock language={lowerCaseLanguage} hideLineNumbers content={exampleCodeSnippet} fullHeight />
+                <CodeBlock language="bash" content={installCodeSnippet} fullHeight />
+                <CodeBlock language={lowerCaseLanguage} hideLineNumbers content={exampleCodeSnippet} className='ExampleCodeSnippet' />
             </div>
         </StyledSdkSection>
     );
