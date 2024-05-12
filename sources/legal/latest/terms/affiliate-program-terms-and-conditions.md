@@ -2,7 +2,7 @@
 title: Apify Affiliate Program Terms and Conditions
 description: Apify Affiliate Program Terms and Conditions govern Apify's affiliate partnership program.
 sidebar_position: 3
-sidebar_label: Affiliate Program Terms and Conditions
+sidebar_label: Affiliate Program Terms
 category: legal
 slug: /affiliate-program-terms-and-conditions
 ---
@@ -13,7 +13,7 @@ Effective date: May 14, 2024
 
 ---
 
-**Apify Technologies s.r.o.**, with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 ("**we**" or "**Apify**") thanks you ("**you**" or the "**Affiliate Partner**") for your interest in joining the Apify's Affiliate Program (the "**Affiliate Program**"). These terms and conditions (the "**Affiliate Program Terms**") shall govern your rights and obligations in relation to your participation in the Affiliate Program in addition to [Apify General Terms and Conditions](./general-terms-and-conditions.md) (the "**General Terms**").
+**Apify Technologies s.r.o.**, with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 ("**we**" or "**Apify**") thanks you ("**you**" or the "**Affiliate Partner**") for your interest in joining the Apify's Affiliate Program (the "**Affiliate Program**"). These terms and conditions (the "**Affiliate Program Terms**") shall govern your rights and obligations in relation to your participation in the Affiliate Program in addition to [Apify General Terms and Conditions](general-terms-and-conditions.md) (the "**General Terms**").
 
 Terms starting with a capital letter used in these Affiliate Program Terms have the meaning defined either here or in the General Terms. Provisions of the General Terms regarding liability, indemnity, governing law and choice of jurisdiction are incorporated herein by reference.
 

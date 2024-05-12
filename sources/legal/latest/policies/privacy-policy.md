@@ -2,7 +2,7 @@
 title: Apify Privacy Policy
 description: Apify Privacy Policy describes how we handle your personal data and how you can exercise your personal data rights.
 sidebar_label: Privacy Policy
-sidebar_position: 4
+sidebar_position: 2
 category: legal
 slug: /privacy-policy
 ---
@@ -11,7 +11,7 @@ slug: /privacy-policy
 
 **Apify Technologies s.r.o.**, with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 (“**we**“, “**us**”, “**our**”, the “**Provider**” or “**Apify**”) welcomes you (“**you**” or the “**User**”) on our website apify.com (the “**Website**”).
 
-This Privacy Policy (the “**Policy**” or “**Privacy Policy**”) describes the types of information we gather from people visiting our Website and/or using our Platform and Services. Terms starting with a capital letter used in this Policy have the meaning defined in our [General Terms and Conditions](./terms-and-conditions.md) (the “**Terms**”). By accessing the Website, Platform or using our Services, you agree to adhere to this Policy. If you do not agree to the terms of this Policy, please do not use the Website, Platform or any of our Services. Each time you use the Website, Platform or our Services, the current version of the Privacy Policy will apply.
+This Privacy Policy (the “**Policy**” or “**Privacy Policy**”) describes the types of information we gather from people visiting our Website and/or using our Platform and Services. Terms starting with a capital letter used in this Policy have the meaning defined in our [General Terms and Conditions](../terms/general-terms-and-conditions.md) (the “**Terms**”). By accessing the Website, Platform or using our Services, you agree to adhere to this Policy. If you do not agree to the terms of this Policy, please do not use the Website, Platform or any of our Services. Each time you use the Website, Platform or our Services, the current version of the Privacy Policy will apply.
 
 ## The short version
 
@@ -84,7 +84,7 @@ We may use aggregate information to improve the Website and Services, to monitor
 
 ## Cookies
 
-When you access our Website, Platform or use our Services, we may collect some information in the form of cookies (cookie is a small data file placed on your computer's hard drive that contains information that allows us to track your activity on the Website and Platform). The cookie itself does not contain any personal information; however, if you provide us with some personal information the cookies may act as an identifier to tie your personal information to your IP address or computer. We are committed to follow the highest standards of privacy protection in relation to cookies. Other than the cookies that are necessary for the Website to function, you can always choose not to allow the cookies while using our Website or Platform. Read more information about the cookies we use and how we use them and ensure your privacy at the same time in our [Cookie Policy](./cookie-policy.md).
+When you access our Website, Platform or use our Services, we may collect some information in the form of cookies (cookie is a small data file placed on your computer's hard drive that contains information that allows us to track your activity on the Website and Platform). The cookie itself does not contain any personal information; however, if you provide us with some personal information the cookies may act as an identifier to tie your personal information to your IP address or computer. We are committed to follow the highest standards of privacy protection in relation to cookies. Other than the cookies that are necessary for the Website to function, you can always choose not to allow the cookies while using our Website or Platform. Read more information about the cookies we use and how we use them and ensure your privacy at the same time in our [Cookie Policy](cookie-policy.md).
 
 ## Security pertaining to your information
 

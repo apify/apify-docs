@@ -7,16 +7,16 @@ slug: /old/store-publishing-terms-and-conditions-december-2022
 
 ## Version History
 
-You are reading terms and conditions that are no longer effective. If you're a new user, the [latest terms](../latest/store-publishing-terms-and-conditions.md) apply. If you're an existing user, see the table below to identify which terms and conditions were applicable to you at a given date.
+You are reading terms and conditions that are no longer effective. If you're a new user, the [latest terms](../latest/terms/store-publishing-terms-and-conditions.md) apply. If you're an existing user, see the table below to identify which terms and conditions were applicable to you at a given date.
 
-| Version                                                      | Effective from   | Effective until |
-|--------------------------------------------------------------|------------------|-----------------|
-| [Latest](../latest/store-publishing-terms-and-conditions.md) | May 13, 2024     |                 |
-| December 2022 (This document)                                | December 1, 2022 | June 12, 2024   |
+| Version                                                            | Effective from   | Effective until |
+|--------------------------------------------------------------------|------------------|-----------------|
+| [Latest](../latest/terms/store-publishing-terms-and-conditions.md) | May 13, 2024     |                 |
+| December 2022 (This document)                                      | December 1, 2022 | June 12, 2024   |
 
 # Apify Store Publishing Terms and Conditions
 
-Apify Technologies s.r.o., with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 (hereinafter referred to as “**we**” or the “**Provider**”) thanks you (hereinafter referred to as “**you**” or the “**User**”) for using our Platform console.apify.com (the “**Platform**”). These terms and conditions of use (the “**Apify Store Terms**”) shall govern your rights and obligations in relation to publishing and maintaining a public Actor in Apify Store at console.apify.com/store (“**Apify Store**”) in addition to our [General Terms and Conditions](../latest/general-terms-and-conditions.md) of use (the “**Terms**”).
+Apify Technologies s.r.o., with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 (hereinafter referred to as “**we**” or the “**Provider**”) thanks you (hereinafter referred to as “**you**” or the “**User**”) for using our Platform console.apify.com (the “**Platform**”). These terms and conditions of use (the “**Apify Store Terms**”) shall govern your rights and obligations in relation to publishing and maintaining a public Actor in Apify Store at console.apify.com/store (“**Apify Store**”) in addition to our [General Terms and Conditions](../latest/terms/general-terms-and-conditions.md) of use (the “**Terms**”).
 
 Terms starting with a capital letter used in this Apify Store Terms have the meaning defined in the Terms. Provisions of the Terms regarding liability, indemnity, amendments, governing law and choice of jurisdiction are incorporated herein by reference.
 
@@ -26,7 +26,7 @@ Actors (i.e. the serverless cloud programs running on the Platform as defined in
 
 ## 2. Acceptance of these Terms
 
-By clicking a button “I agree”, you claim that you are over 18 years old and agree to adhere to these Apify Store Terms, in addition to the [Terms and the terms of personal data protection](../latest/privacy-policy.md). If you act on behalf of a company when accepting these Apify Store Terms, you also hereby declare to be authorized to perform such legal actions on behalf of the company (herein the term “you” shall mean the relevant company).
+By clicking a button “I agree”, you claim that you are over 18 years old and agree to adhere to these Apify Store Terms, in addition to the [Terms and the terms of personal data protection](../latest/policies/privacy-policy.md). If you act on behalf of a company when accepting these Apify Store Terms, you also hereby declare to be authorized to perform such legal actions on behalf of the company (herein the term “you” shall mean the relevant company).
 
 
 ## 3. Actor name, description and price

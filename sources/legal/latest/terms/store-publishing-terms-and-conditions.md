@@ -1,6 +1,7 @@
 ---
 title: Apify Store Publishing Terms and Conditions
 description: Apify Store Publishing Terms and Conditions govern publishing of Actors in the Apify Store and payments for monetized Actors.
+sidebar_label: Apify Store Publishing Terms
 sidebar_position: 2
 category: legal
 slug: /store-publishing-terms-and-conditions
@@ -12,7 +13,7 @@ Effective date: May 14, 2024
 
 ---
 
-Apify Technologies s.r.o., with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 (“**we**” or the “**Provider**”) thanks you (“**you**” or the “**User**”) for using our Platform console.apify.com (the “**Platform**”). These terms and conditions (the “**Apify Store Publishing Terms**”) shall govern your rights and obligations in relation to publishing and maintaining a public Actor in Apify Store at console.apify.com/store (“**Apify Store**”) in addition to our [general terms and conditions](./general-terms-and-conditions.md) (the “**General Terms**”).
+Apify Technologies s.r.o., with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 (“**we**” or the “**Provider**”) thanks you (“**you**” or the “**User**”) for using our Platform console.apify.com (the “**Platform**”). These terms and conditions (the “**Apify Store Publishing Terms**”) shall govern your rights and obligations in relation to publishing and maintaining a public Actor in Apify Store at console.apify.com/store (“**Apify Store**”) in addition to our [general terms and conditions](general-terms-and-conditions.md) (the “**General Terms**”).
 
 Terms starting with a capital letter used in these Apify Store Publishing Terms have the meaning defined either here or in the General Terms. Provisions of the General Terms regarding liability, indemnity, governing law and choice of jurisdiction are incorporated herein by reference.
 
@@ -40,7 +41,7 @@ Terms starting with a capital letter used in these Apify Store Publishing Terms 
 
 ## 5. Prohibited activities
 
-**5.1.** You may create and publish an Actor of any kind. However, to maintain a safe, legal and respectful environment on the Platform, we are asking you to avoid content and activities that are prohibited by any terms agreed between both parties and the [Acceptable Use Policy](./acceptable-use-policy.md) (the “**Prohibited Activities**”).
+**5.1.** You may create and publish an Actor of any kind. However, to maintain a safe, legal and respectful environment on the Platform, we are asking you to avoid content and activities that are prohibited by any terms agreed between both parties and the [Acceptable Use Policy](../policies/acceptable-use-policy.md) (the “**Prohibited Activities**”).
 
 **5.2.** While we are not obliged to monitor the content of all Actors, if we find out that your Actor:
 
@@ -128,4 +129,4 @@ This is the history of Apify Store Publishing Terms and Conditions. If you are a
 | Version                                                               | Effective from   | Effective until |
 |-----------------------------------------------------------------------|------------------|-----------------|
 | Latest (this document)                                                | May 14, 2024     |                 |
-| [December 2022](../old/store-publishing-terms-and-conditions-2022.md) | December 1, 2022 | June 13, 2024   |
+| [December 2022](../../old/store-publishing-terms-and-conditions-2022.md) | December 1, 2022 | June 13, 2024   |

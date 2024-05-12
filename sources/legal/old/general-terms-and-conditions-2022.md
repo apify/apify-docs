@@ -7,13 +7,13 @@ slug: /old/general-terms-and-conditions-october-2022
 
 ## Version History
 
-You are reading terms and conditions that are no longer effective. If you're a new user, the [latest terms](../latest/terms-and-conditions.md) apply. If you're an existing user, see the table below to identify which terms and conditions were applicable to you at a given date.
+You are reading terms and conditions that are no longer effective. If you're a new user, the [latest terms](../latest/terms/general-terms-and-conditions.md) apply. If you're an existing user, see the table below to identify which terms and conditions were applicable to you at a given date.
 
-| Version                                     | Effective from  | Effective until    |
-|---------------------------------------------|-----------------|--------------------|
-| [Latest](../latest/terms-and-conditions.md) | May 13, 2024    |                    |
-| Oct 2022 (This document)                    | October 1, 2022 | June 12, 2024      |
-| Older T&Cs available upon request           |                 | September 30, 2022 |
+| Version                                                   | Effective from  | Effective until    |
+|-----------------------------------------------------------|-----------------|--------------------|
+| [Latest](../latest/terms/general-terms-and-conditions.md) | May 13, 2024    |                    |
+| Oct 2022 (This document)                                  | October 1, 2022 | June 12, 2024      |
+| Older T&Cs available upon request                         |                 | September 30, 2022 |
 
 
 

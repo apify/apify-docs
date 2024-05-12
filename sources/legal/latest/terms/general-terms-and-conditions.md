@@ -2,7 +2,7 @@
 title: Apify General Terms and Conditions
 description: Apify General Terms and Conditions govern the use of Apify's website, platform and services.
 sidebar_position: 1
-sidebar_label: General Terms and Conditions
+sidebar_label: General Terms
 category: legal
 slug: /general-terms-and-conditions
 ---
@@ -39,8 +39,8 @@ The Terms are the key document governing the relationship between you and us, pl
 ## A. Acceptance of these Terms
 
 By clicking the button “Sign up” during registration on our Website, you claim that you are over 18 years old and agree to adhere to these Terms and also to our
-- [Privacy Policy](./privacy-policy.md), and
-- [Acceptable Use Policy](./acceptable-use-policy.md).
+- [Privacy Policy](../policies/privacy-policy.md), and
+- [Acceptable Use Policy](../policies/acceptable-use-policy.md).
 
 If you act on behalf of a company when accepting these Terms, you also declare to be authorized to perform such legal actions on behalf of the company (herein the term “you” shall mean the relevant company). You agree to adhere to these Terms also by the fact that you visit or use the Website, Platform (as defined below), any software, application or any other service running or available on the Platform or a service we provide or make accessible to you.
 
@@ -97,7 +97,7 @@ You may not take any actions which could lead to unauthorised use of the Platfor
 
 You may not allow any third parties to use and/or access the Platform or Services by using your user account. Use of the Platform and Services shall only be possible on the grounds of the license provided by us hereunder. Should you take such unauthorised actions, you agree to compensate us for any damages incurred by us in this respect.
 
-Furthermore, during the use of the Website, Platform (or any of its functionalities) and the Services you may not use them in violation of our [Acceptable Use Policy](./acceptable-use-policy.md);
+Furthermore, during the use of the Website, Platform (or any of its functionalities) and the Services you may not use them in violation of our [Acceptable Use Policy](../policies/acceptable-use-policy.md);
 
 You acknowledge that the Website, Platform or the Services may not be available constantly. We may perform their planned or unplanned downtime in order to perform the inspection, maintenance, update or replacement of hardware or software. Their availability may also be limited due to other reasons, including but not limited to, power cuts, data network loss, other failures caused by third parties or caused to the devices of third parties or due to Force Majeure. We shall not be liable for the limitation of availability of the Website, Platform or the Services.
 
@@ -161,7 +161,7 @@ You hereby agree to pay all applicable Fees and/or charges under these terms, in
 
 ## L. Personal Data Protection, Commercial Offers, Confidentiality
 
-Personal Data Protection is regulated by the [Privacy Policy](./privacy-policy.md).
+Personal Data Protection is regulated by the [Privacy Policy](../policies/privacy-policy.md).
 
 During the term of your use of the Website or Platform, licenses granted under these terms and Services and for a period of two (2) years following the termination or expiration of your subscription, each party agrees not to disclose Confidential Information of the other party to any third party without prior written consent except as provided herein (the "**Confidential Information**"). Confidential Information includes (i) subscription account data, including agent definitions, Customer Data, and User Content, (ii) except as provided in subsection (i) above, any other Website, Platform or Services information or access to technology prior to public disclosure provided by us to you and identified at the time of disclosure in writing as “Confidential.” Confidential Information does not include information that has become publicly known through no breach by a party, or has been (i) independently developed without access to the other party's Confidential Information; (ii) rightfully received from a third party; or (iii) required to be disclosed by law or by a governmental authority.
 
@@ -197,8 +197,8 @@ Unless otherwise provided hereby, any changes and amendments hereto may only be 
 
 This is the history of Apify General Terms and Conditions. If you're a new user, the latest Terms apply. If you're an existing user, see the table below to identify which terms and conditions were applicable to you at a given date.
 
-| Version                                         | Effective from  | Effective until    |
-|-------------------------------------------------|-----------------|--------------------|
-| Latest (this document)                          | May 14, 2024    |                    |
-| [Oct 2022](../old/terms-and-conditions-2022.md) | October 1, 2022 | June 13, 2024      |
-| Older T&Cs available upon request               |                 | September 30, 2022 |
+| Version                                                    | Effective from  | Effective until    |
+|------------------------------------------------------------|-----------------|--------------------|
+| Latest (this document)                                     | May 14, 2024    |                    |
+| [Oct 2022](../../old/general-terms-and-conditions-2022.md) | October 1, 2022 | June 13, 2024      |
+| Older T&Cs available upon request                          |                 | September 30, 2022 |

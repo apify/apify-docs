@@ -2,7 +2,7 @@
 title: Apify Acceptable Use Policy
 description: Apify's acceptable use policy describes activities that are prohibited on the Apify platform and on our websites.
 sidebar_label: Acceptable Use Policy
-sidebar_position: 3
+sidebar_position: 1
 category: legal
 slug: /acceptable-use-policy
 ---

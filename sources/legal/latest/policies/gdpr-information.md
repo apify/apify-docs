@@ -1,7 +1,7 @@
 ---
 title: Apify GDPR Information
 description: This Apify GDPR Information document describes how Apify complies with GDPR and its requirements.
-sidebar_label: GDPR Policy
+sidebar_label: GDPR Information
 sidebar_position: 4
 category: legal
 slug: /gdpr-information
@@ -13,7 +13,7 @@ The European Union (“**EU**”) General Data Protection Regulation (“**GDPR*
 
 Apify Technologies s.r.o., with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290 (also referred to as “**Apify**”, “**we**”, “**us**” or “**our**”), is deeply committed to providing its users with the maximum security and privacy, and is committed to comply with the GDPR. On this page, we will explain our methods to achieve GDPR compliance, both for ourselves and for our customers.
 
-Please note that this document is not a legal contract - the legal relation between Apify and its users is governed by the [General Terms and Conditions](./general-terms-and-conditions.md) and Apify's [Privacy Policy](./privacy-policy.md). Privacy Policy specifies in detail the extent of personal data we collect and process, retention period of personal data and other details regarding personal data processing.
+Please note that this document is not a legal contract - the legal relation between Apify and its users is governed by the [General Terms and Conditions](../terms/general-terms-and-conditions.md) and Apify's [Privacy Policy](privacy-policy.md). Privacy Policy specifies in detail the extent of personal data we collect and process, retention period of personal data and other details regarding personal data processing.
 
 ## Apify as the data controller
 
@@ -54,7 +54,7 @@ As the controller for your personal data, Apify is committed to respecting all y
 
 The data that you collect, store and process using Apify might contain personal data of your data subjects, and you are considered the data controller for this personal data.
 
-Using the Apify Platform to process the personal data of your customers means that you have engaged Apify as a data processor to carry out certain processing activities on your behalf. According to Article 28 of the GDPR, the relationship between the controller and the processor needs to be made in writing (electronic form is acceptable under subsection (9) of the same Article). This is where our [General Terms and Conditions](./general-terms-and-conditions.md) and [Privacy Policy](./privacy-policy.md) come in. These two documents also serve as your data processing contract, setting out the instructions that you are giving to Apify with regard to processing the personal data you control and establishing the rights and responsibilities of both parties. Apify will only process your data based on your instructions as the data controller.
+Using the Apify Platform to process the personal data of your customers means that you have engaged Apify as a data processor to carry out certain processing activities on your behalf. According to Article 28 of the GDPR, the relationship between the controller and the processor needs to be made in writing (electronic form is acceptable under subsection (9) of the same Article). This is where our [General Terms and Conditions](../terms/general-terms-and-conditions.md) and [Privacy Policy](privacy-policy.md) come in. These two documents also serve as your data processing contract, setting out the instructions that you are giving to Apify with regard to processing the personal data you control and establishing the rights and responsibilities of both parties. Apify will only process your data based on your instructions as the data controller.
 
 Apify is based in the EU, therefore all our customers including customers in the EU have a contractual relationship with our EU legal entity, based in the Czech Republic.
 
@@ -82,7 +82,7 @@ Data subjects' ownership of their personal data is at the heart of the GDPR. We 
 
 ### Documentation
 
-Our [General Terms and Conditions](./general-terms-and-conditions.md) and [Privacy Policy](./privacy-policy.md) are constantly being revised to increase transparency and to make sure the documents meet GDPR requirements. As these are the basis for our relationship for you, it is very important for us to comprehensively and openly explain our commitments and your rights in these documents. Additionally, we are constantly mapping all our data processing activities to be able to comply with the GDPR accountability requirements.
+Our [General Terms and Conditions](../terms/general-terms-and-conditions.md) and [Privacy Policy](privacy-policy.md) are constantly being revised to increase transparency and to make sure the documents meet GDPR requirements. As these are the basis for our relationship for you, it is very important for us to comprehensively and openly explain our commitments and your rights in these documents. Additionally, we are constantly mapping all our data processing activities to be able to comply with the GDPR accountability requirements.
 
 ### Training
 
