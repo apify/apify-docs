@@ -9,10 +9,6 @@ slug: /privacy-policy
 
 # Apify Privacy Policy
 
-Effective date: May 13, 2024
-
----
-
 **Apify Technologies s.r.o.**, with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 (“**we**“, “**us**”, “**our**”, the “**Provider**” or “**Apify**”) welcomes you (“**you**” or the “**User**”) on our website apify.com (the “**Website**”).
 
 This Privacy Policy (the “**Policy**” or “**Privacy Policy**”) describes the types of information we gather from people visiting our Website and/or using our Platform and Services. Terms starting with a capital letter used in this Policy have the meaning defined in our [General Terms and Conditions](./terms-and-conditions.md) (the “**Terms**”). By accessing the Website, Platform or using our Services, you agree to adhere to this Policy. If you do not agree to the terms of this Policy, please do not use the Website, Platform or any of our Services. Each time you use the Website, Platform or our Services, the current version of the Privacy Policy will apply.

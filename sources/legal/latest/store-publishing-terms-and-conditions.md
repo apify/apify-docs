@@ -8,9 +8,13 @@ slug: /store-publishing-terms-and-conditions
 
 # Apify Store Publishing Terms and Conditions
 
+Effective date: May 13, 2024
+
+---
+
 Apify Technologies s.r.o., with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 (“**we**” or the “**Provider**”) thanks you (“**you**” or the “**User**”) for using our Platform console.apify.com (the “**Platform**”). These terms and conditions (the “**Apify Store Publishing Terms**”) shall govern your rights and obligations in relation to publishing and maintaining a public Actor in Apify Store at console.apify.com/store (“**Apify Store**”) in addition to our [general terms and conditions](./general-terms-and-conditions.md) (the “**General Terms**”).
 
-Terms starting with a capital letter used in these Apify Store Publishing Terms have the meaning defined either here, or in the General Terms. Provisions of the General Terms regarding liability, indemnity, amendments, governing law and choice of jurisdiction are incorporated herein by reference.
+Terms starting with a capital letter used in these Apify Store Publishing Terms have the meaning defined either here or in the General Terms. Provisions of the General Terms regarding liability, indemnity, governing law and choice of jurisdiction are incorporated herein by reference.
 
 ## 1. Publishing your Actor
 
@@ -18,7 +22,7 @@ Terms starting with a capital letter used in these Apify Store Publishing Terms 
 
 ## 2. Acceptance of these terms
 
-**2.1.** By publishing an Actor in Apify Store, you represent that you are over 18 years old and agree to adhere to these Apify Store Publishing Terms, in addition to the General Terms. If you act on behalf of a company when accepting these Apify Store Publishing Terms, you also hereby declare to be authorized to perform such legal actions on behalf of the company (herein the term “you” shall mean the relevant company).
+**2.1.** By publishing an Actor in Apify Store, you represent that you are over 18 years old and agree to adhere to these Apify Store Publishing Terms, in addition to the General Terms. If you act on behalf of a company when accepting these Apify Store Publishing Terms, you also hereby declare to be authorized to perform such legal actions on behalf of the company (herein the term “**you**” shall mean the relevant company).
 
 ## 3. Actor name, description and price
 
@@ -109,9 +113,13 @@ _Example: You set the price for your paid Actor under Price per Result model as 
 
 **13.6.** In case any suspicions arise regarding the legitimacy of any user’s payment for your Actor (e.g., suspicions of a fraudulent payment), before we pay you the remuneration for such user’s payment, we shall have the right, but not the obligation, to withhold the remuneration for such user’s payment for a period necessary for us to investigate any suspicious activity related to it. You agree to provide us and/or any authorized third party (e.g., PayPal) with all reasonably requested cooperation.
 
-**13.7.** If any fraudulent or otherwise non-compliant activity is identified regarding a user’s account or payments, we may ban the user from using the Platform. If we ban such a user, we shall not be obligated to pay you any remuneration resulting from such fraudulent user’s payments. In case such activities are identified after we already paid you the remuneration for such user’s payment, you shall be obligated, at our written request, to refund the corresponding part of the remuneration.
+**13.7.** If any fraudulent or otherwise non-compliant activity is identified regarding a user’s account or payments, we may ban the user from using the Platform. If we ban such a user, we shall not be obligated to pay you any remuneration resulting from such fraudulent user’s payments. In case such activities are identified after we already paid you the remuneration for such user's payment, you shall be obligated, at our written request, to refund the corresponding part of the remuneration.
 
 **13.8.** If a payment of remuneration is withheld in accordance with these Apify Store Publishing Terms, you shall not be entitled to any interest or additional payments.
+
+## 14. Amendments
+
+**14.1.** We may unilaterally amend the Apify Store Publishing Terms. We shall notify you of such an amendment at least 30 days in advance before its effectiveness. Should you disagree with such an amendment, you may unpublish all your Actors from Apify Store until the effective date of the amendments. Otherwise, you will be deemed to agree with the announced amendments.
 
 ## Version History
 
