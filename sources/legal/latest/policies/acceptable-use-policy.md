@@ -44,4 +44,4 @@ Prohibited activities include, but are not limited to:
 
 ## D. Reporting
 
-1. We encourage users to report any misuse or suspicious activity on our Platform through our contact email hello@apify.com.
+1. We encourage users to report any misuse or suspicious activity on our Platform through our contact email [support@apify.com](mailto:hello@apify.com).

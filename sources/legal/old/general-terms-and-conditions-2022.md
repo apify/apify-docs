@@ -15,8 +15,6 @@ You are reading terms and conditions that are no longer effective. If you're a n
 | Oct 2022 (This document)                                  | October 1, 2022 | June 12, 2024      |
 | Older T&Cs available upon request                         |                 | September 30, 2022 |
 
-
-
 # Apify General Terms and Conditions October 2022
 
 Apify Technologies s.r.o., with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 (hereinafter referred to as “**we**” or the “**Provider**”) welcomes you (hereinafter referred to as “**you**” or the “**User**”) on our website apify.com (hereinafter referred to as the “**Website**”). These terms and conditions of use (hereinafter referred to as the “**Terms**”) shall govern your access to the Website, its use, and use of the Platform and the Services (as defined below).
@@ -111,23 +109,14 @@ Furthermore, during the use of the Website, Platform (or any of its functionalit
 - Use them in a manner likely to unreasonably limit usage by our other customers, including but not limited to burdening the server on which the Platform is located by automated requests outside the interface designed for such a purpose;
 
 - Gather, save, enable the transmission to third parties or enable access to the content that is (themselves or their accessibility) contradictory to the generally binding legal regulations effective in the Czech Republic and in any country in which you are a resident where the Website, Platform or Services are used or where detrimental consequences could arise by taking such actions, including but not limited to the content that:
-
-    - interferes with the Copyright, with rights related to Copyright or with other intellectual property rights and/or confidential or any sensitive information;
-
-    - breaches the applicable legal rules relevant to the protection from hatred for a nation, ethnic group, race, religion, class or another group of people or relevant to the limitation of rights and freedoms of its members or invasion of privacy, promotion of violence and animosity, gambling or the sales or usage of drugs;
-
-    - interferes with the rights to the protection of competition law;
-
+  - interferes with the Copyright, with rights related to Copyright or with other intellectual property rights and/or confidential or any sensitive information;
+  - breaches the applicable legal rules relevant to the protection from hatred for a nation, ethnic group, race, religion, class or another group of people or relevant to the limitation of rights and freedoms of its members or invasion of privacy, promotion of violence and animosity, gambling or the sales or usage of drugs;
+  - interferes with the rights to the protection of competition law;
 - Gather, save, enable the transmission to third parties or enable access to the content that is pornographic, humiliating or that refer to pornographic or humiliating materials;
-
 - Gather, save, enable the transmission to third parties or enable access to the contents that make conspicuous resemblance to the contents, services or third-party applications for the purposes of confusing or deceiving Internet users (so-called phishing);
-
 - Gather, save, enable the transmission to third parties or enable access to the contents that harm our good reputation or authorised interests (including hypertext links to the contents that harm our good reputation or authorised interests);
-
 - Disseminate computer viruses or other harmful software;
-
 - Use mechanisms, instruments or computer equipment or processes that have or potentially have a negative effect on the operation of devices used by us, on the security of the internet or internet users;
-
 - Generate fraudulent impressions of or fraudulent clicks on your ad(s) or third-party ad(s) through any automated, deceptive, fraudulent or other invalid means, including but not limited to through repeated manual clicks, the use of robots, agents or other automated query tools and/or computer generated search requests, and/or the unauthorized use of other search engine optimization services and/or software.
 
 You acknowledge that the Website, Platform or the Services may not be available constantly. We may perform their planned or unplanned downtime in order to perform the inspection, maintenance, update or replacement of hardware or software. Their availability may also be limited due to other reasons, including but not limited to, power cuts, data network loss, other failures caused by third parties or caused to the devices of third parties or due to Force Majeure. We shall not be liable for the limitation of availability of the Website, Platform or the Services.
@@ -160,7 +149,7 @@ EXCEPT FOR ANY INDEMNIFICATION AND CONFIDENTIALITY OBLIGATIONS HEREUNDER, (i) IN
 
 You agree to indemnify, defend and hold us, our agents, affiliates, subsidiaries, directors, officers, employees, and applicable third parties (e.g., all relevant partner(s), licensors, licensees, consultants and contractors) (“Indemnified Person(s)”) harmless from and against any third-party claim, liability, loss, and expense (including damage awards, settlement amounts, and reasonable legal fees), brought against any Indemnified Person(s), arising out of your use of the Website, Platform, Configurations or Services and/or your breach of any of these terms. You acknowledge and agree that each Indemnified Person has the right to assert and enforce its rights under this section directly on its own behalf as a third-party beneficiary.
 
-##  10. Legal Disclaimer and Warning
+## 10. Legal Disclaimer and Warning
 
 We may immediately suspend your use of the Website, Platform, Configurations and/or Services if we are contacted by your targeted data extraction source, website, or repository and asked to cease all extraction activity. If such an event occurs, we will not disclose your information without a court order mandating us to do so unless we in our best judgment determine that there would be an adverse consequence if we do not. If, however, we receive a court order demanding the release of your information to a third party, we will comply. If such action becomes necessary, you agree to indemnify and hold us and (as applicable) our parent(s), subsidiaries, affiliates, officers, directors, agents, contractors and employees, harmless from any claim or demand, including reasonable attorneys' fees, made by any third party arising from any complaint, suit, disagreement or other repercussions resulting from your use of the Website, Platform, Configurations or Services.
 

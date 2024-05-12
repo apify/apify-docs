@@ -56,16 +56,11 @@ Terms starting with a capital letter used in these Affiliate Program Terms have 
 **6.1.** The Affiliate Partner must not promote Apify or use its Referral Link in any of the following ways:
 
 1. in any materials or in connection with any services that are illegal, infringing on third party rights, fraudulent, harassing, defamatory, discriminatory or violent;
-
 2. use any paid advertisements and/or advertise via any pay-per-click advertisement systems (e.g., Google Ads, Facebook Ads or LinkedIn Ads);
-
 3. bid on the "Apify" keyword for any pay-per-click advertisement systems (e.g., Google Ads), including any misspellings, capitalizations or in combination with any other text;
-
 4. for self-referral, i.e., its own or its friends, affiliates, related persons or business partners sign-ups to the Platform;
-
 5. in any content that's available on the Platform, Website or any other assets owned, operated or maintained by Apify; or
-
-5. for any illegal activity, including, without limitation, fraud or money laundering.
+6. for any illegal activity, including, without limitation, fraud or money laundering.
 
 Any customer referred in breach of this clause 6.1 shall not be considered a Referred Customer.
 

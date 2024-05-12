@@ -85,14 +85,12 @@ We are authorized to unpublish and/or delete such an Actor, in our sole discreti
 **12.1.** When you decide to set your Actor as monetized, you may choose one of the two following options for setting its price:
 
 1. **Monthly Rental** which means that each user of your Actor will pay a flat monthly rental fee for use of that Actor. You will set the price as X USD per month; or
-
 2. **Price per Result** model which means that each user of your Actor will pay a fee calculated according to the number of results of each run of that Actor. You will set the price as X USD per 1,000 results. In this model the users do not pay for the Platform usage.
 
 **12.2.** If you set your Actor as monetized, you will be entitled to receive remuneration calculated as follows:
 
-1.  80% of the sum of the Monthly Rental fees paid by the users of the Actor; or
-
-2.  80% of the sum of Price per Result fees paid by the users of the Actor, further reduced by the cost of Platform usage.
+1. 80% of the sum of the Monthly Rental fees paid by the users of the Actor; or
+2. 80% of the sum of Price per Result fees paid by the users of the Actor, further reduced by the cost of Platform usage.
 
 You acknowledge that the remaining portion of the users' fees paid for the Actor shall belong to us.
 

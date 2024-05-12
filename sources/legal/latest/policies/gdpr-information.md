@@ -23,30 +23,30 @@ First and foremost, we process data that is necessary for us to perform our cont
 
 ### What are these ‘legitimate interests’?
 
-*   Improving our Website, Platform and Services to help you reach new levels of productivity.
-*   Making sure that your data and Apify's systems are safe and secure.
-*   Responsible marketing of our product and its features.
+* Improving our Website, Platform and Services to help you reach new levels of productivity.
+* Making sure that your data and Apify's systems are safe and secure.
+* Responsible marketing of our product and its features.
 
 ### What rights do you have in connection with your personal data processing?
 
-1.  **Right of access to personal data:** you have the right to obtain information on whether personal data is processed and, if so, the right to access to this personal data.
+1. **Right of access to personal data:** you have the right to obtain information on whether personal data is processed and, if so, the right to access to this personal data.
 
-2.  **Right to rectification of inaccurate personal data and the right to have incomplete personal data completed:** if you believe that Apify processes inaccurate or incomplete personal data, you have the right to rectification of inaccurate data and the right to have incomplete data completed; the rectification or completion takes place without undue delay, and always with regard to technical possibilities.
+2. **Right to rectification of inaccurate personal data and the right to have incomplete personal data completed:** if you believe that Apify processes inaccurate or incomplete personal data, you have the right to rectification of inaccurate data and the right to have incomplete data completed; the rectification or completion takes place without undue delay, and always with regard to technical possibilities.
 
-3.  **Right to erasure:** you have the right to have your personal data erased if (i) they are no longer necessary in relation to the purposes for which they were collected or otherwise processed (ii) the processing was unlawful, (iii) you object to the processing and there are no overriding legitimate grounds for processing your personal data, or the law requires erasure, (iv) we are required to erase data under our legal obligation, or (v) you withdrew your consent to the processing of personal data (if processed based on such consent).
+3. **Right to erasure:** you have the right to have your personal data erased if (i) they are no longer necessary in relation to the purposes for which they were collected or otherwise processed (ii) the processing was unlawful, (iii) you object to the processing and there are no overriding legitimate grounds for processing your personal data, or the law requires erasure, (iv) we are required to erase data under our legal obligation, or (v) you withdrew your consent to the processing of personal data (if processed based on such consent).
 
-4.  **Right to restriction of processing:** if you request to obtain restriction of processing, we are only allowed to store personal data, not further process it, with the exceptions set out in the GDPR. You may exercise the right to restriction in the following cases:
+4. **Right to restriction of processing:** if you request to obtain restriction of processing, we are only allowed to store personal data, not further process it, with the exceptions set out in the GDPR. You may exercise the right to restriction in the following cases:
 
-    *   If you contest the accuracy of your personal data; in this case, the restrictions apply for the time necessary for us to verify the accuracy of the personal data.
-    *   If we process your personal data unlawfully, but instead of erasure you request only restriction of their use.
-    *   If we no longer need your personal data for the above-mentioned purposes of processing, but you request the data for the establishment, exercise, or defense of legal claims.
-    *   If you object to processing, the data processing is restricted pending the verification whether our legitimate interest override yours.
+    * If you contest the accuracy of your personal data; in this case, the restrictions apply for the time necessary for us to verify the accuracy of the personal data.
+    * If we process your personal data unlawfully, but instead of erasure you request only restriction of their use.
+    * If we no longer need your personal data for the above-mentioned purposes of processing, but you request the data for the establishment, exercise, or defense of legal claims.
+    * If you object to processing, the data processing is restricted pending the verification whether our legitimate interest override yours.
 
-5.  **Right to data portability:** if you wish us to transmit your personal data to another controller, you may exercise your right to data portability, if technically feasible. If the exercise of your right would adversely affect the rights and freedoms of other persons, we will not be able to comply with the request.
+5. **Right to data portability:** if you wish us to transmit your personal data to another controller, you may exercise your right to data portability, if technically feasible. If the exercise of your right would adversely affect the rights and freedoms of other persons, we will not be able to comply with the request.
 
-6.  **Right to object:** you have the right to object to the processing of personal data which are processed for the purpose of protecting our legitimate interests or for the purpose of fulfilling a task performed in the public interest or in the exercise of public power. If Apify does not prove that there is a justified legitimate reason for the processing which overrides your interest or rights and freedoms, we shall terminate the processing on the basis of the objection without an undue delay.
+6. **Right to object:** you have the right to object to the processing of personal data which are processed for the purpose of protecting our legitimate interests or for the purpose of fulfilling a task performed in the public interest or in the exercise of public power. If Apify does not prove that there is a justified legitimate reason for the processing which overrides your interest or rights and freedoms, we shall terminate the processing on the basis of the objection without an undue delay.
 
-7.  **Right to file a complaint:** you can file a complaint with the Office for Personal Data Protection if you claim that processing of data has violated your right to personal data protection during their processing or related legislation, including violating the above-mentioned rights. The Office for Personal Data Protection is located at the address Pplk. Sochora 27, 170 00 Prague 7. More information about its activities is available on the website https://www.uoou.cz/.
+7. **Right to file a complaint:** you can file a complaint with the Office for Personal Data Protection if you claim that processing of data has violated your right to personal data protection during their processing or related legislation, including violating the above-mentioned rights. The Office for Personal Data Protection is located at the address Pplk. Sochora 27, 170 00 Prague 7. More information about its activities is available on the website [https://www.uoou.cz/](https://www.uoou.cz/).
 
 As the controller for your personal data, Apify is committed to respecting all your rights under the GDPR. If you have any questions or feedback, please reach out to us by email at [legal@apify.com](mailto:legal@apify.com).
 

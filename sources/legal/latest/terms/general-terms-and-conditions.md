@@ -38,7 +38,8 @@ The Terms are the key document governing the relationship between you and us, pl
 
 ## A. Acceptance of these Terms
 
-By clicking the button “Sign up” during registration on our Website, you claim that you are over 18 years old and agree to adhere to these Terms and also to our
+By clicking the button “Sign up” during registration on our Website, you claim that you are over 18 years old and agree to adhere to these Terms and also to our:
+
 - [Privacy Policy](../policies/privacy-policy.md), and
 - [Acceptable Use Policy](../policies/acceptable-use-policy.md).
 
@@ -129,7 +130,7 @@ EXCEPT FOR ANY INDEMNIFICATION AND CONFIDENTIALITY OBLIGATIONS HEREUNDER, (i) IN
 
 You agree to indemnify, defend and hold us, our agents, affiliates, subsidiaries, directors, officers, employees, and applicable third parties (e.g., all relevant partner(s), licensors, licensees, consultants and contractors) (“Indemnified Person(s)”) harmless from and against any third-party claim, liability, loss, and expense (including damage awards, settlement amounts, and reasonable legal fees), brought against any Indemnified Person(s), arising out of your use of the Website, Platform, Configurations or Services and/or your breach of any of these terms. You acknowledge and agree that each Indemnified Person has the right to assert and enforce its rights under this section directly on its own behalf as a third-party beneficiary.
 
-##  J. Legal Disclaimer and Warning
+## J. Legal Disclaimer and Warning
 
 We may immediately suspend your use of the Website, Platform, Configurations and/or Services if we are contacted by your targeted data extraction source, website, or repository and asked to cease all extraction activity. If such an event occurs, we will not disclose your information without a court order mandating us to do so unless we in our best judgment determine that there would be an adverse consequence if we do not. If, however, we receive a court order demanding the release of your information to a third party, we will comply. If such action becomes necessary, you agree to indemnify and hold us and (as applicable) our parent(s), subsidiaries, affiliates, officers, directors, agents, contractors and employees, harmless from any claim or demand, including reasonable attorneys' fees, made by any third party arising from any complaint, suit, disagreement or other repercussions resulting from your use of the Website, Platform, Configurations or Services.
 
