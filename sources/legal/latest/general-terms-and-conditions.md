@@ -9,7 +9,7 @@ slug: /general-terms-and-conditions
 
 # Apify General Terms and Conditions
 
-Effective date April 13, 2024
+Effective date: May 13, 2024
 
 ---
 
@@ -17,7 +17,7 @@ Apify Technologies s.r.o., with its registered seat at Vodičkova 704/36, 110 00
 
 ## Summary
 
-The Terms are the key document governing the relationship between you and us, please read the whole text of the Terms. For your convenience, below is a non-binding short summary of each section of the Terms.
+The Terms are the key document governing the relationship between you and us, please read the whole text of the Terms. For your convenience, we have presented these terms in a short non-binding summary followed by the full legal terms.
 
 | Section                                                                                                                          | What can you find there?                                                                                                                                                                                                                                                                               |
 |----------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -199,6 +199,6 @@ This is the history of Apify General Terms and Conditions. If you're a new user,
 
 | Version                                         | Effective from  | Effective until    |
 |-------------------------------------------------|-----------------|--------------------|
-| Latest (this document)                          | April 13, 2024  |                    |
-| [Oct 2022](../old/terms-and-conditions-2022.md) | October 1, 2022 | May 12, 2024       |
+| Latest (this document)                          | May 13, 2024    |                    |
+| [Oct 2022](../old/terms-and-conditions-2022.md) | October 1, 2022 | June 12, 2024      |
 | Older T&Cs available upon request               |                 | September 30, 2022 |

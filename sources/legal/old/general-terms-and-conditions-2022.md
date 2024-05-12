@@ -1,7 +1,6 @@
 ---
 title: Apify General Terms and Conditions October 2022
-description: Outdated general terms and conditions that governed the use of Apify website, platform and services until April 2024.
-sidebar_position: 1
+description: Outdated general terms and conditions that governed the use of Apify website, platform and services until May 2024.
 category: legal
 slug: /old/general-terms-and-conditions-october-2022
 ---
@@ -12,8 +11,8 @@ You are reading terms and conditions that are no longer effective. If you're a n
 
 | Version                                     | Effective from  | Effective until    |
 |---------------------------------------------|-----------------|--------------------|
-| [Latest](../latest/terms-and-conditions.md) | April 13, 2024  |                    |
-| Oct 2022 (This document)                    | October 1, 2022 | May 12, 2024       |
+| [Latest](../latest/terms-and-conditions.md) | May 13, 2024    |                    |
+| Oct 2022 (This document)                    | October 1, 2022 | June 12, 2024      |
 | Older T&Cs available upon request           |                 | September 30, 2022 |
 
 
