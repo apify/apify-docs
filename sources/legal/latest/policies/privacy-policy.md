@@ -7,6 +7,8 @@ category: legal
 slug: /privacy-policy
 ---
 
+<!-- vale off -->
+
 # Apify Privacy Policy
 
 **Apify Technologies s.r.o.**, with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 (“**we**“, “**us**”, “**our**”, the “**Provider**” or “**Apify**”) welcomes you (“**you**” or the “**User**”) on our website apify.com (the “**Website**”).

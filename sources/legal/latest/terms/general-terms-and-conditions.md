@@ -7,6 +7,8 @@ category: legal
 slug: /general-terms-and-conditions
 ---
 
+<!-- vale off -->
+
 # Apify General Terms and Conditions
 
 Effective date: May 14, 2024

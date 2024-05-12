@@ -7,6 +7,8 @@ category: legal
 slug: /affiliate-program-terms-and-conditions
 ---
 
+<!-- vale off -->
+
 # Apify Affiliate Program Terms and Conditions
 
 Effective date: May 14, 2024
