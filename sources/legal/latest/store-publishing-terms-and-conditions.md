@@ -8,7 +8,7 @@ slug: /store-publishing-terms-and-conditions
 
 # Apify Store Publishing Terms and Conditions
 
-Effective date: May 13, 2024
+Effective date: May 14, 2024
 
 ---
 
@@ -127,5 +127,5 @@ This is the history of Apify Store Publishing Terms and Conditions. If you are a
 
 | Version                                                               | Effective from   | Effective until |
 |-----------------------------------------------------------------------|------------------|-----------------|
-| Latest (this document)                                                | May 13, 2024     |                 |
-| [December 2022](../old/store-publishing-terms-and-conditions-2022.md) | December 1, 2022 | June 12, 2024   |
+| Latest (this document)                                                | May 14, 2024     |                 |
+| [December 2022](../old/store-publishing-terms-and-conditions-2022.md) | December 1, 2022 | June 13, 2024   |

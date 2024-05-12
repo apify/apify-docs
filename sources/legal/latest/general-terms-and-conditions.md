@@ -9,7 +9,7 @@ slug: /general-terms-and-conditions
 
 # Apify General Terms and Conditions
 
-Effective date: May 13, 2024
+Effective date: May 14, 2024
 
 ---
 
@@ -199,6 +199,6 @@ This is the history of Apify General Terms and Conditions. If you're a new user,
 
 | Version                                         | Effective from  | Effective until    |
 |-------------------------------------------------|-----------------|--------------------|
-| Latest (this document)                          | May 13, 2024    |                    |
-| [Oct 2022](../old/terms-and-conditions-2022.md) | October 1, 2022 | June 12, 2024      |
+| Latest (this document)                          | May 14, 2024    |                    |
+| [Oct 2022](../old/terms-and-conditions-2022.md) | October 1, 2022 | June 13, 2024      |
 | Older T&Cs available upon request               |                 | September 30, 2022 |

@@ -9,10 +9,6 @@ slug: /cookie-policy
 
 # Apify Cookie Policy
 
-Effective date: May 13, 2024
-
----
-
 **Apify Technologies s.r.o.**, with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 (“**you**” or the “**User**”) on our website apify.com (the “**Website**”).
 
 This Cookie Policy (the “**Policy**” or “**Cookie Policy**”) describes the way we use cookies on our Website and on our platform on console.apify.com (the “**Platform**”). Terms starting with a capital letter used in this Policy have the meaning defined in our [General Terms and Conditions](./terms-and-conditions.md) (the “**Terms**”). By accessing the Website, Platform or using our Services, you acknowledge and agree to this Policy. If you do not agree to the terms of this Policy, please do not use the Website, Platform or any of our Services. Each time you use the Website, Platform or our Services, the current version of the Cookie Policy will apply.
