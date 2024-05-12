@@ -81,13 +81,13 @@ We are authorized to unpublish and/or delete such an Actor, in our sole discreti
 
 ## 12. Pricing options
 
-**12.1.** When you decide to set your Actor as paid, you may choose one of the two following options for setting its price:
+**12.1.** When you decide to set your Actor as monetized, you may choose one of the two following options for setting its price:
 
 1. **Monthly Rental** which means that each user of your Actor will pay a flat monthly rental fee for use of that Actor. You will set the price as X USD per month; or
 
 2. **Price per Result** model which means that each user of your Actor will pay a fee calculated according to the number of results of each run of that Actor. You will set the price as X USD per 1,000 results. In this model the users do not pay for the Platform usage.
 
-**12.2.** If you set your Actor as paid, you will be entitled to receive remuneration calculated as follows:
+**12.2.** If you set your Actor as monetized, you will be entitled to receive remuneration calculated as follows:
 
 1.  80% of the sum of the Monthly Rental fees paid by the users of the Actor; or
 
@@ -95,7 +95,7 @@ We are authorized to unpublish and/or delete such an Actor, in our sole discreti
 
 You acknowledge that the remaining portion of the users' fees paid for the Actor shall belong to us.
 
-_Example: You set the price for your paid Actor under Price per Result model as USD 5 per 1,000 results. The Actor has one paying user who runs it once and gets 1,000 results. The Platform usage costs of the Actor run are USD 0.5 You will be entitled to remuneration of USD 3.5 (i.e. (80% of 5) - 0.5)._
+_Example: You set the price for your monetized Actor under the Price per Result model as USD 5 per 1,000 results. The Actor has one paying user who runs it once and gets 1,000 results. The Platform usage costs of the Actor run are USD 0.5 You will be entitled to remuneration of USD 3.5 (i.e. (80% of 5) - 0.5)._
 
 **12.3.** You acknowledge that the amount of fees paid by the users and the Platform costs can change throughout the month thanks to unpaid invoices or refunds, and that any information about future or past profits or remuneration available in the Platform UI are only estimates. Apify shall not be liable for the outcomes of any actions made based on those estimates.
 
