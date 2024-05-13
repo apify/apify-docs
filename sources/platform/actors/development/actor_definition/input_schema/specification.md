@@ -115,7 +115,7 @@ Each field of your input is described under its key in the `inputSchema.properti
 
 | Property | Value | Required | Description |
 | --- | --- | --- | --- |
-| `type` | One of <br/>`string`, <br/>`array`, <br/>`object`, <br/>`boolean`, <br/>`integer` | Yes | Allowed type for the input value. <br/>Cannot be mixed. |
+| `type` | One of <ul><li>`string`</li><li>`array`</li><li>`object`</li><li>`boolean`</li><li>`integer`</li></ul> | Yes | Allowed type for the input value. <br/>Cannot be mixed. |
 | `title` | String | Yes | Title of the field in UI. |
 | `description` | String | Yes | Description of the field that will be <br/>displayed as help text in Actor input UI. |
 | `default` | Must match `type` property. | No | Default value that will be <br/>used when no value is provided. |
@@ -181,7 +181,7 @@ Properties:
 
 | Property | Value | Required | Description |
 | --- | --- | --- | --- |
-| `editor` | One of <br/>`textfield`, <br/>`textarea`, <br/>`javascript`, <br/>`python`, <br/>`select`,<br/>`datepicker`, <br/>`hidden` | Yes | Visual editor used for <br/>the input field. |
+| `editor` | One of <ul><li>`textfield`</li><li>`textarea`</li><li>`javascript`</li><li>`python`</li><li>`select`</li><li>`datepicker`</li><li>`hidden`</li></ul> | Yes | Visual editor used for <br/>the input field. |
 | `pattern` | String | No | Regular expression that will be <br/>used to validate the input. <br/> If validation fails, <br/>the Actor will not run. |
 | `minLength` | Integer | No | Minimum length of the string. |
 | `maxLength` | Integer | No | Maximum length of the string. |
@@ -199,7 +199,7 @@ When using escape characters `\` for the regular expression in the `pattern` fie
 
 ### Boolean
 
-:::warning `prefill` limitation
+:::caution `prefill` limitation
 
 Beware that the `boolean` input type doesn't support the `prefill` property since there is no way to display the pre-filled value in the user interface.
 
@@ -235,7 +235,7 @@ Properties:
 
 | Property | Value | Required | Description |
 | --- | --- | --- | --- |
-| `editor` | One of <br/>`checkbox`, <br/>`hidden` | No | Visual editor used for the input field. |
+| `editor` | One of <ul><li>`checkbox`</li><li>`hidden`</li></ul> | No | Visual editor used for the input field. |
 | `groupCaption` | String | No | If you want to group <br/>multiple checkboxes together, <br/>add this option to the first <br/>of the group. |
 | `groupDescription` | String | No | Description displayed as help text <br/>displayed of group title. |
 | `nullable` | Boolean | No | Specifies whether null is <br/>an allowed value. |
@@ -263,7 +263,7 @@ Properties:
 
 | Property | Value | Required | Description |
 | --- | --- | --- | --- |
-| `editor` | One of <br/>`number`, <br/>`hidden` | No | Visual editor used for input field. |
+| `editor` | One of: <ul><li>`number`</li><li>`hidden`</li></ul> | No | Visual editor used for input field. |
 | `maximum` | Integer | No | Maximum allowed value. |
 | `minimum` | Integer | No | Minimum allowed value. |
 | `unit` | String | No | Unit displayed next to the field in UI, <br/>for example _second_, _MB_, etc. |
@@ -328,7 +328,7 @@ Properties:
 
 | Property | Value | Required | Description |
 | --- | --- | --- | --- |
-| `editor` | One of <br/>`json`, <br/>`proxy`, <br/>`hidden` | Yes | UI editor used for input. |
+| `editor` | One of <ul><li>`json`</li><li>`proxy`</li><li>`hidden`</li></ul> | Yes | UI editor used for input. |
 | `patternKey` | String | No | Regular expression that will be used <br/>to validate the keys of the object. |
 | `patternValue` | String | No | Regular expression that will be used <br/>to validate the values of object. |
 | `maxProperties` | Integer | No | Maximum number of properties <br/>the object can have. |
@@ -373,7 +373,7 @@ Properties:
 
 | Property | Value | Required | Description |
 | --- | --- | --- | --- |
-| `editor` | One of <br/>`json`, <br/>`requestListSources`, <br/>`pseudoUrls`, <br/>`globs`, <br/>`keyValue`, <br/>`stringList`, <br/>`select`, <br/>`hidden` | Yes | UI editor used for input. |
+| `editor` | One of <ul><li>`json`</li><li>`requestListSources`</li><li>`pseudoUrls`</li><li>`globs`</li><li>`keyValue`</li><li>`stringList`</li><li>`select`</li><li>`hidden`</li></ul> | Yes | UI editor used for input. |
 | `placeholderKey` | String | No | Placeholder displayed for <br/>key field when no value is specified. <br/>Works only with `keyValue` editor. |
 | `placeholderValue` | String | No | Placeholder displayed in value field <br/>when no value is provided. <br/>Works only with `keyValue` and <br/>`stringList` editors. |
 | `patternKey` | String | No | Regular expression that <br/>will be used to validate <br/>the keys of items in the array. <br/>Works only with `keyValue` <br/>editor. |
