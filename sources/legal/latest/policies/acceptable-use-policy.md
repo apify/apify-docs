@@ -15,15 +15,17 @@ Apify Technologies s.r.o., with its registered seat at Vodičkova 704/36, Nové 
 
 By agreeing to our General Terms and Conditions or simply by using the Platform or the Website, you also agree to be bound by this Acceptable Use Policy.
 
-## A. General Provisions
+## 1. General Provisions
 
-1. Apify takes firm action against any illegal or non-compliant use of the Platform and the Website and will assist law enforcement in investigating any illegal activities. Any use of the Platform or the Website for illegal, fraudulent, or otherwise unacceptable activities is strictly prohibited.
-2. You agree to use the Platform and the Website only for legal and legitimate purposes and to avoid the Prohibited Activities under Article 2.1.
-3. Any capitalized terms that are not defined in this Acceptable Use Policy shall have the meaning ascribed to them in the General Terms and Conditions.
+**1.1.** Apify takes firm action against any illegal or non-compliant use of the Platform and the Website and will assist law enforcement in investigating any illegal activities. Any use of the Platform or the Website for illegal, fraudulent, or otherwise unacceptable activities is strictly prohibited.
 
-## B. Prohibited Activities
+**1.2.** You agree to use the Platform and the Website only for legal and legitimate purposes and to avoid the Prohibited Activities under Article 2.1.
 
-Prohibited activities include, but are not limited to:
+**1.3.** Any capitalized terms that are not defined in this Acceptable Use Policy shall have the meaning ascribed to them in the General Terms and Conditions.
+
+## 2. Prohibited Activities
+
+**2.1.** Prohibited activities include, but are not limited to:
 
 1. denial-of-service (DDoS) attacks or any other actions that cause undue burden on any servers or infrastructure;
 2. unsolicited mass messaging;
@@ -39,11 +41,12 @@ Prohibited activities include, but are not limited to:
 
 (together as the “**Prohibited Activities**”).
 
-## C. Our Rights
+## 3. Our Rights
 
-1. In case Apify identifies any of the Prohibited Activities on the Platform or the Website, it is authorized to block, delete, or otherwise restrict any such non-compliant User or Actor from the Platform or Website without notice. Apify may limit the use of the Platform or the Website in its sole discretion to prevent any direct or indirect damage to Apify or any third party.
-2. Apify shall not be liable towards you or any third party for exercising its rights according to this Acceptable Use Policy.
+**3.1.** In case Apify identifies any of the Prohibited Activities on the Platform or the Website, it is authorized to block, delete, or otherwise restrict any such non-compliant User or Actor from the Platform or Website without notice. Apify may limit the use of the Platform or the Website in its sole discretion to prevent any direct or indirect damage to Apify or any third party.
 
-## D. Reporting
+**3.2.** Apify shall not be liable towards you or any third party for exercising its rights according to this Acceptable Use Policy.
 
-1. We encourage users to report any misuse or suspicious activity on our Platform through our contact email [support@apify.com](mailto:hello@apify.com).
+## 4. Reporting
+
+**4.1.** We encourage users to report any misuse or suspicious activity on our Platform through our contact email [support@apify.com](mailto:hello@apify.com).
