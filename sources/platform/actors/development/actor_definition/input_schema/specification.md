@@ -11,20 +11,25 @@ slug: /actors/development/actor-definition/input-schema/specification/v1
 
 ---
 
-An Actor's input schema defines the input accepted by the Actor and the UI components used for input in Apify Console. Using input schema, you can provide an easy-to-use UI for your Actor's users and also ensure that the input provided is valid.
+The input schema serves two primary purposes for an Actor:
 
-Input schema can be embedded as an object in the `.actor/actor.json` file under the `input` field. Alternatively, you can store a path to a `JSON` file in that field. If the `input` field or `.actor/actor.json` are omitted, the input schema from `.actor/INPUT_SCHEMA.json` is used. In the absence of that file, the `INPUT_SCHEMA.json` file stored in the Actor's root directory is used. The file's maximum size is 100 kB. If the input schema is provided, then input is always validated to fulfill the schema when an Actor is being started (via API or from Apify Console).
+* It defines the structure and validation rules for the input data the Actor accepts.
+* It determines the user interface components rendered in the Apify Console for configuring the Actor's input.
+
+By defining an input schema, you can provide a user-friendly interface for configuring your Actor while ensuring that the input data supplied by users adheres to the specified requirements and constraints.
+
+You can specify input schema for an Actor in multiple ways. One approach embeds it as an object within the `.actor/actor.json` file under the `input` field. Alternatively, provide a path to a `JSON` file containing the input schema in the same `input` field. If you omit the `input` field and the `.actor/actor.json` file, the system will look for an `INPUT_SCHEMA.json` file in the `actor` directory. In the absence of that file, it will search for an `INPUT_SCHEMA.json` file in the Actor's root directory. The max allowed size for the input schema file is 100 kB. When you provide an input schema, the system will validate the input data passed to the Actor during execution (via the API or the Apify Console) against the specified schema to ensure compliance before starting the Actor.
 
 :::note Validation aid
 
-You can also use our [visual input schema editor](https://apify.github.io/input-schema-editor-react) to guide you through creation of the `INPUT_SCHEMA.json` file.
+You can also use our [visual input schema editor](https://apify.github.io/input-schema-editor-react) to guide you through the creation of the `INPUT_SCHEMA.json` file.
 If you need to validate your input schemas, you can use the [`apify vis`](/cli/docs/reference#apify-vis-path) command in the Apify CLI.
 
 :::
 
 ## Example
 
-Imagine you are building a simple crawler whose inputs are an array of start URLs and a JavaScript function that will be executed at each page the crawler visits. Its input schema will look like this:
+Imagine a simple web crawler that accepts an array of start URLs and a JavaScript function to execute on each visited page. The input schema for such a crawler could be defined as follows:
 
 ```json5
 {
@@ -55,7 +60,7 @@ Imagine you are building a simple crawler whose inputs are an array of start URL
 }
 ```
 
-And generated the input UI will be:
+The generated input UI will be:
 
 ![Apify Actor input schema example](./images/input-schema-example.png)
 
@@ -100,13 +105,13 @@ The input schema is a `JSON` file named `INPUT_SCHEMA.json`, placed in the root 
 
 :::note Input schema differences
 
-Even though the structure of the Actor input schema is similar to JSON schema, there are some important differences. We cannot guarantee that JSON schema tooling will work on input schema documents. For precise technical understanding of the matter, feel free to browse the code of the [@apify/input_schema](https://github.com/apify/apify-shared-js/tree/master/packages/input_schema/src) package.
+Even though the structure of the Actor input schema is similar to JSON schema, there are some differences. We cannot guarantee that JSON schema tooling will work on input schema documents. For a more precise technical understanding of the matter, feel free to browse the code of the [@apify/input_schema](https://github.com/apify/apify-shared-js/tree/master/packages/input_schema/src) package.
 
 :::
 
 ## Fields
 
-Each field of your input is described under its key in `inputSchema.properties` object. The field might have `integer`, `string`, `array`, `object` or `boolean` type and its specification contains the following properties:
+Each field of your input is described under its key in the `inputSchema.properties` object. The field might have `integer`, `string`, `array`, `object`, or `boolean` type, and its specification contains the following properties:
 
 | Property | Value | Required | Description |
 | --- | --- | --- | --- |
@@ -119,7 +124,7 @@ Each field of your input is described under its key in `inputSchema.properties` 
 | `sectionCaption` | String | No | If this property is set, <br/>then all fields following this field <br/>(this field included) will be separated <br/>into a collapsible section <br/>with the value set as its caption. <br/>The section ends at the last field <br/>or the next field which has the <br/> `sectionCaption` property set. |
 | `sectionDescription` | String | No | If the `sectionCaption` property is set, <br/>then you can use this property to <br/>provide additional description to the section. <br/>The description will be visible right under <br/>the caption when the section is open. |
 
-### Prefill vs default vs required
+### Prefill vs. default vs. required
 
 Here is a rule of thumb for whether an input field should have a `prefill`, `default`, or be required:
 
@@ -134,7 +139,7 @@ In summary, you can use each option independently or use a combination of **Pref
 
 ## Additional properties
 
-Most of the types support also additional properties defining, for example, the UI input editor.
+Most types also support additional properties defining, for example, the UI input editor.
 
 ### String
 
@@ -194,7 +199,11 @@ When using escape characters `\` for the regular expression in the `pattern` fie
 
 ### Boolean
 
-Beware that the `boolean` input type doesn't support the `prefill` property, since there is no way to display the pre-filled value in the user interface.
+:::warning `prefill` limitation
+
+Beware that the `boolean` input type doesn't support the `prefill` property since there is no way to display the pre-filled value in the user interface.
+
+:::
 
 Example options with group caption:
 
@@ -378,7 +387,7 @@ Properties:
 
 Usage of this field is based on the selected editor:
 
-- `requestListSources` - value from this field can be used as input of [RequestList](https://crawlee.dev/api/core/class/RequestList) class from Crawlee.
+- `requestListSources` - value from this field can be used as input for the [RequestList](https://crawlee.dev/api/core/class/RequestList) class from Crawlee.
 - `pseudoUrls` - is intended to be used with a combination of the [PseudoUrl](https://crawlee.dev/api/core/class/PseudoUrl) class and the [enqueueLinks()](https://crawlee.dev/api/core/function/enqueueLinks) function from Crawlee.
 
 Editor type `requestListSources` supports input in formats defined by the [sources](https://crawlee.dev/api/core/interface/RequestListOptions#sources) property of [RequestListOptions](https://crawlee.dev/api/core/interface/RequestListOptions).
