@@ -13,8 +13,8 @@ slug: /actors/development/actor-definition/input-schema/specification/v1
 
 The input schema serves two primary purposes for an Actor:
 
-* It defines the structure and validation rules for the input data the Actor accepts.
-* It determines the user interface components rendered in the Apify Console for configuring the Actor's input.
+- It defines the structure and validation rules for the input data the Actor accepts.
+- It determines the user interface components rendered in the Apify Console for configuring the Actor's input.
 
 By defining an input schema, you can provide a user-friendly interface for configuring your Actor while ensuring that the input data supplied by users adheres to the specified requirements and constraints.
 
