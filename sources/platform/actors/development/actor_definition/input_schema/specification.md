@@ -98,9 +98,9 @@ The input schema is a `JSON` file named `INPUT_SCHEMA.json`, placed in the root 
 | `properties` | Object | Yes | This is an object mapping each field key <br/>to its specification. |
 | `required` | String | No | An array of field keys that are required. |
 
-:::note
+:::note Input schema differences
 
-Even though the structure of the Actor input schema is similar to JSON schema, there are a few important differences. Therefore, we cannot guarantee that JSON schema tooling will work correctly on input schema documents. For precise technical understanding of the matter, feel free to browse the code of the [@apify/input_schema](https://github.com/apify/apify-shared-js/tree/master/packages/input_schema/src) package.
+Even though the structure of the Actor input schema is similar to JSON schema, there are some important differences. We cannot guarantee that JSON schema tooling will work on input schema documents. For precise technical understanding of the matter, feel free to browse the code of the [@apify/input_schema](https://github.com/apify/apify-shared-js/tree/master/packages/input_schema/src) package.
 
 :::
 
@@ -129,12 +129,12 @@ Here is a rule of thumb for whether an input field should have a `prefill`, `def
   If the user omits the value when starting the Actor via any means (API, CLI, scheduler, or user interface), the platform automatically passes the Actor this default value.
 - **No particular setting** - Use for purely optional fields where it makes no sense to prefill any value (e.g., flags like debug mode or download files).
 
-In summary, you can use each option separately or use a combination of **Prefill + Required**, but the combinations **Prefill + Default** or **Default + Required** don't make sense to use.
+In summary, you can use each option independently or use a combination of **Prefill + Required**, but the combinations **Prefill + Default** or **Default + Required** don't make sense to use.
 
 
 ## Additional properties
 
-In addition to the properties listed above, most of the types support also additional properties defining, for example, the UI input editor.
+Most of the types support also additional properties defining, for example, the UI input editor.
 
 ### String
 
@@ -185,7 +185,7 @@ Properties:
 | `nullable` | Boolean | No | Specifies whether `null` <br/>is an allowed value. |
 | `isSecret` | Boolean | No | Specifies whether the input field<br />will be stored encrypted.<br />Only available <br />with `textfield` and `textarea` editors. |
 
-:::note
+:::note Regex escape
 
 When using escape characters `\` for the regular expression in the `pattern` field, be sure to escape them to avoid invalid JSON issues. For example, the regular expression
 `https:\/\/(www\.)?apify\.com\/.+` would become `https:\\/\\/(www\\.)?apify\\.com\\/.+`.
