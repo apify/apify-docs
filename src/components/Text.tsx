@@ -1,8 +1,8 @@
 import {
     TextBaseComponent,
+    TextBaseProps,
     theme,
-} from '@apify-packages/ui-components';
-import { TextProps } from '@apify-packages/ui-components/src/text/text';
+} from '@apify-packages/ui-library';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
@@ -54,7 +54,7 @@ const TEXT_VARIANTS_CSS = {
     },
 };
 
-interface TextComponentProps extends TextProps {
+interface TextComponentProps extends TextBaseProps {
     type?: string;
     size?: string;
     weight?: string;

@@ -73,4 +73,4 @@ By changing HTML elements from the Console, you can change what's displayed on t
 
 In this lesson, we learned the absolute basics of interaction with a page using the DevTools. In the [next lesson](./using_devtools.md), you will learn how to extract data from it. We will extract data about the on-sale products on the [Warehouse store](https://warehouse-theme-metal.myshopify.com).
 
-It isn't a real store, but a full-featured demo of a Shopify online store. And that is just perfect for our purposes. Shopify is one of the largest e-commerce platforms in the world, and it uses all the latest technologies that a real, modern e-commerce web-application would use. Learning to scrape a Shopify store is useful, because you can immediately apply the learnings to millions of websites.
+It isn't a real store, but a full-featured demo of a Shopify online store. And that is just perfect for our purposes. Shopify is one of the largest e-commerce platforms in the world, and it uses all the latest technologies that a real e-commerce web application would use. Learning to scrape a Shopify store is useful, because you can immediately apply the learnings to millions of websites.

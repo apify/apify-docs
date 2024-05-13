@@ -72,7 +72,7 @@ If some of the code is hard for you to understand, please review the [Basics of 
 
 :::caution
 
-We are using modern JS syntax like `import` statements and top-level `await`. If you see errors like Cannot use import outside of a module. Please review the [Project setup lesson](../data_extraction/project_setup.md#modern-javascript) where we explain how to enable those features.
+We are using JavaScript features like `import` statements and top-level `await`. If you see errors like _Cannot use import outside of a module_, please review the [Project setup lesson](../data_extraction/project_setup.md#modern-javascript), where we explain how to enable those features.
 
 :::
 

@@ -1,12 +1,12 @@
-import React from 'react';
-import Link from '@docusaurus/Link';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import isInternalUrl_ from '@docusaurus/isInternalUrl';
-import IconExternalLink from '@theme/Icon/ExternalLink';
+import Link from '@docusaurus/Link';
 import { useLocation } from '@docusaurus/router';
 import { isRegexpStringMatch, useThemeConfig } from '@docusaurus/theme-common';
-import { usePluginData } from '@docusaurus/useGlobalData';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { usePluginData } from '@docusaurus/useGlobalData';
+import IconExternalLink from '@theme/Icon/ExternalLink';
+import React from 'react';
 
 export default function NavbarNavLink({
     activeBasePath,
@@ -83,7 +83,8 @@ export default function NavbarNavLink({
                 // eslint-disable-next-line no-shadow
                 isActive: (_match, location) => (activeBaseRegex
                     ? isRegexpStringMatch(activeBaseRegex, location.pathname) || dropDownHasActiveItem
-                    : location.pathname.startsWith(activeBaseUrl)),
+                    : location.pathname.startsWith(`/${activeBasePath}`)),
+                activeClassName: 'navbar__link--active',
             })}
             {...props}
             {...linkContentProps}

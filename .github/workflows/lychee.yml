@@ -27,7 +27,7 @@ jobs:
             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
             SMARTLOOK_PROJECT_KEY: ${{ secrets.SMARTLOOK_PROJECT_KEY }}
 
-      - uses: lycheeverse/lychee-action@v1.9.3
+      - uses: lycheeverse/lychee-action@v1.10.0
         env:
           GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
         with:

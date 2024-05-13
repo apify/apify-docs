@@ -10,7 +10,7 @@ slug: /integrations/langchain
 
 ---
 
-> For more information on LangChain visit its [documentation](https://python.langchain.com/en/latest/index.html).
+> For more information on LangChain visit its [documentation](https://python.langchain.com/v0.1/docs/get_started/introduction/).
 
 In this example, we'll use the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor, which can deeply crawl websites such as documentation, knowledge bases, help centers, or blogs and extract text content from the web pages.
 Then we feed the documents into a vector index and answer questions from it.
@@ -20,18 +20,18 @@ but if you prefer to use JavaScript, you can follow the same steps in the [JavaS
 
 Before we start with the integration, we need to install all dependencies:
 
-`pip install apify-client langchain openai`
+`pip install apify-client langchain langchain_community openai tiktoken`
 
 After successful installation of all dependencies, we can start writing code.
 
-First, import `os`, `Document`, `VectorstoreIndexCreator`, and `ApifyWrapper` into your source code:
+First, import `os`, `VectorstoreIndexCreator`, `ApifyWrapper`, and `Document` into your source code:
 
 ```python
 import os
 
-from langchain.document_loaders.base import Document
 from langchain.indexes import VectorstoreIndexCreator
-from langchain.utilities import ApifyWrapper
+from langchain_community.utilities import ApifyWrapper
+from langchain_core.document_loaders.base import Document
 ```
 
 Find your [Apify API token](https://console.apify.com/account/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize these into environment variable:
@@ -50,7 +50,7 @@ apify = ApifyWrapper()
 
 loader = apify.call_actor(
     actor_id="apify/website-content-crawler",
-    run_input={"startUrls": [{"url": "https://python.langchain.com/en/latest/"}], "maxCrawlPages": 10, "crawlerType": "cheerio"},
+    run_input={"startUrls": [{"url": "https://python.langchain.com/docs/get_started/introduction"}], "maxCrawlPages": 10, "crawlerType": "cheerio"},
     dataset_mapping_function=lambda item: Document(
         page_content=item["text"] or "", metadata={"source": item["url"]}
     ),
@@ -80,9 +80,9 @@ If you want to test the whole example, you can simply create a new file, `langch
 ```python
 import os
 
-from langchain.document_loaders.base import Document
 from langchain.indexes import VectorstoreIndexCreator
-from langchain.utilities import ApifyWrapper
+from langchain_community.utilities import ApifyWrapper
+from langchain_core.document_loaders.base import Document
 
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
 os.environ["APIFY_API_TOKEN"] = "Your Apify API token"
@@ -91,7 +91,7 @@ apify = ApifyWrapper()
 
 loader = apify.call_actor(
     actor_id="apify/website-content-crawler",
-    run_input={"startUrls": [{"url": "https://python.langchain.com/en/latest/"}], "maxCrawlPages": 10, "crawlerType": "cheerio"},
+    run_input={"startUrls": [{"url": "https://python.langchain.com/docs/get_started/introduction"}], "maxCrawlPages": 10, "crawlerType": "cheerio"},
     dataset_mapping_function=lambda item: Document(
         page_content=item["text"] or "", metadata={"source": item["url"]}
     ),
@@ -111,14 +111,14 @@ After running the code, you should see the following output:
 ```text
 LangChain is a framework for developing applications powered by language models. It provides standard, extendable interfaces, external integrations, and end-to-end implementations for off-the-shelf use. It also integrates with other LLMs, systems, and products to create a vibrant and thriving ecosystem.
 
-https://python.langchain.com/en/latest/
+https://python.langchain.com
 ```
 
 LangChain is a standard interface through which you can interact with a variety of large language models (LLMs). It provides modules you can use to build language model applications. It also provides chains and agents with memory capabilities.
 
 ## Resources
 
-- <https://python.langchain.com/docs/get_started/introduction/>
+- <https://python.langchain.com/docs/get_started/introduction>
 - <https://python.langchain.com/docs/integrations/providers/apify>
 - <https://python.langchain.com/docs/integrations/tools/apify>
 - <https://python.langchain.com/docs/modules/model_io/llms/>

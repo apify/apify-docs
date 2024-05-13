@@ -108,7 +108,7 @@ const request2 = await queue.fetchNextRequest();
 const specificRequest = await queue.getRequest('shi6Nh3bfs3');
 
 // Reclaim a failed request back to the queue
-// and crawl it again
+// and process it again
 await queue.reclaimRequest(request2);
 
 // Remove a queue
@@ -172,7 +172,7 @@ async def main():
         # Get a specific request
         specific_request = await queue.get_request('shi6Nh3bfs3')
 
-        # Reclaim a failed request back to the queue and crawl it again
+        # Reclaim a failed request back to the queue and process it again
         await queue.reclaim_request(request2)
 
         # Remove a queue
@@ -460,7 +460,7 @@ await requestQueueClientOne.delete();
 await Actor.exit();
 ```
 
-A detailed tutorial on how to crawl one request queue from multiple Actor runs can be found in [Advanced web scraping academy](https://docs.apify.com/academy/advanced-web-scraping/multiple-runs-scrape).
+A detailed tutorial on how to process one request queue with multiple Actor runs can be found in [Academy tutorials](https://docs.apify.com/academy/node-js/multiple-runs-scrape).
 
 ## Sharing {#sharing}
 
@@ -528,7 +528,7 @@ Check out the [Storage overview](/platform/storage#sharing-storages-between-runs
 
 * While multiple Actor or task runs can _add new requests_ to a queue concurrently, only one run can _process a queue_ at any one time.
 
-* The maximum legnth for request queue nams is 63 characters.
+* The maximum length for request queue name is 63 characters.
 
 ### Rate limiting {#rate-limiting}
 

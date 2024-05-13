@@ -40,6 +40,7 @@
         "@types/react": "^18.2.8",
         "@typescript-eslint/eslint-plugin": "^7.0.0",
         "@typescript-eslint/parser": "^7.0.0",
+        "babel-plugin-styled-components": "^2.1.4",
         "cross-env": "^7.0.3",
         "eslint": "^8.46.0",
         "eslint-plugin-json": "^3.1.0",
@@ -56,7 +57,7 @@
         "typescript": "^5.1.3"
     },
     "dependencies": {
-        "@apify-packages/ui-components": "^0.108.0",
+        "@apify-packages/ui-library": "^0.12.0",
         "@apify/docsearch-apify-docs": "3.5.3",
         "@docusaurus/core": "^2.4.1",
         "@docusaurus/plugin-client-redirects": "^2.4.1",
@@ -66,6 +67,7 @@
         "@giscus/react": "^2.2.8",
         "clsx": "^2.0.0",
         "form-data": "^4.0.0",
+        "github-buttons": "^2.28.0",
         "postcss-preset-env": "^9.3.0",
         "prop-types": "^15.8.1",
         "proxy-from-env": "^1.1.0",
@@ -74,7 +76,7 @@
         "react-dom": "^17.0.2",
         "react-github-btn": "^1.4.0",
         "search-insights": "2.13.0",
-        "styled-components": "6.1.8",
+        "styled-components": "6.1.11",
         "unist-util-visit": "^5.0.0"
     },
     "workspaces": [

@@ -1,0 +1,20 @@
+{
+    "title": "Scraper Actor Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "requestQueueId": {
+            "title": "Request Queue ID",
+            "type": "string",
+            "editor": "textfield",
+            "description": "Request queue to use in scraper."
+        },
+        "datasetId": {
+            "title": "Dataset ID",
+            "type": "string",
+            "editor": "textfield",
+            "description": "Dataset to use in scraper."
+        }
+    },
+    "required": ["requestQueueId", "datasetId"]
+}

@@ -6,7 +6,7 @@ import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import { Banner, theme } from '@apify-packages/ui-components';
+import { Banner, theme } from '@apify-packages/ui-library';
 
 import styled from 'styled-components';
 import { Heading } from '../components/Heading';

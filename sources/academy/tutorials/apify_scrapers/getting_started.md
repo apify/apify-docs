@@ -91,7 +91,7 @@ The API tab gives you a quick overview of all the available API calls in case yo
 
 ## [](#scraping-theory) Scraping theory
 
-Since this is a tutorial, we'll be scraping our own website. [Apify Store](https://apify.com/store) is a great candidate for some scraping practice. It's a page that uses modern web technologies and displays a lot of different items in various categories, just like an online store, a typical scraping target, would.
+Since this is a tutorial, we'll be scraping our own website. [Apify Store](https://apify.com/store) is a great candidate for some scraping practice. It's a page built on popular technologies, which displays a lot of different items in various categories, just like an online store, a typical scraping target, would.
 
 ### [](#the-goal) The goal
 
