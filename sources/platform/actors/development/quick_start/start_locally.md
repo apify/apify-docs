@@ -45,13 +45,13 @@ apify create
 
 The CLI will prompt you to:
 
-1. _Name your Actor_: Enter a descriptive name for your actor, such as `my-actor`
-1. _Choose a programming language_: Select the language you want to use for your Actor. (JavaScript, TypeScript, or Python)
+1. _Name your Actor_: Enter a descriptive name for your actor, such as `your-actor-name`
+1. _Choose a programming language_: Select the language you want to use for your Actor (JavaScript, TypeScript, or Python).
 1. _Select a development template_: Choose a template from the list of available options.
 
 After selecting the template, the CLI will:
 
-- Create a `my-actor` directory with the boilerplate code.
+- Create a `your-actor-name` directory with the boilerplate code.
 - Install all project dependencies
 
 ![Creation](./images/actor-create.gif)
@@ -59,12 +59,12 @@ After selecting the template, the CLI will:
 Navigate to the newly created Actor directory:
 
 ```bash
-cd my-actor
+cd your-actor-name
 ```
 
 ## Explore the source code in your editor
 
-After creating your Actor, explore the source code in your preferred code editor, We'll use the `PuppeteerCrawler in JavaScript` template code as an example, but all Actor templates follow a similar organizational pattern. The important directories and filer are:
+After creating your Actor, explore the source code in your preferred code editor, We'll use the `Crawlee + Puppeteer + Chrome` template code as an example, but all Actor templates follow a similar organizational pattern. The important directories and filer are:
 
 ### `src` Directory
 
@@ -96,7 +96,7 @@ After executing this command, you will see the Actor's log output in your termin
 
 ![Actor source code](./images/actor-local-run.png)
 
-:::note
+:::note Local testing & debugging
 
 Running the Actor locally allows you to test and debug your code before deploying it to the Apify platform.
 
@@ -122,7 +122,7 @@ Once you are satisfied with your Actor, to deploy it to the Apify platform, foll
 
     This command will upload your Actor's code and configuration to the Apify platform, where it can be executed and managed.
 
-    :::note
+    :::note Actor monetization
 
     If you have successfully completed your first Actor, you may consider [sharing it with other users and monetizing it](../../publishing/index.mdx). The Apify platform provides opportunities to publish and monetize your Actors, allowing you to share your work with the community and potentially generate revenue.
 
