@@ -30,11 +30,11 @@ You will be redirected to a page containing various Actor development templates 
 
 ![Templates](./images/actor-create-templates.png)
 
-A prompt will ask you to give your Actor a name and then redirected to your Actor configuration page.
+After choosing the template your actor will be automatically named and you will be redirected to its page.
 
 ### Explore the source code
 
-The provided boilerplate code utilizes the [Apify SDK](https://docs.apify.com/sdk/js/) combined with [Crawlee](https://crawlee.dev/), Apify's popular open-source Node.js web scraping library. The code performs a recursive crawl of the [apify.com](https://apify.com) website.
+The provided boilerplate code utilizes the [Apify SDK](https://docs.apify.com/sdk/js/) combined with [Crawlee](https://crawlee.dev/), Apify's popular open-source Node.js web scraping library. By default the code performs a recursive crawl of the [apify.com](https://apify.com) website, but you can change it to a website of your choosing.
 
 :::info Crawlee
 
@@ -86,7 +86,7 @@ To continue development locally, you can pull the Actor's source code to your lo
 
 :::note Prerequisites
 
-Install `apify-cli`:
+Install <code>[apify-cli](https://docs.apify.com/cli/)</code> :
 
 <Tabs>
   <TabItem value="macOS/Linux" label="macOS/Linux">
@@ -118,16 +118,16 @@ To pull your Actor, you need to:
 2. Pull your Actor using the following command:
 
     ```bash
-    apify pull [actor_name]
+    apify pull your-actor-name
     ```
 
     Or with a specific version:
 
     ```bash
-    apify pull [actor_name] --version [version_number]
+    apify pull your-actor-name --version [version_number]
     ```
 
-    As `actor_name`, you can use either:
+    As `your-actor-name`, you can use either:
 
     - The unique name of the Actor (e.g., `apify/hello-world`)
     - The ID of the Actor (e.g., `E2jjCZBezvAZnX8Rb`)
