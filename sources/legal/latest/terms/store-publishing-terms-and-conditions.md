@@ -7,9 +7,9 @@ category: legal
 slug: /store-publishing-terms-and-conditions
 ---
 
-<!-- vale off -->
-
 # Apify Store Publishing Terms and Conditions
+
+<!-- vale off -->
 
 Effective date: May 14, 2024
 

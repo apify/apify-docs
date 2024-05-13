@@ -5,6 +5,8 @@ category: legal
 slug: /old/store-publishing-terms-and-conditions-december-2022
 ---
 
+<!-- vale off -->
+
 ## Version History
 
 You are reading terms and conditions that are no longer effective. If you're a new user, the [latest terms](../latest/terms/store-publishing-terms-and-conditions.md) apply. If you're an existing user, see the table below to identify which terms and conditions were applicable to you at a given date.
@@ -14,9 +16,7 @@ You are reading terms and conditions that are no longer effective. If you're a n
 | [Latest](../latest/terms/store-publishing-terms-and-conditions.md) | May 13, 2024     |                 |
 | December 2022 (This document)                                      | December 1, 2022 | June 12, 2024   |
 
-<!-- vale off -->
-
-# Apify Store Publishing Terms and Conditions
+# Apify Store Publishing Terms and Conditions December 2022
 
 Apify Technologies s.r.o., with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 (hereinafter referred to as “**we**” or the “**Provider**”) thanks you (hereinafter referred to as “**you**” or the “**User**”) for using our Platform console.apify.com (the “**Platform**”). These terms and conditions of use (the “**Apify Store Terms**”) shall govern your rights and obligations in relation to publishing and maintaining a public Actor in Apify Store at console.apify.com/store (“**Apify Store**”) in addition to our [General Terms and Conditions](../latest/terms/general-terms-and-conditions.md) of use (the “**Terms**”).
 
