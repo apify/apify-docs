@@ -13,6 +13,8 @@ import DocItemTOCDesktop from '@theme/DocItem/TOC/Desktop';
 import DocItemContent from '@theme/DocItem/Content';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import styles from './styles.module.css';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { useLocation } from '@docusaurus/router';
 
 /**
  * Decide if the toc should be rendered, on mobile or desktop viewports
@@ -36,39 +38,61 @@ function useDocTOC() {
     };
 }
 
+function shouldShowGiscus(rxStrings, pathname) {
+    console.log(rxStrings);
+    return rxStrings.some((rxs) => {
+        console.log('blasbkjfdlfms');
+        console.log('regex', rxs);
+        console.log('pathname', pathname);
+        const pathRegExp = new RegExp(rxs);
+        const isForbidden = pathRegExp.test(pathname);
+        return !isForbidden;
+    });
+}
+
 export default function DocItemLayout({ children }) {
     const docTOC = useDocTOC();
     const { colorMode } = useColorMode();
+    const location = useLocation();
+    const { siteConfig } = useDocusaurusContext();
+    const { forbiddenGiscusDocRegExpStrings } = siteConfig.customFields;
+    const giscus = (
+        <React.Fragment>
+            <div className={styles.giscus}>
+                <Giscus
+                    id="giscus-comments"
+                    repo="apify/apify-docs"
+                    repoId="MDEwOlJlcG9zaXRvcnkxOTk0Njc5ODk="
+                    category="Comments"
+                    categoryId="DIC_kwDOC-Oj1c4CT-aW"
+                    mapping="pathname"
+                    reactionsEnabled="1"
+                    emitMetadata="0"
+                    inputPosition="top"
+                    theme={colorMode}
+                    lang="en"
+                    strict="1"
+                />
+            </div>
+        </React.Fragment>
+    );
     return (
-        <div className="row">
-            <div className={clsx('col', !docTOC.hidden && styles.docItemCol)}>
-                <DocVersionBanner />
-                <div className={styles.docItemContainer}>
+        <div
+            className="row">
+            <div
+                className={clsx('col', !docTOC.hidden && styles.docItemCol)}>
+                <DocVersionBanner/>
+                <div
+                    className={styles.docItemContainer}>
                     <article>
-                        <DocBreadcrumbs />
-                        <DocVersionBadge />
+                        <DocBreadcrumbs/>
+                        <DocVersionBadge/>
                         {docTOC.mobile}
                         <DocItemContent>{children}</DocItemContent>
-                        <DocItemFooter />
+                        <DocItemFooter/>
                     </article>
-                    <DocItemPaginator />
-
-                    <div className={styles.giscus}>
-                        <Giscus
-                            id="giscus-comments"
-                            repo="apify/apify-docs"
-                            repoId="MDEwOlJlcG9zaXRvcnkxOTk0Njc5ODk="
-                            category="Comments"
-                            categoryId="DIC_kwDOC-Oj1c4CT-aW"
-                            mapping="pathname"
-                            reactionsEnabled="1"
-                            emitMetadata="0"
-                            inputPosition="top"
-                            theme={colorMode}
-                            lang="en"
-                            strict="1"
-                        />
-                    </div>
+                    <DocItemPaginator/>
+                    {shouldShowGiscus(forbiddenGiscusDocRegExpStrings, location.pathname) && giscus}
                 </div>
             </div>
             {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}
