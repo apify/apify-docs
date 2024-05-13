@@ -1,22 +1,23 @@
-import React from 'react';
+import { useLocation } from '@docusaurus/router';
 import { useThemeConfig, isRegexpStringMatch } from '@docusaurus/theme-common';
-import { usePluginData } from '@docusaurus/useGlobalData';
 import {
     splitNavbarItems,
 } from '@docusaurus/theme-common/internal';
-import NavbarLogo from '@theme/Navbar/Logo';
-import NavbarItem from '@theme/NavbarItem';
+import { usePluginData } from '@docusaurus/useGlobalData';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
-import NavbarSearch from '@theme/Navbar/Search';
+import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
-import { useLocation } from '@docusaurus/router';
-import SearchBar from '../../SearchBar';
+import NavbarSearch from '@theme/Navbar/Search';
+import NavbarItem from '@theme/NavbarItem';
+import React from 'react';
+
 import styles from './styles.module.css';
+import SearchBar from '../../SearchBar';
 
 function NavbarItems({ items }) {
     return (
         <>
-            {items.map((item, i) => <NavbarItem {...item} key={i}/>)}
+            {items.map((item, i) => <NavbarItem {...item} key={i} />)}
         </>
     );
 }
@@ -35,6 +36,14 @@ function NavbarContentLayout({
     );
 }
 
+function SubNavbarTitle({ titleIcon, title }) {
+    return titleIcon
+        ? <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+            <img src={`img/${titleIcon}`} width={24} height={24} /> {title}
+        </div>
+        : title;
+}
+
 function SubNavbar() {
     const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
     const location = useLocation();
@@ -45,9 +54,13 @@ function SubNavbar() {
                 <div className="navbar__container">
                     <div className="navbar__items">
                         <div className="navbar__sub--title">
-                            <NavbarItem label={subNavbar.title} to={subNavbar.to ?? '/'} activeBaseRegex='(?!)' />
+                            <NavbarItem
+                                label={<SubNavbarTitle title={subNavbar.title} titleIcon={subNavbar.titleIcon} />}
+                                to={subNavbar.to ?? '/'}
+                                activeBaseRegex='(?!)'
+                            />
                         </div>
-                        <NavbarItems items={subNavbar.items}/>
+                        <NavbarItems items={subNavbar.items} />
                     </div>
                 </div>
             </div>
@@ -72,24 +85,24 @@ export default function NavbarContent() {
             <NavbarContentLayout
                 left={
                     <>
-                        <NavbarMobileSidebarToggle/>
-                        <NavbarLogo/>
-                        <NavbarItems items={leftItems}/>
+                        <NavbarMobileSidebarToggle />
+                        <NavbarLogo />
+                        <NavbarItems items={leftItems} />
                     </>
                 }
                 right={
                     <>
-                        <NavbarColorModeToggle className={styles.colorModeToggle}/>
-                        <NavbarItems items={rightItems}/>
+                        <NavbarColorModeToggle className={styles.colorModeToggle} />
+                        <NavbarItems items={rightItems} />
                         {!searchBarItem && (
                             <NavbarSearch>
-                                <SearchBar/>
+                                <SearchBar />
                             </NavbarSearch>
                         )}
                     </>
                 }
             />
-            <SubNavbar/>
+            <SubNavbar />
         </div>
     );
 }
