@@ -126,6 +126,10 @@ You can find more information and examples of cron expressions on [crontab.guru]
 
 The schedule setup tool allows you to control the schedule's notifications. All schedules have notifications enabled by default. When one of the scheduled Actors or tasks fails to start due to being configured incorrectly, you will receive an email notification.
 
+If you want to manage the notifications for your schedules in bulk, you can do this from the [Notifications](https://console.apify.com/settings/notifications) settings tab. As long as you have 15 schedules or less, you can manage their notifications all at once by clicking the **Manage notifications for specific schedules** button.
+
+![Schedule bulk notifications](./images/schedules-bulk-notifications.png)
+
 ## Cron expressions
 
 A cron expression has the following structure:
