@@ -65,12 +65,17 @@ const SectionWrapper = styled(Section)`
 `;
 
 const RelatedArticlesWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 2.4rem;
 
     @media (min-width: ${theme.layout.tablet}) {
         flex-direction: row;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: ${theme.layout.desktop}) {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
     a {
@@ -155,6 +160,7 @@ curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN
                     </ClientCodeWrapper>
                 </SectionWrapper>
                 <Section
+                    headingClassName={styles.ApiSectionHeading}
                     className={styles.LargerContent}
                     heading="API client"
                     description="The official library to interact with Apify API."

@@ -5,91 +5,143 @@ description: Create your first Actor using the web IDE in Apify Console.
 slug: /actors/development/quick-start/web-ide
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Development in web IDE
 
 **Create your first Actor using the web IDE in Apify Console.**
 
 ---
 
-## 1. Create the Actor
+## Create the Actor
 
-> You will need an Apify account to complete this tutorial. If you don't have one, you can [sign-up for a free account](https://console.apify.com/sign-up) on the Apify website.
+:::note Prerequisites
 
-After you sign in to [Apify Console](https://console.apify.com), navigate to the [Actors](https://console.apify.com/actors) section on your left panel. Then, click the **Create new** button at the top right corner of the page.
+To use Web IDE, you will need an Apify account. You can [sign-up for a free account](https://console.apify.com/sign-up) on the Apify website.
+
+:::
+
+After you sign in to [Apify Console](https://console.apify.com), navigate to the [**Actors**](https://console.apify.com/actors) section. Then, click the **Develop new** button at the top right corner of the page.
 
 ![Create Actor](./images/actor-create-button.png)
 
-You will be redirected to a page containing various Actor development templates for popular languages such as JavaScript, TypeScript, and Python. You can choose the template that best suits your technology stack. For demonstration purposes, let's choose "PuppeteerCrawler in JavaScript".
+You will be redirected to a page containing various Actor development templates for popular languages such as `JavaScript`, `TypeScript`, and `Python`. These templates provide boilerplate code and a preconfigured environment tailored to specific use cases. You can choose the template that best suits your technology stack. For demonstration purposes, let's choose **Crawlee + Puppeteer + Chrome**.
 
 ![Templates](./images/actor-create-templates.png)
 
-You will be prompted to give your Actor a name and then redirected to your Actor configuration page.
+After choosing the template your actor will be automatically named and you will be redirected to its page.
 
-## 2. Explore the source code
+### Explore the source code
 
-Now it's time to take a peek at the source code. You can see the boilerplate code that uses the [Apify SDK](https://docs.apify.com/sdk/js/) combined with [Crawlee](https://crawlee.dev/), Apify's popular open-source Node.js web scraping library. The code does a recursive crawl of the whole [apify.com](https://apify.com) website.
+The provided boilerplate code utilizes the [Apify SDK](https://docs.apify.com/sdk/js/) combined with [Crawlee](https://crawlee.dev/), Apify's popular open-source Node.js web scraping library. By default the code performs a recursive crawl of the [apify.com](https://apify.com) website, but you can change it to a website of your choosing.
 
-> [Crawlee](https://crawlee.dev/) is an open-source Node.js web scraping and browser automation library. <br />
-> It helps you build reliable crawlers. Fast.
+:::info Crawlee
 
-Let's run it! To run your Actor, you need to build it first, so let's press the "Build" button below the source code.
+[Crawlee](https://crawlee.dev/) is an open-source Node.js library designed for web scraping and browser automation. It helps you build reliable crawlers quickly and efficiently.
+
+:::
+
 
 ![Actor source code](./images/actor-source-code.png)
 
-## 3. Build it
+### Build the Actor
 
-After you press the "Build" button, the UI transitions to the "Build" tab, and you can see the progress of the build, including the Docker build log.
+To run your Actor, you need to build it first. Click the **Build** button below the source code to start the build process.
+
+Once the build has been initiated, the UI will transition to the **Last build** tab, displaying the progress of the build and the Docker build log.
 
 ![Actor build](./images/actor-build.png)
 
-Notice that the UI includes four tabs - (1) Code, (2) Build, (3) Input, and (4) Run. This represents the Actor creation flow where you need first to take the source code and build it. Once you have a build, you give it input which results in an Actor run.
+:::note Actor creation flow
 
-## 4. Run it
+The UI includes four tabs:
 
-Once the Actor is built, you can look at its input, which consists of one field - Start URL, the URL where the crawling starts. Below the input, you can adjust the run options consisting of build, timeout, and memory limit.
+- **Code**
+- **Last build**
+- **Input**
+- **Last Run**
+
+This represents the Actor creation flow, where you first build the Actor from the source code. Once the build is successful, you can provide input parameters and initiate an Actor run.
+
+:::
+
+### Run the Actor
+
+Once the Actor is built, you can look at its input, which consists of one field - **Start URL**, the URL where the crawling starts. Below the input, you can adjust the **Run options**:
+
+- **Build**
+- **Timeout**
+- **Memory limit**
 
 ![Actor input](./images/actor-input.png)
 
-You can start an Actor run by pressing the **Start** button at the bottom of the page. Once the run is created, you can view its log and other details, including the **Results** which will shortly start popping up in the output tab. You can always stop the run using the **Abort** button.
+To initiate an Actor run, click the **Start** button at the bottom of the page. Once the run is created, you can monitor its progress and view the log in real-time. The **Output** tab will display the results of the Actor's execution, which will be populated as the run progresses. You can abort the run at any time using the **Abort** button.
 
 ![Actor run](./images/actor-run.png)
 
-## 5. Pull it
+### Pull the Actor
 
-For further local development, you can pull the Actor's source code to your local machine. You can get instructions for your Actor on the Actor detail page.
+To continue development locally, you can pull the Actor's source code to your local machine.
 
-![Actor pull](./images/actor-pull.png)
+:::note Prerequisites
 
-To pull your Actor, you need to have `apify cli` installed. You can install it using the npm:
+Install <code>[apify-cli](https://docs.apify.com/cli/)</code> :
 
-```bash
-npm -g install apify-cli
-```
+<Tabs>
+  <TabItem value="macOS/Linux" label="macOS/Linux">
 
-or using the Homebrew package manager on macOS:
+  ```bash
+  brew install apify-cli
+  ```
 
-```bash
-brew install apify-cli
-```
+  </TabItem>
+  <TabItem value="other platforms" label="Other platforms">
 
-Log in to the Apify platform:
+  ```bash
+  npm -g install apify-cli
+  ```
 
-```bash
-apify login
-```
+  </TabItem>
+</Tabs>
 
-Then, you can pull your Actor using the following command:
+:::
 
-```bash
-apify pull [actor_name]
-```
+To pull your Actor, you need to:
 
-or with specified version:
+1. Log in to the Apify platform
 
-```bash
-apify pull [actor_name] --version [version_number]
-```
+    ```bash
+    apify login
+    ```
 
-## 6. Iterate
+2. Pull your Actor using the following command:
 
-Now you can get back to the source code and modify the Actor to match your needs. To learn about all the Apify platform features and best practices, continue to the following chapter of this section or visit the [Apify Academy](/academy).
+    ```bash
+    apify pull your-actor-name
+    ```
+
+    Or with a specific version:
+
+    ```bash
+    apify pull your-actor-name --version [version_number]
+    ```
+
+    As `your-actor-name`, you can use either:
+
+    - The unique name of the Actor (e.g., `apify/hello-world`)
+    - The ID of the Actor (e.g., `E2jjCZBezvAZnX8Rb`)
+
+You can find both by clicking on the Actor title at the top of the page, which will open a new window containing the Actor's unique name and ID.
+
+## Iterate & customize
+
+After pulling the Actor's source code to your local machine, you can modify and customize it to match your specific requirements.
+Leverage your preferred code editor or development environment to make the necessary changes and enhancements.
+
+Once you've made the desired changes, you can push the updated code back to the Apify platform for deployment & execution, leveraging the platform's scalability and reliability.
+
+To learn more about the Apify platform's features and best practices for Actor development:
+
+- Continue to the next chapter of this section for in-depth guidance and examples
+- Visit the [Apify Academy](/academy) to access a comprehensive collection of tutorials, documentation, and learning resources.

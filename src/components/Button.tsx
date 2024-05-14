@@ -6,6 +6,7 @@ import styled, { css } from 'styled-components';
 export const BUTTON_VARIANTS = {
     DEFAULT: 'DEFAULT',
     PRIMARY: 'PRIMARY',
+    SUCCESS: 'SUCCESS',
 };
 
 export const BUTTON_SIZES = {
@@ -65,6 +66,16 @@ const BUTTON_VARIANTS_CSS = {
         }
         &:active {
             background-color: ${theme.color.primary.actionActive};
+        }
+    `,
+    [BUTTON_VARIANTS.SUCCESS]: css`
+        background-color: ${theme.color.success.action};
+        color: ${theme.color.neutral.textOnPrimary};
+        &:hover, &:focus {
+            background-color: ${theme.color.success.actionHover};
+        }
+        &:active {
+            background-color: ${theme.color.success.actionActive};
         }
     `,
 };
