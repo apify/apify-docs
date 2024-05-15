@@ -20,7 +20,7 @@ const {
     targetActorInput = {},
     targetActorRunOptions = {},
 } = await Actor.getInput<Input>() ?? {} as Input;
-const { apifyClient} = Actor;
+const { apifyClient } = Actor;
 
 if (!targetActorId) throw await Actor.fail('Missing the "targetActorId" input!');
 
