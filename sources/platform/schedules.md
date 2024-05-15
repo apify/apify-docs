@@ -122,7 +122,7 @@ The **Next runs** section shows when the next run will be, if you click on **Sho
 
 You can find more information and examples of cron expressions on [crontab.guru](http://crontab.guru/). For additional and non-standard characters, see [this](https://en.wikipedia.org/wiki/Cron#CRON_expression) Wikipedia article.
 
-#### Notifications
+### Notifications
 
 The schedule setup tool allows you to control the schedule's notifications. All schedules have notifications enabled by default. When one of the scheduled Actors or tasks fails to start due to being configured incorrectly, you will receive an email notification.
 
