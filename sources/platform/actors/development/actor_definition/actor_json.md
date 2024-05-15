@@ -64,7 +64,7 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `actorSpecification` | Required | The version of the Actor specification.  |
+| `actorSpecification` | Required | The version of the Actor specification. Tghis property must be set to `1`, which is the only version available.  |
 | `name` | Required | The name of the Actor. |
 | `version` | Required | The version of the Actor, specified in the format `[Number].[Number]`, e.g., `0.1`, `0.3`, `1.0`, `1.3`, etc. |
 | `buildTag` | Optional | The tag name to be applied to a successful build of the Actor. If not specified, defaults to `latest`. Refer to the [builds](../builds_and_runs/builds.md) for more information. |
