@@ -8,7 +8,7 @@ slug: /actors/development/actor-definition/input-schema/secret-input
 
 ---
 
-The secret input feature lets you mark specific input fields of an Actor as sensitive. When you save the Actor's input configuration, the values of these marked fields get encrypted. The encrypted input data can only be decrypted and accessed within the Actor. This provides an extra layer of security for sensitive information like API keys, passwords, or other confidential data.
+The secret input feature lets you mark specific input fields of an Actor as sensitive. When you save the Actor's input configuration, the values of these marked fields get encrypted. The encrypted input data can only be decrypted within the Actor. This provides an extra layer of security for sensitive information like API keys, passwords, or other confidential data.
 
 ## How to set a secret input field
 
@@ -45,7 +45,7 @@ This is only available for `string` inputs, and the editor type is limited to `t
 
 ## Read secret input fields
 
-When you read the Actor input through `Actor.getInput()`, the encrypted fields are automatically decrypted, without any code needed (starting with the [`apify` package](https://www.npmjs.com/package/apify) version 3.1.0).
+When you read the Actor input through `Actor.getInput()`, the encrypted fields are automatically decrypted (starting with the [`apify` package](https://www.npmjs.com/package/apify) version 3.1.0).
 
 <!-- eslint-skip -->
 ```js

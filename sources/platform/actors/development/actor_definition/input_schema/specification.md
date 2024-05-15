@@ -18,7 +18,13 @@ The input schema serves two primary purposes for an Actor:
 
 By defining an input schema, you can provide a user-friendly interface for configuring your Actor while ensuring that the input data supplied by users adheres to the specified requirements and constraints.
 
-You can specify input schema for an Actor in multiple ways. One approach embeds it as an object within the `.actor/actor.json` file under the `input` field. Alternatively, provide a path to a `JSON` file containing the input schema in the same `input` field. If you omit the `input` field and the `.actor/actor.json` file, the system will look for an `INPUT_SCHEMA.json` file in the `actor` directory. In the absence of that file, it will search for an `INPUT_SCHEMA.json` file in the Actor's root directory. The max allowed size for the input schema file is 100 kB. When you provide an input schema, the system will validate the input data passed to the Actor during execution (via the API or the Apify Console) against the specified schema to ensure compliance before starting the Actor.
+You can specify input schema for an Actor in multiple ways:
+
+- One approach embeds it as an object within the `.actor/actor.json` file under the `input` field or provide a path to a `JSON` file containing the input schema in the same `input` field.
+- If you omit the `input` field and the `.actor/actor.json` file, the system will look for an `INPUT_SCHEMA.json` file in the `.actor` directory.
+- In the absence of that file, it will search for an `INPUT_SCHEMA.json` file in the Actor's root directory.
+
+The max allowed size for the input schema file is 100 kB. When you provide an input schema, the system will validate the input data passed to the Actor during execution (via the API or the Apify Console) against the specified schema to ensure compliance before starting the Actor.
 
 :::note Validation aid
 
@@ -81,8 +87,6 @@ If you switch the input to the **JSON** display using the toggle, then you will 
 ```
 
 ## Structure
-
-The input schema is a `JSON` file named `INPUT_SCHEMA.json`, placed in the root directory of an Actor with the following structure:
 
 ```json
 {
