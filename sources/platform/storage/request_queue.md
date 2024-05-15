@@ -526,8 +526,6 @@ Check out the [Storage overview](/platform/storage#sharing-storages-between-runs
 
 ## Limits {#limits}
 
-* While multiple Actor or task runs can _add new requests_ to a queue concurrently, only one run can _process a queue_ at any one time.
-
 * The maximum length for request queue name is 63 characters.
 
 ### Rate limiting {#rate-limiting}
