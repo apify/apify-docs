@@ -46,7 +46,7 @@ Your schedule's name should be 3–63 characters long.
 
 In [Apify Console](https://console.apify.com/schedules), click on the **Schedules** in the navigation menu, then click the **Create new** button.
 
-Click on the name (by default it is _My Schedule_), there you can change its name, add a description, as well as check its _Unique name_ or _ID_.
+Click on the name (by default it is **My Schedule**), there you can change its name, add a description, as well as check its _Unique name_ or _ID_.
 
 You can adjust how often your Actor or task runs using the [schedule setup tool](#schedule-setup). You can find it by clicking on the **Schedule setup** card.
 
