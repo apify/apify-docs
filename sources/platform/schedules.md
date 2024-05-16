@@ -46,13 +46,13 @@ Your schedule's name should be 3–63 characters long.
 
 In [Apify Console](https://console.apify.com/schedules), click on the **Schedules** in the navigation menu, then click the **Create new** button.
 
-Click on the name (by default it is _My Schedule_), there you can change the name of Schedule, add a description, as well as check it's _Unique name_ or _ID_.
+Click on the name (by default it is **My Schedule**), there you can change its name, add a description, as well as check its _Unique name_ or _ID_.
 
-You can adjust how often your Actor or task runs using the [schedule setup tool](#schedule-setup). You can find it by clicking on **Schedule setup** tab.
+You can adjust how often your Actor or task runs using the [schedule setup tool](#schedule-setup). You can find it by clicking on the **Schedule setup** card.
 
 ![New schedule](./images/schedules-overview.png)
 
-Next, you'll need to give the schedule something to run. This is where the Actor or task you prepared earlier comes in. Switch to the **Actors and Tasks** tab, and click the **Add [new]** button.
+Next, you'll need to give the schedule something to run. This is where the Actor or task you prepared earlier comes in. Click on the **Add** dropdown and select whether you want to schedule an Actor or task.
 
 If you're scheduling an Actor run, you'll be able to specify the Actor's [input](./actors/running/input_and_output.md) and running options like [build](./actors/development/builds_and_runs/builds.md), timeout, [memory](./actors/running/usage_and_resources.md).
 The **timeout** value is specified in seconds; a value of _0_ means there is no timeout, and the Actor runs until it finishes.
@@ -121,6 +121,14 @@ The schedule setup tool uses [cron expressions](https://en.wikipedia.org/wiki/Cr
 The **Next runs** section shows when the next run will be, if you click on **Show more** button it will expand and show you the next five runs. You can use this live feedback to experiment until you find the correct configuration.
 
 You can find more information and examples of cron expressions on [crontab.guru](http://crontab.guru/). For additional and non-standard characters, see [this](https://en.wikipedia.org/wiki/Cron#CRON_expression) Wikipedia article.
+
+### Notifications
+
+The schedule setup tool allows you to control the schedule's notifications. All schedules have notifications enabled by default. When one of the scheduled Actors or tasks fails to start due to being configured incorrectly, you will receive an email notification.
+
+If you want to manage the notifications for your schedules in bulk, you can do this from the [Notifications](https://console.apify.com/settings/notifications) settings tab. As long as you have 15 schedules or less, you can manage their notifications all at once by clicking the **Manage notifications for specific schedules** button.
+
+![Schedule bulk notifications](./images/schedules-bulk-notifications.png)
 
 ## Cron expressions
 
