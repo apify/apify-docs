@@ -5,7 +5,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import React, { PropsWithChildren, useEffect, useState } from 'react';
 
 export default function UiLibraryWrapper({ children }: PropsWithChildren) {
-    const [themeIsDark, setThemeIsDark] = useState(useColorMode().isDarkTheme);
+    const [themeIsDark, setThemeIsDark] = useState(true);
     const isDark = useColorMode().isDarkTheme;
     useEffect(() => {
         setThemeIsDark(isDark);
