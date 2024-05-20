@@ -32,7 +32,7 @@ console.log(html);
 
 Now run the script using the `node main.js` command from the previous lesson. After a brief moment, you should see the page's HTML printed to your terminal.
 
-> `gotScraping` is an `async` function and the `await` keyword is used to pause execution of the script until it returns the `response`. [Learn more about `async` and `await`](https://javascript.info/async-await)
+> `gotScraping` is an `async` function and the `await` keyword is used to pause execution of the script until it returns the `response`. If you're new to this, go through an [introduction to asynchronous JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous).
 
 ## Parsing HTML {#parsing-html}
 
