@@ -57,7 +57,11 @@ It will produce a result like this, but it **won't be** the Sony subwoofer.
 
 ![Query a selector with JavaScript](./images/devtools-collection-query.png)
 
-> In the screenshot, there is a missing semicolon `;` at the end of the line. In JavaScript, semicolons are optional, so it makes no difference.
+:::note About the missing semicolon
+
+In the screenshot, there is a missing semicolon `;` at the end of the line. In JavaScript, semicolons are optional, so it makes no difference.
+
+:::
 
 When we look more closely by hovering over the result in the Console, we find that instead of the Sony subwoofer, we found a JBL Flip speaker. Why? Because earlier we explained that `document.querySelector('.product-item')` finds the **first element** with the `product-item` class, and the JBL speaker is the first product in the list.
 
@@ -77,7 +81,11 @@ It will return a `NodeList` (a type of array) with many results. Expand the resu
 
 Naturally, this is the method we use mostly in web scraping, because we're usually interested in scraping all the products from a page, not just a single product.
 
-> The list is called a `NodeList`, because HTML document is understood by the browser as a tree of nodes. Most of the nodes are HTML elements, but there can be also text nodes for plain text, and others.
+:::note Elements or nodes?
+
+The list is called a `NodeList`, because browsers understand a HTML document as a tree of nodes. Most of the nodes are HTML elements, but there can be also text nodes for plain text, and others.
+
+:::
 
 ## How to choose good selectors {#choose-good-selectors}
 
