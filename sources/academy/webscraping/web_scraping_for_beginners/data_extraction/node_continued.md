@@ -5,8 +5,6 @@ sidebar_position: 7
 slug: /web-scraping-for-beginners/data-extraction/node-continued
 ---
 
-# Extracting data with Node.js {#finish-scraper}
-
 **Continue learning how to create a web scraper with Node.js and Cheerio. Learn how to parse HTML and print the results of the data your scraper has collected.**
 
 ---

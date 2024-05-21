@@ -5,8 +5,6 @@ sidebar_position: 2
 slug: /web-scraping-for-beginners/data-extraction/using-devtools
 ---
 
-# Finding elements with DevTools {#devtools-data-extraction}
-
 **Learn how to use browser DevTools, CSS selectors, and JavaScript via the DevTools console to extract data from a website.**
 
 ---
