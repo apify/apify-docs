@@ -93,9 +93,15 @@ A common workflow of a website after it has detected a bot goes as follows:
 
 One thing to keep in mind while navigating through this course is that advanced scraping methods are able to identify non-humans not only by one value (such as a single header value, or IP address), but are able to identify them through more complex things such as header combinations.
 
-Watch a conference talk by [Ondra Urban](https://github.com/mnmkng), which provides an overview of various anti-scraping measures and tactics for circumventing them. Although the talk, given in 2021, features some outdated code examples, it still serves well as a general overview.
+Watch a conference talk by [Ondra Urban](https://github.com/mnmkng), which provides an overview of various anti-scraping measures and tactics for circumventing them.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/aXil0K-M-Vs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+:::info Several years old?
+
+Although the talk, given in 2021, features some outdated code examples, it still serves well as a general overview.
+
+:::
 
 ## Common anti-scraping measures {#common-measures}
 
