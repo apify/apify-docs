@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Now that we know how to execute scripts on a page, we're ready to learn a bit about [data extraction](../../web_scraping_for_beginners/data_extraction/index.md). In this lesson, we'll be scraping all the on-sale products from our [Fakestore](https://demo-webstore.apify.org/search/on-sale) website.
+Now that we know how to execute scripts on a page, we're ready to learn a bit about [data extraction](../../scraping_basics_javascript/data_extraction/index.md). In this lesson, we'll be scraping all the on-sale products from our [Fakestore](https://demo-webstore.apify.org/search/on-sale) website.
 
 > Most web data extraction cases involve looping through a list of items of some sort.
 
