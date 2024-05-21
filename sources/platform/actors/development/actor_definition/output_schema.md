@@ -191,7 +191,7 @@ Both of these methods are valid so choose one that suits your needs best.
 
 The most frequently used data formats present the data in a tabular format (Output tab table, Excel, CSV). If your Actor produces nested JSON structures, you need to transform the nested data into a flat tabular format. You can flatten the data in the following ways:
 
-1. Use `transformation.flatten` to flatten the need structure of specified fields. This transforms the nested object into a flat structure. e.g. with `flatten:["foo"]`, the object `{"foo": {"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`. Once the structure is flattened, it's necessary to use the flattened property name in both `transformation.fields` and `display.properties`, otherwise, fields might not be fetched or configured properly in the UI visualization.
+1. Use `transformation.flatten` to flatten the nested structure of specified fields. This transforms the nested object into a flat structure. e.g. with `flatten:["foo"]`, the object `{"foo": {"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`. Once the structure is flattened, it's necessary to use the flattened property name in both `transformation.fields` and `display.properties`, otherwise, fields might not be fetched or configured properly in the UI visualization.
 
 1. Use `transformation.unwind` to deconstruct the nested children into parent objects.
 
@@ -234,11 +234,11 @@ The dataset schema structure defines the various components and properties that 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
 | `component` | string | true | Only the `table` component is available. |
-| `properties` | Object | false | An object with keys matching the `transformation.fields` <br/> and `ViewDisplayProperty` as values. IIf properties are not set, the table will be rendered automatically with fields formatted as `strings`, `arrays` or `objects`. |
+| `properties` | Object | false | An object with keys matching the `transformation.fields` <br/> and `ViewDisplayProperty` as values. If properties are not set, the table will be rendered automatically with fields formatted as `strings`, `arrays` or `objects`. |
 
 #### ViewDisplayProperty object definition
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
 | `label` | string | false | In the Table view, the label will be visible as the table column's header. |
-| `format` | enum(text, number, date, link, <br/>boolean, image, array, object) | false | Describes how output data values are formatted to be rendered in the Output tab UI. |
+| `format` | One of <ul><li>`text`</li><li>`number`</li><li>`date`</li><li>`link`</li><li>`boolean`</li><li>`image`</li><li>`array`</li><li>`object`</li></ul> | false | Describes how output data values are formatted to be rendered in the Output tab UI. |
