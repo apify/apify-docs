@@ -26,7 +26,7 @@ You can access `apify-client` examples in the Console Actor detail page. Click t
 
 ## Installing and importing {#installing-and-importing}
 
-If you are going to use the client in Node.js, use this command within one of your projects to install the package through NPM:
+If you are going to use the client in Node.js, use this command within one of your projects to install the package through npm:
 
 ```shell
 npm install apify-client

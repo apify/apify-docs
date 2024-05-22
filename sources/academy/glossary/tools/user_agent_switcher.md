@@ -15,7 +15,7 @@ slug: /tools/user-agent-switcher
 
 ![User-Agent Switcher groups](./images/user-agent-switcher-groups.png)
 
-Clicking on a group will display a list of possible user-agents to set.
+Clicking on a group will display a list of possible User-Agents to set.
 
 ![Default available Internet Explorer agents](./images/user-agent-switcher-agents.png)
 
@@ -23,6 +23,6 @@ After setting the **User-Agent**, the page will be refreshed.
 
 ## Configuration
 
-The extension configuration page allows you to edit the **User-Agent** list in case you want to add a specific user-agent that isn't already provided. You can find some other options, but most likely you will never need to modify those.
+The extension configuration page allows you to edit the **User-Agent** list in case you want to add a specific User-Agent that isn't already provided. You can find some other options, but most likely you will never need to modify those.
 
 ![User-Agent Switcher configuration page](./images/user-agent-switcher-config.png)
