@@ -1,5 +1,5 @@
 ---
-title: Scraping paginated sites
+title: Overcoming pagination limits
 description: Learn how to extract all of a website's listings even if they limit the number of results pages. See code examples for setting up your scraper.
 sidebar_position: 1
 slug: /advanced-web-scraping/scraping-paginated-sites
