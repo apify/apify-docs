@@ -16,7 +16,7 @@ Basically, Actors are programs packaged as [Docker images](https://hub.docker.co
 Actors have the following elements:
 
 - The main **[actor.json](./actor_json.md)** file contains **metadata** such as the Actor name, description, author, version, and links pointing to the other definition files below.
-- **[Dockerfile](./dockerfile.md)** which specifies where is the Actor's source code, how to build it, and run it.
+- **[Dockerfile](./docker.md)** which specifies where is the Actor's source code, how to build it, and run it.
 - **Documentation** in the form of a **README.md** file.
 - **[Input](./input_schema/index.md)** and **[output schemas](./output_schema.md)** that describe what input the Actor requires and what results it produces.
 - Access to an out-of-box **[storage](../../../storage/index.md)** system for Actor data, results, and files.
