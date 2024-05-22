@@ -19,8 +19,7 @@ The output schema defines the structure and representation of data produced by a
 
 Let's consider an example Actor that calls `Actor.pushData()` to store data into dataset:
 
-```javascript
-// file: main.js
+```javascript title="main.js"
 import { Actor } from 'apify';
 // Initialize the JavaScript SDK
 await Actor.init();
@@ -46,8 +45,7 @@ await Actor.exit();
 
 To set up the Actor's output tab UI using a single configuration file, use the following template for the `.actor/actor.json` configuration:
 
-```json
-// file: .actor/actor.json
+```json title=".actor/actor.json"
 {
     "actorSpecification": 1,
     "name": "Actor Name",
@@ -132,8 +130,7 @@ You have two choices of how to organize files withing the `.actor` folder.
 
 ### Single configuration file
 
-```json
-// file: .actor/actor.json
+```json title=".actor/actor.json"
 {
     "actorSpecification": 1,
     "name": "this-is-book-library-scraper",
@@ -157,8 +154,7 @@ You have two choices of how to organize files withing the `.actor` folder.
 
 ### Separate configuration files
 
-```json
-// file: .actor/actor.json
+```json title=".actor/actor.json"
 {
     "actorSpecification": 1,
     "name": "this-is-book-library-scraper",
@@ -170,8 +166,7 @@ You have two choices of how to organize files withing the `.actor` folder.
 }
 ```
 
-```json
-// file: .actor/dataset_schema.json
+```json title=".actor/dataset_schema.json"
 {
     "actorSpecification": 1,
     "fields": {},
