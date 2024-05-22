@@ -15,8 +15,8 @@ When developing an [Actor](/sources/platform/actors/index.mdx) on the Apify plat
 
 Apify provides several Docker images that can serve as base images for Actors. All images come in two versions:
 
-`latest` - the stable version.
-`beta` - testing new features. Should be used at your own risk.
+`latest` - This version represents the stable and productio-ready release of the base image.
+`beta` - This version is intended for testing new features. Use at your own risk.
 
 :::note Pre-cached Docker images
 
