@@ -35,7 +35,7 @@ Especially when writing a scraper, it's extremely helpful to write out your data
 
 Our Dummy JSON API returns an array of products that look like this:
 
-```javascripton
+```json
 {
     "id": 1,
     "title": "iPhone 9",

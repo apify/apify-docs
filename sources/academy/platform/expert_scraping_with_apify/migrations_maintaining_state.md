@@ -35,7 +35,7 @@ Before moving forward, read about actor [events](/sdk/js/docs/upgrading/upgradin
 
 Once again returning to our Amazon **demo-actor**, let's say that we need to store an object in memory (as a variable) containing all of the scraped ASINs as keys and the number of offers scraped from each ASIN as values. The object should follow this format:
 
-```javascripton
+```json
 {
     "B079ZJ1BPR": 3,
     "B07D4R4258": 21

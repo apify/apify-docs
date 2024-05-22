@@ -66,7 +66,7 @@ router.addDefaultHandler(({ log }) => {
 
 Finally, we'll add the following input file to **INPUT.json** in the project's root directory (next to `package.json`, `node_modules` and others)
 
-```javascripton
+```json
 {
   "keyword": "iphone"
 }

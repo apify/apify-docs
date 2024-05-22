@@ -15,7 +15,7 @@ Sometimes, the queries found in the **Network** tab aren't good enough for your 
 
 In this lesson, we're building a scraper which expects a single number (in **hours**) and a **query** string as its input. As output, it should provide data about the first 1000 Cheddar posts published within the last **n** hours which match the provided query. Each **post** object should contain the **title**, the **publishDate** and the **videoUrl** of the post.
 
-```javascripton
+```json
 [
     {
         "title": "FDA Authorizes 1st Breath Test for COVID-19 Infection",

@@ -59,7 +59,7 @@ If we run this right now, we'll see **null** in our terminal - this is because w
 
 We'll now add an **INPUT.json** file within **storage/key_value_stores/default** to match what we're expecting in our code.
 
-```javascripton
+```json
 {
     "numbers": [5, 5, 5, 5]
 }
@@ -213,7 +213,7 @@ Since we've changed our code a lot from the way it originally was by wrapping it
 
 After running our script, there should be a single item in the default dataset that looks like this:
 
-```javascripton
+```json
 {
     "solution": 20
 }

@@ -25,7 +25,7 @@ Firstly, create a `.actor` folder in the root of your actor's source code. Then,
 
 Next, copy-paste the following template code into your `actor.json` file.
 
-```javascripton
+```json
 {
     "actorSpecification": 1,
     "name": "___ENTER_ACTOR_NAME____",
@@ -73,7 +73,7 @@ To configure the output schema, simply replace the fields in the template with t
 
 For reference, you can use the [Zappos Scraper source code](https://github.com/PerVillalva/zappos-scraper-actor/blob/main/.actor/actor.json) as an example of how the final implementation of the output tab should look in a live actor.
 
-```javascripton
+```json
 {
     "actorSpecification": 1,
     "name": "zappos-scraper",

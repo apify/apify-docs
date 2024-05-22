@@ -99,7 +99,7 @@ APIs which output HTML generally return the raw HTML of a small component of the
 
 Sometimes, a response will look something like this:
 
-```javascripton
+```json
 {
     "title": "Scraping Academy Message",
     "message": "SGVsbG8hIFlvdSBoYXZlIHN1Y2Nlc3NmdWxseSBkZWNvZGVkIHRoaXMgYmFzZTY0IGVuY29kZWQgbWVzc2FnZSEgV2UgaG9wZSB5b3UncmUgbGVhcm5pbmcgYSBsb3QgZnJvbSB0aGUgQXBpZnkgU2NyYXBpbmcgQWNhZGVteSE="

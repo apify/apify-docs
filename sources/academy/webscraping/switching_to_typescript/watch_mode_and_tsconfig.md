@@ -35,7 +35,7 @@ tsc --init
 
 Notice that a new **tsconfig.json** file has been automatically created. When you open it up, here's what you'll see:
 
-```javascripton
+```json
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
@@ -147,7 +147,7 @@ As you can see, there are a whole lot of options, which is quite overwhelming. D
 
 It is possible to tell TypeScript which files to compile, and which ones to ignore. The **exclude** option in **tsconfig.json** holds an array of file/folder names/paths that should **not** be watched.
 
-```javascripton
+```json
 {
     "compilerOptions": {},
     "exclude": ["node_modules"]
@@ -162,7 +162,7 @@ Along with the **exclude** property is the **include** property, which holds an 
 
 In the next project, we are going to follow a very common pattern with TypeScript projects by keeping all of our TS files in a folder named **src**. Let's create a **src** folder within **my-first-typescript-project**, then add its path to the **include** property's array.
 
-```javascripton
+```json
 {
     "compilerOptions": {},
     "exclude": ["node_modules"],
@@ -176,7 +176,7 @@ It's common practice in TypeScript projects to keep **.ts** files separate from 
 
 Within **compilerOptions**, the **outDir** property tells TypeScript just that - where to place all compiled files.
 
-```javascripton
+```json
 {
     "compilerOptions": {
         "outDir": "dist/"
@@ -198,7 +198,7 @@ Other than telling TypeScript **what** files it should (and should not) compile,
 
 **target** within **compilerOptions** tells TypeScript which JavaScript version you'd like to compile your code into. This allows for the ability to, for example, use ES7 features during development time, but support environments that only work with the ES3 version of JavaScript. We'll use **esnext**.
 
-```javascripton
+```json
 {
     "compilerOptions": {
         "target": "esnext",
@@ -213,7 +213,7 @@ Other than telling TypeScript **what** files it should (and should not) compile,
 
 By default TypeScript will allow us to use things like `document.querySelector()` or `window.reload()` even though we're writing Node.js code where those global objects don't exist. This is because TypeScript automatically has these libraries enabled. In order to prevent this, we'll get more specific about the **lib**s we'd like to use.
 
-```javascripton
+```json
 {
     "compilerOptions": {
         "target": "esnext",
@@ -231,7 +231,7 @@ By default TypeScript will allow us to use things like `document.querySelector()
 
 This one is pretty straightforward. **removeComments** allows you to keep the comments which are useful in the code during development out of your compiled files.
 
-```javascripton
+```json
 {
     "compilerOptions": {
         "target": "esnext",
@@ -248,7 +248,7 @@ This one is pretty straightforward. **removeComments** allows you to keep the co
 
 In most statically typed programming languages, the compiler will refuse to produce an output until all errors have been fixed; however, TypeScript by default will still compile even if there are errors. To enable the more strict functionality that other languages support, set **noEmitOnError** to **true**.
 
-```javascripton
+```json
 {
     "compilerOptions": {
         "target": "esnext",
@@ -266,7 +266,7 @@ In most statically typed programming languages, the compiler will refuse to prod
 
 TypeScript has [multiple options](https://learntypescript.dev/11/l6-strictness) for strict type checking that can be configured. To enable all of them, set **strict** to **true** (this is recommended).
 
-```javascripton
+```json
 {
     "compilerOptions": {
         "target": "esnext",
@@ -285,7 +285,7 @@ TypeScript has [multiple options](https://learntypescript.dev/11/l6-strictness) 
 
 By default, TypeScript doesn't know how to handle or recognize modules imported into our projects. We'll tell the compiler it's a Node.js project with the **moduleResolution** option set to **node**, and that we are using CommonJS for the module type.
 
-```javascripton
+```json
 {
     "compilerOptions": {
         "target": "esnext",

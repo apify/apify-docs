@@ -19,7 +19,7 @@ Though writing an [input schema](/platform/actors/development/actor-definition/i
 
 In the root of our project, we'll create a file named **INPUT_SCHEMA.json** and start writing the first part of the schema.
 
-```javascripton
+```json
 {
     "title": "Adding actor input",
     "description": "Add all values in list of numbers with an arbitrary length.",
@@ -34,7 +34,7 @@ The **title** and **description** simply describe what the input schema is for, 
 
 In order to define all of the properties our actor is expecting, we must include them within an object with a key of **properties**.
 
-```javascripton
+```json
 {
     "title": "Adding actor input",
     "description": "Add all values in list of numbers with an arbitrary length.",
@@ -55,7 +55,7 @@ Each property's key corresponds to the name we're expecting within our code, whi
 
 Within our new **numbers** property, there are two more fields we must specify. Firstly, we must let the platform know that we're expecting an array of numbers with the **type** field. Then, we should also instruct Apify on which UI component to render for this input property. In our case, we have an array of numbers, which means we should use the **json** editor type that we discovered in the ["array" section](/platform/actors/development/actor-definition/input-schema#array) of the input schema documentation. We could also use **stringList**, but then we'd have to parse out the numbers from the strings.
 
-```javascripton
+```json
 {
     "title": "Adding actor input",
     "description": "Add all values in list of numbers with an arbitrary length.",
@@ -76,7 +76,7 @@ Within our new **numbers** property, there are two more fields we must specify. 
 
 The great thing about building an input schema is that it will automatically validate your inputs based on their type, maximum value, minimum value, etc. Sometimes, you want to ensure that the user will always provide input for certain fields, as they are crucial to the actor's run. This can be done by using the **required** field and passing in the names of the fields you'd like to require.
 
-```javascripton
+```json
 {
     "title": "Adding actor input",
     "description": "Add all values in list of numbers with an arbitrary length.",

@@ -34,7 +34,7 @@ https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=KE
 
 Our crawler's input will look like this:
 
-```javascripton
+```json
 {
     "keyword": "iphone"
 }
@@ -46,7 +46,7 @@ The goal at hand is to scrape all of the products from the first page of results
 
 In the end, we'd like our final output to look something like this:
 
-```javascripton
+```json
 [
     {
         "title": "Apple iPhone 6 a1549 16GB Space Gray Unlocked (Certified Refurbished)",
