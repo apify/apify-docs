@@ -35,8 +35,8 @@ Anyone with basic knowledge of developing programs in Python who wants to start 
 
 - macOS, Linux or Windows machine with a web browser and Python installed
 - Familiar with Python basics: variables, conditions, loops, functions, strings, lists, dictionaries, files, classes
-- Comfortable using the Python standard library, virtual environments, and installing dependencies with `pip`
-- Comfortable using command line tools (Terminal/Command Prompt)
+- Comfortable importing from the Python standard library, using virtual environments, and installing dependencies with `pip`
+- Running commands in Terminal or Command Prompt
 
 ## You may want to know
 
