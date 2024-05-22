@@ -22,7 +22,7 @@ Web data extraction (or collection) is a process that takes a web page, like an 
 
 ## What is crawling? {#what-is-crawling}
 
-Where web data extraction focuses on a single page, web crawling (sometimes called spidering 🕷) is all about movement between pages or websites. The purpose of crawling is to travel across the website to find pages with the information we want. Crawling and collection can happen simultaneously, while moving from page to page, or separately, where one scraper focuses solely on finding pages with data and another scraper collects the data. The main purpose of crawling is to collect URLs or other links that can be used to move around.
+Where web data extraction focuses on a single page, web crawling (sometimes called spidering 🕷) is all about movement between pages or websites. The purpose of crawling is to travel across the website to find pages with the information we want. Crawling and collection can happen either simultaneously, while moving from page to page, or separately, where one scraper focuses solely on finding pages with data, and another scraper collects the data. The main purpose of crawling is to collect URLs or other links that can be used to move around.
 
 ## What is web scraping? {#what-is-web-scraping}
 
