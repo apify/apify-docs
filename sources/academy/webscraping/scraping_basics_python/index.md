@@ -40,6 +40,8 @@ Anyone with basic knowledge of developing programs in Python who wants to start 
 
 ## You may want to know
 
+Let's explore the key reasons to take this course. What is web scraping good for, and what career opportunities does it enable for you?
+
 ### Why learn scraping
 
 The internet is full of useful data, but most of it isn't offered in a structured way that is easy to process programmatically. That's why you need scraping, a set of approaches to download websites and extract data from them.
