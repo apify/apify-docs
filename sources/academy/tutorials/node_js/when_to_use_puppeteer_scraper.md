@@ -34,7 +34,7 @@ Ok, cool, different environments, but how does that help you scrape stuff? Actua
 
 In Web Scraper, everything runs in the browser, so there's really not much to talk about there. With Puppeteer Scraper, it's just a single function call away.
 
-```javascript
+```js
 const bodyHTML = await context.page.evaluate(() => {
     console.log('This will be printed in browser console.');
     return document.body.innerHTML;
@@ -47,7 +47,7 @@ _See the_ `page.evaluate()` _[documentation](https://pptr.dev/#?product=Puppetee
 
 With the help of Apify SDK, we can even inject jQuery into the browser. You can use the `Pre goto function` input option to manipulate the page's environment before it loads.
 
-```javascript
+```js
 async function preGotoFunction({ request, page, Apify }) {
     await Apify.utils.puppeteer.injectJQuery(page);
 }
@@ -55,7 +55,7 @@ async function preGotoFunction({ request, page, Apify }) {
 
 This will make jQuery available in all pages. You can then use it in `context.page.evaluate()` calls:
 
-```javascript
+```js
 const bodyText = await context.page.evaluate(() => {
     return $('body').text();
 });
@@ -71,7 +71,7 @@ Imagine that you currently have `https://example.com/page-1` open and there's a 
 
 Consider the following code inside Web Scraper page function:
 
-```javascript
+```js
 await context.waitFor('button');
 $('button').click();
 ```
@@ -80,7 +80,7 @@ With a `button` that takes you to the next page or launches a Google search (whi
 
 However, when using Puppeteer Scraper, this code:
 
-```javascript
+```js
 await context.page.waitFor('button');
 await Promise.all([
     context.page.waitForNavigation(),
@@ -94,7 +94,7 @@ Pay special attention to the `page.waitForNavigation()` ([see docs](https://pptr
 
 You can go even further and navigate programmatically by calling:
 
-```javascript
+```js
 await context.page.goto('https://some-new-page.com');
 ```
 
@@ -104,7 +104,7 @@ Some very useful scraping techniques revolve around listening to network request
 
 With a simple call, you can listen to all the network requests that are being dispatched from the browser. For example, the following code will print all their URLs to the console.
 
-```javascript
+```js
 context.page.on('request', (req) => console.log(req.url()));
 ```
 
@@ -128,7 +128,7 @@ Since we're actually clicking in the page, which may or may not trigger some nas
 
 This is easy and will work out of the box. It's typically used on older websites such as [Turkish Remax](https://www.remax.com.tr/ofis-office-franchise-girisimci-agent-arama). For a site like this you can just set the `Clickable elements selector` and you're good to go:
 
-```javascript
+```js
 'a[onclick ^= getPage]';
 ```
 
@@ -136,7 +136,7 @@ This is easy and will work out of the box. It's typically used on older websites
 
 Those are similar to the ones above with an important caveat. Once you click the first thing, it usually modifies the page in a way that causes more clicking to become impossible. We deal with those by scraping the pages one by one, using the pagination "next" button. See [Maxwell Materials](http://www.maxwellrender.com/materials/) and use the following selector:
 
-```javascript
+```js
 'li.page-item.next a';
 ```
 
@@ -144,7 +144,7 @@ Those are similar to the ones above with an important caveat. Once you click the
 
 Websites often won't navigate away just to fetch the next set of results. They will do it in the background and just update the displayed data. To paginate websites like that is quite easy actually and it can be done in both Web Scraper and Puppeteer Scraper. Try it on [Udemy](https://www.udemy.com/topic/javascript/) for example. Just click the next button to load the next set of courses.
 
-```javascript
+```js
 // Web Scraper\
 $('li a span.pagination-next').click();
 

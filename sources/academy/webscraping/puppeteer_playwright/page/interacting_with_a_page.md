@@ -35,7 +35,7 @@ Let's first focus on the first 3 steps listed above. By using `page.click()` and
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```JavaScript
+```js
 // Click the "I agree" button
 await page.click('button:has-text("Accept all")');
 
@@ -44,7 +44,7 @@ await page.click('button:has-text("Accept all")');
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```JavaScript
+```js
 // Click the "I agree" button
 await page.click('button + button');
 
@@ -61,14 +61,14 @@ Notice that in the Playwright example, we are using a different selector than in
 
 Then, we can type some text into an input field with `page.type()`; passing a CSS selector as the first, and the string to input as the second parameter:
 
-```javascript
+```js
 // Type the query into the search box
 await page.type('input[title="Search"]', 'hello world');
 ```
 
 Finally, we can press a single key by accessing the `keyboard` property of `page` and calling the `press()` function on it:
 
-```javascript
+```js
 // Press enter
 await page.keyboard.press('Enter');
 ```
@@ -78,7 +78,7 @@ This is what we've got so far:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -103,7 +103,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -137,7 +137,7 @@ Great! Now all we have to do is click the first result which matches the CSS sel
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -162,7 +162,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 // This code will throw an error!
 import puppeteer from 'puppeteer';
 

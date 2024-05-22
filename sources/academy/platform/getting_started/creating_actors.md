@@ -87,7 +87,7 @@ This template is a great starting point for web scraping as it extracts data fro
 
 Let's see what's inside the **Start with JavaScript** template. The main logic of the template lives in the `src/main.js` file.
 
-```javascript
+```js
 // Axios - Promise based HTTP client for the browser and node.js (Read more at https://axios-http.com/docs/intro).
 import { Actor } from 'apify';
 import axios from 'axios';

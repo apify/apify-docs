@@ -109,7 +109,7 @@ Sometimes, a response will look something like this:
 Or some other encoding format. This example's `message` has some data encoded in [Base64](https://en.wikipedia.org/wiki/Base64), which is one of the most common encoding types. For testing out Base64 encoding and decoding, you can use [base64encode.org](https://www.base64encode.org/) and [base64decode.org](https://www.base64decode.org/). Within a project where base64 decoding/encoding is necessary, the [Node.js Buffer Class](https://nodejs.org/api/buffer.html) can be used like so:
 
 <!-- eslint-disable -->
-```javascript
+```js
 const value = 'SGVsbG8hIFlvdSBoYXZlIHN1Y2Nlc3NmdWxseSBkZWNvZGVkIHRoaXMgYmFzZTY0IGVuY29kZWQgbWVzc2FnZSEgV2UgaG9wZSB5b3UncmUgbGVhcm5pbmcgYSBsb3QgZnJvbSB0aGUgQXBpZnkgU2NyYXBpbmcgQWNhZGVteSE=';
 
 const decoded = Buffer.from(value, 'base64').toString('utf-8');

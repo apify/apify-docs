@@ -68,7 +68,7 @@ element that we can use to select only the heading we're interested in.
 To get the title we just need to find it using a `header h1` selector, which selects all `<h1>` elements that have a `<header>` ancestor.
 And as we already know, there's only one.
 
-```javascript
+```js
 // Using Cheerio.
 async function pageFunction(context) {
     const { $ } = context;
@@ -87,7 +87,7 @@ the `<header>` element too, same as the title. Moreover, the actual description 
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.webp)
 
-```javascript
+```js
 async function pageFunction(context) {
     const { $ } = context;
     // ... rest of your code can come here
@@ -104,7 +104,7 @@ The DevTools tell us that the `modifiedDate` can be found in a `<time>` element.
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/modified-date.webp)
 
-```javascript
+```js
 async function pageFunction(context) {
     const { $ } = context;
     // ... rest of your code can come here
@@ -131,7 +131,7 @@ Phew!
 And so we're finishing up with the `runCount`. There's no specific element like `<time>`, so we need to create
 a complex selector and then do a transformation on the result.
 
-```javascript
+```js
 async function pageFunction(context) {
     const { $ } = context;
     // ... rest of your code can come here
@@ -170,7 +170,7 @@ using a regular expression, but its type is still a `string`, so we finally conv
 And there we have it! All the data we needed in a single object. For the sake of completeness, let's add
 the properties we parsed from the URL earlier and we're good to go.
 
-```javascript
+```js
 async function pageFunction(context) {
     const { $ } = context;
     const { url } = request;
@@ -203,7 +203,7 @@ async function pageFunction(context) {
 
 All we need to do now is add this to our `pageFunction`:
 
-```javascript
+```js
 async function pageFunction(context) {
     // $ is Cheerio
     const { request, log, skipLinks, $ } = context;
@@ -296,7 +296,7 @@ the `temp1.textContent` property. You can see that it's a rather large JSON stri
 The `type` attribute of the `<script>` element says `application/json`. But working with a string would be very
 cumbersome, so we need to parse it.
 
-```javascript
+```js
 const data = JSON.parse(temp1.textContent);
 ```
 
@@ -316,7 +316,7 @@ We don't really need to go to all the actor details now, but for the sake of pra
 actor names such as `cheerio-scraper` and their owners, such as `apify` in the data. We will use this information
 to construct URLs that will take us to the actor detail pages and enqueue those URLs into the request queue.
 
-```javascript
+```js
 // We're not in DevTools anymore,
 // so we use Cheerio to get the data.
 const dataJson = $('#__NEXT_DATA__').html();
@@ -348,7 +348,7 @@ with Apify Scrapers](./getting_started.md) tutorial again.
 We've got the general algorithm ready, so all that's left is to integrate it into our earlier `pageFunction`.
 Remember the `// Do some stuff later` comment? Let's replace it.
 
-```javascript
+```js
 async function pageFunction(context) {
     const { request, log, skipLinks, $ } = context;
     if (request.userData.label === 'START') {
@@ -434,7 +434,7 @@ You may have noticed that the `pageFunction` gets quite bulky. To make better se
 time maintaining or extending your task, feel free to define other functions inside the `pageFunction`
 that encapsulate all the different logic. You can, for example, define a function for each of the different pages:
 
-```javascript
+```js
 async function pageFunction(context) {
     switch (context.request.userData.label) {
         case 'START': return handleStart(context);

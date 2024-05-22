@@ -19,7 +19,7 @@ In the previous lessons, we learned what crawling is and how to extract URLs fro
 
 In the previous lessons, we collected and filtered all the URLs pointing to individual products in the [Sales category of Warehouse store](https://warehouse-theme-metal.myshopify.com/collections/sales). To crawl the URLs, we must take the whole list we collected and download the HTML of each of the pages. See the comments for changes and additions to the code.
 
-```javascript title=crawler.js
+```js title=crawler.js
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
 
@@ -73,7 +73,7 @@ In programming, you handle errors by catching and handling them. Typically by pr
 
 > The scraping library we'll [show you in the following lessons](./pro_scraping.md) handles errors and retries automatically for you.
 
-```javascript title=crawler.js
+```js title=crawler.js
 import { gotScraping } from 'got-scraping';
 import * as cheerio from 'cheerio';
 

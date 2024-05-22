@@ -136,7 +136,7 @@ First, let's define our imaginary site:
 
 This step is not necessary but it is useful. The algorithm doesn't start with splitting over too large or too small values.
 
-```javascript
+```js
 import { Actor } from 'apify';
 import { CheerioCrawler } from 'crawlee';
 
@@ -193,7 +193,7 @@ await Actor.exit();
 
 #### Define the logic for the `FILTER` page {#define-the-logic-for-the-filter-page}
 
-```javascript
+```js
 import { CheerioCrawler } from 'crawlee';
 
 // Doesn't matter what Crawler class we choose
@@ -231,7 +231,7 @@ const crawler = new CheerioCrawler({
 
 We have the base of the crawler set up. The last part we are missing is the price filter splitting. Let's use a generic function for this. We can place it into the `utils.js` file.
 
-```javascript
+```js
 // utils.js
 export function splitFilter(filter) {
     const { min, max } = filter;
@@ -263,7 +263,7 @@ export function splitFilter(filter) {
 
 Let's finish the crawler now. This code example will go inside the `else` block of the previous crawler example.
 
-```javascript
+```js
 const { min, max } = getFiltersFromUrl(request.url);
 // Our generic splitFilter function doesn't account for decimal values so we will have to convert to cents and back to dollars
 const newFilters = splitFilter({ min: min * 100, max: max * 100 });

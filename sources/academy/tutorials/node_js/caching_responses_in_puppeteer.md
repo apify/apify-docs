@@ -49,7 +49,7 @@ We can now emulate this and cache responses in Puppeteer. All we have to do is t
 
 The code will look like this:
 
-```javascript
+```js
 // On top of your code
 const cache = {};
 

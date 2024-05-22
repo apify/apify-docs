@@ -11,7 +11,7 @@ This tutorial shows you how to handle these kinds of pages. This approach is bas
 
 First of all, you need to copy&paste this function to your [Web Scraper](https://apify.com/apify/web-scraper) _Page function_:
 
-```javascript
+```js
 const enqueueAspxForm = async function (request, formSelector, submitButtonSelector, async) {
     request.payload = $(formSelector).serialize();
     if ($(submitButtonSelector).length) {
@@ -37,7 +37,7 @@ The function has these parameters:
 
 Then you can use it in your Page function as follows:
 
-```javascript
+```js
 await enqueueAspxForm({
     url: 'http://architectfinder.aia.org/frmSearch.aspx',
     userData: { label: 'SEARCH-RESULT' },

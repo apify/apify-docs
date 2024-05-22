@@ -45,7 +45,7 @@ Our server needs two paths:
 
 First, we'll import `express` and create an Express.js app. Then, we'll add some middleware that will allow us to receive form submissions.
 
-```javascript
+```js
 import { Actor } from 'apify';
 import express from 'express';
 
@@ -63,7 +63,7 @@ Now we need to read the following environment variables:
 - **APIFY_CONTAINER_URL** contains a URL under which we can access the container.
 - **APIFY_DEFAULT_KEY_VALUE_STORE_ID** is simply the ID of the default key-value store of this actor where we can store screenshots.
 
-```javascript
+```js
 const {
     APIFY_CONTAINER_PORT,
     APIFY_CONTAINER_URL,
@@ -73,13 +73,13 @@ const {
 
 Next, we'll create an array of the processed URLs where the **n**th URL has its screenshot stored under the key **n**.jpg in the key-value store.
 
-```javascript
+```js
 const processedUrls = [];
 ```
 
 After that, the index route is ready to be defined.
 
-```javascript
+```js
 app.get('/', (req, res) => {
     let listItems = '';
 
@@ -115,7 +115,7 @@ app.get('/', (req, res) => {
 
 And then a second path that receives the new URL submitted using the HTML form; after the URL is processed, it redirects the user back to the root path.
 
-```javascript
+```js
 import { launchPuppeteer } from 'crawlee';
 
 app.post('/add-url', async (req, res) => {
@@ -144,7 +144,7 @@ app.post('/add-url', async (req, res) => {
 
 And finally, we need to start the web server.
 
-```javascript
+```js
 // Start the web server!
 app.listen(APIFY_CONTAINER_PORT, () => {
     console.log(`Application is listening at URL ${APIFY_CONTAINER_URL}.`);
@@ -153,7 +153,7 @@ app.listen(APIFY_CONTAINER_PORT, () => {
 
 ### Final code {#final-code}
 
-```javascript
+```js
 import { Actor } from 'apify';
 import express from 'express';
 

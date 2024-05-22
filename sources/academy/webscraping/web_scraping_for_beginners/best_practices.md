@@ -41,13 +41,13 @@ Avoid using [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programm
 
 Don't write code like this:
 
-```javascript
+```js
 const x = (y) => (y - 32) * (5 / 9);
 ```
 
 That is quite confusing due to the nondescriptive naming and the magic numbers. Do this instead:
 
-```javascript
+```js
 // Converts a fahrenheit value to celsius
 const fahrenheitToCelsius = (celsius) => (celsius - 32) * (5 / 9);
 ```

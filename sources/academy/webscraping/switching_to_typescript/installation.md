@@ -27,7 +27,7 @@ That's it!
 
 To aid in properly showing some of the benefits TypeScript brings, here is some vanilla JavaScript code that has a bug. This bug will not throw an error or cause the program to crash, but it is a logical error that does not output what we expect.
 
-```javascript
+```js
 const products = [
     {
         title: 'iPhone',
@@ -50,7 +50,7 @@ The output of this code is **10001099**, because instead of adding two numbers t
 
 No problem, right? We can just add a type check within the `addPrices` function so that it can support both strings and numbers:
 
-```javascript
+```js
 const products = [
     {
         title: 'iPhone',
@@ -87,7 +87,7 @@ Let's create a folder called **learning-typescript**, adding a new file within i
 
 As seen above, TypeScript has successfully recognized our code; however, there are now red underlines under the `price1` and `price2` parameters in the function declaration of `addPrices`. This is because right now, the compiler has no idea what data types we're expecting to be passed in. This can be solved with the simple addition of **type annotations** to the parameters by using a colon (`:`) and the name of the parameter's type.
 
-```typescript
+```ts
 const products = [
     {
         title: 'iPhone',
@@ -114,7 +114,7 @@ Since the function now only accepts numbers, the parameters in the function call
 
 This is because TypeScript has automatically inferred (without us even needing to do anything) that `products` is an array of objects containing `title` and `price` properties - both strings. Because of this type inference, it knows that `products[0].price` and `products[1].price` are both strings, and does not allow them to be passed into `addPrices`, which only accepts numbers. We'll solve this by converting the values to numbers when passing them into the function.
 
-```typescript
+```ts
 const products = [
     {
         title: 'iPhone',

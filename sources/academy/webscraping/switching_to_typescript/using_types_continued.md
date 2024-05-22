@@ -37,7 +37,7 @@ What's the problem? The problem is that we didn't tell TypeScript that the `cour
 
 Just as we did before when assigning types like `number` and `string` to variables, we'll annotate the variable's type with a colon (`:`) followed by the type. However, instead of using a basic type name such as `boolean` or `number`, we'll put a custom object type there instead.
 
-```typescript
+```ts
 const course: {
     name: string;
     currentLesson: string;
@@ -53,7 +53,7 @@ const course: {
 
 Finally, we'll add an optional property to our object type with a key of `learningBasicTypes` and a type of `boolean`. Properties become optional by adding a question mark (`?`) before the colon (`?`) after the property name.
 
-```typescript
+```ts
 // Initialize the object without the "learningBasicTypes" property
 const course: {
     name: string;
@@ -76,7 +76,7 @@ What this question mark does is tell TypeScript that the property doesn't necess
 
 Defining arrays is quite straightforward. We'll first add a `typesLearned` property to our `course` object:
 
-```typescript
+```ts
 const course2 = {
     name: 'Switching to TypeScript',
     currentLesson: 'Using types - II',
@@ -86,7 +86,7 @@ const course2 = {
 
 Then, in the type definition, we can add a `typesLearned` key. Then, by simply writing the type that the array's elements are followed by two square brackets (`[]`), we can form an array type.
 
-```typescript
+```ts
 const course: {
     name: string;
     currentLesson: string;
@@ -113,7 +113,7 @@ The **Tuple** type is a special type that is not in vanilla JavaScript, but is s
 
 Let's add a final property to our epic `course` object called `courseInfo`. This property will hold an array where the first value corresponds to this course's number in the Apify academy, and the value in the second position describes the level of this course.
 
-```typescript
+```ts
 const course = {
     name: 'Switching to TypeScript',
     currentLesson: 'Using types - II',
@@ -124,7 +124,7 @@ const course = {
 
 Here's one way we could define this property's type:
 
-```typescript
+```ts
 const course: {
     name: string;
     currentLesson: string;
@@ -142,7 +142,7 @@ const course: {
 
 This is actually how TypeScript infers the type of `courseInfo` as well. It tells the compiler that `courseInfo` is an array of any length that can hold both numbers and strings. However, we want to be more specific than that in this case. The length of `courseInfo` should always be 2, the first value should always be a number, and the second one always be a string. We should use a tuple instead.
 
-```typescript
+```ts
 const course: {
     name: string;
     currentLesson: string;

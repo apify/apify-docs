@@ -94,7 +94,7 @@ You can skip most of this tutorial by following this code example that calls Goo
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 import { ApifyClient } from 'apify-client';
 
 const client = new ApifyClient({ token: 'YOUR_API_TOKEN' });
@@ -151,7 +151,7 @@ Most Actor runs will store their data in the default [dataset](/platform/storage
 
 Here is a simple Node.js example of calling a task via the API and logging the dataset items to the console:
 
-```javascript
+```js
 // Use your favorite HTTP client
 import got from 'got';
 

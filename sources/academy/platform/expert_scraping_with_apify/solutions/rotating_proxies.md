@@ -13,7 +13,7 @@ slug: /expert-scraping-with-apify/solutions/rotating-proxies
 
 If you take a look at our current code for the Amazon scraping actor, you might notice this snippet:
 
-```javascript
+```js
 const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
 });
@@ -29,7 +29,7 @@ In order to rotate sessions, we must utilize the [**SessionPool**](https://crawl
 
 Let's go ahead and add a **sessionPoolOptions** key to our crawler's configuration so that we can modify the default settings:
 
-```javascript
+```js
 const crawler = new CheerioCrawler({
     requestList,
     requestQueue,
@@ -52,7 +52,7 @@ const crawler = new CheerioCrawler({
 
 Now, we'll use the **maxUsageCount** key to force each session to be thrown away after 5 uses and **maxErrorScore**** to trash a session once it receives an error.
 
-```javascript
+```js
 const crawler = new CheerioCrawler({
     requestList,
     requestQueue,
@@ -75,7 +75,7 @@ And that's it! We've successfully configured the session pool to match the task'
 
 The final requirement was to only use proxies from the US. Back in our **ProxyConfiguration**, we just need to add the **countryCode** key and set it to **US**:
 
-```javascript
+```js
 const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
     countryCode: 'US',

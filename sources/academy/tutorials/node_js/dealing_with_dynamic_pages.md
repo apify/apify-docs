@@ -25,7 +25,7 @@ From our adored and beloved [Fakestore](https://demo-webstore.apify.org/), we ha
 
 First, create a file called **dynamic.js** and copy-paste the following boiler plate code into it:
 
-```javascript
+```js
 import { CheerioCrawler } from 'crawlee';
 
 const crawler = new CheerioCrawler({
@@ -49,7 +49,7 @@ npm init -y && npm i crawlee
 
 Now, let's write some data extraction code to extract each product's data. This should look familiar if you went through the [Data Extraction](../../webscraping/web_scraping_for_beginners/data_extraction/index.md) lessons:
 
-```javascript
+```js
 import { CheerioCrawler } from 'crawlee';
 
 const BASE_URL = 'https://demo-webstore.apify.org';
@@ -101,7 +101,7 @@ Let's change a few lines of our code to switch the crawler type from CheerioCraw
 
 > Also, don't forget to run `npm i puppeteer` in order to install the `puppeteer` package!
 
-```javascript
+```js
 import { PuppeteerCrawler } from 'crawlee';
 
 const BASE_URL = 'https://demo-webstore.apify.org';

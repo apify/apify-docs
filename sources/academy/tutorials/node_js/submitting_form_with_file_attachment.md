@@ -15,19 +15,19 @@ When doing web automation with Apify, it can sometimes be necessary to submit an
 
 After creating a new actor, the first thing to do is download the file. We can do that using the request-promise module, so make sure it is included.
 
-```javascript
+```js
 const request = require('request-promise');
 ```
 
 The actual downloading is going to be slightly different for text and binary files. For a text file, do it like this:
 
-```javascript
+```js
 const fileData = await request('https://example.com/file.txt');
 ```
 
 For a binary file, we need to provide additional parameters so as not to interpret it as text:
 
-```javascript
+```js
 const fileData = await request({
     uri: 'https://example.com/file.pdf',
     encoding: null,
@@ -40,7 +40,7 @@ In this case, fileData will be a Buffer instead of a String.
 
 When the file is ready, we can submit the form as follows:
 
-```javascript
+```js
 await request({
     uri: 'https://example.com/submit-form.php',
     method: 'POST',

@@ -29,7 +29,7 @@ The second most popular pagination technique used is based on using a **limit** 
 
 For example, let's say that we have this dataset and an API route to retrieve its items:
 
-```javascript
+```js
 const myAwesomeDataset = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 ```
 
@@ -71,7 +71,7 @@ npm init -y && npm i puppeteer got-scraping
 
 Now, make a new file called **scrapeClientId**, copying the **client_id** scraping code from the previous lesson and making a slight modification:
 
-```javascript
+```js
 // scrapeClientId.js
 import puppeteer from 'puppeteer';
 
@@ -98,7 +98,7 @@ export const scrapeClientId = async () => {
 
 Now, in a new file called **index.js** we'll write the skeleton for our pagination and item-scraping code:
 
-```javascript
+```js
 // index.js
 // we will need gotScraping to make HTTP requests
 import { gotScraping } from 'got-scraping';
@@ -126,7 +126,7 @@ Let's now take a step back and think about the condition on which we should cont
 
 With a full understanding of this condition, we can translate it into code:
 
-```javascript
+```js
 const scrape100Items = async () => {
     // ...previous code
     // continue making requests until either we've reached 100+ items
@@ -144,7 +144,7 @@ All that's left to do now is flesh out this `while` loop with pagination logic a
 
 > Note that it's better to add requests to a requests queue rather than processing them in memory. The crawlers offered by [Crawlee](https://crawlee.dev/docs/) provide this functionality out of the box.
 
-```javascript
+```js
 // index.js
 import { gotScraping } from 'got-scraping';
 import { scrapeClientId } from './scrapeClientId';

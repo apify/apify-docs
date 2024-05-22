@@ -30,7 +30,7 @@ Here is the base setup for our code, upon which we'll be building off of in this
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -48,7 +48,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -72,7 +72,7 @@ await browser.close();
 
 Whatever is returned from the callback function in `page.evaluate()` will be returned by the evaluate function, which means that we can set it to a variable like so:
 
-```javascript
+```js
 const products = await page.evaluate(() => ({ foo: 'bar' }));
 
 console.log(products); // -> { foo: 'bar' }
@@ -80,7 +80,7 @@ console.log(products); // -> { foo: 'bar' }
 
 We'll be returning a bunch of product objects from this function, which will be accessible back in our Node.js context after the promise has resolved. Let's now go ahead and write some data extraction code to collect each product:
 
-```javascript
+```js
 const products = await page.evaluate(() => {
     const productCards = Array.from(document.querySelectorAll('a[class*="ProductCard_root"]'));
 
@@ -106,7 +106,7 @@ When we run this code, we see this logged to our console:
 
 Working with `document.querySelector` is cumbersome and quite verbose, but with the `page.addScriptTag()` function and the latest [jQuery CDN link](https://releases.jquery.com/), we can inject jQuery into the current page to gain access to its syntactical sweetness:
 
-```javascript
+```js
 await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.6.0.min.js' });
 ```
 
@@ -114,7 +114,7 @@ This function will literally append a `<script>` tag to the `<head>` element of 
 
 Now, since we're able to use jQuery, let's translate our vanilla JavaScript code within the `page.evaluate()` function to jQuery:
 
-```javascript
+```js
 await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.6.0.min.js' });
 
 const products = await page.evaluate(() => {
@@ -154,13 +154,13 @@ npm install cheerio
 
 Then, we'll import the `load` function like so:
 
-```javascript
+```js
 import { load } from 'cheerio';
 ```
 
 Finally, we can create a `Cheerio` object based on our page's current content like so:
 
-```javascript
+```js
 const $ = load(await page.content());
 ```
 
@@ -171,7 +171,7 @@ Here's our full code so far:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 import { load } from 'cheerio';
 
@@ -190,7 +190,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 import { load } from 'cheerio';
 
@@ -211,7 +211,7 @@ await browser.close();
 
 Now, to loop through all of the products, we'll make use of the `$` object and loop through them while safely in the server-side context rather than running the code in the browser. Notice that this code is nearly exactly the same as the jQuery code above - it is just not running inside of a `page.evaluate()` in the browser context.
 
-```javascript
+```js
 const $ = load(await page.content());
 
 const productCards = Array.from($('a[class*="ProductCard_root"]'));
@@ -238,7 +238,7 @@ Here's what our final optimized code looks like:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 import { load } from 'cheerio';
 
@@ -271,7 +271,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 import { load } from 'cheerio';
 

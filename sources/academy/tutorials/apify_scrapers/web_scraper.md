@@ -66,7 +66,7 @@ element that we can use to select only the heading we're interested in.
 To get the title we just need to find it using a `header h1` selector, which selects all `<h1>` elements that have a `<header>` ancestor.
 And as we already know, there's only one.
 
-```javascript
+```js
 // Using jQuery.
 async function pageFunction(context) {
     const { jQuery: $ } = context;
@@ -86,7 +86,7 @@ the `<header>` element too, same as the title. Moreover, the actual description 
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.webp)
 
-```javascript
+```js
 async function pageFunction(context) {
     const { jQuery: $ } = context;
 
@@ -104,7 +104,7 @@ The DevTools tell us that the `modifiedDate` can be found in a `<time>` element.
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/modified-date.webp)
 
-```javascript
+```js
 async function pageFunction(context) {
     const { jQuery: $ } = context;
 
@@ -132,7 +132,7 @@ Phew!
 And so we're finishing up with the `runCount`. There's no specific element like `<time>`, so we need to create
 a complex selector and then do a transformation on the result.
 
-```javascript
+```js
 async function pageFunction(context) {
     const { jQuery: $ } = context;
 
@@ -172,7 +172,7 @@ using a regular expression, but its type is still a `string`, so we finally conv
 And there we have it! All the data we needed in a single object. For the sake of completeness, let's add
 the properties we parsed from the URL earlier and we're good to go.
 
-```javascript
+```js
 async function pageFunction(context) {
     const { request, jQuery: $ } = context;
     const { url } = request;
@@ -203,7 +203,7 @@ async function pageFunction(context) {
 
 All we need to do now is add this to our `pageFunction`:
 
-```javascript
+```js
 async function pageFunction(context) {
     // use jQuery as $
     const { request, log, skipLinks, jQuery: $ } = context;
@@ -281,7 +281,7 @@ well, waiting for stuff. It accepts either a number of milliseconds to wait, a s
 or a function to execute. It will stop waiting once the time elapses, the selector appears or the provided function
 returns `true`.
 
-```javascript
+```js
 // Waits for 2 seconds.
 await waitFor(2000);
 // Waits until an element with id "my-id" appears
@@ -296,7 +296,7 @@ The selector may never be found and the function might never return `true`, so t
 a timeout. The default is `20` seconds. You can override it by providing an options object as the second parameter,
 with a `timeoutMillis` property.
 
-```javascript
+```js
 await waitFor('.bad-class', { timeoutMillis: 5000 });
 ```
 
@@ -328,7 +328,7 @@ div.show-more > button
 
 Now that we know what to wait for, we just plug it into the `waitFor()` function.
 
-```javascript
+```js
 await waitFor('div.show-more > button');
 ```
 
@@ -336,7 +336,7 @@ await waitFor('div.show-more > button');
 
 We have a unique selector for the button and we know that it's already rendered in the page. Clicking it is a piece of cake. We'll use jQuery again, but feel free to use plain JavaScript, it works the same.
 
-```javascript
+```js
 $('div.show-more > button').click();
 ```
 
@@ -346,7 +346,7 @@ This will show the next page of actors.
 
 We've shown two function calls, but how do we make this work together in the `pageFunction`?
 
-```javascript
+```js
 async function pageFunction(context) {
 
     // ...
@@ -390,7 +390,7 @@ We've got the general algorithm ready, so all that's left is to integrate it int
 Remember the `// Do some stuff later` comment? Let's replace it. And don't forget to destructure the `waitFor()`
 function on the first line.
 
-```javascript
+```js
 async function pageFunction(context) {
     const { request,
         log,
@@ -481,7 +481,7 @@ You may have noticed that the `pageFunction` gets quite bulky. To make better se
 time maintaining or extending your task, feel free to define other functions inside the `pageFunction`
 that encapsulate all the different logic. You can, for example, define a function for each of the different pages:
 
-```javascript
+```js
 async function pageFunction(context) {
     switch (context.request.userData.label) {
         case 'START': return handleStart(context);

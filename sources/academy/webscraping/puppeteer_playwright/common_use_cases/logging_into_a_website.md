@@ -32,7 +32,7 @@ When we lay out the steps like this in [pseudocode](https://en.wikipedia.org/wik
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 // Launch a browser and open a page
@@ -65,7 +65,7 @@ await page.waitForTimeout(10000);
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 // Launch a browser and open a page
@@ -104,7 +104,7 @@ Now that we all know how to log into a website let's try and solve a more comple
 
 Here is an object we'll create which represents the three different emails we want to send:
 
-```javascript
+```js
 const emailsToSend = [
     {
         to: 'alice@example.com',
@@ -135,7 +135,7 @@ First, we'll grab the cookies we generated:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 // Grab the cookies from the default browser context,
 // which was used to log in
 const cookies = await browser.contexts()[0].cookies();
@@ -144,7 +144,7 @@ const cookies = await browser.contexts()[0].cookies();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 // Grab the cookies from the page used to log in
 const cookies = await page.cookies();
 ```
@@ -161,7 +161,7 @@ Remembering from the section above, we stored our cookies in a variable named **
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 // Create a fresh non-persistent browser context
 const sendEmailContext = await browser.newContext();
 // Add the cookies from the previous one to this one so that
@@ -179,7 +179,7 @@ await page2.waitForTimeout(10000);
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 // Create a fresh non-persistent browser context
 const sendEmailContext = await browser.createIncognitoBrowserContext();
 // Create a new page on the new browser context and set its cookies
@@ -203,7 +203,7 @@ Now that passing cookies around is out of the way, we can finally complete the g
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 // Grab the cookies from the default browser context,
 // which was used to log in
 const cookies = await browser.contexts()[0].cookies();
@@ -245,7 +245,7 @@ await Promise.all(promises);
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 // Create an array of promises, running the cookie passing
 // and email sending logic each time
 const promises = emailsToSend.map(({ to, subject, body }) => (async () => {
@@ -294,7 +294,7 @@ Here's what the final code looks like:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const emailsToSend = [
@@ -366,7 +366,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const emailsToSend = [

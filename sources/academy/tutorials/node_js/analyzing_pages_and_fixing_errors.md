@@ -61,7 +61,7 @@ Errors require a different approach because, if your code crashes, your usual lo
 
 You can overcome this by adding [try/catch blocks](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch) into your code. In the catch block, explain what happened and re-throw the error (so the request is automatically retried).
 
-```javascript
+```js
 try {
     // Sensitive code block
     // ...
@@ -92,7 +92,7 @@ You can learn how to take snapshots in Puppeteer or Playwright in [this short le
 
 The most common approach is to save on error. We can enhance our previous try/catch block like this:
 
-```javascript
+```js
 import { puppeteerUtils } from 'crawlee';
 
 // ...
@@ -129,7 +129,7 @@ Logging and snapshotting are great tools but once you reach a certain run size, 
 
 This example extends our snapshot solution above by creating a [named dataset](/platform/storage#named-and-unnamed-storages) (named datasets have infinite retention), where we will accumulate error reports. Those reports will explain what happened and will link to a saved snapshot, so we can do a quick visual check.
 
-```javascript
+```js
 import { Actor } from 'apify';
 import { puppeteerUtils } from 'crawlee';
 
