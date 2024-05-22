@@ -9,7 +9,7 @@ slug: /integrations/llama
 
 ---
 
-> For more information on LlamaIndex, visit its [documentation](https://gpt-index.readthedocs.io/en/stable/).
+> For more information on LlamaIndex, visit its [documentation](https://docs.llamaindex.ai/en/stable/).
 
 ## What is LlamaIndex?
 
@@ -26,36 +26,58 @@ This example focuses on integrating Apify with LlamaIndex using the Apify Actor.
 
 Before we start with the integration, we need to install all dependencies:
 
-`pip install apify-client llama-index`
+`pip install llama-index-readers-apify`
 
 After successfully installing all dependencies, we can start writing Python code.
-To use the Apify Actor loader, import `download_loader`, `Document`.
-Then, we need to import the loader using the method `download_loader`.
+
+### Apify Actor
+
+To use the Apify Actor, import `ApifyActor` and `Document`, and set your Apify API token in the code.
+The following example uses the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor to crawl an entire website, which will extract text content from the web pages.
+The extracted text is formatted as a llama_index `Document` and can be fed to a vector store or language model like GPT.
+
 
 ```python
-from llama_index import download_loader
-from llama_index.readers.schema.base import Document
-
-# Converts a single record from the Actor's resulting dataset to the LlamaIndex format
-def tranform_dataset_item(item):
-    return Document(
-        text=item.get("text"),
-        extra_info={
-            "url": item.get("url"),
-        },
-    )
-
-ApifyActor = download_loader("ApifyActor")
+from llama_index.core import Document
+from llama_index.readers.apify import ApifyActor
 
 reader = ApifyActor("<My Apify API token>")
+
 documents = reader.load_data(
     actor_id="apify/website-content-crawler",
-    run_input={"startUrls": [{"url": "https://gpt-index.readthedocs.io/en/latest"}]},
-    dataset_mapping_function=tranform_dataset_item,
+    run_input={
+        "startUrls": [{"url": "https://docs.llamaindex.ai/en/latest/"}]
+    },
+    dataset_mapping_function=lambda item: Document(
+        text=item.get("text"),
+        metadata={
+            "url": item.get("url"),
+        },
+    ),
+)
+```
+
+### Apify Dataset
+
+To download Apify Dataset, import `ApifyDataset` and `Document` and load the dataset using a dataset ID.
+
+```python
+from llama_index.core import Document
+from llama_index.readers.apify import ApifyDataset
+
+reader = ApifyDataset("<My Apify API token>")
+documents = reader.load_data(
+    dataset_id="my_dataset_id",
+    dataset_mapping_function=lambda item: Document(
+        text=item.get("text"),
+        metadata={
+            "url": item.get("url"),
+        },
+    ),
 )
 ```
 
 ## Resources
 
 * [Apify loaders](https://llamahub.ai/l/readers/llama-index-readers-apify)
-* [LlamaIndex documentation](https://gpt-index.readthedocs.io/en/stable/)
+* [LlamaIndex documentation](https://docs.llamaindex.ai/en/stable/)
