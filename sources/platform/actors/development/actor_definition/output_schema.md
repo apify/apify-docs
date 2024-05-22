@@ -11,9 +11,7 @@ slug: /actors/development/actor-definition/output-schema
 
 ---
 
-The Actor's output schema defines both the structure and the visual representation of the data produced by an Actor.
-
-The output schema defines the structure and representation of data produced by an Actor, bot in the API and the visual user interface.
+The output schema defines the structure and representation of data produced by an Actor, both in the API and the visual user interface.
 
 ## Example
 
