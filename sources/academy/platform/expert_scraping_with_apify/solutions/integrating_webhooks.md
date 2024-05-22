@@ -102,7 +102,7 @@ await Actor.exit();
 
 Cool! But **wait**, don't forget to configure the **INPUT_SCHEMA.json** file as well! It's not necessary to do this step, as we'll be calling the actor through Apify's API within a webhook, but it's still good to get into the habit of writing quality input schemas that describe the input values your actors are expecting.
 
-```javascripton
+```json
 {
     "title": "Amazon Filter Actor",
     "type": "object",

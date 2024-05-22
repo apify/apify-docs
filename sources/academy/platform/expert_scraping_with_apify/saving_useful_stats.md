@@ -36,7 +36,7 @@ Before moving on, give these valuable resources a quick lookover:
 
 In our Amazon actor, each dataset result must now have the following extra keys:
 
-```javascripton
+```json
 {
     "dateHandled": "date-here", // the date + time at which the request was handled
     "numberOfRetries": 4, // the number of retries of the request before running successfully
@@ -46,7 +46,7 @@ In our Amazon actor, each dataset result must now have the following extra keys:
 
 Also, an object including these values should be persisted during the run in th Key-Value store and logged to the console every 10 seconds:
 
-```javascripton
+```json
 {
     "errors": { // all of the errors for every request path
         "some-site.com/products/123": [

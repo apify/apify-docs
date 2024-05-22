@@ -150,7 +150,7 @@ So, we've gotta scroll down the page to load these images. Luckily, because we'r
 
 Let's run this and check our dataset results...
 
-```javascripton
+```json
 {
   "title": "women's shoes",
   "price": "$40.00 USD",

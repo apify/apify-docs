@@ -56,7 +56,7 @@ You don't necessarily need to understand the solution below - it should be fine 
 
 `sessions`  will be an object whose keys will be the names of the sessions and values will be objects with the name of the session (we choose a random number as a name here) and user agent (you can add any other useful properties that you want to match with each session.) This will be created automatically, for example:
 
-```javascripton
+```json
 {
     "0.7870849452667994": {
         "name": "0.7870849452667994",

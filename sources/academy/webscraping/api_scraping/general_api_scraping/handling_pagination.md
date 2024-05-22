@@ -49,7 +49,7 @@ In a minute, we're going to create a mini-project which will scrape the first 10
 
 Luckily for us, SoundCloud's API (and many others) provides a **next_href** property in each response, which means we don't have to directly deal with setting the **offset** (cursor) parameter:
 
-```javascripton
+```json
 //...
 {
     "next_href": "https://api-v2.soundcloud.com/users/141707/tracks?offset=2020-03-13T00%3A00%3A00.000Z%2Ctracks%2C00774168919&limit=20&representation=https%3A%2F%2Fapi-v2.soundcloud.com%2Fusers%2F141707%2Ftracks%3Flimit%3D20",

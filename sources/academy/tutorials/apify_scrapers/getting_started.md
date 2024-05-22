@@ -118,7 +118,7 @@ https://apify.com/store
 
 We also need to somehow distinguish the **Start URL** from all the other URLs that the scraper will add later. To do this, click the **Details** button in the **Start URL** form and see the **User data** input. Here you can add any information you'll need during the scrape in a JSON format. For now, just add a label to the **Start URL**.
 
-```javascripton
+```json
 {
   "label": "START"
 }
@@ -182,7 +182,7 @@ This is because even though it matches our **Pseudo URL**'s format, the HTML ele
 
 Let's use the above **Pseudo URL** in our task. We should also add a label as we did with our **Start URL**. This label will be added to all pages that were enqueued into the request queue using the given **Pseudo URL**.
 
-```javascripton
+```json
 {
   "label": "DETAIL"
 }
