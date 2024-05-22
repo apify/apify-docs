@@ -21,7 +21,7 @@ Let's first create another new actor using the same template as before. Feel fre
 
 Replace all of the code in **main.js** with this code snippet:
 
-```javascript
+```js
 import { Actor } from 'apify';
 
 await Actor.init();

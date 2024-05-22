@@ -29,7 +29,7 @@ So, if a link is just an HTML element, and the URL is just an attribute, this me
 
 To test this theory in the browser, we can try running the following code in our DevTools console on any website.
 
-```javascript
+```js
 // Select all the <a> elements.
 const links = document.querySelectorAll('a');
 // For each of the links...

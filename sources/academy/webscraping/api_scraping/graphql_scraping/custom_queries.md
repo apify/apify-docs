@@ -46,7 +46,7 @@ If we remember from the last lesson, we need to pass a valid "app token" within 
 
 Since we know requests with this header are sent right when the front page is loaded, it can be farmed by simply visiting the page and intercepting requests in Puppeteer like so:
 
-```javascript
+```js
 // scrapeAppToken.js
 import puppeteer from 'puppeteer';
 
@@ -88,7 +88,7 @@ With this code, we're doing the same exact thing as we did in the previous lesso
 
 Now, we can import this function into our **index.js** and use it to create a `token` variable which will be passed as our **X-App-Token** header when scraping:
 
-```javascript
+```js
 // index.js
 
 // import the function
@@ -161,7 +161,7 @@ query SearchQuery($query: String!) {
 
 Back in our code, we can import `gql` from `graphql-tag` and use it to store our query:
 
-```javascript
+```js
 // index.js
 import { gql } from 'graphql-tag';
 import scrapeAppToken from './scrapeAppToken.mjs';
@@ -196,7 +196,7 @@ Alternatively, if you don't want to write your GraphQL queries right within your
 
 Then, we'll take our input and use it to create a **variables** object which will be used for the request:
 
-```javascript
+```js
 // find posts from the last 48 hours that include the keyword "stocks".
 // since we don't have any real input, we'll simulate some input
 const testInput = { hours: 48, query: 'stocks' };
@@ -208,7 +208,7 @@ const variables = { query: testInput.query, max_age: Math.round(testInput.hours)
 
 The final step is to take the query and variable and marry them within a `gotScraping()` call, which will return the API response:
 
-```javascript
+```js
 const data = await gotScraping('https://api.cheddar.com/graphql', {
     // we are expecting a JSON response back
     responseType: 'json',
@@ -227,7 +227,7 @@ The final step after making the query is to format the data to match the expecte
 
 Here's what our final project looks like:
 
-```javascript
+```js
 // index.js
 import { gql } from 'graphql-tag';
 import { gotScraping } from 'got-scraping';
@@ -283,7 +283,7 @@ const result = organization.media.edges.map(({ node }) => ({
 console.log(result);
 ```
 
-```javascript
+```js
 // scrapeAppToken.js
 import puppeteer from 'puppeteer';
 

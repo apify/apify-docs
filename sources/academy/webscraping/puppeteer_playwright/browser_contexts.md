@@ -22,14 +22,14 @@ When we create a **Browser** object by using the `launch()` function, a single [
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 const myNewContext = await browser.newContext();
 ```
 
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 const myNewContext = await browser.createIncognitoBrowserContext();
 ```
 
@@ -45,7 +45,7 @@ In Puppeteer, the **default** browser context is the persistent one, while in Pl
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 // Here, we launch a persistent browser context. The first
@@ -60,7 +60,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -82,7 +82,7 @@ In both Playwright and Puppeteer, various devices (iPhones, iPads, Androids, etc
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium, devices } from 'playwright';
 
 // Launch the browser
@@ -108,7 +108,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 // Launch the browser
@@ -140,7 +140,7 @@ await browser.close();
 
 Then, we'll make both `iPhonePage` and `androidPage` visit [deviceinfo.me](https://www.deviceinfo.me/), which is a website that displays the type of device you have, the operating system you're using, and more device and location-specific information.
 
-```javascript
+```js
 // Go to deviceinfo.me on both at the same time
 await Promise.all([iPhonePage.goto('https://www.deviceinfo.me/'), androidPage.goto('https://www.deviceinfo.me/')]);
 
@@ -163,7 +163,7 @@ Let's go ahead and use this function to loop through all of our browser contexts
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 for (const context of browser.contexts()) {
     // In Playwright, lots of events are supported in the "on" function of
     // a BrowserContext instance
@@ -174,7 +174,7 @@ for (const context of browser.contexts()) {
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 for (const context of browser.browserContexts()) {
     // In Puppeteer, only three events are supported in the "on" function
     // of a BrowserContext instance

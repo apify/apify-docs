@@ -20,7 +20,7 @@ If you're familiar with the fundamentals of any programming language (JavaScript
 
 To sum everything said up above, here's a code example written in JavaScript that has a couple of problems with it:
 
-```javascript
+```js
 const john = {
     name: 'john',
     job: 'web developer',

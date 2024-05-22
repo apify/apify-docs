@@ -43,7 +43,7 @@ After installing the package, let's make a file named **client** and import the 
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 // client.js
 import { ApifyClient } from 'apify-client';
 ```
@@ -69,7 +69,7 @@ Before we can use the client though, we must create a new instance of the `Apify
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 const client = new ApifyClient({
     token: 'YOUR_TOKEN',
 });
@@ -93,7 +93,7 @@ Now that we've got our instance, we can point to an Actor using the [`client.act
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 const run = await client.actor('YOUR_USERNAME/adding-actor').call({
     num1: 4,
     num2: 2,
@@ -127,7 +127,7 @@ The `run` variable we created in the last section points to the **run info** obj
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 const dataset = client.dataset(run.defaultDatasetId);
 ```
 
@@ -147,7 +147,7 @@ Finally, we can download the items in the dataset by using the **list items** fu
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 const { items } = await dataset.listItems();
 
 console.log(items);
@@ -171,7 +171,7 @@ The final code for running the actor and fetching its dataset items looks like t
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 // client.js
 import { ApifyClient } from 'apify-client';
 
@@ -227,7 +227,7 @@ First, we'll create a pointer to our actor, similar to before (except this time,
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 const actor = client.actor('YOUR_USERNAME/adding-actor');
 ```
 
@@ -247,7 +247,7 @@ Then, we'll just call the `.update()` method on the `actor` variable we created 
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 await actor.update({
     defaultRunOptions: {
         build: 'latest',

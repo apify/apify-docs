@@ -27,7 +27,7 @@ Two main page functions exist that will return general data:
 
 For our case, we'll utilize the `page.title()` function to grab the title and log it to the console:
 
-```javascript
+```js
 // Grab the title and set it to a variable
 const title = await page.title();
 
@@ -39,7 +39,7 @@ console.log(title);
 
 The `page.screenshot()` function will return a buffer which can be written to the filesystem as an image:
 
-```javascript
+```js
 // Take the screenshot and write it to the filesystem
 await page.screenshot({ path: 'screenshot.png' });
 ```
@@ -53,7 +53,7 @@ Here's our final code which extracts the page's title, takes a screenshot and sa
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -86,7 +86,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });

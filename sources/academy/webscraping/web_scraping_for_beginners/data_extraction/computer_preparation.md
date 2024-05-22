@@ -48,7 +48,7 @@ After confirming that `node` is correctly installed on your computer, use your t
 
 Now add this piece of code to **hello.js** and save the file.
 
-```javascript
+```js
 console.log('Hello World');
 ```
 

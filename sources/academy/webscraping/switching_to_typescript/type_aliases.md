@@ -14,7 +14,7 @@ slug: /switching-to-typescript/type-aliases
 Real quick, let's look at this code:
 
 <!-- eslint-disable -->
-```typescript
+```ts
 // Using a union type to allow value to be either a string,
 // a number, or a boolean
 const returnValueAsString = (value: string | number | boolean) => {
@@ -37,13 +37,13 @@ With the `type` keyword, you can abstract all the type stuff you'd normally put 
 First, we'll use the `type` keyword and call the type `MyUnionType`.
 
 <!-- eslint-disable -->
-```typescript
+```ts
 type MyUnionType = any;
 ```
 
 Then, we can just copy-paste the union type between a string, number, and boolean and paste it after the equals sign:
 
-```typescript
+```ts
 type MyUnionType = string | number | boolean;
 ```
 
@@ -56,7 +56,7 @@ The type is now stored under this `MyUnionType` **alias**.
 All we need to do to refactor the code from the beginning of the lesson is replace the type annotations with `MyUnionType`:
 
 <!-- eslint-disable -->
-```typescript
+```ts
 type MyUnionType = string | number | boolean;
 
 const returnValueAsString = (value: MyUnionType) => {
@@ -74,7 +74,7 @@ console.log(returnValueAsString(myValue));
 
 Before we learn about how to write function types, let's learn about a problem they can solve. We have a simple function called `addAll` which takes in array of numbers, adds them all up, and then returns the result.
 
-```typescript
+```ts
 const addAll = (nums: number[]) => {
     return nums.reduce((prev, curr) => prev + curr, 0);
 };
@@ -84,7 +84,7 @@ We want to add the ability to choose whether or not the result should be printed
 
 Let's do that now.
 
-```typescript
+```ts
 // We've added a return type to the function because it will return different
 // things based on the "printResult" parameter. When false, a number will be
 // returned, while when true, nothing will be returned (void).
@@ -99,7 +99,7 @@ const addAll = (nums: number[], printResult?: boolean): number | void => {
 
 Also, it'd be nice to have some option to pass in a custom message for when the result is logged to the console, so we'll add another optional parameter for that.
 
-```typescript
+```ts
 const addAll = (nums: number[], printResult?: boolean, printWithMessage?: string): number | void => {
     const result = nums.reduce((prev, curr) => prev + curr, 0);
 
@@ -111,7 +111,7 @@ const addAll = (nums: number[], printResult?: boolean, printWithMessage?: string
 
 Finally, we'll add a final parameter with the option to return/print the result as a string instead of a number.
 
-```typescript
+```ts
 const addAll = (nums: number[], toString?: boolean, printResult?: boolean, printWithMessage?: string): number | string | void => {
     const result = nums.reduce((prev, curr) => prev + curr, 0);
 
@@ -127,13 +127,13 @@ What we're left with is a massive function declaration that is very verbose. Thi
 
 Function types are declared with the `type` keyword (or directly within a type annotation), and are written in a similar fashion to regular arrow functions. All parameters and their types go inside the parentheses (`()`), and the return type of the function goes after the arrow (`=>`).
 
-```typescript
+```ts
 type AddFunction = (numbers: number[], toString?: boolean, printResult?: boolean, printWithMessage?: string) => number | string | void;
 ```
 
 This is where the true magic happens. Because our arrow function is stored in a variable, and because we've now created the `AddFunction` type, we can delete all type annotations from the function itself and annotate the variable with `AddFunction` instead.
 
-```typescript
+```ts
 type AddFunction = (numbers: number[], toString?: boolean, printResult?: boolean, printWithMessage?: string) => number | string | void;
 
 const addAll: AddFunction = (nums, toString, printResult, printWithMessage) => {

@@ -23,14 +23,14 @@ In the previous lesson, we simply grabbed all the links from the HTML document.
 <Tabs groupId="main">
 <TabItem value="DevTools" label="DevTools">
 
-```javascript
+```js
 document.querySelectorAll('a');
 ```
 
 </TabItem>
 <TabItem value="Node.js with Cheerio" label="Node.js with Cheerio">
 
-```javascript
+```js
 $('a');
 ```
 
@@ -44,14 +44,14 @@ That's not the only way to do it, however. Since we're interested in the `href` 
 <Tabs groupId="main">
 <TabItem value="DevTools" label="DevTools">
 
-```javascript
+```js
 document.querySelectorAll('a[href]');
 ```
 
 </TabItem>
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 $('a[href]');
 ```
 
@@ -69,14 +69,14 @@ Let's go back to the [Sales category of Warehouse](https://warehouse-theme-metal
 <Tabs groupId="main">
 <TabItem value="DevTools" label="DevTools">
 
-```javascript
+```js
 document.querySelectorAll('a.product-item__title');
 ```
 
 </TabItem>
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 $('a.product-item__title');
 ```
 
@@ -86,7 +86,7 @@ $('a.product-item__title');
 
 When we print all the URLs in the DevTools console, we can see that we've correctly filtered only the product detail page URLs.
 
-```javascript title=DevTools
+```js title=DevTools
 for (const a of document.querySelectorAll('a.product-item__title')) {
     console.log(a.href);
 }
@@ -133,7 +133,7 @@ This regular expression matches all URLs that use either `http` or `https` proto
 
 To test our regular expression in the DevTools console, we'll first create a [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) object and then test the URLs with the [`regExp.test(string)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) function.
 
-```javascript
+```js
 // To demonstrate pattern matching, we use only the 'a'
 // selector to select all links on the page.
 for (const a of document.querySelectorAll('a')) {

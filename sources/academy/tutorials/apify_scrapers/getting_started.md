@@ -218,7 +218,7 @@ We know that we'll visit two kinds of pages, the list page (**Start URL**) and t
 
 Since we're not covering jQuery in this tutorial for the sake of brevity, replace the default boilerplate with the code below.
 
-```javascript
+```js
 async function pageFunction(context) {
     const { request, log, skipLinks } = context;
     if (request.userData.label === 'START') {
@@ -256,7 +256,7 @@ The `pageFunction` may only return nothing, `null`, `Object` or `Object[]`. If a
 
 The scraping results are saved in a [dataset](/platform/storage/dataset) (one of the tabs in the run console, as you may remember). It behaves like a table. Each item is a row in the table and its properties are its columns. Returning the following `Object`:
 
-```javascript
+```js
 async function pageFunction(context) {
     // ... rest of your code
     return {
@@ -296,7 +296,7 @@ to us in the page's URL. Remember from [our goal](#the-goal) that we also want t
 identifier** in our results. To get those, we just need the `request.url` because it is the URL and
 includes the Unique identifier.
 
-```javascript
+```js
 const { url } = request;
 const uniqueIdentifier = url.split('/').slice(-2).join('/');
 ```
@@ -305,7 +305,7 @@ const uniqueIdentifier = url.split('/').slice(-2).join('/');
 
 We'll add our first data to the `pageFunction` and carry out a test run to see that everything works as expected.
 
-```javascript
+```js
 async function pageFunction(context) {
     const { request, log, skipLinks } = context;
     if (request.userData.label === 'START') {

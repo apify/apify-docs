@@ -24,7 +24,7 @@ The absence of an expected element or message does **not** prove an action has b
 
 **Good**: Rely on the presence of an element or other content confirming a successful action.
 
-```javascript
+```js
 async function isPaymentSuccessful() {
     try {
         await page.waitForSelector('#PaymentAccepted');
@@ -38,7 +38,7 @@ async function isPaymentSuccessful() {
 
 **Avoid**: Relying on the absence of an element that may have been simply updated or changed.
 
-```javascript
+```js
 async function isPaymentSuccessful() {
     const $paymentAmount = await page.$('#PaymentAmount');
 
@@ -59,7 +59,7 @@ Assuming any action has been successful without direct proof is dangerous. Dispr
 
 **Good**: Verify outcome through proof. Clearly disprove failure of an important action.
 
-```javascript
+```js
 async function submitPayment() {
     await Promise.all([
         page.click('submitPayment'),
@@ -82,7 +82,7 @@ async function submitPayment() {
 
 **Avoid**: Not verifying an outcome. It can easily fail despite output claiming otherwise.
 
-```javascript
+```js
 async function submitPayment() {
     await Promise.all([
         page.click('submitPayment'),
@@ -129,7 +129,7 @@ Always strive to make code as fluid as possible. Listen to events and react to t
 - **Avoid** any **fixed-duration** delays wherever possible.
 - Prefer fluid flow based on the **occurrence of events**.
 
-```javascript
+```js
 // Avoid:
 await page.waitForTimeout(timeout);
 

@@ -28,7 +28,7 @@ We want to scrape all of the titles, links, and descriptions for Facebook's repo
 
 Let's first start off by defining some basic variables:
 
-```javascript
+```js
 // This is where we'll push all of the scraped repos
 const repositories = [];
 
@@ -51,7 +51,7 @@ Let's grab this number now with a little bit of code:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const repositories = [];
@@ -76,7 +76,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const repositories = [];
@@ -114,7 +114,7 @@ And since we're already on the first page, we'll go ahead and scrape the repos f
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 import * as cheerio from 'cheerio';
 
@@ -159,7 +159,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 import * as cheerio from 'cheerio';
 
@@ -208,7 +208,7 @@ await browser.close();
 
 Cool, so now we have all the tools we need to write concise logic that will be run for every single page. First, we'll create an array of numbers from 0–4:
 
-```javascript
+```js
 // We must add 1 to the lastPage, since the array starts at 0 and we
 // are creating an array from its index values
 Array(lastPage + 1).keys(); // -> [0, 1, 2, 3, 4]
@@ -216,13 +216,13 @@ Array(lastPage + 1).keys(); // -> [0, 1, 2, 3, 4]
 
 Then, we'll slice the first two values from that array so that it starts from 2 and ends at 4:
 
-```javascript
+```js
 [...Array(lastPage + 1).keys()].slice(2); // -> [2, 3, 4]
 ```
 
 This array now accurately represents the pages we need to go through. We'll map through it and create an array of promises, all of which make a request to each page, scrape its data, then push it to the **repositories** array:
 
-```javascript
+```js
 // Map through the range. The value from the array is the page number
 // to make a request for
 const promises = [...Array(lastPage + 1).keys()].slice(2).map((pageNumber) => (async () => {
@@ -256,7 +256,7 @@ After all is said and done, here's what our final code looks like:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 import * as cheerio from 'cheerio';
 
@@ -317,7 +317,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 import * as cheerio from 'cheerio';
 
@@ -398,7 +398,7 @@ We're going to scrape the brand and price from the first 75 results on the **Abo
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 // Create an array where all scraped products will
@@ -416,7 +416,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 // Create an array where all scraped products will
@@ -438,7 +438,7 @@ await browser.close();
 <!-- vale off -->
 Now, what we'll do is grab the height in pixels of a result item to have somewhat of a reference to how much we should scroll each time, as well as create a variable for keeping track of how many pixels have been scrolled.
 <!-- vale on -->
-```javascript
+```js
 // Grab the height of result item in pixels, which will be used to scroll down
 const itemHeight = await page.$eval('a[data-testid*="productTile"]', (elem) => elem.clientHeight);
 
@@ -451,7 +451,7 @@ Then, within a `while` loop that ends once the length of the **products** array 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 while (products.length < 75) {
     await page.mouse.wheel(0, itemHeight * 3);
     totalScrolled += itemHeight * 3;
@@ -463,7 +463,7 @@ while (products.length < 75) {
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 while (products.length < 75) {
     await page.mouse.wheel({ deltaY: itemHeight * 3 });
     totalScrolled += itemHeight * 3;
@@ -480,7 +480,7 @@ This will work; however, what if we reach the bottom of the page and there are s
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 while (products.length < 75) {
     const scrollHeight = await page.evaluate(() => document.body.scrollHeight);
 
@@ -505,7 +505,7 @@ while (products.length < 75) {
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 while (products.length < 75) {
     const scrollHeight = await page.evaluate(() => document.body.scrollHeight);
 
@@ -538,7 +538,7 @@ Now, the `while` loop will exit out if we've reached the bottom of the page.
 
 Within the loop, we can grab hold of the total number of items on the page. To avoid extracting and pushing duplicate items to the **products** array, we can use the `.slice()` method to cut out the items we've already scraped.
 
-```javascript
+```js
 import * as cheerio from 'cheerio';
 
 const $ = cheerio.load(await page.content());
@@ -565,7 +565,7 @@ With everything completed, this is what we're left with:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 import * as cheerio from 'cheerio';
 
@@ -624,7 +624,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 import * as cheerio from 'cheerio';
 

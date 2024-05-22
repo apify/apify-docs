@@ -25,7 +25,7 @@ In Crawlee, proxies are automatically rotated for you when you use `ProxyConfigu
 
 Here is an example of these features being used in a **PuppeteerCrawler** instance:
 
-```javascript
+```js
 import { PuppeteerCrawler } from 'crawlee';
 import { Actor } from 'apify';
 

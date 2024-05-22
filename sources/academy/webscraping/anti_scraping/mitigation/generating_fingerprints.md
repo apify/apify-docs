@@ -13,7 +13,7 @@ slug: /anti-scraping/mitigation/generating-fingerprints
 
 In [**Crawlee**](https://crawlee.dev), it's extremely easy to automatically generate fingerprints using the [**FingerprintOptions**](https://crawlee.dev/api/browser-pool/interface/FingerprintOptions) on a crawler.
 
-```javascript
+```js
 import { PlaywrightCrawler } from 'crawlee';
 
 const crawler = new PlaywrightCrawler({
@@ -37,7 +37,7 @@ Crawlee uses the [Fingerprint generator](https://github.com/apify/fingerprint-su
 
 > It is crucial to generate fingerprints for the specific browser and operating system being used to trick the protections successfully. For example, if you are trying to overcome protection locally with Firefox on a macOS system, you should generate fingerprints for Firefox and macOS to achieve the best results.
 
-```javascript
+```js
 import { FingerprintGenerator } from 'fingerprint-generator';
 
 // Instantiate the fingerprint generator with
@@ -64,7 +64,7 @@ const generated = fingerprintGenerator.getFingerprint({
 
 Once you've manually generated a fingerprint using the **Fingerprint generator** package, it can be injected into the browser using [**fingerprint-injector**](https://github.com/apify/fingerprint-injector). This tool allows you to inject fingerprints into browsers automated by Playwright or Puppeteer:
 
-```javascript
+```js
 import FingerprintGenerator from 'fingerprint-generator';
 import { FingerprintInjector } from 'fingerprint-injector';
 import { chromium } from 'playwright';
@@ -116,7 +116,7 @@ await page.goto('https://google.com');
 
 Headers are also used by websites to fingerprint users (or bots), so it might sometimes be necessary to generate some user-like headers to mitigate anti-scraping protections. Similarly with fingerprints, **Crawlee** automatically generates headers for you, but you can have full control by using the [**browser-headers-generator**](https://github.com/apify/browser-headers-generator) package.
 
-```javascript
+```js
 import BrowserHeadersGenerator from 'browser-headers-generator';
 
 const browserHeadersGenerator = new BrowserHeadersGenerator({

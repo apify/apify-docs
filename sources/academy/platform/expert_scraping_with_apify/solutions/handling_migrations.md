@@ -15,7 +15,7 @@ Let's first head into our **demo-actor** and create a new file named **asinTrack
 
 Here's the skeleton of our class:
 
-```javascript
+```js
 // asinTracker.js
 class ASINTracker {
     constructor() {
@@ -48,7 +48,7 @@ Multiple techniques exist for storing data in memory; however, this is the most 
 
 Here is our updated **routes.js** file which is now utilizing this utility class to track the number of offers for each product ASIN:
 
-```javascript
+```js
 // routes.js
 import { createCheerioRouter } from '@crawlee/cheerio';
 import { BASE_URL, OFFERS_URL, labels } from './constants';
@@ -131,7 +131,7 @@ The **persistState** event is automatically fired (by default) every 60 seconds 
 
 In order to persist our ASIN tracker object, let's use the `Actor.on` function to listen for the **persistState** event and store it in the key-value store each time it is emitted.
 
-```javascript
+```js
 // asinTracker.js
 import { Actor } from 'apify';
 // We've updated our constants.js file to include the name
@@ -168,7 +168,7 @@ Great! Now our state will be persisted every 60 seconds in the key-value store. 
 
 In order to fix this, let's create a method called `initialize` which will be called at the very beginning of the actor's run, and will check the key-value store for a previous state under the key **ASIN-TRACKER**. If a previous state does live there, then it will update the class' `state` variable with the value read from the key-value store:
 
-```javascript
+```js
 // asinTracker.js
 import { Actor } from 'apify';
 import { ASIN_TRACKER } from './constants';
@@ -209,7 +209,7 @@ module.exports = new ASINTracker();
 
 We'll now call this function at the top level of the **main.js** file to ensure it is the first thing that gets called when the actor starts up:
 
-```javascript
+```js
 // main.js
 
 // ...

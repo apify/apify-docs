@@ -145,7 +145,7 @@ Also, if your desired label has the same name as the defined object key, then yo
 
 The matching object for the Zappos Scraper shown in the example above will look something like this:
 
-```javascript
+```js
 const results = {
     url: request.loadedUrl,
     imgUrl: $('#stage button[data-media="image"] img[itemprop="image"]').attr('src'),

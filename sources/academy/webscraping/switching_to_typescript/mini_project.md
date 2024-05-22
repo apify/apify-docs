@@ -59,7 +59,7 @@ Our Dummy JSON API returns an array of products that look like this:
 
 Let's write an object type for a product in a new file called **types.ts**:
 
-```typescript
+```ts
 // types.ts
 export interface Product {
     id: number;
@@ -78,7 +78,7 @@ export interface Product {
 
 Great! In the response, the array of products is stored under a key named **products**, so we'll create a `ResponseData` type to represent this as well:
 
-```typescript
+```ts
 // types.ts
 
 // ...
@@ -95,7 +95,7 @@ Luckily for us, we'll be outputting an array of `Product`s, for which we've alre
 
 For this, we can use a [utility type](https://www.typescriptlang.org/docs/handbook/utility-types.html) called `Omit`, which is natively available in TypeScript.
 
-```typescript
+```ts
 // types.ts
 
 // ...
@@ -108,7 +108,7 @@ This type takes in some arguments (a [generic](https://www.typescriptlang.org/do
 
 The user of our scraper will have to provide some input. First, we'll use an enum to define the types of sorting we want to support:
 
-```typescript
+```ts
 // types.ts
 
 // ...
@@ -120,7 +120,7 @@ export enum SortOrder {
 
 And finally, we'll create a `UserInput` type which takes in an argument (a generic type).
 
-```typescript
+```ts
 // types.ts
 
 // ...
@@ -136,7 +136,7 @@ But hold on a minute, we didn't even learn about generics in this course!
 
 "Generics" is just a fancy term for arguments that can be passed into a type. Just like regular JavaScript function arguments, they can be passed in and anything can be done with them. Let's break it down:
 
-```typescript
+```ts
 // We can give "RemoveImages" any name, as it is just representative of an argument that will be passed into.
 
 // "RemoveImages" can't be just any type. It must EXTEND a boolean, meaning it must be either true or false.
@@ -155,7 +155,7 @@ Using this generic allows us to go a step further in how specific we are being b
 
 ### Final types.ts file {#final-types}
 
-```typescript
+```ts
 // types.ts
 export interface Product {
     id: number;
@@ -193,7 +193,7 @@ export interface UserInput<RemoveImages extends boolean = boolean> {
 
 First, let's go ahead and import **axios** and write our fetching function.
 
-```typescript
+```ts
 // index.ts
 import axios from 'axios';
 
@@ -210,7 +210,7 @@ Easy enough, right? Well, not really. Let's take a look at how TypeScript interp
 
 We're returning a promise of any type out of this function. This is where we can use [type assertions](./unknown_and_type_assertions.md) to help TypeScript understand that this response takes the shape of our `ResponseData` type.
 
-```typescript
+```ts
 // index.ts
 import axios from 'axios';
 
@@ -232,7 +232,7 @@ Now, the return type is `Promise<ResponseData>` - much better! Because of this s
 
 Now, we'll write a function that will sort an array of products.
 
-```typescript
+```ts
 // index.ts
 
 // ...
@@ -245,7 +245,7 @@ const sortData = (products: Product[], order: SortOrder) => {
 
 Since we `SortOrder` ahead of time, we know exactly which cases we need to handle. This is just one example of how writing key important types and constants prior to writing any code can be beneficial.
 
-```typescript
+```ts
 // index.ts
 // ...
 import { SortOrder } from './types';
@@ -276,7 +276,7 @@ Because of the abstractions we've made with the `fetchData` and `sortData` funct
 3. Sort it with the `sortData` function.
 4. Remove the images from each product (if requested by the user).
 
-```typescript
+```ts
 // index.ts
 // ...
 import { SortOrder } from './types';
@@ -313,7 +313,7 @@ async function scrape(input: UserInput): Promise<Product[] | ModifiedProduct[]> 
 
 Finally, we'll create a new function called `main` which will initialize the input, call the `scrape` function, and return the result.
 
-```typescript
+```ts
 // index.ts
 
 // ...
@@ -338,7 +338,7 @@ This is because we haven't been specific enough. The `scrape` function can retur
 
 We need to tell TypeScript that the `scrape` function returns a `Product[]` when the input has a type of `UserInput<true>`, but a `ModifiedProduct[]` when the input has a type of `UserInput<false>`. This can be done by declaring the function multiple types with different parameter types and specifying the return type for each one.
 
-```typescript
+```ts
 // index.ts
 
 // ...
@@ -372,7 +372,7 @@ Now, we can access `result[0].images` on the return value of `scrape` if **remov
 
 ## Final code {#final-code}
 
-```typescript
+```ts
 // index.ts
 import axios from 'axios';
 import { SortOrder } from './types';
@@ -425,7 +425,7 @@ const main = async () => {
 main();
 ```
 
-```typescript
+```ts
 // types.ts
 export interface Product {
     id: number;

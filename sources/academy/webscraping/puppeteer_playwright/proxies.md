@@ -27,7 +27,7 @@ First, let's add our familiar boilerplate code for visiting Google and also crea
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 // our proxy server
@@ -44,7 +44,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 // our proxy server
@@ -68,7 +68,7 @@ In Puppeteer, the server must be passed within the **--proxy-server** [Chromium 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const proxy = '103.214.9.13:3128';
@@ -92,7 +92,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const proxy = '103.214.9.13:3128';
@@ -132,7 +132,7 @@ One might automatically assume that this would be the solution:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 // This code is wrong!
 import { chromium } from 'playwright';
 
@@ -152,7 +152,7 @@ const browser = await chromium.launch({
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 // This code is wrong!
 import puppeteer from 'puppeteer';
 
@@ -174,7 +174,7 @@ However, authentication parameters need to be passed in separately in order to w
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const proxy = 'proxy.example.com:3001';
@@ -195,7 +195,7 @@ const browser = await chromium.launch({
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const proxy = 'proxy.example.com:3001';

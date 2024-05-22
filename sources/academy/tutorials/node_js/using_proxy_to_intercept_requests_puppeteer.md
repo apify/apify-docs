@@ -11,7 +11,7 @@ One possible way to intercept these requests is to use a man-in-the-middle (MITM
 
 First we set up the MITM proxy:
 
-```javascript
+```js
 const { promisify } = require('util');
 const { exec } = require('child_process');
 const Proxy = require('http-mitm-proxy');
@@ -46,7 +46,7 @@ Then we'll need a Docker image that has the `certutil` utility. Here is an [exam
 
 Now we need to specify how the proxy shall handle the intercepted requests:
 
-```javascript
+```js
 // Setup blocking of requests in proxy
 const proxyPort = 8000;
 const proxy = setupProxy(proxyPort);
@@ -66,7 +66,7 @@ proxy.onRequest((context, callback) => {
 
 The final step is to let Puppeteer use the local proxy:
 
-```javascript
+```js
 // Launch puppeteer with local proxy
 const browser = await puppeteer.launch({
     args: ['--no-sandbox', `--proxy-server=localhost:${proxyPort}`],

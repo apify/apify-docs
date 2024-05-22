@@ -17,7 +17,7 @@ Pressing F12 while browsing with Chrome, Firefox, or other popular browsers open
 
 First, you need to inject jQuery. You can try to paste and run this snippet.
 
-```javascript
+```js
 const jq = document.createElement('script');
 jq.src = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js';
 document.getElementsByTagName('head')[0].appendChild(jq);
@@ -33,20 +33,20 @@ Usually, you don't need to paste in the whole pageFunction as you can simply iso
 
 I will also usually remove `const` declarations on the top level variables. This helps you to run the same code many times over without needing to restart the console (you cannot declare constants more than once). My declaration will change from:
 
-```javascript
+```js
 const results = [];
 // Scraping something to fill the results
 ```
 
 into
 
-```javascript
+```js
 results = [];
 ```
 
 You can easily get all the information you need by running a small snippet of your pageFunction like this
 
-```javascript
+```js
 results = [];
 $('.my-list-item').each((i, el) => {
     results.push({
@@ -58,7 +58,7 @@ $('.my-list-item').each((i, el) => {
 
 Now the `results` variable stays on the page and you can do whatever you wish with it. Usually, simply log it to analyze if your scraping code is correct. Writing a single expression will also log it in a browser console.
 
-```javascript
+```js
 results;
 // Will log a nicely formatted [{ title: 'my-article-1'}, { title: 'my-article-2'}] etc.
 ```
@@ -68,7 +68,7 @@ results;
 If you don't want to deal with copy/pasting a proper snippet, you can always paste the whole pageFunction. You will just have to mock the context object when calling it. If you use some advanced tricks, this might not work but in most cases copy pasting this code should do it. This code is only for debugging your Page Function for a particular page. It does not crawl the website and the output is not saved anywhere.
 
 <!-- eslint-disable -->
-```javascript
+```js
 async function pageFunction(context) {
     // this is your pageFunction
 }

@@ -55,7 +55,7 @@ npm install crawlee
 
 After the installation completes, create a new file called **crawlee.js** and add the following code to it:
 
-```javascript title=crawlee.js
+```js title=crawlee.js
 import { CheerioCrawler } from 'crawlee';
 
 console.log('Crawlee works!');
@@ -77,7 +77,7 @@ You'll see "**Crawlee works!**" printed to the console. If it doesn't work, it m
 
 To create a crawler with Crawlee, you only need to provide it with a request handler - a function that gets executed for each page it visits.
 
-```javascript title=crawlee.js
+```js title=crawlee.js
 import { CheerioCrawler } from 'crawlee';
 
 const crawler = new CheerioCrawler({
@@ -94,7 +94,7 @@ const crawler = new CheerioCrawler({
 
 But the above code still doesn't crawl anything. We need to provide it with URLs to crawl. To do that, we call the crawler's `addRequests` function.
 
-```javascript title=crawlee.js
+```js title=crawlee.js
 import { CheerioCrawler } from 'crawlee';
 
 const crawler = new CheerioCrawler({
@@ -132,7 +132,7 @@ Title: Sales
 
 The current scraper only visits the Sales category page, but we want detailed data for all the products. We can use the [`enqueueLinks()`](https://crawlee.dev/api/cheerio-crawler/interface/CheerioCrawlingContext#enqueueLinks) function to add more URLs to the queue. The function automatically extracts URLs from the current page based on a provided CSS selector and adds them to the queue. Once added, the crawler will automatically crawl them.
 
-```javascript title=crawlee.js
+```js title=crawlee.js
 import { CheerioCrawler } from 'crawlee';
 
 const crawler = new CheerioCrawler({
@@ -172,7 +172,7 @@ When you run the code, you'll see the names and URLs of all the products printed
 
 We have the crawler in place, and it's time to extract data. We already have the extraction code from the previous lesson, so we can just copy and paste it into the `requestHandler` with tiny changes. Instead of printing results to the terminal, we will save it to disk.
 
-```javascript title=crawlee.js
+```js title=crawlee.js
 // To save data to disk, we need to import Dataset.
 import { CheerioCrawler, Dataset } from 'crawlee';
 

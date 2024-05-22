@@ -33,7 +33,7 @@ There are two ways to go about obtaining these objects to be used and manipulate
 
 ### 1. Parsing them directly from the HTML
 
-```javascript
+```js
 // same as "document.querySelector('html').innerHTML"
 const html = $.html();
 
@@ -48,7 +48,7 @@ console.log(data);
 
 Tools like [Puppeteer](https://github.com/puppeteer/puppeteer) allow us to run code within the context in the browser, as well as return things out of these functions and use the data back in the Node.js context.
 
-```javascript
+```js
 const data = await page.evaluate(() => window.__sc_hydration);
 
 console.log(data);

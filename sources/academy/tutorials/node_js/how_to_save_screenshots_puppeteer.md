@@ -7,7 +7,7 @@ slug: /node-js/how-to-save-screenshots-puppeteer
 
 A good way to debug your puppeteer crawler in Apify actors is to save a screenshot of a browser window to the Apify key-value store. You can do that using this function:
 
-```javascript
+```js
 /**
 * Store screen from puppeteer page to Apify key-value store
 * @param page - Instance of puppeteer Page class https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#class-page
@@ -30,7 +30,7 @@ Because this is so common use-case Apify SDK has a utility function called [save
 
 A simple example in an Apify actor:
 
-```javascript
+```js
 import { Actor } from 'apify';
 import { puppeteerUtils, launchPuppeteer } from 'crawlee';
 

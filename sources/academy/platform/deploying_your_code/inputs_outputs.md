@@ -39,7 +39,7 @@ npm install apify
 
 Now, let's import `Actor` from `apify` and use the `Actor.getInput()` function to grab our input.
 
-```javascript
+```js
 // index.js
 import { Actor } from 'apify';
 
@@ -67,7 +67,7 @@ We'll now add an **INPUT.json** file within **storage/key_value_stores/default**
 
 Then we can add our example project code from earlier. It will grab the input and use it to generate a solution which is logged into the console.
 
-```javascript
+```js
 // index.js
 import { Actor } from 'apify';
 
@@ -137,7 +137,7 @@ Similarly to reading input, you can write the actor's output either by using the
 
 In the SDK, we can write to the dataset with the `Actor.pushData()` function. Let's go ahead and write the solution of the `addAllNumbers()` function to the dataset store using this function:
 
-```javascript
+```js
 // index.js
 
 // This is our example project code from earlier.

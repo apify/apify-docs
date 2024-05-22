@@ -19,7 +19,7 @@ When you open up your regular browser and visit a website, you open up a new pag
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -33,7 +33,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -52,7 +52,7 @@ Then, we can visit a website with the `page.goto()` method. Let's go to [Google]
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -72,7 +72,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });

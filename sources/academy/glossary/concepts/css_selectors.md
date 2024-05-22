@@ -17,7 +17,7 @@ Some of the most common types of CSS selectors are:
 
 This is used to select elements by their tag name. For example, to select all `<p>` elements, you would use the `p` selector.
 
-```javascript
+```js
 const paragraphs = document.querySelectorAll('p');
 ```
 
@@ -25,7 +25,7 @@ const paragraphs = document.querySelectorAll('p');
 
 This is used to select elements by their class attribute. For example, to select all elements with the class of `highlight`, you would use the `.highlight` selector.
 
-```javascript
+```js
 const highlightedElements = document.querySelectorAll('.highlight');
 ```
 
@@ -33,7 +33,7 @@ const highlightedElements = document.querySelectorAll('.highlight');
 
 This is used to select an element by its `id` attribute. For example, to select an element with the id of `header`, you would use the `#header` selector.
 
-```javascript
+```js
 const header = document.querySelector(`#header`);
 ```
 
@@ -41,7 +41,7 @@ const header = document.querySelector(`#header`);
 
 This is used to select elements based on the value of an attribute. For example, to select all elements with the attribute `data-custom` whose value is `yes`, you would use the `[data-custom="yes"]` selector.
 
-```javascript
+```js
 const customElements = document.querySelectorAll('[data-custom="yes"]');
 ```
 
@@ -49,7 +49,7 @@ const customElements = document.querySelectorAll('[data-custom="yes"]');
 
 You can also chain multiple selectors together to select elements more precisely. For example, to select an element with the class `highlight` that is inside a `<p>` element, you would use the `p.highlight` selector.
 
-```javascript
+```js
 const highlightedParagraph = document.querySelectorAll('p.highlight');
 ```
 

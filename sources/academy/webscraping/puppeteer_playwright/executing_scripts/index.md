@@ -20,7 +20,7 @@ An important concept to understand when dealing with headless browsers is the **
 
 Here is an example of a common mistake made by beginners to Puppeteer/Playwright:
 
-```javascript
+```js
 // This code is incorrect!
 import { chromium } from 'playwright';
 
@@ -53,7 +53,7 @@ We will use `page.evaluate()` to run our code in the browser. This method takes 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -73,7 +73,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -101,7 +101,7 @@ Here's what we see in the automated browser when we run this code:
 
 Within our code, we generate a `randomString` in the Node.js context:
 
-```javascript
+```js
 const randomString = Math.random().toString(36).slice(2);
 ```
 
@@ -110,7 +110,7 @@ Now, let's say we want to change the title of the document to be this random str
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -132,7 +132,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });

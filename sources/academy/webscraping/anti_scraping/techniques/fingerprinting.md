@@ -66,7 +66,7 @@ Here is a list of some of the most crucial properties on the `window` object use
 
 Fingerprinting tools can also collect pieces of information that are retrieved by calling specific functions:
 
-```javascript
+```js
 // Get the WebGL vendor information
 WebGLRenderingContext.getParameter(37445);
 
