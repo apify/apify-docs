@@ -1,9 +1,9 @@
 ---
-title: Sample lesson 1
-description: A sample lesson for the purposes of having a working table of contents.
-sidebar_position: 1
-category: web scraping & automation
-slug: /scraping-basics-python/lesson-1
+title: Saving data with Python
+sidebar_label: Saving data
+description: TODO
+sidebar_position: 8
+slug: /scraping-basics-python/saving-data
 ---
 
 :::danger Work in progress
@@ -12,3 +12,8 @@ This course is incomplete. As we work on adding new lessons, we would love to he
 
 :::
 
+## Exercises
+
+- One
+- Two
+- Three
