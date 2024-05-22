@@ -9,13 +9,15 @@ sidebar_position: 4
 
 ---
 
-The Apify Actor's source code placement is defined by its [Dockerfile](./dockerfile.md). If you have created the Actor from one of Apify's [templates](https://apify.com/templates) then it's by convention placed in the `/src` directory.
+The structure and placement of an Apify Actor's source code is defined by its [`Dockerfile`](./dockerfile.md). If you create the Actor from one of Apify's [templates](https://apify.com/templates), the source code by default is placed in the `/src`.
 
-It's completely up to you what language and technologies, including various binaries (Chrome browser, Selenium, Cypress, or any other dependency of your choice) you use in your project. The only requirement is that you have to define the Dockerfile that will build the image for your Actor, including all the dependencies and your source code.
+You have the flexibility to choose any programming language, technologies, and dependencies (such as Chrome browser, Selenium, Cypress, or others) for your projects. The only requirement is to define a Dockerfile that builds the image for your Actor, including all dependencies and your source code.
 
 ## Example setup
 
-Let's take a look at the example JavaScript Actor's source code. The following Dockerfile
+Let's look at the example JavaScript Actor's source code structure.
+
+The following `Dockerfile`:
 
 ```dockerfile
 FROM apify/actor-node:16
@@ -37,11 +39,20 @@ COPY . ./
 CMD npm start --silent
 ```
 
-will build the Actor from the `apify/actor-node:16` image, copy the `package.json` and `package-lock.json` files to the image.
+1. Builds the Actor from the `apify/actor-node:16` base image.
+2. Copies the `package.json` and `package-lock.json` files to the image.
+3. Installs the `npm` packages specified in `packages.json`, omitting development and optional dependencies.
+4. Copies the rest of the source code to the image
+5. Runs the `npm start` command defined in `package.json`
 
-> We first copy the `package.json`, `package-lock.json` , and install the dependencies before copying the rest of the source code. This way, we can take advantage of Docker's caching mechanism and only install the dependencies when the `package.json` or `package-lock.json` files change. This way, the build process is much faster.
+:::note Optimized build cache
 
-Then it will install the NPM packages and copy the rest of the source code to the image. Finally, it will run the `npm start` command, which is defined in the `package.json` file:
+By copying the `package.json` and `package-lock.json` files and installing dependencies before the rest of the source code, you can take advantage of Docker's caching mechanism. This approach ensures that dependencies are only reinstalled when the `package.json` or `package-lock.json` files change, significantly reducing build times. Since the installation of dependencies is often the most time-consuming part of the build process, this optimization can lead to substantial performance improvements, especially for larger projects with many dependencies.
+
+
+:::
+
+The `package.json` file defines the `npm start` command:
 
 ```json
 {
@@ -62,4 +73,4 @@ Then it will install the NPM packages and copy the rest of the source code to th
 }
 ```
 
-So once the Actor starts, the `src/main.js` gets executed.
+When the Actor starts, the `src/main.js` file is executed.
