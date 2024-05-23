@@ -1,9 +1,13 @@
 ---
 title: Inspecting web pages with browser DevTools
 sidebar_label: "DevTools: Inspecting"
-description: TODO
+description: Lesson about using the browser tools for developers to inspect and manipulate the structure of an e-commerce website.
 sidebar_position: 1
 slug: /scraping-basics-python/devtools-inspecting
+---
+
+**In this lesson we'll use the browser tools for developers to inspect and manipulate the structure of an e-commerce website.**
+
 ---
 
 :::danger Work in progress
