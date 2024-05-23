@@ -26,13 +26,13 @@ This example focuses on integrating Apify with LlamaIndex using the Apify Actor.
 
 Before we start with the integration, we need to install all dependencies:
 
-`pip install llama-index-readers-apify`
+`pip install apify-client llama-index-core llama-index-readers-apify`
 
 After successfully installing all dependencies, we can start writing Python code.
 
 ### Apify Actor
 
-To use the Apify Actor, import `ApifyActor` and `Document`, and set your Apify API token in the code.
+To use the Apify Actor, import `ApifyActor` and `Document`, and set your [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) in the code.
 The following example uses the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor to crawl an entire website, which will extract text content from the web pages.
 The extracted text is formatted as a llama_index `Document` and can be fed to a vector store or language model like GPT.
 
