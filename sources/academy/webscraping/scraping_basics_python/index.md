@@ -46,7 +46,7 @@ Let's explore the key reasons to take this course. What is web scraping good for
 
 The internet is full of useful data, but most of it isn't offered in a structured way that is easy to process programmatically. That's why you need scraping, a set of approaches to download websites and extract data from them.
 
-Scraper development is also a fun and challenging way to learn web development, web technologies, and understand the internet. You will reverse-engineer websites, understand how they work internally, discover what technologies they use, and learn how they communicate with their servers. You will also master your chosen programming language and core programming concepts. Understanding web scraping gives you a head start in learning web technologies such as HTML, CSS, JavaScript, frontend frameworks (like React or Next.js), HTTP, REST APIs, GraphQL APIs, and more.
+Scraper development is also a fun and challenging way to learn web development, web technologies, and understand the internet. You'll reverse-engineer websites, understand how they work internally, discover what technologies they use, and learn how they communicate with their servers. You'll also master your chosen programming language and core programming concepts. Understanding web scraping gives you a head start in learning web technologies such as HTML, CSS, JavaScript, frontend frameworks (like React or Next.js), HTTP, REST APIs, GraphQL APIs, and more.
 
 ### Why build your own scrapers
 
@@ -62,7 +62,7 @@ As a scraper developer, you are not limited by whether certain data is available
 
 ### Why learn with Apify
 
-We are [Apify](https://apify.com), a web scraping and automation platform, but we built this course on top of open source technologies. The skills you will learn are applicable to any scraping project, and you'll be able to run your scrapers on any computer. We will show you how scraping platforms can simplify your life, but those lessons are optional and designed to fit within our [free tier](https://apify.com/pricing).
+We are [Apify](https://apify.com), a web scraping and automation platform, but we built this course on top of open source technologies. The skills you'll learn are applicable to any scraping project, and you'll be able to run your scrapers on any computer. We will show you how scraping platforms can simplify your life, but those lessons are optional and designed to fit within our [free tier](https://apify.com/pricing).
 
 ## Course content
 
