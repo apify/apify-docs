@@ -111,7 +111,7 @@ print(count)
 
 Unfortunately, this doesn't seem to be sufficient. Running the code above prints 123, which is a suspiciously high number. It seems there are more div elements with class names starting with `product-item`.
 
-On closer look at the whole HTML, our substring matches also tags like `<div class="product-item__info">`. What if we force our code to count only those with a space after the class name?
+On closer look at the HTML, our substring matches also tags like `<div class="product-item__info">`. What if we force our code to count only those with a space after the class name?
 
 ```python
 count = html_code.count('<div class="product-item ')
