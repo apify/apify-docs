@@ -18,14 +18,20 @@ This course is incomplete. As we work on adding new lessons, we would love to he
 
 :::
 
-## What you'll learn
+In this course we'll use Python to create an application for watching prices. It'll be able to scrape all product pages of an e-commerce website and record prices. Data sets from several rans of such program would be useful for seeing trends in price changes, detecting discounts, etc.
 
-- Inspecting pages using browser DevTools
-- Downloading web pages using the HTTPX library
-- Extracting data from web pages using the Beautiful Soup library
-- Saving extracted data in various formats, e.g. CSV which MS Excel or Google Sheets can open
-- Following links programatically (crawling)
-- Saving time and effort with frameworks, such as Scrapy, and scraping platforms, such as Apify
+<!--
+TODO image of warehouse with some CVS or JSON exported, similar to sources/academy/webscraping/scraping_basics_javascript/images/beginners-data-collection.png, which is for some reason the same as sources/academy/webscraping/scraping_basics_javascript/images/beginners-data-extraction.png
+-->
+
+## What you'll do
+
+- Inspect pages using browser DevTools
+- Download web pages using the HTTPX library
+- Extract data from web pages using the Beautiful Soup library
+- Save extracted data in various formats, e.g. CSV which MS Excel or Google Sheets can open
+- Follow links programatically (crawling)
+- Save time and effort with frameworks, such as Scrapy, and scraping platforms, such as Apify
 
 ## Who this course is for
 
@@ -62,7 +68,7 @@ As a scraper developer, you are not limited by whether certain data is available
 
 ### Why learn with Apify
 
-We are [Apify](https://apify.com), a web scraping and automation platform, but we built this course on top of open source technologies. The skills you'll learn are applicable to any scraping project, and you'll be able to run your scrapers on any computer. We will show you how scraping platforms can simplify your life, but those lessons are optional and designed to fit within our [free tier](https://apify.com/pricing).
+We are [Apify](https://apify.com), a web scraping and automation platform, but we built this course on top of open source technologies. The skills you can learn are applicable to any scraping project, and you'll be able to run your scrapers on any computer. We will show you how scraping platforms can simplify your life, but those lessons are optional and designed to fit within our [free tier](https://apify.com/pricing).
 
 ## Course content
 
