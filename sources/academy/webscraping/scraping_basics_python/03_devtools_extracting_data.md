@@ -1,9 +1,13 @@
 ---
 title: Extracting data from a web page with browser DevTools
 sidebar_label: "DevTools: Extracting data"
-description: TODO
+description: Lesson about using the browser tools for developers to manually extract product data from an e-commerce website.
 sidebar_position: 3
 slug: /scraping-basics-python/devtools-extracting-data
+---
+
+**In this lesson we'll use the browser tools for developers to manually extract product data from an e-commerce website.**
+
 ---
 
 :::danger Work in progress
