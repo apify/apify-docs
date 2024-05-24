@@ -117,12 +117,52 @@ On closer look at the HTML, our substring matches also tags like `<div class="pr
 count = html_code.count('<div class="product-item ')
 ```
 
-Now our program prints number 24, which is in line with the text _Showing 1 - 24 of 50 products_ above the product listing. Oof, that was tedious! While successful, we can see that processing HTML with [standard string methods](https://docs.python.org/3/library/stdtypes.html#string-methods) is difficult and fragile.
+Now our program prints number 24, which is in line with the text **Showing 1–24 of 50 products** above the product listing.
+
+<!-- TODO image -->
+
+Oof, that was tedious! While successful, we can see that processing HTML with [standard string methods](https://docs.python.org/3/library/stdtypes.html#string-methods) is difficult and fragile. Imagine we wouldn't be just counting, but trying to get titles and prices.
 
 In fact HTML can be so complex that even [regular expressions](https://docs.python.org/3/library/re.html) aren't able to process it reliably. In the next lesson we'll meet a tool dedicated for the task, a HTML parser.
 
 ## Exercises
 
-- One
+### Handle errors
+
+Sometimes websites return all kinds of strange errors, most often because they're temporarily down, or because they employ anti-scraping protections. Change the URL in your code to the following:
+
+```text
+https://example.com/does/not/exist
+```
+
+The page doesn't exist, which means the response will be [error 404](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404). Explore the [HTTPX documentation](https://www.python-httpx.org/) on how to adjust your code to handle such error. In case of error response, your program should print an error message to the user and stop further processing of the response.
+
+<details>
+  <summary>Solution</summary>
+
+  ```python
+  import sys
+  import httpx
+
+  url = "https://warehouse-theme-metal.myshopify.com/does/not/exist"
+  response = httpx.get(url)
+
+  if response.status_code != 200:
+      print(f"Failed to fetch {url}: ERROR {response.status_code}")
+  else:
+      html_code = response.text
+      count = html_code.count('<div class="product-item ')
+      print(count)
+  ```
+
+  If you want your program to play well with the conventions of the operating system, you can print errors to so called _standard error output_ and exit your program with non-zero status code:
+
+  ```python
+  if response.status_code != 200:
+      print(f"Failed to fetch {url}: ERROR {response.status_code}", file=sys.stderr)
+      sys.exit(1)
+  ```
+</details>
+
 - Two
 - Three
