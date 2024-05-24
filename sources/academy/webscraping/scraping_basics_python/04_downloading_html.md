@@ -79,63 +79,103 @@ $ python main.py
 </html>
 ```
 
-Yay! The entire HTML is now available in our program as a string. For now, we are just printing it to the screen, but once it's a string, we can manipulate it using any Python string operations.
+And that's it! It's not particularly useful yet, but it's a good start of our scraper.
 
-## Treating HTML as a string
+## About HTTP
 
-Let's try counting how many products is in the listing. Manually inspecting the page in browser developer tools, we can see that HTML code of each product has roughly the following structure:
+Running `httpx.get(url)`, we made our first HTTP request and received our first response. HTTP is a network protocol powering most of the internet. Understanding it well is an important foundation for successful scraping, but for now it's enough to know the basic flow and terminology.
 
-```html
-<div class="product-item product-item--vertical ...">
-  <a href="/products/..." class="product-item__image-wrapper">
-    ...
-  </a>
-  <div class="product-item__info">
-    ...
-  </div>
-</div>
-```
+HTTP is an exchange of two participants. The _client_ sends a _request_ to the _server_, which replies with a _response_. In our case, `main.py` is the client, and the technology running at `warehouse-theme-metal.myshopify.com` replies to our request as the server.
 
-At first sight, counting `product-item` occurances wouldn't match only products. Let's try looking for `<div class="product-item`, a substring which represents the enitre beginning of each product tag. Because the substring contains a double quote character, we need to use single quotes as string boundaries.
+<!-- TODO image basic HTTP chart -->
+
+:::tip Deep dive to HTTP
+
+The HTTP protocol is defined by several documents called RFCs, such as [RFC 7230: HTTP Message Syntax and Routing](https://www.rfc-editor.org/rfc/rfc7230) or [RFC 7231: HTTP Semantics and Content](https://www.rfc-editor.org/rfc/rfc7231). While these technical specifications are surprisingly digestible, you may also like [HTTP tutorials by MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP).
+
+:::
+
+## Checking status codes
+
+Sometimes websites return all kinds of errors. Most often because:
+
+- The server is temporarily down.
+- The server breaks under a heavy load of requests.
+- The server applies anti-scraping protections.
+- The server application is buggy and just couldn't handle our request.
+
+In HTTP, each response has a three-digit _status code_, which tells us whether it's an error or success. Let's change the last line of our program to print the code of the response we get:
 
 ```python
+print(response.status_code)
+```
+
+If we run the program, it should print number 200, which means the server understood our request and was happy to respond with what we asked for:
+
+```text
+$ python main.py
+200
+```
+
+Good! Now let's fix our code so that it can handle a situation when the server doesn't return 200.
+
+:::tip All status codes
+
+If you're curious, sneak a peek at the list of all [HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). There's plenty of them and they're categorized according to their first digit. If you're even more curious, we recommend browsing the [HTTP Cats](https://http.cat/) as a highly professional resource on the topic.
+
+:::
+
+## Handling errors
+
+It's time to ask for trouble! Let's change the URL in our code to a page which doesn't exist, so that we get a response with [status code 404](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404):
+
+```text
+https://warehouse-theme-metal.myshopify.com/does/not/exist
+```
+
+We could check the value of `response.status_code` against a list of allowed numbers, but HTTPX also provides `response.raise_for_status()`, a method which analyzes the number and raises the `httpx.HTTPError` exception in case our request wasn't successful.
+
+A robust scraper skips or retries requests when errors occur, but we'll start simple. Our program will print an error message and stop further processing of the response.
+
+
+We also want to play along with the conventions of the operating system, so let's print to the [standard error output](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr)) and exit our program with non-zero [status code](https://en.wikipedia.org/wiki/Exit_status):
+
+```python
+import sys
 import httpx
 
-url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+url = "https://warehouse-theme-metal.myshopify.com/does/not/exist"
+try:
+    response = httpx.get(url)
+    response.raise_for_status()
+    print(response.text)
 
-html_code = response.text
-count = html_code.count('<div class="product-item')
-print(count)
+except httpx.HTTPError as error:
+    print(error, file=sys.stderr)
+    sys.exit(1)
 ```
 
-Unfortunately, this doesn't seem to be sufficient. Running the code above prints 123, which is a suspiciously high number. It seems there are more div elements with class names starting with `product-item`.
+If you run the code above, you should see a nice error message:
 
-On closer look at the HTML, our substring matches also tags like `<div class="product-item__info">`. What if we force our code to count only those with a space after the class name?
-
-```python
-count = html_code.count('<div class="product-item ')
+```text
+$ python main.py
+Client error '404 Not Found' for url 'https://warehouse-theme-metal.myshopify.com/does/not/exist'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
 ```
 
-Now our program prints number 24, which is in line with the text **Showing 1–24 of 50 products** above the product listing.
-
-<!-- TODO image -->
-
-Oof, that was tedious! While successful, we can see that processing HTML with [standard string methods](https://docs.python.org/3/library/stdtypes.html#string-methods) is difficult and fragile. Imagine we wouldn't be just counting, but trying to get titles and prices.
-
-In fact HTML can be so complex that even [regular expressions](https://docs.python.org/3/library/re.html) aren't able to process it reliably. In the next lesson we'll meet a tool dedicated for the task, a HTML parser.
+Done! We have managed to apply basic error handling. Now let's get back to our primary goal. In the next lesson, we'll be looking for a way to extract information about products from the downloaded HTML.
 
 ## Exercises
 
-### Handle errors
+These challenges should help you verify that you can apply knowledge acquired in this lesson. Resist the temptation to look at the solutions right away. Learn by doing, not by copying and pasting!
 
-Sometimes websites return all kinds of strange errors, most often because they're temporarily down, or because they employ anti-scraping protections. Change the URL in your code to the following:
+### Scrape Amazon
+
+Download HTML of a product listing page, but this time from a real world e-commerce website. For example this page with Amazon search results:
 
 ```text
-https://example.com/does/not/exist
+https://www.amazon.com/s?k=darth+vader
 ```
-
-The page doesn't exist, which means the response will be [error 404](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404). Explore the [HTTPX documentation](https://www.python-httpx.org/) on how to adjust your code to handle such error. In case of error response, your program should print an error message to the user and stop further processing of the response.
 
 <details>
   <summary>Solution</summary>
@@ -144,25 +184,80 @@ The page doesn't exist, which means the response will be [error 404](https://dev
   import sys
   import httpx
 
-  url = "https://warehouse-theme-metal.myshopify.com/does/not/exist"
-  response = httpx.get(url)
+  url = "https://www.amazon.com/s?k=darth+vader"
+  try:
+      response = httpx.get(url)
+      response.raise_for_status()
+      print(response.text)
 
-  if response.status_code != 200:
-      print(f"Failed to fetch {url}: ERROR {response.status_code}")
-  else:
-      html_code = response.text
-      count = html_code.count('<div class="product-item ')
-      print(count)
-  ```
-
-  If you want your program to play well with the conventions of the operating system, you can print errors to so called _standard error output_ and exit your program with non-zero status code:
-
-  ```python
-  if response.status_code != 200:
-      print(f"Failed to fetch {url}: ERROR {response.status_code}", file=sys.stderr)
+  except httpx.HTTPError as error:
+      print(error, file=sys.stderr)
       sys.exit(1)
   ```
 </details>
 
-- Two
-- Three
+### Save downloaded HTML as a file
+
+Download HTML, then save it on your disk as a `products.html` file. You can use the URL we've been already playing with:
+
+```text
+https://warehouse-theme-metal.myshopify.com/collections/sales
+```
+
+<details>
+  <summary>Solution</summary>
+
+  Right in your Terminal or Command Prompt, you can create files by _redirecting output_ of command line programs:
+
+  ```text
+  $ python main.py > products.html
+  ```
+
+  If you want to use Python, it offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
+
+  ```python
+  import sys
+  import httpx
+  from pathlib import Path
+
+  url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+  try:
+      response = httpx.get(url)
+      response.raise_for_status()
+      Path("products.html").write_text(response.text)
+
+  except httpx.HTTPError as error:
+      print(error, file=sys.stderr)
+      sys.exit(1)
+  ```
+</details>
+
+### Download an image as a file
+
+Download a product image, then save it on your disk as a file. While HTML is _textual_ content, images are _binary_. You may want to scan through the [HTTPX QuickStart](https://www.python-httpx.org/quickstart/) for guidance. You can use this URL pointing to an image of a TV:
+
+```text
+https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg
+```
+
+<details>
+  <summary>Solution</summary>
+
+  Python offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
+
+  ```python
+  from pathlib import Path
+  import sys
+  import httpx
+
+  url = "https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg"
+  try:
+      response = httpx.get(url)
+      response.raise_for_status()
+      Path("tv.jpg").write_bytes(response.content)
+  except httpx.HTTPError as e:
+      print(e, file=sys.stderr)
+      sys.exit(1)
+
+  ```
+</details>
