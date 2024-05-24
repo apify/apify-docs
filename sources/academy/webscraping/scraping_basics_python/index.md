@@ -40,7 +40,7 @@ Anyone with basic knowledge of developing programs in Python who wants to start 
 ## Requirements
 
 - macOS, Linux or Windows machine with a web browser and Python installed
-- Familiar with Python basics: variables, conditions, loops, functions, strings, lists, dictionaries, files, classes
+- Familiar with Python basics: variables, conditions, loops, functions, strings, lists, dictionaries, files, classes, exceptions
 - Comfortable importing from the Python standard library, using virtual environments, and installing dependencies with `pip`
 - Running commands in Terminal or Command Prompt
 
