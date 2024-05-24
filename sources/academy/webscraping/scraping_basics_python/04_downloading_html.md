@@ -194,6 +194,7 @@ https://www.amazon.com/s?k=darth+vader
       print(error, file=sys.stderr)
       sys.exit(1)
   ```
+
 </details>
 
 ### Save downloaded HTML as a file
@@ -230,6 +231,7 @@ https://warehouse-theme-metal.myshopify.com/collections/sales
       print(error, file=sys.stderr)
       sys.exit(1)
   ```
+
 </details>
 
 ### Download an image as a file
@@ -260,4 +262,5 @@ https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72
       sys.exit(1)
 
   ```
+
 </details>
