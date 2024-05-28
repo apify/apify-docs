@@ -180,21 +180,21 @@ You have two choices of how to organize files withing the `.actor` folder.
 
 Both of these methods are valid so choose one that suits your needs best.
 
-## Handling nested structures
+## Handle nested structures
 
 The most frequently used data formats present the data in a tabular format (Output tab table, Excel, CSV). If your Actor produces nested JSON structures, you need to transform the nested data into a flat tabular format. You can flatten the data in the following ways:
 
-1. Use `transformation.flatten` to flatten the nested structure of specified fields. This transforms the nested object into a flat structure. e.g. with `flatten:["foo"]`, the object `{"foo": {"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`. Once the structure is flattened, it's necessary to use the flattened property name in both `transformation.fields` and `display.properties`, otherwise, fields might not be fetched or configured properly in the UI visualization.
+- Use `transformation.flatten` to flatten the nested structure of specified fields. This transforms the nested object into a flat structure. e.g. with `flatten:["foo"]`, the object `{"foo": {"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`. Once the structure is flattened, it's necessary to use the flattened property name in both `transformation.fields` and `display.properties`, otherwise, fields might not be fetched or configured properly in the UI visualization.
 
-1. Use `transformation.unwind` to deconstruct the nested children into parent objects.
+- Use `transformation.unwind` to deconstruct the nested children into parent objects.
 
-1. Change the output structure in an Actor from nested to flat before the results are saved in the dataset.
+- Change the output structure in an Actor from nested to flat before the results are saved in the dataset.
 
 ## Dataset schema structure definitions
 
 The dataset schema structure defines the various components and properties that govern the organization and representation of the output data produced by an Actor. It specifies the structure of the data, the transformations to be applied, and the visual display configurations for the Output tab UI.
-<!-- markdownlint-disable MD001 -->
-#### DatasetSchema object definition
+
+### DatasetSchema object definition
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -202,7 +202,7 @@ The dataset schema structure defines the various components and properties that 
 | `fields` | JSONSchema compatible object | true | Schema of one dataset object. <br/>Use JsonSchema Draft 2020–12 or <br/>other compatible formats. |
 | `views` | DatasetView object | true | An object with a description of an API <br/>and UI views. |
 
-#### DatasetView object definition
+### DatasetView object definition
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -211,7 +211,7 @@ The dataset schema structure defines the various components and properties that 
 | `transformation` | ViewTransformation object | true | The definition of data transformation <br/> applied when dataset data is loaded from <br/>Dataset API. |
 | `display` | ViewDisplay object | true | The definition of Output tab UI visualization. |
 
-#### ViewTransformation object definition
+### ViewTransformation object definition
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -222,14 +222,14 @@ The dataset schema structure defines the various components and properties that 
 | `limit` | integer | false | The maximum number of results returned. <br/>Default is all results. |
 | `desc` | boolean | false | By default, results are sorted in ascending based on the write event into the dataset. <br/> If `desc:true`, the newest writes to the dataset will be returned first. |
 
-#### ViewDisplay object definition
+### ViewDisplay object definition
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
 | `component` | string | true | Only the `table` component is available. |
 | `properties` | Object | false | An object with keys matching the `transformation.fields` <br/> and `ViewDisplayProperty` as values. If properties are not set, the table will be rendered automatically with fields formatted as `strings`, `arrays` or `objects`. |
 
-#### ViewDisplayProperty object definition
+### ViewDisplayProperty object definition
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
