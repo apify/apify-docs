@@ -39,7 +39,7 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
 1. Set up the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor in the [Apify Console](https://console.apify.com). Refer to this guide on how to set up [website content crawl for your project](https://blog.apify.com/talk-to-your-website-with-large-language-models/).
 
-1. Once you have the crawler ready, navigate tp the integration section and add Apify’s Pinecone integration.
+1. Once you have the crawler ready, navigate to the integration section and add Apify’s Pinecone integration.
 
     ![Website Content Crawler with Pinecone integration](./images/pinecone-wcc-integration.png)
 
