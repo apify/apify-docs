@@ -15,12 +15,14 @@ You have the flexibility to choose any programming language, technologies, and d
 
 ## Example setup
 
-Let's look at the example JavaScript Actor's source code structure.
+To better understand how to structure your Actor's source code, let's take a look at an example for a JavaScript Actor.
 
-The following `Dockerfile`:
+### `Dockerfile`
+
+Here's the complete `Dockerfile`
 
 ```dockerfile
-FROM apify/actor-node:16
+FROM apify/actor-node:20
 
 COPY package*.json ./
 
@@ -39,11 +41,45 @@ COPY . ./
 CMD npm start --silent
 ```
 
-1. Builds the Actor from the `apify/actor-node:16` base image.
+This `Dockerfile` does the following tasks:
+
+1. Builds the Actor from the `apify/actor-node:20` base image.
+
+    ```dockerfile
+    FROM apify/actor-node:20
+    ```
+
 2. Copies the `package.json` and `package-lock.json` files to the image.
-3. Installs the `npm` packages specified in `packages.json`, omitting development and optional dependencies.
+
+    ```dockerfile
+    COPY package*.json ./
+    ```
+
+3. Installs the npm packages specified in package.json, omitting development and optional dependencies.
+
+    ```dockerfile
+    RUN npm --quiet set progress=false \
+        && npm install --omit=dev --omit=optional \
+        && echo "Installed NPM packages:" \
+        && (npm list --omit=dev --all || true) \
+        && echo "Node.js version:" \
+        && node --version \
+        && echo "NPM version:" \
+        && npm --version \
+        && rm -r ~/.npm
+    ```
+
 4. Copies the rest of the source code to the image
+
+    ```dockerfile
+    COPY . ./
+    ```
+
 5. Runs the `npm start` command defined in `package.json`
+
+    ```dockerfile
+    CMD npm start --silent
+    ```
 
 :::note Optimized build cache
 
@@ -51,6 +87,8 @@ By copying the `package.json` and `package-lock.json` files and installing depen
 
 
 :::
+
+### `package.json`
 
 The `package.json` file defines the `npm start` command:
 
