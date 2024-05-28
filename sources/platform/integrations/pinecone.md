@@ -13,22 +13,21 @@ slug: /integrations/pinecone
 
 ## What is Pinecone?
 
-[Pinecone](https://pinecone.io) is a managed vector database that allows users to store and query dense vectors for AI applications such as recommendation systems, semantic search, and retrieval augmented generation.
+[Pinecone](https://pinecone.io) is a managed vector database that allows users to store and query dense vectors for AI applications such as recommendation systems, semantic search, and retrieval augmented generation (RAG).
 
 ## How to integrate Apify with Pinecone?
 
 The Apify integration for Pinecone lets you export results from Actors and Dataset items into a specific Pinecone vector index.
-Note that you also need an [OpenAI platform](https://platform.openai.com/docs/overview) account with an API key in order to compute the text embeddings.
 
 The integration is facilitated using the [Pinecone integration](https://apify.com/jan.turon/pinecone-integration) Actor.
+
+Before you start, ensure you have a [Pinecone database](https://www.pinecone.io/) set up.
+Create a Pinecone index and obtain the Pinecone API token.
+Additionally, you need an [OpenAI API key](https://openai.com/index/openai-api/) to compute the text embeddings and an [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
 
 ### Examples
 
 These examples use the [Website Content Crawler](https://apify.com/apify/website-content-crawler), an Actor that can deeply crawl websites, clean their HTML by removing a cookies modal, footer, or navigation, and then transform the HTML to Markdown, which can be used as training data for AI models or for feeding LLM and generative AI applications with web content.
-
-Before we start, ensure you have a [Pinecone database](https://www.pinecone.io/) set up.
-Create a Pinecone index and obtain the Pinecone API token.
-Additionally, you need an [OpenAI API key](https://openai.com/index/openai-api/) to compute the text embeddings and an [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access Apify Actors.
 
 #### User Interface - Apify Console
 
