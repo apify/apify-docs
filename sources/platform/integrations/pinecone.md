@@ -43,10 +43,9 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
     ![Website Content Crawler with Pinecone integration](./images/pinecone-wcc-integration.png)
 
-1. Select when to trigger this integration (typically when a run succeeds) and fill in all the required fields for the Pinecone integration.
-You can learn more about the input parameters at the [Pinecone integration input schema](https://apify.com/jan.turon/pinecone-integration/input-schema).
+1. Select when to trigger this integration (typically when a run succeeds) and fill in all the required fields for the Pinecone integration. You can learn more about the input parameters at the [Pinecone integration input schema](https://apify.com/jan.turon/pinecone-integration/input-schema).
 
-    ![Pinecone integration configuration](./images/pinecone-integration-setup.png)
+   ![Pinecone integration configuration](./images/pinecone-integration-setup.png)
 
 1. For a comprehensive explanation on how to combine Actors to accomplish more complex tasks, refer to the guide on [Actor-to-Actor](https://blog.apify.com/connecting-scrapers-apify-integration/) integrations.
 
