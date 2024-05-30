@@ -56,7 +56,7 @@ This means that when using TS (a popular acronym for "TypeScript") on a large pr
 
 ## How different is TypeScript from JavaScript? {#how-different-is-it}
 
-Think of it this way: Javascript **IS** Typescript, but TypeScript isn't JavaScript. All JavaScript code is valid TypeScript code, which means that you can pretty much turn any **.js** file into a **.ts** file and it'll still work just the same after being compiled. It also means that to learn TypeScript, you aren't going to have to learn a whole new programming language if you already know JavaScript.
+Think of it this way: JavaScript **IS** TypeScript, but TypeScript isn't JavaScript. All JavaScript code is valid TypeScript code, which means that you can pretty much turn any **.js** file into a **.ts** file and it'll still work just the same after being compiled. It also means that to learn TypeScript, you aren't going to have to learn a whole new programming language if you already know JavaScript.
 
 What are the differences? Well, there's really just one: TypeScript files cannot be run directly. They must first be compiled into regular JavaScript.
 

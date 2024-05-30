@@ -93,9 +93,15 @@ A common workflow of a website after it has detected a bot goes as follows:
 
 One thing to keep in mind while navigating through this course is that advanced scraping methods are able to identify non-humans not only by one value (such as a single header value, or IP address), but are able to identify them through more complex things such as header combinations.
 
-A conference talk by [Ondra Urban](https://github.com/mnmkng) will guide you through various anti-scraping measures and how to get around them.
+Watch a conference talk by [Ondra Urban](https://github.com/mnmkng), which provides an overview of various anti-scraping measures and tactics for circumventing them.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/aXil0K-M-Vs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+:::info Several years old?
+
+Although the talk, given in 2021, features some outdated code examples, it still serves well as a general overview.
+
+:::
 
 ## Common anti-scraping measures {#common-measures}
 
@@ -105,13 +111,13 @@ Because we here at Apify scrape for a living, we have discovered many popular an
 
 ### IP rate-limiting
 
-This is the most straightforward and standard protection, which is mainly implemented to prevent DDOS attacks, but it also works for blocking scrapers. Websites using rating don't allow to more than some defined number of requests from one IP address in a certain time span. If the max-request number is low, then there is a high potential for false-positive due to IP address uniqueness, such as in large companies where hundreds of employees can share the same IP address.
+This is the most straightforward and standard protection, which is mainly implemented to prevent DDoS attacks, but it also works for blocking scrapers. Websites using rating don't allow to more than some defined number of requests from one IP address in a certain time span. If the max-request number is low, then there is a high potential for false-positive due to IP address uniqueness, such as in large companies where hundreds of employees can share the same IP address.
 
 > Learn more about rate limiting [here](./techniques/rate_limiting.md)
 
 ### Header checking
 
-This type of bot identification is based on the given fact that humans are accessing web pages through browsers, which have specific [header](../../glossary/concepts/http_headers.md) sets which they send along with every request. The most commonly known header that helps to detect bots is the `user-agent` header, which holds a value that identifies which browser is being used, and what version it's running. Though `user-agent` is the most commonly used header for the **Header checking** method, other headers are sometimes used as well. The evaluation is often also run based on the header consistency, and includes a known combination of browser headers.
+This type of bot identification is based on the given fact that humans are accessing web pages through browsers, which have specific [header](../../glossary/concepts/http_headers.md) sets which they send along with every request. The most commonly known header that helps to detect bots is the `User-Agent` header, which holds a value that identifies which browser is being used, and what version it's running. Though `User-Agent` is the most commonly used header for the **Header checking** method, other headers are sometimes used as well. The evaluation is often also run based on the header consistency, and includes a known combination of browser headers.
 
 ### URL analysis
 
@@ -125,7 +131,7 @@ One of the best ways of avoiding the possible breaking of your scraper due to we
 
 ### IP session consistency
 
-This technique is commonly used to entirely block the bot from accessing the website altogether. It works on the principle that every entity that accesses the site gets a token. This token is then saved together with the IP address and HTTP request information such as user-agent and other specific headers. If the entity makes another request, but without the session token, the IP address is added on the greylist.
+This technique is commonly used to entirely block the bot from accessing the website altogether. It works on the principle that every entity that accesses the site gets a token. This token is then saved together with the IP address and HTTP request information such as User-Agent and other specific headers. If the entity makes another request, but without the session token, the IP address is added on the greylist.
 
 ### Interval analysis
 

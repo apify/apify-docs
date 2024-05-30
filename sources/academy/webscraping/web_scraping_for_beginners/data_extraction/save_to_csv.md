@@ -15,7 +15,7 @@ In the last lesson, we were able to extract data about all the on-sale products 
 
 ## Converting to CSV {#converting-to-csv}
 
-It might look like a big programming challenge to transform a JavaScript object into a CSV, but thanks to NPM, this is going to be a walk in the park. Google search **json to csv npm**. You will find that there's a library called [`json2csv`](https://www.npmjs.com/package/json2csv) that can convert a JavaScript object to CSV format with a single function call. _Perfect!_
+It might look like a big programming challenge to transform a JavaScript object into a CSV, but thanks to npm, this is going to be a walk in the park. Google search **json to csv npm**. You will find that there's a library called [`json2csv`](https://www.npmjs.com/package/json2csv) that can convert a JavaScript object to CSV format with a single function call. _Perfect!_
 
 To install `json2csv`, run this command in your terminal. You need to be in the project's folder - the folder which has the `package.json` file.
 
@@ -85,7 +85,7 @@ Now run the script with `node main.js`. The newly created CSV will be printed to
 
 ## Writing the CSV to a file {#writing-to-file}
 
-The final task that remains is to save our CSV formatted data to a file on our disk, so we can open it or send it to someone. For this, we don't need any extra NPM packages because functions for saving files are included in Node.js.
+The final task that remains is to save our CSV formatted data to a file on our disk, so we can open it or send it to someone. For this, we don't need any extra npm packages because functions for saving files are included in Node.js.
 
 First, we import the `writeFileSync` function from the `fs` (file system) package.
 

@@ -1,13 +1,13 @@
 ---
 title: Generating fingerprints
-description: Learn how to use two super handy NPM libraries to easily generate fingerprints and inject them into a Playwright or Puppeteer page.
+description: Learn how to use two super handy npm libraries to easily generate fingerprints and inject them into a Playwright or Puppeteer page.
 sidebar_position: 3
 slug: /anti-scraping/mitigation/generating-fingerprints
 ---
 
 # Generating fingerprints {#generating-fingerprints}
 
-**Learn how to use two super handy NPM libraries to easily generate fingerprints and inject them into a Playwright or Puppeteer page.**
+**Learn how to use two super handy npm libraries to easily generate fingerprints and inject them into a Playwright or Puppeteer page.**
 
 ---
 
