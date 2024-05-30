@@ -9,17 +9,13 @@ sidebar_position: 4
 
 ---
 
-The structure and placement of an Apify Actor's source code is defined by its [`Dockerfile`](./dockerfile.md). If you create the Actor from one of Apify's [templates](https://apify.com/templates), the source code by default is placed in the `/src`.
+The Apify Actor's source code placement is defined by its [Dockerfile](./docker.md). If you have created the Actor from one of Apify's [templates](https://apify.com/templates) then it's by convention placed in the `/src` directory.
 
 You have the flexibility to choose any programming language, technologies, and dependencies (such as Chrome browser, Selenium, Cypress, or others) for your projects. The only requirement is to define a Dockerfile that builds the image for your Actor, including all dependencies and your source code.
 
 ## Example setup
 
-To better understand how to structure your Actor's source code, let's take a look at an example for a JavaScript Actor.
-
-### `Dockerfile`
-
-Here's the complete `Dockerfile`
+Let's take a look at the example JavaScript Actor's source code. The following Dockerfile:
 
 ```dockerfile
 FROM apify/actor-node:20
