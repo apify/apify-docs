@@ -76,6 +76,21 @@ module.exports = {
                 },
             }),
         ],
+        [
+            'redocusaurus',
+            /** @type {import('redocusaurus').PresetEntry} */
+            {
+                specs: [
+                    {
+                        spec: 'node_modules/@apify/openapi/openapi.yaml',
+                        route: '/api/v2-new/',
+                    },
+                ],
+                theme: {
+                    primaryColor: '#1f9ec8',
+                },
+            },
+        ],
     ]),
     plugins: [
         [
