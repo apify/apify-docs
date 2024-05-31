@@ -4,6 +4,7 @@ on:
     push:
         branches:
             - master
+    workflow_dispatch:
 
 jobs:
     build:
@@ -30,6 +31,7 @@ jobs:
             -   name: Build docs
                 run: |
                     npm ci --force
+                    npm update @apify/openapi
                     npm run build
                 env:
                     APIFY_SIGNING_TOKEN: ${{ secrets.APIFY_SIGNING_TOKEN }}
