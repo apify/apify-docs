@@ -3,7 +3,8 @@ https:\/\/www\.youtube.*
 \.(jpg|jpeg|png|gif|bmp|webp|svg)$
 https:\/\/github\.com\/apify\/apify-docs\/edit\/[^ ]*a
 https:\/\/docs\.apify\.com\/assets\/[^ ]*
-https:\/\/docs\.apify\.com\/api\/v2-new.*
+https:\/\/api\.apify\.com/.*
+https:\/\/github\.com\/my-github-account\/actor-repo
 file:\/\/\/.*
 https://chrome\.google\.com/webstore/.*
 https?:\/\/(www\.)?npmjs\.com\/.*

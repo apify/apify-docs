@@ -80,6 +80,7 @@ module.exports = {
             'redocusaurus',
             /** @type {import('redocusaurus').PresetEntry} */
             {
+                config: join(__dirname, '.redocly.yaml'),
                 specs: [
                     {
                         spec: 'node_modules/@apify/openapi/openapi.yaml',
