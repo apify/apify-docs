@@ -39,11 +39,7 @@ function useDocTOC() {
 }
 
 function shouldShowGiscus(rxStrings, pathname) {
-    console.log(rxStrings);
     return rxStrings.some((rxs) => {
-        console.log('blasbkjfdlfms');
-        console.log('regex', rxs);
-        console.log('pathname', pathname);
         const pathRegExp = new RegExp(rxs);
         const isForbidden = pathRegExp.test(pathname);
         return !isForbidden;
