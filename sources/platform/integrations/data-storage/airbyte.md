@@ -2,7 +2,7 @@
 title: Airbyte
 sidebar_lbel: Airbyte
 description: Learn how to integrate your Apify datasets with Airbyte.
-sidebar_position: 11.15
+sidebar_position: 1
 slug: /integrations/airbyte
 ---
 

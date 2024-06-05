@@ -1,6 +1,6 @@
 ---
 title: Integrate with Apify 🤝
-sidebar_label: Create new
+sidebar_label: Create new integration
 description: Learn about how to integrate your service with Apify to benefit from a mutual integration.
 sidebar_position: 90.00
 slug: /integrations/integrate

@@ -2,7 +2,7 @@
 title: Zapier
 sidebar_label: Zapier
 description: Learn how to integrate your Apify Actors with Zapier.
-sidebar_position: 11.12
+sidebar_position: 1
 slug: /integrations/zapier
 ---
 
