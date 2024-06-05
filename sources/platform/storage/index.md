@@ -15,7 +15,7 @@ import CardGrid from "@site/src/components/CardGrid";
 
 ---
 
-The Apify platform provides three types of storage accessible both within our [Apify Console](https://console.apify.com/storage) and externally through our API ([REST API](/api/v2#/), [Apify API Clients](/api) or [SDKs](/sdk).
+The Apify platform provides three types of storage accessible both within our [Apify Console](https://console.apify.com/storage) and externally through our [REST API](/api/v2#/) [Apify API Clients](/api) or [SDKs](/sdk).
 
 <CardGrid>
     <Card

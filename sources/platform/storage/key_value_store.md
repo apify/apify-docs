@@ -1,6 +1,7 @@
 ---
 title: Key-value store
 description: Store anything from Actor or task run results, JSON documents, or images. Learn how to access and manage key-value stores from Apify Console or via API.
+toc_max_heading_level: 4
 sidebar_position: 9.3
 slug: /storage/key-value-store
 ---
@@ -28,12 +29,11 @@ Key-value stores are mutable–you can both add entries and delete them.
 
 You can access key-value stores through several methods
 
-* [Apify Console](https://console.apify.com/storage?tab=keyValueStores) - provides an easy-to-understand interface.
-* [JavaScript SDK](/sdk/js/docs/guides/result-storage#key-value-store) - when building your own JavaScript Actor.
-* [Python SDK](/sdk/python/docs/concepts/storages#working-with-key-value-stores) - when building your own Python Actor.
-* [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient) - to access your key-value stores from any Node.js application.
-* [Python API client](/api/client/python/reference/class/KeyValueStoreClient) - to access your key-value stores from any Python application.
-* [Apify API](/api/v2#/reference/key-value-stores/get-items) - for accessing your key-value stores programmatically.
+* [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
+* [Apify API](/api/v2#) - for accessing your key-value stores programmatically.
+* [Apify API clients](/api) - to access your key-value stores from any Node.js/Python application.
+* [Apify SDKs](/sdk) - when building your own JavaScript/Pyhton Actor.
+
 
 ### Apify Console
 
@@ -47,7 +47,88 @@ Click on the **API** button to view and test a store's [API endpoints](/api/v2#/
 
 ![Key-value stores detail](./images/key-value-stores-detail.png)
 
-### JavaScript SDK
+### Apify API
+
+The [Apify API](/api/v2#/reference/key-value-stores) enables you programmatic acces to your key-value stores using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+
+If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your [secret API token](../integrations/index.mdx#api-token). You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) tab of **Settings** page of your Apify account.
+
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/api.md#authentication)).
+
+To retrieve a list of your key-value stores, send a GET request to the [Get list of key-value stores](/api/v2#/reference/key-value-stores/store-collection/get-list-of-key-value-stores) endpoint.
+
+```text
+https://api.apify.com/v2/key-value-stores
+```
+
+To get information about a key-value store such as its creation time and item count, send a GET request to the [Get store](/api/v2#/reference/key-value-stores/store-object/get-store) endpoint.
+
+```text
+https://api.apify.com/v2/key-value-stores/{STORE_ID}
+```
+
+To get a record (its value) from a key-value store, send a GET request to the [Get record](/api/v2#/reference/key-value-stores/key-collection/get-record) endpoint.
+
+```text
+https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
+```
+
+To add a record with a specific key in a key-value store, send a PUT request to the [Put record](/api/v2#/reference/key-value-stores/record/put-record) endpoint.
+
+```text
+https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
+```
+
+Example payload:
+
+```json
+{
+    "foo": "bar",
+    "fos": "baz"
+}
+```
+
+To delete a record, send a DELETE request specifying the key from a key-value store to the [Delete record](/api/v2#/reference/key-value-stores/record/delete-record) endpoint.
+
+```text
+https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
+```
+
+For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2#/reference/key-value-stores).
+
+### Apify API Clients
+
+#### JavaScript API client
+
+The Apify [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient) (`apify-client`) enables you to access your key-value stores from any Node.js application, whether hosted on the Apify platform or externally.
+
+After importing and initiating the client, you can save each key-value store to a variable for easier access.
+
+```js
+const myKeyValStoreClient = apifyClient.keyValueStore('jane-doe/my-key-val-store');
+```
+
+You can then use that variable to [access the key-value store's items and manage it](/api/client/js/reference/class/KeyValueStoreClient).
+
+Check out the [JavaScript API client documentation](/api/client/js/reference/class/KeyValueStoreClient) for [help with setup](/api/client/js/docs) and more details.
+
+#### Python API client
+
+The Apify [Python API client](/api/client/python/reference/class/KeyValueStoreClient) (`apify-client`) allows you to access your key-value stores from any Python application, whether it is running on the Apify platform or externally.
+
+After importing and initiating the client, you can save each key-value store to a variable for easier access.
+
+```python
+my_key_val_store_client = apify_client.key_value_store('jane-doe/my-key-val-store')
+```
+
+You can then use that variable to [access the key-value store's items and manage it](/api/client/python/reference/class/KeyValueStoreClient).
+
+Check out the [Python API client documentation](/api/client/python/reference/class/KeyValueStoreClient) for [help with setup](/api/client/python/docs/quick-start) and more details.
+
+### Apify SDKs
+
+#### JavaScript SDK
 
 When working with a Javascript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#key-value-store) is an essential tool, especially for key-value store management. The primary class for this purpose is the [`KeyValueStore`](/sdk/js/reference/class/KeyValueStore). This class allows you to decide whether your data will be stored locally or in the Apify cloud. For data manipulation, it offers the [`getValue()`](/sdk/js/reference/class/KeyValueStore#getValue) and [`setValue()`](/sdk/js/reference/class/KeyValueStore#setValue) methods to retrieve and assign values, respectively.
 
@@ -117,7 +198,7 @@ The `Actor.getInput()` method is not only a shortcut to `Actor.getValue('INPUT')
 
 Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#key-value-store) and the `KeyValueStore` class's [API reference](/sdk/js/reference/class/KeyValueStore) for details on managing your key-value stores with the JavaScript SDK.
 
-### Python SDK
+#### Python SDK
 
 For Python [Actor](../actors/index.mdx), the [Python SDK](/sdk/python/docs/concepts/storages#working-with-key-value-stores) is essential. The key-value store is represented by a [`KeyValueStore`](/sdk/python/reference/class/KeyValueStore) class. You can use this class to specify whether your data is stored locally or in the Apify cloud. For further data manipulation it offers [`get_value()`](/sdk/python/reference/class/KeyValueStore#get_value) and [`set_value()`](/sdk/python/reference/class/KeyValueStore#set_value) methods to retrieve and assign values, respectively.
 
@@ -168,83 +249,6 @@ async def main():
 The `Actor.get_input()` method is not only a shortcut to `Actor.get_value('INPUT')`; it is also compatible with [`Actor.metamorph()`](../actors/development/programming_interface/metamorph.md). This is because a metamorphed Actor run's input is stored in the _INPUT-METAMORPH-1_ key instead of _INPUT_, which hosts the original input.
 
 Check out the [Python SDK documentation](/sdk/python/docs/concepts/storages#working-with-key-value-stores) and the `KeyValueStore` class's [API reference](/sdk/python/reference/class/KeyValueStore) for details on managing your key-value stores with the Python SDK.
-
-### JavaScript API client
-
-The Apify [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient) (`apify-client`) enables you to access your key-value stores from any Node.js application, whether hosted on the Apify platform or externally.
-
-After importing and initiating the client, you can save each key-value store to a variable for easier access.
-
-```js
-const myKeyValStoreClient = apifyClient.keyValueStore('jane-doe/my-key-val-store');
-```
-
-You can then use that variable to [access the key-value store's items and manage it](/api/client/js/reference/class/KeyValueStoreClient).
-
-Check out the [JavaScript API client documentation](/api/client/js/reference/class/KeyValueStoreClient) for [help with setup](/api/client/js/docs) and more details.
-
-### Python API client
-
-The Apify [Python API client](/api/client/python/reference/class/KeyValueStoreClient) (`apify-client`) allows you to access your key-value stores from any Python application, whether it is running on the Apify platform or externally.
-
-After importing and initiating the client, you can save each key-value store to a variable for easier access.
-
-```python
-my_key_val_store_client = apify_client.key_value_store('jane-doe/my-key-val-store')
-```
-
-You can then use that variable to [access the key-value store's items and manage it](/api/client/python/reference/class/KeyValueStoreClient).
-
-Check out the [Python API client documentation](/api/client/python/reference/class/KeyValueStoreClient) for [help with setup](/api/client/python/docs/quick-start) and more details.
-
-### Apify API
-
-The [Apify API](/api/v2#/reference/key-value-stores) enables you programmatic acces to your key-value stores using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
-
-If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your [secret API token](../integrations/index.mdx#api-token). You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) tab of **Settings** page of your Apify account.
-
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/api.md#authentication)).
-
-To retrieve a list of your key-value stores, send a GET request to the [Get list of key-value stores](/api/v2#/reference/key-value-stores/store-collection/get-list-of-key-value-stores) endpoint.
-
-```text
-https://api.apify.com/v2/key-value-stores
-```
-
-To get information about a key-value store such as its creation time and item count, send a GET request to the [Get store](/api/v2#/reference/key-value-stores/store-object/get-store) endpoint.
-
-```text
-https://api.apify.com/v2/key-value-stores/{STORE_ID}
-```
-
-To get a record (its value) from a key-value store, send a GET request to the [Get record](/api/v2#/reference/key-value-stores/key-collection/get-record) endpoint.
-
-```text
-https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
-```
-
-To add a record with a specific key in a key-value store, send a PUT request to the [Put record](/api/v2#/reference/key-value-stores/record/put-record) endpoint.
-
-```text
-https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
-```
-
-Example payload:
-
-```json
-{
-    "foo": "bar",
-    "fos": "baz"
-}
-```
-
-To delete a record, send a DELETE request specifying the key from a key-value store to the [Delete record](/api/v2#/reference/key-value-stores/record/delete-record) endpoint.
-
-```text
-https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
-```
-
-For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2#/reference/key-value-stores).
 
 ## Compression
 

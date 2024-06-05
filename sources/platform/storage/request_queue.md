@@ -1,11 +1,10 @@
 ---
 title: Request queue
 description: Queue URLs for an Actor to visit in its run. Learn how to share your queues between Actor runs. Access and manage request queues from Apify Console or via API.
+toc_max_heading_level: 4
 sidebar_position: 9.4
 slug: /storage/request-queue
 ---
-
-# Request queue {#request-queue}
 
 **Queue URLs for an Actor to visit in its run. Learn how to share your queues between Actor runs. Access and manage request queues from Apify Console or via API.**
 
@@ -22,18 +21,16 @@ The storage system for request queues accomoodates both breadth-first and depth-
 > Unnamed request queues expire after 7 days unless otherwise specified.<br/>
 > [Learn more](./index.md#named-and-unnamed-storages)
 
-## Basic usage {#basic-usage}
+## Basic usage
 
 You can access your request queues in several ways:
 
-* [Apify Console](https://console.apify.com/storage?tab=requestQueues) - provides an easy-to-understand interface.
-* [JavaScript SDK](/sdk/js/docs/guides/result-storage#request-queue) - when building your own JavaScript Actor.
-* [Python SDK](/sdk/python/docs/concepts/storages#working-with-request-queues) - when building your own Python Actor.
-* [JavaScript API client](/api/client/js/reference/class/RequestQueueClient) - to access your request queues from any Node.js application.
-* [Python API client](/api/client/python/reference/class/RequestQueueClient) - to access your request queues from any Python application.
-* [Apify API](/api/v2#/reference/request-queues) - for accessing your request queues programmatically.
+* [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
+* [Apify API](/api/v2#) - for accessing your request queues programmatically.
+* [Apify API clients](/api) - to access your request queues from any Node.js application.
+* [Apify SDK](/sdk) - when building your own JavaScript Actor.
 
-### Apify Console {#apify-console}
+### Apify Console
 
 In the [Apify Console](https://console.apify.com), you can view your request queues in the [Storage](https://console.apify.com/storage) section under the [Request queues](https://console.apify.com/storage?tab=requestQueues) tab.
 
@@ -46,7 +43,104 @@ Click on the **API** button to view and test a queue's [API endpoints](/api/v2#/
 
 ![Request queues detail](./images/request-queue-detail.png)
 
-### JavaScript SDK {#javascript-sdk}
+### Apify API
+
+The [Apify API](/api/v2#/reference/request-queues) allows you programmatic access to your request queues using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+
+If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your [secret API token](../integrations/index.mdx#api-token). You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) page of your Apify account.
+
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/api.md#authentication)).
+
+To get a list of your request queues, send a GET request to the [Get list of request queues](/api/v2#/reference/request-queues/store-collection/get-list-of-request-queues) endpoint.
+
+```text
+https://api.apify.com/v2/request-queues
+```
+
+To get information about a request queue such as its creation time and item count, send a GET request to the [Get request queue](/api/v2#/reference/request-queues/queue/get-request-queue) endpoint.
+
+```text
+https://api.apify.com/v2/request-queues/{QUEUE_ID}
+```
+
+To get a request from a queue, send a GET request to the [Get request](/api/v2#/reference/request-queues/request/get-request) endpoint.
+
+```text
+https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}
+```
+
+To add a request to a queue, send a POST request with the request to be added as a JSON object in the request's payload to the [Add request](/api/v2#/reference/request-queues/request-collection/add-request) endpoint.
+
+```text
+https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests
+```
+
+Example payload:
+
+```json
+{
+    "uniqueKey": "http://example.com",
+    "url": "http://example.com",
+    "method": "GET"
+}
+```
+
+To update a request in a queue, send a PUT request with the request to update as a JSON object in the request's payload to the [Update request](/api/v2#/reference/request-queues/request/update-request) endpoint. In the payload, specify the request's ID and add the information you want to update.
+
+```text
+https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}
+```
+
+Example payload:
+
+```json
+{
+    "id": "dnjkDMKLmdlkmlkmld",
+    "uniqueKey": "http://example.com",
+    "url": "http://example.com",
+    "method": "GET"
+}
+```
+
+> When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](#sharing). If `clientKey` is not provided, the system considers this API call to come from a new client. See the `hadMultipleClients` field returned by the [`Get head`](/api/v2#/reference/request-queues/queue-head/get-head) operation for details. <br/>
+>
+> Example: `client-abc`
+
+For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2#/reference/key-value-stores).
+
+### Apify API Clients
+
+#### JavaScript API client
+
+The Apify [JavaScript API client](/api/client/js/reference/class/RequestQueueClient) (`apify-client`) enables you to access your request queues from any Node.js application, whether it is running on the Apify platform or externally.
+
+After importing and initiating the client, you can save each request queue to a variable for easier access.
+
+```js
+const myQueueClient = apifyClient.requestQueue('jane-doe/my-request-queue');
+```
+
+You can then use that variable to [access the request queue's items and manage it](/api/client/js/reference/class/RequestQueueClient).
+
+Check out the [JavaScript API client documentation](/api/client/js/reference/class/RequestQueueClient) for [help with setup](/api/client/js/docs) and more details.
+
+#### Python API client
+
+The Apify [Python API client](/api/client/python) (`apify-client`) allows you to access your request queues from any Python application, whether it's running on the Apify platform or externally.
+
+After importing and initiating the client, you can save each request queue to a variable for easier access.
+
+```python
+my_queue_client = apify_client.request_queue('jane-doe/my-request-queue')
+```
+
+You can then use that variable to [access the request queue's items and manage it](/api/client/python/reference/class/RequestQueueClient).
+
+Check out the [Python API client documentation](/api/client/python/reference/class/RequestQueueClient) for [help with setup](/api/client/python/docs/quick-start) and more details.
+
+### Apify SDKs
+
+#### JavaScript SDK
 
 When working with a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/request-storage#request-queue) is an essential tool, especially for request queue management. The primary class for this purpose is the [`RequestQueue`](/sdk/js/reference/class/RequestQueue) class. Use this class to decide whether your data is stored locally or in the Apify cloud.
 
@@ -120,7 +214,7 @@ await Actor.exit();
 
 Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/request-storage#request-queue) and the `RequestQueue` class's [API reference](/sdk/js/reference/class/RequestQueue) for details on managing your request queues with the JavaScript SDK.
 
-### Python SDK {#python-sdk}
+#### Python SDK
 
 For Python [Actor](../actors/index.mdx) development, the [Python SDK](/sdk/python/docs/concepts/storages#working-with-request-queues) the in essential. The request queue is represented by [`RequestQueue`](/sdk/python/reference/class/RequestQueue) class. Utilize this class to determine whether your data is stored locally or in in the Apify cloud. For managing your data, it provides the capability to [enqueue new URLs](/sdk/python/reference/class/RequestQueue#add_requests), facilitating seamless integration and operation within your Actor.
 
@@ -181,100 +275,7 @@ async def main():
 
 Check out the [Python SDK documentation](/sdk/python/docs/concepts/storages#working-with-request-queues) and the `RequestQueue` class's [API reference](/sdk/python/reference/class/RequestQueue) for details on managing your request queues with the Python SDK.
 
-### JavaScript API client {#javascript-api-client}
-
-The Apify [JavaScript API client](/api/client/js/reference/class/RequestQueueClient) (`apify-client`) enables you to access your request queues from any Node.js application, whether it is running on the Apify platform or externally.
-
-After importing and initiating the client, you can save each request queue to a variable for easier access.
-
-```js
-const myQueueClient = apifyClient.requestQueue('jane-doe/my-request-queue');
-```
-
-You can then use that variable to [access the request queue's items and manage it](/api/client/js/reference/class/RequestQueueClient).
-
-Check out the [JavaScript API client documentation](/api/client/js/reference/class/RequestQueueClient) for [help with setup](/api/client/js/docs) and more details.
-
-### Python API client {#python-api-client}
-
-The Apify [Python API client](/api/client/python) (`apify-client`) allows you to access your request queues from any Python application, whether it is running on the Apify platform or externally.
-
-After importing and initiating the client, you can save each request queue to a variable for easier access.
-
-```python
-my_queue_client = apify_client.request_queue('jane-doe/my-request-queue')
-```
-
-You can then use that variable to [access the request queue's items and manage it](/api/client/python/reference/class/RequestQueueClient).
-
-Check out the [Python API client documentation](/api/client/python/reference/class/RequestQueueClient) for [help with setup](/api/client/python/docs/quick-start) and more details.
-
-### Apify API {#apify-api}
-
-The [Apify API](/api/v2#/reference/request-queues) allows you programmatic access to your request queues using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
-
-If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your [secret API token](../integrations/index.mdx#api-token). You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) page of your Apify account.
-
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/api.md#authentication)).
-
-To get a list of your request queues, send a GET request to the [Get list of request queues](/api/v2#/reference/request-queues/store-collection/get-list-of-request-queues) endpoint.
-
-```text
-https://api.apify.com/v2/request-queues
-```
-
-To get information about a request queue such as its creation time and item count, send a GET request to the [Get request queue](/api/v2#/reference/request-queues/queue/get-request-queue) endpoint.
-
-```text
-https://api.apify.com/v2/request-queues/{QUEUE_ID}
-```
-
-To get a request from a queue, send a GET request to the [Get request](/api/v2#/reference/request-queues/request/get-request) endpoint.
-
-```text
-https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}
-```
-
-To add a request to a queue, send a POST request with the request to be added as a JSON object in the request's payload to the [Add request](/api/v2#/reference/request-queues/request-collection/add-request) endpoint.
-
-```text
-https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests
-```
-
-Example payload:
-
-```json
-{
-    "uniqueKey": "http://example.com",
-    "url": "http://example.com",
-    "method": "GET"
-}
-```
-
-To update a request in a queue, send a PUT request with the request to update as a JSON object in the request's payload to the [Update request](/api/v2#/reference/request-queues/request/update-request) endpoint. In the payload, specify the request's ID and add the information you want to update.
-
-```text
-https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}
-```
-
-Example payload:
-
-```json
-{
-    "id": "dnjkDMKLmdlkmlkmld",
-    "uniqueKey": "http://example.com",
-    "url": "http://example.com",
-    "method": "GET"
-}
-```
-
-> When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](#sharing). If `clientKey` is not provided, the system considers this API call to come from a new client. See the `hadMultipleClients` field returned by the [`Get head`](/api/v2#/reference/request-queues/queue-head/get-head) operation for details. <br/>
->
-> Example: `client-abc`
-
-For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2#/reference/key-value-stores).
-
-## Features {#features}
+## Features
 
 Request queue is a storage type built with scraping in mind, enabling developers to write scraping logic efficiently and scalably.
 The Apify tooling, including [Crawlee](https://crawlee.dev/), [Apify SDK for JavaScript](https://docs.apify.com/sdk/js/), and [Apify SDK for Python](https://docs.apify.com/sdk/python/), incorporates all these features, enabling users to leverage them effortlessly without extra configuration.
@@ -336,7 +337,7 @@ await crawler.run(startUrls);
 await Actor.exit();
 ```
 
-### Batch operations {#batch-operations}
+### Batch operations
 
 Request queues support batch operations on requests to enqueue or retrieve multiple requests in bulk, to cut down on network latency and enable easier parallel processing of requests.
 You can find the batch operations in the [Apify API](https://docs.apify.com/api/v2#/reference/request-queues/batch-request-operations), as well in the Apify API client for [JavaScript](https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#batchAddRequests) and [Python](https://docs.apify.com/api/client/python/reference/class/RequestQueueClient#batch_add_requests).
@@ -392,7 +393,7 @@ request_queue_client.batch_delete_requests([
 </TabItem>
 </Tabs>
 
-### Distributivity {#distributivity}
+### Distributivity
 
 Request queue includes a locking mechanism to avoid concurrent processing of one request by multiple clients (for example Actor runs).
 You can lock a request so that no other clients receive it when they fetch the queue head, with an expiration period on the lock so that requests which fail processing are eventually unlocked and retried.
@@ -462,7 +463,7 @@ await Actor.exit();
 
 A detailed tutorial on how to process one request queue with multiple Actor runs can be found in [Academy tutorials](https://docs.apify.com/academy/node-js/multiple-runs-scrape).
 
-## Sharing {#sharing}
+## Sharing
 
 You can grant [access rights](../collaboration/index.md) to your request queue through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](../collaboration/list_of_permissions.md).
 
@@ -524,7 +525,7 @@ The same applies for the [Apify API](#apify-api) - you can use [the same endpoin
 
 Check out the [Storage overview](/platform/storage#sharing-storages-between-runs) for details on sharing storages between runs.
 
-## Limits {#limits}
+## Limits
 
 * The maximum length for request queue name is 63 characters.
 

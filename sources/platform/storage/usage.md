@@ -34,9 +34,9 @@ The [key-value store](./key_value_store.md) is ideal for saving data records suc
 There are several ways to access your storage:
 
 * [Apify Console](https://console.apify.com/storage) - provides an easy-to-use interface.
-* [Apify SDK](/sdk) - when building your own JavaScript/Python Actor.
-* [API clients](/api) - to access your storages from any Node.js/Python application.
 * [Apify API](/api/v2#/reference/key-value-stores) - to access your storages programmatically.
+* [API clients](/api) - to access your storages from any Node.js/Python application.
+* [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
 
 ### Apify Console {#apify-console}
 
@@ -57,19 +57,6 @@ These URLs link to API _endpoints_—the places where your data is stored. Endpo
 > Never share a URL containing your authentication token, to avoid compromising your account's security. <br/>
 > If the data you want to share requires a token, first download the data, then share it as a file.
 
-### Apify SDKs
-
-The Apify SDKs are libraries in JavaScript or Python that proviede tools for building your own Actors.</br>
-
-* JavaScript SDK requires [Node.js](https://nodejs.org/en/) 16 or later.
-* Python SDK requires [Python](https://www.python.org/downloads/release/python-380/) 3.8 or above.
-
-### Apify API Clients
-
-The Apify API Clients allow you to access your datasets from any Node.js or Python application, whether it's running on the Apify platform or externally.
-
-You can visit [API Clients](/api) documentations for more information.
-
 ### Apify API {#apify-api}
 
 The [Apify API](/api/v2#/reference/key-value-stores) allows you to access your storages programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
@@ -85,6 +72,19 @@ For read (GET) requests, it is enough to use a store's alphanumerical ID, since 
 With other request types and when using the `username~store-name`, however, you will need to provide your secret API token in your request's [`Authorization`](/api/v2#/introduction/authentication) header or as a query parameter. You can find your token on the [Integrations](https://console.apify.com/account?tab=integrations) page of your Apify account.
 
 For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2#/reference/datasets).
+
+### Apify API Clients
+
+The Apify API Clients allow you to access your datasets from any Node.js or Python application, whether it's running on the Apify platform or externally.
+
+You can visit [API Clients](/api) documentations for more information.
+
+### Apify SDKs
+
+The Apify SDKs are libraries in JavaScript or Python that proviede tools for building your own Actors.<br />
+
+* JavaScript SDK requires [Node.js](https://nodejs.org/en/) 16 or later.
+* Python SDK requires [Python](https://www.python.org/downloads/release/python-380/) 3.8 or above.
 
 ## Rate limiting {#rate-limiting}
 

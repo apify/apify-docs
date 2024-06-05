@@ -41,7 +41,7 @@ Unless instructed to save its output or state to a [storage](../../../storage/in
 
 ## [](#how-to-persist-state)How to persist state
 
-The [Apify SDKs](/sdk)  persists its state automatically, using the `migrating` and `persistState` [events](/sdk/js/api/apify/class/PlatformEventManager). `persistState` notifies SDK components to persist their state at regular intervals in case a migration happens. The `migrating` event is emitted just before a migration.
+The [Apify SDKs](/sdk)  persists its state automatically, using the `migrating` and `persistState` in [JavaScript](/sdk/js/api/apify/class/PlatformEventManager) & [Python](/sdk/python/docs/concepts/actor-events#event-types). `persistState` notifies SDK components to persist their state at regular intervals in case a migration happens. The `migrating` event is emitted just before a migration.
 
 ### [](#code-examples)Code examples
 
