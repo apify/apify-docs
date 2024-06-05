@@ -1,6 +1,7 @@
 ---
-title: Pinecone
+title: Pinecone integration
 description: Learn how to integrate Apify with Pinecone to feed data crawled from the web into the Pinecone vector database.
+sidebar_label: Pinecone
 sidebar_position: 4
 slug: /integrations/pinecone
 toc_min_heading_level: 2

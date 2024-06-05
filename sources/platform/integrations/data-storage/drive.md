@@ -1,7 +1,7 @@
 ---
-title: Google Drive
-sidebar_label: Google Drive
+title: Google Drive integration
 description: Learn how to integrate Apify with Google Drive
+sidebar_label: Google Drive
 sidebar_position: 3
 slug: /integrations/drive
 ---

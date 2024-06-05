@@ -1,7 +1,7 @@
 ---
-title: Make
-sidebar_label: Make
+title: Make integration
 description: Learn how to integrate your Apify Actors with Make.
+sidebar_label: Make
 sidebar_position: 2
 slug: /integrations/make
 ---

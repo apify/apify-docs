@@ -1,7 +1,7 @@
 ---
-title: Keboola
-sidebar_lbel: Keboola
+title: Keboola integration
 description: Learn how to integrate your Apify datasets with Airbyte.
+sidebar_label: Keboola
 sidebar_position: 2
 slug: /integrations/keboola
 ---

@@ -1,8 +1,8 @@
 ---
-title: GitHub
-sidebar_label: GitHub
+title: GitHub integration
 description: Learn how to integrate your Apify Actors with GitHub. This article shows you how to automatically create an issue in your repo when an Actor run fails.
-sidebar_position: 11.11
+sidebar_label: GitHub
+sidebar_position: 3
 slug: /integrations/github
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: Gmail
-sidebar_label: Gmail
+title: Gmail integration
 description: Learn how to integrate Apify with Gmail
+sidebar_label: Gmail
 sidebar_position: 5
 slug: /integrations/gmail
 ---

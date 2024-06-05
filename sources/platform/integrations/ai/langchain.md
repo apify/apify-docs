@@ -1,5 +1,5 @@
 ---
-title: 🦜🔗 LangChain
+title: 🦜🔗 LangChain integration
 sidebar_label: LangChain
 description: Learn how to integrate Apify with 🦜🔗 LangChain, in order to feed vector databases and LLMs with data crawled from the web.
 sidebar_position: 1
