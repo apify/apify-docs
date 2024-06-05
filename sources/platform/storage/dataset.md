@@ -218,7 +218,7 @@ The [Apify API](/api/v2#/reference/datasets) enables you progammatic access to y
 
 If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your [secret API token](../integrations/index.mdx#api-token). You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations)tab of **Settings** page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/api.md#authentication)).
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
 
 To retrieve a list of you datasets, send a GET request to the [Get list of datasets](/api/v2#/reference/datasets/get-list-of-datasets) endpoint.
 
