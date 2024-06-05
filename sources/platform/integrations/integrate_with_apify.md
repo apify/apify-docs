@@ -1,6 +1,6 @@
 ---
 title: Integrate with Apify 🤝
-sidebar_label: Integrate with Apify
+sidebar_label: Create new
 description: Learn about how to integrate your service with Apify to benefit from a mutual integration.
 sidebar_position: 90.00
 slug: /integrations/integrate
@@ -8,9 +8,9 @@ slug: /integrations/integrate
 
 If you are building a service and your users could benefit from integrating with Apify or vice versa, we would love to hear from you! Contact us at [partners@apify.com](mailto:partners@apify.com) to discuss potential collaboration. We are always looking for ways to make our platform more useful and powerful for our users. Here are some examples of services and tools integrating with Apify:
 
-- [Langchain](./langchain.md) integration enables developers to build their projects, such as AI chatbots, with Langchain to feed them with data from the web easily.
-- [Zapier](./zapier.md) integration allows Zapier users to enrich their automation workflows with data from the web or to add additional Actions performed by [Apify Actors](https://apify.com/store).
-- [Keboola](./keboola.md) integration enables Keboola users to easily pull data crawled from the web into their data pipelines.
+- [Langchain](./ai/langchain.md) integration enables developers to build their projects, such as AI chatbots, with Langchain to feed them with data from the web easily.
+- [Zapier](./workflows-and-notifications/zapier.md) integration allows Zapier users to enrich their automation workflows with data from the web or to add additional Actions performed by [Apify Actors](https://apify.com/store).
+- [Keboola](integrations/keboola) integration enables Keboola users to easily pull data crawled from the web into their data pipelines.
 
 and many more that you can see at [integrations](./index.mdx).
 
@@ -19,7 +19,7 @@ and many more that you can see at [integrations](./index.mdx).
 To integrate your service with Apify, you have two options. You can either:
 
 - build an [Apify actor](https://apify.com/docs/actor) that will be used as integration within the [Apify Console](https://console.apify.com)
-- build an external integration, such as [Zapier](./zapier.md).
+- build an external integration, such as [Zapier](./workflows-and-notifications/zapier.md).
 
 ![Integration-ready Actors](./images/integration-ready-actors.png)
 

@@ -1,7 +1,7 @@
 ---
 title: API
 description: Learn how to integrate with Apify via API.
-sidebar_position: 11.01
+sidebar_position: 1
 slug: /integrations/api
 ---
 

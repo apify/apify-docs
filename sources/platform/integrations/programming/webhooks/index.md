@@ -15,12 +15,12 @@ Webhooks allow you to configure the Apify platform to perform an action when a c
 
 You can find webhooks under the **Integrations** tab on an Actor's page in [Apify Console](https://console.apify.com/actors).
 
-![Integrations tab in Apify Console](../images/integrations-tab.png)
+![Integrations tab in Apify Console](../../images/integrations-tab.png)
 
 To define a webhook, select a system **event** that triggers the webhook. Then, provide the **action** to execute after the event. When the event occurs, the system executes the action.
 
 > Currently, the only available action is to send a POST HTTP request to a URL specified in the webhook.
 
-* [**Events**](./events.md)
-* [**Actions**](./actions.md)
-* [**Ad-hoc webhooks**](./ad_hoc_webhooks.md)
+* [**Events**](/integrations/webhooks/events)
+* [**Actions**](/integrations/webhooks/actions)
+* [**Ad-hoc webhooks**](/integrations/webhooks/ad-hoc-webhooks)

@@ -43,15 +43,15 @@ The first step is to create a new flow in the web UI.
 
 In the left menu, you need to find Apify Website Content Crawler under Document Loaders.
 
-![Flowise add Apify Crawler](./images/flowise-apify.png)
+![Flowise add Apify Crawler](../images/flowise-apify.png)
 
 Now you need to configure the crawler. You can find more information about the crawler [here](https://apify.com/apify/website-content-crawler).
 
-![Flowise and Apify](images/flowise.png)
+![Flowise and Apify](../images/flowise.png)
 
 In the configuration, provide your Apify API token, which you can find in your [Apify account](https://my.apify.com/account#/integrations).
 
-![Apify API token screen](./images/flowise-apify-api.png)
+![Apify API token screen].(./images/flowise-apify-api.png)
 
 You can add more loaders, or you can add some processors to process the data.
 In our case, we create the flow that loads data from the Apify docs using Website Content Crawler and save them into the in-memory vector database.
@@ -59,7 +59,7 @@ Connect the ChatOpenAI and the OpenAI embeddings and QA retrieval into the chatb
 
 The final flow can answer questions about Apify docs.
 
-![Flowise and Apify](images/flowise-2.png)
+![Flowise and Apify](../images/flowise-2.png)
 
 For more information visit the Flowise [documentation](https://flowiseai.com/).
 

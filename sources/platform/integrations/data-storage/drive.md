@@ -26,19 +26,19 @@ To use the Apify integration for Google Drive, you will need:
 
 1. Head over to **Integrations** tab in your saved task and click on the Google Drive integration.
 
-    ![Google Drive integration](./images/gdrive/google-maps-task-integrations.png)
+    ![Google Drive integration](../images/gdrive/google-maps-task-integrations.png)
 
 1. Click on **Sign in with Google** button and select the account with which you want to use the integration.
 
-    ![Google Drive integration signup](./images/gdrive/google-maps-task-integration-setup.png)
+    ![Google Drive integration signup](../images/gdrive/google-maps-task-integration-setup.png)
 
 1. Select the desired format of the dataset file.
 
-    ![Google Drive integration format](./images/gdrive/google-maps-task-integration-format.png)
+    ![Google Drive integration format](../images/gdrive/google-maps-task-integration-format.png)
 
 1. Click on **Save** & enable the integration.
 
-    ![Google Drive integration save](./images/gdrive/google-maps-task-integration-save.png)
+    ![Google Drive integration save](../images/gdrive/google-maps-task-integration-save.png)
 
 Once this is done, run your Actor to test whether the integration is working.
 
