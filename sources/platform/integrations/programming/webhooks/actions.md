@@ -132,8 +132,8 @@ Description is an optional string that you can add to the webhook. It serves for
 |-------------|--------|-------------------------------------------------------------------------------------|
 | `userId`    | string | ID of the user who owns the webhook.                                                |
 | `createdAt` | string | ISO string date of the webhook's trigger event.                                     |
-| `eventType` | string | Type of the trigger event, [see Events](/integrations/webhooks/events).              |
-| `eventData` | Object | Data associated with the trigger event, [see Events](/integrations/webhooks/events). |
+| `eventType` | string | Type of the trigger event, [see Events](/platform/integrations/webhooks/events).              |
+| `eventData` | Object | Data associated with the trigger event, [see Events](/platform/integrations/webhooks/events). |
 | `resource`  | Object | The resource that caused the trigger event, [see below](#resource).                 |
 
 #### Resource

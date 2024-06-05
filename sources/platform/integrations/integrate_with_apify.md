@@ -10,7 +10,7 @@ If you are building a service and your users could benefit from integrating with
 
 - [Langchain](./ai/langchain.md) integration enables developers to build their projects, such as AI chatbots, with Langchain to feed them with data from the web easily.
 - [Zapier](./workflows-and-notifications/zapier.md) integration allows Zapier users to enrich their automation workflows with data from the web or to add additional Actions performed by [Apify Actors](https://apify.com/store).
-- [Keboola](integrations/keboola) integration enables Keboola users to easily pull data crawled from the web into their data pipelines.
+- [Keboola](/platform/integrations/keboola) integration enables Keboola users to easily pull data crawled from the web into their data pipelines.
 
 and many more that you can see at [integrations](./index.mdx).
 

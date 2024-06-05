@@ -21,6 +21,6 @@ To define a webhook, select a system **event** that triggers the webhook. Then, 
 
 > Currently, the only available action is to send a POST HTTP request to a URL specified in the webhook.
 
-* [**Events**](/integrations/webhooks/events)
-* [**Actions**](/integrations/webhooks/actions)
-* [**Ad-hoc webhooks**](/integrations/webhooks/ad-hoc-webhooks)
+* [**Events**](/platform/integrations/webhooks/events)
+* [**Actions**](/platform/integrations/webhooks/actions)
+* [**Ad-hoc webhooks**](/platform/integrations/webhooks/ad-hoc-webhooks)
