@@ -40,7 +40,7 @@ For example, your **proxy URL** when using the [got-scraping](https://www.npmjs.
 const proxyUrl = 'http://groups-RESIDENTIAL:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000';
 ```
 
-In the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)), you set the **groups** in your proxy configuration:
+In the [Apify SDK](/sdk) you set the **groups** in your proxy configuration:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -83,7 +83,7 @@ For example, your `username` parameter when using [Python 3](https://docs.python
 username = "groups-RESIDENTIAL,country-JP"
 ```
 
-In the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)), you set the country in your proxy configuration using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `countryCode`/`country_code` parameter:
+In the [Apify SDK](/sdk) you set the country in your proxy configuration using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `countryCode`/`country_code` parameter:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">

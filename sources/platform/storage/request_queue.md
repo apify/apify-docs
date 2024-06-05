@@ -470,7 +470,7 @@ You can grant [access rights](../collaboration/index.md) to your request queue t
 
 You can access a request queue from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
 
-To access a request queue from another run using the [JavaScript SDK](/sdk/js) or the [Python SDK](/sdk/python), open it using the same method like you would do with any other request queue.
+To access a request queue from another run using the [Apify SDK](/sdk), open it using the same method like you would do with any other request queue.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">

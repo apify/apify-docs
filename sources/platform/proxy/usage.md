@@ -122,7 +122,7 @@ If you want to specify one parameter and not the others, just provide that param
 
 ## Code examples
 
-We have code examples for connecting to our proxy using the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)) and [Crawlee](https://crawlee.dev/) and other libraries, as well as examples in PHP.
+We have code examples for connecting to our proxy using the [Apify SDK](/sdk) and [Crawlee](https://crawlee.dev/) and other libraries, as well as examples in PHP.
 
 * [Datacenter proxy](./datacenter_proxy.md#examples)
 * [Residential proxy](./residential_proxy.md#connecting-to-residential-proxy)

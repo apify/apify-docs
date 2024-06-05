@@ -262,7 +262,7 @@ You can grant [access rights](../collaboration/index.md) to your key-value store
 
 You can access a key-value store from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
 
-To access a key-value store from another run using the [JavaScript SDK](/sdk/js) or the [Python SDK](/sdk/python), open it using the same method as you would do with any other store.
+To access a key-value store from another run using the [Apify SDK](/sdk), open it using the same method as you would do with any other store.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
