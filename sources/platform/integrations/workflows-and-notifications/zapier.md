@@ -1,8 +1,8 @@
 ---
-title: Zapier
-sidebar_label: Zapier
+title: Zapier integration
 description: Learn how to integrate your Apify Actors with Zapier.
-sidebar_position: 11.12
+sidebar_label: Zapier
+sidebar_position: 1
 slug: /integrations/zapier
 ---
 
@@ -33,11 +33,11 @@ In the create Zap form, you can choose whether you want to use Apify as the trig
 
 Click on Trigger and find Apify using the search box.
 
-![Apify Zapier Trigger 2](./images/zapier-trigger.png)
+![Apify Zapier Trigger 2](../images/zapier-trigger.png)
 
 Then select which trigger you want to use.
 
-![Apify Zapier Trigger 2](./images/zapier-trigger-2.png)
+![Apify Zapier Trigger 2](../images/zapier-trigger-2.png)
 
 ### Step 2: Create a connection to your Apify account
 
@@ -47,11 +47,11 @@ Click on the "Sign in" button next to the Connect to Apify title. Or you can sel
 
 The connection configuration options open in a new tab in your browser or in a modal window.
 
-![Apify Zapier connection](./images/zapier-new-connection.png)
+![Apify Zapier connection](../images/zapier-new-connection.png)
 
 In connection configuration, you need to provide your Apify API Token. You can find the token in Apify Console by navigating to **Settings > Integrations**.
 
-![Integrations token](./images/apify-integrations-token.png)
+![Integrations token](../images/apify-integrations-token.png)
 
 Copy the token and paste it into the configuration form and continue with the "Yes, Continue to Apify" button.
 
@@ -69,7 +69,7 @@ In this guide we'll show you how to use Apify as an action to start an Actor run
 
 After you select Apify as an action, you need to select the action you want to use. Let's use the "Run Actor" action for this example.
 
-![Zapier Action](./images/zapier-action-1.png)
+![Zapier Action](../images/zapier-action-1.png)
 
 You need to select the connection you want to use. If you don't have any connections, you can create a new one by clicking on the "Sign in" button and follow the steps in Step 2.
 
@@ -77,7 +77,7 @@ In the next step, you need to select the Actor you want to use. You can use the 
 
 We will use the Web Scraper Actor in this example.
 
-![Zapier Action](./images/zapier-action-2.png)
+![Zapier Action](../images/zapier-action-2.png)
 
 You need to fill the input for the Actor and use the "Continue" button to advance to the next step.
 
@@ -88,7 +88,7 @@ In the next step, you can test the action and check if everything is using the "
 
 This button runs the Actor run on Apify and you can see the data in Zapier.
 
-![Zapier Action](./images/zapier-action-3.png)
+![Zapier Action](../images/zapier-action-3.png)
 
 Once you are happy with the test, you can publish the Zap. When it is turned on, it will run the Actor every time the trigger is fired.
 

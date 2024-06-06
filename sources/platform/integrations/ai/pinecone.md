@@ -1,7 +1,8 @@
 ---
-title: Pinecone
+title: Pinecone integration
 description: Learn how to integrate Apify with Pinecone to feed data crawled from the web into the Pinecone vector database.
-sidebar_position: 11.22
+sidebar_label: Pinecone
+sidebar_position: 4
 slug: /integrations/pinecone
 toc_min_heading_level: 2
 toc_max_heading_level: 4
@@ -41,11 +42,11 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
 1. Once you have the crawler ready, navigate to the integration section and add Apify’s Pinecone integration.
 
-    ![Website Content Crawler with Pinecone integration](./images/pinecone-wcc-integration.png)
+    ![Website Content Crawler with Pinecone integration](../images/pinecone-wcc-integration.png)
 
 1. Select when to trigger this integration (typically when a run succeeds) and fill in all the required fields for the Pinecone integration. You can learn more about the input parameters at the [Pinecone integration input schema](https://apify.com/jan.turon/pinecone-integration/input-schema).
 
-   ![Pinecone integration configuration](./images/pinecone-integration-setup.png)
+   ![Pinecone integration configuration](../images/pinecone-integration-setup.png)
 
 1. For a comprehensive explanation on how to combine Actors to accomplish more complex tasks, refer to the guide on [Actor-to-Actor](https://blog.apify.com/connecting-scrapers-apify-integration/) integrations.
 
