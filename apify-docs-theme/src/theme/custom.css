@@ -612,6 +612,11 @@ article .card h2 {
 .menu__caret:before,
 .menu__link--sublist:after {
     float: right;
+    
+}
+
+.menu__link--sublist-caret:after {
+    height: 2.45rem;
 }
 
 aside button[class*="collapseSidebarButton"] svg {
