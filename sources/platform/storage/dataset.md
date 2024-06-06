@@ -20,8 +20,7 @@ Dataset storage enables you to sequentially save and retrieve data. A unique dat
 Typically, datasets comprises results from web scraping, crawling, and data processing jobs. You can visualize this data in a table, where each object is forming a row and its attributes are represented as columns. You have the option to export data in various formats, including JSON, CSV, XML, Excel, HTML Table, RSS or JSONL.
 
 > Named datasets are retained indefinitely. <br/>
-> Unnamed datasets expire after 7 days unless otherwise specified. <br/>
-> [Learn more](usage.md#named-and-unnamed-storages)
+> Unnamed datasets expire after 7 days unless otherwise specified. <br/> > [Learn more](usage.md#named-and-unnamed-storages)
 
 Dataset storage is _append-only_ - data can only be added and cannot be modified or deleted once stored.
 
@@ -29,11 +28,10 @@ Dataset storage is _append-only_ - data can only be added and cannot be modified
 
 You can access your datasets in several ways:
 
-* [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
-* [Apify API](/api/v2#) - to access your datasets programmatically.
-* [Apify API client](/api) - to access your datasets from any Node.js/Python application.
-* [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
-
+- [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
+- [Apify API](/api/v2#) - to access your datasets programmatically.
+- [Apify API client](/api) - to access your datasets from any Node.js/Python application.
+- [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
 
 ### Apify Console
 
@@ -55,9 +53,9 @@ Utilize the **Actions** menu to modify the dataset's name, which also affects it
 
 The [Apify API](/api/v2#/reference/datasets) enables you progammatic access to your datasets using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your [secret API token](../integrations/index.mdx#api-token). You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations)tab of **Settings** page of your Apify account.
+If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations)tab of **Settings** page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/api.md#authentication)).
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
 
 To retrieve a list of you datasets, send a GET request to the [Get list of datasets](/api/v2#/reference/datasets/get-list-of-datasets) endpoint.
 
@@ -79,7 +77,7 @@ https://api.apify.com/v2/datasets/{DATASET_ID}/items
 
 Control the data export by appending a comma-separated list of fields to the `fields` query parameter. Likewise, you can also omit certain fields using the `omit` parameter.
 
->If you fill both `omit` and `field` parameters with the same value, then >`omit` parameter will take precedence and the field is excluded from the >results.
+> If you fill both `omit` and `field` parameters with the same value, then >`omit` parameter will take precedence and the field is excluded from the >results.
 
 In addition, you can set the format in which you retrieve the data using the `?format=` parameter. The available formats are `json`, `jsonl`, `csv`, `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
 
@@ -312,19 +310,19 @@ For example, the JavaScript object:
 
 ```json5
 {
-    name: "Rashida Jones",
+    name: 'Rashida Jones',
     address: [
         {
-            type: "home",
-            street: "21st",
-            city: "Chicago",
+            type: 'home',
+            street: '21st',
+            city: 'Chicago',
         },
         {
-            type: "office",
+            type: 'office',
             street: null,
             city: null,
-        }
-    ]
+        },
+    ],
 }
 ```
 
@@ -350,19 +348,21 @@ For example, the following JavaScript object:
 
 ```json5
 {
-    "address": [{
-        "@": {
-            "type": "home",
+    address: [
+        {
+            '@': {
+                type: 'home',
+            },
+            street: '21st',
+            city: 'Chicago',
         },
-        "street": "21st",
-        "city": "Chicago",
-    },
-    {
-        "@": {
-            "type": "office",
+        {
+            '@': {
+                type: 'office',
+            },
+            '#': 'unknown',
         },
-        "#": "unknown",
-    }]
+    ],
 }
 ```
 
@@ -444,11 +444,11 @@ See the [Storage overview](/platform/storage#sharing-storages-between-runs) for 
 
 ## Limits
 
-* Data storage formats that use tabulation (like HTML, CSV, and EXCEL) are limited to a maximum of _3000_ columns. Data exceeding this limit will not be retrieved.
+- Data storage formats that use tabulation (like HTML, CSV, and EXCEL) are limited to a maximum of _3000_ columns. Data exceeding this limit will not be retrieved.
 
-* The `pushData()`method is constrained by the receiving API's size limit. It accepts objects with JSON size under _9MB_. While individual objects within an array must not exceed _9MB_, the overall size has no restriction.
+- The `pushData()`method is constrained by the receiving API's size limit. It accepts objects with JSON size under _9MB_. While individual objects within an array must not exceed _9MB_, the overall size has no restriction.
 
-* The maximum length for dataset names is 63 characters.
+- The maximum length for dataset names is 63 characters.
 
 ### Rate limiting {#rate-limiting}
 

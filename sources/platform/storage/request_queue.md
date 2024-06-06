@@ -13,22 +13,21 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Request queues enable you to enqueue and retrieve requests such as URLs with an [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and other parameters. They prove essential not only in web crawling scenarios but also in any situation requiring the management of a large number of  URLs and the addition of new links.
+Request queues enable you to enqueue and retrieve requests such as URLs with an [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and other parameters. They prove essential not only in web crawling scenarios but also in any situation requiring the management of a large number of URLs and the addition of new links.
 
 The storage system for request queues accomoodates both breadth-first and depth-first crawling stategies, along with the inclusion of custom data attributes. This system enables you to check if certain URLs have already been encountered, add new URLs to the queue, and retrieve the next set of URLs fo processing.
 
 > Named request queues are retained indefinitely. <br/>
-> Unnamed request queues expire after 7 days unless otherwise specified.<br/>
-> [Learn more](./index.md#named-and-unnamed-storages)
+> Unnamed request queues expire after 7 days unless otherwise specified.<br/> > [Learn more](./index.md#named-and-unnamed-storages)
 
 ## Basic usage
 
 You can access your request queues in several ways:
 
-* [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
-* [Apify API](/api/v2#) - for accessing your request queues programmatically.
-* [Apify API clients](/api) - to access your request queues from any Node.js application.
-* [Apify SDK](/sdk) - when building your own JavaScript Actor.
+- [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
+- [Apify API](/api/v2#) - for accessing your request queues programmatically.
+- [Apify API clients](/api) - to access your request queues from any Node.js application.
+- [Apify SDK](/sdk) - when building your own JavaScript Actor.
 
 ### Apify Console
 
@@ -47,9 +46,9 @@ Click on the **API** button to view and test a queue's [API endpoints](/api/v2#/
 
 The [Apify API](/api/v2#/reference/request-queues) allows you programmatic access to your request queues using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your [secret API token](../integrations/index.mdx#api-token). You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) page of your Apify account.
+If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/api.md#authentication)).
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
 
 To get a list of your request queues, send a GET request to the [Get list of request queues](/api/v2#/reference/request-queues/store-collection/get-list-of-request-queues) endpoint.
 
@@ -189,10 +188,9 @@ const queue = await Actor.openRequestQueue();
 
 // Enqueue requests
 await queue.addRequests([{ url: 'http://example.com/aaa' }]);
-await queue.addRequests([
-    'http://example.com/foo',
-    'http://example.com/bar',
-], { forefront: true });
+await queue.addRequests(['http://example.com/foo', 'http://example.com/bar'], {
+    forefront: true,
+});
 
 // Get the next request from queue
 const request1 = await queue.fetchNextRequest();
@@ -308,7 +306,7 @@ await Actor.init();
 const {
     startUrls = ['https://docs.apify.com/'],
     persistRequestQueueName = 'persist-request-queue',
-} = await Actor.getInput<Input>() ?? {} as Input;
+} = (await Actor.getInput<Input>()) ?? ({} as Input);
 
 // Open or create request queue for incremental scrape.
 // By opening same request queue, the crawler will continue where it left off and skips already visited URLs.
@@ -356,8 +354,16 @@ const requestQueueClient = client.requestQueue('my-queue-id');
 
 // Add multiple requests to the queue
 await requestQueueClient.batchAddRequests([
-    { url: 'http://example.com/foo', uniqueKey: 'http://example.com/foo', method: 'GET' },
-    { url: 'http://example.com/bar', uniqueKey: 'http://example.com/bar', method: 'GET' },
+    {
+        url: 'http://example.com/foo',
+        uniqueKey: 'http://example.com/foo',
+        method: 'GET',
+    },
+    {
+        url: 'http://example.com/bar',
+        uniqueKey: 'http://example.com/bar',
+        method: 'GET',
+    },
 ]);
 
 // Remove multiple requests from the queue
@@ -416,44 +422,78 @@ const client = new ApifyClient({
 const requestQueue = await client.requestQueues().getOrCreate('example-queue');
 
 // Creates two clients with different keys for the same request queue.
-const requestQueueClientOne = client.requestQueue(requestQueue.id, { clientKey: 'requestqueueone' });
-const requestQueueClientTwo = client.requestQueue(requestQueue.id, { clientKey: 'requestqueuetwo' });
+const requestQueueClientOne = client.requestQueue(requestQueue.id, {
+    clientKey: 'requestqueueone',
+});
+const requestQueueClientTwo = client.requestQueue(requestQueue.id, {
+    clientKey: 'requestqueuetwo',
+});
 
 // Adds multiple requests to the queue.
 await requestQueueClientOne.batchAddRequests([
-    { url: 'http://example.com/foo', uniqueKey: 'http://example.com/foo', method: 'GET' },
-    { url: 'http://example.com/bar', uniqueKey: 'http://example.com/bar', method: 'GET' },
-    { url: 'http://example.com/baz', uniqueKey: 'http://example.com/baz', method: 'GET' },
-    { url: 'http://example.com/qux', uniqueKey: 'http://example.com/qux', method: 'GET' },
+    {
+        url: 'http://example.com/foo',
+        uniqueKey: 'http://example.com/foo',
+        method: 'GET',
+    },
+    {
+        url: 'http://example.com/bar',
+        uniqueKey: 'http://example.com/bar',
+        method: 'GET',
+    },
+    {
+        url: 'http://example.com/baz',
+        uniqueKey: 'http://example.com/baz',
+        method: 'GET',
+    },
+    {
+        url: 'http://example.com/qux',
+        uniqueKey: 'http://example.com/qux',
+        method: 'GET',
+    },
 ]);
 
 // Locks the first two requests at the head of the queue.
-const processingRequestsClientOne = await requestQueueClientOne.listAndLockHead({
-    limit: 2,
-    lockSecs: 60,
-});
+const processingRequestsClientOne = await requestQueueClientOne.listAndLockHead(
+    {
+        limit: 2,
+        lockSecs: 60,
+    },
+);
 
 // Other clients cannot list and lock these requests; the listAndLockHead call returns other requests from the queue.
-const processingRequestsClientTwo = await requestQueueClientTwo.listAndLockHead({
-    limit: 2,
-    lockSecs: 60,
-});
+const processingRequestsClientTwo = await requestQueueClientTwo.listAndLockHead(
+    {
+        limit: 2,
+        lockSecs: 60,
+    },
+);
 
 // Checks when the lock will expire. The locked request will have a lockExpiresAt attribute.
 const theFirstRequestLockedByClientOne = processingRequestsClientOne.items[0];
-const requestLockedByClientOne = await requestQueueClientOne.getRequest(theFirstRequestLockedByClientOne.id);
+const requestLockedByClientOne = await requestQueueClientOne.getRequest(
+    theFirstRequestLockedByClientOne.id,
+);
 console.log(`Request locked until ${requestLockedByClientOne?.lockExpiresAt}`);
 
 // Other clients cannot modify the lock; attempting to do so will throw an error.
 try {
-    await requestQueueClientTwo.prolongRequestLock(theFirstRequestLockedByClientOne.id, { lockSecs: 60 });
+    await requestQueueClientTwo.prolongRequestLock(
+        theFirstRequestLockedByClientOne.id,
+        { lockSecs: 60 },
+    );
 } catch (err) {
     // This will throw an error.
 }
 
 // Prolongs the lock of the first request or unlocks it.
-await requestQueueClientOne.prolongRequestLock(theFirstRequestLockedByClientOne.id, { lockSecs: 60 });
-await requestQueueClientOne.deleteRequestLock(theFirstRequestLockedByClientOne.id);
+await requestQueueClientOne.prolongRequestLock(
+    theFirstRequestLockedByClientOne.id,
+    { lockSecs: 60 },
+);
+await requestQueueClientOne.deleteRequestLock(
+    theFirstRequestLockedByClientOne.id,
+);
 
 // Cleans up the queue.
 await requestQueueClientOne.delete();
@@ -527,7 +567,7 @@ Check out the [Storage overview](/platform/storage#sharing-storages-between-runs
 
 ## Limits
 
-* The maximum length for request queue name is 63 characters.
+- The maximum length for request queue name is 63 characters.
 
 ### Rate limiting {#rate-limiting}
 

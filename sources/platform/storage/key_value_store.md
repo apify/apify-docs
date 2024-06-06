@@ -22,18 +22,16 @@ Each Actor run is assigned its own key-value store when it is created. The store
 Key-value stores are mutable–you can both add entries and delete them.
 
 > Named key-value stores are retained indefinitely. <br/>
-> Unnamed key-value stores expire after 7 days unless otherwise specified.<br/>
-> [Learn more](./index.md#named-and-unnamed-storages)
+> Unnamed key-value stores expire after 7 days unless otherwise specified.<br/> > [Learn more](./index.md#named-and-unnamed-storages)
 
 ## Basic usage
 
 You can access key-value stores through several methods
 
-* [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
-* [Apify API](/api/v2#) - for accessing your key-value stores programmatically.
-* [Apify API clients](/api) - to access your key-value stores from any Node.js/Python application.
-* [Apify SDKs](/sdk) - when building your own JavaScript/Pyhton Actor.
-
+- [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
+- [Apify API](/api/v2#) - for accessing your key-value stores programmatically.
+- [Apify API clients](/api) - to access your key-value stores from any Node.js/Python application.
+- [Apify SDKs](/sdk) - when building your own JavaScript/Pyhton Actor.
 
 ### Apify Console
 
@@ -51,9 +49,9 @@ Click on the **API** button to view and test a store's [API endpoints](/api/v2#/
 
 The [Apify API](/api/v2#/reference/key-value-stores) enables you programmatic acces to your key-value stores using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your [secret API token](../integrations/index.mdx#api-token). You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) tab of **Settings** page of your Apify account.
+If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) tab of **Settings** page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/api.md#authentication)).
+> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
 
 To retrieve a list of your key-value stores, send a GET request to the [Get list of key-value stores](/api/v2#/reference/key-value-stores/store-collection/get-list-of-key-value-stores) endpoint.
 
@@ -105,7 +103,9 @@ The Apify [JavaScript API client](/api/client/js/reference/class/KeyValueStoreCl
 After importing and initiating the client, you can save each key-value store to a variable for easier access.
 
 ```js
-const myKeyValStoreClient = apifyClient.keyValueStore('jane-doe/my-key-val-store');
+const myKeyValStoreClient = apifyClient.keyValueStore(
+    'jane-doe/my-key-val-store',
+);
 ```
 
 You can then use that variable to [access the key-value store's items and manage it](/api/client/js/reference/class/KeyValueStoreClient).
@@ -184,11 +184,7 @@ const input = await Actor.getInput();
 const value = await Actor.getValue('my-key');
 
 // ...
-await Actor.setValue(
-    'OUTPUT',
-    imageBuffer,
-    { contentType: 'image/jpeg' },
-);
+await Actor.setValue('OUTPUT', imageBuffer, { contentType: 'image/jpeg' });
 
 // ...
 await Actor.exit();
@@ -326,4 +322,4 @@ Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. Accordi
 
 ## Limits
 
-* The maximum length for key of key-value store is 63 characters.
+- The maximum length for key of key-value store is 63 characters.
