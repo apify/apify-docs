@@ -34,7 +34,7 @@ To specify a Git branch or tag to check out, add a URL fragment to the URL. For 
 
 Optionally, the second part of the fragment in the Git URL (separated by a colon) specifies the directory from which the Actor will be built (and where the `.actor`) folder is located. For example, `https://github.com/jancurn/some-actor.git#develop:some/dir` will check out the **develop** branch and set **some/dir** as the root directory of the Actor.
 
-Note that you can easily set up an integration where the Actor is automatically rebuilt on every commit to the Git repository. For more details, see [GitHub integration](../../../integrations/github.md).
+Note that you can easily set up an integration where the Actor is automatically rebuilt on every commit to the Git repository. For more details, see [GitHub integration](../../../integrations/programming/github.md).
 
 ### [](#private-repositories)Private repositories
 
