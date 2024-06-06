@@ -1,8 +1,8 @@
 ---
-title: Make
-sidebar_label: Make
+title: Make integration
 description: Learn how to integrate your Apify Actors with Make.
-sidebar_position: 11.15
+sidebar_label: Make
+sidebar_position: 2
 slug: /integrations/make
 ---
 
@@ -25,17 +25,17 @@ Add the Apify module to your scenario. You can find this module by searching for
 
 Next, select one of the available options under Triggers, Actions and Searches, then click on the Apify module to open its configuration window.
 
-![Apify module](./images/apify-module.png)
+![Apify module](../images/apify-module.png)
 
 ## Step 2: Create a connection to your Apify account
 
 In the Connection configuration window, you will need to provide your Apify API token.
 
-![API token](./images/apify-token.png)
+![API token](../images/apify-token.png)
 
 You can find the token in the Apify Console by navigating to **Settings > Integrations**.
 
-![Integrations token](./images/apify-integrations-token.png)
+![Integrations token](../images/apify-integrations-token.png)
 
 Finally, copy your API token to the Make module and save it to create a connection.
 
@@ -47,7 +47,7 @@ Congratulations! You have successfully connected the Apify app and can now use i
 
 > Triggers when a selected Actor run is finished.
 
-<img src={require("./images/apify-make-trigger.png").default} width="50%" />
+<img src={require("../images/apify-make-trigger.png").default} width="50%" />
 
 | Input        | Description                                                            |
 | :----------- | :--------------------------------------------------------------------- |
@@ -71,7 +71,7 @@ Congratulations! You have successfully connected the Apify app and can now use i
 
 > Runs a selected Actor task.
 
-<img src={require("./images/apify-make-run-task.png").default} width="50%" />
+<img src={require("../images/apify-make-run-task.png").default} width="50%" />
 
 | Input                | Description                                                                                                                                              |
 | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -83,7 +83,7 @@ Congratulations! You have successfully connected the Apify app and can now use i
 
 > Runs a selected Actor.
 
-<img src={require("./images/apify-make-run-actor.png").default} width="50%" />
+<img src={require("../images/apify-make-run-actor.png").default} width="50%" />
 
 
 | Input                | Description                                                                                                                                                                                     |
@@ -101,7 +101,7 @@ Congratulations! You have successfully connected the Apify app and can now use i
 
 > Retrieves items from a [dataset](/platform/storage/dataset).
 
-<img src={require("./images/apify-make-dataset.png").default} width="50%" />
+<img src={require("../images/apify-make-dataset.png").default} width="50%" />
 
 
 | Input               | Description                                                                                                                                                                                                                   |

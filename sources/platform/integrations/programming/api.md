@@ -1,7 +1,8 @@
 ---
-title: API
+title: API integration
 description: Learn how to integrate with Apify via API.
-sidebar_position: 11.01
+sidebar_label: API
+sidebar_position: 1
 slug: /integrations/api
 ---
 
@@ -21,7 +22,7 @@ You are not required to those packages—the REST API works with any HTTP client
 
 To access the Apify API in your integrations, you need to authenticate using your secret API token. You can find it on the [Integrations](https://console.apify.com/account?tab=integrations) page in Apify Console. Give your token a reasonable description, and never use one token for several services, much like you shouldn't use the same password for different accounts.
 
-![Integrations page in Apify Console](./images/api-token.png)
+![Integrations page in Apify Console](../images/api-token.png)
 
 ## Authentication
 
@@ -39,7 +40,7 @@ do not require an authentication token because they contain a hard-to-guess iden
 
 When working under an organization account, you will see two types of API tokens on the Integrations page.
 
-![Integrations page in the Apify Console in organizatoin mode](./images/api-token-organization.png)
+![Integrations page in the Apify Console in organizatoin mode](../images/api-token-organization.png)
 
 The Personal API tokens are different from your own Personal API tokens mentioned above. If you use this token in an integration, it will have the same permissions that you have within the organization, and all the operations you use it for will be ascribed to you.
 
