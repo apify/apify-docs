@@ -59,7 +59,11 @@ loader = apify.call_actor(
 )
 ```
 
-_NOTE: The Actor call may take some time, as it crawls the LangChain documentation website._
+:::note Crawling may take some time
+
+The Actor call may take some time as it crawls the LangChain documentation website.
+
+:::
 
 Initialize the vector index from the crawled documents:
 
