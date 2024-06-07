@@ -614,6 +614,10 @@ article .card h2 {
     float: right;
 }
 
+.menu__link--sublist-caret:after {
+    height: 2.5rem;
+}
+
 aside button[class*="collapseSidebarButton"] svg {
     transform: scale(.7) rotate(180deg);
 }
