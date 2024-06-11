@@ -65,7 +65,7 @@ See a [full list](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXW
 
 ### Using the Apify SDK {#examples-using-the-apify-sdk}
 
-If you are developing your own Apify [Actor](../actors/index.mdx) using the Apify SDK ([JavaScript](/sdk/js) and [Python](/sdk/python)) and [Crawlee](https://crawlee.dev/), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler). This is because Google SERP proxy [only returns a page's HTML](./index.md). Alternatively, you can use the [got-scraping](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying the proxy URL in the options. For Python, you can leverage the [`requests`](https://pypi.org/project/requests/) library along with the Apify SDK.
+If you are developing your own Apify [Actor](../actors/index.mdx) using the [Apify SDK](/sdk) and [Crawlee](https://crawlee.dev/), the most efficient way to use Google SERP proxy is [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler). This is because Google SERP proxy [only returns a page's HTML](./index.md). Alternatively, you can use the [got-scraping](https://github.com/apify/got-scraping) [NPM package](https://www.npmjs.com/package/got-scraping) by specifying the proxy URL in the options. For Python, you can leverage the [`requests`](https://pypi.org/project/requests/) library along with the Apify SDK.
 
 The following examples get a list of search results for the keyword **wikipedia** from the USA (`google.com`).
 

@@ -34,11 +34,9 @@ The [key-value store](./key_value_store.md) is ideal for saving data records suc
 There are several ways to access your storage:
 
 * [Apify Console](https://console.apify.com/storage) - provides an easy-to-use interface.
-* [JavaScript SDK](/sdk/js) - when building your own JavaScript Actor.
-* [Python SDK](/sdk/python) - when building your own Python Actor.
-* [JavaScript API client](/api/client/js) - to access your storages from any Node.js application.
-* [Python API client](/api/client/python) - to access your storages from any Python application.
 * [Apify API](/api/v2#/reference/key-value-stores) - to access your storages programmatically.
+* [API clients](/api) - to access your storages from any Node.js/Python application.
+* [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
 
 ### Apify Console {#apify-console}
 
@@ -59,26 +57,6 @@ These URLs link to API _endpoints_—the places where your data is stored. Endpo
 > Never share a URL containing your authentication token, to avoid compromising your account's security. <br/>
 > If the data you want to share requires a token, first download the data, then share it as a file.
 
-### JavaScript SDK {#javascript-sdk}
-
-The Apify [JavaScript SDK](https://github.com/apify/apify-sdk-js) is a JavaScript/Node.js library that provides tools for building your own Actors. Requires [Node.js](https://nodejs.org/en/) 16 or later.
-
-### Python SDK {#python-sdk}
-
-The Apify [Python SDK](https://github.com/apify/apify-sdk-python) is a Python library providing tools to build your own Actors. Requires [Python](https://www.python.org/downloads/release/python-380/) 3.8 or above.
-
-### JavaScript API client {#javascript-api-client}
-
-The Apify [JavaScript API client](https://github.com/apify/apify-client-js) (`apify-client`) allows you to access your datasets from any Node.js application, whether it is running on the Apify platform or externally.
-
-Go to the [client's documentation](/api/client/js/docs) for help with setup.
-
-### Python API client {#python-api-client}
-
-The Apify [Python API client](https://github.com/apify/apify-client-python) (`apify-client`) allows you to access your datasets from any Python application, whether it is running on the Apify platform or externally. Requires [Python](https://www.python.org/downloads/release/python-380/) 3.8 or above.
-
-Go to the [client's documentation](/api/client/python/docs/quick-start) for help with setup.
-
 ### Apify API {#apify-api}
 
 The [Apify API](/api/v2#/reference/key-value-stores) allows you to access your storages programmatically using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and easily share your crawling results.
@@ -94,6 +72,19 @@ For read (GET) requests, it is enough to use a store's alphanumerical ID, since 
 With other request types and when using the `username~store-name`, however, you will need to provide your secret API token in your request's [`Authorization`](/api/v2#/introduction/authentication) header or as a query parameter. You can find your token on the [Integrations](https://console.apify.com/account?tab=integrations) page of your Apify account.
 
 For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2#/reference/datasets).
+
+### Apify API Clients
+
+The Apify API Clients allow you to access your datasets from any Node.js or Python application, whether it's running on the Apify platform or externally.
+
+You can visit [API Clients](/api) documentations for more information.
+
+### Apify SDKs
+
+The Apify SDKs are libraries in JavaScript or Python that proviede tools for building your own Actors.<br />
+
+* JavaScript SDK requires [Node.js](https://nodejs.org/en/) 16 or later.
+* Python SDK requires [Python](https://www.python.org/downloads/release/python-380/) 3.8 or above.
 
 ## Rate limiting {#rate-limiting}
 
@@ -136,15 +127,8 @@ To name your storage via API, get its ID from the run that generated it using th
 
 Our SDKs and clients each have unique naming conventions for storages. For more information check out documentation:
 
-SDKs:
-
-* [JavaScript](/sdk/js)
-* [Python](/sdk/python)
-
-Clients:
-
-* [JavaScript](/api/client/js/)
-* [Python](/api/client/python/)
+* [SDKs](/sdk)
+* [API Clients](/api)
 
 ## Named and unnamed storages {#named-and-unnamed-storages}
 
