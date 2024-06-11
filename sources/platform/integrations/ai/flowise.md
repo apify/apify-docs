@@ -52,7 +52,7 @@ Now you need to configure the crawler. You can find more information about the c
 
 In the configuration, provide your Apify API token, which you can find in your [Apify account](https://my.apify.com/account#/integrations).
 
-![Apify API token screen].(./images/flowise-apify-api.png)
+![Apify API token screen](../images/flowise-apify-api.png)
 
 You can add more loaders, or you can add some processors to process the data.
 In our case, we create the flow that loads data from the Apify docs using Website Content Crawler and save them into the in-memory vector database.
