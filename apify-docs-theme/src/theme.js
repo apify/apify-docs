@@ -1,6 +1,9 @@
-const path = require('path');
 const fs = require('fs');
+const path = require('path');
+
 const axios = require('axios');
+const postcssPreset = require('postcss-preset-env');
+
 const { updateChangelog } = require('./markdown');
 
 function findPathInParent(endPath) {
@@ -124,6 +127,10 @@ This either means that your Docusaurus setup is misconfigured, or that your GitH
                     ],
                 },
             };
+        },
+        configurePostCss(o) {
+            o.plugins.push(postcssPreset); // allow newest CSS syntax
+            return o;
         },
     };
 }

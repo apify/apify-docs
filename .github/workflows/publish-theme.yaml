@@ -16,14 +16,14 @@ jobs:
               with:
                   fetch-depth: 0
 
-          -   name: Use Node.js 18
-              uses: actions/setup-node@v3
+          -   name: Use Node.js 20
+              uses: actions/setup-node@v4
               with:
-                  node-version: 18
+                  node-version: 20
 
           -   name: Check changes in theme
               id: changed-theme-files
-              uses: tj-actions/changed-files@v39
+              uses: tj-actions/changed-files@v44
               with:
                 since_last_remote_commit: "true"
                 files: |
@@ -38,10 +38,17 @@ jobs:
                 with:
                     token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
-            -   name: Use Node.js 18
-                uses: actions/setup-node@v3
+            -   name: Use Node.js 20
+                uses: actions/setup-node@v4
                 with:
-                    node-version: 18
+                    node-version: 20
+                    cache: 'npm'
+                    cache-dependency-path: 'package-lock.json'
+                    always-auth: 'true'
+                    registry-url: 'https://npm.pkg.github.com/'
+                    scope: '@apify-packages'
+                env:
+                    NODE_AUTH_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}
 
             -   name: Setup git user and npm
                 run: |
@@ -54,7 +61,9 @@ jobs:
             -   name: Bump the theme version
                 run: |
                     cd $GITHUB_WORKSPACE/apify-docs-theme
-                    npm version patch
+                    npm version patch --legacy-peer-deps
+                env:
+                    NODE_AUTH_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}
 
             -   name: Deploy theme to npm
                 run: |
@@ -85,7 +94,7 @@ jobs:
                 npm show $PACKAGE_NAME@$PACKAGE_VER # fails if the package is not available, succeeds if it is
 
             - name: Commit the new theme version
-              uses: stefanzweifel/git-auto-commit-action@v4
+              uses: stefanzweifel/git-auto-commit-action@v5
               with:
                 commit_message: 'chore: publish new version of @apify/docs-theme [skip ci]'
                 file_pattern: 'apify-docs-theme/package*.json'

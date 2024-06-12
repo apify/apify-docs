@@ -22,11 +22,12 @@ In development, it is crucial to check and adjust the configurations related to 
 
 If you don't have time to read about the theory behind anti-scraping protections to fine-tune your scraping project and instead you just need to get unblocked ASAP, here are some quick tips:
 
-- Use high-quality proxies. [Residential proxies](/platform/proxy/residential-proxy) are the least blocked. There are many providers out there like Apify, BrightData, Oxylabs, NetNut, etc.
+- Use high-quality proxies. [Residential proxies](/platform/proxy/residential-proxy) are the least blocked. You can find many providers out there like Apify, BrightData, Oxylabs, NetNut, etc.
 - Set **real-user-like HTTP settings** and **browser fingerprints**. [Crawlee](https://crawlee.dev/) uses statistically generated realistic HTTP headers and browser fingerprints by default for all of its crawlers.
-- Use a modern browser to pass bot capture challenges. We recommend [Playwright with Firefox](https://crawlee.dev/docs/examples/playwright-crawler-firefox) because it is not that common for scraping. You can also play with [non-headless mode](https://crawlee.dev/api/playwright-crawler/interface/PlaywrightCrawlerOptions#headless) and adjust other [fingerprint settings](https://crawlee.dev/api/browser-pool/interface/FingerprintGeneratorOptions).
+- Use a browser to pass bot capture challenges. We recommend [Playwright with Firefox](https://crawlee.dev/docs/examples/playwright-crawler-firefox) because it is not that common for scraping. You can also play with [non-headless mode](https://crawlee.dev/api/playwright-crawler/interface/PlaywrightCrawlerOptions#headless) and adjust other [fingerprint settings](https://crawlee.dev/api/browser-pool/interface/FingerprintGeneratorOptions).
 - Consider extracting data from **[private APIs](../api_scraping/index.md)** or **mobile app APIs**. They are usually much less protected.
 - Increase the number of request retries significantly to at least 10 with [`maxRequestRetries: 10`](https://crawlee.dev/api/basic-crawler/interface/BasicCrawlerOptions#maxRequestRetries). Rotate sessions after every error with [`maxErrorScore: 1`](https://crawlee.dev/api/core/interface/SessionOptions#maxErrorScore)
+- If you cannot afford to use browsers for performance reasons, you can try [Playwright.request](https://playwright.dev/docs/api/class-playwright#playwright-request) or [curl-impersonate](https://www.npmjs.com/package/node-libcurl) as the HTTP library for [Cheerio](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler) or [Basic](https://crawlee.dev/api/basic-crawler/class/BasicCrawler) Crawlers, instead of its default [got-scraping](https://crawlee.dev/docs/guides/got-scraping) HTTP back end. These libraries have access to native code which offers much finer control over the HTTP traffic and mimics real browsers more than what can be achieved with plain Node.js implementation like `got-scraping`. These libraries should become part of Crawlee itself in the future.
 
 In the vast majority of cases, this configuration should lead to success. Success doesn't mean that all requests will go through unblocked, that is not realistic. Some IP addresses and fingerprint combinations will still be blocked but the automatic retry system takes care of that. If you can get at least 10% of your requests through, you can still scrape the whole website with enough retries. The default [SessionPool](https://crawlee.dev/api/core/class/SessionPool) configuration will preserve the working sessions and eventually the success rate will increase.
 
@@ -40,11 +41,11 @@ If the above tips didn't help, you can try to fiddle with the following:
 - Find different sources of the data. The data might be rendered to the HTML but you could also find it in JavaScript (inlined in the HTML or in files) or in the API responses. Especially the APIs are often much less protected (if you use the right headers).
 - Reverse engineer the JavaScript challenges that run on the page so you can figure out how the bypass them. This is a very advanced topic that you can read about online. We plan to introduce more content about this.
 
-Keep in mind that there is no silver bullet solution. There are many anti-scraping systems and each of them behaves differently depending the website's configuration. That is why "trying a few things" usually leads to success. You will find more details about these tricks in the [mitigation](./mitigation/index.md) section below.
+Keep in mind that there is no silver bullet solution. You can find many anti-scraping systems and each of them behaves differently depending the website's configuration. That is why "trying a few things" usually leads to success. You will find more details about these tricks in the [mitigation](./mitigation/index.md) section below.
 
 ## First of all, why do websites want to block bots? {#why-block-bots}
 
-What's up with that?! There are various reasons why a website might want to block bots from accessing it. Here are a few of the main ones:
+What's up with that?! A website might have a variety of reasons to block bots from accessing it. Here are a few of the main ones:
 
 - To prevent the possibility of malicious bots from crawling the site to steal sensitive data like passwords or personal data about users.
 - In order to avoid server performance hits due to bots making a large amount of requests to the website at a single time.
@@ -61,16 +62,18 @@ Unfortunately for these websites, they have to make compromises and tradeoffs. W
 
 ## The principles of anti-scraping protections {#the-principles}
 
-Anti-scraping protections can work on many different layers and use a large amount of bot-identification techniques. There are 4 main principles that anti-scraping protections are based on:
+Anti-scraping protections can work on many different layers and use a large amount of bot-identification techniques.
 
-1. **Where you are coming from** - IP address of the incoming traffic is always available to the website. Proxies are used to emulate a different IP addresses but their quality matters a lot.
-2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, cyphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to clasify your hardware (like graphics hardware acceleration).
-3. **What you are scraping** - There are many ways to extract the same data from a website. You can just get the inital HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
-4. **How you behave** - The website can see patterns in how you are ordering your requests, how fast you are scraping, etc. It can also analyse browser behavior like mouse movement, clicks or key presses.
+1. **Where you are coming from** - The IP address of the incoming traffic is always available to the website. Proxies are used to emulate a different IP addresses but their quality matters a lot.
+2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, cyphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to classify your hardware (like graphics hardware acceleration).
+3. **What you are scraping** - The same data can be extracted in many ways from a website. You can just get the inital HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
+4. **How you behave** - The website can see patterns in how you are ordering your requests, how fast you are scraping, etc. It can also analyze browser behavior like mouse movement, clicks or key presses.
+
+These are the 4 main principles that anti-scraping protections are based on.
 
 Not all websites use all of these principles but they encompass the possibilities websites have to track and block bots. All techniques that help you mitigate anti-scraping protections are based on making yourself blend in with the crowd of regular users with each of these principles.
 
-There are two main ways a bot can be detected, which follow two different types of web scraping:
+A bot can usually be detected in one of two ways, which follow two different types of web scraping:
 
 1. Crawlers using **HTTP requests**
 2. Crawlers using **browser automation** (usually with a headless browser)
@@ -90,7 +93,15 @@ A common workflow of a website after it has detected a bot goes as follows:
 
 One thing to keep in mind while navigating through this course is that advanced scraping methods are able to identify non-humans not only by one value (such as a single header value, or IP address), but are able to identify them through more complex things such as header combinations.
 
-> For an in-depth video explanation of anti-scraping, and how to fix issues caused by it, check out [this talk](https://www.youtube.com/watch?v=aXil0K-M-Vs) from [Ondra Urban](https://github.com/mnmkng).
+Watch a conference talk by [Ondra Urban](https://github.com/mnmkng), which provides an overview of various anti-scraping measures and tactics for circumventing them.
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/aXil0K-M-Vs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+:::info Several years old?
+
+Although the talk, given in 2021, features some outdated code examples, it still serves well as a general overview.
+
+:::
 
 ## Common anti-scraping measures {#common-measures}
 
@@ -100,17 +111,17 @@ Because we here at Apify scrape for a living, we have discovered many popular an
 
 ### IP rate-limiting
 
-This is the most straightforward and standard protection, which is mainly implemented to prevent DDOS attacks, but it also works for blocking scrapers. Websites using rating don't allow to more than some defined number of requests from one IP address in a certain time span. If the max-request number is low, then there is a high potential for false-positive due to IP address uniqueness, such as in large companies where hundreds of employees can share the same IP address.
+This is the most straightforward and standard protection, which is mainly implemented to prevent DDoS attacks, but it also works for blocking scrapers. Websites using rating don't allow to more than some defined number of requests from one IP address in a certain time span. If the max-request number is low, then there is a high potential for false-positive due to IP address uniqueness, such as in large companies where hundreds of employees can share the same IP address.
 
 > Learn more about rate limiting [here](./techniques/rate_limiting.md)
 
 ### Header checking
 
-This type of bot identification is based on the given fact that humans are accessing web pages through browsers, which have specific [header](../../glossary/concepts/http_headers.md) sets which they send along with every request. The most commonly known header that helps to detect bots is the `user-agent` header, which holds a value that identifies which browser is being used, and what version it's running. Though `user-agent` is the most commonly used header for the **Header checking** method, other headers are sometimes used as well. The evaluation is often also run based on the header consistency, and includes a known combination of browser headers.
+This type of bot identification is based on the given fact that humans are accessing web pages through browsers, which have specific [header](../../glossary/concepts/http_headers.md) sets which they send along with every request. The most commonly known header that helps to detect bots is the `User-Agent` header, which holds a value that identifies which browser is being used, and what version it's running. Though `User-Agent` is the most commonly used header for the **Header checking** method, other headers are sometimes used as well. The evaluation is often also run based on the header consistency, and includes a known combination of browser headers.
 
 ### URL analysis
 
-Solely based on the way how the bots operate. It comperes data-rich pages visits and the other pages visits. The ratio of the data-rich and regular pages has to be high to identify the bot and reduce false positives successfully.
+Solely based on the way how the bots operate. It compares data-rich page visits and the other page visits. The ratio of the data-rich and regular pages has to be high to identify the bot and reduce false positives successfully.
 
 ### Regular structure changes
 
@@ -120,7 +131,7 @@ One of the best ways of avoiding the possible breaking of your scraper due to we
 
 ### IP session consistency
 
-This technique is commonly used to entirely block the bot from accessing the website altogether. It works on the principle that every entity that accesses the site gets a token. This token is then saved together with the IP address and HTTP request information such as user-agent and other specific headers. If the entity makes another request, but without the session token, the IP address is added on the greylist.
+This technique is commonly used to entirely block the bot from accessing the website altogether. It works on the principle that every entity that accesses the site gets a token. This token is then saved together with the IP address and HTTP request information such as User-Agent and other specific headers. If the entity makes another request, but without the session token, the IP address is added on the greylist.
 
 ### Interval analysis
 

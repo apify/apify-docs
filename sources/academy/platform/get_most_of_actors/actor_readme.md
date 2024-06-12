@@ -26,11 +26,11 @@ slug: /get-most-of-actors/actor-readme
 
 ## What should you add to your Actor README?
 
-Aim for sections 1-6 below and try to include at least 300 words. You can move the sections around to some extent if it makes sense, e.g. 3 might come after 6. Consider using emojis as bullet points or otherwise trying to break up the text.
+Aim for sections 1–6 below and try to include at least 300 words. You can move the sections around to some extent if it makes sense, e.g. 3 might come after 6. Consider using emojis as bullet points or otherwise trying to break up the text.
 
 1. **What does (Actor name) do?**
 
-    - in 1-2 sentences describe what the Actor does and what it does not do
+    - in 1–2 sentences describe what the Actor does and what it does not do
     - consider adding keywords like API, e.g. Instagram API
     - always have a link to the target website in this section
 
@@ -38,17 +38,17 @@ Aim for sections 1-6 below and try to include at least 300 words. You can move t
 
     - How it can be beneficial for the user
     - Business use cases
-    - Link to a success story, or a business use case, or a blog post.
+    - Link to a success story, a business use case, or a blog post.
 
 3. **How much will it cost to scrape (target site)?**
 
     - Simple text explaining what type of proxies are needed and how many platform credits (calculated mainly from consumption units) are needed for 1000 results.
-    - This is calculated from carrying out several runs (or from runs saved in the DB). @Zuzka can help if needed. [Information in this table](https://docs.google.com/spreadsheets/d/1NOkob1eYqTsRPTVQdltYiLUsIipvSFXswRcWQPtCW9M/edit#gid=1761542436), tab "cost of usage".
+    - This is calculated from carrying out several runs (or from runs saved in the DB).<!--  @Zuzka can help if needed. [Information in this table](https://docs.google.com/spreadsheets/d/1NOkob1eYqTsRPTVQdltYiLUsIipvSFXswRcWQPtCW9M/edit#gid=1761542436), tab "cost of usage". -->
     - Here’s an example for this section:
 
     > ## How much will it cost me to scrape Google Maps reviews?
     >
-    > <br/> Apify provides you with $5 free usage credits to use every month on the Apify Free plan and you can get up to 100,000 reviews from this Google Maps Reviews Scraper for those credits. So 100k results will be completely free!
+    > <br/> Apify provides you with $5 free usage credits to use every month on the Apify Free plan and you can get up to 100,000 reviews from this Google Maps Reviews Scraper for those credits. This means 100k results will be completely free!
     > <br/> But if you need to get more data or to get your data regularly you should grab an Apify subscription. We recommend our $49/month Starter plan - you can get up to 1 million Google Maps reviews every month with the $49 monthly plan! Or 10 million with the $499 Scale plan - wow!
 
 4. **How to scrape (target site)**
@@ -65,7 +65,7 @@ Aim for sections 1-6 below and try to include at least 300 words. You can move t
 
 5. **Is it legal to scrape (target site)?**
 
-    - This can be used as boilerplate text for the legal section, but you should use your own judgement and also customize it with the site name.
+    - This can be used as a boilerplate text for the legal section, but you should use your own judgement and also customize it with the site name.
 
     > Our scrapers are ethical and do not extract any private user data, such as email addresses, gender, or location. They only extract what the user has chosen to share publicly. We therefore believe that our scrapers, when used for ethical purposes by Apify users, are safe. However, you should be aware that your results could contain personal data. Personal data is protected by the [GDPR](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) in the European Union and by other regulations around the world. You should not scrape personal data unless you have a legitimate reason to do so. If you're unsure whether your reason is legitimate, consult your lawyers. You can also read our blog post on the [legality of web scraping](https://blog.apify.com/is-web-scraping-legal/)
 
@@ -84,7 +84,7 @@ Aim for sections 1-6 below and try to include at least 300 words. You can move t
 8. **Tips or Advanced options section**
     - Share any tips on how to best run the Actor, such as how to limit compute unit usage, get more accurate results, or improve speed.
 
-If you want some general tips on how to make GitHub README that stand out, check out these guides. Not everything in there will be suitable for an Apify Actor README, so you should cherry-pick what you like and use your imagination.
+If you want some general tips on how to make GitHub README that stands out, check out these guides. Not everything in there will be suitable for an Apify Actor README, so you should cherry-pick what you like and use your imagination.
 
 <br />
 
@@ -94,4 +94,4 @@ If you want some general tips on how to make GitHub README that stand out, check
 
 ## Next up {#next}
 
-If you followed all the tips described above, your Actor README should be good to go! In the [next lesson](./seo_and_promotion.md)! we will dive deeper into how you can improve your README's SEO and promote your Actor to ensure it reaches as many potential users as possible!
+If you followed all the tips described above, your Actor README is almost good to go! In the [next lesson](./guidelines_for_writing.md) we will give you a few instructions on how you can create a tutorial for your Actor.

@@ -1,0 +1,36 @@
+name: Lychee Link Checker
+
+on: [ pull_request ]
+
+jobs:
+    link-check:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v4
+
+            -   name: Use Node.js 20
+                uses: actions/setup-node@v4
+                with:
+                    node-version: 20
+                    cache: 'npm'
+                    cache-dependency-path: 'package-lock.json'
+                    always-auth: 'true'
+                    registry-url: 'https://npm.pkg.github.com/'
+                    scope: '@apify-packages'
+
+            -   name: Build docs
+                run: |
+                    npm ci --force
+                    npm update @apify/openapi
+                    npm run build
+                env:
+                    APIFY_SIGNING_TOKEN: ${{ secrets.APIFY_SIGNING_TOKEN }}
+                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                    SMARTLOOK_PROJECT_KEY: ${{ secrets.SMARTLOOK_PROJECT_KEY }}
+
+            -   uses: lycheeverse/lychee-action@v1.10.0
+                env:
+                    GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
+                with:
+                    fail: true
+                    args: --base https://docs.apify.com --exclude-path 'build/versions.html' --max-retries 6 --verbose --no-progress --accept '100..=103,200..=299,403..=403, 429' './build/**/*.html'

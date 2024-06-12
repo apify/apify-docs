@@ -1,0 +1,6 @@
+# Documentation
+*.md @TC-MO
+*.mdx @TC-MO
+
+# Academy
+/sources/academy/ @honzajavorek

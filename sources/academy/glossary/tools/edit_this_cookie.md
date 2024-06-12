@@ -1,13 +1,13 @@
 ---
 title: EditThisCookie
-description: Learn how to add, delete, and modify different cookies in your browser for testing purposes using the EditThisCookie chrome extension.
+description: Learn how to add, delete, and modify different cookies in your browser for testing purposes using the EditThisCookie Chrome extension.
 sidebar_position: 9.7
 slug: /tools/edit-this-cookie
 ---
 
 # What's EditThisCookie? {#what-is-it}
 
-**Learn how to add, delete, and modify different cookies in your browser for testing purposes using the EditThisCookie chrome extension.**
+**Learn how to add, delete, and modify different cookies in your browser for testing purposes using the EditThisCookie Chrome extension.**
 
 ---
 
@@ -29,7 +29,7 @@ Basically just a refresh button.
 
 ### Add a new cookie
 
-Manually add new cookie for the current domain.
+Manually add a new cookie for the current domain.
 
 ### Import cookies
 

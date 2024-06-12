@@ -102,7 +102,7 @@ https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&versi
 
 ## Set up automatic builds
 
-TODO: This duolicates somehow the above part
+[//]: # (TODO: This duplicates somehow the above part)
 
 Once you have your [prerequisites](#prerequisites), you can start automating your builds. You can use [webhooks](https://en.wikipedia.org/wiki/Webhook) or the [Apify CLI](/cli/) ([described in our Bitbucket guide](https://help.apify.com/en/articles/1861038-setting-up-continuous-integration-for-apify-actors-on-bitbucket)) in your Git workflow.
 

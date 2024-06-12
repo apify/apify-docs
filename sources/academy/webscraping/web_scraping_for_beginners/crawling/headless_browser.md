@@ -18,11 +18,11 @@ A headless browser is simply a browser that runs without a user interface (UI). 
 
 ## Building a Playwright scraper {#playwright-scraper}
 
-> We'll focus on Playwright today, as it was developed by the same team that created Puppeteer, and it's a more modern library with extra features and better documentation.
+> Our focus will be on Playwright, which boasts additional features and better documentation. Notably, it originates from the same team responsible for Puppeteer.
 
 Building a Playwright scraper with Crawlee is extremely easy. To show you how easy it really is, we'll reuse the Cheerio scraper code from the previous lesson. By changing only a few lines of code, we'll turn it into a full headless scraper.
 
-First, we must install Playwright into our project. It's not included in Crawlee, because it's quite large thanks to bundling all the browsers.
+First, we must install Playwright into our project. It's not included in Crawlee, because it's quite large as it bundles all the browsers.
 
 ```shell
 npm install playwright
@@ -85,7 +85,7 @@ The `parseWithCheerio` function is available even in `CheerioCrawler` and all th
 
 When you run the code with `node browser.js`, you'll see a browser window open and then the individual pages getting scraped, each in a new browser tab.
 
-So, that's it. In 4 lines of code we transformed our crawler from a static HTTP crawler to a headless browser crawler. The crawler now runs exactly the same as before, but using a Chromium browser instead of plain HTTP requests. This simply is not possible without Crawlee.
+So, that's it. In 4 lines of code, we transformed our crawler from a static HTTP crawler to a headless browser crawler. The crawler now runs exactly the same as before, but uses a Chromium browser instead of plain HTTP requests. This simply is not possible without Crawlee.
 
 Using Playwright in combination with Cheerio like this is only one of many ways how you can utilize Playwright (and Puppeteer) with Crawlee. In the advanced courses of the Academy, we will go deeper into using headless browsers for scraping and web automation (RPA) use cases.
 

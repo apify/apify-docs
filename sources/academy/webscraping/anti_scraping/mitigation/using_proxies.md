@@ -13,7 +13,7 @@ slug: /anti-scraping/mitigation/using-proxies
 
 In the [**Web scraping for beginners**](../../web_scraping_for_beginners/crawling/pro_scraping.md) course, we learned about the power of Crawlee, and how it can streamline the development process of web crawlers. You've already seen how powerful the `crawlee` package is; however, what you've been exposed to thus far is only the tip of the iceberg.
 
-Because proxies are so widely used in the scraping world, Crawlee as been equipped with features which make it easy to implement them in an effective way. One of the main functionalities that comes baked into Crawlee is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
+Because proxies are so widely used in the scraping world, Crawlee has been equipped with features which make it easy to implement them in an effective way. One of the main functionalities that comes baked into Crawlee is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
 
 ## Implementing proxies in a scraper {#implementing-proxies}
 
@@ -71,7 +71,7 @@ const proxyConfiguration = new ProxyConfiguration({
 });
 ```
 
-Awesome, so there's our proxy pool! Usually, a proxy pool is much larger than this; however, a three proxie pool is total fine for tutorial purposes. Finally, we can pass the `proxyConfiguration` into our crawler's options:
+Awesome, so there's our proxy pool! Usually, a proxy pool is much larger than this; however, a three proxies pool is totally fine for tutorial purposes. Finally, we can pass the `proxyConfiguration` into our crawler's options:
 
 ```js
 const crawler = new CheerioCrawler({
@@ -140,4 +140,4 @@ Notice that we didn't provide it a list of proxy URLs. This is because the `SHAD
 
 ## Next up {#next}
 
-[Next up](./generating_fingerprints.md), we'll be checking out how to use two NPM packages to generate and inject [browser fingerprints](../techniques/fingerprinting.md).
+[Next up](./generating_fingerprints.md), we'll be checking out how to use two npm packages to generate and inject [browser fingerprints](../techniques/fingerprinting.md).

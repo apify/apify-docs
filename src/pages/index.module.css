@@ -1,18 +1,162 @@
+
+
 /**
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
  */
- .cardsWrapper {
-    display: flex;
-    align-items: stretch;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    gap: 24px;
+
+ .cards {
+    margin: 0 auto;
+    display: grid;
+    gap: 2.4rem;
 }
 
-@media (max-width: 736px) {
-    .cardsWrapper  {
-        flex-direction: column;
+.actionCards {
+    margin: 0 auto;
+    display: grid;
+    gap: 2.4rem;
+    width: 100%;
+}
+
+.sectionLayoutWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    gap: 2.4rem;
+}
+
+.bannerContentActions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+    flex-shrink: 0;
+    max-width: 50.02rem;
+}
+
+.bannerContentActions a {
+    width: 100%;
+}
+
+.bannerContentImage {
+    display: none !important;
+}
+
+.bannerContentImageAfter {
+    margin-top: 2.4rem;
+}
+
+.smallBannerContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    gap: 2.4rem;
+    text-align: center;
+}
+
+.smallBannerContent h2 {
+    align-self: center;
+}
+
+.smallBannerContentText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    width: 100%;
+}
+
+.bannerContentDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex-shrink: 0;
+    margin-bottom: 2.4rem;
+}
+
+.bannerContentDescription h2 {
+    margin: 0;
+}
+
+.card {
+    [class*="cardTitle"] {
+        font-size: 1.6rem !important;
+    }
+
+    [class*="cardDescription"] {
+        font-size: 1.2rem !important;
     }
 }
 
+.cardContentWrapper {
+    display: flex;
+    padding-top: 1.6rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+    align-self: stretch;
+}
+
+.cardContentWrapperText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+}
+
+.cardContentList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    align-self: stretch;
+}
+
+@media (min-width: 768px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .bannerContentImage { display: initial !important; width: 25rem; }
+    .bannerContentImageAfter { display: none !important; }
+    .bannerContentActions { width: 38.4rem; }
+    .bannerContentDescription { width: 25rem; margin-bottom: 0; }
+    .actionCards { grid-template-columns: repeat(2, 1fr); }
+    .smallBannerContent {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+        text-align: left;
+    }
+    .smallBannerContent h2 { align-self: flex-start; }
+    .smallBannerContentText { width: 41.8rem; }
+    .bannerContent {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+@media (min-width: 1024px) {
+    .cards { grid-template-columns: repeat(3, 1fr); }
+    .actionCards { width: 896px; }
+    .bannerContentActions { width: 41.8rem; }
+    .bannerContentDescription { width: 38.4rem; }
+    .bannerContentImage {
+        width: 38.4rem;
+        position: absolute;
+        margin-top: 18.4rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .actionCards { width: 1200px; }
+    .bannerContentDescription { width: 50.2rem; }
+    .bannerContentImage {
+        width: 50.2rem;
+        margin-top: 14.2rem;
+    }
+
+}

@@ -1,0 +1,43 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.card {
+    border: 1px solid var(--color-Neutral_SeparatorSubtle);
+    border-radius: 8px;
+    text-align: left;
+    transition: background-color 120ms ease-in-out;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex: 1 0 0;
+    min-height: 7.5rem;
+}
+
+.cardContentDescription {
+    padding-left: 2.8rem;
+}
+
+.cardContentHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    align-self: stretch;
+}
+
+.cardWithImageAndContentImage {
+    display: inherit;
+}
+
+.cardWithImageAndContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardWithImageAndContentContent {
+    flex: 1;
+}

@@ -1,11 +1,9 @@
 ---
-title: Browser DevTools - III
+title: Extracting data with DevTools
 description: Continue learning how to extract data from a website using browser DevTools, CSS selectors, and JavaScript via the DevTools console.
 sidebar_position: 3
 slug: /web-scraping-for-beginners/data-extraction/devtools-continued
 ---
-
-# Finish with DevTools {#finish-devtools}
 
 **Continue learning how to extract data from a website using browser DevTools, CSS selectors, and JavaScript via the DevTools console.**
 
@@ -36,7 +34,7 @@ Now, we will loop over each product and print their titles. We will use a so-cal
 
 Run the following command in the Console. Some notes:
 
-- The `a.product-item__title` selector and the extraction code comes from the previous lesson.
+- The `a.product-item__title` selector and the extraction code come from the previous lesson.
 - The `console.log()` function prints the results to the Console.
 - The `trim()` function makes sure there are no useless whitespace characters around our data.
 
@@ -54,7 +52,7 @@ for (const product of products) {
 
 ## Extracting more data {#extracting-data-in-loop}
 
-We will add the price extraction from the previous lesson to the loop. And we will also save all the data to an array so that we can easily work with it. Run this in the Console:
+We will add the price extraction from the previous lesson to the loop. We will also save all the data to an array so that we can easily work with it. Run this in the Console:
 
 > The `results.push()` function takes its argument and pushes (adds) it to the `results` array. [Learn more about it here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push).
 

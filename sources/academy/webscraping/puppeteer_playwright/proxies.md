@@ -124,7 +124,7 @@ And that's it! Now, when we visit Google, it's in Vietnamese. Depending on the c
 The proxy in the last activity didn't require a username and password, but let's say that this one does:
 
 ```text
-my.proxy.com:3001
+proxy.example.com:3001
 ```
 
 One might automatically assume that this would be the solution:
@@ -136,7 +136,7 @@ One might automatically assume that this would be the solution:
 // This code is wrong!
 import { chromium } from 'playwright';
 
-const proxy = 'my.proxy.com:3001';
+const proxy = 'proxy.example.com:3001';
 const username = 'someUsername';
 const password = 'password123';
 
@@ -156,7 +156,7 @@ const browser = await chromium.launch({
 // This code is wrong!
 import puppeteer from 'puppeteer';
 
-const proxy = 'my.proxy.com:3001';
+const proxy = 'proxy.example.com:3001';
 const username = 'someUsername';
 const password = 'password123';
 
@@ -169,7 +169,7 @@ const browser = await puppeteer.launch({
 </TabItem>
 </Tabs>
 
-However, authentication parameters need to be passed in separately in order to work. In Puppeteer, the username and password need to passed into thee `page.authenticate()` prior to any navigations being made, while in Playwright they just need to be passed into the **proxy** option object.
+However, authentication parameters need to be passed in separately in order to work. In Puppeteer, the username and password need to be passed into the `page.authenticate()` prior to any navigations being made, while in Playwright they just need to be passed into the **proxy** option object.
 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
@@ -177,7 +177,7 @@ However, authentication parameters need to be passed in separately in order to w
 ```javascript
 import { chromium } from 'playwright';
 
-const proxy = 'my.proxy.com:3001';
+const proxy = 'proxy.example.com:3001';
 const username = 'someUsername';
 const password = 'password123';
 
@@ -198,7 +198,7 @@ const browser = await chromium.launch({
 ```javascript
 import puppeteer from 'puppeteer';
 
-const proxy = 'my.proxy.com:3001';
+const proxy = 'proxy.example.com:3001';
 const username = 'someUsername';
 const password = 'password123';
 

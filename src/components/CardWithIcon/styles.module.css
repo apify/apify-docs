@@ -10,41 +10,25 @@
     transition: background-color 120ms ease-in-out;
 }
 
-.card .cardContent {
-    padding: 24px;
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex: 1 0 0;
+    min-height: 7.5rem;
 }
 
-.card .cardContent h3 {
-    font-size: 20px;
-    line-height: 32px;
-    font-weight: 700;
+.cardContentDescription {
+    padding-left: 3.0rem;
 }
 
-.card .cardContent h3 {
-    font-size: 20px;
-    line-height: 32px;
-    font-weight: 700;
-    margin-bottom: 16px;
+.cardContentHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    align-self: stretch;
 }
 
-.card .cardContent p {
-    font-size: 16px;
-    line-height: 26px;
-    font-weight: 400;
-    color: var(--color-Neutral_TextMuted);
-    margin: 0;
-}
-
-.card .cardContent .cardIcon {
-    height: 40px;
-}
-
-.card:hover {
-    background-color: var(--color-Neutral_Hover);
-}
-
-@media (max-width: 736px) {
-    .card {
-        width: 100% !important;
-    }
+.cardContentHeader h4 {
+    margin: 0.2rem;
 }

@@ -324,9 +324,27 @@ Here is the table of the most common errors that can occur for many API endpoint
 ## Rate limiting
 
 All API endpoints limit the rate of requests in order to prevent overloading of Apify servers by misbehaving clients.
-The default rate limit is 30 requests per second and is applied to every API endpoint except the following list
-of endpoints that are rate limited to 200 requests per second:
 
+There are two kinds of rate limits - a global rate limit and a per-resource rate limit.
+
+### Global rate limit
+
+The global rate limit is set to _250 000 requests per minute_.
+For [authenticated](#authentication) requests, it is counted per user,
+and for unauthenticated requests, it is counted per IP address.
+
+### Per-resource rate limit
+The default per-resource rate limit is _30 requests per second per resource_, which in this context means a single Actor, a single Actor run, a single dataset, single key-value store etc.
+The default rate limit is applied to every API endpoint except a few select ones, which have higher rate limits.
+Each API endpoint returns its rate limit in `X-RateLimit-Limit` header.
+
+These endpoints have a rate limit of _100 requests per second per resource_:
+* CRUD ([get](#reference/key-value-stores/record/get-record),
+  [put](#reference/key-value-stores/record/put-record),
+  [delete](#reference/key-value-stores/record/delete-record))
+operations on key-value store records
+
+These endpoints have a rate limit of _200 requests per second per resource_:
 * [Run actor](#reference/actors/run-collection/run-actor)
 * [Run actor task asynchronously](#reference/actor-tasks/runs-collection/run-task-asynchronously)
 * [Run actor task synchronously](#reference/actor-tasks/runs-collection/run-task-synchronously)
@@ -337,11 +355,9 @@ of endpoints that are rate limited to 200 requests per second:
   [get](#reference/request-queues/request-collection/get-request),
   [update](#reference/request-queues/request-collection/update-request),
   [delete](#reference/request-queues/request-collection/delete-request))
-  operations of request queue requests
+  operations on requests in request queues
 
-> For authenticated API endpoints (if you use an [authentication token](#authentication)), the limit is counted per user.
-Storage API endpoints (when a token isn't used) count the limit per store ID.
-Anonymous API endpoints count the limit per client IP adress. Each API endpoint returns its rate limit in `X-RateLimit-Limit` header.
+### Rate limit exceeded errors
 
 If the client is sending too many requests, the API endpoints respond with the HTTP status code `429 Too Many Requests`
 and the following body:
@@ -354,6 +370,8 @@ and the following body:
     }
 }
 ```
+
+### Retrying rate-limited requests with exponential backoff
 
 If the client receives the rate limit error, it should wait a certain period of time and then retry the request.
 If the error happens again, the client should double the wait period and retry the request,
@@ -853,8 +871,9 @@ The response is the build object as returned by the
     + Attributes
         - data (Build, required)
 
-## Build object - deprecated [/v2/acts/{actorId}/builds/{buildId}{?token,waitForFinish}]
-API endpoints related to build of the actor were moved under new namespace [actor builds](#reference/actor-builds).
+## Build object [/v2/acts/{actorId}/builds/{buildId}{?token,waitForFinish}]
+
+**[DEPRECATED]** API endpoints related to build of the actor were moved under new namespace [`actor-builds`](#reference/actor-builds).
 
 + Parameters
 
@@ -885,6 +904,8 @@ This endpoint does not require the authentication token. The calls are authentic
 
 
 ## Abort build [/v2/acts/{actorId}/builds/{buildId}/abort{?token}]
+
+**[DEPRECATED]** API endpoints related to build of the actor were moved under new namespace [`actor-builds`](#reference/actor-builds).
 
 ### Abort build [POST]
 
@@ -1108,7 +1129,7 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
             - type: `run-timeout-exceeded` (string, required)
             - message: `Actor run exceeded timeout of 60 seconds for this API enpoint` (string, required)
 
-## Run actor synchronously and get dataset items [/v2/acts/{actorId}/run-sync-get-dataset-items{?token,timeout,memory,build,webhooks,format,offset,limit,attachment,delimiter,bom,desc,xmlRoot,xmlRow,fields,omit,unwind,skipHeaderRow,token,clean,skipHidden,skipEmpty,simplified,skipFailedPages}]
+## Run Actor synchronously and get dataset items [/v2/acts/{actorId}/run-sync-get-dataset-items{?token,timeout,memory,build,webhooks,format,offset,limit,attachment,delimiter,bom,desc,xmlRoot,xmlRow,fields,omit,unwind,flatten,skipHeaderRow,token,clean,skipHidden,skipEmpty,simplified,skipFailedPages}]
 
 + Parameters
 
@@ -1138,6 +1159,9 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
         If the unwound field is an object then it is merged with the parent object
         If the unwound field is missing or its value is neither an array nor an object and therefore cannot be merged with a parent object then the item gets preserved as it is.
         Note that the unwound items ignore the `desc` parameter.
+    + flatten: `myValue` (string, optional) - A comma-separated list of fields which should transform nested objects into flat structures.
+        For example, with `flatten="foo"` the object `{"foo":{"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`.
+        The original object with properties is replaced with the flattened object.
     + desc: true (boolean, optional) - By default, results are returned in the same order as they were stored. To reverse the order, set this parameter to `true` or `1`.
     + attachment: true (boolean, optional) - If `true` or `1` then the response will define the `Content-Disposition: attachment` header, forcing a web browser to download the file rather than to display it. By default this header is not present.
     + delimiter: `;` (string, optional) - A delimiter character for CSV files, only used if `format=csv`. You might need to URL-encode the character (e.g. use `%09` for tab or `%3B` for semicolon). The default delimiter is a simple comma (`,`).
@@ -1289,10 +1313,13 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
             - type: `run-timeout-exceeded` (string, required)
             - message: `Actor run exceeded timeout of 60 seconds for this API enpoint` (string, required)
 
-## Run object - deprecated [/v2/acts/{actorId}/runs/{runId}{?token,waitForFinish}]
-API endpoints related to run of the actor were moved under new namespace [actor runs](#reference/actor-runs).
+## Run object [/v2/acts/{actorId}/runs/{runId}{?token,waitForFinish}]
+
+**[DEPRECATED]** API endpoints related to run of the actor were moved under new namespace [`actor-runs`](#reference/actor-runs).
 
 ### Get run [GET]
+
+**[DEPRECATED]** API endpoints related to run of the actor were moved under new namespace [`actor-runs`](#reference/actor-runs).
 
 Gets an object that contains all the details about a specific run of an actor.
 
@@ -1316,6 +1343,8 @@ This endpoint does not require the authentication token. The calls are authentic
 
 ## Abort run [/v2/acts/{actorId}/runs/{runId}/abort{?token,gracefully}]
 
+**[DEPRECATED]** API endpoints related to run of the actor were moved under new namespace [`actor-runs`](#reference/actor-runs).
+
 ### Abort run [POST]
 
 Aborts an actor run and returns an object that contains all the details about the run.
@@ -1336,6 +1365,8 @@ Only runs that are starting or running are aborted. For runs with status `FINISH
         - data (RunAborted, required)
 
 ## Metamorph run [/v2/acts/{actorId}/runs/{runId}/metamorph{?token,build,targetActorId}]
+
+**[DEPRECATED]** API endpoints related to run of the actor were moved under new namespace [`actor-runs`](#reference/actor-runs).
 
 ### Metamorph run [POST]
 
@@ -1367,6 +1398,8 @@ For more information, see the [Actor docs](https://docs.apify.com/platform/actor
         - data (RunMetamorphed, required)
 
 ## Resurrect run [/v2/acts/{actorId}/runs/{runId}/resurrect{?token,build,timeout,memory}]
+
+**[DEPRECATED]** API endpoints related to run of the actor were moved under new namespace [`actor-runs`](#reference/actor-runs).
 
 ### Resurrect run [POST]
 
@@ -1853,7 +1886,7 @@ To run the Task asynchronously, use the [Run task asynchronously](#reference/act
             - type: `run-timeout-exceeded` (string, required)
             - message: `Actor run exceeded timeout of 300 seconds for this API endpoint` (string, required)
 
-## Run task synchronously and get dataset items [/v2/actor-tasks/{actorTaskId}/run-sync-get-dataset-items{?token,webhooks,timeout,memory,build,format,offset,limit,attachment,delimiter,bom,desc,xmlRoot,xmlRow,fields,omit,unwind,skipHeaderRow,token,clean,skipHidden,skipEmpty,simplified,skipFailedPages}]
+## Run task synchronously and get dataset items [/v2/actor-tasks/{actorTaskId}/run-sync-get-dataset-items{?token,webhooks,timeout,memory,build,format,offset,limit,attachment,delimiter,bom,desc,xmlRoot,xmlRow,fields,omit,unwind,flatten,skipHeaderRow,token,clean,skipHidden,skipEmpty,simplified,skipFailedPages}]
 
 + Parameters
 
@@ -1883,6 +1916,9 @@ To run the Task asynchronously, use the [Run task asynchronously](#reference/act
       If the unwound field is an object then it is merged with the parent object
       If the unwound field is missing or its value is neither an array nor an object and therefore cannot be merged with a parent object then the item gets preserved as it is.
       Note that the unwound items ignore the `desc` parameter.
+    + flatten: `myValue` (string, optional) - A comma-separated list of fields which should transform nested objects into flat structures.
+      For example, with `flatten="foo"` the object `{"foo":{"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`.
+      The original object with properties is replaced with the flattened object.
     + desc: true (boolean, optional) - By default, results are returned in the same order as they were stored. To reverse the order, set this parameter to `true` or `1`.
     + attachment: true (boolean, optional) - If `true` or `1` then the response will define the `Content-Disposition: attachment` header, forcing a web browser to download the file rather than to display it. By default this header is not present.
     + delimiter: `;` (string, optional) - A delimiter character for CSV files, only used if `format=csv`. You might need to URL-encode the character (e.g. use `%09` for tab or `%3B` for semicolon). The default delimiter is a simple comma (`,`).
@@ -2161,7 +2197,7 @@ Additionally, each of the above API endpoints supports all sub-endpoints
 of the original one:
 
 #### Log
-* `/v2/actor-runs/{runId}/logs` [Log](#reference/log)
+* `/v2/actor-runs/{runId}/log` [Log](#reference/logs)
 
 #### Key-value store
 
@@ -2212,6 +2248,19 @@ This endpoint does not require the authentication token. The calls are authentic
 
     + Attributes
         - data (Run, required)
+
+## Delete run [/v2/actor-runs/{runId}{?token}]
+
+### Delete run [DELETE]
+
+Delete the run. Only finished runs can be deleted. Only the person or organization that initiated the run can delete it.
+
++ Parameters
+
+    + runId: `3KH8gEpp4d8uQSe8T` (string, required) - Run ID.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+
++ Response 204 (application/json)
 
 ## Abort run [/v2/actor-runs/{runId}/abort{?token,gracefully}]
 
@@ -2393,6 +2442,19 @@ This endpoint does not require the authentication token. The calls are authentic
     + Attributes
         - data (Build, required)
 
+## Delete build [/v2/actor-builds/{buildId}{?token}]
+
+### Delete build [DELETE]
+
+Delete the build. The build that is the current default build for the Actor cannot be deleted.
+Only users with build permissions for the Actor can delete builds.
+
++ Parameters
+
+    + buildId: `soSkq9ekdmfOslopH` (string, required) - ID of the build you want to get, found in the build's `Info` tab.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+
++ Response 204 (application/json)
 
 ## Abort build [/v2/actor-builds/{buildId}/abort{?token}]
 
@@ -2410,6 +2472,27 @@ Only builds that are starting or running are aborted. For builds with status `FI
 
     + Attributes
         - data (BuildAborted, required)
+
+## Build log [/v2/actor-builds/{buildId}/log{?token,stream,download}]
+
+Check out [Logs](#reference/logs) for full reference.
+
++ Parameters
+
+    + buildId: `HG7ML7M8z78YcAPEB` (string, required) - ID of the actor build.
+    + token: `soSkq9ekdmfOslopH` (string, required) - API authentication token.
+    + stream: false (boolean, required) - If `true` or `1` then the logs will be streamed as long as the run or build is running.
+    + download: false (boolean, required) - If `true` or `1` then the web browser will download the log file rather than open it in a tab.
+
+### Get log [GET]
+
++ Response 200 (text/plain)
+
+    ```
+    2017-07-14T06:00:49.733Z Application started.
+    2017-07-14T06:00:49.741Z Input: { test: 123 }
+    2017-07-14T06:00:49.752Z Some useful debug information follows.
+    ```
 
 # Group Key-value stores
 
@@ -2774,7 +2857,7 @@ Deletes a specific dataset.
 
 + Response 204 (application/json)
 
-## Item collection [/v2/datasets/{datasetId}/items{?format,offset,limit,attachment,delimiter,bom,desc,xmlRoot,xmlRow,fields,omit,unwind,skipHeaderRow,token,clean,skipHidden,skipEmpty,simplified,skipFailedPages}]
+## Item collection [/v2/datasets/{datasetId}/items{?format,offset,limit,attachment,delimiter,bom,desc,xmlRoot,xmlRow,fields,omit,unwind,flatten,skipHeaderRow,token,clean,skipHidden,skipEmpty,simplified,skipFailedPages}]
 
 + Parameters
 
@@ -2946,6 +3029,9 @@ Note that only the order of **Items** is reversed, but not the order of the `unw
       If the unwound field is an object then it is merged with the parent object
       If the unwound field is missing or its value is neither an array nor an object and therefore cannot be merged with a parent object then the item gets preserved as it is.
       Note that the unwound items ignore the `desc` parameter.
+    + flatten: `myValue` (string, optional) - A comma-separated list of fields which should transform nested objects into flat structures.
+      For example, with `flatten="foo"` the object `{"foo":{"bar": "hello"}}` is turned into `{"foo.bar": "hello"}`.
+      The original object with properties is replaced with the flattened object.
     + desc: true (boolean, optional) - By default, results are returned in the same order as they were stored. To reverse the order, set this parameter to `true` or `1`.
     + attachment: true (boolean, optional) - If `true` or `1` then the response will define the `Content-Disposition: attachment` header, forcing a web browser to download the file rather than to display it. By default this header is not present.
     + delimiter: `;` (string, optional) - A delimiter character for CSV files, only used if `format=csv`. You might need to URL-encode the character (e.g. use `%09` for tab or `%3B` for semicolon). The default delimiter is a simple comma (`,`).
@@ -3443,7 +3529,7 @@ This section describes API endpoints to manage webhooks.
 Webhooks provide an easy and reliable way to configure the Apify platform
 to carry out an action (e.g. a HTTP request to another service) when a certain system event occurs.
 For example, you can use webhooks to start another actor when an actor run finishes or fails.
-For more information see <a href="https://docs.apify.com/platform/webhooks">Webhooks documentation</a>.
+For more information see <a href="https://docs.apify.com/platform/integrations/webhooks">Webhooks documentation</a>.
 
 ## Webhook collection [/v2/webhooks{?token,limit,offset,desc}]
 
@@ -3491,6 +3577,8 @@ To assign the new webhook to an actor or task, the request body must contain `re
 * `eventTypes` is a list of events that will trigger the webhook, e.g. when the actor run succeeds.
 * `condition` should be an object containing the ID of the actor or task to which the webhook will be assigned.
 * `payloadTemplate` is a JSON-like string, whose syntax is extended with the use of variables.
+* `headersTemplate` is a JSON-like string, whose syntax is extended with the use of variables. Following values will be re-written to defaults: "host", "Content-Type", "X-Apify-Webhook", "X-Apify-Webhook-Dispatch-Id", "X-Apify-Request-Origin"
+* `description` is an optional string.
 * `shouldInterpolateStrings` is a boolean indicating whether to interpolate variables contained inside strings in the `payloadTemplate`
 
 ```
@@ -3505,6 +3593,8 @@ To assign the new webhook to an actor or task, the request body must contain `re
         "actorTaskId" : "W9bs9JE9v7wprjAnJ"
     },
     "payloadTemplate": "",
+    "headersTemplate": "",
+    "description": "my awesome webhook",
     "shouldInterpolateStrings": false,
 ```
 
@@ -3846,20 +3936,13 @@ are authenticated using a hard-to-guess ID of the actor build or run.
 
 ### Get log [GET]
 
-Responds with HTTP status 302 to redirect to an URL containing the requested log. The log has a content type `text/plain` and it is encoded as `gzip` returned with
-appropriate HTTP headers. The log has following format:
++ Response 200 (text/plain)
 
-```
-2017-07-14T06:00:49.733Z Application started.
-2017-07-14T06:00:49.741Z Input: { test: 123 }
-2017-07-14T06:00:49.752Z Some useful debug information follows.
-```
-
-+ Response 302 (application/json)
-
-    + Headers
-
-            Location: https://apifier-circular-logs-prod.s3.amazonaws.com/yiawTzreqPeFSKySN.log.gz?AWSAccessKeyId=AKIABOIQ&Expires=1500368148&Signature=B7wgpkNKiBin
+    ```
+    2017-07-14T06:00:49.733Z Application started.
+    2017-07-14T06:00:49.741Z Input: { test: 123 }
+    2017-07-14T06:00:49.752Z Some useful debug information follows.
+    ```
 
 # Group Users
 
@@ -4841,6 +4924,13 @@ a summary of your limits, and your current usage.
         - baseAmountUsd:     `0.69611875`               (number, required)
         - baseUnitPriceUsd:  `0.25`                     (number, required)
         - amountAfterVolumeDiscountUsd: `0.69611875`    (number, required)
+        - priceTiers                                   (array, required)
+            -                                           (object, required)
+                - quantityAbove: `0`                    (number, required)
+                - discountPercent: `100`                (number, required)
+                - tierQuantity: `0.39`                  (number, required)
+                - unitPriceUsd: `0`                     (number, required)
+                - priceUsd: `0`                         (number, required)
 - dailyServiceUsages                                   (array, required)
     -                                                  (object, required)
         - date:             `2022-10-02T00:00:00.000Z`         (string, required)
@@ -4849,7 +4939,6 @@ a summary of your limits, and your current usage.
                 - quantity:          `60`                      (number, required)
                 - baseAmountUsd:     `0.00030000000000000003`  (number, required)
 
-        - amountAfterVolumeDiscountUsd: `0.69611875`    (number, required)
         - totalUsageCreditsUsd:  `0.04743857919705913`                (number, required)
 - totalUsageCreditsUsdBeforeVolumeDiscount:    `0.786143673840067`    (number, required)
 - totalUsageCreditsUsdAfterVolumeDiscount:     `0.7861436738400671`   (number, required)
@@ -4867,7 +4956,9 @@ a summary of your limits, and your current usage.
     - maxActorMemoryGbytes:                 `16`        (number, required)
     - maxActorCount:                        `100`       (number, required)
     - maxActorTaskCount:                    `1000`      (number, required)
+    - maxConcurrentActorJobs:               `256`       (number, required)
     - maxTeamAccountSeatCount:              `9`         (number, required)
+    - dataRetentionDays:                    `90`        (number, required)
 - current                                               (object, required)
     - monthlyUsageUsd:                      `43`        (number, required)
     - monthlyActorComputeUnits:             `500.784475`            (number, required)
@@ -4877,6 +4968,7 @@ a summary of your limits, and your current usage.
     - actorMemoryGbytes:                    `8`                     (number, required)
     - actorCount:                           `31`                    (number, required)
     - actorTaskCount:                       `130`                   (number, required)
+    - activeActorJobCount:                  `0`                     (number, required)
     - teamAccountSeatCount:                 `5`                     (number, required)
 
 ## Webhook (object)
@@ -4896,6 +4988,8 @@ a summary of your limits, and your current usage.
 - doNotRetry:               false                           (boolean, nullable)
 - requestUrl:               `http://example.com/`           (string, required)
 - payloadTemplate:          `{\n \"userId\": {{userId}}...` (string, nullable)
+- headersTemplate:          `{\n \"Authorization\": Bearer...`(string, nullable)
+- description:              `this is webhook description`   (string, nullable)
 - lastDispatch                                              (object, nullable)
     - status:               `SUCCEEDED`                     (string, required)
     - finishedAt:           `2019-12-13T08:36:13.202Z`      (string, required)
@@ -4935,6 +5029,8 @@ a summary of your limits, and your current usage.
 - doNotRetry:               false                           (boolean, nullable)
 - requestUrl:               `http://example.com/`           (string, required)
 - payloadTemplate:          `{\n \"userId\": {{userId}}...` (string, nullable)
+- headersTemplate:          `{\n \"Authorization\": Bearer...`(string, nullable)
+- description:              `this is webhook description`   (string, nullable)
 - shouldInterpolateStrings: false                           (boolean, nullable)
 
 ## WebhookUpdate (object)
@@ -4947,6 +5043,8 @@ a summary of your limits, and your current usage.
 - doNotRetry:               false                           (boolean, nullable)
 - requestUrl:               `http://example.com/`           (string, nullable)
 - payloadTemplate:          `{\n \"userId\": {{userId}}...` (string, nullable)
+- headersTemplate:          `{\n \"Authorization\": Bearer...`(string, nullable)
+- description:              `this is webhook description`   (string, nullable)
 - shouldInterpolateStrings: false                           (boolean, nullable)
 
 ## WebhookDispatch
@@ -4979,6 +5077,8 @@ a summary of your limits, and your current usage.
 - isExclusive:    true                    (boolean, required)
 - cronExpression: `* * * * *`             (string, required)
 - timezone:       `UTC`                   (string, required)
+- notifications                           (object, nullable)
+    - email       true                    (boolean, required)
 - actions                                 (array, required)
     - (object)
         - id:     `ZReCs7hkdieq8ZUki`     (string, required)
@@ -5016,6 +5116,8 @@ a summary of your limits, and your current usage.
 - modifiedAt:     `2019-12-20T06:33:11.202Z`  (string, required)
 - nextRunAt:      `2019-04-12T07:34:10.202Z`  (string, nullable)
 - lastRunAt:      `2019-04-12T07:33:10.202Z`  (string, nullable)
+- notifications                               (object, nullable)
+    - email       true                        (boolean, required)
 - actions                                     (array, required)
     -                                         (object, required)
         - id:               `c6KfSgoQzFhMk3etc`               (string, required)
@@ -5044,6 +5146,8 @@ a summary of your limits, and your current usage.
 - cronExpression: `* * * * *`                 (string, nullable)
 - timezone:       `UTC`                       (string, nullable)
 - description:    `Schedule of actor ...`     (string, nullable)
+- notifications                               (object, nullable)
+    - email       true                        (boolean, required)
 - actions                                     (array, nullable)
     -                                         (object, required)
         - type:             `RUN_ACTOR`                       (string, required)
@@ -5071,6 +5175,7 @@ a summary of your limits, and your current usage.
 - description:      `My public actor!`         (string, nullable)
 - pictureUrl:       `https://...`              (string, nullable)
 - userPictureUrl:   `https://...`              (string, nullable)
+- url:              `https://...`              (string, nullable)
 - stats                                        (object, required)
     - totalBuilds:      9                      (number, required)
     - totalRuns:        16                     (number, required)

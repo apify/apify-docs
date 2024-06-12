@@ -1,5 +1,5 @@
 ---
-title: Injecting scripts
+title: Injecting code
 description: Learn how to inject scripts prior to a page's load (pre-injecting), as well as how to expose functions to be run at a later time on the page.
 sidebar_position: 1
 slug: /puppeteer-playwright/executing-scripts/injecting-code
@@ -22,7 +22,7 @@ We'll be covering both of these cases in this brief lesson.
 
 Sometimes, you need your custom code to run before any other code is run on the page. Perhaps you need to modify an object's prototype, or even re-define certain global variables before they are used by the page's native scripts.
 
-Luckily, Puppeteer and Playwright both have functions for this. In Puppeteer, we use  the [`page.evaluateOnNewDocument()`](https://puppeteer.github.io/puppeteer/docs/puppeteer.page.evaluateonnewdocument/) function, while in Playwright we use [`page.addInitScript()`](https://playwright.dev/docs/api/class-page#page-add-init-script). We'll use these functions to override the native `addEventListener` function, setting it to a function that does nothing. This will prevent event listeners from being added to elements.
+Luckily, Puppeteer and Playwright both have functions for this. In Puppeteer, we use the [`page.evaluateOnNewDocument()`](https://pptr.dev/api/puppeteer.page.evaluateonnewdocument) function, while in Playwright we use [`page.addInitScript()`](https://playwright.dev/docs/api/class-page#page-add-init-script). We'll use these functions to override the native `addEventListener` function, setting it to a function that does nothing. This will prevent event listeners from being added to elements.
 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
@@ -71,7 +71,7 @@ await browser.close();
 
 ## Exposing functions {#exposing-functions}
 
-Here's a super awesome function we've created called `returnMessage()`, which simply returns the string **Apify academy!**:
+Here's a super awesome function we've created called `returnMessage()`, which simply returns the string **Apify Academy!**:
 
 ```js
 const returnMessage = () => 'Apify academy!';
@@ -128,4 +128,4 @@ await browser.close();
 
 ## Next up {#next}
 
-Next, we'll be learning a bit about how to extract data using Playwright/Puppeteer. There are two main ways to do this, so [next exciting lesson](./extracting_data.md) will be about both of them!
+Next, we'll be learning a bit about how to extract data using Playwright/Puppeteer. You can use one of the two main ways to do this, so [the next exciting lesson](./extracting_data.md) will be about both of them!

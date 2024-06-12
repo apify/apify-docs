@@ -1,19 +1,19 @@
 ---
 title: Inputs & outputs
-description: Create an actor from scratch which takes an input, processes that input, then outputs a result that can be used elsewhere.
+description: Create an actor from scratch which takes an input, processes that input, and then outputs a result that can be used elsewhere.
 sidebar_position: 3
 slug: /getting-started/inputs-outputs
 ---
 
 # Inputs & outputs {#inputs-outputs}
 
-**Create an actor from scratch which takes an input, processes that input, then outputs a result that can be used elsewhere.**
+**Create an actor from scratch which takes an input, processes that input, and then outputs a result that can be used elsewhere.**
 
 ---
 
 Most of the time, when you are writing any sort of software, it will generally expect some sort of input and generate some sort of output. It is the same exact story when it comes to actors, which is why we at Apify have made it so easy to accept input into an actor and store its results somewhere.
 
-In this lesson, we'll be demonstrating inputs and outputs by building an actor which takes two numbers as input, adds them up, then outputs the result.
+In this lesson, we'll be demonstrating inputs and outputs by building an actor which takes two numbers as input, adds them up, and then outputs the result.
 
 ## Accept input into an actor {#accept-input}
 
@@ -75,7 +75,7 @@ If you scroll down a bit, you'll find the **Developer console** located under th
 
 ![Configuring inputs](./images/configure-inputs.jpg)
 
-Enter any two numbers you'd like, then press **Start**. The actor's run should complete almost immediately.
+Enter any two numbers you'd like, then press **Start**. The actor's run should be completed almost immediately.
 
 ## View actor results {#view-results}
 

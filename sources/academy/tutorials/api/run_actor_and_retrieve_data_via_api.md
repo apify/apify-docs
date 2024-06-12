@@ -9,11 +9,12 @@ slug: /api/run-actor-and-retrieve-data-via-api
 
 ---
 
-The most popular way of [integrating](https://help.apify.com/en/collections/1669767-integrating-with-apify) the Apify platform with an external project/application is by programmatically running an [Actor](/platform/actors) or [task](/platform/actors/running/tasks), waiting for it to complete its run, then collecting its data and using it within the project. Though this process sounds somewhat complicated, it's actually quite easy to do; however, due to the plethora of features offered on the Apify platform, new users may not be sure how exactly to implement this type of integration. So, let's dive in and see how you can do it.
+The most popular way of [integrating](https://help.apify.com/en/collections/1669769-integrations) the Apify platform with an external project/application is by programmatically running an [Actor](/platform/actors) or [task](/platform/actors/running/tasks), waiting for it to complete its run, then collecting its data and using it within the project. Though this process sounds somewhat complicated, it's actually quite easy to do; however, due to the plethora of features offered on the Apify platform, new users may not be sure how exactly to implement this type of integration. Let's dive in and see how you can do it.
 
 > Remember to check out our [API documentation](/api/v2) with examples in different languages and a live API console. We also recommend testing the API with a nice desktop client like [Postman](https://www.getpostman.com/) or [Insomnia](https://insomnia.rest).
 
-There are 2 main ways of using the Apify API:
+
+Apify API offers two ways of interacting with it:
 
 - [Synchronously](#synchronous-flow)
 - [Asynchronously](#asynchronous-flow)
@@ -36,7 +37,7 @@ To run, or **call**, an Actor/task, you will need a few things:
 
 - Some other optional settings if you'd like to change the default values (such as allocated memory or the build).
 
-The URL for a [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to run an actor looks like this:
+The URL of [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to run an actor looks like this:
 
 ```cURL
 https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN
@@ -83,6 +84,60 @@ If we press **Send**, it will immediately return some info about the run. The `s
 ![Actor run info in Postman](./images/run-info-postman.png)
 
 We will later use this **run info** JSON to retrieve the run's output data. This info about the run can also be retrieved with another call to the [**Get run**](https://apify.com/docs/api/v2#/reference/actors/run-object/get-run) endpoint.
+
+## JavaScript and Python client {#javascript-and-python-client}
+
+If you are using JavaScript or Python, we highly recommend using the Apify API client ([JavaScript](https://docs.apify.com/api/client/js/), [Python](https://docs.apify.com/api/client/python/)) instead of the raw HTTP API. The client implements smart polling and exponential backoff, which makes calling Actors and getting results very simple.
+
+You can skip most of this tutorial by following this code example that calls Google Search Results Scraper and logs its results:
+
+<Tabs groupId="main">
+<TabItem value="Node.js" label="Node.js">
+
+```javascript
+import { ApifyClient } from 'apify-client';
+
+const client = new ApifyClient({ token: 'YOUR_API_TOKEN' });
+
+const input = { queries: 'Food in NYC' };
+
+// Run the Actor and wait for it to finish
+// .call method waits infinitely long using smart polling
+// Get back the run API object
+const run = await client.actor('apify/google-search-scraper').call(input);
+
+// Fetch and print Actor results from the run's dataset (if any)
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+items.forEach((item) => {
+    console.dir(item);
+});
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify_client import ApifyClient
+client = ApifyClient(token='YOUR_API_TOKEN')
+
+run_input = {
+    "queries": "Food in NYC",
+}
+
+# Run the Actor and wait for it to finish
+# .call method waits infinitely long using smart polling
+# Get back the run API object
+run = client.actor("apify/google-search-scraper").call(run_input=run_input)
+
+# Fetch and print Actor results from the run's dataset (if there are any)
+for item in client.dataset(run["defaultDatasetId"]).iterate_items():
+    print(item)
+```
+
+</TabItem>
+</Tabs>
+
+By using our client, you don't need to worry about choosing between synchronous or asynchronous flow. But if you don't want your code to wait during `.call` (potentially for hours), continue reading below about how to implement webhooks.
 
 ## Synchronous flow {#synchronous-flow}
 
@@ -179,7 +234,7 @@ Once your server receives this request from the webhook, you know that the event
 
 What if you don't have a server, and the run you'd like to do is much too long to use a synchronous call? In cases like these, periodic **polling** of the run's status is the solution.
 
-When we run the actor with the [usual API call](#run-an-actor-or-task) shown above, we will be responded back with the **run info** object. From this JSON object, we can then extract the ID of the actor run that we just started from the `id` field. Then, we can set an interval that will poll the Apify API (let's say every 5 seconds) by calling the [**Get run**](https://apify.com/docs/api/v2#/reference/actors/run-object/get-run) endpoint to retrieve the run's status.
+When we run the actor with the [usual API call](#run-an-actor-or-task) shown above, we will back a response with the **run info** object. From this JSON object, we can then extract the ID of the actor run that we just started from the `id` field. Then, we can set an interval that will poll the Apify API (let's say every 5 seconds) by calling the [**Get run**](https://apify.com/docs/api/v2#/reference/actors/run-object/get-run) endpoint to retrieve the run's status.
 
 Simply replace the `RUN_ID` in the following URL with the ID you extracted earlier:
 
@@ -207,9 +262,9 @@ https://api.apify.com/v2/datasets/DATASET_ID/items
 
 By default, it will return the data in JSON format with some metadata. The actual data are in the `items` array.
 
-There are plenty of additional parameters that you can use. You can learn about them in the [documentation](/api/v2#/reference/datasets/item-collection/get-items). We will only mention that you can pass a `format` parameter that transforms the response into popular formats like CSV, XML, Excel, RSS, etc.
+You can use plenty of additional parameters, to learn more about them, visit our API reference [documentation](/api/v2#/reference/datasets/item-collection/get-items). We will only mention that you can pass a `format` parameter that transforms the response into popular formats like CSV, XML, Excel, RSS, etc.
 
-The items are paginated, which means you can ask only for a subset of the data. Specify this using the `limit` and `offset` parameters. There is actually an overall limit of 250,000 items that the endpoint can return per request. To retrieve more, you will need to send more requests incrementing the `offset` parameter.
+The items are paginated, which means you can ask only for a subset of the data. Specify this using the `limit` and `offset` parameters. This endpoint has a limit of 250,000 items that it can return per request. To retrieve more, you will need to send more requests incrementing the `offset` parameter.
 
 ```cURL
 https://api.apify.com/v2/datasets/DATASET_ID/items?format=csv&offset=250000

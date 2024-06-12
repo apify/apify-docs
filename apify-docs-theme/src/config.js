@@ -13,6 +13,7 @@ const themeConfig = ({
             hideable: true,
         },
     },
+    smartlook: { projectKey: process.env.SMARTLOOK_PROJECT_KEY || '-' },
     navbar: {
         title: 'Apify Docs',
         logo: {
@@ -42,12 +43,15 @@ const themeConfig = ({
             {
                 label: 'API',
                 type: 'dropdown',
+                to: `${absoluteUrl}/api`,
+                target: '_self',
+                rel: 'dofollow',
                 activeBasePath: 'api',
                 position: 'left',
                 items: [
                     {
                         label: 'Reference',
-                        href: `${absoluteUrl}/api/v2/`,
+                        href: `${absoluteUrl}/api/v2`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -68,8 +72,11 @@ const themeConfig = ({
             {
                 label: 'SDK',
                 type: 'dropdown',
+                to: `${absoluteUrl}/sdk`,
                 activeBasePath: 'sdk',
                 position: 'left',
+                target: '_self',
+                rel: 'dofollow',
                 items: [
                     {
                         label: 'SDK for JavaScript',
@@ -89,6 +96,7 @@ const themeConfig = ({
                 label: 'CLI',
                 href: `${absoluteUrl}/cli/`, // we need a trailing slash here, we'd get redirected there anyway
                 position: 'left',
+                activeBasePath: 'cli',
                 target: '_self',
                 rel: 'dofollow',
             },
@@ -142,10 +150,10 @@ const themeConfig = ({
         defaultLanguage: 'typescript',
         theme: require('prism-react-renderer').themes.github,
         darkTheme: require('prism-react-renderer').themes.dracula,
-        additionalLanguages: ['docker', 'log', 'php'],
+        additionalLanguages: ['docker', 'log', 'php', 'json5'],
     },
     // this needs to be absolute link otherwise it gets resolved wrongly in project docs
-    image: 'https://docs.apify.com/img/docs-og.png',
+    image: 'https://apify.com/og-image/docs-article',
     footer: {
         links: [
             {
@@ -170,7 +178,7 @@ const themeConfig = ({
                 items: [
                     {
                         label: 'Reference',
-                        href: `${absoluteUrl}/api/v2/`,
+                        href: `${absoluteUrl}/api/v2`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -255,6 +263,7 @@ const themeConfig = ({
 });
 
 const plugins = [
+    'docusaurus-plugin-smartlook',
     [
         'docusaurus-gtm-plugin',
         {

@@ -4,41 +4,80 @@
 
 ## Intro
 
-This repository is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). Source files of the [platform documentation](https://docs.apify.com/platform) are located [/sources](https://github.com/apify/apify-docs/tree/master/sources) directory. However, other sections such as [SDK](https://docs.apify.com/sdk) or [CLI](https://docs.apify.com/cli) have their own repositories. For more information, see the [Contributing guidelines](./CONTRIBUTING.md).
+This repository is the home of Apify's documentation, which you can find at [docs.apify.com](https://docs.apify.com/). The documentation is written using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). Source files of the [platform documentation](https://docs.apify.com/platform) are located in the [/sources](https://github.com/apify/apify-docs/tree/master/sources) directory. However, other sections, such as SDKs for [JavaScript/Node.js](https://docs.apify.com/sdk/js/), [Python](https://docs.apify.com/sdk/python/), or [CLI](https://docs.apify.com/cli), have their own repositories. For more information, see the [Contributing guidelines](./CONTRIBUTING.md).
 
 ## Before you start contributing
 
 > [!IMPORTANT]
 > Before you contribute to Apify documentation with your first pull request, please read the following 2 articles:
 >
-> - [Contributing guidelines](CONTRIBUTING.md), where you learn about the project structure, local development, and testing.
-> - [Style guide](#style-guide), here below, where you learn how to keep the documentation style consistent.
+> - [Contributing guidelines](CONTRIBUTING.md), where you learn about the project structure, local development, testing, and setting up redirects.
+> - [Style guide](#style-guide), here below 👇, where you learn how to keep the documentation style consistent.
 
 ## Style guide
 
-In addition to the tips below: when in doubt, check existing docs for formatting and style tips.
+In addition to the following tips, check existing docs for formatting and style tips when in doubt.
+
+### Language
+
+Adhere to US-EN language standards to maintain consistency and clarity in our documentation.
+
+Use inclusive language, for example:
+
+Instead of _see_, use _view_ or _check out_.
+
+Avoid using directional language like:
+
+> Click the **Home** button on the left to return to the homepage.
+> You'll find the account settings on the left-hand side menu.
+
+Instead, try to be more descriptive, for example:
+
+> Click the **Home** button in the menu, to return to the homepage.
+> You'll find the account settings under the **Settings** button in the menu.
 
 ### Highlighting
 
-- For consistency, use **bold** for highlighting non-code words/phrases.
+- For consistency, use **bold** to highlight UI text when dealing with UI-focused documentation (for example, Apify Console).
+- For consistency, use _italics_ to emphasize text.
 - For inline `code` examples, use **back-ticks** (\` \`).
-- For multi-line code examples, use code fences and specify the language. Preferably, specify the title as well.
+- For multi-line code examples, use code fences and specify the language. Preferably, specify the title as well. Within platform documentation, always use [Code tabs](README.md#code-tabs) and declare the language.
 
-    ```markdown
-    \`\`\`js title='foo.js'
+  ``````markdown
+  ```js showLineNumbers title='foo.js'
 
-    const docsAreCool = require('coolDocs'); <br/>
-    ...<br/>
-    return docsAreCool;<br/>
+  const docsAreCool = require('coolDocs'); <br/>
+  ...<br/>
+  return docsAreCool;<br/>
 
-    \`\`\`
-    ```
+  ```
+  ``````
 
-    See [Markdown features](https://docusaurus.io/docs/markdown-features) in the Docusaurus docs for more information.
+Check out [Markdown features](https://docusaurus.io/docs/markdown-features) in the Docusaurus docs for more information.
+
+### Admonitions
+
+In Apify platform documentation, always use admonitions to emphasize crucial information, warnings, tips, or additional context. The available admonitions include:
+
+- `note`
+- `tip`
+- `info`
+- `caution`
+- `danger`
+
+Consult the [Docusaurus documentation](https://docusaurus.io/docs/2.x/markdown-features/admonitions) for visual distinctions between each type and guidelines on usage. Choose the most relevant type for your content. Maintain proper formatting by adding blank lines following the admonition blocks. Title your admonition next to its type, as shown below:
+
+```markdown
+:::note Your Title Here
+
+Your important message here.
+
+:::
+```
 
 ### Code tabs
 
-See [docusaurus documentation for tabs](https://docusaurus.io/docs/markdown-features/tabs) for examples. In Apify platform documentation, use the code tabs to always include examples for both JavaScript and Python languages.
+View [Docusaurus documentation for tabs](https://docusaurus.io/docs/markdown-features/tabs) for examples. In Apify platform documentation, always use the code tabs to include examples for both JavaScript and Python languages.
 
 ```markdown
 import Tabs from '@theme/Tabs';
@@ -59,7 +98,7 @@ import TabItem from '@theme/TabItem';
 
 ### Metadata
 
-The page metadata can be provided as part of so-called [front-matter](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter).
+You must provide the new page metadata as part of the so-called [front matter](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter).
 
 ```markdown
 ---
@@ -89,7 +128,7 @@ My Document Markdown content
 
 ### Descriptions
 
-- Metadata descriptions are super important in making our documentation easy to find using search engines. To maximize our SEO, **keep the descriptions between [140 and 160 characters in length](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwigg6Og56brAhUNi1wKHULsAHEQFjAGegQIDBAG&url=https%3A%2F%2Fmoz.com%2Flearn%2Fseo%2Fmeta-description&usg=AOvVaw3L26bXhHZTd0wYDM_5xtJ9) whenever possible**.
+- Metadata descriptions are super important in making our documentation easy to find using search engines. To maximize our SEO, _keep the descriptions between [140 and 160 characters](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwigg6Og56brAhUNi1wKHULsAHEQFjAGegQIDBAG&url=https%3A%2F%2Fmoz.com%2Flearn%2Fseo%2Fmeta-description&usg=AOvVaw3L26bXhHZTd0wYDM_5xtJ9) whenever possible_.
 
     Of course, when there just isn't enough to say, don't waffle - it's not a university essay.
 
@@ -101,7 +140,7 @@ My Document Markdown content
 
     > "Apify storage docs."
 
-- Avoid using the word "**documentation**.
+- Avoid using the word "_documentation_".
 
     GOOD:
 
@@ -109,9 +148,9 @@ My Document Markdown content
 
     AVOID:
 
-    > "Documentation of Apify actors - the easy way to build serverless cloud programs."
+    > "Documentation of Apify Actors - the easy way to build serverless cloud programs."
 
-- Avoid **keyword stuffing**, i.e., repeating the article's name too much, see the [Wikipedia article](https://en.wikipedia.org/wiki/Keyword_stuffing) for more.
+- Avoid _keyword stuffing_, i.e., repeating the article's name too much; view the [Wikipedia article](https://en.wikipedia.org/wiki/Keyword_stuffing) for more.
 
     GOOD:
 
@@ -129,13 +168,16 @@ My Document Markdown content
 
     GOOD:
 
-    > Learn how to make your actor available to the public or keep it private. Prepare your actor for Apify Store with a description and README file.
+    > Learn how to make your Actor available to the public or keep it private. Prepare your Actor for Apify Store with a description and README file.
 
     AVOID:
 
-    > Description of the processes regarding the optimizing and preparing for publishing of one's actor in Apify Store.
+    > Description of the processes regarding optimizing and preparing for publishing of one's Actor in Apify Store.
 
 ### Screenshots
 
-Documentation has both light and dark theme. However to keep the screenshots consistent and easily manageable, use the light theme for all screenshots.
+Documentation has both light and dark themes. However, to keep the screenshots consistent and easily manageable, use the light theme for all screenshots.
 
+All screenshots should have a meaningful alt text to accommodate screen readers.
+
+If you add arrows or other indicators to the screenshots, they should be red for high contrast and visibility on the light theme.

@@ -36,7 +36,7 @@ To make sure we're all on the same page, we're going to set up the project toget
 npm init -y && npm install graphql-tag puppeteer got-scraping
 ```
 
-This command will first initialize the project with NPM, then will install the `puppeteer`, `graphql-tag`, and `got-scraping` packages, which we will need in this lesson.
+This command will first initialize the project with npm, then will install the `puppeteer`, `graphql-tag`, and `got-scraping` packages, which we will need in this lesson.
 
 Finally, create a file called **index.js**. This is the file we will be working in for the rest of the lesson.
 
@@ -44,7 +44,7 @@ Finally, create a file called **index.js**. This is the file we will be working 
 
 If we remember from the last lesson, we need to pass a valid "app token" within the **X-App-Token** header of every single request we make, or else we will be blocked. When testing queries, we just copied this value straight from the **Network** tab; however, since this is a dynamic value, we should farm it.
 
-Since we know requests with this header are sent right when the front page is loaded, it can be farmed by simply visiting thee page and intercepting requests in Puppeteer like so:
+Since we know requests with this header are sent right when the front page is loaded, it can be farmed by simply visiting the page and intercepting requests in Puppeteer like so:
 
 ```js
 // scrapeAppToken.js
@@ -113,7 +113,7 @@ Also in the previous lesson, we learned that the **media** type is dependent on 
 query SearchQuery($query: String!, $max_age: Int!) {
   organization {
     media(query: $query, max_age: $max_age , first: 1000) {
-        
+
     }
   }
 }
@@ -190,7 +190,7 @@ const GET_LATEST = gql`
 `;
 ```
 
-Alternatively, if you don't want to write your GraphQL queries right within your Javascript code, you can write them in files using the **.graphql** format, then read them from the filesystem or import them.
+Alternatively, if you don't want to write your GraphQL queries right within your JavaScript code, you can write them in files using the **.graphql** format, then read them from the filesystem or import them.
 
 > In order to receive nice GraphQL syntax highlighting in these template literals, download the [GraphQL VSCode extension](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql)
 

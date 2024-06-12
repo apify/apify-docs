@@ -1,0 +1,45 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.headingLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    width: fit-content;
+}
+
+.headingLink :hover {
+    text-decoration: none;
+    color: var(--color-primary-action-hover) !important;
+}
+
+.headingLink::after {
+    content: " ";
+    display: block;
+    background-image: url('/img/external_link_icon.svg');
+    background-size: 1.5rem 1.5rem;
+    background-repeat: round;
+    height: 2rem;
+    width: 2rem;
+    transition: margin 200ms ease-in-out;
+    
+}
+
+.headingLink:hover::after {
+    background-image: url('/img/external_link_icon_primary.svg');
+}
+
+html[data-theme='dark'] .headingLink::after {
+    background-image: url('/img/external_link_icon_dark.svg');
+}
+
+html[data-theme='dark'] .headingLink:hover::after {
+    background-image: url('/img/external_link_icon_primary_dark.svg');
+}
+
+.githubButtonWrapper {
+    margin-top: auto;
+}

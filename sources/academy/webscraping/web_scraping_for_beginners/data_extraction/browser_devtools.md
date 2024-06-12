@@ -1,17 +1,15 @@
 ---
-title: Browser DevTools - I
-description: Learn about browser DevTools, a valuable tool in the world of web scraping , and how you can use them to extract data from a website.
+title: Starting with browser DevTools
+description: Learn about browser DevTools, a valuable tool in the world of web scraping, and how you can use them to extract data from a website.
 sidebar_position: 1
 slug: /web-scraping-for-beginners/data-extraction/browser-devtools
 ---
 
-# Browser DevTools {#devtools}
-
-**Learn about browser DevTools, a valuable tool in the world of web scraping , and how you can use them to extract data from a website.**
+**Learn about browser DevTools, a valuable tool in the world of web scraping, and how you can use them to extract data from a website.**
 
 ---
 
-Even though DevTools stands for developer tools, everyone can use them to inspect a website. Each major browser has their own DevTools. We will use Chrome DevTools as an example, but the advice is applicable to any browser, as the tools are extremely similar. To open Chrome DevTools, you can press **F12** or right-click anywhere in the page and choose **Inspect**.
+Even though DevTools stands for developer tools, everyone can use them to inspect a website. Each major browser has its own DevTools. We will use Chrome DevTools as an example, but the advice is applicable to any browser, as the tools are extremely similar. To open Chrome DevTools, you can press **F12** or right-click anywhere in the page and choose **Inspect**.
 
 Now go to [Wikipedia](https://wikipedia.com) and open your DevTools there. Inspecting the same website as us will make this lesson easier to follow.
 
@@ -67,10 +65,10 @@ By changing HTML elements from the Console, you can change what's displayed on t
 
 ![Chrome DevTools JavaScript command execution](./images/browser-devtools-console-commands.png)
 
-> You can interact with the page in many more ways using the Console. If you want to dive deeper we recommend this [tutorial on documents](https://javascript.info/document). A web page in a browser is called a document.
+> In JavaScript, the web page is called `document`. From the Console you can interact with it in many ways. Go through [document basics](https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Using_the_Document_Object_Model) to learn more.
 
 ## Next up {#next}
 
 In this lesson, we learned the absolute basics of interaction with a page using the DevTools. In the [next lesson](./using_devtools.md), you will learn how to extract data from it. We will extract data about the on-sale products on the [Warehouse store](https://warehouse-theme-metal.myshopify.com).
 
-It isn't a real store, but a full-featured demo of a Shopify online store. And that is just perfect for our purposes. Shopify is one of the largest e-commerce platforms in the world, and it uses all the latest technologies that a real, modern e-commerce web-application would use. Learning to scrape a Shopify store is useful, because you can immediately apply the learnings to millions of websites.
+It isn't a real store, but a full-featured demo of a Shopify online store. And that is just perfect for our purposes. Shopify is one of the largest e-commerce platforms in the world, and it uses all the latest technologies that a real e-commerce web application would use. Learning to scrape a Shopify store is useful, because you can immediately apply the learnings to millions of websites.

@@ -19,24 +19,22 @@ Click [here](../actors/index.mdx) to learn about Apify Actors.
 
 ### Actor {#actor}
 
-| Permission           | Description                                  |
-|----------------------|----------------------------------------------|
-| Read                 | View Actor settings, source code and builds. |
-| Write                | Edit Actor settings and source code.         |
-| Run                  | Run any of an Actor's builds.                |
-| Delete               | Remove the Actor.                            |
-| View runs            | View a list of Actor runs and their details. |
-| Manage access rights | Manage Actor access rights.                  |
+| Permission           | Description                                                |
+|----------------------|------------------------------------------------------------|
+| Read                 | View Actor settings, source code and builds.               |
+| Write                | Edit Actor settings and source code, and delete the Actor. |
+| Run                  | Run any of an Actor's builds.                              |
+| View runs            | View a list of Actor runs and their details.               |
+| Manage access rights | Manage Actor access rights.                                |
 
 ### Actor task {#actor-task}
 
-| Permission           | Description                                       |
-|----------------------|---------------------------------------------------|
-| Read                 | View task configuration.                          |
-| Write                | Edit task configuration and settings.             |
-| Delete               | Remove the task.                                  |
-| View runs            | View a list of Actor task runs and their details. |
-| Manage access rights | Manage Actor task access rights.                  |
+| Permission           | Description                                                |
+|----------------------|------------------------------------------------------------|
+| Read                 | View task configuration.                                   |
+| Write                | Edit task configuration and settings, and delete the task. |
+| View runs            | View a list of Actor task runs and their details.          |
+| Manage access rights | Manage Actor task access rights.                           |
 
 To learn about Actor tasks, see the [documentation](../actors/running/tasks.md).
 
@@ -46,46 +44,33 @@ For more information about Storage, see its [documentation](../storage/index.md)
 
 ### Dataset {#dataset}
 
-| Permission           | Description                                |
-|----------------------|--------------------------------------------|
-| Read                 | View dataset information and its data.     |
-| Write                | Edit dataset settings and push data to it. |
-| Delete               | Remove the dataset.                        |
-| Manage access rights | Manage dataset access rights.              |
+| Permission           | Description                                                     |
+|----------------------|-----------------------------------------------------------------|
+| Read                 | View dataset information and its data.                          |
+| Write                | Edit dataset settings, push data to it, and remove the dataset. |
+| Manage access rights | Manage dataset access rights.                                   |
 
 To learn about dataset storage, see its [documentation](../storage/dataset.md).
 
 ### Key-value-store {#key-value-store}
 
-| Permission           | Description                                                                |
-|----------------------|----------------------------------------------------------------------------|
-| Read                 | View key-value store details and records.                                  |
-| Write                | Edit key-value store settings and add, update or <br/> remove its records. |
-| Delete               | Remove key-value store.                                                    |
-| Manage access rights | Manage key-value store access rights.                                      |
+| Permission           | Description                                                                                       |
+|----------------------|---------------------------------------------------------------------------------------------------|
+| Read                 | View key-value store details and records.                                                         |
+| Write                | Edit key-value store settings, add, update or remove its records, and delete the key-value store. |
+| Manage access rights | Manage key-value store access rights.                                                             |
 
 To learn about key-value stores, see the [documentation](../storage/key_value_store.md).
 
 ### Request queue {#request-queue}
 
-| Permission           | Description                                                              |
-|----------------------|--------------------------------------------------------------------------|
-| Read                 | View request queue details and records.                                  |
-| Write                | Edit request queue settings and add, update or <br/> remove its records. |
-| Delete               | Remove request queue.                                                    |
-| Manage access rights | Manage request queue access rights.                                      |
+| Permission           | Description                                                                                    |
+|----------------------|------------------------------------------------------------------------------------------------|
+| Read                 | View request queue details and records.                                                        |
+| Write                | Edit request queue settings, add, update, or remove its records, and delete the request queue. |
+| Manage access rights | Manage request queue access rights.                                                            |
 
 To learn about request queue storage, see the [documentation](../storage/request_queue.md).
-
-## Schedules {#schedules}
-
-| Permission | Description                                        |
-|------------|----------------------------------------------------|
-| Read       | View schedule settings and scheduled Actors/tasks. |
-| Write      | Edit schedule settings and scheduled Actors/tasks. |
-| Delete     | Remove the schedule.                               |
-
-To learn about schedules, see the [documentation](../schedules.md).
 
 ## Proxy {#proxy}
 

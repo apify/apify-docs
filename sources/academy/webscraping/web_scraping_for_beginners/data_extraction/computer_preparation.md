@@ -1,13 +1,13 @@
 ---
 title: Computer preparation
-description: Set up your computer to be able to code scrapers with Node.js and JavaScript. Download Node.js and NPM and run a Hello World script.
+description: Set up your computer to be able to code scrapers with Node.js and JavaScript. Download Node.js and npm and run a Hello World script.
 sidebar_position: 4
 slug: /web-scraping-for-beginners/data-extraction/computer-preparation
 ---
 
 # Prepare your computer for programming {#prepare-computer}
 
-**Set up your computer to be able to code scrapers with Node.js and JavaScript. Download Node.js and NPM and run a Hello World script.**
+**Set up your computer to be able to code scrapers with Node.js and JavaScript. Download Node.js and npm and run a Hello World script.**
 
 ---
 
@@ -21,7 +21,7 @@ If you're on macOS, use [this tutorial to install Node.js](https://blog.apify.co
 
 ## Install a text editor {#install-an-editor}
 
-There are many text editors you can choose from for programming. You might already have a preferred one so feel free to use that. Just make sure it has syntax highlighting and support for Node.js. If you don't have any text editor, we suggest starting with VSCode. It's free, very popular, and well maintained. [Download it here](https://code.visualstudio.com/download).
+Many text editors are available for you to choose from when programming. You might already have a preferred one so feel free to use that. Just make sure it has syntax highlighting and support for Node.js. If you don't have a text editor, we suggest starting with VSCode. It's free, very popular, and well maintained. [Download it here](https://code.visualstudio.com/download).
 
 Once you downloaded and installed it, you can open a folder where we will build your scraper. We recommend starting with a new, empty folder.
 
@@ -29,7 +29,7 @@ Once you downloaded and installed it, you can open a folder where we will build 
 
 ## Hello world! 👋 {#hello-world}
 
-Before we start, let's confirm that Node.js was successfully installed on your computer. To do that, run those two commands in your terminal and see if they correctly print your Node.js and NPM versions. The next lessons **require Node.js version 16 or higher**. If you skipped Node.js installation and want to use your existing version of Node.js, **make sure that it's 16 or higher**.
+Before we start, let's confirm that Node.js was successfully installed on your computer. To do that, run those two commands in your terminal and see if they correctly print your Node.js and npm versions. The next lessons **require Node.js version 16 or higher**. If you skipped Node.js installation and want to use your existing version of Node.js, **make sure that it's 16 or higher**.
 
 ```shell
 node -v

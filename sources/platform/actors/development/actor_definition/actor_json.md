@@ -9,7 +9,7 @@ sidebar_position: 1
 
 ---
 
-The main Actor config should live in the `.actor/actor.json` file in the Actor's root directory. This file associates your local development project with an Actor on the Apify platform. It contains information such as Actor name, version, build tag, and environment variables. Make sure you commit this file to the Git repository.
+Your main Actor configuration is in the `actor/actor.json` file at the root of your Actor's directory. This file links your local development project to an Actor on the Apify platform. It should include details like the Actor's name, version, build tag, and environment variables. Make sure to commit this file to your Git repository.
 
 For example, the `.actor/actor.json` file can look like this:
 
@@ -35,7 +35,7 @@ import TabItem from '@theme/TabItem';
     "readme": "./ACTOR.md",
     "input": "./input_schema.json",
     "storages": {
-        "dataset": "./dataset_schema.json",
+        "dataset": "./dataset_schema.json"
     }
 }
 ```
@@ -56,19 +56,24 @@ import TabItem from '@theme/TabItem';
 
 ## Reference
 
-> Note that Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently only used when you deploy your Actor using the [Apify CLI](/cli) and not when deployed, for example, via GitHub integration. There, it serves for informative purposes only. This is suspected to change in the future.
+:::note Deployment metadata
 
-| Property               | Type     | Description |
-|------------------------| -------- |----------- |
-| `actorSpecification`   | Required | We are at a version `1` which is the only one available so this must be set to `1`. |
-| `name`                 | Required | Name of the Actor. |
-| `version`              | Required | Actor version in the form `[Number].[Number]`, i.e. for example `0.0`, `0.1`, `2.3`, ... |
-| `buildTag`             | Optional | The tag name applied for the successful build of the Actor. Defaults to `latest`. For more information see the [builds](../builds_and_runs/builds.md) section. |
-| `environmentVariables` | Optional | A map of environment variables used during the local development that will be also applied to Actor at Apify platform. For more see the [environment variables](/cli/docs/vars) section of Apify CLI documentation. |
-| `dockerfile`           | Optional | If you specify the path to your Dockerfile under the `dockerfile` field, this file will be used for Actor builds on the platform. If not specified, the system will look for Dockerfiles at `.actor/Dockerfile` and `Dockerfile`, in that order. For more, see the [Dockerfile](./dockerfile.md) section. |
-| `dockerContextDir`     | Optional | Specifies the path to the directory used as the Docker context when building the Actor. The path is relative to the location of the `actor.json` file. Useful for having a monorepo with multiple Actors. See [Actor monorepos](../deployment/source_types.md#actor-monorepos) for more details. |
-| `readme`               | Optional | If you specify the path to your README file under the `readme` field, the README at this path will be used on the platform. If not specified, README at `.actor/README.md` or `README.md` will be used, in this order of preference. See our [Apify Academy article on writing a quality README files](/academy/get-most-of-actors/actor-readme). |
-| `input`                | Optional | You can embed your [input schema](./input_schema/index.md) object directly in `actor.json` under the `input` field. Alternatively, you can provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference. |
-| `storages.dataset`     | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](./output_schema.md#specification-version-1) about Actor output schemas. |
-| `minMemoryMbytes`      | Optional | Specifies the minimum amount of memory in megabytes that an Actor requires to run. Requires an integer value. If both `minMemoryMbytes` and `maxMemoryMbytes` are set, then `minMemoryMbytes` must be the same or lower than `maxMemoryMbytes`. |
-| `maxMemoryMbytes`      | Optional | Specifies the maximum amount of memory in megabytes that an Actor requires to run. It can be used to control the costs of run, especially when developing pay per result Actors. Requires an integer value. |
+Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently only used when you deploy your Actor using the [Apify CLI](/cli) and not when deployed, for example, via GitHub integration. There, it serves for informative purposes only.
+
+:::
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `actorSpecification` | Required | The version of the Actor specification. This property must be set to `1`, which is the only version available.  |
+| `name` | Required | The name of the Actor. |
+| `version` | Required | The version of the Actor, specified in the format `[Number].[Number]`, e.g., `0.1`, `0.3`, `1.0`, `1.3`, etc. |
+| `buildTag` | Optional | The tag name to be applied to a successful build of the Actor. If not specified, defaults to `latest`. Refer to the [builds](../builds_and_runs/builds.md) for more information. |
+| `environmentVariables` | Optional | A map of environment variables to be used during local development. These variables will also be applied to the Actor when deployed on the Apify platform. For more details, see the [environment variables](/cli/docs/vars) section of Apify CLI documentation. |
+| `dockerfile` | Optional | The path to the Dockerfile to be used for building the Actor on the platform. If not specified, the system will search for Dockerfiles in the `.actor/Dockerfile` and `Dockerfile` paths, in that order. Refer to the [Dockerfile](./docker.md) section for more information. |
+| `dockerContextDir` | Optional | The path to the directory to be used as the Docker context when building the Actor. The path is relative to the location of the `actor.json` file. This property is useful for monorepos containing multiple Actors. Refer to the [Actor monorepos](../deployment/source_types.md#actor-monorepos) section for more details. |
+| `readme` | Optional | The path to the README file to be used on the platform. If not specified, the system will look for README files in the `.actor/README.md` and `README.md` paths, in that order of preference. Check out [Apify Academy article on writing a quality README files](/academy/get-most-of-actors/actor-readme) guidance. |
+| `input` | Optional | You can embed your [input schema](./input_schema/index.md) object directly in `actor.json` under the `input` field. You can also provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference. |
+| `changelog` | Optional | The path to the CHANGELOG file displayed in the Information tab of the Actor in Apify Console next to Readme. If not provided, the CHANGELOG at `.actor/CHANGELOG.md` or `CHANGELOG.md` is used, in this order of preference. Your Actor doesn't need to have a CHANGELOG but it is a good practice to keep it updated for published Actors. |
+| `storages.dataset` | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](./output_schema.md#specification-version-1) about Actor output schemas. |
+| `minMemoryMbytes` | Optional | Specifies the minimum amount of memory in megabytes required by the Actor to run. Requires an _integer_ value. If both `minMemoryMbytes` and `maxMemoryMbytes` are set, then `minMemoryMbytes` must be equal or lower than `maxMemoryMbytes`. Refer to the [Usage and resoursces](https://docs.apify.com/platform/actors/running/usage-and-resources#memory) for more details about memory allocation. |
+| `maxMemoryMbytes` | Optional | Specifies the maximum amount of memory in megabytes required by the Actor to run. It can be used to control the costs of run, especially when developing pay per result Actors. Requires an _integer_ value. Refer to the [Usage and resoursces](https://docs.apify.com/platform/actors/running/usage-and-resources#memory) for more details about memory allocation. |

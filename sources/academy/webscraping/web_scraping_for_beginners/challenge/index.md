@@ -75,7 +75,7 @@ In the end, we'd like our final output to look something like this:
 
 > The `asin` is the ID of the product, which is data present on the Amazon website.
 
-Each of the items in the dataset will represent a scraped offer, and will have the same `title`, `asin`, `itemUrl`, and `description`. The offer-specific fields will be `sellerName` and `offer`.
+Each of the items in the dataset will represent a scraped offer and will have the same `title`, `asin`, `itemUrl`, and `description`. The offer-specific fields will be `sellerName` and `offer`.
 
 <!-- After the scrape has completed, we'll programmatically call a [public actor which sends emails](https://apify.com/apify/send-mail) to send ourselves an email with a publicly viewable link to the actor's final dataset. -->
 
@@ -83,4 +83,6 @@ Each of the items in the dataset will represent a scraped offer, and will have t
 
 From this course, you should have all the knowledge to build this scraper by yourself. Give it a try, then come back to compare your scraper with our solution.
 
-Let's start off this section easy by [initializing and setting up](./initializing_and_setting_up.md) our project with the Crawlee CLI (don't worry, no additional install is required).
+The challenge can be completed using either [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler) or [PlaywrightCrawler](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler). Playwright is significantly slower but doesn't get blocked as much. You will learn the most by implementing both.
+
+Let's start off this section easy by [initializing and setting up](./initializing_and_setting_up.md) our project with the Crawlee CLI (don't worry, no additional installation is required).

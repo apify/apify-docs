@@ -1,5 +1,5 @@
 ---
-title: Scraping paginated sites
+title: Overcoming pagination limits
 description: Learn how to extract all of a website's listings even if they limit the number of results pages. See code examples for setting up your scraper.
 sidebar_position: 1
 slug: /advanced-web-scraping/scraping-paginated-sites
@@ -11,17 +11,17 @@ slug: /advanced-web-scraping/scraping-paginated-sites
 
 ---
 
-Limited pagination is a common practice on e-commerce sites and is becoming more popular over time. It makes sense: a real user will never want to look through more than 200 pages of results – only bots love unlimited pagination. Fortunately, there are ways to overcome this limit while keeping our code clean and generic.
+Limited pagination is a common practice on e-commerce sites and is becoming more popular over time. It makes sense: a real user will never want to look through more than 200 pages of results, only bots love unlimited pagination. Fortunately, there are ways to overcome this limit while keeping our code clean and generic.
 
 ![Pagination in on Google search results page](./images/pagination.png)
 
-> In a rush? Skip the tutorial and get the [full code example](https://github.com/metalwarrior665/apify-utils/tree/master/examples/crawler-with-filters).
+> In a rush? Skip the tutorial and get the [full code example](https://github.com/apify-projects/apify-extra-library/tree/master/examples/crawler-with-filters).
 
 ## How to overcome the limit {#how-to-overcome-the-limit}
 
 Websites usually limit the pagination of a single (sub)category to somewhere between 1,000 to 20,000 listings. The site might have over a million listings in total. Without a proven algorithm, it will be very manual and almost impossible to scrape all listings.
 
-We will first look at a couple ideas that don't work so well and then present the [final robust solution](#using-filter-ranges).
+We will first look at a couple of ideas that don't work so well and then present the [final robust solution](#using-filter-ranges).
 
 ### Going deeper into subcategories {#going-deeper-into-subcategories}
 
@@ -36,9 +36,9 @@ While you can often manually test if the second problem is true on the site, the
 
 Most websites also provide a way for the user to select search filters. These allow a more granular level of search than categories and can be combined with them. Common filters allow you to select a **color**, **size**, **location** and similar attributes.
 
-At first, it might seem as an easy solution. Enqueue all possible filter combinations and that should be so granular that it will never hit a pagination limit. Unfortunately, this solution is still far from good.
+At first, it might seem like an easy solution. Enqueue all possible filter combinations and that should be so granular that it will never hit a pagination limit. Unfortunately, this solution is still far from good.
 
-1. There is no guarantee that some products don't slip through the chosen filter combinations.
+1. No guarantee that some products won't slip through the chosen filter combinations.
 2. The resulting split might be too granular and end up having too many tiny paginations with many duplicate products. This leads to scraping a lot more pages than necessary and makes analytics much harder.
 
 ### Using filter ranges {#using-filter-ranges}
@@ -49,7 +49,7 @@ This has several benefits:
 
 1. All listings can eventually be found in a range.
 2. The ranges do not overlap, so we scrape the smallest possible number of pages and avoid duplicate listings.
-3. Ranges can be controlled by a generic algorithm that is simple to re-use for different sites.
+3. Ranges can be controlled by a generic algorithm that is simple to reuse for different sites.
 
 ## Splitting pages with range filters {#splitting-pages-with-range-filters}
 
@@ -77,19 +77,19 @@ Some sites will allow you to construct non-overlapping ranges. For example, you 
 
 Non-overlapping ranges should remove the possibility of duplicate products (unless a [listing has multiple values](#can-a-listing-have-more-values)) and the lowest number of pages.
 
-If the website supports only overlapping ranges (e.g. **$0-$5**, **$5-10**), it is not a big problem. Only a small portion of the listings will be duplicates, and they can be removed using a [request queue](/platform/storage/request-queue).
+If the website supports only overlapping ranges (e.g. **$0-$5**, **$5–10**), it is not a big problem. Only a small portion of the listings will be duplicates, and they can be removed using a [request queue](/platform/storage/request-queue).
 
 #### Can a listing have more values? {#can-a-listing-have-more-values}
 
-In rare cases, a listing can have more than one value that you are filtering in a range. A typical example is [amazon.com](https://amazon.com), where each product has several offers and those offers have different prices. If any of those offers is within the range, the product is shown.
+In rare cases, a listing can have more than one value that you are filtering in a range. A typical example is Amazon, where each product has several offers and those offers have different prices. If any of those offers is within the range, the product is shown.
 
-There is no easy way to get around this but the price range split works even with duplicate listings, just use a [JS set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) or request queue to deduplicate them.
+No easy way exists to get around this but the price range split works even with duplicate listings, just use a [JS set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) or request queue to deduplicate them.
 
 #### How is the range passed to the URL? {#how-is-the-range-passed-to-the-url}
 
-In the easiest case, you can pass the range directly in the page's URL. For example, `<https://mysite.com/products?price=0-10>`. Sometimes, you will need to do some query composition because the price range might be encoded together with more information into a single parameter.
+In the easiest case, you can pass the range directly in the page's URL. For example, `https://example.com/products?price=0-10`. Sometimes, you will need to do some query composition because the price range might be encoded together with more information into a single parameter.
 
-Some sites don't have page URLs with filters and instead load the filtered products via [XHRs](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest). Those can be GET or POST requests with various **URL** and **payload** syntax.
+Some sites don't have page URLs with filters and instead load the filtered products via [XHRs](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest). Those can be GET or POST requests with varying **URL** and **payload** syntax.
 
 The nice thing here is that if you get to understand how their internal API works, you can have it return more products per page or extract full product details just from this single request.
 
@@ -99,15 +99,15 @@ In addition, XHRs are smaller and faster than loading an HTML page. On the other
 
 If it does, it is a nice bonus. It gives us an easy way to check if we are over or below the pagination limit and helps with analytics.
 
-If it doesn't, we have to find a different way to check if the number of listings is within a limit. One option is to go to the last allowed page of the pagination. If that page is still full products, we can assume the filter is over the limit.
+If it doesn't, we have to find a different way to check if the number of listings is within a limit. One option is to go to the last allowed page of the pagination. If that page is still full of products, we can assume the filter is over the limit.
 
 #### How to handle (open) ends of the range {#how-to-handle-open-ends-of-the-range}
 
 Logically, every full (price) range starts at 0 and ends at infinity. But the way this is encoded will differ on each site. The end of the price range can be either closed (0) or open (infinity). Open ranges require special handling when you split them (we will get to that).
 
-Most sites will let you start with 0 (there might be exceptions, where you will have make the start open), so we can use just that. The high end is more complicated. Because you don't know the biggest price, it is best to leave it open and handle it specially. Internally you can just assign `null` to the value.
+Most sites will let you start with 0 (there might be exceptions, where you will have to make the start open), so we can use just that. The high end is more complicated. Because you don't know the biggest price, it is best to leave it open and handle it specially. Internally you can just assign `null` to the value.
 
-Here are few examples of a query parameter with an open and closed high-end range:
+Here are a few examples of a query parameter with an open and closed high-end range:
 
 - Open: `p:100-` (higher than 100), Closed: `p:100-200` (between 100 and 200)
 - Open: `min_price=100`, Closed: `min_price=100&max_price=200`
@@ -285,5 +285,5 @@ await crawler.addRequests(requestsToEnqueue);
 
 And that's it. We have an elegant and simple solution for a complicated problem. In a real project, you would want to make this a bit more robust and [save analytics data](../../platform/expert_scraping_with_apify/saving_useful_stats.md). This will let you know what filters you went through and how many products each of them had.
 
-Check out the [full code example](https://github.com/metalwarrior665/apify-utils/tree/master/examples/crawler-with-filters).
+Check out the [full code example](https://github.com/apify-projects/apify-extra-library/tree/master/examples/crawler-with-filters).
 

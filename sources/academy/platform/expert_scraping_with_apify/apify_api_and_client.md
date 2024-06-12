@@ -11,22 +11,22 @@ slug: /expert-scraping-with-apify/apify-api-and-client
 
 ---
 
-There are two main ways to programmatically interact with the Apify platform: by directly using [Apify's RESTful API](/api/v2), or by using the [JavaScript](/api/client/js) and [Python](/api/client/python) API clients. In the next two lessons, we'll be focusing on the first two.
+You can use one of the two main ways to programmatically interact with the Apify platform: by directly using [Apify's RESTful API](/api/v2), or by using the [JavaScript](/api/client/js) and [Python](/api/client/python) API clients. In the next two lessons, we'll be focusing on the first two.
 
 > Apify's API and JavaScript API client allow us to do anything a regular user can do when interacting with the platform's web interface, only programmatically.
 
 ## Learning 🧠 {#learning}
 
 - Scroll through the [Apify API docs](/api/v2) (there's a whole lot there, so you're not expected to memorize everything).
-- Read about the Apify client in [Apify's docs](/api/client/js). It can also be seen on [GitHub](https://github.com/apify/apify-client-js) and [NPM](https://www.npmjs.com/package/apify-client).
+- Read about the Apify client in [Apify's docs](/api/client/js). It can also be seen on [GitHub](https://github.com/apify/apify-client-js) and [npm](https://www.npmjs.com/package/apify-client).
 - Learn about the [`Actor.newClient()`](/sdk/js/reference/class/Actor#newClient) function in the Apify SDK.
 - Skim through [this article](https://help.apify.com/en/articles/2868670-how-to-pass-data-from-web-scraper-to-another-actor) about API integration (this article is old; however, still relevant).
 
 ## Knowledge check 📝 {#quiz}
 
-1. What is the relationship between the Apify API and Apify client? Are there any significant differences?
-2. How do you pass input when running actor or task via API?
-3. Do you need to install the `apify-client` NPM package when already using the `apify` package?
+1. What is the relationship between the Apify API and the Apify client? Are there any significant differences?
+2. How do you pass input when running an actor or task via API?
+3. Do you need to install the `apify-client` npm package when already using the `apify` package?
 
 ## Our task
 

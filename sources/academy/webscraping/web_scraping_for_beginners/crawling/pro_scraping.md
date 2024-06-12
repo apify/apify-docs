@@ -15,17 +15,17 @@ While it's definitely an interesting exercise to do all the programming manually
 
 It's called [**Crawlee**](https://crawlee.dev/), and it is, and **always will be**, completely **open-source** and **free** to use. You don't need to sign up for an Apify account or use the Apify platform. You can use it on your personal computer, on any server, or in any cloud environment you want.
 
-We mentioned the benefits of developing with a dedicated scraping library in the previous lessons, but to recap:
+We mentioned the benefits of developing using a dedicated scraping library in the previous lessons, but to recap:
 
 1. **Faster development time** because you don't have to write boilerplate code.
 2. **Fewer bugs**. Crawlee is fully unit-tested and battle-tested on millions of scraper runs.
 3. **Faster and cheaper scrapers** because Crawlee automatically scales based on system resources, and we optimize its performance regularly.
 4. **More robust scrapers**. Annoying details like retries, proxy management, error handling, and result storage are all handled out-of-the-box by Crawlee.
-5. **Helpful community**. You can [join our Discord](https://discord.gg/qkMS6pU4cF) or talk to us [on GitHub](https://github.com/apify/crawlee). We're almost always there to talk about scraping and programming in general.
+5. **Helpful community**. You can [join our Discord](https://discord.gg/qkMS6pU4cF) or talk to us [on GitHub](https://github.com/apify/crawlee/discussions). We're almost always there to talk about scraping and programming in general.
 
 :::tip
 
-If you're still not convinced, [read this story](https://apify.com/success-stories/daltix-analytics-scrapy-python-to-apify) how a data analytics company saved 90% of scraping costs by switching from Scrapy (a scraping library for Python) to Crawlee. We were pretty surprised ourselves, to be honest.
+If you're still not convinced, [read this story](https://apify.com/success-stories/daltix-analytics-scrapy-python-to-apify) about how a data analytics company saved 90% of scraping costs by switching from Scrapy (a scraping library for Python) to Crawlee. We were pretty surprised ourselves, to be honest.
 
 :::
 
@@ -43,11 +43,11 @@ Crawlee and its resources can be found in various different places:
 
 1. [Official Crawlee documentation](https://crawlee.dev/)
 2. [Crawlee GitHub repository (source code, issues)](https://github.com/apify/crawlee)
-3. [Crawlee on NPM](https://www.npmjs.com/package/crawlee)
+3. [Crawlee on npm](https://www.npmjs.com/package/crawlee)
 
 ## Install Crawlee {#crawlee-installation}
 
-To use Crawlee, we have to install it from NPM. Let's add it to our project from the previous lessons by executing this command in your project's folder.
+To use Crawlee, we have to install it from npm. Let's add it to our project from the previous lessons by executing this command in your project's folder.
 
 ```shell
 npm install crawlee
@@ -82,7 +82,7 @@ import { CheerioCrawler } from 'crawlee';
 
 const crawler = new CheerioCrawler({
     // This function will run on every page.
-    // Among other things, tt gives you access
+    // Among other things, it gives you access
     // to parsed HTML with the Cheerio $ function.
     requestHandler: async ({ $, request }) => {
         console.log('URL:', request.url);
@@ -164,13 +164,13 @@ await crawler.addRequests([{
 await crawler.run();
 ```
 
-When you run the code, you'll see the names and URLs of all the products printed to the console. You'll also see that it crawls faster than the manually written code. This is thanks to parallelization of the requests.
+When you run the code, you'll see the names and URLs of all the products printed to the console. You'll also see that it crawls faster than the manually written code. This is thanks to the parallelization of the requests.
 
 > If the crawler gets stuck for you at the end, it's ok. It's not actually stuck, but waiting to retry any pages that may have failed.
 
 ## Extracting data {#extracting-data}
 
-We have the crawler in place, and it's time to extract data. We already have the extraction code from the previous lesson, so we can just copy and paste it into the `requestHandler` with tiny changes. Instead of printing results to terminal, we will save it to disk.
+We have the crawler in place, and it's time to extract data. We already have the extraction code from the previous lesson, so we can just copy and paste it into the `requestHandler` with tiny changes. Instead of printing results to the terminal, we will save it to disk.
 
 ```js title=crawlee.js
 // To save data to disk, we need to import Dataset.

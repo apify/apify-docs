@@ -1,6 +1,8 @@
+const { join } = require('path');
+
 const { config } = require('./apify-docs-theme');
-const { externalLinkProcessor } = require('./tools/utils/externalLink');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
+const { externalLinkProcessor } = require('./tools/utils/externalLink');
 
 /** @type {Partial<import('@docusaurus/types').DocusaurusConfig>} */
 module.exports = {
@@ -12,7 +14,7 @@ module.exports = {
     organizationName: 'apify',
     projectName: 'apify-docs',
     scripts: ['/js/custom.js'],
-    favicon: 'img/favicon.ico',
+    favicon: 'img/favicon.svg',
     onBrokenLinks:
     /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
     onBrokenMarkdownLinks:
@@ -30,21 +32,21 @@ module.exports = {
                         {
                             label: 'Courses',
                             to: `/academy`,
-                            activeBaseRegex: [
+                            activeBaseRegex: `${[
                                 'academy$',
-                                ...collectSlugs(`${__dirname}/sources/academy/webscraping`),
-                                ...collectSlugs(`${__dirname}/sources/academy/platform`),
-                            ].join('|'),
+                                ...collectSlugs(join(__dirname, 'sources', 'academy', 'webscraping')),
+                                ...collectSlugs(join(__dirname, 'sources', 'academy', 'platform')),
+                            ].join('$|')}$`,
                         },
                         {
                             label: 'Tutorials',
                             to: `/academy/tutorials`,
-                            activeBaseRegex: collectSlugs(`${__dirname}/sources/academy/tutorials`).join('|'),
+                            activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'tutorials')).join('$|')}$`,
                         },
                         {
                             label: 'Glossary',
                             to: `/academy/glossary`,
-                            activeBaseRegex: collectSlugs(`${__dirname}/sources/academy/glossary`).join('|'),
+                            activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'glossary')).join('$|')}$`,
                         },
                     ],
                 },
@@ -59,8 +61,10 @@ module.exports = {
             ({
                 docs: {
                     id: 'platform',
-                    showLastUpdateAuthor: true,
-                    showLastUpdateTime: true,
+                    // Docusaurus shows the author and date of last commit to entire repo, which doesn't make sense,
+                    // so let's just disable showing author and last modification
+                    showLastUpdateAuthor: false,
+                    showLastUpdateTime: false,
                     editUrl: 'https://github.com/apify/apify-docs/edit/master/',
                     path: './sources/platform',
                     routeBasePath: 'platform',
@@ -72,6 +76,22 @@ module.exports = {
                 },
             }),
         ],
+        [
+            'redocusaurus',
+            /** @type {import('redocusaurus').PresetEntry} */
+            {
+                config: join(__dirname, '.redocly.yaml'),
+                specs: [
+                    {
+                        spec: 'node_modules/@apify/openapi/openapi.yaml',
+                        route: '/api/v2-new/',
+                    },
+                ],
+                theme: {
+                    primaryColor: '#1f9ec8',
+                },
+            },
+        ],
     ]),
     plugins: [
         [
@@ -81,12 +101,46 @@ module.exports = {
                 path: './sources/academy',
                 routeBasePath: 'academy',
                 rehypePlugins: [externalLinkProcessor],
-                showLastUpdateAuthor: true,
-                showLastUpdateTime: true,
+                // Docusaurus shows the author and date of last commit to entire repo, which doesn't make sense,
+                // so let's just disable showing author and last modification
+                showLastUpdateAuthor: false,
+                showLastUpdateTime: false,
                 editUrl: 'https://github.com/apify/apify-docs/edit/master/',
                 sidebarPath: require.resolve('./sources/academy/sidebars.js'),
             },
         ],
+        [
+            '@docusaurus/plugin-content-docs',
+            {
+                id: 'legal',
+                path: './sources/legal',
+                routeBasePath: 'legal',
+                rehypePlugins: [externalLinkProcessor],
+                // Docusaurus shows the author and date of last commit to entire repo, which doesn't make sense,
+                // so let's just disable showing author and last modification
+                showLastUpdateAuthor: false,
+                showLastUpdateTime: false,
+                breadcrumbs: false,
+                sidebarPath: require.resolve('./sources/legal/sidebars.js'),
+            },
+        ],
+        () => ({
+            configureWebpack() {
+                return {
+                    module: {
+                        rules: [
+                            {
+                                test: /@apify-packages\/ui-library\/.*/,
+                                resolve: {
+                                    fullySpecified: false,
+                                },
+                                loader: 'babel-loader',
+                            },
+                        ],
+                    },
+                };
+            },
+        }),
         // TODO this should be somehow computed from all the external sources
         // [
         //     '@docusaurus/plugin-client-redirects',
@@ -107,4 +161,10 @@ module.exports = {
     },
     themeConfig: config.themeConfig,
     staticDirectories: ['apify-docs-theme/static', 'static'],
+    customFields: {
+        forbiddenGiscusDocRegExpStrings: [
+            '^/legal',
+            '^/legal/*',
+        ],
+    },
 };

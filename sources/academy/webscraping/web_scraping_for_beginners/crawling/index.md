@@ -20,14 +20,14 @@ In this section, we will take a look at moving between web pages, which we call 
 
 ## How do you crawl? {#how-to-crawl}
 
-Crawling websites is a fairly straightforward process. We'll start by opening the first web page and extracting all the links (URLs) that lead to the other pages we want to visit. To do that, we'll use the skills learned in the [Basics of data extraction](../data_extraction/index.md) course. We'll add some extra filtering to make sure we only get the correct URLs. Then, we'll save those URLs, so in case something happens to our scraper, we won't have to extract them again. And, finally, we will visit those URLs one by one.
+Crawling websites is a fairly straightforward process. We'll start by opening the first web page and extracting all the links (URLs) that lead to the other pages we want to visit. To do that, we'll use the skills learned in the [Basics of data extraction](../data_extraction/index.md) course. We'll add some extra filtering to make sure we only get the correct URLs. Then, we'll save those URLs, so in case our scraper crashes with an error, we won't have to extract them again. And, finally, we will visit those URLs one by one.
 
 At any point, we can extract URLs, data, or both. Crawling can be separate from data extraction, but it's not a requirement and, in most projects, it's actually easier and faster to do both at the same time. To summarize, it goes like this:
 
 1. Visit the start URL.
 2. Extract new URLs (and data) and save them.
 3. Visit one of the new-found URLs and save data and/or more URLs from them.
-4. Repeat 2 and 3 until you have everything you needed.
+4. Repeat 2 and 3 until you have everything you need.
 
 ## Next up {#next}
 

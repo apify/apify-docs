@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-If you're trying to [collect data](../executing_scripts/extracting_data.md) on a website that has millions, thousands, or even just hundreds of results, it is very likely that they are paginating their results to reduce strain on their backend as well as on the users loading and rendering the content.
+If you're trying to [collect data](../executing_scripts/extracting_data.md) on a website that has millions, thousands, or even just hundreds of results, it is very likely that they are paginating their results to reduce strain on their back-end as well as on the users loading and rendering the content.
 
 ![Amazon pagination](../../advanced_web_scraping/images/pagination.png)
 
@@ -101,7 +101,7 @@ await browser.close();
 </TabItem>
 </Tabs>
 
-> Learn more about the `:nth-last-child` pseudo-class [on W3Schools](https://www.w3schools.com/cssref/sel_nth-last-child.asp). It works similar to `:nth-child`, but starts from the bottom of the parent element's children instead of from the top.
+> [Learn more](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-last-child) about the `:nth-last-child` pseudo-class. It works similar to `:nth-child`, but starts from the bottom of the parent element's children instead of from the top.
 
 When we run this code, here's what we see:
 
@@ -206,7 +206,7 @@ await browser.close();
 
 ### Making a request for each results page {#making-a-request-for-each-results-page}
 
-Cool, so now we have all the tools we need to write concise logic that will be run for every single page. First, we'll create an array of numbers from 0-4:
+Cool, so now we have all the tools we need to write concise logic that will be run for every single page. First, we'll create an array of numbers from 0–4:
 
 ```js
 // We must add 1 to the lastPage, since the array starts at 0 and we
@@ -387,9 +387,9 @@ If we remember correctly, Facebook has 115 GitHub repositories (at the time of w
 
 ## Lazy-loading pagination {#lazy-loading-pagination}
 
-Though page number-based pagination is quite straightforward to automate the pagination process with, and though it is still an extremely common implementation, [lazy-loading](https://en.wikipedia.org/wiki/Lazy_loading) is becoming extremely popular on the modern web, which makes it an important and relevant topic to discuss.
+Pagination based on page numbers is straightforward to automate, but many websites use [lazy-loading](https://en.wikipedia.org/wiki/Lazy_loading) instead.
 
-> Note that on websites with lazy-loading pagination, [API scraping](../../api_scraping/index.md) is usually a viable option, and a much better one due to reliability and performance.
+> On websites with lazy-loading pagination, if [API scraping](../../api_scraping/index.md) is a viable option, it is a much better approach due to reliability and performance.
 
 Take a moment to look at and scroll through the women's clothing section [on About You's website](https://www.aboutyou.com/c/women/clothing-20204). Notice that the items are loaded as you scroll, and that there are no page numbers. Because of how drastically different this pagination implementation is from the previous one, it also requires a different workflow to scrape.
 
@@ -435,9 +435,9 @@ await browser.close();
 </Tabs>
 
 ### Auto scrolling {#auto-scrolling}
-
+<!-- vale off -->
 Now, what we'll do is grab the height in pixels of a result item to have somewhat of a reference to how much we should scroll each time, as well as create a variable for keeping track of how many pixels have been scrolled.
-
+<!-- vale on -->
 ```js
 // Grab the height of result item in pixels, which will be used to scroll down
 const itemHeight = await page.$eval('a[data-testid*="productTile"]', (elem) => elem.clientHeight);
@@ -685,7 +685,7 @@ await browser.close();
 
 ## Quick note {#quick-note}
 
-The examples shown in this lesson are not the only ways to paginate through websites. They are here to serve as solid examples, but don't view them as the end-all be-all of scraping paginated websites. The methods you use and algorithms you write might differ to various degrees based on what pages you're scraping and how your specific target website implemented pagination.
+The examples shown in this lesson are not the only ways to paginate through websites. They are here to serve as solid examples, but don't view them as the end-all be-all of scraping paginated websites. The methods you use and the algorithms you write might differ to various degrees based on what pages you're scraping and how your specific target website implemented pagination.
 
 ## Next up {#next}
 

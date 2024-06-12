@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 An important concept to understand when dealing with headless browsers is the **context** in which your code is being run. For example, if you try to use the native `fs` Node.js module (used in the previous lesson) while running code in the context of the browser, errors will be thrown saying that it is undefined. Similarly, if you are trying to use `document.querySelector()` or other browser-specific functions in the server-side Node.js context, errors will also be thrown.
 
-![Diagram explaining the two different contexts your code can be run in](../images/context-diagram.jpg);
+![Diagram explaining the two different contexts your code can be run in](../images/context-diagram.jpg)
 
 Here is an example of a common mistake made by beginners to Puppeteer/Playwright:
 
@@ -105,9 +105,7 @@ Within our code, we generate a `randomString` in the Node.js context:
 const randomString = Math.random().toString(36).slice(2);
 ```
 
-Now, let's say we want to change the title of the document to be this random string. In order to use this `randomString` variable in the callback of our `page.evaluate()`, we'll have to pass in a second parameter containing the variable.
-
-> It's best practice to make this second parameter an object, as you are usually passing more than one value in.
+Now, let's say we want to change the title of the document to be this random string. To have the random string available in the callback of our `page.evaluate()`, we'll pass it in a second parameter. It's best practice to have this second parameter as an object, because in real world situations you often need to pass more than one value.
 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
@@ -120,11 +118,11 @@ const page = await browser.newPage();
 
 await page.goto('https://google.com/');
 
-const randomString = Math.random().toString(36).slice(2);
+const params = { randomString: Math.random().toString(36).slice(2) }
 
-await page.evaluate((randomStringInner) => {
-    document.querySelector('title').textContent = randomStringInner;
-}, randomString);
+await page.evaluate(({ randomString }) => {
+    document.querySelector('title').textContent = randomString;
+}, params);
 
 await page.waitForTimeout(10000);
 
@@ -142,11 +140,11 @@ const page = await browser.newPage();
 
 await page.goto('https://google.com/');
 
-const randomString = Math.random().toString(36).slice(2);
+const params = { randomString: Math.random().toString(36).slice(2) }
 
-await page.evaluate((randomStringInner) => {
-    document.querySelector('title').textContent = randomStringInner;
-}, randomString);
+await page.evaluate(({ randomString }) => {
+    document.querySelector('title').textContent = randomString;
+}, params);
 
 await page.waitForTimeout(10000);
 

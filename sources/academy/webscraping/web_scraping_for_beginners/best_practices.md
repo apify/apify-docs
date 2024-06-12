@@ -1,6 +1,6 @@
 ---
 title: Best practices
-description: Understand the standards and best practices that we here at Apify abide by to write readable, scalable, and maintainable code. 
+description: Understand the standards and best practices that we here at Apify abide by to write readable, scalable, and maintainable code.
 sidebar_position: 1.5
 slug: /web-scraping-for-beginners/best-practices
 ---
@@ -17,7 +17,7 @@ The goal of this lesson is not to force you into a specific paradigm or to make 
 
 ## Code style {#code-style}
 
-There are some general things we recommend when it comes to your code style when writing scrapers.
+When it comes to your code style when writing scrapers, there are some general things we recommend.
 
 ### Clean code {#clean-code}
 
@@ -29,7 +29,7 @@ Define any [constant variables](https://softwareengineering.stackexchange.com/qu
 
 > If you have a whole lot of constant variables, they can be in a folder named **constants** organized into different files.
 
-### Use modern ES6 JavaScript {#use-es6}
+### Use ES6 JavaScript {#use-es6}
 
 If you're writing your scraper in JavaScript, use [ES6](https://www.w3schools.com/js/js_es6.asp) features and ditch the old ones which they replace. This means using `const` and `let` instead of `var`, `includes` instead of `indexOf`, etc.
 
@@ -60,7 +60,7 @@ Don't be shy to add comments to your code! Even when using descriptive function 
 
 ## Logging {#logging}
 
-Logging helps you understand exact what your scraper is doing. Generally, having more logs is better than having less. Especially make sure to log your `catch` blocks - no error should pass unseen unless there is a good reason.
+Logging helps you understand exactly what your scraper is doing. Generally, having more logs is better than having fewer. Especially make sure to log your `catch` blocks - no error should pass unseen unless there is a good reason.
 
 For scrapers that will run longer than usual, keep track of some useful stats (such as **itemsScraped** or **errorsHit**) and log them to the console on an interval.
 
@@ -80,7 +80,7 @@ Index 1234 --- https://example.com/1234 --- took 300 ms
 
 ## Input {#input}
 
-There are two main best practices when it comes to accepting input into a scraper.
+When it comes to accepting input into a scraper, two main best practices should be followed.
 
 ### Set limits {#set-limits}
 
@@ -126,6 +126,6 @@ This really depends on your use case though. If you want 100% clean data, you mi
 
 Wow, that's a whole lot of things to abide by! How will you remember all of them? Well, to simplify everything, just try to follow these three points:
 
-1. Describe your code as you write it with good naming, constants, comments. It **should read like a book**.
+1. Describe your code as you write it with good naming, constants, and comments. It **should read like a book**.
 2. Add log messages at points throughout your code so that when it's running, you (and everyone else) know what's going on.
 3. Handle errors appropriately. Log the error and either retry, or continue on. Only throw if the error will be caught or if the error is absolutely detrimental to the scraper's run.
