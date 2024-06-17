@@ -11,7 +11,7 @@ slug: /expert-scraping-with-apify/solutions/using-api-and-client
 
 ---
 
-Since we need to create another actor, we'll once again use the `apify create` command and start from an empty template.
+Since we need to create another Actor, we'll once again use the `apify create` command and start from an empty template.
 
 ![Selecting an empty template to start with](./images/select-empty.jpg)
 
@@ -119,7 +119,7 @@ const withAPI = async () => {
 };
 ```
 
-## Finalizing the actor {#finalizing-the-actor}
+## Finalizing the Actor {#finalizing-the-actor}
 
 Now, since we've written both of these functions, all we have to do is write a conditional statement based on the boolean value from `useClient`:
 
@@ -232,7 +232,7 @@ await Actor.exit();
 
 The one main difference is that the Apify client automatically uses [**exponential backoff**](/api/client/js#retries-with-exponential-backoff) to deal with errors.
 
-**Q: How do you pass input when running an actor or task via API?**
+**Q: How do you pass input when running an Actor or task via API?**
 
 **A:** The input should be passed into the **body** of the request when running an actor/task via API.
 

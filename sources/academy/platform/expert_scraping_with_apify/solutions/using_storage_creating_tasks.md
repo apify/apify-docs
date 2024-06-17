@@ -11,7 +11,7 @@ slug: /expert-scraping-with-apify/solutions/using-storage-creating-tasks
 
 ---
 
-Last lesson, our task was outlined for us. In this lesson, we'll be completing that task by making our Amazon actor push to a **named dataset** and use the **default key-value store** to store the cheapest item found by the scraper. Finally, we'll create a task for the actor back on the Apify platform.
+Last lesson, our task was outlined for us. In this lesson, we'll be completing that task by making our Amazon Actor push to a **named dataset** and use the **default key-value store** to store the cheapest item found by the scraper. Finally, we'll create a task for the Actor back on the Apify platform.
 
 ## Using a named dataset {#using-named-dataset}
 
@@ -61,13 +61,13 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 });
 ```
 
-That's it! Now, our actor will push its data to a dataset named **amazon-offers-KEYWORD**!
+That's it! Now, our Actor will push its data to a dataset named **amazon-offers-KEYWORD**!
 
 ## Using a key-value store {#using-key-value-store}
 
 We now want to store the cheapest item in the default key-value store under a key named **CHEAPEST-ITEM**. The most efficient and practical way of doing this is by filtering through all of the newly named dataset's items and pushing the cheapest one to the store.
 
-Let's add the following code to the bottom of the actor after **Crawl** finished** is logged to the console:
+Let's add the following code to the bottom of the Actor after **Crawl** finished** is logged to the console:
 
 ```js
 // ...
@@ -234,7 +234,7 @@ Don't forget to push your changes to GitHub using `git push origin MAIN_BRANCH_N
 
 ## Creating a task (It's easy!) {#creating-task}
 
-Back on the platform, on your actor's page, you can see a button in the top right hand corner that says **Create new task**:
+Back on the platform, on your Actor's page, you can see a button in the top right hand corner that says **Create new task**:
 
 ![Create new task button](./images/create-new-task.jpg)
 
@@ -248,9 +248,9 @@ After saving it, you'll be able to see the newly created task in the **Tasks** t
 
 ## Quiz answers 📝 {#quiz-answers}
 
-**Q: What is the relationship between actors and tasks?**
+**Q: What is the relationship between Actors and tasks?**
 
-**A:** Tasks are pre-configured runs of actors. The configurations of an actor can be saved as a task so that it doesn't have to be manually configured every single time.
+**A:** Tasks are pre-configured runs of Actors. The configurations of an Actor can be saved as a task so that it doesn't have to be manually configured every single time.
 
 **Q: What are the differences between default (unnamed) and named storage? Which one would you use for everyday usage?**
 
@@ -264,4 +264,4 @@ After saving it, you'll be able to see the newly created task in the **Tasks** t
 
 ## Wrap up {#wrap-up}
 
-You've learned how to use the different storage options available on Apify, the two different types of storage, as well as how to create tasks for actors.
+You've learned how to use the different storage options available on Apify, the two different types of storage, as well as how to create tasks for Actors.

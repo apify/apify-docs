@@ -1,6 +1,6 @@
 ---
 title: Deploying your code
-description: In this course learn how to take an existing project of yours and deploy it to the Apify platform as an actor in just a few minutes!
+description: In this course learn how to take an existing project of yours and deploy it to the Apify platform as an Actor in just a few minutes!
 sidebar_position: 9
 category: apify platform
 slug: /deploying-your-code
@@ -11,13 +11,13 @@ import TabItem from '@theme/TabItem';
 
 # Deploying your code to Apify {#deploying}
 
-**In this course learn how to take an existing project of yours and deploy it to the Apify platform as an actor in just a few minutes!**
+**In this course learn how to take an existing project of yours and deploy it to the Apify platform as an Actor in just a few minutes!**
 
 ---
 
-This section will discuss how to use your newfound knowledge of the Apify platform and actors from the [**Getting started**](../getting_started/index.md) section to deploy your existing project's code to the Apify platform as an actor.
+This section will discuss how to use your newfound knowledge of the Apify platform and Actors from the [**Getting started**](../getting_started/index.md) section to deploy your existing project's code to the Apify platform as an Actor.
 
-Because actors are basically just chunks of code running in Docker containers, you're able to **_Actorify_** just about anything!
+Because Actors are basically just chunks of code running in Docker containers, you're able to **_Actorify_** just about anything!
 
 ![The deployment workflow](../../images/deployment-workflow.png)
 
@@ -25,15 +25,15 @@ Actors are language agnostic, which means that the language your project is writ
 
 ![Supported languages](../../images/supported-languages.jpg)
 
-Though the majority of actors currently on the platform were written in Node.js, and despite the fact our current preferred languages are JavaScript and Python, there are a few examples of actors in other languages:
+Though the majority of Actors currently on the platform were written in Node.js, and despite the fact our current preferred languages are JavaScript and Python, there are a few examples of Actors in other languages:
 
 - [Actor written in Rust](https://apify.com/lukaskrivka/rust-actor-example)
-- [GO actor](https://apify.com/jirimoravcik/go-actor-example)
+- [GO Actor](https://apify.com/jirimoravcik/go-actor-example)
 - [Actor written with Julia](https://apify.com/jirimoravcik/julia-actor-example)
 
 ## The "actorification" workflow {#workflow}
 
-There are four main steps to turning a piece of code into an actor:
+There are four main steps to turning a piece of code into an Actor:
 
 1. Handle [accepting inputs and writing outputs](./inputs_outputs.md).
 2. Create an [input schema](./input_schema.md) **(optional)**.
@@ -42,7 +42,7 @@ There are four main steps to turning a piece of code into an actor:
 
 ## Our example project
 
-For this section, we'll be turning this example project into an actor:
+For this section, we'll be turning this example project into an Actor:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -76,8 +76,8 @@ print(add_all_numbers([1, 2, 3, 4])) # -> 10
 
 > For all lessons in this section, we'll have examples for both Node.js and Python so that you can follow along in either language.
 
-<!-- We've pushed this code to GitHub and are ready to turn it into an actor that takes any number of integers as input, adds them all up, then stores the solution as its output. -->
+<!-- We've pushed this code to GitHub and are ready to turn it into an Actor that takes any number of integers as input, adds them all up, then stores the solution as its output. -->
 
 ## Next up {#next}
 
-[Next lesson](./inputs_outputs.md), we'll be learning how to accept input into our actor as well as deliver output.
+[Next lesson](./inputs_outputs.md), we'll be learning how to accept input into our Actor as well as deliver output.

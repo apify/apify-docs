@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 [Proxies](../anti_scraping/mitigation/proxies.md) are a great way of appearing as if you are making requests from a different location. A common use case for proxies is to avoid [geolocation](../anti_scraping/techniques/geolocation.md) restrictions. For example your favorite TV show might not be available on Netflix in your country, but it might be available for Vietnamese Netflix watchers.
 
-In this lesson, we'll be learning how to use proxies with Playwright and Puppeteer. This will be demonstrated with a Vietnamese proxy that we got by running [this](https://apify.com/mstephen190/proxy-scraper) proxy-scraping actor on the Apify platform.
+In this lesson, we'll be learning how to use proxies with Playwright and Puppeteer. This will be demonstrated with a Vietnamese proxy that we got by running [this](https://apify.com/mstephen190/proxy-scraper) proxy-scraping Actor on the Apify platform.
 
 ## Adding a proxy {#adding-a-proxy}
 
