@@ -26,9 +26,9 @@ Apify provides detailed guidance on how to deploy Node.js and Python programs as
 
 Here are a few examples of Actors in other languages:
 
-- [Rust actor](https://apify.com/lukaskrivka/rust-actor-example)
-- [Go actor](https://apify.com/jirimoravcik/go-actor-example)
-- [Julia actor](https://apify.com/jirimoravcik/julia-actor-example)
+- [Rust Actor](https://apify.com/lukaskrivka/rust-actor-example)
+- [Go Actor](https://apify.com/jirimoravcik/go-actor-example)
+- [Julia Actor](https://apify.com/jirimoravcik/julia-actor-example)
 
 ## The "actorification" workflow {#workflow}
 
