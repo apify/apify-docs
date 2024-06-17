@@ -10,7 +10,7 @@ slug: /collaboration
 
 ---
 
-By default, each system resource (Actor, key-value store, run, ...) you create is only available to you, the owner. There are three ways you can grant access to your resources:
+By default, each system resource (Actor, key-value store, run, ...) you create is only available to you, the owner. You can grant access to your resources in three ways:
 
 <table>
     <tr>

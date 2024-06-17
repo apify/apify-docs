@@ -31,7 +31,7 @@ The [key-value store](./key_value_store.md) is ideal for saving data records suc
 
 ## Basic usage {#basic-usage}
 
-There are several ways to access your storage:
+You can access your storage in several ways:
 
 * [Apify Console](https://console.apify.com/storage) - provides an easy-to-use interface.
 * [Apify API](/api/v2#/reference/key-value-stores) - to access your storages programmatically.
@@ -52,7 +52,9 @@ Additionally, you can quickly share the contents and details of your storage by 
 
 ![Storage API](./images/overview-api.png)
 
+<!-- vale Microsoft.Dashes = NO -->
 These URLs link to API _endpoints_—the places where your data is stored. Endpoints that allow you to _read_ stored information do not require an [authentication token](/api/v2#/introduction/authentication). Calls are authenticated using a hard-to-guess ID, allowing for secure sharing. However, operations such as _update_ or _delete_ require the authentication token.
+<!-- vale Microsoft.Dashes = YES -->
 
 > Never share a URL containing your authentication token, to avoid compromising your account's security. <br/>
 > If the data you want to share requires a token, first download the data, then share it as a file.
