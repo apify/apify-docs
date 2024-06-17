@@ -81,7 +81,7 @@ Another way to interact with Pinecone is through the [Apify Python SDK](https://
     print(actor_call)
     ```
 
-1. Use Apify's [Pinecone integration](https://apify.com/apify/pinecone-integration). to store all the selected data from the dataset (provided by `datasetId` from the actor call) into the Pinecone vector database.
+1. Use Apify's [Pinecone integration](https://apify.com/apify/pinecone-integration). to store all the selected data from the dataset (provided by `datasetId` from the Actor call) into the Pinecone vector database.
 
     ```python
     pinecone_integration_inputs = {
