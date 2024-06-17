@@ -34,7 +34,7 @@ Since billing cycles can shift, the data in the **Historical usage** tab is show
 
 Below the bar chart, there is a table titled **Usage by Actors**. This table presents a detailed breakdown of the Compute units used per Actor and the associated costs. It clearly explains how each Actor contributes to your overall platform usage and expenses.
 
-![Apify Console historical usage by actor view](./images/console-billing-historical-usage-by-actors.png)
+![Apify Console historical usage by Actor view](./images/console-billing-historical-usage-by-actors.png)
 
 ## Subscription
 
@@ -53,7 +53,7 @@ Another feature of this tab is the visibility of any special offers currently ap
 
 _This option is available only if you are on a subscription plan_.
 
-You can extend your subscription plans with add-ons, like extra proxies, actor memory, and more.
+You can extend your subscription plans with add-ons, like extra proxies, Actor memory, and more.
 Navigate to [Subscription](https://console.apify.com/billing/subscription) section in Apify Console, and click the **Buy add-ons** button to explore the available options.
 
 :::

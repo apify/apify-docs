@@ -78,7 +78,7 @@ Now we'll actually see a browser open up.
 
 ![Chromium browser opened by Puppeteer/Playwright](./images/chromium.jpg)
 
-There are a whole lot more options that we can pass into the `launch()` function, which we'll be getting into a little bit later on.
+You can pass a whole lot more options to the `launch()` function. We'll be getting into those a little bit later on.
 
 ## Browser methods {#browser-methods}
 
