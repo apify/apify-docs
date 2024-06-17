@@ -65,6 +65,6 @@ With this code set up this is the output:
 
 And except for different ads, the page should look the same.
 
-From this we can see, that just by blocking a few analytics and tracking scripts the page was loaded nearly 25 seconds faster and downloaded 35% less data (approximately since the data is measured after it's decompressed).
+From this we can see that just by blocking a few analytics and tracking scripts the page was loaded nearly 25 seconds faster and downloaded 35% less data (approximately since the data is measured after it's decompressed).
 
 Hopefully this helps you make your solutions faster and use fewer resources.

@@ -166,7 +166,7 @@ $data = $parsedResponse['data'];
 echo \json_encode($data, JSON_PRETTY_PRINT);
 ```
 
-We can see that there are two record keys: `INPUT` and `OUTPUT`. The HTML String to PDF Actor's README states that the PDF is stored under the `OUTPUT` key. Downloading it is simple:
+We can see that there are two record keys: `INPUT` and `OUTPUT`. The HTML String to PDF Actor's README states that the PDF is stored under the `OUTPUT` key. Let's download it:
 
 ```php
 // Don't forget to replace the <RUN_ID>
@@ -230,9 +230,7 @@ $response = $client->post('acts/mhamas~html-string-to-pdf/runs', [
 
 ## How to use Apify Proxy
 
-A [proxy](/platform/proxy) is another important Apify feature you will need. Guzzle makes it easy to use.
-
-If you just want to make sure that your server's IP address won't get blocked somewhere when making requests, you can use the automatic proxy selection mode.
+Let's use another important feature: [proxy](/platform/proxy). If you want to make sure that your server's IP address won't get blocked somewhere when making requests, you can use the automatic proxy selection mode.
 
 ```php
 $client = new \GuzzleHttp\Client([

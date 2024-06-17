@@ -42,7 +42,7 @@ Aim for sections 1–6 below and try to include at least 300 words. You can move
 
 3. **How much will it cost to scrape (target site)?**
 
-    - Simple text explaining what type of proxies are needed and how many platform credits (calculated mainly from consumption units) are needed for 1000 results.
+    - Explanation of what type of proxies are needed and how many platform credits (calculated mainly from consumption units) are needed for 1000 results.
     - This is calculated from carrying out several runs (or from runs saved in the DB).<!--  @Zuzka can help if needed. [Information in this table](https://docs.google.com/spreadsheets/d/1NOkob1eYqTsRPTVQdltYiLUsIipvSFXswRcWQPtCW9M/edit#gid=1761542436), tab "cost of usage". -->
     - Here’s an example for this section:
 
@@ -57,7 +57,7 @@ Aim for sections 1–6 below and try to include at least 300 words. You can move
 
     - Add a video tutorial or GIF from an ideal Actor run.
 
-    > Tip: For better user experience, Apify Console automatically renders every YouTube URL as an embedded video player. Simply add a separate line with the URL of your YouTube video.
+    > Tip: For better user experience, Apify Console automatically renders every YouTube URL as an embedded video player. Add a separate line with the URL of your YouTube video.
 
     - Consider adding a short numbered tutorial as Google will sometimes pick these up as rich snippets. Remember that this might be in search results, so you can repeat the name of the Actor and give a link, e.g.
 
@@ -71,7 +71,7 @@ Aim for sections 1–6 below and try to include at least 300 words. You can move
 
 6. **Input**
 
-    - Each Actor detail page has an input tab, so you just need to refer to that. If you like, you can add a screenshot showing the user what the input fields will look like.
+    - Refer to the input tab on Actor's detail page. If you like, you can add a screenshot showing the user what the input fields will look like.
     - This is an example of how to refer to the input tab:
 
     > Twitter Scraper has the following input options. Click on the [input tab](https://apify.com/vdrmota/twitter-scraper/input-schema) for more information.
