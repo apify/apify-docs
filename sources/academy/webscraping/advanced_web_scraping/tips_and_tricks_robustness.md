@@ -106,7 +106,7 @@ Make sure your [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/
 - Use element attributes with the **lowest probability of a future change**.
 - Completely **avoid or strip** selectors of values that are clearly **random**.
 - Completely **avoid or strip** selectors of values that are clearly **flexible**.
-- **Extend low-specificity** selectors to reduce the probability of **collisions****.
+- **Extend low-specificity** selectors to reduce the probability of **collisions**.
 
 Below is an example of stripping away too-specific parts of a selector that are likely random or subject to change.
 
