@@ -63,7 +63,7 @@ In the page that opens, you can see your newly created actor. In the **Settings*
 
 First we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your actor will use. We will be using the `requests` package for downloading the BBC Weather pages, and the `beautifulsoup4` package for parsing and processing the downloaded pages. We don't particularly care about the specific versions of these packages, so we just list them in the file:
 
-```python
+```py
 # Add your dependencies here.
 # See https://pip.pypa.io/en/latest/cli/pip_install/#requirements-file-format
 # for how to format them
@@ -78,7 +78,7 @@ Finally, we can get to writing the main logic for the actor, which will live in 
 
 First, we need to import all the packages we will use in the code:
 
-```python
+```py
 from datetime import datetime, time, timedelta, timezone
 import os
 import re
@@ -90,7 +90,7 @@ import requests
 
 Next, let's set up the locations we want to scrape in a constant for easier reference and, optionally, modification.
 
-```python
+```py
 # Locations which to scrape and their BBC Weather IDs
 LOCATIONS = [
     ('Prague', '3067696'),
@@ -103,7 +103,7 @@ LOCATIONS = [
 
 We'll be scraping each location separately. For each location, we need to know in which timezone it resides and what is the first displayed date in the weather forecast for that location. We will scrape each of the 14 forecast days one by one. For each day, we will first download its forecast page using the `requests` library, and then parse the downloaded HTML using the `BeautifulSoup` parser:
 
-```python
+```py
 # List with scraped results
 weather_data = []
 
@@ -126,7 +126,7 @@ First, we extract the timezone from the second element with class `wr-c-footer-t
 
 Afterwards, we can figure out which date is represented by the first displayed day. We find the element with the class `wr-day--active` containing the header for the currently displayed day. Inside it, we find the element with the title of that day, which has the class `wr-day__title`. This element has the accessibility label containing the actual date of the day in its `aria-label` attribute, but it contains only the day and month and not the year, so we can't use it directly. Instead, to get the full date of the first displayed day, we compare the day from the accessibility label and the day from the current datetime at the location. If they match, we know the first displayed date is the current date at the location. If they don't, we know the first displayed date is the day before the current date at the location.
 
-```python
+```py
         # When parsing the first day, find out what day it represents,
         # to know when do the results start
         if day_offset == 0:
@@ -162,7 +162,7 @@ To get the datetime of each slot, we need to combine the date of the first displ
 
 Finally, we can put all the extracted information together and push them to the array holding the resulting data.
 
-```python
+```py
         # Go through the elements for each displayed time slot of the displayed day
         slot_container = soup.find(class_='wr-time-slot-container__slots')
         for slot in slot_container.find_all(class_='wr-time-slot'):
@@ -192,7 +192,7 @@ As the last step, we need to store the scraped data in a dataset on the Apify pl
 
 First, we initialize an `ApifyClient` instance. All the necessary arguments are automatically provided to the actor process as environment variables accessible in Python through the `os.environ` mapping. We will save the data into the default dataset belonging to the actor run, so we create a sub-client for working with that dataset, and push the data into it using its `.push_items(...)` method.
 
-```python
+```py
 # Initialize the main ApifyClient instance
 client = ApifyClient(os.environ['APIFY_TOKEN'], api_url=os.environ['APIFY_API_BASE_URL'])
 
@@ -231,7 +231,7 @@ In the page that opens, you can see your newly created actor. In the **Settings*
 
 First, we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your actor will use. We will be using the `pandas` package for parsing the downloaded weather data, and the `matplotlib` package for visualizing it. We don't particularly care about the specific versions of these packages, so we just list them in the file:
 
-```python
+```py
 # Add your dependencies here.
 # See https://pip.pypa.io/en/latest/cli/pip_install/#requirements-file-format
 # for how to format them
@@ -244,7 +244,7 @@ The actor's main logic will live in the `main.py` file. Let's delete everything 
 
 Next, we'll import all the packages we will use in the code:
 
-```python
+```py
 from io import BytesIO
 import os
 
@@ -259,7 +259,7 @@ Next, we need to run the weather scraping actor and access its results. We do th
 
 First, we initialize an `ApifyClient` instance. All the necessary arguments are automatically provided to the actor process as environment variables accessible in Python through the `os.environ` mapping. We need to run the actor from the previous tutorial, which we have named `bbc-weather-scraper`, and wait for it to finish. So, we create a sub-client for working with that actor and run the actor through it. We then check whether the actor run has succeeded. If so, we create a client for working with its default dataset.
 
-```python
+```py
 # Initialize the main ApifyClient instance
 client = ApifyClient(os.environ['APIFY_TOKEN'], api_url=os.environ['APIFY_API_BASE_URL'])
 
@@ -279,7 +279,7 @@ dataset_client = client.dataset(scraper_run['defaultDatasetId'])
 
 Now, we need to load the data from the dataset to a Pandas dataframe. Pandas supports reading data from a CSV file stream, so we just create a stream with the dataset items in the right format and supply it to `pandas.read_csv()`.
 
-```python
+```py
 # Load the dataset items into a pandas dataframe
 print('Parsing weather data...')
 dataset_items_stream = dataset_client.stream_items(item_format='csv')
@@ -288,7 +288,7 @@ weather_data = pandas.read_csv(dataset_items_stream, parse_dates=['datetime'], d
 
 Once we have the data loaded, we can process it. Each data row comes as three fields: `datetime`, `location` and `temperature`. We would like to transform the data so that we have the datetimes in one column, and the temperatures for each location at that datetime in separate columns, one for each location. To achieve this, we use the `.pivot()` method on the dataframe. Since the temperature varies considerably between day and night, and we would like to get an overview of the temperature trends over a longer period of time, we calculate a rolling average of the temperatures with a 24-hour window.
 
-```python
+```py
 # Transform data to a pivot table for easier plotting
 pivot = weather_data.pivot(index='datetime', columns='location', values='temperature')
 mean_daily_temperatures = pivot.rolling(window='24h', min_periods=24, center=True).mean()
@@ -298,7 +298,7 @@ mean_daily_temperatures = pivot.rolling(window='24h', min_periods=24, center=Tru
 
 With the data processed, we can then make a plot of the results. For that, we use the `.plot()` method of the dataframe, which creates a figure with the plot, using the Matplotlib library internally. We set the right titles and labels to the plot, and apply some additional formatting to achieve a nicer result.
 
-```python
+```py
 # Create a plot of the data
 print('Plotting the data...')
 axes = mean_daily_temperatures.plot(figsize=(10, 5))
@@ -312,7 +312,7 @@ axes.figure.tight_layout()
 
 As the last step, we need to save the plot to a record in a [key-value store](/platform/storage/key-value-store) on the Apify platform, so that we can access it later. We save the rendered figure with the plot to an in-memory buffer, and then save the contents of that buffer to the default key-value store of the actor run through its resource subclient.
 
-```python
+```py
 # Get the resource sub-client for working with the default key-value store of the run
 key_value_store_client = client.key_value_store(os.environ['APIFY_DEFAULT_KEY_VALUE_STORE_ID'])
 

@@ -51,7 +51,7 @@ import { ApifyClient } from 'apify-client';
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 # client.py
 from apify_client import ApifyClient
 
@@ -78,7 +78,7 @@ const client = new ApifyClient({
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 client = ApifyClient(token='YOUR_TOKEN')
 
 ```
@@ -103,7 +103,7 @@ const run = await client.actor('YOUR_USERNAME/adding-actor').call({
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 run = client.actor('YOUR_USERNAME/adding-actor').call(run_input={
     'num1': 4,
     'num2': 2
@@ -134,7 +134,7 @@ const dataset = client.dataset(run.defaultDatasetId);
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 dataset = client.dataset(run['defaultDatasetId'])
 
 ```
@@ -156,7 +156,7 @@ console.log(items);
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 items = dataset.list_items().items
 
 print(items)
@@ -194,7 +194,7 @@ console.log(items);
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 # client.py
 from apify_client import ApifyClient
 
@@ -234,7 +234,7 @@ const actor = client.actor('YOUR_USERNAME/adding-actor');
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 actor = client.actor('YOUR_USERNAME/adding-actor')
 
 ```
@@ -260,7 +260,7 @@ await actor.update({
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 actor.update(default_run_build='latest', default_run_memory_mbytes=256, default_run_timeout_secs=20)
 
 ```

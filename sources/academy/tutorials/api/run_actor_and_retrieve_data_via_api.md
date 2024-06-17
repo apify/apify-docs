@@ -116,7 +116,7 @@ items.forEach((item) => {
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 from apify_client import ApifyClient
 client = ApifyClient(token='YOUR_API_TOKEN')
 
