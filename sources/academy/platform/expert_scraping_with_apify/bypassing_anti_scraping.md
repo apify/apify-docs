@@ -13,9 +13,9 @@ slug: /expert-scraping-with-apify/bypassing-anti-scraping
 
 Effectively bypassing anti-scraping software is one of the most crucial, but also one of the most difficult skills to master. The different types of [anti-scraping protections](../../webscraping/anti_scraping/index.md) can vary a lot on the web. Some websites aren't even protected at all, some require only moderate IP rotation, and some cannot even be scraped without using advanced techniques and workarounds. Additionally, because the web is evolving, anti-scraping techniques are also evolving and becoming more advanced.
 
-It is generally quite difficult to recognize the anti-scraping protections a page may have when first inspecting it, so it is important to thoroughly investigate a site prior to writing any lines of code, as anti-scraping measures can significantly change your approach as well as complicate the development process of an actor. As your skills expand, you will be able to spot anti-scraping measures quicker, and better evaluate the complexity of a new project.
+It is generally quite difficult to recognize the anti-scraping protections a page may have when first inspecting it, so it is important to thoroughly investigate a site prior to writing any lines of code, as anti-scraping measures can significantly change your approach as well as complicate the development process of an Actor. As your skills expand, you will be able to spot anti-scraping measures quicker, and better evaluate the complexity of a new project.
 
-You might have already noticed that we've been using the **RESIDENTIAL** proxy group in the `proxyConfiguration` within our Amazon scraping actor. But what does that mean? This is a proxy group from [Apify Proxy](https://apify.com/proxy) which has been preventing us from being blocked by Amazon this entire time. We'll be learning more about proxies and Apify Proxy in this lesson.
+You might have already noticed that we've been using the **RESIDENTIAL** proxy group in the `proxyConfiguration` within our Amazon scraping Actor. But what does that mean? This is a proxy group from [Apify Proxy](https://apify.com/proxy) which has been preventing us from being blocked by Amazon this entire time. We'll be learning more about proxies and Apify Proxy in this lesson.
 
 ## Learning 🧠 {#learning}
 
@@ -23,7 +23,7 @@ You might have already noticed that we've been using the **RESIDENTIAL** proxy g
 - Give the [proxy documentation](/platform/proxy#our-proxies) a solid readover (feel free to skip most of the examples).
 - Check out the [anti-scraping guide](../../webscraping/anti_scraping/index.md).
 - Gain a solid understanding of the [SessionPool](https://crawlee.dev/api/core/class/SessionPool).
-- Look at a few actors on the [Apify store](https://apify.com/store). How are they utilizing proxies?
+- Look at a few Actors on the [Apify store](https://apify.com/store). How are they utilizing proxies?
 
 ## Knowledge check 📝 {#quiz}
 
@@ -37,7 +37,7 @@ You might have already noticed that we've been using the **RESIDENTIAL** proxy g
 
 ## Our task
 
-This time, we're going to build a trivial proxy-session manager for our Amazon scraping actor. A session should be used a maximum of 5 times before being rotated; however, if a request fails, the IP should be rotated immediately.
+This time, we're going to build a trivial proxy-session manager for our Amazon scraping Actor. A session should be used a maximum of 5 times before being rotated; however, if a request fails, the IP should be rotated immediately.
 
 Additionally, the proxies used by our scraper should now only be from the US.
 

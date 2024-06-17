@@ -1,13 +1,13 @@
 ---
 title: VII - Saving run stats
-description: Implement the saving of general statistics about an actor's run, as well as adding request-specific statistics to dataset items.
+description: Implement the saving of general statistics about an Actor's run, as well as adding request-specific statistics to dataset items.
 sidebar_position: 7
 slug: /expert-scraping-with-apify/solutions/saving-stats
 ---
 
 # Saving run stats {#saving-stats}
 
-**Implement the saving of general statistics about an actor's run, as well as adding request-specific statistics to dataset items.**
+**Implement the saving of general statistics about an Actor's run, as well as adding request-specific statistics to dataset items.**
 
 ---
 
@@ -146,7 +146,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 
 ## Quiz answers {#quiz-answers}
 
-**Q: Why might you want to store statistics about an actor's run (or a specific request)?**
+**Q: Why might you want to store statistics about an Actor's run (or a specific request)?**
 
 **A:** If certain types of requests are error-prone, you might want to save stats about the run to look at them later to either eliminate or better handle the errors. Things like **dateHandled** can be generally useful information.
 
@@ -158,9 +158,9 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 
 **A:** First, build a function that detects if the captcha has been hit. If so, it will throw an error and add to the **numberOfCaptchas** count. This data might be stored on a persisted state object to help better assess the anti-scraping mitigation techniques the scraper should be used.
 
-**Q: Is storing these types of values necessary for every single actor?**
+**Q: Is storing these types of values necessary for every single Actor?**
 
-**A:** For small actors, it might be a waste of time to do this. For large-scale actors, it can be extremely helpful when debugging and most definitely worth the extra 10-20 minutes of development time. Usually though, the default statistics from the Crawlee and the SDK might be enough for simple run stats.
+**A:** For small Actors, it might be a waste of time to do this. For large-scale Actors, it can be extremely helpful when debugging and most definitely worth the extra 10-20 minutes of development time. Usually though, the default statistics from the Crawlee and the SDK might be enough for simple run stats.
 
 **Q: What is the difference between the `failedRequestHandler` and `errorHandler`?**
 

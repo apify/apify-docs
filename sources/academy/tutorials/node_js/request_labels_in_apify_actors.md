@@ -1,11 +1,11 @@
 ---
 title: Request labels and how to pass data to other requests
-description: How to handle request labels in Apify actors with Cheerio or Puppeteer Crawler
+description: How to handle request labels in Apify Actors with Cheerio or Puppeteer Crawler
 sidebar_position: 15.1
 slug: /node-js/request-labels-in-apify-actors
 ---
 
-Are you trying to use actors for the first time and don't know how to deal with the request label or how to pass data to the request easily?
+Are you trying to use Actors for the first time and don't know how to deal with the request label or how to pass data to the request easily?
 
 Here's how to do it.
 

@@ -92,7 +92,7 @@ const crawler = new PuppeteerCrawler({
 
 ## Full code {#full-code}
 
-If we create a new actor using the code below on the [Apify platform](../../platform/apify_platform.md), it returns a nicely formatted spreadsheet containing a list of breweries with their beers with descriptions.
+If we create a new Actor using the code below on the [Apify platform](../../platform/apify_platform.md), it returns a nicely formatted spreadsheet containing a list of breweries with their beers with descriptions.
 
 Make sure to use the **apify/actor-node-puppeteer-chrome** image for your Dockerfile, otherwise the run will fail.
 
