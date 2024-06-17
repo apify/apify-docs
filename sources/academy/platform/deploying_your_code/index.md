@@ -33,7 +33,7 @@ Though the majority of Actors currently on the platform were written in Node.js,
 
 ## The "actorification" workflow {#workflow}
 
-There are four main steps to turning a piece of code into an Actor:
+Follow these four main steps to turn a piece of code into an Actor:
 
 1. Handle [accepting inputs and writing outputs](./inputs_outputs.md).
 2. Create an [input schema](./input_schema.md) **(optional)**.

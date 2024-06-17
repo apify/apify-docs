@@ -181,7 +181,7 @@ If the Actor stored the data in a key-value store other than the default, we can
 
 ## When are the data ready?
 
-It takes some time for an Actor to generate its output. There are even Actors that run for days. In the previous examples, we chose Actors whose runs only take a few seconds. This meant the runs had enough time to finish before we ran the code to retrieve their dataset or key-value store (so the Actor had time to produce some output). If we ran the code immediately after starting a longer-running Actor, the dataset would probably still be empty.
+It takes some time for an Actor to generate its output. Some even have Actors that run for days! In the previous examples, we chose Actors whose runs only take a few seconds. This meant the runs had enough time to finish before we ran the code to retrieve their dataset or key-value store (so the Actor had time to produce some output). If we ran the code immediately after starting a longer-running Actor, the dataset would probably still be empty.
 
 For Actors that are expected to be quick, we can use the `waitForFinish` parameter. Then, the running Actor's endpoint does not respond immediately but waits until the run finishes (up to the given limit). Let's try this with the HTML String to PDF Actor.
 
@@ -230,7 +230,7 @@ $response = $client->post('acts/mhamas~html-string-to-pdf/runs', [
 
 ## How to use Apify Proxy
 
-There is another important Apify feature you will need: [proxy](/platform/proxy). Guzzle makes it really easy to use.
+A [proxy](/platform/proxy) is another important Apify feature you will need. Guzzle makes it easy to use.
 
 If you just want to make sure that your server's IP address won't get blocked somewhere when making requests, you can use the automatic proxy selection mode.
 

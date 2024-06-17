@@ -45,7 +45,7 @@ To determine the current date and time at the displayed location, we will need t
 
 To extract data from the page, we need to figure out where exactly in the internal page structure it is stored.
 
-If we right-click on the day title in the top carousel (**Today** or **Tonight**) and select **Inspect** in the popup menu, we can open the Chrome DevTools Inspector with the clicked element highlighted. We can see that the element with the currently displayed day in the top carousel has the class `wr-day--active`, and that the element with the day's title has the class `wr-day__title` and the accessibility label attribute `aria-label` contains the actual date of that day, not just **Today** or **Tonight**. Additionally, the timezone information is in an element with the class `wr-c-footer-timezone__item`. There are two elements with the same class, so we will need to pick the second one when parsing the page.
+If we right-click on the day title in the top carousel (**Today** or **Tonight**) and select **Inspect** in the popup menu, we can open the Chrome DevTools Inspector with the clicked element highlighted. We can see that the element with the currently displayed day in the top carousel has the class `wr-day--active`, and that the element with the day's title has the class `wr-day__title` and the accessibility label attribute `aria-label` contains the actual date of that day, not just **Today** or **Tonight**. Additionally, the timezone information is in an element with the class `wr-c-footer-timezone__item`. You can see two elements with the same class, so we will need to pick the second one when parsing the page.
 
 Exploring the document tree further, we can see that the element containing all the displayed hours has the class `wr-time-slot-container__slots`. The elements with the forecast for a given hour have the class `wr-time-slot`. In each time slot, the element containing the slot's hour has the class `wr-time-slot-primary__hours` and the element containing the slot's predicted temperature in degrees Celsius has the class `wr-value--temperature--c`.
 
@@ -59,7 +59,7 @@ Now that we understand the element structure of the page and know where to find 
 
 First, we need to create a new Actor. To do this, go to [Apify Console](https://console.apify.com/), open the [Actors section](https://console.apify.com/actors), click on the **Create new** button in the top right, and select the **Example: Hello world in Python** Actor template.
 
-In the page that opens, you can see your newly created Actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-scraper`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the Actor. There are several of them, but only two are important for us now, `main.py` and `requirements.txt`.
+In the page that opens, you can see your newly created Actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-scraper`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the Actor. Although there are several of them, just two are important for us now, `main.py` and `requirements.txt`.
 
 First we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your Actor will use. We will be using the `requests` package for downloading the BBC Weather pages, and the `beautifulsoup4` package for parsing and processing the downloaded pages. We don't particularly care about the specific versions of these packages, so we just list them in the file:
 
@@ -227,7 +227,7 @@ Now, we need to process the scraped data and make a simple visualization that wi
 
 First, we need to create another Actor. You can do it the same way as before - go to the [Apify Console](https://console.apify.com/), open the [Actors section](https://console.apify.com/actors), click on the **Create new** button in the top right, and select the **Example: Hello world in Python** Actor template.
 
-In the page that opens, you can see your newly created Actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-parser`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the Actor. There are several of them, but only two are important for us now, `main.py` and `requirements.txt`.
+In the page that opens, you can see your newly created Actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-parser`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the Actor. Although there are several of them, just two are important for us now, `main.py` and `requirements.txt`.
 
 First, we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your Actor will use. We will be using the `pandas` package for parsing the downloaded weather data, and the `matplotlib` package for visualizing it. We don't particularly care about the specific versions of these packages, so we just list them in the file:
 
@@ -257,7 +257,7 @@ import pandas
 
 Next, we need to run the weather scraping Actor and access its results. We do that through the [Apify API Client for Python](/api/client/python), which greatly simplifies working with the Apify platform and allows you to use its functions without having to call the Apify API directly.
 
-First, we initialize an `ApifyClient` instance. All the necessary arguments are automatically provided to the Actor process as environment variables accessible in Python through the `os.environ` mapping. We need to run the Actor from the previous tutorial, which we have named `bbc-weather-scraper`, and wait for it to finish. So, we create a sub-client for working with that Actor and run the Actor through it. We then check whether the Actor run has succeeded. If so, we create a client for working with its default dataset.
+First, we initialize an `ApifyClient` instance. All the necessary arguments are automatically provided to the Actor process as environment variables accessible in Python through the `os.environ` mapping. We need to run the Actor from the previous tutorial, which we have named `bbc-weather-scraper`, and wait for it to finish. We create a sub-client for working with that Actor and run the Actor through it. We then check whether the Actor run has succeeded. If so, we create a client for working with its default dataset.
 
 ```python
 # Initialize the main ApifyClient instance
