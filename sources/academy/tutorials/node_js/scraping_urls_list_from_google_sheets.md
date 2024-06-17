@@ -5,11 +5,11 @@ sidebar_position: 15
 slug: /node-js/scraping-urls-list-from-google-sheets
 ---
 
-You can export URLs from [Google Sheets](https://www.google.com/sheets/about/) such as [this one](https://docs.google.com/spreadsheets/d/1GA5sSQhQjB_REes8I5IKg31S-TuRcznWOPjcpNqtxmU) directly into an [actor](/platform/actors)'s Start URLs field.
+You can export URLs from [Google Sheets](https://www.google.com/sheets/about/) such as [this one](https://docs.google.com/spreadsheets/d/1-2mUcRAiBbCTVA5KcpFdEYWflLMLp9DDU3iJutvES4w) directly into an [actor](/platform/actors)'s Start URLs field.
 
 1. Make sure the spreadsheet has one sheet and a simple structure to help the actor find the URLs.
 
-2. Add the `/gviz/tq?tqx=out:csv` query parameter to the Google Sheet URL base, right after the long document identifier part. For example, <https://docs.google.com/spreadsheets/d/1GA5sSQhQjB_REes8I5IKg31S-TuRcznWOPjcpNqtxmU/gviz/tq?tqx=out:csv>. This automatically exports the spreadsheet to CSV format.
+2. Add the `/gviz/tq?tqx=out:csv` query parameter to the Google Sheet URL base, right after the long document identifier part. For example, <https://docs.google.com/spreadsheets/d/1-2mUcRAiBbCTVA5KcpFdEYWflLMLp9DDU3iJutvES4w/gviz/tq?tqx=out:csv>. This automatically exports the spreadsheet to CSV format.
 
 3. In the actor's input, click Link remote text file and paste the URL there:
 
