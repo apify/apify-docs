@@ -1,6 +1,6 @@
 ---
 title: Running a web server on the Apify platform
-description: A web server running in an actor can act as a communication channel with the outside world. Learn how to set one up with Node.js.
+description: A web server running in an Actor can act as a communication channel with the outside world. Learn how to set one up with Node.js.
 sidebar_position: 11
 category: apify platform
 slug: /running-a-web-server
