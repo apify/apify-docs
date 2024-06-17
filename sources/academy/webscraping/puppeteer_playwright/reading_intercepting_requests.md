@@ -23,7 +23,7 @@ During this lesson, we'll be using [Tiësto's following list](https://soundcloud
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -40,7 +40,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -70,7 +70,7 @@ Let's go ahead and listen for this request in our code:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 // Listen for all requests
 page.on('request', (req) => {
     // If the URL doesn't include our keyword, ignore it
@@ -83,7 +83,7 @@ page.on('request', (req) => {
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 // Listen for all requests
 page.on('request', (req) => {
     // If the URL doesn't include our keyword, ignore it
@@ -109,7 +109,7 @@ This request includes some useful query parameters, namely the `client_id`. Let'
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -136,7 +136,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -185,7 +185,7 @@ This time, instead of grabbing the query parameters of the request URL, let's gr
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 // Notice that the callback function is now async
 page.on('response', async (res) => {
     if (!res.request().url().includes('followings')) return;
@@ -203,7 +203,7 @@ page.on('response', async (res) => {
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 // Notice that the callback function is now async
 page.on('response', async (res) => {
     if (!res.request().url().includes('followings')) return;
@@ -248,7 +248,7 @@ Then, we'll `abort()` all requests that end with any of these extensions.
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -269,7 +269,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -314,7 +314,7 @@ To block resources, it is better to use a CDP (Chrome DevTools Protocol) Session
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 // Note, you can't use CDP session in other browsers!
 // Only in Chromium.
 import { chromium } from 'playwright';
@@ -339,7 +339,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -369,7 +369,7 @@ Let's go ahead and intercept and modify the initial request we fire off with the
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -390,7 +390,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });

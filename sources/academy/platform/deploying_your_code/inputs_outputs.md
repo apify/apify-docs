@@ -90,7 +90,7 @@ Cool! When we run `node index.js`, we see **20**.
 
 Alternatively, when writing in a language other than JavaScript, we can create our own `get_input()` function which utilizes the Apify API when the actor is running on the platform. For this example, we are using the [Apify Client](../getting_started/apify_client.md) for Python to access the API.
 
-```Python
+```py
 # index.py
 from apify_client import ApifyClient
 from os import environ
@@ -164,7 +164,7 @@ Just as with the custom `get_input()` utility function, you can write a custom `
 
 > You can read and write your output anywhere; however, it is standard practice to use a folder named **storage**.
 
-```Python
+```py
 # index.py
 from apify_client import ApifyClient
 from os import environ

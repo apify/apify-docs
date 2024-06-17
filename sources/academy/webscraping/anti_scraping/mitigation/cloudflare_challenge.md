@@ -17,7 +17,7 @@ For those using Crawlee, the library provides out-of-the-box support for generat
 
 To address this issue, it is necessary to alter the crawler configuration. For example, you might use the following code to remove default blocked status code handling from the crawler:
 
-```javascript
+```js
 const crawler = new PlaywrightCrawler({
     ...otherOptions,
     sessionPoolOptions: {

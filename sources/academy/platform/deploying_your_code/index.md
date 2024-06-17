@@ -47,7 +47,7 @@ For this section, we'll be turning this example project into an actor:
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
 
-```javascript
+```js
 // index.js
 const addAllNumbers = (...nums) => nums.reduce((total, curr) => total + curr, 0);
 
@@ -57,7 +57,7 @@ console.log(addAllNumbers(1, 2, 3, 4)); // -> 10
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 # index.py
 def add_all_numbers (nums):
     total = 0

@@ -70,11 +70,11 @@ When you click on the **Use locally** button, you'll be presented with instructi
 
 With the Apify CLI installed, you can simply run the following commands in your terminal:
 
-```bash
+```shell
 apify create my-actor -t getting_started_node
 ```
 
-```bash
+```shell
 cd my-actor
 apify run
 ```
