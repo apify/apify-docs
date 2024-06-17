@@ -1,19 +1,19 @@
 ---
-title: Avoid EACCES error in actor builds with a custom Dockerfile
-description: Learn how to work around an issue where actor builds with a custom Dockerfile fail to copy files due to write access errors.
+title: Avoid EACCES error in Actor builds with a custom Dockerfile
+description: Learn how to work around an issue where Actor builds with a custom Dockerfile fail to copy files due to write access errors.
 sidebar_position: 16.4
 slug: /node-js/avoid-eacces-error-in-actor-builds
 ---
 
-Sometimes when building an actor using a custom Dockerfile, you might receive errors like:
+Sometimes when building an Actor using a custom Dockerfile, you might receive errors like:
 
-```Bash
+```shell
 Missing write access to ...
 ```
 
 or
 
-```Bash
+```shell
 EACCES: permission denied
 ```
 
@@ -21,13 +21,13 @@ This problem is usually caused by the fact that by default, the `COPY` Dockerfil
 
 To fix this problem, make sure the `COPY`  instruction in Dockerfile uses the `--chown` flag. For example, instead of
 
-```Bash
+```shell
 COPY . ./
 ```
 
 use
 
-```Bash
+```shell
 COPY --chown=myuser:myuser . ./
 ```
 

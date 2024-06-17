@@ -25,23 +25,23 @@ You can use one of the two main ways to programmatically interact with the Apify
 ## Knowledge check 📝 {#quiz}
 
 1. What is the relationship between the Apify API and the Apify client? Are there any significant differences?
-2. How do you pass input when running an actor or task via API?
+2. How do you pass input when running an Actor or task via API?
 3. Do you need to install the `apify-client` npm package when already using the `apify` package?
 
 ## Our task
 
-In the previous lesson, we created a **task** for the Amazon actor we built in the first two lessons of this course. Now, we'll be creating another new actor, which will have two jobs:
+In the previous lesson, we created a **task** for the Amazon Actor we built in the first two lessons of this course. Now, we'll be creating another new Actor, which will have two jobs:
 
-1. Programmatically call the task for the Amazon actor.
+1. Programmatically call the task for the Amazon Actor.
 2. Export its results into CSV format under a new key called **OUTPUT.csv** in the default key-value store.
 
 Though it's a bit unintuitive, this is a perfect activity for learning how to use both the Apify API and the Apify JavaScript client.
 
-The new actor should take the following input values, which be mapped to parameters in the API calls:
+The new Actor should take the following input values, which be mapped to parameters in the API calls:
 
 ```json
 {
-    // How much memory to allocate to the Amazon actor
+    // How much memory to allocate to the Amazon Actor
     // Must be a power of 2
     "memory": 4096,
 

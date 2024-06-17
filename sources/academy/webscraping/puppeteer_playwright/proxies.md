@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 [Proxies](../anti_scraping/mitigation/proxies.md) are a great way of appearing as if you are making requests from a different location. A common use case for proxies is to avoid [geolocation](../anti_scraping/techniques/geolocation.md) restrictions. For example your favorite TV show might not be available on Netflix in your country, but it might be available for Vietnamese Netflix watchers.
 
-In this lesson, we'll be learning how to use proxies with Playwright and Puppeteer. This will be demonstrated with a Vietnamese proxy that we got by running [this](https://apify.com/mstephen190/proxy-scraper) proxy-scraping actor on the Apify platform.
+In this lesson, we'll be learning how to use proxies with Playwright and Puppeteer. This will be demonstrated with a Vietnamese proxy that we got by running [this](https://apify.com/mstephen190/proxy-scraper) proxy-scraping Actor on the Apify platform.
 
 ## Adding a proxy {#adding-a-proxy}
 
@@ -27,7 +27,7 @@ First, let's add our familiar boilerplate code for visiting Google and also crea
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 // our proxy server
@@ -44,7 +44,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 // our proxy server
@@ -68,7 +68,7 @@ In Puppeteer, the server must be passed within the **--proxy-server** [Chromium 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const proxy = '103.214.9.13:3128';
@@ -92,7 +92,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const proxy = '103.214.9.13:3128';
@@ -132,7 +132,7 @@ One might automatically assume that this would be the solution:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 // This code is wrong!
 import { chromium } from 'playwright';
 
@@ -152,7 +152,7 @@ const browser = await chromium.launch({
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 // This code is wrong!
 import puppeteer from 'puppeteer';
 
@@ -174,7 +174,7 @@ However, authentication parameters need to be passed in separately in order to w
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const proxy = 'proxy.example.com:3001';
@@ -195,7 +195,7 @@ const browser = await chromium.launch({
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const proxy = 'proxy.example.com:3001';

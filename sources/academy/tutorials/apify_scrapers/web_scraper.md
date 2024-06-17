@@ -1,7 +1,7 @@
 ---
 title: Scraping with Web Scraper
 menuTitle: Web Scraper
-description: Learn how to scrape a website using Apify's Web Scraper. Build an actor's page function, extract information from a web page and download your data.
+description: Learn how to scrape a website using Apify's Web Scraper. Build an Actor's page function, extract information from a web page and download your data.
 externalSourceUrl: https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/build/web-scraper-tutorial.md
 sidebar_position: 2
 slug: /apify-scrapers/web-scraper
@@ -31,19 +31,19 @@ and a lot of people familiar with JavaScript already know how to use it.
 To add jQuery, all we need to do is turn on **Inject jQuery** under the  **Input and options** tab.
 This will add a `context.jQuery` function that you can use.
 
-Now that's out of the way, let's open one of the actor detail pages in the Store, for example
+Now that's out of the way, let's open one of the Actor detail pages in the Store, for example
 the [Web Scraper](https://apify.com/apify/web-scraper) page and use our DevTools-Fu to scrape some data.
 
 ## [](#building-our-page-function) Building our Page function
 
 Before we start, let's do a quick recap of the data we chose to scrape:
 
-   1. **URL** - The URL that goes directly to the actor's detail page.
+   1. **URL** - The URL that goes directly to the Actor's detail page.
    2. **Unique identifier** - Such as **apify/web-scraper**.
-   3. **Title** - The title visible in the actor's detail page.
-   4. **Description** - The actor's description.
-   5. **Last modification date** - When the actor was last modified.
-   6. **Number of runs** - How many times the actor was run.
+   3. **Title** - The title visible in the Actor's detail page.
+   4. **Description** - The Actor's description.
+   5. **Last modification date** - When the Actor was last modified.
+   6. **Number of runs** - How many times the Actor was run.
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/scraping-practice.webp)
 
@@ -80,8 +80,8 @@ async function pageFunction(context) {
 
 ### [](#description) Description
 
-Getting the actor's description is a little more involved, but still pretty straightforward. We can't just simply search for a `<p>` tag, because
-there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the actor description is nested within
+Getting the Actor's description is a little more involved, but still pretty straightforward. We can't just simply search for a `<p>` tag, because
+there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the Actor description is nested within
 the `<header>` element too, same as the title. Moreover, the actual description is nested inside a `<span>` tag with a class `actor-description`.
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.webp)
@@ -253,7 +253,7 @@ You nailed it!
 ## [](#pagination) Pagination
 
 Pagination is just a term that represents "going to the next page of results". You may have noticed that we did not
-actually scrape all the actors, just the first page of results. That's because to load the rest of the actors,
+actually scrape all the Actors, just the first page of results. That's because to load the rest of the Actors,
 one needs to click the **Show more** button at the very bottom of the list. This is pagination.
 
 > This is a typical form of JavaScript pagination, sometimes called infinite scroll. Other pages may just use links
@@ -310,7 +310,7 @@ With the theory out of the way, this should be pretty easy. The algorithm is a l
 2. Click it.
 3. Is there another **Show more** button?
     - Yes? Repeat the above. (loop)
-    - No? We're done. We have all the actors.
+    - No? We're done. We have all the Actors.
 
 #### Waiting for the button
 
@@ -340,7 +340,7 @@ We have a unique selector for the button and we know that it's already rendered 
 $('div.show-more > button').click();
 ```
 
-This will show the next page of actors.
+This will show the next page of Actors.
 
 #### Repeating the process
 
@@ -453,7 +453,7 @@ async function pageFunction(context) {
 ```
 
 That's it! You can now remove the **Max pages per run** limit, **Save & Run** your task and watch the scraper paginate
-through all the actors and then scrape all of their data. After it succeeds, open the **Dataset** tab again click on **Preview**. You should have a table of all the actor's details in front of you. If you do, great job!
+through all the Actors and then scrape all of their data. After it succeeds, open the **Dataset** tab again click on **Preview**. You should have a table of all the Actor's details in front of you. If you do, great job!
 You've successfully scraped Apify Store. And if not, no worries, just go through the code examples again,
 it's probably just some typo.
 
@@ -557,11 +557,11 @@ Thank you for reading this whole tutorial! Really! It's important to us that our
 
 ## [](#whats-next) What's next?
 
-- Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
-- [Take a deep dive into actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on actors.
-- Found out you're not into the coding part but would still to use Apify actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom actor](https://apify.com/custom-solutions) from an Apify-certified developer.
+- Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own Actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
+- [Take a deep dive into Actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on Actors.
+- Found out you're not into the coding part but would still to use Apify Actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom Actor](https://apify.com/custom-solutions) from an Apify-certified developer.
 
 
-**Learn how to scrape a website using Apify's Web Scraper. Build an actor's page function, extract information from a web page and download your data.**
+**Learn how to scrape a website using Apify's Web Scraper. Build an Actor's page function, extract information from a web page and download your data.**
 
 ---

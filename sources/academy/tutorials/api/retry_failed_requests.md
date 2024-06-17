@@ -17,7 +17,7 @@ The additional complication is that the [Request](https://crawlee.dev/api/core/c
 
 A simplified code example can look like this:
 
-```typescript
+```ts
 // The code is similar for both Crawlee-only but uses a different API
 import { Actor } from 'apify';
 

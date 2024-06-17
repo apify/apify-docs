@@ -154,7 +154,7 @@ await page.click('li a span.pagination-next');
 
 ## Using Apify SDK
 
-[Apify SDK](/sdk/js/) is the library we used to build all of our scrapers. For power users, it is the best tool out there to scrape using JavaScript. If you're not yet ready to start writing your own actors using SDK, Puppeteer Scraper enables you to use its features without having to worry about building your own actors.
+[Apify SDK](/sdk/js/) is the library we used to build all of our scrapers. For power users, it is the best tool out there to scrape using JavaScript. If you're not yet ready to start writing your own Actors using SDK, Puppeteer Scraper enables you to use its features without having to worry about building your own Actors.
 
 The possibilities are endless, but to show you some examples:
 

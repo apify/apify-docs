@@ -1,6 +1,6 @@
 ---
 title: Getting started
-description: Get started with the Apify platform by creating an account and learning about the Apify Console, which is where all Apify actors are born!
+description: Get started with the Apify platform by creating an account and learning about the Apify Console, which is where all Apify Actors are born!
 sidebar_position: 8
 category: apify platform
 slug: /getting-started
@@ -8,7 +8,7 @@ slug: /getting-started
 
 # Getting started {#getting-started}
 
-**Get started with the Apify platform by creating an account and learning about the Apify Console, which is where all Apify actors are born!**
+**Get started with the Apify platform by creating an account and learning about the Apify Console, which is where all Apify Actors are born!**
 
 ---
 
@@ -24,4 +24,4 @@ Now that you have an account, you have access to the [Apify Console](https://con
 
 ## Next up {#next}
 
-In our next lesson, we'll learn about something super exciting - **actors**. Actors are the living and breathing core of the Apify platform and are an extremely powerful concept. What are you waiting for? Let's jump [right into the next lesson](./actors.md)!
+In our next lesson, we'll learn about something super exciting - **Actors**. Actors are the living and breathing core of the Apify platform and are an extremely powerful concept. What are you waiting for? Let's jump [right into the next lesson](./actors.md)!

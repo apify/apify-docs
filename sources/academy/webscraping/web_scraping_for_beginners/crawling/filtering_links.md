@@ -23,14 +23,14 @@ In the previous lesson, we simply grabbed all the links from the HTML document.
 <Tabs groupId="main">
 <TabItem value="DevTools" label="DevTools">
 
-```javascript
+```js
 document.querySelectorAll('a');
 ```
 
 </TabItem>
 <TabItem value="Node.js with Cheerio" label="Node.js with Cheerio">
 
-```javascript
+```js
 $('a');
 ```
 
@@ -44,14 +44,14 @@ That's not the only way to do it, however. Since we're interested in the `href` 
 <Tabs groupId="main">
 <TabItem value="DevTools" label="DevTools">
 
-```javascript
+```js
 document.querySelectorAll('a[href]');
 ```
 
 </TabItem>
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 $('a[href]');
 ```
 
@@ -69,14 +69,14 @@ Let's go back to the [Sales category of Warehouse](https://warehouse-theme-metal
 <Tabs groupId="main">
 <TabItem value="DevTools" label="DevTools">
 
-```javascript
+```js
 document.querySelectorAll('a.product-item__title');
 ```
 
 </TabItem>
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 $('a.product-item__title');
 ```
 

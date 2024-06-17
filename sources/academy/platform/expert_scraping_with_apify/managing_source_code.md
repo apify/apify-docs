@@ -11,7 +11,7 @@ slug: /expert-scraping-with-apify/managing-source-code
 
 ---
 
-In this brief lesson, we'll discuss how to better manage an actor's source code. Up 'til now, you've been developing your scripts locally, and then pushing the code directly to the actor on the Apify platform; however, there is a much more optimal (and standard) way.
+In this brief lesson, we'll discuss how to better manage an Actor's source code. Up 'til now, you've been developing your scripts locally, and then pushing the code directly to the Actor on the Apify platform; however, there is a much more optimal (and standard) way.
 
 ## Learning 🧠 {#learning}
 
@@ -19,11 +19,11 @@ Thus far, every time we've updated our code on the Apify platform, we've used th
 
 If you're not yet familiar with Git, please get familiar with it through the [Git documentation](https://git-scm.com/docs), then take a quick moment to read about [GitHub integration](/platform/integrations/github) in the Apify docs.
 
-Also, try to explore the **Multifile editor** in one of the actors you developed in the previous lessons before moving forward.
+Also, try to explore the **Multifile editor** in one of the Actors you developed in the previous lessons before moving forward.
 
 ## Knowledge check 📝 {#quiz}
 
-1. Do you have to rebuild an actor each time the source code is changed?
+1. Do you have to rebuild an Actor each time the source code is changed?
 2. In Git, what is the difference between **pushing** changes and making a **pull request**?
 3. Based on your knowledge and experience, is the `apify push` command worth using (in your opinion)?
 
@@ -43,13 +43,13 @@ First, let's create a repository. This can be done [in a number of ways](https:/
 
 Then, we'll run the commands it tells us in our terminal (while within the **demo-actor** directory) to initialize the repository locally, and then push all of the files to the remote one.
 
-After you've created your repo, navigate on the Apify platform to the actor we called **demo-actor**. In the **Source** tab, click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Web IDE**, which is what we've been using so far.
+After you've created your repo, navigate on the Apify platform to the Actor we called **demo-actor**. In the **Source** tab, click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Web IDE**, which is what we've been using so far.
 
 ![Select source code location](./images/select-source-location.png)
 
 Then, go ahead and paste the link to your repository into the **Git URL** text field and click **Save**.
 
-The final step is to click on **API** in the top right corner of your actor's page:
+The final step is to click on **API** in the top right corner of your Actor's page:
 
 ![API button](./images/api-button.jpg)
 
@@ -61,7 +61,7 @@ And you're done! 🎉
 
 ## Quick chat about code management {#code-management}
 
-This was a bit of overhead, but the good news is that you don't ever have to configure this stuff again for this actor. Now, every time the content of your **main**/**master** branch changes, the actor on the Apify platform will rebuild based on the newest code.
+This was a bit of overhead, but the good news is that you don't ever have to configure this stuff again for this Actor. Now, every time the content of your **main**/**master** branch changes, the Actor on the Apify platform will rebuild based on the newest code.
 
 Think of it as combining two steps into one! Normally, you'd have to do a `git push` from your terminal in order to get the newest code onto GitHub, then run `apify push` to push it to the platform.
 
@@ -69,4 +69,4 @@ It's also important to know that GitHub/Gitlab repository integration is standar
 
 ## Next up {#next}
 
-[Next up](./tasks_and_storage.md), you'll learn about the different ways to store scraped data, as well as how to utilize a cool feature to run pre-configured actors.
+[Next up](./tasks_and_storage.md), you'll learn about the different ways to store scraped data, as well as how to utilize a cool feature to run pre-configured Actors.

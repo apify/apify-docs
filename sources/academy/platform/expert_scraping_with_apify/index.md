@@ -1,6 +1,6 @@
 ---
 title: Expert scraping with Apify
-description: After learning the basics of actors and Apify, learn to develop pro-level scrapers on the Apify platform with this advanced course.
+description: After learning the basics of Actors and Apify, learn to develop pro-level scrapers on the Apify platform with this advanced course.
 sidebar_position: 12
 category: apify platform
 slug: /expert-scraping-with-apify
@@ -8,7 +8,7 @@ slug: /expert-scraping-with-apify
 
 # Expert scraping with Apify {#expert-scraping}
 
-**After learning the basics of actors and Apify, learn to develop pro-level scrapers on the Apify platform with this advanced course.**
+**After learning the basics of Actors and Apify, learn to develop pro-level scrapers on the Apify platform with this advanced course.**
 
 ---
 
@@ -28,7 +28,7 @@ Before developing a pro-level Apify scraper, there are some important things you
 
 If you're feeling ambitious, you don't need to have any prior experience with Crawlee to get started with this course; however, at least 5-10 minutes of exposure is recommended. If you haven't yet tried out Crawlee, you can refer to [this lesson](../../webscraping/web_scraping_for_beginners/crawling/pro_scraping.md) in the **Web scraping for beginners** course (and ideally follow along). To familiarize yourself with the Apify SDK, you can refer to the [Apify Platform](../apify_platform.md) category.
 
-The Apify CLI will play a core role in the running and testing of the actor you will build, so if you haven't gotten it installed already, please refer to [this short lesson](../../glossary/tools/apify_cli.md).
+The Apify CLI will play a core role in the running and testing of the Actor you will build, so if you haven't gotten it installed already, please refer to [this short lesson](../../glossary/tools/apify_cli.md).
 
 ### Git {#git}
 
@@ -38,12 +38,12 @@ In one of the later lessons, we'll be learning how to integrate our Actor on the
 
 Docker is a massive topic on its own, but don't be worried! We only expect you to know and understand the very basics of it, which can be learned about in [this short article](https://docs.docker.com/get-started/overview/) (10 minute read).
 
-### The basics of actors {#actor-basics}
+### The basics of Actors {#actor-basics}
 
-Part of this course will be learning more in-depth about actors; however, some basic knowledge is already assumed. If you haven't yet gone through the [actors](../getting_started/actors.md) lesson of the **Apify platform** course, it's highly recommended to at least give it a glance before moving forward.
+Part of this course will be learning more in-depth about Actors; however, some basic knowledge is already assumed. If you haven't yet gone through the [Actors](../getting_started/actors.md) lesson of the **Apify platform** course, it's highly recommended to at least give it a glance before moving forward.
 
 ## First up {#first}
 
-[First up](./actors_webhooks.md), we'll be learning in-depth about integrating actors with each other using webhooks.
+[First up](./actors_webhooks.md), we'll be learning in-depth about integrating Actors with each other using webhooks.
 
 > Each lesson will have a short _(and optional)_ quiz that you can take at home to test your skills and knowledge related to the lesson's content. Some questions have straight factual answers, but some others can have varying opinionated answers.

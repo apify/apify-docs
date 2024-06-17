@@ -11,7 +11,7 @@ slug: /apify-scrapers
 
 ---
 
-Scraping and crawling the web can be difficult and time-consuming without the right tools. That's why Apify provides ready-made solutions to crawl and scrape any website. They are based on our [actors](https://apify.com/actors), the [Apify SDK](/sdk/js) and [Crawlee](https://crawlee.dev/).
+Scraping and crawling the web can be difficult and time-consuming without the right tools. That's why Apify provides ready-made solutions to crawl and scrape any website. They are based on our [Actors](https://apify.com/actors), the [Apify SDK](/sdk/js) and [Crawlee](https://crawlee.dev/).
 
 Don't let the number of options confuse you. Unless you're really sure you need to use a specific tool, just go ahead and use **Web Scraper** ([apify/web-scraper](./web_scraper.md)). It is the easiest to pick up and can handle almost anything. Look at **Puppeteer Scraper** ([apify/puppeteer-scraper](./puppeteer_scraper.md)) or **Cheerio Scraper** ([apify/cheerio-scraper](./cheerio_scraper.md)) only after you know your target websites well and need to optimize your scraper.
 
@@ -37,7 +37,7 @@ Cheerio Scraper is ideal for scraping websites that do not rely on client-side J
 
 ## [](#puppeteer-scraper)Puppeteer Scraper
 
-Puppeteer Scraper is the most powerful scraper tool in our arsenal (aside from developing your own actors). It uses the Puppeteer library to programmatically control a headless Chrome browser, and it can make it do almost anything. If using Web Scraper does not cut it, Puppeteer Scraper is what you need.
+Puppeteer Scraper is the most powerful scraper tool in our arsenal (aside from developing your own Actors). It uses the Puppeteer library to programmatically control a headless Chrome browser, and it can make it do almost anything. If using Web Scraper does not cut it, Puppeteer Scraper is what you need.
 
 Puppeteer is a Node.js library, so knowledge of Node.js and its paradigms is expected when working with Puppeteer Scraper.
 

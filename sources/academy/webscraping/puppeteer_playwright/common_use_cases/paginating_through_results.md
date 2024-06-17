@@ -51,7 +51,7 @@ Let's grab this number now with a little bit of code:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const repositories = [];
@@ -76,7 +76,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const repositories = [];
@@ -114,7 +114,7 @@ And since we're already on the first page, we'll go ahead and scrape the repos f
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 import * as cheerio from 'cheerio';
 
@@ -159,7 +159,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 import * as cheerio from 'cheerio';
 
@@ -256,7 +256,7 @@ After all is said and done, here's what our final code looks like:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 import * as cheerio from 'cheerio';
 
@@ -317,7 +317,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 import * as cheerio from 'cheerio';
 
@@ -398,7 +398,7 @@ We're going to scrape the brand and price from the first 75 results on the **Abo
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 // Create an array where all scraped products will
@@ -416,7 +416,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 // Create an array where all scraped products will
@@ -451,7 +451,7 @@ Then, within a `while` loop that ends once the length of the **products** array 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 while (products.length < 75) {
     await page.mouse.wheel(0, itemHeight * 3);
     totalScrolled += itemHeight * 3;
@@ -463,7 +463,7 @@ while (products.length < 75) {
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 while (products.length < 75) {
     await page.mouse.wheel({ deltaY: itemHeight * 3 });
     totalScrolled += itemHeight * 3;
@@ -480,7 +480,7 @@ This will work; however, what if we reach the bottom of the page and there are s
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 while (products.length < 75) {
     const scrollHeight = await page.evaluate(() => document.body.scrollHeight);
 
@@ -505,7 +505,7 @@ while (products.length < 75) {
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 while (products.length < 75) {
     const scrollHeight = await page.evaluate(() => document.body.scrollHeight);
 
@@ -565,7 +565,7 @@ With everything completed, this is what we're left with:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 import * as cheerio from 'cheerio';
 
@@ -624,7 +624,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 import * as cheerio from 'cheerio';
 

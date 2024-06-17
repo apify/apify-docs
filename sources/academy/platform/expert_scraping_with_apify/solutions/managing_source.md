@@ -15,7 +15,7 @@ In the lesson corresponding to this solution, we discussed an extremely importan
 
 ## Quiz answers {#quiz-answers}
 
-**Q: Do you have to rebuild an actor each time the source code is changed?**
+**Q: Do you have to rebuild an Actor each time the source code is changed?**
 
 **A:** Yes. It needs to be built into an image, saved in a registry, and later on run in a container.
 
