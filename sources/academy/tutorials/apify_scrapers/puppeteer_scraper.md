@@ -387,7 +387,7 @@ returns `true`.
 > See [`page.waitFor()`](https://pptr.dev/#?product=Puppeteer&show=api-pagewaitforselectororfunctionortimeout-options-args)
 in the Puppeteer documentation.
 
-```javascript
+```js
 // Waits for 2 seconds.
 await page.waitFor(2000);
 // Waits until an element with id "my-id" appears in the page.
@@ -401,7 +401,7 @@ The selector may never be found and the function might never return `true`, so t
 a timeout. The default is `30` seconds. You can override it by providing an options object as the second parameter,
 with a `timeout` property.
 
-```javascript
+```js
 await page.waitFor('.bad-class', { timeout: 5000 });
 ```
 
@@ -433,7 +433,7 @@ div.show-more > button
 
 Now that we know what to wait for, we just plug it into the `waitFor()` function.
 
-```javascript
+```js
 await page.waitFor('div.show-more > button');
 ```
 
@@ -443,7 +443,7 @@ We have a unique selector for the button and we know that it's already rendered 
 of cake. We'll use the Puppeteer `page` again to issue the click. Puppeteer will actually simulate dragging the mouse
 and making a left mouse click in the element.
 
-```javascript
+```js
 await page.click('div.show-more > button');
 ```
 
@@ -453,7 +453,7 @@ This will show the next page of actors.
 
 We've shown two function calls, but how do we make this work together in the `pageFunction`?
 
-```javascript
+```js
 async function pageFunction(context) {
 
     // ...

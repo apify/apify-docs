@@ -93,7 +93,7 @@ Here's what our project's code looks like so far:
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import * as fs from 'fs/promises';
 import { chromium } from 'playwright';
 
@@ -125,7 +125,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import * as fs from 'fs/promises';
 import puppeteer from 'puppeteer';
 

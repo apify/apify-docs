@@ -53,7 +53,7 @@ We will use `page.evaluate()` to run our code in the browser. This method takes 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -73,7 +73,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -110,7 +110,7 @@ Now, let's say we want to change the title of the document to be this random str
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -118,7 +118,7 @@ const page = await browser.newPage();
 
 await page.goto('https://google.com/');
 
-const params = { randomString: Math.random().toString(36).slice(2) }
+const params = { randomString: Math.random().toString(36).slice(2) };
 
 await page.evaluate(({ randomString }) => {
     document.querySelector('title').textContent = randomString;
@@ -132,7 +132,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -140,7 +140,7 @@ const page = await browser.newPage();
 
 await page.goto('https://google.com/');
 
-const params = { randomString: Math.random().toString(36).slice(2) }
+const params = { randomString: Math.random().toString(36).slice(2) };
 
 await page.evaluate(({ randomString }) => {
     document.querySelector('title').textContent = randomString;

@@ -94,7 +94,7 @@ You can skip most of this tutorial by following this code example that calls Goo
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
-```javascript
+```js
 import { ApifyClient } from 'apify-client';
 
 const client = new ApifyClient({ token: 'YOUR_API_TOKEN' });
@@ -116,7 +116,7 @@ items.forEach((item) => {
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 from apify_client import ApifyClient
 client = ApifyClient(token='YOUR_API_TOKEN')
 

@@ -21,7 +21,7 @@ Let's start by using the `launch()` function in the **index.js** file we created
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 await chromium.launch();
@@ -32,7 +32,7 @@ console.log('launched!');
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 await puppeteer.launch();
@@ -54,7 +54,7 @@ In order to see what's actually happening, we can pass an **options** object ([P
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -64,7 +64,7 @@ await browser.newPage();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });
@@ -87,7 +87,7 @@ The `launch()` function also returns an object representation of the browser tha
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
 
-```javascript
+```js
 import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: false });
@@ -101,7 +101,7 @@ await browser.close();
 </TabItem>
 <TabItem value="Puppeteer" label="Puppeteer">
 
-```javascript
+```js
 import puppeteer from 'puppeteer';
 
 const browser = await puppeteer.launch({ headless: false });

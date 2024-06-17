@@ -40,7 +40,7 @@ The Orchestrator Actor orchestrates the parallel execution of scraper Actor runs
 It runs multiple instances of the scraper Actor and passes the request queue and dataset to them.
 For the Actor's base structure, we use Apify CLI and create a new Actor with the following command and use the [Empty TypeScript Actor template](https://apify.com/templates/ts-empty).
 
-```bash
+```shell
 apify create orchestrator-actor
 ````
 
@@ -60,7 +60,7 @@ Here’s the breakdown of the necessary input:
 </TabItem>
 <TabItem value="main.ts" label="main.ts">
 
-```typescript
+```ts
 import { Actor, log } from 'apify';
 
 interface Input {
@@ -73,7 +73,7 @@ interface Input {
 await Actor.init();
 
 const {
-    parallelRunsCount= 1,
+    parallelRunsCount = 1,
     targetActorId,
     targetActorInput = {},
     targetActorRunOptions = {},
@@ -90,7 +90,7 @@ if (!targetActorId) throw new Error('Missing the "targetActorId" input!');
 
 The Orchestrator Actor will reuse its default dataset and request queue. The dataset stores the results of the scraping process, and the request queue is used as shared storage for processing requests.
 
-```typescript
+```ts
 import { Actor } from 'apify';
 
 const requestQueue = await Actor.openRequestQueue();
@@ -103,7 +103,7 @@ const dataset = await Actor.openDataset();
 The Orchestrator Actor will maintain the state of the scraping runs to track progress and manage continuity. It will record the state of Actor runs, initializing this tracking with the first run.
 This persistent state ensures that, in migration or restart (resurrection) cases, the Actor can resume the same runs without losing progress.
 
-```typescript
+```ts
 import { Actor, log } from 'apify';
 
 const { apifyClient } = Actor;
@@ -154,7 +154,7 @@ Additionally, by registering for abort events, the Actor can terminate all paral
 
 Once you have the Orchestrator Actor ready, you can push it to Apify using the following command from the root directory of the Actor project:
 
-```bash
+```shell
 apify push
 ```
 
@@ -173,7 +173,7 @@ By running this command, you will be prompted to provide the Actor ID, which you
 The Scraper Actor performs website scraping. It operates using the request queue and dataset provided by the Orchestrator Actor.
 You will need to integrate your chosen scraper logic into this framework. The only thing you need to do is utilize the request queue and dataset initialized by the Orchestrator Actor.
 
-```typescript
+```ts
 import { Actor } from 'apify';
 
 interface Input {
@@ -207,7 +207,7 @@ You can check [full code example](https://github.com/apify/apify-docs/tree/maste
 
 You need to push the Scraper Actor to Apify using the following command from the root directory of the Actor project:
 
-```bash
+```shell
 apify push
 ```
 

@@ -19,7 +19,7 @@ It might look like a big programming challenge to transform a JavaScript object 
 
 To install `json2csv`, run this command in your terminal. You need to be in the project's folder - the folder which has the `package.json` file.
 
-```bash
+```shell
 npm i json2csv
 ```
 
