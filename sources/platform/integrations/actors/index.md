@@ -11,6 +11,12 @@ slug: /integrations/actors
 
 ---
 
+:::note Integration Actors
+
+You can check out a catalogue of our Integaration Actors within [Apify Store](https://apify.com/store/categories/integrations).
+
+:::
+
 Actor integrations provide a way to connect your Actors with other Actors or tasks easily. They provide a new level of flexibility, as adding a new integration simply means creating [integration-ready Actors](/platform/integrations/actors/integration-ready-actors). Thus, new integrations can be created by the community itself.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zExnYbvFoBM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
