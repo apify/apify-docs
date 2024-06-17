@@ -57,7 +57,7 @@ console.log(addAllNumbers(1, 2, 3, 4)); // -> 10
 </TabItem>
 <TabItem value="Python" label="Python">
 
-```python
+```py
 # index.py
 def add_all_numbers (nums):
     total = 0
