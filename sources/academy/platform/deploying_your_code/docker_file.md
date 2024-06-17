@@ -14,13 +14,13 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-The **Dockerfile** is a file which gives the Apify platform (or Docker, more specifically) instructions on how to create an environment for your code to run in. Every actor must have a Dockerfile, as actors run in Docker containers.
+The **Dockerfile** is a file which gives the Apify platform (or Docker, more specifically) instructions on how to create an environment for your code to run in. Every Actor must have a Dockerfile, as Actors run in Docker containers.
 
-> Actors on the platform are always run in Docker containers; however, they can also be run in local Docker containers. This is not common practice though, as it requires more setup and a deeper understanding of Docker. For testing, it's best to just run the actor on the local OS (this requires you to have the underlying runtime installed, such as Node.js, Python, Rust, GO, etc).
+> Actors on the platform are always run in Docker containers; however, they can also be run in local Docker containers. This is not common practice though, as it requires more setup and a deeper understanding of Docker. For testing, it's best to just run the Actor on the local OS (this requires you to have the underlying runtime installed, such as Node.js, Python, Rust, GO, etc).
 
 ## Base images {#base-images}
 
-If your project doesn’t already contain a Dockerfile, don’t worry! Apify offers [many base images](/sdk/js/docs/guides/docker-images) that are optimized for building and running actors on the platform, which can be found [here](https://hub.docker.com/u/apify). When using a language for which Apify doesn't provide a base image, [Docker Hub](https://hub.docker.com/) provides a ton of free Docker images for most use-cases, upon which you can create your own images.
+If your project doesn’t already contain a Dockerfile, don’t worry! Apify offers [many base images](/sdk/js/docs/guides/docker-images) that are optimized for building and running Actors on the platform, which can be found [here](https://hub.docker.com/u/apify). When using a language for which Apify doesn't provide a base image, [Docker Hub](https://hub.docker.com/) provides a ton of free Docker images for most use-cases, upon which you can create your own images.
 
 > Tip: You can see all of Apify's Docker images [on DockerHub](https://hub.docker.com/r/apify/).
 
@@ -38,9 +38,9 @@ FROM apify/actor-node:16
 
 The rest of the Dockerfile is about copying the source code from the local filesystem into the container's filesystem, installing libraries, and setting the `RUN` command (which falls back to the parent image).
 
-> If you are not using a base image from Apify, then you should specify how to launch the source code of your actor with the `CMD` instruction.
+> If you are not using a base image from Apify, then you should specify how to launch the source code of your Actor with the `CMD` instruction.
 
-Here's the Dockerfile for our Node.js example project's actor:
+Here's the Dockerfile for our Node.js example project's Actor:
 
 <Tabs groupId="main">
 <TabItem value="Node.js Dockerfile" label="Node.js Dockerfile">
@@ -78,7 +78,7 @@ COPY . ./
 # You can also use any other image from Docker Hub.
 FROM apify/actor-python:3.9
 
-# Second, copy just requirements.txt into the actor image,
+# Second, copy just requirements.txt into the Actor image,
 # since it should be the only file that affects "pip install" in the next step,
 # in order to speed up the build
 COPY requirements.txt ./
@@ -100,7 +100,7 @@ RUN echo "Python version:" \
 # for most source file changes.
 COPY . ./
 
-# Specify how to launch the source code of your actor.
+# Specify how to launch the source code of your Actor.
 # By default, the main.py file is run
 CMD python3 main.py
 
@@ -111,10 +111,10 @@ CMD python3 main.py
 
 ## Examples {#examples}
 
-The examples we just showed were for Node.js and Python, however, to drive home the fact that actors can be written in any language, here are some examples of some Dockerfiles for actors written in different programming languages:
+The examples we just showed were for Node.js and Python, however, to drive home the fact that Actors can be written in any language, here are some examples of some Dockerfiles for Actors written in different programming languages:
 
 <Tabs groupId="main">
-<TabItem value="GO actor Dockerfile" label="GO actor Dockerfile">
+<TabItem value="GO Actor Dockerfile" label="GO Actor Dockerfile">
 
 ```Dockerfile
 FROM golang:1.17.1-alpine
@@ -130,7 +130,7 @@ CMD ["/example-actor"]
 ```
 
 </TabItem>
-<TabItem value="Rust actor Dockerfile" label="Rust actor Dockerfile">
+<TabItem value="Rust Actor Dockerfile" label="Rust Actor Dockerfile">
 
 ```Dockerfile
 # Image with prebuilt Rust. We use the newest 1.* version
@@ -163,7 +163,7 @@ CMD ["./target/release/actor-example"]
 ```
 
 </TabItem>
-<TabItem value="Julia actor Dockerfile" label="Julia actor Dockerfile">
+<TabItem value="Julia Actor Dockerfile" label="Julia Actor Dockerfile">
 
 ```Dockerfile
 FROM julia:1.7.1-alpine
@@ -182,4 +182,4 @@ CMD ["julia", "main.jl"]
 
 ## Next up {#next}
 
-In the [next lesson](./deploying.md), we'll push our code directly to the Apify platform, or create and integrate a new actor on the Apify platform with our project's GitHub repository.
+In the [next lesson](./deploying.md), we'll push our code directly to the Apify platform, or create and integrate a new Actor on the Apify platform with our project's GitHub repository.

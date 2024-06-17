@@ -11,7 +11,7 @@ _This article explains how the problem was solved before the [SessionPool](/sdk/
 
 You want to crawl a website with a proxy pool, but most of your proxies are blocked. It's a very common situation. Proxies can be blocked for many reasons:
 
-1. You overused them in your current actor run and they got banned.
+1. You overused them in your current Actor run and they got banned.
 
 2. You overused them in some of your previous runs and they are still banned (and may never be unbanned).
 
@@ -27,13 +27,13 @@ However, usually, at least some of our proxies work. To crawl successfully, it i
 
 ### Solution
 
-Now we are able to retry bad requests and eventually unless all of our proxies get banned, we should be able to successfully crawl what we want. The problem is that it takes too long and our log is full of errors. Fortunately, we can overcome this with [proxy sessions](/platform/proxy#datacenter-proxy--username-params) (look at the proxy and SDK documentation for how to use them in your actors.)
+Now we are able to retry bad requests and eventually unless all of our proxies get banned, we should be able to successfully crawl what we want. The problem is that it takes too long and our log is full of errors. Fortunately, we can overcome this with [proxy sessions](/platform/proxy#datacenter-proxy--username-params) (look at the proxy and SDK documentation for how to use them in your Actors.)
 
 First we define `sessions`  object at the top of our code (in global scope) to hold the state of our working sessions.
 
 `let sessions;`
 
-Then we need to define an interval that will ensure our sessions are periodically saved to the key-value store, so if the actor restarts, we can load them.
+Then we need to define an interval that will ensure our sessions are periodically saved to the key-value store, so if the Actor restarts, we can load them.
 
 ```js
 setInterval(async () => {
@@ -41,7 +41,7 @@ setInterval(async () => {
 }, 30 * 1000);
 ```
 
-And inside our main function, we load the sessions the same way we load an input. If they were not saved yet (the actor was not restarted), we instantiate them as an empty object.
+And inside our main function, we load the sessions the same way we load an input. If they were not saved yet (the Actor was not restarted), we instantiate them as an empty object.
 
 ```js
 Apify.main(async () => {
@@ -52,7 +52,7 @@ Apify.main(async () => {
 
 ### Algorithm
 
-You don't necessarily need to understand the solution below - it should be fine to just copy/paste it to your actor.
+You don't necessarily need to understand the solution below - it should be fine to just copy/paste it to your Actor.
 
 `sessions`  will be an object whose keys will be the names of the sessions and values will be objects with the name of the session (we choose a random number as a name here) and user agent (you can add any other useful properties that you want to match with each session.) This will be created automatically, for example:
 
@@ -144,7 +144,7 @@ After failure (captcha, blocked request, etc.):
 
 ### PuppeteerCrawler example
 
-Now you might start to wonder, "I have already prepared an actor using PuppeteerCrawler, can I make it work there?". The problem is that with PuppeteerCrawler we don't have everything nicely inside one function scope like when using pure Puppeteer or BasicCrawler. Fortunately, there is a little hack that enables passing the session name to where we need it.
+Now you might start to wonder, "I have already prepared an Actor using PuppeteerCrawler, can I make it work there?". The problem is that with PuppeteerCrawler we don't have everything nicely inside one function scope like when using pure Puppeteer or BasicCrawler. Fortunately, there is a little hack that enables passing the session name to where we need it.
 
 First we define `lauchPuppeteerFunction` which tells the crawler how to create new browser instances and we pass the picked session there.
 

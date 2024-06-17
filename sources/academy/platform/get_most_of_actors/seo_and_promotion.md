@@ -125,4 +125,4 @@ Now that you’ve created a cool new Actor, let others see it! Share it on your 
 
 ## Next up {#next}
 
-Congratulations! Your actor is coming together and getting ready to be shared with the world. In the [next lesson](./monetizing_your_actor.md)! we will learn how you can monetize your actor on Apify Store.
+Congratulations! Your Actor is coming together and getting ready to be shared with the world. In the [next lesson](./monetizing_your_actor.md)! we will learn how you can monetize your Actor on Apify Store.

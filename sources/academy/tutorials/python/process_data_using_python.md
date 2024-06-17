@@ -13,23 +13,23 @@ slug: /python/process-data-using-python
 
 In the [previous tutorial](/academy/python/scrape-data-python), we learned how to scrape data from the web in Python using the [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/) library. The Python ecosystem's strengths lie mainly in data processing, though, so in this tutorial we will learn how to process the data stored in an Apify dataset using the [Pandas](https://pandas.pydata.org/) library, and how to visualize it using [Matplotlib](https://matplotlib.org/).
 
-In this tutorial, we will use the actor we created in the [previous tutorial](/academy/python/scrape-data-python), so if you haven't completed that tutorial yet, please do so now.
+In this tutorial, we will use the Actor we created in the [previous tutorial](/academy/python/scrape-data-python), so if you haven't completed that tutorial yet, please do so now.
 
 > In a rush? Skip this tutorial and [get the full code example](https://github.com/apify/apify-docs/tree/master/examples/python-data-parser/).
 
 ## Processing previously scraped data
 
-In the previous tutorial, we set out to select our next holiday destination based on the forecast of the upcoming weather there. We have written an actor that scrapes the BBC Weather forecast for the upcoming two weeks for three destinations: Prague, New York, and Honolulu. It then saves the scraped data to a [dataset](/platform/storage/dataset) on the Apify platform.
+In the previous tutorial, we set out to select our next holiday destination based on the forecast of the upcoming weather there. We have written an Actor that scrapes the BBC Weather forecast for the upcoming two weeks for three destinations: Prague, New York, and Honolulu. It then saves the scraped data to a [dataset](/platform/storage/dataset) on the Apify platform.
 
 Now, we need to process the scraped data and make a simple visualization that will help us decide which location has the best weather, and will therefore become our next holiday destination.
 
-### Setting up the actor {#setting-up-the-actor}
+### Setting up the Actor {#setting-up-the-actor}
 
-First, we need to create another actor. You can do it the same way as before - go to the [Apify Console](https://console.apify.com/), open the [Actors section](https://console.apify.com/actors), click on the **Create new** button in the top right, and select the **Example: Hello world in Python** actor template.
+First, we need to create another Actor. You can do it the same way as before - go to the [Apify Console](https://console.apify.com/), open the [Actors section](https://console.apify.com/actors), click on the **Create new** button in the top right, and select the **Example: Hello world in Python** Actor template.
 
-In the page that opens, you can see your newly created actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-parser`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the actor. There are several of them, but only two are important for us now, `main.py` and `requirements.txt`.
+In the page that opens, you can see your newly created Actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-parser`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the Actor. There are several of them, but only two are important for us now, `main.py` and `requirements.txt`.
 
-First, we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your actor will use. We will be using the `pandas` package for parsing the downloaded weather data, and the `matplotlib` package for visualizing it. We don't particularly care about the specific versions of these packages, so we just list them in the file:
+First, we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your Actor will use. We will be using the `pandas` package for parsing the downloaded weather data, and the `matplotlib` package for visualizing it. We don't particularly care about the specific versions of these packages, so we just list them in the file:
 
 ```python
 # Add your dependencies here.
@@ -40,7 +40,7 @@ matplotlib
 pandas
 ```
 
-The actor's main logic will live in the `main.py` file. Let's delete everything currently in it and start from an empty file.
+The Actor's main logic will live in the `main.py` file. Let's delete everything currently in it and start from an empty file.
 
 Next, we'll import all the packages we will use in the code:
 
@@ -55,9 +55,9 @@ import pandas
 
 ### Scraping the data
 
-Next, we need to run the weather scraping actor and access its results. We do that through the [Apify API Client for Python](/api/client/python/), which greatly simplifies working with the Apify platform and allows you to use its functions without having to call the Apify API directly.
+Next, we need to run the weather scraping Actor and access its results. We do that through the [Apify API Client for Python](/api/client/python/), which greatly simplifies working with the Apify platform and allows you to use its functions without having to call the Apify API directly.
 
-First, we initialize an `ApifyClient` instance. All the necessary arguments are automatically provided to the actor process as environment variables accessible in Python through the `os.environ` mapping. We need to run the actor from the previous tutorial, which we have named `bbc-weather-scraper`, and wait for it to finish. So, we create a sub-client for working with that actor and run the actor through it. We then check whether the actor run has succeeded. If so, we create a client for working with its default dataset.
+First, we initialize an `ApifyClient` instance. All the necessary arguments are automatically provided to the Actor process as environment variables accessible in Python through the `os.environ` mapping. We need to run the Actor from the previous tutorial, which we have named `bbc-weather-scraper`, and wait for it to finish. So, we create a sub-client for working with that Actor and run the Actor through it. We then check whether the Actor run has succeeded. If so, we create a client for working with its default dataset.
 
 ```python
 # Initialize the main ApifyClient instance
@@ -110,7 +110,7 @@ axes.legend(loc='best')
 axes.figure.tight_layout()
 ```
 
-As the last step, we need to save the plot to a record in a [key-value store](/platform/storage/key-value-store) on the Apify platform, so that we can access it later. We save the rendered figure with the plot to an in-memory buffer, and then save the contents of that buffer to the default key-value store of the actor run through its resource subclient.
+As the last step, we need to save the plot to a record in a [key-value store](/platform/storage/key-value-store) on the Apify platform, so that we can access it later. We save the rendered figure with the plot to an in-memory buffer, and then save the contents of that buffer to the default key-value store of the Actor run through its resource subclient.
 
 ```python
 # Get the resource sub-client for working with the default key-value store of the run
@@ -127,11 +127,11 @@ print(f'Result is available at {os.environ["APIFY_API_PUBLIC_BASE_URL"]}'
       + f'/v2/key-value-stores/{os.environ["APIFY_DEFAULT_KEY_VALUE_STORE_ID"]}/records/prediction.png')
 ```
 
-And that's it! Now you can save the changes in the editor, and then click **Build and run** at the bottom of the page. The actor will get built, the built actor image will get saved for future re-use, and then it will be executed. You can follow the progress of the actor build and the actor run in the **Last build** and **Last run** tabs, respectively, in the developer console in the actor source view. Once the actor finishes running, it will output the URL where you can access the plot we created in its log.
+And that's it! Now you can save the changes in the editor, and then click **Build and run** at the bottom of the page. The Actor will get built, the built Actor image will get saved for future re-use, and then it will be executed. You can follow the progress of the Actor build and the Actor run in the **Last build** and **Last run** tabs, respectively, in the developer console in the Actor source view. Once the Actor finishes running, it will output the URL where you can access the plot we created in its log.
 
-![Building and running the BBC Weather Parser actor](./images/bbc-weather-parser-source.png)
+![Building and running the BBC Weather Parser Actor](./images/bbc-weather-parser-source.png)
 
 Looking at the results, Honolulu seems like the right choice now, don't you think? 🙂
 
-![Weather prediction plot created by the BBC Weather Parser actor](./images/bbc-weather-prediction.png)
+![Weather prediction plot created by the BBC Weather Parser Actor](./images/bbc-weather-prediction.png)
 

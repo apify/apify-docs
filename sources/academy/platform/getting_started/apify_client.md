@@ -60,7 +60,7 @@ from apify_client import ApifyClient
 </TabItem>
 </Tabs>
 
-## Running an actor {#running-an-actor}
+## Running an Actor {#running-an-actor}
 
 In the last lesson, we ran the **adding-actor** and retrieved its dataset items. That's exactly what we're going to do now; however, by using the Apify client instead.
 
@@ -118,7 +118,7 @@ run = client.actor('YOUR_USERNAME/adding-actor').call(run_input={
 
 ## Downloading dataset items {#downloading-dataset-items}
 
-Once an actor's run has completed, it will return a **run info** object that looks something like this:
+Once an Actor's run has completed, it will return a **run info** object that looks something like this:
 
 ![Run info object](./images/run-info.jpg)
 
@@ -166,7 +166,7 @@ print(items)
 </TabItem>
 </Tabs>
 
-The final code for running the actor and fetching its dataset items looks like this:
+The final code for running the Actor and fetching its dataset items looks like this:
 
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
@@ -216,13 +216,13 @@ print(items)
 </TabItem>
 </Tabs>
 
-## Updating an actor {#updating-actor}
+## Updating an Actor {#updating-actor}
 
-If you check the **Settings** tab within your **adding-actor**, you'll notice that the default memory being allocated to the actor is **2048 MB**. This is a bit overkill considering the fact that the actor is only adding two numbers together - **256 MB** would be much more reasonable. Also, we can safely say that the run should never take more than 20 seconds (even this is a generous number) and that the default of 3600 seconds is also overkill.
+If you check the **Settings** tab within your **adding-actor**, you'll notice that the default memory being allocated to the Actor is **2048 MB**. This is a bit overkill considering the fact that the Actor is only adding two numbers together - **256 MB** would be much more reasonable. Also, we can safely say that the run should never take more than 20 seconds (even this is a generous number) and that the default of 3600 seconds is also overkill.
 
-Let's change these two actor settings via the Apify client using the [`actor.update()`](/api/client/js/reference/class/ActorClient#update) function. This function will call the **update actor** endpoint, which can take `defaultRunOptions` as an input property. You can find the shape of the `defaultRunOptions` in the [API documentation](/api/v2#/reference/actors/actor-object/update-actor). Perfect!
+Let's change these two Actor settings via the Apify client using the [`actor.update()`](/api/client/js/reference/class/ActorClient#update) function. This function will call the **update Actor** endpoint, which can take `defaultRunOptions` as an input property. You can find the shape of the `defaultRunOptions` in the [API documentation](/api/v2#/reference/actors/actor-object/update-actor). Perfect!
 
-First, we'll create a pointer to our actor, similar to before (except this time, we won't be using `.call()` at the end):
+First, we'll create a pointer to our Actor, similar to before (except this time, we won't be using `.call()` at the end):
 
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
@@ -274,7 +274,7 @@ After running the code, go back to the **Settings** page of **adding-actor**. If
 
 ## Overview {#overview}
 
-You can do so much more with the Apify client than just running actors, updating actors, and downloading dataset items. The purpose of this lesson was just to get you comfortable using the client in your own projects, as it's the absolute best developer tool for integrating the Apify platform with an external system.
+You can do so much more with the Apify client than just running Actors, updating Actors, and downloading dataset items. The purpose of this lesson was just to get you comfortable using the client in your own projects, as it's the absolute best developer tool for integrating the Apify platform with an external system.
 
 For a more in-depth understanding of the Apify API client, give these a quick lookover:
 
@@ -283,4 +283,4 @@ For a more in-depth understanding of the Apify API client, give these a quick lo
 
 ## Next up {#next}
 
-Now that you're familiar and a bit more comfortable with the Apify platform, you're ready to start deploying your code to Apify! In the [next section](../deploying_your_code/index.md), you'll learn how to take any project written in any programming language and turn it into an actor.
+Now that you're familiar and a bit more comfortable with the Apify platform, you're ready to start deploying your code to Apify! In the [next section](../deploying_your_code/index.md), you'll learn how to take any project written in any programming language and turn it into an Actor.

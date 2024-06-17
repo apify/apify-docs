@@ -5,7 +5,7 @@ sidebar_position: 2
 slug: /getting-started/creating-actors
 ---
 
-# Creating actors {#creating-actors}
+# Creating Actors {#creating-actors}
 
 **This lesson offers hands-on experience in building and running Actors in Apify Console using a template. By the end of it, you will be able to build and run your first Actor using an Actor template.**
 
@@ -141,7 +141,7 @@ The extracted data is stored in the [Dataset](/platform/storage/dataset) where y
 
 In order to run the Actor, you need to [build](/platform/actors/development/builds-and-runs/builds) it first. Click on the **Build** button at the bottom of the page or **Build now** button right under the code editor.
 
-![Build the actor](./images/build-actor.png)
+![Build the Actor](./images/build-actor.png)
 
 After you've clicked the **Build** button, it'll take around 5–10 seconds to complete the build. You'll know it's finished when you see a green **Start** button.
 

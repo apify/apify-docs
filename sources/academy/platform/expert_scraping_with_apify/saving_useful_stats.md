@@ -1,19 +1,19 @@
 ---
 title: VII - Saving useful run statistics
-description: Understand how to save statistics about an actor's run, what types of statistics you can save, and why you might want to save them for a large-scale scraper.
+description: Understand how to save statistics about an Actor's run, what types of statistics you can save, and why you might want to save them for a large-scale scraper.
 sidebar_position: 6.7
 slug: /expert-scraping-with-apify/saving-useful-stats
 ---
 
 # Saving useful run statistics {#savings-useful-run-statistics}
 
-**Understand how to save statistics about an actor's run, what types of statistics you can save, and why you might want to save them for a large-scale scraper.**
+**Understand how to save statistics about an Actor's run, what types of statistics you can save, and why you might want to save them for a large-scale scraper.**
 
 ---
 
 Using Crawlee and the Apify SDK, we are now able to collect and format data coming directly from websites and save it into a Key-Value store or Dataset. This is great, but sometimes, we want to store some extra data about the run itself, or about each request. We might want to store some extra general run information separately from our results or potentially include statistics about each request within its corresponding dataset item.
 
-The types of values that are saved are totally up to you, but the most common are error scores, number of total saved items, number of request retries, number of captchas hit, etc. Storing these values is not always necessary, but can be valuable when debugging and maintaining an actor. As your projects scale, this will become more and more useful and important.
+The types of values that are saved are totally up to you, but the most common are error scores, number of total saved items, number of request retries, number of captchas hit, etc. Storing these values is not always necessary, but can be valuable when debugging and maintaining an Actor. As your projects scale, this will become more and more useful and important.
 
 ## Learning 🧠 {#learning}
 
@@ -26,15 +26,15 @@ Before moving on, give these valuable resources a quick lookover:
 
 ## Knowledge check 📝 {#quiz}
 
-1. Why might you want to store statistics about an actor's run (or a specific request)?
+1. Why might you want to store statistics about an Actor's run (or a specific request)?
 2. In our Amazon scraper, we are trying to store the number of retries of a request once its data is pushed to the dataset. Where would you get this information? Where would you store it?
 3. We are building a new imaginary scraper for a website that sometimes displays captchas at unexpected times, rather than displaying the content we want. How would you keep a count of the total number of captchas hit for the entire run? Where would you store this data? Why?
-4. Is storing these types of values necessary for every single actor?
+4. Is storing these types of values necessary for every single Actor?
 5. What is the difference between the `failedRequestHandler` and `errorHandler`?
 
 ## Our task
 
-In our Amazon actor, each dataset result must now have the following extra keys:
+In our Amazon Actor, each dataset result must now have the following extra keys:
 
 ```json
 {

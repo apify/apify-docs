@@ -1,6 +1,6 @@
 ---
 title: Running a web server on the Apify platform
-description: A web server running in an actor can act as a communication channel with the outside world. Learn how to easily set one up with Node.js.
+description: A web server running in an Actor can act as a communication channel with the outside world. Learn how to easily set one up with Node.js.
 sidebar_position: 11
 category: apify platform
 slug: /running-a-web-server
@@ -8,29 +8,29 @@ slug: /running-a-web-server
 
 # Running a web server on the Apify platform
 
-**A web server running in an actor can act as a communication channel with the outside world. Learn how to easily set one up with Node.js.**
+**A web server running in an Actor can act as a communication channel with the outside world. Learn how to easily set one up with Node.js.**
 
 ---
 
-Sometimes, an actor needs a channel for communication with other systems (or humans). This channel might be used to receive commands, to provide info about progress, or both. To implement this, we will run a HTTP web server inside the actor that will provide:
+Sometimes, an Actor needs a channel for communication with other systems (or humans). This channel might be used to receive commands, to provide info about progress, or both. To implement this, we will run a HTTP web server inside the Actor that will provide:
 
 - An API to receive commands.
 - An HTML page displaying output data.
 
-Running a web server in an actor is a piece of cake! Each actor run is available at a unique URL (container URL) which always takes the form `https://CONTAINER-KEY.runs.apify.net`. This URL is available in the [**actor run** object](/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run) returned by the Apify API, as well as in the Apify console.
+Running a web server in an Actor is a piece of cake! Each Actor run is available at a unique URL (container URL) which always takes the form `https://CONTAINER-KEY.runs.apify.net`. This URL is available in the [**Actor run** object](/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run) returned by the Apify API, as well as in the Apify console.
 
-If you start a web server on the port defined by the **APIFY_CONTAINER_PORT** environment variable (the default value is **4321**), the container URL becomes available and gets displayed in the **Live View** tab in the actor run console.
+If you start a web server on the port defined by the **APIFY_CONTAINER_PORT** environment variable (the default value is **4321**), the container URL becomes available and gets displayed in the **Live View** tab in the Actor run console.
 
 For more details, see [the documentation](/platform/actors/development/programming-interface/container-web-server).
 
-## Building the actor {#building-the-actor}
+## Building the Actor {#building-the-actor}
 
-Let's try to build the following actor:
+Let's try to build the following Actor:
 
-- The actor will provide an API to receive URLs to be processed.
-- For each URL, the actor will create a screenshot.
+- The Actor will provide an API to receive URLs to be processed.
+- For each URL, the Actor will create a screenshot.
 - The screenshot will be stored in the key-value store.
-- The actor will provide a web page displaying thumbnails linked to screenshots and a HTML form to submit new URLs.
+- The Actor will provide a web page displaying thumbnails linked to screenshots and a HTML form to submit new URLs.
 
 To achieve this we will use the following technologies:
 
@@ -61,7 +61,7 @@ Now we need to read the following environment variables:
 
 - **APIFY_CONTAINER_PORT** contains a port number where we must start the server.
 - **APIFY_CONTAINER_URL** contains a URL under which we can access the container.
-- **APIFY_DEFAULT_KEY_VALUE_STORE_ID** is simply the ID of the default key-value store of this actor where we can store screenshots.
+- **APIFY_DEFAULT_KEY_VALUE_STORE_ID** is simply the ID of the default key-value store of this Actor where we can store screenshots.
 
 ```js
 const {
@@ -232,8 +232,8 @@ app.listen(APIFY_CONTAINER_PORT, () => {
 });
 ```
 
-When we deploy and run this actor on the Apify platform, then we can open the **Live View** tab in the actor console to submit the URL to your actor through the form. After the URL is successfully submitted, it appears in the actor log.
+When we deploy and run this Actor on the Apify platform, then we can open the **Live View** tab in the Actor console to submit the URL to your Actor through the form. After the URL is successfully submitted, it appears in the Actor log.
 
 With that, we're done! And our application works like a charm :)
 
-The complete code of this actor is available [here](https://www.apify.com/apify/example-web-server). You can run it there or copy it to your account.
+The complete code of this Actor is available [here](https://www.apify.com/apify/example-web-server). You can run it there or copy it to your account.
