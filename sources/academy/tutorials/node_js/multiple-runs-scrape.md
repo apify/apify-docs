@@ -60,6 +60,7 @@ Here’s the breakdown of the necessary input:
 </TabItem>
 <TabItem value="main.ts" label="main.ts">
 
+<!-- eslint-disable @typescript-eslint/no-explicit-any -->
 ```ts
 import { Actor, log } from 'apify';
 
@@ -103,6 +104,7 @@ const dataset = await Actor.openDataset();
 The Orchestrator Actor will maintain the state of the scraping runs to track progress and manage continuity. It will record the state of Actor runs, initializing this tracking with the first run.
 This persistent state ensures that, in migration or restart (resurrection) cases, the Actor can resume the same runs without losing progress.
 
+<!-- eslint-disable react-hooks/rules-of-hooks -->
 ```ts
 import { Actor, log } from 'apify';
 
