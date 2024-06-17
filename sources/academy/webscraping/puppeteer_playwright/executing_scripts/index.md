@@ -118,7 +118,7 @@ const page = await browser.newPage();
 
 await page.goto('https://google.com/');
 
-const params = { randomString: Math.random().toString(36).slice(2) }
+const params = { randomString: Math.random().toString(36).slice(2) };
 
 await page.evaluate(({ randomString }) => {
     document.querySelector('title').textContent = randomString;
@@ -140,7 +140,7 @@ const page = await browser.newPage();
 
 await page.goto('https://google.com/');
 
-const params = { randomString: Math.random().toString(36).slice(2) }
+const params = { randomString: Math.random().toString(36).slice(2) };
 
 await page.evaluate(({ randomString }) => {
     document.querySelector('title').textContent = randomString;
