@@ -1,6 +1,6 @@
 ---
 title: Use Apify via API from PHP
-description: Learn how to access Apify's REST API endpoints from your PHP projects using the guzzle package. Follow a tutorial to run an actor and download its data.
+description: Learn how to access Apify's REST API endpoints from your PHP projects using the guzzle package. Follow a tutorial to run an Actor and download its data.
 sidebar_position: 1
 slug: /php/use-apify-from-php
 ---
@@ -51,17 +51,17 @@ echo \json_encode($data, JSON_PRETTY_PRINT);
 
 If, instead of data, you see an error saying `Authentication token is not valid`, check if the API token you used to instantiate the client is valid.
 
-## Running an actor
+## Running an Actor
 
-Now that we have our guzzle client ready to go, we can run some actors. Let's try the **Contact Details Scraper** ([vdrmota/contact-info-scraper](https://apify.com/vdrmota/contact-info-scraper)).
+Now that we have our guzzle client ready to go, we can run some Actors. Let's try the **Contact Details Scraper** ([vdrmota/contact-info-scraper](https://apify.com/vdrmota/contact-info-scraper)).
 
-The [API reference](/api/v2#/reference/actors/run-collection/run-actor) states that an actor's input should be passed as JSON in the request body. Other options are passed as query parameters.
+The [API reference](/api/v2#/reference/actors/run-collection/run-actor) states that an Actor's input should be passed as JSON in the request body. Other options are passed as query parameters.
 
 ```php
-// To run the actor, we make a POST request to its run's endpoint
-// To identify the actor, you can use its ID, but you can also pass
-// the full actor name [username]~[actorName] or just ~[actorName] for
-// your own actors
+// To run the Actor, we make a POST request to its run's endpoint
+// To identify the Actor, you can use its ID, but you can also pass
+// the full Actor name [username]~[actorName] or just ~[actorName] for
+// your own Actors
 $response = $client->post('acts/vdrmota~contact-info-scraper/runs', [
   // Actors usually accept JSON as input. When using the `json` key in
   // a POST request's options, guzzle sets proper request headers
@@ -73,7 +73,7 @@ $response = $client->post('acts/vdrmota~contact-info-scraper/runs', [
     'maxDepth' => 0,
   ],
   // Other run options are passed in as query parameters
-  // This is optional since actors usually have reasonable defaults
+  // This is optional since Actors usually have reasonable defaults
   'query' => [ 'timeout' => 30 ],
 ]);
 $parsedResponse = \json_decode($response->getBody(), true);
@@ -86,7 +86,7 @@ You should see information about the run, including its ID and the ID of its def
 
 ## [](#getting-dataset) Getting the results from dataset
 
-Actors usually store their output in a default dataset. The [actor runs endpoint](/api/v2#/reference/actor-runs) lets you get overall info about an actor run's default dataset.
+Actors usually store their output in a default dataset. The [Actor runs endpoint](/api/v2#/reference/actor-runs) lets you get overall info about an Actor run's default dataset.
 
 ```php
 // Replace <RUN_ID> with the run ID you from earlier
@@ -109,7 +109,7 @@ $data = \json_decode($response->getBody(), true);
 echo \json_encode($data, JSON_PRETTY_PRINT);
 ```
 
-Some of the actors write to datasets other than the default. In these cases, you need to have the dataset ID and call the `datasets/<DATASET_ID>` and `datasets/<DATASET_ID>/items` endpoints instead.
+Some of the Actors write to datasets other than the default. In these cases, you need to have the dataset ID and call the `datasets/<DATASET_ID>` and `datasets/<DATASET_ID>/items` endpoints instead.
 
 For larger datasets, you can paginate through the results by passing query parameters.
 
@@ -128,7 +128,7 @@ All the available parameters are described in [our API reference](/api/v2#/refer
 
 ## [](#getting-key-value-store) Getting the results from key-value stores
 
-Datasets are great for structured data, but are not suited for binary files like images or PDFs. In these cases, actors store their output in [key-value stores](/platform/storage/key-value-store). One such actor is the **HTML String To PDF** ([mhamas/html-string-to-pdf](https://apify.com/mhamas/html-string-to-pdf)) converter. Let's run it.
+Datasets are great for structured data, but are not suited for binary files like images or PDFs. In these cases, Actors store their output in [key-value stores](/platform/storage/key-value-store). One such Actor is the **HTML String To PDF** ([mhamas/html-string-to-pdf](https://apify.com/mhamas/html-string-to-pdf)) converter. Let's run it.
 
 ```php
 $response = $client->post('acts/mhamas~html-string-to-pdf/runs', [
@@ -166,7 +166,7 @@ $data = $parsedResponse['data'];
 echo \json_encode($data, JSON_PRETTY_PRINT);
 ```
 
-We can see that there are two record keys: `INPUT` and `OUTPUT`. The HTML String to PDF actor's README states that the PDF is stored under the `OUTPUT` key. Downloading it is simple:
+We can see that there are two record keys: `INPUT` and `OUTPUT`. The HTML String to PDF Actor's README states that the PDF is stored under the `OUTPUT` key. Downloading it is simple:
 
 ```php
 // Don't forget to replace the <RUN_ID>
@@ -177,13 +177,13 @@ file_put_contents(__DIR__ . '/hello-world.pdf', $response->getBody());
 
 If you open the generated `hello-world.pdf` file, you should see... well, "Hello World".
 
-If the actor stored the data in a key-value store other than the default, we can use the standalone endpoints, `key-value-stores/<STORE_ID>`, `key-value-stores/<STORE_ID>/keys`, and `key-value-stores/<STORE_ID>/records/<KEY>`. They behave the same way as the default endpoints. [See the full docs](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object).
+If the Actor stored the data in a key-value store other than the default, we can use the standalone endpoints, `key-value-stores/<STORE_ID>`, `key-value-stores/<STORE_ID>/keys`, and `key-value-stores/<STORE_ID>/records/<KEY>`. They behave the same way as the default endpoints. [See the full docs](https://docs.apify.com/api/v2#/reference/key-value-stores/store-object).
 
 ## When are the data ready?
 
-It takes some time for an actor to generate its output. There are even actors that run for days. In the previous examples, we chose actors whose runs only take a few seconds. This meant the runs had enough time to finish before we ran the code to retrieve their dataset or key-value store (so the actor had time to produce some output). If we ran the code immediately after starting a longer-running actor, the dataset would probably still be empty.
+It takes some time for an Actor to generate its output. Some even have Actors that run for days! In the previous examples, we chose Actors whose runs only take a few seconds. This meant the runs had enough time to finish before we ran the code to retrieve their dataset or key-value store (so the Actor had time to produce some output). If we ran the code immediately after starting a longer-running Actor, the dataset would probably still be empty.
 
-For actors that are expected to be quick, we can use the `waitForFinish` parameter. Then, the running actor's endpoint does not respond immediately but waits until the run finishes (up to the given limit). Let's try this with the HTML String to PDF actor.
+For Actors that are expected to be quick, we can use the `waitForFinish` parameter. Then, the running Actor's endpoint does not respond immediately but waits until the run finishes (up to the given limit). Let's try this with the HTML String to PDF Actor.
 
 ```php
 $response = $client->post('acts/mhamas~html-string-to-pdf/runs', [
@@ -205,7 +205,7 @@ file_put_contents(__DIR__ . '/hi-world.pdf', $response->getBody());
 
 ## Webhooks
 
-For actors that take longer to run, we can use [webhooks](/platform/integrations/webhooks). A webhook is an HTML POST request that is sent to a specified URL when an actor's status changes. We can use them as a kind of notification that is sent when your run finishes. You can set them up using query parameters. If we used webhooks in the example above, it would look like this:
+For Actors that take longer to run, we can use [webhooks](/platform/integrations/webhooks). A webhook is an HTML POST request that is sent to a specified URL when an Actor's status changes. We can use them as a kind of notification that is sent when your run finishes. You can set them up using query parameters. If we used webhooks in the example above, it would look like this:
 
 ```php
 // Webhooks need to be passed as a base64-encoded JSON string
@@ -230,7 +230,7 @@ $response = $client->post('acts/mhamas~html-string-to-pdf/runs', [
 
 ## How to use Apify Proxy
 
-There is another important Apify feature you will need: [proxy](/platform/proxy). Guzzle makes it really easy to use.
+A [proxy](/platform/proxy) is another important Apify feature you will need. Guzzle makes it easy to use.
 
 If you just want to make sure that your server's IP address won't get blocked somewhere when making requests, you can use the automatic proxy selection mode.
 

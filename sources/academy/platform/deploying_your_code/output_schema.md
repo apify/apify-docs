@@ -1,13 +1,13 @@
 ---
 title: Output schema
-description: Learn how to generate an appealing Overview table interface to preview your actor results in real time on the Apify platform.
+description: Learn how to generate an appealing Overview table interface to preview your Actor results in real time on the Apify platform.
 sidebar_position: 3
 slug: /deploying-your-code/output-schema
 ---
 
 # Output schema {#output-schema}
 
-**Learn how to generate an appealing Overview table interface to preview your actor results in real time on the Apify platform.**
+**Learn how to generate an appealing Overview table interface to preview your Actor results in real time on the Apify platform.**
 
 ---
 
@@ -19,7 +19,7 @@ In this quick tutorial, you will learn how to set up an output tab for your own 
 
 ## Implementation {#implementation}
 
-Firstly, create a `.actor` folder in the root of your actor's source code. Then, create a `actor.json` file in this folder, after which you'll have .actor/actor.json.
+Firstly, create a `.actor` folder in the root of your Actor's source code. Then, create a `actor.json` file in this folder, after which you'll have .actor/actor.json.
 
 ![.actor/actor.json](./images/actor-json-example.webp)
 
@@ -69,9 +69,9 @@ Next, copy-paste the following template code into your `actor.json` file.
 }
 ```
 
-To configure the output schema, simply replace the fields in the template with the relevant fields to your actor.
+To configure the output schema, simply replace the fields in the template with the relevant fields to your Actor.
 
-For reference, you can use the [Zappos Scraper source code](https://github.com/PerVillalva/zappos-scraper-actor/blob/main/.actor/actor.json) as an example of how the final implementation of the output tab should look in a live actor.
+For reference, you can use the [Zappos Scraper source code](https://github.com/PerVillalva/zappos-scraper-actor/blob/main/.actor/actor.json) as an example of how the final implementation of the output tab should look in a live Actor.
 
 ```json
 {
@@ -160,7 +160,7 @@ const results = {
 
 ## Final result {#final-result}
 
-Great! Now that everything is set up, it's time to run the actor and admire your Actor's brand new output tab.
+Great! Now that everything is set up, it's time to run the Actor and admire your Actor's brand new output tab.
 
 > Need some extra guidance? Visit the [output schema documentation](/platform/actors/development/actor-definition/output-schema) for more detailed information about how to implement this feature.
 

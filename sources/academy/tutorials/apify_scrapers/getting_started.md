@@ -1,7 +1,7 @@
 ---
 title: Getting started with Apify scrapers
 menuTitle: Getting started
-description: Step-by-step tutorial that will help you get started with all Apify Scrapers. Learn the foundations of scraping the web with Apify and creating your own actors.
+description: Step-by-step tutorial that will help you get started with all Apify Scrapers. Learn the foundations of scraping the web with Apify and creating your own Actors.
 externalSourceUrl: https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/build/introduction-tutorial.md
 sidebar_position: 1
 slug: /apify-scrapers/getting-started
@@ -15,17 +15,17 @@ Welcome to the getting started tutorial! It will walk you through creating your 
 
 ## [](#what-is-an-apify-scraper) What is an Apify scraper
 
-It doesn't matter whether you arrived here from **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)), **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper)) or **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)).  All of them are **actors** and for now, let's just think of an **actor** as an application that you can use with your own configuration. **apify/web-scraper** is therefore an application called **web-scraper**, built by **apify**, that you can configure to scrape any webpage. We call these configurations **tasks**.
+It doesn't matter whether you arrived here from **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)), **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper)) or **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)).  All of them are **Actors** and for now, let's just think of an **Actor** as an application that you can use with your own configuration. **apify/web-scraper** is therefore an application called **web-scraper**, built by **apify**, that you can configure to scrape any webpage. We call these configurations **tasks**.
 
-> If you need help choosing the right scraper, see this [great article](https://help.apify.com/en/articles/3024655-choosing-the-right-solution). And if you just want to learn more about actors in general, you can read our [actors page](https://apify.com/actors) or [browse the documentation](/platform/actors).
+> If you need help choosing the right scraper, see this [great article](https://help.apify.com/en/articles/3024655-choosing-the-right-solution). And if you just want to learn more about Actors in general, you can read our [Actors page](https://apify.com/actors) or [browse the documentation](/platform/actors).
 
-You can create 10 different **tasks** for 10 different websites, with very different options, but there will always be just one **actor**, the `apify/*-scraper` you chose. This is the essence of tasks. They are nothing but **saved configurations** of the actor that you can run easily and repeatedly.
+You can create 10 different **tasks** for 10 different websites, with very different options, but there will always be just one **Actor**, the `apify/*-scraper` you chose. This is the essence of tasks. They are nothing but **saved configurations** of the Actor that you can run easily and repeatedly.
 
 ## [](#trying-it-out) Trying it out
 
-Depending on how you arrived at this tutorial, you may already have your first task created for the scraper of your choice. If not, the easiest way is to go to [Apify Store](https://console.apify.com/actors#/store/) and select the actor you want to base your task on. Then, click the **Create a new task** button in the top-right corner.
+Depending on how you arrived at this tutorial, you may already have your first task created for the scraper of your choice. If not, the easiest way is to go to [Apify Store](https://console.apify.com/actors#/store/) and select the Actor you want to base your task on. Then, click the **Create a new task** button in the top-right corner.
 
-> This tutorial covers the use of **Web**, **Cheerio**, and **Puppeteer** scrapers, but a lot of the information here can be used with all actors. For this tutorial, we will select **Web Scraper**.
+> This tutorial covers the use of **Web**, **Cheerio**, and **Puppeteer** scrapers, but a lot of the information here can be used with all Actors. For this tutorial, we will select **Web Scraper**.
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/actor-selection.webp)
 
@@ -33,7 +33,7 @@ Depending on how you arrived at this tutorial, you may already have your first t
 
 This takes you to the **Input and options** tab of the task configuration. Before we delve into the details, let's just see how the example works. You can see that there are already some pre-configured input values. It says that the task should visit **<https://apify.com>** and all its subpages, such as **<https://apify.com/contact>** and scrape some data using the provided `pageFunction`, specifically the `<title>` of the page and its URL.
 
-Scroll down to the **Performance and limits** section and set the **Max pages per run** option to **10**. This tells your task to finish after 10 pages have been visited. We don't need to crawl the whole domain just to see that the actor works.
+Scroll down to the **Performance and limits** section and set the **Max pages per run** option to **10**. This tells your task to finish after 10 pages have been visited. We don't need to crawl the whole domain just to see that the Actor works.
 
 > This also helps with keeping your [compute unit](/platform/actors/running/usage-and-resources) (CU) consumption low. Just to get an idea, our free plan includes 10 CUs and this run will consume about 0.04 CU, so you can run it 250 times a month for free. If you accidentally go over the limit, no worries, we won't charge you for it. You just won't be able to run more tasks that month.
 
@@ -59,9 +59,9 @@ Before we jump into the scraping itself, let's just have a quick look at the use
 
 ### [](#input) Input and options
 
-The **Input** tab is where we started and it's the place where you create your scraping configuration. The actor's creator prepares the **Input** form so that you can easily tell the actor what to do. Feel free to check the tooltips of the various options to get a better idea of what they do. To display the tooltip, just click the question mark next to each input field's name.
+The **Input** tab is where we started and it's the place where you create your scraping configuration. The Actor's creator prepares the **Input** form so that you can easily tell the Actor what to do. Feel free to check the tooltips of the various options to get a better idea of what they do. To display the tooltip, just click the question mark next to each input field's name.
 
-> We will not go through all the available input options in this tutorial. See the actor's README for detailed information.
+> We will not go through all the available input options in this tutorial. See the Actor's README for detailed information.
 
 Below the input fields are the Build, Timeout and Memory options. Let's keep them at default settings for now. Just remember that if you see a yellow `TIMED-OUT` status after running your task, you might want to come back here and increase the timeout.
 
@@ -69,7 +69,7 @@ Below the input fields are the Build, Timeout and Memory options. Let's keep the
 
 ### [](#settings) Settings
 
-In the settings tab, you can set options that are common to all tasks and not directly related to the actor's purpose. Unless you've already changed the task's name, it's set to **my-task**, so why not try changing it to **my-first-scraper** and clicking **Save**.
+In the settings tab, you can set options that are common to all tasks and not directly related to the Actor's purpose. Unless you've already changed the task's name, it's set to **my-task**, so why not try changing it to **my-first-scraper** and clicking **Save**.
 
 ### [](#runs) Runs
 
@@ -81,7 +81,7 @@ Webhooks are a feature that help keep you aware of what's happening with your ta
 
 ### [](#readme) Information
 
-Since tasks are just configurations for actors, this tab shows you all the information about the underlying actor, the Apify scraper of your choice. You can see the available versions and their READMEs - it's always a good idea to read an actor's README first before creating a task for it.
+Since tasks are just configurations for Actors, this tab shows you all the information about the underlying Actor, the Apify scraper of your choice. You can see the available versions and their READMEs - it's always a good idea to read an Actor's README first before creating a task for it.
 
 ### [](#api) API
 
@@ -95,22 +95,22 @@ Since this is a tutorial, we'll be scraping our own website. [Apify Store](https
 
 ### [](#the-goal) The goal
 
-We want to create a scraper that scrapes all the actors in the store and collects the following attributes for each actor:
+We want to create a scraper that scrapes all the Actors in the store and collects the following attributes for each Actor:
 
-   1. **URL** - The URL that goes directly to the actor's detail page.
+   1. **URL** - The URL that goes directly to the Actor's detail page.
    2. **Unique identifier** - Such as **apify/web-scraper**.
-   3. **Title** - The title visible in the actor's detail page.
-   4. **Description** - The actor's description.
-   5. **Last modification date** - When the actor was last modified.
-   6. **Number of runs** - How many times the actor was run.
+   3. **Title** - The title visible in the Actor's detail page.
+   4. **Description** - The Actor's description.
+   5. **Last modification date** - When the Actor was last modified.
+   6. **Number of runs** - How many times the Actor was run.
 
-Some of this information may be scraped directly from the listing pages, but for the rest, we will need to visit the detail pages of all the actors.
+Some of this information may be scraped directly from the listing pages, but for the rest, we will need to visit the detail pages of all the Actors.
 
 ### [](#the-start-url) The start URL
 
 Let's start with something simple. In the **Input** tab of the task we have, we'll change the **Start URL** from **<https://apify.com>**. This will tell the scraper to start by opening a different URL. You can add more **Start URL**s or even [use a file with a list of thousands of them](#-crawling-the-website-with-pseudo-urls), but in this case, we'll be good with just one.
 
-How do we choose the new **Start URL**? The goal is to scrape all actors in the store, which is available at [https://apify.com/store](https://apify.com/store), so we choose this URL as our **Start URL**.
+How do we choose the new **Start URL**? The goal is to scrape all Actors in the store, which is available at [https://apify.com/store](https://apify.com/store), so we choose this URL as our **Start URL**.
 
 ```text
 https://apify.com/store
@@ -130,7 +130,7 @@ The **Link selector**, together with **Pseudo URL**s, are your URL matching arse
 
 What's the connection to **Pseudo URL**s? Well, first, all the URLs found in the elements that match the Link selector are collected. Then, **Pseudo URL**s are used to filter through those URLs and enqueue only the ones that match the **Pseudo URL** structure. Simple.
 
-To scrape all the actors in Apify Store, we should use the Link selector to tell the scraper where to find the URLs we need. For now, let us just tell you that the Link selector you're looking for is:
+To scrape all the Actors in Apify Store, we should use the Link selector to tell the scraper where to find the URLs we need. For now, let us just tell you that the Link selector you're looking for is:
 
 ```css
 div.item > a
@@ -140,9 +140,9 @@ Save it as your **Link selector**. If you're wondering how we figured this out, 
 
 ### [](#crawling-the-website-with-pseudo-url) Crawling the website with pseudo URLs
 
-What is a **Pseudo URL**? Let us explain. Before we can start scraping the actor details, we need to find all the links to the details. If the links follow a set structure, we can use a certain pattern to describe this structure. And that's what a **Pseudo URL** is. A pattern that describes a URL structure. By setting a **Pseudo URL**, all links that follow the given structure will automatically be added to the crawling queue.
+What is a **Pseudo URL**? Let us explain. Before we can start scraping the Actor details, we need to find all the links to the details. If the links follow a set structure, we can use a certain pattern to describe this structure. And that's what a **Pseudo URL** is. A pattern that describes a URL structure. By setting a **Pseudo URL**, all links that follow the given structure will automatically be added to the crawling queue.
 
-Let's see an example. To find the pattern, open some of the actor details in the store. You'll find that the URLs are always structured the same:
+Let's see an example. To find the pattern, open some of the Actor details in the store. You'll find that the URLs are always structured the same:
 
 ```text
 https://apify.com/{OWNER}/{NAME}
@@ -154,13 +154,13 @@ In the structures, only the `OWNER` and `NAME` change. We can leverage this in a
 
 **Pseudo URL**s are really just URLs with some variable parts in them. Those variable parts are represented by [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) enclosed in brackets `[]`.
 
-Working with our actor details example, we could produce a **Pseudo URL** like this:
+Working with our Actor details example, we could produce a **Pseudo URL** like this:
 
 ```text
 https://apify.com/[.+]/[.+]
 ```
 
-This **Pseudo URL** will match all actor detail pages, such as:
+This **Pseudo URL** will match all Actor detail pages, such as:
 
 ```text
 https://apify.com/apify/web-scraper
@@ -190,7 +190,7 @@ Let's use the above **Pseudo URL** in our task. We should also add a label as we
 
 ### [](#test-run) Test run
 
-Now that we've added some configuration, it's time to test it. Just run the task, keeping the **Max pages per run** set to `10` and the `pageFunction` as it is. You should see in the log that the scraper first visits the **Start URL** and then several of the actor details matching the **Pseudo URL**.
+Now that we've added some configuration, it's time to test it. Just run the task, keeping the **Max pages per run** set to `10` and the `pageFunction` as it is. You should see in the log that the scraper first visits the **Start URL** and then several of the Actor details matching the **Pseudo URL**.
 
 ## [](#the-page-function) The page function
 
@@ -210,7 +210,7 @@ You'll see that the Element tab jumps to the first `<title>` element of the curr
 
 ### [](#understanding-context) Understanding `context`
 
-The `pageFunction` has access to global variables such as `window` and `document`, which are provided by the browser, as well as to `context`, which is the `pageFunction`'s single argument. `context` carries a lot of useful information and helpful functions, which are described in the actor's README.
+The `pageFunction` has access to global variables such as `window` and `document`, which are provided by the browser, as well as to `context`, which is the `pageFunction`'s single argument. `context` carries a lot of useful information and helpful functions, which are described in the Actor's README.
 
 ### [](#new-page-function-boilerplate) New page function boilerplate
 
@@ -347,4 +347,4 @@ It's time to choose sides. But don't worry, at Apify, no side is the dark side.
 - [Cheerio Scraper tutorial](/academy/apify-scrapers/cheerio-scraper)
 - [Puppeteer Scraper tutorial](/academy/apify-scrapers/puppeteer-scraper)
 
-**Step-by-step tutorial that will help you get started with all Apify Scrapers. Learn the foundations of scraping the web with Apify and creating your own actors.**
+**Step-by-step tutorial that will help you get started with all Apify Scrapers. Learn the foundations of scraping the web with Apify and creating your own Actors.**

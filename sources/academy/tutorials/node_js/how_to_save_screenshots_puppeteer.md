@@ -5,7 +5,7 @@ sidebar_position: 15.8
 slug: /node-js/how-to-save-screenshots-puppeteer
 ---
 
-A good way to debug your puppeteer crawler in Apify actors is to save a screenshot of a browser window to the Apify key-value store. You can do that using this function:
+A good way to debug your puppeteer crawler in Apify Actors is to save a screenshot of a browser window to the Apify key-value store. You can do that using this function:
 
 ```js
 /**
@@ -28,7 +28,7 @@ Because this is so common use-case Apify SDK has a utility function called [save
 
 - You can also save the HTML of the page
 
-A simple example in an Apify actor:
+A simple example in an Apify Actor:
 
 ```js
 import { Actor } from 'apify';
@@ -52,7 +52,7 @@ Actor.main(async () => {
 });
 ```
 
-After you call the function, your screen appears in the KEY-VALUE STORE tab in the actor console. You can click on the row with your saved screen and it'll open it in a new window.
+After you call the function, your screen appears in the KEY-VALUE STORE tab in the Actor console. You can click on the row with your saved screen and it'll open it in a new window.
 
 ![Puppeteer Key-Value store](./images/kv-store-puppeteer.png)
 
