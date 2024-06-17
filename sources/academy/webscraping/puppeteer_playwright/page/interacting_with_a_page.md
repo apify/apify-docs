@@ -38,7 +38,6 @@ Let's first focus on the first 3 steps listed above. By using `page.click()` and
 ```js
 // Click the "I agree" button
 await page.click('button:has-text("Accept all")');
-
 ```
 
 </TabItem>
@@ -47,7 +46,6 @@ await page.click('button:has-text("Accept all")');
 ```js
 // Click the "I agree" button
 await page.click('button + button');
-
 ```
 
 </TabItem>
