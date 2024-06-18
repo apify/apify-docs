@@ -8,7 +8,7 @@ toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
-**Learn how to integrate Apify with Qdrant to transfer crawled into the Qdrant vector database.**
+**Learn how to integrate Apify with Qdrant to transfer crawled data into the Qdrant vector database.**
 
 ---
 
