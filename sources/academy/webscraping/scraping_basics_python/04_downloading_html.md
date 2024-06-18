@@ -1,7 +1,7 @@
 ---
 title: Downloading HTML with Python
 sidebar_label: Downloading HTML
-description: Lesson about building a Python application for watching prices and using the HTTPX library to download HTML code of a product listing page.
+description: Lesson about building a Python application for watching prices. Using the HTTPX library to download HTML code of a product listing page.
 sidebar_position: 4
 slug: /scraping-basics-python/downloading-html
 ---

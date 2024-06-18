@@ -1,5 +1,6 @@
 ---
-title: Crawling TODO
+title: Crawling websites with Python
+sidebar_label: Crawling websites
 description: TODO
 sidebar_position: 9
 slug: /scraping-basics-python/crawling
@@ -12,9 +13,3 @@ This course is incomplete. As we work on adding new lessons, we would love to he
 This particular page is a placeholder for several lessons which should teach crawling.
 
 :::
-
-## Exercises
-
-- One
-- Two
-- Three
