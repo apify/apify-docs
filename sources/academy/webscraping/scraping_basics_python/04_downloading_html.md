@@ -10,7 +10,7 @@ slug: /scraping-basics-python/downloading-html
 
 ---
 
-Using browser tools for developers is crucial for understanding structure of a particular page, but it's a manual task. Now let's start building our first automation, a Python program which downloads HTML code of the product listing.
+Using browser tools for developers is crucial for understanding the structure of a particular page, but it's a manual task. Let's start building our first automation, a Python program which downloads HTML code of the product listing.
 
 ## Starting a Python project
 
@@ -28,7 +28,7 @@ Being comfortable around Python project setup and installing packages is a prere
 
 :::
 
-Now let's test that all works. In the project directory create a new file called `main.py` with the following code:
+Now let's test that all works. Inside the project directory create a new file called `main.py` with the following code:
 
 ```python
 import httpx
@@ -135,10 +135,10 @@ https://warehouse-theme-metal.myshopify.com/does/not/exist
 
 We could check the value of `response.status_code` against a list of allowed numbers, but HTTPX also provides `response.raise_for_status()`, a method which analyzes the number and raises the `httpx.HTTPError` exception in case our request wasn't successful.
 
-A robust scraper skips or retries requests when errors occur, but we'll start simple. Our program will print an error message and stop further processing of the response.
+A robust scraper skips or retries requests when errors occur, but let's start simple. Our program will print an error message and stop further processing of the response.
 
 
-We also want to play along with the conventions of the operating system, so let's print to the [standard error output](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr)) and exit our program with non-zero [status code](https://en.wikipedia.org/wiki/Exit_status):
+We also want to play along with the conventions of the operating system, so we'll print to the [standard error output](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr)) and exit our program with a non-zero [status code](https://en.wikipedia.org/wiki/Exit_status):
 
 ```python
 import sys
@@ -165,9 +165,11 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 
 Done! We have managed to apply basic error handling. Now let's get back to our primary goal. In the next lesson, we'll be looking for a way to extract information about products from the downloaded HTML.
 
+---
+
 ## Exercises
 
-These challenges should help you verify that you can apply knowledge acquired in this lesson. Resist the temptation to look at the solutions right away. Learn by doing, not by copying and pasting!
+These challenges are here to help you test what you’ve learned in this lesson. Try to resist the urge to peek at the solutions right away. Remember, the best learning happens when you dive in and do it yourself!
 
 ### Scrape Amazon
 
@@ -214,7 +216,7 @@ https://warehouse-theme-metal.myshopify.com/collections/sales
   $ python main.py > products.html
   ```
 
-  If you want to use Python, it offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
+  If you want to use Python instead, it offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
 
   ```python
   import sys
