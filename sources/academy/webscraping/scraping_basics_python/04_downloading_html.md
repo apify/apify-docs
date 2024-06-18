@@ -213,7 +213,7 @@ https://warehouse-theme-metal.myshopify.com/collections/sales
   Right in your Terminal or Command Prompt, you can create files by _redirecting output_ of command line programs:
 
   ```text
-  $ python main.py > products.html
+  python main.py > products.html
   ```
 
   If you want to use Python instead, it offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
