@@ -3081,6 +3081,9 @@ The POST payload is a JSON object or a JSON array of objects to save into the da
 **IMPORTANT:** The limit of request payload size for the dataset is 5 MB. If the array exceeds the size,
 you'll need to split it into a number of smaller arrays.
 
+If the dataset has fields schema defined, the push request can potentialy fail with `400 Bad Request` if any item does not match the schema.
+In such case, the response will contain an error message with a list of invalid items and their validation errors.
+
 + Parameters
 
     + token:   `soSkq9ekdmfOslopH` (string, required) - API authentication token.
@@ -3099,9 +3102,6 @@ you'll need to split it into a number of smaller arrays.
               },
               {
                 "foo": "hotel"
-              },
-              {
-                "foo": "restaurant"
               }
             ]
 
@@ -3112,6 +3112,30 @@ you'll need to split it into a number of smaller arrays.
             Location: https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items
 
     + Attributes(object)
+
++ Response 400 (application/json)
+
+    + Headers
+
+            Location: https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF/items
+
+    + Body
+
+            {
+                error: {
+                    type: 'schema-validation-error',
+                    message: 'Schema validation failed',
+                    data: {
+                        invalidItems: {
+                            0: [
+                                "should have required property 'name'",
+                                "'bar' should be string"
+                            ],
+                            1: ["'bar' should be string"],
+                        },
+                    }
+                }
+            }
 
 # Group Request queues
 
