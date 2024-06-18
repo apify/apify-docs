@@ -3082,7 +3082,7 @@ The POST payload is a JSON object or a JSON array of objects to save into the da
 you'll need to split it into a number of smaller arrays.
 
 If the dataset has fields schema defined, the push request can potentialy fail with `400 Bad Request` if any item does not match the schema.
-In such case, the response will contain an error message with a list of invalid items and their validation errors.
+In such case, nothing will be inserted into the dataset and the response will contain an error message with a list of invalid items and their validation errors.
 
 + Parameters
 
