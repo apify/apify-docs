@@ -12,7 +12,7 @@ toc_max_heading_level: 4
 
 ---
 
-[Qdrant](https://qdrant.io) is a high performance managed vector database that allows users to store and query dense vectors for next generation AI applications such as recommendation systems, semantic search, and retrieval augmented generation (RAG).
+[Qdrant](https://qdrant.tech) is a high performance managed vector database that allows users to store and query dense vectors for next generation AI applications such as recommendation systems, semantic search, and retrieval augmented generation (RAG).
 
 The Apify integration for Qdrant enables you to export results from Apify Actors and Dataset items into a specific Qdrant collection.
 
@@ -20,7 +20,7 @@ The Apify integration for Qdrant enables you to export results from Apify Actors
 
 Before you begin, ensure that you have the following:
 
-- A [Qdrant database](https://www.qdrant.io/) set up.
+- A [Qdrant database](https://qdrant.tech) set up.
 - A Qdrant URL to the database and Qdrant API token.
 - An [OpenAI API key](https://openai.com/index/openai-api/) to compute text embeddings.
 - An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
