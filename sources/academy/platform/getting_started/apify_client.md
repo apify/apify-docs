@@ -242,7 +242,7 @@ actor = client.actor('YOUR_USERNAME/adding-actor')
 </TabItem>
 </Tabs>
 
-Then, we'll just call the `.update()` method on the `actor` variable we created and pass in our new **default run options**:
+Then, we'll call the `.update()` method on the `actor` variable we created and pass in our new **default run options**:
 
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
@@ -274,7 +274,7 @@ After running the code, go back to the **Settings** page of **adding-actor**. If
 
 ## Overview {#overview}
 
-You can do so much more with the Apify client than just running Actors, updating Actors, and downloading dataset items. The purpose of this lesson was just to get you comfortable using the client in your own projects, as it's the absolute best developer tool for integrating the Apify platform with an external system.
+You can do so much more with the Apify client than running Actors, updating Actors, and downloading dataset items. The purpose of this lesson was to get you comfortable using the client in your own projects, as it's the absolute best developer tool for integrating the Apify platform with an external system.
 
 For a more in-depth understanding of the Apify API client, give these a quick lookover:
 

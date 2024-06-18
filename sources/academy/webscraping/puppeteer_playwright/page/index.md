@@ -47,7 +47,7 @@ await browser.close();
 </TabItem>
 </Tabs>
 
-Then, we can visit a website with the `page.goto()` method. Let's go to [Google](https://google.com) for now. We'll also use the `page.waitForTimeout()` function, which will force the program to wait for a number of seconds before quitting (otherwise, everything will just flash before our eyes and we won't really be able to tell what's going on):
+Then, we can visit a website with the `page.goto()` method. Let's go to [Google](https://google.com) for now. We'll also use the `page.waitForTimeout()` function, which will force the program to wait for a number of seconds before quitting (otherwise, everything will flash before our eyes and we won't really be able to tell what's going on):
 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">

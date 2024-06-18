@@ -52,7 +52,7 @@ for (const link of productLinks) {
 }
 ```
 
-When you run this file in your terminal, you'll immediately see the difference. Unlike in the browser, where looping over elements produced absolute URLs, here in Node.js it only produces the relative ones. This is bad, because we can't use the relative URLs to crawl. They simply don't include all the necessary information.
+When you run this file in your terminal, you'll immediately see the difference. Unlike in the browser, where looping over elements produced absolute URLs, here in Node.js it only produces the relative ones. This is bad, because we can't use the relative URLs to crawl. They don't include all the necessary information.
 
 ## Resolving URLs {#resolving-urls}
 

@@ -18,7 +18,7 @@ Web pages are full of links, but frankly, most of them are useless to us when sc
 
 ## Filtering with unique CSS selectors {#css-filtering}
 
-In the previous lesson, we simply grabbed all the links from the HTML document.
+In the previous lesson, we grabbed all the links from the HTML document.
 
 <Tabs groupId="main">
 <TabItem value="DevTools" label="DevTools">

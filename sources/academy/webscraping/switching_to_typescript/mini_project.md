@@ -21,7 +21,7 @@ Here's a rundown of what our project should be able to do:
 2. Fetch the data and get full TypeScript support on the response object (no `any`!).
 3. Sort and modify the data, receiving TypeScript support for the new modified data.
 
-We'll be using a single external package called [**Axios**](https://www.npmjs.com/package/axios) to easily fetch the data from the API, which can be installed with the following command:
+We'll be using a single external package called [**Axios**](https://www.npmjs.com/package/axios) to fetch the data from the API, which can be installed with the following command:
 
 ```shell
 npm i axios

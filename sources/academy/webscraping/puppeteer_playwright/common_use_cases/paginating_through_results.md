@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-If you're trying to [collect data](../executing_scripts/extracting_data.md) on a website that has millions, thousands, or even just hundreds of results, it is very likely that they are paginating their results to reduce strain on their back-end as well as on the users loading and rendering the content.
+If you're trying to [collect data](../executing_scripts/extracting_data.md) on a website that has millions, thousands, or even hundreds of results, it is very likely that they are paginating their results to reduce strain on their back-end as well as on the users loading and rendering the content.
 
 ![Amazon pagination](../../advanced_web_scraping/images/pagination.png)
 

@@ -94,7 +94,7 @@ To dive deep into numbers for a specific Actor, you can visit the Actor insights
 
 Your paid Actors’ profits are directly related to the amount of paying users you have for your tool. After publishing and monetizing your software, comes a crucial step for your Actor’s success: **attracting users**.
 
-Getting new users can be an art in itself, but there are **two simple steps** you can take to ensure your Actor is getting the attention it deserves.
+Getting new users can be an art in itself, but there are **two proven steps** you can take to ensure your Actor is getting the attention it deserves.
 
 1. **SEO-optimized description and README**
 

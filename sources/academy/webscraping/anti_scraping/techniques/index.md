@@ -27,7 +27,7 @@ Probably the most common blocking method. The website gives you a chance to prov
 
 ## Redirect {#redirect}
 
-Another common method is simply redirecting to the home page of the site (or a different location).
+Another common method is redirecting to the home page of the site (or a different location).
 
 ## Request timeout/Socket hangup {#request-timeout}
 

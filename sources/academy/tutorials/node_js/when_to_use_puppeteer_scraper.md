@@ -19,7 +19,7 @@ Ok, so both Web Scraper and Puppeteer Scraper use Puppeteer to give commands to 
 
 ## Execution environment
 
-It may sound fancy, but it's just a technical term for "where does my code run". When you open the DevTools and start typing JavaScript in the browser Console, it gets executed in the browser. Browser is the code's execution environment. But you can't control the browser from the inside. For that, you need a different environment. Puppeteer's environment is Node.js. If you don't know what Node.js is, don't worry about it too much. Just remember that it's the environment where Puppeteer runs.
+It may sound fancy, but it's just a technical term for "where does my code run". When you open the DevTools and start typing JavaScript in the browser Console, it gets executed in the browser. Browser is the code's execution environment. But you can't control the browser from the inside. For that, you need a different environment. Puppeteer's environment is Node.js. If you don't know what Node.js is, don't worry about it too much. Remember that it's the environment where Puppeteer runs.
 
 By now you probably figured this out on your own, so this will not come as a surprise. The difference between Web Scraper and Puppeteer Scraper is where your page function gets executed. When using the Web Scraper, it's executed in the browser environment. It means that it gets access to all the browser specific features such as the `window` or `document` objects, but it cannot control the browser with Puppeteer directly. This is done automatically in the background by the scraper. Whereas in Puppeteer Scraper, the page function is executed in the Node.js environment, giving you full access to Puppeteer and all its features.
 
@@ -28,11 +28,11 @@ _This does not mean that you can't execute in-browser code with Puppeteer Scrape
 
 ## Practical differences
 
-Ok, cool, different environments, but how does that help you scrape stuff? Actually, quite a lot. Some things you just can't do from within the browser, but you can easily do them with Puppeteer. We will not attempt to create an exhaustive list, but rather show you some very useful features that we use every day in our scraping.
+Ok, cool, different environments, but how does that help you scrape stuff? Actually, quite a lot. Some things you just can't do from within the browser, but you can do them with Puppeteer. We will not attempt to create an exhaustive list, but rather show you some very useful features that we use every day in our scraping.
 
 ## Evaluating in-browser code
 
-In Web Scraper, everything runs in the browser, so there's really not much to talk about there. With Puppeteer Scraper, it's just a single function call away.
+In Web Scraper, everything runs in the browser, so there's really not much to talk about there. With Puppeteer Scraper, it's a single function call away.
 
 ```js
 const bodyHTML = await context.page.evaluate(() => {
@@ -41,7 +41,7 @@ const bodyHTML = await context.page.evaluate(() => {
 });
 ```
 
-The `context.page.evaluate()` call executes the provided function in the browser environment and passes back the return value back to the Node.js environment. One very important caveat though! Since we're in different environments, we cannot simply use our existing variables, such as `context` inside of the evaluated function, because they are not available there. Different environments, different variables.
+The `context.page.evaluate()` call executes the provided function in the browser environment and passes back the return value back to the Node.js environment. One very important caveat though! Since we're in different environments, we cannot use our existing variables, such as `context` inside of the evaluated function, because they are not available there. Different environments, different variables.
 
 _See the_ `page.evaluate()` _[documentation](https://pptr.dev/#?product=Puppeteer&show=api-pageevaluatepagefunction-args) for info on how to pass variables from Node.js to browser._
 
@@ -102,7 +102,7 @@ await context.page.goto('https://some-new-page.com');
 
 Some very useful scraping techniques revolve around listening to network requests and responses and even modifying them on the fly. Web Scraper's page function doesn't have access to the network, besides calling JavaScript APIs such as `fetch()`. Puppeteer Scraper, on the other hand, has full control over the browser's network activity.
 
-With a simple call, you can listen to all the network requests that are being dispatched from the browser. For example, the following code will print all their URLs to the console.
+You can listen to all the network requests that are being dispatched from the browser. For example, the following code will print all their URLs to the console.
 
 ```js
 context.page.on('request', (req) => console.log(req.url()));
@@ -116,7 +116,7 @@ _Explaining how to do interception properly is out of scope of this article. See
 
 A large number of websites use either form submissions or JavaScript redirects for navigation and displaying of data. With Web Scraper, you cannot crawl those websites, because there are no links to find and enqueue on those pages. Puppeteer Scraper enables you to automatically click all those elements that cause navigation, intercept the navigation requests and enqueue them to the request queue.
 
-If it seems complicated, don't worry. We've abstracted all the complexity away into a simple `Clickable elements selector` input option. When left empty, none of the said clicking and intercepting happens, but once you choose a selector, Puppeteer Scraper will automatically click all the selected elements, watch for page navigations and enqueue them into the `RequestQueue`.
+If it seems complicated, don't worry. We've abstracted all the complexity away to a `Clickable elements selector` input option. When left empty, none of the said clicking and intercepting happens, but once you choose a selector, Puppeteer Scraper will automatically click all the selected elements, watch for page navigations and enqueue them into the `RequestQueue`.
 
 _The_ `Clickable elements selector` _will also work on regular non-JavaScript links, however, it is significantly slower than using the plain_ `Link selector`_. Unless you know you need it, use the_ `Link selector` _for best performance._
 
@@ -126,7 +126,7 @@ Since we're actually clicking in the page, which may or may not trigger some nas
 
 ## Plain form submit navigations
 
-This is easy and will work out of the box. It's typically used on older websites such as [Turkish Remax](https://www.remax.com.tr/ofis-office-franchise-girisimci-agent-arama). For a site like this you can just set the `Clickable elements selector` and you're good to go:
+This works out of the box. It's typically used on older websites such as [Turkish Remax](https://www.remax.com.tr/ofis-office-franchise-girisimci-agent-arama). For a site like this you can set the `Clickable elements selector` and you're good to go:
 
 ```js
 'a[onclick ^= getPage]';
@@ -142,7 +142,7 @@ Those are similar to the ones above with an important caveat. Once you click the
 
 ## Frontend navigations
 
-Websites often won't navigate away just to fetch the next set of results. They will do it in the background and just update the displayed data. To paginate websites like that is quite easy actually and it can be done in both Web Scraper and Puppeteer Scraper. Try it on [Udemy](https://www.udemy.com/topic/javascript/) for example. Just click the next button to load the next set of courses.
+Websites often won't navigate away just to fetch the next set of results. They will do it in the background and update the displayed data. You can paginate such websites with either Web Scraper or Puppeteer Scraper. Try it on [Udemy](https://www.udemy.com/topic/javascript/) for example. Click the next button to load the next set of courses.
 
 ```js
 // Web Scraper\
@@ -170,6 +170,6 @@ And we're only scratching the surface here.
 
 ## Wrapping it up
 
-Many more techniques are available to Puppeteer Scraper that are either too complicated to replicate in Web Scraper or downright impossible to do. For basic scraping of simple websites Web Scraper is a great tool, because it goes right to the point and uses in-browser JavaScript which is well-known to millions of people, even non-developers.
+Many more techniques are available to Puppeteer Scraper that are either too complicated to replicate in Web Scraper or downright impossible to do. Web Scraper is a great tool for basic scraping, because it goes right to the point and uses in-browser JavaScript which is well-known to millions of people, even non-developers.
 
 Once you start hitting some roadblocks, you may find that Puppeteer Scraper is just what you need to overcome them. And if Puppeteer Scraper still doesn't cut it, there's still Apify SDK to rule them all. We hope you found this tutorial helpful and happy scraping.
