@@ -21,9 +21,3 @@ https://developer.chrome.com/docs/devtools/
 https://firefox-dev.tools/
 https://developer.apple.com/documentation/safari-developer-tools/web-inspector
 -->
-
-## Exercises
-
-- One
-- Two
-- Three
