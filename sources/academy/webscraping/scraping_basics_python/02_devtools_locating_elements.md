@@ -15,9 +15,3 @@ slug: /scraping-basics-python/devtools-locating-elements
 This lesson doesn't exist yet, but it's going to be similar to [Finding elements with DevTools](../scraping_basics_javascript/data_extraction/using_devtools.md).
 
 :::
-
-## Exercises
-
-- One
-- Two
-- Three
