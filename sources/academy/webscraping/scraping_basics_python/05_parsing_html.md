@@ -20,7 +20,7 @@ As a first step, let's try counting how many products is on the listing page.
 
 Currently, the entire HTML is available in our program as a string. Our program can print it to the screen or save it to a file, but not much more. If it's a string, could we use Python string operations to count the products? Each Python string has `.count()`, a [method for counting substrings](https://docs.python.org/3/library/stdtypes.html#str.count).
 
-After manually inspecting the page in browser DevTools we can see that all products follow this structure:
+After manually inspecting the page in browser DevTools we can see that all product cards have the following structure:
 
 ```html
 <div class="product-item product-item--vertical ...">
@@ -131,7 +131,7 @@ Sales
 
 Beautiful Soup's `.select()` method runs a _CSS selector_ against a parsed HTML document and returns all the matching elements. It's like calling `document.querySelectorAll()` in browser DevTools.
 
-Scanning through [usage examples](https://beautiful-soup-4.readthedocs.io/en/latest/#css-selectors) will help us to figure out code for counting the products:
+Scanning through [usage examples](https://beautiful-soup-4.readthedocs.io/en/latest/#css-selectors) will help us to figure out code for counting the product cards:
 
 ```python
 import httpx
