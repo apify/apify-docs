@@ -13,7 +13,7 @@ import Example from '!!raw-loader!roa-loader!./finding_links.js';
 
 ---
 
-There are many kinds of links on the internet, which we'll cover in the advanced Academy courses. For now, let's think of links as [HTML anchor elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) with `<a>` tags. A typical link looks like this:
+Many kinds of links exist on the internet, and we'll cover all the types in the advanced Academy courses. For now, let's think of links as [HTML anchor elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) with `<a>` tags. A typical link looks like this:
 
 ```HTML
 <a href="https://example.com">This is a link to example.com</a>
@@ -25,7 +25,7 @@ On a webpage, the link above will look like this: [This is a link to example.com
 
 ## Extracting links 🔗 {#extracting-links}
 
-So, if a link is just an HTML element, and the URL is just an attribute, this means that we can extract links exactly the same way as we extracted data.💡 Easy!
+If a link is just an HTML element, and the URL is just an attribute, this means that we can extract links exactly the same way as we extracted data.💡 Easy!
 
 To test this theory in the browser, we can try running the following code in our DevTools console on any website.
 

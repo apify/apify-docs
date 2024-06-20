@@ -9,7 +9,7 @@ slug: /actors/development/performance
 
 ---
 
-There are many ways to improve the performance of your Actors. This guide will help you understand the different ways to improve your performance and how to measure it.
+You can improve performance of your Actors in many ways. This guide will help you understand the different ways to improve your performance and how to measure it.
 
 ## Optimization Tips
 

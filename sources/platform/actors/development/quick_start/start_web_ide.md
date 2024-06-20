@@ -30,7 +30,7 @@ You will be redirected to a page containing various Actor development templates 
 
 ![Templates](./images/actor-create-templates.png)
 
-After choosing the template your actor will be automatically named and you will be redirected to its page.
+After choosing the template your Actor will be automatically named and you will be redirected to its page.
 
 ### Explore the source code
 

@@ -29,7 +29,7 @@ These data objects will usually be attached to the window object (often prefixed
 
 ## Parsing {#parsing-objects}
 
-There are two ways to go about obtaining these objects to be used and manipulated in JavaScript code:
+You can obtain these objects to be used and manipulated in JavaScript in two ways:
 
 ### 1. Parsing them directly from the HTML
 

@@ -52,7 +52,7 @@ const myCrawler = new PuppeteerCrawler({
 
 ### Configuring a session pool {#configuring-session-pool}
 
-There are various configuration options available in `sessionPoolOptions` that can be used to set up the SessionPool for different rate-limiting scenarios. In the example above, we used `maxUsageCount` within `sessionOptions` to prevent more than 15 requests from being sent using a session before it was thrown away; however, a maximum age can also be set using `maxAgeSecs`.
+To set up the SessionPool for different rate-limiting scenarios, you can use various configuration options in `sessionPoolOptions`. In the example above, we used `maxUsageCount` within `sessionOptions` to prevent more than 15 requests from being sent using a session before it was thrown away; however, a maximum age can also be set using `maxAgeSecs`.
 
 When dealing with frequent and unpredictable blockage, the `maxErrorScore` option can be set to trash a session after it's hit a certain number of errors.
 
