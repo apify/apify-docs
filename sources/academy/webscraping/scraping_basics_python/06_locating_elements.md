@@ -131,6 +131,7 @@ In the output we can see that the price isn't located precisely. For each produc
   $74.95
 </span>
 ```
+
 When translated to a tree of Python objects, the element with class `price` will contain several _nodes_:
 
 - Textual node with white space,
@@ -139,7 +140,7 @@ When translated to a tree of Python objects, the element with class `price` will
 
 We can use Beautiful Soup's `.contents` property to access individual nodes. It returns a list of nodes like this:
 
-```
+```py
 ["\n", <span class="visually-hidden">Sale price</span>, "$74.95"]
 ```
 
