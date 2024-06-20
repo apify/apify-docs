@@ -30,7 +30,7 @@ Being comfortable around Python project setup and installing packages is a prere
 
 Now let's test that all works. Inside the project directory create a new file called `main.py` with the following code:
 
-```python
+```py
 import httpx
 
 print("OK")
@@ -53,7 +53,7 @@ If you see errors or for any other reason cannot run the code above, we're sorry
 
 Now onto coding! Let's change our code so it downloads HTML of the product listing instead of printing OK. The [documentation of the HTTPX library](https://www.python-httpx.org/) provides us with examples how to use it. Inspired by those, our code will look like this:
 
-```python
+```py
 import httpx
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
@@ -106,7 +106,7 @@ Sometimes websites return all kinds of errors. Most often because:
 
 In HTTP, each response has a three-digit _status code_, which tells us whether it's an error or success. Let's change the last line of our program to print the code of the response we get:
 
-```python
+```py
 print(response.status_code)
 ```
 
@@ -140,7 +140,7 @@ A robust scraper skips or retries requests when errors occur, but let's start si
 
 We also want to play along with the conventions of the operating system, so we'll print to the [standard error output](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr)) and exit our program with a non-zero [status code](https://en.wikipedia.org/wiki/Exit_status):
 
-```python
+```py
 import sys
 import httpx
 
@@ -182,7 +182,7 @@ https://www.amazon.com/s?k=darth+vader
 <details>
   <summary>Solution</summary>
 
-  ```python
+  ```py
   import sys
   import httpx
 
@@ -218,7 +218,7 @@ https://warehouse-theme-metal.myshopify.com/collections/sales
 
   If you want to use Python instead, it offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
 
-  ```python
+  ```py
   import sys
   import httpx
   from pathlib import Path
@@ -249,7 +249,7 @@ https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72
 
   Python offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
 
-  ```python
+  ```py
   from pathlib import Path
   import sys
   import httpx
