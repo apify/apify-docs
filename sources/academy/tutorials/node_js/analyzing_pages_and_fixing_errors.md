@@ -71,7 +71,7 @@ try {
 }
 ```
 
-Read more information about logging and error handling in our developer [best practices](../../webscraping/web_scraping_for_beginners/best_practices.md) section.
+Read more information about logging and error handling in our developer [best practices](../../webscraping/scraping_basics_javascript/best_practices.md) section.
 
 ### Saving snapshots {#saving-snapshots}
 

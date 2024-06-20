@@ -15,7 +15,7 @@ Thus far, you've run Actors on the platform and written an Actor of your own, wh
 
 ## Advanced Actor overview {#advanced-actors}
 
-In this course, we'll be working out of the Amazon scraper project from the **Web scraping for beginners** course. If you haven't already built that project, you can do it in three short lessons [here](../../webscraping/web_scraping_for_beginners/challenge/index.md). We've made a few small modifications to the project with the Apify SDK, but 99% of the code is still the same.
+In this course, we'll be working out of the Amazon scraper project from the **Web scraping for beginners** course. If you haven't already built that project, you can do it in three short lessons [here](../../webscraping/scraping_basics_javascript/challenge/index.md). We've made a few small modifications to the project with the Apify SDK, but 99% of the code is still the same.
 
 Take another look at the files within your Amazon scraper project. You'll notice that there is a **Dockerfile**. Every single Actor has a Dockerfile (the Actor's **Image**) which tells Docker how to spin up a container on the Apify platform which can successfully run the Actor's code. "Apify Actors" is basically just a serverless platform that runs multiple Docker containers. For a deeper understanding of Actor Dockerfiles, refer to the [Apify Actor Dockerfile docs](/sdk/js/docs/guides/docker-images#example-dockerfile).
 
