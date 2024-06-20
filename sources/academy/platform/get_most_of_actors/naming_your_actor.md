@@ -13,7 +13,7 @@ slug: /get-most-of-actors/naming-your-actor
 
 Naming your Actor can be tricky. Especially when you've spent a long time coding and are excited to show your brand-new creation to the world. To help users find your Actor, we've introduced naming standards. These standards improve your Actor's [search engine optimization (SEO)](https://en.wikipedia.org/wiki/Search_engine_optimization) and maintain consistency in the [Apify Store](https://apify.com/store).
 
-> Your Actor's name should be 3-63 characters long.
+> Your Actor's name should be 3–63 characters long.
 
 ## Scrapers {#scrapers}
 

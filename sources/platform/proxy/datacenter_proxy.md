@@ -37,7 +37,7 @@ When using Apify's datacenter proxies, you can either select a proxy group, or t
 
 ### Shared proxy groups {#shared-proxy-groups}
 
-Each user has access to a selected number of proxy servers from a shared pool. These servers are spread into groups (called proxy groups). Each group shares a common feature (location, provider, speed and so on).
+Each user has access to a selected number of proxy servers from a shared pool. These servers are spread into groups (called proxy groups). Each group shares a common feature (location, provider, speed, etc.).
 
 For a full list of plans and number of allocated proxy servers for each plan, see our [pricing](https://apify.com/pricing). To get access to more servers, you can upgrade your plan in the [subscription settings](https://console.apify.com/billing/subscription);
 
@@ -185,7 +185,7 @@ When you use datacenter proxy with the `session` [parameter](./usage.md#sessions
 
 This IP/session ID combination is persisted and expires 26 hours later. Each additional request resets the expiration time to 26 hours.
 
-So, if you use the session at least once a day, it will never expire, with two possible exceptions:
+If you use the session at least once a day, it will never expire, with two possible exceptions:
 
 * The proxy server stops responding and is marked as dead during a health check.
 * If the proxy server is part of a proxy group that is refreshed monthly and is rotated out.

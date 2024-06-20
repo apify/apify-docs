@@ -42,8 +42,9 @@ The Actor's process has several environment variables set to provide it with con
 | `ACTOR_WEB_SERVER_PORT`            | TCP port on which the Actor can start an HTTP server to receive messages from the outside world.                                                                                                                                                       |
 | `ACTOR_WEB_SERVER_URL`             | A unique public URL under which the Actor run web server is accessible from the outside world.                                                                                                                                                         |
 
-
+<!-- vale Microsoft.RangeFormat = NO -->
 Dates are always in the UTC timezone and are represented in simplified extended ISO format ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)), e.g. **2022-07-13T14:23:37.281Z**.
+<!-- vale Microsoft.RangeFormat = YES -->
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">

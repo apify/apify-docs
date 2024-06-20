@@ -31,7 +31,7 @@ Have you expended all of the possible options to make your scraper appear more h
 
 If you've tried everything you can to avoid being presented the captcha and are still facing this roadblock, there are methods to programmatically solve captchas.
 
-There are tons of different types of captchas, but one of the most popular is Google's [**reCAPTCHA**](https://www.google.com/recaptcha/about/).
+Tons of different types of captchas exist, but one of the most popular is Google's [**reCAPTCHA**](https://www.google.com/recaptcha/about/).
 
 ![Google's reCAPTCHA](https://miro.medium.com/max/1400/1*4NhFKMxr-qXodjYpxtiE0w.gif)
 

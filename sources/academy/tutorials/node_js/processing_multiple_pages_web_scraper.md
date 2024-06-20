@@ -5,7 +5,7 @@ sidebar_position: 15.6
 slug: /node-js/processing-multiple-pages-web-scraper
 ---
 
-There is a certain scraping scenario in which you need to process the same URL many times, but each time with a different setup (e.g. filling in a form with different data each time). This is easy to do with Apify, but how to go about it may not be obvious at first glance.
+Sometimes when scraping, you need to process the same URL many times, but each time with a different setup (e.g. filling in a form with different data each time). This is easy to do with Apify, but how to go about it may not be obvious at first glance.
 
 We'll show you how to do this with a simple example: starting a scraper with an array of keywords, inputting each of the keywords separately into Google, and retrieving the results on the last page. The tutorial will be split into these three main parts.
 

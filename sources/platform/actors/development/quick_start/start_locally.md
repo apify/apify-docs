@@ -45,7 +45,7 @@ apify create
 
 The CLI will prompt you to:
 
-1. _Name your Actor_: Enter a descriptive name for your actor, such as `your-actor-name`
+1. _Name your Actor_: Enter a descriptive name for your Actor, such as `your-actor-name`
 1. _Choose a programming language_: Select the language you want to use for your Actor (JavaScript, TypeScript, or Python).
 1. _Select a development template_: Choose a template from the list of available options.
 
