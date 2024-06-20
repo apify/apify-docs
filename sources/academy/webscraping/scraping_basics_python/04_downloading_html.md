@@ -197,6 +197,7 @@ https://www.amazon.com/s?k=darth+vader
       sys.exit(1)
   ```
 
+  If you get `Server error '503 Service Unavailable'`, that's just Amazon's anti-scraping protections. You can learn about how to overcome those in our [Anti-scraping protections](../anti_scraping/index.md) course.
 </details>
 
 ### Save downloaded HTML as a file
