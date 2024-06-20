@@ -22,6 +22,7 @@ response.raise_for_status()
 
 html_code = response.text
 soup = BeautifulSoup(html_code, "html.parser")
+
 for product in soup.select(".product-item"):
     print(product.text)
 ```
@@ -72,6 +73,7 @@ response.raise_for_status()
 
 html_code = response.text
 soup = BeautifulSoup(html_code, "html.parser")
+
 for product in soup.select(".product-item"):
     titles = product.select(".product-item__title")
     first_title = titles[0].text
@@ -113,6 +115,7 @@ response.raise_for_status()
 
 html_code = response.text
 soup = BeautifulSoup(html_code, "html.parser")
+
 for product in soup.select(".product-item"):
     title = product.select_one(".product-item__title").text
     price = product.select_one(".price").text
@@ -156,6 +159,7 @@ response.raise_for_status()
 
 html_code = response.text
 soup = BeautifulSoup(html_code, "html.parser")
+
 for product in soup.select(".product-item"):
     title = product.select_one(".product-item__title").text
     price = product.select_one(".price").contents[-1]
@@ -181,4 +185,111 @@ Great! We have managed to use CSS selectors and walk the HTML tree to get a list
 
 These challenges are here to help you test what you’ve learned in this lesson. Try to resist the urge to peek at the solutions right away. Remember, the best learning happens when you dive in and do it yourself!
 
-TODO
+### Scrape Wikipedia
+
+Download Wikipedia's page with the list of African countries, use Beautiful Soup to parse it, and print short English names of all the states and territories mentioned in all tables. This is the URL:
+
+```text
+https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
+```
+
+Your program should print the following:
+
+```text
+Algeria
+Angola
+Benin
+Botswana
+...
+```
+
+<details>
+  <summary>Solution</summary>
+
+  ```py
+  import httpx
+  from bs4 import BeautifulSoup
+
+  url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
+  response = httpx.get(url)
+  response.raise_for_status()
+
+  html_code = response.text
+  soup = BeautifulSoup(html_code, "html.parser")
+
+  for table in soup.select(".wikitable"):
+      for row in table.select("tr"):
+          cells = row.select("td")
+          if cells:
+              third_column = cells[2]
+              title_link = third_column.select_one("a")
+              print(title_link.text)
+  ```
+
+  Because some rows contain [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th), we skip processing a row if `table_row.select("td")` doesn't find any [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells.
+
+</details>
+
+### Use CSS selectors to their max
+
+Simplify the code from previous exercise. Use a single for loop and a single CSS selector. You may want to check out the following pages:
+
+- [Descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator)
+- [`:nth-child()` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child)
+
+<details>
+  <summary>Solution</summary>
+
+  ```py
+  import httpx
+  from bs4 import BeautifulSoup
+
+  url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
+  response = httpx.get(url)
+  response.raise_for_status()
+
+  html_code = response.text
+  soup = BeautifulSoup(html_code, "html.parser")
+
+  for name_cell in soup.select(".wikitable tr td:nth-child(3)"):
+      print(name_cell.select_one("a").text)
+  ```
+
+</details>
+
+### Scrape F1 news
+
+Download Guardian's page with the latest F1 news, use Beautiful Soup to parse it, and print titles of all the listed articles. This is the URL:
+
+```text
+https://www.theguardian.com/sport/formulaone
+```
+
+Your program should print something like the following:
+
+```text
+Wolff confident Mercedes are heading to front of grid after Canada improvement
+Frustrated Lando Norris blames McLaren team for missed chance
+Max Verstappen wins Canadian Grand Prix: F1 – as it happened
+...
+```
+
+<details>
+  <summary>Solution</summary>
+
+  ```py
+  import httpx
+  from bs4 import BeautifulSoup
+
+  url = "https://www.theguardian.com/sport/formulaone"
+  response = httpx.get(url)
+  response.raise_for_status()
+
+  html_code = response.text
+  soup = BeautifulSoup(html_code, "html.parser")
+
+  for title in soup.select("#maincontent ul li h3"):
+      print(title.text)
+  ```
+
+</details>

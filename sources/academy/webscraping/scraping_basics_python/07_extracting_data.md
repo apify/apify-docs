@@ -71,6 +71,7 @@ response.raise_for_status()
 
 html_code = response.text
 soup = BeautifulSoup(html_code, "html.parser")
+
 for product in soup.select(".product-item"):
     title = product.select_one(".product-item__title").text
 
@@ -171,6 +172,7 @@ response.raise_for_status()
 
 html_code = response.text
 soup = BeautifulSoup(html_code, "html.parser")
+
 for product in soup.select(".product-item"):
     title = product.select_one(".product-item__title").text.strip()
 
@@ -211,4 +213,136 @@ Well, not to spoil the excitement, but in its current form, the data isn't very 
 
 These challenges are here to help you test what you’ve learned in this lesson. Try to resist the urge to peek at the solutions right away. Remember, the best learning happens when you dive in and do it yourself!
 
-TODO
+### Scrape units on stock
+
+Change our scraper so that it extracts how many units of each product are on stock. Your program should print the following. Note the unit amounts at the end of each line:
+
+```text
+JBL Flip 4 Waterproof Portable Bluetooth Speaker 672
+Sony XBR-950G BRAVIA 4K HDR Ultra HD TV 77
+Sony SACS9 10" Active Subwoofer 7
+Sony PS-HX500 Hi-Res USB Turntable 15
+Klipsch R-120SW Powerful Detailed Home Speaker - Unit 0
+Denon AH-C720 In-Ear Headphones 236
+...
+```
+
+<details>
+  <summary>Solution</summary>
+
+  ```py
+  import httpx
+  from bs4 import BeautifulSoup
+
+  url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+  response = httpx.get(url)
+  response.raise_for_status()
+
+  html_code = response.text
+  soup = BeautifulSoup(html_code, "html.parser")
+
+  for product in soup.select(".product-item"):
+      title = product.select_one(".product-item__title").text.strip()
+
+      units_text = (
+          product
+          .select_one(".product-item__inventory")
+          .text
+          .removeprefix("In stock,")
+          .removeprefix("Only")
+          .removesuffix(" left")
+          .removesuffix("units")
+          .strip()
+      )
+      if "Sold out" in units_text:
+          units = 0
+      else:
+          units = int(units_text)
+
+      print(title, units)
+  ```
+
+</details>
+
+### Use regular expressions
+
+Simplify the code from previous exercise. Use [regular expressions](https://docs.python.org/3/library/re.html) to parse the number of units. You can match digits using a range like `[0-9]` or by a special sequence `\d`. To match more characters of the same type you can use `+`.
+
+<details>
+  <summary>Solution</summary>
+
+  ```py
+  import re
+  import httpx
+  from bs4 import BeautifulSoup
+
+  url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+  response = httpx.get(url)
+  response.raise_for_status()
+
+  html_code = response.text
+  soup = BeautifulSoup(html_code, "html.parser")
+
+  for product in soup.select(".product-item"):
+      title = product.select_one(".product-item__title").text.strip()
+
+      units_text = product.select_one(".product-item__inventory").text
+      if re_match := re.search(r"\d+", units_text):
+          units = int(re_match.group())
+      else:
+          units = 0
+
+      print(title, units)
+  ```
+
+</details>
+
+### Scrape publish dates of F1 news
+
+Download Guardian's page with the latest F1 news and use Beautiful Soup to parse it. Print titles and publish dates of all the listed articles. This is the URL:
+
+```text
+https://www.theguardian.com/sport/formulaone
+```
+
+Your program should print something like the following. Note the dates at the end of each line:
+
+```text
+Wolff confident Mercedes are heading to front of grid after Canada improvement 2024-06-10
+Frustrated Lando Norris blames McLaren team for missed chance 2024-06-09
+Max Verstappen wins Canadian Grand Prix: F1 – as it happened 2024-06-09
+...
+```
+
+Hints:
+
+- HTML's `<time>` tag can have an attribute `datetime`, which [contains data in a machine-readable format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time), such as the ISO 8601.
+- Beautiful Soup gives you [access to attributes as if they were dictionary keys](https://beautiful-soup-4.readthedocs.io/en/latest/#attributes).
+- In Python you can create `datetime` objects using `datetime.fromisoformat()`, a [built-in method for parsing ISO 8601 strings](https://docs.python.org/3/library/datetime.html#datetime.datetime.fromisoformat).
+- To get just the date part, you can call `.date()` on any `datetime` object.
+
+<details>
+  <summary>Solution</summary>
+
+  ```py
+  import httpx
+  from bs4 import BeautifulSoup
+
+  url = "https://www.theguardian.com/sport/formulaone"
+  response = httpx.get(url)
+  response.raise_for_status()
+
+  html_code = response.text
+  soup = BeautifulSoup(html_code, "html.parser")
+
+  for article in soup.select("#maincontent ul li"):
+      title = article.select_one("h3").text.strip()
+
+      time_iso = article.select_one("time")["datetime"].strip()
+      published_at = datetime.fromisoformat(time_iso)
+      published_on = published_at.date()
+
+      print(title, published_on)
+  ```
+
+</details>
