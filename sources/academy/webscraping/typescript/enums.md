@@ -15,7 +15,7 @@ Enums are a nice feature offered by TypeScript that can be used to create automa
 
 ## Let's talk about constants {#lets-talk-about-constants}
 
-If you've followed along with any of the more advanced courses in the Apify academy, or at least read the [Best practices](../web_scraping_for_beginners/best_practices.md) lesson in the **Web scraping for beginners** course, you'll definitely be familiar with the idea of constant variables. In a nutshell, we create constant variables for values that will never change, and will likely used in multiple places. The naming convention for constants is **ALL_CAPS_AND_UNDERSCORED**.
+If you've followed along with any of the more advanced courses in the Apify academy, or at least read the [Best practices](../scraping_basics_javascript/best_practices.md) lesson in the **Web scraping for beginners** course, you'll definitely be familiar with the idea of constant variables. In a nutshell, we create constant variables for values that will never change, and will likely used in multiple places. The naming convention for constants is **ALL_CAPS_AND_UNDERSCORED**.
 
 Here's an object of constant values that we've prepared for use within our project.
 

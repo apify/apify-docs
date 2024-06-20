@@ -31,7 +31,7 @@ With the advance of [machine learning](https://en.wikipedia.org/wiki/Machine_lea
 
 ## Is RPA the same as web scraping? {#is-rpa-the-same-as-web-scraping}
 
-While [web scraping](../../webscraping/web_scraping_for_beginners/index.md) is a kind of RPA, it focuses on extracting structured data. RPA focuses on the other tasks in browsers - everything except for extracting information.
+While [web scraping](../../webscraping/scraping_basics_javascript/index.md) is a kind of RPA, it focuses on extracting structured data. RPA focuses on the other tasks in browsers - everything except for extracting information.
 
 ## Additional resources {#additional-resources}
 
