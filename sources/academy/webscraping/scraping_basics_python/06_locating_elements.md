@@ -12,7 +12,7 @@ slug: /scraping-basics-python/locating-elements
 
 In the previous lesson we've managed to print text of the page's main heading or count how many products is in the listing. Let's combine those two—what happens if we print `.text` for each product card?
 
-```python
+```py
 import httpx
 from bs4 import BeautifulSoup
 
@@ -62,7 +62,7 @@ As in the browser DevTools lessons, we need to change the code so that it locate
 
 We should be looking for elements which have the `product-item__title` and `price` classes. We already know how that translates to CSS selectors:
 
-```python
+```py
 import httpx
 from bs4 import BeautifulSoup
 
@@ -73,10 +73,10 @@ response.raise_for_status()
 html_code = response.text
 soup = BeautifulSoup(html_code, "html.parser")
 for product in soup.select(".product-item"):
-    titles = product.select('.product-item__title')
+    titles = product.select(".product-item__title")
     first_title = titles[0].text
 
-    prices = product.select('.price')
+    prices = product.select(".price")
     first_price = prices[0].text
 
     print(first_title, first_price)
@@ -103,7 +103,7 @@ There's still some room for improvement, but it's already much better!
 
 Often, we want to assume in our code that a certain element exists only once. It's a bit tedious to work with lists when you know you're looking for a single element. For this purpose, Beautiful Soup offers a `.select_one()` method. Like `document.querySelector()` in browser DevTools, it returns just one result or none. Let's simplify our code!
 
-```python
+```py
 import httpx
 from bs4 import BeautifulSoup
 
@@ -114,8 +114,8 @@ response.raise_for_status()
 html_code = response.text
 soup = BeautifulSoup(html_code, "html.parser")
 for product in soup.select(".product-item"):
-    title = product.select_one('.product-item__title').text
-    price = product.select_one('.price').text
+    title = product.select_one(".product-item__title").text
+    price = product.select_one(".price").text
     print(title, price)
 ```
 
@@ -131,7 +131,7 @@ In the output we can see that the price isn't located precisely. For each produc
   $74.95
 </span>
 ```
-When translated to a tree of Python objects, the element with class `price` will contain several nodes:
+When translated to a tree of Python objects, the element with class `price` will contain several _nodes_:
 
 - Textual node with white space,
 - a `span` HTML element,
@@ -140,12 +140,12 @@ When translated to a tree of Python objects, the element with class `price` will
 We can use Beautiful Soup's `.contents` property to access individual nodes. It returns a list of nodes like this:
 
 ```
-['\n', <span class="visually-hidden">Sale price</span>, '$74.95']
+["\n", <span class="visually-hidden">Sale price</span>, "$74.95"]
 ```
 
 It seems like we can read the last element to get the actual amount from a list like the above. Let's fix our program:
 
-```python
+```py
 import httpx
 from bs4 import BeautifulSoup
 
@@ -156,12 +156,12 @@ response.raise_for_status()
 html_code = response.text
 soup = BeautifulSoup(html_code, "html.parser")
 for product in soup.select(".product-item"):
-    title = product.select_one('.product-item__title').text
-    price = product.select_one('.price').contents[-1]
+    title = product.select_one(".product-item__title").text
+    price = product.select_one(".price").contents[-1]
     print(title, price)
 ```
 
-If we run our program now, it should print prices just as the actual amounts:
+If we run the scraper now, it should print prices as only amounts:
 
 ```text
 $ python main.py
@@ -173,3 +173,11 @@ Sony PS-HX500 Hi-Res USB Turntable $398.00
 ```
 
 Great! We have managed to use CSS selectors and walk the HTML tree to get a list of product titles and prices. But wait a second—what's `From $1,398.00`? One does not simply scrape a price! We'll need to clean that. But that's a job for the next lesson, which is about extracting data.
+
+---
+
+## Exercises
+
+These challenges are here to help you test what you’ve learned in this lesson. Try to resist the urge to peek at the solutions right away. Remember, the best learning happens when you dive in and do it yourself!
+
+TODO

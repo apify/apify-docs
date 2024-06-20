@@ -37,7 +37,7 @@ At first sight, counting `product-item` occurances wouldn't match only products,
 
 We could try looking for `<div class="product-item`, a substring which represents the enitre beginning of each product tag, but that would also count `<div class="product-item__info`! We'll need to add a space after the class name to avoid matching those. Replace your program with the following code:
 
-```python
+```py
 import httpx
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
@@ -92,7 +92,7 @@ Now let's use it for parsing the HTML. Unlike plain string, the `BeautifulSoup` 
 
 Update your code to the following:
 
-```python
+```py
 import httpx
 from bs4 import BeautifulSoup
 
@@ -114,7 +114,7 @@ $ python main.py
 
 Our code lists all `<h1>` tags it can find on the page. It's the case that there's just one, so in the result we can see a list with a single item. What if we want to print just the text? Let's change the end of the program to the following:
 
-```python
+```py
 headings = soup.select("h1")
 first_heading = headings[0]
 print(first_heading.text)
@@ -133,7 +133,7 @@ Beautiful Soup's `.select()` method runs a _CSS selector_ against a parsed HTML 
 
 Scanning through [usage examples](https://beautiful-soup-4.readthedocs.io/en/latest/#css-selectors) will help us to figure out code for counting the product cards:
 
-```python
+```py
 import httpx
 from bs4 import BeautifulSoup
 
@@ -173,7 +173,7 @@ https://www.formula1.com/en/teams
 <details>
   <summary>Solution</summary>
 
-  ```python
+  ```py
   import httpx
   from bs4 import BeautifulSoup
 
@@ -195,7 +195,7 @@ Use the same URL as in the previous exercise, but this time print a total count 
 <details>
   <summary>Solution</summary>
 
-  ```python
+  ```py
   import httpx
   from bs4 import BeautifulSoup
 
