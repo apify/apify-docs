@@ -25,7 +25,7 @@ await requestQueue.addRequest({
 });
 ```
 
-So right now, we have one request in the queue that has the label "START".  Now we can specify which code should be executed for this request in the handlePageFunction.
+Right now, we have one request in the queue that has the label "START".  Now we can specify which code should be executed for this request in the handlePageFunction.
 
 ```js
 if (request.userData.label === 'START') {
@@ -38,7 +38,7 @@ if (request.userData.label === 'START') {
 
 And in the same way you can keep adding requests in the handlePageFunction.
 
-You can also handle the passing of data to the request like this. For example, when we have extracted the item from the shop above, we want to extract some information about the seller. So we need to pass the item object to the seller page, where we save the rating of a seller, e.g..
+You can also handle the passing of data to the request like this. For example, when we have extracted the item from the shop above, we want to extract some information about the seller. We need to pass the item object to the seller page, where we save the rating of a seller, e.g..
 
 ```js
 await requestQueue.addRequest({
@@ -56,7 +56,7 @@ Now, in the "SELLERDETAIL" url, we can just evaluate the page and extracted data
 const result = { ...request.userData.data, ...sellerDetail };
 ```
 
-So next just save the results and we're done!
+Next just save the results and we're done!
 
 ```js
 await Apify.pushData(result);

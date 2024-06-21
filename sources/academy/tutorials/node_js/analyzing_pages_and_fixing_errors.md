@@ -71,20 +71,20 @@ try {
 }
 ```
 
-Read more information about logging and error handling in our developer [best practices](../../webscraping/web_scraping_for_beginners/best_practices.md) section.
+Read more information about logging and error handling in our developer [best practices](../../webscraping/scraping_basics_javascript/best_practices.md) section.
 
 ### Saving snapshots {#saving-snapshots}
 
 By snapshots, we mean **screenshots** if you use a [browser with Puppeteer/Playwright](../../webscraping/puppeteer_playwright/index.md) and HTML saved into a [key-value store](https://crawlee.dev/api/core/class/KeyValueStore) that you can easily display in your own browser. Snapshots are useful throughout your code but especially important in error handling.
 
-Note that an error can happen only in a few pages out of a thousand and look completely random. There is not much you can do other than save and analyze a snapshot.
+Note that an error can happen only in a few pages out of a thousand and look completely random. You cannot do much else than to save and analyze a snapshot.
 
 Snapshots can tell you if:
 
 - A website has changed its layout. This can also mean A/B testing or different content for different locations.
-- You have been blocked – you open a [CAPTCHA](https://en.wikipedia.org/wiki/CAPTCHA) or an **Access Denied** page.
-- Data load later dynamically – the page is empty.
-- The page was redirected – the content is different.
+- You have been blocked—you open a [CAPTCHA](https://en.wikipedia.org/wiki/CAPTCHA) or an **Access Denied** page.
+- Data load later dynamically—the page is empty.
+- The page was redirected—the content is different.
 
 You can learn how to take snapshots in Puppeteer or Playwright in [this short lesson](../../webscraping/puppeteer_playwright/page/page_methods.md)
 

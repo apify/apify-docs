@@ -78,7 +78,7 @@ While the in-app notification will contain less information, it will point you d
 
 ### What should I monitor when scraping?
 
-There are many metrics you might want to monitor when you are scraping the web. Here are some examples:
+You might want to monitor various metrics when you're scraping the web. Here are some examples:
 
 **Data quality**:
 

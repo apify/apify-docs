@@ -10,11 +10,11 @@ tokens:
   # Also no . followed by a word character (avoids 'actors.md')
   - '(?<![\/\-#\w])actors(?![\/\}])(?!\.\w)'
 
-  # Before the word there should be no: /, -, #, ., word character
+  # Before the word there should be no: /, -, #, ., `, word character
   # (avoids anchors, URLs, identifiers, code, and words like 'factors')
   #
   # After the word there should be no: /, }, -, word character (avoids paths or URLs)
   # Also no " =" (avoids code like "actor = ...")
   # Also no . followed by a word character (avoids 'actor.md' or 'actor.update()')
-  - '(?<![\/\-#\.\w`])actor(?![\/\}\-\w])(?! =)(?!\.\w)'
+  - '(?<![\/\-#\.`\w])actor(?![\/\}\-\w])(?! =)(?!\.\w)'
 nonword: false

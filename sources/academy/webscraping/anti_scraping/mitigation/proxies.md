@@ -15,7 +15,7 @@ A proxy server provides a gateway between users and the internet, to be more spe
 
 Many websites have [rate-limiting](../techniques/rate_limiting.md) set up, which is when a website **limits** the **rate** at which requests can be sent from a single IP address. In cases when a higher number of requests is expected for the crawler - using a proxy is essential to let the crawler run as smoothly as possible and avoid being blocked.
 
-There are a few factors that determine the quality of a proxy IP:
+The following factors determine the quality of a proxy IP:
 
 - How many users share the same proxy IP address?
 - How did the previous user use (or overuse) the proxy?

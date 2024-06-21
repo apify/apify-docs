@@ -33,11 +33,11 @@ A migration is when a process running on a server has to stop and move to anothe
 
 ## [](#how-often-do-migrations-occur)How often do migrations occur?
 
-There is no specified interval at which migrations happen. They are caused by the [above events](#why-do-migrations-happen), so they can happen at any time.
+Migrations have no specific interval at which they happen. They are caused by the [above events](#why-do-migrations-happen), so they can happen at any time.
 
 ## [](#why-is-state-lost-during-migration)Why is state lost during migration?
 
-Unless instructed to save its output or state to a [storage](../../../storage/index.md), an Actor keeps them in the server's memory. So, when it switches servers, the run loses access to the previous server's memory. Even if data were saved on the server's disk, we would also lose access to that.
+Unless instructed to save its output or state to a [storage](../../../storage/index.md), an Actor keeps them in the server's memory. When it switches servers, the run loses access to the previous server's memory. Even if data were saved on the server's disk, we would also lose access to that.
 
 ## [](#how-to-persist-state)How to persist state
 

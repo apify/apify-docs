@@ -44,7 +44,7 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
     ![Website Content Crawler with Pinecone integration](../images/pinecone-wcc-integration.png)
 
-1. Select when to trigger this integration (typically when a run succeeds) and fill in all the required fields for the Pinecone integration. You can learn more about the input parameters at the [Pinecone integration input schema](https://apify.com/jan.turon/pinecone-integration/input-schema).
+1. Select when to trigger this integration (typically when a run succeeds) and fill in all the required fields for the Pinecone integration. You can learn more about the input parameters at the [Pinecone integration input schema](https://apify.com/apify/pinecone-integration/input-schema).
 
    ![Pinecone integration configuration](../images/pinecone-integration-setup.png)
 
@@ -63,9 +63,9 @@ Another way to interact with Pinecone is through the [Apify Python SDK](https://
     ```python
     from apify_client import ApifyClient
 
-    APIFY_API_TOKEN = "YOUR APIFY TOKEN"
-    OPENAI_API_KEY = "YOUR OPENAI API KEY"
-    PINECONE_TOKEN = "YOUR PINECONE TOKEN"
+    APIFY_API_TOKEN = "YOUR-APIFY-TOKEN"
+    OPENAI_API_KEY = "YOUR-OPENAI-API-KEY"
+    PINECONE_API_KEY = "YOUR-PINECONE-API-KEY"
 
     client = ApifyClient(APIFY_API_TOKEN)
     ```
@@ -76,30 +76,38 @@ Another way to interact with Pinecone is through the [Apify Python SDK](https://
     actor_call = client.actor("apify/website-content-crawler").call(
         run_input={"startUrls": [{"url": "https://docs.pinecone.io/home"}]}
     )
+
+    print("Website Content Crawler Actor has finished")
+    print(actor_call)
     ```
 
-1. Call Apify's Pinecone integration and store all data in the Pinecone Vector Database:
+1. Use Apify's [Pinecone integration](https://apify.com/apify/pinecone-integration) to store all the selected data from the dataset (provided by `datasetId` from the Actor call) into the Pinecone vector database.
 
     ```python
-    pinecone_integration_inputs = dict(
-        index_name="apify",
-        pinecone_token=PINECONE_TOKEN,
-        openai_token=OPENAI_API_KEY,
-        fields=["text"],
-        perform_chunking=True,
-        chunk_size=2048,
-        chunk_overlap=0,
-    )
+    pinecone_integration_inputs = {
+        "pineconeApiKey": PINECONE_API_KEY,
+        "pineconeIndexName": "apify",
+        "datasetFields": ["text"],
+        "datasetId": actor_call["defaultDatasetId"],
+        "enableDeltaUpdates": True,
+        "deltaUpdatesPrimaryDatasetFields": ["url"],
+        "expiredObjectDeletionPeriodDays": 30,
+        "embeddingsApiKey": OPENAI_API_KEY,
+        "embeddingsProvider": "OpenAI",
+        "performChunking": True,
+        "chunkSize": 1000,
+        "chunkOverlap": 0,
+    }
 
-    pinecone_integration_inputs["dataset_id"] = actor_call["defaultDatasetId"]
-    actor_call = client.actor("jan.turon/pinecone-integration").call(run_input=pinecone_integration_inputs)
-
+    actor_call = client.actor("apify/pinecone-integration").call(run_input=pinecone_integration_inputs)
+    print("Apify's Pinecone Integration has finished")
+    print(actor_call)
     ```
 
 You have successfully integrated Apify with Pinecone and the data is now stored in the Pinecone vector database.
 
 ## Additional Resources
 
-- [Apify Pinecone integration](https://apify.com/jan.turon/pinecone-integration)
+- [Apify Pinecone integration](https://apify.com/apify/pinecone-integration)
 - [What is Pinecone and why use it with your LLMs?](https://blog.apify.com/what-is-pinecone-why-use-it-with-llms/)
 - [Pinecone documentation](https://docs.pinecone.io/)

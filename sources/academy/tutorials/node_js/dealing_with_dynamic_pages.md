@@ -47,7 +47,7 @@ If you're in a brand new project, don't forget to initialize your project, then 
 npm init -y && npm i crawlee
 ```
 
-Now, let's write some data extraction code to extract each product's data. This should look familiar if you went through the [Data Extraction](../../webscraping/web_scraping_for_beginners/data_extraction/index.md) lessons:
+Now, let's write some data extraction code to extract each product's data. This should look familiar if you went through the [Data Extraction](../../webscraping/scraping_basics_javascript/data_extraction/index.md) lessons:
 
 ```js
 import { CheerioCrawler } from 'crawlee';
@@ -93,7 +93,7 @@ https://demo-webstore.apify.org/_next/image?url=https%3A%2F%2Fm.media-amazon.com
 
 The reason this is happening is because CheerioCrawler makes static HTTP requests, so it only manages to capture the content from the `DOMContentLoaded` event. Any elements or attributes generated dynamically thereafter using JavaScript (and usually XHR/Fetch requests) are not part of the downloaded HTML, and therefore are not accessible through the `$` object.
 
-So, what's the solution? We need to use something that is able to allow the page to follow through with the entire load process - a headless browser.
+What's the solution? We need to use something that is able to allow the page to follow through with the entire load process - a headless browser.
 
 ## Scraping dynamic content {#scraping-dynamic-content}
 
@@ -142,7 +142,7 @@ After running this one, we can see that our results look different from before. 
 
 Well... Not quite. It seems that the only images which we got the full links to were the ones that were being displayed within the view of the browser. This means that the images are lazy-loaded. **Lazy-loading** is a common technique used across the web to improve performance. Lazy-loaded items allow the user to load content incrementally, as they perform some action. In most cases, including our current one, this action is scrolling.
 
-So, we've gotta scroll down the page to load these images. Luckily, because we're using Crawlee, we don't have to write the logic that will achieve that, because a utility function specifically for Puppeteer called [`infiniteScroll`](https://crawlee.dev/api/puppeteer-crawler/namespace/puppeteerUtils#infiniteScroll) already exists right in the library, and can be accessed through `utils.puppeteer`. Let's add it to our code now:
+We've gotta scroll down the page to load these images. Luckily, because we're using Crawlee, we don't have to write the logic that will achieve that, because a utility function specifically for Puppeteer called [`infiniteScroll`](https://crawlee.dev/api/puppeteer-crawler/namespace/puppeteerUtils#infiniteScroll) already exists right in the library, and can be accessed through `utils.puppeteer`. Let's add it to our code now:
 
 <RunnableCodeBlock className="language-js" type="puppeteer">
     {Example}

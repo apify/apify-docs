@@ -34,7 +34,7 @@ const urls = links.map((obj, el) => el.href);
 
 However, this isn't very convenient, because you have to find the root element of each component you want to work with, and you can't easily take advantage of all the scripts and tools you already have.
 
-So instead of that, we can replace the content of each element containing shadow DOM with the HTML of shadow DOM.
+Instead of that, we can replace the content of each element containing shadow DOM with the HTML of shadow DOM.
 
 ```js
 // Iterate over all elements in the main DOM.

@@ -18,7 +18,7 @@ and many more that you can see at [integrations](./index.mdx).
 
 To integrate your service with Apify, you have two options. You can either:
 
-- build an [Apify actor](https://apify.com/docs/actor) that will be used as integration within the [Apify Console](https://console.apify.com)
+- build an [Apify Actor](https://apify.com/docs/actor) that will be used as integration within the [Apify Console](https://console.apify.com)
 - build an external integration, such as [Zapier](./workflows-and-notifications/zapier.md).
 
 ![Integration-ready Actors](./images/integration-ready-actors.png)

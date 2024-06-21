@@ -22,4 +22,4 @@ In this section, we will go over some of the practical steps you can take to ens
 
 ## Next up {#next}
 
-So, without further ado, let's jump [right into the next lesson](./naming_your_actor.md)!
+Without further ado, let's jump [right into the next lesson](./naming_your_actor.md)!
