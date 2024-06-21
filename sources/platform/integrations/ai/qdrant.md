@@ -60,7 +60,9 @@ Another way to interact with Qdrant is through the [Apify Python SDK](https://do
 
 1. Install the Apify Python SDK by running the following command:
 
-    `pip install apify-client`
+    ```py
+    pip install apify-client
+    ```
 
 1. Create a Python script and import all the necessary modules:
 
