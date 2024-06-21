@@ -9,19 +9,19 @@ slug: /actors/development/performance
 
 ---
 
-You can improve performance of your Actors in many ways. This guide will help you understand the different ways to improve your performance and how to measure it.
-
 ## Optimization Tips
 
-### Batch jobs win over the single jobs
+This guide provides tips to help you maximize the poerformance of your Actors, minimize costs, and achieve optimal results.
 
-When you run a single job, the Actor will be started and stopped for each run. This is a very expensive operation. If your Actor is running the web browser or other heavy dependencies, their startup times add to this. Therefore if you want to minimize your cost, we recommend you run a batch of jobs instead of a single job.
+### Run batch jobs instead of single jobs
 
-For example, instead of starting an Actor for every URL you want to process, group them in batches and run the Actor only once for each batch. The browser will then be re-used, and the implementation will become much more cost-efficient.
+Running a single job causes the Actor to start and stop for each execution, which is an expensive operation. If your Actor runs a web browser or other resource-intensive dependencies, their startup times further contribute to the cost. To minimize costs, we recommend running batch jobs instead of single jobs.
 
-### Speed up your builds with the Docker layer cache
+For example, instead of starting an Actor for every URL you want to process, group the URLs into batches and run the Actor once for each batch. This approach reuses the browser instance, resulting in a more cost-efficient implementation.
 
-When you build your Docker image, Docker will cache the layers that are not changed. This means that if you change only a small part of your Dockerfile, Docker will not have to rebuild the whole image but only the layers that were changed. This can save you a lot of time and money.
+### Leverage Docker layer caching to speed up builds
+
+When you build a Docker image, Docker caches the layers that haven't changed. This means that if you modify only a small part of your Dockerfile, Docker doesn't need to rebuild the entire image but only the changed layers. This can save significant time and money.
 
 Consider the following Dockerfile:
 
@@ -45,8 +45,15 @@ COPY . ./
 CMD npm start --silent
 ```
 
-We first copy the `package.json`, `package-lock.json` , and install the dependencies before copying the rest of the source code. This way, we can take advantage of Docker's caching mechanism and only install the dependencies when the `package.json` or `package-lock.json` files change. This way, the build process is much faster.
+We first copy the `package.json`, `package-lock.json` files , and install the dependencies before copying the rest of the source code. This way, we can take advantage of Docker's caching mechanism and only install the dependencies when the `package.json` or `package-lock.json` files change, making the build process much faster.
 
-### Speedup the Actor startup times by using standardised images
+:::tip Further optimization tips
 
-If you use one of [Apify's standardized images](https://github.com/apify/apify-actor-docker), the startup time will be faster. This is because the images are cached at each worker machine, and so only the layers you added in your Actor's [Dockerfile](./actor_definition/docker.md) need to be pulled.
+- We recommend using as few layers as possible in your Docker images. This helps to reduce overall image sizes and improve build times.
+- Use the [dive](https://github.com/wagoodman/dive) CLI tool to analyze the layers of a built Docker image. This toll provides insights into the composition of each layer, allowing you to understand and minimize their numbers.
+
+:::
+
+### Use standardized images to accelerate Actor startup times
+
+Using on of [Apify's standardized images](https://github.com/apify/apify-actor-docker), can accelrate the Actor startup time. These images are cached on each worker machine, so only the layers you added in your Actor's [Dockerfile](./actor_definition/docker.md) need to be pulled.
