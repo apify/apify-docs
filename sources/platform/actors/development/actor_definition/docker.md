@@ -106,3 +106,9 @@ By default, Apify base Docker images with the Apify SDK and Crawlee start your N
 ```
 
 This means the system expects the source code to be in `main.js` by default. If you want to override this behavior, ues a custom `package.json` and/or `Dockerfile`.
+
+:::tip Optimization tips
+
+You can check out various optimization tips for Dockerfile in our [Performance](../performance.md) documentation.
+
+:::
