@@ -40,10 +40,6 @@
 .heroBanner {
     padding-top: 80px;
     padding-bottom: 56px;
-    background-image: url('/src/pages/img/hero-background-gradient.svg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
     margin-bottom: 32px;
 }
 
