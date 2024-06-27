@@ -40,10 +40,6 @@ async def main():
         soup = BeautifulSoup(response.content, 'html.parser')
         await Actor.push_data({ 'url': actor_input['url'], 'title': soup.title.string })`;
 
-const HeroWrapper = styled(Hero)`
-        background-image: url("/img/hero_background.svg");
-    `;
-
 const StyledContent = styled.div`
     width: 100%;
     display: flex;
@@ -68,7 +64,7 @@ export default function Home() {
     return (
         <Layout>
             <UiLibraryWrapper>
-                <HeroWrapper
+                <Hero
                     heading="Apify SDK"
                     isCentered
                     description={

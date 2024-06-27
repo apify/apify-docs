@@ -19,10 +19,6 @@ import Section from '../../components/Section/Section';
 import Tabs from '../../components/Tabs';
 import UiLibraryWrapper from '../../components/UiLibraryWrapper';
 
-const HeroWrapper = styled(Hero)`
-    background-image: url("/img/hero_background.svg");
-`;
-
 const SectionWrapper = styled(Section)`
     display: flex;
     flex-direction: column;
@@ -122,7 +118,7 @@ export default function Api() {
     return (
         <Layout>
             <UiLibraryWrapper>
-                <HeroWrapper
+                <Hero
                     heading="Apify API"
                     isCentered
                     description={<>Apify API provides programmatic access to the <Link to="/">Apify Platform</Link></>}
