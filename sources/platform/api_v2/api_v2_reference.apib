@@ -3126,13 +3126,22 @@ In such case, nothing will be inserted into the dataset and the response will co
                     type: 'schema-validation-error',
                     message: 'Schema validation failed',
                     data: {
-                        invalidItems: {
-                            0: [
-                                "should have required property 'name'",
-                                "'bar' should be string"
-                            ],
-                            1: ["'bar' should be string"],
-                        },
+                        invalidItems: [
+                            {
+                                itemPosition: 0,
+                                validationErrors: [
+                                    {
+                                        instancePath: 'foo',
+                                        schemaPath: 'foo',
+                                        keyword: 'type',
+                                        params: {
+                                            type: 'string'
+                                        },
+                                        message: 'must be string'
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 }
             }
