@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 
 > A headless browser is just a regular browser like the one you're using right now, but without the user-interface. Because they don't have a UI, they generally perform faster as they don't render any visual content. For an in-depth understanding of headless browsers, check out [this short article](https://blog.arhg.net/2009/10/what-is-headless-browser.html) about them.
 
-Both packages were developed by the same team and are very similar, which is why we have combined the Puppeteer course and the Playwright course into one super-course that shows code examples for both technologies. There are some small differences between the two, which will be highlighted in the examples.
+Both packages were developed by the same team and are very similar, which is why we have combined the Puppeteer course and the Playwright course into one super-course that shows code examples for both technologies. The two differ in only small ways, and those will always be highlighted in the examples.
 
 > Each lesson's activity will contain examples for both libraries, but we recommend using Playwright, as it is newer and has more features and better [documentation](https://playwright.dev/docs/intro)
 
@@ -59,7 +59,7 @@ npm install puppeteer
 </TabItem>
 </Tabs>
 
-> For a more in-depth guide on how to set up the basic environment we'll be using in this tutorial, check out the [**Computer preparation**](../web_scraping_for_beginners/data_extraction/computer_preparation.md) lesson in the **Web scraping for beginners** course
+> For a more in-depth guide on how to set up the basic environment we'll be using in this tutorial, check out the [**Computer preparation**](../scraping_basics_javascript/data_extraction/computer_preparation.md) lesson in the **Web scraping for beginners** course
 
 ## Course overview {#course-overview}
 

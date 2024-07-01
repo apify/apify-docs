@@ -44,7 +44,7 @@ When we try and run this, we get this error:
 ReferenceError: document is not defined
 ```
 
-The reason this is happening is because we're trying to run browser-side code on the server-side where it is not supported. [`document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) is a property of the browser [**Window**](https://developer.mozilla.org/en-US/docs/Web/API/Window) instance that holds the rendered website; therefore, this API is not available in Node.js. So how are we supposed to run code within the context of the browser?
+The reason this is happening is because we're trying to run browser-side code on the server-side where it is not supported. [`document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) is a property of the browser [**Window**](https://developer.mozilla.org/en-US/docs/Web/API/Window) instance that holds the rendered website; therefore, this API is not available in Node.js. How are we supposed to run code within the context of the browser?
 
 ## Running code in the context of the browser {#running-in-browser-context}
 

@@ -38,7 +38,7 @@ Alternatively, you can play around with the settings to make the results more in
 
 The Actor might take a while to gather its first results and finish its run. Meanwhile, let's take some time to explore the platform options:
 
-- There are more tabs providing you with information about the Actor run. For example, you can access the run **Log** and **Storage**.
+- Note the other tabs, which provide you with information about the Actor run. For example, you can access the run **Log** and **Storage**.
 - At the top right, you can click on the API button to explore the related API endpoints
 
 ![Run](./images/actor-google-maps-scraper-running.png)
@@ -70,7 +70,7 @@ An Actor's input and its content type can be passed as a payload of the POST req
 
 ## Running programmatically
 
-Actors can also be invoked programmatically from your own applications or from other actors.
+Actors can also be invoked programmatically from your own applications or from other Actors.
 
 To start an Actor from your own application, we recommend using our API client libraries for [JavaScript](/api/client/js/reference/class/ActorClient#call) or [Python](/api/client/python/reference/class/ActorClient#call).
 

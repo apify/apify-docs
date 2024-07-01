@@ -85,7 +85,7 @@ The `parseWithCheerio` function is available even in `CheerioCrawler` and all th
 
 When you run the code with `node browser.js`, you'll see a browser window open and then the individual pages getting scraped, each in a new browser tab.
 
-So, that's it. In 4 lines of code, we transformed our crawler from a static HTTP crawler to a headless browser crawler. The crawler now runs exactly the same as before, but uses a Chromium browser instead of plain HTTP requests. This simply is not possible without Crawlee.
+That's it. In 4 lines of code, we transformed our crawler from a static HTTP crawler to a headless browser crawler. The crawler now runs exactly the same as before, but uses a Chromium browser instead of plain HTTP requests. This simply is not possible without Crawlee.
 
 Using Playwright in combination with Cheerio like this is only one of many ways how you can utilize Playwright (and Puppeteer) with Crawlee. In the advanced courses of the Academy, we will go deeper into using headless browsers for scraping and web automation (RPA) use cases.
 

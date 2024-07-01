@@ -132,7 +132,7 @@ const csv = parse(results);
 writeFileSync('products.csv', csv); // <---- added writing of CSV to file
 ```
 
-Finally, run it with `node main.js` in your terminal. After running it, you will find the **products.csv** file in your project folder. And when you open it with Excel/Google Sheets – voila!
+Finally, run it with `node main.js` in your terminal. After running it, you will find the **products.csv** file in your project folder. And when you open it with Excel/Google Sheets—voila!
 
 ![Displaying CSV data in Google Sheets](./images/csv-data-in-sheets.png)
 

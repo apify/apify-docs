@@ -18,15 +18,15 @@ This course will teach you the nitty gritty of what it takes to build pro-level 
 
 Before developing a pro-level Apify scraper, there are some important things you should have at least a bit of knowledge about (knowing the basics of each is enough to continue through this section), as well as some things that you should have installed on your system.
 
-> If you've already gone through the [Web scraping for beginners course](../../webscraping/web_scraping_for_beginners/index.md) and the first courses of the [Apify platform category](../apify_platform.md), you will be more than well equipped to continue on with the lessons in this course.
+> If you've already gone through the [Web scraping for beginners course](../../webscraping/scraping_basics_javascript/index.md) and the first courses of the [Apify platform category](../apify_platform.md), you will be more than well equipped to continue on with the lessons in this course.
 
 <!-- ### Puppeteer/Playwright {#puppeteer-playwright}
 
-[Puppeteer](https://pptr.dev/) is a library for running and controlling a [headless browser](../../webscraping/web_scraping_for_beginners/crawling/headless_browser.md) in Node.js, and was developed at Google. The team working on it was hired by Microsoft to work on the [Playwright](https://playwright.dev/) project; therefore, many parallels can be seen between both the `puppeteer` and `playwright` packages. Proficiency in at least one of these will be good enough. -->
+[Puppeteer](https://pptr.dev/) is a library for running and controlling a [headless browser](../../webscraping/scraping_basics_javascript/crawling/headless_browser.md) in Node.js, and was developed at Google. The team working on it was hired by Microsoft to work on the [Playwright](https://playwright.dev/) project; therefore, many parallels can be seen between both the `puppeteer` and `playwright` packages. Proficiency in at least one of these will be good enough. -->
 
 ### Crawlee, Apify SDK, and the Apify CLI {#crawlee-apify-sdk-and-cli}
 
-If you're feeling ambitious, you don't need to have any prior experience with Crawlee to get started with this course; however, at least 5-10 minutes of exposure is recommended. If you haven't yet tried out Crawlee, you can refer to [this lesson](../../webscraping/web_scraping_for_beginners/crawling/pro_scraping.md) in the **Web scraping for beginners** course (and ideally follow along). To familiarize yourself with the Apify SDK, you can refer to the [Apify Platform](../apify_platform.md) category.
+If you're feeling ambitious, you don't need to have any prior experience with Crawlee to get started with this course; however, at least 5–10 minutes of exposure is recommended. If you haven't yet tried out Crawlee, you can refer to [this lesson](../../webscraping/scraping_basics_javascript/crawling/pro_scraping.md) in the **Web scraping for beginners** course (and ideally follow along). To familiarize yourself with the Apify SDK, you can refer to the [Apify Platform](../apify_platform.md) category.
 
 The Apify CLI will play a core role in the running and testing of the Actor you will build, so if you haven't gotten it installed already, please refer to [this short lesson](../../glossary/tools/apify_cli.md).
 

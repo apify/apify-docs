@@ -17,7 +17,7 @@ We recommend using the Actor Testing Actor for specific and advanced use cases. 
 
 ## Step-by-step guide
 
-1. Prepare 1-5 separate testing tasks for your Actor. ([See below](#set-up-tasks-you-will-test)).
+1. Prepare 1–5 separate testing tasks for your Actor. ([See below](#set-up-tasks-you-will-test)).
 2. Set up a task from the Actor Testing Actor. ([See below](#set-up-a-task-from-the-actor-testing-actor)).
 3. Run the test task until all tests succeed (a few times).
 4. Schedule the test to run at the frequency of your choice (recommended daily) and choose a communication channel receiving info about it ([Slack](https://apify.com/katerinahronik/slack-message) or [email](https://apify.com/apify/send-mail)).
@@ -27,7 +27,7 @@ We recommend using the Actor Testing Actor for specific and advanced use cases. 
 
 ![Tasks that test an Actor's configurations](./images/testing-tasks.png)
 
-We also advise you to test your Actor's default run – one that uses the pre-filled inputs. It is often the first task your users run, and they may be put off if it doesn't work.
+We also advise you to test your Actor's default run—one that uses the pre-filled inputs. It is often the first task your users run, and they may be put off if it doesn't work.
 
 Set a low `maxItem` value for your testing tasks, so that you don't burn your credit. If you need to test your Actor with a large amount of data, set the scheduler to run less frequently.
 
