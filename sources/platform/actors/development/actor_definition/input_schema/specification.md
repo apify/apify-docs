@@ -203,12 +203,6 @@ When using escape characters `\` for the regular expression in the `pattern` fie
 
 ### Boolean
 
-:::caution `prefill` limitation
-
-Beware that the `boolean` input type doesn't support the `prefill` property since there is no way to display the pre-filled value in the user interface.
-
-:::
-
 Example options with group caption:
 
 ```json5
@@ -226,7 +220,7 @@ Example options with group caption:
         "type": "boolean",
         "description": "If checked then actors runs at the
             speed of light.",
-        "default": true
+        "prefill": true
     }
 }
 ```
