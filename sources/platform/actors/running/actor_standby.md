@@ -15,6 +15,7 @@ However, in some applications, waiting for an Actor to start is not an option. A
 in the background, waiting for the incoming HTTP requests. In a sense, the Actor behaves like a real-time web server or standard API server.
 
 #### How do I know if Standby mode is enabled?
+
 You will know that the Actor is enabled for Standby mode if you see the **Standby** tab on the Actor's detail page.
 In the tab, you will find the hostname of the server, the description of the Actor's endpoints,
 the parameters they accept, and what they return in the Actor README.
@@ -24,17 +25,21 @@ hit the API endpoint and get results.
 
 ![Standby tab](./images/actor_standby/standby-tab.png)
 
-#### Can I still run the Actor in normal mode?
+#### Can I still run the Actor in normal mode
+
 Yes, you can still modify the input and click the Start button to run the Actor in normal mode. However, note that the Standby Actor might
 not support this mode; the run might fail or return empty results. The normal mode is always supported in Standby Beta, even for Actors that don't handle
 it well. Please head to the Actor README to learn more about the capabilities of your chosen Actor.
 
-#### Is there any scaling to accommodate the incoming requests?
+#### Is there any scaling to accommodate the incoming requests
+
 When you use the Actor in Standby mode, the system automatically scales the Actor to accommodate the incoming requests. Under the hood,
 the system starts new Actor runs, which you will see in the Actor runs tab, with the origin set to Standby.
 
-#### How do I customize standby configuration?
-The Standby configuration currently consists of the following properties
+#### How do I customize standby configuration
+
+The Standby configuration currently consists of the following properties:
+
 - **Max requests per run** - The maximum number of concurrent HTTP requests a single standby Actor run can accept. If this limit is exceeded, the system starts a new Actor run to handle the request, which may take a few seconds.
 - **Desired requests per run** - The number of concurrent HTTP requests a single Standby Actor run is configured to handle. If this limit is exceeded, the system preemptively starts a new Actor run to handle the additional requests.
 - **Memory (MB)** - The amount of memory (RAM) allocated for the Actor in Standby mode, in megabytes. With more memory, the Actor can typically handle more requests in parallel, but this also increases the number of compute units consumed and the associated cost.
@@ -42,23 +47,27 @@ The Standby configuration currently consists of the following properties
 - **Build** - The Actor build that the runs of the Standby Actor will use. Can be either a build tag (e.g. `latest.`), or a build number (e.g. `0.1.2`).
 
 You can see these in the Standby tab of the Actor detail page. However, note that these properties are not configurable at the Actor level. If you wish to
-use the Actor-level hostname, this will always use the default configuration. In order to override this configuration, just create a new Task from the Actor.
+use the Actor-level hostname, this will always use the default configuration. To override this configuration, just create a new Task from the Actor.
 You can then head to the Standby tab of the created Task and modify the configuration as needed. Note that the task has a specific hostname, so make
 sure to use that in your application if you wish to use the custom configuration.
 
-#### Are the Standby runs billed differently?
+#### Are the Standby runs billed differently
+
 No, the Standby runs are billed in the same fashion as the normal runs.
 However, running Actors in Standby mode might have unexpected costs, as the Actors run in the background and consume resources even when no requests are being sent until they are terminated after the idle timeout period.
 
-#### Are the Standby runs shared among users?
+#### Are the Standby runs shared among users
+
 No, even if you use the Actor-level hostname with the default configuration, the background Actor runs for your requests are not shared with other users.
 
-#### How can I enable standby for my Actor?
+#### How can I enable standby for my Actor
+
 You can head to the Settings tab of your Actor, enable Standby mode, and set the default configuration.
 ![Standby for creators](./images/actor_standby/standby-creators.png)
 
-Please make sure to properly describe your Actors, their endpoints, and the schema for their
+Please make sure to describe your Actors, their endpoints, and the schema for their
 inputs and ouputs in your README.
 
-#### Can I monetize my Actor in the Standby mode?
-No, Standby mode is currently in Beta, and monetization is not supported.
+#### Can I monetize my Actor in the Standby mode
+
+No, Standby mode is in Beta, and monetization is not supported.
