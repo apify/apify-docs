@@ -3,7 +3,7 @@ title: Actor Standby
 description: Use the Actor as a real-time API server.
 sidebar_position: 7.3
 slug: /actors/running/standby
-sidebar_label: Actor standby
+sidebar_label: Actor Standby
 ---
 
 **Use Actors in lightweight mode as a blazingly fast API server.**
@@ -36,11 +36,11 @@ it well. Please head to the Actor README to learn more about the capabilities of
 When you use the Actor in Standby mode, the system automatically scales the Actor to accommodate the incoming requests. Under the hood,
 the system starts new Actor runs, which you will see in the Actor runs tab, with the origin set to Standby.
 
-#### How do I customize standby configuration
+#### How do I customize Standby configuration
 
 The Standby configuration currently consists of the following properties:
 
-- **Max requests per run** - The maximum number of concurrent HTTP requests a single standby Actor run can accept. If this limit is exceeded, the system starts a new Actor run to handle the request, which may take a few seconds.
+- **Max requests per run** - The maximum number of concurrent HTTP requests a single Standby Actor run can accept. If this limit is exceeded, the system starts a new Actor run to handle the request, which may take a few seconds.
 - **Desired requests per run** - The number of concurrent HTTP requests a single Standby Actor run is configured to handle. If this limit is exceeded, the system preemptively starts a new Actor run to handle the additional requests.
 - **Memory (MB)** - The amount of memory (RAM) allocated for the Actor in Standby mode, in megabytes. With more memory, the Actor can typically handle more requests in parallel, but this also increases the number of compute units consumed and the associated cost.
 - **Idle timeout (seconds)** - If a Standby Actor run doesn’t receive any HTTP requests within this time, the system will terminate the run. When a new request arrives, the system might need to start a new Standby Actor run to handle it, which can take a few seconds. A higher idle timeout improves responsiveness but increases costs, as the Actor remains active for a longer period.
@@ -60,7 +60,7 @@ However, running Actors in Standby mode might have unexpected costs, as the Acto
 
 No, even if you use the Actor-level hostname with the default configuration, the background Actor runs for your requests are not shared with other users.
 
-#### How can I enable standby for my Actor
+#### How can I enable Standby for my Actor
 
 You can head to the Settings tab of your Actor, enable Standby mode, and set the default configuration.
 ![Standby for creators](./images/actor_standby/standby-creators.png)
