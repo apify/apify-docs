@@ -95,6 +95,7 @@ async def main() -> None:
 </TabItem>
 </Tabs>
 
+If you need to override the port, you can do it via `ACTOR_STANDBY_PORT` environment variable.
 See example below with a basic Actor using Standby mode.
 
 <Tabs>
