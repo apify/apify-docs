@@ -68,35 +68,11 @@ import TabItem from '@theme/TabItem';
 You can head to the Settings tab of your Actor, enable Standby mode, and set the default configuration.
 ![Standby for creators](./images/actor_standby/standby-creators.png)
 
-For the coding part, you can use Apify SDK to retrieve the port Actor Standby should be listening on.
-
-<Tabs>
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-await Actor.init();
-console.log(Actor.config.get('standbyPort'));
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-from apify import Actor, Configuration
-
-async def main() -> None:
-    async with Actor:
-        config = Configuration.get_global_configuration()
-        print(config.standby_port)
-```
-
-</TabItem>
-</Tabs>
+Actors using Standby mode must run a HTTP server listening on a specific port. The user requests will then be proxied to the HTTP server.
+You can get the port using the Actor configuration available in Apify SDK.
 
 If you need to override the port, you can do it via `ACTOR_STANDBY_PORT` environment variable.
-See example below with a basic Actor using Standby mode.
+See example below with a simple Actor using Standby mode.
 
 <Tabs>
 <TabItem value="JavaScript" label="JavaScript">
@@ -130,8 +106,7 @@ class GetHandler(SimpleHTTPRequestHandler):
 
 async def main() -> None:
     async with Actor:
-        config = Configuration.get_global_configuration()
-        with HTTPServer(("", config.standby_port), GetHandler) as http_server:
+        with HTTPServer(("", Actor.config.standby_port), GetHandler) as http_server:
             http_server.serve_forever()
 ```
 
