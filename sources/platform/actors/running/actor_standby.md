@@ -91,6 +91,7 @@ async def main() -> None:
         config = Configuration.get_global_configuration()
         print(config.standby_port)
 ```
+
 </TabItem>
 </Tabs>
 
