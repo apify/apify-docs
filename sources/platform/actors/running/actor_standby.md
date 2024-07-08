@@ -60,10 +60,81 @@ However, running Actors in Standby mode might have unexpected costs, as the Acto
 
 No, even if you use the Actor-level hostname with the default configuration, the background Actor runs for your requests are not shared with other users.
 
-#### How can I enable Standby for my Actor
+#### How can I develop Actors using Standby mode
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 You can head to the Settings tab of your Actor, enable Standby mode, and set the default configuration.
 ![Standby for creators](./images/actor_standby/standby-creators.png)
+
+For the coding part, you can use Apify SDK to retrieve the port Actor Standby should be listening on.
+
+<Tabs>
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import { Actor } from 'apify';
+
+await Actor.init();
+console.log(Actor.config.get('standbyPort'));
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor, Configuration
+
+async def main() -> None:
+    async with Actor:
+        config = Configuration.get_global_configuration()
+        print(config.standby_port)
+```
+</TabItem>
+</Tabs>
+
+See example below with a basic Actor using Standby mode.
+
+<Tabs>
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import http from 'http';
+import { Actor } from 'apify';
+
+await Actor.init();
+
+const server = http.createServer(async (req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Hello from Actor Standby!\n');
+});
+
+server.listen(Actor.config.get('standbyPort'));
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+from apify import Actor, Configuration
+
+class GetHandler(SimpleHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b'Hello from Actor Standby!')
+
+async def main() -> None:
+    async with Actor:
+        config = Configuration.get_global_configuration()
+        with HTTPServer(("", config.standby_port), GetHandler) as http_server:
+            http_server.serve_forever()
+```
+
+</TabItem>
+</Tabs>
 
 Please make sure to describe your Actors, their endpoints, and the schema for their
 inputs and ouputs in your README.
