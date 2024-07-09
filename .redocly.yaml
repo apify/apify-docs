@@ -12,7 +12,11 @@ theme:
         onlyRequiredInSamples: true
         nativeScrollbars: true
         scrollYOffset: 68
-        theme:
-            colors:
-                primary:
-                    main: '#1f9ec8'
+        colors:
+            primary:
+                main: '#1f9ec8'
+        expandDefaultResponse: true
+        expandDefaultRequest: true
+        expandResponses: all
+        schemaExpansionLevel: 2
+        jsonSampleExpandLevel: 2
