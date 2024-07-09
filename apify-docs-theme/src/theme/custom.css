@@ -1563,3 +1563,7 @@ html[data-theme='dark'] .runnable-code-block svg .apify-logo {
     position: sticky;
     left: var(--ifm-pre-padding);
 }
+
+.redocusaurus table code {
+    word-break: normal;
+}
