@@ -71,10 +71,10 @@ You can head to the Settings tab of your Actor, enable Standby mode, and set the
 Actors using Standby mode must run a HTTP server listening on a specific port. The user requests will then be proxied to the HTTP server.
 You can get the port using the Actor configuration available in Apify SDK.
 
-If you need to override the port, you can do it via `ACTOR_STANDBY_PORT` environment variable.
+If you need to override the port, you can do it via the `ACTOR_STANDBY_PORT` environment variable.
 See example below with a simple Actor using Standby mode.
 
-<Tabs>
+<Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
 
 ```js
@@ -106,7 +106,7 @@ class GetHandler(SimpleHTTPRequestHandler):
 
 async def main() -> None:
     async with Actor:
-        with HTTPServer(("", Actor.config.standby_port), GetHandler) as http_server:
+        with HTTPServer(('', Actor.config.standby_port), GetHandler) as http_server:
             http_server.serve_forever()
 ```
 
