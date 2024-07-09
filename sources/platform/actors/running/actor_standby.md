@@ -83,7 +83,7 @@ import { Actor } from 'apify';
 
 await Actor.init();
 
-const server = http.createServer(async (req, res) => {
+const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Hello from Actor Standby!\n');
 });
@@ -96,7 +96,7 @@ server.listen(Actor.config.get('standbyPort'));
 
 ```python
 from http.server import HTTPServer, SimpleHTTPRequestHandler
-from apify import Actor, Configuration
+from apify import Actor
 
 class GetHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
