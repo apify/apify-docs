@@ -68,3 +68,7 @@ async def main() -> None:
 
 Please make sure to describe your Actors, their endpoints, and the schema for their
 inputs and ouputs in your README.
+
+#### Can I monetize my Actor in the Standby mode
+
+No, Standby mode is in Beta, and monetization is not supported.

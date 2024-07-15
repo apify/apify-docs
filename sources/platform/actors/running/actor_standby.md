@@ -63,7 +63,3 @@ No, even if you use the Actor-level hostname with the default configuration, the
 #### How can I develop Actors using Standby mode
 
 See the [Actor Standby development section](../development/programming_interface/actor_standby.md).
-
-#### Can I monetize my Actor in the Standby mode
-
-No, Standby mode is in Beta, and monetization is not supported.
