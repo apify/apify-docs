@@ -127,7 +127,7 @@ If you're curious, sneak a peek at the list of all [HTTP response status codes](
 
 ## Handling errors
 
-It's time to ask for trouble! Let's change the URL in our code to a page which doesn't exist, so that we get a response with [status code 404](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404):
+It's time to ask for trouble! Let's change the URL in our code to a page which doesn't exist, so that we get a response with [status code 404](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404). This could happen, for example, when the product we are scraping is no longer available:
 
 ```text
 https://warehouse-theme-metal.myshopify.com/does/not/exist
