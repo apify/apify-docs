@@ -10,7 +10,7 @@ slug: /scraping-basics-python/locating-elements
 
 ---
 
-In the previous lesson we've managed to print text of the page's main heading or count how many products is in the listing. Let's combine those two—what happens if we print `.text` for each product card?
+In the previous lesson we've managed to print text of the page's main heading or count how many products are in the listing. Let's combine those two. What happens if we print `.text` for each product card?
 
 ```py
 import httpx
