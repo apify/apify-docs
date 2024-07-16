@@ -45,7 +45,7 @@ OK
 
 :::info Troubleshooting
 
-If you see errors or for any other reason cannot run the code above, we're sorry, but figuring out the issue is out of scope of this course.
+If you see errors or for any other reason cannot run the code above, it means that your environment isn't set up correctly. We're sorry, but figuring out the issue is out of scope of this course.
 
 :::
 
