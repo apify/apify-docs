@@ -14,7 +14,7 @@ From lessons about browser DevTools we know that the HTML tags representing indi
 
 ![Products have the ‘product-item’ class](./images/product-item.png)
 
-As a first step, let's try counting how many products is on the listing page.
+As a first step, let's try counting how many products are on the listing page.
 
 ## Treating HTML as a string
 
