@@ -326,6 +326,7 @@ Hints:
 
   ```py
   import httpx
+  from datetime import datetime
   from bs4 import BeautifulSoup
 
   url = "https://www.theguardian.com/sport/formulaone"
