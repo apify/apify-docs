@@ -27,31 +27,29 @@ Let's summarize what stands in our way if we want to have it in our Python progr
 - the number contains decimal commas for better human readability,
 - and some prices start with `From`, which reveals there is a certain complexity in how the shop deals with prices.
 
-## Representing price as an interval
+## Representing price
 
-The last bullet point is the most important to figure out before we start coding. We thought we'll be scraping numbers, but in the middle of our effort, we discovered that the price is actually an [interval](https://en.wikipedia.org/wiki/Interval_(mathematics)).
+The last bullet point is the most important to figure out before we start coding. We thought we'll be scraping numbers, but in the middle of our effort, we discovered that the price is actually a range.
 
-In such a situation, we'd normally go and discuss the problem with those who are about to use the resulting data. For their purposes, is the fact that some prices are just minimum prices important? What would be the most useful representation of the interval in the data for them?
+It's because some products have variants with different prices. Later in the course we'll get to crawling, i.e. following links and scraping data from more than just one page. That will allow us to get exact prices for all the products, but for now let's extract just what's in the listing.
 
-Maybe they'd tell us that we can just remove the `From` prefix and it's fine!
+Ideally we'd go and discuss the problem with those who are about to use the resulting data. For their purposes, is the fact that some prices are just minimum prices important? What would be the most useful representation of the range for them? Maybe they'd tell us that it's okay if we just remove the `From` prefix!
 
 ```py
 price_text = product.select_one(".price").contents[-1]
 price = price_text.removeprefix("From ")
 ```
 
-In other cases, they'd tell us the data must include this information. And in cases when we just don't know, the safest option is to include in the data everything we have from the input and leave the decision on what's important to later stages.
-
-We can represent interval in various ways. One approach could be having min price and max price. For regular prices, these two numbers would be the same. For prices starting with `From`, the max price would be none, because we don't know it:
+In other cases, they'd tell us the data must include the range. And in cases when we just don't know, the safest option is to include all the information we have and leave the decision on what's important to later stages. One approach could be having the exact and minimum prices as separate values. If we don't know the exact price, we leave it empty:
 
 ```py
 price_text = product.select_one(".price").contents[-1]
 if price_text.startswith("From "):
     min_price = price_text.removeprefix("From ")
-    max_price = None
+    price = None
 else:
     min_price = price_text
-    max_price = min_price
+    price = min_price
 ```
 
 We're using Python's built-in string methods:
@@ -78,12 +76,12 @@ for product in soup.select(".product-item"):
     price_text = product.select_one(".price").contents[-1]
     if price_text.startswith("From "):
         min_price = price_text.removeprefix("From ")
-        max_price = None
+        price = None
     else:
         min_price = price_text
-        max_price = min_price
+        price = min_price
 
-    print(title, min_price, max_price)
+    print(title, min_price, price)
 ```
 
 ## Removing white space
@@ -146,10 +144,10 @@ Now we should be able to add `float()`, so that we have the prices not as a text
 ```py
 if price_text.startswith("From "):
     min_price = float(price_text.removeprefix("From "))
-    max_price = None
+    price = None
 else:
     min_price = float(price_text)
-    max_price = min_price
+    price = min_price
 ```
 
 Great! Only if we didn't overlook an important pitfall called [floating-point error](https://en.wikipedia.org/wiki/Floating-point_error_mitigation). In short, computers save `float()` numbers in a way which isn't always reliable:
@@ -186,12 +184,12 @@ for product in soup.select(".product-item"):
     )
     if price_text.startswith("From "):
         min_price = Decimal(price_text.removeprefix("From "))
-        max_price = None
+        price = None
     else:
         min_price = Decimal(price_text)
-        max_price = min_price
+        price = min_price
 
-    print(title, min_price, max_price)
+    print(title, min_price, price)
 ```
 
 If we run the code above, we have nice, clean data about all the products!
