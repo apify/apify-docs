@@ -33,7 +33,7 @@ After manually inspecting the page in browser DevTools we can see that all produ
 </div>
 ```
 
-At first sight, counting `product-item` occurances wouldn't match only products, but also `product-item__image-wrapper`. Hmm.
+At first sight, counting `product-item` occurrences wouldn't match only products, but also `product-item__image-wrapper`. Hmm.
 
 We could try looking for `<div class="product-item`, a substring which represents the enitre beginning of each product tag, but that would also count `<div class="product-item__info`! We'll need to add a space after the class name to avoid matching those. Replace your program with the following code:
 
