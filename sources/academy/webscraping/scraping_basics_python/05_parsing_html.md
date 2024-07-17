@@ -6,6 +6,8 @@ sidebar_position: 5
 slug: /scraping-basics-python/parsing-html
 ---
 
+import Exercises from './_exercises.mdx';
+
 **In this lesson we'll look for products in the downloaded HTML. We'll use BeautifulSoup to turn the HTML into objects which we can work with in our Python program.**
 
 ---
@@ -157,9 +159,7 @@ That's it! We have managed to download a product listing, parse its HTML, and co
 
 ---
 
-## Exercises
-
-These challenges are here to help you test what you’ve learned in this lesson. Try to resist the urge to peek at the solutions right away. Remember, the best learning happens when you dive in and do it yourself!
+<Exercises />
 
 ### Scrape F1 teams
 

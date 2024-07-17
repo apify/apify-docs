@@ -6,6 +6,8 @@ sidebar_position: 7
 slug: /scraping-basics-python/extracting-data
 ---
 
+import Exercises from './_exercises.mdx';
+
 **In this lesson we'll finish extracting product data from the downloaded HTML. With help of basic string manipulation we'll focus on cleaning and correctly representing the product price.**
 
 ---
@@ -207,9 +209,7 @@ Well, not to spoil the excitement, but in its current form, the data isn't very 
 
 ---
 
-## Exercises
-
-These challenges are here to help you test what you’ve learned in this lesson. Try to resist the urge to peek at the solutions right away. Remember, the best learning happens when you dive in and do it yourself!
+<Exercises />
 
 ### Scrape units on stock
 

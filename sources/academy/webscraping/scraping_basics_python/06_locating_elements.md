@@ -6,6 +6,8 @@ sidebar_position: 6
 slug: /scraping-basics-python/locating-elements
 ---
 
+import Exercises from './_exercises.mdx';
+
 **In this lesson we'll locate product data in the downloaded HTML. We'll use BeautifulSoup to find those HTML elements which contain details about each product, such as title or price.**
 
 ---
@@ -181,9 +183,7 @@ Great! We have managed to use CSS selectors and walk the HTML tree to get a list
 
 ---
 
-## Exercises
-
-These challenges are here to help you test what you’ve learned in this lesson. Try to resist the urge to peek at the solutions right away. Remember, the best learning happens when you dive in and do it yourself!
+<Exercises />
 
 ### Scrape Wikipedia
 
