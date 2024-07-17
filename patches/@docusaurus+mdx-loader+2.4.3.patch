@@ -7,9 +7,12 @@ index 5f9dce1..fdc1976 100644
      const reqOptions = this.getOptions();
      const { frontMatter, content: contentWithTitle } = (0, utils_1.parseFrontMatter)(fileString);
 +
-+    const ogImageURL = new URL('https://apify.com/og-image/docs-article');
-+    ogImageURL.searchParams.set('title', frontMatter.title);
-+    frontMatter.image ??= ogImageURL.toString();
++    const isPartial = filePath.split('/').pop()[0] === '_';
++    if (!isPartial) {
++        const ogImageURL = new URL('https://apify.com/og-image/docs-article');
++        ogImageURL.searchParams.set('title', frontMatter.title);
++        frontMatter.image ??= ogImageURL.toString();
++    }
 +
      const { content, contentTitle } = (0, utils_1.parseMarkdownContentTitle)(contentWithTitle, {
          removeContentTitle: reqOptions.removeContentTitle,
