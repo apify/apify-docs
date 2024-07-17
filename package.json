@@ -78,7 +78,7 @@
         "react-github-btn": "^1.4.0",
         "redocusaurus": "^2.0.2",
         "search-insights": "2.15.0",
-        "styled-components": "6.1.11",
+        "styled-components": "6.1.12",
         "unist-util-visit": "^5.0.0"
     },
     "workspaces": [
