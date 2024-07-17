@@ -31,6 +31,7 @@ import TabItem from '@theme/TabItem';
         "MYSQL_USER": "my_username",
         "MYSQL_PASSWORD": "@mySecretPassword"
     },
+    "usesStandbyMode": false,
     "dockerfile": "./Dockerfile",
     "readme": "./ACTOR.md",
     "input": "./input_schema.json",
@@ -77,3 +78,4 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 | `storages.dataset` | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](./output_schema.md#specification-version-1) about Actor output schemas. |
 | `minMemoryMbytes` | Optional | Specifies the minimum amount of memory in megabytes required by the Actor to run. Requires an _integer_ value. If both `minMemoryMbytes` and `maxMemoryMbytes` are set, then `minMemoryMbytes` must be equal or lower than `maxMemoryMbytes`. Refer to the [Usage and resoursces](https://docs.apify.com/platform/actors/running/usage-and-resources#memory) for more details about memory allocation. |
 | `maxMemoryMbytes` | Optional | Specifies the maximum amount of memory in megabytes required by the Actor to run. It can be used to control the costs of run, especially when developing pay per result Actors. Requires an _integer_ value. Refer to the [Usage and resoursces](https://docs.apify.com/platform/actors/running/usage-and-resources#memory) for more details about memory allocation. |
+| `usesStandbyMode` | Optional | Boolean specifying whether the Actor will have [Standby mode](../programming_interface/actor_standby.md) enabled. |
