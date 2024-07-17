@@ -28,12 +28,12 @@ TODO image of warehouse with some CVS or JSON exported, similar to sources/acade
 
 ## What you'll do
 
-- Inspect pages using browser DevTools
-- Download web pages using the HTTPX library
-- Extract data from web pages using the Beautiful Soup library
+- Inspect pages using browser DevTools.
+- Download web pages using the HTTPX library.
+- Extract data from web pages using the Beautiful Soup library.
 - Save extracted data in various formats, e.g. CSV which MS Excel or Google Sheets can open
-- Follow links programatically (crawling)
-- Save time and effort with frameworks, such as Crawlee, and scraping platforms, such as Apify
+- Follow links programatically (crawling).
+- Save time and effort with frameworks, such as Crawlee, and scraping platforms, such as Apify.
 
 ## Who this course is for
 
@@ -41,10 +41,10 @@ Anyone with basic knowledge of developing programs in Python who wants to start 
 
 ## Requirements
 
-- A macOS, Linux, or Windows machine with a web browser and Python installed
-- Familiarity with Python basics: variables, conditions, loops, functions, strings, lists, dictionaries, files, classes, and exceptions
-- Comfort with importing from the Python standard library, using virtual environments, and installing dependencies with `pip`
-- Familiarity with running commands in Terminal (macOS/Linux) or Command Prompt (Windows)
+- A macOS, Linux, or Windows machine with a web browser and Python installed.
+- Familiarity with Python basics: variables, conditions, loops, functions, strings, lists, dictionaries, files, classes, and exceptions.
+- Comfort with importing from the Python standard library, using virtual environments, and installing dependencies with `pip`.
+- Familiarity with running commands in Terminal (macOS/Linux) or Command Prompt (Windows).
 
 ## You may want to know
 

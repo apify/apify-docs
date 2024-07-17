@@ -26,8 +26,8 @@ Sony PS-HX500 Hi-Res USB Turntable $398.00
 Let's summarize what stands in our way if we want to have it in our Python program as a number:
 
 - A dollar sign preceeds the number,
-- the number contains decimal commas for better human readability,
-- and some prices start with `From`, which reveals there is a certain complexity in how the shop deals with prices.
+- the number contains decimal commas for better human readability, and
+- some prices start with `From`, which reveals there is a certain complexity in how the shop deals with prices.
 
 ## Representing price
 
