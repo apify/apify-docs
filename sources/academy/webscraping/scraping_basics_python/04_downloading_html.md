@@ -14,7 +14,7 @@ Using browser tools for developers is crucial for understanding the structure of
 
 ## Starting a Python project
 
-Before we start coding, we need to setup a Python project. Create new directory with a virtual environment, then inside the directory and with the environment activated, install the HTTPX library:
+Before we start coding, we need to set up a Python project. Create new directory with a virtual environment, then inside the directory and with the environment activated, install the HTTPX library:
 
 ```text
 $ pip install httpx
