@@ -6,6 +6,8 @@ sidebar_position: 4
 slug: /scraping-basics-python/downloading-html
 ---
 
+import Exercises from './_exercises.mdx';
+
 **In this lesson we'll start building a Python application for watching prices. As a first step, we'll use the HTTPX library to download HTML code of a product listing page.**
 
 ---
@@ -167,9 +169,7 @@ Done! We have managed to apply basic error handling. Now let's get back to our p
 
 ---
 
-## Exercises
-
-These challenges are here to help you test what you’ve learned in this lesson. Try to resist the urge to peek at the solutions right away. Remember, the best learning happens when you dive in and do it yourself!
+<Exercises />
 
 ### Scrape Amazon
 
