@@ -45,11 +45,10 @@ response = httpx.get(url)
 response.raise_for_status()
 
 html_code = response.text
+# use single quotes as string boundaries, because the substring contains a double quote character
 count = html_code.count('<div class="product-item ')
 print(count)
 ```
-
-Note that because the substring contains a double quote character, we need single quotes as string boundaries.
 
 :::info Handling errors
 
