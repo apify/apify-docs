@@ -10,8 +10,8 @@ slug: /scraping-basics-python/devtools-extracting-data
 
 ---
 
-:::danger Work in progress
+:::danger Work in Progress
 
-This lesson doesn't exist yet, but it's going to be similar to [Extracting data with DevTools](../scraping_basics_javascript/data_extraction/devtools_continued.md).
+This lesson is under development. Please read [Extracting data with DevTools](../scraping_basics_javascript/data_extraction/devtools_continued.md) in the meantime so you can follow the upcoming lessons.
 
 :::

@@ -10,9 +10,9 @@ slug: /scraping-basics-python/devtools-inspecting
 
 ---
 
-:::danger Work in progress
+:::danger Work in Progress
 
-This lesson doesn't exist yet, but it's going to be similar to [Starting with browser DevTools](../scraping_basics_javascript/data_extraction/browser_devtools.md).
+This lesson is under development. Please read [Starting with browser DevTools](../scraping_basics_javascript/data_extraction/browser_devtools.md) in the meantime so you can follow the upcoming lessons.
 
 :::
 
