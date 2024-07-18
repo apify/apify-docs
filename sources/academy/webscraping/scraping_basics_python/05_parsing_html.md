@@ -52,12 +52,6 @@ count = html_code.count('<div class="product-item ')
 print(count)
 ```
 
-:::info Handling errors
-
-To have the code examples more concise, we're omitting error handling for now. Keeping `response.raise_for_status()` ensures that your program at least visibly crashes and prints what happened in case there's an error.
-
-:::
-
 Our scraper prints 24, which is in line with the text **Showing 1–24 of 50 products** above the product listing. Phew, figuring this out was quite tedious!
 
 ```text
