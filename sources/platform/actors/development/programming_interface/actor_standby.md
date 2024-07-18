@@ -13,7 +13,7 @@ Traditional Actors are designed to run a single task and then stop. They're most
 However, in some applications, waiting for an Actor to start is not an option. Actor Standby mode solves this problem by letting you have the Actor ready
 in the background, waiting for the incoming HTTP requests. In a sense, the Actor behaves like a real-time web server or standard API server.
 
-#### How can I develop Actors using Standby mode
+## How can I develop Actors using Standby mode
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -69,6 +69,6 @@ async def main() -> None:
 Please make sure to describe your Actors, their endpoints, and the schema for their
 inputs and ouputs in your README.
 
-#### Can I monetize my Actor in the Standby mode
+## Can I monetize my Actor in the Standby mode
 
 No, Standby mode is in Beta, and monetization is not supported.
