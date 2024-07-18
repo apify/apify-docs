@@ -94,10 +94,6 @@ JBL Flip 4 Waterproof Portable Bluetooth Speaker
 Sale price$74.95
 Sony XBR-950G BRAVIA 4K HDR Ultra HD TV
 Sale priceFrom $1,398.00
-Sony SACS9 10" Active Subwoofer
-Sale price$158.00
-Sony PS-HX500 Hi-Res USB Turntable
-Sale price$398.00
 ...
 ```
 
@@ -105,7 +101,7 @@ There's still some room for improvement, but it's already much better!
 
 ## Locating a single element
 
-Often, we want to assume in our code that a certain element exists only once. It's a bit tedious to work with lists when you know you're looking for a single element. For this purpose, Beautiful Soup offers a `.select_one()` method. Like `document.querySelector()` in browser DevTools, it returns just one result or none. Let's simplify our code!
+Often, we want to assume in our code that a certain element exists only once. It's a bit tedious to work with lists when you know you're looking for a single element. For this purpose, Beautiful Soup offers the `.select_one()` method. Like `document.querySelector()` in browser DevTools, it returns just one result or `None`. Let's simplify our code!
 
 ```py
 import httpx
@@ -174,8 +170,23 @@ If we run the scraper now, it should print prices as only amounts:
 $ python main.py
 JBL Flip 4 Waterproof Portable Bluetooth Speaker $74.95
 Sony XBR-950G BRAVIA 4K HDR Ultra HD TV From $1,398.00
-Sony SACS9 10" Active Subwoofer $158.00
-Sony PS-HX500 Hi-Res USB Turntable $398.00
+...
+```
+
+## Formatting output
+
+The results seem to be correct, but they're hard to verify because the prices visually blend with the titles. Let's set a different separator for the `print()` function:
+
+```py
+print(title, price, sep=" | ")
+```
+
+The output is much nicer this way:
+
+```text
+$ python main.py
+JBL Flip 4 Waterproof Portable Bluetooth Speaker | $74.95
+Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | From $1,398.00
 ...
 ```
 

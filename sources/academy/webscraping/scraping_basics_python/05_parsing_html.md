@@ -20,9 +20,9 @@ As a first step, let's try counting how many products are on the listing page.
 
 ## Processing HTML
 
-After downloading, the entire HTML is available in our program as a string. We can print it to the screen or save it to a file, but not much more. But if it's a string, could we use [string operations](https://docs.python.org/3/library/stdtypes.html#string-methods) or [regular expressions](https://docs.python.org/3/library/re.html) to count the products?
+After downloading, the entire HTML is available in our program as a string. We can print it to the screen or save it to a file, but not much more. However, since it's a string, could we use [string operations](https://docs.python.org/3/library/stdtypes.html#string-methods) or [regular expressions](https://docs.python.org/3/library/re.html) to count the products?
 
-While somewhat possible, such approach is tedious, fragile, and unreliable. To work with HTML we need a robust tool dedicated for the task. An _HTML parser_ takes a text with HTML markup and turns it into a tree of Python objects.
+While somewhat possible, such an approach is tedious, fragile, and unreliable. To work with HTML, we need a robust tool dedicated to the task: an _HTML parser_. It takes a text with HTML markup and turns it into a tree of Python objects.
 
 :::info Why regex can't parse HTML
 
