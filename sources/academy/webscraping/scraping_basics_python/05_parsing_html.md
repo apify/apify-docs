@@ -18,52 +18,11 @@ From lessons about browser DevTools we know that the HTML tags representing indi
 
 As a first step, let's try counting how many products are on the listing page.
 
-## Treating HTML as a string
+## Processing HTML
 
-Currently, the entire HTML is available in our program as a string. Our program can print it to the screen or save it to a file, but not much more. If it's a string, could we use Python string operations to count the products? Each Python string has [`.count()`](https://docs.python.org/3/library/stdtypes.html#str.count), a method for counting substrings.
+After downloading, the entire HTML is available in our program as a string. We can print it to the screen or save it to a file, but not much more. But if it's a string, could we use [string operations](https://docs.python.org/3/library/stdtypes.html#string-methods) or [regular expressions](https://docs.python.org/3/library/re.html) to count the products?
 
-After manually inspecting the page in browser DevTools we can see that all product cards have the following structure:
-
-```html
-<div class="product-item product-item--vertical ...">
-  <a href="/products/..." class="product-item__image-wrapper">
-    ...
-  </a>
-  <div class="product-item__info">
-    ...
-  </div>
-</div>
-```
-
-At first sight, counting `product-item` occurrences wouldn't match only products, but also `product-item__image-wrapper`. Hmm.
-
-We could try looking for `<div class="product-item`, a substring which represents the enitre beginning of each product tag, but that would also count `<div class="product-item__info`! We'll need to add a space after the class name to avoid matching those. Replace your program with the following code:
-
-```py
-import httpx
-
-url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
-response.raise_for_status()
-
-html_code = response.text
-# use single quotes as string boundaries, because the substring contains a double quote character
-count = html_code.count('<div class="product-item ')
-print(count)
-```
-
-Our scraper prints 24, which is in line with the text **Showing 1–24 of 50 products** above the product listing. Phew, figuring this out was quite tedious!
-
-```text
-$ python main.py
-24
-```
-
-<!-- TODO image -->
-
-While possible, we can see that processing HTML with [standard string methods](https://docs.python.org/3/library/stdtypes.html#string-methods) is difficult and fragile. Imagine we wouldn't be just counting, but trying to get the titles and prices.
-
-In fact HTML can be so complex that even [regular expressions](https://docs.python.org/3/library/re.html) aren't able to process it reliably. To work with HTML we need a robust tool dedicated for the task.
+While somewhat possible, such approach is tedious, fragile, and unreliable. To work with HTML we need a robust tool dedicated for the task. An _HTML parser_ takes a text with HTML markup and turns it into a tree of Python objects.
 
 :::info Why regex can't parse HTML
 
@@ -71,9 +30,7 @@ While [Bobince's infamous StackOverflow answer](https://stackoverflow.com/a/1732
 
 :::
 
-## Using HTML parser
-
-An HTML parser takes a text with HTML markup and turns it into a tree of Python objects. We'll choose Beautiful Soup as our parser, as it's a popular library renowned for its ability to process even non-standard, broken markup. This is useful for scraping, because real-world websites often contain all sorts of errors and discrepancies.
+We'll choose _Beautiful Soup_ as our parser, as it's a popular library renowned for its ability to process even non-standard, broken markup. This is useful for scraping, because real-world websites often contain all sorts of errors and discrepancies.
 
 ```text
 $ pip install beautifulsoup4
@@ -81,7 +38,7 @@ $ pip install beautifulsoup4
 Successfully installed beautifulsoup4-4.0.0 soupsieve-0.0
 ```
 
-Now let's use it for parsing the HTML. Unlike plain string, the `BeautifulSoup` object allows us to work with the HTML elements in a structured way. As a demonstration, we'll first get the `<h1>` tag, which represents the main heading of the page.
+Now let's use it for parsing the HTML. The `BeautifulSoup` object allows us to work with the HTML elements in a structured way. As a demonstration, we'll first get the `<h1>` tag, which represents the main heading of the page.
 
 ![Tag of the main heading](./images/h1.png)
 
@@ -149,7 +106,7 @@ $ python main.py
 24
 ```
 
-That's it! We have managed to download a product listing, parse its HTML, and count how many products it contains. In the next lesson, we'll be looking for a way to extract detailed information about individual products.
+That's it! We've managed to download a product listing, parse its HTML, and count how many products it contains. In the next lesson, we'll be looking for a way to extract detailed information about individual products.
 
 ---
 
