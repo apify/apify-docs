@@ -53,7 +53,7 @@ If you see errors or for any other reason cannot run the code above, it means th
 
 ## Downloading product listing
 
-Now onto coding! Let's change our code so it downloads HTML of the product listing instead of printing OK. The [documentation of the HTTPX library](https://www.python-httpx.org/) provides us with examples how to use it. Inspired by those, our code will look like this:
+Now onto coding! Let's change our code so it downloads HTML of the product listing instead of printing `OK`. The [documentation of the HTTPX library](https://www.python-httpx.org/) provides us with examples how to use it. Inspired by those, our code will look like this:
 
 ```py
 import httpx
@@ -81,19 +81,15 @@ $ python main.py
 </html>
 ```
 
-And that's it! It's not particularly useful yet, but it's a good start of our scraper.
+Running `httpx.get(url)`, we made a HTTP request and received a response. It's not particularly useful yet, but it's a good start of our scraper.
 
-## About HTTP
+:::tip Client and server, request and response
 
-Running `httpx.get(url)`, we made our first HTTP request and received our first response. HTTP is a network protocol powering most of the internet. Understanding it well is an important foundation for successful scraping, but for now it's enough to know the basic flow and terminology.
+HTTP is a network protocol powering the internet. Understanding it well is an important foundation for successful scraping, but for this course, it's enough to know just the basic flow and terminology:
 
-HTTP is an exchange of two participants. The _client_ sends a _request_ to the _server_, which replies with a _response_. In our case, `main.py` is the client, and the technology running at `warehouse-theme-metal.myshopify.com` replies to our request as the server.
-
-<!-- TODO image basic HTTP chart -->
-
-:::tip Deep dive to HTTP
-
-The HTTP protocol is defined by several documents called RFCs, such as [RFC 7230: HTTP Message Syntax and Routing](https://www.rfc-editor.org/rfc/rfc7230) or [RFC 7231: HTTP Semantics and Content](https://www.rfc-editor.org/rfc/rfc7231). While these technical specifications are surprisingly digestible, you may also like [HTTP tutorials by MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP).
+- HTTP is an exchange between two participants.
+- The _client_ sends a _request_ to the _server_, which replies with a _response_.
+- In our case, `main.py` is the client, and the technology running at `warehouse-theme-metal.myshopify.com` replies to our request as the server.
 
 :::
 
