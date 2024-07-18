@@ -1,11 +1,11 @@
 diff --git a/node_modules/@docusaurus/mdx-loader/lib/loader.js b/node_modules/@docusaurus/mdx-loader/lib/loader.js
-index 5f9dce1..fdc1976 100644
+index 5f9dce1..1c0e519 100644
 --- a/node_modules/@docusaurus/mdx-loader/lib/loader.js
 +++ b/node_modules/@docusaurus/mdx-loader/lib/loader.js
-@@ -103,6 +103,11 @@ async function mdxLoader(fileString) {
-     const filePath = this.resourcePath;
-     const reqOptions = this.getOptions();
-     const { frontMatter, content: contentWithTitle } = (0, utils_1.parseFrontMatter)(fileString);
+@@ -106,6 +106,14 @@ async function mdxLoader(fileString) {
+     const { content, contentTitle } = (0, utils_1.parseMarkdownContentTitle)(contentWithTitle, {
+         removeContentTitle: reqOptions.removeContentTitle,
+     });
 +
 +    const isPartial = filePath.split('/').pop()[0] === '_';
 +    if (!isPartial) {
@@ -14,6 +14,6 @@ index 5f9dce1..fdc1976 100644
 +        frontMatter.image ??= ogImageURL.toString();
 +    }
 +
-     const { content, contentTitle } = (0, utils_1.parseMarkdownContentTitle)(contentWithTitle, {
-         removeContentTitle: reqOptions.removeContentTitle,
-     });
+     const hasFrontMatter = Object.keys(frontMatter).length > 0;
+     if (!compilerCache.has(this.query)) {
+         const remarkPlugins = [
