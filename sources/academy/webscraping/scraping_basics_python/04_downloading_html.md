@@ -94,14 +94,7 @@ HTTP is a network protocol powering the internet. Understanding it well is an im
 
 ## Handling errors
 
-Sometimes websites return all kinds of errors, most often because:
-
-- The server is temporarily down.
-- The server breaks under a heavy load of requests.
-- The server applies anti-scraping protections.
-- The server application is buggy and just couldn't handle our request.
-
-In HTTP, each response has a three-digit _status code_, which tells us whether it's an error or a success. A robust scraper skips or retries requests on errors. It's a big task though, and it's best to use libraries or frameworks for that.
+Websites can return various errors, such as when the server is temporarily down, applying anti-scraping protections, or simply being buggy. In HTTP, each response has a three-digit _status code_ that indicates whether it is an error or a success.
 
 :::tip All status codes
 
@@ -109,7 +102,7 @@ If you've never worked with HTTP response status codes before, briefly scan thei
 
 :::
 
-For now, we'll at least make sure that our program visibly crashes and prints what happened in case there's an error.
+A robust scraper skips or retries requests on errors. Given the complexity of this task, it's best to use libraries or frameworks. For now, we'll at least make sure that our program visibly crashes and prints what happened in case there's an error.
 
 First, let's ask for trouble. We'll change the URL in our code to a page that doesn't exist, so that we get a response with [status code 404](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404). This could happen, for example, when the product we are scraping is no longer available:
 
@@ -117,7 +110,7 @@ First, let's ask for trouble. We'll change the URL in our code to a page that do
 https://warehouse-theme-metal.myshopify.com/does/not/exist
 ```
 
-We could check the value of `response.status_code` against a list of allowed numbers, but HTTPX also provides `response.raise_for_status()`, a method that analyzes the number and raises the `httpx.HTTPError` exception if our request wasn't successful:
+We could check the value of `response.status_code` against a list of allowed numbers, but HTTPX already provides `response.raise_for_status()`, a method that analyzes the number and raises the `httpx.HTTPError` exception if our request wasn't successful:
 
 ```py
 import httpx

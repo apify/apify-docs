@@ -16,10 +16,8 @@ Locating the right HTML elements is the first step of a successful data extracti
 
 ```text
 $ python main.py
-JBL Flip 4 Waterproof Portable Bluetooth Speaker $74.95
-Sony XBR-950G BRAVIA 4K HDR Ultra HD TV From $1,398.00
-Sony SACS9 10" Active Subwoofer $158.00
-Sony PS-HX500 Hi-Res USB Turntable $398.00
+JBL Flip 4 Waterproof Portable Bluetooth Speaker | $74.95
+Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | From $1,398.00
 ...
 ```
 
@@ -35,7 +33,7 @@ The last bullet point is the most important to figure out before we start coding
 
 It's because some products have variants with different prices. Later in the course we'll get to crawling, i.e. following links and scraping data from more than just one page. That will allow us to get exact prices for all the products, but for now let's extract just what's in the listing.
 
-Ideally we'd go and discuss the problem with those who are about to use the resulting data. For their purposes, is the fact that some prices are just minimum prices important? What would be the most useful representation of the range for them? Maybe they'd tell us that it's okay if we just remove the `From` prefix!
+Ideally we'd go and discuss the problem with those who are about to use the resulting data. For their purposes, is the fact that some prices are just minimum prices important? What would be the most useful representation of the range for them? Maybe they'd tell us that it's okay if we just remove the `From` prefix?
 
 ```py
 price_text = product.select_one(".price").contents[-1]
@@ -54,12 +52,13 @@ else:
     price = min_price
 ```
 
-We're using Python's built-in string methods:
+:::tip Built-in string methods
 
-- `.startswith()`, a method for [checking the beginning of a string](https://docs.python.org/3/library/stdtypes.html#str.startswith).
-- `.removeprefix()`, a method for [removing something from the beginning of a string](https://docs.python.org/3/library/stdtypes.html#str.removeprefix).
+If you're not proficient in Python's string methods, [.startswith()](https://docs.python.org/3/library/stdtypes.html#str.startswith) checks the beginning of a given string, and [.removeprefix()](https://docs.python.org/3/library/stdtypes.html#str.removeprefix) removes something from the beginning of a given string.
 
-The whole program now looks like this:
+:::
+
+The whole program would look like this:
 
 ```py
 import httpx
@@ -83,16 +82,14 @@ for product in soup.select(".product-item"):
         min_price = price_text
         price = min_price
 
-    print(title, min_price, price)
+    print(title, min_price, price, sep=" | ")
 ```
 
 ## Removing white space
 
 Often, the strings we extract from a web page start or end with some amount of whitespace, typically space characters or newline characters, which come from the [indentation](https://en.wikipedia.org/wiki/Indentation_(typesetting)#Indentation_in_programming) of the HTML tags.
 
-We call the operation of removing whitespace _stripping_ or _trimming_, and it's so useful in many applications that programming languages and libraries include ready-made tools for it.
-
-In Python, we have `.strip()`, a built-in string method for [removing whitespace from both the beginning and the end](https://docs.python.org/3/library/stdtypes.html#str.strip). Let's add it to our code:
+We call the operation of removing whitespace _stripping_ or _trimming_, and it's so useful in many applications that programming languages and libraries include ready-made tools for it. Let's add Python's built-in [.strip()](https://docs.python.org/3/library/stdtypes.html#str.strip):
 
 ```py
 title = product.select_one(".product-item__title").text.strip()
@@ -100,13 +97,17 @@ title = product.select_one(".product-item__title").text.strip()
 price_text = product.select_one(".price").contents[-1].strip()
 ```
 
-While we're at it, let's see what Beautiful Soup offers when it comes to working with strings:
+:::info Handling strings in Beautiful Soup
+
+Beautiful Soup offers several attributes when it comes to working with strings:
 
 - `.string`, which often is like `.text`,
 - `.strings`, which [returns a list of all nested textual nodes](https://beautiful-soup-4.readthedocs.io/en/latest/#strings-and-stripped-strings),
 - `.stripped_strings`, which does the same but with whitespace removed.
 
 These might be useful in some complex scenarios, but in our case, they won't make scraping the title or price any shorter or more elegant.
+
+:::
 
 ## Removing dollar sign and commas
 
@@ -126,7 +127,7 @@ The demonstration above is inside the Python's [interactive REPL](https://realpy
 
 :::
 
-We need to remove the dollar sign and the decimal commas. For this type of cleaning, [regular expressions](https://docs.python.org/3/library/re.html) are often the best tool for the job, but our case is so simple that we can just throw in `.replace()`, Python's built-in string method for [replacing substrings](https://docs.python.org/3/library/stdtypes.html#str.replace):
+We need to remove the dollar sign and the decimal commas. For this type of cleaning, [regular expressions](https://docs.python.org/3/library/re.html) are often the best tool for the job, but in this case [`.replace()`](https://docs.python.org/3/library/stdtypes.html#str.replace) is also sufficient:
 
 ```py
 price_text = (
@@ -159,7 +160,7 @@ Great! Only if we didn't overlook an important pitfall called [floating-point er
 0.30000000000000004
 ```
 
-These errors are small and usually don't matter, but sometimes they can add up and cause unpleasant discrepancies. That's why it's typically best to avoid `float()` when working with money. Let's instead use Python's built-in `Decimal()`, a [type designed to represent decimal numbers exactly](https://docs.python.org/3/library/decimal.html):
+These errors are small and usually don't matter, but sometimes they can add up and cause unpleasant discrepancies. That's why it's typically best to avoid `float()` when working with money. Let's instead use Python's built-in [`Decimal()`](https://docs.python.org/3/library/decimal.html) type:
 
 ```py
 from decimal import Decimal
@@ -191,17 +192,15 @@ for product in soup.select(".product-item"):
         min_price = Decimal(price_text)
         price = min_price
 
-    print(title, min_price, price)
+    print(title, min_price, price, sep=" | ")
 ```
 
 If we run the code above, we have nice, clean data about all the products!
 
 ```text
 $ python main.py
-JBL Flip 4 Waterproof Portable Bluetooth Speaker 74.95 74.95
-Sony XBR-950G BRAVIA 4K HDR Ultra HD TV 1398.00 None
-Sony SACS9 10" Active Subwoofer 158.00 158.00
-Sony PS-HX500 Hi-Res USB Turntable 398.00 398.00
+JBL Flip 4 Waterproof Portable Bluetooth Speaker | 74.95 | 74.95
+Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 1398.00 | None
 ...
 ```
 
