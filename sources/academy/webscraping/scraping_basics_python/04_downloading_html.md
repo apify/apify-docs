@@ -60,7 +60,6 @@ import httpx
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 response = httpx.get(url)
-
 print(response.text)
 ```
 
@@ -93,75 +92,56 @@ HTTP is a network protocol powering the internet. Understanding it well is an im
 
 :::
 
-## Checking status codes
+## Handling errors
 
-Sometimes websites return all kinds of errors. Most often because:
+Sometimes websites return all kinds of errors, most often because:
 
 - The server is temporarily down.
 - The server breaks under a heavy load of requests.
 - The server applies anti-scraping protections.
 - The server application is buggy and just couldn't handle our request.
 
-In HTTP, each response has a three-digit _status code_, which tells us whether it's an error or success. Let's change the last line of our program to print the code of the response we get:
-
-```py
-print(response.status_code)
-```
-
-If we run the program, it should print number 200, which means the server understood our request and was happy to respond with what we asked for:
-
-```text
-$ python main.py
-200
-```
-
-Good! Now let's fix our code so that it can handle a situation when the server doesn't return 200.
+In HTTP, each response has a three-digit _status code_, which tells us whether it's an error or a success. A robust scraper skips or retries requests on errors. It's a big task though, and it's best to use libraries or frameworks for that.
 
 :::tip All status codes
 
-If you're curious, sneak a peek at the list of all [HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). There's plenty of them and they're categorized according to their first digit. If you're even more curious, we recommend browsing the [HTTP Cats](https://http.cat/) as a highly professional resource on the topic.
+If you've never worked with HTTP response status codes before, briefly scan their [full list](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) to get at least a basic idea of what you might encounter. For further education on the topic, we recommend [HTTP Cats](https://http.cat/) as a highly professional resource.
 
 :::
 
-## Handling errors
+For now, we'll at least make sure that our program visibly crashes and prints what happened in case there's an error.
 
-It's time to ask for trouble! Let's change the URL in our code to a page which doesn't exist, so that we get a response with [status code 404](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404). This could happen, for example, when the product we are scraping is no longer available:
+First, let's ask for trouble. We'll change the URL in our code to a page that doesn't exist, so that we get a response with [status code 404](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404). This could happen, for example, when the product we are scraping is no longer available:
 
 ```text
 https://warehouse-theme-metal.myshopify.com/does/not/exist
 ```
 
-We could check the value of `response.status_code` against a list of allowed numbers, but HTTPX also provides `response.raise_for_status()`, a method which analyzes the number and raises the `httpx.HTTPError` exception in case our request wasn't successful.
-
-A robust scraper skips or retries requests when errors occur, but let's start simple. Our program will print an error message and stop further processing of the response.
-
-
-We also want to play along with the conventions of the operating system, so we'll print to the [standard error output](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr)) and exit our program with a non-zero [status code](https://en.wikipedia.org/wiki/Exit_status):
+We could check the value of `response.status_code` against a list of allowed numbers, but HTTPX also provides `response.raise_for_status()`, a method that analyzes the number and raises the `httpx.HTTPError` exception if our request wasn't successful:
 
 ```py
-import sys
 import httpx
 
 url = "https://warehouse-theme-metal.myshopify.com/does/not/exist"
-try:
-    response = httpx.get(url)
-    response.raise_for_status()
-    print(response.text)
-
-except httpx.HTTPError as error:
-    print(error, file=sys.stderr)
-    sys.exit(1)
+response = httpx.get(url)
+response.raise_for_status()
+print(response.text)
 ```
 
-If you run the code above, you should see a nice error message:
+If you run the code above, the program should crash:
 
 ```text
 $ python main.py
-Client error '404 Not Found' for url 'https://warehouse-theme-metal.myshopify.com/does/not/exist'
+Traceback (most recent call last):
+  File "/Users/.../main.py", line 5, in <module>
+    response.raise_for_status()
+  File "/Users/.../.venv/lib/python3/site-packages/httpx/_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://warehouse-theme-metal.myshopify.com/does/not/exist'
 For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
 ```
 
-Done! We have managed to apply basic error handling. Now let's get back to our primary goal. In the next lesson, we'll be looking for a way to extract information about products from the downloaded HTML.
+Letting our program visibly crash on error is enough for our purposes. Now, let's return to our primary goal. In the next lesson, we'll be looking for a way to extract information about products from the downloaded HTML.
 
 ---
 
@@ -179,18 +159,12 @@ https://www.amazon.com/s?k=darth+vader
   <summary>Solution</summary>
 
   ```py
-  import sys
   import httpx
 
   url = "https://www.amazon.com/s?k=darth+vader"
-  try:
-      response = httpx.get(url)
-      response.raise_for_status()
-      print(response.text)
-
-  except httpx.HTTPError as error:
-      print(error, file=sys.stderr)
-      sys.exit(1)
+  response = httpx.get(url)
+  response.raise_for_status()
+  print(response.text)
   ```
 
   If you get `Server error '503 Service Unavailable'`, that's just Amazon's anti-scraping protections. You can learn about how to overcome those in our [Anti-scraping protections](../anti_scraping/index.md) course.
@@ -216,19 +190,13 @@ https://warehouse-theme-metal.myshopify.com/collections/sales
   If you want to use Python instead, it offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
 
   ```py
-  import sys
   import httpx
   from pathlib import Path
 
   url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-  try:
-      response = httpx.get(url)
-      response.raise_for_status()
-      Path("products.html").write_text(response.text)
-
-  except httpx.HTTPError as error:
-      print(error, file=sys.stderr)
-      sys.exit(1)
+  response = httpx.get(url)
+  response.raise_for_status()
+  Path("products.html").write_text(response.text)
   ```
 
 </details>
@@ -248,18 +216,12 @@ https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72
 
   ```py
   from pathlib import Path
-  import sys
   import httpx
 
   url = "https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg"
-  try:
-      response = httpx.get(url)
-      response.raise_for_status()
-      Path("tv.jpg").write_bytes(response.content)
-  except httpx.HTTPError as e:
-      print(e, file=sys.stderr)
-      sys.exit(1)
-
+  response = httpx.get(url)
+  response.raise_for_status()
+  Path("tv.jpg").write_bytes(response.content)
   ```
 
 </details>
