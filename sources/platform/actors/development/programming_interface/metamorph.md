@@ -47,10 +47,9 @@ Let's walk through an example of using metamorph to create a hotel review scrape
 
 1. Create an Actor that accepts a hotel URL as input.
 
-1. Use the [apify/web-scraper](https://www.apify.com/apify/web-scraper) Actor to scrape reviews.
+1. Use the [apify/web-scraper](https://apify.com/apify/web-scraper) Actor to scrape reviews.
 
 1. Use the metamorph operation to transform into a run of apify/web-scraper.
-
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">

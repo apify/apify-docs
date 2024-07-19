@@ -43,7 +43,7 @@ async function pageFunction(context) {
 }
 ```
 
-To set the keywords, we're using the customData scraper parameter. This is useful for smaller data sets, but may not be perfect for bigger ones. For such cases you may want to use something like [Importing a list of URLs from an external source](http://kb.apify.com/integration/importing-a-list-of-urls-from-an-external-source).
+To set the keywords, we're using the customData scraper parameter. This is useful for smaller data sets, but may not be perfect for bigger ones. For such cases you may want to use something like [Importing a list of URLs from an external source](https://docs.apify.com/academy/node-js/scraping-urls-list-from-google-sheets).
 
 Since we're enqueuing the same page more than once, we need to set our own uniqueKey so the page will be added to the queue (by default uniqueKey is set to be the same as the URL). The label for the next page will be "fill-form". We're passing the keyword to the next page in the userData field (this can contain any data).
 

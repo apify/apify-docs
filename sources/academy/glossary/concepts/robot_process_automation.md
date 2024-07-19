@@ -27,7 +27,7 @@ In a traditional automation workflow, you
 2. Program a bot that does each of those chunks.
 3. Execute the chunks of code in the right order (or in parallel).
 
-With the advance of [machine learning](https://en.wikipedia.org/wiki/Machine_learning), it is becoming possible to [record](https://www.nice.com/rpa/rpa-guide/process-recorder-function-in-rpa/) your workflows and analyze which can be automated. However, this technology is still not perfected and at times can even be less practical than the manual process.
+With the advance of [machine learning](https://en.wikipedia.org/wiki/Machine_learning), it is becoming possible to [record](https://www.nice.com/info/rpa-guide/process-recorder-function-in-rpa/) your workflows and analyze which can be automated. However, this technology is still not perfected and at times can even be less practical than the manual process.
 
 ## Is RPA the same as web scraping? {#is-rpa-the-same-as-web-scraping}
 
@@ -39,6 +39,6 @@ An easy-to-follow [video](https://www.youtube.com/watch?v=9URSbTOE4YI) on what R
 
 To learn about RPA in plain English, check out [this](https://enterprisersproject.com/article/2019/5/rpa-robotic-process-automation-how-explain) article.
 
-[This](https://www.cio.com/article/3236451/what-is-rpa-robotic-process-automation-explained.html) article explains what RPA is and discusses both its advantages and disadvantages.
+[This](https://www.cio.com/article/227908/what-is-rpa-robotic-process-automation-explained.html) article explains what RPA is and discusses both its advantages and disadvantages.
 
 You might also like to check out this article on [12 Steps to Automate Workflows](https://quandarycg.com/automating-workflows/).
