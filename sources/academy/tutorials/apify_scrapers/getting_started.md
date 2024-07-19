@@ -17,7 +17,7 @@ Welcome to the getting started tutorial! It will walk you through creating your 
 
 It doesn't matter whether you arrived here from **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)), **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper)) or **Cheerio Scraper** ([apify/cheerio-scraper](https://apify.com/apify/cheerio-scraper)). All of them are **Actors** and for now, let's think of an **Actor** as an application that you can use with your own configuration. **apify/web-scraper** is therefore an application called **web-scraper**, built by **apify**, that you can configure to scrape any webpage. We call these configurations **tasks**.
 
-> If you need help choosing the right scraper, see this [great article](https://help.apify.com/en/articles/3024655-choosing-the-right-solution). If you want to learn more about Actors in general, you can read our [actors page](https://apify.com/actors) or [browse the documentation](/platform/actors).
+> If you need help choosing the right scraper, see this [great article](https://help.apify.com/en/articles/3024655-choosing-the-right-solution). If you want to learn more about Actors in general, you can read our [Actors page](https://apify.com/actors) or [browse the documentation](/platform/actors).
 
 You can create 10 different **tasks** for 10 different websites, with very different options, but there will always be just one **Actor**, the `apify/*-scraper` you chose. This is the essence of tasks. They are nothing but **saved configurations** of the Actor that you can run repeatedly.
 
