@@ -42,7 +42,7 @@ const setupProxy = async (port) => {
 };
 ```
 
-Then we'll need a Docker image that has the `certutil` utility. Here is an [example of a Dockerfile](https://github.com/apify/actor-example-proxy-intercept-request/blob/master/Dockerfile) that can create such an image and is based on the [apify/actor-node-chrome](https://hub.docker.com/u/apify/actor-node-chrome/) image that contains Puppeteer.
+Then we'll need a Docker image that has the `certutil` utility. Here is an [example of a Dockerfile](https://github.com/apify/actor-example-proxy-intercept-request/blob/master/Dockerfile) that can create such an image and is based on the [apify/actor-node-chrome](https://hub.docker.com/r/apify/actor-node-chrome/) image that contains Puppeteer.
 
 Now we need to specify how the proxy shall handle the intercepted requests:
 
