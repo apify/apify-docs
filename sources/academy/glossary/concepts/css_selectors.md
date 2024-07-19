@@ -59,7 +59,7 @@ CSS selectors are important for web scraping because they allow you to target sp
 
 For example, if you wanted to scrape a list of all the titles of blog posts on a website, you could use a CSS selector to select all the elements that contain the title text. Once you have selected these elements, you can extract the text from them and use it for your scraping project.
 
-Additionally, when web scraping it is important to understand the structure of the website and CSS selectors can help you to navigate it easily. With them, you can select specific elements and their children, siblings, or parent elements. This allows you to extract data that is nested within other elements, or to navigate through the page structure to find the data you need.
+Additionally, when web scraping it is important to understand the structure of the website and CSS selectors can help you to navigate it. With them, you can select specific elements and their children, siblings, or parent elements. This allows you to extract data that is nested within other elements, or to navigate through the page structure to find the data you need.
 
 ## Resources
 

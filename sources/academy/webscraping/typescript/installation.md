@@ -85,7 +85,7 @@ Let's create a folder called **learning-typescript**, adding a new file within i
 
 ![Example pasted into first-lines.ts](./images/pasted-example.png)
 
-As seen above, TypeScript has successfully recognized our code; however, there are now red underlines under the `price1` and `price2` parameters in the function declaration of `addPrices`. This is because right now, the compiler has no idea what data types we're expecting to be passed in. This can be solved with the simple addition of **type annotations** to the parameters by using a colon (`:`) and the name of the parameter's type.
+As seen above, TypeScript has successfully recognized our code; however, there are now red underlines under the `price1` and `price2` parameters in the function declaration of `addPrices`. This is because right now, the compiler has no idea what data types we're expecting to be passed in. This can be solved with the addition of **type annotations** to the parameters by using a colon (`:`) and the name of the parameter's type.
 
 ```ts
 const products = [

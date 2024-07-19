@@ -24,7 +24,7 @@ so now it's time to add more data to the results.
 
 To do that, we'll be using the [Cheerio](https://github.com/cheeriojs/cheerio) library. This may not sound familiar,
 so let's try again. Does [jQuery](https://jquery.com/) ring a bell? If it does you're in luck,
-because Cheerio is just jQuery that doesn't need an actual browser to run. Everything else is the same.
+because Cheerio is like jQuery that doesn't need an actual browser to run. Everything else is the same.
 All the functions you already know are there and even the familiar `$` is used. If you still have no idea what either
 of those are, don't worry. We'll walk you through using them step by step.
 
@@ -65,7 +65,7 @@ element that we can use to select only the heading we're interested in.
 > their selectors. And always make sure to use the DevTools to verify your scraping process and assumptions. It's faster than changing the crawler
 > code all the time.
 
-To get the title we just need to find it using a `header h1` selector, which selects all `<h1>` elements that have a `<header>` ancestor.
+To get the title we need to find it using a `header h1` selector, which selects all `<h1>` elements that have a `<header>` ancestor.
 And as we already know, there's only one.
 
 ```js
@@ -81,8 +81,7 @@ async function pageFunction(context) {
 
 ### [](#description) Description
 
-Getting the Actor's description is a little more involved, but still pretty straightforward. We can't just simply search for a `<p>` tag, because
-there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the Actor description is nested within
+Getting the Actor's description is a little more involved, but still pretty straightforward. We cannot search for a `<p>` tag, because there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the Actor description is nested within
 the `<header>` element too, same as the title. Moreover, the actual description is nested inside a `<span>` tag with a class `actor-description`.
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.webp)
@@ -251,12 +250,12 @@ You nailed it!
 
 ## [](#pagination) Pagination
 
-Pagination is just a term that represents "going to the next page of results". You may have noticed that we did not
+Pagination is a term that represents "going to the next page of results". You may have noticed that we did not
 actually scrape all the Actors, just the first page of results. That's because to load the rest of the Actors,
 one needs to click the **Show more** button at the very bottom of the list. This is pagination.
 
 > This is a typical JavaScript pagination, sometimes called infinite scroll. Other pages may use links
-that take you to the next page. If you encounter those, just make a Pseudo URL for those links and they
+that take you to the next page. If you encounter those, make a Pseudo URL for those links and they
 will be automatically enqueued to the request queue. Use a label to let the scraper know what kind of URL
 it's processing.
 
@@ -267,7 +266,7 @@ but it requires some clever DevTools-Fu.
 
 ### [](#analyzing-the-page) Analyzing the page
 
-While with Web Scraper and **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper)), we could get away with simply clicking a button,
+While with Web Scraper and **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper)), we could get away with clicking a button,
 with Cheerio Scraper we need to dig a little deeper into the page's architecture. For this, we will use
 the Network tab of the Chrome DevTools.
 
@@ -306,7 +305,7 @@ we need is there, in the `data.props.pageProps.items` array. Great!
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/inspect-data.webp)
 
 > It's obvious that all the information we set to scrape is available in this one data object,
-so you might already be wondering, can I just make one request to the store to get this JSON
+so you might already be wondering, can I make one request to the store to get this JSON
 and then parse it out and be done with it in a single request? Yes you can! And that's the power
 of clever page analysis.
 
@@ -404,9 +403,9 @@ async function pageFunction(context) {
 That's it! You can now remove the **Max pages per run** limit, **Save & Run** your task and watch the scraper
 scrape all of the Actors' data. After it succeeds, open the **Dataset** tab again click on **Preview**.
 You should have a table of all the Actor's details in front of you. If you do, great job! You've successfully
-scraped Apify Store. And if not, no worries, just go through the code examples again, it's probably just some typo.
+scraped Apify Store. And if not, no worries, go through the code examples again, it's probably just a typo.
 
-> There's an important caveat. The way we implemented pagination here is in no way a generic system that you can easily
+> There's an important caveat. The way we implemented pagination here is in no way a generic system that you can
 use with other websites. Cheerio is fast (and that means it's cheap), but it's not easy. Sometimes there's just no way
 to get all results with Cheerio only and other times it takes hours of research. Keep this in mind when choosing
 the right scraper for your job. But don't get discouraged. Often times, the only thing you will ever need is to
@@ -498,11 +497,11 @@ of JavaScript. It helps you put what matters on top, if you so desire.
 
 ## [](#final-word) Final word
 
-Thank you for reading this whole tutorial! Really! It's important to us that our users have the best information available to them so that they can use Apify easily and effectively. We're glad that you made it all the way here and congratulations on creating your first scraping task. We hope that you liked the tutorial and if there's anything you'd like to ask, [join us on Discord](https://discord.gg/jyEM2PRvMU)!
+Thank you for reading this whole tutorial! Really! It's important to us that our users have the best information available to them so that they can use Apify and effectively. We're glad that you made it all the way here and congratulations on creating your first scraping task. We hope that you liked the tutorial and if there's anything you'd like to ask, [join us on Discord](https://discord.gg/jyEM2PRvMU)!
 
 ## [](#whats-next) What's next
 
-* Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own Actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
+* Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own Actors. It's a bit more complex and involved than writing a `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
 * [Take a deep dive into Actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on Actors.
 * Found out you're not into the coding part but would still to use Apify Actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom Actor](https://apify.com/custom-solutions) from an Apify-certified developer.
 

@@ -26,7 +26,7 @@ If it were only a question of performance, you'd of course use request-based scr
 
 ## Dynamic pages & blocking {#dynamic-pages}
 
-Some websites do not load any data without a browser, as they need to execute some scripts to show it (these are known as [dynamic pages](./dealing_with_dynamic_pages.md)). Another problem is blocking. If the website is collecting a [browser fingerprint](../../webscraping/anti_scraping/techniques/fingerprinting.md), it is very easy for it to distinguish between a real user and a bot (crawler) and block access.
+Some websites do not load any data without a browser, as they need to execute some scripts to show it (these are known as [dynamic pages](./dealing_with_dynamic_pages.md)). Another problem is blocking. If the website collects a [browser fingerprint](../../webscraping/anti_scraping/techniques/fingerprinting.md), it can distinguish between a real user and a bot (crawler) and block access.
 
 ## Making the choice {#making-the-choice}
 

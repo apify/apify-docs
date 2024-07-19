@@ -1,19 +1,19 @@
 ---
 title: Using proxies
-description: Learn how to use and automagically rotate proxies in your scrapers by using Crawlee, and a bit about how to easily obtain pools of proxies.
+description: Learn how to use and automagically rotate proxies in your scrapers by using Crawlee, and a bit about how to obtain pools of proxies.
 sidebar_position: 2
 slug: /anti-scraping/mitigation/using-proxies
 ---
 
 # Using proxies {#using-proxies}
 
-**Learn how to use and automagically rotate proxies in your scrapers by using Crawlee, and a bit about how to easily obtain pools of proxies.**
+**Learn how to use and automagically rotate proxies in your scrapers by using Crawlee, and a bit about how to obtain pools of proxies.**
 
 ---
 
 In the [**Web scraping for beginners**](../../scraping_basics_javascript/crawling/pro_scraping.md) course, we learned about the power of Crawlee, and how it can streamline the development process of web crawlers. You've already seen how powerful the `crawlee` package is; however, what you've been exposed to thus far is only the tip of the iceberg.
 
-Because proxies are so widely used in the scraping world, Crawlee has been equipped with features which make it easy to implement them in an effective way. One of the main functionalities that comes baked into Crawlee is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
+Because proxies are so widely used in the scraping world, Crawlee has built-in features for implementing them in an effective way. One of the main functionalities that comes baked into Crawlee is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
 
 ## Implementing proxies in a scraper {#implementing-proxies}
 
@@ -53,8 +53,8 @@ const crawler = new CheerioCrawler({
 
 await crawler.addRequests([{
     url: 'https://demo-webstore.apify.org/search/on-sale',
-    // By labeling the Request, we can very easily
-    // identify it later in the requestHandler.
+    // By labeling the Request, we can identify it
+    // later in the requestHandler.
     label: 'START',
 }]);
 
@@ -103,7 +103,7 @@ That's it! The crawler will now automatically rotate through the proxies we prov
 
 ## A bit about debugging proxies {#debugging-proxies}
 
-At the time of writing, our above scraper utilizing our custom proxy pool is working just fine. But how can we check that the scraper is for sure using the proxies we provided it, and more importantly, how can we debug proxies within our scraper? Luckily, within the same `context` object we've been destructuring `$` and `request` out of, there is a `proxyInfo` key as well. `proxyInfo` is an object which includes useful data about the proxy which was used to make the request.
+At the time of writing, the scraper above utilizing our custom proxy pool is working just fine. But how can we check that the scraper is for sure using the proxies we provided it, and more importantly, how can we debug proxies within our scraper? Luckily, within the same `context` object we've been destructuring `$` and `request` out of, there is a `proxyInfo` key as well. `proxyInfo` is an object which includes useful data about the proxy which was used to make the request.
 
 ```js
 const crawler = new CheerioCrawler({

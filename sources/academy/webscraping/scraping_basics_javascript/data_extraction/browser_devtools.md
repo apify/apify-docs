@@ -25,7 +25,7 @@ When you first open Chrome DevTools on Wikipedia, you will start on the Elements
 
 Each element is enclosed in an HTML tag. For example `<div>`, `<p>`, and `<span>` are all tags. When you add something inside of those tags, like `<p>Hello!</p>` you create an element. You can also see elements inside other elements in the **Elements** tab. This is called nesting, and it gives the page its structure.
 
-At the bottom, there's the **JavaScript console**, which is a powerful tool which can be used to manipulate the website. If the console is not there, you can press **ESC** to toggle it. All of this might look super complicated at first, but don't worry, there's no need to understand everything just yet - we'll walk you through all the important things you need to know.
+At the bottom, there's the **JavaScript console**, which is a powerful tool which can be used to manipulate the website. If the console is not there, you can press **ESC** to toggle it. All of this might look super complicated at first, but don't worry, there's no need to understand everything yet - we'll walk you through all the important things you need to know.
 
 ![Console in Chrome DevTools](./images/browser-devtools-console.png)
 
@@ -71,4 +71,4 @@ By changing HTML elements from the Console, you can change what's displayed on t
 
 In this lesson, we learned the absolute basics of interaction with a page using the DevTools. In the [next lesson](./using_devtools.md), you will learn how to extract data from it. We will extract data about the on-sale products on the [Warehouse store](https://warehouse-theme-metal.myshopify.com).
 
-It isn't a real store, but a full-featured demo of a Shopify online store. And that is just perfect for our purposes. Shopify is one of the largest e-commerce platforms in the world, and it uses all the latest technologies that a real e-commerce web application would use. Learning to scrape a Shopify store is useful, because you can immediately apply the learnings to millions of websites.
+It isn't a real store, but a full-featured demo of a Shopify online store. And that is perfect for our purposes. Shopify is one of the largest e-commerce platforms in the world, and it uses all the latest technologies that a real e-commerce web application would use. Learning to scrape a Shopify store is useful, because you can immediately apply the learnings to millions of websites.

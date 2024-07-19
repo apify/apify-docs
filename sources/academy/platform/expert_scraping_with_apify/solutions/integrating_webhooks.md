@@ -68,7 +68,7 @@ const filtered = items.reduce((acc, curr) => {
 }, {});
 ```
 
-The results should be an array, so finally, we can take the map we just created and push an array of all of its values to the Actor's default dataset:
+The results should be an array, so we can take the map we just created and push an array of its values to the Actor's default dataset:
 
 ```js
 await Actor.pushData(Object.values(filtered));

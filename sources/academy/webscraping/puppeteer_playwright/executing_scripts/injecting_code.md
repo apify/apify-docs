@@ -71,7 +71,7 @@ await browser.close();
 
 ## Exposing functions {#exposing-functions}
 
-Here's a super awesome function we've created called `returnMessage()`, which simply returns the string **Apify Academy!**:
+Here's a super awesome function we've created called `returnMessage()`, which returns the string **Apify Academy!**:
 
 ```js
 const returnMessage = () => 'Apify academy!';

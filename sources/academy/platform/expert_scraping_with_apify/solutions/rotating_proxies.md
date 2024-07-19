@@ -73,7 +73,7 @@ And that's it! We've successfully configured the session pool to match the task'
 
 ## Limiting proxy location {#limiting-proxy-location}
 
-The final requirement was to only use proxies from the US. Back in our **ProxyConfiguration**, we just need to add the **countryCode** key and set it to **US**:
+The final requirement was to use proxies only from the US. Back in our **ProxyConfiguration**, we need to add the **countryCode** key and set it to **US**:
 
 ```js
 const proxyConfiguration = await Actor.createProxyConfiguration({
@@ -94,7 +94,7 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
 
 **Q: How can you prevent an error from occurring if one of the proxy groups that a user has is removed? What are the best practices for these scenarios?**
 
-**A:** By making the proxy for the scraper to use be configurable by the user through the Actor's input. That way, they can easily switch proxies if the Actor stops working due to proxy-related issues. It can also be done by using the **AUTO** proxy instead of specific groups.
+**A:** By making the proxy for the scraper to use be configurable by the user through the Actor's input. That way, they can switch proxies if the Actor stops working due to proxy-related issues. It can also be done by using the **AUTO** proxy instead of specific groups.
 
 **Q: Does it make sense to rotate proxies when you are logged into a website?**
 
@@ -106,7 +106,7 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
 
 **Q: What do you need to do to rotate a proxy (one proxy usually has one IP)? How does this differ for CheerioCrawler and PuppeteerCrawler?**
 
-**A:** Simply making a new request with the proxy endpoint above will automatically rotate it. Sessions can also be used to automatically do this. While proxy rotation is fairly straightforward for Cheerio, it's more complex in Puppeteer, as you have to retire the browser each time a new proxy is rotated in. The SessionPool will automatically retire a browser when a session is retired. Sessions can be manually retired with `session.retire()`.
+**A:** Making a new request with the proxy endpoint above will automatically rotate it. Sessions can also be used to automatically do this. While proxy rotation is fairly straightforward for Cheerio, it's more complex in Puppeteer, as you have to retire the browser each time a new proxy is rotated in. The SessionPool will automatically retire a browser when a session is retired. Sessions can be manually retired with `session.retire()`.
 
 **Q: Name a few different ways how a website can prevent you from scraping it.**
 

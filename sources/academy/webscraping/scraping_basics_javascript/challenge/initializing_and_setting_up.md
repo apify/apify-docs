@@ -11,7 +11,7 @@ slug: /web-scraping-for-beginners/challenge/initializing-and-setting-up
 
 ---
 
-The Crawlee CLI makes it extremely easy for us to set up a project in Crawlee and hit the ground running. Navigate to the directory you'd like your project's folder to live, then open up a terminal instance and run the following command:
+The Crawlee CLI speeds up the process of setting up a Crawlee project. Navigate to the directory you'd like your project's folder to live, then open up a terminal instance and run the following command:
 
 ```shell
 npx crawlee create amazon-crawler

@@ -82,7 +82,7 @@ You can pass a whole lot more options to the `launch()` function. We'll be getti
 
 ## Browser methods {#browser-methods}
 
-The `launch()` function also returns an object representation of the browser that we can use to interact with the browser right from our code. This **Browser** object ([Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v13.7.0&show=api-class-browser), [Playwright](https://playwright.dev/docs/api/class-browser)) has many functions which make it easy to do this. One of these functions is `close()`. Until now, we've been using **control^** + **C** to force quit the process, but with this function, we'll no longer have to do that.
+The `launch()` function also returns a **Browser** object ([Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v13.7.0&show=api-class-browser), [Playwright](https://playwright.dev/docs/api/class-browser)), which is a representation of the browser. This object has many methods, which allow us to interact with the browser from our code. One of them is `close()`. Until now, we've been using **control^** + **C** to force quit the process, but with this function, we'll no longer have to do that.
 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">

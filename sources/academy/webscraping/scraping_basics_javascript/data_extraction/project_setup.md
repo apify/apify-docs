@@ -41,19 +41,19 @@ Node.js and npm support two types of projects, let's call them legacy and modern
 
 ## Installing necessary libraries {#install-libraries}
 
-Now that we have a project set up, we can install npm modules into the project. Let's install libraries that will help us easily download and process websites' HTML. In the project directory, run the following command, which will install two libraries into your project. **got-scraping** and Cheerio.
+Now that we have a project set up, we can install npm modules into the project. Let's install libraries that will help us with downloading and processing websites' HTML. In the project directory, run the following command, which will install two libraries into your project. **got-scraping** and Cheerio.
 
 ```shell
 npm install got-scraping cheerio
 ```
 
-[**got-scraping**](https://github.com/apify/got-scraping) is a library that's made especially for scraping and downloading page's HTML. It's based on the very popular [**got** library](https://github.com/sindresorhus/got), which means any features of **got** are also available in **got-scraping**. Both **got** and **got-scraping** are HTTP clients. To learn more about HTTP, [visit this MDN tutorial](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP).
+[**got-scraping**](https://github.com/apify/got-scraping) is a library that's made especially for scraping and downloading page's HTML. It's based on the popular [**got** library](https://github.com/sindresorhus/got), which means any features of **got** are also available in **got-scraping**. Both **got** and **got-scraping** are HTTP clients. To learn more about HTTP, [visit this MDN tutorial](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP).
 
-[Cheerio](https://github.com/cheeriojs/cheerio) is a very popular Node.js library for parsing (processing) HTML. If you're familiar with good old [jQuery](https://jquery.com/), you'll find working with Cheerio really easy.
+[Cheerio](https://github.com/cheeriojs/cheerio) is a popular Node.js library for parsing and processing HTML. If you know how to work with [jQuery](https://jquery.com/), you'll find Cheerio familiar.
 
 ## Test everything {#testing}
 
-With the libraries installed, create a new file in the project's folder called **main.js**. This is where we will put all our code. Before we start scraping, though, let's do a simple check that everything was installed correctly. Add this piece of code inside **main.js**.
+With the libraries installed, create a new file in the project's folder called **main.js**. This is where we will put all our code. Before we start scraping, though, let's do a check that everything was installed correctly. Add this piece of code inside **main.js**.
 
 ```js
 import { gotScraping } from 'got-scraping';
