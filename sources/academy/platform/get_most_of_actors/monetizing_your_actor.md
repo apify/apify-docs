@@ -104,7 +104,7 @@ Once you have your details set up, you can click the **Set up monetization** but
 
 You can always change the monetization settings of your Actor. Note that any changes made to an already published Actor will always take 14 days to come into effect, to give users of your Actor, many of whom might be using it in their critical business flows, time to prepare for the change. To change the monetization, use the same wizard as for the setup, found in the Monetization section of the Actor Publication tab.
 
-Also, note that you are allowed to adjust the monetization settings of the Actor only once per month. Please refer to our [Terms & Conditions](https://docs.apify.com/legal/store-publishing-terms-and-conditions) for further details and guidelines.
+Also, note that you are allowed to adjust the monetization settings of the Actor only once per month. Please refer to our [Terms & Conditions](https://apify.com/store-terms-and-conditions) for further details and guidelines.
 
 ## How you will be paid out
 
