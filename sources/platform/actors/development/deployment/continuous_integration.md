@@ -16,9 +16,9 @@ import TabItem from '@theme/TabItem';
 
 If you have a project consisting of several Actors, or even one Actor that requires frequent updates, you may want to automate some part of the development process. Instead of manually pushing your code, building each Actor, then testing it, you could perform the whole process whenever you run `git push`.
 
-You can automate Actor builds and tests using your Git repository's automated workflows like [GitHub Actions](https://github.com/features/actions) or [Bitbucket Pipelines](https://bitbucket.org/product/features/pipelines).
+You can automate Actor builds and tests using your Git repository's automated workflows like [GitHub Actions](https://github.com/features/actions) or [Bitbucket Pipelines](https://www.atlassian.com/software/bitbucket/features/pipelines).
 
-This article will focus on GitHub, but [we also have a guide for Bitbucket](https://help.apify.com/en/articles/1861038-setting-up-continuous-integration-for-apify-actors-on-bitbucket).
+This article will focus on GitHub, but [we also have a guide for Bitbucket](https://help.apify.com/en/articles/6988586-setting-up-continuous-integration-for-apify-actors-on-bitbucket).
 
 ## TL;DR
 
@@ -80,7 +80,7 @@ jobs:
 </TabItem>
 </Tabs>
 
-[Find the Bitbucket version here](https://help.apify.com/en/articles/1861038-setting-up-continuous-integration-for-apify-actors-on-bitbucket).
+[Find the Bitbucket version here](https://help.apify.com/en/articles/6988586-setting-up-continuous-integration-for-apify-actors-on-bitbucket).
 
 ## Prerequisites
 
@@ -90,7 +90,7 @@ To follow along, you will need a GitHub repository containing your [Actor](../in
 
 ![Apify token in app](./images/ci-token.png)
 
-[Add the token to GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository). Go to **your repo > Settings > Secrets > New repository secret**.
+[Add the token to GitHub secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-encrypted-secrets-for-a-repository). Go to **your repo > Settings > Secrets > New repository secret**.
 
 Add the [**Build Actor** API endpoint URL](/api/v2#/reference/actors/build-collection/build-actor) to GitHub secrets. Configure it to use your Actor's ID and your API token.
 
@@ -104,7 +104,7 @@ https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&versi
 
 [//]: # (TODO: This duplicates somehow the above part)
 
-Once you have your [prerequisites](#prerequisites), you can start automating your builds. You can use [webhooks](https://en.wikipedia.org/wiki/Webhook) or the [Apify CLI](/cli/) ([described in our Bitbucket guide](https://help.apify.com/en/articles/1861038-setting-up-continuous-integration-for-apify-actors-on-bitbucket)) in your Git workflow.
+Once you have your [prerequisites](#prerequisites), you can start automating your builds. You can use [webhooks](https://en.wikipedia.org/wiki/Webhook) or the [Apify CLI](/cli/) ([described in our Bitbucket guide](https://help.apify.com/en/articles/6988586-setting-up-continuous-integration-for-apify-actors-on-bitbucket)) in your Git workflow.
 
 To use webhooks, you can use the [distributhor/workflow-webhook](https://github.com/distributhor/workflow-webhook) action, which uses the secrets described in the [prerequisites](#prerequisites) section.
 

@@ -83,7 +83,7 @@ const browser = await chromium.launch({ headless: false });
 
 const page = await browser.newPage();
 
-await page.goto('https://google.com/');
+await page.goto('https://www.google.com/');
 
 // Click the "I agree" button
 await page.click('button:has-text("Accept all")');
@@ -108,7 +108,7 @@ const browser = await puppeteer.launch({ headless: false });
 
 const page = await browser.newPage();
 
-await page.goto('https://google.com/');
+await page.goto('https://www.google.com/');
 
 // Click the "I agree" button
 await page.click('button + button');
@@ -142,7 +142,7 @@ const browser = await chromium.launch({ headless: false });
 
 const page = await browser.newPage();
 
-await page.goto('https://google.com/');
+await page.goto('https://www.google.com/');
 
 await page.click('button:has-text("Accept all")');
 
@@ -168,7 +168,7 @@ const browser = await puppeteer.launch({ headless: false });
 
 const page = await browser.newPage();
 
-await page.goto('https://google.com/');
+await page.goto('https://www.google.com/');
 
 await page.click('button + button');
 

@@ -47,4 +47,4 @@ HTTP/1.1 and HTTP/2 headers have several differences. Here are the three key dif
 2. Certain headers are no longer used in HTTP/2 (such as **Connection** along with a few others related to it like **Keep-Alive**). In HTTP/2, connection-specific headers are prohibited. While some browsers will simply ignore them, Safari and other Webkit-based browsers will outright reject any response that contains them. Easy to do by accident, and a big problem.
 3. While HTTP/1.1 headers are case-insensitive and could be sent by the browsers with capitalized letters (e.g. **Accept-Encoding**, **Cache-Control**, **User-Agent**), HTTP/2 headers must be lower-cased (e.g. **accept-encoding**, **cache-control**, **user-agent**).
 
-> To learn more about the difference between HTTP/1.1 and HTTP/2 headers, check out [this](https://httptoolkit.tech/blog/translating-http-2-into-http-1/) article
+> To learn more about the difference between HTTP/1.1 and HTTP/2 headers, check out [this](https://httptoolkit.com/blog/translating-http-2-into-http-1/) article

@@ -236,4 +236,4 @@ When we deploy and run this Actor on the Apify platform, then we can open the **
 
 With that, we're done! And our application works like a charm :)
 
-The complete code of this Actor is available [here](https://www.apify.com/apify/example-web-server). You can run it there or copy it to your account.
+The complete code of this Actor is available [here](https://apify.com/apify/example-web-server). You can run it there or copy it to your account.

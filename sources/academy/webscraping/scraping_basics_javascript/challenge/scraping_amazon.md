@@ -40,7 +40,7 @@ After clicking this button and checking back in Proxyman, we discovered this lin
 https://www.amazon.com/gp/aod/ajax/ref=auto_load_aod?asin=B07ZPKBL9V&pc=dp
 ```
 
-The `asin` [query parameter](https://branch.io/glossary/query-parameters/) matches up with our product's ASIN, which means we can use this for any product of which we have the ASIN.
+The `asin` [query parameter](https://www.branch.io/glossary/query-parameters/) matches up with our product's ASIN, which means we can use this for any product of which we have the ASIN.
 
 Here's what this page looks like:
 

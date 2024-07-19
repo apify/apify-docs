@@ -20,7 +20,7 @@ You are limited in how many times you can metamorph a single run. Check the limi
 
 To make your Actor compatible with the metamorph operation, use `Actor.getInput()` instead of `Actor.getValue('INPUT')`. This method will fetch the input using the right key **INPUT-METAMORPH-1** in case of a metamorphed run.
 
-For example, imagine you have an Actor that accepts a hotel URL on input and then internally uses the [apify/web-scraper](https://www.apify.com/apify/web-scraper) Actor to scrape all the hotel reviews. The metamorphing code would look like this:
+For example, imagine you have an Actor that accepts a hotel URL on input and then internally uses the [apify/web-scraper](https://apify.com/apify/web-scraper) Actor to scrape all the hotel reviews. The metamorphing code would look like this:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
