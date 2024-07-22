@@ -127,12 +127,13 @@ Now, since we're able to use jQuery, let's translate our vanilla JavaScript code
 await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.6.0.min.js' });
 
 const products = await page.evaluate(() => {
-    return Array.from($('.product-item').map(function () {
+    const productCards = $('.product-item');
+    return productCards.map(function () {
         const card = $(this);
         const name = card.find('.product-item__title').text();
         const price = card.find('.price').contents().last().text();
         return { name, price };
-    }));
+    }).get();
 });
 
 console.log(products);
@@ -216,12 +217,13 @@ Now, to loop through all of the products, we'll make use of the `$` object and l
 ```js
 const $ = load(await page.content());
 
-const products = Array.from($('.product-item').map(function () {
+const productCards = $('.product-item');
+const products = productCards.map(function () {
     const card = $(this);
     const name = card.find('.product-item__title').text();
     const price = card.find('.price').contents().last().text();
     return { name, price };
-}));
+}).get();
 
 console.log(products);
 ```
@@ -244,12 +246,13 @@ await page.goto('https://warehouse-theme-metal.myshopify.com/collections/sales')
 
 const $ = load(await page.content());
 
-const products = Array.from($('.product-item').map(function () {
+const productCards = $('.product-item');
+const products = productCards.map(function () {
     const card = $(this);
     const name = card.find('.product-item__title').text();
     const price = card.find('.price').contents().last().text();
     return { name, price };
-}));
+}).get();
 
 console.log(products);
 
@@ -270,12 +273,13 @@ await page.goto('https://warehouse-theme-metal.myshopify.com/collections/sales')
 
 const $ = load(await page.content());
 
-const products = Array.from($('.product-item').map(function () {
+const productCards = $('.product-item');
+const products = productCards.map(function () {
     const card = $(this);
     const name = card.find('.product-item__title').text();
     const price = card.find('.price').contents().last().text();
     return { name, price };
-}));
+}).get();
 
 console.log(products);
 
