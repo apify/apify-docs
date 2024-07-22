@@ -52,10 +52,10 @@ const BUTTON_VARIANTS_CSS = {
         color: ${theme.color.neutral.text};
         border: 1px solid ${theme.color.neutral.border};
         &:hover, &:focus {
-            background-color: ${theme.color.neutral.backgroundHover};
+            background-color: ${theme.color.neutral.actionSecondaryHover};
         }
         &:active {
-            background-color: ${theme.color.neutral.backgroundActive};
+            background-color: ${theme.color.neutral.actionSecondaryActive};
         }
     `,
     [BUTTON_VARIANTS.PRIMARY]: css`
