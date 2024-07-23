@@ -1575,3 +1575,7 @@ html[data-theme='dark'] .runnable-code-block svg .apify-logo {
 .redocusaurus .menu-content div:nth-child(2) div {
     display: none;
 }
+
+.apiPage .tsd-panel-header .tsd-anchor-id {
+    top: -13rem;
+}
