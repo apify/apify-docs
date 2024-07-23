@@ -58,7 +58,7 @@ const firstPage = await browser.newPage();
 await firstPage.goto(REPOSITORIES_URL);
 
 const lastPageElement = firstPage.locator('a[aria-label*="Page "]:nth-last-child(2)');
-const lastPageLabel = await lastPageElement.getAttribute('aria-label')
+const lastPageLabel = await lastPageElement.getAttribute('aria-label');
 const lastPageNumber = Number(lastPageLabel.replace(/\D/g, ''));
 console.log(lastPageNumber);
 
@@ -81,7 +81,7 @@ await firstPage.goto(REPOSITORIES_URL);
 
 const lastPageLabel = await firstPage.$eval(
     'a[aria-label*="Page "]:nth-last-child(2)',
-    (element) => element.getAttribute('aria-label')
+    (element) => element.getAttribute('aria-label'),
 );
 const lastPageNumber = Number(lastPageLabel.replace(/\D/g, ''));
 console.log(lastPageNumber);
@@ -132,7 +132,7 @@ const firstPage = await browser.newPage();
 await firstPage.goto(REPOSITORIES_URL);
 
 const lastPageElement = firstPage.locator('a[aria-label*="Page "]:nth-last-child(2)');
-const lastPageLabel = await lastPageElement.getAttribute('aria-label')
+const lastPageLabel = await lastPageElement.getAttribute('aria-label');
 const lastPageNumber = Number(lastPageLabel.replace(/\D/g, ''));
 
 // Push all results from the first page to the repositories array
@@ -175,7 +175,7 @@ await firstPage.goto(REPOSITORIES_URL);
 
 const lastPageLabel = await firstPage.$eval(
     'a[aria-label*="Page "]:nth-last-child(2)',
-    (element) => element.getAttribute('aria-label')
+    (element) => element.getAttribute('aria-label'),
 );
 const lastPageNumber = Number(lastPageLabel.replace(/\D/g, ''));
 
@@ -217,14 +217,14 @@ If we click around the pagination links, we can observe that all the URLs follow
 That means we could construct URL for each page if we had an array of numbers with the same range as the pages. If `lastPageNumber` is `4`, the following code creates `[0, 1, 2, 3, 4]`:
 
 ```js
-const array = Array(lastPageNumber + 1)  // getting an array of certain size
-const numbers = [...array.keys()];  // getting the keys (the actual numbers) as another array
+const array = Array(lastPageNumber + 1); // getting an array of certain size
+const numbers = [...array.keys()]; // getting the keys (the actual numbers) as another array
 ```
 
 Page `0` doesn't exist though and we've already scraped page `1`, so we need one more step to remove those:
 
 ```js
-const pageNumbers = numbers.slice(2);  // removes the first two numbers
+const pageNumbers = numbers.slice(2); // removes the first two numbers
 ```
 
 To have our code examples shorter, we'll squash the above to a single line of code:
@@ -237,23 +237,22 @@ Now let's scrape repositories for each of these numbers. We'll create promises f
 
 ```js
 const pageNumbers = [...Array(lastPageNumber + 1).keys()].slice(2);
-const promises = pageNumbers.map((pageNumber) =>
-    (async () => {
-        const paginatedPage = await browser.newPage();
+const promises = pageNumbers.map((pageNumber) => (async () => {
+    const paginatedPage = await browser.newPage();
 
-        // Construct the URL by setting the ?page=... parameter to value of pageNumber
-        const url = new URL(REPOSITORIES_URL);
-        url.searchParams.set('page', pageNumber);
+    // Construct the URL by setting the ?page=... parameter to value of pageNumber
+    const url = new URL(REPOSITORIES_URL);
+    url.searchParams.set('page', pageNumber);
 
-        // Scrape the page
-        await paginatedPage.goto(url.href);
-        const results = await scrapeRepos(paginatedPage)
+    // Scrape the page
+    await paginatedPage.goto(url.href);
+    const results = await scrapeRepos(paginatedPage);
 
-        // Push results to the repositories array
-        repositories.push(...results);
+    // Push results to the repositories array
+    repositories.push(...results);
 
-        await paginatedPage.close();
-    })()
+    await paginatedPage.close();
+})(),
 );
 await Promise.all(promises);
 
@@ -302,7 +301,7 @@ const firstPage = await browser.newPage();
 await firstPage.goto(REPOSITORIES_URL);
 
 const lastPageElement = firstPage.locator('a[aria-label*="Page "]:nth-last-child(2)');
-const lastPageLabel = await lastPageElement.getAttribute('aria-label')
+const lastPageLabel = await lastPageElement.getAttribute('aria-label');
 const lastPageNumber = Number(lastPageLabel.replace(/\D/g, ''));
 
 // Push all results from the first page to the repositories array
@@ -311,23 +310,22 @@ repositories.push(...(await scrapeRepos(firstPage)));
 await firstPage.close();
 
 const pageNumbers = [...Array(lastPageNumber + 1).keys()].slice(2);
-const promises = pageNumbers.map((pageNumber) =>
-    (async () => {
-        const paginatedPage = await browser.newPage();
+const promises = pageNumbers.map((pageNumber) => (async () => {
+    const paginatedPage = await browser.newPage();
 
-        // Construct the URL by setting the ?page=... parameter to value of pageNumber
-        const url = new URL(REPOSITORIES_URL);
-        url.searchParams.set('page', pageNumber);
+    // Construct the URL by setting the ?page=... parameter to value of pageNumber
+    const url = new URL(REPOSITORIES_URL);
+    url.searchParams.set('page', pageNumber);
 
-        // Scrape the page
-        await paginatedPage.goto(url.href);
-        const results = await scrapeRepos(paginatedPage)
+    // Scrape the page
+    await paginatedPage.goto(url.href);
+    const results = await scrapeRepos(paginatedPage);
 
-        // Push results to the repositories array
-        repositories.push(...results);
+    // Push results to the repositories array
+    repositories.push(...results);
 
-        await paginatedPage.close();
-    })()
+    await paginatedPage.close();
+})(),
 );
 await Promise.all(promises);
 
@@ -369,7 +367,7 @@ await firstPage.goto(REPOSITORIES_URL);
 
 const lastPageLabel = await firstPage.$eval(
     'a[aria-label*="Page "]:nth-last-child(2)',
-    (element) => element.getAttribute('aria-label')
+    (element) => element.getAttribute('aria-label'),
 );
 const lastPageNumber = Number(lastPageLabel.replace(/\D/g, ''));
 
@@ -379,23 +377,22 @@ repositories.push(...(await scrapeRepos(page)));
 await firstPage.close();
 
 const pageNumbers = [...Array(lastPageNumber + 1).keys()].slice(2);
-const promises = pageNumbers.map((pageNumber) =>
-    (async () => {
-        const paginatedPage = await browser.newPage();
+const promises = pageNumbers.map((pageNumber) => (async () => {
+    const paginatedPage = await browser.newPage();
 
-        // Construct the URL by setting the ?page=... parameter to value of pageNumber
-        const url = new URL(REPOSITORIES_URL);
-        url.searchParams.set('page', pageNumber);
+    // Construct the URL by setting the ?page=... parameter to value of pageNumber
+    const url = new URL(REPOSITORIES_URL);
+    url.searchParams.set('page', pageNumber);
 
-        // Scrape the page
-        await paginatedPage.goto(url.href);
-        const results = await scrapeRepos(paginatedPage)
+    // Scrape the page
+    await paginatedPage.goto(url.href);
+    const results = await scrapeRepos(paginatedPage);
 
-        // Push results to the repositories array
-        repositories.push(...results);
+    // Push results to the repositories array
+    repositories.push(...results);
 
-        await paginatedPage.close();
-    })()
+    await paginatedPage.close();
+})(),
 );
 await Promise.all(promises);
 
