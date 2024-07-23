@@ -18,13 +18,16 @@ in the background, waiting for the incoming HTTP requests. In a sense, the Actor
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-You can head to the Settings tab of your Actor, enable Standby mode, and set the default configuration.
+The best way to start developing Standby Actors is to use the predefined templates in the [Console UI](https://console.apify.com/actors/templates) or in [CLI](https://docs.apify.com/cli/) via `apify create`. The templates contain minimal code to get you up to speed for development in JavaScript, TypeScript or Python. Standby mode will automatically be enabled with default settings.
+
+If you already have an existing Actor, or you just want to tweak the configuration of Standby mode, you can head to the Settings tab of your Actor, where the Actor Standby settings are located.
 ![Standby for creators](./images/standby-creators.png)
 
-Actors using Standby mode must run a HTTP server listening on a specific port. The user requests will then be proxied to the HTTP server.
-You can get the port using the Actor configuration available in Apify SDK.
+Actors using Standby mode must run a HTTP server listening on a specific port. The user requests will then be proxied to the HTTP server. You can use any of the existing [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) like GET, POST, PUT, DELETE, etc. You can pass the input via [HTTP request query string](https://en.wikipedia.org/wiki/Query_string) or via [HTTP request body](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#body).
 
-If you need to override the port, you can do it via the `ACTOR_STANDBY_PORT` environment variable.
+Sometimes, you want the HTTP server to listen on a specific port and cannot change it yourself. You can use `ACTOR_STANDBY_PORT` environment variable to override the port so that Actor Standby will work with your code.
+
+You can get the port using the Actor configuration available in Apify SDK.
 See example below with a simple Actor using Standby mode.
 
 <Tabs groupId="main">
