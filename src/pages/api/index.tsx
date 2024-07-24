@@ -120,7 +120,6 @@ export default function Api() {
             <UiLibraryWrapper>
                 <Hero
                     heading="Apify API"
-                    isCentered
                     description={<>Apify API provides programmatic access to the <Link to="/">Apify Platform</Link></>}
                 />
                 <SectionWrapper
