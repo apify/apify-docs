@@ -68,9 +68,6 @@ For example, the `text-embedding-3-small` model from OpenAI generates vectors of
 
 - For an explanation on how to combine Actors to accomplish more complex tasks, refer to the guide on [Actor-to-Actor](https://blog.apify.com/connecting-scrapers-apify-integration/) integrations.
 
-
-
-
 #### Python
 
 Another way to interact with Pinecone is through the [Apify Python SDK](https://docs.apify.com/sdk/python/).
