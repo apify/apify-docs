@@ -124,7 +124,7 @@ const StyledHeading = styled(TextBaseComponent)<HeadingCssProps>`
  *
  * @param {HeadingProps} props
  */
-export const Heading: React.FC<TextBaseProps & { $type: HeadingType }> = ({
+export const Heading: React.FC<TextBaseProps & { type: HeadingType }> = ({
     type,
     as,
     ...rest
