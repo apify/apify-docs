@@ -62,7 +62,7 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
    ![Pinecone integration configuration](../images/pinecone-integration-setup.png)
 
-1. For a detailed explanation of the input parameters, including dataset settings, incremental updates, and examples, to the [Pinecone integration description](https://apify.com/apify/pinecone-integration).
+1. For a detailed explanation of the input parameters, including dataset settings, incremental updates, and examples, see the [Pinecone integration description](https://apify.com/apify/pinecone-integration).
 
 1. For an explanation on how to combine Actors to accomplish more complex tasks, refer to the guide on [Actor-to-Actor](https://blog.apify.com/connecting-scrapers-apify-integration/) integrations.
 
