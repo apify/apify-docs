@@ -25,6 +25,12 @@ hit the API endpoint and get results.
 
 ![Standby tab](./images/actor_standby/standby-tab.png)
 
+## How do I pass input to Actors in Standby mode
+
+If you're using an Actor built by someone else, see its Information tab to find out how the input should be passed.
+
+Generally speaking, Actors in Standby mode behave as standard HTTP servers. You can use any of the existing [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) like GET, POST, PUT, DELETE, etc. You can pass the input via [HTTP request query string](https://en.wikipedia.org/wiki/Query_string) or via [HTTP request body](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#body).
+
 ## Can I still run the Actor in normal mode
 
 Yes, you can still modify the input and click the Start button to run the Actor in normal mode. However, note that the Standby Actor might
