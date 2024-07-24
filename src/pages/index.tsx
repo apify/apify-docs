@@ -235,8 +235,6 @@ export default function Home() {
                     <CardWithImageAndContent
                         image={
                             <ThemedImage
-                                height={24}
-                                width={24}
                                 sources={{
                                     light: useBaseUrl('/img/landing-pages/cli.svg'),
                                     dark: useBaseUrl('/img/landing-pages/cli_dark.svg'),
