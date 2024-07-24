@@ -20,7 +20,7 @@ The Apify integration for Qdrant enables you to export results from Apify Actors
 
 Before you begin, ensure that you have the following:
 
-- A [Qdrant database](https://qdrant.tech) and cluster set up.
+- A [Qdrant cluster](https://qdrant.tech) set up.
 - A Qdrant URL to the database and Qdrant API token.
 - An [OpenAI API key](https://openai.com/index/openai-api/) to compute text embeddings.
 - An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
@@ -31,9 +31,9 @@ Before you begin, ensure that you have the following:
 
 1. Specify the following details: provider, region, and name.
 
-1. Once the cluster is created and its status is healthy, set up an API key linked to the created cluster.
+1. Set up an API key for the cluster once it is created and its status is healthy.
 
-1. With the cluster ready and its URL and API key in hand, you can proceed with integrating Apify.
+With the cluster ready and its URL and API key in hand, you can proceed with integrating Apify.
 
 
 ### Integration Methods
@@ -58,9 +58,9 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
    ![Qdrant integration configuration](../images/qdrant-integration-setup.png)
 
-1. For a detailed explanation of the input parameters, including dataset settings, incremental updates, and examples, see the [Qdrant integration description](https://apify.com/apify/qdrant-integration).
+- For a detailed explanation of the input parameters, including dataset settings, incremental updates, and examples, see the [Qdrant integration description](https://apify.com/apify/qdrant-integration).
 
-1. For an explanation on how to combine Actors to accomplish more complex tasks, refer to the guide on [Actor-to-Actor](https://blog.apify.com/connecting-scrapers-apify-integration/) integrations.
+- For an explanation on how to combine Actors to accomplish more complex tasks, refer to the guide on [Actor-to-Actor](https://blog.apify.com/connecting-scrapers-apify-integration/) integrations.
 
 #### Python
 

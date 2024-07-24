@@ -27,18 +27,13 @@ Before you begin, ensure that you have the following:
 
 ### How to setup Pinecone database and create an index
 
-1. Sign up or log in to your Pinecone account and click on "Create Index".
+1. Sign up or log in to your Pinecone account and click on **Create Index**.
 
 1. Specify the following details: index name, vector dimension, vector distance metric, deployment type (serverless or pod), and cloud provider.
 
-1. Once the index is created and ready, you can proceed with integrating Apify.
-
-1. For more details, refer to the [Pinecone documentation](https://docs.pinecone.io/).
-
-
    ![Pinecone index configuration](../images/pinecone-create-index.png)
 
-
+Once the index is created and ready, you can proceed with integrating Apify.
 
 ### Integration Methods
 
@@ -62,17 +57,19 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
    ![Pinecone integration configuration](../images/pinecone-integration-setup.png)
 
-1. For a detailed explanation of the input parameters, including dataset settings, incremental updates, and examples, see the [Pinecone integration description](https://apify.com/apify/pinecone-integration).
-
-1. For an explanation on how to combine Actors to accomplish more complex tasks, refer to the guide on [Actor-to-Actor](https://blog.apify.com/connecting-scrapers-apify-integration/) integrations.
-
-
 :::note Pinecone index configuration
 
 You need to ensure that your embedding model in the Pinecone index configuration matches the Actor settings.
 For example, the `text-embedding-3-small` model from OpenAI generates vectors of size `1536`, so your Pinecone index should be configured for vectors of the same size.
 
 :::
+
+- For a detailed explanation of the input parameters, including dataset settings, incremental updates, and examples, see the [Pinecone integration description](https://apify.com/apify/pinecone-integration).
+
+- For an explanation on how to combine Actors to accomplish more complex tasks, refer to the guide on [Actor-to-Actor](https://blog.apify.com/connecting-scrapers-apify-integration/) integrations.
+
+
+
 
 #### Python
 
