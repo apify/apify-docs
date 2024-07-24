@@ -20,10 +20,20 @@ The Apify integration for Qdrant enables you to export results from Apify Actors
 
 Before you begin, ensure that you have the following:
 
-- A [Qdrant database](https://qdrant.tech) set up.
+- A [Qdrant database](https://qdrant.tech) and cluster set up.
 - A Qdrant URL to the database and Qdrant API token.
 - An [OpenAI API key](https://openai.com/index/openai-api/) to compute text embeddings.
 - An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
+
+### How to setup Qdrant database and create a cluster
+
+1. Sign up or log in to your Qdrant account and create a new cluster.
+
+1. Specify the following details: provider, region, and name.
+
+1. Once the cluster is created and its status is healthy, set up an API key linked to the created cluster.
+
+1. With the cluster ready and its URL and API key in hand, you can proceed with integrating Apify.
 
 
 ### Integration Methods
@@ -40,19 +50,17 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
 1. Set up the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor in the [Apify Console](https://console.apify.com). Refer to this guide on how to set up [website content crawl for your project](https://blog.apify.com/talk-to-your-website-with-large-language-models/).
 
-1. Once you have the crawler ready, navigate to the integration section and add Qdrant integration via Connect Actor or Task.
+1. Once you have the crawler ready, navigate to the integration section and add Apify's Qdrant integration.
 
     ![Website Content Crawler with Qdrant integration](../images/qdrant-wcc-integration.png)
 
-1. Search for Qdrant integration and connect it.
-
-   ![Website Content Crawler with Qdrant integration](../images/qdrant-wcc-integration-connect.png)
-
-1. Select when to trigger this integration (typically when a run succeeds) and fill in all the required fields for the Qdrant integration. You can learn more about the input parameters at the [Qdrant integration input schema](https://apify.com/apify/qdrant-integration).
+1. Select when to trigger this integration (typically when a run succeeds) and fill in all the required fields for the Qdrant integration. If you haven't created a collection, it can be created automatically with the specified model. You can learn more about the input parameters at the [Qdrant integration input schema](https://apify.com/apify/qdrant-integration).
 
    ![Qdrant integration configuration](../images/qdrant-integration-setup.png)
 
-1. For a comprehensive explanation on how to combine Actors to accomplish more complex tasks, refer to the guide on [Actor-to-Actor](https://blog.apify.com/connecting-scrapers-apify-integration/) integrations.
+1. For a detailed explanation of the input parameters, including dataset settings, incremental updates, and examples, to the [Qdrant integration description](https://apify.com/apify/qdrant-integration).
+
+1. For an explanation on how to combine Actors to accomplish more complex tasks, refer to the guide on [Actor-to-Actor](https://blog.apify.com/connecting-scrapers-apify-integration/) integrations.
 
 #### Python
 
@@ -74,6 +82,7 @@ Another way to interact with Qdrant is through the [Apify Python SDK](https://do
 
     QDRANT_URL = "YOUR-QDRANT-URL"
     QDRANT_API_KEY = "YOUR-QDRANT-API-KEY"
+    QDRANT_COLLECTION_NAME = "YOUR-QDRANT-COLLECTION-NAME"
 
     client = ApifyClient(APIFY_API_TOKEN)
     ```
@@ -92,12 +101,13 @@ Another way to interact with Qdrant is through the [Apify Python SDK](https://do
     qdrant_integration_inputs = {
         "qdrantUrl": QDRANT_URL,
         "qdrantApiKey": QDRANT_API_KEY,
-        "qdrantCollectionName": "apify",
+        "qdrantCollectionName": QDRANT_COLLECTION_NAME,
         "qdrantAutoCreateCollection": True,
         "datasetId": actor_call["defaultDatasetId"],
         "datasetFields": ["text"],
         "enableDeltaUpdates": True,
         "deltaUpdatesPrimaryDatasetFields": ["url"],
+        "deleteExpiredObjects": True,
         "expiredObjectDeletionPeriodDays": 30,
         "embeddingsProvider": "OpenAI",
         "embeddingsApiKey": OPENAI_API_KEY,
