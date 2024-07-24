@@ -40,7 +40,7 @@ export default function Tabs({ items }: TabsProps) {
             {items.map(({ title }, index) => (
                 <Heading
                     key={title?.toLocaleString()}
-                    $type="titleS"
+                    type="titleS"
                     className={clsx('TabItem', activeTab === index && 'TabItem-active')}
                     onClick={() => setActiveTab(index)}
                 >{title}</Heading>

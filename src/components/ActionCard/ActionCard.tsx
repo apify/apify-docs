@@ -22,9 +22,10 @@ interface ActionCardProps {
     description?: string;
     to: string;
     width?: string;
+    iconSrc?: string;
 }
 
-export default function ActionCard({ title, description, to, width, titleAs = 'h3' }: ActionCardProps) {
+export default function ActionCard({ title, description, to, width, iconSrc, titleAs = 'h3' }: ActionCardProps) {
     const { siteConfig } = useDocusaurusContext();
     const external = to.startsWith('http');
 
@@ -33,6 +34,7 @@ export default function ActionCard({ title, description, to, width, titleAs = 'h
         content={
             <div className={styles.actionCardContent}>
                 <div className={styles.actionCardContentHeader}>
+                    {iconSrc && <img src={iconSrc} alt={title} width={24} height={24} />}
                     <Heading type='titleM' as={titleAs}>{title}</Heading>
                 </div>
                 { description && <div className={styles.cardContentDescription}>
