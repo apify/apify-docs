@@ -196,7 +196,7 @@ By default, the platform sets a generic status message like _Actor exit with exi
 
 ### Basic exit
 
-Use the `exit()` method to treminate the Actor with a custom status message:
+Use the `exit()` method to terminate the Actor with a custom status message:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -301,7 +301,7 @@ The SDK provides convenient methods for exiting Actors:
 
 1. Use `exit()` with custom messages to inform users about the Actor's achievemts or issues.
 
-2. The `exit()` method emits `exit` event allowing componets to perform cleanup or state presistence.
+2. The `exit()` method emits `exit` event allowing componets to perform cleanup or state persistence.
 
 Example of a failed exit using a shorthand method:
 
