@@ -12,18 +12,50 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-This feature is useful if you want to use another Actor to finish the work of your current one instead of internally starting a new Actor run and waiting for it to finish. With metamorph, you can easily create new Actors on top of existing ones, and give your users a nicer input structure and user interface for the final Actor. The metamorph operation is completely transparent to the Actor's users; they will just see that your Actor got the work done.
+## Transform Actor runs
 
-Internally, the system stops the Docker container corresponding to the Actor run and starts a new container using a different Docker image. All the default storages are preserved, and the new input is stored under the **INPUT-METAMORPH-1** key in the same default key-value store.
+Metamorph is a powerful operation that transforms an Actor run into the run of another Actor with a new input. This feature enables you to leverage existing Actors and create more efficient workflows.
 
-You are limited in how many times you can metamorph a single run. Check the limit in [the Actor runtime limits](/platform/limits#actor-limits).
+## Understand metamorph
 
-To make your Actor compatible with the metamorph operation, use `Actor.getInput()` instead of `Actor.getValue('INPUT')`. This method will fetch the input using the right key **INPUT-METAMORPH-1** in case of a metamorphed run.
+The metamorph process invovles several key steps. It stops the current Actor's Docker container, then starts a new container using a different Docker image. During this transition, all default storages are preserved. The new input is stored under the _INPUT-METAMORPH-1_ key in the default key-value store, ensuring seamless data transfer between Actor runs.
 
-For example, imagine you have an Actor that accepts a hotel URL on input and then internally uses the [apify/web-scraper](https://www.apify.com/apify/web-scraper) Actor to scrape all the hotel reviews. The metamorphing code would look like this:
+## Benefits of metamorph
+
+Metamorph offers several advantages for developers:
+
+- Seamless transition between Actors without starting a new run
+- Building new Actors on top of existing ones
+- Providing users with an improved input structure and interface
+- Maintaining transparency for end-users
+
+These benefits make metamorph a valuable tool for creating complex, efficient workflows.
+
+## Implementation guidelines
+
+To make your Actor compatibile with metamorph, use `Actor.getInput()` instead of `Actor.getValue(&#96;INPUT&#96;)`. This method fetches the input using the correct key (_INPUT-METAMORPH-1_) for metamorphed runs, ensuring proper data retrieval in transformed Actor runs.
+
+:::note Runtime limits
+
+There's a limit to how many times you can metamorph a single run. Refer to the [Actor runtime limits](/platform/limits#actor-limits) for more details.
+
+:::
+
+## Example
+
+Let's walk through an of using metamorph to create a hotel review scraper:
+
+1. Craete an Actor that accepts a hotel URL as input.
+
+1. Use the [apify/web-scraper](https://www.apify.com/apify/web-scraper) Actor to scrate reviews.
+
+1. Implement the metamorph operation.
+
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
+
+Here's the JavaScript code to achieve this:
 
 ```js
 import { Actor } from 'apify';
@@ -56,6 +88,8 @@ await Actor.exit();
 </TabItem>
 <TabItem value="Python" label="Python">
 
+Here's the Python code to achieve this:
+
 ```python
 from apify import Actor
 
@@ -83,3 +117,5 @@ async def main():
 
 </TabItem>
 </Tabs>
+
+By following these steps, you can create a powerful hotel review scraper that leverages the capabilities of existing Actors through metamorph operation.
