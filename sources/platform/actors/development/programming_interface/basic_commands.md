@@ -154,7 +154,7 @@ async def main():
 
 Store larger results in a [Dataset](../../../storage/dataset.md), an append-only object storage
 
-Note that Datasets can optionally be equipped with the schema that ensures only certain kinds of objects are stored in them. Check out [Dataset schema file](../../../storage/dataset.md) for more details.
+Note that Datasets can optionally be equipped with the schema that ensures only certain kinds of objects are stored in them.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -365,5 +365,3 @@ await Actor.exit();
 
 </TabItem>
 </Tabs>
-
-For more details, check out [System Events](#system-events).
