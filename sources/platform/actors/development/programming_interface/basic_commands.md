@@ -16,7 +16,7 @@ This page covers essential commands for the Apify SDK in JavaScript & Python. Th
 
 ## Initialize your Actor
 
-Before using any Apify SDK methods, initialize your Actor. This step prepares the Actor to receive events from the Apify paltform, sets up machine and storage configurations, and optionally clears previous local storage states.
+Before using any Apify SDK methods, initialize your Actor. This step prepares the Actor to receive events from the Apify platform, sets up machine and storage configurations, and optionally clears previous local storage states.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -65,7 +65,7 @@ async def main():
 
 ## Get input
 
-Acces the Actor's input object, which is stored as a JSON file in the Actor's default key-value store. The input is an object with properties. If the Actor defines the input schema, the input object is guaranteed to conform to it. For details, check out [Input and output](#input-and-output).
+Access the Actor's input object, which is stored as a JSON file in the Actor's default key-value store. The input is an object with properties. If the Actor defines the input schema, the input object is guaranteed to conform to it. For details, check out [Input and output](#input-and-output).
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -102,7 +102,7 @@ Usually, the file is called `INPUT`, but the exact key is defined in the `ACTOR_
 
 ## Key-value store access
 
-Use the [Key-value store](../../../storage/key_value_store.md) to read and write arbitraty files
+Use the [Key-value store](../../../storage/key_value_store.md) to read and write arbitrary files
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -295,13 +295,13 @@ async def main():
 </TabItem>
 </Tabs>
 
-### Preffered exit methods
+### Preferred exit methods
 
 The SDK provides convenient methods for exiting Actors:
 
-1. Use `exit()` with custom messages to inform users about the Actor's achievemts or issues.
+1. Use `exit()` with custom messages to inform users about the Actor's achievements or issues.
 
-2. The `exit()` method emits `exit` event allowing componets to perform cleanup or state persistence.
+2. The `exit()` method emits `exit` event allowing components to perform cleanup or state persistence.
 
 Example of a failed exit using a shorthand method:
 
