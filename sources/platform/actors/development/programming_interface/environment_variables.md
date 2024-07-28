@@ -55,7 +55,7 @@ All date-related variables use the UTC timezone and are in [ISO 8601](https://en
 :::
 <!-- vale Microsoft.RangeFormat = YES -->
 
-## Accessing environment variables
+## Access environment variables
 
 You can access environment variables in your code as follows:
 
@@ -81,7 +81,7 @@ print(os.environ['APIFY_USER_ID'])
 </TabItem>
 </Tabs>
 
-## Using the `Configuration` class
+## Use the `Configuration` class
 
 For more convenient access to Actor configuration, use the `Configuration` class
 
