@@ -12,17 +12,18 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-The commands described in this section are expected to be called from within a context of a running Actor, both in a local environment or on the Apify platform.
+This page covers essential commands for the Apify SDK in JavaScript & Python. These commands are designed to be used within a running Actor, either in a local environment or on the Apify platform.
 
-## Actor initialization
+## Initialize your Actor
 
-First, the Actor should be initialized. During initialization, it prepares to receive events from the Apify platform. The Actor determines the machine and storage configuration and optionally purges the previous state from local storage. It will also create a default instance of the Actor class.
+Before using any Apify SDK methods, initialize your Actor. This step prepares the Actor to receive events from the Apify paltform, sets up machine and storage configurations, and optionally clears previous local storage states.
 
-It is not required to perform the initialization explicitly because the Actor will initialize on the execution of any Actor method, but we strongly recommend it to prevent race conditions.
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
 
-### Using the JavaScript SDK
+Use the `init()` method to initialize your Actor. Pair it with `exit()` to properly terminate the Actor
 
-The Actor is initialized by calling the `init()` method. It should be paired with an `exit()` method, which terminates the Actor. The use of `exit()` is not required but recommended. For more information, go to [Exit Actor](#exit-actor).
+The use of `exit()` is not required but recommended. For more information, go to [Exit Actor](#exit-actor).
 
 ```js
 import { Actor } from 'apify';
@@ -33,7 +34,8 @@ console.log('Actor starting...');
 await Actor.exit();
 ```
 
-An alternative way of initializing the Actor is with a `main()` function. This is useful in environments where the latest JavaScript syntax and top-level awaits are not supported. The main function is only syntax-sugar for `init()` and `exit()`. It will call `init()` before it executes its callback and `exit()` after the callback resolves.
+Alternatively, use the `main()` function for environments that don't support top-level awaits:
+
 
 ```js
 import { Actor } from 'apify';
@@ -44,9 +46,10 @@ Actor.main(async () => {
 });
 ```
 
-### Using the Python SDK
+</TabItem>
+<TabItem value="Python" label="Python">
 
-In the Python SDK, an Actor is written as an asynchronous context manager, which means that we can use the `with` keyword to write our Actor code into a block. The `init()` method will be called before the code block is executed, and the `exit()` method will be called after the code block is finished.
+In Python, use an asynchronous context manager with the `with` keyword. The `init()` method will be called before the code block is executed, and the `exit()` method will be called after the code block is finished.
 
 ```python
 from apify import Actor
@@ -57,11 +60,12 @@ async def main():
         # ...
 ```
 
+</TabItem>
+</Tabs>
+
 ## Get input
 
-Get access to the Actor input object passed by the user. It is parsed from a JSON file, which is stored by the system in the Actor's default key-value store. Usually, the file is called `INPUT`, but the exact key is defined in the `ACTOR_INPUT_KEY` environment variable.
-
-The input is an object with properties. If the Actor defines the input schema, the input object is guaranteed to conform to it. For details, see [Input and output](#input-and-output).
+Acces the Actor's input object, which is stored as a JSON file in the Actor's default key-value store. The input is an object with properties. If the Actor defines the input schema, the input object is guaranteed to conform to it. For details, check out [Input and output](#input-and-output).
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -94,11 +98,11 @@ async def main():
 </TabItem>
 </Tabs>
 
+Usually, the file is called `INPUT`, but the exact key is defined in the `ACTOR_INPUT_KEY` environment variable.
+
 ## Key-value store access
 
-Write and read arbitrary files using a storage called [Key-value store](../../../storage/key_value_store.md). When an Actor starts, by default, it is associated with a newly-created key-value store, which only contains one file with the input of the Actor (see [Get input](#get-input)).
-
-The user can override this behavior and specify another key-value store or input key when running the Actor.
+Use the [Key-value store](../../../storage/key_value_store.md) to read and write arbitraty files
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -148,9 +152,9 @@ async def main():
 
 ## Push results to the dataset
 
-Larger results can be saved to append-only object storage called [Dataset](../../../storage/dataset.md). When an Actor starts, by default, it is associated with a newly-created empty default dataset. The Actor can create additional datasets or access existing datasets created by other Actors and use those as needed.
+Store larger results in a [Dataset](../../../storage/dataset.md), an append-only object storage
 
-Note that Datasets can optionally be equipped with the schema that ensures only certain kinds of objects are stored in them. See [Dataset schema file](../../../storage/dataset.md) for more details.
+Note that Datasets can optionally be equipped with the schema that ensures only certain kinds of objects are stored in them. Check out [Dataset schema file](../../../storage/dataset.md) for more details.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -183,7 +187,16 @@ async def main():
 
 ## Exit Actor
 
-When the main Actor process exits (i.e. the Docker container stops running), the Actor run is considered finished, and the process exit code is used to determine whether the Actor has succeeded (exit code `0` leads to status `SUCCEEDED`) or failed (exit code not equal to `0` leads to status `SUCCEEDED`). In this case, the platforms set a status message to a default value like `Actor exit with exit code 0`, which is not very descriptive for the users.
+When an Actor's main process terminates, the Actor run is considered finished. The process exit code determines Actor's final status:
+
+- Exit code `0`: Status `SUCCEEDED`
+- Exit code not equal to `0`: Status `FAILED`
+
+By default, the platform sets a generic status message like _Actor exit with exit code 0_. However, you can provide more informative message using the SDK's exit methods.
+
+### Basic exit
+
+Use the `exit()` method to treminate the Actor with a custom status message:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -215,6 +228,10 @@ async def main():
 </TabItem>
 </Tabs>
 
+### Immediate exit
+
+To exit immediately without calling exit handlers:
+
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -245,6 +262,9 @@ async def main():
 </TabItem>
 </Tabs>
 
+### Failed exit
+
+To indicate a failed run:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -275,10 +295,15 @@ async def main():
 </TabItem>
 </Tabs>
 
-An alternative and preferred way to exit an Actor is using the `exit` function in the SDK, as shown below. This has two advantages:
+### Preffered exit methods
 
-- You can provide a custom status message for users to tell them what the Actor achieved. On error, try to explain to users what happened, and most importantly, how they can fix the error. This greatly improves user experience.
-- The system emits the `exit` event, which can be listened to and used by various components of the Actor to perform a cleanup, persist state, etc. Note that the caller of exit can specify how long the system should wait for all `exit` event handlers to complete before closing the process, using the `timeoutSecs` option. For details, see [System Events](#system-events).
+The SDK provides convenient methods for exiting Actors:
+
+1. Use `exit()` with custom messages to inform users about the Actor's achievemts or issues.
+
+2. The `exit()` method emits `exit` event allowing componets to perform cleanup or state presistence.
+
+Example of a failed exit using a shorthand method:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -309,6 +334,9 @@ async def main():
 </TabItem>
 </Tabs>
 
+### Exit event handlers (JavaScript only)
+
+In JavaScript, you can register handlers for the `exit` event:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -337,3 +365,5 @@ await Actor.exit();
 
 </TabItem>
 </Tabs>
+
+For more details, check out [System Events](#system-events).
