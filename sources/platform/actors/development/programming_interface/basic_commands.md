@@ -360,7 +360,6 @@ await Actor.exit();
 
 ```python
 # 😔 Custom handlers are not supported in the Python SDK yet.
-# 👉 Stay tuned and follow the news at https://apify.com/change-log
 ```
 
 </TabItem>
