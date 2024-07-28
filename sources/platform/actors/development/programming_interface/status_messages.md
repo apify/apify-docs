@@ -38,7 +38,7 @@ When an Actor exits, the status message is set to either:
 - A default text (e.g., _Actor finished with exit code 1_)
 - A custom message (see the [exit](./basic_commands.md#exit-actor) method for details)
 
-## Updating status message
+## Update status message
 
 To keep users informed during the Actor's execution, update the status message periodically. Use the following code to set a status message:
 
