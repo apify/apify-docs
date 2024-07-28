@@ -20,11 +20,20 @@ The Apify integration for Pinecone enables you to export results from Apify Acto
 
 Before you begin, ensure that you have the following:
 
-- A [Pinecone database](https://www.pinecone.io/) set up.
+- A [Pinecone database](https://www.pinecone.io/) and index set up.
 - A Pinecone index created & Pinecone API token obtained.
 - An [OpenAI API key](https://openai.com/index/openai-api/) to compute text embeddings.
 - An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
 
+### How to setup Pinecone database and create an index
+
+1. Sign up or log in to your Pinecone account and click on **Create Index**.
+
+1. Specify the following details: index name, vector dimension, vector distance metric, deployment type (serverless or pod), and cloud provider.
+
+   ![Pinecone index configuration](../images/pinecone-create-index.png)
+
+Once the index is created and ready, you can proceed with integrating Apify.
 
 ### Integration Methods
 
@@ -48,7 +57,16 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
    ![Pinecone integration configuration](../images/pinecone-integration-setup.png)
 
-1. For a comprehensive explanation on how to combine Actors to accomplish more complex tasks, refer to the guide on [Actor-to-Actor](https://blog.apify.com/connecting-scrapers-apify-integration/) integrations.
+:::note Pinecone index configuration
+
+You need to ensure that your embedding model in the Pinecone index configuration matches the Actor settings.
+For example, the `text-embedding-3-small` model from OpenAI generates vectors of size `1536`, so your Pinecone index should be configured for vectors of the same size.
+
+:::
+
+- For a detailed explanation of the input parameters, including dataset settings, incremental updates, and examples, see the [Pinecone integration description](https://apify.com/apify/pinecone-integration).
+
+- For an explanation on how to combine Actors to accomplish more complex tasks, refer to the guide on [Actor-to-Actor](https://blog.apify.com/connecting-scrapers-apify-integration/) integrations.
 
 #### Python
 
@@ -66,6 +84,7 @@ Another way to interact with Pinecone is through the [Apify Python SDK](https://
     APIFY_API_TOKEN = "YOUR-APIFY-TOKEN"
     OPENAI_API_KEY = "YOUR-OPENAI-API-KEY"
     PINECONE_API_KEY = "YOUR-PINECONE-API-KEY"
+    PINECONE_INDEX_NAME = "YOUR-PINECONE-INDEX-NAME"
 
     client = ApifyClient(APIFY_API_TOKEN)
     ```
@@ -86,11 +105,12 @@ Another way to interact with Pinecone is through the [Apify Python SDK](https://
     ```python
     pinecone_integration_inputs = {
         "pineconeApiKey": PINECONE_API_KEY,
-        "pineconeIndexName": "apify",
+        "pineconeIndexName": PINECONE_INDEX_NAME,
         "datasetFields": ["text"],
         "datasetId": actor_call["defaultDatasetId"],
         "enableDeltaUpdates": True,
         "deltaUpdatesPrimaryDatasetFields": ["url"],
+        "deleteExpiredObjects": True,
         "expiredObjectDeletionPeriodDays": 30,
         "embeddingsApiKey": OPENAI_API_KEY,
         "embeddingsProvider": "OpenAI",

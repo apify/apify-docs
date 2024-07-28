@@ -370,7 +370,7 @@ export default function Home() {
                 </div>
             </Section>
             <Section>
-                <StyledBanner>
+                <StyledBanner useGradientBackground={false}>
                     <div className={styles.smallBannerContent}>
                         <div className={styles.smallBannerContentText}>
                             <Heading type='titleXl'>Monetize your code</Heading>

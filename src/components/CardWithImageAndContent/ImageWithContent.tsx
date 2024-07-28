@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './styles.module.css';
 
 interface CardWithImageAndContentProps {
-    image: React.ReactNode;
+    image?: React.ReactNode;
     content: React.ReactNode;
     height?: string;
 }
@@ -11,9 +11,9 @@ interface CardWithImageAndContentProps {
 export default function CardWithImageAndContent({ image, content, height }: CardWithImageAndContentProps) {
     return (
         <div className={styles.cardWithImageAndContent} style={{ height }}>
-            <div className={styles.cardWithImageAndContentImage}>
+            {image && <div className={styles.cardWithImageAndContentImage}>
                 {image}
-            </div>
+            </div> }
             <div className={styles.cardWithImageAndContentContent}>
                 {content}
             </div>
