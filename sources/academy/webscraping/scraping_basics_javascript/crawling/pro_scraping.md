@@ -61,6 +61,19 @@ import { CheerioCrawler } from 'crawlee';
 console.log('Crawlee works!');
 ```
 
+We are using the new ESM `import` syntax here (see [Node.js docs](https://nodejs.org/dist/latest-v16.x/docs/api/esm.html#enabling)). To be able to use it, we need to turn our project to `module` in the `package.json` file:
+
+```json title=package.json
+{
+    "name": "my-scraping-project",
+    // highlight-next-line
+    "type": "module",
+    "dependencies": {
+        "crawlee": "^3.0.0"
+    }
+}
+```
+
 Then, run the code using `node` as usual:
 
 ```shell

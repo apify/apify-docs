@@ -84,7 +84,7 @@ module.exports = {
                 specs: [
                     {
                         spec: 'node_modules/@apify/openapi/openapi.yaml',
-                        route: '/api/v2-new/',
+                        route: '/api/v2/',
                     },
                 ],
                 theme: {

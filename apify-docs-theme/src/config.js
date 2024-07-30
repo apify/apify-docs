@@ -103,6 +103,9 @@ const themeConfig = ({
             {
                 label: 'Open source',
                 type: 'dropdown',
+                to: `${absoluteUrl}/open-source`,
+                activeBasePath: 'open-source',
+                target: '_self',
                 position: 'left',
                 className: 'navbar__item',
                 items: [
