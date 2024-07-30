@@ -32,7 +32,7 @@ If you need to test Apify Proxy before you subscribe, please [contact our suppor
 
 | Parameter           | Value / explanation |
 |---------------------|---------------------|
-| Hostname            | `proxy.apify.com`, alternatively you can use static IP addresses `18.208.102.16`, `35.171.134.41`. |
+| Hostname            | `proxy.apify.com`, alternatively you can use static IP addresses `18.208.102.16`, `35.171.134.41`. However, it is **strongly recommended to use the DNS name** (`proxy.apify.com`) as IP addresses are only available based on the current backend targets. |
 | Port                | `8000`              |
 | Username            | Specifies the proxy parameters such as groups, [session](#sessions) and location. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username.|
 | Password            | Apify Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. <br/>**Note**: this is not your Apify account password. |
