@@ -11,7 +11,7 @@ slug: /concepts/dynamic-pages
 
 ---
 
-Oftentimes, web pages load additional information dynamically, long after their main body is loaded in the browser. A subset of dynamic pages takes this approach further and loads all of its content dynamically. Such style of constructing websites is called Single-page applications (SPAs), and it's widespread thanks to some popular JavaScript libraries, such as [React](https://reactjs.org/) or [Vue](https://vuejs.org/).
+Oftentimes, web pages load additional information dynamically, long after their main body is loaded in the browser. A subset of dynamic pages takes this approach further and loads all of its content dynamically. Such style of constructing websites is called Single-page applications (SPAs), and it's widespread thanks to some popular JavaScript libraries, such as [React](https://react.dev/) or [Vue](https://vuejs.org/).
 
 As you progress in your scraping journey, you'll quickly realize that different websites load their content and populate their pages with data in different ways. Some pages are rendered entirely on the server, some retrieve the data dynamically, and some use a combination of both those methods.
 

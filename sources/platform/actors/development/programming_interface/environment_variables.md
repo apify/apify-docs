@@ -117,4 +117,4 @@ Note that the custom environment variables are fixed during the build of the Act
 
 The Actor runtime sets additional environment variables for the Actor process during the run. See [Environment variables](./environment_variables.md) for details.
 
-The environment variables can also be used for the build process. In this case, the variables are treated as [Docker build arguments](https://docs.docker.com/engine/reference/builder/#arg). This means that they should not be used for secrets and, in order to access them in Dockerfile, you have to use the `ARG variable_name` instruction.
+The environment variables can also be used for the build process. In this case, the variables are treated as [Docker build arguments](https://docs.docker.com/reference/dockerfile/#arg). This means that they should not be used for secrets and, in order to access them in Dockerfile, you have to use the `ARG variable_name` instruction.

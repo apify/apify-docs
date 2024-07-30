@@ -36,7 +36,7 @@ In one of the later lessons, we'll be learning how to integrate our Actor on the
 
 ### Docker {#docker}
 
-Docker is a massive topic on its own, but don't be worried! We only expect you to know and understand the very basics of it, which can be learned about in [this short article](https://docs.docker.com/get-started/overview/) (10 minute read).
+Docker is a massive topic on its own, but don't be worried! We only expect you to know and understand the very basics of it, which can be learned about in [this short article](https://docs.docker.com/guides/docker-overview/) (10 minute read).
 
 ### The basics of Actors {#actor-basics}
 

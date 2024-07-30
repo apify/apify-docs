@@ -225,7 +225,7 @@ By default TypeScript will allow us to use things like `document.querySelector()
 }
 ```
 
-> Learn more about the **lib** configuration option [in the TypeScript documentation](https://www.typescriptlang.org/tsconfig#lib).
+> Learn more about the **lib** configuration option [in the TypeScript documentation](https://www.typescriptlang.org/tsconfig/#lib).
 
 #### Removing comments {#removing-comments}
 

@@ -17,7 +17,7 @@ Naming your Actor can be tricky. Especially when you've spent a long time coding
 
 ## Scrapers {#scrapers}
 
-For Actors such as [YouTube Scraper](https://apify.com/bernardo/youtube-scraper) or [Amazon Scraper](https://apify.com/vaclavrut/amazon-crawler), which scrape web pages, we usually have one Actor per domain. This helps with naming, as the domain name serves as your Actor's name.
+For Actors such as [YouTube Scraper](https://apify.com/streamers/youtube-scraper) or [Amazon Scraper](https://apify.com/junglee/amazon-crawler), which scrape web pages, we usually have one Actor per domain. This helps with naming, as the domain name serves as your Actor's name.
 
 GOOD:
 

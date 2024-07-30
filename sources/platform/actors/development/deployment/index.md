@@ -32,7 +32,7 @@ When you deploy an Actor using the CLI, the code gets deployed as "multiple sour
 
 ## Other ways (Zip, Git, Gist)
 
-If you want to deploy an Actor in a different way, you need to first manually create the Actor in [Apify Console](https://my.apify.com/actors). Then switch its source type:
+If you want to deploy an Actor in a different way, you need to first manually create the Actor in [Apify Console](https://console.apify.com/actors). Then switch its source type:
 
 ![Actor source types](./images/actor-source-types.png)
 

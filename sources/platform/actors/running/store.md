@@ -47,7 +47,7 @@ Yes, when you are renting an Actor, you can run it using either our [API](/api/v
 
 ##### Do I pay platform costs for running rental Actors?
 
-Yes, you will pay normal [platform usage costs](https://apify.com/pricing/actors) on top of the monthly Actor rental fee. The platform costs work exactly the same way as for free public Actors or your private Actors. You should find estimates of the cost of usage in each individual rental Actor's README ([see an example](https://apify.com/drobnikj/crawler-google-places#how-much-will-it-cost)).
+Yes, you will pay normal [platform usage costs](https://apify.com/pricing) on top of the monthly Actor rental fee. The platform costs work exactly the same way as for free public Actors or your private Actors. You should find estimates of the cost of usage in each individual rental Actor's README ([see an example](https://apify.com/compass/crawler-google-places#how-much-will-it-cost)).
 
 ##### Do I need an Apify paid plan to use rental Actors?
 

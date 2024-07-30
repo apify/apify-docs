@@ -12,7 +12,7 @@ toc_max_heading_level: 4
 
 ---
 
-[Pinecone](https://pinecone.io) is a managed vector database that allows users to store and query dense vectors for AI applications such as recommendation systems, semantic search, and retrieval augmented generation (RAG).
+[Pinecone](https://www.pinecone.io) is a managed vector database that allows users to store and query dense vectors for AI applications such as recommendation systems, semantic search, and retrieval augmented generation (RAG).
 
 The Apify integration for Pinecone enables you to export results from Apify Actors and Dataset items into a specific Pinecone vector index.
 

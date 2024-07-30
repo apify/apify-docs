@@ -41,7 +41,7 @@ Becoming more and more common is cursor-based pagination. Like with offset-based
 
 One of the most painful things about scraping APIs with cursor pagination is that you can't skip to, for example, the 5th page. You have to paginate through each page one by one.
 
-> Note: SoundCloud [migrated](https://developers.soundcloud.com/blog/pagination-updates-on-our-api) over to using cursor-based pagination; however, they did not change the parameter name from **offset** to **cursor**. Always be on the lookout for this type of stuff!
+> Note: SoundCloud [migrated](https://developers.soundcloud.com/blog/pagination-updates-on-our-api/) over to using cursor-based pagination; however, they did not change the parameter name from **offset** to **cursor**. Always be on the lookout for this type of stuff!
 
 ## Using "next page" {#using-next-page}
 

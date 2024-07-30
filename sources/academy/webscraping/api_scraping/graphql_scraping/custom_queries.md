@@ -67,7 +67,7 @@ const scrapeAppToken = async () => {
         }
     });
 
-    await page.goto('https://cheddar.com/');
+    await page.goto('https://www.cheddar.com/');
 
     await page.waitForNetworkIdle();
 
@@ -302,7 +302,7 @@ const scrapeAppToken = async () => {
         }
     });
 
-    await page.goto('https://cheddar.com/');
+    await page.goto('https://www.cheddar.com/');
 
     await page.waitForNetworkIdle();
 

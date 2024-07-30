@@ -23,7 +23,7 @@ You want to crawl a website with a proxy pool, but most of your proxies are bloc
 
 Nobody can make sure that a proxy will work infinitely. The only real solution to this problem is to use [residential proxies](/platform/proxy#residential-proxy), but they can sometimes be too costly.
 
-However, usually, at least some of our proxies work. To crawl successfully, it is therefore imperative to handle blocked requests properly. You first need to discover that you are blocked, which usually means that either your request returned status greater or equal to 400 (simply it didn't return the proper response) or that the page displayed a captcha. To ensure that this bad request is retried, you usually just throw an error and it gets automatically retried later (our [SDK](/sdk/js/) handles this for you). Check out [this article](https://help.apify.com/en/articles/2190650-how-to-handle-blocked-requests-in-puppeteercrawler) as inspiration for how to handle this situation with `PuppeteerCrawler`  class.
+However, usually, at least some of our proxies work. To crawl successfully, it is therefore imperative to handle blocked requests properly. You first need to discover that you are blocked, which usually means that either your request returned status greater or equal to 400 (simply it didn't return the proper response) or that the page displayed a captcha. To ensure that this bad request is retried, you usually just throw an error and it gets automatically retried later (our [SDK](/sdk/js/) handles this for you). Check out [this article](https://docs.apify.com/academy/node-js/handle-blocked-requests-puppeteer) as inspiration for how to handle this situation with `PuppeteerCrawler`  class.
 
 ### Solution
 
@@ -180,7 +180,7 @@ const gotoFunction = async ({ request, page }) => {
 };
 ```
 
-Now we have access to the session in the `handlePageFunction` and the rest of the logic is the same as in the first example. We extract the session from the userData, try/catch the whole code and on success we add the session and on error we delete it. Also it is useful to retire the browser completely (check [here](http://kb.apify.com/actor/how-to-handle-blocked-requests-in-puppeteercrawler) for reference) since the other requests will probably have similar problem.
+Now we have access to the session in the `handlePageFunction` and the rest of the logic is the same as in the first example. We extract the session from the userData, try/catch the whole code and on success we add the session and on error we delete it. Also it is useful to retire the browser completely (check [here](https://docs.apify.com/academy/node-js/handle-blocked-requests-puppeteer) for reference) since the other requests will probably have similar problem.
 
 ```js
 const handlePageFunction = async ({ request, page, puppeteerPool }) => {

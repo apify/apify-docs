@@ -11,7 +11,7 @@ slug: /api-scraping/graphql-scraping/modifying-variables
 
 ---
 
-In the introduction of this course, we searched for the term **test** on the [Cheddar](https://cheddar.com) website and discovered a request to their GraphQL API. The payload looked like this:
+In the introduction of this course, we searched for the term **test** on the [Cheddar](https://www.cheddar.com/) website and discovered a request to their GraphQL API. The payload looked like this:
 
 ```json
 {

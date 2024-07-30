@@ -47,7 +47,7 @@ These images come with Python (version `3.8`, `3.9`, `3.10`, `3.11`, or `3.12`) 
 | ----- | ----------- |
 | [`actor-python`](https://hub.docker.com/r/apify/actor-python) | Slim Debian image with only the Apify SDK for Python. Does not include headless browsers. |
 | [`actor-python-playwright`](https://hub.docker.com/r/apify/actor-python-playwright) | Debian image with [`playwright`](https://github.com/microsoft/playwright) and all its browsers. |
-| [`actor-python-selenium`](https://hub.docker.com/r/apify/actor-python-selenium) | Debian image with [`selenium`](https://github.com/seleniumhq/selenium), Google Chrome, and [ChromeDriver](https://chromedriver.chromium.org/). |
+| [`actor-python-selenium`](https://hub.docker.com/r/apify/actor-python-selenium) | Debian image with [`selenium`](https://github.com/seleniumhq/selenium), Google Chrome, and [ChromeDriver](https://developer.chrome.com/docs/chromedriver/). |
 
 ## Custom Dockerfile
 
@@ -77,7 +77,7 @@ RUN npm --quiet set progress=false \
 COPY . ./
 ```
 
-For more information about `Dockerfile` syntax and commands, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
+For more information about `Dockerfile` syntax and commands, see the [Dockerfile reference](https://docs.docker.com/reference/dockerfile/).
 
 :::note Custom base images
 
