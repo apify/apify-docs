@@ -33,7 +33,7 @@ At the end of each month, we will then add up all rental fees collected in that 
 
 If you make your Actor pay-per-result instead, you will set the price per 1,000 results, and users will be charged for your Actor solely based on the number of results your Actor produces. That's your _revenue_. The underlying [platform usage](https://docs.apify.com/platform/actors/running/usage-and-resources) the Actor generates, using the pay-per-result unit pricing defined below, is your _cost_. Your profit which is then paid to you is computed as 80% of the revenue minus the costs, i.e. `(0.8 * revenue) - costs = profit`. This profit is also paid out monthly.
 
-**Pay-per-result unit pricing for cost computation**
+### Pay-per-result unit pricing for cost computation
 
 | Service                         | Unit price                 |
 |---------------------------------|----------------------------|
@@ -52,7 +52,6 @@ If you make your Actor pay-per-result instead, you will set the price per 1,000 
 | Request queue - timed storage   | **$4.00** / 1,000 GB-hours |
 | Request queue - reads           | **$0.004** / 1,000 reads   |
 | Request queue - writes          | **$0.02** / 1,000 writes   |
-
 
 Note that only revenue and cost for Apify customers on [paid plans](https://apify.com/pricing) are taken into consideration when computing your profit. Users on free plans are not reflected there, although you can see statistics about the potential revenue of users that are currently on free plans in Actor insights in the Apify Console.
 
