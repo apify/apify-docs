@@ -106,7 +106,8 @@ export default function OpenSource() {
                 <StyledWrapper>
                     <Hero
                         heading="Apify open source"
-                        description="Open-source tools and libraries created and maintained by Apify experts to help you with web scraping, browser automation, and proxy management."
+                        description="Open-source tools and libraries created and maintained by Apify experts
+                            to help you with web scraping, browser automation, and proxy management."
                     />
                     <Section>
                         <Banner useGradientBackground={false} className="banner">
