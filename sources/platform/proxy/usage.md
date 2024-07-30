@@ -162,8 +162,9 @@ You can see which proxy groups you have access to on the [Proxy page](https://co
 ## Proxy IP addresses
 
 If you need to allow communication to `apify.proxy.com`, add the following IP addresses to your firewall rule or whitelist:
-- `18.208.102.16`
-- `35.171.134.41`
+
+* `18.208.102.16`
+* `35.171.134.41`
 
 ## Troubleshooting
 
