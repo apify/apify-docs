@@ -43,13 +43,13 @@ There's a limit to how many times you can metamorph a single run. Refer to the [
 
 ## Example
 
-Let's walk through an of using metamorph to create a hotel review scraper:
+Let's walk through an example of using metamorph to create a hotel review scraper:
 
-1. Craete an Actor that accepts a hotel URL as input.
+1. Create an Actor that accepts a hotel URL as input.
 
-1. Use the [apify/web-scraper](https://www.apify.com/apify/web-scraper) Actor to scrate reviews.
+1. Use the [apify/web-scraper](https://www.apify.com/apify/web-scraper) Actor to scrape reviews.
 
-1. Implement the metamorph operation.
+1. Use the metamorph operation to transform into a run of apify/web-scraper.
 
 
 <Tabs groupId="main">
@@ -118,4 +118,4 @@ async def main():
 </TabItem>
 </Tabs>
 
-By following these steps, you can create a powerful hotel review scraper that leverages the capabilities of existing Actors through metamorph operation.
+By following these steps, you can create a powerful hotel review scraper that leverages the capabilities of existing Actors through the metamorph operation.
