@@ -53,6 +53,20 @@ If you make your Actor pay-per-result instead, you will set the price per 1,000 
 | Request queue - reads           | **$0.004** / 1,000 reads   |
 | Request queue - writes          | **$0.02** / 1,000 writes   |
 
+:::note What are Gigabyte-hours?
+
+Gigabyte-hours (GB-hours) are a unit of measurement used to quantify data storage and processing capacity over time.
+To calculate GB-hours, multiply the amount of data in gigabytes by the number of hours it's stored or processed.
+
+Suppose you host 50GB of data for 30 days. To calculate this in GB-hours:
+
+- Convert days to hours: _30 * 24 = 720_
+- Multiply data size by hours: _50 * 720 = 36,000_
+
+This means that storing 50 GB of data for 30 days results in 36,000 GB-hours.
+
+:::
+
 Note that only revenue and cost for Apify customers on [paid plans](https://apify.com/pricing) are taken into consideration when computing your profit. Users on free plans are not reflected there, although you can see statistics about the potential revenue of users that are currently on free plans in Actor insights in the Apify Console.
 
 > **Example - pay-per-result pricing model**
