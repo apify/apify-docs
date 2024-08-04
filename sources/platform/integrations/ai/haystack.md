@@ -39,8 +39,10 @@ from apify_haystack import ApifyDatasetFromActorCall
 Find your [Apify API token](https://console.apify.com/account/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize these into environment variable:
 
 ```python
-apify_api_token = "YOUR-APIFY-API-TOKEN"
-openai_api_key = "YOUR-OPENAI-API"
+import os
+
+os.environ["APIFY_API_TOKEN"] = "YOUR-APIFY-API-TOKEN"
+os.environ["OPENAI_API_KEY"] = "YOUR-OPENAI-API-KEY"
 ```
 
 First, you need to create a document loader that will crawl the haystack website using the Website Content Crawler:
@@ -53,21 +55,20 @@ document_loader = ApifyDatasetFromActorCall(
         "startUrls": [{"url": "https://haystack.deepset.ai/"}],
     },
     dataset_mapping_function=lambda item: Document(content=item["text"] or "", meta={"url": item["url"]}),
-    apify_api_token=apify_api_token,
 )
 ```
 
 You can learn more about input parameters on the [Website Content Crawler inputs page](https://apify.com/apify/website-content-crawler/input-schema).
 The dataset mapping function is described in more detail in the [Retrieval augmented generation example](https://colab.research.google.com/github/deepset-ai/haystack-cookbook/blob/main/notebooks/apify_haystack_rag.ipynb).
 
-Next, you can utilize the [Haystack pipeline](https://docs.haystack.deepset.ai/docs/pipelines), which helps you chain several processing components together. I
-n this example, we chain the document loader with the document splitter, document embedder, and document writer components.
+Next, you can utilize the [Haystack pipeline](https://docs.haystack.deepset.ai/docs/pipelines), which helps you connect several processing components together. I
+n this example, we connect the document loader with the document splitter, document embedder, and document writer components.
 
 ```python
 document_store = InMemoryDocumentStore()
 
 document_splitter = DocumentSplitter(split_by="word", split_length=150, split_overlap=50)
-document_embedder = OpenAIDocumentEmbedder(api_key=Secret.from_token(openai_api_key))
+document_embedder = OpenAIDocumentEmbedder()
 document_writer = DocumentWriter(document_store)
 
 pipe = Pipeline()
@@ -100,8 +101,9 @@ print(f"Added {document_store.count_documents()} to vector from Website Content 
 
 print("Retrieving documents from the document store using BM25")
 print("query='Haystack'")
-for doc in document_store.bm25_retrieval("Haystack", top_k=1):
-    print(doc)
+bm25_retriever = InMemoryBM25Retriever(document_store)
+for doc in bm25_retriever.run("Haystack", top_k=1)["documents"]:
+  print(doc.content)
 ```
 
 If you want to test the whole example, you can simply create a new file, `apify_integration.py`, and copy the whole code into it.
@@ -168,7 +170,7 @@ for doc in document_store.embedding_retrieval(
 
 To run it, you can use the following command: `python apify_integration.py`
 
-Haystack is an open-source framework designed for building search systems, Question Answering (QA) systems, and information retrieval applications. It allows developers to create intelligent search functionalities that can understand and process natural language queries.
+[Haystack](https://haystack.deepset.ai/) is an open source framework for building production-ready LLM applications, agents, advanced retrieval-augmented generative pipelines, and state-of-the-art search systems that work intelligently over large document collections. 
 
 ## Resources
 
