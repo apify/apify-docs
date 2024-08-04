@@ -85,7 +85,7 @@ pipe.connect("document_embedder", "document_writer")
 Run all the components in the pipeline:
 
 ```python
-pipe.run({"document_loader": {}})
+pipe.run({})
 ```
 
 :::note Crawling may take some time
