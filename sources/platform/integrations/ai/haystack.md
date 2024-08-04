@@ -29,6 +29,7 @@ Import all required packages:
 from haystack import Document, Pipeline
 from haystack.components.embedders import OpenAIDocumentEmbedder, OpenAITextEmbedder
 from haystack.components.preprocessors import DocumentCleaner, DocumentSplitter
+from haystack.components.retrievers import InMemoryBM25Retriever, InMemoryEmbeddingRetriever
 from haystack.components.writers import DocumentWriter
 from haystack.document_stores.in_memory import InMemoryDocumentStore
 from haystack.utils.auth import Secret
@@ -114,6 +115,7 @@ import os
 from haystack import Document, Pipeline
 from haystack.components.embedders import OpenAIDocumentEmbedder, OpenAITextEmbedder
 from haystack.components.preprocessors import DocumentSplitter
+from haystack.components.retrievers import InMemoryBM25Retriever, InMemoryEmbeddingRetriever
 from haystack.components.writers import DocumentWriter
 from haystack.document_stores.in_memory import InMemoryDocumentStore
 
@@ -154,30 +156,30 @@ print("You can visit https://console.apify.com/actors/runs to monitor the progre
 pipe.run({})
 print(f"Added {document_store.count_documents()} to vector from Website Content Crawler")
 
-print("\nRetrieving documents from the document store using BM25")
+print("\n ### Retrieving documents from the document store using BM25 ###\n")
 print("query='Haystack'\n")
 
 bm25_retriever = InMemoryBM25Retriever(document_store)
 
 for doc in bm25_retriever.run("Haystack", top_k=1)["documents"]:
-  print(doc.content)
+    print(doc.content)
 
-print("\nRetrieving documents from the document store using vector similarity.\n")
+print("\n ### Retrieving documents from the document store using vector similarity ###\n")
 retrieval_pipe = Pipeline()
 retrieval_pipe.add_component("embedder", OpenAITextEmbedder())
 retrieval_pipe.add_component("retriever", InMemoryEmbeddingRetriever(document_store, top_k=1))
 
 retrieval_pipe.connect("embedder.embedding", "retriever.query_embedding")
 
-results = retrieval_pipe.run({"embedder":{"text": "What is Haystack?"}})
+results = retrieval_pipe.run({"embedder": {"text": "What is Haystack?"}})
 
 for doc in results["retriever"]["documents"]:
-  print(doc.content)
+    print(doc.content)
 ```
 
 To run it, you can use the following command: `python apify_integration.py`
 
-[Haystack](https://haystack.deepset.ai/) is an open source framework for building production-ready LLM applications, agents, advanced retrieval-augmented generative pipelines, and state-of-the-art search systems that work intelligently over large document collections. 
+[Haystack](https://haystack.deepset.ai/) is an open source framework for building production-ready LLM applications, agents, advanced retrieval-augmented generative pipelines, and state-of-the-art search systems that work intelligently over large document collections.
 
 ## Resources
 
