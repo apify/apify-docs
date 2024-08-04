@@ -109,17 +109,18 @@ for doc in bm25_retriever.run("Haystack", top_k=1)["documents"]:
 If you want to test the whole example, you can simply create a new file, `apify_integration.py`, and copy the whole code into it.
 
 ```python
+import os
+
 from haystack import Document, Pipeline
 from haystack.components.embedders import OpenAIDocumentEmbedder, OpenAITextEmbedder
 from haystack.components.preprocessors import DocumentSplitter
 from haystack.components.writers import DocumentWriter
 from haystack.document_stores.in_memory import InMemoryDocumentStore
-from haystack.utils.auth import Secret
 
 from apify_haystack import ApifyDatasetFromActorCall
 
-apify_api_token = "YOUR-APIFY-API-TOKEN"
-openai_api_key = "YOUR-OPENAI-API-KEY"
+os.environ["APIFY_API_TOKEN"] = "YOUR-APIFY-API-TOKEN"
+os.environ["OPENAI_API_KEY"] = "YOUR-OPENAI-API-KEY"
 
 document_loader = ApifyDatasetFromActorCall(
     actor_id="apify/website-content-crawler",
@@ -128,14 +129,13 @@ document_loader = ApifyDatasetFromActorCall(
         "startUrls": [{"url": "https://haystack.deepset.ai/"}],
     },
     dataset_mapping_function=lambda item: Document(content=item["text"] or "", meta={"url": item["url"]}),
-    apify_api_token=apify_api_token,
 )
 
 document_store = InMemoryDocumentStore()
 print(f"Initialized InMemoryDocumentStore with {document_store.count_documents()} documents")
 
 document_splitter = DocumentSplitter(split_by="word", split_length=150, split_overlap=50)
-document_embedder = OpenAIDocumentEmbedder(api_key=Secret.from_token(openai_api_key))
+document_embedder = OpenAIDocumentEmbedder()
 document_writer = DocumentWriter(document_store)
 
 pipe = Pipeline()
@@ -148,24 +148,31 @@ pipe.connect("document_loader", "document_splitter")
 pipe.connect("document_splitter", "document_embedder")
 pipe.connect("document_embedder", "document_writer")
 
-print("Crawling will take some time ...")
-print("You can visit https://console.apify.com/actors/runs to monitor the progress")
+print("\nCrawling will take some time ...")
+print("You can visit https://console.apify.com/actors/runs to monitor the progress\n")
 
-pipe.run({"document_loader": {}})
-
+pipe.run({})
 print(f"Added {document_store.count_documents()} to vector from Website Content Crawler")
 
-print("Retrieving documents from the document store using BM25")
-print("query='Haystack'")
-for doc in document_store.bm25_retrieval("Haystack", top_k=1):
-    print(doc)
+print("\nRetrieving documents from the document store using BM25")
+print("query='Haystack'\n")
 
-print("Retrieving documents from the document store using vector similarity.")
-for doc in document_store.embedding_retrieval(
-    OpenAITextEmbedder(Secret.from_token(openai_api_key)).run("What is Haystack?")["embedding"], top_k=1
-):
-    print("The closest document to the query 'What is Haystack?':", doc)
+bm25_retriever = InMemoryBM25Retriever(document_store)
 
+for doc in bm25_retriever.run("Haystack", top_k=1)["documents"]:
+  print(doc.content)
+
+print("\nRetrieving documents from the document store using vector similarity.\n")
+retrieval_pipe = Pipeline()
+retrieval_pipe.add_component("embedder", OpenAITextEmbedder())
+retrieval_pipe.add_component("retriever", InMemoryEmbeddingRetriever(document_store, top_k=1))
+
+retrieval_pipe.connect("embedder.embedding", "retriever.query_embedding")
+
+results = retrieval_pipe.run({"embedder":{"text": "What is Haystack?"}})
+
+for doc in results["retriever"]["documents"]:
+  print(doc.content)
 ```
 
 To run it, you can use the following command: `python apify_integration.py`
