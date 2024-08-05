@@ -22,7 +22,7 @@ The metamorph process invovles several key steps. It stops the current Actor's D
 
 ## Benefits of metamorph
 
-Metamorph offers several advantages for developers:
+Metamorph offers several benefits for developers:
 
 - Seamless transition between Actors without starting a new run
 - Building new Actors on top of existing ones
