@@ -16,14 +16,12 @@ This page covers essential commands for the Apify SDK in JavaScript & Python. Th
 
 ## Initialize your Actor
 
-Before using any Apify SDK methods, initialize your Actor. This step prepares the Actor to receive events from the Apify platform, sets up machine and storage configurations, and optionally clears previous local storage states.
+Before using any Apify SDK methods, initialize your Actor. This step prepares the Actor to receive events from the Apify platform, sets up machine and storage configurations, and clears previous local storage states.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
 
-Use the `init()` method to initialize your Actor. Pair it with `exit()` to properly terminate the Actor
-
-The use of `exit()` is not required but recommended. For more information, go to [Exit Actor](#exit-actor).
+Use the `init()` method to initialize your Actor. Pair it with `exit()` to properly terminate the Actor. For more information on `exit()`, go to [Exit Actor](#exit-actor).
 
 ```js
 import { Actor } from 'apify';
@@ -34,7 +32,7 @@ console.log('Actor starting...');
 await Actor.exit();
 ```
 
-Alternatively, use the `main()` function for environments that don't support top-level awaits:
+Alternatively, use the `main()` function for environments that don't support top-level awaits. The `main()` function is syntax-sugar for `init()` and `exit()`. It will call `init()` before it executes its callback and `exit()` after the callback resolves.
 
 
 ```js
