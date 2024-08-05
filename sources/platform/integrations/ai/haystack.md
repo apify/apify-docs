@@ -179,7 +179,6 @@ for doc in results["retriever"]["documents"]:
 
 To run it, you can use the following command: `python apify_integration.py`
 
-[Haystack](https://haystack.deepset.ai/) is an open source framework for building production-ready LLM applications, agents, advanced retrieval-augmented generative pipelines, and state-of-the-art search systems that work intelligently over large document collections.
 
 ## Resources
 
