@@ -11,99 +11,110 @@ slug: /anti-scraping/mitigation/using-proxies
 
 ---
 
-In the [**Web scraping for beginners**](../../scraping_basics_javascript/crawling/pro_scraping.md) course, we learned about the power of Crawlee, and how it can streamline the development process of web crawlers. You've already seen how powerful the `crawlee` package is; however, what you've been exposed to thus far is only the tip of the iceberg.
+In the [**Web scraping for beginners**](../../scraping_basics_javascript/index.md) course, we learned about the power of Crawlee, and how it can streamline the development process of web crawlers. You've already seen how powerful the `crawlee` package is; however, what you've been exposed to thus far is only the tip of the iceberg.
 
 Because proxies are so widely used in the scraping world, Crawlee has been equipped with features which make it easy to implement them in an effective way. One of the main functionalities that comes baked into Crawlee is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
 
-## Implementing proxies in a scraper {#implementing-proxies}
+## Implementing proxies {#implementing-proxies}
 
-Let's borrow some scraper code from the end of the [pro-scraping](../../scraping_basics_javascript/crawling/pro_scraping.md) lesson in our **Web Scraping for Beginners** course and paste it into a new file called **proxies.js**. This code enqueues all of the product links on [demo-webstore.apify.org](https://demo-webstore.apify.org)'s on-sale page, then makes a request to each product page and scrapes data about each one:
+Let's build on top of the code which appears at the end of the [Professional scraping](../../scraping_basics_javascript/crawling/pro_scraping.md) lesson of the **Web Scraping for Beginners** course.
 
-```js
-// crawlee.js
+Let's paste the same code to a new file, `proxies.js`, and make some changes. The code crawls the [Sales](https://warehouse-theme-metal.myshopify.com/collections/sales) page of a sample e-commerce website. It goes through all of the product links, enqueues requests to each page with a product detail, and scrapes data about all of the products:
+
+```js title=proxies.js
 import { CheerioCrawler, Dataset } from 'crawlee';
 
 const crawler = new CheerioCrawler({
     requestHandler: async ({ $, request, enqueueLinks }) => {
-        if (request.label === 'START') {
-            await enqueueLinks({
-                selector: 'a[href*="/product/"]',
-            });
+        console.log(`Fetching URL: ${request.url}`);
 
-            // When on the START page, we don't want to
-            // extract any data after we extract the links.
+        if (request.label === 'start-url') {
+            await enqueueLinks({
+                selector: 'a.product-item__title',
+            });
             return;
         }
 
-        // We copied and pasted the extraction code
-        // from the previous lesson
-        const title = $('h3').text().trim();
-        const price = $('h3 + div').text().trim();
-        const description = $('div[class*="Text_body"]').text().trim();
+        const title = $('h1').text().trim();
+        const vendor = $('a.product-meta__vendor').text().trim();
+        const price = $('span.price').contents()[2].nodeValue;
+        const reviewCount = parseInt($('span.rating__caption').text(), 10);
+        const description = $('div[class*="description"] div.rte').text().trim();
 
-        // Instead of saving the data to a variable,
-        // we immediately save everything to a file.
         await Dataset.pushData({
             title,
-            description,
+            vendor,
             price,
+            reviewCount,
+            description,
         });
     },
 });
 
 await crawler.addRequests([{
-    url: 'https://demo-webstore.apify.org/search/on-sale',
-    // By labeling the Request, we can very easily
-    // identify it later in the requestHandler.
-    label: 'START',
+    url: 'https://warehouse-theme-metal.myshopify.com/collections/sales',
+    label: 'start-url',
 }]);
 
 await crawler.run();
 ```
 
-In order to implement a proxy pool, we will first need some proxies. We'll quickly use the free [proxy scraper](https://apify.com/mstephen190/proxy-scraper) on the Apify platform to get our hands on some quality proxies. Next, we'll need to set up a [`ProxyConfiguration`](https://crawlee.dev/api/core/class/ProxyConfiguration) and configure it with our custom proxies, like so:
+We'll want all the requests to go through a proxies. For that we obviously need proxies! To get some, we can use Matthias Stephens' [free proxy scraper](https://apify.com/mstephen190/proxy-scraper). It can find tens of reliable proxies out of the thousands it scrapes.
+
+Once we have a list of proxies, we can add [`ProxyConfiguration`](https://crawlee.dev/api/core/class/ProxyConfiguration) and pass it to our crawler.
+
+Proxy pools usually consist of many proxy URLs, but for the sake of simplicity of this lesson we'll list just three. At the time you're reading this text, they most probably won't work anymore, so be sure to use your own values.
 
 ```js
-import { ProxyConfiguration } from 'crawlee';
+import { CheerioCrawler, Dataset, ProxyConfiguration } from 'crawlee';
 
 const proxyConfiguration = new ProxyConfiguration({
     proxyUrls: ['http://45.42.177.37:3128', 'http://43.128.166.24:59394', 'http://51.79.49.178:3128'],
 });
-```
 
-Awesome, so there's our proxy pool! Usually, a proxy pool is much larger than this; however, a three proxies pool is totally fine for tutorial purposes. Finally, we can pass the `proxyConfiguration` into our crawler's options:
-
-```js
 const crawler = new CheerioCrawler({
     proxyConfiguration,
     requestHandler: async ({ $, request, enqueueLinks }) => {
-        if (request.label === 'START') {
+        console.log(`Fetching URL: ${request.url}`);
+
+        if (request.label === 'start-url') {
             await enqueueLinks({
-                selector: 'a[href*="/product/"]',
+                selector: 'a.product-item__title',
             });
             return;
         }
 
-        const title = $('h3').text().trim();
-        const price = $('h3 + div').text().trim();
-        const description = $('div[class*="Text_body"]').text().trim();
+        const title = $('h1').text().trim();
+        const vendor = $('a.product-meta__vendor').text().trim();
+        const price = $('span.price').contents()[2].nodeValue;
+        const reviewCount = parseInt($('span.rating__caption').text(), 10);
+        const description = $('div[class*="description"] div.rte').text().trim();
 
         await Dataset.pushData({
             title,
-            description,
+            vendor,
             price,
+            reviewCount,
+            description,
         });
     },
 });
+
+await crawler.addRequests([{
+    url: 'https://warehouse-theme-metal.myshopify.com/collections/sales',
+    label: 'start-url',
+}]);
+
+await crawler.run();
 ```
 
-> Note that if you run this code, it may not work, as the proxies could potentially be down/non-operating at the time you are going through this course.
+The crawler will now automatically rotate through the proxies we provided in the `proxyUrls` array.
 
-That's it! The crawler will now automatically rotate through the proxies we provided in the `proxyUrls` option.
+## Debugging proxies {#debugging-proxies}
 
-## A bit about debugging proxies {#debugging-proxies}
+To check that we're scraping through the proxies, we can get `proxyInfo` from the handler's context, which includes useful data about the proxy used to make the request.
 
-At the time of writing, our above scraper utilizing our custom proxy pool is working just fine. But how can we check that the scraper is for sure using the proxies we provided it, and more importantly, how can we debug proxies within our scraper? Luckily, within the same `context` object we've been destructuring `$` and `request` out of, there is a `proxyInfo` key as well. `proxyInfo` is an object which includes useful data about the proxy which was used to make the request.
+In the code example we already destructure the context object to `$` and `request`, so we can just add `proxyInfo` as something we want to access in the handler, too.
 
 ```js
 const crawler = new CheerioCrawler({
@@ -118,15 +129,21 @@ const crawler = new CheerioCrawler({
 });
 ```
 
-After modifying your code to log `proxyInfo` to the console and running the scraper, you're going to see some logs which look like this:
+After modifying the code to log `proxyInfo` and after running the scraper, we can see proxy details about each request made:
 
-![proxyInfo being logged by the scraper](./images/proxy-info-logs.png)
+![Sample logs of proxyInfo](./images/proxy-info-logs.png)
 
-These logs confirm that our proxies are being used and rotated successfully by Crawlee, and can also be used to debug slow or broken proxies.
+These logs confirm that Crawlee uses and automatically rotates the proxies. Such logs can be also useful for debugging slow or broken proxies.
 
-## Higher level proxy scraping {#higher-level-proxy-scraping}
+## Carefree proxy scraping {#higher-level-proxy-scraping}
 
-Though we will discuss it more in-depth in future courses, it is still important to mention that Crawlee has integrated support for the Apify SDK, which supports [Apify Proxy](https://apify.com/proxy) - a service that provides access to pools of both residential and datacenter IP addresses. A `proxyConfiguration` using Apify Proxy might look something like this:
+If scraping and managing proxies on your own feels tedious, there are services which do that for you. One of them is [Apify Proxy](https://apify.com/proxy), which provides proxies with both residential and datacenter IP addresses. The integration with Crawlee is seamless, but first you need the Apify SDK:
+
+```shell
+npm install apify
+```
+
+Then you can create the `proxyConfiguration` like this:
 
 ```js
 import { Actor } from 'apify';
@@ -136,7 +153,7 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
 });
 ```
 
-Notice that we didn't provide it a list of proxy URLs. This is because the `SHADER` group already serves as our proxy pool (courtesy of Apify Proxy).
+For more information about the integration refer to the [Apify SDK documentation](https://docs.apify.com/sdk/js/docs/guides/proxy-management).
 
 ## Next up {#next}
 

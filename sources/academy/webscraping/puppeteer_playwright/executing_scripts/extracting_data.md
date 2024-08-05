@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Now that we know how to execute scripts on a page, we're ready to learn a bit about [data extraction](../../scraping_basics_javascript/data_extraction/index.md). In this lesson, we'll be scraping all the on-sale products from our [Fakestore](https://demo-webstore.apify.org/search/on-sale) website.
+Now that we know how to execute scripts on a page, we're ready to learn a bit about [data extraction](../../scraping_basics_javascript/data_extraction/index.md). In this lesson, we'll be scraping all the on-sale products from [warehouse-theme-metal.myshopify.com](https://warehouse-theme-metal.myshopify.com/), a sample Shopify website.
 
 > Most web data extraction cases involve looping through a list of items of some sort.
 
@@ -36,7 +36,7 @@ import { chromium } from 'playwright';
 const browser = await chromium.launch({ headless: false });
 const page = await browser.newPage();
 
-await page.goto('https://demo-webstore.apify.org/search/on-sale');
+await page.goto('https://warehouse-theme-metal.myshopify.com/collections/sales');
 
 // code will go here
 
@@ -54,7 +54,7 @@ import puppeteer from 'puppeteer';
 const browser = await puppeteer.launch({ headless: false });
 const page = await browser.newPage();
 
-await page.goto('https://demo-webstore.apify.org/search/on-sale');
+await page.goto('https://warehouse-theme-metal.myshopify.com/collections/sales');
 
 // code will go here
 
@@ -82,16 +82,12 @@ We'll be returning a bunch of product objects from this function, which will be 
 
 ```js
 const products = await page.evaluate(() => {
-    const productCards = Array.from(document.querySelectorAll('a[class*="ProductCard_root"]'));
+    const productCards = Array.from(document.querySelectorAll('.product-item'));
 
     return productCards.map((element) => {
-        const name = element.querySelector('h3[class*="ProductCard_name"]').textContent;
-        const price = element.querySelector('div[class*="ProductCard_price"]').textContent;
-
-        return {
-            name,
-            price,
-        };
+        const name = element.querySelector('.product-item__title').textContent;
+        const price = element.querySelector('.price').lastChild.textContent;
+        return { name, price };
     });
 });
 
@@ -100,7 +96,20 @@ console.log(products);
 
 When we run this code, we see this logged to our console:
 
-![Products logged to the console](./images/log-products.png)
+```text
+$ node index.js
+[
+  {
+    name: 'JBL Flip 4 Waterproof Portable Bluetooth Speaker',
+    price: '$74.95'
+  },
+  {
+    name: 'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV',
+    price: 'From $1,398.00'
+  },
+  ...
+]
+```
 
 ## Using jQuery {#using-jquery}
 
@@ -118,19 +127,13 @@ Now, since we're able to use jQuery, let's translate our vanilla JavaScript code
 await page.addScriptTag({ url: 'https://code.jquery.com/jquery-3.6.0.min.js' });
 
 const products = await page.evaluate(() => {
-    const productCards = Array.from($('a[class*="ProductCard_root"]'));
-
-    return productCards.map((element) => {
-        const card = $(element);
-
-        const name = card.find('h3[class*="ProductCard_name"]').text();
-        const price = card.find('div[class*="ProductCard_price"]').text();
-
-        return {
-            name,
-            price,
-        };
-    });
+    const productCards = $('.product-item');
+    return productCards.map(function () {
+        const card = $(this);
+        const name = card.find('.product-item__title').text();
+        const price = card.find('.price').contents().last().text();
+        return { name, price };
+    }).get();
 });
 
 console.log(products);
@@ -178,7 +181,7 @@ import { load } from 'cheerio';
 const browser = await chromium.launch({ headless: false });
 const page = await browser.newPage();
 
-await page.goto('https://demo-webstore.apify.org/search/on-sale');
+await page.goto('https://warehouse-theme-metal.myshopify.com/collections/sales');
 
 const $ = load(await page.content());
 
@@ -197,7 +200,7 @@ import { load } from 'cheerio';
 const browser = await puppeteer.launch({ headless: false });
 const page = await browser.newPage();
 
-await page.goto('https://demo-webstore.apify.org/search/on-sale');
+await page.goto('https://warehouse-theme-metal.myshopify.com/collections/sales');
 
 const $ = load(await page.content());
 
@@ -214,19 +217,13 @@ Now, to loop through all of the products, we'll make use of the `$` object and l
 ```js
 const $ = load(await page.content());
 
-const productCards = Array.from($('a[class*="ProductCard_root"]'));
-
-const products = productCards.map((element) => {
-    const card = $(element);
-
-    const name = card.find('h3[class*="ProductCard_name"]').text();
-    const price = card.find('div[class*="ProductCard_price"]').text();
-
-    return {
-        name,
-        price,
-    };
-});
+const productCards = $('.product-item');
+const products = productCards.map(function () {
+    const card = $(this);
+    const name = card.find('.product-item__title').text();
+    const price = card.find('.price').contents().last().text();
+    return { name, price };
+}).get();
 
 console.log(products);
 ```
@@ -245,23 +242,17 @@ import { load } from 'cheerio';
 const browser = await chromium.launch({ headless: false });
 const page = await browser.newPage();
 
-await page.goto('https://demo-webstore.apify.org/search/on-sale');
+await page.goto('https://warehouse-theme-metal.myshopify.com/collections/sales');
 
 const $ = load(await page.content());
 
-const productCards = Array.from($('a[class*="ProductCard_root"]'));
-
-const products = productCards.map((element) => {
-    const card = $(element);
-
-    const name = card.find('h3[class*="ProductCard_name"]').text();
-    const price = card.find('div[class*="ProductCard_price"]').text();
-
-    return {
-        name,
-        price,
-    };
-});
+const productCards = $('.product-item');
+const products = productCards.map(function () {
+    const card = $(this);
+    const name = card.find('.product-item__title').text();
+    const price = card.find('.price').contents().last().text();
+    return { name, price };
+}).get();
 
 console.log(products);
 
@@ -278,23 +269,17 @@ import { load } from 'cheerio';
 const browser = await puppeteer.launch({ headless: false });
 const page = await browser.newPage();
 
-await page.goto('https://demo-webstore.apify.org/search/on-sale');
+await page.goto('https://warehouse-theme-metal.myshopify.com/collections/sales');
 
 const $ = load(await page.content());
 
-const productCards = Array.from($('a[class*="ProductCard_root"]'));
-
-const products = productCards.map((element) => {
-    const card = $(element);
-
-    const name = card.find('h3[class*="ProductCard_name"]').text();
-    const price = card.find('div[class*="ProductCard_price"]').text();
-
-    return {
-        name,
-        price,
-    };
-});
+const productCards = $('.product-item');
+const products = productCards.map(function () {
+    const card = $(this);
+    const name = card.find('.product-item__title').text();
+    const price = card.find('.price').contents().last().text();
+    return { name, price };
+}).get();
 
 console.log(products);
 
