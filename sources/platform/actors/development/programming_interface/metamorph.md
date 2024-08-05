@@ -18,7 +18,7 @@ Metamorph is a powerful operation that transforms an Actor run into the run of a
 
 ## Understand metamorph
 
-The metamorph process invovles several key steps. It stops the current Actor's Docker container, then starts a new container using a different Docker image. During this transition, all default storages are preserved. The new input is stored under the _INPUT-METAMORPH-1_ key in the default key-value store, ensuring seamless data transfer between Actor runs.
+The metamorph process involves several key steps. It stops the current Actor's Docker container, then starts a new container using a different Docker image. During this transition, all default storages are preserved. The new input is stored under the _INPUT-METAMORPH-1_ key in the default key-value store, ensuring seamless data transfer between Actor runs.
 
 ## Benefits of metamorph
 
@@ -33,7 +33,7 @@ These benefits make metamorph a valuable tool for creating complex, efficient wo
 
 ## Implementation guidelines
 
-To make your Actor compatibile with metamorph, use `Actor.getInput()` instead of `Actor.getValue(&#96;INPUT&#96;)`. This method fetches the input using the correct key (_INPUT-METAMORPH-1_) for metamorphed runs, ensuring proper data retrieval in transformed Actor runs.
+To make your Actor compatible with metamorph, use `Actor.getInput()` instead of `Actor.getValue(&#96;INPUT&#96;)`. This method fetches the input using the correct key (_INPUT-METAMORPH-1_) for metamorphed runs, ensuring proper data retrieval in transformed Actor runs.
 
 :::note Runtime limits
 
