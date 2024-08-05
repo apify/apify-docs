@@ -74,11 +74,5 @@ async def main():
         # INFO  [Status message]: Crawled 45 of 100 pages
 ```
 
-:::note Update frequency
-
-You can call the `set_status_message` function as often as needed. The SDK only invokes the API if the status changes, simplifying usage.
-
-:::
-
 </TabItem>
 </Tabs>
