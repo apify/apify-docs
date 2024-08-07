@@ -3005,7 +3005,7 @@ The pagination is always performed with the granularity of a single item, regard
 By default, the **Items** in the response are sorted by the time they were stored to the database, therefore you can use
 pagination to incrementally fetch the items as they are being added.
 The maximum number of items that will be returned in a single API call is limited to 250,000. <!-- GET_ITEMS_LIMIT -->
-If you specify `desc=1` query paremeter, the results are returned in the reverse order
+If you specify `desc=1` query parameter, the results are returned in the reverse order
 than they were stored (i.e. from newest to oldest items).
 Note that only the order of **Items** is reversed, but not the order of the `unwind` array elements.
 
@@ -3081,7 +3081,7 @@ The POST payload is a JSON object or a JSON array of objects to save into the da
 **IMPORTANT:** The limit of request payload size for the dataset is 5 MB. If the array exceeds the size,
 you'll need to split it into a number of smaller arrays.
 
-If the dataset has fields schema defined, the push request can potentialy fail with `400 Bad Request` if any item does not match the schema.
+If the dataset has fields schema defined, the push request can potentially fail with `400 Bad Request` if any item does not match the schema.
 In such case, nothing will be inserted into the dataset and the response will contain an error message with a list of invalid items and their validation errors.
 
 + Parameters
@@ -3767,7 +3767,7 @@ parameter.
 
 + Parameters
 
-    + dispatchId: `Zib4xbZsmvZeK55ua`         (string, required) - Webhook dispacth ID.
+    + dispatchId: `Zib4xbZsmvZeK55ua`         (string, required) - Webhook dispatch ID.
     + token:      `soSkq9ekdmfOslopH` (string, required) - API authentication token.
 
 ### Get webhook dispatch [GET]
@@ -4091,7 +4091,7 @@ a summary of your limits, and your current usage.
 - taggedBuilds                                 (object, nullable)
     - latest                                   (object, nullable)
         - buildId:      `z2EryhbfhgSyqj6Hn`    (string, nullable)
-        - buldNumber:   `0.0.2`                (string, nullable)
+        - buildNumber:   `0.0.2`                (string, nullable)
         - finishedAt:   `2019-06-10T11:15:49.286Z`          (string, nullable)
 
 ## ActCreate (object)
