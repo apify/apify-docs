@@ -37,6 +37,8 @@ Here's a table of key system environment variables:
 | `APIFY_IS_AT_HOME` | Set to **1** if the Actor is running on Apify servers. |
 | `ACTOR_MEMORY_MBYTES` | Size of memory allocated for the Actor run, in megabytes. Used to optimize memory usage. |
 | `APIFY_PROXY_PASSWORD` | The Apify Proxy password of the user who started the Actor. |
+| `APIFY_PROXY_PORT` |  |
+| `APIFY_PROXY_STATUS_URL` |  |
 | `ACTOR_STANDBY_PORT` | TCP port for the Actor to start an HTTP server to receive messages from Actor Standby. |
 | `ACTOR_STARTED_AT` | Date when the Actor was started. |
 | `ACTOR_TIMEOUT_AT` | Date when the Actor will time out. |
@@ -44,6 +46,13 @@ Here's a table of key system environment variables:
 | `APIFY_USER_ID` | ID of the user who started the Actor. May differ from the Actor owner. |
 | `ACTOR_WEB_SERVER_PORT` | TCP port for the Actor to start an HTTP server to receive external messages. |
 | `ACTOR_WEB_SERVER_URL` | Unique public URL for accessing the Actor run web server from the outside world. |
+| `APIFY_API_PUBLIC_BASE_URL` | Public URL of the API, typically set to api.apify.com |
+| `APIFY_DEDICATED_CPUS` | Number of CPU cores reserved for the actor, based on allocated memory. |
+| `APIFY_DISABLE_OUTDATED_WARNING` |  |
+| `APIFY_FACT` |  |
+| `APIFY_WORKFLOW_KEY` | Identifier used for grouping related runs and API calls together. |
+| `APIFY_META_ORIGIN` |  |
+| `APIFY_SDK_LATEST_VERSION` |  |
 
 
 <!-- vale Microsoft.RangeFormat = NO -->
