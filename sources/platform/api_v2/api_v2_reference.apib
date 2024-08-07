@@ -989,7 +989,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
                                              otherwise it will have a transitional status (e.g. `RUNNING`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/platform/integrations/webhooks).
+      [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
 
 + Request
 
@@ -1023,7 +1023,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/platform/integrations/webhooks).
+      [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
 
 ### With input [POST]
 
@@ -1141,7 +1141,7 @@ To run the actor asynchronously, use the [Run actor](#reference/actors/run-colle
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the actor (typically `latest`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/platform/integrations/webhooks).
+      [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
     + format: `json` (string, optional) - Format of the results, possible values are: `json`, `jsonl`, `csv`, `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
     + clean: `false` (boolean, optional) - If `true` or `1` then the API endpoint returns only non-empty items and skips hidden fields
         (i.e. fields starting with the # character).
@@ -1758,7 +1758,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks.
       **Note**: if you already have a webhook set up for the actor or task, you do not have to add it again here.
       For more information, see
-      [Webhooks documenation](https://docs.apify.com/platform/integrations/webhooks).
+      [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
 
 + Request
 
@@ -1792,7 +1792,7 @@ received in the response JSON to the [Get items](#reference/datasets/item-collec
       in the response. By default, it is `OUTPUT`.
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/platform/integrations/webhooks).
+      [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
 
 ### Run task synchronously (POST) [POST]
 
@@ -1898,7 +1898,7 @@ To run the Task asynchronously, use the [Run task asynchronously](#reference/act
     + build: `0.1.234` (string, optional) - Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the task settings (typically `latest`).
     + webhooks: `dGhpcyBpcyBqdXN0IGV4YW1wbGUK...` (string, optional) - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
       e.g. when the actor finished or failed. The value is a Base64-encoded JSON array of objects defining the webhooks. For more information, see
-      [Webhooks documenation](https://docs.apify.com/platform/integrations/webhooks).
+      [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
     + format: `json` (string, optional) - Format of the results, possible values are: `json`, `jsonl`, `csv`, `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
     + clean: `false` (boolean, optional) - If `true` or `1` then the API endpoint returns only non-empty items and skips hidden fields
       (i.e. fields starting with the # character).
