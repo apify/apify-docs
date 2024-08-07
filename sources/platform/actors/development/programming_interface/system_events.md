@@ -5,6 +5,8 @@ slug: /actors/development/programming-interface/system-events
 sidebar_position: 4
 ---
 
+# System events in Apify Actors
+
 **Learn about system events sent to your Actor and how to benefit from them.**
 
 import Tabs from '@theme/Tabs';
@@ -12,18 +14,31 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-The system notifies Actors about various events such as a migration to another server, [abort operation](#abort-another-actor) triggered by another Actor, or the CPU being overloaded.
+## Understand system events
 
-Currently, the system sends the following events:
+Apify's system notifies Actors about various events, such as:
+
+- Migration to another server
+- Abort operations triggered by another Actor
+- CPU overload
+
+These events help you manage your Actor's behavior and resources effecetively.
+
+## System events
+
+The following table outlines the system events available:
+
 
 | Event name     | Payload | Description |
 | -------------- | ------- | ----------- |
-| `cpuInfo`      | `{ isCpuOverloaded: Boolean }` | The event is emitted approximately every second and it indicates whether the Actor is using the maximum of available CPU resources. If that's the case, the Actor should not add more workload. For example, this event is used by the AutoscaledPool class. |
-| `migrating`    | N/A | Emitted when the Actor running on the Apify platform is going to be migrated to another worker server soon. You can use it to persist the state of the Actor and abort the run, to speed up migration. For example, this is used by the RequestList class. |
-| `aborting`     | N/A | When a user aborts an Actor run on the Apify platform, they can choose to abort gracefully to allow the Actor some time before getting killed. This graceful abort emits the `aborting` event which the SDK uses to gracefully stop running crawls and you can use it to do your own cleanup as well.|
-| `persistState` | `{ isMigrating: Boolean }` | Emitted in regular intervals (by default 60 seconds) to notify all components of the Apify SDK that it is time to persist their state in order to avoid repeating all work when the Actor restarts. This event is automatically emitted together with the migrating event, in which case the `isMigrating` flag is set to `true`. Otherwise, the flag is `false`. Note that the `persistState` event is provided merely for user convenience. You can achieve the same effect using `setInterval()` and listening for the `migrating` event. |
+| `cpuInfo`      | `{ isCpuOverloaded: Boolean }` | Emitted approximately every second, indicating whether the Actor is using maximum available CPU resources. |
+| `migrating`    | N/A | Signals that the Actor will soon migrate to another worker server on the Apify platform. |
+| `aborting`     | N/A | Triggered when a user initiates a graceful abort of an Actor run, allowing time for cleanup. |
+| `persistState` | `{ isMigrating: Boolean }` | Emitted at regular intervals  (default: _60 seconds_) to notify Apify SDK components to persist their state. |
 
-Under the hood, Actors receive system events by connecting to a web socket address specified by the `ACTOR_EVENTS_WEBSOCKET_URL` environment variable. The system sends messages in JSON format in the following structure:
+## How system events work
+
+Actors receive system events through a WebSocket connection. The address is specified by the `ACTOR_EVENTS_WEBSOCKET_URL` environment variable. Messages are sent in JSON format with the following structure:
 
 ```json5
 {
@@ -38,7 +53,15 @@ Under the hood, Actors receive system events by connecting to a web socket addre
 }
 ```
 
-Note that some events (e.g. `persistState`) are not sent by the system via the web socket, but generated virtually on the Actor SDK level.
+:::note Virtual events
+
+Some events like `persistState`, are generated virtually at the Actor SDK level, not sent via WebSocket.
+
+:::
+
+## Handle system events
+
+To work with system events in your Actor, use the following methods:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -90,3 +113,5 @@ async def main():
 
 </TabItem>
 </Tabs>
+
+By utilizing these system events, you can create more robust and efficient Actors that respond dynamically to changes in their environment.
