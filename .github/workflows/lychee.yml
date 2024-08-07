@@ -2,7 +2,7 @@ name: Periodic Link Checker
 
 on:
   schedule:
-    - cron: '0 0 */3 * *'  # Run every 3 days at midnight UTC
+    - cron: '0 0 * * *'  # Run daily at midnight UTC
   workflow_dispatch:  # Allow manual triggering
 
 jobs:
@@ -37,7 +37,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
         with:
-          fail: false  # Changed to false so the workflow doesn't fail on broken links
+          fail: false
           args: >
             --base https://docs.apify.com
             --exclude-path 'build/versions.html'
@@ -48,13 +48,7 @@ jobs:
             --output ./lychee/out.md
             --format markdown
             './build/**/*.html'
-
-      - name: Upload report as artifact
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: Link Checker Report
-          path: ./lychee/out.md
+        continue-on-error: true
 
       - name: Add job summary
         if: always()
