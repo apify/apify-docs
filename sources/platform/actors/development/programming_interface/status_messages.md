@@ -5,14 +5,14 @@ slug: /actors/development/programming-interface/status-messages
 sidebar_position: 3
 ---
 
-**Learn how to use custom status messages to inform users about the progress of an Actor.**
+**Learn how to use custom status messages to inform users about an Actor's progress.**
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ---
 
-Each Actor run has a status (the `status` field), which can be one of the following values:
+Each Actor run has a status, represented by the `status` field. The following table describes the possible values:
 
 |Status|Type|Description|
 |--- |--- |--- |
@@ -25,13 +25,22 @@ Each Actor run has a status (the `status` field), which can be one of the follow
 |`ABORTING`|transitional|Being aborted by user|
 |`ABORTED`|terminal|Aborted by user|
 
-Additionally, the Actor run has a status message (the `statusMessage` field), which contains a text for users informing them what the Actor is currently doing, and thus greatly improve their user experience.
+## Status messages
+
+In addition to the status, each Actor run has a status message (the `statusMessage` field). This message informs users about the Actor's current activity, enhancing the user experience.
 
 ![Status message](./images/status-message.png)
 
-When an Actor exits, the status message is either automatically set to some default text (e.g. "Actor finished with exit code 1"), or to a custom message - see [exit](./basic_commands.md#exit-actor) method for details.
+## Exit status message
 
-When the Actor is running, it should periodically update the status message as follows to keep users informed and happy. The function can be called as often as necessary, and the SDK only invokes API if the status changes. This is to simplify the usage.
+When an Actor exits, the status message is set to either:
+
+- A default text (e.g., _Actor finished with exit code 1_)
+- A custom message (see the [exit](./basic_commands.md#exit-actor) method for details)
+
+## Update status message
+
+To keep users informed during the Actor's execution, update the status message periodically. Use the following code to set a status message:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -46,6 +55,12 @@ await Actor.setStatusMessage('Crawled 45 of 100 pages');
 
 await Actor.exit();
 ```
+
+:::note Update frequency
+
+You can call the `setStatusMessage` function as often as needed. The SDK only invokes the API if the status changes, simplifying usage.
+
+:::
 
 </TabItem>
 <TabItem value="Python" label="Python">
