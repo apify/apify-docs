@@ -1,12 +1,12 @@
 ---
 title: Events types for webhooks
-description: Specify the types of events  that trigger a webhook in an Actor or task run. Trigger an action on Actor or task run creation, success, failure, abortion, or timeout.
+description: Specify the types of events that trigger a webhook in an Actor or task run. Trigger an action on Actor or task run creation, success, failure, abortion, or timeout.
 sidebar_position: 1
 slug: /integrations/webhooks/events
 ---
 
 
-**Specify the types of events  that trigger a webhook in an Actor or task run. Trigger an action on Actor or task run creation, success, failure, terminationo timeout.**
+**Specify the types of events  that trigger a webhook in an Actor or task run. Trigger an action on Actor or task run creation, success, failure, abortion or timeout.**
 
 ---
 
@@ -14,7 +14,7 @@ You can configure webhooks to trigger actions based on specific events that occu
 
 ## Actor run events
 
-Actor run events are triggered when an Actor run is created or transitioons to a new state. You can define webhooks for all runs of an Actor on its detail page or for a specific Actor task on its detail page. In the latter case, the webhook is invoked only for runs started for that task.
+Actor run events are triggered when an Actor run is created or transitions to a new state. You can define webhooks for all runs of an Actor on its detail page or for a specific Actor task on its detail page. In the latter case, the webhook is invoked only for runs started for that task.
 
 ### Event types
 
