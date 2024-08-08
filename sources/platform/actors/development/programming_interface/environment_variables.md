@@ -27,7 +27,7 @@ Here's a table of key system environment variables:
 | `ACTOR_BUILD_ID` | ID of the Actor build used in the run. |
 | `ACTOR_BUILD_NUMBER` | Build number of the Actor build used in the run. |
 | `ACTOR_TASK_ID` | ID of the Actor task. Empty if Actor is run outside of any task, e.g. directly using the API. |
-| `ACTOR_EVENTS_WEBSOCKET_URL` | Websocket URL where Actor may listen for [events](./system_events) from Actor platform. |
+| `ACTOR_EVENTS_WEBSOCKET_URL` | Websocket URL where Actor may listen for [events](/platform/actors/development/programming-interface/system-events) from Actor platform. |
 | `ACTOR_DEFAULT_DATASET_ID` | ID of the dataset where you can push the data. |
 | `ACTOR_DEFAULT_KEY_VALUE_STORE_ID` | ID of the key-value store where the Actor's input and output data are stored. |
 | `ACTOR_DEFAULT_REQUEST_QUEUE_ID` | ID of the request queue that stores and handles requests that you enqueue. |
