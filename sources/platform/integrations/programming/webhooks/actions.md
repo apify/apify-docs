@@ -30,10 +30,16 @@ If the request fails after _11 retries_, the system stops retrying.
 
 For security reasons, include a secret token in the webhook URL to ensure that only Apify can invoke it. You can use the **Test** button in the user interface to test your endpoint.
 
+:::tip Headers template
+
+You can also use [Headers template](/platform/integrations/webhooks/actions#headers-template) for this purpose.
+
+:::
+
 Note that webhook HTTP requests have a timeout of _30 seconds_.
 If your endpoint performs a time-consuming operation, respond to the request immediately to prevent timeouts before Apify receives the response. To ensure reliable completion of the time-consuming operation, consider using a message queue internally to retry the operation on internal failure.
 
-In rare cases, the webhook might be invked more than once.
+In rare cases, the webhook might be invoked more than once.
 Design your code to be idempotent to handle duplicate calls.
 
 :::note Apify requests: auto-added tokens
