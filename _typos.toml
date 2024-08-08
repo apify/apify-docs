@@ -1,0 +1,8 @@
+[default]
+extend-ignore-re = [
+    '`[^`\n]+`',
+    '```[\s\S]*?```',
+]
+
+[default.extend-words]
+SER = "SER"

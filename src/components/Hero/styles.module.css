@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
+    gap: 1.6rem;
     text-align: center;
 }
 
@@ -18,11 +18,6 @@
         max-width: 738px;
         align-items: flex-start;
         text-align: left;
-    }
-    .heroBannerContent.heroBannerContentCentered {
-        max-width: 738px;
-        align-items: center;
-        text-align: center;
     }
     .heroBanner {
         margin-bottom: 0;
@@ -40,27 +35,7 @@
 .heroBanner {
     padding-top: 80px;
     padding-bottom: 56px;
-    background-image: url('/src/pages/img/hero-background-gradient.svg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-bottom: 32px;
-}
-
-.heroBanner::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    height: 56px;
-    width: 100%;
-    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-    transform: matrix(1, 0, 0, -1, 0, 0);
-    pointer-events: none;
-}
-
-html[data-theme='dark'] .heroBanner::after {
-    background: linear-gradient(180deg, #1A1B21 0%, rgba(26, 27, 33, 0) 100%);
-    transform: matrix(1, 0, 0, -1, 0, 0);
+    margin-bottom: 24px;
 }
 
 .heroBanner .heroDescription {

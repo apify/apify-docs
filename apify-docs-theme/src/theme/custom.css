@@ -1563,3 +1563,19 @@ html[data-theme='dark'] .runnable-code-block svg .apify-logo {
     position: sticky;
     left: var(--ifm-pre-padding);
 }
+
+.redocusaurus table code {
+    word-break: normal;
+}
+
+.redocusaurus .menu-content div:nth-child(2) ul {
+    padding-bottom: 0;
+}
+
+.redocusaurus .menu-content div:nth-child(2) div {
+    display: none;
+}
+
+.apiPage .tsd-panel-header .tsd-anchor-id {
+    top: -13rem;
+}

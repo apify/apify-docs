@@ -40,37 +40,19 @@ async def main():
         soup = BeautifulSoup(response.content, 'html.parser')
         await Actor.push_data({ 'url': actor_input['url'], 'title': soup.title.string })`;
 
-const HeroWrapper = styled(Hero)`
-        background-image: url("/img/hero_background.svg");
-    `;
-
 const StyledContent = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: ${theme.space.space80};
-
-    @media (max-width: ${theme.layout.tablet}) {
-        padding: 0 ${theme.space.space16} ${theme.space.space80} ${theme.space.space16};
-    }
-
-    @media (min-width: ${theme.layout.tablet}) {
-        padding: ${theme.space.space40} ${theme.space.space24} ${theme.space.space80} ${theme.space.space24};
-    }
-
-    @media (min-width: ${theme.layout.largeDesktop}) {
-        max-width: 1200px;
-        padding: ${theme.space.space40} ${theme.space.space40} ${theme.space.space80} ${theme.space.space40};
-    }
 `;
 
 export default function Home() {
     return (
         <Layout>
             <UiLibraryWrapper>
-                <HeroWrapper
+                <Hero
                     heading="Apify SDK"
-                    isCentered
                     description={
                         <>
                             The Apify SDK is a toolkit for building Actors—serverless microservices running (not only) on the Apify platform.

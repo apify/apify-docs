@@ -21,7 +21,7 @@ By defining an input schema, you can provide a user-friendly interface for confi
 You can specify input schema for an Actor in multiple ways:
 
 - One approach embeds it as an object within the `.actor/actor.json` file under the `input` field or provide a path to a `JSON` file containing the input schema in the same `input` field.
-- If you omit the `input` field and the `.actor/actor.json` file, the system will look for an `INPUT_SCHEMA.json` file in the `.actor` directory.
+- If you omit the `input` field in the `.actor/actor.json` file, the system will look for an `INPUT_SCHEMA.json` file in the `.actor` directory.
 - In the absence of that file, it will search for an `INPUT_SCHEMA.json` file in the Actor's root directory.
 
 The max allowed size for the input schema file is 100 kB. When you provide an input schema, the system will validate the input data passed to the Actor during execution (via the API or the Apify Console) against the specified schema to ensure compliance before starting the Actor.
@@ -29,7 +29,7 @@ The max allowed size for the input schema file is 100 kB. When you provide an in
 :::note Validation aid
 
 You can also use our [visual input schema editor](https://apify.github.io/input-schema-editor-react) to guide you through the creation of the `INPUT_SCHEMA.json` file.
-If you need to validate your input schemas, you can use the [`apify vis`](/cli/docs/reference#apify-vis-path) command in the Apify CLI.
+If you need to validate your input schemas, you can use the [`apify validate-schema`](/cli/docs/reference#apify-validate-schema-path) command in the Apify CLI.
 
 :::
 
@@ -203,12 +203,6 @@ When using escape characters `\` for the regular expression in the `pattern` fie
 
 ### Boolean
 
-:::caution `prefill` limitation
-
-Beware that the `boolean` input type doesn't support the `prefill` property since there is no way to display the pre-filled value in the user interface.
-
-:::
-
 Example options with group caption:
 
 ```json5
@@ -226,7 +220,7 @@ Example options with group caption:
         "type": "boolean",
         "description": "If checked then actors runs at the
             speed of light.",
-        "default": true
+        "prefill": true
     }
 }
 ```
