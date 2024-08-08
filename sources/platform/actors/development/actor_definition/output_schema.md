@@ -111,7 +111,7 @@ To set up the Actor's output tab UI using a single configuration file, use the f
 }
 ```
 
-The template above defines the configuration for the default dataset output view. Under the `views` property, there is one view titled _Overview_. The view configuartion consists of two main steps:
+The template above defines the configuration for the default dataset output view. Under the `views` property, there is one view titled _Overview_. The view configuration consists of two main steps:
 
 1. `transformation` - set up how to fetch the data.
 2. `display` - set up how to visually present the fetched data.
@@ -124,7 +124,7 @@ The default behavior of the Output tab UI table is to display all fields from `t
 
 Output configuration files need to be located in the `.actor` folder within the Actor's root directory.
 
-You have two choices of how to organize files withing the `.actor` folder.
+You have two choices of how to organize files within the `.actor` folder.
 
 ### Single configuration file
 

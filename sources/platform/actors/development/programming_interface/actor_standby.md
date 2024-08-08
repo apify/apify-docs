@@ -70,7 +70,7 @@ async def main() -> None:
 </Tabs>
 
 Please make sure to describe your Actors, their endpoints, and the schema for their
-inputs and ouputs in your README.
+inputs and outputs in your README.
 
 ## Can I monetize my Actor in the Standby mode
 
