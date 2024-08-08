@@ -1,5 +1,5 @@
 ---
-title: Bypasing Cloudflare browser check
+title: Bypassing Cloudflare browser check
 description: Learn how to bypass Cloudflare browser challenge with Crawlee.
 sidebar_position: 3
 slug: /anti-scraping/mitigation/cloudflare-challenge.md

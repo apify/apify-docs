@@ -66,7 +66,7 @@ Anti-scraping protections can work on many different layers and use a large amou
 
 1. **Where you are coming from** - The IP address of the incoming traffic is always available to the website. Proxies are used to emulate a different IP addresses but their quality matters a lot.
 2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, cyphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to classify your hardware (like graphics hardware acceleration).
-3. **What you are scraping** - The same data can be extracted in many ways from a website. You can just get the inital HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
+3. **What you are scraping** - The same data can be extracted in many ways from a website. You can just get the initial HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
 4. **How you behave** - The website can see patterns in how you are ordering your requests, how fast you are scraping, etc. It can also analyze browser behavior like mouse movement, clicks or key presses.
 
 These are the 4 main principles that anti-scraping protections are based on.
