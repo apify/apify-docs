@@ -52,6 +52,8 @@ Here's a table of key system environment variables:
 | `AP IFY_WORKFLOW_KEY` | Identifier used for grouping related runs and API calls together. |
 | `APIFY_META_ORIGIN` | Specifies how an Actor run was started. |
 | `APIFY_SDK_LATEST_VERSION` | Specifies the most recent release version of the Apify SDK for Javascript. Used for checking for updates. |
+| `APIFY_INPUT_SECRETS_KEY_FILE` |  |
+| `APIFY_INPUT_SECRETS_KEY_PASSPHRASE` |  |
 
 
 <!-- vale Microsoft.RangeFormat = NO -->
