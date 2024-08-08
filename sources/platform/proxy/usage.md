@@ -32,7 +32,7 @@ If you need to test Apify Proxy before you subscribe, please [contact our suppor
 
 | Parameter           | Value / explanation |
 |---------------------|---------------------|
-| Hostname            | `proxy.apify.com`, alternatively you can use static IP addresses `18.208.102.16`, `35.171.134.41`. |
+| Hostname            | `proxy.apify.com`|
 | Port                | `8000`              |
 | Username            | Specifies the proxy parameters such as groups, [session](#sessions) and location. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username.|
 | Password            | Apify Proxy password. Your password is displayed on the [Proxy](https://console.apify.com/proxy/groups) page in Apify Console. <br/>**Note**: this is not your Apify account password. |
@@ -143,7 +143,7 @@ Depending on whether you use a [browser](https://apify.com/apify/web-scraper) or
 * Browser—a different IP address is used for each browser.
 * HTTP request—a different IP address is used for each request.
 
-Use [sessions](#sessions) to controll how you rotate and [persist](#session-persistence) IP addresses. See our guide [Anti-scraping techniques](/academy/anti-scraping/techniques) to learn more about IP address rotation and our findings on how blocking works.
+Use [sessions](#sessions) to control how you rotate and [persist](#session-persistence) IP addresses. See our guide [Anti-scraping techniques](/academy/anti-scraping/techniques) to learn more about IP address rotation and our findings on how blocking works.
 
 ## Sessions {#sessions}
 
@@ -158,6 +158,13 @@ Sessions are available for [datacenter](./datacenter_proxy.md) and [residential]
 ## Proxy groups
 
 You can see which proxy groups you have access to on the [Proxy page](https://console.apify.com/proxy/groups) in the Apify Console. To use a specific proxy group (or multiple groups), specify it in the `username` parameter.
+
+## Proxy IP addresses
+
+If you need to allow communication to `apify.proxy.com`, add the following IP addresses to your firewall rule or whitelist:
+
+* `18.208.102.16`
+* `35.171.134.41`
 
 ## Troubleshooting
 

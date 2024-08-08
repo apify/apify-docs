@@ -51,7 +51,7 @@ Utilize the **Actions** menu to modify the dataset's name, which also affects it
 
 ### Apify API
 
-The [Apify API](/api/v2#/reference/datasets) enables you progammatic access to your datasets using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+The [Apify API](/api/v2#/reference/datasets) enables you programmatic access to your datasets using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations)tab of **Settings** page of your Apify account.
 
@@ -155,7 +155,7 @@ Check out the [Python API client documentation](/api/client/python/reference/cla
 
 When working with a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#dataset) is an essential tool, especially for dataset management. It simplifies the tasks of storing and retrieving data, seamlessly integrating with the Actor's workflow. Key features of the SDK include the ability to append data, retrieve what is stored, and manage dataset properties effectively. Central to this functionality is the [`Dataset`](/sdk/js/reference/class/Dataset) class. This class allows you to determine where your data is stored - locally or in the Apify cloud. To add data to your chosen datasets, use the [`pushData()`](/sdk/js/reference/class/Dataset#pushData) method.
 
-Additionaly the SDK offers other methods like [`getData()`](/sdk/js/reference/class/Dataset#getData), [`map()`](/sdk/js/reference/class/Dataset#map), and [`reduce()`](/sdk/js/reference/class/Dataset#reduce). For practical applications of these methods, refer to the [example](/sdk/js/docs/examples/map-and-reduce) section.
+Additionally the SDK offers other methods like [`getData()`](/sdk/js/reference/class/Dataset#getData), [`map()`](/sdk/js/reference/class/Dataset#map), and [`reduce()`](/sdk/js/reference/class/Dataset#reduce). For practical applications of these methods, refer to the [example](/sdk/js/docs/examples/map-and-reduce) section.
 
 If you have chosen to store your dataset locally, you can find it in the location below.
 
@@ -284,7 +284,7 @@ For more information, visit our [Python SDK documentation](/sdk/python/docs/conc
 
 Fields in a dataset that begin with a `#` are treated as hidden. You can exclude these fields when downloading data by using either `skipHidden=1` or `clean=1` in your query parameters. This feature is useful for excluding debug information from the final dataset output.
 
-The following example demonstates a dataset record with hiddent fields, including HTTP response and error details.
+The following example demonstrates a dataset record with hiddent fields, including HTTP response and error details.
 
 ```json
 {
