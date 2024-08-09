@@ -36,7 +36,7 @@ Here's a table of key system environment variables:
 | `APIFY_HEADLESS` | If **1**, web browsers inside the Actor should run in headless mode (no windowing system available). |
 | `APIFY_IS_AT_HOME` | Contains **1** if the Actor is running on Apify servers. |
 | `ACTOR_MEMORY_MBYTES` | Size of memory allocated for the Actor run, in megabytes. Can be used to optimize memory usage or finetuning of low-level external libraries. |
-| `APIFY_PROXY_PASSWORD` | Password for accessing Apify Proxy services. This password enables the Actor to utilize nproxy servers on behalf of the user who initiated the Actor run. |
+| `APIFY_PROXY_PASSWORD` | Password for accessing Apify Proxy services. This password enables the Actor to utilize proxy servers on behalf of the user who initiated the Actor run. |
 | `APIFY_PROXY_PORT` | TCP port number to be used for connecting to the Apify Proxy. |
 | `APIFY_PROXY_STATUS_URL` | URL for retrieving proxy status information. Appending `?format=json` to this URL returns the data in JSON format for programmatic processing. |
 | `ACTOR_STANDBY_PORT` | TCP port for the Actor to start an HTTP server to receive messages in the [Actor Standby](/platform/actors/development/programming-interface/standby) mode. |
