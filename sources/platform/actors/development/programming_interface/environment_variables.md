@@ -38,7 +38,7 @@ Here's a table of key system environment variables:
 | `ACTOR_MEMORY_MBYTES` | Size of memory allocated for the Actor run, in megabytes. Can be used to optimize memory usage or finetuning of low-level external libraries. |
 | `APIFY_PROXY_PASSWORD` | Password for accessing Apify Proxy services. This password enables the Actor to utilize nproxy servers on behalf of the user who initiated the Actor run. |
 | `APIFY_PROXY_PORT` | TCP port number to be used for connecting to the Apify Proxy. |
-| `APIFY_PROXY_STATUS_URL` | Endpoint URL for regrieving proxy status information. Appending `?format=json` to this URL returns the data in JSON format for programmatic processing. |
+| `APIFY_PROXY_STATUS_URL` | URL for retrieving proxy status information. Appending `?format=json` to this URL returns the data in JSON format for programmatic processing. |
 | `ACTOR_STANDBY_PORT` | TCP port for the Actor to start an HTTP server to receive messages in the [Actor Standby](/platform/actors/development/programming-interface/standby) mode. |
 | `ACTOR_STARTED_AT` | Date when the Actor was started. |
 | `ACTOR_TIMEOUT_AT` | Date when the Actor will time out. |
@@ -48,12 +48,12 @@ Here's a table of key system environment variables:
 | `ACTOR_WEB_SERVER_URL` | Unique public URL for accessing the Actor run web server from the outside world. |
 | `APIFY_API_PUBLIC_BASE_URL` | Public URL of the Apify API. May be used to interact with the platform programmatically. Typically set to `api.apify.com`. |
 | `APIFY_DEDICATED_CPUS` | Number of CPU cores reserved for the actor, based on allocated memory. |
-| `APIFY_DISABLE_OUTDATED_WARNING` | Controls the display of outdated version warnings. Set to `1` to suppress notifications about updates. Default value `0`. |
-| `AP IFY_WORKFLOW_KEY` | Identifier used for grouping related runs and API calls together. |
+| `APIFY_DISABLE_OUTDATED_WARNING` | Controls the display of outdated version warnings. Set to `1` to suppress notifications about updates. |
+| `APIFY_WORKFLOW_KEY` | Identifier used for grouping related runs and API calls together. |
 | `APIFY_META_ORIGIN` | Specifies how an Actor run was started. |
 | `APIFY_SDK_LATEST_VERSION` | Specifies the most recent release version of the Apify SDK for Javascript. Used for checking for updates. |
-| `APIFY_INPUT_SECRETS_KEY_FILE` |  |
-| `APIFY_INPUT_SECRETS_KEY_PASSPHRASE` |  |
+| `APIFY_INPUT_SECRETS_KEY_FILE` | Path to the secret key used to decryt [Secret inputs](/platform/actors/development/actor-definition/input-schema/secret-input). |
+| `APIFY_INPUT_SECRETS_KEY_PASSPHRASE` | Passphrase for the input secret key specified in `APIFY_INPUT_SECRETS_KEY_FILE`. |
 
 
 <!-- vale Microsoft.RangeFormat = NO -->
