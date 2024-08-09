@@ -12,5 +12,8 @@
         "maximum": 2
     },
     "no-space-in-emphasis": false,
-    "link-fragments": false
+    "link-fragments": false,
+    "no-duplicate-heading": {
+        "siblings_only": true
+    }
 }
