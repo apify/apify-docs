@@ -28,10 +28,10 @@ Here's a table of key system environment variables:
 | `ACTOR_BUILD_NUMBER` | Build number of the Actor build used in the run. |
 | `ACTOR_TASK_ID` | ID of the Actor task. Empty if Actor is run outside of any task, e.g. directly using the API. |
 | `ACTOR_EVENTS_WEBSOCKET_URL` | Websocket URL where Actor may listen for [events](/platform/actors/development/programming-interface/system-events) from Actor platform. |
-| `ACTOR_DEFAULT_DATASET_ID` | ID of the dataset where you can push the data. |
-| `ACTOR_DEFAULT_KEY_VALUE_STORE_ID` | ID of the key-value store where the Actor's input and output data are stored. |
-| `ACTOR_DEFAULT_REQUEST_QUEUE_ID` | ID of the request queue that stores and handles requests that you enqueue. |
-| `ACTOR_INPUT_KEY` | Key of the record in the default key-value store that holds the Actor input. Typically **INPUT**, but may vary. |
+| `ACTOR_DEFAULT_DATASET_ID` | Unique identifier for the default dataset associated with the current Actor run. |
+| `ACTOR_DEFAULT_KEY_VALUE_STORE_ID` | Unique identifier for the default key-value store associated with the current Actor run. |
+| `ACTOR_DEFAULT_REQUEST_QUEUE_ID` | Unique identifier for the default request queue associated with the current Actor run. |
+| `ACTOR_INPUT_KEY` | Key of the record in the default key-value store that holds the [Actor input](/platform/actors/running/input-and-output#input).  |
 | `ACTOR_MAX_PAID_DATASET_ITEMS` | For paid-per-result Actors, the user-set limit on returned results. Do not exceed this limit. |
 | `APIFY_HEADLESS` | If **1**, web browsers inside the Actor should run in headless mode (no windowing system available). |
 | `APIFY_IS_AT_HOME` | Contains **1** if the Actor is running on Apify servers. |
@@ -50,7 +50,7 @@ Here's a table of key system environment variables:
 | `APIFY_DEDICATED_CPUS` | Number of CPU cores reserved for the actor, based on allocated memory. |
 | `APIFY_DISABLE_OUTDATED_WARNING` | Controls the display of outdated version warnings. Set to `1` to suppress notifications about updates. |
 | `APIFY_WORKFLOW_KEY` | Identifier used for grouping related runs and API calls together. |
-| `APIFY_META_ORIGIN` | Specifies how an Actor run was started. |
+| `APIFY_META_ORIGIN` | Specifies how an Actor run was started. Possible values are [here](/platform/actors/running/runs-and-builds#origin) |
 | `APIFY_SDK_LATEST_VERSION` | Specifies the most recent release version of the Apify SDK for Javascript. Used for checking for updates. |
 | `APIFY_INPUT_SECRETS_KEY_FILE` | Path to the secret key used to decryt [Secret inputs](/platform/actors/development/actor-definition/input-schema/secret-input). |
 | `APIFY_INPUT_SECRETS_KEY_PASSPHRASE` | Passphrase for the input secret key specified in `APIFY_INPUT_SECRETS_KEY_FILE`. |
