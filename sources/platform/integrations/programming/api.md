@@ -95,7 +95,7 @@ about the exact permissions the Actor might need. However, this also means that 
 This is why **we currently do not allow scoped tokens to create or modify Actors**. With those permissions it would be easy for the token to upload malicious code and gain access to your full account. If you do need to create or modify Actors via Apify API, you need to use an unscoped token.
 :::
 
-### Setting up Webhooks
+### Setting up webhooks
 
 If you allow a token to run an Actor, it'll also be able to manage the Actor's webhooks (similarly for tasks).
 
