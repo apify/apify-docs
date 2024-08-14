@@ -72,6 +72,44 @@ async def main() -> None:
 Please make sure to describe your Actors, their endpoints, and the schema for their
 inputs and outputs in your README.
 
+## How do I find out whether my Actor is started in Standby or standard mode
+
+Actors that support Actor Standby can still be started in standard mode, for example from the Console or via the API.
+To find out in which mode was the Actor started, you can read the `metaOrigin` option in `Actor.config`, or the `APIFY_META_ORIGIN` environment variable in case you're not using the Apify SDK.
+If it is equal to `STANDBY`, the Actor was started in Standby mode, otherwise it was started in standard mode.
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import { Actor } from 'apify';
+
+await Actor.init();
+
+if (Actor.config.get('metaOrigin') === 'STANDBY') {
+    // Start your Standby server here
+} else {
+    // Perform the standard Actor operations here
+}
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor
+
+async def main() -> None:
+    async with Actor:
+        if Actor.config.meta_origin == 'STANDBY':
+            # Start your Standby server here
+        else:
+            # Perform the standard Actor operations here
+```
+
+</TabItem>
+</Tabs>
+
 ## Can I monetize my Actor in the Standby mode
 
-No, Standby mode is in Beta, and monetization is not supported.
+No, Standby mode is in Beta, and monetization is currently not supported.
