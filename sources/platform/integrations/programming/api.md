@@ -46,17 +46,25 @@ do not require an authentication token because they contain a hard-to-guess iden
 
 When working under an organization account, you will see two types of API tokens on the Integrations page.
 
-![Integrations page in the Apify Console in organizatoin mode](../images/api-token-organization.png)
+![Integrations page in the Apify Console in organization mode](../images/api-token-organization.png)
 
 The Personal API tokens are different from your own Personal API tokens mentioned above. If you use this token in an integration, it will have the same permissions that you have within the organization, and all the operations you use it for will be ascribed to you.
 
 On the other hand the Organization API tokens (only visible if you are the owner or have Manage access tokens permission) have full permissions and are not tied to a specific member of the organization.
 
-## Tokens with limited permissions {#limited-permissions}
+## API tokens with limited permissions {#limited-permissions}
 
-By default, tokens can access all data in your account. However, you can choose to limit the permissions of your token, so that it can only access data it really needs. We call these tokens **scoped**.
+By default, tokens can access all data in your account. If that is not desirable, you can choose to limit the permissions of your token, so that it can only access data needed for the particular use case. We call these tokens **scoped**.
 
 **A scoped token can access only those resources that you'll explicitly allow it to.**
+
+### How to create a scoped token
+
+Scoped tokens behave like standard API tokens and are managed through the [Integrations](https://console.apify.com/settings/integrations) page in Apify Console. When creating a token (or updating an existing one), simply toggle "Limit token permissions" to make the token scoped.
+
+Once the token is scoped, you can specify the token's permissions.
+
+![Toggle "Limit token permissions" to make a token scoped](../images/tmp__create-scoped-api-token.png)
 
 ### Account level vs resource-specific permissions
 
@@ -69,6 +77,8 @@ We support two different types of permissions for tokens:
 :::tip
 A single token can combine both types. You can create a token that can _read_ any data storage, but _write_ only to one specific dataset.
 :::
+
+![An example scoped token that combines account level permissions and resource-specific permissions](../images/tmp__scoped-token-combining-permissions.png)
 
 :::note Note
 Keep in mind that the scoped tokens still operate within the context of your account. A scoped token will never be able to access resources that your account doesn't have access to.
@@ -91,7 +101,7 @@ When you run an Actor with a scoped token (or schedule one), Apify will inject a
 This way you can be sure that once you give a token the permission to run an Actor, it will just work, and you don't have to worry
 about the exact permissions the Actor might need. However, this also means that you need to trust the Actor.
 
-:::info Note
+:::note Note
 This is why **we currently do not allow scoped tokens to create or modify Actors**. With those permissions it would be easy for the token to upload malicious code and gain access to your full account. If you do need to create or modify Actors via Apify API, you need to use an unscoped token.
 :::
 
