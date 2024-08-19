@@ -14,8 +14,10 @@ import TabItem from '@theme/TabItem';
 
 Each Actor run is assigned a unique URL (e.g. `kmdo7wpzlshygi.runs.apify.net`) that allows HTTP access to an optional web server running inside the Actor's Docker container. This feature enhances your Actor's capabilities by enabling external communication.
 
-:::tip
+:::tip Using Actors as an API
+
 The container web server provides a way how to connect to one specific Actor run. To enable using your Actor as an API, with a pre-defined hostname, load balancing and autoscaling, check out [Actor Standby](./actor_standby.md).
+
 :::
 
 ## Access the container URL
