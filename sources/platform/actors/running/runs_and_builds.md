@@ -50,6 +50,7 @@ All **Actor runs** have an **Origin** field indicating where the Actor run was i
 |SCHEDULER|Using a Schedule|
 |WEBHOOK|Using a webhook|
 |ACTOR|From another Actor run|
+|STANDBY|From Actor Standby|
 
 ## Lifecycle
 
