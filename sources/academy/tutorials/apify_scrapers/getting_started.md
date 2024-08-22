@@ -73,7 +73,7 @@ In the settings tab, you can set options that are common to all tasks and not di
 
 ### [](#runs) Runs
 
-You can find all the task runs and their detail pages here. Every time you start a task, it will appear here in the list. All of your task's runs and their outcomes will be stored here for the data retention period, [which you can find under your plan](https://apify.com/pricing).
+You can find all the task runs and their detail pages here. Every time you start a task, it will appear here in the list. Apify securely stores your ten most recent runs indefinitely, ensuring your records are always accessible. All of your task's runs and their outcomes, beyond the latest ten, will be stored here for the data retention period, [which you can find under your plan](https://apify.com/pricing).
 
 ### [](#webhooks) Webhooks
 
