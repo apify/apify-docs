@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 Automating your Actor development process can save time and reduce errors, especially for projects  with multiple Actors or frequent updates. Instead of manually pushing code, building Actors, and running tests, you can automate these steps to run whenever you push code to your repository.
 
-This guide focuses on using GitHub Actions for continuous integration, if you are interested in BitBucket Pipeline integration, check out [this](https://help.apify.com/en/articles/6988586-setting-up-continuous-integration-for-apify-actors-on-bitbucket) help article.
+This guide focuses on using GitHub Actions for continuous integration, but [we also have a guide for Bitbucket](https://help.apify.com/en/articles/1861038-setting-up-continuous-integration-for-apify-actors-on-bitbucket).
 
 ## Set up automated builds and tests
 
@@ -69,6 +69,8 @@ To set up automated builds and tests for your Actors you need to:
 
     ```
 
+    With this setup, pushing to the `main` or `master` branch builds a new latest version.
+
     </TabItem>
 
     <TabItem value="beta.yml" label="beta.yml">
@@ -94,10 +96,10 @@ To set up automated builds and tests for your Actors you need to:
 
     ```
 
+    With this setup, pushing to the `develop` branch builds a new beta version.
+
     </TabItem>
     </Tabs>
-
-With this setup, pushing to the `main` or `master` branch builds a new latest version, while pushig to `develop` builds a beta version.
 
 ## GitHub integration
 
