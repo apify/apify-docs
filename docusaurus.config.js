@@ -1,4 +1,3 @@
-const { type } = require('os');
 const { join } = require('path');
 
 const { config } = require('./apify-docs-theme');
