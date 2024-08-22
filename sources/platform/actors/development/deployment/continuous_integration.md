@@ -38,7 +38,7 @@ To set up automated builds and tests for your Actors you need to:
       ```
 
       ![Add build Actor URL to secrets](./images/ci-add-build-url.png)
-  
+
    1. Name the secret
 1. Create GitHub Actions workflow files:
    1. In your repo, create the `.github/workflows` directory
@@ -70,7 +70,6 @@ To set up automated builds and tests for your Actors you need to:
     ```
 
     </TabItem>
-
 
     <TabItem value="beta.yml" label="beta.yml">
 
