@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 # Automated tests for Actors
 
-Automated testing is crucial for maintaining the reliaability and performance of your Actors over time. This guide will help you set up automated tests using the [Actor Testing Actor](https://apify.com/pocesar/actor-testing).
+Automated testing is crucial for maintaining the reliability and performance of your Actors over time. This guide will help you set up automated tests using the [Actor Testing Actor](https://apify.com/pocesar/actor-testing).
 
 ## Set up automated tests
 
