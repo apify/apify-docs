@@ -1,23 +1,23 @@
 ---
-title: Output schema
+title: Dataset schema
 description: Learn how to generate an appealing Overview table interface to preview your Actor results in real time on the Apify platform.
 sidebar_position: 3
-slug: /deploying-your-code/output-schema
+slug: /deploying-your-code/dataset-schema
 ---
 
-# Output schema {#output-schema}
+# Dataset schema
 
 **Learn how to generate an appealing Overview table interface to preview your Actor results in real time on the Apify platform.**
 
 ---
 
-The Output schema generates an interface that enables users to instantly preview their Actor results in real time.
+The Dataset schema generates an interface that enables users to instantly preview their Actor results in real time.
 
-![Output Schema](../../../platform/actors/development/actor_definition/images/output-schema-example.png)
+![Dataset Schema](../../../platform/actors/development/actor_definition/images/output-schema-example.png)
 
 In this quick tutorial, you will learn how to set up an output tab for your own Actor.
 
-## Implementation {#implementation}
+## Implementation
 
 Firstly, create a `.actor` folder in the root of your Actor's source code. Then, create a `actor.json` file in this folder, after which you'll have .actor/actor.json.
 
@@ -69,7 +69,7 @@ Next, copy-paste the following template code into your `actor.json` file.
 }
 ```
 
-To configure the output schema, simply replace the fields in the template with the relevant fields to your Actor.
+To configure the datatset schema, replace the fields in the template with the relevant fields to your Actor.
 
 For reference, you can use the [Zappos Scraper source code](https://github.com/PerVillalva/zappos-scraper-actor/blob/main/.actor/actor.json) as an example of how the final implementation of the output tab should look in a live Actor.
 
@@ -139,7 +139,7 @@ For reference, you can use the [Zappos Scraper source code](https://github.com/P
 }
 ```
 
-Note that the fields specified in the output schema should match the object keys of your resulting dataset.
+Note that the fields specified in the dataset schema should match the object keys of your resulting dataset.
 
 Also, if your desired label has the same name as the defined object key, then you don't need to specify a label name. The schema will, by default, show a capitalized version of the key and even split camel case into separate words and capitalize all of them.
 
@@ -162,7 +162,7 @@ const results = {
 
 Great! Now that everything is set up, it's time to run the Actor and admire your Actor's brand new output tab.
 
-> Need some extra guidance? Visit the [output schema documentation](/platform/actors/development/actor-definition/output-schema) for more detailed information about how to implement this feature.
+> Need some extra guidance? Visit the [dataset schema documentation](/platform/actors/development/actor-definition/dataset-schema) for more detailed information about how to implement this feature.
 
 A few seconds after running the Actor, you should see its results displayed in the `Overview` table.
 
