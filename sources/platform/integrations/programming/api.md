@@ -82,7 +82,7 @@ A single token can combine both types. You can create a token that can _read_ an
 
 If you need to create new resources with the token (for example, create a new Task, or storage), you need to explicitly allow that as well.
 
-Once you create a new resource with the token, **the token will gain full access to that resource**, regardless of other permissions. It is not possible to create a token that can create a dataset, but not write to it.
+Once you create a new resource with the token, _the token will gain full access to that resource_, regardless of other permissions. It is not possible to create a token that can create a dataset, but not write to it.
 
 :::tip
 
