@@ -64,7 +64,7 @@ Scoped tokens behave like standard API tokens and are managed through the [Integ
 
 Once the token is scoped, you can specify the token's permissions.
 
-![Toggle "Limit token permissions" to make a token scoped](../images/tmp__create-scoped-api-token.png)
+![Toggle "Limit token permissions" to make a token scoped](../images/api-token-scoped.png)
 
 ### Account level vs resource-specific permissions
 
@@ -75,14 +75,10 @@ We support two different types of permissions for tokens:
 - **Resource-specific permissions**: These will apply only to specific, existing resources. For example, you can use these to allow the token to read from a particular dataset.
 
 :::tip
-A single token can combine both types. You can create a token that can _read_ any data storage, but _write_ only to one specific dataset.
+A single token can combine both types. You can create a token that can _read_ any data storage, but _write_ only to one specific key-value store.
 :::
 
-![An example scoped token that combines account level permissions and resource-specific permissions](../images/tmp__scoped-token-combining-permissions.png)
-
-:::note Note
-Keep in mind that the scoped tokens still operate within the context of your account. A scoped token will never be able to access resources that your account doesn't have access to.
-:::
+![An example scoped token that combines account level permissions and resource-specific permissions](../images/api-token-scoped-with-combining-permissions.png)
 
 ### Allowing tokens to create resources
 
