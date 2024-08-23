@@ -13,7 +13,7 @@ Deploying an Actor involves uploading your [source code](platform/actors/develop
 
 ## Deploy using Apify CLI
 
-The fastest way to deploy and build your Actor is by uising the [Apify CLI](). If you've completed one of the tutorials from the [academy](/academy), you should have already have it installed. If not, follow the [Apify CLI installation instructions](/cli/docs/installation).
+The fastest way to deploy and build your Actor is by uising the [Apify CLI](/cli). If you've completed one of the tutorials from the [academy](/academy), you should have already have it installed. If not, follow the [Apify CLI installation instructions](/cli/docs/installation).
 
 To deploy your Actor using Apify CLI:
 
