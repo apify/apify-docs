@@ -221,7 +221,7 @@ const data = await gotScraping('https://api.cheddar.com/graphql', {
 });
 ```
 
-The final step after making the query is to format the data to match the expected output schema.
+The final step after making the query is to format the data to match the expected dataset schema.
 
 ## Final code {#final-code}
 
