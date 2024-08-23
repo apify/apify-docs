@@ -23,7 +23,9 @@ To deploy your Actor using Apify CLI:
     apify login
     ```
 
-1. Deploy your Actor:
+1. Navigate to the directory of your Actor on your local machine.
+
+1. Deploy your Actor by running:
 
     ```bash
     apify push
