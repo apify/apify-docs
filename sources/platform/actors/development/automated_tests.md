@@ -1,47 +1,55 @@
 ---
 title: Automated tests
 description: Learn how to automate ongoing testing and make sure your Actors perform over time. See code examples for configuring the Actor Testing Actor.
-slug: /actors/development/deployment/automated-tests
-sidebar_position: 3
+slug: /actors/development/automated-tests
+sidebar_position: 9
 ---
 
 **Learn how to automate ongoing testing and make sure your Actors perform over time. See code examples for configuring the Actor Testing Actor.**
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ---
 
-You should make sure your [Actors](../../index.mdx) are well-maintained. You might not always get feedback from your users. Therefore, it is crucial that you periodically check if your Actors work as expected. You can do this using our [monitoring suite](https://apify.com/apify/monitoring) or by setting up daily runs of the **Actor Testing** ([pocesar/actor-testing](https://apify.com/pocesar/actor-testing)) tool.
+# Automated tests for Actors
 
-The monitoring suite is sufficient for most scenarios and includes automated alerts. [See more information](https://apify.com/apify/monitoring) on the suite's page or [check out our tutorials](../../../monitoring/index.md).
+Automated testing is crucial for maintaining the reliaability and performance of your Actors over time. This guide will help you set up automated tests using the [Actor Testing Actor](https://apify.com/pocesar/actor-testing).
 
-We recommend using the Actor Testing Actor for specific and advanced use cases. This guide will help you set it up.
+## Set up automated tests
 
-## Step-by-step guide
+1. Prepare test tasks - Create 1–5 separate testing tasks for your Actor.
+1. Configure Actor testing - Set up a task using the Actor Testing Actor.
+1. Validate tests - Run the test task multiple times until all tests pass.
+1. Schedule tests - Set up a recurring schedule for your tests.
+1. Monitor results - Review and address any issues on a weekly basis.
 
-1. Prepare 1–5 separate testing tasks for your Actor. ([See below](#set-up-tasks-you-will-test)).
-2. Set up a task from the Actor Testing Actor. ([See below](#set-up-a-task-from-the-actor-testing-actor)).
-3. Run the test task until all tests succeed (a few times).
-4. Schedule the test to run at the frequency of your choice (recommended daily) and choose a communication channel receiving info about it ([Slack](https://apify.com/katerinahronik/slack-message) or [email](https://apify.com/apify/send-mail)).
-5. Ensure you review and fix any issues on a weekly basis.
+## Create test tasks
 
-## Set up tasks you will test
+Example of Actor testing tasks
 
-![Tasks that test an Actor's configurations](./images/testing-tasks.png)
+When creating test tasks:
 
-We also advise you to test your Actor's default run—one that uses the pre-filled inputs. It is often the first task your users run, and they may be put off if it doesn't work.
+* Include a test for your Actor's default configuration
+* Set a low `maxItem` value to conserve credits
+* For large data tests, reduce test frequency to conserve credits
 
-Set a low `maxItem` value for your testing tasks, so that you don't burn your credit. If you need to test your Actor with a large amount of data, set the scheduler to run less frequently.
+## Configure the Actor Testing Actor
 
-## Set up a task from the Actor Testing Actor
+Follow the [setup guide](https://apify.com/pocesar/actor-testing) in the Actor's README.
 
-You can [find the setup guide](https://apify.com/pocesar/actor-testing) in the Actor's README. We recommend testing for the following scenarios.
+Here are some recommended test scenarios:
 
-Run status:
+<Tabs groupId="main">
+<TabItem value="Run status" label="Run status">
 
 ```js
 await expectAsync(runResult).toHaveStatus('SUCCEEDED');
 ```
 
-Crash information from the log:
+</TabItem>
+<TabItem value="Crash information from the log" label="Crash information from the log">
+
 
 ```js
 await expectAsync(runResult).withLog((log) => {
@@ -58,7 +66,8 @@ await expectAsync(runResult).withLog((log) => {
 });
 ```
 
-Information from statistics (runtime, retries):
+</TabItem>
+<TabItem value="Information from statistics (runtime, retries)" label="Information from statistics (runtime, retries)">
 
 ```js
 await expectAsync(runResult).withStatistics((stats) => {
@@ -74,7 +83,8 @@ await expectAsync(runResult).withStatistics((stats) => {
 });
 ```
 
-Information about and from within the [dataset](../../../storage/dataset.md):
+</TabItem>
+<TabItem value="Information about and from within the dataset" label="Information about and from within the dataset">
 
 ```js
 await expectAsync(runResult).withDataset(({ dataset, info }) => {
@@ -103,7 +113,8 @@ await expectAsync(runResult).withDataset(({ dataset, info }) => {
 });
 ```
 
-Information about the [key-value store](../../../storage/key_value_store.md):
+</TabItem>
+<TabItem value="Information about the key-value store" label="Information about the key-value store">
 
 ```js
 await expectAsync(runResult).withKeyValueStore(({ contentType }) => {
@@ -117,3 +128,6 @@ await expectAsync(runResult).withKeyValueStore(({ contentType }) => {
 { keyName: 'apify.com-scroll_losless-comp' },
 );
 ```
+
+</TabItem>
+</Tabs>
