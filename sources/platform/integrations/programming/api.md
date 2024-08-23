@@ -24,25 +24,21 @@ To access the Apify API in your integrations, you need to authenticate using you
 
 ![Integrations page in Apify Console](../images/api-token.png)
 
-:::caution Warning
-By default, tokens can access all data in your account. If you plan to share the token with a 3rd party, consider [limiting the permission scope](#limited-permissions) of the token, so that it can only access what it really needs.
+:::caution
+
+Do not share the API token with untrusted parties, or use it directly from client-side code,
+unless you fully understand the consequences! You can also consider  [limiting the permission scope](#limited-permissions) of the token, so that it can only access what it really needs.
+
 :::
 
 ## Authentication
 
 You can authenticate the Apify API in two ways. You can either pass the token via the `Authorization` HTTP header or the URL `token` query parameter. We always recommend you use the authentication via the HTTP header as this method is more secure.
 
-:::caution Important
-Do not share the API token with untrusted parties, or use it directly from client-side code,
-unless you fully understand the consequences!
-:::
-
 Note that some API endpoints, such as [Get list of keys](/api/v2#/reference/key-value-stores/key-collection/get-list-of-keys),
 do not require an authentication token because they contain a hard-to-guess identifier that effectively serves as an authentication key.
 
 ## Organization accounts
-
- > This information is only relevant to members or owners of organization accounts.
 
 When working under an organization account, you will see two types of API tokens on the Integrations page.
 
@@ -75,7 +71,9 @@ We support two different types of permissions for tokens:
 - **Resource-specific permissions**: These will apply only to specific, existing resources. For example, you can use these to allow the token to read from a particular dataset.
 
 :::tip
+
 A single token can combine both types. You can create a token that can _read_ any data storage, but _write_ only to one specific key-value store.
+
 :::
 
 ![An example scoped token that combines account level permissions and resource-specific permissions](../images/api-token-scoped-with-combining-permissions.png)
@@ -87,21 +85,25 @@ If you need to create new resources with the token (for example, create a new Ta
 Once you create a new resource with the token, **the token will gain full access to that resource**, regardless of other permissions. It is not possible to create a token that can create a dataset, but not write to it.
 
 :::tip
+
 This is useful if you want to for example create a token that can dynamically create & populate datasets, but without the need to access other datasets in your account.
+
 :::
 
-### Running and scheduling Actors
+### Actor execution and scheduling
 
 When you run an Actor with a scoped token (or schedule one), Apify will inject a new, _unscoped_ token to the Actor. This means that **the Actor will have full access to all resources in your account**.
 
 This way you can be sure that once you give a token the permission to run an Actor, it will just work, and you don't have to worry
 about the exact permissions the Actor might need. However, this also means that you need to trust the Actor.
 
-:::note Note
+:::note
+
 This is why **we currently do not allow scoped tokens to create or modify Actors**. With those permissions it would be easy for the token to upload malicious code and gain access to your full account. If you do need to create or modify Actors via Apify API, you need to use an unscoped token.
+
 :::
 
-### Setting up webhooks
+### Webhoooks configuration
 
 If you allow a token to run an Actor, it'll also be able to manage the Actor's webhooks (similarly for tasks).
 
@@ -109,6 +111,8 @@ If you set up a webhook pointing to the Apify API, the Apify platform will autom
 
 Therefore, you need to make sure the token has sufficient permissions not only to set up the webhook, but also to perform the actual operation.
 
-:::tip Example
-Let's say you want to create a webhook that pushes an item to a dataset every time an Actor successfully finishes. Then such a scoped token needs to be allowed to both run the Actor (in order to create the webhook), and write to that dataset.
+:::tip
+
+Let's say you want to create a webhook that pushes an item to a dataset every time an Actor successfully finishes. Then such a scoped token needs to be allowed to both run the Actor (to create the webhook), and write to that dataset.
+
 :::
