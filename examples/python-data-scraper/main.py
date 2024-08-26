@@ -30,13 +30,13 @@ for (location_name, location_id) in LOCATIONS:
         # to know when do the results start
         if day_offset == 0:
             # Get the timezone offset written in the page footer and parse it
-            tz_description = soup.find_all(class_='wr-c-footer-timezone__item')[1].text
-            tz_offset_match = re.search(r'([+-]\d\d)(\d\d)', tz_description)
-            tz_offset_hours = int(tz_offset_match.group(1))
-            tz_offset_minutes = int(tz_offset_match.group(2))
+            time_zone_paragraph = soup.find('p', text=lambda x: x and 'All times are' in x)
+            tz_description = time_zone_paragraph.text
+            gmt_offset = re.search(r'GMT([+-]\d+)', tz_description)
+            tz_offset_hours = int(gmt_offset.group(1))
 
             # Get the current date and time at the scraped location
-            timezone_offset = timedelta(hours=tz_offset_hours, minutes=tz_offset_minutes)
+            timezone_offset = timedelta(hours=tz_offset_hours)
             location_timezone = timezone(timezone_offset)
 
             location_current_datetime = datetime.now(tz=location_timezone)
