@@ -6,7 +6,7 @@ slug: /actors/running/standby
 sidebar_label: Actor Standby
 ---
 
-**Use Actors in lightweight Standby mode for fast API respoonses.**
+**Use Actors in lightweight Standby mode for fast API responses.**
 
 ---
 
