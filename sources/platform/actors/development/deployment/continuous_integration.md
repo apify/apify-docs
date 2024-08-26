@@ -122,7 +122,9 @@ You can find your builds under the Actor's **Builds** section.
 
 ## [](#github-integration) Automatic builds from GitHub
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2I3DM8Nvu1M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="youtubeVideoPlayer">
+<iframe src="https://www.youtube-nocookie.com/embed/2I3DM8Nvu1M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 If the source code of an Actor is hosted in a [Git repository](#git-repository), it is possible to set up an integration so that the Actor is automatically rebuilt on every push to the Git repository. For that, you only need to set up a webhook in your Git source control system that will invoke the [Build Actor](/api/v2/#/reference/actors/build-collection/build-actor) API endpoint on every push.
 

@@ -23,7 +23,9 @@ See [Dockerfile](../actor_definition/docker.md#custom-dockerfile) and [base Dock
 
 ## [](#git-repository)Git repository
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NEzT_p_RE1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="youtubeVideoPlayer">
+<iframe src="https://www.youtube-nocookie.com/embed/NEzT_p_RE1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 If the Actor's source code is hosted externally in a Git repository, it can consist of multiple files and directories, use its own **Dockerfile** to control the build process (see [Custom Dockerfile](../actor_definition/docker.md#custom-dockerfile) for details) and have a user description in store fetched from the <strong>README.md</strong> file. The location of the repository is specified by the **Git URL** setting, which can be an **https**, **git** or **ssh** URL.
 

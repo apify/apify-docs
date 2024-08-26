@@ -95,7 +95,9 @@ One thing to keep in mind while navigating through this course is that advanced 
 
 Watch a conference talk by [Ondra Urban](https://github.com/mnmkng), which provides an overview of various anti-scraping measures and tactics for circumventing them.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/aXil0K-M-Vs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="youtubeVideoPlayer">
+<iframe src="https://www.youtube-nocookie.com/embed/aXil0K-M-Vs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 :::info Several years old?
 
