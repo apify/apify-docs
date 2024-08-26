@@ -19,7 +19,7 @@ export default function Section({ heading, description, className, children, hea
     return (
         <section className={clsx(styles.section, className)}>
             {(heading || description) && <div className={styles.sectionHeader}>
-                {heading && <Heading className={headingClassName} type='title2Xl' as={headingAs}>{heading}</Heading>}
+                {heading && <Heading className={headingClassName} type="title2Xl" as={headingAs || 'h2'}>{heading}</Heading>}
                 {description && <Text color={theme.color.neutral.textMuted} size="large">{description}</Text>}
             </div>}
             {children}

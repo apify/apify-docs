@@ -173,6 +173,7 @@ curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN
                             content: (
                                 <SectionWrapper
                                     heading="JavaScript API client"
+                                    headingAs="h3"
                                     description={<div className="Description">
                                     The official library to interact with Apify API from a web browser, Node.js, JavaScript, or Typescript applications.
                                         <GitButton href="https://github.com/apify/apify-client-js" data-size="large" data-show-count="true">Star</GitButton>
