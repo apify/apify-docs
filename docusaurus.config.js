@@ -14,7 +14,27 @@ module.exports = {
     organizationName: 'apify',
     projectName: 'apify-docs',
     scripts: ['/js/custom.js'],
-    favicon: 'img/favicon.svg',
+    headTags: [
+        {
+            tagName: 'link',
+            attributes: {
+                rel: 'icon',
+                href: '/img/favicon.ico',
+                type: 'image/x-icon',
+                size: '48x48',
+            },
+        },
+        {
+            tagName: 'link',
+            attributes: {
+                rel: 'icon',
+                href: '/img/favicon.svg',
+                type: 'image/svg+xml',
+                sizes: 'any',
+            },
+        },
+    ],
+
     onBrokenLinks:
     /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
     onBrokenMarkdownLinks:
