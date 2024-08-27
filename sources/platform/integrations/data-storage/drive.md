@@ -12,9 +12,7 @@ slug: /integrations/drive
 
 Completementary to the following guide we've created a detailed video, that will guide you through the process of setting up your Google Drive integration.
 
-<div class="youtubeVideoPlayer">
-<iframe src="https://www.youtube-nocookie.com/embed/IFTeKdj6ZGM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/IFTeKdj6ZGM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Get started
 

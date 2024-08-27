@@ -44,12 +44,8 @@ An Actor is created immediately from the selected repository.
 
 ### Deploy changes automatically
 
-<div class="youtubeVideoPlayer">
-<iframe src="https://www.youtube-nocookie.com/embed/8QJetr-BYdQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/8QJetr-BYdQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Create an issue when a run fails
 
-<div class="youtubeVideoPlayer">
-<iframe src="https://www.youtube-nocookie.com/embed/jZUp-rRbayc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jZUp-rRbayc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

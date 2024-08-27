@@ -18,9 +18,7 @@ You can use the Zapier integration to trigger a workflow whenever an Actor or a 
 
 Completementary to the following guide we've created a detailed video, that will guide you through the process of setting up your Telegram integration through Zapier.
 
-<div class="youtubeVideoPlayer">
-<iframe src="https://www.youtube.com/embed/XldEuQleq3c?si=86qbdrzWpVLoY_fr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XldEuQleq3c?si=86qbdrzWpVLoY_fr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Connect Apify with Zapier
 
