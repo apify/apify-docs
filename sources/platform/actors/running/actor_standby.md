@@ -3,7 +3,7 @@ title: Standby mode
 description: Use an Actor as a real-time API server.
 sidebar_position: 7.3
 slug: /actors/running/standby
-sidebar_label: Actor Standby
+sidebar_label: Standby mode
 ---
 
 **Use Actors in lightweight Standby mode for fast API responses.**
