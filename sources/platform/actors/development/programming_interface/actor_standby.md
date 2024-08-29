@@ -1,11 +1,11 @@
 ---
-title: Actor Standby
+title: Standby mode
 description: Use the Actor as a real-time API server.
 slug: /actors/development/programming-interface/standby
 sidebar_position: 9
 ---
 
-**Use Actors in lightweight mode as a blazingly fast API server.**
+**Use Actors as an API server for fast response times.**
 
 ---
 
@@ -13,7 +13,7 @@ Traditional Actors are designed to run a single task and then stop. They're most
 However, in some applications, waiting for an Actor to start is not an option. Actor Standby mode solves this problem by letting you have the Actor ready
 in the background, waiting for the incoming HTTP requests. In a sense, the Actor behaves like a real-time web server or standard API server.
 
-## How can I develop Actors using Standby mode
+## Developing Actors using Standby mode
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -72,7 +72,7 @@ async def main() -> None:
 Please make sure to describe your Actors, their endpoints, and the schema for their
 inputs and outputs in your README.
 
-## How do I find out whether my Actor is started in Standby or standard mode
+## Determining an Actor is started in Standby
 
 Actors that support Actor Standby can still be started in standard mode, for example from the Console or via the API.
 To find out in which mode was the Actor started, you can read the `metaOrigin` option in `Actor.config`, or the `APIFY_META_ORIGIN` environment variable in case you're not using the Apify SDK.
@@ -110,6 +110,6 @@ async def main() -> None:
 </TabItem>
 </Tabs>
 
-## Can I monetize my Actor in the Standby mode
+## Monetization of Actors with the Standby mode?
 
-No, Standby mode is in Beta, and monetization is currently not supported.
+Currently, the Standby mode is in beta, and monetization is not supported. But we plan to enable it soon.
