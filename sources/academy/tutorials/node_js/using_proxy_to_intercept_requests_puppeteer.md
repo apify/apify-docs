@@ -7,7 +7,7 @@ slug: /node-js/using-proxy-to-intercept-requests-puppeteer
 
 Sometimes you may need to intercept (or maybe block) requests in headless Chrome / Puppeteer, but `page.setRequestInterception()`  is not 100% reliable when the request is started in a new window.
 
-One possible way to intercept these requests is to use a man-in-the-middle (MITM) proxy, i.e. a proxy server that can intercept and modify HTTP requests, even those over HTTPS. In this example, we're going to use <https://github.com/joeferner/node-http-mitm-proxy>, since it has all the tools that we need.
+One possible way to intercept these requests is to use a man-in-the-middle (MITM) proxy, i.e. a proxy server that can intercept and modify HTTP requests, even those over HTTPS. In this example, we're going to use [https://github.com/joeferner/node-http-mitm-proxy](https://github.com/joeferner/node-http-mitm-proxy), since it has all the tools that we need.
 
 First we set up the MITM proxy:
 
@@ -75,7 +75,7 @@ const browser = await puppeteer.launch({
 
 And we're done! By adjusting the `blockRequests` variable, you can allow or block any request initiated through Puppeteer.
 
-Here is a GitHub repository with a full example and all necessary files: <https://github.com/apifytech/actor-example-proxy-intercept-request>
+Here is a GitHub repository with a full example and all necessary files: [https://github.com/apifytech/actor-example-proxy-intercept-request](https://github.com/apifytech/actor-example-proxy-intercept-request)
 
 If you have any questions, feel free to contact us in the chat.
 

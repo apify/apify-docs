@@ -55,7 +55,7 @@ In order to check whether there are any cookies associated with a certain reques
 
 ![Button to view the cached cookies](./images/postman-cookies-button.png)
 
-Clicking on this button opens a **MANAGE COOKIES** window, where a list of all cached cookies per domain can be seen. If we had been previously sending multiple requests to **<https://github.com/apify>**, within this window we would be able to easily find cached cookies associated with github.com. Cookies can also be easily edited (to update some specific values), or deleted (to send a "clean" request without any cached data) here.
+Clicking on this button opens a **MANAGE COOKIES** window, where a list of all cached cookies per domain can be seen. If we had been previously sending multiple requests to **[https://github.com/apify](https://github.com/apify)**, within this window we would be able to easily find cached cookies associated with github.com. Cookies can also be easily edited (to update some specific values), or deleted (to send a "clean" request without any cached data) here.
 
 ![Managing cookies in Postman with the "MANAGE COOKIES" window](./images/postman-manage-cookies.png)
 

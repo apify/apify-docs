@@ -21,23 +21,23 @@ For Actors such as [YouTube Scraper](https://apify.com/bernardo/youtube-scraper)
 
 GOOD:
 
-- Technical name (Actor's name in the [Apify Console](https://console.apify.com)): **${domain}-scraper**, e.g. **youtube-scraper**.
-- Publication title for the Apify Store: **${Domain} Scraper**, e.g. **YouTube Scraper**.
-- Name of the GitHub repository: **actor-${domain}-scraper**, e.g. **actor-youtube-scraper**.
+- Technical name (Actor's name in the [Apify Console](https://console.apify.com)): **$\{domain\}-scraper**, e.g. **youtube-scraper**.
+- Publication title for the Apify Store: **$\{Domain\} Scraper**, e.g. **YouTube Scraper**.
+- Name of the GitHub repository: **actor-$\{domain\}-scraper**, e.g. **actor-youtube-scraper**.
 
 AVOID:
 
-- Technical name: **the-scraper-of-${domain}**, e.g. **the-scraper-of-youtube**.
-- Publication title: **The Scraper of ${Domain}**, e.g. **The Scraper of YouTube**.
-- GitHub repository: **actor-the-scraper-of-${domain}**, e.g. **actor-the-scraper-of-youtube**.
+- Technical name: **the-scraper-of-$\{domain\}**, e.g. **the-scraper-of-youtube**.
+- Publication title: **The Scraper of $\{Domain\}**, e.g. **The Scraper of YouTube**.
+- GitHub repository: **actor-the-scraper-of-$\{domain\}**, e.g. **actor-the-scraper-of-youtube**.
 
 If your Actor only caters to a specific service on a domain (and you don't plan on extending it), add the service to the Actor's name.
 
 For example,
 
-- Technical name: **${domain}-${service}-scraper**, e.g. **google-search-scraper**.
-- Publication title: **${Domain} ${Service} Scraper**, e.g. [**Google Search Scraper**](https://apify.com/apify/google-search-scraper).
-- GitHub repository: **actor-${domain}-${service}-scraper**, e.g. **actor-google-search-scraper**.
+- Technical name: **$\{domain\}-$\{service\}-scraper**, e.g. **google-search-scraper**.
+- Publication title: **$\{Domain\} $\{Service\} Scraper**, e.g. [**Google Search Scraper**](https://apify.com/apify/google-search-scraper).
+- GitHub repository: **actor-$\{domain\}-$\{service\}-scraper**, e.g. **actor-google-search-scraper**.
 
 ## Non-scraping Actors {#non-scraping-actors}
 

@@ -13,7 +13,7 @@ Unfortunately, in the recent version of Puppeteer, request interception disables
 
 When using Puppeteer, often a webpage will load many resources that are not actually necessary for your use case. For example page could be loading many tracking libraries, that are completely unnecessary for most crawlers, but will cause the page to use more traffic and load slower.
 
-For example for this web page: <https://edition.cnn.com/>
+For example for this web page: [https://edition.cnn.com/](https://edition.cnn.com/)
 If we run an Actor that measures extracted downloaded data from each response until the page is fully loaded, we get these results:
 
 ![Actor loading](./images/actor-load.png)

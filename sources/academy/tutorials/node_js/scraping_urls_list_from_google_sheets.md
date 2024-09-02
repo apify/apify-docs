@@ -9,7 +9,7 @@ You can export URLs from [Google Sheets](https://www.google.com/sheets/about/) s
 
 1. Make sure the spreadsheet has one sheet and a simple structure to help the Actor find the URLs.
 
-2. Add the `/gviz/tq?tqx=out:csv` query parameter to the Google Sheet URL base, right after the long document identifier part. For example, <https://docs.google.com/spreadsheets/d/1-2mUcRAiBbCTVA5KcpFdEYWflLMLp9DDU3iJutvES4w/gviz/tq?tqx=out:csv>. This automatically exports the spreadsheet to CSV format.
+2. Add the `/gviz/tq?tqx=out:csv` query parameter to the Google Sheet URL base, right after the long document identifier part. For example, [https://docs.google.com/spreadsheets/d/1-2mUcRAiBbCTVA5KcpFdEYWflLMLp9DDU3iJutvES4w/gviz/tq?tqx=out:csv](https://docs.google.com/spreadsheets/d/1-2mUcRAiBbCTVA5KcpFdEYWflLMLp9DDU3iJutvES4w/gviz/tq?tqx=out:csv). This automatically exports the spreadsheet to CSV format.
 
 3. In the Actor's input, click Link remote text file and paste the URL there:
 

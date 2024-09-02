@@ -177,7 +177,7 @@ You hereby agree to pay all applicable fees and/or charges under these terms, in
 
 ## 12. Personal Data Protection, Commercial Offers, Confidentiality
 
-Personal Data Protection is regulated by the Privacy Policy available on our Website (<https://apify.com/privacy-policy>). You are obliged to adhere to the Privacy Policy.
+Personal Data Protection is regulated by the Privacy Policy available on our Website ([https://apify.com/privacy-policy](https://apify.com/privacy-policy)). You are obliged to adhere to the Privacy Policy.
 
 During the term of your use of the Website or Platform, licenses granted under these terms and Services and for a period of two (2) years following the termination or expiration of your subscription, each party agrees not to disclose Confidential Information of the other party to any third party without prior written consent except as provided herein (hereinafter referred to as the “**Confidential Information**”). Confidential Information includes (i) subscription account data, including agent definitions, Customer Data, and User Content, (ii) except as provided in subsection (i) above, any other Website, Platform or Services information or access to technology prior to public disclosure provided by us to you and identified at the time of disclosure in writing as “Confidential.” Confidential Information does not include information that has become publicly known through no breach by a party, or has been (i) independently developed without access to the other party's Confidential Information; (ii) rightfully received from a third party; or (iii) required to be disclosed by law or by a governmental authority.
 

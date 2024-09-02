@@ -49,7 +49,7 @@ While blog posts and promotion are important, your Actor is the main product. He
 
 ### Name
 
-The Actor name is your Actor's developer-style name, which is prefixed by your username (e.g. `jancurn/find-broken-links`). The name is used to generate URL used for your Actor (e.g. <https://apify.com/jancurn/find-broken-links>), making it an important signal for search engines.
+The Actor name is your Actor's developer-style name, which is prefixed by your username (e.g. `jancurn/find-broken-links`). The name is used to generate URL used for your Actor (e.g. [https://apify.com/jancurn/find-broken-links](https://apify.com/jancurn/find-broken-links)), making it an important signal for search engines.
 
 However, the name should also be readable and clear enough, so that people using your Actor can understand what it does just from the name.
 
@@ -114,7 +114,7 @@ Now that you’ve created a cool new Actor, let others see it! Share it on your 
 
 - Use relevant and widely used hashtags (Twitter).
 
-> **GOOD**: Need to crawl #Amazon or #Yelp? See my Amazon crawler <https://>...
+> **GOOD**: Need to crawl #Amazon or #Yelp? See my Amazon crawler `https://`...
 > <br/> **AVOID**: I just #created something, check it out on Apify...
 
 - Post in groups or pages with relevant target groups (Facebook and LinkedIn).

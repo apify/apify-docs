@@ -145,6 +145,7 @@ module.exports = {
             },
         ],
         () => ({
+            name: 'webpack-loader-fix',
             configureWebpack() {
                 return {
                     module: {

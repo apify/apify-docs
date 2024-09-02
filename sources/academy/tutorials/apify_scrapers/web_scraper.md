@@ -12,7 +12,7 @@ slug: /apify-scrapers/web-scraper
 
 #
 
-This scraping tutorial will go into the nitty gritty details of extracting data from **<https://apify.com/store>**
+This scraping tutorial will go into the nitty gritty details of extracting data from **[https://apify.com/store](https://apify.com/store)**
 using **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)). If you arrived here from the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started),
 tutorial, great! You are ready to continue where we left off. If you haven't seen the Getting started yet,
 check it out, it will help you learn about Apify and scraping in general and set you up for this tutorial,
