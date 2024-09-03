@@ -9,6 +9,9 @@ slug: /api/run-actor-and-retrieve-data-via-api
 
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 The most popular way of [integrating](https://help.apify.com/en/collections/1669769-integrations) the Apify platform with an external project/application is by programmatically running an [Actor](/platform/actors) or [task](/platform/actors/running/tasks), waiting for it to complete its run, then collecting its data and using it within the project. Though this process sounds somewhat complicated, it's actually quite easy to do; however, due to the plethora of features offered on the Apify platform, new users may not be sure how exactly to implement this type of integration. Let's dive in and see how you can do it.
 
 > Remember to check out our [API documentation](/api/v2) with examples in different languages and a live API console. We also recommend testing the API with a nice desktop client like [Postman](https://www.getpostman.com/) or [Insomnia](https://insomnia.rest).

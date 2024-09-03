@@ -62,7 +62,7 @@ The source code for the Actor can also be located in a Zip archive hosted on an 
 Sometimes having a full Git repository or a hosted Zip file might be overly complicated for your small project, but you still want to have the source code in multiple files. In this case, you can simply put your source code into a [GitHub Gist](https://gist.github.com/). For example:
 
 [//]: # (TODO: It's pretty outdated, we should probably update the Actor too)
-[https://gist.github.com/jancurn/2dbe83fea77c439b1119fb3f118513e7](https://gist.github.com/jancurn/2dbe83fea77c439b1119fb3f118513e7)
+https://gist.github.com/jancurn/2dbe83fea77c439b1119fb3f118513e7
 
 Then set the **Source Type** to **GitHub Gist** and paste the Gist URL as follows:
 

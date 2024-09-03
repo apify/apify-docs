@@ -15,5 +15,6 @@
     "link-fragments": false,
     "no-duplicate-heading": {
         "siblings_only": true
-    }
+    },
+    "no-bare-urls": false
 }
