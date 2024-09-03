@@ -30,7 +30,7 @@ jobs:
 
             -   run: npm run build
                 env:
-                    SMARTLOOK_PROJECT_KEY: ${{ secrets.SMARTLOOK_PROJECT_KEY }}
+                    INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}
 
     lint_content:
         name: Lint markdown content
