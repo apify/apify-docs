@@ -108,4 +108,4 @@ It's not expected to memorize all of the fields that properties can take or the 
 
 ## Next up {#next}
 
-In the [next lesson](platform/actors/development/actor-definition/dataset-schema), we'll learn how to generate an appealing Overview table to display our Actor's results in real time, so users can get immediate feedback about the data being extracted.
+In the [next lesson](/platform/actors/development/actor-definition/dataset-schema), we'll learn how to generate an appealing Overview table to display our Actor's results in real time, so users can get immediate feedback about the data being extracted.
