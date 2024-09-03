@@ -81,8 +81,8 @@
         "react-dom": "^18.3.1",
         "react-github-btn": "^1.4.0",
         "redocusaurus": "^2.1.1",
-        "search-insights": "2.16.2",
-        "styled-components": "6.1.12",
+        "search-insights": "2.17.1",
+        "styled-components": "6.1.13",
         "unist-util-visit": "^5.0.0"
     },
     "workspaces": [
