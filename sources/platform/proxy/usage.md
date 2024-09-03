@@ -174,7 +174,7 @@ To view your connection status to [Apify Proxy](https://apify.com/proxy), open t
 
 To test that your requests are proxied and IP addresses are being [rotated](/academy/anti-scraping/techniques) correctly, open the following API endpoint via the proxy. It shows information about the client IP address.
 
-[https://api.apify.com/v2/browser-info/](https://api.apify.com/v2/browser-info/)
+https://api.apify.com/v2/browser-info/
 
 ### A different approach to `502 Bad Gateway`
 

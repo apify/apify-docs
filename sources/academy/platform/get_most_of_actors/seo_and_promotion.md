@@ -49,7 +49,7 @@ While blog posts and promotion are important, your Actor is the main product. He
 
 ### Name
 
-The Actor name is your Actor's developer-style name, which is prefixed by your username (e.g. `jancurn/find-broken-links`). The name is used to generate URL used for your Actor (e.g. <https://apify.com/jancurn/find-broken-links>), making it an important signal for search engines.
+The Actor name is your Actor's developer-style name, which is prefixed by your username (e.g. `jancurn/find-broken-links`). The name is used to generate URL used for your Actor (e.g. https://apify.com/jancurn/find-broken-links), making it an important signal for search engines.
 
 However, the name should also be readable and clear enough, so that people using your Actor can understand what it does just from the name.
 
@@ -104,7 +104,7 @@ Now that you’ve created a cool new Actor, let others see it! Share it on your 
 - Try to publish an article about your Actor in relevant external magazines like [hackernoon.com](https://hackernoon.com/) or [techcrunch.com](https://techcrunch.com/). Do not limit yourself to blogging platforms.
 - If you publish an article in external media (magazine, blog etc.), be sure to include backlinks to your Actor and the Apify website to strengthen the domain's SEO.
 - It's always better to use backlinks with the [`dofollow` attribute](https://raventools.com/marketing-glossary/dofollow-link/).
-- Always use the most relevant URL as the backlink's landing page. For example, when talking about Apify Store, link to the Store page ([https://apify.com/store](https://apify.com/store)), not to Apify homepage ([https://apify.com](https://apify.com)).
+- Always use the most relevant URL as the backlink's landing page. For example, when talking about Apify Store, link to the Store page (https://apify.com/store), not to Apify homepage (https://apify.com).
 - Always use the most relevant keyword or phrase for the backlink's text. This can boost the landing page's SEO and help the readers know what to expect from the link.
 
 > **GOOD**: Try the [Facebook scraper](https://apify.com/pocesar/facebook-pages-scraper) now.
@@ -114,7 +114,7 @@ Now that you’ve created a cool new Actor, let others see it! Share it on your 
 
 - Use relevant and widely used hashtags (Twitter).
 
-> **GOOD**: Need to crawl #Amazon or #Yelp? See my Amazon crawler <https://>...
+> **GOOD**: Need to crawl #Amazon or #Yelp? See my Amazon crawler `https://`...
 > <br/> **AVOID**: I just #created something, check it out on Apify...
 
 - Post in groups or pages with relevant target groups (Facebook and LinkedIn).
