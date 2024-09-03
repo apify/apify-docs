@@ -206,7 +206,7 @@ You can find _INPUT.json_ and other key-value store files in the location below.
 {APIFY_LOCAL_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}
 ```
 
-The default key-value store's ID is _default_. The \{KEY\} is the record's _key_ and \{EXT\} corresponds to the record value's MIME content type.
+The default key-value store's ID is _default_. The \{KEY} is the record's _key_ and \{EXT} corresponds to the record value's MIME content type.
 
 To manage your key-value stores, you can use the following methods. See the `KeyValueStore` class [documentation](/sdk/python/reference/class/KeyValueStore) for the full list.
 

@@ -182,6 +182,6 @@ To run it, you can use the following command: `python apify_integration.py`
 
 ## Resources
 
-- [https://docs.haystack.deepset.ai/docs/intro](https://docs.haystack.deepset.ai/docs/intro)
-- [https://haystack.deepset.ai/integrations/apify](https://haystack.deepset.ai/integrations/apify)
-- [https://github.com/apify/apify-haystack](https://github.com/apify/apify-haystack)
+- https://docs.haystack.deepset.ai/docs/intro
+- https://haystack.deepset.ai/integrations/apify
+- https://github.com/apify/apify-haystack
