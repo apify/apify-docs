@@ -48,7 +48,7 @@ jobs:
                     registry-url: 'https://npm.pkg.github.com/'
                     scope: '@apify-packages'
                 env:
-                    NODE_AUTH_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}
+                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             -   name: Setup git user and npm
                 run: |
@@ -56,14 +56,14 @@ jobs:
                     git config --global user.email "noreply@apify.com"
 
                     echo "access=public" > .npmrc
-                    echo "//registry.npmjs.org/:_authToken=${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}" >> .npmrc
+                    echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
 
             -   name: Bump the theme version
                 run: |
                     cd $GITHUB_WORKSPACE/apify-docs-theme
                     npm version patch --legacy-peer-deps
                 env:
-                    NODE_AUTH_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}
+                    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             -   name: Deploy theme to npm
                 run: |
