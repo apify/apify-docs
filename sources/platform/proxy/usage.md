@@ -118,7 +118,7 @@ The table below describes the available parameters.
     </tbody>
 </table>
 
-If you want to specify one parameter and not the others, just provide that parameter and omit the others. To use the default behavior (not specifying either `groups`, `session`, or `country`), set the username to **auto**. **auto** serves as a placeholder because the username can't be empty.
+If you want to specify one parameter and not the others, just provide that parameter and omit the others. To use the default behavior (not specifying either `groups`, `session`, or `country`), set the username to `auto`, which serves as a default placeholder, because the proxy username cannot be empty.
 
 ## Code examples
 
