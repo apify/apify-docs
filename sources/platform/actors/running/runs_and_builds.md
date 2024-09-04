@@ -50,6 +50,7 @@ All **Actor runs** have an **Origin** field indicating where the Actor run was i
 |SCHEDULER|Using a Schedule|
 |WEBHOOK|Using a webhook|
 |ACTOR|From another Actor run|
+|STANDBY|From Actor Standby|
 
 ## Lifecycle
 
@@ -122,7 +123,7 @@ You can also adjust timeout and memory or change Actor build before the resurrec
 
 ### Data retention
 
-All **Actor runs** and default storages (Key-value store, Dataset, Request queue) are deleted after the data retention period, based on your [subscription plan](https://apify.com/pricing).
+Apify securely stores your ten most recent runs indefinitely, ensuring your records are always accessible. All **Actor runs** beyond the latest ten are deleted along with their default storages (Key-value store, Dataset, Request queue) after the data retention period based on your [subscription plan](https://apify.com/pricing).
 
 **Actor builds** are deleted only when they are _not tagged_ and have not been used for over 90 days.
 

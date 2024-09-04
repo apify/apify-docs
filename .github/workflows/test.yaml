@@ -30,7 +30,7 @@ jobs:
 
             -   run: npm run build
                 env:
-                    SMARTLOOK_PROJECT_KEY: ${{ secrets.SMARTLOOK_PROJECT_KEY }}
+                    INTERCOM_APP_ID: ${{ secrets.INTERCOM_APP_ID }}
 
     lint_content:
         name: Lint markdown content
@@ -41,7 +41,7 @@ jobs:
 
             - name: Get changed files
               id: changed-files
-              uses: tj-actions/changed-files@v44.5.7
+              uses: tj-actions/changed-files@v45
               with:
                 files: |
                     **/*.md

@@ -31,7 +31,7 @@ Depending on how you arrived at this tutorial, you may already have your first t
 
 ### [](#running-a-task) Running a task
 
-This takes you to the **Input and options** tab of the task configuration. Before we delve into the details, let's just see how the example works. You can see that there are already some pre-configured input values. It says that the task should visit **<https://apify.com>** and all its subpages, such as **<https://apify.com/contact>** and scrape some data using the provided `pageFunction`, specifically the `<title>` of the page and its URL.
+This takes you to the **Input and options** tab of the task configuration. Before we delve into the details, let's just see how the example works. You can see that there are already some pre-configured input values. It says that the task should visit **https://apify.com** and all its subpages, such as **https://apify.com/contact** and scrape some data using the provided `pageFunction`, specifically the `<title>` of the page and its URL.
 
 Scroll down to the **Performance and limits** section and set the **Max pages per run** option to **10**. This tells your task to finish after 10 pages have been visited. We don't need to crawl the whole domain just to see that the Actor works.
 
@@ -73,7 +73,7 @@ In the settings tab, you can set options that are common to all tasks and not di
 
 ### [](#runs) Runs
 
-You can find all the task runs and their detail pages here. Every time you start a task, it will appear here in the list. All of your task's runs and their outcomes will be stored here for the data retention period, [which you can find under your plan](https://apify.com/pricing).
+You can find all the task runs and their detail pages here. Every time you start a task, it will appear here in the list. Apify securely stores your ten most recent runs indefinitely, ensuring your records are always accessible. All of your task's runs and their outcomes, beyond the latest ten, will be stored here for the data retention period, [which you can find under your plan](https://apify.com/pricing).
 
 ### [](#webhooks) Webhooks
 
@@ -108,9 +108,9 @@ Some of this information may be scraped directly from the listing pages, but for
 
 ### [](#the-start-url) The start URL
 
-Let's start with something simple. In the **Input** tab of the task we have, we'll change the **Start URL** from **<https://apify.com>**. This will tell the scraper to start by opening a different URL. You can add more **Start URL**s or even [use a file with a list of thousands of them](#-crawling-the-website-with-pseudo-urls), but in this case, we'll be good with just one.
+Let's start with something simple. In the **Input** tab of the task we have, we'll change the **Start URL** from **https://apify.com**. This will tell the scraper to start by opening a different URL. You can add more **Start URL**s or even [use a file with a list of thousands of them](#-crawling-the-website-with-pseudo-urls), but in this case, we'll be good with just one.
 
-How do we choose the new **Start URL**? The goal is to scrape all Actors in the store, which is available at [https://apify.com/store](https://apify.com/store), so we choose this URL as our **Start URL**.
+How do we choose the new **Start URL**? The goal is to scrape all Actors in the store, which is available at https://apify.com/store, so we choose this URL as our **Start URL**.
 
 ```text
 https://apify.com/store
@@ -270,7 +270,7 @@ will produce the following table:
 
 | title | url |
 | ----- | --- |
-| Web Scraping, Data Extraction and Automation - Apify | <https://apify.com> |
+| Web Scraping, Data Extraction and Automation - Apify | https://apify.com |
 
 ## [](#scraper-lifecycle) Scraper lifecycle
 

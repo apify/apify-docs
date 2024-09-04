@@ -1,17 +1,17 @@
 ---
-title: Output schema
+title: Dataset schema
 sidebar_position: 3
-description: Learn how to define and present your output schema in an user-friendly output UI.
-slug: /actors/development/actor-definition/output-schema
+description: Learn how to define and present your dataset schema in an user-friendly output UI.
+slug: /actors/development/actor-definition/dataset-schema
 ---
 
-# Output Schema Specification
+# Dataset Schema Specification
 
-**Learn how to define and present your output schema in an user-friendly output UI.**
+**Learn how to define and present your dataset schema in an user-friendly output UI.**
 
 ---
 
-The output schema defines the structure and representation of data produced by an Actor, both in the API and the visual user interface.
+The dataset schema defines the structure and representation of data produced by an Actor, both in the API and the visual user interface.
 
 ## Example
 

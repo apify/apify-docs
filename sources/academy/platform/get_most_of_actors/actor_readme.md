@@ -16,9 +16,9 @@ slug: /get-most-of-actors/actor-readme
 - Whenever you build an Actor, think of the original request/idea and the "use case" = "user need" it should solve, please take notes and share them with Apify, so we can help you write a blog post supporting your Actor with more information, more detailed explanation, better SEO.
 - Consider adding a video, images, and screenshots to your README to break up the text.
 - This is an example of an Actor with a README that corresponds well to the guidelines below:
-  - [https://apify.com/dtrungtin/airbnb-scraper](https://apify.com/dtrungtin/airbnb-scraper)
+  - https://apify.com/dtrungtin/airbnb-scraper
 - Tip no.1: if you want to add snippets of code anywhere in your README, you can use [Carbon](https://github.com/carbon-app/carbon).
-- Tip no.2: if you need any quick Markdown guidance, check out [https://www.markdownguide.org/cheat-sheet/](https://www.markdownguide.org/cheat-sheet/)
+- Tip no.2: if you need any quick Markdown guidance, check out https://www.markdownguide.org/cheat-sheet/
 
 >
 > 🦾 **No time for writing?** Our [README Generator](https://apify.com/apify/actor-readme-generator) will create a new README out of thin air following the template below ⬇️
@@ -79,7 +79,7 @@ Aim for sections 1–6 below and try to include at least 300 words. You can move
 7. **Output**
 
     - Mention "You can download the dataset extracted by (Actor name) in various formats such as JSON, HTML, CSV, or Excel.”
-    - Add a simplified JSON dataset example, like here: [https://apify.com/drobnikj/crawler-google-places#output-example](https://apify.com/drobnikj/crawler-google-places#output-example)
+    - Add a simplified JSON dataset example, like here: https://apify.com/drobnikj/crawler-google-places#output-example
 
 8. **Tips or Advanced options section**
     - Share any tips on how to best run the Actor, such as how to limit compute unit usage, get more accurate results, or improve speed.

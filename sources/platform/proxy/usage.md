@@ -118,7 +118,7 @@ The table below describes the available parameters.
     </tbody>
 </table>
 
-If you want to specify one parameter and not the others, just provide that parameter and omit the others. To use the default behavior (not specifying either `groups`, `session`, or `country`), set the username to **auto**. **auto** serves as a placeholder because the username can't be empty.
+If you want to specify one parameter and not the others, just provide that parameter and omit the others. To use the default behavior (not specifying either `groups`, `session`, or `country`), set the username to `auto`, which serves as a default placeholder, because the proxy username cannot be empty.
 
 ## Code examples
 
@@ -174,7 +174,7 @@ To view your connection status to [Apify Proxy](https://apify.com/proxy), open t
 
 To test that your requests are proxied and IP addresses are being [rotated](/academy/anti-scraping/techniques) correctly, open the following API endpoint via the proxy. It shows information about the client IP address.
 
-[https://api.apify.com/v2/browser-info/](https://api.apify.com/v2/browser-info/)
+https://api.apify.com/v2/browser-info/
 
 ### A different approach to `502 Bad Gateway`
 
