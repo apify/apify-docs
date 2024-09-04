@@ -55,7 +55,7 @@ jobs:
                     echo "access=public" > ~/.npmrc
                     echo "@apify-packages:registry=https://npm.pkg.github.com/" >> ~/.npmrc
                     echo "//registry.npmjs.org/:_authToken=${{ secrets.APIFY_SERVICE_ACCOUNT_NPM_TOKEN }}" >> ~/.npmrc
-                    echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
+                    echo "//npm.pkg.github.com/:_authToken=${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}" >> ~/.npmrc
 
             -   name: Bump the theme version
                 run: |
