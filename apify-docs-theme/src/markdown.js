@@ -1,12 +1,13 @@
 function updateChangelog(changelog) {
-    changelog = addHeader(changelog);
+    changelog = addFrontmatter(changelog);
     changelog = pushHeadings(changelog);
-    changelog = linkUsers(changelog);
-    changelog = linkPRs(changelog);
+    changelog = fixUserLinks(changelog);
+    changelog = fixPRLinks(changelog);
+    changelog = escapeMDXCharacters(changelog);
     return changelog;
 }
 
-function addHeader(changelog, header = 'Changelog') {
+function addFrontmatter(changelog, header = 'Changelog') {
     return `---
 title: ${header}
 sidebar_label: ${header}
@@ -19,12 +20,20 @@ function pushHeadings(changelog) {
     return changelog.replaceAll(/\n#[^#]/g, '\n## ');
 }
 
-function linkUsers(changelog) {
+function fixUserLinks(changelog) {
     return changelog.replaceAll(/by @([a-zA-Z0-9-]+)/g, 'by [@$1](https://github.com/$1)');
 }
 
-function linkPRs(changelog) {
+function fixPRLinks(changelog) {
     return changelog.replaceAll(/(((https?:\/\/)?(www.)?)?github.com\/[^\s]*?\/pull\/([0-9]+))/g, '[#$5]($1)');
+}
+
+function escapeMDXCharacters(changelog) {
+    return changelog.replaceAll(/<|>/g, (match) => {
+        return match === '<' ? '&lt;' : '&gt;';
+    }).replaceAll(/\{|\}/g, (match) => {
+        return match === '{' ? '&#123;' : '&#125;';
+    });
 }
 
 module.exports = {

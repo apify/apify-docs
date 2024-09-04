@@ -25,7 +25,7 @@ function findPathInParentOrThrow(endPath) {
     return filePath;
 }
 
-async function copyChangelogFromReleases(paths, repo) {
+async function generateChangelogFromGitHubReleases(paths, repo) {
     const response = await axios.get(`https://api.github.com/repos/${repo}/releases`);
     const releases = response.data;
 
@@ -81,6 +81,12 @@ function theme(
                     ),
                 ];
 
+                if (options.changelogFromRoot) {
+                    copyChangelogFromRoot(pathsToCopyChangelog);
+                } else {
+                    await generateChangelogFromGitHubReleases(pathsToCopyChangelog, `${context.siteConfig.organizationName}/${context.siteConfig.projectName}`);
+                }
+
                 for (const p of pathsToCopyChangelog) {
                     // the changelog page has to exist for the sidebar to work - async loadContent() is (apparently) not awaited for by sidebar
                     if (fs.existsSync(path.join(p, 'changelog.md'))) continue;
@@ -91,12 +97,6 @@ sidebar_label: Changelog
 It seems that the changelog is not available.
 This either means that your Docusaurus setup is misconfigured, or that your GitHub repository contains no releases yet.
 `);
-                }
-
-                if (options.changelogFromRoot) {
-                    copyChangelogFromRoot(pathsToCopyChangelog);
-                } else {
-                    await copyChangelogFromReleases(pathsToCopyChangelog, `${context.siteConfig.organizationName}/${context.siteConfig.projectName}`);
                 }
             } catch (e) {
                 // eslint-disable-next-line no-console
