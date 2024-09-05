@@ -1552,6 +1552,7 @@ html[data-theme='dark'] .runnable-code-block svg .apify-logo {
 .prism-code.language-python .token-line::before,
 .prism-code.language-dockerfile .token-line::before,
 .prism-code.language-XML .token-line::before,
+.prism-code.language-yaml .token-line::before,
 .prism-code.language-js .token-line::before {
     counter-increment: line-number;
     content: counter(line-number);
