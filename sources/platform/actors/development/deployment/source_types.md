@@ -22,7 +22,7 @@ This is the default option when your Actor's source code is hosted on the Apify 
 
 A `Dockerfile` is mandatory for all Actors. When using the default NodeJS Dockerfile, you'll typically need `main.js` for your source code and `package.json` for [NPM](https://www.npmjs.com/) package configurations.
 
-For more information on creating custom Dockersfiles or using Apify's base images, refer to the [Dockerfile](platform/actors/development/actor-definition/dockerfile#custom-dockerfile) and [base Docker images](platform/actors/development/actor-definition/dockerfile#base-docker-images) documentation.
+For more information on creating custom Dockersfiles or using Apify's base images, refer to the [Dockerfile](/platform/actors/development/actor-definition/dockerfile#custom-dockerfile) and [base Docker images](/platform/actors/development/actor-definition/dockerfile#base-docker-images) documentation.
 
 ## Git repository
 
@@ -36,7 +36,7 @@ To use a specific directory, add it after the branch/tag, separated by a colon (
 
 :::note GitHub integration
 
-You can easily set up an integration where the Actor is automatically rebuilt on every commit to the Git repository. For more details, see [GitHub integration](platform/integrations/github).
+You can easily set up an integration where the Actor is automatically rebuilt on every commit to the Git repository. For more details, see [GitHub integration](/platform/integrations/github).
 
 :::
 
@@ -70,7 +70,7 @@ Remember that each key can only be used once per Git hosting service (GitHub, Bi
 
 ### Actor monorepos
 
-To manage multiple Actors in a single repository, use the `dockerContextDix` property in the [Actor definition](platform/actors/development/actor-definition/actor-json) to set the Docker context directory (if not provided then the repository root is used). In the Dockerfile, copy both the Actor's source and any shared code into the Docker image.
+To manage multiple Actors in a single repository, use the `dockerContextDix` property in the [Actor definition](/platform/actors/development/actor-definition/actor-json) to set the Docker context directory (if not provided then the repository root is used). In the Dockerfile, copy both the Actor's source and any shared code into the Docker image.
 
 To enable sharing Dockerfiles between multiple Actors, the Actor build process passes the `ACTOR_PATH_IN_DOCKER_CONTEXT` build arg to the Docker build.
 It contains the relative path from `dockerContextDir` to the directory selected as the root of the Actor in the Apify Console (the "directory" part of the Actor's git URL).
