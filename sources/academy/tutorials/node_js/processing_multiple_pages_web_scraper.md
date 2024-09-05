@@ -15,7 +15,7 @@ This whole thing could be done in a much easier way, by directly enqueuing the s
 
 > Solving a common problem with scraper automatically deduplicating the same URLs.
 
-First, we need to start the scraper on the page from which we're going to do our enqueuing. To do that, we create one start URL with the label "enqueue" and URL "[https://example.com](https://example.com/)". Now we can proceed to enqueue all the pages. The first part of our pageFunction will look like this:
+First, we need to start the scraper on the page from which we're going to do our enqueuing. To do that, we create one start URL with the label "enqueue" and URL "https://example.com/". Now we can proceed to enqueue all the pages. The first part of our pageFunction will look like this:
 
 ```js
 async function pageFunction(context) {

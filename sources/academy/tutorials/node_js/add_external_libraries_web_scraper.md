@@ -15,7 +15,7 @@ Moment.js is a very popular library for working with date and time. It helps you
 
 To inject Moment.js into our page function (or any other library using the same method), we first need to find a link to download it from. We can easily find it in [Moment.js' documentation](https://momentjs.com/docs/#/use-it/browser/) under the CDN links.
 
-> <https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js>
+> https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js
 
 Now we have two options. Inject the library using plain JavaScript, or if you prefer working with jQuery, use a jQuery helper.
 

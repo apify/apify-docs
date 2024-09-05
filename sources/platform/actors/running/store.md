@@ -1,5 +1,5 @@
 ---
-title: Actors in store
+title: Actors in Store
 description: Apify Store is home to hundreds of public Actors available to the Apify community. It's the easiest way for you to start with Apify.
 sidebar_position: 1
 slug: /actors/running/actors-in-store
