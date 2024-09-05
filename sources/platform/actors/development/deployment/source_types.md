@@ -55,8 +55,8 @@ Deployment keys are unique SSH keys that allow Apify to clone and build your Act
 To configure the deployment key for your Actor's source code you need to:
 
 1. In your Actor's settings, find the **Git URL** input field
-1. Click the **deployment key** link below the input field
-1. Follow the instruction to add the key to your Git hosting service.
+2. Click the **deployment key** link below the input field
+3. Follow the instruction to add the key to your Git hosting service.
 
 ![Deployment keys instruction window](./images/deployment-keys.png)
 
