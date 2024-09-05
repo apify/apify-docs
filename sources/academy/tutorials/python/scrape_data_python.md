@@ -57,7 +57,7 @@ Now that we understand the element structure of the page and know where to find 
 
 ### Setting up the Actor
 
-First, we need to create a new Actor. To do this, go to [Apify Console](https://console.apify.com/), open the [Actors section](https://console.apify.com/actors), click on the **Create new** button in the top right, and select the **Example: Hello world in Python** Actor template.
+First, we need to create a new Actor. To do this, go to [Apify Console](https://console.apify.com/), open the [Actors section](https://console.apify.com/actors), click on the **Develop new** button in the top right, and select the **Example: Hello world in Python** Actor template.
 
 In the page that opens, you can see your newly created Actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-scraper`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the Actor. Although there are several of them, just two are important for us now, `main.py` and `requirements.txt`.
 

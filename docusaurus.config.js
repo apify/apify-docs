@@ -14,7 +14,39 @@ module.exports = {
     organizationName: 'apify',
     projectName: 'apify-docs',
     scripts: ['/js/custom.js'],
-    favicon: 'img/favicon.svg',
+    headTags: [
+        {
+            tagName: 'link',
+            attributes: {
+                rel: 'icon',
+                href: '/img/favicon.ico',
+                type: 'image/x-icon',
+                size: '48x48',
+            },
+        },
+        {
+            tagName: 'link',
+            attributes: {
+                rel: 'icon',
+                href: '/img/favicon.svg',
+                type: 'image/svg+xml',
+                sizes: 'any',
+            },
+        },
+        // Intercom messenger
+        process.env.INTERCOM_APP_ID && {
+            tagName: 'script',
+            innerHTML: `window.intercomSettings={api_base:"https://api-iam.intercom.io",app_id:"${process.env.INTERCOM_APP_ID}"};`,
+            attributes: {},
+        },
+        // Intercom messenger
+        process.env.INTERCOM_APP_ID && {
+            tagName: 'script',
+            innerHTML: `(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/${process.env.INTERCOM_APP_ID}';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()`,
+            attributes: {},
+        },
+    ].filter(Boolean),
+
     onBrokenLinks:
     /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
     onBrokenMarkdownLinks:
@@ -125,6 +157,7 @@ module.exports = {
             },
         ],
         () => ({
+            name: 'webpack-loader-fix',
             configureWebpack() {
                 return {
                     module: {
@@ -158,6 +191,16 @@ module.exports = {
     ],
     markdown: {
         mermaid: true,
+        parseFrontMatter: async (params) => {
+            const result = await params.defaultParseFrontMatter(params);
+
+            const ogImageURL = new URL('https://apify.com/og-image/docs-article');
+
+            ogImageURL.searchParams.set('title', result.frontMatter.title);
+            result.frontMatter.image ??= ogImageURL.toString();
+
+            return result;
+        },
     },
     themeConfig: config.themeConfig,
     staticDirectories: ['apify-docs-theme/static', 'static'],

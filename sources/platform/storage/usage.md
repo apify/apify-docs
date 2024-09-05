@@ -114,8 +114,7 @@ Go to the [API documentation](/api/v2#/introduction/rate-limiting) for details a
 
 ## Data retention {#data-retention}
 
-Named datasets are retained indefinitely.
-Unnamed datasets expire after 7 days unless otherwise specified.
+Apify securely stores your ten most recent runs indefinitely, ensuring your records are always accessible. Unnamed datasets and runs beyond the latest ten will be automatically deleted after 7 days unless otherwise specified. Named datasets are retained indefinitely.
 
 ### Preserving your storages {#preserving-storages}
 
