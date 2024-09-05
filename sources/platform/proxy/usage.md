@@ -199,5 +199,5 @@ The typical issues behind these codes are:
 * `597` indicates incorrect upstream credentials.
 * `599` is a generic error, where the above is not applicable.
 
-  Note that the Apify Proxy is based on the [proxy-chain](https://github.com/apify/proxy-chain) opens-source NPM package developed and maintained by Apify.
+  Note that the Apify Proxy is based on the [proxy-chain](https://github.com/apify/proxy-chain) open-source NPM package developed and maintained by Apify.
   You can find the details of the above errors and their implementation there.
