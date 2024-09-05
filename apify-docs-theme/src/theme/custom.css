@@ -1561,7 +1561,6 @@ html[data-theme='dark'] .runnable-code-block svg .apify-logo {
     min-width: 1.5rem;
     display: inline-block;
     opacity: .3;
-    position: sticky;
     left: var(--ifm-pre-padding);
 }
 
@@ -1579,4 +1578,11 @@ html[data-theme='dark'] .runnable-code-block svg .apify-logo {
 
 .apiPage .tsd-panel-header .tsd-anchor-id {
     top: -13rem;
+}
+
+iframe[src*="youtube"] {
+    width: 100%;
+    aspect-ratio: 16/9;
+    height: auto;
+    margin-bottom: 1.6rem;
 }

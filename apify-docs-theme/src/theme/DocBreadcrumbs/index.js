@@ -1,9 +1,9 @@
 import Link from '@docusaurus/Link';
-import { ThemeClassNames } from '@docusaurus/theme-common';
 import {
     useSidebarBreadcrumbs,
-    useHomePageRoute,
-} from '@docusaurus/theme-common/internal';
+} from '@docusaurus/plugin-content-docs/client';
+import { ThemeClassNames } from '@docusaurus/theme-common';
+import { useHomePageRoute } from '@docusaurus/theme-common/internal';
 import { translate } from '@docusaurus/Translate';
 import HomeBreadcrumbItem from '@theme/DocBreadcrumbs/Items/Home';
 import clsx from 'clsx';
