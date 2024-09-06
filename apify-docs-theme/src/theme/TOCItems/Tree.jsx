@@ -1,7 +1,7 @@
 import Link from '@docusaurus/Link';
-import type { Props } from '@theme/TOCItems/Tree';
 import clsx from 'clsx';
 import React from 'react';
+
 import styles from './styles.module.css';
 
 // Recursive component rendering the toc tree
@@ -10,7 +10,7 @@ function TOCItemTree({
     className,
     linkClassName,
     isChild,
-}: Props): JSX.Element | null {
+}) {
     if (!toc.length) {
         return null;
     }

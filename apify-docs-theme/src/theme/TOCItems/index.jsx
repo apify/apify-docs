@@ -2,9 +2,7 @@ import { useThemeConfig } from '@docusaurus/theme-common';
 import {
     useTOCHighlight,
     useFilteredAndTreeifiedTOC,
-    type TOCHighlightConfig,
 } from '@docusaurus/theme-common/internal';
-import type { Props } from '@theme/TOCItems';
 import TOCItemTree from '@theme/TOCItems/Tree';
 import React, { useMemo } from 'react';
 
@@ -16,7 +14,7 @@ export default function TOCItems({
     minHeadingLevel: minHeadingLevelOption,
     maxHeadingLevel: maxHeadingLevelOption,
     ...props
-}: Props): JSX.Element | null {
+}) {
     const themeConfig = useThemeConfig();
 
     const minHeadingLevel = minHeadingLevelOption ?? themeConfig.tableOfContents.minHeadingLevel;
@@ -28,7 +26,7 @@ export default function TOCItems({
         maxHeadingLevel,
     });
 
-    const tocHighlightConfig: TOCHighlightConfig | undefined = useMemo(() => {
+    const tocHighlightConfig = useMemo(() => {
         if (linkClassName && linkActiveClassName) {
             return {
                 linkClassName,
