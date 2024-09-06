@@ -74,7 +74,7 @@ export default function DocItemLayout({ children }) {
     );
     return (
         <div
-            className="row">
+            className={clsx('row', styles.row)}>
             <div
                 className={clsx('col', !docTOC.hidden && styles.docItemCol)}>
                 <DocVersionBanner/>
