@@ -1,7 +1,7 @@
 [default]
 extend-ignore-re = [
-    '`[^`\n]+`',
-    '```[\s\S]*?```',
+    '`[^`\n]+`',  # skip inline code
+    '```[\s\S]*?```',  # skip code blocks
 ]
 
 [default.extend-words]
