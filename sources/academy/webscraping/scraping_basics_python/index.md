@@ -32,7 +32,7 @@ TODO image of warehouse with some CVS or JSON exported, similar to sources/acade
 - Download web pages using the HTTPX library.
 - Extract data from web pages using the Beautiful Soup library.
 - Save extracted data in various formats, e.g. CSV which MS Excel or Google Sheets can open
-- Follow links programatically (crawling).
+- Follow links programmatically (crawling).
 - Save time and effort with frameworks, such as Crawlee, and scraping platforms, such as Apify.
 
 ## Who this course is for
