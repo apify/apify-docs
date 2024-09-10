@@ -2,7 +2,7 @@
 title: Getting started with Apify scrapers
 menuTitle: Getting started
 description: Step-by-step tutorial that will help you get started with all Apify Scrapers. Learn the foundations of scraping the web with Apify and creating your own Actors.
-externalSourceUrl: https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/build/introduction-tutorial.md
+externalSourceUrl: https://raw.githubusercontent.com/apify/actor-scraper/master/docs/build/introduction-tutorial.md
 sidebar_position: 1
 slug: /apify-scrapers/getting-started
 ---
@@ -27,7 +27,7 @@ Depending on how you arrived at this tutorial, you may already have your first t
 
 > This tutorial covers the use of **Web**, **Cheerio**, and **Puppeteer** scrapers, but a lot of the information here can be used with all Actors. For this tutorial, we will select **Web Scraper**.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/actor-selection.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/actor-selection.webp)
 
 ### [](#running-a-task) Running a task
 
@@ -47,7 +47,7 @@ After clicking **Save & Run**, the window will change to the run detail. Here, y
 
 Now that the run has `SUCCEEDED`, click on the glowing **Results** card to see the scrape's results. This takes you to the **Dataset** tab, where you can display or download the results in various formats. For now, click the **Preview** button. Voila, the scraped data!
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/the-run-detail.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/the-run-detail.webp)
 
 Good job! We've run our first task and got some results. Let's learn how to change the default configuration to scrape something more interesting than the page's `<title>`.
 
@@ -55,7 +55,7 @@ Good job! We've run our first task and got some results. Let's learn how to chan
 
 Before we jump into the scraping itself, let's have a quick look at the user interface that's available to us. Click on the task's name in the top-left corner to visit the task's configuration.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/task-name.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/task-name.webp)
 
 ### [](#input) Input and options
 
@@ -110,7 +110,7 @@ Some of this information may be scraped directly from the listing pages, but for
 
 In the **Input** tab of the task we have, we'll change the **Start URL** from **https://apify.com**. This will tell the scraper to start by opening a different URL. You can add more **Start URL**s or even [use a file with a list of thousands of them](#-crawling-the-website-with-pseudo-urls), but in this case, we'll be good with just one.
 
-How do we choose the new **Start URL**? The goal is to scrape all Actors in the store, which is available at https://apify.com/store, so we choose this URL as our **Start URL**.
+How do we choose the new **Start URL**? The goal is to scrape all Actors in the store, which is available at [apify.com/store](https://apify.com/store), so we choose this URL as our **Start URL**.
 
 ```text
 https://apify.com/store
@@ -204,9 +204,9 @@ The DevTools window will pop up and display a lot of, perhaps unfamiliar, inform
 
 You'll see that the Element tab jumps to the first `<title>` element of the current page and that the title is **Store · Apify**. It's always good practice to do your research using the DevTools before writing the `pageFunction` and running your task.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/using-devtools.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/using-devtools.webp)
 
-> For the sake of brevity, we won't go into the details of using the DevTools in this tutorial. If you're just starting out with DevTools, this [Google tutorial](https://developers.google.com/web/tools/chrome-devtools/) is a good place to begin.
+> For the sake of brevity, we won't go into the details of using the DevTools in this tutorial. If you're just starting out with DevTools, this [Google tutorial](https://developer.chrome.com/docs/devtools/) is a good place to begin.
 
 ### [](#understanding-context) Understanding `context`
 

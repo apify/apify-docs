@@ -152,7 +152,7 @@ Getting new users can be an art in itself, but there are **two proven steps** yo
 
     Don’t underestimate your own network! Your social media connections can be a valuable ally in promoting your Actor. Not only can they use your tool to enrich their own professional activities, but also support your work by helping you promote your Actor to their network.
 
-    For inspiration, you can check Apify’s [Twitter](https://twitter.com/apify), [Facebook](https://www.facebook.com/apifytech/), and [LinkedIn](https://linkedin.com/company/apifytech) pages, and **don’t forget to tag Apify on your posts** we will retweet and share your posts to help you reach an even broader audience.
+    For inspiration, you can check Apify’s [Twitter](https://twitter.com/apify) or [LinkedIn](https://www.linkedin.com/company/apifytech/) pages, and **don’t forget to tag Apify on your posts** we will retweet and share your posts to help you reach an even broader audience.
 
     - **YouTube**
 

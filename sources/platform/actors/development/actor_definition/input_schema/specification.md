@@ -28,7 +28,7 @@ The max allowed size for the input schema file is 100 kB. When you provide an in
 
 :::note Validation aid
 
-You can also use our [visual input schema editor](https://apify.github.io/input-schema-editor-react) to guide you through the creation of the `INPUT_SCHEMA.json` file.
+You can also use our [visual input schema editor](https://apify.github.io/input-schema-editor-react/) to guide you through the creation of the `INPUT_SCHEMA.json` file.
 If you need to validate your input schemas, you can use the [`apify validate-schema`](/cli/docs/reference#apify-validate-schema-path) command in the Apify CLI.
 
 :::
