@@ -59,7 +59,7 @@ Since the data is coming directly from the site's API, as opposed to the parsing
 
 ### 2. Configurable
 
-Most APIs accept query parameters such as `maxPosts` or `fromCountry`. These parameters can be mapped to the configuration options of the scraper, which makes creating a scraper that supports various requirements and use-cases much easier. They can also be utilized to easily filter and/or limit data results.
+Most APIs accept query parameters such as `maxPosts` or `fromCountry`. These parameters can be mapped to the configuration options of the scraper, which makes creating a scraper that supports various requirements and use-cases much easier. They can also be utilized to filter and/or limit data results.
 
 ### 3. Fast and efficient
 
@@ -91,7 +91,7 @@ For complex APIs that require certain headers and/or payloads in order to make a
 
 APIs come in all different shapes and sizes. That means every API will vary in not only the quality of the data that it returns, but also the format that it is in. The two most common formats are JSON and HTML.
 
-JSON responses are the most ideal, as they are easily manipulated in JavaScript code. In general, no serious parsing is necessary, and the data can be easily filtered and formatted to fit a scraper's dataset schema.
+JSON responses are ideal, as they can be manipulated in JavaScript code. In general, no serious parsing is necessary, and the data can be filtered and formatted to fit a scraper's dataset schema.
 
 APIs which output HTML generally return the raw HTML of a small component of the page which is already hydrated with data. In these cases, it is still worth using the API, as it is still more efficient than making a request to the entire page; even though the data does still need to be parsed from the HTML response.
 

@@ -11,7 +11,7 @@ slug: /deploying-your-code/inputs-outputs
 
 ---
 
-Most of the time when you're creating a project, you are expecting some sort of input from which your software will run off. Oftentimes as well, you want to provide some sort of output once your software has completed running. With Apify, it is extremely easy to take in inputs and deliver outputs.
+Most of the time when you're creating a project, you are expecting some sort of input from which your software will run off. Oftentimes as well, you want to provide some sort of output once your software has completed running. Apify provides a convenient way to handle inputs and deliver outputs.
 
 An important thing to understand regarding inputs and outputs is that they are read/written differently depending on where the Actor is running:
 
@@ -221,4 +221,4 @@ After running our script, there should be a single item in the default dataset t
 
 ## Next up {#next}
 
-That's it! We've now added all of the files and code necessary to convert our software into an Actor. In the [next lesson](./input_schema.md), we'll be learning how to easily generate a user interface for our Actor's input so that users don't have to provide the input in raw JSON format.
+That's it! We've now added all of the files and code necessary to convert our software into an Actor. In the [next lesson](./input_schema.md), we'll be learning how to generate a user interface for our Actor's input so that users don't have to provide the input in raw JSON format.

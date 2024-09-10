@@ -26,7 +26,7 @@ Let's say that we want to automate searching for **hello world** on Google, then
 6. Read the title of the clicked result's loaded page
 7. Screenshot the page
 
-Though it seems complex, the wonderful **Page** API makes all of these actions extremely easy to perform.
+Though it seems complex, the wonderful **Page** API can help us with all the steps.
 
 ## Clicking & pressing keys {#clicking-and-pressing-keys}
 
