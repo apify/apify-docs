@@ -16,11 +16,7 @@ slug: /get-most-of-actors/actor-readme
 - Whenever you build an Actor, think of the original request/idea and the "use case" = "user need" it should solve, please take notes and share them with Apify, so we can help you write a blog post supporting your Actor with more information, more detailed explanation, better SEO.
 - Consider adding a video, images, and screenshots to your README to break up the text.
 - This is an example of an Actor with a README that corresponds well to the guidelines below:
-<<<<<<< HEAD
-  - https://apify.com/dtrungtin/airbnb-scraper
-=======
   - [apify.com/tri_angle/airbnb-scraper](https://apify.com/tri_angle/airbnb-scraper)
->>>>>>> 3aee8e01 (fix: avoid permanent redirects)
 - Tip no.1: if you want to add snippets of code anywhere in your README, you can use [Carbon](https://github.com/carbon-app/carbon).
 - Tip no.2: if you need any quick Markdown guidance, check out https://www.markdownguide.org/cheat-sheet/
 

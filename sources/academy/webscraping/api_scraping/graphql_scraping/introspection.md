@@ -148,11 +148,7 @@ Now that we have this visualization to work off of, it will be much easier to bu
 
 In future lessons, we'll be building more complex queries using **dynamic variables** and advanced features such as **fragments**; however, for now let's get our feet wet by using the data we have from GraphQL Voyager to build a query.
 
-<<<<<<< HEAD
-Right now, our goal is to fetch the 1000 most recent articles on [Cheddar](https://cheddar.com). From each article, we'd like to fetch the **title** and the **publish date**. After a bit of digging through the schema, we've come across the **media** field within the **organization** type, which has both **title** and **public_at** fields - seems to check out!
-=======
-Right now, our goal is to fetch the 1000 most recent articles on [Cheddar](https://www.cheddar.com/). From each article, we'd like to fetch the **title** and the **publish date**. After just a bit of digging through the schema, we've come across the **media** field within the **organization** type, which has both **title** and **public_at** fields - seems to check out!
->>>>>>> 3aee8e01 (fix: avoid permanent redirects)
+Right now, our goal is to fetch the 1000 most recent articles on [Cheddar](https://www.cheddar.com). From each article, we'd like to fetch the **title** and the **publish date**. After a bit of digging through the schema, we've come across the **media** field within the **organization** type, which has both **title** and **public_at** fields - seems to check out!
 
 ![The media field pointing to datatype slugable](./images/media-field.jpg)
 
