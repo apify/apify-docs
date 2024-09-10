@@ -30,7 +30,7 @@ While [Bobince's infamous StackOverflow answer](https://stackoverflow.com/a/1732
 
 :::
 
-We'll choose _Beautiful Soup_ as our parser, as it's a popular library renowned for its ability to process even non-standard, broken markup. This is useful for scraping, because real-world websites often contain all sorts of errors and discrepancies.
+We'll choose [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/) as our parser, as it's a popular library renowned for its ability to process even non-standard, broken markup. This is useful for scraping, because real-world websites often contain all sorts of errors and discrepancies.
 
 ```text
 $ pip install beautifulsoup4
