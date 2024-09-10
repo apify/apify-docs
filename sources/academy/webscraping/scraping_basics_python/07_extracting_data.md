@@ -7,6 +7,7 @@ slug: /scraping-basics-python/extracting-data
 ---
 
 import Exercises from './_exercises.mdx';
+import Details from '@theme/Details';
 
 **In this lesson we'll finish extracting product data from the downloaded HTML. With help of basic string manipulation we'll focus on cleaning and correctly representing the product price.**
 
@@ -224,7 +225,7 @@ Denon AH-C720 In-Ear Headphones 236
 ...
 ```
 
-<details>
+<Details>
   <summary>Solution</summary>
 
   ```py
@@ -259,13 +260,13 @@ Denon AH-C720 In-Ear Headphones 236
       print(title, units)
   ```
 
-</details>
+</Details>
 
 ### Use regular expressions
 
 Simplify the code from previous exercise. Use [regular expressions](https://docs.python.org/3/library/re.html) to parse the number of units. You can match digits using a range like `[0-9]` or by a special sequence `\d`. To match more characters of the same type you can use `+`.
 
-<details>
+<Details>
   <summary>Solution</summary>
 
   ```py
@@ -292,7 +293,7 @@ Simplify the code from previous exercise. Use [regular expressions](https://docs
       print(title, units)
   ```
 
-</details>
+</Details>
 
 ### Scrape publish dates of F1 news
 
@@ -318,7 +319,7 @@ Hints:
 - In Python you can create `datetime` objects using `datetime.fromisoformat()`, a [built-in method for parsing ISO 8601 strings](https://docs.python.org/3/library/datetime.html#datetime.datetime.fromisoformat).
 - To get just the date part, you can call `.date()` on any `datetime` object.
 
-<details>
+<Details>
   <summary>Solution</summary>
 
   ```py
@@ -343,4 +344,4 @@ Hints:
       print(title, published_on)
   ```
 
-</details>
+</Details>
