@@ -87,7 +87,7 @@ Another way to interact with Milvus is through the [Apify Python SDK](https://do
     client = ApifyClient(APIFY_API_TOKEN)
     ```
 
-1. Call the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor to crawl the Milvus documentation abd Zilliz website and extract text content from the web pages:
+1. Call the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor to crawl the Milvus documentation and Zilliz website and extract text content from the web pages:
 
     ```python
     actor_call = client.actor("apify/website-content-crawler").call(
