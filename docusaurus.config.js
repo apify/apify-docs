@@ -210,4 +210,5 @@ module.exports = {
             '^/legal/*',
         ],
     },
+    clientModules: ['./clientModule.js'],
 };
