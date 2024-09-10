@@ -7,6 +7,7 @@ slug: /scraping-basics-python/downloading-html
 ---
 
 import Exercises from './_exercises.mdx';
+import Details from '@theme/Details';
 
 **In this lesson we'll start building a Python application for watching prices. As a first step, we'll use the HTTPX library to download HTML code of a product listing page.**
 
@@ -148,7 +149,7 @@ Download HTML of a product listing page, but this time from a real world e-comme
 https://www.amazon.com/s?k=darth+vader
 ```
 
-<details>
+<Details>
   <summary>Solution</summary>
 
   ```py
@@ -161,7 +162,7 @@ https://www.amazon.com/s?k=darth+vader
   ```
 
   If you get `Server error '503 Service Unavailable'`, that's just Amazon's anti-scraping protections. You can learn about how to overcome those in our [Anti-scraping protections](../anti_scraping/index.md) course.
-</details>
+</Details>
 
 ### Save downloaded HTML as a file
 
@@ -171,7 +172,7 @@ Download HTML, then save it on your disk as a `products.html` file. You can use 
 https://warehouse-theme-metal.myshopify.com/collections/sales
 ```
 
-<details>
+<Details>
   <summary>Solution</summary>
 
   Right in your Terminal or Command Prompt, you can create files by _redirecting output_ of command line programs:
@@ -192,7 +193,7 @@ https://warehouse-theme-metal.myshopify.com/collections/sales
   Path("products.html").write_text(response.text)
   ```
 
-</details>
+</Details>
 
 ### Download an image as a file
 
@@ -202,7 +203,7 @@ Download a product image, then save it on your disk as a file. While HTML is _te
 https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg
 ```
 
-<details>
+<Details>
   <summary>Solution</summary>
 
   Python offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
@@ -217,4 +218,4 @@ https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72
   Path("tv.jpg").write_bytes(response.content)
   ```
 
-</details>
+</Details>
