@@ -90,6 +90,25 @@ This is useful if you want to for example create a token that can dynamically cr
 
 :::
 
+### Permission dependencies
+
+Some permissions have dependencies, that means other permissions which need to be granted as well.
+
+Some of these dependencies are enforced already by the form. You will notice that if you for example try to grant the _Write_ permission to a dataset, the _Read_ permission will be automatically selected as well. In other words, you can only write to a dataset if you can also read from it.
+
+![The Write permission depends on Read for a dataset](../images/api-token-scoped-dependencies.png)
+
+However, other dependencies are more complicated, and **it is your responsibility that the token is set up correctly**. Specifically:
+
+- To create or update a Schedule, the token needs access not only to the Schedule itself, but also to the Actor or task that is being scheduled.
+- Similarly, to create or update a task, the token needs the additional permission to access the task's Actor itself.
+
+:::tip
+
+Let's say that you have an Actor and you want to programmatically create schedules for that Actor. Then you can create a token that has the account level _Create_ permission on schedules, but only the resource-specific _Run_ permission on the Actor. Such a token has exactly the permissions it needs, and nothing more.
+
+:::
+
 ### Actor execution and scheduling
 
 When you run an Actor with a scoped token (or schedule one), Apify will inject a new, _unscoped_ token to the Actor. This means that **the Actor will have full access to all resources in your account**.
