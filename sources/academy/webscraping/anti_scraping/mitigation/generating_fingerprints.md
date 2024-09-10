@@ -1,17 +1,17 @@
 ---
 title: Generating fingerprints
-description: Learn how to use two super handy npm libraries to easily generate fingerprints and inject them into a Playwright or Puppeteer page.
+description: Learn how to use two super handy npm libraries to generate fingerprints and inject them into a Playwright or Puppeteer page.
 sidebar_position: 3
 slug: /anti-scraping/mitigation/generating-fingerprints
 ---
 
 # Generating fingerprints {#generating-fingerprints}
 
-**Learn how to use two super handy npm libraries to easily generate fingerprints and inject them into a Playwright or Puppeteer page.**
+**Learn how to use two super handy npm libraries to generate fingerprints and inject them into a Playwright or Puppeteer page.**
 
 ---
 
-In [**Crawlee**](https://crawlee.dev), it's extremely easy to automatically generate fingerprints using the [**FingerprintOptions**](https://crawlee.dev/api/browser-pool/interface/FingerprintOptions) on a crawler.
+In [**Crawlee**](https://crawlee.dev), you can use [**FingerprintOptions**](https://crawlee.dev/api/browser-pool/interface/FingerprintOptions) on a crawler to automatically generate fingerprints.
 
 ```js
 import { PlaywrightCrawler } from 'crawlee';
@@ -33,7 +33,7 @@ const crawler = new PlaywrightCrawler({
 
 ## Using the fingerprint-generator package {#using-fingerprint-generator}
 
-Crawlee uses the [Fingerprint generator](https://github.com/apify/fingerprint-suite) npm package to do its fingerprint generating magic. For maximum control outside of Crawlee, you can install it on its own. With this package, you can easily generate browser fingerprints.
+Crawlee uses the [Fingerprint generator](https://github.com/apify/fingerprint-suite) npm package to do its fingerprint generating magic. For maximum control outside of Crawlee, you can install it on its own. With this package, you can generate browser fingerprints.
 
 > It is crucial to generate fingerprints for the specific browser and operating system being used to trick the protections successfully. For example, if you are trying to overcome protection locally with Firefox on a macOS system, you should generate fingerprints for Firefox and macOS to achieve the best results.
 

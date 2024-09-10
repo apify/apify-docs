@@ -17,11 +17,11 @@ If you've never dealt with it before, trying to scrape thousands to hundreds of 
 
 ## Page-number pagination {#page-number}
 
-The most common and rudimentary form of pagination is simply having page numbers, which can be compared to paginating through a typical e-commerce website.
+The most common and rudimentary forms of pagination have page numbers. Imagine paginating through a typical e-commerce website.
 
 ![Amazon pagination](./images/pagination.png)
 
-This implementation makes it fairly straightforward to programmatically paginate through an API, as it pretty much entails just incrementing up or down in order to receive the next set of items. The page number is usually provided right in the parameters of the request URL; however, some APIs require it to be provided in the request body instead.
+This implementation makes it fairly straightforward to programmatically paginate through an API, as it pretty much entails incrementing up or down in order to receive the next set of items. The page number is usually provided right in the parameters of the request URL; however, some APIs require it to be provided in the request body instead.
 
 ## Offset pagination {#offset-pagination}
 

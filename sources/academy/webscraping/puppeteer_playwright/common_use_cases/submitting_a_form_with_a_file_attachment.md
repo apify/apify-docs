@@ -22,7 +22,7 @@ import * as fs from 'fs/promises';
 import request from 'request-promise';
 ```
 
-The actual downloading is slightly different for text and binary files. For a text file, it can simply be done like this:
+The actual downloading is slightly different for text and binary files. For a text file, it can be done like this:
 
 ```js
 const fileData = await request('https://some-site.com/file.txt');
