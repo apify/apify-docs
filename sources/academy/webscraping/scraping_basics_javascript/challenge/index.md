@@ -20,7 +20,7 @@ We recommend that you make sure you've gone through both the [data extraction](.
 Before continuing, it is highly recommended to do the following:
 
 - Look over [how to build a crawler in Crawlee](https://crawlee.dev/docs/introduction/first-crawler) and ideally **code along**.
-- Read [this short article](https://help.apify.com/en/articles/1829103-request-labels-and-how-to-pass-data-to-other-requests) about [**request labels**](https://crawlee.dev/api/core/class/Request#label) (this will be extremely useful later on).
+- Read [this short article](https://docs.apify.com/academy/node-js/request-labels-in-apify-actors) about [**request labels**](https://crawlee.dev/api/core/class/Request#label) (this will be extremely useful later on).
 - Check out [this tutorial](../../../tutorials/node_js/dealing_with_dynamic_pages.md) about dynamic pages.
 - Read about the [RequestQueue](https://crawlee.dev/api/core/class/RequestQueue).
 

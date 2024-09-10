@@ -2,11 +2,11 @@
 title: Scraping with Web Scraper
 menuTitle: Web Scraper
 description: Learn how to scrape a website using Apify's Web Scraper. Build an Actor's page function, extract information from a web page and download your data.
-externalSourceUrl: https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/build/web-scraper-tutorial.md
+externalSourceUrl: https://raw.githubusercontent.com/apify/actor-scraper/master/docs/build/web-scraper-tutorial.md
 sidebar_position: 2
 slug: /apify-scrapers/web-scraper
 ---
-<!-- When changing the TITLE property, make sure to edit the dependent integration test: https://github.com/apifytech/apify-web/blob/develop/tests/e2e/cypress/integration/docs.js so it doesn't break  -->
+<!-- When changing the TITLE property, make sure to edit the dependent integration test: https://github.com/apify/apify-web/blob/develop/tests/e2e/cypress/integration/docs.js so it doesn't break  -->
 
 [//]: # (TODO: Should be updated)
 
@@ -20,7 +20,7 @@ because this one builds on topics and code examples discussed there.
 
 ## [](#getting-to-know-our-tools) Getting to know our tools
 
-In the [Getting started with Apify scrapers](https://apify.com/docs/scraping/tutorial/introduction) tutorial,
+In the [Getting started with Apify scrapers](https://docs.apify.com/academy/apify-scrapers/getting-started) tutorial,
 we've confirmed that the scraper works as expected, so now it's time to add more data to the results.
 
 To do that, we'll be using the [jQuery library](https://jquery.com/), because it provides some nice tools
@@ -45,14 +45,14 @@ Before we start, let's do a quick recap of the data we chose to scrape:
    5. **Last modification date** - When the Actor was last modified.
    6. **Number of runs** - How many times the Actor was run.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/scraping-practice.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/scraping-practice.webp)
 
 We've already scraped numbers 1 and 2 in the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started)
 tutorial, so let's get to the next one on the list: title.
 
 ### [](#title) Title
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/title.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/title.webp)
 
 By using the element selector tool, we find out that the title is there under an `<h1>` tag, as titles should be.
 Maybe surprisingly, we find that there are actually two `<h1>` tags on the detail page. This should get us thinking.
@@ -83,7 +83,7 @@ async function pageFunction(context) {
 Getting the Actor's description is a little more involved, but still pretty straightforward. We cannot search for a `<p>` tag, because there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the Actor description is nested within
 the `<header>` element too, same as the title. Moreover, the actual description is nested inside a `<span>` tag with a class `actor-description`.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/description.webp)
 
 ```js
 async function pageFunction(context) {
@@ -101,7 +101,7 @@ async function pageFunction(context) {
 
 The DevTools tell us that the `modifiedDate` can be found in a `<time>` element.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/modified-date.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/modified-date.webp)
 
 ```js
 async function pageFunction(context) {
@@ -322,7 +322,7 @@ div.show-more > button
 
 > Don't forget to confirm our assumption in the DevTools finder tool (CTRL/CMD + F).
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/waiting-for-the-button.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/waiting-for-the-button.webp)
 
 Now that we know what to wait for, we plug it into the `waitFor()` function.
 
@@ -455,7 +455,7 @@ through all the Actors and then scrape all of their data. After it succeeds, ope
 You've successfully scraped Apify Store. And if not, no worries, go through the code examples again,
 it's probably just a typo.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/plugging-it-into-the-pagefunction.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/plugging-it-into-the-pagefunction.webp)
 
 ## [](#downloading-our-scraped-data) Downloading the scraped data
 
@@ -555,9 +555,9 @@ Thank you for reading this whole tutorial! Really! It's important to us that our
 
 ## [](#whats-next) What's next?
 
-- Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own Actors. It's a bit more complex and involved than writing a `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
+- Check out the [Apify SDK](https://docs.apify.com/sdk) and its [Getting started](https://docs.apify.com/sdk/js/docs/guides/apify-platform) tutorial if you'd like to try building your own Actors. It's a bit more complex and involved than writing a `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
 - [Take a deep dive into Actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on Actors.
-- Found out you're not into the coding part but would still to use Apify Actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom Actor](https://apify.com/custom-solutions) from an Apify-certified developer.
+- Found out you're not into the coding part but would still to use Apify Actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom Actor](https://apify.com/contact-sales) from an Apify-certified developer.
 
 
 **Learn how to scrape a website using Apify's Web Scraper. Build an Actor's page function, extract information from a web page and download your data.**
