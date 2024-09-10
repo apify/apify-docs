@@ -193,11 +193,11 @@ module.exports = {
         mermaid: true,
         parseFrontMatter: async (params) => {
             const result = await params.defaultParseFrontMatter(params);
-            const isPartial = filePath.split('/').pop()[0] === '_';
+            const isPartial = params.filePath.split('/').pop()[0] === '_';
             if (!isPartial) {
                 const ogImageURL = new URL('https://apify.com/og-image/docs-article');
-                ogImageURL.searchParams.set('title', frontMatter.title);
-                frontMatter.image ??= ogImageURL.toString();
+                ogImageURL.searchParams.set('title', result.frontMatter.title);
+                result.frontMatter.image ??= ogImageURL.toString();
             }
             return result;
         },
