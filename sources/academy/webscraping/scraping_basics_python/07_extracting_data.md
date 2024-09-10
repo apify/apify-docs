@@ -23,7 +23,7 @@ Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | From $1,398.00
 
 Let's summarize what stands in our way if we want to have it in our Python program as a number:
 
-- A dollar sign preceeds the number,
+- A dollar sign precedes the number,
 - the number contains decimal commas for better human readability, and
 - some prices start with `From`, which reveals there is a certain complexity in how the shop deals with prices.
 
