@@ -182,6 +182,7 @@ with open("products.json", "w") as file:
 
 Now the program should work as expected, producing a JSON file with the following contents:
 
+<!-- eslint-skip -->
 ```json filename=products.json
 [{"title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker", "min_price": "74.95", "price": "74.95"}, {"title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV", "min_price": "1398.00", "price": null}, ...]
 ```
