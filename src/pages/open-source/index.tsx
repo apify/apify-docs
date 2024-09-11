@@ -138,7 +138,7 @@ export default function OpenSource() {
                                             <Link to="https://github.com/apify/fingerprint-suite" className="otherCardsTitleLink">
                                                 <img width={24} src={useBaseUrl('/img/fingerprint-suite.svg')} />
                                                 <Heading type="titleXl" as="h3">
-                                                    Fingerprint suit
+                                                    Fingerprint suite
                                                 </Heading>
                                             </Link>
                                             <Text color={theme.color.neutral.textMuted} size="big">
