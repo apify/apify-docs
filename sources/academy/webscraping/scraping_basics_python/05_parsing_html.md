@@ -7,7 +7,6 @@ slug: /scraping-basics-python/parsing-html
 ---
 
 import Exercises from './_exercises.mdx';
-import Details from '@theme/Details';
 
 **In this lesson we'll look for products in the downloaded HTML. We'll use BeautifulSoup to turn the HTML into objects which we can work with in our Python program.**
 
@@ -121,7 +120,7 @@ Print a total count of F1 teams listed on this page:
 https://www.formula1.com/en/teams
 ```
 
-<Details>
+<details>
   <summary>Solution</summary>
 
   ```py
@@ -137,13 +136,13 @@ https://www.formula1.com/en/teams
   print(len(soup.select(".outline")))
   ```
 
-</Details>
+</details>
 
 ### Scrape F1 drivers
 
 Use the same URL as in the previous exercise, but this time print a total count of F1 drivers.
 
-<Details>
+<details>
   <summary>Solution</summary>
 
   ```py
@@ -159,4 +158,4 @@ Use the same URL as in the previous exercise, but this time print a total count 
   print(len(soup.select(".f1-grid")))
   ```
 
-</Details>
+</details>

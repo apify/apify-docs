@@ -10,8 +10,6 @@ slug: /console
 
 ---
 
-import Details from '@theme/Details';
-
 ## Sign-up
 
 To use Apify Console, you first need to create an account. To create it please go to the [sign-up page](https://console.apify.com/sign-up).
@@ -95,7 +93,7 @@ Use the side menu to navigate other parts of Apify Console easily.
 
 You can also navigate Apify Console via keyboard shortcuts.
 
-<Details>
+<details>
 <summary>Keyboard Shortcuts</summary>
 
 |Shortcut| Tab |
@@ -113,7 +111,7 @@ You can also navigate Apify Console via keyboard shortcuts.
 |Settings| GS  |
 |Billing| GB  |
 
-</Details>
+</details>
 
 | Tab name | Description |
 |:---|:---|
