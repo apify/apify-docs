@@ -138,7 +138,67 @@ If we run our scraper now, it gives us no output at all, but creates `products.c
 
 ## Saving data as JSON
 
-TODO
+The JSON format is popular mainly among us developers. We use it for storing data, configuration, or as a way to transfer data between programs (APIs). The format's origin comes from the syntax of _objects_ in the JavaScript programming language, and it's like the syntax of Python dictionaries.
+
+In Python there is a [`json`](https://docs.python.org/3/library/json.html) standard library module, which is so straightforward that we'll just use it in our code right away. We'll need to start with imports again:
+
+```py
+from decimal import Decimal
+import httpx
+from bs4 import BeautifulSoup
+import csv
+# highlight-next-line
+import json
+```
+
+Then let's append one more export to the source code of our scraper:
+
+```py
+with open("products.json", "w") as file:
+    json.dump(data, file)
+```
+
+That's it! If we run the program now, it should create also `products.json` in the current working directory:
+
+```text
+$ python main.py
+Traceback (most recent call last):
+  ...
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Decimal is not JSON serializable
+```
+
+Ouch! JSON supports integers or floating point numbers, but there's no guidance on what to do with `Decimal`. To keep precision of the numbers, it's customary to store money as strings in JSON files. But that's only a convention, not a standard, so we'll need to do this ourselves. We'll pass `json.dump()` a function that gets called for objects that can't otherwise be serialized:
+
+```py
+def serialize(obj):
+    if isinstance(obj, Decimal):
+        return str(obj)
+    raise TypeError("Object not JSON serializable")
+
+with open("products.json", "w") as file:
+    json.dump(data, file, default=serialize)
+```
+
+Now the program should work as expected, producing a JSON file with the following contents:
+
+```json filename=products.json
+[{"title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker", "min_price": "74.95", "price": "74.95"}, {"title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV", "min_price": "1398.00", "price": null}, ...]
+```
+
+If you skim through the data, you can spot that the `json.dump()` function again took care of some pitfalls, such as putting `\` before double quotes present in one of the titles:
+
+```json
+{"title": "Sony SACS9 10\" Active Subwoofer", "min_price": "158.00", "price": "158.00"}
+```
+
+:::tip Pretty JSON
+
+While JSON file without any white space is efficient for computers, looking at it as a human is a bit of an eye sore. Pass `indent=2` to `json.dump()` for prettier output!
+
+Also, if your data contain non-English characters, set `ensure_ascii=False`. The default setting is to encode everything except [ASCII](https://en.wikipedia.org/wiki/ASCII), which instructs Python to save e.g. [Bún bò Nam Bô](https://vi.wikipedia.org/wiki/B%C3%BAn_b%C3%B2_Nam_B%E1%BB%99) as `B\\u00fan b\\u00f2 Nam B\\u00f4`.
+
+:::
 
 ---
 
