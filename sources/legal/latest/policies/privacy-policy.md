@@ -31,20 +31,20 @@ This Privacy Policy also does not apply to personal data about current and forme
 
 **PLEASE READ THIS PRIVACY POLICY CAREFULLY TO UNDERSTAND HOW WE HANDLE YOUR PERSONAL DATA. IF YOU DO NOT AGREE TO THIS PRIVACY POLICY, PLEASE DO NOT USE THE SERVICES.**
 
-# Table of Contents  
-[Personal Data We Collect](#personal-data-we-collect)  
-[How We Use Your Personal Data](#how-we-use-your-personal-data)  
-[How We Disclose Your Personal Data](#how-we-disclose-your-personal-data)    
-[How We Retain and Dispose Your Personal Data](#how-we-retain-and-dispose-your-personal-data)   
-[Your Rights and Your Choices](#your-rights-and-your-choices)    
-[Third-Party Links and Features](#third-party-links-and-features)  
+# Table of Contents
+[Personal Data We Collect](#personal-data-we-collect)
+[How We Use Your Personal Data](#how-we-use-your-personal-data)
+[How We Disclose Your Personal Data](#how-we-disclose-your-personal-data)
+[How We Retain and Dispose Your Personal Data](#how-we-retain-and-dispose-your-personal-data)
+[Your Rights and Your Choices](#your-rights-and-your-choices)
+[Third-Party Links and Features](#third-party-links-and-features)
 [International Transfer of Your Personal Data](#international-transfer-of-your-personal-data)  
-[How We Protect Your Personal Data](#how-we-protect-your-personal-data)  
-[Children and Privacy](#children-and-privacy)  
-[Aggregate Data](#aggregate-data)  
-[Territory-Specific Terms](#territory-specific-terms)  
-[Changes to our Privacy Policy](#changes-to-our-privacy-policy)  
-[Contact Us](#contact-us)  
+[How We Protect Your Personal Data](#how-we-protect-your-personal-data)
+[Children and Privacy](#children-and-privacy)
+[Aggregate Data](#aggregate-data)
+[Territory-Specific Terms](#territory-specific-terms)
+[Changes to our Privacy Policy](#changes-to-our-privacy-policy)
+[Contact Us](#contact-us)
 
 
 # Personal Data We Collect
