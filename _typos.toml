@@ -2,6 +2,7 @@
 extend-ignore-re = [
     '`[^`\n]+`',  # skip inline code
     '```[\s\S]*?```',  # skip code blocks
+    'Bún bò Nam Bô',  # otherwise "Nam" is considered as a typo of "Name"
 ]
 
 [default.extend-words]
