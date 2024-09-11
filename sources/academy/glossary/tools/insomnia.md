@@ -1,13 +1,13 @@
 ---
 title: Insomnia
-description: Learn about Insomnia, a simple yet super valuable tool for testing requests and proxies when building scalable web scrapers.
+description: Learn about Insomnia, a valuable tool for testing requests and proxies when building scalable web scrapers.
 sidebar_position: 9.2
 slug: /tools/insomnia
 ---
 
 # What is Insomnia {#what-is-insomnia}
 
-**Learn about Insomnia, a simple yet super valuable tool for testing requests and proxies when building scalable web scrapers.**
+**Learn about Insomnia, a valuable tool for testing requests and proxies when building scalable web scrapers.**
 
 ---
 
@@ -66,4 +66,4 @@ This will bring up the **Manage cookies** window, where all cached cookies can b
 
 ## Postman or Insomnia {#postman-or-insomnia}
 
-The application you choose to use is completely up to your personal preference, and will not affect your development workflow. If viewing timelines of the requests you send is important to you, then you should go with Insomnia; however, if that doesn't matter, just choose the one that has the most intuitive interface for you.
+The application you choose to use is completely up to your personal preference, and will not affect your development workflow. If viewing timelines of the requests you send is important to you, then you should go with Insomnia; however, if that doesn't matter, choose the one that has the most intuitive interface for you.

@@ -5,13 +5,13 @@ sidebar_position: 15.9
 slug: /node-js/handle-blocked-requests-puppeteer
 ---
 
-One of the main defense mechanisms websites use to ensure they are not scraped by bots is allowing only a limited number of requests from a specific IP address. That's why Apify provides a [proxy](https://www.apify.com/docs/proxy) component with intelligent rotation. With a large enough pool of proxies, you can multiply the number of allowed requests per day to easily cover your crawling needs. Let's look at how we can rotate proxies when using our [JavaScript SDK](https://github.com/apify/apify-sdk-js).
+One of the main defense mechanisms websites use to ensure they are not scraped by bots is allowing only a limited number of requests from a specific IP address. That's why Apify provides a [proxy](https://docs.apify.com/platform/proxy) component with intelligent rotation. With a large enough pool of proxies, you can multiply the number of allowed requests per day to cover your crawling needs. Let's look at how we can rotate proxies when using our [JavaScript SDK](https://github.com/apify/apify-sdk-js).
 
 # BasicCrawler
 
 > Getting around website defense mechanisms when crawling.
 
-Setting proxy rotation in [BasicCrawler](https://crawlee.dev/api/basic-crawler/class/BasicCrawler) is pretty simple. When using plain HTTP requests (like with the popular '[request-promise](https://www.npmjs.com/package/request-promise)' npm package), a fresh proxy is set up on each request.
+You can use `handleRequestFunction` to set up proxy rotation for a [BasicCrawler](https://crawlee.dev/api/basic-crawler/class/BasicCrawler). The following example shows how to use a fresh proxy on each request if you make requests through the popular [request-promise](https://www.npmjs.com/package/request-promise) npm package:
 
 ```js
 const Apify = require('apify');
@@ -31,7 +31,7 @@ const crawler = new Apify.BasicCrawler({
 });
 ```
 
-Each time handleRequestFunction is executed in this example, requestPromise will send a request through the least used proxy for that target domain. This way you will not easily burn through your proxies.
+Each time `handleRequestFunction` is executed in this example, requestPromise will send a request through the least used proxy for that target domain. This way you will not burn through your proxies.
 
 # Puppeteer Crawler
 
@@ -39,7 +39,7 @@ With [PuppeteerCrawler](/sdk/js/docs/api/puppeteer-crawler) the situation is a l
 
 The straightforward solution would be to set the 'retireInstanceAfterRequestCount' option to 1. PuppeteerCrawler would then rotate the proxies in the same way as BasicCrawler. While this approach could sometimes be useful for the toughest websites, the price you pay is in performance. Restarting the browser is an expensive operation.
 
-That's why PuppeteerCrawler offers a utility retire() function through a PuppeteerPool class. You can access PuppeteerPool by simply passing it into the object parameter of gotoFunction or handlePageFunction.
+That's why PuppeteerCrawler offers a utility retire() function through a PuppeteerPool class. You can access PuppeteerPool by passing it into the object parameter of gotoFunction or handlePageFunction.
 
 ```js
 const crawler = new PuppeteerCrawler({
@@ -54,9 +54,9 @@ const crawler = new PuppeteerCrawler({
 });
 ```
 
-It is really up to a developer to spot if something is wrong with his request. A website can interfere with your crawling in [many ways](https://kb.apify.com/tips-and-tricks/several-tips-how-to-bypass-website-anti-scraping-protections). Page loading can be cancelled right away, it can timeout, the page can display a captcha, some error or warning message, or the data may be just missing or corrupted. The developer can then choose if he will try to handle these problems in the code or just focus on receiving the proper data. Either way, if the request went wrong, you should throw a proper error.
+It is really up to a developer to spot if something is wrong with his request. A website can interfere with your crawling in [many ways](https://docs.apify.com/academy/anti-scraping). Page loading can be cancelled right away, it can timeout, the page can display a captcha, some error or warning message, or the data may be missing or corrupted. The developer can then choose if he will try to handle these problems in the code or focus on receiving the proper data. Either way, if the request went wrong, you should throw a proper error.
 
-Now that we know when the request is blocked, we can use the retire() function and continue crawling with a new proxy. Google is one of the most popular websites for scrapers, so let's code some simple Google search crawler. The two main blocking mechanisms used by Google is either to display their (in)famous 'sorry' captcha or to not load the page at all so we will focus on covering these.
+Now that we know when the request is blocked, we can use the retire() function and continue crawling with a new proxy. Google is one of the most popular websites for scrapers, so let's code a Google search crawler. The two main blocking mechanisms used by Google is either to display their (in)famous 'sorry' captcha or to not load the page at all so we will focus on covering these.
 
 For example, let's assume we have already initialized a requestList of Google search pages. Let's show how you can use the retire() function in both gotoFunction and handlePageFunction.
 

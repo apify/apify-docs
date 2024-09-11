@@ -23,7 +23,7 @@ On the other hand, if you precisely address a niche segment of users who will be
 
 ## Keywords
 
-Several freemium tools exist that make it easy to identify the right phrases and keywords:
+Several freemium tools exist that help with identifying the right phrases and keywords:
 
 - [wordstream.com/keywords](https://www.wordstream.com/keywords)
 - [neilpatel.com/ubersuggest](https://neilpatel.com/ubersuggest/)
@@ -41,7 +41,7 @@ The best combinations are those with **high search volume** and **low competitio
 - Page body (e.g., README).
 - The texts in your links.
 
-> While crafting your content with keywords, beware of [over-optimizing or keyword stuffing](https://yoast.com/over-optimized-website/) the page. You can use synonyms or related keywords to help this. Google is smart enough to evaluate the page based on how well the whole topic is covered (not just based on keywords), but using them helps.
+> While crafting your content with keywords, beware of [over-optimizing or keyword stuffing](https://yoast.com/over-optimized-website/) the page. You can use synonyms or related keywords to help this. Google is smart enough to evaluate the page based on how well the whole topic is covered (not only by keywords), but using them helps.
 
 ## Optimizing your Actor details
 
@@ -49,9 +49,7 @@ While blog posts and promotion are important, your Actor is the main product. He
 
 ### Name
 
-The Actor name is your Actor's developer-style name, which is prefixed by your username (e.g. `jancurn/find-broken-links`). The name is used to generate URL used for your Actor (e.g. https://apify.com/jancurn/find-broken-links), making it an important signal for search engines.
-
-However, the name should also be readable and clear enough, so that people using your Actor can understand what it does just from the name.
+The Actor name is your Actor's developer-style name, which is prefixed by your username (e.g. `jancurn/find-broken-links`). The name is used to generate URL used for your Actor (e.g. https://apify.com/jancurn/find-broken-links), making it an important signal for search engines. The name should also be readable and clear enough, so that people using your Actor can understand what it does.
 
 [Read more about naming your Actor](./naming_your_actor.md)!.
 
@@ -104,11 +102,11 @@ Now that you’ve created a cool new Actor, let others see it! Share it on your 
 - Try to publish an article about your Actor in relevant external magazines like [hackernoon.com](https://hackernoon.com/) or [techcrunch.com](https://techcrunch.com/). Do not limit yourself to blogging platforms.
 - If you publish an article in external media (magazine, blog etc.), be sure to include backlinks to your Actor and the Apify website to strengthen the domain's SEO.
 - It's always better to use backlinks with the [`dofollow` attribute](https://raventools.com/marketing-glossary/dofollow-link/).
-- Always use the most relevant URL as the backlink's landing page. For example, when talking about Apify Store, link to the Store page (https://apify.com/store), not to Apify homepage (https://apify.com).
+- Always use the most relevant URL as the backlink's landing page. For example, when talking about Apify Store, link to the Store page ([apify.com/store](https://apify.com/store)), not to Apify homepage ([apify.com](https://apify.com)).
 - Always use the most relevant keyword or phrase for the backlink's text. This can boost the landing page's SEO and help the readers know what to expect from the link.
 
-> **GOOD**: Try the [Facebook scraper](https://apify.com/pocesar/facebook-pages-scraper) now.
-> <br/> **AVOID**: Try the Facebook scraper [here](https://apify.com/pocesar/facebook-pages-scraper).
+> **GOOD**: Try the [Facebook scraper](https://apify.com/apify/facebook-pages-scraper) now.
+> <br/> **AVOID**: Try the Facebook scraper [here](https://apify.com/apify/facebook-pages-scraper).
 
 ### Social media and forums
 

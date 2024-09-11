@@ -16,11 +16,11 @@ If at any point in time you've strayed away from the Academy's demo content, and
 
 This section covers the essentials of mitigating anti-scraping protections, such as proxies, HTTP headers and cookies, and a few other things to consider when working on a reliable and scalable crawler. Proper usage of the methods taught in the next lessons will allow you to extract data which is specific to a certain location, enable your crawler to browse websites as a logged-in user, and more.
 
-In development, it is crucial to check and adjust the configurations related to our next lessons' topics, as simply doing this can fix blocking issues on the majority of websites.
+In development, it is crucial to check and adjust the configurations related to our next lessons' topics, as doing this can fix blocking issues on the majority of websites.
 
 ## Quick start {#quick-start}
 
-If you don't have time to read about the theory behind anti-scraping protections to fine-tune your scraping project and instead you just need to get unblocked ASAP, here are some quick tips:
+If you don't have time to read about the theory behind anti-scraping protections to fine-tune your scraping project and instead you need to get unblocked ASAP, here are some quick tips:
 
 - Use high-quality proxies. [Residential proxies](/platform/proxy/residential-proxy) are the least blocked. You can find many providers out there like Apify, BrightData, Oxylabs, NetNut, etc.
 - Set **real-user-like HTTP settings** and **browser fingerprints**. [Crawlee](https://crawlee.dev/) uses statistically generated realistic HTTP headers and browser fingerprints by default for all of its crawlers.
@@ -33,7 +33,7 @@ In the vast majority of cases, this configuration should lead to success. Succes
 
 If the above tips didn't help, you can try to fiddle with the following:
 
-- Try different browsers. Crawlee & Playwright support Chromium, Firefox and WebKit out of the box. You can also try the [Brave browser](https://brave.com) which [can be configured for Playwright](https://blog.apify.com/unlocking-the-potential-of-brave-and-playwright-for-browser-automation).
+- Try different browsers. Crawlee & Playwright support Chromium, Firefox and WebKit out of the box. You can also try the [Brave browser](https://brave.com) which [can be configured for Playwright](https://blog.apify.com/unlocking-the-potential-of-brave-and-playwright-for-browser-automation/).
 - Don't use browsers at all. Sometimes the anti-scraping protections are extremely sensitive to browser behavior but will allow plain HTTP requests (with the right headers) just fine. Don't forget to match the specific [HTTP headers](/academy/concepts/http-headers) for each request.
 - Decrease concurrency. Slower scraping means you can blend in better with the rest of the traffic.
 - Add human-like behavior. Don't traverse the website like a bot (paginating quickly from 1 to 100). Instead, visit various types of pages, add time randomizations and you can even introduce some mouse movements and clicks.
@@ -54,7 +54,7 @@ What's up with that?! A website might have a variety of reasons to block bots fr
 - To not skew their analytics data with bot traffic.
 - If it is a social media website, they might be attempting to keep away bots programmed to mass create fake profiles (which are usually sold later).
 
-> We recommend checking out [this article about legal and ethical ramifications of web scraping](https://blog.apify.com/is-web-scraping-legal).
+> We recommend checking out [this article about legal and ethical ramifications of web scraping](https://blog.apify.com/is-web-scraping-legal/).
 
 Unfortunately for these websites, they have to make compromises and tradeoffs. While super strong anti-bot protections will surely prevent the majority of bots from accessing their content, there is also a higher chance of regular users being flagged as bots and being blocked as well. Because of this, different sites have different scraping-difficulty levels based on the anti-scraping measures they take.
 
@@ -65,8 +65,8 @@ Unfortunately for these websites, they have to make compromises and tradeoffs. W
 Anti-scraping protections can work on many different layers and use a large amount of bot-identification techniques.
 
 1. **Where you are coming from** - The IP address of the incoming traffic is always available to the website. Proxies are used to emulate a different IP addresses but their quality matters a lot.
-2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, cyphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to classify your hardware (like graphics hardware acceleration).
-3. **What you are scraping** - The same data can be extracted in many ways from a website. You can just get the initial HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
+2. **How you look** - With each request, the website can analyze its HTTP headers, TLS version, ciphers, and other information. Moreover, if you use a browser, the website can also analyze the whole browser fingerprint and run challenges to classify your hardware (like graphics hardware acceleration).
+3. **What you are scraping** - The same data can be extracted in many ways from a website. You can get the initial HTML or you can use a browser to render the full page or you can reverse engineer internal APIs. Each of those endpoints can be protected differently.
 4. **How you behave** - The website can see patterns in how you are ordering your requests, how fast you are scraping, etc. It can also analyze browser behavior like mouse movement, clicks or key presses.
 
 These are the 4 main principles that anti-scraping protections are based on.
@@ -107,7 +107,7 @@ Although the talk, given in 2021, features some outdated code examples, it still
 
 Because we here at Apify scrape for a living, we have discovered many popular and niche anti-scraping techniques. We've compiled them into a short and comprehensible list here to help understand the roadblocks before this course teaches you how to get around them.
 
-> However, not all issues you encounter are caused by anti-scraping systems. Sometimes, it's just a simple configuration issue. Learn [how to effectively debug your programs here](/academy/node-js/analyzing-pages-and-fixing-errors).
+> Not all issues you encounter are caused by anti-scraping systems. Sometimes, it's a configuration issue. Learn [how to effectively debug your programs here](/academy/node-js/analyzing-pages-and-fixing-errors).
 
 ### IP rate-limiting
 

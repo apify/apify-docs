@@ -22,7 +22,7 @@ import * as fs from 'fs/promises';
 import request from 'request-promise';
 ```
 
-The actual downloading is slightly different for text and binary files. For a text file, it can simply be done like this:
+The actual downloading is slightly different for text and binary files. For a text file, it can be done like this:
 
 ```js
 const fileData = await request('https://some-site.com/file.txt');
@@ -63,7 +63,7 @@ await page.type('input[name=surname]', 'Doe');
 await page.type('input[name=email]', 'john.doe@example.com');
 ```
 
-To add the file to the appropriate input, we first need to find it and then use the [`uploadFile()`](https://pptr.dev/next/api/puppeteer.elementhandle.uploadfile) function.
+To add the file to the appropriate input, we first need to find it and then use the [`uploadFile()`](https://pptr.dev/api/puppeteer.elementhandle.uploadfile) function.
 
 ```js
 const fileInput = await page.$('input[type=file]');

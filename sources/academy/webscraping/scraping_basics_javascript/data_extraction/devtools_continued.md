@@ -30,7 +30,7 @@ The `length` property of `products` tells us how many products we have in the li
 
 > [Visit this tutorial](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration) if you need to refresh the concept of loops in programming.
 
-Now, we will loop over each product and print their titles. We will use a so-called `for..of` loop to do it. It is a simple loop that iterates through all items of an array.
+Now, we will loop over each product and print their titles. We will use a so-called `for..of` loop to do it. It is a loop that iterates through all items of an array.
 
 Run the following command in the Console. Some notes:
 
@@ -52,7 +52,7 @@ for (const product of products) {
 
 ## Extracting more data {#extracting-data-in-loop}
 
-We will add the price extraction from the previous lesson to the loop. We will also save all the data to an array so that we can easily work with it. Run this in the Console:
+We will add the price extraction from the previous lesson to the loop. We will also save all the data to an array so that we can work with it. Run this in the Console:
 
 > The `results.push()` function takes its argument and pushes (adds) it to the `results` array. [Learn more about it here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push).
 

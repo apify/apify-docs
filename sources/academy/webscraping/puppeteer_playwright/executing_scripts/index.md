@@ -28,7 +28,7 @@ const browser = await chromium.launch({ headless: false });
 const page = await browser.newPage();
 
 // visit google
-await page.goto('https://google.com/');
+await page.goto('https://www.google.com/');
 
 // change background to green
 document.body.style.background = 'green';
@@ -59,7 +59,7 @@ import { chromium } from 'playwright';
 const browser = await chromium.launch({ headless: false });
 const page = await browser.newPage();
 
-await page.goto('https://google.com/');
+await page.goto('https://www.google.com/');
 
 await page.evaluate(() => {
     document.body.style.background = 'green';
@@ -79,7 +79,7 @@ import puppeteer from 'puppeteer';
 const browser = await puppeteer.launch({ headless: false });
 const page = await browser.newPage();
 
-await page.goto('https://google.com/');
+await page.goto('https://www.google.com/');
 
 await page.evaluate(() => {
     document.body.style.background = 'green';
@@ -116,7 +116,7 @@ import { chromium } from 'playwright';
 const browser = await chromium.launch({ headless: false });
 const page = await browser.newPage();
 
-await page.goto('https://google.com/');
+await page.goto('https://www.google.com/');
 
 const params = { randomString: Math.random().toString(36).slice(2) };
 
@@ -138,7 +138,7 @@ import puppeteer from 'puppeteer';
 const browser = await puppeteer.launch({ headless: false });
 const page = await browser.newPage();
 
-await page.goto('https://google.com/');
+await page.goto('https://www.google.com/');
 
 const params = { randomString: Math.random().toString(36).slice(2) };
 
