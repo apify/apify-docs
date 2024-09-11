@@ -7,7 +7,6 @@ slug: /scraping-basics-python/locating-elements
 ---
 
 import Exercises from './_exercises.mdx';
-import Details from '@theme/Details';
 
 **In this lesson we'll locate product data in the downloaded HTML. We'll use BeautifulSoup to find those HTML elements which contain details about each product, such as title or price.**
 
@@ -215,7 +214,7 @@ Botswana
 ...
 ```
 
-<Details>
+<details>
   <summary>Solution</summary>
 
   ```py
@@ -240,7 +239,7 @@ Botswana
 
   Because some rows contain [table headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th), we skip processing a row if `table_row.select("td")` doesn't find any [table data](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) cells.
 
-</Details>
+</details>
 
 ### Use CSS selectors to their max
 
@@ -249,7 +248,7 @@ Simplify the code from previous exercise. Use a single for loop and a single CSS
 - [Descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator)
 - [`:nth-child()` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child)
 
-<Details>
+<details>
   <summary>Solution</summary>
 
   ```py
@@ -267,7 +266,7 @@ Simplify the code from previous exercise. Use a single for loop and a single CSS
       print(name_cell.select_one("a").text)
   ```
 
-</Details>
+</details>
 
 ### Scrape F1 news
 
@@ -286,7 +285,7 @@ Max Verstappen wins Canadian Grand Prix: F1 – as it happened
 ...
 ```
 
-<Details>
+<details>
   <summary>Solution</summary>
 
   ```py
@@ -304,4 +303,4 @@ Max Verstappen wins Canadian Grand Prix: F1 – as it happened
       print(title.text)
   ```
 
-</Details>
+</details>
