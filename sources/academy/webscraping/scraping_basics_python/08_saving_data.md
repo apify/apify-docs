@@ -198,6 +198,8 @@ Also, if your data contains non-English characters, set `ensure_ascii=False`. By
 
 :::
 
+We've built a Python application that downloads a product listing, parses the data, and saves it in a structured format for further use. However, the data has gaps: for some products, we only have the min price, not the actual prices. In the next lesson, we'll attempt to scrape more details from all the product pages.
+
 ---
 
 ## Exercises
