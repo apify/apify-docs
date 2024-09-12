@@ -65,7 +65,7 @@ Throughout the next lessons, we will sometimes use certain technologies and term
 
 ### jQuery or Cheerio {#jquery-or-cheerio}
 
-We'll be using the [**Cheerio**](https://www.npmjs.com/package/cheerio) package a lot to parse data from HTML. This package provides a simple API using jQuery syntax to help traverse downloaded HTML within Node.js.
+We'll be using the [**Cheerio**](https://www.npmjs.com/package/cheerio) package a lot to parse data from HTML. This package provides an API using jQuery syntax to help traverse downloaded HTML within Node.js.
 
 ## Next up {#next}
 

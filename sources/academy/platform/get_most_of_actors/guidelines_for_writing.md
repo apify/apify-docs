@@ -1,5 +1,5 @@
 ---
-title: Guidelines for writing tutorials 
+title: Guidelines for writing tutorials
 description: Create a guide for your users so they can get the best out of your Actor. Make sure your tutorial is both user- and SEO-friendly. Your tutorial will be published on Apify Blog.
 sidebar_position: 3
 slug: /get-most-of-actors/guidelines-writing-tutorials
@@ -42,12 +42,12 @@ These guidelines are of course not set in stone. They are here to give you a gen
 
 ## Tutorial template
 
-A simple tutorial template for you to start from. Feel free to expand and modify it as you see fit.
+A tutorial template for you to start from. Feel free to expand and modify it as you see fit.
 
 ```markdown
 # How to [perform task] automatically
 
-A simple step-by-step guide to [describe what the guide helps achieve].
+A step-by-step guide to [describe what the guide helps achieve].
 
 The web is a vast and dynamic space, continuously expanding and evolving. Often, there's a need to [describe the problem or need the tool addresses]. A handy tool for anyone who wants to [describe what the tool helps with] would be invaluable.
 
@@ -69,7 +69,7 @@ Here's how to [quick intro to the tutorial itself]
 
 ### Step 1. Find the [Actor name]
 
-Navigate to [Tool Name] and click the [CTA button]. You'll be redirected to Apify Console. 
+Navigate to [Tool Name] and click the [CTA button]. You'll be redirected to Apify Console.
 
 ### Step 2. Add URL or choose [setting 1], [setting 2], and [setting 3]
 

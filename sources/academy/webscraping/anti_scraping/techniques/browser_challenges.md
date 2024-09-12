@@ -13,7 +13,7 @@ slug: /anti-scraping/techniques/browser-challenges
 
 Browser challenges are a type of security measure that relies on browser fingerprints. These challenges typically involve a JavaScript program that collects both static and dynamic browser fingerprints. Static fingerprints include attributes such as User-Agent, video card, and number of CPU cores available. Dynamic fingerprints, on the other hand, might involve rendering fonts or objects in the canvas (known as a [canvas fingerprint](./fingerprinting.md#with-canvases)), or playing audio in the [AudioContext](./fingerprinting.md#from-audiocontext). We were covering the details in the previous [fingerprinting](./fingerprinting.md) lesson.
 
-While some browser challenges are relatively straightforward - for example, just loading an image and checking if it renders correctly - others can be much more complex. One well-known example of a complex browser challenge is Cloudflare's browser screen check. In this challenge, Cloudflare visually inspects the browser screen and blocks the first request if any inconsistencies are found. This approach provides an extra layer of protection against automated attacks.
+While some browser challenges are relatively straightforward - for example, loading an image and checking if it renders correctly - others can be much more complex. One well-known example of a complex browser challenge is Cloudflare's browser screen check. In this challenge, Cloudflare visually inspects the browser screen and blocks the first request if any inconsistencies are found. This approach provides an extra layer of protection against automated attacks.
 
 Many online protections incorporate browser challenges into their security measures, but the specific techniques used can vary.
 

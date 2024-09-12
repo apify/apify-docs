@@ -1,19 +1,19 @@
 ---
 title: Postman
-description: Learn about Postman, a simple yet super valuable tool for testing requests and proxies when building scalable web scrapers.
+description: Learn about Postman, a valuable tool for testing requests and proxies when building scalable web scrapers.
 sidebar_position: 9.3
 slug: /tools/postman
 ---
 
 # What is Postman? {#what-is-postman}
 
-**Learn about Postman, a simple yet super valuable tool for testing requests and proxies when building scalable web scrapers.**
+**Learn about Postman, a valuable tool for testing requests and proxies when building scalable web scrapers.**
 
 ---
 
-[Postman](https://www.postman.com/) is a powerful collaboration platform for API development and testing. For scraping use-cases, it's mainly used to test requests and proxies (such as checking the response body of a raw request, without loading any additional resources such as JavaScript or CSS). This tool can do much more than that, but we will not be discussing all of its capabilities here. Postman allows us to easily test requests with cookies, headers, and payloads so that we can be entirely sure what the response looks like for a request URL we plan to eventually use in a scraper.
+[Postman](https://www.postman.com/) is a powerful collaboration platform for API development and testing. For scraping use-cases, it's mainly used to test requests and proxies (such as checking the response body of a raw request, without loading any additional resources such as JavaScript or CSS). This tool can do much more than that, but we will not be discussing all of its capabilities here. Postman allows us to test requests with cookies, headers, and payloads so that we can be entirely sure what the response looks like for a request URL we plan to eventually use in a scraper.
 
-The desktop app can be downloaded from its [official download page](https://www.postman.com/downloads/), or the web app can be used with a simple signup - no download required. If this is your first time working with a tool like Postman, we recommend checking out their [Getting Started guide](https://learning.postman.com/docs/getting-started/introduction/).
+The desktop app can be downloaded from its [official download page](https://www.postman.com/downloads/), or the web app can be used with a signup - no download required. If this is your first time working with a tool like Postman, we recommend checking out their [Getting Started guide](https://learning.postman.com/docs/introduction/overview/).
 
 ## Understanding the interface {#understanding-the-interface}
 
@@ -43,7 +43,7 @@ In order to use a proxy, the proxy's server and configuration must be provided i
 
 ![Proxy configuration in Postman settings](./images/postman-proxy.png)
 
-After configuring a proxy, the next request sent will attempt to use it. To switch off the proxy, its details don't need to be deleted. The **Add a custom proxy configuration** option in settings just needs to be un-ticked to disable it.
+After configuring a proxy, the next request sent will attempt to use it. To switch off the proxy, its details don't need to be deleted. The **Add a custom proxy configuration** option in settings needs to be un-ticked to disable it.
 
 ## Managing the cookies cache {#managing-cookies}
 
@@ -55,7 +55,7 @@ In order to check whether there are any cookies associated with a certain reques
 
 ![Button to view the cached cookies](./images/postman-cookies-button.png)
 
-Clicking on this button opens a **MANAGE COOKIES** window, where a list of all cached cookies per domain can be seen. If we had been previously sending multiple requests to **https://github.com/apify**, within this window we would be able to easily find cached cookies associated with github.com. Cookies can also be easily edited (to update some specific values), or deleted (to send a "clean" request without any cached data) here.
+Clicking on this button opens a **MANAGE COOKIES** window, where a list of all cached cookies per domain can be seen. If we had been previously sending multiple requests to **https://github.com/apify**, within this window we would be able to find cached cookies associated with github.com. Cookies can also be edited (to update some specific values), or deleted (to send a "clean" request without any cached data) here.
 
 ![Managing cookies in Postman with the "MANAGE COOKIES" window](./images/postman-manage-cookies.png)
 
