@@ -11,7 +11,7 @@ slug: /api-scraping/graphql-scraping/modifying-variables
 
 ---
 
-In the introduction of this course, we searched for the term **test** on the [Cheddar](https://cheddar.com) website and discovered a request to their GraphQL API. The payload looked like this:
+In the introduction of this course, we searched for the term **test** on the [Cheddar](https://www.cheddar.com/) website and discovered a request to their GraphQL API. The payload looked like this:
 
 ```json
 {
@@ -103,7 +103,7 @@ query SearchQuery($query: String!, $count: Int!, $cursor: String) {
 }
 ```
 
-If the query provided in the payload you find in the **Network** tab is good enough for your scraper's needs, you don't actually have to go down the GraphQL rabbit hole. Rather, you can just change the variables to receive the data you want. For example, right now, our example payload is set up to search for articles matching the keyword **test**. However, if we wanted to search for articles matching **cats** instead, we could do that by changing the **query** variable like so:
+If the query provided in the payload you find in the **Network** tab is good enough for your scraper's needs, you don't actually have to go down the GraphQL rabbit hole. Rather, you can change the variables to receive the data you want. For example, right now, our example payload is set up to search for articles matching the keyword **test**. However, if we wanted to search for articles matching **cats** instead, we could do that by changing the **query** variable like so:
 
 ```json
 {
@@ -112,8 +112,8 @@ If the query provided in the payload you find in the **Network** tab is good eno
 }
 ```
 
-Depending on the API, just doing this can be sufficient. However, sometimes we want to utilize complex GraphQL features in order to optimize our scrapers or just to receive more data than is being provided in the response of the request found in the **Network** tab. This is what we will be discussing in the next lessons.
+Depending on the API, doing just this can be sufficient. However, sometimes we want to utilize complex GraphQL features in order to optimize our scrapers or to receive more data than is being provided in the response of the request found in the **Network** tab. This is what we will be discussing in the next lessons.
 
 ## Next up {#next}
 
-In the [next lesson](./introspection.md) we will be walking you through how to learn about a GraphQL API before scraping it by using **introspection** (don't worry - it's a fancy word, but a simple concept).
+In the [next lesson](./introspection.md) we will be walking you through how to learn about a GraphQL API before scraping it by using **introspection**.

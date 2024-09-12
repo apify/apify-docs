@@ -12,11 +12,11 @@ slug: /web-scraping-for-beginners/introduction
 
 ---
 
-Web scraping or crawling? Web data extraction, mining, or collection? You can find various definitions on the web. Let's agree on simple explanations that we will use throughout this beginner course on web scraping.
+Web scraping or crawling? Web data extraction, mining, or collection? You can find various definitions on the web. Let's agree on explanations that we will use throughout this beginner course on web scraping.
 
 ## What is web data extraction? {#what-is-data-extraction}
 
-Web data extraction (or collection) is a process that takes a web page, like an Amazon product page, and collects useful information from the page, such as the product's name and price. Web pages are an unstructured data source and the goal of web data extraction is to make information from websites structured, so that it can be easily processed by data analysis tools or integrated with computer systems. The main sources of data on a web page are HTML documents and API calls, but also images, PDFs, etc.
+Web data extraction (or collection) is a process that takes a web page, like an Amazon product page, and collects useful information from the page, such as the product's name and price. Web pages are an unstructured data source and the goal of web data extraction is to make information from websites structured, so that it can be processed by data analysis tools or integrated with computer systems. The main sources of data on a web page are HTML documents and API calls, but also images, PDFs, etc.
 
 ![product data extraction from Amazon](./images/beginners-data-extraction.png)
 

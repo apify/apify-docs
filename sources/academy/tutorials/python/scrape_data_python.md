@@ -11,7 +11,7 @@ slug: /python/scrape-data-python
 
 ---
 
-Web scraping is not limited to the JavaScript world. The Python ecosystem contains some pretty powerful scraping tools as well. One of those is [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/), a library for parsing HTML and easy navigation or modification of a DOM tree.
+Web scraping is not limited to the JavaScript world. The Python ecosystem contains some pretty powerful scraping tools as well. One of those is [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/), a library for parsing HTML and navigating or modifying of its DOM tree.
 
 This tutorial shows you how to write a Python [Actor](../../platform/getting_started/actors.md) for scraping the weather forecast from [BBC Weather](https://www.bbc.com/weather) and process the scraped data using [Pandas](https://pandas.pydata.org/).
 
@@ -61,7 +61,7 @@ First, we need to create a new Actor. To do this, go to [Apify Console](https://
 
 In the page that opens, you can see your newly created Actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-scraper`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the Actor. Although there are several of them, just two are important for us now, `main.py` and `requirements.txt`.
 
-First we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your Actor will use. We will be using the `requests` package for downloading the BBC Weather pages, and the `beautifulsoup4` package for parsing and processing the downloaded pages. We don't particularly care about the specific versions of these packages, so we just list them in the file:
+First we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your Actor will use. We will be using the `requests` package for downloading the BBC Weather pages, and the `beautifulsoup4` package for parsing and processing the downloaded pages. We don't care about versions of these packages, so we list just their names:
 
 ```py
 # Add your dependencies here.
@@ -221,7 +221,7 @@ Earlier in this tutorial, we learned how to scrape data from the web in Python u
 
 In the previous tutorial, we set out to select our next holiday destination based on the forecast of the upcoming weather there. We have written an Actor that scrapes the BBC Weather forecast for the upcoming two weeks for three destinations: Prague, New York, and Honolulu. It then saves the scraped data to a [dataset](/platform/storage/dataset) on the Apify platform.
 
-Now, we need to process the scraped data and make a simple visualization that will help us decide which location has the best weather, and will therefore become our next holiday destination.
+Now, we need to process the scraped data and make a visualization that will help us decide which location has the best weather, and will therefore become our next holiday destination.
 
 ### Setting up the Actor {#setting-up-the-actor}
 
@@ -229,7 +229,7 @@ First, we need to create another Actor. You can do it the same way as before - g
 
 In the page that opens, you can see your newly created Actor. In the **Settings** tab, you can give it a name (e.g. `bbc-weather-parser`) and further customize its settings. We'll skip customizing the settings for now, the defaults should be fine. In the **Source** tab, you can see the files that are at the heart of the Actor. Although there are several of them, just two are important for us now, `main.py` and `requirements.txt`.
 
-First, we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your Actor will use. We will be using the `pandas` package for parsing the downloaded weather data, and the `matplotlib` package for visualizing it. We don't particularly care about the specific versions of these packages, so we just list them in the file:
+First, we'll start with the `requirements.txt` file. Its purpose is to list all the third-party packages that your Actor will use. We will be using the `pandas` package for parsing the downloaded weather data, and the `matplotlib` package for visualizing it. We don't care about versions of these packages, so we list just their names:
 
 ```py
 # Add your dependencies here.
@@ -277,7 +277,7 @@ dataset_client = client.dataset(scraper_run['defaultDatasetId'])
 
 ### Processing the data
 
-Now, we need to load the data from the dataset to a Pandas dataframe. Pandas supports reading data from a CSV file stream, so we just create a stream with the dataset items in the right format and supply it to `pandas.read_csv()`.
+Now, we need to load the data from the dataset to a Pandas dataframe. Pandas supports reading data from a CSV file stream, so we create a stream with the dataset items in the right format and supply it to `pandas.read_csv()`.
 
 ```py
 # Load the dataset items into a pandas dataframe

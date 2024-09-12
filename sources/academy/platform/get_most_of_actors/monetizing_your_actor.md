@@ -128,7 +128,7 @@ To dive deep into numbers for a specific Actor, you can visit the specific Actor
 
 Your paid Actors’ profits are directly related to the amount of paying users you have for your tool. After publishing and monetizing your software, comes a crucial step for your Actor’s success: **attracting users**.
 
-Getting new users can be an art in itself, but there are **two simple steps** you can take to ensure your Actor is getting the attention it deserves.
+Getting new users can be an art in itself, but there are **two proven steps** you can take to ensure your Actor is getting the attention it deserves.
 
 1. **SEO-optimized description and README**
 
@@ -152,7 +152,7 @@ Getting new users can be an art in itself, but there are **two simple steps** yo
 
     Don’t underestimate your own network! Your social media connections can be a valuable ally in promoting your Actor. Not only can they use your tool to enrich their own professional activities, but also support your work by helping you promote your Actor to their network.
 
-    For inspiration, you can check Apify’s [Twitter](https://twitter.com/apify), [Facebook](https://www.facebook.com/apifytech/), and [LinkedIn](https://linkedin.com/company/apifytech) pages, and **don’t forget to tag Apify on your posts** we will retweet and share your posts to help you reach an even broader audience.
+    For inspiration, you can check Apify’s [Twitter](https://twitter.com/apify) or [LinkedIn](https://www.linkedin.com/company/apifytech/) pages, and **don’t forget to tag Apify on your posts** we will retweet and share your posts to help you reach an even broader audience.
 
     - **YouTube**
 

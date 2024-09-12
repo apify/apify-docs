@@ -108,7 +108,7 @@ export const CHEAPEST_ITEM = 'CHEAPEST-ITEM';
 
 ## Code check-in {#code-check-in}
 
-Just to ensure we're all on the same page, here is what the **main.js** file looks like now:
+Here is what the **main.js** file looks like now:
 
 ```js
 // main.js
@@ -232,7 +232,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 
 Don't forget to push your changes to GitHub using `git push origin MAIN_BRANCH_NAME` to see them on the Apify platform!
 
-## Creating a task (It's easy!) {#creating-task}
+## Creating a task {#creating-task}
 
 Back on the platform, on your Actor's page, you can see a button in the top right hand corner that says **Create new task**:
 

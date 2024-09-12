@@ -11,7 +11,7 @@ slug: /web-scraping-for-beginners/challenge/scraping-amazon
 
 ---
 
-In our quick chat about modularity, we finished the code for the results page and added a request for each product to the crawler's **RequestQueue**. Here, we just need to scrape the description, so it shouldn't be too hard:
+In our quick chat about modularity, we finished the code for the results page and added a request for each product to the crawler's **RequestQueue**. Here, we need to scrape the description, so it shouldn't be too hard:
 
 ```js
 // routes.js
@@ -40,7 +40,7 @@ After clicking this button and checking back in Proxyman, we discovered this lin
 https://www.amazon.com/gp/aod/ajax/ref=auto_load_aod?asin=B07ZPKBL9V&pc=dp
 ```
 
-The `asin` [query parameter](https://branch.io/glossary/query-parameters/) matches up with our product's ASIN, which means we can use this for any product of which we have the ASIN.
+The `asin` [query parameter](https://www.branch.io/glossary/query-parameters/) matches up with our product's ASIN, which means we can use this for any product of which we have the ASIN.
 
 Here's what this page looks like:
 
@@ -99,7 +99,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 
 ## Final code {#final-code}
 
-That should be it! Let's just make sure we've all got the same code:
+That should be it! Let's make sure we've all got the same code:
 
 ```js
 // constants.js

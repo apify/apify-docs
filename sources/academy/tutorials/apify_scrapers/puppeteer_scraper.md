@@ -2,7 +2,7 @@
 title: Scraping with Puppeteer Scraper
 menuTitle: Puppeteer Scraper
 description: Learn how to scrape a website using Apify's Puppeteer Scraper. Build an Actor's page function, extract information from a web page and download your data.
-externalSourceUrl: https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/build/puppeteer-scraper-tutorial.md
+externalSourceUrl: https://raw.githubusercontent.com/apify/actor-scraper/master/docs/build/puppeteer-scraper-tutorial.md
 sidebar_position: 4
 slug: /apify-scrapers/puppeteer-scraper
 ---
@@ -19,10 +19,10 @@ because this one builds on topics and code examples discussed there.
 
 ## [](#getting-to-know-our-tools) Getting to know our tools
 
-In the [Getting started with Apify scrapers](https://apify.com/docs/scraping/tutorial/introduction) tutorial, we've confirmed that the scraper works as expected,
+In the [Getting started with Apify scrapers](https://docs.apify.com/academy/apify-scrapers/getting-started) tutorial, we've confirmed that the scraper works as expected,
 so now it's time to add more data to the results.
 
-To do that, we'll be using the [Puppeteer library](https://github.com/GoogleChrome/puppeteer). Puppeteer is a browser
+To do that, we'll be using the [Puppeteer library](https://github.com/puppeteer/puppeteer). Puppeteer is a browser
 automation library that allows you to control a browser using JavaScript. That is, simulate a real human sitting
 in front of a computer, using a mouse and a keyboard. It gives you almost unlimited possibilities, but you need to learn
 quite a lot before you'll be able to use all of its features. We'll walk you through some of the basics of Puppeteer,
@@ -41,11 +41,10 @@ Where Web Scraper only gives you access to in-browser JavaScript and the `pageFu
 in the browser context, Puppeteer Scraper's `pageFunction` is executed in Node.js context, giving you
 much more freedom to bend the browser to your will. You're the puppeteer and the browser is your puppet.
 It's also much easier to work with external APIs, databases or the [Apify SDK](https://sdk.apify.com)
-in the Node.js context. The tradeoff is simple. Power vs simplicity. Web Scraper is simple,
+in the Node.js context. The tradeoff is simplicity vs power. Web Scraper is simple,
 Puppeteer Scraper is powerful (and the [Apify SDK](https://sdk.apify.com) is super-powerful).
 
-> Simply put, Web Scraper's `pageFunction` is just a single
-[page.evaluate()](https://pptr.dev/#?product=Puppeteer&show=api-pageevaluatepagefunction-args) call.
+> In other words, Web Scraper's `pageFunction` is like a single [page.evaluate()](https://pptr.dev/#?product=Puppeteer&show=api-pageevaluatepagefunction-args) call.
 
 Now that's out of the way, let's open one of the Actor detail pages in the Store, for example the Web Scraper page and use our DevTools-Fu to scrape some data.
 
@@ -63,14 +62,14 @@ Before we start, let's do a quick recap of the data we chose to scrape:
    5. **Last modification date** - When the Actor was last modified.
    6. **Number of runs** - How many times the Actor was run.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/scraping-practice.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/scraping-practice.webp)
 
 We've already scraped numbers 1 and 2 in the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started)
 tutorial, so let's get to the next one on the list: title.
 
 ### [](#title) Title
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/title.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/title.webp)
 
 By using the element selector tool, we find out that the title is there under an `<h1>` tag, as titles should be.
 Maybe surprisingly, we find that there are actually two `<h1>` tags on the detail page. This should get us thinking.
@@ -81,7 +80,7 @@ element that we can use to select only the heading we're interested in.
 > their selectors. And always make sure to use the DevTools to verify your scraping process and assumptions. It's faster than changing the crawler
 > code all the time.
 
-To get the title we just need to find it using a `header h1` selector, which selects all `<h1>` elements that have a `<header>` ancestor.
+To get the title we need to find it using a `header h1` selector, which selects all `<h1>` elements that have a `<header>` ancestor.
 And as we already know, there's only one.
 
 ```js
@@ -106,11 +105,10 @@ is automatically passed back to the Node.js context, so we receive an actual `st
 
 ### [](#description) Description
 
-Getting the Actor's description is a little more involved, but still pretty straightforward. We can't just simply search for a `<p>` tag, because
-there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the Actor description is nested within
+Getting the Actor's description is a little more involved, but still pretty straightforward. We cannot search for a `<p>` tag, because there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the Actor description is nested within
 the `<header>` element too, same as the title. Moreover, the actual description is nested inside a `<span>` tag with a class `actor-description`.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/description.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/description.webp)
 
 ```js
 async function pageFunction(context) {
@@ -135,7 +133,7 @@ async function pageFunction(context) {
 
 The DevTools tell us that the `modifiedDate` can be found in a `<time>` element.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/modified-date.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/modified-date.webp)
 
 ```js
 async function pageFunction(context) {
@@ -354,12 +352,12 @@ You nailed it!
 
 ## [](#pagination) Pagination
 
-Pagination is just a term that represents "going to the next page of results". You may have noticed that we did not
+Pagination is a term that represents "going to the next page of results". You may have noticed that we did not
 actually scrape all the Actors, just the first page of results. That's because to load the rest of the Actors,
 one needs to click the **Show more** button at the very bottom of the list. This is pagination.
 
-> This is a typical form of JavaScript pagination, sometimes called infinite scroll. Other pages may just use links
-that take you to the next page. If you encounter those, just make a **Pseudo URL** for those links and they will
+> This is a typical form of JavaScript pagination, sometimes called infinite scroll. Other pages may use links
+that take you to the next page. If you encounter those, make a **Pseudo URL** for those links and they will
 be automatically enqueued to the request queue. Use a label to let the scraper know what kind of URL it's processing.
 
 ### [](#waiting-for-dynamic-content) Waiting for dynamic content
@@ -374,7 +372,6 @@ JavaScript had the time to run.
 At first, you may think that the scraper is broken, but it just cannot wait for all the JavaScript in the page
 to finish executing. For a lot of pages, there's always some JavaScript executing or some network requests being made.
 It would never stop waiting. It is therefore up to you, the programmer, to wait for the elements you need.
-Fortunately, we have an easy solution.
 
 #### The `context.page.waitFor()` function
 
@@ -409,13 +406,13 @@ With those tools, you should be able to handle any dynamic content the website t
 
 ### [](#how-to-paginate)  How to paginate
 
-With the theory out of the way, this should be pretty easy. The algorithm is a loop:
+After going through the theory, let's design the algorithm:
 
-   1. Wait for the **Show more** button.
-   2. Click it.
-   3. Is there another **Show more** button?
-      - Yes? Repeat the above. (loop)
-      - No? We're done. We have all the Actors.
+1. Wait for the **Show more** button.
+2. Click it.
+3. Is there another **Show more** button?
+    - Yes? Repeat from 1. (loop)
+    - No? We're done. We have all the Actors.
 
 #### Waiting for the button
 
@@ -429,9 +426,9 @@ div.show-more > button
 
 > Don't forget to confirm our assumption in the DevTools finder tool (CTRL/CMD + F).
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/waiting-for-the-button.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/waiting-for-the-button.webp)
 
-Now that we know what to wait for, we just plug it into the `waitFor()` function.
+Now that we know what to wait for, we plug it into the `waitFor()` function.
 
 ```js
 await page.waitFor('div.show-more > button');
@@ -483,11 +480,11 @@ async function pageFunction(context) {
 ```
 
 We want to run this until the `waitFor()` function throws, so that's why we use a `while(true)` loop. We're also not
-interested in the error, because we're expecting it, so we just ignore it and print a log message instead.
+interested in the error, because we're expecting it, so we ignore it and print a log message instead.
 
 You might be wondering what's up with the `timeout`. Well, for the first page load, we want to wait longer,
 so that all the page's JavaScript has had a chance to execute, but for the other iterations, the JavaScript is
-already loaded and we're just waiting for the page to re-render so waiting for `2` seconds is enough to confirm
+already loaded and we're waiting for the page to re-render so waiting for `2` seconds is enough to confirm
 that the button is not there. We don't want to stall the scraper for `30` seconds just to make sure that there's
 no button.
 
@@ -579,10 +576,10 @@ async function pageFunction(context) {
 
 That's it! You can now remove the **Max pages per run** limit, **Save & Run** your task and watch the scraper paginate
 through all the Actors and then scrape all of their data. After it succeeds, open the **Dataset** tab again and click on **Preview****. You should have a table of all the Actor's details in front of you. If you do, great job!
-You've successfully scraped Apify Store. And if not, no worries, just go through the code examples again,
-it's probably just some typo.
+You've successfully scraped Apify Store. And if not, no worries, go through the code examples again,
+it's probably just a typo.
 
-![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/plugging-it-into-the-pagefunction.webp)
+![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/plugging-it-into-the-pagefunction.webp)
 
 ## [](#downloading-our-scraped-data) Downloading the scraped data
 
@@ -704,14 +701,13 @@ of JavaScript. It helps you put what matters on top, if you so desire.
 
 If you're familiar with the [jQuery library](https://jquery.com/), you may have looked at the scraping code and thought
 that it's unnecessarily complicated. That's probably up to everyone to decide on their own, but the good news is,
-you can easily use jQuery with Puppeteer Scraper too.
+you can use jQuery with Puppeteer Scraper too.
 
 ### [](#injecting-jquery) Injecting jQuery
 
-To be able to use jQuery, we first need to introduce it to the browser. Fortunately, we have a helper function to
-do just that: [`Apify.utils.puppeteer.injectJQuery`](https://sdk.apify.com/docs/api/puppeteer#puppeteerinjectjquerypage)
+To be able to use jQuery, we first need to introduce it to the browser. The [`Apify.utils.puppeteer.injectJQuery`](https://sdk.apify.com/docs/api/puppeteer#puppeteerinjectjquerypage) function will help us with the task.
 
-> Just a friendly warning. Injecting jQuery into a page may break the page itself, if it expects a specific version
+> Friendly warning: Injecting jQuery into a page may break the page itself, if it expects a specific version
 of jQuery to be available and you override it with an incompatible one. Be careful.
 
 You can either call this function directly in your `pageFunction`, or you can set up jQuery injection in the
@@ -821,13 +817,13 @@ function to run the script in the context of the browser and the return value is
 
 ## [](#final-word) Final word
 
-Thank you for reading this whole tutorial! Really! It's important to us that our users have the best information available to them so that they can use Apify easily and effectively. We're glad that you made it all the way here and congratulations on creating your first scraping task. We hope that you liked the tutorial and if there's anything you'd like to ask, [join us on Discord](https://discord.gg/jyEM2PRvMU)!
+Thank you for reading this whole tutorial! Really! It's important to us that our users have the best information available to them so that they can use Apify effectively. We're glad that you made it all the way here and congratulations on creating your first scraping task. We hope that you liked the tutorial and if there's anything you'd like to ask, [join us on Discord](https://discord.gg/jyEM2PRvMU)!
 
 ## [](#whats-next) What's next?
 
-- Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own Actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
+- Check out the [Apify SDK](https://docs.apify.com/sdk) and its [Getting started](https://docs.apify.com/sdk/js/docs/guides/apify-platform) tutorial if you'd like to try building your own Actors. It's a bit more complex and involved than writing a `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
 - [Take a deep dive into Actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on Actors.
-- Found out you're not into the coding part but would still to use Apify Actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom Actor](https://apify.com/custom-solutions) from an Apify-certified developer.
+- Found out you're not into the coding part but would still to use Apify Actors? Check out our [ready-made solutions](https://apify.com/store) or [order a custom Actor](https://apify.com/contact-sales) from an Apify-certified developer.
 
 
 **Learn how to scrape a website using Apify's Puppeteer Scraper. Build an Actor's page function, extract information from a web page and download your data.**

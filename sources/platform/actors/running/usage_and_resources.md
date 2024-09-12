@@ -13,7 +13,7 @@ slug: /actors/running/usage-and-resources
 
 ## Resources
 
-[Actors](../index.mdx) run in [Docker containers](https://www.docker.com/resources/what-container), which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memory-and-cpu-limit) (memory, CPU, disk size, etc). When starting, the Actor needs to be allocated a certain share of those resources, such as CPU capacity that is necessary for the Actor to run.
+[Actors](../index.mdx) run in [Docker containers](https://www.docker.com/resources/what-container/), which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memory-and-cpu-limit) (memory, CPU, disk size, etc). When starting, the Actor needs to be allocated a certain share of those resources, such as CPU capacity that is necessary for the Actor to run.
 
 ![Setting an Actor's memory](./images/usage_and_resources/memory-settings.png)
 
@@ -80,7 +80,7 @@ Check out our article on [estimating consumption](https://help.apify.com/en/arti
 Each use case has its own memory requirements. The larger and more complex your project, the more memory/CPU power it will require. Some examples which have minimum requirements are:
 
 - Actors using [Puppeteer](https://pptr.dev/) or [Playwright](https://playwright.dev/) for real web browser rendering require at least `1024MB` of memory.
-- Large and complex sites like [Google Maps](https://apify.com/drobnikj/crawler-google-places) require at least `4096MB` for optimal speed and [concurrency](https://crawlee.dev/api/core/class/AutoscaledPool#minConcurrency).
+- Large and complex sites like [Google Maps](https://apify.com/compass/crawler-google-places) require at least `4096MB` for optimal speed and [concurrency](https://crawlee.dev/api/core/class/AutoscaledPool#minConcurrency).
 - Projects involving large amount of data in memory.
 
 ### Maximum memory
@@ -121,13 +121,13 @@ This should be used for informational purposes only.
 
 :::
 
-For detailed information, FAQ, and, pricing check out the [platform pricing page](https://apify.com/pricing/actors).
+For detailed information, FAQ, and, pricing check out the [platform pricing page](https://apify.com/pricing).
 
 ### What is a compute unit
 
 A compute unit (CU) is the unit of measurement for the resources consumed by Actor runs and builds. You are charged for using Actors based on CU consumption.
 
-For example, running an Actor with`1024MB` of allocated memory for 1 hour will consume 1 CU. The cost of this CU depends on your [subscription plan](https://apify.com/pricing/actors#how-does-the-platform-pricing-work).
+For example, running an Actor with`1024MB` of allocated memory for 1 hour will consume 1 CU. The cost of this CU depends on your subscription plan.
 
 You can check each Actor run's exact CU usage in the run's details.
 

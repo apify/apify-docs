@@ -24,7 +24,7 @@ If it's not enabled, click on the **Enable** button. You should see the two-fact
 
 ![Apify Console setup two-factor authentication - app](./images/console-two-factor-app-setup.png)
 
-In this view, you can use your favorite authenticator app to scan the QR code. We recommend using Google Authenticator ([Google Play Store](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_US)/[Apple App Store](https://apps.apple.com/us/app/google-authenticator/id388497605)) or [Authy](https://authy.com/)([Google Play Store](https://play.google.com/store/apps/details?id=com.authy.authy)/[Apple App Store](https://itunes.apple.com/us/app/authy/id494168017) but any other authenticator app should work as well.
+In this view, you can use your favorite authenticator app to scan the QR code. We recommend using Google Authenticator ([Google Play Store](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_US)/[Apple App Store](https://apps.apple.com/us/app/google-authenticator/id388497605)) or [Authy](https://authy.com/)([Google Play Store](https://play.google.com/store/apps/details?id=com.authy.authy)/[Apple App Store](https://apps.apple.com/us/app/twilio-authy/id494168017) but any other authenticator app should work as well.
 
 You can also set up your app/browser extension manually without the QR code. To do that, click on the **Setup key** link below the QR code. This view with the key will pop up:
 
