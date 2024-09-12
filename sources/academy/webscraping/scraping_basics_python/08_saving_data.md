@@ -6,9 +6,6 @@ sidebar_position: 8
 slug: /scraping-basics-python/saving-data
 ---
 
-import Exercises from './_exercises.mdx';
-import Details from '@theme/Details';
-
 **In this lesson, we'll save the data we scraped in the popular formats, such as CSV or JSON. We'll use Python's standard library to export the files.**
 
 ---
