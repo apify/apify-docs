@@ -146,7 +146,7 @@ We may use aggregate information to improve the Website and Services, to monitor
 
 # Territory-Specific Terms
 
-## EEA and the U.K. 
+## EEA and the UK
 
 ### Legal Basis for Processing
 
