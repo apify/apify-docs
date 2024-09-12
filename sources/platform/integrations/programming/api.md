@@ -92,9 +92,11 @@ This is useful if you want to for example create a token that can dynamically cr
 
 ### Permission dependencies
 
-Some permissions have dependencies, that means other permissions which need to be granted as well.
+Some permissions require other permissions to be granted alongside them. These are called _permission dependencies_.
 
-Some of these dependencies are enforced already by the form. You will notice that if you for example try to grant the _Write_ permission to a dataset, the _Read_ permission will be automatically selected as well. In other words, you can only write to a dataset if you can also read from it.
+#### Automatic dependencies
+
+The form enforces certain dependencies automatically. For example, when you grant the _Write_ permission for a dataset, the _Read_ permission is automatically selected. This ensures that you can write to a dataset if you can also read from it.
 
 ![The Write permission depends on Read for a dataset](../images/api-token-scoped-dependencies.png)
 
