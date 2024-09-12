@@ -83,7 +83,7 @@ If you find the complex data structures printed by `print()` difficult to read, 
 
 The CSV format is popular among data analysts because a wide range of tools can import it, including spreadsheets apps like LibreOffice Calc, Microsoft Excel, Apple Numbers, and Google Sheets.
 
-In Python, it's convenient to read and write CSV files, thanks to the [`csv`](https://docs.python.org/3/library/csv.html) standard library module. Let's open Python's interactive REPL and try a small example to understand the basic usage:
+In Python, it's convenient to read and write CSV files, thanks to the [`csv`](https://docs.python.org/3/library/csv.html) standard library module. First let's try something small in the Python's interactive REPL to familiarize ourselves with the basic usage:
 
 ```py
 >>> import csv
@@ -148,7 +148,7 @@ import csv
 import json
 ```
 
-Next, let’s append one more export to the source code of our scraper:
+Next, let’s append one more export to end of the source code of our scraper:
 
 ```py
 with open("products.json", "w") as file:
