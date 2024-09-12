@@ -169,7 +169,7 @@ const browser = await puppeteer.launch({
 </TabItem>
 </Tabs>
 
-However, authentication parameters need to be passed in separately in order to work. In Puppeteer, the username and password need to be passed into the `page.authenticate()` prior to any navigations being made, while in Playwright they can be passed into the **proxy** option object.
+However, authentication parameters need to be passed in separately in order to work. In Puppeteer, the username and password need to be passed to the `page.authenticate()` prior to any navigations being made, while in Playwright they can be passed to the **proxy** option object.
 
 <Tabs groupId="main">
 <TabItem value="Playwright" label="Playwright">
