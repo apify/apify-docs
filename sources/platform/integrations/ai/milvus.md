@@ -15,19 +15,16 @@ toc_max_heading_level: 4
 [Milvus](https://milvus.io/) is an open-source vector database optimized for performing similarity searches on large datasets of high-dimensional vectors.
 Its focus on efficient vector similarity search allows for the creation of powerful and scalable retrieval systems.
 
-The Apify integration for Milvus ([Zilliz](https://cloud.zilliz.com)) allows exporting results from Apify Actors and Dataset items into a Milvus collection.
+The Apify integration for Milvus allows exporting results from Apify Actors and Dataset items into a Milvus collection.
+It can also be connected to a managed Milvus instance on [Zilliz Cloud](https://cloud.zilliz.com).
 
 ## Prerequisites
 
 Before you begin, ensure that you have the following:
 
-- A [Zilliz Cloud](https://cloud.zilliz.com) (a fully managed cloud service for Milvus).
-- The Zilliz database URL, API token, username, and password
+- A Milvus database URL and API token. Optionally, you can use a username and password. You can run Milvus on Docker or Kubernetes, but in this example, we'll use the hosted Milvus service at [Zilliz Cloud](https://cloud.zilliz.com).
 - An [OpenAI API key](https://openai.com/index/openai-api/) to compute text embeddings.
 - An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
-
-
-In this example, we'll use Zilliz Cloud, but you can also use a self-hosted Milvus instance, e.g. using performant Milvus server on docker or kubernetes.
 
 ### How to set up Milvus database
 
