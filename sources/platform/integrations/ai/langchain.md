@@ -127,6 +127,6 @@ LangChain is a standard interface through which you can interact with a variety 
 ## Resources
 
 - https://python.langchain.com/docs/get_started/introduction
+- https://python.langchain.com/docs/integrations/document_loaders/apify_dataset
 - https://python.langchain.com/docs/integrations/providers/apify
-- https://python.langchain.com/docs/integrations/tools/apify
 - https://python.langchain.com/docs/modules/model_io/llms/
