@@ -62,11 +62,11 @@ Once the token is scoped, you can specify the token's permissions.
 
 ![Toggle "Limit token permissions" to make a token scoped](../images/api-token-scoped.png)
 
-### Account level vs resource-specific permissions
+### Account-level vs resource-specific permissions
 
 We support two different types of permissions for tokens:
 
-- **Account level permissions**: These will apply to all resources in the entire account. For example, you can use these to allow the token to run _all_ your Actors.
+- **Account-level permissions**: These will apply to all resources in the entire account. For example, you can use these to allow the token to run _all_ your Actors.
 
 - **Resource-specific permissions**: These will apply only to specific, existing resources. For example, you can use these to allow the token to read from a particular dataset.
 
@@ -76,7 +76,7 @@ A single token can combine both types. You can create a token that can _read_ an
 
 :::
 
-![An example scoped token that combines account level permissions and resource-specific permissions](../images/api-token-scoped-with-combining-permissions.png)
+![An example scoped token that combines account-level permissions and resource-specific permissions](../images/api-token-scoped-with-combining-permissions.png)
 
 ### Allowing tokens to create resources
 
