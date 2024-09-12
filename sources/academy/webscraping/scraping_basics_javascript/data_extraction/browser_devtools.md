@@ -9,9 +9,7 @@ slug: /web-scraping-for-beginners/data-extraction/browser-devtools
 
 ---
 
-Even though DevTools stands for developer tools, everyone can use them to inspect a website. Each major browser has its own DevTools. We will use Chrome DevTools as an example, but the advice is applicable to any browser, as the tools are extremely similar. To open Chrome DevTools, you can press **F12** or right-click anywhere in the page and choose **Inspect**.
-
-Now go to [Wikipedia](https://www.wikipedia.org/) and open your DevTools there. Inspecting the same website as us will make this lesson easier to follow.
+Even though DevTools stands for developer tools, everyone can use them to inspect a website. Each major browser has its own DevTools. We will use Chrome DevTools as an example, but the advice is applicable to any browser, as the tools are extremely similar. To open Chrome DevTools, you can press **F12** or right-click anywhere in the page and choose **Inspect**. Now go to [Wikipedia](https://www.wikipedia.org/) and open your DevTools there.
 
 ![Wikipedia with Chrome DevTools open](./images/browser-devtools-wikipedia.png)
 

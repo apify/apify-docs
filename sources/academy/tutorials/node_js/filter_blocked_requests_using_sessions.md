@@ -23,7 +23,7 @@ You want to crawl a website with a proxy pool, but most of your proxies are bloc
 
 Nobody can make sure that a proxy will work infinitely. The only real solution to this problem is to use [residential proxies](/platform/proxy#residential-proxy), but they can sometimes be too costly.
 
-However, usually, at least some of our proxies work. To crawl successfully, it is therefore imperative to handle blocked requests properly. You first need to discover that you are blocked, which usually means that either your request returned status greater or equal to 400 (it didn't return the proper response) or that the page displayed a captcha. To ensure that this bad request is retried, you usually throw an error and it gets automatically retried later (our [SDK](/sdk/js/) handles this for you). Check out [this article](https://docs.apify.com/academy/node-js/handle-blocked-requests-puppeteer) as inspiration for how to handle this situation with `PuppeteerCrawler`  class.
+However, usually, at least some of our proxies work. To crawl successfully, it is therefore imperative to handle blocked requests properly. You first need to discover that you are blocked, which usually means that either your request returned status greater or equal to 400 (it didn't return the proper response) or that the page displayed a captcha. To ensure that this bad request is retried, you usually throw an error and it gets automatically retried later (our [SDK](/sdk/js/) handles this for you). Check out [this article](https://docs.apify.com/academy/node-js/handle-blocked-requests-puppeteer) as inspiration for how to handle this situation with `PuppeteerCrawler` class.
 
 ### Solution
 
