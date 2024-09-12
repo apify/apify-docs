@@ -100,7 +100,9 @@ The form enforces certain dependencies automatically. For example, when you gran
 
 ![The Write permission depends on Read for a dataset](../images/api-token-scoped-dependencies.png)
 
-However, other dependencies are more complicated, and **it is your responsibility that the token is set up correctly**. Specifically:
+#### Manual dependencies
+
+Other dependencies are more complicated, and **it is your responsibility that the token is set up correctly**. Specifically:
 
 - To create or update a Schedule, the token needs access not only to the Schedule itself, but also to the Actor or task that is being scheduled.
 - Similarly, to create or update a task, the token needs the additional permission to access the task's Actor itself.
