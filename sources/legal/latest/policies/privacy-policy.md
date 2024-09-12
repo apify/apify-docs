@@ -31,7 +31,8 @@ This Privacy Policy also does not apply to personal data about current and forme
 
 **PLEASE READ THIS PRIVACY POLICY CAREFULLY TO UNDERSTAND HOW WE HANDLE YOUR PERSONAL DATA. IF YOU DO NOT AGREE TO THIS PRIVACY POLICY, PLEASE DO NOT USE THE SERVICES.**
 
-# Table of Contents 
+# Table of Contents
+
 [Personal Data We Collect](#personal-data-we-collect)  
 [How We Use Your Personal Data](#how-we-use-your-personal-data)  
 [How We Disclose Your Personal Data](#how-we-disclose-your-personal-data)  
@@ -145,7 +146,7 @@ We may use aggregate information to improve the Website and Services, to monitor
 
 # Territory-Specific Terms
 
-## EEA and the U.K.
+## EEA and the U.K. 
 
 ### Legal Basis for Processing
 
