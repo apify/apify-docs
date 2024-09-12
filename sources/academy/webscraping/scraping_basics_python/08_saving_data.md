@@ -28,7 +28,7 @@ We should use widely popular formats that have well-defined solutions for all th
 
 ## Collecting data
 
-To export data in a certain format, we first need to store it all in one variable. Let's make three changes to our program:
+Producing results line by line is a good approach to writing efficient programs, but to simplify this lesson, we'll store all our data in one variable. This'll take three changes to our program:
 
 ```py
 from decimal import Decimal
@@ -122,7 +122,7 @@ from bs4 import BeautifulSoup
 import csv
 ```
 
-Then instead of printing the data, we'll end our program with an export to CSV:
+Then instead of printing the data, we'll end our program with an export to CSV. Replace `print(data)` with the following:
 
 ```py
 with open("products.csv", "w") as file:
@@ -203,4 +203,45 @@ Also, if your data contain non-English characters, set `ensure_ascii=False`. The
 
 ---
 
-<Exercises />
+## Exercises
+
+In this lesson you learned how to create export files in two formats. The following challenges are here to help you with empathy to the people who would working with them.
+
+### Process your CSV
+
+Open the `products.csv` file in a spreadsheet app. Use the app to find all products with min price greater than $500.
+
+<details>
+  <summary>Solution</summary>
+
+  Let's use [Google Sheets](https://www.google.com/sheets/about/), which is free to use. After logging in with a Google account:
+
+  1. Go to **File > Import**. Choose **Upload** and select the file. Import the data with default settings. You should see a table with all the data.
+  2. Select the header row. Go to **Data > Create filter**.
+  3. Use the filter icon which appears next to `min_price`. Choose **Filter by condition**, select **Greater than**. Put **500** to the text field and confirm the dialog. You should see the data filtered.
+
+  ![CSV in Google Sheets](images/csv-sheets.png)
+
+</details>
+
+### Process your JSON
+
+Write a new Python program which reads `products.json`, finds all products with min price greater than $500, and prints each of those with [`pp()`](https://docs.python.org/3/library/pprint.html#pprint.pp).
+
+<details>
+  <summary>Solution</summary>
+
+  ```py
+  import json
+  from pprint import pp
+  from decimal import Decimal
+
+  with open("products.json", "r") as file:
+      products = json.load(file)
+
+  for product in products:
+      if Decimal(product["min_price"]) > 500:
+          pp(product)
+  ```
+
+</details>
