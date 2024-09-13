@@ -237,7 +237,7 @@ In the code above we've also already added the URL to the dictionary returned by
 
 Hmm, but that isn't what we wanted! Where is the beginning of each URL? It turns out the HTML contains so called relative links.
 
-## Processing relative links
+## Turning relative links into absolute
 
 Browsers reading the HTML know the base address and automatically resolve such links, but we'll have to do this manually. Function [`urljoin`](https://docs.python.org/3/library/urllib.parse.html#urllib.parse.urljoin) from the Python's standard library will help us. Let's add it to our imports first:
 
