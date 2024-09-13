@@ -302,14 +302,91 @@ Ta-da! We've managed to get links leading to the product pages. In the next less
 
 <Exercises />
 
-### TODO
+### Scrape links to countries in Africa
 
-TODO
+Download Wikipedia's page with the list of African countries, use Beautiful Soup to parse it, and print links to Wikipedia pages of all the states and territories mentioned in all tables. Start with this URL:
 
-### TODO
+```text
+https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
+```
 
-TODO
+Your program should print the following:
 
-### TODO
+```text
+https://en.wikipedia.org/wiki/Algeria
+https://en.wikipedia.org/wiki/Angola
+https://en.wikipedia.org/wiki/Benin
+https://en.wikipedia.org/wiki/Botswana
+...
+```
 
-TODO
+<details>
+  <summary>Solution</summary>
+
+  ```py
+  import httpx
+  from bs4 import BeautifulSoup
+  from urllib.parse import urljoin
+
+  listing_url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
+  response = httpx.get(listing_url)
+  response.raise_for_status()
+
+  html_code = response.text
+  soup = BeautifulSoup(html_code, "html.parser")
+
+  for name_cell in soup.select(".wikitable tr td:nth-child(3)"):
+      link = name_cell.select_one("a")
+      url = urljoin(listing_url, link["href"])
+      print(url)
+  ```
+
+</details>
+
+### Scrape links to F1 news
+
+Download Guardian's page with the latest F1 news, use Beautiful Soup to parse it, and print links to all the listed articles. Start with this URL:
+
+```text
+https://www.theguardian.com/sport/formulaone
+```
+
+Your program should print something like the following:
+
+```text
+https://www.theguardian.com/world/2024/sep/13/africa-f1-formula-one-fans-lewis-hamilton-grand-prix
+https://www.theguardian.com/sport/2024/sep/12/mclaren-lando-norris-oscar-piastri-team-orders-f1-title-race-max-verstappen
+https://www.theguardian.com/sport/article/2024/sep/10/f1-designer-adrian-newey-signs-aston-martin-deal-after-quitting-red-bull
+https://www.theguardian.com/sport/article/2024/sep/02/max-verstappen-damns-his-undriveable-monster-how-bad-really-is-it-and-why
+...
+```
+
+<details>
+  <summary>Solution</summary>
+
+  ```py
+  import httpx
+  from bs4 import BeautifulSoup
+  from urllib.parse import urljoin
+
+  url = "https://www.theguardian.com/sport/formulaone"
+  response = httpx.get(url)
+  response.raise_for_status()
+
+  html_code = response.text
+  soup = BeautifulSoup(html_code, "html.parser")
+
+  for item in soup.select("#maincontent ul li"):
+      link = item.select_one("a")
+      url = urljoin(url, link["href"])
+      print(url)
+  ```
+
+  Note that some cards contain two links. One leads to the article, and one to the comments. If we selected all the links in the list by `#maincontent ul li a`, we would get incorrect output like this:
+
+  ```text
+  https://www.theguardian.com/sport/article/2024/sep/02/example
+  https://www.theguardian.com/sport/article/2024/sep/02/example#comments
+  ```
+
+</details>
