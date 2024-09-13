@@ -128,7 +128,7 @@ def export_csv(file, data):
 
 :::note Fragile code
 
-The code above assumes that the data variable contains at least one item, and that all the items have the same keys. This isn't robust and could break, but in our program this isn't a problem and omitting these corner cases allows us to keep the code examples more succint.
+The code above assumes that the `data` variable contains at least one item, and that all the items have the same keys. This isn't robust and could break, but in our program this isn't a problem and omitting these corner cases allows us to keep the code examples more succint.
 
 :::
 
@@ -185,3 +185,27 @@ We turned the whole program upside down, and at the same time, we didn’t make 
 ![Refactoring](images/refactoring.gif)
 
 :::
+
+## Locating links
+
+TODO
+
+## Extracting links
+
+TODO
+
+---
+
+<Exercises />
+
+### TODO
+
+TODO
+
+### TODO
+
+TODO
+
+### TODO
+
+TODO
