@@ -23,9 +23,9 @@ We'll use a technique called crawling, i.e. following links to scrape multiple p
 1. Visit the start URL.
 1. Extract new URLs (and data), and save them.
 1. Visit one of the newly found URLs and save data and/or more URLs from it.
-1. Repeat 2 and 3 until you have everything you need.
+1. Repeat steps 2 and 3 until you have everything you need.
 
-This will help us figure out the actual prices of products, as right now, for some, we're only getting the min price. Implementing the algorithm would require quite a few changes to our code though.
+This will help us figure out the actual prices of products, as right now, for some, we're only getting the min price. Implementing the algorithm will require quite a few changes to our code, though.
 
 ## Restructuring code
 
@@ -81,7 +81,7 @@ with open("products.json", "w") as file:
     json.dump(data, file, default=serialize)
 ```
 
-Let's introduce several functions which will make the whole thing easier to digest. First, we can turn the beginning of our program into this `download()` function, which takes a URL and returns a `BeautifulSoup` instance:
+Let's introduce several functions to make the whole thing easier to digest. First, we can turn the beginning of our program into this `download()` function, which takes a URL and returns a `BeautifulSoup` instance:
 
 ```py
 def download(url):
@@ -92,7 +92,7 @@ def download(url):
     return BeautifulSoup(html_code, "html.parser")
 ```
 
-Next, we can put parsing to a `parse_product()` function, which takes the product item element, and returns the dictionary with data:
+Next, we can put parsing into a `parse_product()` function, which takes the product item element and returns the dictionary with data:
 
 ```py
 def parse_product(product):
@@ -116,7 +116,7 @@ def parse_product(product):
     return {"title": title, "min_price": min_price, "price": price}
 ```
 
-Now the CSV export. We'll make a small change here. Having to specify the field names here is not ideal. What if we add more field names in the parsing function? We'd have to always remember we need to go and edit the export function as well. If we could figure out the field names in place, we'd remove this dependency. One way would be to infer the field names from dictionary keys of the first row:
+Now the CSV export. We'll make a small change here. Having to specify the field names is not ideal. What if we add more field names in the parsing function? We'd always have to remember to go and edit the export function as well. If we could figure out the field names in place, we'd remove this dependency. One way would be to infer the field names from the dictionary keys of the first row:
 
 ```py
 def export_csv(file, data):
@@ -130,11 +130,11 @@ def export_csv(file, data):
 
 :::note Fragile code
 
-The code above assumes that the `data` variable contains at least one item, and that all the items have the same keys. This isn't robust and could break, but in our program this isn't a problem and omitting these corner cases allows us to keep the code examples more succinct.
+The code above assumes the `data` variable contains at least one item, and that all the items have the same keys. This isn't robust and could break, but in our program, this isn't a problem, and omitting these corner cases allows us to keep the code examples more succinct.
 
 :::
 
-Last function we'll add will take care of the JSON export. For better readability of the JSON export, let's make a small change here too, and set the indentation level to two spaces:
+The last function we'll add will take care of the JSON export. For better readability of the JSON export, let's make a small change here too and set the indentation level to two spaces:
 
 ```py
 def export_json(file, data):
@@ -179,11 +179,11 @@ with open("products.json", "w") as file:
     export_json(file, data)
 ```
 
-The program is much easier to read now. With the `parse_product()` function handy we could also replace the convoluted loop with a [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions).
+The program is much easier to read now. With the `parse_product()` function handy, we could also replace the convoluted loop with a [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions).
 
 :::tip Refactoring
 
-We turned the whole program upside down, and at the same time, we didn’t make any actual changes! This is [refactoring](https://en.wikipedia.org/wiki/Code_refactoring): improving the structure of existing code without changing its behavior.
+We turned the whole program upside down, and at the same time, we didn't make any actual changes! This is [refactoring](https://en.wikipedia.org/wiki/Code_refactoring): improving the structure of existing code without changing its behavior.
 
 ![Refactoring](images/refactoring.gif)
 
@@ -191,17 +191,17 @@ We turned the whole program upside down, and at the same time, we didn’t make 
 
 ## Extracting links
 
-With everything in place, we can now start working towards a scraper which scrapes also the product pages. For that we'll need links of those pages. Let's open browser DevTools and remind ourselves about the structure of a single product item:
+With everything in place, we can now start working on a scraper that also scrapes the product pages. For that, we'll need the links to those pages. Let's open the browser DevTools and remind ourselves of the structure of a single product item:
 
 ![Product card's child elements](./images/child-elements.png)
 
-Several ways how to transition from one page to another exist, but the most common one is a link tag, which looks like this:
+Several methods exist for transitioning from one page to another, but the most common is a link tag, which looks like this:
 
 ```html
 <a href="https://example.com">Text of the link</a>
 ```
 
-In DevTools we can see that each product title is in fact also a link tag. We already locate the titles, so that makes our task easier. We only need to modify the code in a way that it extracts not only the text of the element, but also the `href` attribute. Beautiful Soup elements support accessing attributes as if they were dictionary keys:
+In DevTools, we can see that each product title is, in fact, also a link tag. We already locate the titles, so that makes our task easier. We just need to edit the code so that it extracts not only the text of the element but also the `href` attribute. Beautiful Soup elements support accessing attributes as if they were dictionary keys:
 
 ```py
 def parse_product(product):
@@ -214,7 +214,7 @@ def parse_product(product):
     return {"title": title, "min_price": min_price, "price": price, "url": url}
 ```
 
-In the code above we've also already added the URL to the dictionary returned by the function. If we run the scraper now, it should produce exports where each product contains also a link to its product page:
+In the code above, we've also added the URL to the dictionary returned by the function. If we run the scraper now, it should produce exports where each product contains a link to its product page:
 
 <!-- eslint-skip -->
 ```json title=products.json
@@ -235,11 +235,11 @@ In the code above we've also already added the URL to the dictionary returned by
 ]
 ```
 
-Hmm, but that isn't what we wanted! Where is the beginning of each URL? It turns out the HTML contains so called relative links.
+Hmm, but that isn't what we wanted! Where is the beginning of each URL? It turns out the HTML contains so-called relative links.
 
 ## Turning relative links into absolute
 
-Browsers reading the HTML know the base address and automatically resolve such links, but we'll have to do this manually. Function [`urljoin`](https://docs.python.org/3/library/urllib.parse.html#urllib.parse.urljoin) from the Python's standard library will help us. Let's add it to our imports first:
+Browsers reading the HTML know the base address and automatically resolve such links, but we'll have to do this manually. The function [`urljoin`](https://docs.python.org/3/library/urllib.parse.html#urllib.parse.urljoin) from Python's standard library will help us. Let's add it to our imports first:
 
 ```py
 import httpx
@@ -251,7 +251,7 @@ import json
 from urllib.parse import urljoin
 ```
 
-Next, we'll change the `parse_product()` function so that it also takes the base URL as an argument, and then joins it with the relative URL to the product page:
+Next, we'll change the `parse_product()` function so that it also takes the base URL as an argument and then joins it with the relative URL to the product page:
 
 ```py
 # highlight-next-line
@@ -296,7 +296,7 @@ When we run the scraper now, we should see full URLs in our exports:
 ]
 ```
 
-Ta-da! We managed to get links leading to the product pages. In the next lesson we'll crawl these URLs so that we can have more details about the products in our dataset.
+Ta-da! We've managed to get links leading to the product pages. In the next lesson, we'll crawl these URLs so that we can gather more details about the products in our dataset.
 
 ---
 
