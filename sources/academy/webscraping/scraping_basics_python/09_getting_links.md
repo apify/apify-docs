@@ -12,22 +12,24 @@ import Exercises from './_exercises.mdx';
 
 ---
 
-The previous lesson concludes our effort to create a scraper. Our program now downloads HTML, locates and extracts data from the markup, and saves the data in a structured and reusable way. For some use cases, this is already enough! In other cases, though, scraping just one page is hardly useful. The data is spread across the website, over several pages.
+The previous lesson concludes our effort to create a scraper. Our program now downloads HTML, locates and extracts data from the markup, and saves the data in a structured and reusable way.
 
-## Following links
+For some use cases, this is already enough! In other cases, though, scraping just one page is hardly useful. The data is spread across the website, over several pages.
 
-We'll use a technique called crawling, i.e. following links and scraping multiple pages. The algorithm goes like this:
+## Crawling websites
+
+We'll use a technique called crawling, i.e. following links to scrape multiple pages. The algorithm goes like this:
 
 1. Visit the start URL.
 1. Extract new URLs (and data), and save them.
 1. Visit one of the newly found URLs and save data and/or more URLs from it.
 1. Repeat 2 and 3 until you have everything you need.
 
-This will help us figure out the actual prices of products, as right now, for some, we're only getting the min price.
+This will help us figure out the actual prices of products, as right now, for some, we're only getting the min price. Implementing the algorithm would require quite a few changes to our code though.
 
-## Introducing functions
+## Restructuring code
 
-Implementing the algorithm requires quite a few changes to our code. However, over the course of the previous lessons, the code of our program grew to almost 50 lines containing downloading, parsing, and exporting:
+Over the course of the previous lessons, the code of our program grew to almost 50 lines containing downloading, parsing, and exporting:
 
 ```py
 from decimal import Decimal
@@ -132,7 +134,7 @@ The code above assumes that the `data` variable contains at least one item, and 
 
 :::
 
-Last function we'll add will take care of the JSON export:
+Last function we'll add will take care of the JSON export. For better readability of the JSON export, let's make a small change here too, and set the indentation level to two spaces:
 
 ```py
 def export_json(file, data):
@@ -141,7 +143,8 @@ def export_json(file, data):
             return str(obj)
         raise TypeError("Object not JSON serializable")
 
-    json.dump(data, file, default=serialize)
+    # highlight-next-line
+    json.dump(data, file, default=serialize, indent=2)
 ```
 
 Now let's put it all together:
@@ -165,9 +168,9 @@ def export_csv(file, data):
 def export_json(file, data):
     ...
 
-url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-soup = download(url)
-data = [parse_product(product) in soup.select(".product-item")]
+listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+soup = download(listing_url)
+data = [parse_product(product) for product in soup.select(".product-item")]
 
 with open("products.csv", "w") as file:
     export_csv(file, data)
@@ -186,13 +189,75 @@ We turned the whole program upside down, and at the same time, we didn’t make 
 
 :::
 
-## Locating links
-
-TODO
-
 ## Extracting links
 
-TODO
+With everything in place, we can now start working towards a scraper which scrapes also the product pages. For that we'll need links of those pages. Let's open browser DevTools and remind ourselves about the structure of a single product item:
+
+![Product card's child elements](./images/child-elements.png)
+
+Several ways how to transition from one page to another exist, but the most common one is a link tag, which looks like this:
+
+```html
+<a href="https://example.com">Text of the link</a>
+```
+
+In DevTools we can see that each product title is in fact also a link tag. We already locate the titles, so that makes our task easier. We only need to modify the code in a way that it extracts not only the text of the element, but also the `href` attribute. Beautiful Soup elements support accessing attributes as if they were dictionary keys:
+
+```py
+def parse_product(product):
+    # highlight-next-line
+    title_element = product.select_one(".product-item__title")
+    # highlight-next-line
+    title = title_element.text.strip()
+    # highlight-next-line
+    url = title_element["href"]
+
+    price_text = (
+        product
+        .select_one(".price")
+        .contents[-1]
+        .strip()
+        .replace("$", "")
+        .replace(",", "")
+    )
+    if price_text.startswith("From "):
+        min_price = Decimal(price_text.removeprefix("From "))
+        price = None
+    else:
+        min_price = Decimal(price_text)
+        price = min_price
+
+    # highlight-next-line
+    return {"title": title, "min_price": min_price, "price": price, "url": url}
+```
+
+In the code above we've also already added the URL to the dictionary returned by the function. If we run the scraper now, it should produce exports where each product contains also a link to its product page:
+
+```json
+[
+  {
+    "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
+    "min_price": "74.95",
+    "price": "74.95",
+    "url": "/products/jbl-flip-4-waterproof-portable-bluetooth-speaker"
+  },
+  {
+    "title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV",
+    "min_price": "1398.00",
+    "price": null,
+    "url": "/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv"
+  },
+  ...
+]
+```
+
+Hmm, but that isn't what we wanted! Where is the beginning of each URL? It turns out the HTML contains so called relative links.
+
+## Processing relative links
+
+Browsers reading the HTML know the base address and automatically resolve such links, but we'll have to do this manually.
+
+...
 
 ---
 
