@@ -180,6 +180,8 @@ The program is much easier to read now. With the `parse_product()` function hand
 
 :::tip Refactoring
 
-We restructured existing code without changing its behavior to improve its structure. This process has a name: [refactoring](https://en.wikipedia.org/wiki/Code_refactoring).
+We turned the whole program upside down, and at the same time, we didn’t make any actual changes! This is [refactoring](https://en.wikipedia.org/wiki/Code_refactoring): improving the structure of existing code without changing its behavior.
+
+![Refactoring](images/refactoring.gif)
 
 :::
