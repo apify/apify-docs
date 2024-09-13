@@ -217,7 +217,7 @@ def parse_product(product):
 In the code above we've also already added the URL to the dictionary returned by the function. If we run the scraper now, it should produce exports where each product contains also a link to its product page:
 
 <!-- eslint-skip -->
-```json
+```json title=products.json
 [
   {
     "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
@@ -277,7 +277,7 @@ data = [parse_product(product, listing_url) for product in soup.select(".product
 When we run the scraper now, we should see full URLs in our exports:
 
 <!-- eslint-skip -->
-```json
+```json title=products.json
 [
   {
     "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
