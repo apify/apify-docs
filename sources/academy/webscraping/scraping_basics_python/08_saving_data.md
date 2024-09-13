@@ -97,7 +97,7 @@ In Python, it's convenient to read and write CSV files, thanks to the [`csv`](ht
 
 We first opened a new file for writing and created a `DictWriter()` instance with the expected field names. We instructed it to write the header row first and then added two more rows containing actual data. The code produced a `data.csv` file in the same directory where we're running the REPL. It has the following contents:
 
-```csv filename=data.csv
+```csv title=data.csv
 name,age,hobbies
 Alice,24,"kickbox, Python"
 Bob,42,"reading, TypeScript"
@@ -180,7 +180,7 @@ with open("products.json", "w") as file:
 Now the program should work as expected, producing a JSON file with the following content:
 
 <!-- eslint-skip -->
-```json filename=products.json
+```json title=products.json
 [{"title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker", "min_price": "74.95", "price": "74.95"}, {"title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV", "min_price": "1398.00", "price": null}, ...]
 ```
 
