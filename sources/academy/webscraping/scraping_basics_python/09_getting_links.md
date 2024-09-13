@@ -271,6 +271,7 @@ Now we'll pass the base URL to the function in the main body of our program:
 ```py
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 soup = download(listing_url)
+# highlight-next-line
 data = [parse_product(product, listing_url) for product in soup.select(".product-item")]
 ```
 
@@ -295,7 +296,7 @@ When we run the scraper now, we should see full URLs in our exports:
 ]
 ```
 
-Tada! We managed to get links to the product pages. In the next lesson we'll crawl these URLs so that we can have more details about the products in our dataset.
+Ta-da! We managed to get links leading to the product pages. In the next lesson we'll crawl these URLs so that we can have more details about the products in our dataset.
 
 ---
 
