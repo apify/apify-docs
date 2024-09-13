@@ -28,9 +28,9 @@ We should use widely popular formats that have well-defined solutions for all th
 Producing results line by line is an efficient approach to handling large datasets, but to simplify this lesson, we'll store all our data in one variable. This'll take three changes to our program:
 
 ```py
-from decimal import Decimal
 import httpx
 from bs4 import BeautifulSoup
+from decimal import Decimal
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 response = httpx.get(url)
@@ -112,9 +112,9 @@ When browsing the directory on macOS, we can see a nice preview of the file's co
 Now that's nice, but we didn't want Alice, Bob, kickbox, or TypeScript. What we actually want is a CSV containing `Sony XBR-950G BRAVIA 4K HDR Ultra HD TV`, right? Let's do this! First, let's add `csv` to our imports:
 
 ```py
-from decimal import Decimal
 import httpx
 from bs4 import BeautifulSoup
+from decimal import Decimal
 # highlight-next-line
 import csv
 ```
@@ -140,9 +140,9 @@ The JSON format is popular primarily among developers. We use it for storing dat
 In Python, there's a [`json`](https://docs.python.org/3/library/json.html) standard library module, which is so straightforward that we can start using it in our code right away. We'll need to begin with imports:
 
 ```py
-from decimal import Decimal
 import httpx
 from bs4 import BeautifulSoup
+from decimal import Decimal
 import csv
 # highlight-next-line
 import json
