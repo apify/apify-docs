@@ -32,9 +32,9 @@ This will help us figure out the actual prices of products, as right now, for so
 Over the course of the previous lessons, the code of our program grew to almost 50 lines containing downloading, parsing, and exporting:
 
 ```py
-from decimal import Decimal
 import httpx
 from bs4 import BeautifulSoup
+from decimal import Decimal
 import csv
 import json
 
@@ -150,9 +150,9 @@ def export_json(file, data):
 Now let's put it all together:
 
 ```py
-from decimal import Decimal
 import httpx
 from bs4 import BeautifulSoup
+from decimal import Decimal
 import csv
 import json
 
@@ -205,29 +205,12 @@ In DevTools we can see that each product title is in fact also a link tag. We al
 
 ```py
 def parse_product(product):
-    # highlight-next-line
     title_element = product.select_one(".product-item__title")
-    # highlight-next-line
     title = title_element.text.strip()
-    # highlight-next-line
     url = title_element["href"]
 
-    price_text = (
-        product
-        .select_one(".price")
-        .contents[-1]
-        .strip()
-        .replace("$", "")
-        .replace(",", "")
-    )
-    if price_text.startswith("From "):
-        min_price = Decimal(price_text.removeprefix("From "))
-        price = None
-    else:
-        min_price = Decimal(price_text)
-        price = min_price
+    ...
 
-    # highlight-next-line
     return {"title": title, "min_price": min_price, "price": price, "url": url}
 ```
 
@@ -255,9 +238,62 @@ Hmm, but that isn't what we wanted! Where is the beginning of each URL? It turns
 
 ## Processing relative links
 
-Browsers reading the HTML know the base address and automatically resolve such links, but we'll have to do this manually.
+Browsers reading the HTML know the base address and automatically resolve such links, but we'll have to do this manually. Function [`urljoin`](https://docs.python.org/3/library/urllib.parse.html#urllib.parse.urljoin) from the Python's standard library will help us. Let's add it to our imports first:
 
-...
+```py
+import httpx
+from bs4 import BeautifulSoup
+from decimal import Decimal
+import csv
+import json
+# highlight-next-line
+from urllib.parse import urljoin
+```
+
+Next, we'll change the `parse_product()` function so that it also takes the base URL as an argument, and then joins it with the relative URL to the product page:
+
+```py
+# highlight-next-line
+def parse_product(product, base_url):
+    title_element = product.select_one(".product-item__title")
+    title = title_element.text.strip()
+    # highlight-next-line
+    url = urljoin(base_url, title_element["href"])
+
+    ...
+
+    return {"title": title, "min_price": min_price, "price": price, "url": url}
+```
+
+Now we'll pass the base URL to the function in the main body of our program:
+
+```py
+listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
+soup = download(listing_url)
+data = [parse_product(product, listing_url) for product in soup.select(".product-item")]
+```
+
+When we run the scraper now, we should see full URLs in our exports:
+
+```json
+[
+  {
+    "title": "JBL Flip 4 Waterproof Portable Bluetooth Speaker",
+    "min_price": "74.95",
+    "price": "74.95",
+    "url": "https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker"
+  },
+  {
+    "title": "Sony XBR-950G BRAVIA 4K HDR Ultra HD TV",
+    "min_price": "1398.00",
+    "price": null,
+    "url": "https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv"
+  },
+  ...
+]
+```
+
+Tada! We managed to get links to the product pages. In the next lesson we'll crawl these URLs so that we can have more details about the products in our dataset.
 
 ---
 
