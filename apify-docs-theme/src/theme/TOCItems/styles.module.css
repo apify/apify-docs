@@ -1,0 +1,12 @@
+.apifyTocLink {
+    display: block;
+}
+
+.apifyTocLink::before {
+    display: block;
+    content: attr(data-label);
+    font-weight: 700;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}

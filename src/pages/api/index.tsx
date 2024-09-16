@@ -222,7 +222,7 @@ const { items } = await client.dataset(defaultDatasetId).listItems();
                                         The official library to interact with Apify API from a Python applications.
                                         <GitButton href="https://github.com/apify/apify-client-python" data-size="large" data-show-count="true">Star</GitButton>
                                         <div className="DescriptionLinks">
-                                            <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/python/docs/quick-start'>Get started</Button>
+                                            <Button color="success" hideExternalIcon to='https://docs.apify.com/api/client/python/docs'>Get started</Button>
                                             <ActionLink hideExternalIcon to='https://docs.apify.com/api/client/python/reference'>Python client reference</ActionLink>
                                         </div>
                                     </div>}

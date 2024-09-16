@@ -28,7 +28,7 @@ In the root of our project, we'll create a file named **INPUT_SCHEMA.json** and 
 }
 ```
 
-The **title** and **description** simply describe what the input schema is for, and a bit about what the Actor itself does.
+The **title** and **description** describe what the input schema is for, and a bit about what the Actor itself does.
 
 ## Properties {#properties}
 
@@ -102,7 +102,7 @@ Here is what the input schema we wrote will render on the platform:
 
 ![Rendered UI from input schema](./images/rendered-ui.png)
 
-Later on, we'll be building more complex input schemas, as well as discussing how to write quality input schemas that allow the user to easily understand the Actor and not become overwhelmed.
+Later on, we'll be building more complex input schemas, as well as discussing how to write quality input schemas that allow the user to understand the Actor and not become overwhelmed.
 
 It's not expected to memorize all of the fields that properties can take or the different editor types available, which is why it's always good to reference the [input schema documentation](/platform/actors/development/actor-definition/input-schema) when writing a schema.
 

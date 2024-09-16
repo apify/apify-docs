@@ -20,7 +20,7 @@ We recommend that you make sure you've gone through both the [data extraction](.
 Before continuing, it is highly recommended to do the following:
 
 - Look over [how to build a crawler in Crawlee](https://crawlee.dev/docs/introduction/first-crawler) and ideally **code along**.
-- Read [this short article](https://help.apify.com/en/articles/1829103-request-labels-and-how-to-pass-data-to-other-requests) about [**request labels**](https://crawlee.dev/api/core/class/Request#label) (this will be extremely useful later on).
+- Read [this short article](https://docs.apify.com/academy/node-js/request-labels-in-apify-actors) about [**request labels**](https://crawlee.dev/api/core/class/Request#label) (this will be extremely useful later on).
 - Check out [this tutorial](../../../tutorials/node_js/dealing_with_dynamic_pages.md) about dynamic pages.
 - Read about the [RequestQueue](https://crawlee.dev/api/core/class/RequestQueue).
 
@@ -85,4 +85,4 @@ From this course, you should have all the knowledge to build this scraper by you
 
 The challenge can be completed using either [CheerioCrawler](https://crawlee.dev/api/cheerio-crawler/class/CheerioCrawler) or [PlaywrightCrawler](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler). Playwright is significantly slower but doesn't get blocked as much. You will learn the most by implementing both.
 
-Let's start off this section easy by [initializing and setting up](./initializing_and_setting_up.md) our project with the Crawlee CLI (don't worry, no additional installation is required).
+Let's start off this section by [initializing and setting up](./initializing_and_setting_up.md) our project with the Crawlee CLI (don't worry, no additional installation is required).

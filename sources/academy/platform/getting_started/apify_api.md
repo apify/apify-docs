@@ -39,7 +39,7 @@ Our **adding-actor** takes in two input values (`num1` and `num2`). When using t
 
 ## Parameters {#parameters}
 
-Let's say we want to run our **adding-actor** via API and view its results in CSV format at the end. We'll achieve this by simply passing the **format** parameter with a value of **csv** to change the output format:
+Let's say we want to run our **adding-actor** via API and view its results in CSV format at the end. We'll achieve this by passing the **format** parameter with a value of **csv** to change the output format:
 
 ```text
 https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv
@@ -47,7 +47,7 @@ https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync-get-dataset-it
 
 Additional parameters can be passed to this endpoint. You can learn about them [here](/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items)
 
-> Note: It is safer to put your API token in the **Authorization** header like so: `Authorization: Bearer YOUR_TOKEN`. This is very easy to configure in popular HTTP clients, such as [Postman](../../glossary/tools/postman.md), [Insomnia](../../glossary/tools/insomnia.md).
+> Network components can record visited URLs, so it's more secure to send the token as a HTTP header, not as a parameter. The header should look like `Authorization: Bearer YOUR_TOKEN`. Popular HTTP clients, such as [Postman](../../glossary/tools/postman.md) or [Insomnia](../../glossary/tools/insomnia.md), provide a convenient way to configure the Authorization header for all your API requests.
 
 ## Sending the request {#sending-the-request}
 
@@ -69,7 +69,7 @@ What we've done in this lesson only scratches the surface of what the Apify API 
 
 ## Next up {#next}
 
-[Next up](./apify_client.md), we'll be learning about how to use Apify's JavaScript and Python clients to easily interact with the API right within our code.
+[Next up](./apify_client.md), we'll be learning about how to use Apify's JavaScript and Python clients to interact with the API right within our code.
 
 <!-- Note: From the previous version of this lesson, some now unused but useful images still remain.
 

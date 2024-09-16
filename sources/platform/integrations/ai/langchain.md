@@ -45,7 +45,7 @@ os.environ["APIFY_API_TOKEN"] = "Your Apify API token"
 
 Run the Actor, wait for it to finish, and fetch its results from the Apify dataset into a LangChain document loader.
 
-Note that if you already have some results in an Apify dataset, you can load them directly using `ApifyDatasetLoader`, as shown in [this notebook](https://github.com/hwchase17/langchain/blob/fe1eb8ca5f57fcd7c566adfc01fa1266349b72f3/docs/modules/indexes/document_loaders/examples/apify_dataset.ipynb). In that notebook, you'll also find the explanation of the `dataset_mapping_function`, which is used to map fields from the Apify dataset records to LangChain `Document` fields.
+Note that if you already have some results in an Apify dataset, you can load them directly using `ApifyDatasetLoader`, as shown in [this notebook](https://github.com/langchain-ai/langchain/blob/fe1eb8ca5f57fcd7c566adfc01fa1266349b72f3/docs/modules/indexes/document_loaders/examples/apify_dataset.ipynb). In that notebook, you'll also find the explanation of the `dataset_mapping_function`, which is used to map fields from the Apify dataset records to LangChain `Document` fields.
 
 ```python
 apify = ApifyWrapper()
@@ -127,6 +127,6 @@ LangChain is a standard interface through which you can interact with a variety 
 ## Resources
 
 - https://python.langchain.com/docs/get_started/introduction
+- https://python.langchain.com/docs/integrations/document_loaders/apify_dataset
 - https://python.langchain.com/docs/integrations/providers/apify
-- https://python.langchain.com/docs/integrations/tools/apify
 - https://python.langchain.com/docs/modules/model_io/llms/

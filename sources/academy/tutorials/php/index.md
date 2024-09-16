@@ -12,4 +12,4 @@ slug: /php
 
 ---
 
-This section contains web-scraping or web-scraping related tutorials for PHP. Whether you're trying to scrape from a website with sitemaps, struggling with a dynamic page, want to optimize your slow scraper, or just need some general tips for scraping in Apify with PHP, this section is right for you.
+This section contains web-scraping or web-scraping related tutorials for PHP. Whether you're trying to scrape from a website with sitemaps, struggling with a dynamic page, want to optimize your slow scraper, or need some general tips for scraping in Apify with PHP, this section is right for you.

@@ -62,11 +62,11 @@ Once the token is scoped, you can specify the token's permissions.
 
 ![Toggle "Limit token permissions" to make a token scoped](../images/api-token-scoped.png)
 
-### Account level vs resource-specific permissions
+### Account-level vs resource-specific permissions
 
 We support two different types of permissions for tokens:
 
-- **Account level permissions**: These will apply to all resources in the entire account. For example, you can use these to allow the token to run _all_ your Actors.
+- **Account-level permissions**: These will apply to all resources in the entire account. For example, you can use these to allow the token to run _all_ your Actors.
 
 - **Resource-specific permissions**: These will apply only to specific, existing resources. For example, you can use these to allow the token to read from a particular dataset.
 
@@ -76,7 +76,7 @@ A single token can combine both types. You can create a token that can _read_ an
 
 :::
 
-![An example scoped token that combines account level permissions and resource-specific permissions](../images/api-token-scoped-with-combining-permissions.png)
+![An example scoped token that combines account-level permissions and resource-specific permissions](../images/api-token-scoped-with-combining-permissions.png)
 
 ### Allowing tokens to create resources
 
@@ -87,6 +87,29 @@ Once you create a new resource with the token, _the token will gain full access 
 :::tip
 
 This is useful if you want to for example create a token that can dynamically create & populate datasets, but without the need to access other datasets in your account.
+
+:::
+
+### Permission dependencies
+
+Some permissions require other permissions to be granted alongside them. These are called _permission dependencies_.
+
+#### Automatic dependencies
+
+The form enforces certain dependencies automatically. For example, when you grant the _Write_ permission for a dataset, the _Read_ permission is automatically selected. This ensures that you can write to a dataset if you can also read from it.
+
+![The Write permission depends on Read for a dataset](../images/api-token-scoped-dependencies.png)
+
+#### Manual dependencies
+
+Other dependencies are more complicated, and **it is your responsibility that the token is set up correctly**. Specifically:
+
+- To create or update a Schedule, the token needs access not only to the Schedule itself, but also to the Actor or task that is being scheduled.
+- Similarly, to create or update a task, the token needs the additional permission to access the task's Actor itself.
+
+:::tip
+
+Let's say that you have an Actor and you want to programmatically create schedules for that Actor. Then you can create a token that has the account level _Create_ permission on schedules, but only the resource-specific _Run_ permission on the Actor. Such a token has exactly the permissions it needs, and nothing more.
 
 :::
 

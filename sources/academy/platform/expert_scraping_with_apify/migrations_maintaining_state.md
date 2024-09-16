@@ -11,7 +11,7 @@ slug: /expert-scraping-with-apify/migrations-maintaining-state
 
 ---
 
-We already know that Actors are basically just Docker containers that can be run on any server. This means that they can be allocated anywhere there is space available, making them very efficient. Unfortunately, there is one big caveat: Actors move - a lot. When an Actor moves, it is called a **migration**.
+We already know that Actors are Docker containers that can be run on any server. This means that they can be allocated anywhere there is space available, making them very efficient. Unfortunately, there is one big caveat: Actors move - a lot. When an Actor moves, it is called a **migration**.
 
 On migration, the process inside of an Actor is completely restarted and everything in its memory is lost, meaning that any values stored within variables or classes are lost.
 

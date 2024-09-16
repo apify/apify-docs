@@ -23,7 +23,7 @@ Both packages were developed by the same team and are very similar, which is why
 
 ## Advantages of using a headless browser {#advantages-of-headless-browsers}
 
-When automating a headless browser, you can do a whole lot more in comparison to just making HTTP requests for static content. In fact, you can programmatically do pretty much anything a human could do with a browser, such as clicking elements, taking screenshots, typing into text areas, etc.
+When automating a headless browser, you can do a whole lot more in comparison to making HTTP requests for static content. In fact, you can programmatically do pretty much anything a human could do with a browser, such as clicking elements, taking screenshots, typing into text areas, etc.
 
 Additionally, since the requests aren't static, [dynamic content](../../glossary/concepts/dynamic_pages.md) can be rendered and interacted with (or, data from the dynamic content can be scraped).
 

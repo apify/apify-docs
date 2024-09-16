@@ -14,11 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Now that we know how to execute scripts on a page, we're ready to learn a bit about [data extraction](../../scraping_basics_javascript/data_extraction/index.md). In this lesson, we'll be scraping all the on-sale products from our [Fakestore](https://demo-webstore.apify.org/search/on-sale) website.
-
-> Most web data extraction cases involve looping through a list of items of some sort.
-
-Playwright & Puppeteer offer two main methods for data extraction
+Now that we know how to execute scripts on a page, we're ready to learn a bit about [data extraction](../../scraping_basics_javascript/data_extraction/index.md). In this lesson, we'll be scraping all the on-sale products from our [Fakestore](https://demo-webstore.apify.org/search/on-sale) website. Playwright & Puppeteer offer two main methods for data extraction:
 
 1. Directly in `page.evaluate()` and other evaluate functions such as `page.$$eval()`.
 2. In the Node.js context using a parsing library such as [Cheerio](https://www.npmjs.com/package/cheerio)
@@ -142,7 +138,7 @@ This will output the same exact result as the code in the previous section.
 
 One of the most popular parsing libraries for Node.js is [Cheerio](https://www.npmjs.com/package/cheerio), which can be used in tandem with Playwright and Puppeteer. It is extremely beneficial to parse the page's HTML in the Node.js context for a number of reasons:
 
-- You can easily port the code between headless browser data extraction and plain HTTP data extraction
+- You can port the code between headless browser data extraction and plain HTTP data extraction
 - You don't have to worry in which context you're working (which can sometimes be confusing)
 - Errors are easier to handle when running in the base Node.js context
 
@@ -306,4 +302,4 @@ await browser.close();
 
 ## Next up {#next}
 
-Our [next lesson](../reading_intercepting_requests.md) will be discussing something super cool - request interception and reading data from requests and responses. It's just like using DevTools, except programmatically!
+Our [next lesson](../reading_intercepting_requests.md) will be discussing something super cool - request interception and reading data from requests and responses. It's like using DevTools, except programmatically!
