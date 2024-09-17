@@ -61,7 +61,7 @@ Then, we can type some text into an input field `<textarea>` with `page.type()`;
 
 ```js
 // Type the query into the search box
-await page.type('textarea[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 ```
 
 Finally, we can press a single key by accessing the `keyboard` property of `page` and calling the `press()` function on it:
@@ -89,7 +89,7 @@ await page.goto('https://www.google.com/');
 await page.click('button:has-text("Accept all")');
 
 // Type the query into the search box
-await page.type('textarea[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 
 // Press enter
 await page.keyboard.press('Enter');
@@ -114,7 +114,7 @@ await page.goto('https://www.google.com/');
 await page.click('button + button');
 
 // Type the query into the search box
-await page.type('textarea[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 
 // Press enter
 await page.keyboard.press('Enter');
@@ -146,7 +146,7 @@ await page.goto('https://www.google.com/');
 
 await page.click('button:has-text("Accept all")');
 
-await page.type('textarea[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 
 await page.keyboard.press('Enter');
 
@@ -172,7 +172,7 @@ await page.goto('https://www.google.com/');
 
 await page.click('button + button');
 
-await page.type('textarea[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 
 await page.keyboard.press('Enter');
 
