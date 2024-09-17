@@ -40,6 +40,8 @@ const dataset = await Actor.openDataset(datasetId);
 // ...
 ```
 
+> Tip: You will need to use `forceCloud` option - `Actor.openDataset(<name/id>, { forceCloud: true });` - to open dataset from platform storage while running actor locally.
+
 Next, we'll grab hold of the dataset's items with the `dataset.getData()` function:
 
 ```js
