@@ -141,7 +141,7 @@ https://api.apify.com/v2/acts/USERNAME~filter-actor/runs?token=YOUR_TOKEN_HERE
 
 Whichever one you choose is totally up to your preference.
 
-Next, within the Actor, we will click the **Integrations** tab and choose **Webhook**, then fill out the details to look like this:
+Next, within the Amazon scraping Actor, we will click the **Integrations** tab and choose **Webhook**, then fill out the details to look like this:
 
 ![Configuring a webhook](./images/adding-webhook.jpg)
 
