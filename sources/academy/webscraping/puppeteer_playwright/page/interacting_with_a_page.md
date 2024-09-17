@@ -57,11 +57,11 @@ Notice that in the Playwright example, we are using a different selector than in
 
 > If you're not already familiar with CSS selectors and how to find them, we recommend referring to [this lesson](../../scraping_basics_javascript/data_extraction/using_devtools.md) in the **Web scraping for beginners** course.
 
-Then, we can type some text into an input field with `page.type()`; passing a CSS selector as the first, and the string to input as the second parameter:
+Then, we can type some text into an input field `<textarea>` with `page.type()`; passing a CSS selector as the first, and the string to input as the second parameter:
 
 ```js
 // Type the query into the search box
-await page.type('input[title="Search"]', 'hello world');
+await page.type('textarea[title="Search"]', 'hello world');
 ```
 
 Finally, we can press a single key by accessing the `keyboard` property of `page` and calling the `press()` function on it:
