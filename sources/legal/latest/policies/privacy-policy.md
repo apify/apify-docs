@@ -19,11 +19,11 @@ Apify Technologies s.r.o. ("**Apify**," "**we**," "**our**" or "**us**") operate
 
 Apify is committed to transparency in our processing of information. This is where we describe how we handle your personal data. “**Personal data**” is any information that is directly linked or can be linked to you. Capitalized terms not otherwise defined in this Privacy Policy will have the meaning outlined in the [Apify General Terms and Conditions](../terms/general-terms-and-conditions.md).
 
-## When the Privacy Policy applies
+### When the Privacy Policy applies
 
 Please note that this Privacy Policy applies where Apify is a “data controller” of your personal data. This includes when we collect information from and about visitors to our websites, prospective users and customers, and users of the Platform, collectively referred to herein as “**you**.”
 
-## When the Privacy Policy does not apply
+### When the Privacy Policy does not apply
 
 You may collect and manage personal data when using Platform or other Services. In such a scenario, Apify is a “**data processor**", not a “**data controller**” (as defined by applicable privacy laws) of personal data that we process under your instructions and on your behalf. For clarity, this Privacy Policy does not apply to where Apify processes personal data as a data processor. Such processing activities are governed by a separately executed data processing agreement(s) between Apify and you. We are not responsible for your privacy or data security practices. You represent and warrant that you have all necessary rights, consents, or other legal basis for processing such personal data and instructing us to process them on your behalf.
 
@@ -31,26 +31,26 @@ This Privacy Policy also does not apply to personal data about current and forme
 
 **PLEASE READ THIS PRIVACY POLICY CAREFULLY TO UNDERSTAND HOW WE HANDLE YOUR PERSONAL DATA. IF YOU DO NOT AGREE TO THIS PRIVACY POLICY, PLEASE DO NOT USE THE SERVICES.**
 
-# Table of Contents
+## Table of Contents
 
-[Personal Data We Collect](#personal-data-we-collect)  
-[How We Use Your Personal Data](#how-we-use-your-personal-data)  
-[How We Disclose Your Personal Data](#how-we-disclose-your-personal-data)  
-[How We Retain and Dispose Your Personal Data](#how-we-retain-and-dispose-your-personal-data)  
-[Your Rights and Your Choices](#your-rights-and-your-choices)  
-[Third-Party Links and Features](#third-party-links-and-features)  
-[International Transfer of Your Personal Data](#international-transfer-of-your-personal-data)  
-[How We Protect Your Personal Data](#how-we-protect-your-personal-data)  
-[Children and Privacy](#children-and-privacy)  
-[Aggregate Data](#aggregate-data)  
-[Territory-Specific Terms](#territory-specific-terms)  
-[Changes to our Privacy Policy](#changes-to-our-privacy-policy)  
-[Contact Us](#contact-us)  
+- [Personal Data We Collect](#personal-data-we-collect)  
+- [How We Use Your Personal Data](#how-we-use-your-personal-data)  
+- [How We Disclose Your Personal Data](#how-we-disclose-your-personal-data)  
+- [How We Retain and Dispose Your Personal Data](#how-we-retain-and-dispose-your-personal-data)  
+- [Your Rights and Your Choices](#your-rights-and-your-choices)  
+- [Third-Party Links and Features](#third-party-links-and-features)  
+- [International Transfer of Your Personal Data](#international-transfer-of-your-personal-data)  
+- [How We Protect Your Personal Data](#how-we-protect-your-personal-data)  
+- [Children and Privacy](#children-and-privacy)  
+- [Aggregate Data](#aggregate-data)  
+- [Territory-Specific Terms](#territory-specific-terms)  
+- [Changes to our Privacy Policy](#changes-to-our-privacy-policy)  
+- [Contact Us](#contact-us)  
 
 
-# Personal Data We Collect
+## Personal Data We Collect
 
-## Personal Data You Provide to Us
+### Personal Data You Provide to Us
 
 We collect a variety of personal data that you provide directly to us. For example, we collect information from you when you:
 
@@ -59,15 +59,15 @@ We collect a variety of personal data that you provide directly to us. For examp
   
 We need your name, email address, username, business information, billing information, and payment information. Additionally, you may provide us voluntarily with a short bio, homepage URL, GitHub username, Twitter username, and profile picture, which will be added to your public profile on the Platform.
 
-## Personal Data We Collect through Automated Means
+### Personal Data We Collect through Automated Means
 
 Like most websites and technology services delivered over the internet, we automatically collect and store various information about your computer hardware and software when you visit our Websites and use our Platform and Services, including but not limited to the device name; relevant operating system type; hostname; IP address; language settings; date and time of access to the Platform; logs describing connections and containing statistics about data sent to and from other devices including page scraping activities.
 
-## Cookies
+### Cookies
 
 When you visit our Website or use our Platform or our Services, we may collect some personal data in the form of cookies (a cookie is a small data file placed on your computer's hard drive that contains information that allows us to track your activity on the Website and Platform). The cookie does not contain personal data; however, if you provide us with some personal data, the cookies may act as an identifier to tie your personal data to your IP address or computer. We are committed to following the highest standards of privacy protection in relation to cookies. Other than the cookies necessary for the Website to function, you can always choose not to allow the cookies while using our Website or Platform. Read more information about the cookies we use and how we use them and ensure your privacy at the same time in our [Cookie Policy](cookie-policy.md).
 
-# How We Use Your Personal Data
+## How We Use Your Personal Data
 
 At Apify, it is extremely important to us to process personal data securely, fairly, and transparently. We do so in accordance with applicable privacy laws, including the European Union's and the United Kingdom's General Data Protection Regulation (“**GDPR**”).
 
@@ -85,7 +85,7 @@ We process your personal data for various purposes:
 * Meet legal requirements: Comply with any procedures, laws, and regulations that apply to us where it is necessary for our legitimate interests or the legitimate interests of others
 * Establish, exercise, or defend our legal rights where it is needed for our legitimate interests or the legitimate interests of others
 
-# How We Disclose Your Personal Data
+## How We Disclose Your Personal Data
 
 We may disclose your personal data:
 
@@ -97,13 +97,13 @@ We may disclose your personal data:
 * Business transfers: If Apify sells substantially all of its assets or one of Apify’s business units is acquired, your personal data will likely be one of the transferred assets
 * Otherwise with Your Consent or at Your Direction. In addition to the disclosures described in this Privacy Policy, we may disclose your personal information with third parties whenever you consent to or direct such disclosure.
 
-# How We Retain and Dispose Your Personal Data
+## How We Retain and Dispose Your Personal Data
 
 We keep your personal data for no longer than necessary for the purposes for which it is processed. The length of time for which we retain information depends on the purposes for which we collect and use it and/or as required to comply with applicable laws.
 
-# Your Rights and Your Choices
+## Your Rights and Your Choices
 
-## Correcting, Updating, and Accessing
+### Correcting, Updating, and Accessing
 
 Upon your request and authentication of your identity, Apify will provide you with information about the personal data we have collected from you, whether we hold your personal data or process your personal data on behalf of a third party.
 Requests to access, change, or delete personal data made to Apify will be addressed within 30 days or earlier if required by applicable laws or regulations.
@@ -111,22 +111,22 @@ Requests to access, change, or delete personal data made to Apify will be addres
 If your name, e-mail or postal address, telephone number, or other personal data changes, you may update, correct, or omit the relevant information by contacting Apify at privacy@apify.com or by updating your personal data on the Account settings page on the Website.
 In some situations, we may not be able to provide access to certain personal data. Where an access request is refused, we will notify you in writing, document the reasons for refusal and outline further steps which are available to you. When a challenge regarding the accuracy of personal data is not resolved to your satisfaction, We will annotate the personal data under our control with a note that the correction was requested but not made.
 
-## Removal and Objection
+### Removal and Objection
 
 If you prefer not to receive newsletters or other marketing emails from Apify, please let us know by clicking on the unsubscribe link within any newsletter or marketing email you receive. Please note that, regardless of your request, we may still use and disclose certain personal data as permitted by this Privacy Policy or as required by applicable law. For example, you may not opt out of certain transactional emails from us, such as those confirming your requests or providing you with updates regarding our legal terms.
 
 If you prefer not to receive marketing mail via the mail carrier, please let us know by contacting User service at support@apify.com. Please note that such requests may take up to ten (10) days to become effective.
 For more information about your rights under EEA and U.K. GDPR, please refer to Clause “Territory-Specific Terms” below.
 
-# Third-Party Links and Features
+## Third-Party Links and Features
 
 The Website and Platform may contain links to third-party websites and features (such as the share and/or "like" button or interactive mini-programs). These features may collect your IP address, and which page you are visiting on our sites and may set a cookie to enable the feature to function properly. These features and widgets are hosted by a third party or hosted directly on our websites. This Privacy Policy does not apply to these features. Your interactions with these features are governed by the privacy policy and other policies of the companies providing them. Those websites may have their own privacy policies or no privacy policies at all. Apify is not responsible for those websites, and we provide the links solely for your convenience.
 
-# International Transfer of Your Personal Data
+## International Transfer of Your Personal Data
 
 Your personal data is maintained and processed by us and our third-party service providers in the European Union and the United States and may also be maintained, processed, and stored in other jurisdictions that may have different data protection laws than those in your country of residence. If your information is transferred in these ways, please note that we comply with applicable legal requirements governing the transfer of information across borders. By using the Platform or Services, you agree to and acknowledge these transfers.
 
-# How We Protect Your Personal Data
+## How We Protect Your Personal Data
 
 We take appropriate security measures to protect against unauthorized access to or unauthorized alteration, disclosure, or destruction of personal data. These include internal reviews of our data collection, storage, and processing practices, security measures, and physical security measures to guard against unauthorized access to systems where we store personal data.
 
@@ -134,21 +134,21 @@ We restrict access to collected information to Apify employees, service provider
 
 If you become aware of or suspect any unauthorized use of your Apify account, please contact us immediately using the information in the "Contact Us" section below.
 
-# Children and Privacy
+## Children and Privacy
 
 Our Website, Platform, and Services are not directed to children, and we will not request personal data from anyone who we know to be under the age of 18 unless we have obtained verifiable parental consent from a parent or legal guardian. If we become aware that a user under the age of 18 has registered with our Website, Platform, or Services, provided personal data, and Apify has not obtained prior verifiable consent from a parent or legal guardian, we will immediately remove the user’s personal data from our files.
 
-# Aggregate Data
+## Aggregate Data
 
 Apify may also collect aggregate data. Aggregate data does not contain any personal data. It only contains usage statistics about your activities on the Website and Platform or in connection with the Services that cannot be used to identify, locate, or contact you (such as frequency of visits to the Website, data entered when using the Website, Website pages most frequently accessed, browser type, etc.).
 Generally, aggregate information is used collectively, and no single person can be identified by that compiled information. Apify uses aggregate information to provide its Services, determine the use of our Website (Platform), and monitor, audit, and analyze information pertaining to our business metrics.
 We may use aggregate information to improve the Website and Services, to monitor traffic and general usage patterns, and for other general business purposes. We may disclose aggregate information to third parties for various business reasons. Aggregate information will not include any personal information, and we will not disclose any personal information except as expressly stated elsewhere in this Privacy Policy.
 
-# Territory-Specific Terms
+## Territory-Specific Terms
 
-## EEA and the UK
+### EEA and the UK
 
-### Legal Basis for Processing
+#### Legal Basis for Processing
 
 The legal bases for using your personal data as set out in this Privacy Policy are as follows:
 
@@ -157,7 +157,7 @@ The legal bases for using your personal data as set out in this Privacy Policy a
 * Where we need to comply with a legal or regulatory obligation
 * Where we have your consent to process your personal data in a certain way
 
-### Your Data Protection Rights
+#### Your Data Protection Rights
 
 Under applicable data protection laws, you may exercise certain rights regarding your personal data:
 
@@ -173,15 +173,15 @@ Under applicable data protection laws, you may exercise certain rights regarding
   
 You may exercise these rights by contacting us using the details provided in Section “Contact Us” below. Please note that we may refuse to act on requests to exercise data protection rights in certain cases, such as where providing access might infringe someone else’s privacy rights or impact our legal obligations.
 
-### International Transfers of Personal Data
+#### International Transfers of Personal Data
 
 Due to the global nature of our operations, some of the recipients mentioned in Section 2 of the Notice may be located in countries outside the EEA, or the U.K., which do not provide an adequate level of data protection as defined by data protection laws in the EEA, and the U.K. Transfers to third parties located in such third countries take place using a valid data transfer mechanism, such as the EU Standard Contractual Clauses and/or the U.K. Addendum to such clauses, on the basis of permissible statutory derogations, or any other valid data transfer mechanism issued or approved by the EEA, or U.K. authorities. Certain third countries have been officially recognized by the EEA, and U.K. authorities as providing an adequate level of protection and no further safeguards are necessary. Please reach out to us using the contact information in Section “Contact Us” below, if you wish to receive further information about how we transfer personal data or, where available, a copy of the relevant data transfer mechanism.
 
-# Changes to our Privacy Policy
+## Changes to our Privacy Policy
 
 We update this Privacy Policy from time to time and encourage you to review it periodically. We will post any changes on this page. This Privacy Policy was last updated on the date indicated at the top of this Privacy Policy. Your continued use of the Website, Platform, and its Services after any changes or revisions to this Privacy Policy have been published shall indicate your agreement with the terms of such revised Privacy Policy.
 
-# Contact Us
+## Contact Us
 
 Any notices or requests to Apify under this Privacy Policy shall be made to [privacy@apify.com](mailto:privacy@apify.com) or:  
 
