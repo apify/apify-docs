@@ -285,4 +285,3 @@ await crawler.addRequests(requestsToEnqueue);
 And that's it. We have an elegant solution for a complicated problem. In a real project, you would want to make this a bit more robust and [save analytics data](academy/platform/expert_scraping_with_apify/saving_useful_stats.md). This will let you know what filters you went through and how many products each of them had.
 
 Check out the [full code example](https://github.com/apify-projects/apify-extra-library/tree/master/examples/crawler-with-filters).
-
