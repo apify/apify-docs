@@ -58,7 +58,7 @@ For most sitemaps, you can make a simple HTTP request and parse the downloaded X
 
 ## [](#how-to-parse-urls-from-sitemaps) How to parse URLs from sitemaps
 
-The easiest part is to parse the actual URLs from the sitemap. The URLs are usually listed under `<loc>` tags. You can use Cheerio to parse the XML text and extract the URLs. Just be careful that the sitemap might contain other URLs that you don't want to crawl (e.g. /about, /contact, or various special category sections). [This article](academy/node-js/scraping-from-sitemaps.md) provides code examples for parsing sitemaps.
+The easiest part is to parse the actual URLs from the sitemap. The URLs are usually listed under `<loc>` tags. You can use Cheerio to parse the XML text and extract the URLs. Just be careful that the sitemap might contain other URLs that you don't want to crawl (e.g. /about, /contact, or various special category sections). [This article](/academy/tutorials/node-js/scraping-from-sitemaps.md) provides code examples for parsing sitemaps.
 
 ## [](#using-crawlee) Using Crawlee
 
