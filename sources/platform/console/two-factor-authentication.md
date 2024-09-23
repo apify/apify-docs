@@ -12,7 +12,7 @@ slug: /console/two-factor-authentication
 
 If you use your email and password to sign in to Apify Console, you can enable two-factor authentication for your account. This will add an extra layer of security to your account and prevent anyone who gains access to your password from signing in to your account.
 
-Additionally, some organizations you are a member of may require two-factor authentication to access their resources. If you're a member of such an organization, you will need to enable two-factor authentication for your account here in order to continue accessing shared resources and maintain compliance with their security policies.
+Some organizations might require two-factor authentication (2FA) to access their resources. Members of such an organization, must enable 2FA on their account in order to continue accessing shared resources and maintain compliance with their security policies.
 
 ## Setting up two-factor authentication
 

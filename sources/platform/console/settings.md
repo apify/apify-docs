@@ -24,7 +24,7 @@ By clicking the **Settings** tab on the side menu, you will be presented with an
 
 ### Session Information
 
-The **Session Information** section allows you to fine-tune session configuration to align with your security requirements. You can modify the default session lifespan of 90 days, providing more flexibility to meet your specific security and compliance needs.
+In the **Session Information** section, you can adjust the session configuration. You can modify the default session lifespan of 90 days, this customization helps ensure compliance with organization security policies.
 
 ## Integrations
 
