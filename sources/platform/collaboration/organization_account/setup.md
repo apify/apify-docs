@@ -11,7 +11,9 @@ slug: /collaboration/organization-account/setup
 
 ---
 
-Once you have created your organization, you can customize it. Under **Account** tab, you can set the organization's email address, username, or delete the account. The **Members** tab allows you to update your organization's members and set its owner.
+Once you have created your organization, you can customize it. Under the **Account** tab, you can set the organization's email address, username, security, or delete the account. The **Members** tab allows you to update your organization's members and set its owner.
+
+In the **Account** tab's **Security** section, you can impose security requirements on organization members, such as their maximum session lifespan or whether they are required to turn on two-factor authentication.
 
 **[See our video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) on organization accounts.**
 

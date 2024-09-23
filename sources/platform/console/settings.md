@@ -19,7 +19,12 @@ By clicking the **Settings** tab on the side menu, you will be presented with an
 * profile information
 * theme
 * login information
+* session information
 * account delete
+
+### Session Information
+
+The **Session Information** section allows you to fine-tune session configuration to align with your security requirements. You can modify the default session lifespan of 90 days, providing more flexibility to meet your specific security and compliance needs.
 
 ## Integrations
 
