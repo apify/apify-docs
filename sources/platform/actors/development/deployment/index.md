@@ -65,7 +65,7 @@ To deploy using other methods, first create the Actor manually through Apify CLI
 
 ![Actor source types](./images/actor-source-types.png)
 
-You can link your actor to a Git repository, Gist, or a Zip file.
+You can link your Actor to a Git repository, Gist, or a Zip file.
 
 For more information on alternative source types, check out next chapter.
 
