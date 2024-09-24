@@ -31,7 +31,7 @@ You can access key-value stores through several methods
 - [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
 - [Apify API](/api/v2#) - for accessing your key-value stores programmatically.
 - [Apify API clients](/api) - to access your key-value stores from any Node.js/Python application.
-- [Apify SDKs](/sdk) - when building your own JavaScript/Pyhton Actor.
+- [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
 
 ### Apify Console
 
