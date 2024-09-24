@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 Request queues enable you to enqueue and retrieve requests such as URLs with an [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and other parameters. They prove essential not only in web crawling scenarios but also in any situation requiring the management of a large number of URLs and the addition of new links.
 
-The storage system for request queues accomoodates both breadth-first and depth-first crawling strategies, along with the inclusion of custom data attributes. This system enables you to check if certain URLs have already been encountered, add new URLs to the queue, and retrieve the next set of URLs for processing.
+The storage system for request queues accommodates both breadth-first and depth-first crawling strategies, along with the inclusion of custom data attributes. This system enables you to check if certain URLs have already been encountered, add new URLs to the queue, and retrieve the next set of URLs for processing.
 
 > Named request queues are retained indefinitely. <br/>
 > Unnamed request queues expire after 7 days unless otherwise specified.<br/> > [Learn more](./index.md#named-and-unnamed-storages)
@@ -36,7 +36,7 @@ In the [Apify Console](https://console.apify.com), you can view your request que
 ![Request queues in app](./images/request-queue-app.png)
 
 To view a request queue, click on its **Queue ID**.
-Under the **Actions** menu, you can rename your queue's name (and, in turn, its
+Under the **Actions** menu, you can rename your queue (and, in turn, its
 [retention period](./usage#named-and-unnamed-storages)) and [access rights](../collaboration/index.md) using the **Share** button.
 Click on the **API** button to view and test a queue's [API endpoints](/api/v2#/reference/request-queues).
 
