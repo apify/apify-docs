@@ -152,7 +152,7 @@ const themeConfig = ({
         defaultLanguage: 'typescript',
         theme: require('prism-react-renderer').themes.github,
         darkTheme: require('prism-react-renderer').themes.dracula,
-        additionalLanguages: ['docker', 'log', 'php', 'json5'],
+        additionalLanguages: ['docker', 'log', 'php', 'json5', 'bash'],
     },
     // this needs to be absolute link otherwise it gets resolved wrongly in project docs
     image: 'https://apify.com/og-image/docs-article',
