@@ -22,7 +22,7 @@ It can also be connected to a managed Milvus instance on [Zilliz Cloud](https://
 
 Before you begin, ensure that you have the following:
 
-- A Milvus database URI and API token. Optionally, you can use a username and password in the URI. You can run Milvus on Docker or Kubernetes, but in this example, we'll use the hosted Milvus service at [Zilliz Cloud](https://cloud.zilliz.com).
+- A Milvus database universal resource identifier (URI) and API token. Optionally, you can use a username and password in the URI. You can run Milvus on Docker or Kubernetes, but in this example, we'll use the hosted Milvus service at [Zilliz Cloud](https://cloud.zilliz.com).
 - An [OpenAI API key](https://openai.com/index/openai-api/) to compute text embeddings.
 - An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
 
