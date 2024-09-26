@@ -22,7 +22,7 @@ It can also be connected to a managed Milvus instance on [Zilliz Cloud](https://
 
 Before you begin, ensure that you have the following:
 
-- A Milvus database URL and API token. Optionally, you can use a username and password. You can run Milvus on Docker or Kubernetes, but in this example, we'll use the hosted Milvus service at [Zilliz Cloud](https://cloud.zilliz.com).
+- A Milvus database universal resource identifier (URI) and API token. Optionally, you can use a username and password in the URI. You can run Milvus on Docker or Kubernetes, but in this example, we'll use the hosted Milvus service at [Zilliz Cloud](https://cloud.zilliz.com).
 - An [OpenAI API key](https://openai.com/index/openai-api/) to compute text embeddings.
 - An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
 
@@ -76,11 +76,8 @@ Another way to interact with Milvus is through the [Apify Python SDK](https://do
     OPENAI_API_KEY = "YOUR-OPENAI-API-KEY"
 
     MILVUS_COLLECTION_NAME = "YOUR-MILVUS-COLLECTION-NAME"
-    MILVUS_URL = "YOUR-MILVUS-URL"
-    MILVUS_API_KEY = "YOUR-MILVUS-API-KEY"
-    MILVUS_USER = "YOUR-MILVUS-USER"
-    MILVUS_PASSWORD = "YOUR-MILVUS-PASSWORD"
-
+    MILVUS_URI = "YOUR-MILVUS-URI"
+    MILVUS_TOKEN = "YOUR-MILVUS-TOKEN"
     client = ApifyClient(APIFY_API_TOKEN)
     ```
 
@@ -96,11 +93,9 @@ Another way to interact with Milvus is through the [Apify Python SDK](https://do
 
     ```python
     milvus_integration_inputs = {
-        "milvusUrl": MILVUS_URL,
-        "milvusApiKey": MILVUS_API_KEY,
+        "milvusUri": MILVUS_URI,
+        "milvusToken": MILVUS_TOKEN,
         "milvusCollectionName": MILVUS_COLLECTION_NAME,
-        "milvusUser": MILVUS_USER,
-        "milvusPassword": MILVUS_PASSWORD,
         "datasetFields": ["text"],
         "datasetId": actor_call["defaultDatasetId"],
         "deltaUpdatesPrimaryDatasetFields": ["url"],
@@ -109,7 +104,6 @@ Another way to interact with Milvus is through the [Apify Python SDK](https://do
         "embeddingsProvider": "OpenAI",
     }
     actor_call = client.actor("apify/milvus-integration").call(run_input=milvus_integration_inputs)
-
     ```
 
 Congratulations! You've successfully integrated Apify with Milvus, and the scraped data is now stored in your Milvus database.
