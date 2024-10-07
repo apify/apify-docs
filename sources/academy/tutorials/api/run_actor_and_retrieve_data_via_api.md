@@ -28,7 +28,7 @@ If the Actor being run via API takes 5 minutes or less to complete a typical run
 
 > If you are unsure about the differences between an Actor and a task, you can read about them in the [tasks](/platform/actors/running/tasks) documentation. In brief, tasks are just pre-configured inputs for Actors.
 
-The API endpoints and usage (for both sync and async) for [Actors](/api/v2#/reference/actors/run-collection/run-actor) and [tasks](/api/v2#/reference/actor-tasks/run-collection/run-task) are essentially the same.
+The API endpoints and usage (for both sync and async) for [Actors](/api/v2#tag/ActorsRun-collection/operation/act_runs_post) and [tasks](/api/v2#/reference/actor-tasks/run-collection/run-task) are essentially the same.
 
 To run, or **call**, an Actor/task, you will need a few things:
 
