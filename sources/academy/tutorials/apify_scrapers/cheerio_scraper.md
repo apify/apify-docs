@@ -17,7 +17,7 @@ tutorial, great! You are ready to continue where we left off. If you haven't see
 check it out, it will help you learn about Apify and scraping in general and set you up for this tutorial,
 because this one builds on topics and code examples discussed there.
 
-## [](#getting-to-know-our-tools) Getting to know our tools
+## Getting to know our tools
 
 In the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started) tutorial, we've confirmed that the scraper works as expected,
 so now it's time to add more data to the results.
@@ -36,7 +36,7 @@ Now that's out of the way, let's open one of the Actor detail pages in the Store
 > If you're wondering why we're using Web Scraper as an example instead of Cheerio Scraper,
 it's only because we didn't want to triple the number of screenshots we needed to make. Lazy developers!
 
-## [](#building-our-page-function) Building our Page function
+## Building our Page function
 
 Before we start, let's do a quick recap of the data we chose to scrape:
 
@@ -52,7 +52,7 @@ Before we start, let's do a quick recap of the data we chose to scrape:
 We've already scraped numbers 1 and 2 in the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started)
 tutorial, so let's get to the next one on the list: title.
 
-### [](#title) Title
+### Title
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/title.webp)
 
@@ -79,7 +79,7 @@ async function pageFunction(context) {
 }
 ```
 
-### [](#description) Description
+### Description
 
 Getting the Actor's description is a little more involved, but still pretty straightforward. We can't just simply search for a `<p>` tag, because
 there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the Actor description is nested within
@@ -98,7 +98,7 @@ async function pageFunction(context) {
 }
 ```
 
-### [](#modified-date) Modified date
+### Modified date
 
 The DevTools tell us that the `modifiedDate` can be found in a `<time>` element.
 
@@ -126,7 +126,7 @@ But we would much rather see a readable date in our results, not a unix timestam
 constructor will not accept a `string`, so we cast the `string` to a `number` using the `Number()` function before actually calling `new Date()`.
 Phew!
 
-### [](#run-count) Run count
+### Run count
 
 And so we're finishing up with the `runCount`. There's no specific element like `<time>`, so we need to create
 a complex selector and then do a transformation on the result.
@@ -165,7 +165,7 @@ using a regular expression, but its type is still a `string`, so we finally conv
 >
 > This will give us a string (e.g. `'1234567'`) that can be converted via `Number` function.
 
-### [](#wrapping-it-up) Wrapping it up
+### Wrapping it up
 
 And there we have it! All the data we needed in a single object. For the sake of completeness, let's add
 the properties we parsed from the URL earlier and we're good to go.
@@ -243,13 +243,13 @@ async function pageFunction(context) {
 }
 ```
 
-### [](#test-run) Test run
+### Test run
 
 As always, try hitting that **Save & Run** button and visit
 the **Dataset** preview of clean items. You should see a nice table of all the attributes correctly scraped.
 You nailed it!
 
-## [](#pagination) Pagination
+## Pagination
 
 Pagination is just a term that represents "going to the next page of results". You may have noticed that we did not
 actually scrape all the Actors, just the first page of results. That's because to load the rest of the Actors,
@@ -265,7 +265,7 @@ with Cheerio? We don't have a browser to do it and we only have the HTML of the 
 answer is that we can't click a button. Does that mean that we cannot get the data at all? Usually not,
 but it requires some clever DevTools-Fu.
 
-### [](#analyzing-the-page) Analyzing the page
+### Analyzing the page
 
 While with Web Scraper and **Puppeteer Scraper** ([apify/puppeteer-scraper](https://apify.com/apify/puppeteer-scraper)), we could get away with simply clicking a button,
 with Cheerio Scraper we need to dig a little deeper into the page's architecture. For this, we will use
@@ -281,7 +281,7 @@ Then we click the **Show more** button and wait for incoming requests to appear 
 Now, this is interesting. It seems that we've only received two images after clicking the button and no additional
 data. This means that the data about Actors must already be available in the page and the **Show more** button only displays it. This is good news.
 
-### [](#finding-the-actors) Finding the Actors
+### Finding the Actors
 
 Now that we know the information we seek is already in the page, we just need to find it. The first Actor in the store
 is Web Scraper, so let's try using the search tool in the **Elements** tab to find some reference to it. The first
@@ -310,7 +310,7 @@ so you might already be wondering, can I just make one request to the store to g
 and then parse it out and be done with it in a single request? Yes you can! And that's the power
 of clever page analysis.
 
-### [](#using-the-data-to-enqueue-all-actor-details) Using the data to enqueue all Actor details
+### Using the data to enqueue all Actor details
 
 We don't really need to go to all the Actor details now, but for the sake of practice, let's imagine we only found
 Actor names such as `cheerio-scraper` and their owners, such as `apify` in the data. We will use this information
@@ -343,7 +343,7 @@ how to route those requests.
 >If you're wondering how we know the structure of the URL, see the [Getting started
 with Apify Scrapers](./getting_started.md) tutorial again.
 
-### [](#plugging-it-into-the-page-function) Plugging it into the Page function
+### Plugging it into the Page function
 
 We've got the general algorithm ready, so all that's left is to integrate it into our earlier `pageFunction`.
 Remember the `// Do some stuff later` comment? Let's replace it.
@@ -412,13 +412,13 @@ to get all results with Cheerio only and other times it takes hours of research.
 the right scraper for your job. But don't get discouraged. Often times, the only thing you will ever need is to
 define a correct Pseudo URL. Do your research first before giving up on Cheerio Scraper.
 
-## [](#downloading-our-scraped-data) Downloading the scraped data
+## Downloading the scraped data
 
 You already know the **Dataset** tab of the run console since this is where we've always previewed our data. Notice the row of data formats such as JSON, CSV, and Excel. Below it are options for viewing and downloading the data. Go ahead and try it.
 
 > If you prefer working with an API, you can find the example endpoint under the API tab: **Get dataset items**.
 
-### [](#clean-items) Clean items
+### Clean items
 
 You can view and download your data without modifications, or you can choose to only get **clean** items. Data that aren't cleaned include a record
 for each `pageFunction` invocation, even if you did not return any results. The record also includes hidden fields
@@ -496,11 +496,11 @@ async function pageFunction(context) {
 > If you're confused by the functions being declared below their executions, it's called hoisting and it's a feature
 of JavaScript. It helps you put what matters on top, if you so desire.
 
-## [](#final-word) Final word
+## Final word
 
 Thank you for reading this whole tutorial! Really! It's important to us that our users have the best information available to them so that they can use Apify easily and effectively. We're glad that you made it all the way here and congratulations on creating your first scraping task. We hope that you liked the tutorial and if there's anything you'd like to ask, [join us on Discord](https://discord.gg/jyEM2PRvMU)!
 
-## [](#whats-next) What's next
+## What's next
 
 * Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own Actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
 * [Take a deep dive into Actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on Actors.

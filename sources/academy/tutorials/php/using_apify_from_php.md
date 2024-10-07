@@ -84,7 +84,7 @@ echo \json_encode($data, JSON_PRETTY_PRINT);
 
 You should see information about the run, including its ID and the ID of its default [dataset](/platform/storage/dataset). Take note of these, we will need them later.
 
-## [](#getting-dataset) Getting the results from dataset
+## Getting the results from dataset {#getting-dataset}
 
 Actors usually store their output in a default dataset. The [Actor runs endpoint](/api/v2#/reference/actor-runs) lets you get overall info about an Actor run's default dataset.
 
@@ -126,7 +126,7 @@ echo \json_encode($parsedResponse, JSON_PRETTY_PRINT);
 
 All the available parameters are described in [our API reference](/api/v2#/reference/datasets/item-collection/get-items) and work both for all datasets.
 
-## [](#getting-key-value-store) Getting the results from key-value stores
+## Getting the results from key-value stores {#getting-key-value-store}
 
 Datasets are great for structured data, but are not suited for binary files like images or PDFs. In these cases, Actors store their output in [key-value stores](/platform/storage/key-value-store). One such Actor is the **HTML String To PDF** ([mhamas/html-string-to-pdf](https://apify.com/mhamas/html-string-to-pdf)) converter. Let's run it.
 
