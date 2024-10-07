@@ -127,7 +127,7 @@ Logging and snapshotting are great tools but once you reach a certain run size, 
 
 ## With the Apify SDK {#with-the-apify-sdk}
 
-This example extends our snapshot solution above by creating a [named dataset](/platform/storage#named-and-unnamed-storages) (named datasets have infinite retention), where we will accumulate error reports. Those reports will explain what happened and will link to a saved snapshot, so we can do a quick visual check.
+This example extends our snapshot solution above by creating a [named dataset](/platform/storage/usage#named-and-unnamed-storages) (named datasets have infinite retention), where we will accumulate error reports. Those reports will explain what happened and will link to a saved snapshot, so we can do a quick visual check.
 
 ```js
 import { Actor } from 'apify';
