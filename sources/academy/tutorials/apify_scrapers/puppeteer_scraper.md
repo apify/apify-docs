@@ -17,7 +17,7 @@ tutorial, great! You are ready to continue where we left off. If you haven't see
 check it out, it will help you learn about Apify and scraping in general and set you up for this tutorial,
 because this one builds on topics and code examples discussed there.
 
-## Getting to know our tools
+## [](#getting-to-know-our-tools) Getting to know our tools
 
 In the [Getting started with Apify scrapers](https://apify.com/docs/scraping/tutorial/introduction) tutorial, we've confirmed that the scraper works as expected,
 so now it's time to add more data to the results.
@@ -33,7 +33,7 @@ you'll need to visit its [documentation](https://pptr.dev/) and really dive deep
 it in a nice, manageable UI. It provides almost all of its features in a format that is much easier to grasp
 when first trying to scrape using Puppeteer.
 
-### Web Scraper differences
+### [](#web-scraper-differences) Web Scraper differences
 
 At first glance, it may seem like **Web Scraper** ([apify/web-scraper](https://apify.com/apify/web-scraper)) and Puppeteer Scraper are almost the same. Well, they are.
 In fact, Web Scraper uses Puppeteer underneath. The difference is the amount of control they give you.
@@ -52,7 +52,7 @@ Now that's out of the way, let's open one of the Actor detail pages in the Store
 > If you're wondering why we're using Web Scraper as an example instead of Puppeteer Scraper,
 it's only because we didn't want to triple the number of screenshots we needed to make. Lazy developers!
 
-## Building our Page function
+## [](#building-our-page-function) Building our Page function
 
 Before we start, let's do a quick recap of the data we chose to scrape:
 
@@ -68,7 +68,7 @@ Before we start, let's do a quick recap of the data we chose to scrape:
 We've already scraped numbers 1 and 2 in the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started)
 tutorial, so let's get to the next one on the list: title.
 
-### Title
+### [](#title) Title
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/title.webp)
 
@@ -104,7 +104,7 @@ function allows you to run a function in the browser, with the selected element 
 Here we use it to extract the text content of a `h1` element that's in the page. The return value of the function
 is automatically passed back to the Node.js context, so we receive an actual `string` with the element's text.
 
-### Description
+### [](#description) Description
 
 Getting the Actor's description is a little more involved, but still pretty straightforward. We can't just simply search for a `<p>` tag, because
 there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the Actor description is nested within
@@ -131,7 +131,7 @@ async function pageFunction(context) {
 }
 ```
 
-### Modified date
+### [](#modified-date) Modified date
 
 The DevTools tell us that the `modifiedDate` can be found in a `<time>` element.
 
@@ -174,7 +174,7 @@ But we would much rather see a readable date in our results, not a unix timestam
 constructor will not accept a `string`, so we cast the `string` to a `number` using the `Number()` function before actually calling `new Date()`.
 Phew!
 
-### Run count
+### [](#run-count) Run count
 
 And so we're finishing up with the `runCount`. There's no specific element like `<time>`, so we need to create
 a complex selector and then do a transformation on the result.
@@ -224,7 +224,7 @@ using a regular expression, but its type is still a `string`, so we finally conv
 >
 > This will give us a string (e.g. `'1234567'`) that can be converted via `Number` function.
 
-### Wrapping it up
+### [](#wrapping-it-up) Wrapping it up
 
 And there we have it! All the data we needed in a single object. For the sake of completeness, let's add
 the properties we parsed from the URL earlier and we're good to go.
@@ -346,13 +346,13 @@ all the functions to start at the same time and only wait for all of them to fin
 concurrency or parallelism. Unless the functions need to be executed in a specific order, it's often a good idea
 to run them concurrently to speed things up.
 
-### Test run
+### [](#test-run) Test run
 
 As always, try hitting that **Save & Run** button and visit
 the **Dataset** preview of clean items. You should see a nice table of all the attributes correctly scraped.
 You nailed it!
 
-## Pagination
+## [](#pagination) Pagination
 
 Pagination is just a term that represents "going to the next page of results". You may have noticed that we did not
 actually scrape all the Actors, just the first page of results. That's because to load the rest of the Actors,
@@ -362,7 +362,7 @@ one needs to click the **Show more** button at the very bottom of the list. This
 that take you to the next page. If you encounter those, just make a **Pseudo URL** for those links and they will
 be automatically enqueued to the request queue. Use a label to let the scraper know what kind of URL it's processing.
 
-### Waiting for dynamic content
+### [](#waiting-for-dynamic-content) Waiting for dynamic content
 
 Before we talk about paginating, we need to have a quick look at dynamic content. Since Apify Store is a JavaScript
 application (a popular approach), the button might not exist in the page when the scraper runs the `pageFunction`.
@@ -407,7 +407,7 @@ await page.waitFor('.bad-class', { timeout: 5000 });
 
 With those tools, you should be able to handle any dynamic content the website throws at you.
 
-### How to paginate
+### [](#how-to-paginate)  How to paginate
 
 With the theory out of the way, this should be pretty easy. The algorithm is a loop:
 
@@ -491,7 +491,7 @@ already loaded and we're just waiting for the page to re-render so waiting for `
 that the button is not there. We don't want to stall the scraper for `30` seconds just to make sure that there's
 no button.
 
-### Plugging it into the Page function
+### [](#pagination-page-function) Plugging it into the Page function
 
 We've got the general algorithm ready, so all that's left is to integrate it into our earlier `pageFunction`.
 Remember the `// Do some stuff later` comment? Let's replace it.
@@ -584,13 +584,13 @@ it's probably just some typo.
 
 ![$1](https://raw.githubusercontent.com/apifytech/actor-scraper/master/docs/img/plugging-it-into-the-pagefunction.webp)
 
-## Downloading the scraped data
+## [](#downloading-our-scraped-data) Downloading the scraped data
 
 You already know the **Dataset** tab of the run console since this is where we've always previewed our data. Notice the row of data formats such as JSON, CSV, and Excel. Below it are options for viewing and downloading the data. Go ahead and try it.
 
 > If you prefer working with an API, you can find the example endpoint under the API tab: **Get dataset items**.
 
-### Clean items
+### [](#clean-items) Clean items
 
 You can view and download your data without modifications, or you can choose to only get **clean** items. Data that aren't cleaned include a record
 for each `pageFunction` invocation, even if you did not return any results. The record also includes hidden fields
@@ -600,7 +600,7 @@ Clean items, on the other hand, include only the data you returned from the `pag
 
 To control this, open the **Advanced options** view on the **Dataset** tab.
 
-## Bonus: Making your code neater
+## [](#bonus-making-your-code-neater) Bonus: Making your code neater
 
 You may have noticed that the `pageFunction` gets quite bulky. To make better sense of your code and have an easier
 time maintaining or extending your task, feel free to define other functions inside the `pageFunction`
@@ -700,13 +700,13 @@ async function pageFunction(context) {
 > If you're confused by the functions being declared below their executions, it's called hoisting and it's a feature
 of JavaScript. It helps you put what matters on top, if you so desire.
 
-## Bonus 2: Using jQuery with Puppeteer Scraper
+## [](#bonus-2-using-jquery-with-puppeteer-scraper)  Bonus 2: Using jQuery with Puppeteer Scraper
 
 If you're familiar with the [jQuery library](https://jquery.com/), you may have looked at the scraping code and thought
 that it's unnecessarily complicated. That's probably up to everyone to decide on their own, but the good news is,
 you can easily use jQuery with Puppeteer Scraper too.
 
-### Injecting jQuery
+### [](#injecting-jquery) Injecting jQuery
 
 To be able to use jQuery, we first need to introduce it to the browser. Fortunately, we have a helper function to
 do just that: [`Apify.utils.puppeteer.injectJQuery`](https://sdk.apify.com/docs/api/puppeteer#puppeteerinjectjquerypage)
@@ -819,11 +819,11 @@ async function pageFunction(context) {
 injecting it outside of the browser. We're using the [`page.evaluate()`](https://pptr.dev/#?product=Puppeteer&show=api-pageevaluatepagefunction-args)
 function to run the script in the context of the browser and the return value is passed back to Node.js. Keep this in mind.
 
-## Final word
+## [](#final-word) Final word
 
 Thank you for reading this whole tutorial! Really! It's important to us that our users have the best information available to them so that they can use Apify easily and effectively. We're glad that you made it all the way here and congratulations on creating your first scraping task. We hope that you liked the tutorial and if there's anything you'd like to ask, [join us on Discord](https://discord.gg/jyEM2PRvMU)!
 
-## What's next
+## [](#whats-next) What's next?
 
 - Check out the [Apify SDK](https://sdk.apify.com/) and its [Getting started](https://sdk.apify.com/docs/guides/getting-started) tutorial if you'd like to try building your own Actors. It's a bit more complex and involved than writing a simple `pageFunction`, but it allows you to fine-tune all the details of your scraper to your liking.
 - [Take a deep dive into Actors](/platform/actors), from how they work to [publishing](/platform/actors/publishing) them in Apify Store, and even [making money](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) on Actors.

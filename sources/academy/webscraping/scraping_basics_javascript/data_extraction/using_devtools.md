@@ -114,7 +114,7 @@ As you can see, we were able to extract information about the subwoofer, but the
 
 ### Finding child elements {#finding-child-elements}
 
-In the [Getting structured data from HTML](#getting-structured-data) section, we were browsing the elements in the **Elements** tab to find the element that contains all the data. We can use the same approach to find the individual data points as well.
+In the [Getting structured data from HTML](#getting-structured-data-from-html) section, we were browsing the elements in the **Elements** tab to find the element that contains all the data. We can use the same approach to find the individual data points as well.
 
 Start from the element that contains all data: `<div class="product-item...">` Then inspect all the elements nested within this element. You'll discover that:
 

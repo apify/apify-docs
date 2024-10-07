@@ -231,7 +231,7 @@ That's everything! Now, even if the Actor migrates (or is gracefully aborted and
 
 **A:** It's not best to use this option by default. If it fails, there must be a reason, which would need to be thought through first - meaning that the edge case of failing should be handled when resurrecting the Actor. The state should be persisted beforehand.
 
-**Q: Migrations happen randomly, but by [aborting gracefully](/platform/actors/running/runs-and-builds#aborting-runs), you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted Actor's run?**
+**Q: Migrations happen randomly, but by [aborting gracefully](/platform/actors/running#aborting-runs), you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted Actor's run?**
 
 **A:** After aborting or throwing an error mid-process, it manages to start back from where it was upon resurrection.
 
