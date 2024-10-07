@@ -157,16 +157,46 @@ import csv
 import json
 
 def download(url):
-    ...
+    response = httpx.get(url)
+    response.raise_for_status()
+
+    html_code = response.text
+    return BeautifulSoup(html_code, "html.parser")
 
 def parse_product(product):
-    ...
+    title = product.select_one(".product-item__title").text.strip()
+
+    price_text = (
+        product
+        .select_one(".price")
+        .contents[-1]
+        .strip()
+        .replace("$", "")
+        .replace(",", "")
+    )
+    if price_text.startswith("From "):
+        min_price = Decimal(price_text.removeprefix("From "))
+        price = None
+    else:
+        min_price = Decimal(price_text)
+        price = min_price
+
+    return {"title": title, "min_price": min_price, "price": price}
 
 def export_csv(file, data):
-    ...
+    fieldnames = list(data[0].keys())
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    writer.writeheader()
+    for row in data:
+        writer.writerow(row)
 
 def export_json(file, data):
-    ...
+    def serialize(obj):
+        if isinstance(obj, Decimal):
+            return str(obj)
+        raise TypeError("Object not JSON serializable")
+
+    json.dump(data, file, default=serialize, indent=2)
 
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 soup = download(listing_url)
