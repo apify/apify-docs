@@ -26,4 +26,4 @@ The run receives input via the `INPUT` record of its default [key-value store](.
 
 ## Run duration and timeout
 
-Actor runs can be short or long-running. To prevent an indefinite runs, you can set a timeout. The timeout is specified in seconds and defaults to 300 seconds. If the run doesn't finish within the timeout, it's automatically stopped, and its status is set to `TIMEOUT`.
+Actor runs can be short or long-running. To prevent an indefinite runs, you can set a timeout. The timeout is specified in seconds and defaults to 300 seconds. If the run doesn't finish within the timeout, it's automatically stopped, and its status is set to `TIMED-OUT`.
