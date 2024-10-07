@@ -24,8 +24,8 @@ Each build is assigned a unique build number if the format _MAJOR\.MINOR\.BUILD_
 
 By default, builds have the following resource allocations:
 
-- Timeout of 300 seconds
-- Memory: `4096 MB` (`2048 MB` on the free plan)
+- Timeout of 1800 seconds
+- Memory: `4096 MB`
 
 Check out [Resource limits](../../running/index.md) section for more details.
 
