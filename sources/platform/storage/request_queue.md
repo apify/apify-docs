@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 Request queues enable you to enqueue and retrieve requests such as URLs with an [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and other parameters. They prove essential not only in web crawling scenarios but also in any situation requiring the management of a large number of URLs and the addition of new links.
 
-The storage system for request queues accomoodates both breadth-first and depth-first crawling strategies, along with the inclusion of custom data attributes. This system enables you to check if certain URLs have already been encountered, add new URLs to the queue, and retrieve the next set of URLs for processing.
+The storage system for request queues accommodates both breadth-first and depth-first crawling strategies, along with the inclusion of custom data attributes. This system enables you to check if certain URLs have already been encountered, add new URLs to the queue, and retrieve the next set of URLs for processing.
 
 > Named request queues are retained indefinitely. <br/>
 > Unnamed request queues expire after 7 days unless otherwise specified.<br/> > [Learn more](/platform/storage/usage#named-and-unnamed-storages)
@@ -135,7 +135,7 @@ my_queue_client = apify_client.request_queue('jane-doe/my-request-queue')
 
 You can then use that variable to [access the request queue's items and manage it](/api/client/python/reference/class/RequestQueueClient).
 
-Check out the [Python API client documentation](/api/client/python/reference/class/RequestQueueClient) for [help with setup](/api/client/python/docs/quick-start) and more details.
+Check out the [Python API client documentation](/api/client/python/reference/class/RequestQueueClient) for [help with setup](/api/client/python/docs) and more details.
 
 ### Apify SDKs
 

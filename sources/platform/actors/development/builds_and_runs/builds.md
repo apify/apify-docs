@@ -19,7 +19,7 @@ By default, the build has a timeout of 300 seconds and consumes 4096 MB (2048 MB
 
 ## Versioning
 
-In order to enable active development, the Actor can have multiple versions of the source code and associated settings, such as the **Base image** and **Environment**. Each version is denoted by a version number of the form `MAJOR.MINOR`; the version numbers should adhere to the [Semantic Versioning](http://semver.org/) logic.
+In order to enable active development, the Actor can have multiple versions of the source code and associated settings, such as the **Base image** and **Environment**. Each version is denoted by a version number of the form `MAJOR.MINOR`; the version numbers should adhere to the [Semantic Versioning](https://semver.org/) logic.
 
 For example, the Actor can have a production version **1.1**, a beta version **1.2** that contains new features but is still backward compatible, and a development version **2.0** that contains breaking changes.
 

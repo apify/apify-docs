@@ -88,7 +88,7 @@ const crawler = new CheerioCrawler({
 
 ## Tracking total saved {#tracking-total-saved}
 
-Now, we'll just increment our **totalSaved** count for every offer added to the dataset.
+Now, we'll increment our **totalSaved** count for every offer added to the dataset.
 
 ```js
 router.addHandler(labels.OFFERS, async ({ $, request }) => {
@@ -114,7 +114,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 
 ## Saving stats with dataset items {#saving-stats-with-dataset-items}
 
-Still, in the **OFFERS** handler, we need to add a few extra keys to the items which are pushed to the dataset. Luckily, all of the data required by the task is easily accessible in the context object.
+Still, in the **OFFERS** handler, we need to add a few extra keys to the items which are pushed to the dataset. Luckily, all of the data required by the task is accessible in the context object.
 
 ```js
 router.addHandler(labels.OFFERS, async ({ $, request }) => {

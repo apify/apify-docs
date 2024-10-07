@@ -17,11 +17,11 @@ If you've never dealt with it before, trying to scrape thousands to hundreds of 
 
 ## Page-number pagination {#page-number}
 
-The most common and rudimentary form of pagination is simply having page numbers, which can be compared to paginating through a typical e-commerce website.
+The most common and rudimentary forms of pagination have page numbers. Imagine paginating through a typical e-commerce website.
 
 ![Amazon pagination](./images/pagination.png)
 
-This implementation makes it fairly straightforward to programmatically paginate through an API, as it pretty much entails just incrementing up or down in order to receive the next set of items. The page number is usually provided right in the parameters of the request URL; however, some APIs require it to be provided in the request body instead.
+This implementation makes it fairly straightforward to programmatically paginate through an API, as it pretty much entails incrementing up or down in order to receive the next set of items. The page number is usually provided right in the parameters of the request URL; however, some APIs require it to be provided in the request body instead.
 
 ## Offset pagination {#offset-pagination}
 
@@ -37,11 +37,11 @@ If we were to make a request with the **limit** set to **5** and the **offset** 
 
 ## Cursor pagination {#cursor-pagination}
 
-Becoming more and more common is cursor-based pagination. Like with offset-based pagination, a **limit** parameter is usually present; however, instead of **offset**, **cursor** is used instead. A cursor is just a marker (sometimes a token, a date, or just a number) for an item in the dataset. All results returned back from the API will be records that come after the item matching the **cursor** parameter provided.
+Sometimes pagination uses **cursor** instead of **offset**. Cursor is a marker of an item in the dataset. It can be a date, number, or a more or less random string of letters and numbers. Request with a **cursor** parameter will result in an API response containing items which follow after the item which the cursor points to.
 
 One of the most painful things about scraping APIs with cursor pagination is that you can't skip to, for example, the 5th page. You have to paginate through each page one by one.
 
-> Note: SoundCloud [migrated](https://developers.soundcloud.com/blog/pagination-updates-on-our-api) over to using cursor-based pagination; however, they did not change the parameter name from **offset** to **cursor**. Always be on the lookout for this type of stuff!
+> Note: SoundCloud [migrated](https://developers.soundcloud.com/blog/pagination-updates-on-our-api/) over to using cursor-based pagination; however, they did not change the parameter name from **offset** to **cursor**. Always be on the lookout for this type of stuff!
 
 ## Using "next page" {#using-next-page}
 

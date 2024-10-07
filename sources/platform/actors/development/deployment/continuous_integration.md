@@ -16,14 +16,16 @@ import TabItem from '@theme/TabItem';
 
 Automating your Actor development process can save time and reduce errors, especially for projects  with multiple Actors or frequent updates. Instead of manually pushing code, building Actors, and running tests, you can automate these steps to run whenever you push code to your repository.
 
-This guide focuses on using GitHub Actions for continuous integration, but [we also have a guide for Bitbucket](https://help.apify.com/en/articles/1861038-setting-up-continuous-integration-for-apify-actors-on-bitbucket).
+You can automate Actor builds and tests using your Git repository's automated workflows like [GitHub Actions](https://github.com/features/actions) or [Bitbucket Pipelines](https://www.atlassian.com/software/bitbucket/features/pipelines).
+
+This article focuses on GitHub, but [we also have a guide for Bitbucket](https://help.apify.com/en/articles/6988586-setting-up-continuous-integration-for-apify-actors-on-bitbucket).
 
 ## Set up automated builds and tests
 
 To set up automated builds and tests for your Actors you need to:
 
 1. Create a GitHub repository for your Actor code.
-1. Get your Apify API token from the [Apify Console](https://console.apify.com/account#/integrations)
+1. Get your Apify API token from the [Apify Console](https://console.apify.com/settings/integrations)
 
     ![Apify token in app](./images/ci-token.png)
 

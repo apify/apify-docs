@@ -5,7 +5,7 @@ sidebar_position: 16
 slug: /node-js/filter-blocked-requests-using-sessions
 ---
 
-_This article explains how the problem was solved before the [SessionPool](/sdk/js/docs/api/session-pool) class was added into [Apify SDK](/sdk/js/). We are keeping the article here as it might be interesting for people who want to see how to work with sessions on a lower level. For any practical usage of sessions, just follow the documentation and examples of SessionPool._
+_This article explains how the problem was solved before the [SessionPool](/sdk/js/docs/api/session-pool) class was added into [Apify SDK](/sdk/js/). We are keeping the article here as it might be interesting for people who want to see how to work with sessions on a lower level. For any practical usage of sessions, follow the documentation and examples of SessionPool._
 
 ### Overview of the problem
 
@@ -23,7 +23,7 @@ You want to crawl a website with a proxy pool, but most of your proxies are bloc
 
 Nobody can make sure that a proxy will work infinitely. The only real solution to this problem is to use [residential proxies](/platform/proxy/residential-proxy), but they can sometimes be too costly.
 
-However, usually, at least some of our proxies work. To crawl successfully, it is therefore imperative to handle blocked requests properly. You first need to discover that you are blocked, which usually means that either your request returned status greater or equal to 400 (simply it didn't return the proper response) or that the page displayed a captcha. To ensure that this bad request is retried, you usually just throw an error and it gets automatically retried later (our [SDK](/sdk/js/) handles this for you). Check out [this article](https://help.apify.com/en/articles/2190650-how-to-handle-blocked-requests-in-puppeteercrawler) as inspiration for how to handle this situation with `PuppeteerCrawler`  class.
+However, usually, at least some of our proxies work. To crawl successfully, it is therefore imperative to handle blocked requests properly. You first need to discover that you are blocked, which usually means that either your request returned status greater or equal to 400 (it didn't return the proper response) or that the page displayed a captcha. To ensure that this bad request is retried, you usually throw an error and it gets automatically retried later (our [SDK](/sdk/js/) handles this for you). Check out [this article](https://docs.apify.com/academy/node-js/handle-blocked-requests-puppeteer) as inspiration for how to handle this situation with `PuppeteerCrawler` class.
 
 ### Solution
 
@@ -52,7 +52,7 @@ Apify.main(async () => {
 
 ### Algorithm
 
-You don't necessarily need to understand the solution below - it should be fine to just copy/paste it to your Actor.
+You don't necessarily need to understand the solution below - it should be fine to copy/paste it to your Actor.
 
 `sessions`  will be an object whose keys will be the names of the sessions and values will be objects with the name of the session (we choose a random number as a name here) and user agent (you can add any other useful properties that you want to match with each session.) This will be created automatically, for example:
 
@@ -162,7 +162,7 @@ const crawler = new Apify.PuppeteerCrawler({
 });
 ```
 
-We picked the session and added it to the browser as `apifyProxySession` but for userAgent, we didn't simply passed the user agent as it is but added the session name into it. That is the hack because we can retrieve the user agent from the Puppeteer browser itself.
+We picked the session and added it to the browser as `apifyProxySession` but for userAgent, we didn't pass the User-Agent as it is but added the session name into it. That is the hack because we can retrieve the user agent from the Puppeteer browser itself.
 
 Now we need to retrieve the session name back in the `gotoFunction`, pass it into userData and fix the hacked userAgent back to normal so it is not suspicious for the website.
 
@@ -180,7 +180,7 @@ const gotoFunction = async ({ request, page }) => {
 };
 ```
 
-Now we have access to the session in the `handlePageFunction` and the rest of the logic is the same as in the first example. We extract the session from the userData, try/catch the whole code and on success we add the session and on error we delete it. Also it is useful to retire the browser completely (check [here](http://kb.apify.com/actor/how-to-handle-blocked-requests-in-puppeteercrawler) for reference) since the other requests will probably have similar problem.
+Now we have access to the session in the `handlePageFunction` and the rest of the logic is the same as in the first example. We extract the session from the userData, try/catch the whole code and on success we add the session and on error we delete it. Also it is useful to retire the browser completely (check [here](https://docs.apify.com/academy/node-js/handle-blocked-requests-puppeteer) for reference) since the other requests will probably have similar problem.
 
 ```js
 const handlePageFunction = async ({ request, page, puppeteerPool }) => {
@@ -202,7 +202,7 @@ Things to consider
 
 1. Since the good and bad proxies are getting filtered over time, this solution only makes sense for crawlers with at least hundreds of requests.
 
-2. This solution will not help you if you simply don't have enough proxies for your job. It can even get your proxies banned faster (since the good ones will be used more often), so you should be cautious about the speed of your crawl.
+2. This solution will not help you if you don't have enough proxies for your job. It can even get your proxies banned faster (since the good ones will be used more often), so you should be cautious about the speed of your crawl.
 
 3. If you are more concerned about the speed of your crawler and less about banning proxies, set the `maxSessions` parameter of `pickSession` function to a number relatively lower than your total number of proxies. If on the other hand, keeping your proxies alive is more important, set `maxSessions`  relatively higher so you will always pick new proxies.
 

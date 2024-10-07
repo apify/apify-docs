@@ -23,7 +23,7 @@ In this example, we will use a scraper which goes through top stories on the CNN
 
 ![Bad run stats](./images/bad-scraper-stats.png)
 
-As you can see, we used 177MB of traffic for 10 posts (that is how many posts are in the top-stories column) and 1 main page. We also stored all the screenshots, which you can find [here](https://my.apify.com/storage/key-value/q2ipoeLLy265NtSiL).
+As you can see, we used 177MB of traffic for 10 posts (that is how many posts are in the top-stories column) and 1 main page.
 
 From the screenshot above, it's clear that most of the traffic is coming from script files (124MB) and documents (22.8MB). For this kind of situation, it's always good to check if the content of the page is cache-able. You can do that using Chromes Developer tools.
 

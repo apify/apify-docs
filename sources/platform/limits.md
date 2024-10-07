@@ -97,7 +97,7 @@ The tables below demonstrate the Apify platform's default resource limits. For A
         </tr>
         <tr>
             <td>Maximum size of Actor input schema</td>
-            <td colspan="4">100&nbsp;kB</td>
+            <td colspan="4">500&nbsp;kB</td>
         </tr>
         <tr>
             <td>Maximum number of Actors per user</td>
