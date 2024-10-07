@@ -284,7 +284,7 @@ For more information, visit our [Python SDK documentation](/sdk/python/docs/conc
 
 Fields in a dataset that begin with a `#` are treated as hidden. You can exclude these fields when downloading data by using either `skipHidden=1` or `clean=1` in your query parameters. This feature is useful for excluding debug information from the final dataset output.
 
-The following example demonstrates a dataset record with hiddent fields, including HTTP response and error details.
+The following example demonstrates a dataset record with hidden fields, including HTTP response and error details.
 
 ```json
 {
