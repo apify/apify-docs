@@ -63,7 +63,7 @@ async def main():
 
 ## Get input
 
-Access the Actor's input object, which is stored as a JSON file in the Actor's default key-value store. The input is an object with properties. If the Actor defines the input schema, the input object is guaranteed to conform to it. For details, check out [Input and output](#input-and-output).
+Access the Actor's input object, which is stored as a JSON file in the Actor's default key-value store. The input is an object with properties. If the Actor defines the input schema, the input object is guaranteed to conform to it.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">

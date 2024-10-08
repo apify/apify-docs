@@ -36,7 +36,7 @@ flowchart LR
     AD -- "start Actor" --> Run
 ```
 
-## [](#lifecycle)Lifecycle
+## Lifecycle
 
 Actor builds and runs share their lifecycle. Each build and run starts with the initial status **READY** and goes through one or more transitional statuses to one of the terminal statuses.
 
