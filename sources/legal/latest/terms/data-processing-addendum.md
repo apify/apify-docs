@@ -195,7 +195,7 @@ For the purposes of EU Standard Contractual Clauses:
 1.3. Clause 17 (Governing law) shall be completed as follows: "These Clauses shall be governed by the law of a country allowing for third-party beneficiary rights. The Parties agree that this shall be the law of the Czech Republic."
 1.4. Clause 18 (Choice of forum and jurisdiction), shall be completed as follows: "Any dispute arising from these Clauses shall be resolved by the courts of the Czech Republic."
 
-#### Annex I(A): List of Parties
+### Annex I(A): List of Parties
 
 Data exporter:
 Name: Apify Technologies s.r.o.
@@ -222,9 +222,8 @@ The Module 4 of the EU SCCs shall also apply to transfers of such Personal Data,
 Tables 1 to 3 of the UK Addendum shall be deemed completed with relevant information from the EU SCCs,completed as set out in Schedule A of this DPA, and the option "neither party" shall be deemed checked in Table 4; and,
 The start date of the UK Addendum (as set out in Table 1) shall be the date of this DPA.
 
-
-
 ## Schedule B: CCPA Additional Terms
+
 If and to the extent Apify is Processing Personal Data within the scope of the CCPA on Customer's behalf and in accordance with Customer's documented instructions, Apify will not:
 (a) sell the Personal Data as the term "selling" is defined in the CCPA;
 (b) share, rent, release, disclose, disseminate, make available, transfer, or otherwise communicate orally, in writing, or by electronic or other means, the Personal Data to a third party for cross-context behavioral advertising, whether or not for monetary or other valuable consideration, including transactions for cross-context behavioral advertising in which no money is exchanged;
