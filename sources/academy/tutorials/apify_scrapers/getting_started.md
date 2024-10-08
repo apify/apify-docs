@@ -39,7 +39,7 @@ Scroll down to the **Performance and limits** section and set the **Max pages pe
 
 Now click **Save & Run**! *(in the bottom-left part of your screen)*
 
-### [](#the-run-detail) The run detail
+### The run detail
 
 After clicking **Save & Run**, the window will change to the run detail. Here, you will see the run's log. If it seems that nothing is happening, don't worry, it takes a few seconds for the run to fully boot up. In under a minute, you should have the 10 pages scraped. You will know that the run successfully completed when the `RUNNING` card in top-left corner changes to `SUCCEEDED`.
 
@@ -108,7 +108,7 @@ Some of this information may be scraped directly from the listing pages, but for
 
 ### The start URL
 
-In the **Input** tab of the task we have, we'll change the **Start URL** from **https://apify.com**. This will tell the scraper to start by opening a different URL. You can add more **Start URL**s or even [use a file with a list of thousands of them](#-crawling-the-website-with-pseudo-urls), but in this case, we'll be good with just one.
+In the **Input** tab of the task we have, we'll change the **Start URL** from **https://apify.com**. This will tell the scraper to start by opening a different URL. You can add more **Start URL**s or even [use a file with a list of thousands of them](#crawling-the-website-with-pseudo-urls), but in this case, we'll be good with just one.
 
 How do we choose the new **Start URL**? The goal is to scrape all Actors in the store, which is available at [apify.com/store](https://apify.com/store), so we choose this URL as our **Start URL**.
 

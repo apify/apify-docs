@@ -34,7 +34,7 @@ This will add a `context.jQuery` function that you can use.
 Now that's out of the way, let's open one of the Actor detail pages in the Store, for example
 the [Web Scraper](https://apify.com/apify/web-scraper) page and use our DevTools-Fu to scrape some data.
 
-## [](#building-our-page-function) Building our Page function
+## Building our Page function
 
 Before we start, let's do a quick recap of the data we chose to scrape:
 

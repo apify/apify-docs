@@ -129,7 +129,7 @@ async function pageFunction(context) {
 }
 ```
 
-### [](#modified-date) Modified date
+### Modified date
 
 The DevTools tell us that the `modifiedDate` can be found in a `<time>` element.
 
