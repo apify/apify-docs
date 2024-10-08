@@ -199,8 +199,11 @@ def export_json(file, data):
     json.dump(data, file, default=serialize, indent=2)
 
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-soup = download(listing_url)
-data = [parse_product(product) for product in soup.select(".product-item")]
+listing_soup = download(listing_url)
+data = [
+    parse_product(product)
+    for product in listing_soup.select(".product-item")
+]
 
 with open("products.csv", "w") as file:
     export_csv(file, data)
@@ -300,9 +303,12 @@ Now we'll pass the base URL to the function in the main body of our program:
 
 ```py
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-soup = download(listing_url)
-# highlight-next-line
-data = [parse_product(product, listing_url) for product in soup.select(".product-item")]
+listing_soup = download(listing_url)
+data = [
+    # highlight-next-line
+    parse_product(product, listing_url)
+    for product in listing_soup.select(".product-item")
+]
 ```
 
 When we run the scraper now, we should see full URLs in our exports:
