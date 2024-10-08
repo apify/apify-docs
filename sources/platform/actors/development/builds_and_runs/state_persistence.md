@@ -4,7 +4,7 @@ description: Maintain a long-running Actor's state to prevent unexpected restart
 slug: /actors/development/builds-and-runs/state-persistence
 ---
 
-# [](#state-persistence)State persistence
+# State persistence
 
 **Maintain a long-running Actor's state to prevent unexpected restarts. See a code example on how to prevent a run in the case of a server shutdown.**
 
@@ -19,31 +19,31 @@ To avoid this, long-running Actors should save (persist) their state periodicall
 
 For short-running Actors, the chance of a restart and the cost of repeated runs are low, so restarts can be ignored.
 
-## [](#what-is-a-migration)What is a migration?
+## What is a migration?
 
 A migration is when a process running on a server has to stop and move to another. All in-progress processes on the current server are stopped. Unless you have saved your state, the Actor run will restart on the new server. For example, if a request in your [request queue](../../../storage/request_queue.md) has not been updated as **crawled** before the migration, it will be crawled again.
 
 **When a migration event occurs, you only have a few seconds to save your work.**
 
-## [](#why-do-migrations-happen)Why do migrations happen?
+## Why do migrations happen
 
 - To optimize server workloads.
 - When a server crashes (unlikely).
 - When we release new features and fix bugs.
 
-## [](#how-often-do-migrations-occur)How often do migrations occur?
+## How often do migrations occur
 
 Migrations have no specific interval at which they happen. They are caused by the [above events](#why-do-migrations-happen), so they can happen at any time.
 
-## [](#why-is-state-lost-during-migration)Why is state lost during migration?
+## Why is state lost during migration
 
 Unless instructed to save its output or state to a [storage](../../../storage/index.md), an Actor keeps them in the server's memory. When it switches servers, the run loses access to the previous server's memory. Even if data were saved on the server's disk, we would also lose access to that.
 
-## [](#how-to-persist-state)How to persist state
+## How to persist state
 
 The [Apify SDKs](/sdk) persist their state automatically. In JavaScript, this is done using the `migrating` and `persistState` events in the [PlatformEventManager](/sdk/js/api/apify/class/PlatformEventManager). The `persistState` event notifies SDK components to persist their state at regular intervals in case a migration happens. The `migrating` event is emitted just before a migration.
 
-### [](#code-examples)Code examples
+### Code examples
 
 To persist state manually, you can use the `Actor.on` method in the Apify SDK.
 
