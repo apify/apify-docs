@@ -4,7 +4,7 @@ description: Learn how to maintain an Actor's state to prevent data loss during 
 slug: /actors/development/builds-and-runs/state-persistence
 ---
 
-# [](#state-persistence)State persistence
+# State persistence
 
 **Learn how to maintain an Actor's state to prevent data loss during unexpected restarts. Includes code examples for handling server migrations.**
 
@@ -125,4 +125,4 @@ async def main():
 </TabItem>
 </Tabs>
 
-TFor improved Actor performance consider [caching repeated page data](/academy/expert-scraping-with-apify/saving-useful-stats).
+For improved Actor performance consider [caching repeated page data](/academy/expert-scraping-with-apify/saving-useful-stats).
