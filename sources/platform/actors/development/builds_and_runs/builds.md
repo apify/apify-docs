@@ -24,7 +24,7 @@ Each build is assigned a unique build number if the format _MAJOR\.MINOR\.BUILD_
 
 By default, builds have the following resource allocations:
 
-- Timeout of 1800 seconds
+- Timeout of _1800_ seconds
 - Memory: `4096 MB`
 
 Check out [Resource limits](../../running/index.md) section for more details.
@@ -53,3 +53,13 @@ By default, the builds are set to the _latest_ tag.
 ## Cache
 
 To speed up builds triggered via API, you can use the `useCache=1` parameter. This instructs the build process to use cached Docker images and layers instead of pulling the latest copies and building each layer from scratch.
+
+:::note Clean builds
+
+Running builds from the Console By default, the Console uses cached data when starting a build. You can also run a clean build without using the cache. To run a clean build:
+
+1. Go to your Actor page.
+2. Select **Source** > **Code**.
+3. Locate the **Start** button. Next to it, click on the arrow & choose **Clean build**
+
+:::
