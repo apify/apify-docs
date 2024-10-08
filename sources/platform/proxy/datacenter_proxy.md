@@ -177,7 +177,7 @@ await Actor.exit();
 </TabItem>
 </Tabs>
 
-## Session persistence {#session-persistence}
+## Session persistence
 
 When you use datacenter proxy with the `session` [parameter](./usage.md#sessions) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
 
