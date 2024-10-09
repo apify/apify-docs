@@ -177,7 +177,7 @@ The latest news on LLM is as follows:
 
 To provide real-time or proprietary data, OpenAI Assistants can access the [OpenAI Vector Store](https://platform.openai.com/docs/assistants/tools/file-search/vector-stores) to retrieve information for their answers.
 With the [Apify OpenAI Vector Store Integration](https://apify.com/jiri.spilka/openai-vector-store-integration), data saving and updating the OpenAI Vector Store can be fully automated.
-For more information on automating this process, check out the blog post [How we built an AI salesman with the OpenAI Assistants API](https://blog.apify.com/enterprise-support-openai-assistant/).
+For more information on automating this process, check out the blog post [How we built an AI salesperson with the OpenAI Assistants API](https://blog.apify.com/enterprise-support-openai-assistant/).
 The following image illustrates the Apify-OpenAI Vector Store integration:
 
 ![Apify-OpenAI Vector Store integration](../images/openai-vector-store-integration.png)
@@ -277,6 +277,7 @@ You can scrape a website using Apify by following these steps:
 3. Configure the web scraper with the URL of the website you want to scrape.
 4. Run the web scraper and download the data.
 ```
+
 ## Resources
 
 - [Open AI Assistants](https://platform.openai.com/docs/assistants/overview)
