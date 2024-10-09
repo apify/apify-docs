@@ -23,12 +23,11 @@ Next, we’ll show how to save data from Apify Actors into the OpenAI Vector Sto
 We'll use [RAG-Web-Browser](https://apify.com/apify/rag-web-browser) to fetch the latest information from the web and provide it to the OpenAI Assistant through [function calling](https://platform.openai.com/docs/assistants/tools/function-calling?context=without-streaming).
 To begin, we need to create an OpenAI Assistant with the appropriate instructions.
 After that, we can initiate a conversation with the assistant by creating a thread, adding messages, and running the assistant to receive responses.
+The image below provides an overview of the entire process:
 
-The following image provides an overview of the Apify-OpenAI Assistant integration:
+![Apify-OpenAI Assistant integration](../images/openai-assistant-rag-web-browser.png)
 
-[//]: # (![Apify-OpenAI Assistant integration]&#40;../images/apify-openai-assistant-integration.png&#41;)
-
-Before we start, we need to install all dependencies:
+Before we start creating the assistant, we need to install all dependencies:
 
 ```bash
 pip install apify-client openai
@@ -176,13 +175,12 @@ The latest news on LLM is as follows:
 
 ## Save data into OpenAI Vector Store and use it in the assistant
 
-To provide real-time or proprietary data, OpenAI Assistants can access the [OpenAI Vector Store](https://platform.openai.com/docs/assistants/tools/file-search/vector-stores) to retrieve information for their asnwers.
+To provide real-time or proprietary data, OpenAI Assistants can access the [OpenAI Vector Store](https://platform.openai.com/docs/assistants/tools/file-search/vector-stores) to retrieve information for their answers.
 With the [Apify OpenAI Vector Store Integration](https://apify.com/jiri.spilka/openai-vector-store-integration), data saving and updating the OpenAI Vector Store can be fully automated.
 For more information on automating this process, check out the blog post [How we built an AI salesman with the OpenAI Assistants API](https://blog.apify.com/enterprise-support-openai-assistant/).
-
 The following image illustrates the Apify-OpenAI Vector Store integration:
 
-[//]: # (![Apify-OpenAI Vector Store integration]&#40;../images/apify-openai-vector-store-integration.png&#41;)
+![Apify-OpenAI Vector Store integration](../images/openai-vector-store-integration.png)
 
 In this example, we'll demonstrate how to save data into the OpenAI Vector Store and use it in the assistant.
 
@@ -279,3 +277,9 @@ You can scrape a website using Apify by following these steps:
 3. Configure the web scraper with the URL of the website you want to scrape.
 4. Run the web scraper and download the data.
 ```
+## Resources
+
+- [Open AI Assistants](https://platform.openai.com/docs/assistants/overview)
+- [Open AI Function Calling](https://platform.openai.com/docs/assistants/tools/function-calling)
+- [Apify - RAG Web Browser](https://apify.com/apify/rag-web-browser)
+- [Apify - OpenAI Vector Store Integration](https://apify.com/jiri.spilka/openai-vector-store-integration)
