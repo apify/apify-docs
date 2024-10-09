@@ -70,10 +70,11 @@ def export_json(file, data):
 
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 listing_soup = download(listing_url)
-data = [
-    parse_product(product, listing_url)
-    for product in listing_soup.select(".product-item")
-]
+
+data = []
+for product in listing_soup.select(".product-item"):
+    item = parse_product(product, listing_url)
+    data.append(item)
 
 with open("products.csv", "w") as file:
     export_csv(file, data)
@@ -82,31 +83,77 @@ with open("products.json", "w") as file:
     export_json(file, data)
 ```
 
-## Crawling product URLs
+## Extracting vendor name
 
-In a new loop below the list comprehension we'll go through the product URLs, download and parse each of them, and extract some new data, e.g. name of the vendor. Then we'll save the data to the `product` dictionary as a new key.
+Each product URL points to a so-called _product detail page_, or PDP. If we open one of the product URLs in the browser, e.g. the one about [Sony XBR-950G BRAVIA](https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv), we can see that it contains a vendor name, [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit), number of reviews, product images, product variants, stock availability, description, and perhaps more.
+
+![Product detail page](./images/pdp.png)
+
+Depending on what's valuable for our use case, we can now use the same techniques as in previous lessons to extract any of the above. As a demonstration, let's scrape the vendor name. In browser DevTools we can see that the HTML around the vendor name has the following structure:
+
+```html
+<div class="product-meta">
+  <h1 class="product-meta__title heading h1">
+    Sony XBR-950G BRAVIA 4K HDR Ultra HD TV
+  </h1>
+  <div class="product-meta__label-list">
+    ...
+  </div>
+  <div class="product-meta__reference">
+    <!-- highlight-next-line -->
+    <a class="product-meta__vendor link link--accented" href="/collections/sony">
+        <!-- highlight-next-line -->
+        Sony
+    <!-- highlight-next-line -->
+    </a>
+    <span class="product-meta__sku">
+      SKU:
+      <span class="product-meta__sku-number">SON-985594-XBR-65</span>
+    </span>
+  </div>
+  <a href="#product-reviews" class="product-meta__reviews-badge link" data-offset="30">
+    <div class="rating">
+      <div class="rating__stars" role="img" aria-label="4.0 out of 5.0 stars">
+        ...
+      </div>
+      <span class="rating__caption">3 reviews</span>
+    </div>
+  </a>
+  ...
+</div>
+```
+
+It looks like using a CSS selector to locate element having the `product-meta__vendor` class and extracting its text should be enough to get the vendor name as a string:
+
+```python
+vendor = product_soup.select_one(".product-meta__vendor").text.strip()
+```
+
+But where do we put this line in our program?
+
+## Crawling product detail pages
+
+In the `data` loop we already go through all the products. Let's expand it so it also includes downloading the product detail page, parsing it, extracting the name of the vendor, and adding it as a new dictionary key to the item:
 
 ```python
 ...
 
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 listing_soup = download(listing_url)
-data = [
-    parse_product(product, listing_url)
-    for product in listing_soup.select(".product-item")
-]
 
-# highlight-next-line
-for product in data:
+data = []
+for product in listing_soup.select(".product-item"):
+    item = parse_product(product, listing_url)
     # highlight-next-line
-    product_soup = download(product["url"])
+    product_soup = download(item["url"])
     # highlight-next-line
-    product["vendor"] = product_soup.select_one(".product-meta__vendor").text.strip()
+    item["vendor"] = product_soup.select_one(".product-meta__vendor").text.strip()
+    data.append(item)
 
 ...
 ```
 
-If you run the program now, it will take longer to finish, but should produce exports with a new field containing the vendor:
+If you run the program now, it will take longer to finish, as it now makes 24 more HTTP requests, but in the end it should produce exports with a new field containing the vendor:
 
 <!-- eslint-skip -->
 ```json title=products.json
@@ -129,26 +176,18 @@ If you run the program now, it will take longer to finish, but should produce ex
 ]
 ```
 
-<!--
-- show image of how we figured out the vendor or have a note about devtools
+## Extracting price
 
-caveats:
-- all the info in the listing is already at the product page, so it's a bit redundant to scrape the products in the listing, we could just scrape the links
-- scrape price for the variants
+Being able to scrape vendor name is nice, but the main reason we started peeking at the detail pages in the first place was to figure out how to get a price for each product, because from the product listing we could only scrape the min price. And we're building a Python application for watching prices, remember?
 
-caveats and reasons for framework:
-- it's slow
-- logging
-- a lot of boilerplate code
-- anti-scraping protection
-- browser crawling support
--->
+Looking at [Sony XBR-950G BRAVIA](https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv), it's apparent that the listing features only min prices, because some of the products have variants, each with a different price. And different stock availability. And different SKU…
 
+![Morpheus revealing the existence of product variants](images/variants.png)
 
-:::danger Work in progress
+In the next lesson we'll scrape the product detail pages in such way that each product variant gets represented as a separate item in our dataset.
 
-This course is incomplete. As we work on adding new lessons, we would love to hear your feedback. You can comment right here under each page or [file a GitHub Issue](https://github.com/apify/apify-docs/issues) to discuss a problem.
+---
 
-This particular page is a placeholder for several lessons which should teach crawling.
+<Exercises />
 
-:::
+TODO
