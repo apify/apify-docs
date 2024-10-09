@@ -174,87 +174,86 @@ The latest news on LLM is as follows:
 ```
 
 <details>
-    <summary>Complete example of real-time search data for OpenAI Assistant</summary>
-    ```python
-    import json
-    from typing import TYPE_CHECKING
+<summary>Complete example of real-time search data for OpenAI Assistant</summary>
+```python
+import json
+from typing import TYPE_CHECKING
 
-    from apify_client import ApifyClient
-    from openai import OpenAI, Stream
-    from openai.types.beta.threads.run_submit_tool_outputs_params import ToolOutput
+from apify_client import ApifyClient
+from openai import OpenAI, Stream
+from openai.types.beta.threads.run_submit_tool_outputs_params import ToolOutput
 
-    if TYPE_CHECKING:
-        from openai.types.beta import AssistantStreamEvent
-        from openai.types.beta.threads import Run
+if TYPE_CHECKING:
+    from openai.types.beta import AssistantStreamEvent
+    from openai.types.beta.threads import Run
 
-    client = OpenAI(api_key="YOUR-OPENAI-API-KEY")
-    apify_client = ApifyClient("YOUR-APIFY-API-TOKEN")
+client = OpenAI(api_key="YOUR-OPENAI-API-KEY")
+apify_client = ApifyClient("YOUR-APIFY-API-TOKEN")
 
-    INSTRUCTIONS = """
-    You are a smart and helpful assistant. Maintain an expert, friendly, and informative tone in your responses.
-    Your task is to answer questions based on information from the internet.
-    Always call call_rag_web_browser function to retrieve the latest and most relevant online results.
-    Never provide answers based solely on your own knowledge.
-    For each answer, always include relevant sources whenever possible.
-    """
+INSTRUCTIONS = """
+You are a smart and helpful assistant. Maintain an expert, friendly, and informative tone in your responses.
+Your task is to answer questions based on information from the internet.
+Always call call_rag_web_browser function to retrieve the latest and most relevant online results.
+Never provide answers based solely on your own knowledge.
+For each answer, always include relevant sources whenever possible.
+"""
 
-    rag_web_browser_function = {
-        "type": "function",
-        "function": {
-            "name": "call_rag_web_browser",
-            "description": "Query Google search, scrape the top N pages from the results, and returns their cleaned content as markdown",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "query": {"type": "string", "description": "Use regular search words or enter Google Search URLs. "},
-                    "maxResults": {"type": "integer", "description": "The number of top organic search results to return and scrape text from"}
-                },
-                "required": ["query"]
-            }
+rag_web_browser_function = {
+    "type": "function",
+    "function": {
+        "name": "call_rag_web_browser",
+        "description": "Query Google search, scrape the top N pages from the results, and returns their cleaned content as markdown",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "query": {"type": "string", "description": "Use regular search words or enter Google Search URLs. "},
+                "maxResults": {"type": "integer", "description": "The number of top organic search results to return and scrape text from"}
+            },
+            "required": ["query"]
         }
     }
+}
 
-    my_assistant = client.beta.assistants.retrieve("asst_7GXx3q9lWLmhSf9yexA7J1WX")
-
-
-    def call_rag_web_browser(query: str, max_results: int) -> list[dict]:
-        """
-        Query Google search, scrape the top N pages from the results, and returns their cleaned content as markdown.
-        First start the Actor and wait for it to finish. Then fetch results from the Actor run's default dataset.
-        """
-        actor_call = apify_client.actor("apify/rag-web-browser").call(run_input={"query": query, "maxResults": max_results})
-        return apify_client.dataset(actor_call["defaultDatasetId"]).list_items().items
+my_assistant = client.beta.assistants.retrieve("asst_7GXx3q9lWLmhSf9yexA7J1WX")
 
 
-    def submit_tool_outputs(run_: Run) -> Run | Stream[AssistantStreamEvent]:
-        """ Submit tool outputs to continue the run """
-        tool_output = []
-        for tool in run_.required_action.submit_tool_outputs.tool_calls:
-            if tool.function.name == "call_rag_web_browser":
-                d = json.loads(tool.function.arguments)
-                output = call_rag_web_browser(query=d["query"], max_results=d["maxResults"])
-                tool_output.append(ToolOutput(tool_call_id=tool.id, output=json.dumps(output)))
-                print("RAG-Web-Browser added as a tool output.")
-
-        return client.beta.threads.runs.submit_tool_outputs_and_poll(thread_id=run_.thread_id, run_id=run_.id, tool_outputs=tool_output)
+def call_rag_web_browser(query: str, max_results: int) -> list[dict]:
+    """
+    Query Google search, scrape the top N pages from the results, and returns their cleaned content as markdown.
+    First start the Actor and wait for it to finish. Then fetch results from the Actor run's default dataset.
+    """
+    actor_call = apify_client.actor("apify/rag-web-browser").call(run_input={"query": query, "maxResults": max_results})
+    return apify_client.dataset(actor_call["defaultDatasetId"]).list_items().items
 
 
-    # Runs are asynchronous, which means you'll want to monitor their status by polling the Run object until a terminal status is reached.
-    thread = client.beta.threads.create()
-    message = client.beta.threads.messages.create(
-        thread_id=thread.id, role="user", content="What are the latest LLM news?"
-    )
+def submit_tool_outputs(run_: Run) -> Run | Stream[AssistantStreamEvent]:
+    """ Submit tool outputs to continue the run """
+    tool_output = []
+    for tool in run_.required_action.submit_tool_outputs.tool_calls:
+        if tool.function.name == "call_rag_web_browser":
+            d = json.loads(tool.function.arguments)
+            output = call_rag_web_browser(query=d["query"], max_results=d["maxResults"])
+            tool_output.append(ToolOutput(tool_call_id=tool.id, output=json.dumps(output)))
+            print("RAG-Web-Browser added as a tool output.")
 
-    # Run with assistant and poll for the results
-    run = client.beta.threads.runs.create_and_poll(thread_id=thread.id, assistant_id=my_assistant.id)
+    return client.beta.threads.runs.submit_tool_outputs_and_poll(thread_id=run_.thread_id, run_id=run_.id, tool_outputs=tool_output)
 
-    if run.status == "requires_action":
-        run = submit_tool_outputs(run)
+# Runs are asynchronous, which means you'll want to monitor their status by polling the Run object until a terminal status is reached.
+thread = client.beta.threads.create()
+message = client.beta.threads.messages.create(
+    thread_id=thread.id, role="user", content="What are the latest LLM news?"
+)
 
-    print("Assistant response:")
-    for m in client.beta.threads.messages.list(thread_id=run.thread_id):
-        print(m.content[0].text.value)
-    ```
+# Run with assistant and poll for the results
+run = client.beta.threads.runs.create_and_poll(thread_id=thread.id, assistant_id=my_assistant.id)
+
+if run.status == "requires_action":
+    run = submit_tool_outputs(run)
+
+print("Assistant response:")
+for m in client.beta.threads.messages.list(thread_id=run.thread_id):
+    print(m.content[0].text.value)
+```
 </details>
 
 ## Save data into OpenAI Vector Store and use it in the assistant
@@ -364,61 +363,61 @@ You can scrape a website using Apify by following these steps:
 
 <details>
 <summary>Complete example of saving data into OpenAI Vector Store and using it in the assistant</summary>
-    ```python
-    from apify_client import ApifyClient
-    from openai import OpenAI
+```python
+from apify_client import ApifyClient
+from openai import OpenAI
 
-    client = OpenAI(api_key="YOUR-OPENAI-API-KEY")
-    apify_client = ApifyClient("YOUR-APIFY-API-TOKEN")
+client = OpenAI(api_key="YOUR-OPENAI-API-KEY")
+apify_client = ApifyClient("YOUR-APIFY-API-TOKEN")
 
-    my_assistant = client.beta.assistants.create(
-        instructions="As a customer support agent at Apify, your role is to assist customers",
-        name="Support assistant",
-        tools=[{"type": "file_search"}],
-        model="gpt-4o-mini",
-    )
+my_assistant = client.beta.assistants.create(
+    instructions="As a customer support agent at Apify, your role is to assist customers",
+    name="Support assistant",
+    tools=[{"type": "file_search"}],
+    model="gpt-4o-mini",
+)
 
-    # Create a vector store
-    vector_store = client.beta.vector_stores.create(name="Support assistant vector store")
+# Create a vector store
+vector_store = client.beta.vector_stores.create(name="Support assistant vector store")
 
-    # Update the assistant to use the new Vector Store
-    assistant = client.beta.assistants.update(
-        assistant_id=my_assistant.id,
-        tool_resources={"file_search": {"vector_store_ids": [vector_store.id]}},
-    )
+# Update the assistant to use the new Vector Store
+assistant = client.beta.assistants.update(
+    assistant_id=my_assistant.id,
+    tool_resources={"file_search": {"vector_store_ids": [vector_store.id]}},
+)
 
-    run_input = {"startUrls": [{"url": "https://docs.apify.com/platform"}], "maxCrawlPages": 10, "crawlerType": "cheerio"}
-    actor_call_website_crawler = apify_client.actor("apify/website-content-crawler").call(run_input=run_input)
+run_input = {"startUrls": [{"url": "https://docs.apify.com/platform"}], "maxCrawlPages": 10, "crawlerType": "cheerio"}
+actor_call_website_crawler = apify_client.actor("apify/website-content-crawler").call(run_input=run_input)
 
-    dataset_id = actor_call_website_crawler["defaultDatasetId"]
+dataset_id = actor_call_website_crawler["defaultDatasetId"]
 
-    run_input_vs = {
-        "datasetId": dataset_id,
-        "assistantId": my_assistant.id,
-        "datasetFields": ["text", "url"],
-        "openaiApiKey": "YOUR-OPENAI-API-KEY",
-        "vectorStoreId": vector_store.id,
-    }
+run_input_vs = {
+    "datasetId": dataset_id,
+    "assistantId": my_assistant.id,
+    "datasetFields": ["text", "url"],
+    "openaiApiKey": "YOUR-OPENAI-API-KEY",
+    "vectorStoreId": vector_store.id,
+}
 
-    apify_client.actor("jiri.spilka/openai-vector-store-integration").call(run_input=run_input_vs)
+apify_client.actor("jiri.spilka/openai-vector-store-integration").call(run_input=run_input_vs)
 
-    # Create a thread and a message
-    thread = client.beta.threads.create()
-    message = client.beta.threads.messages.create(
-        thread_id=thread.id, role="user", content="How can I scrape a website using Apify?"
-    )
+# Create a thread and a message
+thread = client.beta.threads.create()
+message = client.beta.threads.messages.create(
+    thread_id=thread.id, role="user", content="How can I scrape a website using Apify?"
+)
 
-    # Run with assistant and poll for the results
-    run = client.beta.threads.runs.create_and_poll(
-        thread_id=thread.id,
-        assistant_id=assistant.id,
-        tool_choice={"type": "file_search"}
-    )
+# Run with assistant and poll for the results
+run = client.beta.threads.runs.create_and_poll(
+    thread_id=thread.id,
+    assistant_id=assistant.id,
+    tool_choice={"type": "file_search"}
+)
 
-    print("Assistant response:")
-    for m in client.beta.threads.messages.list(thread_id=run.thread_id):
-        print(m.content[0].text.value)
-    ```
+print("Assistant response:")
+for m in client.beta.threads.messages.list(thread_id=run.thread_id):
+    print(m.content[0].text.value)
+```
 </details>
 
 ## Resources
