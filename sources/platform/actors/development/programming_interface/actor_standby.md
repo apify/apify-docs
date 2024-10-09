@@ -25,7 +25,7 @@ If you already have an existing Actor, or you just want to tweak the configurati
 
 Actors using Standby mode must run a HTTP server listening on a specific port. The user requests will then be proxied to the HTTP server. You can use any of the existing [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) like GET, POST, PUT, DELETE, etc. You can pass the input via [HTTP request query string](https://en.wikipedia.org/wiki/Query_string) or via [HTTP request body](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#body).
 
-Sometimes, you want the HTTP server to listen on a specific port and cannot change it yourself. You can use `ACTOR_STANDBY_PORT` environment variable to override the port so that Actor Standby will work with your code.
+Sometimes, you want the HTTP server to listen on a specific port and cannot change it yourself. You can use `ACTOR_WEB_SERVER_PORT` environment variable to override the port so that Actor Standby will work with your code.
 
 You can get the port using the Actor configuration available in Apify SDK.
 See example below with a simple Actor using Standby mode.
@@ -44,7 +44,7 @@ const server = http.createServer((req, res) => {
     res.end('Hello from Actor Standby!\n');
 });
 
-server.listen(Actor.config.get('standbyPort'));
+server.listen(Actor.config.get('containerPort'));
 ```
 
 </TabItem>
@@ -62,7 +62,7 @@ class GetHandler(SimpleHTTPRequestHandler):
 
 async def main() -> None:
     async with Actor:
-        with HTTPServer(('', Actor.config.standby_port), GetHandler) as http_server:
+        with HTTPServer(('', Actor.config.web_server_port), GetHandler) as http_server:
             http_server.serve_forever()
 ```
 
@@ -109,6 +109,10 @@ async def main() -> None:
 
 </TabItem>
 </Tabs>
+
+## Getting the URL of the Standby Actor
+
+The URL is exposed as an environment variable `ACTOR_STANDBY_URL`. You can also use `Actor.config`, where the `standbyUrl` option is available.
 
 ## Monetization of Actors with the Standby mode?
 
