@@ -29,5 +29,6 @@ caveats and reasons for framework:
 - a lot of boilerplate code
 - anti-scraping protection
 - browser crawling support
+- error handling
 
 -->
