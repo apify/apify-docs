@@ -63,10 +63,10 @@ const page = await browser.newPage();
 await page.goto('https://google.com');
 
 // Agree to the cookies policy
-await page.click('button:has-text("I agree")');
+await page.click('button:has-text("Accept all")');
 
 // Type the query and visit the results page
-await page.type('input[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 await page.keyboard.press('Enter');
 
 // Click on the first result
@@ -99,7 +99,7 @@ await page.goto('https://google.com');
 await page.click('button + button');
 
 // Type the query and visit the results page
-await page.type('input[title="Search"]', 'hello world');
+await page.type('textarea[title]', 'hello world');
 await page.keyboard.press('Enter');
 
 // Wait for the first result to appear on the page,
