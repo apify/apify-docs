@@ -175,6 +175,7 @@ The latest news on LLM is as follows:
 
 <details>
 <summary>Complete example of real-time search data for OpenAI Assistant</summary>
+
 ```python
 import json
 from typing import TYPE_CHECKING
@@ -254,6 +255,7 @@ print("Assistant response:")
 for m in client.beta.threads.messages.list(thread_id=run.thread_id):
     print(m.content[0].text.value)
 ```
+
 </details>
 
 ## Save data into OpenAI Vector Store and use it in the assistant
@@ -363,6 +365,7 @@ You can scrape a website using Apify by following these steps:
 
 <details>
 <summary>Complete example of saving data into OpenAI Vector Store and using it in the assistant</summary>
+
 ```python
 from apify_client import ApifyClient
 from openai import OpenAI
@@ -418,6 +421,7 @@ print("Assistant response:")
 for m in client.beta.threads.messages.list(thread_id=run.thread_id):
     print(m.content[0].text.value)
 ```
+
 </details>
 
 ## Resources
