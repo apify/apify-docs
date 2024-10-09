@@ -16,7 +16,7 @@ In previous lessons we've managed to download HTML code of a single page, parse 
 
 Thanks to the refactoring we have functions ready for each of the tasks, so we won't need to repeat ourselves in our code. This is what you should see in your editor now:
 
-```python
+```py
 import httpx
 from bs4 import BeautifulSoup
 from decimal import Decimal
@@ -125,7 +125,7 @@ Depending on what's valuable for our use case, we can now use the same technique
 
 It looks like using a CSS selector to locate element having the `product-meta__vendor` class and extracting its text should be enough to get the vendor name as a string:
 
-```python
+```py
 vendor = product_soup.select_one(".product-meta__vendor").text.strip()
 ```
 
@@ -135,7 +135,7 @@ But where do we put this line in our program?
 
 In the `data` loop we already go through all the products. Let's expand it so it also includes downloading the product detail page, parsing it, extracting the name of the vendor, and adding it as a new dictionary key to the item:
 
-```python
+```py
 ...
 
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
