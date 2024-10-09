@@ -26,7 +26,7 @@ The run receives input via the `INPUT` record of its default [key-value store](.
 
 ## Run duration and timeout
 
-Actor runs can be short or long-running. To prevent an indefinite runs, you can set a timeout. The timeout is specified in seconds and varies between Actor templates. If the run doesn't finish within the timeout, it's automatically stopped, and its status is set to `TIMED-OUT`.
+Actor runs can be short or long-running. To prevent infinite runs, you can set a timeout. The timeout is specified in seconds, and the default timeout varies based on the template from which you create your Actor. If the run doesn't finish within the timeout, it's automatically stopped, and its status is set to `TIMED-OUT`.
 
 Depending on the template used for your Actor, the default timeout values may differ.
 
