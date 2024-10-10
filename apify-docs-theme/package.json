@@ -25,7 +25,7 @@
         "axios": "^1.7.4",
         "babel-loader": "^9.1.3",
         "docusaurus-gtm-plugin": "^0.0.2",
-        "postcss-preset-env": "^9.3.0",
+        "postcss-preset-env": "^10.0.0",
         "prism-react-renderer": "^2.0.6"
     },
     "peerDependencies": {
