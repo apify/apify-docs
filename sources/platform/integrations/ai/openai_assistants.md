@@ -10,7 +10,7 @@ slug: /integrations/openai-assistants
 
 ---
 
-[OpenAI Assistants API](https://platform.openai.com/docs/assistants/overview) allows you to build your own AI applications such as such as chatbots, virtual assistants, and more.
+[OpenAI Assistants API](https://platform.openai.com/docs/assistants/overview) allows you to build your own AI applications such as chatbots, virtual assistants, and more.
 The OpenAI Assistants can access OpenAI knowledge base ([vector store](https://platform.openai.com/docs/api-reference/vector-stores)) via file search and use function calling for dynamic interaction and data retrieval.
 
 Unlike Custom GPT, OpenAI Assistants are available via API, enabling integration with Apify to automatically update assistant data and deliver real-time information, improving the quality of answers.
