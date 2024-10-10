@@ -49,10 +49,18 @@ By default, an Actor keeps its output and state in the server's memory. During a
 
 ## Implementing state persistence
 
-The [Apify SDKs](/sdk) handle state persistence automatically. In JavaScript, this is done using the `migrating` and `persistState` events in the [PlatformEventManager](/sdk/js/api/apify/class/PlatformEventManager).
+The [Apify SDKs](/sdk) handle state persistence automatically.
+
+In JavaScript, this is done using the `migrating` and `persistState` events in the [PlatformEventManager](/sdk/js/api/apify/class/PlatformEventManager).
 
 - The `persistState` event prompts SDK components to save their state at regular intervals
 - The `migrating` event is triggered just before a migration occurs.
+
+In Python, state persistence is handled using the `Actor.on()` method and the migrating event, similar to JavaScript. The Apify SDK for Python provides mechanisms to save and retrieve state data.
+
+- The `migrating` event is triggered just before a migration occurs, allowing you to save your state.
+- To retrieve previously saved state, you can use the `Actor.get_value()` method.
+
 
 ### Code examples
 
