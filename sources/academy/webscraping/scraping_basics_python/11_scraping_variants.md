@@ -12,11 +12,11 @@ import Exercises from './_exercises.mdx';
 
 ---
 
-We'll need to figure out how to extract variants from the product detail page, and then change the way we add items to the data list, so that we can add multiple items after scraping one product URL.
+We'll need to figure out how to extract variants from the product detail page, and then change how we add items to the data list so we can add multiple items after scraping one product URL.
 
 ## Locating variants
 
-First let's extract information about the variants. If we go to [Sony XBR-950G BRAVIA](https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv) and open the DevTools, we can see that the buttons for switching between variants look like this:
+First, let's extract information about the variants. If we go to [Sony XBR-950G BRAVIA](https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv) and open the DevTools, we can see that the buttons for switching between variants look like this:
 
 ```html
 <div class="block-swatch-list">
@@ -37,11 +37,11 @@ First let's extract information about the variants. If we go to [Sony XBR-950G B
 </div>
 ```
 
-Nice, we can extract names of the variants! But we also need to extract price for each of the variants. Clicking on the buttons, we can see that the HTML changes dynamically though. This means the page uses JavaScript to display information about the variants.
+Nice! We can extract the variant names, but we also need to extract the price for each variant. Switching the variants using the buttons shows us that the HTML changes dynamically. This means the page uses JavaScript to display information about the variants.
 
-If we can't find a workaround, we'd need our scraper to run JavaScript. That's not impossible - scrapers can spin up their own browser instance and automate clicking on buttons, but it's slow and resource-intensive. Ideally, we want to stick to plain HTTP requests and Beautiful Soup as much as possible.
+If we can't find a workaround, we'd need our scraper to run JavaScript. That's not impossible—scrapers can spin up their own browser instance and automate clicking on buttons, but it's slow and resource-intensive. Ideally, we want to stick to plain HTTP requests and Beautiful Soup as much as possible.
 
-After a bit of detective work, we can notice that not far below the `block-swatch-list` there's also a block of HTML with a class `no-js`, which contains all the data!
+After a bit of detective work, we notice that not far below the `block-swatch-list` there's also a block of HTML with a class `no-js`, which contains all the data!
 
 ```html
 <div class="no-js product-form__option">
@@ -63,11 +63,11 @@ After a bit of detective work, we can notice that not far below the `block-swatc
 </div>
 ```
 
-These elements aren't visible to a regular visitor. They're there just for the eventuality that JavaScript fails to work, otherwise they're hidden. This is a great find which allows us to stay lean with our scraper.
+These elements aren't visible to regular visitors. They're there just in case JavaScript fails to work, otherwise they're hidden. This is a great find because it allows us to keep our scraper lightweight.
 
 ## Extracting variants
 
-Using our knowledge of Beautiful Soup we can locate the options and extract the data we need:
+Using our knowledge of Beautiful Soup, we can locate the options and extract the data we need:
 
 ```py
 ...
@@ -91,15 +91,15 @@ for product in listing_soup.select(".product-item"):
 ...
 ```
 
-The CSS selector `.product-form__option.no-js` matches elements with both `product-form__option` and `no-js` classes. Then we're using the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator) to actually match all `option` elements, which are somewhere inside the `.product-form__option.no-js` wrapper.
+The CSS selector `.product-form__option.no-js` matches elements with both `product-form__option` and `no-js` classes. Then we're using the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator) to match all `option` elements somewhere inside the `.product-form__option.no-js` wrapper.
 
-Python dictionaries are mutable, so if we assigned the variant with `item["variant_name"] = ...`, we would always overwrite the values. Instead of saving an item for each variant we'd always get the last variant, several times. To avoid this pitfall, we create a new dictionary for each variant and merge it with the `item` data before adding to `data`. In case we don't find any variants, we add the `item` as is, with the `variant_name` key left empty.
+Python dictionaries are mutable, so if we assigned the variant with `item["variant_name"] = ...`, we'd always overwrite the values. Instead of saving an item for each variant, we'd end up with the last variant repeated several times. To avoid this, we create a new dictionary for each variant and merge it with the `item` data before adding it to `data`. If we don't find any variants, we add the `item` as is, leaving the `variant_name` key empty.
 
 :::tip Python syntax you might not know
 
-Since Python 3.8 you can use `:=` to simplify checking if an assignment resulted in a non-empty value. It's called _assignment expression_ or _walrus_ and you can learn more about it in the [docs](https://docs.python.org/3/reference/expressions.html#assignment-expressions) or in the [proposal document](https://peps.python.org/pep-0572/).
+Since Python 3.8, you can use `:=` to simplify checking if an assignment resulted in a non-empty value. It's called an _assignment expression_ or _walrus operator_. You can learn more about it in the [docs](https://docs.python.org/3/reference/expressions.html#assignment-expressions) or in the [proposal document](https://peps.python.org/pep-0572/).
 
-Since Python 3.9 you can use `|` to merge two dictionaries. If [docs](https://docs.python.org/3/library/stdtypes.html#dict) don't feel explanatory enough, there's again a whole [proposal document](https://peps.python.org/pep-0584/) about it.
+Since Python 3.9, you can use `|` to merge two dictionaries. If the [docs](https://docs.python.org/3/library/stdtypes.html#dict) aren't clear enough, check out the [proposal document](https://peps.python.org/pep-0584/) for more details.
 
 :::
 
@@ -147,7 +147,7 @@ Some products where we're missing the actual price should now have several varia
 ]
 ```
 
-However, some products with variants will have the `price` field set. That's because the shop sells all these variants for the same price, so the product listing displayed the price as an exact number:
+However, some products with variants will have the `price` field set. That's because the shop sells all these variants for the same price, so the product listing displays the price as a fixed amount:
 
 <!-- eslint-skip -->
 ```json title=products.json
@@ -167,7 +167,7 @@ However, some products with variants will have the `price` field set. That's bec
 
 ## Parsing price
 
-The items now contain the variant as a text, which is good for a start, but it would be more useful if we could set the price to the `price` key. Let's introduce a new function which will take care of that:
+The items now contain the variant as text, which is good for a start, but it would be more useful to set the price in the `price` key. Let's introduce a new function to handle that:
 
 ```py
 def parse_variant(variant):
@@ -181,11 +181,11 @@ def parse_variant(variant):
     return {"variant_name": name, "price": price}
 ```
 
-First we split the text in two parts, then we parse the price as a decimal number. That part is similar to what we already have for parsing the product listing prices. The function then returns a dictionary which we can merge with `item`.
+First, we split the text into two parts, then we parse the price as a decimal number. This part is similar to what we already do for parsing product listing prices. The function returns a dictionary we can merge with `item`.
 
 ## Saving price
 
-Now if we use our new function, we should finally get a program which is able to scrape exact prices for all products, even if they have variants. The whole code should look like this now:
+Now, if we use our new function, we should finally get a program that can scrape exact prices for all products, even if they have variants. The whole code should look like this now:
 
 ```py
 import httpx
@@ -273,7 +273,7 @@ with open("products.json", "w") as file:
     export_json(file, data)
 ```
 
-Run the scraper and see for yourself if all items in the data contains prices:
+Run the scraper and see for yourself if all the items in the data contain prices:
 
 <!-- eslint-skip -->
 ```json title=products.json
@@ -301,7 +301,7 @@ Run the scraper and see for yourself if all items in the data contains prices:
 
 Success! We managed to build a Python application for watching prices!
 
-Is this the end? Maybe! In the next lesson we'll use scraping framework to build the same application, but with less code, faster requests, and visibility into what's actually happening when you wait for the program to finish.
+Is this the end? Maybe! In the next lesson, we'll use a scraping framework to build the same application, but with less code, faster requests, and better visibility into what's happening while we wait for the program to finish.
 
 ---
 
