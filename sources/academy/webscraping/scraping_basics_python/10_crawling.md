@@ -190,4 +190,116 @@ In the next lesson, we'll scrape the product detail pages so that each product v
 
 <Exercises />
 
-TODO
+### Scrape calling codes of African countries
+
+This is a follow-up to an exercise from the previous lesson, so feel free to reuse code. Scrape links to Wikipedia pages of all African states and territories. Follow the links and for each country extract the calling code, which is in the info table. Print URL and the calling code for all the countries. Start with this URL:
+
+```text
+https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
+```
+
+Your program should print the following:
+
+```text
+https://en.wikipedia.org/wiki/Algeria +213
+https://en.wikipedia.org/wiki/Angola +244
+https://en.wikipedia.org/wiki/Benin +229
+https://en.wikipedia.org/wiki/Botswana +267
+https://en.wikipedia.org/wiki/Burkina_Faso +226
+https://en.wikipedia.org/wiki/Burundi None
+https://en.wikipedia.org/wiki/Cameroon +237
+...
+```
+
+Hint: Locating cells in tables is sometimes easier if you know how to [go up](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#going-up) in the HTML element soup.
+
+<details>
+  <summary>Solution</summary>
+
+  ```py
+  import httpx
+  from bs4 import BeautifulSoup
+  from urllib.parse import urljoin
+
+  def download(url):
+      response = httpx.get(url)
+      response.raise_for_status()
+      return BeautifulSoup(response.text, "html.parser")
+
+  def parse_calling_code(soup):
+      for label in soup.select("th.infobox-label"):
+          if label.text.strip() == "Calling code":
+              data = label.parent.select_one("td.infobox-data")
+              return data.text.strip()
+      return None
+
+  listing_url = "https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa"
+  listing_soup = download(listing_url)
+  for name_cell in listing_soup.select(".wikitable tr td:nth-child(3)"):
+      link = name_cell.select_one("a")
+      country_url = urljoin(listing_url, link["href"])
+      country_soup = download(country_url)
+      calling_code = parse_calling_code(country_soup)
+      print(country_url, calling_code)
+  ```
+
+</details>
+
+### Scrape authors of F1 news articles
+
+This is a follow-up to an exercise from the previous lesson, so feel free to reuse code. Scrape links to Guardian's latest F1 news. Follow the link for each article and extract both the author's name and the article's title. Print the author's name and the title for all the articles. Start with this URL:
+
+```text
+https://www.theguardian.com/sport/formulaone
+```
+
+Your program should print something like the following:
+
+```text
+Colin Horgan: The NHL is getting its own Drive to Survive. But could it backfire?
+Reuters: US GP ticket sales ‘took off’ after Max Verstappen stopped winning in F1
+Giles Richards: Liam Lawson gets F1 chance to replace Pérez alongside Verstappen at Red Bull
+PA Media: Lewis Hamilton reveals lifelong battle with depression after school bullying
+Giles Richards: Red Bull must solve Verstappen’s ‘monster’ riddle or Norris will pounce
+...
+```
+
+Hints:
+
+- You can use [attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to select HTML elements based on values of their attributes.
+- Notice that sometimes a person authors the article, but sometimes it's a contribution by a news agency.
+
+<details>
+  <summary>Solution</summary>
+
+  ```py
+  import httpx
+  from bs4 import BeautifulSoup
+  from urllib.parse import urljoin
+
+  def download(url):
+      response = httpx.get(url)
+      response.raise_for_status()
+      return BeautifulSoup(response.text, "html.parser")
+
+  def parse_author(article_soup):
+      link = article_soup.select_one('aside a[rel="author"]')
+      if link:
+          return link.text.strip()
+      address = article_soup.select_one('aside address')
+      if address:
+          return address.text.strip()
+      return None
+
+  listing_url = "https://www.theguardian.com/sport/formulaone"
+  listing_soup = download(listing_url)
+  for item in listing_soup.select("#maincontent ul li"):
+      link = item.select_one("a")
+      article_url = urljoin(listing_url, link["href"])
+      article_soup = download(article_url)
+      title = article_soup.select_one("h1").text.strip()
+      author = parse_author(article_soup)
+      print(f"{author}: {title}")
+  ```
+
+</details>
