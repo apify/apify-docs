@@ -1,51 +1,64 @@
 ---
 title: State persistence
-description: Maintain a long-running Actor's state to prevent unexpected restarts. See a code example on how to prevent a run in the case of a server shutdown.
+description: Learn how to maintain an Actor's state to prevent data loss during unexpected restarts. Includes code examples for handling server migrations.
 slug: /actors/development/builds-and-runs/state-persistence
 ---
 
 # State persistence
 
-**Maintain a long-running Actor's state to prevent unexpected restarts. See a code example on how to prevent a run in the case of a server shutdown.**
+**Learn how to maintain an Actor's state to prevent data loss during unexpected restarts. Includes code examples for handling server migrations.**
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ---
 
-Long-running [Actor](../../index.mdx) jobs may need to migrate from one server to another. Unless you save your job's progress, it will be lost during the migration. The Actor will restart from scratch on the new server, which can be costly.
+Long-running [Actor](../../index.mdx) jobs may need to migrate between servers. Without state persistence, your job's progress is lost during migration, causing it to restart from the beginning on the new server. This can be costly and time-consuming.
 
-To avoid this, long-running Actors should save (persist) their state periodically and listen for [migration events](/sdk/js/api/apify/class/PlatformEventManager). When started, these Actors should [check for persisted state](#code-examples), so they can continue where they left off.
+To prevent data loss, long-running Actors should:
 
-For short-running Actors, the chance of a restart and the cost of repeated runs are low, so restarts can be ignored.
+- Periodically save (persist) their state.
+- Listem for [migration events](/sdk/js/api/apify/class/PlatformEventManager)
+- Check for persisted state when starting, allowing them to resume from where they left off.
 
-## What is a migration?
+For short-running Actors, the risk of restarts and the cost of repeated runs are low, so you can typically ignore state persistence.
 
-A migration is when a process running on a server has to stop and move to another. All in-progress processes on the current server are stopped. Unless you have saved your state, the Actor run will restart on the new server. For example, if a request in your [request queue](../../../storage/request_queue.md) has not been updated as **crawled** before the migration, it will be crawled again.
+## Understanding migrations
 
-**When a migration event occurs, you only have a few seconds to save your work.**
+A migration occurs when a process running on one server must stop and move to another. During this process:
 
-## Why do migrations happen
+- All in-progress processes on the current server are stopped
+- Unless you've saved your state, the Actor run will restart on the new server with an empty internal state
+- You only have a few seconds to save your work when a migration event occurs
 
-- To optimize server workloads.
-- When a server crashes (unlikely).
-- When we release new features and fix bugs.
+### Causes of migration
 
-## How often do migrations occur
+Migrations can happen for several reasons:
 
-Migrations have no specific interval at which they happen. They are caused by the [above events](#why-do-migrations-happen), so they can happen at any time.
+- Server workload optimization
+- Server crashes (rare)
+- New feature releases and bug fixes
 
-## Why is state lost during migration
+### Frequency of migrations
 
-Unless instructed to save its output or state to a [storage](../../../storage/index.md), an Actor keeps them in the server's memory. When it switches servers, the run loses access to the previous server's memory. Even if data were saved on the server's disk, we would also lose access to that.
+Migrations don't follow a specific schedule. They can occur at any time due to the events mentioned above.
 
-## How to persist state
+## Why state is lost during migration
 
-The [Apify SDKs](/sdk) persist their state automatically. In JavaScript, this is done using the `migrating` and `persistState` events in the [PlatformEventManager](/sdk/js/api/apify/class/PlatformEventManager). The `persistState` event notifies SDK components to persist their state at regular intervals in case a migration happens. The `migrating` event is emitted just before a migration.
+By default, an Actor keeps its state in the server's memory. During a server switch, the run loses access to the previous server's memory. Even if data were saved on the server's disk, access to that would also be lost. Note that the Actor run's default dataset, key-value store and request queue are preserved across migrations, by state we mean the contents of runtime variables in the Actor's code.
+
+## Implementing state persistence
+
+The [Apify SDKs](/sdk) handle state persistence automatically.
+
+This is done  using the `Actor.on()` method and the `migrating` event.
+
+- The `migrating` event is triggered just before a migration occurs, allowing you to save your state.
+- To retrieve previously saved state, you can use the [`Actor.getValue`](/sdk/js/reference/class/Actor#getValue)/[`Actor.get_value`](/sdk/python/reference/class/Actor#get_value) methods.
 
 ### Code examples
 
-To persist state manually, you can use the `Actor.on` method in the Apify SDK.
+To manually persist state, use the `Actor.on` method in the Apify SDK:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -83,7 +96,7 @@ async def main():
 </TabItem>
 </Tabs>
 
-To check for state saved in a previous run, use:
+To check for state saved in a previous run:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -114,4 +127,4 @@ async def main():
 </TabItem>
 </Tabs>
 
-To improve your Actor's performance, you can also [cache repeated page data](/academy/expert-scraping-with-apify/saving-useful-stats).
+For improved Actor performance consider [caching repeated page data](/academy/expert-scraping-with-apify/saving-useful-stats).
