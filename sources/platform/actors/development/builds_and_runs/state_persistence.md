@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Long-running [Actor](../../index.mdx) jobs may need to migrate between servers. Without state persistence, your job's progress, is lost during migration, causing it to restart from the beginning on the new server. This can be costly and time-consuming.
+Long-running [Actor](../../index.mdx) jobs may need to migrate between servers. Without state persistence, your job's progress is lost during migration, causing it to restart from the beginning on the new server. This can be costly and time-consuming.
 
 To prevent data loss, long-running Actors should:
 
@@ -23,12 +23,12 @@ To prevent data loss, long-running Actors should:
 
 For short-running Actors, the risk of restarts and the cost of repeated runs are low, so you can typically ignore state persistence.
 
-## Undersanding migrations
+## Understanding migrations
 
-A migration occurs when a process running on one srever must stop and move to another. During this process:
+A migration occurs when a process running on one server must stop and move to another. During this process:
 
 - All in-progress processes on the current server are stopped
-- Unless you've saved your state, the Actor run will restart on the new server
+- Unless you've saved your state, the Actor run will restart on the new server with an empty internal state
 - You only have a few seconds to save your work when a migration event occurs
 
 ### Causes of migration
@@ -45,7 +45,7 @@ Migrations don't follow a specific schedule. They can occur at any time due to t
 
 ## Why state is lost during migration
 
-By default, an Actor keeps its output and state in the server's memory. During a server switch, the run loses access to the previous server's memory. Even if data were saved on the server's disk, access to that would also be lost.
+By default, an Actor keeps its state in the server's memory. During a server switch, the run loses access to the previous server's memory. Even if data were saved on the server's disk, access to that would also be lost. Note that the Actor run's default dataset, key-value store and request queue are preserved across migrations, by state we mean the contents of runtime variables in the Actor's code.
 
 ## Implementing state persistence
 
@@ -54,11 +54,11 @@ The [Apify SDKs](/sdk) handle state persistence automatically.
 This is done  using the `Actor.on()` method and the `migrating` event.
 
 - The `migrating` event is triggered just before a migration occurs, allowing you to save your state.
-- To retrieve previously saved state, you can use the [`Actor.getValue`](/sdk/js/reference/class/Actor#getValue)/[`Actor.get_value()`](/sdk/python/reference/class/Actor#get_value) methods.
+- To retrieve previously saved state, you can use the [`Actor.getValue`](/sdk/js/reference/class/Actor#getValue)/[`Actor.get_value`](/sdk/python/reference/class/Actor#get_value) methods.
 
 ### Code examples
 
-To manually persis state, use the `Actor.on` method in the Apify SDK:
+To manually persist state, use the `Actor.on` method in the Apify SDK:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
