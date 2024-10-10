@@ -244,7 +244,7 @@ def parse_product(product):
     return {"title": title, "min_price": min_price, "price": price, "url": url}
 ```
 
-In the code above, we've also added the URL to the dictionary returned by the function. If we run the scraper now, it should produce exports where each product contains a link to its product page:
+In the previous code example, we've also added the URL to the dictionary returned by the function. If we run the scraper now, it should produce exports where each product contains a link to its product page:
 
 <!-- eslint-skip -->
 ```json title=products.json
