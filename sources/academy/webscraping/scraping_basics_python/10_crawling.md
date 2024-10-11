@@ -256,11 +256,11 @@ https://www.theguardian.com/sport/formulaone
 Your program should print something like the following:
 
 ```text
+Daniel Harris: Sports quiz of the week: Johan Neeskens, Bond and airborne antics
 Colin Horgan: The NHL is getting its own Drive to Survive. But could it backfire?
 Reuters: US GP ticket sales ‘took off’ after Max Verstappen stopped winning in F1
 Giles Richards: Liam Lawson gets F1 chance to replace Pérez alongside Verstappen at Red Bull
 PA Media: Lewis Hamilton reveals lifelong battle with depression after school bullying
-Giles Richards: Red Bull must solve Verstappen’s ‘monster’ riddle or Norris will pounce
 ...
 ```
 

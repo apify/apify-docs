@@ -307,5 +307,112 @@ Is this the end? Maybe! In the next lesson, we'll use a scraping framework to bu
 
 <Exercises />
 
-TODO
+### Build a scraper for watching Python jobs
 
+You're now able to build a scraper, are you? Let's build another one, then! Python's official website features a [job board](https://www.python.org/jobs/). Scrape job postings which match the following criteria:
+
+- Tagged as Database
+- Not older than 60 days
+
+For each job posting found, use [`pp()`](https://docs.python.org/3/library/pprint.html#pprint.pp) to print a dictionary containing the following data:
+
+- Job title
+- Company
+- URL to the job posting
+- Date of posting
+
+Your program should print something like the following:
+
+```text
+{'title': 'Senior Full Stack Developer',
+ 'company': 'Baserow',
+ 'url': 'https://www.python.org/jobs/7705/',
+ 'posted_on': datetime.date(2024, 9, 16)}
+{'title': 'Senior Python Engineer',
+ 'company': 'Active Prime',
+ 'url': 'https://www.python.org/jobs/7699/',
+ 'posted_on': datetime.date(2024, 9, 5)}
+...
+```
+
+In Python's [`datetime`](https://docs.python.org/3/library/datetime.html) module you should find everything you need for manipulating time: `date.today()`, `datetime.fromisoformat()`, `datetime.date()`, `timedelta()`.
+
+<details>
+  <summary>Solution</summary>
+
+  After inspecting how the job board works, we can notice that job postings tagged as Database have their own URL. We'll use it as the starting point, as it'll save us from needing to scrape and check the tags.
+
+  ```py
+  from pprint import pp
+  import httpx
+  from bs4 import BeautifulSoup
+  from urllib.parse import urljoin
+  from datetime import datetime, date, timedelta
+
+  today = date.today()
+  jobs_url = "https://www.python.org/jobs/type/database/"
+  response = httpx.get(jobs_url)
+  response.raise_for_status()
+  soup = BeautifulSoup(response.text, "html.parser")
+
+  for job in soup.select(".list-recent-jobs li"):
+      link = job.select_one(".listing-company-name a")
+
+      time = job.select_one(".listing-posted time")
+      posted_at = datetime.fromisoformat(time["datetime"])
+      posted_on = posted_at.date()
+      posted_ago = today - posted_on
+
+      if posted_ago <= timedelta(days=60):
+          title = link.text.strip()
+          company = list(job.select_one(".listing-company-name").stripped_strings)[-1]
+          url = urljoin(jobs_url, link["href"])
+          pp({"title": title, "company": company, "url": url, "posted_on": posted_on})
+  ```
+
+</details>
+
+### Find the shortest CNN article which made it to the Sports homepage
+
+Scrape the [CNN Sports](https://edition.cnn.com/sport) homepage. For each linked article, calculate its length in characters:
+
+- Locate element which holds the main content of the article.
+- Use [`get_text()`](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#get-text) to get all its content as a plain text.
+- Use `len()` to calculate the length.
+
+Skip pages without text, e.g. those which contain only a video. Sort the results and print URL to the shortest article which made it to the homepage.
+
+At the time of writing this exercise, the shortest article which made it to the CNN Sports homepage is [one about a donation to the Augusta National Golf Club](https://edition.cnn.com/2024/10/03/sport/masters-donation-hurricane-helene-relief-spt-intl/). It's just 1,642 characters long.
+
+<details>
+  <summary>Solution</summary>
+
+  ```py
+  import httpx
+  from bs4 import BeautifulSoup
+  from urllib.parse import urljoin
+
+  def download(url):
+      response = httpx.get(url)
+      response.raise_for_status()
+      return BeautifulSoup(response.text, "html.parser")
+
+  listing_url = "https://edition.cnn.com/sport"
+  listing_soup = download(listing_url)
+
+  data = []
+  for card in listing_soup.select(".layout__main .card"):
+      link = card.select_one(".container__link")
+      article_url = urljoin(listing_url, link["href"])
+      article_soup = download(article_url)
+      if content := article_soup.select_one(".article__content"):
+          length = len(content.get_text())
+          data.append((length, article_url))
+
+  data.sort()
+  shortest_item = data[0]
+  item_url = shortest_item[1]
+  print(item_url)
+  ```
+
+</details>
