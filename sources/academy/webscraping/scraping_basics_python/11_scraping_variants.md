@@ -39,7 +39,7 @@ First, let's extract information about the variants. If we go to [Sony XBR-950G 
 
 Nice! We can extract the variant names, but we also need to extract the price for each variant. Switching the variants using the buttons shows us that the HTML changes dynamically. This means the page uses JavaScript to display information about the variants.
 
-If we can't find a workaround, we'd need our scraper to run JavaScript. That's not impossible—scrapers can spin up their own browser instance and automate clicking on buttons, but it's slow and resource-intensive. Ideally, we want to stick to plain HTTP requests and Beautiful Soup as much as possible.
+If we can't find a workaround, we'd need our scraper to run JavaScript. That's not impossible. Scrapers can spin up their own browser instance and automate clicking on buttons, but it's slow and resource-intensive. Ideally, we want to stick to plain HTTP requests and Beautiful Soup as much as possible.
 
 After a bit of detective work, we notice that not far below the `block-swatch-list` there's also a block of HTML with a class `no-js`, which contains all the data!
 
