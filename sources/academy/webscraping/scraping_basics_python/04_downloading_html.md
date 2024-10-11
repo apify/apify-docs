@@ -140,7 +140,7 @@ Letting our program visibly crash on error is enough for our purposes. Now, let'
 
 <Exercises />
 
-### Scrape Amazon
+### Scrape AliExpress
 
 Download HTML of a product listing page, but this time from a real world e-commerce website. For example this page with AliExpress search results:
 
