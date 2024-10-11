@@ -39,15 +39,10 @@ Import all required packages:
 
 import json
 import time
-from typing import TYPE_CHECKING
 
 from apify_client import ApifyClient
 from openai import OpenAI, Stream
 from openai.types.beta.threads.run_submit_tool_outputs_params import ToolOutput
-
-if TYPE_CHECKING:
-    from openai.types.beta import AssistantStreamEvent
-    from openai.types.beta.threads import Run
 ```
 
 Find your [Apify API token](https://console.apify.com/account/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize OpenAI and Apify clients:
@@ -134,7 +129,7 @@ This function will trigger the RAG-Web-Browser to fetch the search data and subm
 Let's implement the `submit_tool_outputs` function:
 
 ```python
-def submit_tool_outputs(run_: Run) -> Run | Stream[AssistantStreamEvent]:
+def submit_tool_outputs(run_):
     """ Submit tool outputs to continue the run """
     tool_output = []
     for tool in run_.required_action.submit_tool_outputs.tool_calls:
@@ -178,15 +173,11 @@ The latest news on LLM is as follows:
 
 ```python
 import json
-from typing import TYPE_CHECKING
 
 from apify_client import ApifyClient
 from openai import OpenAI, Stream
 from openai.types.beta.threads.run_submit_tool_outputs_params import ToolOutput
 
-if TYPE_CHECKING:
-    from openai.types.beta import AssistantStreamEvent
-    from openai.types.beta.threads import Run
 
 client = OpenAI(api_key="YOUR-OPENAI-API-KEY")
 apify_client = ApifyClient("YOUR-APIFY-API-TOKEN")
@@ -215,8 +206,6 @@ rag_web_browser_function = {
     }
 }
 
-my_assistant = client.beta.assistants.retrieve("asst_7GXx3q9lWLmhSf9yexA7J1WX")
-
 
 def call_rag_web_browser(query: str, max_results: int) -> list[dict]:
     """
@@ -227,7 +216,7 @@ def call_rag_web_browser(query: str, max_results: int) -> list[dict]:
     return apify_client.dataset(actor_call["defaultDatasetId"]).list_items().items
 
 
-def submit_tool_outputs(run_: Run) -> Run | Stream[AssistantStreamEvent]:
+def submit_tool_outputs(run_):
     """ Submit tool outputs to continue the run """
     tool_output = []
     for tool in run_.required_action.submit_tool_outputs.tool_calls:
