@@ -309,10 +309,10 @@ Is this the end? Maybe! In the next lesson, we'll use a scraping framework to bu
 
 ### Build a scraper for watching Python jobs
 
-You're now able to build a scraper, are you? Let's build another one, then! Python's official website features a [job board](https://www.python.org/jobs/). Scrape job postings which match the following criteria:
+You're able to build a scraper now, aren't you? Let's build another one! Python's official website has a [job board](https://www.python.org/jobs/). Scrape the job postings that match the following criteria:
 
-- Tagged as Database
-- Not older than 60 days
+- Tagged as "Database"
+- Posted within the last 60 days
 
 For each job posting found, use [`pp()`](https://docs.python.org/3/library/pprint.html#pprint.pp) to print a dictionary containing the following data:
 
@@ -321,7 +321,7 @@ For each job posting found, use [`pp()`](https://docs.python.org/3/library/pprin
 - URL to the job posting
 - Date of posting
 
-Your program should print something like the following:
+Your output should look something like this:
 
 ```text
 {'title': 'Senior Full Stack Developer',
@@ -335,12 +335,12 @@ Your program should print something like the following:
 ...
 ```
 
-In Python's [`datetime`](https://docs.python.org/3/library/datetime.html) module you should find everything you need for manipulating time: `date.today()`, `datetime.fromisoformat()`, `datetime.date()`, `timedelta()`.
+You can find everything you need for working with dates and times in Python's [`datetime`](https://docs.python.org/3/library/datetime.html) module, including `date.today()`, `datetime.fromisoformat()`, `datetime.date()`, and `timedelta()`.
 
 <details>
   <summary>Solution</summary>
 
-  After inspecting how the job board works, we can notice that job postings tagged as Database have their own URL. We'll use it as the starting point, as it'll save us from needing to scrape and check the tags.
+  After inspecting the job board, you'll notice that job postings tagged as "Database" have a dedicated URL. We'll use that as our starting point, which saves us from having to scrape and check the tags manually.
 
   ```py
   from pprint import pp
@@ -376,13 +376,13 @@ In Python's [`datetime`](https://docs.python.org/3/library/datetime.html) module
 
 Scrape the [CNN Sports](https://edition.cnn.com/sport) homepage. For each linked article, calculate its length in characters:
 
-- Locate element which holds the main content of the article.
-- Use [`get_text()`](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#get-text) to get all its content as a plain text.
-- Use `len()` to calculate the length.
+- Locate the element that holds the main content of the article.
+- Use [`get_text()`](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#get-text) to extract all the content as plain text.
+- Use `len()` to calculate the character count.
 
-Skip pages without text, e.g. those which contain only a video. Sort the results and print URL to the shortest article which made it to the homepage.
+Skip pages without text (like those that only have a video). Sort the results and print the URL of the shortest article that made it to the homepage.
 
-At the time of writing this exercise, the shortest article which made it to the CNN Sports homepage is [one about a donation to the Augusta National Golf Club](https://edition.cnn.com/2024/10/03/sport/masters-donation-hurricane-helene-relief-spt-intl/). It's just 1,642 characters long.
+At the time of writing, the shortest article on the CNN Sports homepage is [about a donation to the Augusta National Golf Club](https://edition.cnn.com/2024/10/03/sport/masters-donation-hurricane-helene-relief-spt-intl/), which is just 1,642 characters long.
 
 <details>
   <summary>Solution</summary>
