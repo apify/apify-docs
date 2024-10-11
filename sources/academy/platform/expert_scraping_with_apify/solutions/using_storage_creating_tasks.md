@@ -67,7 +67,7 @@ That's it! Now, our Actor will push its data to a dataset named **amazon-offers-
 
 We now want to store the cheapest item in the default key-value store under a key named **CHEAPEST-ITEM**. The most efficient and practical way of doing this is by filtering through all of the newly named dataset's items and pushing the cheapest one to the store.
 
-Let's add the following code to the bottom of the Actor after **Crawl** finished** is logged to the console:
+Let's add the following code to the bottom of the Actor after **Crawl finished** is logged to the console:
 
 ```js
 // ...
