@@ -192,7 +192,7 @@ In the next lesson, we'll scrape the product detail pages so that each product v
 
 ### Scrape calling codes of African countries
 
-This is a follow-up to an exercise from the previous lesson, so feel free to reuse code. Scrape links to Wikipedia pages of all African states and territories. Follow the links and for each country extract the calling code, which is in the info table. Print URL and the calling code for all the countries. Start with this URL:
+This is a follow-up to an exercise from the previous lesson, so feel free to reuse your code. Scrape links to Wikipedia pages for all African states and territories. Follow each link and extract the calling code from the info table. Print the URL and the calling code for each country. Start with this URL:
 
 ```text
 https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
@@ -211,7 +211,7 @@ https://en.wikipedia.org/wiki/Cameroon +237
 ...
 ```
 
-Hint: Locating cells in tables is sometimes easier if you know how to [go up](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#going-up) in the HTML element soup.
+Hint: Locating cells in tables is sometimes easier if you know how to [navigate up](https://beautiful-soup-4.readthedocs.io/en/latest/index.html#going-up) in the HTML element soup.
 
 <details>
   <summary>Solution</summary>
@@ -247,13 +247,13 @@ Hint: Locating cells in tables is sometimes easier if you know how to [go up](ht
 
 ### Scrape authors of F1 news articles
 
-This is a follow-up to an exercise from the previous lesson, so feel free to reuse code. Scrape links to Guardian's latest F1 news. Follow the link for each article and extract both the author's name and the article's title. Print the author's name and the title for all the articles. Start with this URL:
+This is a follow-up to an exercise from the previous lesson, so feel free to reuse your code. Scrape links to the Guardian's latest F1 news articles. For each article, follow the link and extract both the author's name and the article's title. Print the author's name and the title for all the articles. Start with this URL:
 
 ```text
 https://www.theguardian.com/sport/formulaone
 ```
 
-Your program should print something like the following:
+Your program should print something like this:
 
 ```text
 Daniel Harris: Sports quiz of the week: Johan Neeskens, Bond and airborne antics
@@ -266,8 +266,8 @@ PA Media: Lewis Hamilton reveals lifelong battle with depression after school bu
 
 Hints:
 
-- You can use [attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to select HTML elements based on values of their attributes.
-- Notice that sometimes a person authors the article, but sometimes it's a contribution by a news agency.
+- You can use [attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to select HTML elements based on their attribute values.
+- Sometimes a person authors the article, but other times it's contributed by a news agency.
 
 <details>
   <summary>Solution</summary>
