@@ -9,6 +9,13 @@ Apify Actor Status Badge can be embedded in 3rd party documentation to show curr
 
 ---
 
+### Actor Status Badge Example
+
+This is the badge generated for the [Apify's Website Content Crawler](https://apify.com/apify/website-content-crawler Actor).
+
+[![Website Content Crawler Actor](https://apify.com/actor-badge?actor=apify/website-content-crawler)](https://apify.com/apify/website-content-crawler)
+
+
 ### How to embed the Actor Status Badge
 
 The Badge is a dynamic SVG image loaded from the Apify platform. The Badge is served from the URL Template:
@@ -16,6 +23,8 @@ The Badge is a dynamic SVG image loaded from the Apify platform. The Badge is se
 ```text
 https://apify.com/actor-badge?actor=:username/:actor-name
 ```
+
+In order to embed the badge in the HTML documentation, just use it as an image wrapped in a link as shown in the example below. Don't froget to use the `username` and `actor-name` of your Actor.
 
 #### HTML Example
 
@@ -30,10 +39,6 @@ https://apify.com/actor-badge?actor=:username/:actor-name
 ```markdown
 [![Website Content Crawler Actor](https://apify.com/actor-badge?actor=apify/website-content-crawler\)](https://apify.com/apify/website-content-crawler)
 ```
-
-#### Rendered Example
-
-[![Website Content Crawler Actor](https://apify.com/actor-badge?actor=apify/website-content-crawler)](https://apify.com/apify/website-content-crawler)
 
 ### Supported Actor States
 
