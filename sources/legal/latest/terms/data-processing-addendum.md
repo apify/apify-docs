@@ -285,7 +285,7 @@ Apify shall implement appropriate technical and organizational measures in accor
     <th>Location</th>
   </tr>
   <tr>
-    <td>Amanzon Web Services, Inc.</td>
+    <td>Amazon Web Services, Inc.</td>
     <td>Infrastructure</td>
     <td>US</td>
 
