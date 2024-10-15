@@ -447,6 +447,12 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
     margin: auto;
 }
 
+@media (min-width: 1440px) {
+    .main-wrapper > div {
+        width: var(--max-layout-width);
+    }
+}
+
 @media (max-width: 960px) {
     .main-wrapper > div {
         max-width: 100%;
