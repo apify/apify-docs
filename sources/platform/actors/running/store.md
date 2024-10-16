@@ -149,10 +149,12 @@ Pay per event Actor pricing model is very similar to the pay per result model. Y
 #### How do I know Actor is paid per events?
 You will the that the Actor is paid per events next to the Actor name.
 
-[//]: # (TODO screenshot of PPE actor)
+[//]: # (TODO: also show the screenshot from Apify Store on Web)
+
+![Example pay per event Actor](./images/store/pay_per_event_example_actor.png)
 
 #### Do I need to pay a monthly rental fee to run the Actor?
-No, the Actor is free to run. You only pay for the events.
+No, you only pay for the events.
 
 #### What happens when I interact with the dataset after the run finishes?
 You would still pay for all interactions after the Actor run finishes, same as for pay per result Actors.
@@ -163,21 +165,19 @@ You would still pay for the long term storage of results, same as for pay per re
 #### Where do I see how much I was charged for the pay per result Actors?
 Similarly to pay per result Actors, you can see how much you have been charged on your invoices, and on the [Usage tab](https://console.apify.com/billing) of the Billing section in the Console.
 
-[//]: # (TODO screenshot of usage section)
+![Pay per event actor - historical usage tab](./images/store/pay_per_event_historical_usage_tab.png)
 
 You can also see the cost of each run on the run detail itself.
 
-[//]: # (TODO screenshot of run detail showing cost per run)
+![Pay per event actor - run detail](./images/store/pay_per_event_price_on_run_detail.png)
 
 #### Can I put a cap on a cost of a single Actor run?
 Yes, when starting an Actor run, you can define the maximum limit on the cost of that run. When the Actor reaches the defined limit, it should terminate gracefully. Even if it didn't, for any reason, and kept producing results, we make always sure you are never charged more that your defined limit.
 
-[//]: # (TODO screenshot of run options with max cost option)
+![Pay per event actor - max charge per run](./images/store/pay_per_event_price_on_run_detail.png)
 
 #### How do I raise a dispute if the charges for an Actor seem off?
 Please, in such a case, do not hesitate to contact the Actor author or our support team. If you suspect a bug in the Actor, you can also always create an issue on the Actor detail in the Apify Console.
-
-
 
 ### Pay per usage
 
