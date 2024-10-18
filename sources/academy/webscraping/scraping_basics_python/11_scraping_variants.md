@@ -39,6 +39,8 @@ First, let's extract information about the variants. If we go to [Sony XBR-950G 
 
 Nice! We can extract the variant names, but we also need to extract the price for each variant. Switching the variants using the buttons shows us that the HTML changes dynamically. This means the page uses JavaScript to display information about the variants.
 
+![Switching variants](images/variants-js.gif)
+
 If we can't find a workaround, we'd need our scraper to run JavaScript. That's not impossible. Scrapers can spin up their own browser instance and automate clicking on buttons, but it's slow and resource-intensive. Ideally, we want to stick to plain HTTP requests and Beautiful Soup as much as possible.
 
 After a bit of detective work, we notice that not far below the `block-swatch-list` there's also a block of HTML with a class `no-js`, which contains all the data!
@@ -103,7 +105,7 @@ Since Python 3.9, you can use `|` to merge two dictionaries. If the [docs](https
 
 :::
 
-If you run the program, you should see 34 items in total. Some items should have no variant:
+If you run the program, you should see 34 items in total. Some items don't have variants, so they won't have a variant name. However, they should still have a price set—our scraper should already have that info from the product listing page.
 
 <!-- eslint-skip -->
 ```json title=products.json
@@ -121,7 +123,7 @@ If you run the program, you should see 34 items in total. Some items should have
 ]
 ```
 
-Some products where we're missing the actual price should now have several variants:
+Some products will break into several items, each with a different variant name. We don't know their exact prices from the product listing, just the min price. In the next step, we should be able to parse the actual price from the variant name for those items.
 
 <!-- eslint-skip -->
 ```json title=products.json
@@ -147,7 +149,7 @@ Some products where we're missing the actual price should now have several varia
 ]
 ```
 
-However, some products with variants will have the `price` field set. That's because the shop sells all these variants for the same price, so the product listing displays the price as a fixed amount:
+Perhaps surprisingly, some products with variants will have the price field set. That's because the shop sells all variants of the product for the same price, so the product listing shows the price as a fixed amount, like _$74.95_, instead of _from $74.95_.
 
 <!-- eslint-skip -->
 ```json title=products.json
@@ -167,7 +169,7 @@ However, some products with variants will have the `price` field set. That's bec
 
 ## Parsing price
 
-The items now contain the variant as text, which is good for a start, but it would be more useful to set the price in the `price` key. Let's introduce a new function to handle that:
+The items now contain the variant as text, which is good for a start, but we want the price to be in the `price` key. Let's introduce a new function to handle that:
 
 ```py
 def parse_variant(variant):
