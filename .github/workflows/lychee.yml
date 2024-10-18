@@ -37,7 +37,7 @@ jobs:
                 env:
                     GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
                 with:
-                    fail: false
+                    fail: true
                     args: >
                         --base https://docs.apify.com
                         --exclude-path 'build/versions.html'
