@@ -24,8 +24,6 @@ To use Web IDE, you will need an Apify account. You can [sign-up for a free acco
 
 After you sign in to [Apify Console](https://console.apify.com), navigate to the [**Development**](https://console.apify.com/actors/development/my-actors) subsection. Then, click the **Develop new** button at the top right corner of the page.
 
-<!-- TODO fix this screenshot -->
-
 ![Create Actor](./images/actor-create-button.png)
 
 You will be redirected to a page containing various Actor development templates for popular languages such as `JavaScript`, `TypeScript`, and `Python`. These templates provide boilerplate code and a preconfigured environment tailored to specific use cases. You can choose the template that best suits your technology stack. For demonstration purposes, let's choose **Crawlee + Puppeteer + Chrome**.
