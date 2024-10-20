@@ -22,7 +22,9 @@ To use Web IDE, you will need an Apify account. You can [sign-up for a free acco
 
 :::
 
-After you sign in to [Apify Console](https://console.apify.com), navigate to the [**Actors**](https://console.apify.com/actors) section. Then, click the **Develop new** button at the top right corner of the page.
+After you sign in to [Apify Console](https://console.apify.com), navigate to the [**Development**](https://console.apify.com/actors/development/my-actors) subsection. Then, click the **Develop new** button at the top right corner of the page.
+
+<!-- TODO fix this screenshot -->
 
 ![Create Actor](./images/actor-create-button.png)
 
