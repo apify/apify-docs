@@ -8,10 +8,12 @@ sidebar_position: 4
 Apify Actor Status Badge can be embedded in 3rd party documentation to show current health status and engagement of the Actor in the Apify Platform.
 
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Actor status badge example
 
-This is the badge generated for the [Apify's Website Content Crawler](https://apify.com/apify/website-content-crawler Actor).
+This is the badge generated for the [Apify's Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor.
 
 [![Website Content Crawler Actor](https://apify.com/actor-badge?actor=apify/website-content-crawler)](https://apify.com/apify/website-content-crawler)
 
@@ -26,19 +28,24 @@ https://apify.com/actor-badge?actor=:username/:actor-name
 
 In order to embed the badge in the HTML documentation, just use it as an image wrapped in a link as shown in the example below. Don't froget to use the `username` and `actor-name` of your Actor.
 
-#### HTML Example
+#### Example
 
-```html
-<a href="https://apify.com/apify/website-content-crawler">
-  <img src="https://apify.com/actor-badge?actor=apify/website-content-crawler">
-</a>
-```
+<Tabs>
+  <TabItem value="html" label="HTML Example" default>
 
-#### Markdown Example
+    ```html
+    <a href="https://apify.com/apify/website-content-crawler">
+      <img src="https://apify.com/actor-badge?actor=apify/website-content-crawler">
+    </a>
+    ```
+  </TabItem>
+  <TabItem value="markdown" label="Markdown Example">  
 
-```markdown
-[![Website Content Crawler Actor](https://apify.com/actor-badge?actor=apify/website-content-crawler\)](https://apify.com/apify/website-content-crawler)
-```
+    ```markdown
+    [![Website Content Crawler Actor](https://apify.com/actor-badge?actor=apify/website-content-crawler\)](https://apify.com/apify/website-content-crawler)
+    ```
+  </TabItem>
+</Tabs>
 
 ### Supported Actor states
 
