@@ -142,11 +142,13 @@ at the bottom of the [Usage tab](https://console.apify.com/billing).
 ![Actor pay-per-result cost](./images/store/pay_per_result_actor_items.png)
 
 ### Pay per event
+
 Pay per event Actor pricing model is very similar to the pay per result model. You still do not pay the underlying platform usage. Instead of results, you pay for specific events defined by the creator of the Actor. These events will vary between Actors, and will always be described, together with their pricing, on each Actor. Example events might be producing a single result, doing a unit piece of work (e.g. uploading a file) or starting an Actor.
 
 #### Pay per event Actors - Frequently Asked Questions
 
 #### How do I know Actor is paid per events?
+
 You will the that the Actor is paid per events next to the Actor name.
 
 [//]: # (TODO: also show the screenshot from Apify Store on Web)
@@ -154,15 +156,19 @@ You will the that the Actor is paid per events next to the Actor name.
 ![Example pay per event Actor](./images/store/pay_per_event_example_actor.png)
 
 #### Do I need to pay a monthly rental fee to run the Actor?
+
 No, you only pay for the events.
 
 #### What happens when I interact with the dataset after the run finishes?
+
 You would still pay for all interactions after the Actor run finishes, same as for pay per result Actors.
 
 #### Do I pay for the storage of results on the Apify platform?
+
 You would still pay for the long term storage of results, same as for pay per result Actors.
 
 #### Where do I see how much I was charged for the pay per result Actors?
+
 Similarly to pay per result Actors, you can see how much you have been charged on your invoices, and on the [Usage tab](https://console.apify.com/billing) of the Billing section in the Console.
 
 ![Pay per event Actor - historical usage tab](./images/store/pay_per_event_historical_usage_tab.png)
@@ -172,11 +178,13 @@ You can also see the cost of each run on the run detail itself.
 ![Pay per event Actor - run detail](./images/store/pay_per_event_price_on_run_detail.png)
 
 #### Can I put a cap on a cost of a single Actor run?
+
 Yes, when starting an Actor run, you can define the maximum limit on the cost of that run. When the Actor reaches the defined limit, it should terminate gracefully. Even if it didn't, for any reason, and kept producing results, we make always sure you are never charged more that your defined limit.
 
 ![Pay per event Actor - max charge per run](./images/store/pay_per_event_price_on_run_detail.png)
 
 #### How do I raise a dispute if the charges for an Actor seem off?
+
 Please, in such a case, do not hesitate to contact the Actor author or our support team. If you suspect a bug in the Actor, you can also always create an issue on the Actor detail in the Apify Console.
 
 ### Pay per usage
