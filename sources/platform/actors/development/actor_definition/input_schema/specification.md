@@ -410,13 +410,13 @@ Editor type `select` allows the user to pick items from a select, providing mult
 
 To correctly define options for multiselect, you need to define the `items` property and then provide values and (optionally) labels in `enum` and `enumTitles` properties.
 
-### Resource
+### Resource type
 
-The Resource property enables Actor users to select different types of resources.
-Currently, it supports storage resources, allowing the selection of a Dataset, Key-Value Store, or Request Queue.
+Resource type identifies what kind of object is referred to in the input field. For example, the Key-value store resource type can be referred to using a string ID.
+Currently, it supports storage resources only, allowing the reference of a Dataset, Key-Value Store or Request Queue.
 
 For Actor developers, the resource input value is a string representing the storage ID.
-The type of the property is either `string` or `array` (for multiple resources).
+The type of the property is either `string` or `array`. In case of `array` (for multiple resources) the return value is an array of IDs.
 In the user interface, a picker is provided for easy selection, where users can search and choose from their own storages or those they have access to.
 
 Example of a Dataset input:
@@ -434,7 +434,7 @@ Rendered input:
 
 ![Apify Actor input schema dataset](./images/input-schema-dataset.png)
 
-JSON value:
+The returned value is resource reference, in this example it's the dataset ID as can be seen in the JSON tab:
 
 ![Apify Actor input schema dataset](./images/input-schema-dataset-json.png)
 
