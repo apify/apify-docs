@@ -444,6 +444,6 @@ Properties:
 |----------------|-----------------------------------------------------------------------------------|----------|------------------------------------------------------------------------------------|
 | `type`         | One of <ul><li>`string`</li><li>`array`</li></ul>                                 | Yes      | Specifies the type of input - string for single value or array for multiple values |
 | `editor`       | One of <ul><li>`resourcePicker`</li><li>`hidden`</li></ul>                        | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.         |
-| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of resource                                                                   |
+| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                                   |
 | `minItems`     | Integer                                                                           | No       | Minimum number of items the array can contain. Only for `type: array`              |
 | `maxItems`     | Integer                                                                           | No       | Maximum number of items the array can contain. Only for `type: array`              |
