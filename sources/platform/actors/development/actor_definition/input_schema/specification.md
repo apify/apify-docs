@@ -412,7 +412,7 @@ To correctly define options for multiselect, you need to define the `items` prop
 
 ### Resource type
 
-Resource type identifies what kind of object is referred to in the input field. For example, the Key-value store resource type can be referred to using a string ID.
+Resource type identifies what kind of Apify Platfrom object is referred to in the input field. For example, the Key-value store resource type can be referred to using a string ID.
 Currently, it supports storage resources only, allowing the reference of a Dataset, Key-Value Store or Request Queue.
 
 For Actor developers, the resource input value is a string representing the storage ID.
