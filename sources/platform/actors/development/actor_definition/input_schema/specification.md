@@ -342,7 +342,7 @@ Example of request list sources configuration:
     "title": "Start URLs",
     "type": "array",
     "description": "URLs to start with",
-    "prefill": [{ "url": "http://example.com" }],
+    "prefill": [{ "url": "https://apify.com" }],
     "editor": "requestListSources"
 }
 ```
