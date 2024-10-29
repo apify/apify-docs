@@ -41,17 +41,9 @@ In [`./nginx.conf`](./nginx.conf) you can find the production version of the Ngi
 
 ### API reference
 
-The `./sources/platform/api_v2` directory contains the source file for the API reference (<https://docs.apify.com/api/v2>) hosted on [Apiary](https://apiary.io/). The build script contained in the `./tools` folder automatically uploads the API docs to Apiary during the web deployment process.
+The API reference at (<https://docs.apify.com/api/v2>) is built directly from the OpenAPI specification of our API, versioned at https://github.com/apify/openapi.
 
-#### Local testing
-
-1. Install Apiary gem `gem install apiaryio`
-2. Open the generated doc with the command: `apiary preview --path="./sources/platform/api_v2/api_v2_reference.apib"`
-3. Log into [Apiary](https://apiary.io/) to get the document analyzed for warnings (there is no automatic linter)
-
-#### Pre-release testing
-
-After updating the API docs, you should ALWAYS log into [Apiary](https://apiary.io/), analyze the document, and make sure there are **no warnings**!
+For contribution details regarding the OpenAPI specification, consult the related [contribution guide](https://github.com/apify/openapi?tab=readme-ov-file#contribution-guide).
 
 ### Homepage
 

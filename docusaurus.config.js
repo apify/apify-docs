@@ -51,6 +51,8 @@ module.exports = {
     /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
     onBrokenMarkdownLinks:
     /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
+    onBrokenAnchors:
+    /** @type {import('@docusaurus/types').ReportingSeverity} */ ('warn'),
     themes: [
         [
             require.resolve('./apify-docs-theme'),

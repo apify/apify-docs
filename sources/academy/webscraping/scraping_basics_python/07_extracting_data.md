@@ -163,9 +163,9 @@ Great! Only if we didn't overlook an important pitfall called [floating-point er
 These errors are small and usually don't matter, but sometimes they can add up and cause unpleasant discrepancies. That's why it's typically best to avoid `float()` when working with money. Let's instead use Python's built-in [`Decimal()`](https://docs.python.org/3/library/decimal.html) type:
 
 ```py
-from decimal import Decimal
 import httpx
 from bs4 import BeautifulSoup
+from decimal import Decimal
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 response = httpx.get(url)
@@ -323,8 +323,8 @@ Hints:
 
   ```py
   import httpx
-  from datetime import datetime
   from bs4 import BeautifulSoup
+  from datetime import datetime
 
   url = "https://www.theguardian.com/sport/formulaone"
   response = httpx.get(url)

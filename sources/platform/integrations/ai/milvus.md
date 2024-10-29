@@ -22,17 +22,20 @@ It can also be connected to a managed Milvus instance on [Zilliz Cloud](https://
 
 Before you begin, ensure that you have the following:
 
-- A Milvus database URL and API token. Optionally, you can use a username and password. You can run Milvus on Docker or Kubernetes, but in this example, we'll use the hosted Milvus service at [Zilliz Cloud](https://cloud.zilliz.com).
+- A Milvus/Zilliz database universal resource identifier (URI) and Token to setup the client. Optionally, you can use a username and password in the URI. You can run Milvus on Docker or Kubernetes, but in this example, we'll use the hosted Milvus service at [Zilliz Cloud](https://cloud.zilliz.com).
 - An [OpenAI API key](https://openai.com/index/openai-api/) to compute text embeddings.
 - An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
 
-### How to set up Milvus database
+### How to set up Milvus/Zilliz database
 
 1. Sign up or log in to your Zilliz account and create a new cluster.
 
-1. Download the created credentials: user name and password.
+1. Find the `uri` and `token`, which correspond to the [Public Endpoint and API key](https://docs.zilliz.com/docs/on-zilliz-cloud-console#cluster-details) in Zilliz Cloud.
 
-Once the cluster is ready and you have the URL, API key, and credentials, you can set up the integration with Apify.
+Note that the collection does not need to exist beforehand.
+It will be automatically created when data is uploaded to the database.
+
+Once the cluster is ready, and you have the `URI` and `Token`, you can set up the integration with Apify.
 
 
 ### Integration Methods
@@ -76,11 +79,8 @@ Another way to interact with Milvus is through the [Apify Python SDK](https://do
     OPENAI_API_KEY = "YOUR-OPENAI-API-KEY"
 
     MILVUS_COLLECTION_NAME = "YOUR-MILVUS-COLLECTION-NAME"
-    MILVUS_URL = "YOUR-MILVUS-URL"
-    MILVUS_API_KEY = "YOUR-MILVUS-API-KEY"
-    MILVUS_USER = "YOUR-MILVUS-USER"
-    MILVUS_PASSWORD = "YOUR-MILVUS-PASSWORD"
-
+    MILVUS_URI = "YOUR-MILVUS-URI"
+    MILVUS_TOKEN = "YOUR-MILVUS-TOKEN"
     client = ApifyClient(APIFY_API_TOKEN)
     ```
 
@@ -96,11 +96,9 @@ Another way to interact with Milvus is through the [Apify Python SDK](https://do
 
     ```python
     milvus_integration_inputs = {
-        "milvusUrl": MILVUS_URL,
-        "milvusApiKey": MILVUS_API_KEY,
+        "milvusUri": MILVUS_URI,
+        "milvusToken": MILVUS_TOKEN,
         "milvusCollectionName": MILVUS_COLLECTION_NAME,
-        "milvusUser": MILVUS_USER,
-        "milvusPassword": MILVUS_PASSWORD,
         "datasetFields": ["text"],
         "datasetId": actor_call["defaultDatasetId"],
         "deltaUpdatesPrimaryDatasetFields": ["url"],
@@ -109,12 +107,13 @@ Another way to interact with Milvus is through the [Apify Python SDK](https://do
         "embeddingsProvider": "OpenAI",
     }
     actor_call = client.actor("apify/milvus-integration").call(run_input=milvus_integration_inputs)
-
     ```
 
 Congratulations! You've successfully integrated Apify with Milvus, and the scraped data is now stored in your Milvus database.
+For a complete example of Retrieval-Augmented Generation (RAG), check out the Additional Resources below.
 
 ## Additional Resources
 
 - [Apify Milvus Integration](https://apify.com/apify/milvus-integration)
 - [Milvus documentation](https://milvus.io/docs)
+- [Retrieval-Augmented Generation: Crawling Websites with Apify and Saving Data to Milvus for Question Answering](https://milvus.io/docs/apify_milvus_rag.md)

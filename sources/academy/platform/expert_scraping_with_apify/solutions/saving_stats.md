@@ -63,7 +63,7 @@ await Stats.initialize();
 
 ## Tracking errors {#tracking-errors}
 
-In order to keep track of errors, we must write a new function within the crawler's configuration called **failedRequestHandler**. Passed into this function is an object containing an **Error** object for the error which occurred and the **Request** object, as well as information about the session and proxy which were used for the request.
+In order to keep track of errors, we must write a new function within the crawler's configuration called **errorHandler**. Passed into this function is an object containing an **Error** object for the error which occurred and the **Request** object, as well as information about the session and proxy which were used for the request.
 
 ```js
 const crawler = new CheerioCrawler({
@@ -79,7 +79,7 @@ const crawler = new CheerioCrawler({
     maxConcurrency: 50,
     requestHandler: router,
     // Handle all failed requests
-    failedRequestHandler: async ({ error, request }) => {
+    errorHandler: async ({ error, request }) => {
         // Add an error for this url to our error tracker
         Stats.addError(request.url, error?.message);
     },

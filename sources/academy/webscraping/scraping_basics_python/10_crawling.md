@@ -2,7 +2,7 @@
 title: Crawling websites with Python
 sidebar_label: Crawling websites
 description: TODO
-sidebar_position: 9
+sidebar_position: 10
 slug: /scraping-basics-python/crawling
 ---
 

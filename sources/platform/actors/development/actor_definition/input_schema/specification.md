@@ -24,7 +24,7 @@ You can specify input schema for an Actor in multiple ways:
 - If you omit the `input` field in the `.actor/actor.json` file, the system will look for an `INPUT_SCHEMA.json` file in the `.actor` directory.
 - In the absence of that file, it will search for an `INPUT_SCHEMA.json` file in the Actor's root directory.
 
-The max allowed size for the input schema file is 100 kB. When you provide an input schema, the system will validate the input data passed to the Actor during execution (via the API or the Apify Console) against the specified schema to ensure compliance before starting the Actor.
+The max allowed size for the input schema file is 500 kB. When you provide an input schema, the system will validate the input data passed to the Actor during execution (via the API or the Apify Console) against the specified schema to ensure compliance before starting the Actor.
 
 :::note Validation aid
 
@@ -183,16 +183,16 @@ Rendered input:
 
 Properties:
 
-| Property | Value | Required | Description |
-| --- | --- | --- | --- |
-| `editor` | One of <ul><li>`textfield`</li><li>`textarea`</li><li>`javascript`</li><li>`python`</li><li>`select`</li><li>`datepicker`</li><li>`hidden`</li></ul> | Yes | Visual editor used for <br/>the input field. |
-| `pattern` | String | No | Regular expression that will be <br/>used to validate the input. <br/> If validation fails, <br/>the Actor will not run. |
-| `minLength` | Integer | No | Minimum length of the string. |
-| `maxLength` | Integer | No | Maximum length of the string. |
-| `enum` | [String] | Required if <br/>`editor` <br/>is `select` | Using this field, you can limit values <br/>to the given array of strings. <br/>Input will be displayed as select box. |
-| `enumTitles` | [String] | No | Titles for the `enum` keys described. |
-| `nullable` | Boolean | No | Specifies whether `null` <br/>is an allowed value. |
-| `isSecret` | Boolean | No | Specifies whether the input field<br />will be stored encrypted.<br />Only available <br />with `textfield` and `textarea` editors. |
+| Property     | Value                                                                                                                                                | Required                                   | Description                                                                                                                         |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `editor`     | One of <ul><li>`textfield`</li><li>`textarea`</li><li>`javascript`</li><li>`python`</li><li>`select`</li><li>`datepicker`</li><li>`hidden`</li></ul> | Yes                                        | Visual editor used for <br/>the input field.                                                                                        |
+| `pattern`    | String                                                                                                                                               | No                                         | Regular expression that will be <br/>used to validate the input. <br/> If validation fails, <br/>the Actor will not run.            |
+| `minLength`  | Integer                                                                                                                                              | No                                         | Minimum length of the string.                                                                                                       |
+| `maxLength`  | Integer                                                                                                                                              | No                                         | Maximum length of the string.                                                                                                       |
+| `enum`       | [String]                                                                                                                                             | Required if <br/>`editor` <br/>is `select` | Using this field, you can limit values <br/>to the given array of strings. <br/>Input will be displayed as select box.              |
+| `enumTitles` | [String]                                                                                                                                             | No                                         | Titles for the `enum` keys described.                                                                                               |
+| `nullable`   | Boolean                                                                                                                                              | No                                         | Specifies whether `null` <br/>is an allowed value.                                                                                  |
+| `isSecret`   | Boolean                                                                                                                                              | No                                         | Specifies whether the input field<br />will be stored encrypted.<br />Only available <br />with `textfield` and `textarea` editors. |
 
 :::note Regex escape
 
