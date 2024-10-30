@@ -104,10 +104,8 @@ jobs:
             matrix:
                 repo:
                     - apify/apify-sdk-js
-                    - apify/apify-sdk-python
                     - apify/apify-cli
                     - apify/apify-client-js
-                    - apify/apify-client-python
 
         runs-on: ubuntu-latest
         steps:
@@ -115,3 +113,18 @@ jobs:
               GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
             run: |
                 gh workflow run docs.yaml --repo ${{ matrix.repo }}
+
+    rebuild-python-docs:
+        needs: publish
+        strategy:
+            matrix:
+                repo:
+                    - apify/apify-sdk-python
+                    - apify/apify-client-python
+
+        runs-on: ubuntu-latest
+        steps:
+          - env:
+              GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
+            run: |
+                gh workflow run build_and_deploy_docs.yaml --repo ${{ matrix.repo }}
