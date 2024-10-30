@@ -135,8 +135,9 @@ export default function Api() {
                         </div>
                     </div>}
                 >
-                    <CodeBlock title="cURL" language='bash'>
-                        {`# Prepare Actor input
+                    <ClientCodeWrapper>
+                        <CodeBlock title="cURL" language='bash'>
+                            {`# Prepare Actor input
 cat > input.json <<'EOF'
 {
  // Define the input in JSON here
@@ -151,8 +152,9 @@ curl "https://api.apify.com/v2/acts/username~actorname/runs?token=<YOUR_API_TOKE
 
 # Use the defaultDatasetId from response and pass it instead of <DATASET_ID>
 curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN>"`
-                        }
-                    </CodeBlock>
+                            }
+                        </CodeBlock>
+                    </ClientCodeWrapper>
                 </SectionWrapper>
                 <Section
                     headingClassName={styles.ApiSectionHeading}
