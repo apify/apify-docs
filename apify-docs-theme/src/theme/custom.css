@@ -1576,19 +1576,15 @@ html[data-theme='dark'] .runnable-code-block svg .apify-logo {
 .codeBlockTitle_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module {
     border-bottom: 1px solid var(--color-neutral-border) !important;
     background: var(--color-neutral-background-subtle);
-
 }
 
 .buttonGroup_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module  {
-
     button {
         &[title="Toggle word wrap"] {
             display: none;
         }
         opacity: 1 !important;
     }
-
-
 }
 
 .redocusaurus table code {
