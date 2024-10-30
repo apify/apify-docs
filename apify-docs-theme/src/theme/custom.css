@@ -1571,20 +1571,20 @@ html[data-theme='dark'] .runnable-code-block svg .apify-logo {
     overflow: hidden;
     border: 1px solid var(--color-neutral-border);
     box-shadow: none !important;
-}
 
-.codeBlockTitle_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module {
-    border-bottom: 1px solid var(--color-neutral-border) !important;
-    background: var(--color-neutral-background-subtle);
-}
+    div[class^="codeBlockTitle"]{
+        border-bottom: 1px solid var(--color-neutral-border) !important;
+        background: var(--color-neutral-background-subtle);
+    }
 
-.buttonGroup_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module  {
-    button {
+    div[class^="buttonGroup"] button {
+        opacity: 1 !important;
+
         &[title="Toggle word wrap"] {
             display: none;
         }
-        opacity: 1 !important;
     }
+
 }
 
 .redocusaurus table code {
