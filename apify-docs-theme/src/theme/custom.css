@@ -1562,8 +1562,29 @@ html[data-theme='dark'] .runnable-code-block svg .apify-logo {
     text-align: right;
     min-width: 1.5rem;
     display: inline-block;
-    opacity: .3;
     left: var(--ifm-pre-padding);
+    color: var(--color-neutral-text-subtle);
+}
+
+.theme-code-block {
+    border-radius: 12px !important;
+    overflow: hidden;
+    border: 1px solid var(--color-neutral-border);
+    box-shadow: none !important;
+
+    div[class^="codeBlockTitle"]{
+        border-bottom: 1px solid var(--color-neutral-border) !important;
+        background: var(--color-neutral-background-subtle);
+    }
+
+    div[class^="buttonGroup"] button {
+        opacity: 1 !important;
+
+        &[title="Toggle word wrap"] {
+            display: none;
+        }
+    }
+
 }
 
 .redocusaurus table code {
