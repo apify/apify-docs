@@ -197,14 +197,16 @@ Example of date selection using absolute and relative `datepicker` editor:
         "type": "string",
         "description": "Select relative date in format +/- {number} {unit}",
         "editor": "datepicker",
-        "dateType": "relative"
+        "dateType": "relative",
+        "pattern": "^([+-])\\s*(\\d+)\\s*(day|week|month|year)s?$"
     },
     "anyDate": {
         "title": "Any date",
         "type": "string",
         "description": "Select date in format YYYY-MM-DD or +/- {number} {unit}",
         "editor": "datepicker",
-        "dateType": "absoluteOrRelative"
+        "dateType": "absoluteOrRelative",
+        "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$|^([+-])\\s*(\\d+)\\s*(day|week|month|year)s?$"
     }
 }
 ```
