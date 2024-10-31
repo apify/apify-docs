@@ -215,7 +215,7 @@ The `absoluteDate` property renders a date picker that allows selection of a spe
 
 ![Apify Actor input schema - country input](./images/input-schema-date-absolute.png)
 
-The `relativeDate` property renders an input field that enables the user to choose the relative date and returns the value in the format `+/- {number} {unit}`, for example `"+ 2 days"`. The `dateType` parameter is set to `"relative"` to restrict input to relative dates only.
+The `relativeDate` property renders an input field that enables the user to choose the relative date and returns the value in `+/- {number} {unit}` format, for example `"+ 2 days"`. The `dateType` parameter is set to `"relative"` to restrict input to relative dates only.
 
 ![Apify Actor input schema - country input](./images/input-schema-date-relative.png)
 
