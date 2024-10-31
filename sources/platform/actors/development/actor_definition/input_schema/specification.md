@@ -211,7 +211,7 @@ Example of date selection using absolute and relative `datepicker` editor:
 }
 ```
 
-The `absoluteDate` property renders a date picker that allows selection of a specific date and returns string value in the format `YYYY-MM-DD`. Validation is ensured thanks to `pattern` field. In this case the `dateType` property is omitted, as it defaults to `"absolute"`.
+The `absoluteDate` property renders a date picker that allows selection of a specific date and returns string value in `YYYY-MM-DD` format. Validation is ensured thanks to `pattern` field. In this case the `dateType` property is omitted, as it defaults to `"absolute"`.
 
 ![Apify Actor input schema - country input](./images/input-schema-date-absolute.png)
 
