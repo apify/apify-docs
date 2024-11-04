@@ -49,6 +49,6 @@ jobs:
                         --format markdown
                         './build/**/*.html'
 
-            -   name: Add job summary
-                if: always()
-                run: cat ./lychee/out.md >> $GITHUB_STEP_SUMMARY
+            # -   name: Add job summary
+            #     if: always()
+            #     run: cat ./lychee/out.md >> $GITHUB_STEP_SUMMARY
