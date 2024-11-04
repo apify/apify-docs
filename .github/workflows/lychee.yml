@@ -8,6 +8,7 @@ on:
 jobs:
     link-check:
         runs-on: ubuntu-latest
+        continue-on-error: true
         steps:
             -   uses: actions/checkout@v4
 
@@ -48,7 +49,6 @@ jobs:
                         --accept '100..=103,200..=299,403..=403,429'
                         --format markdown
                         './build/**/*.html'
-                continue-on-error: true
 
             -   name: Add job summary
                 if: always()
