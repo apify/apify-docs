@@ -48,7 +48,3 @@ jobs:
                         --accept '100..=103,200..=299,403..=403,429'
                         --format markdown
                         './build/**/*.html'
-
-            # -   name: Add job summary
-            #     if: always()
-            #     run: cat ./lychee/out.md >> $GITHUB_STEP_SUMMARY
