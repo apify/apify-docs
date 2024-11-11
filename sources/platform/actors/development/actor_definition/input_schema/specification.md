@@ -438,6 +438,21 @@ The returned value is resource reference, in this example it's the dataset ID as
 
 ![Apify Actor input schema dataset](./images/input-schema-dataset-json.png)
 
+Example of multiple datasets input:
+
+```json
+{
+    "title": "Datasets",
+    "type": "array",
+    "description": "Select multiple datasets",
+    "resourceType": "dataset"
+}
+```
+
+Rendered input:
+
+![Apify Actor input schema datasets](./images/input-schema-datasets.png)
+
 Properties:
 
 | Property       | Value                                                                             | Required | Description                                                                        |
