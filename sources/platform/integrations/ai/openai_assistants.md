@@ -20,7 +20,7 @@ Next, we’ll show how to save data from Apify Actors into the OpenAI Vector Sto
 
 ## Real-time search data for OpenAI Assistant
 
-We'll use [RAG-Web-Browser](https://apify.com/apify/rag-web-browser) to fetch the latest information from the web and provide it to the OpenAI Assistant through [function calling](https://platform.openai.com/docs/assistants/tools/function-calling?context=without-streaming).
+We'll use the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to fetch the latest information from the web and provide it to the OpenAI Assistant through [function calling](https://platform.openai.com/docs/assistants/tools/function-calling?context=without-streaming).
 To begin, we need to create an OpenAI Assistant with the appropriate instructions.
 After that, we can initiate a conversation with the assistant by creating a thread, adding messages, and running the assistant to receive responses.
 The image below provides an overview of the entire process:
@@ -65,7 +65,7 @@ INSTRUCTIONS = """ You are a smart and helpful assistant. Maintain an expert, fr
 ```
 
 Next, we define a function description with two parameters, search query (`query`) and number of results we need to retrieve (`maxResults`).
-The RAG-Web-Browser can be called with more parameters, check the [Actor input schema](https://apify.com/apify/rag-web-browser/input-schema) for details.
+RAG Web Browser can be called with more parameters, check the [Actor input schema](https://apify.com/apify/rag-web-browser/input-schema) for details.
 
 ```python
 rag_web_browser_function = {
@@ -124,7 +124,7 @@ run = client.beta.threads.runs.create_and_poll(thread_id=thread.id, assistant_id
 
 Finally, we need to check the run status to determine if the assistant requires any action to retrieve the search data.
 If it does, we must submit the results using the `submit_tool_outputs` function.
-This function will trigger the RAG-Web-Browser to fetch the search data and submit it to the assistant for processing.
+This function will trigger RAG Web Browser to fetch the search data and submit it to the assistant for processing.
 
 Let's implement the `submit_tool_outputs` function:
 
@@ -137,7 +137,7 @@ def submit_tool_outputs(run_):
             d = json.loads(tool.function.arguments)
             output = call_rag_web_browser(query=d["query"], max_results=d["maxResults"])
             tool_output.append(ToolOutput(tool_call_id=tool.id, output=json.dumps(output)))
-            print("RAG-Web-Browser added as a tool output.")
+            print("RAG Web Browser added as a tool output.")
 
     return client.beta.threads.runs.submit_tool_outputs_and_poll(thread_id=run_.thread_id, run_id=run_.id, tool_outputs=tool_output)
 ```
@@ -165,7 +165,7 @@ Assistant response:
 The latest news on LLM is as follows:
 - [OpenAI](https://openai.com) has released a new version of GPT-4.
 - [Hugging Face](https://huggingface.co) has updated their Transformers library.
-- [Apify](https://apify.com) has released a new RAG-Web-Browser.
+- [Apify](https://apify.com) has released a new RAG Web Browser.
 ```
 
 <details>
@@ -415,7 +415,7 @@ for m in client.beta.threads.messages.list(thread_id=run.thread_id):
 
 ## Resources
 
-- [Open AI Assistants](https://platform.openai.com/docs/assistants/overview)
-- [Open AI Function Calling](https://platform.openai.com/docs/assistants/tools/function-calling)
-- [Apify - RAG Web Browser](https://apify.com/apify/rag-web-browser)
-- [Apify - OpenAI Vector Store Integration](https://apify.com/jiri.spilka/openai-vector-store-integration)
+- [OpenAI Assistants](https://platform.openai.com/docs/assistants/overview)
+- [OpenAI function calling](https://platform.openai.com/docs/assistants/tools/function-calling)
+- [RAG Web Browser](https://apify.com/apify/-browser) Actor
+- [OpenAI Vector Store Integration](https://apify.com/jiri.spilka/openai-vector-store-integration) Actor
