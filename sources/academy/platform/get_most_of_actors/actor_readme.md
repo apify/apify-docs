@@ -80,8 +80,6 @@ Twitter Scraper has the following input options. Click on the [input tab](https:
 
 Mention that the extracted dataset can be downloaded in various formats such as `JSON`, `HTML`,or `CSV`. Provide a simplified `JSON` dataset example to illustrate the output structure, check [this Actor](https://apify.com/compass/crawler-google-places#output-example) for an example.
 
-
-
 ### Tips & advanced options
 
 Share any tips or advanced options for running the Actor more effectively, such as limiting compute unit usage, improving accuracy, or increasing speed.
