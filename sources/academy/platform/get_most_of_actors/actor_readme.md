@@ -5,93 +5,96 @@ sidebar_position: 2
 slug: /get-most-of-actors/actor-readme
 ---
 
-# Actor README
-
-**Learn how to write a comprehensive README to help users better navigate, understand and run public Actors in Apify Store.**
-
 ---
 
-- It should also be a "template" for developers developing new public Actors so that they have a structure and guidance for writing the README.
-- The goal is to ensure that more people will understand and run their Actors.
-- Whenever you build an Actor, think of the original request/idea and the "use case" = "user need" it should solve, please take notes and share them with Apify, so we can help you write a blog post supporting your Actor with more information, more detailed explanation, better SEO.
-- Consider adding a video, images, and screenshots to your README to break up the text.
-- This is an example of an Actor with a README that corresponds well to the guidelines below:
-  - [apify.com/tri_angle/airbnb-scraper](https://apify.com/tri_angle/airbnb-scraper)
-- Tip no.1: if you want to add snippets of code anywhere in your README, you can use [Carbon](https://github.com/carbon-app/carbon).
-- Tip no.2: if you need any quick Markdown guidance, check out https://www.markdownguide.org/cheat-sheet/
 
->
-> 🦾 **No time for writing?** Our [README Generator](https://apify.com/apify/actor-readme-generator) will create a new README out of thin air following the template below ⬇️
->
+## Why README is important
 
-## What should you add to your Actor README?
+Writing a comprehensive README is crucial for helping users understand, navigate, and run your public Actors on the Apify Store. This guide provides a structured template and best practices to ensure your README is informative, and developer-friendly.
 
-Aim for sections 1–6 below and try to include at least 300 words. You can move the sections around to some extent if it makes sense, e.g. 3 might come after 6. Consider using emojis as bullet points or otherwise trying to break up the text.
+:::note README generator Actor
 
-1. **What does (Actor name) do?**
+🦾 **No time for writing?** Our [README Generator](https://apify.com/apify/actor-readme-generator) will create a new README out of thin air following the template below ⬇️>
 
-    - in 1–2 sentences describe what the Actor does and what it does not do
-    - consider adding keywords like API, e.g. Instagram API
-    - always have a link to the target website in this section
+:::
 
-2. **Why use (Actor name)? or Why scrape (target site)?**
+### What does the Actor do
 
-    - How it can be beneficial for the user
-    - Business use cases
-    - Link to a success story, a business use case, or a blog post.
+In 1 to 2 sentences, describe what the Actor does. Consider adding relevant keywords like "API" or the target website's name. Always include a link to the target website in this section.
 
-3. **How much will it cost to scrape (target site)?**
+### Why use this Actor
 
-    - Explanation of what type of proxies are needed and how many platform credits (calculated mainly from consumption units) are needed for 1000 results.
-    - This is calculated from carrying out several runs (or from runs saved in the DB).<!--  @Zuzka can help if needed. [Information in this table](https://docs.google.com/spreadsheets/d/1NOkob1eYqTsRPTVQdltYiLUsIipvSFXswRcWQPtCW9M/edit#gid=1761542436), tab "cost of usage". -->
-    - Here’s an example for this section:
+Explain how the Actor can benefit the user, including potential business use cases. Link to any relevant success stories, use cases, or blog posts that showcase the Actor's value.
 
-    > ## How much will it cost me to scrape Google Maps reviews?
-    >
-    > <br/> Apify provides you with $5 free usage credits to use every month on the Apify Free plan and you can get up to 100,000 reviews from this Google Maps Reviews Scraper for those credits. This means 100k results will be completely free!
-    > <br/> But if you need to get more data or to get your data regularly you should grab an Apify subscription. We recommend our $49/month Starter plan - you can get up to 1 million Google Maps reviews every month with the $49 monthly plan! Or 10 million with the $499 Scale plan - wow!
+### Cost estimation
 
-4. **How to scrape (target site)**
+Provide an explanation of the requeired proxy types & an estimate of the platform credits needed for a specific number of results, such as _1000_. You can include a table or example calculation to illustrate the cost.
 
-    - Link to "How to…" blogs, if one exists (or suggest one if it doesn't)
+:::info How much will it cost to scrape Google Maps reviews?
 
-    - Add a video tutorial or GIF from an ideal Actor run.
+Apify provides you with $5 free usage credits to use every month on the Apify Free plan and you can get up to _10,000_ reviews from this [Google Maps Reviews Scraper](https://apify.com/compass/google-maps-reviews-scraper) for those credits.
 
-    > Tip: For better user experience, Apify Console automatically renders every YouTube URL as an embedded video player. Add a separate line with the URL of your YouTube video.
+:::
 
-    - Consider adding a short numbered tutorial as Google will sometimes pick these up as rich snippets. Remember that this might be in search results, so you can repeat the name of the Actor and give a link, e.g.
+### How to scrape the target website
 
-    ![How to scrape a website - numbered tutorial](./images/how-to-scrape-target-site.webp)
+Link to any existing "How to" blogs or tutorials related to the Actor. Consider adding a video tutorial or GIF showcasing an ideal Actor run.
 
-5. **Is it legal to scrape (target site)?**
+:::tip
 
-    - This can be used as a boilerplate text for the legal section, but you should use your own judgement and also customize it with the site name.
+For better user experience, Apify Console automatically renders every YouTube URL as an embedded video player. Add a separate line with the URL of your YouTube video. <br/>Check the example below for reference.
 
-    > Our scrapers are ethical and do not extract any private user data, such as email addresses, gender, or location. They only extract what the user has chosen to share publicly. We therefore believe that our scrapers, when used for ethical purposes by Apify users, are safe. However, you should be aware that your results could contain personal data. Personal data is protected by the [GDPR](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) in the European Union and by other regulations around the world. You should not scrape personal data unless you have a legitimate reason to do so. If you're unsure whether your reason is legitimate, consult your lawyers. You can also read our blog post on the [legality of web scraping](https://blog.apify.com/is-web-scraping-legal/)
+```text
+Watch this video for guidance:
 
-6. **Input**
+<YOUR-VIDEO-LINK-HERE>
+```
 
-    - Refer to the input tab on Actor's detail page. If you like, you can add a screenshot showing the user what the input fields will look like.
-    - This is an example of how to refer to the input tab:
+:::
 
-    > Twitter Scraper has the following input options. Click on the [input tab](https://apify.com/quacker/twitter-scraper/input-schema) for more information.
+You can also include a numbered tutorial, as Google sometimes displays these as rich snippets in search results.
 
-7. **Output**
+![How to scrape a website - numbered tutorial](./images/how-to-scrape-target-site.webp)
 
-    - Mention "You can download the dataset extracted by (Actor name) in various formats such as JSON, HTML, CSV, or Excel.”
-    - Add a simplified JSON dataset example, like here: [apify.com/compass/crawler-google-places#output-example](https://apify.com/compass/crawler-google-places#output-example)
+### Legal considerations
 
-8. **Tips or Advanced options section**
-    - Share any tips on how to best run the Actor, such as how to limit compute unit usage, get more accurate results, or improve speed.
+Include a boilerplate text addressing the legality of scraping the target website. Emphasize that the Actor does not extract private user data and only collects publicly available information. Remind users to consult their legal team if they are unsure about the legitimacy of their scraping purposes.
 
-If you want some general tips on how to make GitHub README that stands out, check out these guides. Not everything in there will be suitable for an Apify Actor README, so you should cherry-pick what you like and use your imagination.
+:::warning Example boilerplate text
 
-<br />
+Our scrapers are ethical and do not extract any private user data, such as email addresses, gender, or location. They only extract what the user has chosen to share publicly. We therefore believe that our scrapers, when used for ethical purposes by Apify users, are safe. However, you should be aware that your results could contain personal data. Personal data is protected by the [GDPR](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) in the European Union and by other regulations around the world. You should not scrape personal data unless you have a legitimate reason to do so. If you're unsure whether your reason is legitimate, consult your lawyers. You can also read our blog post on the [legality of web scraping](https://blog.apify.com/is-web-scraping-legal/)
 
-[Build a Stunning README For Your GitHub Profile](https://towardsdatascience.com/build-a-stunning-readme-for-your-github-profile-9b80434fe5d7)
+:::
 
-[How to Create a Beautiful README for Your GitHub Profile](https://yushi95.medium.com/how-to-create-a-beautiful-readme-for-your-github-profile-36957caa711c)
+### Input parameters
 
-## Next up {#next}
+Refer to the Actor's input tab on the detail page. You can include a screenshot showing the input fields for better clarity.
+
+:::info Example of input schema
+
+Twitter Scraper has the following input options. Click on the [input tab](https://apify.com/quacker/twitter-scraper/input-schema) for more information.
+
+:::
+
+### Output Data
+
+Mention that the extracted dataset can be downloaded in various formats such as `JSON`, `HTML`,or `CSV`. Provide a simplified `JSON` dataset example to illustrate the output structure, check [this Actor](https://apify.com/compass/crawler-google-places#output-example) for an example.
+
+
+
+### Tips & advanced options
+
+Share any tips or advanced options for running the Actor more effectively, such as limiting compute unit usage, improving accuracy, or increasing speed.
+
+If applicable, provide information on creating a tutorial for the Actor or any other resources that users might find helpful.
+
+If you want some general tips on how to make GitHub README that stands out, check out these guides.
+
+- [Build a Stunning README For Your GitHub Profile](https://towardsdatascience.com/build-a-stunning-readme-for-your-github-profile-9b80434fe5d7)
+- [How to Create a Beautiful README for Your GitHub Profile](https://yushi95.medium.com/how-to-create-a-beautiful-readme-for-your-github-profile-36957caa711c)
+
+Not everything in there will be suitable for an Actor README, so you should cherry-pick what you like and use your imagination.
+
+### Next steps
 
 If you followed all the tips described above, your Actor README is almost good to go! In the [next lesson](./guidelines_for_writing.md) we will give you a few instructions on how you can create a tutorial for your Actor.
