@@ -33,11 +33,23 @@ Generally speaking, Actors in Standby mode behave as standard HTTP servers. You 
 
 ## How do I authenticate my requests
 
-The authentication of requests to Actor Standby works the same as [with the Apify API](../../integrations/programming/api.md).
-To authenticate a request, add your [API token](../../integrations/programming/api.md#api-token) either:
+To authenticate requests to Actor Standby, follow the same process as [authenticating requests to the Apify API](../../integrations/programming/api.md).
+You can provide your [API token](../../integrations/programming/api.md#api-token) in one of two ways:
 
-- to your request's `Authorization` header as `Bearer <token>` (e.g. `Authorization: Bearer my_apify_token`). This is the recommended option, as it will prevent the token being logged in server logs.
-- as the `token` parameter to your request's URL (e.g. `https://rag-web-browser.apify.actor/search?query=apify&token=my_apify_token`). This is useful if you can't modify the request headers.
+1. _Recommended_: Include the token in the `Authorization` header of your request as `Bearer <token>`. This approach is recommended because it prevents your token from being logged in server logs.
+
+    ```shell
+    curl -H "Authorization: Bearer my_apify_token" \
+      https://rag-web-browser.apify.actor/search?query=apify
+    ```
+
+2. Alternatively, you can append the token as a query parameter named `token` to the request URL.
+This approach can be useful if you cannot modify the request headers.
+
+    ```text
+    https://rag-web-browser.apify.actor/search?query=apify&token=my_apify_token
+    ```
+
 
 ## Can I still run the Actor in normal mode
 
