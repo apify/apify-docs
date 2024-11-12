@@ -43,7 +43,7 @@ You can provide your [API token](../../integrations/programming/api.md#api-token
       https://rag-web-browser.apify.actor/search?query=apify
     ```
 
-2. Alternatively, you can append the token as a query parameter named `token` to the request URL.
+2. Append the token as a query parameter named `token` to the request URL.
 This approach can be useful if you cannot modify the request headers.
 
     ```text
