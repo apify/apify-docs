@@ -14,7 +14,7 @@ Traditional Actors are designed to run a single job and then stop. They're mostl
 However, in some applications, waiting for an Actor to start is not an option. Actor Standby mode solves this problem by letting you have the Actor ready
 in the background, waiting for the incoming HTTP requests. In a sense, the Actor behaves like a real-time web server or standard API server.
 
-## How do I know if Standby mode is enabled?
+## How do I know if Standby mode is enabled
 
 You will know that the Actor is enabled for Standby mode if you see the **Standby** tab on the Actor's detail page.
 In the tab, you will find the hostname of the server, the description of the Actor's endpoints,
@@ -30,6 +30,14 @@ hit the API endpoint and get results.
 If you're using an Actor built by someone else, see its Information tab to find out how the input should be passed.
 
 Generally speaking, Actors in Standby mode behave as standard HTTP servers. You can use any of the existing [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) like GET, POST, PUT, DELETE, etc. You can pass the input via [HTTP request query string](https://en.wikipedia.org/wiki/Query_string) or via [HTTP request body](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#body).
+
+## How do I authenticate my requests
+
+The authentication of requests to Actor Standby works the same as [with the Apify API](../../integrations/programming/api.md).
+To authenticate a request, add your [API token](../../integrations/programming/api.md#api-token) either:
+
+- to your request's `Authorization` header as `Bearer <token>` (e.g. `Authorization: Bearer my_apify_token`). This is the recommended option, as it will prevent the token being logged in server logs.
+- as the `token` parameter to your request's URL (e.g. `https://rag-web-browser.apify.actor/search?query=apify&token=my_apify_token`). This is useful if you can't modify the request headers.
 
 ## Can I still run the Actor in normal mode
 
