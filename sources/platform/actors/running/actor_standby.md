@@ -14,7 +14,7 @@ Traditional Actors are designed to run a single job and then stop. They're mostl
 However, in some applications, waiting for an Actor to start is not an option. Actor Standby mode solves this problem by letting you have the Actor ready
 in the background, waiting for the incoming HTTP requests. In a sense, the Actor behaves like a real-time web server or standard API server.
 
-## How do I know if Standby mode is enabled?
+## How do I know if Standby mode is enabled
 
 You will know that the Actor is enabled for Standby mode if you see the **Standby** tab on the Actor's detail page.
 In the tab, you will find the hostname of the server, the description of the Actor's endpoints,
@@ -30,6 +30,26 @@ hit the API endpoint and get results.
 If you're using an Actor built by someone else, see its Information tab to find out how the input should be passed.
 
 Generally speaking, Actors in Standby mode behave as standard HTTP servers. You can use any of the existing [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) like GET, POST, PUT, DELETE, etc. You can pass the input via [HTTP request query string](https://en.wikipedia.org/wiki/Query_string) or via [HTTP request body](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#body).
+
+## How do I authenticate my requests
+
+To authenticate requests to Actor Standby, follow the same process as [authenticating requests to the Apify API](../../integrations/programming/api.md).
+You can provide your [API token](../../integrations/programming/api.md#api-token) in one of two ways:
+
+1. _Recommended_: Include the token in the `Authorization` header of your request as `Bearer <token>`. This approach is recommended because it prevents your token from being logged in server logs.
+
+    ```shell
+    curl -H "Authorization: Bearer my_apify_token" \
+      https://rag-web-browser.apify.actor/search?query=apify
+    ```
+
+2. Append the token as a query parameter named `token` to the request URL.
+This approach can be useful if you cannot modify the request headers.
+
+    ```text
+    https://rag-web-browser.apify.actor/search?query=apify&token=my_apify_token
+    ```
+
 
 ## Can I still run the Actor in normal mode
 
