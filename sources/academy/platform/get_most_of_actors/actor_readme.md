@@ -40,7 +40,7 @@ Apify provides you with $5 free usage credits to use every month on the Apify Fr
 
 Link to any existing "How to" blogs or tutorials related to the Actor. Consider adding a video tutorial or GIF showcasing an ideal Actor run.
 
-:::tip
+:::tip Automatic YouTube URL embed
 
 For better user experience, Apify Console automatically renders every YouTube URL as an embedded video player. Add a separate line with the URL of your YouTube video. <br/>Check the example below for reference.
 
