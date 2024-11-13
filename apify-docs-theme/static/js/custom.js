@@ -32,3 +32,43 @@
 //         load();
 //     }
 // }, 500);
+
+let lastKnownScrollHash = '';
+let ticking = false;
+
+function doSomething() {
+    const hash = window.location.hash.substring(1);
+
+    if (hash !== lastKnownScrollHash) {
+        console.log(hash, `li[data-item-id="${hash}"]`);
+        const $li = document.querySelector(`li[data-item-id="${hash}"]`);
+
+        if (!$li) {
+            return;
+        }
+
+        // not visible, click on the parent <li> first
+        if (!$li.offsetParent) {
+            $li.parentElement?.parentElement?.click();
+        }
+
+        $li.scrollIntoView({
+            // smooth would be nice, but it's not working in some case
+            // behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center',
+        });
+        lastKnownScrollHash = hash;
+    }
+}
+
+document.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            doSomething();
+            ticking = false;
+        });
+
+        ticking = true;
+    }
+});
