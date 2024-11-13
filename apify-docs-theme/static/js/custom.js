@@ -34,13 +34,12 @@
 // }, 500);
 
 let lastKnownScrollHash = '';
-let ticking = false;
 
-function doSomething() {
+// handles automatic scrolling of the API reference sidebar (redoc)
+function scrollSidebarItemIntoView() {
     const hash = window.location.hash.substring(1);
 
     if (hash !== lastKnownScrollHash) {
-        console.log(hash, `li[data-item-id="${hash}"]`);
         const $li = document.querySelector(`li[data-item-id="${hash}"]`);
 
         if (!$li) {
@@ -62,10 +61,13 @@ function doSomething() {
     }
 }
 
+let ticking = false;
+
 document.addEventListener('scroll', () => {
     if (!ticking) {
+        // throttling based on current frame rate
         window.requestAnimationFrame(() => {
-            doSomething();
+            scrollSidebarItemIntoView();
             ticking = false;
         });
 
