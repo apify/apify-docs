@@ -1610,7 +1610,7 @@ iframe[src*="youtube"] {
     margin-bottom: 1.6rem;
 }
 
-div[data-section-id] span[id] {
+.redocusaurus div[data-section-id] span[id] {
     margin-top: -130px;
     position: absolute;
 }
