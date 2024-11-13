@@ -32,3 +32,45 @@
 //         load();
 //     }
 // }, 500);
+
+let lastKnownScrollHash = '';
+
+// handles automatic scrolling of the API reference sidebar (redoc)
+function scrollSidebarItemIntoView() {
+    const hash = window.location.hash.substring(1);
+
+    if (hash !== lastKnownScrollHash) {
+        const $li = document.querySelector(`li[data-item-id="${hash}"]`);
+
+        if (!$li) {
+            return;
+        }
+
+        // not visible, click on the parent <li> first
+        if (!$li.offsetParent) {
+            $li.parentElement?.parentElement?.click();
+        }
+
+        $li.scrollIntoView({
+            // smooth would be nice, but it's not working in some case
+            // behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center',
+        });
+        lastKnownScrollHash = hash;
+    }
+}
+
+let ticking = false;
+
+document.addEventListener('scroll', () => {
+    if (!ticking) {
+        // throttling based on current frame rate
+        window.requestAnimationFrame(() => {
+            scrollSidebarItemIntoView();
+            ticking = false;
+        });
+
+        ticking = true;
+    }
+});
