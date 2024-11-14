@@ -417,5 +417,5 @@ for m in client.beta.threads.messages.list(thread_id=run.thread_id):
 
 - [OpenAI Assistants](https://platform.openai.com/docs/assistants/overview)
 - [OpenAI function calling](https://platform.openai.com/docs/assistants/tools/function-calling)
-- [RAG Web Browser](https://apify.com/apify/-browser) Actor
+- [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor
 - [OpenAI Vector Store Integration](https://apify.com/jiri.spilka/openai-vector-store-integration) Actor
