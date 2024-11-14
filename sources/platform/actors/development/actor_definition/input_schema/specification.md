@@ -409,3 +409,56 @@ Editor type `select` allows the user to pick items from a select, providing mult
 ```
 
 To correctly define options for multiselect, you need to define the `items` property and then provide values and (optionally) labels in `enum` and `enumTitles` properties.
+
+### Resource type
+
+Resource type identifies what kind of Apify Platform object is referred to in the input field. For example, the Key-value store resource type can be referred to using a string ID.
+Currently, it supports storage resources only, allowing the reference of a Dataset, Key-Value Store or Request Queue.
+
+For Actor developers, the resource input value is a string representing the storage ID.
+The type of the property is either `string` or `array`. In case of `array` (for multiple resources) the return value is an array of IDs.
+In the user interface, a picker is provided for easy selection, where users can search and choose from their own storages or those they have access to.
+
+Example of a Dataset input:
+
+```json
+{
+    "title": "Dataset",
+    "type": "string",
+    "description": "Select a dataset",
+    "resourceType": "dataset"
+}
+```
+
+Rendered input:
+
+![Apify Actor input schema dataset](./images/input-schema-dataset.png)
+
+The returned value is resource reference, in this example it's the dataset ID as can be seen in the JSON tab:
+
+![Apify Actor input schema dataset](./images/input-schema-dataset-json.png)
+
+Example of multiple datasets input:
+
+```json
+{
+    "title": "Datasets",
+    "type": "array",
+    "description": "Select multiple datasets",
+    "resourceType": "dataset"
+}
+```
+
+Rendered input:
+
+![Apify Actor input schema datasets](./images/input-schema-datasets.png)
+
+Properties:
+
+| Property       | Value                                                                             | Required | Description                                                                        |
+|----------------|-----------------------------------------------------------------------------------|----------|------------------------------------------------------------------------------------|
+| `type`         | One of <ul><li>`string`</li><li>`array`</li></ul>                                 | Yes      | Specifies the type of input - string for single value or array for multiple values |
+| `editor`       | One of <ul><li>`resourcePicker`</li><li>`hidden`</li></ul>                        | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.         |
+| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                    |
+| `minItems`     | Integer                                                                           | No       | Minimum number of items the array can contain. Only for `type: array`              |
+| `maxItems`     | Integer                                                                           | No       | Maximum number of items the array can contain. Only for `type: array`              |
