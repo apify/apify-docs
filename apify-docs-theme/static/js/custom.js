@@ -74,3 +74,8 @@ document.addEventListener('scroll', () => {
         ticking = true;
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // we need to wait a bit more, since the event fires too soon, and a lot of hydration is done after it
+    setTimeout(() => scrollSidebarItemIntoView(), 3000);
+});
