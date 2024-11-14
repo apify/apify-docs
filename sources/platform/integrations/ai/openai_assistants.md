@@ -15,7 +15,7 @@ The OpenAI Assistants can access OpenAI knowledge base ([vector store](https://p
 
 Unlike Custom GPT, OpenAI Assistants are available via API, enabling integration with Apify to automatically update assistant data and deliver real-time information, improving the quality of answers.
 
-In this tutorial, we’ll start by demonstrating how to create an assistant and integrate real-time data using function calling with the [RAG-Web-Browser](https://apify.com/apify/rag-web-browser).
+In this tutorial, we’ll start by demonstrating how to create an assistant and integrate real-time data using function calling with the [RAG Web Browser](https://apify.com/apify/rag-web-browser).
 Next, we’ll show how to save data from Apify Actors into the OpenAI Vector Store for easy retrieval through [file-search](https://platform.openai.com/docs/assistants/tools/file-search).
 
 ## Real-time search data for OpenAI Assistant
@@ -224,7 +224,7 @@ def submit_tool_outputs(run_):
             d = json.loads(tool.function.arguments)
             output = call_rag_web_browser(query=d["query"], max_results=d["maxResults"])
             tool_output.append(ToolOutput(tool_call_id=tool.id, output=json.dumps(output)))
-            print("RAG-Web-Browser added as a tool output.")
+            print("RAG Web Browser added as a tool output.")
 
     return client.beta.threads.runs.submit_tool_outputs_and_poll(thread_id=run_.thread_id, run_id=run_.id, tool_outputs=tool_output)
 
