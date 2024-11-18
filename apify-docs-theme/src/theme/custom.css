@@ -606,6 +606,11 @@ article .card h2 {
     user-select: none;
 }
 
+.tsd-panel-header .tsd-flag-group {
+    margin-right: .5rem;
+    margin-left: .5rem;
+}
+
 .tsd-panel .tsd-flag {
     color: #f2f3fb;
 }
