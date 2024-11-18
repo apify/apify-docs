@@ -606,8 +606,9 @@ article .card h2 {
     user-select: none;
 }
 
-.tsd-flag-group {
-    margin: 0 .5rem;
+.tsd-panel-header .tsd-flag-group {
+    margin-right: .5rem;
+    margin-left: .5rem;
 }
 
 .tsd-panel .tsd-flag {
