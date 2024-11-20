@@ -1,24 +1,26 @@
 ---
 title: Actor status badge
-description: Apify Actor status badge can be embedded in 3rd party documentation to show current health status and engagement of the Actor in the Apify Platform.
+description: The Actor status badge can be embedded in the README or documentation to show users the current status and usage of your Actor on the Apify platform.
 slug: /actors/publishing/status-badge
 sidebar_position: 4
 ---
 
-Apify Actor status badge can be embedded in 3rd party documentation to show current health status and engagement of the Actor in the Apify Platform.
+The Actor status badge can be embedded in the README or documentation to show users the current status and usage of your Actor on the Apify platform.
 
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Actor status badge example
-
-This is the badge generated for the [Apify's Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor.
+This is the badge generated for the [Apify's Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor:
 
 [![Website Content Crawler Actor](https://apify.com/actor-badge?actor=apify/website-content-crawler)](https://apify.com/apify/website-content-crawler)
 
+This is how such a badge looks in a GitHub repository README:
 
-### How to embed the Actor status badge
+![Actor badge in GitHub README](images/github-badge-screenshot.png)
+
+
+### How to embed the badge
 
 The Badge is a dynamic SVG image loaded from the Apify platform. The Badge is served from the URL Template:
 
@@ -31,14 +33,14 @@ In order to embed the badge in the HTML documentation, just use it as an image w
 #### Example
 <!-- vale off -->
 <Tabs>
-  <TabItem value="html" label="HTML Example" default>
+  <TabItem value="html" label="HTML" default>
     ```html
     <a href="https://apify.com/apify/website-content-crawler">
       <img src="https://apify.com/actor-badge?actor=apify/website-content-crawler">
     </a>
     ```
   </TabItem>
-  <TabItem value="markdown" label="Markdown Example">  
+  <TabItem value="markdown" label="Markdown">  
     ```markdown
     [![Website Content Crawler Actor](https://apify.com/actor-badge?actor=apify/website-content-crawler\)](https://apify.com/apify/website-content-crawler)
     ```
@@ -64,8 +66,4 @@ The badge indicates the state of the Actor in the Apify Platform as the result o
 #### Actor not found
 
 ![Actor badge not found](./images/actor-badge/not-found.svg)
-
-### Example of the Badge in Github README
-
-![Actor badge in githhub readme](images/github-badge-screenshot.png)
 
