@@ -206,7 +206,7 @@ Example of date selection using absolute and relative `datepicker` editor:
         "description": "Select date in format YYYY-MM-DD or {number} {unit}",
         "editor": "datepicker",
         "dateType": "absoluteOrRelative",
-        "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$|^([+-])\\s*(\\d+)\\s*(day|week|month|year)s?$"
+        "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$|^(\\d+)\\s*(day|week|month|year)s?$"
     }
 }
 ```
