@@ -13,15 +13,19 @@ jobs:
             -   name: Checkout Source code
                 uses: actions/checkout@v4
 
-            -   name: Use Node.js 20
+            -   name: Use Node.js 22
                 uses: actions/setup-node@v4
                 with:
-                    node-version: 20
+                    node-version: 22
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
                     always-auth: 'true'
                     registry-url: 'https://npm.pkg.github.com/'
                     scope: '@apify-packages'
+
+            - name: Enable corepack
+              run: |
+                  corepack enable
 
             -   name: Install Dependencies
                 run: npm ci --force
@@ -48,14 +52,18 @@ jobs:
                     **/*.mdx
                 separator: ","
 
-            - name: Use Node.js 20
+            - name: Use Node.js 22
               uses: actions/setup-node@v4
               with:
-                node-version: 20
+                node-version: 22
                 cache: 'npm'
                 cache-dependency-path: 'package-lock.json'
                 registry-url: 'https://npm.pkg.github.com/'
                 scope: '@apify-packages'
+
+            - name: Enable corepack
+              run: |
+                  corepack enable
 
             - name: Install Dependencies
               run: npm ci --force
@@ -79,14 +87,18 @@ jobs:
             -   name: Checkout Source code
                 uses: actions/checkout@v4
 
-            -   name: Use Node.js 20
+            -   name: Use Node.js 22
                 uses: actions/setup-node@v4
                 with:
-                    node-version: 20
+                    node-version: 22
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
                     registry-url: 'https://npm.pkg.github.com/'
                     scope: '@apify-packages'
+
+            - name: Enable corepack
+              run: |
+                  corepack enable
 
             -   name: Install Dependencies
                 run: npm ci --force
