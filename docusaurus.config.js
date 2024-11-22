@@ -164,7 +164,7 @@ module.exports = {
             {
                 id: 'openapi',
                 path: './sources/api',
-                routeBasePath: 'api/v2-new',
+                routeBasePath: 'api/v2-new', // TODO change to `api/v2` once we are ready
                 rehypePlugins: [externalLinkProcessor],
                 showLastUpdateAuthor: false,
                 showLastUpdateTime: false,
@@ -209,18 +209,22 @@ module.exports = {
             },
         }),
         // TODO this should be somehow computed from all the external sources
-        // [
-        //     '@docusaurus/plugin-client-redirects',
-        //     {
-        //         createRedirects(existingPath) {
-        //             if (!existingPath.endsWith('/')) {
-        //                 return `${existingPath}/`;
-        //             }
-        //
-        //             return undefined; // Return a falsy value: no redirect created
-        //         },
-        //     },
-        // ],
+        [
+            '@docusaurus/plugin-client-redirects',
+            {
+                createRedirects(existingPath) {
+                    // TODO change to `api/v2` once we are ready
+                    if (existingPath.endsWith('api/v2-new')) {
+                        return `${existingPath}/api/v2-new/apify-api`;
+                    }
+                    // if (!existingPath.endsWith('/')) {
+                    //     return `${existingPath}/`;
+                    // }
+
+                    return undefined; // Return a falsy value: no redirect created
+                },
+            },
+        ],
         ...config.plugins,
     ],
     markdown: {
