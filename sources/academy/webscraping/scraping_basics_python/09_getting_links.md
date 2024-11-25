@@ -200,10 +200,11 @@ def export_json(file, data):
 
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 listing_soup = download(listing_url)
-data = [
-    parse_product(product)
-    for product in listing_soup.select(".product-item")
-]
+
+data = []
+for product in listing_soup.select(".product-item"):
+    item = parse_product(product)
+    data.append(item)
 
 with open("products.csv", "w") as file:
     export_csv(file, data)
@@ -212,7 +213,7 @@ with open("products.json", "w") as file:
     export_json(file, data)
 ```
 
-The program is much easier to read now. With the `parse_product()` function handy, we could also replace the convoluted loop with a [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions).
+The program is much easier to read now. With the `parse_product()` function handy, we could also replace the convoluted loop with one that only takes up four lines of code.
 
 :::tip Refactoring
 
@@ -304,11 +305,12 @@ Now we'll pass the base URL to the function in the main body of our program:
 ```py
 listing_url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
 listing_soup = download(listing_url)
-data = [
+
+data = []
+for product in listing_soup.select(".product-item"):
     # highlight-next-line
-    parse_product(product, listing_url)
-    for product in listing_soup.select(".product-item")
-]
+    item = parse_product(product, listing_url)
+    data.append(item)
 ```
 
 When we run the scraper now, we should see full URLs in our exports:
