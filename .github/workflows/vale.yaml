@@ -16,12 +16,12 @@ jobs:
                 uses: tj-actions/changed-files@v45
                 with:
                     files: '**/*.{md,mdx}'
-                    files_ignore: |
-                        'sources/api/*.{md,mdx}'
-                        'openapi/README.md'
-                        'openapi/openapi/README.md'
-                        'openapi/openapi/paths/README.md'
-                        'openapi/openapi/components/README.md'
+                    files_ignore:
+                        - 'sources/api/*.{md,mdx}'
+                        - 'openapi/README.md'
+                        - 'openapi/openapi/README.md'
+                        - 'openapi/openapi/paths/README.md'
+                        - 'openapi/openapi/components/README.md'
                     separator: ','
 
             -   uses: errata-ai/vale-action@reviewdog
