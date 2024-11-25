@@ -181,7 +181,7 @@ module.exports = {
                 config: {
                     /** @type {import('docusaurus-plugin-openapi-docs').Options} */
                     v2: {
-                        specPath: 'node_modules/@apify/openapi/openapi.yaml',
+                        specPath: 'openapi.yaml',
                         outputDir: './sources/api',
                         sidebarOptions: {
                             groupPathsBy: 'tag',

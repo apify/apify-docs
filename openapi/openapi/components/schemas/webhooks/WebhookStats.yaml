@@ -1,0 +1,8 @@
+title: WebhookStats
+required:
+  - totalDispatches
+type: object
+properties:
+  totalDispatches:
+    type: number
+    example: 1

@@ -1,0 +1,7 @@
+title: GetListOfKeysResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./ListOfKeysResponse.yaml

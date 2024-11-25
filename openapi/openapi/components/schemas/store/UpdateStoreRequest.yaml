@@ -1,0 +1,9 @@
+title: UpdateStoreRequest
+required:
+  - name
+type: object
+properties:
+  name:
+    type: string
+example:
+  name: new-store-name

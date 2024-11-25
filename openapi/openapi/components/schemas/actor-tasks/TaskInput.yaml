@@ -1,0 +1,7 @@
+title: TaskInput
+type: object
+properties:
+  hello:
+    type: string
+    nullable: true
+    example: world

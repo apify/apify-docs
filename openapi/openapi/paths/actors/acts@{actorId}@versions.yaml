@@ -1,0 +1,137 @@
+get:
+  tags:
+    - Actors/Version collection
+  summary: Get list of versions
+  description: |
+    Gets the list of versions of a specific Actor. The response is a JSON object
+    with the list of [Version objects](#/reference/actors/version-object), where each
+    contains basic information about a single version.
+  operationId: act_versions_get
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actors/GetVersionListResponse.yaml"
+          example:
+            data:
+              total: 5
+              items:
+                - versionNumber: '0.1'
+                  envVars: null
+                  sourceType: SOURCE_FILES
+                  applyEnvVarsToBuild: false
+                  buildTag: latest
+                  sourceFiles: []
+                - versionNumber: '0.2'
+                  sourceType: GIT_REPO
+                  envVars: null
+                  applyEnvVarsToBuild: false
+                  buildTag: latest
+                  gitRepoUrl: 'https://github.com/jane35/my-actor'
+                - versionNumber: '0.3'
+                  sourceType: TARBALL
+                  envVars: null
+                  applyEnvVarsToBuild: false
+                  buildTag: latest
+                  tarballUrl: 'https://github.com/jane35/my-actor/archive/master.zip'
+                - versionNumber: '0.4'
+                  sourceType: GITHUB_GIST
+                  envVars: null
+                  applyEnvVarsToBuild: false
+                  buildTag: latest
+                  gitHubGistUrl: 'https://gist.github.com/jane35/e51feb784yu89'
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/version-collection/get-list-of-versions
+    - https://docs.apify.com/api/v2#/reference/actors/get-list-of-versions
+  x-py-parent: ActorVersionCollectionClientAsync
+  x-py-name: list
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorVersionCollectionClientAsync#list
+post:
+  tags:
+    - Actors/Version collection
+  summary: Create version
+  description: |
+    Creates a version of an Actor using values specified in a [Version
+    object](#/reference/actors/version-object) passed as JSON in the POST
+    payload.
+
+    The request must specify `versionNumber` and `sourceType` parameters (as
+    strings) in the JSON payload and a `Content-Type: application/json` HTTP
+    header.
+
+    Each `sourceType` requires its own additional properties to be passed to the
+    JSON payload object. These are outlined in the [Version
+    object](#/reference/actors/version-object) table below and in more detail in
+    the [Apify
+    documentation](https://docs.apify.com/platform/actors/development/deployment/source-types).
+
+    For example, if an Actor's source code is stored in a [GitHub
+    repository](https://docs.apify.com/platform/actors/development/deployment/source-types#git-repository),
+    you will set the `sourceType` to `GIT_REPO` and pass the repository's URL in
+    the `gitRepoUrl` property.
+
+    ```
+    {
+        "versionNumber": "0.1",
+        "sourceType": "GIT_REPO",
+        "gitRepoUrl": "https://github.com/my-github-account/actor-repo"
+    }
+    ```
+
+    The response is the [Version object](#/reference/actors/version-object) as
+    returned by the [Get version](#/reference/actors/version-object/get-version) endpoint.
+  operationId: act_versions_post
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/schemas/actors/CreateOrUpdateVersionRequest.yaml"
+        example:
+          versionNumber: '0.1'
+          sourceType: GIT_REPO
+          gitRepoUrl: 'https://github.com/my-github-account/actor-repo'
+    required: true
+  responses:
+    '201':
+      description: ''
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: 'https://api.apify.com/v2/acts/zdc3Pyhyz3m8vjDeM/versions/0.0'
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actors/GetVersionResponse.yaml"
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/version-collection/create-version
+    - https://docs.apify.com/api/v2#/reference/actors/create-version
+  x-py-parent: ActorVersionCollectionClientAsync
+  x-py-name: create
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorVersionCollectionClientAsync#create

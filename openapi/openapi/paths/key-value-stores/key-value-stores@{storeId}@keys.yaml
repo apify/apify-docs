@@ -1,0 +1,70 @@
+get:
+  tags:
+    - Key-value stores/Key collection
+  summary: Get list of keys
+  description: |
+    Returns a list of objects describing keys of a given key-value store, as
+    well as some information about the values (e.g. size).
+
+    This endpoint is paginated using `exclusiveStartKey` and `limit` parameters
+    - see [Pagination](#/introduction/response-structure) for more details.
+  operationId: keyValueStore_keys_get
+  security:
+    - apiKeyStoreId: []
+    - httpBearerStoreId: []
+  parameters:
+    - name: storeId
+      in: path
+      description: Key-value store ID or `username~store-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: exclusiveStartKey
+      in: query
+      description: All keys up to this one (including) are skipped from the result.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: Ihnsp8YrvJ8102Kj
+    - name: limit
+      in: query
+      description: Number of keys to be returned. Maximum value is `1000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 100
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/key-value-stores/GetListOfKeysResponse.yaml
+          example:
+            data:
+              items:
+                - key: second-key
+                  size: 36
+                - key: third-key
+                  size: 128
+              count: 2
+              limit: 2
+              exclusiveStartKey: some-key
+              isTruncated: true
+              nextExclusiveStartKey: third-key
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/key-collection/get-list-of-keys
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/get-list-of-keys
+  x-js-parent: KeyValueStoreClient
+  x-js-name: listKeys
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#listKeys
+  x-py-parent: KeyValueStoreClientAsync
+  x-py-name: list_keys
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#list_keys

@@ -1,0 +1,16 @@
+title: GetListOfSchedulesResponseDataItemsActions
+required:
+  - id
+  - type
+  - actorId
+type: object
+properties:
+  id:
+    type: string
+    example: ZReCs7hkdieq8ZUki
+  type:
+    type: string
+    example: RUN_ACTOR
+  actorId:
+    type: string
+    example: HKhKmiCMrDgu9eXeE

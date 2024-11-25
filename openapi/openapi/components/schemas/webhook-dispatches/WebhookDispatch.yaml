@@ -1,0 +1,67 @@
+title: WebhookDispatch
+required:
+  - id
+  - userId
+  - webhookId
+  - createdAt
+  - status
+  - eventType
+  - eventData
+type: object
+properties:
+  id:
+    type: string
+    example: asdLZtadYvn4mBZmm
+  userId:
+    type: string
+    example: wRsJZtadYvn4mBZmm
+  webhookId:
+    type: string
+    example: asdLZtadYvn4mBZmm
+  createdAt:
+    type: string
+    example: '2019-12-12T07:34:14.202Z'
+  status:
+    type: string
+    example: SUCCEEDED
+  eventType:
+    type: string
+    example: ACTOR.RUN.SUCCEEDED
+  eventData:
+    title: eventData
+    type: object
+    required:
+      - actorId
+      - actorRunId
+    properties:
+      actorId:
+        type: string
+        example: vvE7iMKuMc5qTHHsR
+      actorRunId:
+        type: string
+        example: JgwXN9BdwxGcu9MMF
+  calls:
+    title: calls
+    type: object
+    properties:
+      startedAt:
+        type: string
+        nullable: true
+        example: '2019-12-12T07:34:14.202Z'
+      finishedAt:
+        type: string
+        nullable: true
+        example: '2019-12-12T07:34:14.202Z'
+      errorMessage:
+        type: string
+        nullable: true
+        example: Cannot send request
+      responseStatus:
+        type: number
+        nullable: true
+        example: 200
+      responseBody:
+        type: string
+        nullable: true
+        example:
+          foo: bar

@@ -1,0 +1,8 @@
+title: currentPricingInfo
+required:
+  - pricingModel
+type: object
+properties:
+  pricingModel:
+    type: string
+    example: FREE

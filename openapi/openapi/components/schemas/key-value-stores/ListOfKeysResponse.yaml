@@ -1,0 +1,39 @@
+title: ListOfKeysResponse
+required:
+  - items
+  - count
+  - limit
+  - isTruncated
+type: object
+properties:
+  items:
+    type: array
+    items:
+      type: object
+      title: items
+      required:
+        - key
+        - size
+      properties:
+        key:
+          type: string
+          example: second-key
+        size:
+          type: number
+          example: 36
+    description: ''
+  count:
+    type: number
+    example: 2
+  limit:
+    type: number
+    example: 2
+  exclusiveStartKey:
+    type: string
+    example: some-key
+  isTruncated:
+    type: boolean
+    example: true
+  nextExclusiveStartKey:
+    type: string
+    example: third-key

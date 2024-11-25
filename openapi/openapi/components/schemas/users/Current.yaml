@@ -1,0 +1,44 @@
+title: Current
+required:
+  - monthlyUsageUsd
+  - monthlyActorComputeUnits
+  - monthlyExternalDataTransferGbytes
+  - monthlyProxySerps
+  - monthlyResidentialProxyGbytes
+  - actorMemoryGbytes
+  - actorCount
+  - actorTaskCount
+  - activeActorJobCount
+  - teamAccountSeatCount
+type: object
+properties:
+  monthlyUsageUsd:
+    type: number
+    example: 43
+  monthlyActorComputeUnits:
+    type: number
+    example: 500.784475
+  monthlyExternalDataTransferGbytes:
+    type: number
+    example: 3.00861903931946
+  monthlyProxySerps:
+    type: number
+    example: 34
+  monthlyResidentialProxyGbytes:
+    type: number
+    example: 0.4
+  actorMemoryGbytes:
+    type: number
+    example: 8
+  actorCount:
+    type: number
+    example: 31
+  actorTaskCount:
+    type: number
+    example: 130
+  activeActorJobCount:
+    type: number
+    example: 0
+  teamAccountSeatCount:
+    type: number
+    example: 5

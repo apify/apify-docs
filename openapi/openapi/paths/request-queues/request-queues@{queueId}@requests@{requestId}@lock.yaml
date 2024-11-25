@@ -1,0 +1,158 @@
+put:
+  tags:
+    - Request queues/Request lock
+  summary: Prolong request lock
+  description: |
+    Prolongs request lock. The request lock can be prolonged only by the client
+    that has locked it using [Get and lock head
+    operation](#/reference/request-queues/queue-head-with-locks).
+  operationId: requestQueue_request_lock_put
+  parameters:
+    - name: queueId
+      in: path
+      description: Queue ID or `username~queue-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: requestId
+      in: path
+      description: Request ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: xpsmkDlspokDSmklS
+    - name: lockSecs
+      in: query
+      description: For how long second request will be locked.
+      required: true
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 60
+    - name: clientKey
+      in: query
+      description: |
+        A unique identifier of the client accessing the request queue. It must
+        be a string between 1 and 32 characters long. This identifier is used to
+        ensure one client is not to able delete or prolong
+
+        a request from another client.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: client-abc
+    - name: forefront
+      in: query
+      description: |
+        Determines if request should be added to the head of the queue or to the
+        end after lock expires.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 'false'
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../../components/schemas/request-queues/ProlongRequestLockResponse.yaml
+              - example:
+                  data:
+                    lockExpiresAt: '2022-01-01T00:00:00.000Z'
+          example:
+            data:
+              lockExpiresAt: '2022-01-01T00:00:00.000Z'
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/request-lock/prolong-request-lock
+    - https://docs.apify.com/api/v2#/reference/request-queues/prolong-request-lock
+  x-js-parent: RequestQueueClient
+  x-js-name: prolongRequestLock
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#prolongRequestLock
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: prolong_request_lock
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#prolong_request_lock
+delete:
+  tags:
+    - Request queues/Request lock
+  summary: Delete request lock
+  description: |
+    Deletes a request lock. The request lock can be deleted only by the client
+    that has locked it using [Get and lock head
+    operation](#/reference/request-queues/queue-head-with-locks).
+  operationId: requestQueue_request_lock_delete
+  parameters:
+    - name: queueId
+      in: path
+      description: Queue ID or `username~queue-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: requestId
+      in: path
+      description: Request ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: xpsmkDlspokDSmklS
+    - name: Content-Type
+      in: header
+      description: ''
+      required: true
+      style: simple
+      schema:
+        enum:
+          - application/json
+        type: string
+        example: application/json
+    - name: clientKey
+      in: query
+      description: |
+        A unique identifier of the client accessing the request queue. It must
+        be a string between 1 and 32 characters long. This identifier is used to
+        ensure one client is not to able delete or prolong
+
+        a request from another client.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: client-abc
+    - name: forefront
+      in: query
+      description: |
+        Determines if request should be added to the head of the queue or to the
+        end after lock was removed.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 'false'
+  responses:
+    '204':
+      description: ''
+      headers: {}
+      content: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/request-lock/delete-request-lock
+    - https://docs.apify.com/api/v2#/reference/request-queues/delete-request-lock
+  x-js-parent: RequestQueueClient
+  x-js-name: deleteRequestLock
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#deleteRequestLock
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: delete_request_lock
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#delete_request_lock

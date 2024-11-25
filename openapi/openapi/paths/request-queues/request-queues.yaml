@@ -1,0 +1,159 @@
+get:
+  tags:
+    - Request queues/Queue collection
+  summary: Get list of request queues
+  description: |
+    Lists all of a user's request queues. The response is a JSON array of
+    objects, where each object
+
+    contains basic information about one queue.
+
+
+    By default, the objects are sorted by the `createdAt` field in ascending
+    order,
+
+    therefore you can use pagination to incrementally fetch all queues while new
+
+    ones are still being created. To sort them in descending order, use `desc=1`
+
+    parameter. The endpoint supports pagination using `limit` and `offset`
+    parameters and it will not return more than 1000
+
+    array elements.
+  operationId: requestQueues_get
+  parameters:
+    - name: offset
+      in: query
+      description: |
+        Number of array elements that should be skipped at the start. The
+        default value is `0`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 10
+    - name: limit
+      in: query
+      description: |
+        Maximum number of array elements to return. The default value as well as
+        the maximum is `1000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 99
+    - name: desc
+      in: query
+      description: |
+        If `true` or `1` then the objects are sorted by the `startedAt` field in
+        descending order. By default, they are sorted in ascending order.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+    - name: unnamed
+      in: query
+      description: |
+        If `true` or `1` then all the queues are returned. By default only named
+        queues are returned.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/request-queues/GetListOfRequestQueuesResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/queue-collection/get-list-of-request-queues
+    - https://docs.apify.com/api/v2#/reference/request-queues/get-list-of-request-queues
+  x-js-parent: RequestQueueCollectionClient
+  x-js-name: list
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueCollectionClient#list
+  x-py-parent: RequestQueueCollectionClientAsync
+  x-py-name: list
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueCollectionClientAsync#list
+post:
+  tags:
+    - Request queues/Queue collection
+  summary: Create request queue
+  description: |
+    Creates a request queue and returns its object.
+
+    Keep in mind that requests stored under unnamed queue follows [data
+    retention period](https://docs.apify.com/platform/storage#data-retention).
+
+
+    It creates a queue of given name if the parameter name is used. If a queue
+    with the given name already exists then the endpoint returns
+
+    its object.
+  operationId: requestQueues_post
+  parameters:
+    - name: name
+      in: query
+      description: Custom unique name to easily identify the queue in the future.
+      required: true
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: example-com
+  responses:
+    '201':
+      description: ''
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: 'https://api.apify.com/v2/request-queues/WkzbQMuFYuamGv3YF'
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../../components/schemas/request-queues/CreateRequestQueueResponse.yaml
+              - example:
+                  data:
+                    id: WkzbQMuFYuamGv3YF
+                    name: some-name
+                    userId: wRsJZtadYvn4mBZmm
+                    createdAt: '2019-12-12T07:34:14.202Z'
+                    modifiedAt: '2019-12-13T08:36:13.202Z'
+                    accessedAt: '2019-12-14T08:36:13.202Z'
+                    totalRequestCount: 870
+                    handledRequestCount: 100
+                    pendingRequestCount: 670
+                    hadMultipleClients: true
+          example:
+            data:
+              id: WkzbQMuFYuamGv3YF
+              name: some-name
+              userId: wRsJZtadYvn4mBZmm
+              createdAt: '2019-12-12T07:34:14.202Z'
+              modifiedAt: '2019-12-13T08:36:13.202Z'
+              accessedAt: '2019-12-14T08:36:13.202Z'
+              totalRequestCount: 870
+              handledRequestCount: 100
+              pendingRequestCount: 670
+              hadMultipleClients: true
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/queue-collection/create-request-queue
+    - https://docs.apify.com/api/v2#/reference/request-queues/create-request-queue
+  x-js-parent: RequestQueueCollectionClient
+  x-js-name: getOrCreate
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueCollectionClient#getOrCreate
+  x-py-parent: RequestQueueCollectionClientAsync
+  x-py-name: get_or_create
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueCollectionClientAsync#get_or_create

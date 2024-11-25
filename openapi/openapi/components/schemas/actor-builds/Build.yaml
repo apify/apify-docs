@@ -1,0 +1,99 @@
+title: Build
+required:
+  - id
+  - actId
+  - userId
+  - startedAt
+  - status
+  - meta
+  - buildNumber
+type: object
+properties:
+  id:
+    type: string
+    example: HG7ML7M8z78YcAPEB
+  actId:
+    type: string
+    example: janedoe~my-actor
+  userId:
+    type: string
+    example: klmdEpoiojmdEMlk3
+  startedAt:
+    type: string
+    example: '2019-11-30T07:34:24.202Z'
+  finishedAt:
+    type: string
+    nullable: true
+    example: '2019-12-12T09:30:12.202Z'
+  status:
+    type: string
+    example: SUCCEEDED
+  meta:
+    $ref: ./BuildsMeta.yaml
+  stats:
+    allOf:
+      - oneOf:
+          - nullable: true
+          - $ref: ./BuildStats.yaml
+      - {}
+  options:
+    allOf:
+      - oneOf:
+          - nullable: true
+          - $ref: ./BuildOptions.yaml
+      - {}
+  usage:
+    allOf:
+      - oneOf:
+          - nullable: true
+          - $ref: ./BuildUsage.yaml
+      - {}
+  usageTotalUsd:
+    type: number
+    nullable: true
+    example: 0.02
+  usageUsd:
+    allOf:
+      - oneOf:
+          - nullable: true
+          - $ref: ./BuildUsage.yaml
+      - {}
+  inputSchema:
+    type: string
+    nullable: true
+    example: '{\n  \"title\": \"Schema for ... }'
+  readme:
+    type: string
+    nullable: true
+    example: '# Magic Actor\nThis Actor is magic.'
+  buildNumber:
+    type: string
+    example: 0.1.1
+example:
+  id: HG7ML7M8z78YcAPEB
+  actId: janedoe~my-actor
+  userId: klmdEpoiojmdEMlk3
+  startedAt: '2019-11-30T07:34:24.202Z'
+  finishedAt: '2019-12-12T09:30:12.202Z'
+  status: SUCCEEDED
+  meta:
+    origin: WEB
+    clientIp: 172.234.12.34
+    userAgent: Mozilla/5.0 (iPad)
+  stats:
+    durationMillis: 1000
+    runTimeSecs: 45.718
+    computeUnits: 0.012699444444444444
+  options:
+    useCache: false
+    betaPackages: false
+    memoryMbytes: 1024
+    diskMbytes: 2048
+  usage:
+    ACTOR_COMPUTE_UNITS: 0.08
+  usageTotalUsd: 0.02
+  usageUsd:
+    ACTOR_COMPUTE_UNITS: 0.02
+  inputSchema: '{\n  \"title\": \"Schema for ... }'
+  readme: '# Magic Actor\nThis Actor is magic.'
+  buildNumber: 0.1.1

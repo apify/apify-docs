@@ -1,0 +1,44 @@
+title: RequestQueue
+required:
+  - id
+  - name
+  - userId
+  - createdAt
+  - modifiedAt
+  - accessedAt
+  - totalRequestCount
+  - handledRequestCount
+  - pendingRequestCount
+  - hadMultipleClients
+type: object
+properties:
+  id:
+    type: string
+    example: WkzbQMuFYuamGv3YF
+  name:
+    type: string
+    example: some-name
+  userId:
+    type: string
+    example: wRsJZtadYvn4mBZmm
+  createdAt:
+    type: string
+    example: '2019-12-12T07:34:14.202Z'
+  modifiedAt:
+    type: string
+    example: '2019-12-13T08:36:13.202Z'
+  accessedAt:
+    type: string
+    example: '2019-12-14T08:36:13.202Z'
+  totalRequestCount:
+    type: number
+    example: 870
+  handledRequestCount:
+    type: number
+    example: 100
+  pendingRequestCount:
+    type: number
+    example: 670
+  hadMultipleClients:
+    type: boolean
+    example: true

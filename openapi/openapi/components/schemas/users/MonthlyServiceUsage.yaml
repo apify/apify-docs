@@ -1,0 +1,7 @@
+title: MonthlyServiceUsage
+required:
+  - USAGE_ITEM
+type: object
+properties:
+  USAGE_ITEM:
+    $ref: ./UsageItem.yaml

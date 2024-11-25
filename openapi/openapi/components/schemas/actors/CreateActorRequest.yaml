@@ -1,0 +1,47 @@
+title: CreateActorRequest
+type: object
+properties:
+  name:
+    type: string
+    nullable: true
+    example: MyActor
+  description:
+    type: string
+    nullable: true
+    example: My favourite actor!
+  title:
+    type: string
+    nullable: true
+    example: My actor
+  isPublic:
+    type: boolean
+    nullable: true
+    example: false
+  seoTitle:
+    type: string
+    nullable: true
+    example: My actor
+  seoDescription:
+    type: string
+    nullable: true
+    example: My actor is the best
+  restartOnError:
+    type: boolean
+    nullable: true
+    example: false
+  versions:
+    type: array
+    items:
+      $ref: "./Version.yaml"
+    description: ''
+    nullable: true
+  categories:
+    type: array
+    items:
+      type: string
+    description: ''
+    nullable: true
+  defaultRunOptions:
+    oneOf:
+      - nullable: true
+      - $ref: ./DefaultRunOptions.yaml
