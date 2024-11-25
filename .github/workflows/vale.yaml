@@ -17,6 +17,7 @@ jobs:
         with:
           files: |
             **/*.{md,mdx}
+            !sources/api
           separator: ","
 
       - uses: errata-ai/vale-action@reviewdog
