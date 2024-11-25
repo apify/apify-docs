@@ -1,0 +1,71 @@
+---
+id: webhook-get
+title: "Get webhook"
+description: "<span class='openapi-clients-box'><span class='openapi-clients-box-heading'>Clients</span><a href='https://docs.apify.com/api/client/python/reference/class/WebhookClientAsync#get' target='_blank'><img src='https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/python.svg' class='openapi-clients-box-icon' alt='Apify API Python Client Reference'/></a><a href='https://docs.apify.com/api/client/js/reference/class/WebhookClient#get' target='_blank'><img src='https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/javascript.svg' class='openapi-clients-box-icon' alt='Apify API JavaScript Client Reference' /></a></span><span id='/reference/webhooks/webhook-object/get-webhook'></span><span id='/reference/webhooks/get-webhook'></span>Gets webhook object with all details."
+sidebar_label: "Get webhook"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: api/v2-new//apify-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get webhook"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v2/webhooks/{webhookId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+<span class="openapi-clients-box"><span class="openapi-clients-box-heading">Clients</span><a href="https://docs.apify.com/api/client/python/reference/class/WebhookClientAsync#get" target="_blank"><img src="https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/python.svg" class="openapi-clients-box-icon" alt="Apify API Python Client Reference"/></a><a href="https://docs.apify.com/api/client/js/reference/class/WebhookClient#get" target="_blank"><img src="https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/javascript.svg" class="openapi-clients-box-icon" alt="Apify API JavaScript Client Reference" /></a></span><span id="/reference/webhooks/webhook-object/get-webhook"></span><span id="/reference/webhooks/get-webhook"></span>Gets webhook object with all details.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"webhookId","in":"path","description":"Webhook ID.","required":true,"style":"simple","schema":{"type":"string","example":"Zib4xbZsmvZeK55ua"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"","headers":{},"content":{"application/json":{"schema":{"title":"GetWebhookResponse","required":["data"],"type":"object","properties":{"data":{"title":"Webhook","required":["id","createdAt","modifiedAt","userId","eventTypes","condition","ignoreSslErrors","requestUrl"],"type":"object","properties":{"id":{"type":"string","example":"YiKoxjkaS9gjGTqhF"},"createdAt":{"type":"string","example":"2019-12-12T07:34:14.202Z"},"modifiedAt":{"type":"string","example":"2019-12-13T08:36:13.202Z"},"userId":{"type":"string","example":"wRsJZtadYvn4mBZmm"},"isAdHoc":{"type":"boolean","nullable":true,"example":false},"shouldInterpolateStrings":{"type":"boolean","nullable":true,"example":false},"eventTypes":{"type":"array","items":{"type":"string"},"example":["ACTOR.RUN.SUCCEEDED"]},"condition":{"title":"WebhookCondition","type":"object","properties":{"actorId":{"type":"string","nullable":true,"example":"hksJZtadYvn4mBuin"},"actorTaskId":{"type":"string","nullable":true,"example":"asdLZtadYvn4mBZmm"},"actorRunId":{"type":"string","nullable":true,"example":"hgdKZtadYvn4mBpoi"}}},"ignoreSslErrors":{"type":"boolean","example":false},"doNotRetry":{"type":"boolean","nullable":true,"example":false},"requestUrl":{"type":"string","example":"http://example.com/"},"payloadTemplate":{"type":"string","nullable":true,"example":"{\\n \\\"userId\\\": {{userId}}..."},"headersTemplate":{"type":"string","nullable":true,"example":"{\\n \\\"Authorization\\\": Bearer..."},"description":{"type":"string","nullable":true,"example":"this is webhook description"},"lastDispatch":{"nullable":true,"allOf":[{"title":"ExampleWebhookDispatch","required":["status","finishedAt"],"type":"object","properties":{"status":{"type":"string","example":"SUCCEEDED"},"finishedAt":{"type":"string","example":"2019-12-13T08:36:13.202Z"}}}]},"stats":{"nullable":true,"allOf":[{"title":"WebhookStats","required":["totalDispatches"],"type":"object","properties":{"totalDispatches":{"type":"number","example":1}}}]}}}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

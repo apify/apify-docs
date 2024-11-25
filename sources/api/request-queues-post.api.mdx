@@ -1,0 +1,81 @@
+---
+id: request-queues-post
+title: "Create request queue"
+description: "<span class='openapi-clients-box'><span class='openapi-clients-box-heading'>Clients</span><a href='https://docs.apify.com/api/client/python/reference/class/RequestQueueCollectionClientAsync#get_or_create' target='_blank'><img src='https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/python.svg' class='openapi-clients-box-icon' alt='Apify API Python Client Reference'/></a><a href='https://docs.apify.com/api/client/js/reference/class/RequestQueueCollectionClient#getOrCreate' target='_blank'><img src='https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/javascript.svg' class='openapi-clients-box-icon' alt='Apify API JavaScript Client Reference' /></a></span><span id='/reference/request-queues/queue-collection/create-request-queue'></span><span id='/reference/request-queues/create-request-queue'></span>Creates a request queue and returns its object."
+sidebar_label: "Create request queue"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: api/v2-new//apify-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create request queue"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v2/request-queues"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+<span class="openapi-clients-box"><span class="openapi-clients-box-heading">Clients</span><a href="https://docs.apify.com/api/client/python/reference/class/RequestQueueCollectionClientAsync#get_or_create" target="_blank"><img src="https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/python.svg" class="openapi-clients-box-icon" alt="Apify API Python Client Reference"/></a><a href="https://docs.apify.com/api/client/js/reference/class/RequestQueueCollectionClient#getOrCreate" target="_blank"><img src="https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/javascript.svg" class="openapi-clients-box-icon" alt="Apify API JavaScript Client Reference" /></a></span><span id="/reference/request-queues/queue-collection/create-request-queue"></span><span id="/reference/request-queues/create-request-queue"></span>Creates a request queue and returns its object.
+
+Keep in mind that requests stored under unnamed queue follows [data
+retention period](https://docs.apify.com/platform/storage#data-retention).
+
+
+It creates a queue of given name if the parameter name is used. If a queue
+with the given name already exists then the endpoint returns
+
+its object.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"name","in":"query","description":"Custom unique name to easily identify the queue in the future.","required":true,"style":"form","explode":true,"schema":{"type":"string","example":"example-com"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"201":{"description":"","headers":{"Location":{"content":{"text/plain":{"schema":{"type":"string"},"example":"https://api.apify.com/v2/request-queues/WkzbQMuFYuamGv3YF"}}}},"content":{"application/json":{"schema":{"allOf":[{"title":"CreateRequestQueueResponse","required":["data"],"type":"object","properties":{"data":{"title":"RequestQueue","required":["id","name","userId","createdAt","modifiedAt","accessedAt","totalRequestCount","handledRequestCount","pendingRequestCount","hadMultipleClients"],"type":"object","properties":{"id":{"type":"string","example":"WkzbQMuFYuamGv3YF"},"name":{"type":"string","example":"some-name"},"userId":{"type":"string","example":"wRsJZtadYvn4mBZmm"},"createdAt":{"type":"string","example":"2019-12-12T07:34:14.202Z"},"modifiedAt":{"type":"string","example":"2019-12-13T08:36:13.202Z"},"accessedAt":{"type":"string","example":"2019-12-14T08:36:13.202Z"},"totalRequestCount":{"type":"number","example":870},"handledRequestCount":{"type":"number","example":100},"pendingRequestCount":{"type":"number","example":670},"hadMultipleClients":{"type":"boolean","example":true}}}}},{"example":{"data":{"id":"WkzbQMuFYuamGv3YF","name":"some-name","userId":"wRsJZtadYvn4mBZmm","createdAt":"2019-12-12T07:34:14.202Z","modifiedAt":"2019-12-13T08:36:13.202Z","accessedAt":"2019-12-14T08:36:13.202Z","totalRequestCount":870,"handledRequestCount":100,"pendingRequestCount":670,"hadMultipleClients":true}}}]},"example":{"data":{"id":"WkzbQMuFYuamGv3YF","name":"some-name","userId":"wRsJZtadYvn4mBZmm","createdAt":"2019-12-12T07:34:14.202Z","modifiedAt":"2019-12-13T08:36:13.202Z","accessedAt":"2019-12-14T08:36:13.202Z","totalRequestCount":870,"handledRequestCount":100,"pendingRequestCount":670,"hadMultipleClients":true}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

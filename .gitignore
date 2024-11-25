@@ -17,10 +17,7 @@ yarn.lock
 tmp
 jsconfig.json
 types
-sources/api
-sources/typedefs
 .history
 .docusaurus
 tsconfig.tsbuildinfo
 .turbo
-apify-docs-theme/package-lock.json

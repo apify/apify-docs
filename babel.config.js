@@ -1,4 +1,4 @@
 module.exports = {
-    presets: [require.resolve('@docusaurus/core/lib/babel/preset')],
+    presets: ['@docusaurus/babel/preset'],
     plugins: ['babel-plugin-styled-components'],
 };

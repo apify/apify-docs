@@ -1619,3 +1619,59 @@ iframe[src*="youtube"] {
     margin-top: -130px;
     position: absolute;
 }
+
+.redocusaurus .openapi-clients-box {
+    display: block;
+    float: right;
+    padding-left: 6px;
+}
+
+.redocusaurus .openapi-clients-box-heading {
+    display: inline-block;
+    font-family: 'San Francisco', Helvetica, Arial, sans-serif;
+    color: #6C7590;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    padding-bottom: 6px;
+}
+
+.redocusaurus .openapi-clients-box-icon {
+    display: block;
+    padding-bottom: 6px;
+}
+
+.theme-api-markdown .openapi-clients-box {
+    display: block;
+    float: right;
+    padding-left: 6px;
+}
+
+.theme-api-markdown .openapi-clients-box-heading {
+    display: inline-block;
+    font-family: 'San Francisco', Helvetica, Arial, sans-serif;
+    color: #6C7590;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    padding-bottom: 6px;
+}
+
+.theme-api-markdown .openapi-clients-box-icon {
+    display: block;
+    padding-bottom: 6px;
+    margin: 0 !important;
+}
+
+.theme-api-markdown .openapi__method-endpoint-path,
+.theme-api-markdown .openapi-security__summary-header {
+    margin-top: 0;
+}
+
+.theme-api-markdown .prism-code .token-line::before {
+    display: none !important;
+}

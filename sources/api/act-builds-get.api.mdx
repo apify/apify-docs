@@ -1,0 +1,83 @@
+---
+id: act-builds-get
+title: "Get list of builds"
+description: "<span class='openapi-clients-box'><span class='openapi-clients-box-heading'>Clients</span><a href='https://docs.apify.com/api/client/python/reference/class/BuildCollectionClientAsync#list' target='_blank'><img src='https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/python.svg' class='openapi-clients-box-icon' alt='Apify API Python Client Reference'/></a><a href='https://docs.apify.com/api/client/js/reference/class/BuildCollectionClient#list' target='_blank'><img src='https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/javascript.svg' class='openapi-clients-box-icon' alt='Apify API JavaScript Client Reference' /></a></span><span id='/reference/actors/build-collection/get-list-of-builds'></span><span id='/reference/actors/get-list-of-builds'></span>Gets the list of builds of a specific Actor. The response is a JSON with the"
+sidebar_label: "Get list of builds"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: api/v2-new//apify-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get list of builds"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v2/acts/{actorId}/builds"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+<span class="openapi-clients-box"><span class="openapi-clients-box-heading">Clients</span><a href="https://docs.apify.com/api/client/python/reference/class/BuildCollectionClientAsync#list" target="_blank"><img src="https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/python.svg" class="openapi-clients-box-icon" alt="Apify API Python Client Reference"/></a><a href="https://docs.apify.com/api/client/js/reference/class/BuildCollectionClient#list" target="_blank"><img src="https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/javascript.svg" class="openapi-clients-box-icon" alt="Apify API JavaScript Client Reference" /></a></span><span id="/reference/actors/build-collection/get-list-of-builds"></span><span id="/reference/actors/get-list-of-builds"></span>Gets the list of builds of a specific Actor. The response is a JSON with the
+list of objects, where each object contains basic information about a single build.
+
+
+The endpoint supports pagination using the `limit` and `offset` parameters
+and it will not return more than 1000 records.
+
+
+By default, the records are sorted by the `startedAt` field in ascending order,
+therefore you can use pagination to incrementally fetch all builds while new
+ones are still being started. To sort the records in descending order, use
+the `desc=1` parameter.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"actorId","in":"path","description":"Actor ID or a tilde-separated owner's username and Actor name.","required":true,"style":"simple","schema":{"type":"string","example":"janedoe~my-actor"}},{"name":"offset","in":"query","description":"Number of records that should be skipped at the start. The default value is `0`.\n","style":"form","explode":true,"schema":{"type":"number","format":"double","example":10}},{"name":"limit","in":"query","description":"Maximum number of records to return. The default value as well as the maximum is `1000`.\n","style":"form","explode":true,"schema":{"type":"number","format":"double","example":99}},{"name":"desc","in":"query","description":"If `true` or `1` then the objects are sorted by the `startedAt` field in\ndescending order. By default, they are sorted in ascending order.\n","style":"form","explode":true,"schema":{"type":"boolean","example":true}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"","headers":{},"content":{"application/json":{"schema":{"title":"GetBuildListResponse","type":"object","required":["data"],"properties":{"data":{"type":"object","required":["total","offset","limit","desc","count","items"],"properties":{"total":{"type":"number","example":2},"offset":{"type":"number","example":0},"limit":{"type":"number","example":1000},"desc":{"type":"boolean","example":false},"count":{"type":"number","example":2},"items":{"type":"array","items":{"title":"BuildShort","required":["id","status","startedAt","finishedAt","usageTotalUsd"],"type":"object","properties":{"id":{"type":"string","example":"HG7ML7M8z78YcAPEB"},"actId":{"type":"string","example":"janedoe~my-actor"},"status":{"type":"string","example":"SUCCEEDED"},"startedAt":{"type":"string","example":"2019-11-30T07:34:24.202Z"},"finishedAt":{"type":"string","example":"2019-12-12T09:30:12.202Z"},"usageTotalUsd":{"type":"number","example":0.02},"meta":{"allOf":[{"title":"BuildsMeta","required":["origin","clientIp","userAgent"],"type":"object","properties":{"origin":{"type":"string","example":"WEB"},"clientIp":{"type":"string","example":"172.234.12.34"},"userAgent":{"type":"string","example":"Mozilla/5.0 (iPad)"}}},{}]}}},"description":""}}}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

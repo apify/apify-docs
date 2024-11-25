@@ -1,0 +1,74 @@
+---
+id: request-queue-request-lock-put
+title: "Prolong request lock"
+description: "<span class='openapi-clients-box'><span class='openapi-clients-box-heading'>Clients</span><a href='https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#prolong_request_lock' target='_blank'><img src='https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/python.svg' class='openapi-clients-box-icon' alt='Apify API Python Client Reference'/></a><a href='https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#prolongRequestLock' target='_blank'><img src='https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/javascript.svg' class='openapi-clients-box-icon' alt='Apify API JavaScript Client Reference' /></a></span><span id='/reference/request-queues/request-lock/prolong-request-lock'></span><span id='/reference/request-queues/prolong-request-lock'></span>Prolongs request lock. The request lock can be prolonged only by the client"
+sidebar_label: "Prolong request lock"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "put api-method"
+info_path: api/v2-new//apify-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Prolong request lock"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/v2/request-queues/{queueId}/requests/{requestId}/lock"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+<span class="openapi-clients-box"><span class="openapi-clients-box-heading">Clients</span><a href="https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#prolong_request_lock" target="_blank"><img src="https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/python.svg" class="openapi-clients-box-icon" alt="Apify API Python Client Reference"/></a><a href="https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#prolongRequestLock" target="_blank"><img src="https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/javascript.svg" class="openapi-clients-box-icon" alt="Apify API JavaScript Client Reference" /></a></span><span id="/reference/request-queues/request-lock/prolong-request-lock"></span><span id="/reference/request-queues/prolong-request-lock"></span>Prolongs request lock. The request lock can be prolonged only by the client
+that has locked it using [Get and lock head
+operation](#/reference/request-queues/queue-head-with-locks).
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"queueId","in":"path","description":"Queue ID or `username~queue-name`.","required":true,"style":"simple","schema":{"type":"string","example":"WkzbQMuFYuamGv3YF"}},{"name":"requestId","in":"path","description":"Request ID.","required":true,"style":"simple","schema":{"type":"string","example":"xpsmkDlspokDSmklS"}},{"name":"lockSecs","in":"query","description":"For how long second request will be locked.","required":true,"style":"form","explode":true,"schema":{"type":"number","format":"double","example":60}},{"name":"clientKey","in":"query","description":"A unique identifier of the client accessing the request queue. It must\nbe a string between 1 and 32 characters long. This identifier is used to\nensure one client is not to able delete or prolong\n\na request from another client.\n","style":"form","explode":true,"schema":{"type":"string","example":"client-abc"}},{"name":"forefront","in":"query","description":"Determines if request should be added to the head of the queue or to the\nend after lock expires.\n","style":"form","explode":true,"schema":{"type":"string","example":"false"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"","headers":{},"content":{"application/json":{"schema":{"allOf":[{"title":"ProlongRequestLockResponse","type":"object","properties":{"data":{"type":"object","properties":{"lockExpiresAt":{"type":"string","description":"Date when lock expires.","example":"2022-01-01T00:00:00.000Z"}},"required":["lockExpiresAt"]}}},{"example":{"data":{"lockExpiresAt":"2022-01-01T00:00:00.000Z"}}}]},"example":{"data":{"lockExpiresAt":"2022-01-01T00:00:00.000Z"}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

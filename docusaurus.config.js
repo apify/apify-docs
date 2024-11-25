@@ -86,11 +86,12 @@ module.exports = {
                 },
             }),
         ],
+        'docusaurus-theme-openapi-docs',
         '@docusaurus/theme-mermaid',
     ],
     presets: /** @type {import('@docusaurus/types').PresetConfig[]} */ ([
         [
-            '@docusaurus/preset-classic',
+            'classic',
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
                 docs: {
@@ -156,6 +157,37 @@ module.exports = {
                 showLastUpdateTime: false,
                 breadcrumbs: false,
                 sidebarPath: require.resolve('./sources/legal/sidebars.js'),
+            },
+        ],
+        [
+            '@docusaurus/plugin-content-docs',
+            {
+                id: 'openapi',
+                path: './sources/api',
+                routeBasePath: 'api/v2-new',
+                rehypePlugins: [externalLinkProcessor],
+                showLastUpdateAuthor: false,
+                showLastUpdateTime: false,
+                breadcrumbs: false,
+                sidebarPath: require.resolve('./sources/api/sidebars.js'),
+                docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi
+            },
+        ],
+        [
+            'docusaurus-plugin-openapi-docs',
+            {
+                id: 'openapi', // plugin id
+                docsPluginId: 'openapi', // configured for preset-classic
+                config: {
+                    /** @type {import('docusaurus-plugin-openapi-docs').Options} */
+                    v2: {
+                        specPath: 'node_modules/@apify/openapi/openapi.yaml',
+                        outputDir: './sources/api',
+                        sidebarOptions: {
+                            groupPathsBy: 'tag',
+                        },
+                    },
+                },
             },
         ],
         () => ({

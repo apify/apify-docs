@@ -1,0 +1,88 @@
+---
+id: request-queues-get
+title: "Get list of request queues"
+description: "<span class='openapi-clients-box'><span class='openapi-clients-box-heading'>Clients</span><a href='https://docs.apify.com/api/client/python/reference/class/RequestQueueCollectionClientAsync#list' target='_blank'><img src='https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/python.svg' class='openapi-clients-box-icon' alt='Apify API Python Client Reference'/></a><a href='https://docs.apify.com/api/client/js/reference/class/RequestQueueCollectionClient#list' target='_blank'><img src='https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/javascript.svg' class='openapi-clients-box-icon' alt='Apify API JavaScript Client Reference' /></a></span><span id='/reference/request-queues/queue-collection/get-list-of-request-queues'></span><span id='/reference/request-queues/get-list-of-request-queues'></span>Lists all of a user's request queues. The response is a JSON array of"
+sidebar_label: "Get list of request queues"
+hide_title: true
+hide_table_of_contents: true
+api: eJztPWtzGzeSfwU3/hDJxZdoO7FZtq+U2EkUv7SSvDlHdHnAGZCENQQmAIYU49L+9qvuxjw5omhb2c3VRR9scgZoNBrdjX4B/BQ4PrPB6Dw4Eb9nwjr2eyYyYfv/gP9YpJNERE5qFbzvBLGwkZEpfh0Fj23KFYsSbu2TcaBToXgqu1EihXK2O9GX4+DpjW26c8FjqWbj4OkP9PRxH/o8fczZ3Ijpk3Ewdy61o34/1pHt8VRO171IL/o8lX0C1E/Xbq5V34ipMEJFoo8D9v2McCY/FBOhYQ7tWkV3EmndOGCOm5lwT8bBh0nC1QXgLRczZk1UGd7wVW8m3TybZFaYSCsnlMsxma77fnL9ycFw8C2PhjyePpzeezQZPBAP+ODRZHpvGA0fDoZ8+uBh/PDBQZ9bK5z1yPfscjYOtlJKRlqNA8YTwPQQxmSHx0fsGPszmhY7yWkwDvpPH/f5Z9Hxo/0sGv4lyPeRLzlx5ZeT8Be+5KcIo4WMzNPRsyUytIyfjIMKrQxRqetlB//rlrLTnwnXBWJ19bRbbwvE+gzIuwB6Ka2zjCcJ01PGGZD7G8tMTbx77GwumBE21coKJi3j7JfTN68ZN4avmZ6OlZ58FJGzHbaaCyOY4NGc0bOxGitYQC6VZRNuZcSkmmqz4DBZxic6c0wrQWP1oPlYfb9msZjyLHEd5ubCg7KMG8GsNk7EbLLGN2FkBHciPnQhm0qRxEwqxm0kFCoKpU0sTAdgOsBsqo1ga52xiCuYLEv5TCpCxWkmVWTEQijHk2TNpsJFc6QN0YGt5jIRTIkVwNNKeIScTBI2EVLNmMemx840Igo4LgAl0IaEEyOUcPQQHj85CAFeyg1fCCcMkVuoONVSOWazNNXG2SqqmQVAYSIX0oWMq5iFejq1woUVOBZfSMdWgJ/SjhnhMqPYAojg5lyxg8FgAGPTQooE5257YxV0QCQMjnYUB6PAVETbfpgJF3SCcqRgdP4pUHwhglFAiASdQILe/z0TZh00d4PX2WIiDLJcbWTAyjE711kSs4lg9kKmqYgZR0Iy67hxSJ6x8vzBljzJkCfDQUiIW7dOABFgsqATiMs00bEIRs5kohPYaC4WPBh9Ctw6hWYKcQk6ATFlMApinU0SgV35IgVYB4Orq04xQyT79gm+4pdykS2Yunai2q8GrXZ9NtyylUgSxi2yLVt4aDBLWLI/b6KPHlUnCnPaPs+jKQthuJBpw8KDEJZJ3SSyuIx1kYX1rAtIjzWUwLoKqirkvv2XkGSidSK4qlIAWlZpkCn4EH8JGUBzwIS99gD0ac1BQZSzY1ola4ajjFVb21ud2ftOkGtyC+2HgwH8V59P0AnA1ELJ/nTVCfwODA15miYyQsXQ/2ih9afq6NIhlj8JBzvLm2nVJLAnfuCgg/pEGhGDMRlzx8Fi9KgT54B+MaCDnCREsdXoU62n044noKtynZOLpufcSGcKJdWJhb15CALXIjEFDYdXxWDbmg2uclS2tQJRvvK4bl25KU+suMqncxN+NNmyFWqeoPrcL1J1bU7n2rjGukjgehSDTgCGwVHsP/hnxdYbdIKFjuVU+i88ioS1/ou4TKUR+BHp60f9wS/NnKs4EXHjaUqivdE2fpUlTqaJ8Pb/zWsq4woprDNSzaoEC369+GPyj1fZj+8yvvhpee/dj8GVn/TWblYvRBebXRXE2dphdWJ/+c3x+N1S3V98/9tikXe8eayPXIlY40glybf2GA4OHnUPht2D4dngu9G9+6OD+73hYPgbgKis1G4w7p0NHo7ufTs6uFfAqCzwbjDub8Io+OJmCINvu4Ph2cF3o4MHo8G3ve8eHCCETXa6Qdqu2tltW68H0KmNG2/sxCPXzhMqSxI+KTQytjzJ1I6NW2RgB61/1dyxgqv8D96kRkTAV17VdILLbiJmPFp3Yx11M5Og07/FJ1wO79yKhwNC/oWjbAH6Hib00XZTbnAXC7Y5qoFvXBh7tnjkiRGM/iT3GMdJ17vhiUGJvEcT2XT9Wch+VUwEuc0JZaVW5AlciHUwauGhToD27f9tXgLbMJ9gyVPF1LbzVqOz30jzrkjNRpN8GctWfxLvVccteXC3eREvNiDcNLkKj37O5L6OV8H+XQg31+DU5m6smwejoL8c9jcYyAqzzP3bujDxVJb44QSMBEWNFjOMYkWUGenW2Bd6fS+4ESYYnSML8VS+AEKcv682PgVLmgyXapdCwcPDwJv7qPCpQVO7Q5yKZ+CEOG+rM6cvhOrBtlkCPoycNt9nMontLY7Bjhx4qujV5OYkm2rDUiOX3AmGw9oeo5HBOU6zSSIj/wJjMxN0m4wUMVtJN4cgEVfr1lmcOm1Ebfe8pRkUyONUVuDSUeAFvdjcdvuXhfGR20NGrjXONrSEV9hAFzn0P4guadBNdH8nvAjdnDtLJ4Ie5KZxgCNvd4q3MiHBa2fA2xzr38OMhPEmI/4JM7lNpiT0NhnyP4f2DswJHq6a6qojWwTnN9Aaq6fs7t23x88Oz56z4WB4vzv4rjt4NLp7F978KticLwUzsF/EDNbVzaWFCC8rA/7PdJRhTBhg9tiRYhG3AmN6as2ktZmwHZYmAp6eGwHRWgbB5vd7+WZBuYyWBAb13u8BNhAH1Em8OSbQj4LM53zJJfoDjQFaDZyuTuJ9jKgD6HJCe7ClAdzhPkuNXspYWPgwM3wBYfmIkX8HQUpYnnPqmibcwZpcNyoMhQMdH6HImRlX8g+I3hqdqZidnzw/PZtmSdlfqN5KXshUxJL3tJn14Vv/BNwRm0+eJx+s4058cIYrOxVmf6x+Pjs7LgLkEK4+TJI8Z0FR7yLExfakipIM44TCGG3sPgbXhIp0TIHEc8hlEFKjfn+1WvUgroX47OdMCGLP3p792H1IPaWadcYKn3I2FSsmLiOBTOdj2DjGJYTKpEvWjLhyQgM6zKZ484XWRxck9wQk4Th/rWPR+2hLkikdi48WkROqv99hK4AV6cVCqBh6j9V5iEvic1nhViYpDMZ9dv76+BVLeXTBZxXGAnKodPHRYhf/ul8dAJf9Ovwp31gH53OYSN9bwp9A7sN4x0ebk0jXqcTxUqMhSFTDv5/zrc/9fcOmmYpoKSNtiJPiXBZgbgXnIauhBsHsBF9APinPiUBgHwRXLtIEAi6WxWIpEp2CXKP2SFPPLLGACAPTxBp1aUP+uHv3tXZidPcuq3E68h9m4lK+TjSPQXUJxNWmIgIwqF5/oPBt92ydihFrRnBDhvJEAd//ImGqT9OnoAgYWc8h7ojrcr40E9gt9VIYI2MiCoKmLr2x+lEb5iMTHSanmIlbceUA4wjC5Zwdvzk9K5NfxEac/fT8LJ92h0i6Hisex3l8vYaJR/EJgArzhXt78hKXy3o+q4JEBpCWTQV3mcFskkACYhows2KaJa3oljq1INZYTY1eMHAcZCRshSyw8eHolZEtLu+dO+ywtneOVTXBK5UzOs7I361vsmUid6ze+bTmVKoYUDWIGO7CnrXG6vxIOTGjvF5Fq0RaWZ2IqnBFGGy+A4MXHfYhBylyFUaT/8F39WoMspo4No0LeZpy4YSEJOwImnbZoV89aug0dfNtv7EsBJJoI//AsUPPn5AbC8mQZo+x61PIhj3vzXqdRpcR8+0u6Q/anb+C3CfYDxW1QmIpTG+h/5BJwr127b49RZXT/1VM+sDH/Z8pJ9KvDbPfY3snuQYTfsOl6UkH6KLUIKphVVzqEwb+7LG9l6BD0RkUBOgtCkCdorR/UDdPFWkpq0tdKblLskM4cOT/cvSJiDgs1duTl5Rs0lMnFEPrMB4rqdjE6JUVhs0lPFx72QFvmCV6lms3ikcD/GjOVSTQWoPYOGT0M8U9oUgn0RYxVnXe9ArumcYUtZ1zIza417CUW7vShgxwlilnMguJwJRjpL8HBh3pl0W+wr7EoMOsEAwAnstW5m9sK7nibXB+XLMCvdR+j/UMmeUzsUVkseqhS60q8nqmmckU44pxcDU6pBy8BszXNzfBTjLf7P1eNW6Fj2zfZKoaE4Ov+Ga/qUlJAhEkNmBHzxgYQmxP9GY9Fi5fzO4ffbz8bfL83dk78evDs3AfqC+dxQRl3sxnJP61WNM44T4KddgaHIHACo+c7Z9j2w8yfg8YWqx6OJpWkAHTG8oUIOcKNi5XWq0XOrPJukPKV+L2Fwm5FIyz+4MDwO7+4N5YnRf1KTCfL5HuU8ddZvfzzWAhuLI4ar6nwn6DnHluRWSEKzn0CzSpX9gb9d3euSmVCyz+lt1gHxerEPeNffG/Edkn5zCJD4R4yPaSps55k5LhnVMdNhWyokXbfms3rdsvZldLj3CDzazTC/mH1wYmI6k7wm34GyM8R3sLmeqEJiAyK77G8oqKbAFnVdzNQ1ocniR7+6G3Thhu2xV35/TZi3JZbXxRWVLkGzA/8dEd/Beg8cjJuCtVmrmuJm9gHx1gYPcKn5eoeOZAMoPiizIDYddkDUp2hgR1mu3FQOeFVGURxS2w4H5R1wVFCFDVpRiJKNKO8qlbSQDhglhMLa1r12Rq39ccWXCm08yxPYluMjHWIXPrVEY8YSttLqaJXuGwlk11kuiVRSVy0GMn1aXThjluLypE+2Lu0ob6AryWrl143tofXuzX7Tyc0LDHXmklAc1ydYF4kzVLhZE6htkma5bqJKHd2HvaIHOVGf0kkEnakALeQSRoQbpcxV3pbBe2ZT7zyQokfRU/RO9ej/2INWyuWGdb4XMYFIsC6sNCoQVWS8K7ZqoF29eHqkqWL2l5RiCO4hAqAmU0RwbPFbdXErAS+TaXK+8e2E2S1A8DRNiCr7ESDC0TsicvxLpLhVL4tMcKyzef7KIxS1ChJq5Ps4CClBSQMoFGRE78eOM0X4j1PwGCD/xRJR4VqmkjQKdfiHVY8eDu3h2xI2Wd4DFGGj2L5OxRqlueWNJgtN9sZ3biE8hxzI1WuF0Sr9/I57aN0ZuQal+93YcbsVDWG5uuZpOuOLA5WIL3BgNQ6VrFlu09YAupMicsRlWoR4aqfiqVtHMfuIGiJ1tRIT3mbQRszC+EZYlWMyihrA0KGDm5EIzCs7AQRq9Aj2DcJzfZ8hokZp3JInD3tlhuOVt2y8YVA+6Vtq7hKfsKS18fSxJLJivxDXc8ZL5AZU02UxiO1aexYoyxMRY5jYMR8w/gr9fr0Zersbry7cfqZ70SS08DI3DvyANRLUGnMjrVYTaDolY7Vl5Iv0oPaDNWL+rieHsSZyHEhtrDkxUVglRMoxFLFj4p4lpQlhY8Zw+/3HPviWFAwqKpR5Zv7lBxNcP+9y8vQXgeXF6OVS7PjYWjgHaa8MhnBFiIQ4Y9VolwtCwvtmqs7xij7vBwHBAVukq77hRipuOgU224EJacCGiLSoetONnM2Lw3DlpY5VQIdv4cY58b9mMeEp3mjlMsHJdJEZY4LmqOt0hJWZhclY7NMBIqikJCIB0L9KY527Ei3wK5J39HSq5V8ZEmu6YQgNrs74+VAEcwqtV5AwNBxShoHizSI5UNlqZGTSNNGT9GQqCg0zu7EQI0BXARV/cIX5BN1dm+UrtpOfvII4aGChkF7qpR4UKs7Q2SBA+uoQX03i8kSdp2bMVllGRWLsUpFOe+EOsNZP02dvTq+M3J2eHrM9jLnkOdf22TpALulpJ1vxAYKhAGjgMUZc2kPPI9IadVMXAH4xHFkhkRZxE5IhDyhNAWGew+V+9pmgOnFY6wohxiFBS/mmYY6LMYhMkLzhVo1LEyIlkDVO6DqDLKy7IVgBDRRU2z2Gs4w4vQHUYhHGKHnaSoj+vS9T22bzhbZYoJ8qM3Tg4A/mRzw7cmV6Lieuyg61PQJ4+deUp65bGLnz4GrfkUyfq4j58f911cafASXtm69gV/jg6BVMm62KiSx22lw1ATVAZ6Mhz4sXrFYI/7Hq029Ih27fidXsgU2LAxamkyTsRMKkWLRnwmMXpZIkXgnxwMPhMt2JHbkaJP1ZJ3Qqpe846F9SgIUnnDGivjV2AD+NpQDAHEsShSFoC9NyGaUW4f2sZ0LBrPGG33Zet+LfJQoXTe4PNMh68JbD4ynzofXKJcCvOV/viowoTFgZTyiIdHkLz7WvaipNyTA0+7im4oMSWok7JuvgyVglrwhPP7qeyJXrngSqwqsTadxPANgXq0mqv7uJ9LBymbgs+v2STAy01WfG2vswxLYSwszd2swzFVwcLT4YNvBzVzIVcg8Kr+BoUKXkAJeu0NBgpa38AKwAuqEK2+IU4IRuy8fAp/n9gBqCOa6lWn+XIIKa/2l4XNWwE1GAzcvOhQvn7fYvKc1UiKa1VYw6SZILpXkfBiAcvi8W1acP702JuCj/tuXnn8rKw+KN5s1Qi4eu0q4QyTI44nG5qqrALwLI4i/vWaEUZsjoWyjvql9TBWRa9A1uz3jCe5HLWMtxGSlFM8oMZtXogQd8i6X0lSOdJ6OJ+pabfsT1XroHW2vuSnqUfQcygCFV5fOZqzrU+6OvoOc0Y3CsC5DcPFm01xYR5hwiPKEm5qOsbHWUDVYbnIgieJMDsSC4X+emLxyGUtXLidPl+7IXrxMJnI6Sin5AAiM3q3n0Zvnh1DS40AoLbKIRSctSN2OM929A5Vcfq1igvuGdt2i9IgvBDrz7EGoXk1eTQXhZWXB90bcbGbM1w+hNh0J/bhQKjADRrJCVFnbrF2C5hAGAzhShWLSwE++iRzzHD0ySk6LQ36LDliVDczkYqbdXFY76w4jltE6W7R3xmrmldCufdrD9L+Nc3h27KFN1y7rWYxJdiQr9A6wYXM0ly/zeRSKHjIyrqq2vPcwLp26T/Tlqq7l1sNqa8woq43iKQ9M5nC0zHwHo9bVt9vUJeiM4s1SWytrRKX7nl7ezxPhvqppd/fBtaXG1j/HwyBWzECKoz+GTtyGX6mugskXiKm6E2VddM99qaw6jY35ttVZLCsCbcOtRSZr9xec5XAkWUhHLELC7JOpbEO65x2xKpVqK/HrB7s2j6xerkQsQ/5q5eEYsGvN9gcjMK/W+wNCgQ3LYyyvi2DQBfUIWi1EUK3IxYOLy9DH0PHEqAMa306LLxff0HjMAwpFMnsCPl0rPakWvJExkV1HKWTwwcN4FSG5EHtkcONJ+Y5lTBgWBJfs0pViL+DpL5xxAKST0UUFKP4RZw/T15Sbryy1dC1DCEE7n2A14fmw4p+8zrE7/PQgVDCrAPHUp95tuCqawSPUYPS+0oFewfxByNnKZJ1vYDyr5Je+FlQLAlr+XAaXuUvIFrpWcavVVkMGUWZoawDFNHXoiXb9wXiu8auAFNsPPKT2W2TuF8E8lp1nmfL/Chge1Ms26KUdWYxtFXjtN2UyY6IoBJpb3jkRYj0TL6xjNgPWEPkypMYt4qQ56yL6zTfCb5HjVwIYi7s0ZwbHjlhdsXoYOv+BMUwyOL53K9x4FoOqxTsXnbdDaP72zBqSt015vemvO04+vDR1tG5E100IbqQYRLXEgSKKLCWPW/m06JOeAtET9m9QVl8ngrjc/u7UunBNjypCgupxMGuvA5NDDXVfIKiuHoiWH4xQatjV6lFtyP25vjs6M3r0w7WW96wfZ4UVMBLpa6vFyiITbfUbUmGlplHJHEZRrC1BGUK0WvwYJfCQLrLm9S1jBdsowtpJ2LOl3gJFR1kyJ1s3BrdSrMLqeiEW7molnUZZ7NET3hSXWvanlJhukZYnUEGtXzbozDGT81euxKmT+N1y4dNu2MTITBnBRqVH4YPBmwwaHAilZZ8oAT8eaUs8uaiyQJQxwccMRwGtcXC4IVoHSQHbFZU0VxA3trz6BjSMFDo5el13E7NnalWXY0ttMtvFbpm8QDND+1yjB/zLh8K40fRoTi8A+jS+bpYzkDAEn9+stP4DrU6lWe+kqSTf28EqphwUf0arDq6eGCF8lng2tTNBZ8399UvVkBICO6Tszn+qNPmcgbhqQrj91qS19XioyoKioX/0wUdgLGc7ktKUFOBLkmZFRXRxhF5Q3V+OGiybBvRR2N1l/1w8vYZ2zufCffZ9TNoz52n2Y49oVC11jMWiXBit87UNu+/P1bFjXFw3nZjkYs6j93INdyJXOzuF1eDAqXLvlRjymu1bl9QOlcH0DrG1w7RMsIr4fhCm3ReVqC20mKRt4N60fo3AnSc2flnlYIBA/lSMKdzOc95GDhq75zHjTKwxl0b+dcKVB4Xtrbnyw1ZuBkISUUVSJbGvMncN8OhXg1QbXJyM6hCYgjUPoCqC03VBqhfwpknD0pTpDTUvHe14z7SYhF2N91/X3TpE/m4/VKGxWlNTlu5+W0ejMxPTRYJ7o2yu/D+8BE705q9Alj+9g5bltCWZttEx1AqGYYh293T3ZzjNmd3F9u31+u1KaSqT8zQJcZVEs6sAfkSkYq5QGQRl6lWYEvwhE14dKGn051tAePhd6vwc8ayXYDfrcDv5vCvXWBfm22bE/ellLK4lROKeys1XFTCjC4/1N761QPmdT5YlZ+xzMt4Kcgx52kqwI6Ycak6tZoRGofupsQXOKQfyNcI12GTgWY108rXJ/Nkpo10c7wz80LpFdwXyT60kPxDfkuqD/aWRbNtLkRqRRbrLnDwCI8qPIP4EWxf+f0vLHz2/OXhuycPBoOQDXvsND9v6qPGtWNdNevjXlnpXC1arQoNuIZFjh0kyN80mR8fibUSlVDrCFnzLvsVCAj2K2+uVzTXFlaLq1gv4MrbvCQGToqYJU/8dPAYbTi8678sZJJIX9jtx3hWrpcvrqsu2wScFefw1lqEwZ6wHJoHAIeUpcoECYd1ImVDf+CHVw89w80AReDQayeIh+GxajyFMdFLgQBsjbGwPohnTuMdB/nR3lqovSysmHAVr2SMWSU6/1Y5sQul/GXZexkk9Y4XO4c+5T3Ru57AB0bErs1T8zcffM8n0sLgFVnAKxToYic422U1TQK4J6bjl/lRt5U2cOYTL2f2Dh9dc21oCyhMsG0xZZN36DrdLTvU/ZXcP50bAesAdW2Q3sMhpuQD82K0/OgXufmAylJyIL0/dOuFh9oePcuPK8oXF8fR0eyfy9XiDxdn04fhPrUvLx7Je9HVI936DSWgUOh6A4oeVA4j5gQrzj0XB7JIKfl+2JauPtHmIj9LXlwdgPcMRCgtC2nxIjU/o3ADM0odSNupnU2E8blqjo5R6joApKptkDU/0V2euF0pvAjcnxzrBXQHLI8cXQjrbxDBiwQ7QaqtW3C8CtbfGFNN59ftmOYVLZ/Ky2X//pGAv38k4C9Avr9/JODvHwn4+0cCdvuRAH9hGAQGoaxMKrzV2OAl2nSv4nmwHPp7pes3ss61dfD60ycoLntrkqsreEzXi8GdibG0YIqVl9Jeu2/8qT8n0DpFusOyuHY8v70S77fcHe9/y68EbME/vy39C9H/q13+v2Wm/j74W53orV7vvwX38hcISvTflxeO0oWi/r7+yvW7hxHExSu9Nm7ur92F+tPzs+Dq6n8BPm0vWQ==
+sidebar_class_name: "get api-method"
+info_path: api/v2-new//apify-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get list of request queues"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v2/request-queues"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+<span class="openapi-clients-box"><span class="openapi-clients-box-heading">Clients</span><a href="https://docs.apify.com/api/client/python/reference/class/RequestQueueCollectionClientAsync#list" target="_blank"><img src="https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/python.svg" class="openapi-clients-box-icon" alt="Apify API Python Client Reference"/></a><a href="https://docs.apify.com/api/client/js/reference/class/RequestQueueCollectionClient#list" target="_blank"><img src="https://raw.githubusercontent.com/apify/openapi/b1206ac2adf8f39b05e5a09bf32c2802af58d851/assets/javascript.svg" class="openapi-clients-box-icon" alt="Apify API JavaScript Client Reference" /></a></span><span id="/reference/request-queues/queue-collection/get-list-of-request-queues"></span><span id="/reference/request-queues/get-list-of-request-queues"></span>Lists all of a user's request queues. The response is a JSON array of
+objects, where each object
+
+contains basic information about one queue.
+
+
+By default, the objects are sorted by the `createdAt` field in ascending
+order,
+
+therefore you can use pagination to incrementally fetch all queues while new
+
+ones are still being created. To sort them in descending order, use `desc=1`
+
+parameter. The endpoint supports pagination using `limit` and `offset`
+parameters and it will not return more than 1000
+
+array elements.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"offset","in":"query","description":"Number of array elements that should be skipped at the start. The\ndefault value is `0`.\n","style":"form","explode":true,"schema":{"type":"number","format":"double","example":10}},{"name":"limit","in":"query","description":"Maximum number of array elements to return. The default value as well as\nthe maximum is `1000`.\n","style":"form","explode":true,"schema":{"type":"number","format":"double","example":99}},{"name":"desc","in":"query","description":"If `true` or `1` then the objects are sorted by the `startedAt` field in\ndescending order. By default, they are sorted in ascending order.\n","style":"form","explode":true,"schema":{"type":"boolean","example":true}},{"name":"unnamed","in":"query","description":"If `true` or `1` then all the queues are returned. By default only named\nqueues are returned.\n","style":"form","explode":true,"schema":{"type":"boolean","example":true}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"","headers":{},"content":{"application/json":{"schema":{"title":"GetListOfRequestQueuesResponse","required":["data"],"type":"object","properties":{"data":{"required":["total","offset","limit","desc","count","items"],"type":"object","properties":{"total":{"type":"number","example":2},"offset":{"type":"number","example":0},"limit":{"type":"number","example":1000},"desc":{"type":"boolean","example":false},"count":{"type":"number","example":2},"items":{"type":"array","items":{"title":"RequestQueueShort","required":["id","name","userId","username","createdAt","modifiedAt","accessedAt","expireAt","totalRequestCount","handledRequestCount","pendingRequestCount","hadMultipleClients"],"type":"object","properties":{"id":{"type":"string","example":"WkzbQMuFYuamGv3YF"},"name":{"type":"string","example":"some-name"},"userId":{"type":"string","example":"wRsJZtadYvn4mBZmm"},"username":{"type":"string","example":"janedoe"},"createdAt":{"type":"string","example":"2019-12-12T07:34:14.202Z"},"modifiedAt":{"type":"string","example":"2019-12-13T08:36:13.202Z"},"accessedAt":{"type":"string","example":"2019-12-14T08:36:13.202Z"},"expireAt":{"type":"string","example":"2019-06-02T17:15:06.751Z"},"totalRequestCount":{"type":"number","example":100},"handledRequestCount":{"type":"number","example":50},"pendingRequestCount":{"type":"number","example":50},"actId":{"type":"string","nullable":true},"actRunId":{"type":"string","nullable":true},"hadMultipleClients":{"type":"boolean","example":true}}},"description":""}}}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      
