@@ -10,6 +10,3 @@ SER = "SER"
 
 [files]
 extend-exclude = ['sources/api/*.mdx']
-
-[files]
-extend-exclude = ['sources/api/*.mdx']
