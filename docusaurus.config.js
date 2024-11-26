@@ -14,6 +14,9 @@ module.exports = {
     organizationName: 'apify',
     projectName: 'apify-docs',
     scripts: ['/js/custom.js'],
+    future: {
+        experimental_faster: true,
+    },
     headTags: [
         {
             tagName: 'link',
@@ -202,6 +205,10 @@ module.exports = {
                                     fullySpecified: false,
                                 },
                                 loader: 'babel-loader',
+                            },
+                            {
+                                test: /apify-docs\/examples\//i,
+                                type: 'asset/source',
                             },
                         ],
                     },
