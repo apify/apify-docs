@@ -13,14 +13,14 @@ slug: /scraping-basics-python/framework
 Before rewriting our code, let's point out several caveats in our current solution:
 
 - **Hard to maintain:** All the data we need from the listing page is also available on the product page. By scraping both, we have to maintain selectors for two HTML documents. Instead, we could scrape links from the listing page and process all data on the product pages.
-- **Slow:** The program runs sequentially, which is considerate toward the target website, but downloading even two product pages in parallel could improve speed by 200%.
+- **Slow:** The program runs sequentially, which is generously considerate toward the target website, but extremely inefficient.
 - **No logging:** The scraper gives no sense of progress, making it tedious to use. Debugging issues becomes even more frustrating without proper logs.
-- **Boilerplate code:** We implement tasks like downloading and parsing HTML or exporting to CSV with custom code that feels like [boilerplate](https://en.wikipedia.org/wiki/Boilerplate_code). We could replace it with standardized solutions.
+- **Boilerplate code:** We implement downloading and parsing HTML, or exporting data to CSV, although we're not the first people to meet and solve these problems.
 - **Prone to anti-scraping:** If the target website implemented anti-scraping measures, a bare-bones program like ours would stop working.
 - **Browser means rewrite:** We got lucky extracting variants. If the website didn't include a fallback, we might have had no choice but to spin up a browser instance and automate clicking on buttons. Such a change in the underlying technology would require a complete rewrite of our program.
 - **No error handling:** The scraper stops if it encounters issues. It should allow for skipping problematic products with warnings or retrying downloads when the website returns temporary errors.
 
-In this lesson, we'll tackle all the above issues by using a scraping framework while keeping the code concise.
+In this lesson, we'll tackle all the above issues while keeping the code concise thanks to a scraping framework.
 
 :::info Why Crawlee and not Scrapy
 
@@ -104,21 +104,13 @@ Sales
 └───────────────────────────────┴──────────┘
 ```
 
-If our previous scraper didn't give us any sense of progress, Crawlee feeds us with perhaps too much information for the purposes of a small program. Among all the diagnostics, notice the line `Sales`. That's the page title! We managed to create a Crawlee scraper that downloads the product listing page, parses it with BeautifulSoup, extracts the title, and prints it.
+If our previous scraper didn't give us any sense of progress, Crawlee feeds us with perhaps too much information for the purposes of a small program. Among all the logging, notice the line `Sales`. That's the page title! We managed to create a Crawlee scraper that downloads the product listing page, parses it with BeautifulSoup, extracts the title, and prints it.
 
 ## Crawling product detail pages
 
+## Extracting data
 
-
-
-<!--
-
-
-
-pip install 'crawlee[beautifulsoup]'
-
-
--->
+## Saving data
 
 :::danger Work in progress
 
