@@ -28,9 +28,9 @@ jobs:
                     registry-url: 'https://npm.pkg.github.com/'
                     scope: '@apify-packages'
 
-            - name: Enable corepack
-              run: |
-                  corepack enable
+            -   name: Enable corepack
+                run: |
+                    corepack enable
 
             -   name: Build docs
                 run: |

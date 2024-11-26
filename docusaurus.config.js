@@ -220,13 +220,9 @@ module.exports = {
         //     '@docusaurus/plugin-client-redirects',
         //     {
         //         createRedirects(existingPath) {
-        //             // TODO change to `api/v2` once we are ready
-        //             if (existingPath.endsWith('api/v2-new')) {
-        //                 return `${existingPath}/api/v2-new/apify-api`;
+        //             if (!existingPath.endsWith('/')) {
+        //                 return `${existingPath}/`;
         //             }
-        //             // if (!existingPath.endsWith('/')) {
-        //             //     return `${existingPath}/`;
-        //             // }
         //
         //             return undefined; // Return a falsy value: no redirect created
         //         },
