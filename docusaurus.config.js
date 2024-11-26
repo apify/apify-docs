@@ -1,4 +1,4 @@
-const { join } = require('path');
+const { join } = require('node:path');
 
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
@@ -238,12 +238,19 @@ module.exports = {
         mermaid: true,
         parseFrontMatter: async (params) => {
             const result = await params.defaultParseFrontMatter(params);
+
+            if (result.frontMatter.id === 'apify-api') {
+                result.frontMatter.slug = '/';
+            }
+
             const isPartial = params.filePath.split('/').pop()[0] === '_';
+
             if (!isPartial) {
                 const ogImageURL = new URL('https://apify.com/og-image/docs-article');
                 ogImageURL.searchParams.set('title', result.frontMatter.title);
                 result.frontMatter.image ??= ogImageURL.toString();
             }
+
             return result;
         },
     },
