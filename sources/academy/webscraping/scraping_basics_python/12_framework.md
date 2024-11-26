@@ -26,11 +26,99 @@ In this lesson, we'll tackle all the above issues by using a scraping framework 
 
 From the two main open-source options for Python, [Scrapy](https://scrapy.org/) and [Crawlee](https://crawlee.dev/python/), we chose the latter—not just because we're the company financing its development.
 
-We genuinely believe beginners to scraping will like it more, since it lets you create a scraper with less code and less time spent reading docs. Scrapy's long history ensures it's battle-tested, but it also means its code relies on technologies that aren't really necessary today. Crawlee, on the other hand, builds on modern Python features like asyncio and type hints.
+We genuinely believe beginners to scraping will like it more, since it allows to create a scraper with less code and less time spent reading docs. Scrapy's long history ensures it's battle-tested, but it also means its code relies on technologies that aren't really necessary today. Crawlee, on the other hand, builds on modern Python features like asyncio and type hints.
 
 :::
 
 ## Installing Crawlee
+
+When starting with the Crawlee framework, you first need to decide which approach to downloading and parsing you'll prefer. We want the one based on BeautifulSoup, hence we'll install the `crawlee` package with the `beautifulsoup` extra specified in brackets. The framework has a lot of dependencies of its own, so expect the installation to take a while.
+
+```text
+$ pip install crawlee[beautifulsoup]
+...
+Successfully installed Jinja2-0.0.0 ... ... ... crawlee-0.0.0 ... ... ...
+```
+
+## Running Crawlee
+
+Now let's use the framework to create a new version of our scraper. In the same project directory where our `main.py` file lives, create a file `newmain.py`. This way we can keep peeking at the original implementation when we're working on the new one. The initial content will look like this:
+
+```py title="newmain.py"
+import asyncio
+from crawlee.beautifulsoup_crawler import BeautifulSoupCrawler
+
+async def main():
+    crawler = BeautifulSoupCrawler()
+
+    @crawler.router.default_handler
+    async def handle_listing(context):
+        print(context.soup.title.text.strip())
+
+    await crawler.run(["https://warehouse-theme-metal.myshopify.com/collections/sales"])
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
+
+In the code we do the following:
+
+1.  We perform imports and specify an asynchronous `main()` function.
+1.  Inside, we first create a crawler. The crawler objects control the scraping. This particular crawler is of the BeautifulSoup flavor.
+1.  In the middle, we give the crawler a nested asynchronous function `handle_listing()`. Using a Python decorator (that line starting with `@`) we tell it to treat it as a default handler. Handlers take care of processing HTTP responses. This one finds the title of the page in `soup` and prints its text without whitespace.
+1.  The function ends with running the crawler with the products listing URL. We await until the crawler does its work.
+1.  The last two lines ensure that if we run the file as a standalone program, Python's asynchronous machinery `asyncio` will run our `main()` function.
+
+Don't worry if it's a lot of things you've never seen before. For now it's not really important to know exactly how [asyncio](https://docs.python.org/3/library/asyncio.html) works, or what decorators do. Let's stick to the practical side and see what the program does if executed:
+
+```text
+$ python newmain.py
+[crawlee.beautifulsoup_crawler._beautifulsoup_crawler] INFO  Current request statistics:
+┌───────────────────────────────┬──────────┐
+│ requests_finished             │ 0        │
+│ requests_failed               │ 0        │
+│ retry_histogram               │ [0]      │
+│ request_avg_failed_duration   │ None     │
+│ request_avg_finished_duration │ None     │
+│ requests_finished_per_minute  │ 0        │
+│ requests_failed_per_minute    │ 0        │
+│ request_total_duration        │ 0.0      │
+│ requests_total                │ 0        │
+│ crawler_runtime               │ 0.010014 │
+└───────────────────────────────┴──────────┘
+[crawlee._autoscaling.autoscaled_pool] INFO  current_concurrency = 0; desired_concurrency = 2; cpu = 0; mem = 0; event_loop = 0.0; client_info = 0.0
+Sales
+[crawlee._autoscaling.autoscaled_pool] INFO  Waiting for remaining tasks to finish
+[crawlee.beautifulsoup_crawler._beautifulsoup_crawler] INFO  Final request statistics:
+┌───────────────────────────────┬──────────┐
+│ requests_finished             │ 1        │
+│ requests_failed               │ 0        │
+│ retry_histogram               │ [1]      │
+│ request_avg_failed_duration   │ None     │
+│ request_avg_finished_duration │ 0.308998 │
+│ requests_finished_per_minute  │ 185      │
+│ requests_failed_per_minute    │ 0        │
+│ request_total_duration        │ 0.308998 │
+│ requests_total                │ 1        │
+│ crawler_runtime               │ 0.323721 │
+└───────────────────────────────┴──────────┘
+```
+
+If our previous program didn't give us any sense of progress, Crawlee feeds us with perhaps too much information for our purposes. Between all the diagnostics, notice the line `Sales`. That's the page title! We managed to create a Crawlee scraper which downloads the product listing page, parses it with BeautifulSoup, extracts the title, and prints it.
+
+## Crawling product detail pages
+
+
+
+
+<!--
+
+
+
+pip install 'crawlee[beautifulsoup]'
+
+
+-->
 
 :::danger Work in progress
 
