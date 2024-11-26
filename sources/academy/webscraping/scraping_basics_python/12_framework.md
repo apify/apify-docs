@@ -175,13 +175,100 @@ In the final statistics, you can see that we made 25 requests (1 listing page + 
 
 ## Extracting data
 
-The BeautifulSoup crawler provides handlers with the `context.soup` attribute, where we can find the parsed HTML of the handled page. This is the same as the `soup` we had in our previous program.
+The BeautifulSoup crawler provides handlers with the `context.soup` attribute, where we can find the parsed HTML of the handled page. This is the same as the `soup` we had in our previous program. Let's locate and extract the same data as before:
 
-:::danger Work in progress
+```py
+@crawler.router.handler("DETAIL")
+async def handle_detail(context):
+    item = {
+        "url": context.request.url,
+        "title": context.soup.select_one(".product-meta__title").text.strip(),
+        "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
+    }
+    print(item)
+```
 
-This course is incomplete. As we work on adding new lessons, we would love to hear your feedback. You can comment right here under each page or [file a GitHub Issue](https://github.com/apify/apify-docs/issues) to discuss a problem.
+Now the price. We won't be inventing anything new here-let's add `Decimal` import and copy-paste code from our old scraper.
 
-:::
+The only change will be in the selector. In `main.py`, we were looking for `.price` inside a `product_soup` representing a product card. Now we're looking for `.price` inside the whole product detail page. It's safer to be more specific so that we won't match another price on the same page:
+
+```py
+@crawler.router.handler("DETAIL")
+async def handle_detail(context):
+    price_text = (
+        context.soup
+        # highlight-next-line
+        .select_one(".product-form__info-content .price")
+        .contents[-1]
+        .strip()
+        .replace("$", "")
+        .replace(",", "")
+    )
+    item = {
+        "url": context.request.url,
+        "title": context.soup.select_one(".product-meta__title").text.strip(),
+        "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
+        "price": Decimal(price_text),
+    }
+    print(item)
+```
+
+Finally, variants. We can reuse the `parse_variant()` function as it is, and even the handler code will look similar to what we already had. The whole program will look like this:
+
+```py
+import asyncio
+from decimal import Decimal
+from crawlee.beautifulsoup_crawler import BeautifulSoupCrawler
+
+async def main():
+    crawler = BeautifulSoupCrawler()
+
+    @crawler.router.default_handler
+    async def handle_listing(context):
+        await context.enqueue_links(selector=".product-list a.product-item__title", label="DETAIL")
+
+    @crawler.router.handler("DETAIL")
+    async def handle_detail(context):
+        price_text = (
+            context.soup
+            .select_one(".product-form__info-content .price")
+            .contents[-1]
+            .strip()
+            .replace("$", "")
+            .replace(",", "")
+        )
+        item = {
+            "url": context.request.url,
+            "title": context.soup.select_one(".product-meta__title").text.strip(),
+            "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
+            "price": Decimal(price_text),
+            "variant_name": None,
+        }
+        if variants := context.soup.select(".product-form__option.no-js option"):
+            for variant in variants:
+                print(item | parse_variant(variant))
+        else:
+            print(item)
+
+    await crawler.run(["https://warehouse-theme-metal.myshopify.com/collections/sales"])
+
+def parse_variant(variant):
+    text = variant.text.strip()
+    name, price_text = text.split(" - ")
+    price = Decimal(
+        price_text
+        .replace("$", "")
+        .replace(",", "")
+    )
+    return {"variant_name": name, "price": price}
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
+
+If you run this scraper, you should see the same data about the 24 products as before. Crawlee has saved us a lot of work with downloading, parsing, logging, and parallelization. The code is also easier to follow with the two handlers separated and labeled.
+
+Crawlee doesn't help much with locating and extracting the data-that code is almost identical with or without framework. That's because the detective work involved, and taking care of the extraction, are the main added value of custom-made scrapers. With Crawlee, you can focus on just that, and let the framework take care of the rest.
 
 ## Saving data
 
