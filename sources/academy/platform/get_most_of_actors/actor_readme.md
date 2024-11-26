@@ -46,7 +46,7 @@ Aim for sections 1–6 below and try to include at least 300 words. You can move
     - This is calculated from carrying out several runs (or from runs saved in the DB).<!--  @Zuzka can help if needed. [Information in this table](https://docs.google.com/spreadsheets/d/1NOkob1eYqTsRPTVQdltYiLUsIipvSFXswRcWQPtCW9M/edit#gid=1761542436), tab "cost of usage". -->
     - Here’s an example for this section:
 
-   > ## How much will it cost me to scrape Google Maps reviews?
+    > ## How much will it cost me to scrape Google Maps reviews?
     >
     > <br/> Apify provides you with $5 free usage credits to use every month on the Apify Free plan and you can get up to 100,000 reviews from this Google Maps Reviews Scraper for those credits. This means 100k results will be completely free!
     > <br/> But if you need to get more data or to get your data regularly you should grab an Apify subscription. We recommend our $49/month Starter plan - you can get up to 1 million Google Maps reviews every month with the $49 monthly plan! Or 10 million with the $499 Scale plan - wow!
