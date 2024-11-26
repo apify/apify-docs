@@ -32,7 +32,7 @@ We genuinely believe beginners to scraping will like it more, since it allows to
 
 ## Installing Crawlee
 
-When starting with the Crawlee framework, you first need to decide which approach to downloading and parsing you'll prefer. We want the one based on BeautifulSoup, hence we'll install the `crawlee` package with the `beautifulsoup` extra specified in brackets. The framework has a lot of dependencies of its own, so expect the installation to take a while.
+When starting with the Crawlee framework, we first need to decide which approach to downloading and parsing we prefer. We want the one based on BeautifulSoup, so let's install the `crawlee` package with the `beautifulsoup` extra specified in brackets. The framework has a lot of dependencies, so expect the installation to take a while.
 
 ```text
 $ pip install crawlee[beautifulsoup]
@@ -42,7 +42,7 @@ Successfully installed Jinja2-0.0.0 ... ... ... crawlee-0.0.0 ... ... ...
 
 ## Running Crawlee
 
-Now let's use the framework to create a new version of our scraper. In the same project directory where our `main.py` file lives, create a file `newmain.py`. This way we can keep peeking at the original implementation when we're working on the new one. The initial content will look like this:
+Now let's use the framework to create a new version of our scraper. In the same project directory where our `main.py` file lives, create a file `newmain.py`. This way, we can keep peeking at the original implementation while working on the new one. The initial content will look like this:
 
 ```py title="newmain.py"
 import asyncio
@@ -61,15 +61,15 @@ if __name__ == '__main__':
     asyncio.run(main())
 ```
 
-In the code we do the following:
+In the code, we do the following:
 
 1.  We perform imports and specify an asynchronous `main()` function.
 1.  Inside, we first create a crawler. The crawler objects control the scraping. This particular crawler is of the BeautifulSoup flavor.
-1.  In the middle, we give the crawler a nested asynchronous function `handle_listing()`. Using a Python decorator (that line starting with `@`) we tell it to treat it as a default handler. Handlers take care of processing HTTP responses. This one finds the title of the page in `soup` and prints its text without whitespace.
-1.  The function ends with running the crawler with the products listing URL. We await until the crawler does its work.
-1.  The last two lines ensure that if we run the file as a standalone program, Python's asynchronous machinery `asyncio` will run our `main()` function.
+1.  In the middle, we give the crawler a nested asynchronous function `handle_listing()`. Using a Python decorator (that line starting with `@`), we tell it to treat it as a default handler. Handlers take care of processing HTTP responses. This one finds the title of the page in `soup` and prints its text without whitespace.
+1.  The function ends with running the crawler with the product listing URL. We await the crawler to finish its work.
+1.  The last two lines ensure that if we run the file as a standalone program, Python's asynchronous machinery will run our `main()` function.
 
-Don't worry if it's a lot of things you've never seen before. For now it's not really important to know exactly how [asyncio](https://docs.python.org/3/library/asyncio.html) works, or what decorators do. Let's stick to the practical side and see what the program does if executed:
+Don't worry if this involves a lot of things you've never seen before. For now, you don't need to know exactly how [`asyncio`](https://docs.python.org/3/library/asyncio.html) works or what decorators do. Let's stick to the practical side and see what the program does when executed:
 
 ```text
 $ python newmain.py
@@ -104,7 +104,7 @@ Sales
 └───────────────────────────────┴──────────┘
 ```
 
-If our previous program didn't give us any sense of progress, Crawlee feeds us with perhaps too much information for our purposes. Between all the diagnostics, notice the line `Sales`. That's the page title! We managed to create a Crawlee scraper which downloads the product listing page, parses it with BeautifulSoup, extracts the title, and prints it.
+If our previous scraper didn't give us any sense of progress, Crawlee feeds us with perhaps too much information for the purposes of a small program. Among all the diagnostics, notice the line `Sales`. That's the page title! We managed to create a Crawlee scraper that downloads the product listing page, parses it with BeautifulSoup, extracts the title, and prints it.
 
 ## Crawling product detail pages
 
