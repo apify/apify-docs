@@ -175,7 +175,7 @@ In the final statistics, you can see that we made 25 requests (1 listing page + 
 
 ## Extracting data
 
-The BeautifulSoup crawler provides handlers with the `context.soup` attribute, where we can find the parsed HTML of the handled page. This is the same as the `soup` we had in our previous program. Let's locate and extract the same data as before:
+The BeautifulSoup crawler provides handlers with the `context.soup` attribute, which contains the parsed HTML of the handled page. This is the same `soup` object we used in our previous program. Let's locate and extract the same data as before:
 
 ```py
 @crawler.router.handler("DETAIL")
@@ -188,9 +188,9 @@ async def handle_detail(context):
     print(item)
 ```
 
-Now the price. We won't be inventing anything new here-let's add `Decimal` import and copy-paste code from our old scraper.
+Now for the price. We're not doing anything new here—just import `Decimal` and copy-paste the code from our old scraper.
 
-The only change will be in the selector. In `main.py`, we were looking for `.price` inside a `product_soup` representing a product card. Now we're looking for `.price` inside the whole product detail page. It's safer to be more specific so that we won't match another price on the same page:
+The only change will be in the selector. In `main.py`, we looked for `.price` within a `product_soup` object representing a product card. Now, we're looking for `.price` within the entire product detail page. It's better to be more specific so we don't accidentally match another price on the same page:
 
 ```py
 @crawler.router.handler("DETAIL")
@@ -213,7 +213,7 @@ async def handle_detail(context):
     print(item)
 ```
 
-Finally, variants. We can reuse the `parse_variant()` function as it is, and even the handler code will look similar to what we already had. The whole program will look like this:
+Finally, the variants. We can reuse the `parse_variant()` function as-is, and in the handler we'll again take inspiration from what we had in `main.py`. The full program will look like this:
 
 ```py
 import asyncio
@@ -266,11 +266,13 @@ if __name__ == '__main__':
     asyncio.run(main())
 ```
 
-If you run this scraper, you should see the same data about the 24 products as before. Crawlee has saved us a lot of work with downloading, parsing, logging, and parallelization. The code is also easier to follow with the two handlers separated and labeled.
+If you run this scraper, you should get the same data for the 24 products as before. Crawlee has saved us a lot of effort by managing downloading, parsing, logging, and parallelization. The code is also cleaner, with two separate and labeled handlers.
 
-Crawlee doesn't help much with locating and extracting the data-that code is almost identical with or without framework. That's because the detective work involved, and taking care of the extraction, are the main added value of custom-made scrapers. With Crawlee, you can focus on just that, and let the framework take care of the rest.
+Crawlee doesn't do much to help with locating and extracting the data—that part of the code remains almost the same, framework or not. This is because the detective work of finding and extracting the right data is the core value of custom scrapers. With Crawlee, you can focus on just that while letting the framework take care of everything else.
 
 ## Saving data
+
+When we're at _letting the framework take care of everything else_, let's take a look at what it can do about saving data.
 
 :::danger Work in progress
 
