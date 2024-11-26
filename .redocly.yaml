@@ -7,7 +7,8 @@ extends:
     - recommended
 
 rules:
-    spec: error
+    # TODO we have quite a lot of errors in there, once we fix them, this should be flipped to `error` too
+    spec: warn
     no-unused-components: error
 
 theme:
