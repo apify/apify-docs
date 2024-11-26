@@ -108,9 +108,9 @@ If our previous scraper didn't give us any sense of progress, Crawlee feeds us w
 
 ## Crawling product detail pages
 
-The code now features advanced Python concepts, so it's less accessible to beginners to programming, and the size of the program is about the same as if we worked without framework. The tradeoff of using a framework is that primitive scenarios may become unnecessarily complex, while complex scenarios may become surprisingly primitive.
+The code now features advanced Python concepts, so it's less accessible to beginners, and the size of the program is about the same as if we worked without a framework. The tradeoff of using a framework is that primitive scenarios may become unnecessarily complex, while complex scenarios may become surprisingly primitive.
 
-As we'll rewrite the rest of the program, the benefits of using Crawlee will become more apparent. For example, it takes a single line of code to extract and follow links to products. Three more lines, and we have parallel processing of all the product detail pages:
+As we rewrite the rest of the program, the benefits of using Crawlee will become more apparent. For example, it takes a single line of code to extract and follow links to products. Three more lines, and we have parallel processing of all the product detail pages:
 
 ```py
 import asyncio
@@ -137,16 +137,18 @@ if __name__ == '__main__':
     asyncio.run(main())
 ```
 
-First, it's necessary to inspect the page in browser DevTools to figure out the CSS selector which allows us to locate links to all the product detail pages. Then we can use the `enqueue_links()` method to find the links, and add them to the Crawlee's internal HTTP request queue. We tell the method to label all the requests as `DETAIL`.
+First, it's necessary to inspect the page in browser DevTools to figure out the CSS selector that allows us to locate links to all the product detail pages. Then we can use the `enqueue_links()` method to find the links and add them to Crawlee's internal HTTP request queue. We tell the method to label all the requests as `DETAIL`.
 
-Below, we give the crawler another asynchronous function, `handle_detail()`. We again inform the crawler that this function is a handler using a decorator, but this time it's not a default one. This handler will only take care of HTTP requests labeled as `DETAIL`. For now, all it does is that it prints the request URL.
+Below that, we give the crawler another asynchronous function, `handle_detail()`. We again inform the crawler that this function is a handler using a decorator, but this time it's not a default one. This handler will only take care of HTTP requests labeled as `DETAIL`. For now, all it does is print the request URL.
 
-If we run the code, we should see how Crawlee first downloads the listing page, and then makes parallel requests to each of the detail pages, printing their URLs on the way:
+If we run the code, we should see how Crawlee first downloads the listing page and then makes parallel requests to each of the detail pages, printing their URLs along the way:
 
 ```text
 $ python newmain.py
 [crawlee.beautifulsoup_crawler._beautifulsoup_crawler] INFO  Current request statistics:
+┌───────────────────────────────┬──────────┐
 ...
+└───────────────────────────────┴──────────┘
 [crawlee._autoscaling.autoscaled_pool] INFO  current_concurrency = 0; desired_concurrency = 2; cpu = 0; mem = 0; event_loop = 0.0; client_info = 0.0
 https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv
 https://warehouse-theme-metal.myshopify.com/products/jbl-flip-4-waterproof-portable-bluetooth-speaker
@@ -169,9 +171,17 @@ https://warehouse-theme-metal.myshopify.com/products/sony-ps-hx500-hi-res-usb-tu
 └───────────────────────────────┴──────────┘
 ```
 
-In the final statistics you can see that we made 25 requests (1 listing page + 24 product pages) in less than 5 seconds. Your numbers can differ, but regardless it should be much faster than making the requests sequentially.
+In the final statistics, you can see that we made 25 requests (1 listing page + 24 product pages) in less than 5 seconds. Your numbers might differ, but regardless, it should be much faster than making the requests sequentially.
 
 ## Extracting data
+
+The BeautifulSoup crawler provides handlers with the `context.soup` attribute, where we can find the parsed HTML of the handled page. This is the same as the `soup` we had in our previous program.
+
+:::danger Work in progress
+
+This course is incomplete. As we work on adding new lessons, we would love to hear your feedback. You can comment right here under each page or [file a GitHub Issue](https://github.com/apify/apify-docs/issues) to discuss a problem.
+
+:::
 
 ## Saving data
 
