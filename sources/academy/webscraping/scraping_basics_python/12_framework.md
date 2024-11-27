@@ -178,14 +178,17 @@ In the final statistics, you can see that we made 25 requests (1 listing page + 
 The BeautifulSoup crawler provides handlers with the `context.soup` attribute, which contains the parsed HTML of the handled page. This is the same `soup` object we used in our previous program. Let's locate and extract the same data as before:
 
 ```py
-@crawler.router.handler("DETAIL")
-async def handle_detail(context):
-    item = {
-        "url": context.request.url,
-        "title": context.soup.select_one(".product-meta__title").text.strip(),
-        "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
-    }
-    print(item)
+async def main():
+    ...
+
+    @crawler.router.handler("DETAIL")
+    async def handle_detail(context):
+        item = {
+            "url": context.request.url,
+            "title": context.soup.select_one(".product-meta__title").text.strip(),
+            "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
+        }
+        print(item)
 ```
 
 Now for the price. We're not doing anything new here—just import `Decimal` and copy-paste the code from our old scraper.
@@ -193,24 +196,27 @@ Now for the price. We're not doing anything new here—just import `Decimal` and
 The only change will be in the selector. In `main.py`, we looked for `.price` within a `product_soup` object representing a product card. Now, we're looking for `.price` within the entire product detail page. It's better to be more specific so we don't accidentally match another price on the same page:
 
 ```py
-@crawler.router.handler("DETAIL")
-async def handle_detail(context):
-    price_text = (
-        context.soup
-        # highlight-next-line
-        .select_one(".product-form__info-content .price")
-        .contents[-1]
-        .strip()
-        .replace("$", "")
-        .replace(",", "")
-    )
-    item = {
-        "url": context.request.url,
-        "title": context.soup.select_one(".product-meta__title").text.strip(),
-        "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
-        "price": Decimal(price_text),
-    }
-    print(item)
+async def main():
+    ...
+
+    @crawler.router.handler("DETAIL")
+    async def handle_detail(context):
+        price_text = (
+            context.soup
+            # highlight-next-line
+            .select_one(".product-form__info-content .price")
+            .contents[-1]
+            .strip()
+            .replace("$", "")
+            .replace(",", "")
+        )
+        item = {
+            "url": context.request.url,
+            "title": context.soup.select_one(".product-meta__title").text.strip(),
+            "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
+            "price": Decimal(price_text),
+        }
+        print(item)
 ```
 
 Finally, the variants. We can reuse the `parse_variant()` function as-is, and in the handler we'll again take inspiration from what we had in `main.py`. The full program will look like this:
@@ -272,10 +278,116 @@ Crawlee doesn't do much to help with locating and extracting the data—that par
 
 ## Saving data
 
-When we're at _letting the framework take care of everything else_, let's take a look at what it can do about saving data.
+When we're at _letting the framework take care of everything else_, let's take a look at what it can do about saving data. As of now the product detail page handler prints each item as soon as the item is ready. Instead, we can push the item to Crawlee's default dataset:
 
-:::danger Work in progress
+```py
+async def main():
+    ...
 
-This course is incomplete. As we work on adding new lessons, we would love to hear your feedback. You can comment right here under each page or [file a GitHub Issue](https://github.com/apify/apify-docs/issues) to discuss a problem.
+    @crawler.router.handler("DETAIL")
+    async def handle_detail(context):
+        price_text = (
+            ...
+        )
+        item = {
+            ...
+        }
+        if variants := context.soup.select(".product-form__option.no-js option"):
+            for variant in variants:
+                # highlight-next-line
+                await context.push_data(item | parse_variant(variant))
+        else:
+            # highlight-next-line
+            await context.push_data(item)
+```
 
-:::
+That's it! If you run the program now, there should be a `storage` directory alonside the `newmain.py` file. Crawlee uses it to store its internal state. If you go to the `storage/datasets/default` subdirectory, you'll see over 30 JSON files, each representing a single item.
+
+![Single dataset item](images/dataset-item.png)
+
+We can also export all the items to a single file of our choice. We'll do it at the end of the `main()` function, after the crawler has finished scraping:
+
+```py
+async def main():
+    ...
+
+    await crawler.run(["https://warehouse-theme-metal.myshopify.com/collections/sales"])
+    # highlight-next-line
+    await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
+    # highlight-next-line
+    await crawler.export_data_csv(path='dataset.csv')
+```
+
+After running the scraper again, there should be two new files in your directory, `dataset.json` and `dataset.csv`, containing all the data. If you peek into the JSON file, it should have indentation.
+
+## Logging
+
+While Crawlee gives us statistics about HTTP requests and concurrency, we otherwise don't have much visibility into pages we're crawling or items we're saving. Let's add custom logging where we see fit given our use case:
+
+```py
+import asyncio
+from decimal import Decimal
+from crawlee.beautifulsoup_crawler import BeautifulSoupCrawler
+
+async def main():
+    crawler = BeautifulSoupCrawler()
+
+    @crawler.router.default_handler
+    async def handle_listing(context):
+        # highlight-next-line
+        context.log.info("Looking for product detail pages")
+        await context.enqueue_links(selector=".product-list a.product-item__title", label="DETAIL")
+
+    @crawler.router.handler("DETAIL")
+    async def handle_detail(context):
+        # highlight-next-line
+        context.log.info(f"Product detail page: {context.request.url}")
+        price_text = (
+            context.soup
+            .select_one(".product-form__info-content .price")
+            .contents[-1]
+            .strip()
+            .replace("$", "")
+            .replace(",", "")
+        )
+        item = {
+            "url": context.request.url,
+            "title": context.soup.select_one(".product-meta__title").text.strip(),
+            "vendor": context.soup.select_one(".product-meta__vendor").text.strip(),
+            "price": Decimal(price_text),
+            "variant_name": None,
+        }
+        if variants := context.soup.select(".product-form__option.no-js option"):
+            for variant in variants:
+                # highlight-next-line
+                context.log.info("Saving a product variant")
+                await context.push_data(item | parse_variant(variant))
+        else:
+            # highlight-next-line
+            context.log.info("Saving a product")
+            await context.push_data(item)
+
+    await crawler.run(["https://warehouse-theme-metal.myshopify.com/collections/sales"])
+
+    # highlight-next-line
+    crawler.log.info("Exporting data")
+    await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
+    await crawler.export_data_csv(path='dataset.csv')
+
+def parse_variant(variant):
+    text = variant.text.strip()
+    name, price_text = text.split(" - ")
+    price = Decimal(
+        price_text
+        .replace("$", "")
+        .replace(",", "")
+    )
+    return {"variant_name": name, "price": price}
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
+
+Depending on what we find useful, we can add more or less information to the logs. The `context.log` or `crawler.log` objects are [standard Python loggers](https://docs.python.org/3/library/logging.html).
+
+Even after we added extensive logging, we've been able to shave off at least 20 lines of code in comparison with the code of the original program. Over this lesson we've added more and more features to match the functionality of our old scraper, but despite that, the new code still has clear structure and is readable. And we could focus on what's specific to the website we're scraping and the data we're interested in, while framework took care of the rest.
