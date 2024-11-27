@@ -41,7 +41,7 @@ Currently, the monitoring option offers the following features:
 
 ### Alert configuration
 
-When you set up an alert, you have three choices for how you want the metrics to be evaluated. And depending on your choices, the alerting system will behave differently:
+When you set up an alert, you have four choices for how you want the metrics to be evaluated. And depending on your choices, the alerting system will behave differently:
 
 1. **Alert, when the metric is lower than** - This type of alert is checked after the run finishes. If the metric is lower than the value you set, the alert will be triggered and you will receive a notification.
 
