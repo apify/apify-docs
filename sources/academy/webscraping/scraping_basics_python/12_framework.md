@@ -6,6 +6,8 @@ sidebar_position: 12
 slug: /scraping-basics-python/framework
 ---
 
+import Exercises from './_exercises.mdx';
+
 **In this lesson, we'll rework our application for watching prices so that it builds on top of a scraping framework. We'll use Crawlee to make the program simpler, faster, and more robust.**
 
 ---
@@ -106,11 +108,17 @@ Sales
 
 If our previous scraper didn't give us any sense of progress, Crawlee feeds us with perhaps too much information for the purposes of a small program. Among all the logging, notice the line `Sales`. That's the page title! We managed to create a Crawlee scraper that downloads the product listing page, parses it with BeautifulSoup, extracts the title, and prints it.
 
+:::tip Asynchronous code and decorators
+
+You don't need to be an expert in asynchronous programming or decorators to finish this lesson, but you might find yourself curious for more details. If so, check out [Async IO in Python: A Complete Walkthrough](https://realpython.com/async-io-python/) and [Primer on Python Decorators](https://realpython.com/primer-on-python-decorators/).
+
+:::
+
 ## Crawling product detail pages
 
-The code now features advanced Python concepts, so it's less accessible to beginners, and the size of the program is about the same as if we worked without a framework. The tradeoff of using a framework is that primitive scenarios may become unnecessarily complex, while complex scenarios may become surprisingly primitive.
+The code now features advanced Python concepts, so it's less accessible to beginners, and the size of the program is about the same as if we worked without a framework. The tradeoff of using a framework is that primitive scenarios may become unnecessarily complex, while complex scenarios may become surprisingly primitive. As we rewrite the rest of the program, the benefits of using Crawlee will become more apparent.
 
-As we rewrite the rest of the program, the benefits of using Crawlee will become more apparent. For example, it takes a single line of code to extract and follow links to products. Three more lines, and we have parallel processing of all the product detail pages:
+For example, it takes a single line of code to extract and follow links to products. Three more lines, and we have parallel processing of all the product detail pages:
 
 ```py
 import asyncio
@@ -171,7 +179,7 @@ https://warehouse-theme-metal.myshopify.com/products/sony-ps-hx500-hi-res-usb-tu
 └───────────────────────────────┴──────────┘
 ```
 
-In the final statistics, you can see that we made 25 requests (1 listing page + 24 product pages) in less than 5 seconds. Your numbers might differ, but regardless, it should be much faster than making the requests sequentially.
+In the final stats, you can see that we made 25 requests (1 listing page + 24 product pages) in less than 5 seconds. Your numbers might differ, but regardless, it should be much faster than making the requests sequentially.
 
 ## Extracting data
 
@@ -272,7 +280,7 @@ if __name__ == '__main__':
     asyncio.run(main())
 ```
 
-If you run this scraper, you should get the same data for the 24 products as before. Crawlee has saved us a lot of effort by managing downloading, parsing, logging, and parallelization. The code is also cleaner, with two separate and labeled handlers.
+If you run this scraper, you should get the same data for the 24 products as before. Crawlee has saved us a lot of effort by managing downloading, parsing, and parallelization. The code is also cleaner, with two separate and labeled handlers.
 
 Crawlee doesn't do much to help with locating and extracting the data—that part of the code remains almost the same, framework or not. This is because the detective work of finding and extracting the right data is the core value of custom scrapers. With Crawlee, you can focus on just that while letting the framework take care of everything else.
 
@@ -322,7 +330,7 @@ After running the scraper again, there should be two new files in your directory
 
 ## Logging
 
-While Crawlee gives us statistics about HTTP requests and concurrency, we otherwise don't have much visibility into pages we're crawling or items we're saving. Let's add custom logging where we see fit given our use case:
+Crawlee gives us stats about HTTP requests and concurrency, but we don't get much visibility into the pages we're crawling or the items we're saving. Let's add some custom logging:
 
 ```py
 import asyncio
@@ -388,6 +396,18 @@ if __name__ == '__main__':
     asyncio.run(main())
 ```
 
-Depending on what we find useful, we can add more or less information to the logs. The `context.log` or `crawler.log` objects are [standard Python loggers](https://docs.python.org/3/library/logging.html).
+Depending on what we find helpful, we can tweak the logs to include more or less detail. The `context.log` or `crawler.log` objects are just [standard Python loggers](https://docs.python.org/3/library/logging.html).
 
-Even after we added extensive logging, we've been able to shave off at least 20 lines of code in comparison with the code of the original program. Over this lesson we've added more and more features to match the functionality of our old scraper, but despite that, the new code still has clear structure and is readable. And we could focus on what's specific to the website we're scraping and the data we're interested in, while framework took care of the rest.
+Even with the extra logging we've added, we've managed to cut at least 20 lines of code compared to the original program. Throughout this lesson, we've been adding features to match the old scraper's functionality, but the new code is still clean and readable. Plus, we've been able to focus on what's unique to the website we're scraping and the data we care about, while the framework manages the rest.
+
+In the next lesson, we'll use a scraping platform to set up our application to run automatically every day.
+
+---
+
+<Exercises />
+
+:::danger Work in progress
+
+This course is incomplete. As we work on adding new lessons, we would love to hear your feedback. You can comment right here under each page or [file a GitHub Issue](https://github.com/apify/apify-docs/issues) to discuss a problem.
+
+:::
