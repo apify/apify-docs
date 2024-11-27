@@ -65,11 +65,11 @@ if __name__ == '__main__':
 
 In the code, we do the following:
 
-1.  We perform imports and specify an asynchronous `main()` function.
-1.  Inside, we first create a crawler. The crawler objects control the scraping. This particular crawler is of the BeautifulSoup flavor.
-1.  In the middle, we give the crawler a nested asynchronous function `handle_listing()`. Using a Python decorator (that line starting with `@`), we tell it to treat it as a default handler. Handlers take care of processing HTTP responses. This one finds the title of the page in `soup` and prints its text without whitespace.
-1.  The function ends with running the crawler with the product listing URL. We await the crawler to finish its work.
-1.  The last two lines ensure that if we run the file as a standalone program, Python's asynchronous machinery will run our `main()` function.
+1. We perform imports and specify an asynchronous `main()` function.
+1. Inside, we first create a crawler. The crawler objects control the scraping. This particular crawler is of the BeautifulSoup flavor.
+1. In the middle, we give the crawler a nested asynchronous function `handle_listing()`. Using a Python decorator (that line starting with `@`), we tell it to treat it as a default handler. Handlers take care of processing HTTP responses. This one finds the title of the page in `soup` and prints its text without whitespace.
+1. The function ends with running the crawler with the product listing URL. We await the crawler to finish its work.
+1. The last two lines ensure that if we run the file as a standalone program, Python's asynchronous machinery will run our `main()` function.
 
 Don't worry if this involves a lot of things you've never seen before. For now, you don't need to know exactly how [`asyncio`](https://docs.python.org/3/library/asyncio.html) works or what decorators do. Let's stick to the practical side and see what the program does when executed:
 
