@@ -188,6 +188,8 @@ module.exports = {
                         outputDir: './sources/api',
                         sidebarOptions: {
                             groupPathsBy: 'tag',
+                            sidebarCollapsed: false,
+                            sidebarCollapsible: false,
                         },
                     },
                 },
