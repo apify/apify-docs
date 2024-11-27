@@ -5,6 +5,6 @@ level: warning
 swap:
     Apify Dashboard: Apify Console
     apify freelancers: Apify freelancers
-    Apify Platfrom: Apify platform
+    Apify Platform: Apify platform
     '(?:[Tt]he\s)?[Aa]pify\sproxy': Apify Proxy
     circa: approx.
