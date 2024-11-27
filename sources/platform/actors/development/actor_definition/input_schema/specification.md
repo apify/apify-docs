@@ -11,20 +11,17 @@ slug: /actors/development/actor-definition/input-schema/specification/v1
 
 ---
 
-The input schema serves two primary purposes for an Actor:
+The Actor input schema serves two primary purposes:
 
 - It defines the structure and validation rules for the input data the Actor accepts.
 - It determines the user interface components rendered in the Apify Console for configuring the Actor's input.
 
-By defining an input schema, you can provide a user-friendly interface for configuring your Actor while ensuring that the input data supplied by users adheres to the specified requirements and constraints.
+By defining an input schema, you can provide a user-friendly interface for configuring your Actor while ensuring that the input data supplied by users adheres to the specified requirements and constraints. Also, the input schema make it easy to call and integrate your Actor from external systems.
 
-You can specify input schema for an Actor in multiple ways:
+To define an input schema for an Actor, set `input` field in the `.actor/actor.json` file to an input schema object as described below, or path to a JSON file containing the input schema.
+For backwards compability, if the `input` field is omitted, the system looks for an `INPUT_SCHEMA.json` file in the `.actor` directory or for an `INPUT_SCHEMA.json` file in the Actor's root directory - but do not depend on this behavior as it might be removed in the future. 
 
-- One approach embeds it as an object within the `.actor/actor.json` file under the `input` field or provide a path to a `JSON` file containing the input schema in the same `input` field.
-- If you omit the `input` field in the `.actor/actor.json` file, the system will look for an `INPUT_SCHEMA.json` file in the `.actor` directory.
-- In the absence of that file, it will search for an `INPUT_SCHEMA.json` file in the Actor's root directory.
-
-The max allowed size for the input schema file is 500 kB. When you provide an input schema, the system will validate the input data passed to the Actor during execution (via the API or the Apify Console) against the specified schema to ensure compliance before starting the Actor.
+The maximum allowed size for the input schema file is 500 kB. When you provide an input schema, the system will validate the input data passed to the Actor during execution (via the API or the Apify Console) against the specified schema to ensure compliance before starting the Actor.
 
 :::note Validation aid
 
