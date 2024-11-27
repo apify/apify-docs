@@ -211,10 +211,10 @@ The measured statistics are following:
 - **Null count:** how many items in the dataset have the field set to null
 - **Empty count:** how many items in the dataset are `undefined` , meaning that for example empty string is not considered empty
 - **Minimum and maximum**
-    - For numbers, this is calculated directly
-    - For strings, this field tracks string length
-    - For arrays, this field tracks the number of items in the array
-    - For objects, this tracks the number of keys
+  - For numbers, this is calculated directly
+  - For strings, this field tracks string length
+  - For arrays, this field tracks the number of items in the array
+  - For objects, this tracks the number of keys
 
 :::note
 
