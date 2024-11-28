@@ -406,8 +406,90 @@ In the next lesson, we'll use a scraping platform to set up our application to r
 
 <Exercises />
 
-:::danger Work in progress
+### Build a Crawlee scraper of F1 Academy drivers
 
-This course is incomplete. As we work on adding new lessons, we would love to hear your feedback. You can comment right here under each page or [file a GitHub Issue](https://github.com/apify/apify-docs/issues) to discuss a problem.
+Scrape information about all [F1 Academy](https://en.wikipedia.org/wiki/F1_Academy) drivers listed on the official [Drivers](https://www.f1academy.com/Racing-Series/Drivers) page. Each item you push to the Crawlee's default dataset should contain the following data:
 
-:::
+- URL of the driver's f1academy.com page
+- Name
+- Team
+- Nationality
+- Date of birth (as a `date()` object)
+- Instagram URL
+
+If you export the dataset as a JSON, you should see something like this:
+
+```text
+[
+  {
+    "url": "https://www.f1academy.com/Racing-Series/Drivers/29/Emely-De-Heus",
+    "name": "Emely De Heus",
+    "team": "MP Motorsport"
+    "nationality": "Dutch",
+    "dob": "2003-02-10",
+    "instagram_url": "https://www.instagram.com/emely.de.heus/",
+  },
+  {
+    "url": "https://www.f1academy.com/Racing-Series/Drivers/28/Hamda-Al-Qubaisi",
+    "name": "Hamda Al Qubaisi",
+    "team": "MP Motorsport"
+    "nationality": "Emirati",
+    "dob": "2002-08-08",
+    "instagram_url": "https://www.instagram.com/hamdaalqubaisi_official/",
+  },
+  ...
+]
+```
+
+Hints:
+
+- Use Python's native `datetime.strptime(text, "%d/%m/%Y").date()` to parse the `DD/MM/YYYY` date format. See [docs](https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime) to learn more.
+- Use the attribute selector `a[href*='instagram']` to locate the Instagram URL. See [docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to learn more.
+
+<details>
+  <summary>Solution</summary>
+
+  ```py
+  import asyncio
+  from datetime import datetime
+
+  from crawlee.beautifulsoup_crawler import BeautifulSoupCrawler
+
+  async def main():
+      crawler = BeautifulSoupCrawler()
+
+      @crawler.router.default_handler
+      async def handle_listing(context):
+          await context.enqueue_links(selector=".teams-driver-item a", label="DRIVER")
+
+      @crawler.router.handler("DRIVER")
+      async def handle_driver(context):
+          info = {}
+          for row in context.soup.select(".common-driver-info li"):
+              name = row.select_one("span").text.strip()
+              value = row.select_one("h4").text.strip()
+              info[name] = value
+
+          detail = {}
+          for row in context.soup.select(".driver-detail--cta-group a"):
+              name = row.select_one("p").text.strip()
+              value = row.select_one("h2").text.strip()
+              detail[name] = value
+
+          await context.push_data({
+              "url": context.request.url,
+              "name": context.soup.select_one("h1").text.strip(),
+              "team": detail["Team"],
+              "nationality": info["Nationality"],
+              "dob": datetime.strptime(info["DOB"], "%d/%m/%Y").date(),
+              "instagram_url": context.soup.select_one(".common-social-share a[href*='instagram']").get("href"),
+          })
+
+      await crawler.run(["https://www.f1academy.com/Racing-Series/Drivers"])
+      await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
+
+  if __name__ == '__main__':
+      asyncio.run(main())
+  ```
+
+</details>
