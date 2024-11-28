@@ -16,9 +16,9 @@
     },
     "homepage": "https://github.com/apify/apify-docs#readme",
     "scripts": {
-        "start": "npm run api:generate && rimraf .docusaurus && cross-env LOCALHOST=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
-        "start:dev": "npm run api:generate && rimraf .docusaurus && cross-env DEV=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
-        "build": "npm run api:generate && rimraf .docusaurus && docusaurus build",
+        "start": "npm run api:rebuild && rimraf .docusaurus && cross-env LOCALHOST=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
+        "start:dev": "npm run api:rebuild && rimraf .docusaurus && cross-env DEV=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
+        "build": "npm run api:rebuild && rimraf .docusaurus && docusaurus build",
         "api:generate": "npm run redoc:build && docusaurus gen-api-docs all",
         "api:clean": "docusaurus clean-api-docs all",
         "api:rebuild": "npm run api:clean && npm run api:generate",
