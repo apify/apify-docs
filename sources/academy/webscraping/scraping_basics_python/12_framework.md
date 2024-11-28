@@ -419,7 +419,8 @@ Scrape information about all [F1 Academy](https://en.wikipedia.org/wiki/F1_Acade
 
 If you export the dataset as a JSON, you should see something like this:
 
-```text
+<!-- eslint-skip -->
+```json
 [
   {
     "url": "https://www.f1academy.com/Racing-Series/Drivers/29/Emely-De-Heus",
@@ -486,6 +487,102 @@ Hints:
           })
 
       await crawler.run(["https://www.f1academy.com/Racing-Series/Drivers"])
+      await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
+
+  if __name__ == '__main__':
+      asyncio.run(main())
+  ```
+
+</details>
+
+### Use Crawlee to find rating of the most popular Netflix films
+
+The [Global Top 10](https://www.netflix.com/tudum/top10) page contains a table of the most currently popular Netflix films worldwide. Scrape the movie names, then search for each movie at the [IMDb](https://www.imdb.com/). Assume the first search result is correct and find out what's the film's rating. Each item you push to the Crawlee's default dataset should contain the following data:
+
+- URL of the film's imdb.com page
+- Title
+- Rating
+
+If you export the dataset as a JSON, you should see something like this:
+
+<!-- eslint-skip -->
+```json
+[
+  {
+    "url": "https://www.imdb.com/title/tt32368345/?ref_=fn_tt_tt_1",
+    "title": "The Merry Gentlemen",
+    "rating": "5.0/10"
+  },
+  {
+    "url": "https://www.imdb.com/title/tt32359447/?ref_=fn_tt_tt_1",
+    "title": "Hot Frosty",
+    "rating": "5.4/10"
+  },
+  ...
+]
+```
+
+For each name from the Global Top 10, you'll need to construct a `Request` object with IMDb search URL. Take the following code snippet as a hint on how to do it:
+
+```py
+...
+from urllib.parse import quote_plus
+
+async def main():
+    ...
+
+    @crawler.router.default_handler
+    async def handle_netflix_table(context):
+        requests = []
+        for name_cell in context.soup.select(...):
+            name = name_cell.text.strip()
+            imdb_search_url = f"https://www.imdb.com/find/?q={quote_plus(name)}&s=tt&ttype=ft"
+            requests.append(Request.from_url(imdb_search_url, label="..."))
+        await context.add_requests(requests)
+
+    ...
+...
+```
+
+When following the first search result, you may find handy to know that `context.enqueue_links()` takes a `limit` keyword argument, where you can specify the max number of HTTP requests to enqueue.
+
+<details>
+  <summary>Solution</summary>
+
+  ```py
+  import asyncio
+  from urllib.parse import quote_plus
+
+  from crawlee import Request
+  from crawlee.beautifulsoup_crawler import BeautifulSoupCrawler
+
+  async def main():
+      crawler = BeautifulSoupCrawler()
+
+      @crawler.router.default_handler
+      async def handle_netflix_table(context):
+          requests = []
+          for name_cell in context.soup.select(".list-tbl-global .tbl-cell-name"):
+              name = name_cell.text.strip()
+              imdb_search_url = f"https://www.imdb.com/find/?q={quote_plus(name)}&s=tt&ttype=ft"
+              requests.append(Request.from_url(imdb_search_url, label="IMDB_SEARCH"))
+          await context.add_requests(requests)
+
+      @crawler.router.handler("IMDB_SEARCH")
+      async def handle_imdb_search(context):
+          await context.enqueue_links(selector=".find-result-item a", label="IMDB", limit=1)
+
+      @crawler.router.handler("IMDB")
+      async def handle_imdb(context):
+          rating_selector = "[data-testid='hero-rating-bar__aggregate-rating__score']"
+          rating_text = context.soup.select_one(rating_selector).text.strip()
+          await context.push_data({
+              "url": context.request.url,
+              "title": context.soup.select_one("h1").text.strip(),
+              "rating": rating_text,
+          })
+
+      await crawler.run(["https://www.netflix.com/tudum/top10"])
       await crawler.export_data_json(path='dataset.json', ensure_ascii=False, indent=2)
 
   if __name__ == '__main__':
