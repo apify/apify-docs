@@ -1,7 +1,7 @@
 # See https://redoc.ly/docs/cli/configuration/ for more information.
 apis:
     main@v1:
-        root: openapi/openapi/openapi.yaml
+        root: apify-api/openapi/openapi.yaml
 
 extends:
     - recommended
@@ -22,7 +22,7 @@ theme:
         jsonSamplesExpandLevel: 2
 
 plugins:
-    - openapi/plugins/apify.js
+    - apify-api/plugins/apify.js
 
 decorators:
     apify/legacy-doc-url-decorator: on

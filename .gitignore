@@ -20,4 +20,4 @@ tsconfig.tsbuildinfo
 .turbo
 sources/api/*
 !sources/api/sidebars.js
-openapi/openapi.yaml
+apify-api.yaml
