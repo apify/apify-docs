@@ -1758,3 +1758,8 @@ iframe[src*="youtube"] {
     color: var(--ifm-color-secondary-contrast-foreground);
     border-color: var(--ifm-color-secondary-dark);
 }
+
+.theme-doc-markdown .openapi__heading {
+    font-size: var(--ifm-h1-font-size);
+    margin-bottom: calc(var(--ifm-h1-vertical-rhythm-bottom)* var(--ifm-leading)) !important;
+}
