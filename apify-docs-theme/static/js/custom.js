@@ -75,6 +75,25 @@ function scrollOpenApiSidebarItemIntoView() {
     });
 }
 
+function redirectOpenApiDocs() {
+    const { hash, pathname } = new URL(window.location.href);
+
+    // TODO change to '/api/v2'
+    if (pathname.replace(/\/$/, '') !== '/api/v2-new') {
+        return;
+    }
+
+    if (hash.startsWith('#/reference/')) {
+        const id = hash.substring('/#reference/'.length);
+        console.log('redirect', { id, hash });
+    }
+
+    if (hash.startsWith('#tag/')) {
+        const id = hash.substring('#tag/'.length);
+        console.log('redirect', { id, hash });
+    }
+}
+
 let ticking = false;
 
 document.addEventListener('scroll', () => {
