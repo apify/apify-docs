@@ -408,7 +408,7 @@ In the next lesson, we'll use a scraping platform to set up our application to r
 
 ### Build a Crawlee scraper of F1 Academy drivers
 
-Scrape information about all [F1 Academy](https://en.wikipedia.org/wiki/F1_Academy) drivers listed on the official [Drivers](https://www.f1academy.com/Racing-Series/Drivers) page. Each item you push to the Crawlee's default dataset should contain the following data:
+Scrape information about all [F1 Academy](https://en.wikipedia.org/wiki/F1_Academy) drivers listed on the official [Drivers](https://www.f1academy.com/Racing-Series/Drivers) page. Each item you push to Crawlee's default dataset should include the following data:
 
 - URL of the driver's f1academy.com page
 - Name
@@ -417,7 +417,7 @@ Scrape information about all [F1 Academy](https://en.wikipedia.org/wiki/F1_Acade
 - Date of birth (as a `date()` object)
 - Instagram URL
 
-If you export the dataset as a JSON, you should see something like this:
+If you export the dataset as JSON, it should look something like this:
 
 <!-- eslint-skip -->
 ```json
@@ -444,8 +444,8 @@ If you export the dataset as a JSON, you should see something like this:
 
 Hints:
 
-- Use Python's native `datetime.strptime(text, "%d/%m/%Y").date()` to parse the `DD/MM/YYYY` date format. See [docs](https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime) to learn more.
-- Use the attribute selector `a[href*='instagram']` to locate the Instagram URL. See [docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to learn more.
+- Use Python's `datetime.strptime(text, "%d/%m/%Y").date()` to parse dates in the `DD/MM/YYYY` format. Check out the [docs](https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime) for more details.
+- To locate the Instagram URL, use the attribute selector `a[href*='instagram']`. Learn more about attribute selectors in the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors).
 
 <details>
   <summary>Solution</summary>
@@ -495,15 +495,15 @@ Hints:
 
 </details>
 
-### Use Crawlee to find rating of the most popular Netflix films
+### Use Crawlee to find the ratings of the most popular Netflix films
 
-The [Global Top 10](https://www.netflix.com/tudum/top10) page contains a table of the most currently popular Netflix films worldwide. Scrape the movie names, then search for each movie at the [IMDb](https://www.imdb.com/). Assume the first search result is correct and find out what's the film's rating. Each item you push to the Crawlee's default dataset should contain the following data:
+The [Global Top 10](https://www.netflix.com/tudum/top10) page has a table listing the most popular Netflix films worldwide. Scrape the movie names from this page, then search for each movie on [IMDb](https://www.imdb.com/). Assume the first search result is correct and retrieve the film's rating. Each item you push to Crawlee's default dataset should include the following data:
 
 - URL of the film's imdb.com page
 - Title
 - Rating
 
-If you export the dataset as a JSON, you should see something like this:
+If you export the dataset as JSON, it should look something like this:
 
 <!-- eslint-skip -->
 ```json
@@ -522,7 +522,7 @@ If you export the dataset as a JSON, you should see something like this:
 ]
 ```
 
-For each name from the Global Top 10, you'll need to construct a `Request` object with IMDb search URL. Take the following code snippet as a hint on how to do it:
+To scrape IMDb data, you'll need to construct a `Request` object with the appropriate search URL for each movie title. The following code snippet gives you an idea of how to do this:
 
 ```py
 ...
@@ -544,7 +544,7 @@ async def main():
 ...
 ```
 
-When following the first search result, you may find handy to know that `context.enqueue_links()` takes a `limit` keyword argument, where you can specify the max number of HTTP requests to enqueue.
+When navigating to the first search result, you might find it helpful to know that `context.enqueue_links()` accepts a `limit` keyword argument, letting you specify the max number of HTTP requests to enqueue.
 
 <details>
   <summary>Solution</summary>
