@@ -84,8 +84,14 @@ function redirectOpenApiDocs() {
     }
 
     if (hash.startsWith('#/reference/')) {
-        const id = hash.substring('/#reference/'.length);
-        console.log('redirect', { id, hash });
+        const sidebarItems = document.querySelectorAll('[data-altids]');
+
+        for (const item of sidebarItems) {
+            const ids = item.getAttribute('data-altids').split(',');
+            if (ids.find((variant) => variant === hash)) {
+                item.click();
+            }
+        }
     }
 
     if (hash.startsWith('#tag/')) {
@@ -109,7 +115,7 @@ document.addEventListener('scroll', () => {
 });
 
 window.addEventListener('load', () => {
-    redirectOpenApiDocs();
+    setTimeout(() => redirectOpenApiDocs(), 500);
 
     // we need to wait a bit more, since the event fires too soon, and a lot of hydration is done after it
     setTimeout(() => scrollSidebarItemIntoView(), 1000);

@@ -1,5 +1,7 @@
 const { join } = require('node:path');
 
+const clsx = require('clsx');
+
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
 const { externalLinkProcessor } = require('./tools/utils/externalLink');
@@ -190,6 +192,34 @@ module.exports = {
                             groupPathsBy: 'tag',
                             sidebarCollapsed: false,
                             sidebarCollapsible: false,
+                            sidebarGenerators: {
+                                createDocItem: (item, context) => {
+                                    const legacyUrls = item.api['x-legacy-doc-urls'] ?? [];
+                                    const altIds = legacyUrls.map((url) => {
+                                        const { hash } = new URL(url);
+                                        return hash;
+                                    });
+                                    const sidebarLabel = item.frontMatter.sidebar_label;
+                                    const { title } = item;
+                                    const id = item.type === 'schema' ? `schemas/${item.id}` : item.id;
+                                    const className = item.type === 'api'
+                                        ? clsx({
+                                            'menu__list-item--deprecated': item.api.deprecated,
+                                            'api-method': !!item.api.method,
+                                        }, item.api.method)
+                                        : clsx({
+                                            'menu__list-item--deprecated': item.schema.deprecated,
+                                        }, 'schema');
+
+                                    return {
+                                        type: 'doc',
+                                        id: context.basePath === '' ? `${id}` : `${context.basePath}/${id}`,
+                                        label: sidebarLabel ?? title ?? id,
+                                        customProps: { altIds },
+                                        className,
+                                    };
+                                },
+                            },
                         },
                     },
                 },
