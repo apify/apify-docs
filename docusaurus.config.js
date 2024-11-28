@@ -121,7 +121,7 @@ module.exports = {
                 config: join(__dirname, '.redocly.yaml'),
                 specs: [
                     {
-                        spec: './apify-api.yaml',
+                        spec: './apify-api/openapi/openapi.yaml',
                         route: '/api/v2/',
                     },
                 ],
