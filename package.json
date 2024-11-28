@@ -62,7 +62,6 @@
     "dependencies": {
         "@apify-packages/ui-library": "^0.28.1",
         "@apify/docsearch-apify-docs": "3.5.3",
-        "@apify/openapi": "*",
         "@docusaurus/core": "3.6.3",
         "@docusaurus/faster": "3.6.3",
         "@docusaurus/plugin-client-redirects": "3.6.3",
