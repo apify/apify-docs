@@ -61,6 +61,20 @@ function scrollSidebarItemIntoView() {
     }
 }
 
+// handles automatic scrolling of the API reference sidebar (openapi-docs)
+function scrollOpenApiSidebarItemIntoView() {
+    const $li = document.querySelector(`li > a.menu__link--active[href]`);
+
+    if (!$li) {
+        return;
+    }
+
+    $li.scrollIntoView({
+        block: 'nearest',
+        inline: 'center',
+    });
+}
+
 let ticking = false;
 
 document.addEventListener('scroll', () => {
@@ -75,7 +89,10 @@ document.addEventListener('scroll', () => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
     // we need to wait a bit more, since the event fires too soon, and a lot of hydration is done after it
-    setTimeout(() => scrollSidebarItemIntoView(), 3000);
+    setTimeout(() => scrollSidebarItemIntoView(), 1000);
+
+    // docusaurus-openapi-docs plugin: scroll sidebar into viewport, no need for a large timeout here
+    setTimeout(() => scrollOpenApiSidebarItemIntoView(), 100);
 });
