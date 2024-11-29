@@ -7,6 +7,8 @@ get:
     and private information.
 
     The user account is identified by the provided authentication token.
+
+    The fields `plan`, `email` and `profile` are omitted when this endpoint is accessed from Actor run.
   operationId: users_me_get
   responses:
     '200':

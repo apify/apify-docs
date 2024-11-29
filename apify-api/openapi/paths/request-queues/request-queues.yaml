@@ -102,7 +102,7 @@ post:
     - name: name
       in: query
       description: Custom unique name to easily identify the queue in the future.
-      required: true
+      required: false
       style: form
       explode: true
       schema:

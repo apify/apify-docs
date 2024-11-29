@@ -1,7 +1,6 @@
 title: RequestQueue
 required:
   - id
-  - name
   - userId
   - createdAt
   - modifiedAt
