@@ -113,18 +113,53 @@ Let's say that you have an Actor and you want to programmatically create schedul
 
 :::
 
-### Actor execution and scheduling
+### Actor execution
 
-When you run an Actor with a scoped token (or schedule one), Apify will inject a new, _unscoped_ token to the Actor. This means that **the Actor will have full access to all resources in your account**.
+When you run an Actor, Apify creates a new, short-lived run API token, and injects it into the Actor environment. This applies to scoped tokens as well, so when you run an Actor with a scoped token, **the Actor is executed with a different token with a different scope.**
 
-This way you can be sure that once you give a token the permission to run an Actor, it will just work, and you don't have to worry
-about the exact permissions the Actor might need. However, this also means that you need to trust the Actor.
+In the scoped token configuration you can choose what scope the run API token gets, effectively determining what the Actor can access during its run.
+
+Apify currently supports two modes:
+
+- **Full access**: Allow Actors to access all your account's data.
+- **Restricted access**: Restrict what Actors can access using the scope of this Actor.
+
+![Choose permission mode for running Actors with a scoped token](../images/api-token-scoped-run-modes.png)
+
+#### Full access: Allow Actors to access all your account's data
+
+When you run an Actor with a scoped token in this mode, Apify will inject an _unscoped_ token to the Actor runtime.
+
+This way you can be sure that once you give a token the permission to run an Actor, it will just work, and you don't have to worry about the exact permissions the Actor might need. However, this also means that you need to trust the Actor.
+
+:::tip
+Use this mode if you want to integrate with a 3rd-party service to run your Actors. Create a scoped token that can only run the Actor you need, and share it with the service. Even if the token is leaked, it can't be used to access your other data.
+:::
+
+#### Restricted access: Restrict what Actors can access using the scope of this Actor
+
+When you run an Actor with a scoped token in this mode, Apify will inject a token with the same scope as the scope of the original token.
+
+This way you can be sure that Actors won't accidentally—or intentionally—access any data they shouldn't. However, Actors might not function properly if the scope is not sufficient.
 
 :::note
-
-This is why **we currently do not allow scoped tokens to create or modify Actors**. With those permissions it would be easy for the token to upload malicious code and gain access to your full account. If you do need to create or modify Actors via Apify API, you need to use an unscoped token.
-
+The injected token also gets write access to its default storages, and to the run itself (for example, so that the Actor can abort itself). You don't need to configure this on your scoped token.
 :::
+
+:::tip
+This restriction is _transitive_, which means that if the Actor runs another Actor, its access will be restricted as well.
+:::
+
+#### Limitations
+
+- If a scoped token can run an Actor, it gets **write access to default storages of the runs it triggered**. Moreover, it gets **read access to default storages of _all_ runs of that Actor**. If this is not desirable, change your Actor to output data into an existing named storage, or have it create a new storage.
+- **We currently do not allow scoped tokens to create or modify Actors**. If you do need to create or modify Actors via Apify API, use an unscoped token.
+
+### Schedules
+
+You can use scoped tokens to schedule Actor and Tasks. Each schedule invocation triggers a new Actor run, creating and injecting a new run API token into the Actor.
+
+However, **this token is always unscoped, which means that the scheduled Actor has access to all your account data**, regardless of the scope of the token that scheduled it.
 
 ### Webhoooks configuration
 
