@@ -3,117 +3,59 @@ get:
     - Actors/Last run object and its storages
   summary: Get last run
   description: |
-    This is not a single endpoint, but an entire group of endpoints that lets
-    you to
-
-    retrieve and manage the last run of given Actor or any of its default
-    storages.
-
+    This is not a single endpoint, but an entire group of endpoints that lets you to
+    retrieve and manage the last run of given Actor or any of its default storages.
     All the endpoints require an authentication token.
 
-
     The endpoints accept the same HTTP methods and query parameters as
-
     the respective storage endpoints.
-
     The base path represents the last Actor run object is:
-
 
     `/v2/acts/{actorId}/runs/last{?token,status}`
 
-
-    Using the `status` query parameter you can ensure to only get a run with a
-    certain status
-
-    (e.g. `status=SUCCEEDED`). The output of this endpoint and other query
-    parameters
-
+    Using the `status` query parameter you can ensure to only get a run with a certain status
+    (e.g. `status=SUCCEEDED`). The output of this endpoint and other query parameters
     are the same as in the [Run object](#/reference/actors/run-object) endpoint.
 
-
-    In order to access the default storages of the last Actor run, i.e. log,
-    key-value store, dataset and request queue,
-
+    In order to access the default storages of the last Actor run, i.e. log, key-value store, dataset and request queue,
     use the following endpoints:
 
-
     * `/v2/acts/{actorId}/runs/last/log{?token,status}`
-
-
     * `/v2/acts/{actorId}/runs/last/key-value-store{?token,status}`
-
-
     * `/v2/acts/{actorId}/runs/last/dataset{?token,status}`
-
-
     * `/v2/acts/{actorId}/runs/last/request-queue{?token,status}`
 
-
     These API endpoints have the same usage as the equivalent storage endpoints.
-
     For example,
-
-    `/v2/acts/{actorId}/runs/last/key-value-store` has the same HTTP method and
-    parameters as the
-
+    `/v2/acts/{actorId}/runs/last/key-value-store` has the same HTTP method and parameters as the
     [Key-value store object](#/reference/key-value-stores/store-object) endpoint.
 
-
     Additionally, each of the above API endpoints supports all sub-endpoints
-
     of the original one:
-
 
     #### Key-value store
 
-
-    * `/v2/acts/{actorId}/runs/last/key-value-store/keys{?token,status}` [Key
-    collection](#/reference/key-value-stores/key-collection)
-
-
-    *
-    `/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}{?token,status}`
-    [Record](#/reference/key-value-stores/record)
-
+    * `/v2/acts/{actorId}/runs/last/key-value-store/keys{?token,status}` [Key collection](#/reference/key-value-stores/key-collection)
+    * `/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}{?token,status}` [Record](#/reference/key-value-stores/record)
 
     #### Dataset
 
-
-    * `/v2/acts/{actorId}/runs/last/dataset/items{?token,status}` [Item
-    collection](#/reference/datasets/item-collection)
-
+    * `/v2/acts/{actorId}/runs/last/dataset/items{?token,status}` [Item collection](#/reference/datasets/item-collection)
 
     #### Request queue
 
+    * `/v2/acts/{actorId}/runs/last/request-queue/requests{?token,status}` [Request collection](#/reference/request-queues/request-collection)
+    * `/v2/acts/{actorId}/runs/last/request-queue/requests/{requestId}{?token,status}` [Request collection](#/reference/request-queues/request)
+    * `/v2/acts/{actorId}/runs/last/request-queue/head{?token,status}` [Queue head](#/reference/request-queues/queue-head)
 
-    * `/v2/acts/{actorId}/runs/last/request-queue/requests{?token,status}`
-    [Request collection](#/reference/request-queues/request-collection)
-
-
-    *
-    `/v2/acts/{actorId}/runs/last/request-queue/requests/{requestId}{?token,status}`
-    [Request collection](#/reference/request-queues/request)
-
-
-    * `/v2/acts/{actorId}/runs/last/request-queue/head{?token,status}` [Queue
-    head](#/reference/request-queues/queue-head)
-
-
-    For example, to download data from a dataset of the last succeeded Actor run
-    in XML format,
-
+    For example, to download data from a dataset of the last succeeded Actor run in XML format,
     send HTTP GET request to the following URL:
 
-
     ```
-
     https://api.apify.com/v2/acts/{actorId}/runs/last/dataset/items?token={yourApiToken}&format=xml&status=SUCCEEDED
-
     ```
 
-
-    In order to save new items to the dataset, send HTTP POST request with JSON
-    payload to the same URL.
+    In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
   operationId: act_runs_last_get
   parameters:
     - name: actorId
@@ -215,4 +157,3 @@ get:
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/last-run-object-and-its-storages/get-last-run
-    - https://docs.apify.com/api/v2#/reference/actors/get-last-run
