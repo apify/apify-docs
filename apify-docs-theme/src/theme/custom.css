@@ -1676,6 +1676,12 @@ iframe[src*="youtube"] {
     display: none !important;
 }
 
+.menu__list-item--deprecated > .menu__link,
+.menu__list-item--deprecated > .menu__link:hover {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px !important;
+}
+
 .api-method > .menu__link,
 .schema > .menu__link {
     align-items: center;
