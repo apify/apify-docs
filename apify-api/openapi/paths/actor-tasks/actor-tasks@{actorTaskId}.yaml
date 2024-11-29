@@ -1,0 +1,181 @@
+get:
+  tags:
+    - Actor tasks/Task object
+  summary: Get task
+  description: Get an object that contains all the details about a task.
+  operationId: actorTask_get
+  parameters:
+    - name: actorTaskId
+      in: path
+      description: Task ID or a tilde-separated owner's username and task's name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-task
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                $ref: "../../components/schemas/actor-tasks/Task.yaml"
+          example:
+            data:
+              id: zdc3Pyhyz3m8vjDeM
+              userId: wRsJZtadYvn4mBZmm
+              actId: asADASadYvn4mBZmm
+              name: my-task
+              username: janedoe
+              createdAt: '2018-10-26T07:23:14.855Z'
+              modifiedAt: '2018-10-26T13:30:49.578Z'
+              removedAt: null
+              stats:
+                totalRuns: 15
+              options:
+                build: latest
+                timeoutSecs: 300
+                memoryMbytes: 128
+              input:
+                hello: world
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/task-object/get-task
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/get-task
+  x-js-parent: TaskClient
+  x-js-name: get
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskClient#get
+  x-py-parent: TaskClientAsync
+  x-py-name: get
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/TaskClientAsync#get
+put:
+  tags:
+    - Actor tasks/Task object
+  summary: Update task
+  description: |
+    Update settings of a task using values specified by an object passed as JSON
+    in the POST payload.
+
+    If the object does not define a specific property, its value is not updated.
+
+    The response is the full task object as returned by the
+    [Get task](#/reference/tasks/task-object/get-task) endpoint.
+
+    The request needs to specify the `Content-Type: application/json` HTTP
+    header!
+
+    When providing your API authentication token, we recommend using the
+    request's `Authorization` header, rather than the URL. ([More
+    info](#/introduction/authentication)).
+  operationId: actorTask_put
+  parameters:
+    - name: actorTaskId
+      in: path
+      description: Task ID or a tilde-separated owner's username and task's name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-task
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/schemas/actor-tasks/UpdateTaskRequest.yaml"
+        example:
+          id: ZxLNxrRaZrSjuhT9y
+          userId: BPWZBd7Z9c746JAnF
+          actId: asADASadYvn4mBZmm
+          name: my-task
+          username: janedoe
+          createdAt: '2018-10-26T07:23:14.855Z'
+          modifiedAt: '2018-10-26T13:30:49.578Z'
+          removedAt: null
+          stats:
+            totalRuns: 15
+          options:
+            build: latest
+            timeoutSecs: 300
+            memoryMbytes: 128
+          input:
+            hello: world
+    required: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                $ref: "../../components/schemas/actor-tasks/Task.yaml"
+          example:
+            data:
+              id: zdc3Pyhyz3m8vjDeM
+              userId: wRsJZtadYvn4mBZmm
+              actId: asADASadYvn4mBZmm
+              name: my-task
+              username: janedoe
+              createdAt: '2018-10-26T07:23:14.855Z'
+              modifiedAt: '2018-10-26T13:30:49.578Z'
+              removedAt: null
+              stats:
+                totalRuns: 15
+              options:
+                build: latest
+                timeoutSecs: 300
+                memoryMbytes: 128
+              input:
+                hello: world
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/task-object/update-task
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/update-task
+  x-js-parent: TaskClient
+  x-js-name: update
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskClient#update
+  x-py-parent: TaskClientAsync
+  x-py-name: update
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/TaskClientAsync#update
+delete:
+  tags:
+    - Actor tasks/Task object
+  summary: Delete task
+  description: Delete the task specified through the `actorTaskId` parameter.
+  operationId: actorTask_delete
+  parameters:
+    - name: actorTaskId
+      in: path
+      description: Task ID or a tilde-separated owner's username and task's name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-task
+  responses:
+    '204':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+          example: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/task-object/delete-task
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/delete-task
+  x-js-parent: TaskClient
+  x-js-name: delete
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskClient#delete

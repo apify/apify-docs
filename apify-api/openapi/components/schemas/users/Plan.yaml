@@ -1,0 +1,93 @@
+title: Plan
+required:
+  - id
+  - description
+  - isEnabled
+  - monthlyBasePriceUsd
+  - monthlyUsageCreditsUsd
+  - usageDiscountPercent
+  - enabledPlatformFeatures
+  - maxMonthlyUsageUsd
+  - maxActorMemoryGbytes
+  - maxMonthlyActorComputeUnits
+  - maxMonthlyResidentialProxyGbytes
+  - maxMonthlyProxySerps
+  - maxMonthlyExternalDataTransferGbytes
+  - maxActorCount
+  - maxActorTaskCount
+  - dataRetentionDays
+  - availableProxyGroups
+  - teamAccountSeatCount
+  - supportLevel
+  - availableAddOns
+type: object
+properties:
+  id:
+    type: string
+    example: Personal
+  description:
+    type: string
+    example: 'Cost-effective plan for freelancers, developers and students.'
+  isEnabled:
+    type: boolean
+    example: true
+  monthlyBasePriceUsd:
+    type: number
+    example: 49
+  monthlyUsageCreditsUsd:
+    type: number
+    example: 49
+  usageDiscountPercent:
+    type: number
+    example: 0
+  enabledPlatformFeatures:
+    type: array
+    items:
+      type: array
+      items: {}
+    example:
+      - - ACTORS
+      - - STORAGE
+      - - PROXY_SERPS
+      - - SCHEDULER
+      - - WEBHOOKS
+  maxMonthlyUsageUsd:
+    type: number
+    example: 9999
+  maxActorMemoryGbytes:
+    type: number
+    example: 32
+  maxMonthlyActorComputeUnits:
+    type: number
+    example: 1000
+  maxMonthlyResidentialProxyGbytes:
+    type: number
+    example: 10
+  maxMonthlyProxySerps:
+    type: number
+    example: 30000
+  maxMonthlyExternalDataTransferGbytes:
+    type: number
+    example: 1000
+  maxActorCount:
+    type: number
+    example: 100
+  maxActorTaskCount:
+    type: number
+    example: 1000
+  dataRetentionDays:
+    type: number
+    example: 14
+  availableProxyGroups:
+    $ref: ./AvailableProxyGroups.yaml
+  teamAccountSeatCount:
+    type: number
+    example: 1
+  supportLevel:
+    type: string
+    example: COMMUNITY
+  availableAddOns:
+    type: array
+    items:
+      type: string
+    example: []

@@ -1,0 +1,4 @@
+type: apiKey
+name: token
+in: query
+description: API authentication token.

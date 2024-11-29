@@ -1,0 +1,13 @@
+title: GetListOfWebhooksResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    allOf:
+      - $ref: ../common/PaginationResponse.yaml
+      - properties:
+          items:
+            type: array
+            items:
+              $ref: ./WebhookShort.yaml

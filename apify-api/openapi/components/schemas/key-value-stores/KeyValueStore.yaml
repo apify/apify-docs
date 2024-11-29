@@ -1,0 +1,42 @@
+title: KeyValueStore
+required:
+  - id
+  - name
+  - createdAt
+  - modifiedAt
+  - accessedAt
+type: object
+properties:
+  id:
+    type: string
+    example: WkzbQMuFYuamGv3YF
+  name:
+    type: string
+    example: d7b9MDYsbtX5L7XAj
+  userId:
+    type: string
+    nullable: true
+    example: BPWDBd7Z9c746JAnF
+  username:
+    type: string
+    nullable: true
+    example: janedoe
+  createdAt:
+    type: string
+    example: '2019-12-12T07:34:14.202Z'
+  modifiedAt:
+    type: string
+    example: '2019-12-13T08:36:13.202Z'
+  accessedAt:
+    type: string
+    example: '2019-12-14T08:36:13.202Z'
+  actId:
+    type: string
+    nullable: true
+    example: null
+  actRunId:
+    type: string
+    nullable: true
+    example: null
+  stats:
+    $ref: ./KeyValueStoreStats.yaml

@@ -1,0 +1,55 @@
+title: StoreListActor
+required:
+  - id
+  - title
+  - name
+  - username
+  - userFullName
+  - description
+  - stats
+  - currentPricingInfo
+type: object
+properties:
+  id:
+    type: string
+    example: zdc3Pyhyz3m8vjDeM
+  title:
+    type: string
+    example: My Public Actor
+  name:
+    type: string
+    example: my-public-actor
+  username:
+    type: string
+    example: jane35
+  userFullName:
+    type: string
+    example: Jane H. Doe
+  description:
+    type: string
+    example: My public actor!
+  categories:
+    type: array
+    items:
+      type: string
+    example:
+      - "MARKETING"
+      - "LEAD_GENERATION"
+  notice:
+    type: string
+  pictureUrl:
+    type: string
+    nullable: true
+    example: 'https://...'
+  userPictureUrl:
+    type: string
+    nullable: true
+    example: 'https://...'
+  url:
+    type: string
+    nullable: true
+    example: 'https://...'
+  stats:
+    $ref: ../actors/ActorStats.yaml
+  currentPricingInfo:
+    $ref: ./CurrentPricingInfo.yaml

@@ -1,0 +1,13 @@
+title: AccountLimits
+required:
+  - monthlyUsageCycle
+  - limits
+  - current
+type: object
+properties:
+  monthlyUsageCycle:
+    $ref: ./MonthlyUsageCycle.yaml
+  limits:
+    $ref: ./Limits.yaml
+  current:
+    $ref: ./Current.yaml

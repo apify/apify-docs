@@ -1,0 +1,24 @@
+title: PaginationResponse
+required:
+  - total
+  - offset
+  - limit
+  - desc
+  - count
+type: object
+properties:
+  total:
+    type: number
+    example: 2
+  offset:
+    type: number
+    example: 0
+  limit:
+    type: number
+    example: 1000
+  desc:
+    type: boolean
+    example: false
+  count:
+    type: number
+    example: 2

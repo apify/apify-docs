@@ -1,0 +1,15 @@
+title: UpdateRunRequest
+required:
+  - runId
+  - statusMessage
+type: object
+properties:
+  runId:
+    type: string
+    example: 3KH8gEpp4d8uQSe8T
+  statusMessage:
+    type: string
+    example: Actor has finished
+  isStatusMessageTerminal:
+    type: boolean
+    example: true

@@ -1,4 +1,6 @@
-const { join } = require('path');
+const { join } = require('node:path');
+
+const clsx = require('clsx');
 
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
@@ -14,6 +16,9 @@ module.exports = {
     organizationName: 'apify',
     projectName: 'apify-docs',
     scripts: ['/js/custom.js'],
+    future: {
+        experimental_faster: true,
+    },
     headTags: [
         {
             tagName: 'link',
@@ -86,11 +91,12 @@ module.exports = {
                 },
             }),
         ],
+        'docusaurus-theme-openapi-docs',
         '@docusaurus/theme-mermaid',
     ],
     presets: /** @type {import('@docusaurus/types').PresetConfig[]} */ ([
         [
-            '@docusaurus/preset-classic',
+            'classic',
             /** @type {import('@docusaurus/preset-classic').Options} */
             ({
                 docs: {
@@ -117,7 +123,7 @@ module.exports = {
                 config: join(__dirname, '.redocly.yaml'),
                 specs: [
                     {
-                        spec: 'node_modules/@apify/openapi/openapi.yaml',
+                        spec: './apify-api/openapi/openapi.yaml',
                         route: '/api/v2/',
                     },
                 ],
@@ -158,6 +164,67 @@ module.exports = {
                 sidebarPath: require.resolve('./sources/legal/sidebars.js'),
             },
         ],
+        [
+            '@docusaurus/plugin-content-docs',
+            {
+                id: 'openapi',
+                path: './sources/api',
+                routeBasePath: 'api/v2-new', // TODO change to `api/v2` once we are ready
+                rehypePlugins: [externalLinkProcessor],
+                showLastUpdateAuthor: false,
+                showLastUpdateTime: false,
+                breadcrumbs: false,
+                sidebarPath: require.resolve('./sources/api/sidebars.js'),
+                docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi
+            },
+        ],
+        [
+            'docusaurus-plugin-openapi-docs',
+            {
+                id: 'openapi', // plugin id
+                docsPluginId: 'openapi', // configured for preset-classic
+                config: {
+                    /** @type {import('docusaurus-plugin-openapi-docs').Options} */
+                    v2: {
+                        specPath: 'apify-api.yaml',
+                        outputDir: './sources/api',
+                        sidebarOptions: {
+                            groupPathsBy: 'tag',
+                            sidebarCollapsed: false,
+                            sidebarCollapsible: false,
+                            sidebarGenerators: {
+                                createDocItem: (item, context) => {
+                                    const legacyUrls = item.api['x-legacy-doc-urls'] ?? [];
+                                    const altIds = legacyUrls.map((url) => {
+                                        const { hash } = new URL(url);
+                                        return hash;
+                                    });
+                                    const sidebarLabel = item.frontMatter.sidebar_label;
+                                    const { title } = item;
+                                    const id = item.type === 'schema' ? `schemas/${item.id}` : item.id;
+                                    const className = item.type === 'api'
+                                        ? clsx({
+                                            'menu__list-item--deprecated': item.api.deprecated,
+                                            'api-method': !!item.api.method,
+                                        }, item.api.method)
+                                        : clsx({
+                                            'menu__list-item--deprecated': item.schema.deprecated,
+                                        }, 'schema');
+
+                                    return {
+                                        type: 'doc',
+                                        id: context.basePath === '' ? `${id}` : `${context.basePath}/${id}`,
+                                        label: sidebarLabel ?? title ?? id,
+                                        customProps: { altIds },
+                                        className,
+                                    };
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        ],
         () => ({
             name: 'webpack-loader-fix',
             configureWebpack() {
@@ -170,6 +237,10 @@ module.exports = {
                                     fullySpecified: false,
                                 },
                                 loader: 'babel-loader',
+                            },
+                            {
+                                test: /apify-docs\/examples\//i,
+                                type: 'asset/source',
                             },
                         ],
                     },
@@ -195,12 +266,19 @@ module.exports = {
         mermaid: true,
         parseFrontMatter: async (params) => {
             const result = await params.defaultParseFrontMatter(params);
+
+            if (result.frontMatter.id === 'apify-api') {
+                result.frontMatter.slug = '/';
+            }
+
             const isPartial = params.filePath.split('/').pop()[0] === '_';
+
             if (!isPartial) {
                 const ogImageURL = new URL('https://apify.com/og-image/docs-article');
                 ogImageURL.searchParams.set('title', result.frontMatter.title);
                 result.frontMatter.image ??= ogImageURL.toString();
             }
+
             return result;
         },
     },

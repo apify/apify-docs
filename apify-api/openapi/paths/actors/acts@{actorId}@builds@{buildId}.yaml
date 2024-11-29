@@ -1,0 +1,93 @@
+get:
+  tags:
+    - Actors/Build object
+  summary: Get build
+  description: |
+    By passing the optional `waitForFinish` parameter the API endpoint will
+    synchronously wait for the build to finish.
+
+    This is useful to avoid periodic polling when waiting for an Actor build to
+    finish.
+
+
+    This endpoint does not require the authentication token. Instead, calls are authenticated using a hard-to-guess ID of the build. However,
+    if you access the endpoint without the token, certain attributes, such as `usageUsd` and `usageTotalUsd`, will be hidden.
+  operationId: act_build_get
+  security:
+    - apiKeyActorBuilds: []
+    - httpBearerActorBuilds: []
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: buildId
+      in: path
+      description: 'ID of the build you want to get, found in the build''s `Info` tab.'
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: soSkq9ekdmfOslopH
+    - name: waitForFinish
+      in: query
+      description: |
+        The maximum number of seconds the server waits for the build to finish.
+        By default it is `0`, the maximum value is `60`. <!--
+        MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
+                                             If the build finishes in time then the returned build object will have a terminal status (e.g. `SUCCEEDED`),
+                                             otherwise it will have a transitional status (e.g. `RUNNING`).
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 60
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actor-builds/GetBuildResponse.yaml"
+          example:
+            data:
+              id: HG7ML7M8z78YcAPEB
+              actId: janedoe~my-actor
+              userId: klmdEpoiojmdEMlk3
+              startedAt: '2019-11-30T07:34:24.202Z'
+              finishedAt: '2019-12-12T09:30:12.202Z'
+              status: SUCCEEDED
+              meta:
+                origin: WEB
+                clientIp: 172.234.12.34
+                userAgent: Mozilla/5.0 (iPad)
+              stats:
+                durationMillis: 1000
+                runTimeSecs: 45.718
+                computeUnits: 0.012699444444444444
+              options:
+                useCache: false
+                betaPackages: false
+                memoryMbytes: 1024
+                diskMbytes: 2048
+              usage:
+                ACTOR_COMPUTE_UNITS: 0.08
+              usageTotalUsd: 0.02
+              usageUsd:
+                ACTOR_COMPUTE_UNITS: 0.02
+              inputSchema: '{\n  \"title\": \"Schema for ... }'
+              readme: '# Magic Actor\nThis Actor is magic.'
+              buildNumber: 0.1.1
+  deprecated: true
+  x-deprecated-description: 'API endpoints related to build of the Actor were moved
+    under new namespace [`actor-builds`](#/reference/actor-builds). Gets an object
+    that contains all the details about a specific build of an Actor.'
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/build-object/get-build
+    - https://docs.apify.com/api/v2#/reference/actors/get-build

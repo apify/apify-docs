@@ -1,0 +1,118 @@
+get:
+  tags:
+    - Schedules/Schedule object
+  summary: Get schedule
+  description: Gets the schedule object with all details.
+  operationId: schedule_get
+  parameters:
+    - name: scheduleId
+      in: path
+      description: Schedule ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: asdLZtadYvn4mBZmm
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/schedules/ScheduleResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/schedules/schedule-object/get-schedule
+    - https://docs.apify.com/api/v2#/reference/schedules/get-schedule
+  x-js-parent: ScheduleClient
+  x-js-name: get
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ScheduleClient#get
+  x-py-parent: ScheduleClientAsync
+  x-py-name: get
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ScheduleClientAsync#get
+put:
+  tags:
+    - Schedules/Schedule object
+  summary: Update schedule
+  description: |
+    Updates a schedule using values specified by a schedule object passed as
+    JSON in the POST payload. If the object does not define a specific property,
+    its value will not be updated.    
+
+    The response is the full schedule object as returned by the
+    [Get schedule](#/reference/schedules/schedule-object/get-schedule) endpoint.
+
+    **The request needs to specify the `Content-Type: application/json` HTTP
+    header!**
+
+    When providing your API authentication token, we recommend using the
+    request's `Authorization` header, rather than the URL. ([More
+    info](#/introduction/authentication)).
+  operationId: schedule_put
+  parameters:
+    - name: scheduleId
+      in: path
+      description: Schedule ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: asdLZtadYvn4mBZmm
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/schedules/ScheduleCreate.yaml
+    required: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/schedules/ScheduleResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/schedules/schedule-object/update-schedule
+    - https://docs.apify.com/api/v2#/reference/schedules/update-schedule
+  x-js-parent: ScheduleClient
+  x-js-name: update
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ScheduleClient#update
+  x-py-parent: ScheduleClientAsync
+  x-py-name: update
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ScheduleClientAsync#update
+delete:
+  tags:
+    - Schedules/Schedule object
+  summary: Delete schedule
+  description: Deletes a schedule.
+  operationId: schedule_delete
+  parameters:
+    - name: scheduleId
+      in: path
+      description: Schedule ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: asdLZtadYvn4mBZmm
+  responses:
+    '204':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+            example: {}
+          example: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/schedules/schedule-object/delete-schedule
+    - https://docs.apify.com/api/v2#/reference/schedules/delete-schedule
+  x-js-parent: ScheduleClient
+  x-js-name: delete
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ScheduleClient#delete

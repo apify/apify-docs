@@ -1,0 +1,42 @@
+title: DatasetListItem
+required:
+  - id
+  - name
+  - userId
+  - createdAt
+  - modifiedAt
+  - accessedAt
+  - itemCount
+  - cleanItemCount
+type: object
+properties:
+  id:
+    type: string
+    example: WkzbQMuFYuamGv3YF
+  name:
+    type: string
+    example: d7b9MDYsbtX5L7XAj
+  userId:
+    type: string
+    example: tbXmWu7GCxnyYtSiL
+  createdAt:
+    type: string
+    example: '2019-12-12T07:34:14.202Z'
+  modifiedAt:
+    type: string
+    example: '2019-12-13T08:36:13.202Z'
+  accessedAt:
+    type: string
+    example: '2019-12-14T08:36:13.202Z'
+  itemCount:
+    type: number
+    example: 7
+  cleanItemCount:
+    type: number
+    example: 5
+  actId:
+    type: string
+    nullable: true
+  actRunId:
+    type: string
+    nullable: true

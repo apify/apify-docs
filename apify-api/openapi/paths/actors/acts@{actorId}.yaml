@@ -1,0 +1,276 @@
+get:
+  tags:
+    - Actors/Actor object
+  summary: Get actor
+  description: Gets an object that contains all the details about a specific Actor.
+  operationId: act_get
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actors/GetActorResponse.yaml"
+          example:
+            data:
+              id: zdc3Pyhyz3m8vjDeM
+              userId: wRsJZtadYvn4mBZmm
+              name: MyActor
+              username: jane35
+              description: My favourite Actor!
+              restartOnError: false
+              isPublic: false
+              createdAt: '2019-07-08T11:27:57.401Z'
+              modifiedAt: '2019-07-08T14:01:05.546Z'
+              stats:
+                totalBuilds: 9
+                totalRuns: 16
+                totalUsers: 6
+                totalUsers7Days: 2
+                totalUsers30Days: 6
+                totalUsers90Days: 6
+                totalMetamorphs: 2
+                lastRunStartedAt: '2019-07-08T14:01:05.546Z'
+              versions:
+                - versionNumber: '0.1'
+                  envVars: null
+                  sourceType: SOURCE_FILES
+                  applyEnvVarsToBuild: false
+                  buildTag: latest
+                  sourceFiles: []
+                - versionNumber: '0.2'
+                  sourceType: GIT_REPO
+                  envVars: null
+                  applyEnvVarsToBuild: false
+                  buildTag: latest
+                  gitRepoUrl: 'https://github.com/jane35/my-actor'
+                - versionNumber: '0.3'
+                  sourceType: TARBALL
+                  envVars: null
+                  applyEnvVarsToBuild: false
+                  buildTag: latest
+                  tarballUrl: 'https://github.com/jane35/my-actor/archive/master.zip'
+                - versionNumber: '0.4'
+                  sourceType: GITHUB_GIST
+                  envVars: null
+                  applyEnvVarsToBuild: false
+                  buildTag: latest
+                  gitHubGistUrl: 'https://gist.github.com/jane35/e51feb784yu89'
+              defaultRunOptions:
+                build: latest
+                timeoutSecs: 3600
+                memoryMbytes: 2048
+              exampleRunInput:
+                body: '{ "helloWorld": 123 }'
+                contentType: application/json; charset=utf-8
+              isDeprecated: false
+              deploymentKey: ssh-rsa AAAA ...
+              title: My Actor
+              taggedBuilds:
+                latest:
+                  buildId: z2EryhbfhgSyqj6Hn
+                  buildNumber: 0.0.2
+                  finishedAt: '2019-06-10T11:15:49.286Z'
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/actor-object/get-actor
+    - https://docs.apify.com/api/v2#/reference/actors/get-actor
+  x-js-parent: ActorClient
+  x-js-name: get
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorClient#get
+  x-py-parent: ActorClientAsync
+  x-py-name: get
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorClientAsync#get
+put:
+  tags:
+    - Actors/Actor object
+  summary: Update actor
+  description: |
+    Updates settings of an Actor using values specified by an Actor object
+    passed as JSON in the POST payload.
+
+    If the object does not define a specific property, its value will not be
+    updated.
+
+
+    The response is the full Actor object as returned by the
+    [Get Actor](#/reference/actors/actor-object/get-actor) endpoint.
+
+
+    The request needs to specify the `Content-Type: application/json` HTTP header!
+
+
+    When providing your API authentication token, we recommend using the
+    request's `Authorization` header, rather than the URL. ([More
+    info](#/introduction/authentication)).
+
+
+    If you want to make your Actor
+    [public](https://docs.apify.com/platform/actors/publishing) using `isPublic:
+    true`, you will need to provide the Actor's `title` and the `categories`
+    under which that Actor will be classified in Apify Store. For this, it's
+    best to use the [constants from our `apify-shared-js`
+    package](https://github.com/apify/apify-shared-js/blob/2d43ebc41ece9ad31cd6525bd523fb86939bf860/packages/consts/src/consts.ts#L452-L471).
+  operationId: act_put
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/schemas/actors/UpdateActorRequest.yaml"
+        example:
+          name: MyActor
+          description: My favourite Actor!
+          isPublic: false
+          seoTitle: My Actor
+          seoDescription: My Actor is the best
+          title: My Actor
+          restartOnError: false
+          versions:
+            - versionNumber: '0.0'
+              sourceType: SOURCE_FILES
+              envVars:
+                - name: DOMAIN
+                  value: 'http://example.com'
+                  isSecret: false
+                - name: SECRET_PASSWORD
+                  value: MyTopSecretPassword123
+                  isSecret: true
+              applyEnvVarsToBuild: false
+              buildTag: latest
+              sourceFiles: []
+          categories: []
+          defaultRunOptions:
+            build: latest
+            timeoutSecs: 3600
+            memoryMbytes: 2048
+    required: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actors/UpdateActorResponse.yaml"
+          example:
+            data:
+              id: zdc3Pyhyz3m8vjDeM
+              userId: wRsJZtadYvn4mBZmm
+              name: MyActor
+              username: jane35
+              description: My favourite Actor!
+              restartOnError: false
+              isPublic: false
+              createdAt: '2019-07-08T11:27:57.401Z'
+              modifiedAt: '2019-07-08T14:01:05.546Z'
+              stats:
+                totalBuilds: 9
+                totalRuns: 16
+                totalUsers: 6
+                totalUsers7Days: 2
+                totalUsers30Days: 6
+                totalUsers90Days: 6
+                totalMetamorphs: 2
+                lastRunStartedAt: '2019-07-08T14:01:05.546Z'
+              versions:
+                - versionNumber: '0.1'
+                  envVars: null
+                  sourceType: SOURCE_FILES
+                  applyEnvVarsToBuild: false
+                  buildTag: latest
+                  sourceFiles: []
+                - versionNumber: '0.2'
+                  sourceType: GIT_REPO
+                  envVars: null
+                  applyEnvVarsToBuild: false
+                  buildTag: latest
+                  gitRepoUrl: 'https://github.com/jane35/my-actor'
+                - versionNumber: '0.3'
+                  sourceType: TARBALL
+                  envVars: null
+                  applyEnvVarsToBuild: false
+                  buildTag: latest
+                  tarballUrl: 'https://github.com/jane35/my-actor/archive/master.zip'
+                - versionNumber: '0.4'
+                  sourceType: GITHUB_GIST
+                  envVars: null
+                  applyEnvVarsToBuild: false
+                  buildTag: latest
+                  gitHubGistUrl: 'https://gist.github.com/jane35/e51feb784yu89'
+              defaultRunOptions:
+                build: latest
+                timeoutSecs: 3600
+                memoryMbytes: 2048
+              exampleRunInput:
+                body: '{ "helloWorld": 123 }'
+                contentType: application/json; charset=utf-8
+              isDeprecated: false
+              deploymentKey: ssh-rsa AAAA ...
+              title: My Actor
+              taggedBuilds:
+                latest:
+                  buildId: z2EryhbfhgSyqj6Hn
+                  buildNumber: 0.0.2
+                  finishedAt: '2019-06-10T11:15:49.286Z'
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/actor-object/update-actor
+    - https://docs.apify.com/api/v2#/reference/actors/update-actor
+  x-js-parent: ActorClient
+  x-js-name: update
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorClient#update
+  x-py-parent: ActorClientAsync
+  x-py-name: update
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorClientAsync#update
+delete:
+  tags:
+    - Actors/Actor object
+  summary: Delete actor
+  description: Deletes an Actor.
+  operationId: act_delete
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+  responses:
+    '204':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+            example: {}
+          example: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/actor-object/delete-actor
+    - https://docs.apify.com/api/v2#/reference/actors/delete-actor
+  x-js-parent: ActorClient
+  x-js-name: delete
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorClient#delete

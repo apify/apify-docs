@@ -1,0 +1,6 @@
+title: PutRecordRequest
+type: object
+properties:
+  foo:
+    type: string
+    example: bar

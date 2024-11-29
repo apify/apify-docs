@@ -61,6 +61,45 @@ function scrollSidebarItemIntoView() {
     }
 }
 
+// handles automatic scrolling of the API reference sidebar (openapi-docs)
+function scrollOpenApiSidebarItemIntoView() {
+    const $li = document.querySelector(`li > a.menu__link--active[href]`);
+
+    if (!$li) {
+        return;
+    }
+
+    $li.scrollIntoView({
+        block: 'nearest',
+        inline: 'center',
+    });
+}
+
+function redirectOpenApiDocs() {
+    const { hash, pathname } = new URL(window.location.href);
+
+    // TODO change to '/api/v2'
+    if (pathname.replace(/\/$/, '') !== '/api/v2-new') {
+        return;
+    }
+
+    if (hash.startsWith('#/reference/')) {
+        const sidebarItems = document.querySelectorAll('[data-altids]');
+
+        for (const item of sidebarItems) {
+            const ids = item.getAttribute('data-altids').split(',');
+            if (ids.find((variant) => variant === hash)) {
+                item.click();
+            }
+        }
+    }
+
+    if (hash.startsWith('#tag/')) {
+        const id = hash.substring('#tag/'.length);
+        console.log('redirect', { id, hash });
+    }
+}
+
 let ticking = false;
 
 document.addEventListener('scroll', () => {
@@ -75,7 +114,16 @@ document.addEventListener('scroll', () => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
+    setTimeout(() => redirectOpenApiDocs(), 500);
+
     // we need to wait a bit more, since the event fires too soon, and a lot of hydration is done after it
-    setTimeout(() => scrollSidebarItemIntoView(), 3000);
+    setTimeout(() => scrollSidebarItemIntoView(), 1000);
+
+    // docusaurus-openapi-docs plugin: scroll sidebar into viewport, no need for a large timeout here
+    setTimeout(() => scrollOpenApiSidebarItemIntoView(), 100);
+});
+
+window.addEventListener('popstate', () => {
+    setTimeout(() => scrollOpenApiSidebarItemIntoView(), 50);
 });

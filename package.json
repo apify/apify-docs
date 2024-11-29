@@ -16,15 +16,20 @@
     },
     "homepage": "https://github.com/apify/apify-docs#readme",
     "scripts": {
-        "start": "rimraf .docusaurus && cross-env LOCALHOST=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
-        "start:dev": "rimraf .docusaurus && cross-env DEV=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
-        "build": "rimraf .docusaurus && docusaurus build",
-        "publish-gh-pages": "docusaurus-publish",
+        "start": "npm run api:rebuild && rimraf .docusaurus && cross-env LOCALHOST=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
+        "start:dev": "npm run api:rebuild && rimraf .docusaurus && cross-env DEV=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
+        "build": "npm run api:rebuild && rimraf .docusaurus && docusaurus build",
+        "api:generate": "npm run redoc:build && docusaurus gen-api-docs all",
+        "api:clean": "docusaurus clean-api-docs all",
+        "api:rebuild": "npm run api:clean && npm run api:generate",
+        "redoc:start": "redocly preview-docs",
+        "redoc:build": "redocly bundle -o apify-api",
+        "redoc:test": "redocly lint && npm run redoc:build",
+        "redoc:test2": "redocly lint && npm run redoc:build && bin/schemathesis",
         "write-translations": "docusaurus write-translations",
         "version": "docusaurus version",
         "rename-version": "docusaurus rename-version",
         "swizzle": "docusaurus swizzle",
-        "deploy": "rimraf .docusaurus && docusaurus deploy",
         "docusaurus": "docusaurus",
         "lint": "npm run lint:md && npm run lint:code",
         "lint:fix": "npm run lint:md:fix && npm run lint:code:fix",
@@ -57,17 +62,21 @@
     "dependencies": {
         "@apify-packages/ui-library": "^0.28.1",
         "@apify/docsearch-apify-docs": "3.5.3",
-        "@apify/openapi": "*",
-        "@docusaurus/core": "^3.5.2",
-        "@docusaurus/plugin-client-redirects": "^3.5.2",
-        "@docusaurus/plugin-content-docs": "^3.5.2",
-        "@docusaurus/preset-classic": "^3.5.2",
-        "@docusaurus/theme-common": "^3.5.2",
-        "@docusaurus/theme-mermaid": "^3.5.2",
-        "@docusaurus/utils": "^3.5.2",
+        "@docusaurus/core": "3.6.3",
+        "@docusaurus/faster": "3.6.3",
+        "@docusaurus/plugin-client-redirects": "3.6.3",
+        "@docusaurus/plugin-content-docs": "3.6.3",
+        "@docusaurus/preset-classic": "3.6.3",
+        "@docusaurus/theme-common": "3.6.3",
+        "@docusaurus/theme-mermaid": "3.6.3",
+        "@docusaurus/utils": "3.6.3",
         "@giscus/react": "^3.0.0",
         "@mdx-js/react": "^3.0.1",
+        "@redocly/cli": "^1.25.14",
+        "ajv": "^8.17.1",
         "clsx": "^2.0.0",
+        "docusaurus-plugin-openapi-docs": "0.0.0-953",
+        "docusaurus-theme-openapi-docs": "0.0.0-953",
         "form-data": "^4.0.0",
         "github-buttons": "^2.28.0",
         "postcss-preset-env": "^9.3.0",
@@ -83,10 +92,23 @@
         "styled-components": "6.1.13",
         "unist-util-visit": "^5.0.0"
     },
+    "browserslist": {
+        "production": [
+            ">0.5%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 3 chrome version",
+            "last 3 firefox version",
+            "last 5 safari version"
+        ]
+    },
     "workspaces": [
         "apify-docs-theme"
     ],
     "engines": {
         "node": ">=18.0.0"
-    }
+    },
+    "packageManager": "npm@10.9.0"
 }

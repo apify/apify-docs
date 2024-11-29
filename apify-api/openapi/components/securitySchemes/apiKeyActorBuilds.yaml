@@ -1,0 +1,4 @@
+type: apiKey
+name: token
+in: query
+description: API authentication token. It is only required for private Actors. Builds of public Actors can be queried without any token.

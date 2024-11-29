@@ -1,0 +1,123 @@
+get:
+  tags:
+    - Webhooks/Webhook object
+  summary: Get webhook
+  description: Gets webhook object with all details.
+  operationId: webhook_get
+  parameters:
+    - name: webhookId
+      in: path
+      description: Webhook ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: Zib4xbZsmvZeK55ua
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/webhooks/GetWebhookResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/get-webhook
+    - https://docs.apify.com/api/v2#/reference/webhooks/get-webhook
+  x-js-parent: WebhookClient
+  x-js-name: get
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/WebhookClient#get
+  x-py-parent: WebhookClientAsync
+  x-py-name: get
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/WebhookClientAsync#get
+put:
+  tags:
+    - Webhooks/Webhook object
+  summary: Update webhook
+  description: |
+    Updates a webhook using values specified by a webhook object passed as JSON
+    in the POST payload.
+
+    If the object does not define a specific property, its value will not be
+    updated.
+
+
+    The response is the full webhook object as returned by the
+
+    [Get webhook](#/reference/webhooks/webhook-object/get-webhook) endpoint.
+
+
+    The request needs to specify the `Content-Type: application/json` HTTP
+    header!
+
+
+    When providing your API authentication token, we recommend using the
+    request's `Authorization` header, rather than the URL. ([More
+    info](#/introduction/authentication)).
+  operationId: webhook_put
+  parameters:
+    - name: webhookId
+      in: path
+      description: Webhook ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: Zib4xbZsmvZeK55ua
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/webhooks/WebhookUpdate.yaml
+    required: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/webhooks/UpdateWebhookResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/update-webhook
+    - https://docs.apify.com/api/v2#/reference/webhooks/update-webhook
+  x-js-parent: WebhookClient
+  x-js-name: update
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/WebhookClient#update
+  x-py-parent: WebhookClientAsync
+  x-py-name: update
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/WebhookClientAsync#update
+delete:
+  tags:
+    - Webhooks/Webhook object
+  summary: Delete webhook
+  description: Deletes a webhook.
+  operationId: webhook_delete
+  parameters:
+    - name: webhookId
+      in: path
+      description: Webhook ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: Zib4xbZsmvZeK55ua
+  responses:
+    '204':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+          example: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/delete-webhook
+    - https://docs.apify.com/api/v2#/reference/webhooks/delete-webhook
+  x-js-parent: WebhookClient
+  x-js-name: delete
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/WebhookClient#delete

@@ -1,0 +1,24 @@
+title: KeyValueStoreStats
+required:
+  - readCount
+  - writeCount
+  - deleteCount
+  - listCount
+  - s3StorageBytes
+type: object
+properties:
+  readCount:
+    type: number
+    example: 9
+  writeCount:
+    type: number
+    example: 3
+  deleteCount:
+    type: number
+    example: 6
+  listCount:
+    type: number
+    example: 2
+  s3StorageBytes:
+    type: number
+    example: 18

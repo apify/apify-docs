@@ -1,0 +1,7 @@
+title: BuildUsage
+type: object
+properties:
+  ACTOR_COMPUTE_UNITS:
+    type: number
+    nullable: true
+    example: 0.08
