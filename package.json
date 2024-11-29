@@ -75,7 +75,7 @@
         "@redocly/cli": "^1.25.14",
         "ajv": "^8.17.1",
         "clsx": "^2.0.0",
-        "docusaurus-plugin-openapi-docs": "0.0.0-953",
+        "docusaurus-plugin-openapi-docs": "4.2.0",
         "docusaurus-theme-openapi-docs": "0.0.0-953",
         "form-data": "^4.0.0",
         "github-buttons": "^2.28.0",
