@@ -4,7 +4,7 @@ post:
   summary: Abort run
   description: |
     **[DEPRECATED]** API endpoints related to run of the Actor were moved under
-    new namespace [`actor-runs`](#/reference/actor-runs).Aborts an Actor run and
+    new namespace [`actor-runs`](#/reference/actor-runs). Aborts an Actor run and
     returns an object that contains all the details about the run.
 
     Only runs that are starting or running are aborted. For runs with status
@@ -116,7 +116,7 @@ post:
                 DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
                 PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
                 PROXY_SERPS: 0.0006
-  deprecated: false
+  deprecated: true
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/abort-run/abort-run
     - https://docs.apify.com/api/v2#/reference/actors/abort-run

@@ -155,7 +155,7 @@ post:
                 DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
                 PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
                 PROXY_SERPS: 0.0006
-  deprecated: false
+  deprecated: true
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/metamorph-run/metamorph-run
     - https://docs.apify.com/api/v2#/reference/actors/metamorph-run

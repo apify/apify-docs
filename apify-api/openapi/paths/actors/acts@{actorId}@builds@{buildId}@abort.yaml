@@ -4,7 +4,7 @@ post:
   summary: Abort build
   description: |
     **[DEPRECATED]** API endpoints related to build of the Actor were moved
-    under new namespace [`actor-builds`](#/reference/actor-builds).Aborts an
+    under new namespace [`actor-builds`](#/reference/actor-builds). Aborts an
     Actor build and returns an object that contains all the details about the
     build.
 
@@ -58,7 +58,7 @@ post:
               usageTotalUsd: 0.02
               usageUsd:
                 ACTOR_COMPUTE_UNITS: 0.02
-  deprecated: false
+  deprecated: true
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/abort-build/abort-build
     - https://docs.apify.com/api/v2#/reference/actors/abort-build
