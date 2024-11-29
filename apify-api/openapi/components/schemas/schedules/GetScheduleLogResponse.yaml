@@ -1,0 +1,10 @@
+title: GetScheduleLogResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    type: array
+    items:
+      $ref: ./ScheduleInvoked.yaml
+    description: ''

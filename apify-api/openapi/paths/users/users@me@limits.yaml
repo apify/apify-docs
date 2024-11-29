@@ -1,0 +1,47 @@
+get:
+  tags:
+    - Users/Account and usage limits
+  summary: Get limits
+  description: |
+    Returns a complete summary of your account's limits. It is the same
+    information you will see on your account's [Limits page](https://console.apify.com/billing#/limits). The returned data
+    includes the current usage cycle, a summary of your limits, and your current usage.
+  operationId: users_me_limits_get
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/users/GetLimitsResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/users/account-and-usage-limits/get-limits
+    - https://docs.apify.com/api/v2#/reference/users/get-limits
+put:
+  tags:
+    - Users/Account and usage limits
+  summary: Update limits
+  description: |
+    Updates the account's limits manageable on your account's [Limits page](https://console.apify.com/billing#/limits).
+    Specifically the: `maxMonthlyUsageUsd` and `dataRetentionDays` limits (see request body schema for more details).
+  operationId: users_me_limits_put
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/users/UpdateLimitsRequest.yaml
+  responses:
+    '201':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/users/account-and-usage-limits/update-limits
+    - https://docs.apify.com/api/v2#/reference/users/update-limits

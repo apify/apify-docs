@@ -7,3 +7,6 @@ extend-ignore-re = [
 
 [default.extend-words]
 SER = "SER"
+
+[files]
+extend-exclude = ['sources/api/*.mdx']

@@ -1,0 +1,37 @@
+title: GetListOfKeyValueStoresResponse
+type: object
+required:
+  - data
+properties:
+  data:
+    allOf:
+      - $ref: ../common/PaginationResponse.yaml
+      - type: object
+        required:
+          - items
+        properties:
+          items:
+            type: array
+            items:
+              $ref: ./KeyValueStore.yaml
+            description: ''
+        example:    
+          items:
+            - id: WkzbQMuFYuamGv3YF
+              name: d7b9MDYsbtX5L7XAj
+              userId: BPWDBd7Z9c746JAnF
+              username: janedoe
+              createdAt: '2019-12-12T07:34:14.202Z'
+              modifiedAt: '2019-12-13T08:36:13.202Z'
+              accessedAt: '2019-12-14T08:36:13.202Z'
+              actId: null
+              actRunId: null
+            - id: YiKoxjkaS9gjGTqhF
+              name: eshop-items
+              userId: BPWDBd7Z9c746JAnF
+              username: janedoe
+              createdAt: '2019-12-12T07:34:14.202Z'
+              modifiedAt: '2019-12-13T08:36:13.202Z'
+              accessedAt: '2019-12-14T08:36:13.202Z'
+              actId: null
+              actRunId: null

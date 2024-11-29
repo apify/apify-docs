@@ -1,0 +1,58 @@
+title: RequestQueueShort
+required:
+  - id
+  - name
+  - userId
+  - username
+  - createdAt
+  - modifiedAt
+  - accessedAt
+  - expireAt
+  - totalRequestCount
+  - handledRequestCount
+  - pendingRequestCount
+  - hadMultipleClients
+type: object
+properties:
+  id:
+    type: string
+    example: WkzbQMuFYuamGv3YF
+  name:
+    type: string
+    example: some-name
+  userId:
+    type: string
+    example: wRsJZtadYvn4mBZmm
+  username:
+    type: string
+    example: janedoe
+  createdAt:
+    type: string
+    example: '2019-12-12T07:34:14.202Z'
+  modifiedAt:
+    type: string
+    example: '2019-12-13T08:36:13.202Z'
+  accessedAt:
+    type: string
+    example: '2019-12-14T08:36:13.202Z'
+  expireAt:
+    type: string
+    example: '2019-06-02T17:15:06.751Z'
+  totalRequestCount:
+    type: number
+    example: 100
+  handledRequestCount:
+    type: number
+    example: 50
+  pendingRequestCount:
+    type: number
+    example: 50
+  actId:
+    type: string
+    nullable: true
+  actRunId:
+    type: string
+    nullable: true
+  hadMultipleClients:
+    type: boolean
+    example: true

@@ -1,0 +1,20 @@
+title: RunOptions
+required:
+  - build
+  - timeoutSecs
+  - memoryMbytes
+  - diskMbytes
+type: object
+properties:
+  build:
+    type: string
+    example: latest
+  timeoutSecs:
+    type: number
+    example: 300
+  memoryMbytes:
+    type: number
+    example: 1024
+  diskMbytes:
+    type: number
+    example: 2048

@@ -1,0 +1,16 @@
+title: defaultRunOptions
+required:
+  - build
+  - timeoutSecs
+  - memoryMbytes
+type: object
+properties:
+  build:
+    type: string
+    example: latest
+  timeoutSecs:
+    type: number
+    example: 3600
+  memoryMbytes:
+    type: number
+    example: 2048

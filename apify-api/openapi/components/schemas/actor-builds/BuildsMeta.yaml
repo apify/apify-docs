@@ -1,0 +1,16 @@
+title: BuildsMeta
+required:
+  - origin
+  - clientIp
+  - userAgent
+type: object
+properties:
+  origin:
+    type: string
+    example: WEB
+  clientIp:
+    type: string
+    example: 172.234.12.34
+  userAgent:
+    type: string
+    example: Mozilla/5.0 (iPad)

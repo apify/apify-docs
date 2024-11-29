@@ -1,0 +1,107 @@
+get:
+  tags:
+    - Schedules/Schedules collection
+  summary: Get list of schedules
+  description: |
+    Gets the list of schedules that the user created.
+
+    The endpoint supports pagination using the `limit` and `offset` parameters.
+    It will not return more than 1000 records.
+
+    By default, the records are sorted by the `createdAt` field in ascending
+    order. To sort the records in descending order, use the `desc=1` parameter.
+  operationId: schedules_get
+  parameters:
+    - name: offset
+      in: query
+      description: |
+        Number of records that should be skipped at the start. The default value is `0`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 10
+    - name: limit
+      in: query
+      description: |
+        Maximum number of records to return. The default value, as well as the maximum, is `1000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 99
+    - name: desc
+      in: query
+      description: |
+        If `true` or `1`, the objects are sorted by the `createdAt` field in
+        descending order. By default, they are sorted in ascending order.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/schedules/GetListOfSchedulesResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/schedules/schedules-collection/get-list-of-schedules
+    - https://docs.apify.com/api/v2#/reference/schedules/get-list-of-schedules
+  x-js-parent: ScheduleCollectionClient
+  x-js-name: list
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ScheduleCollectionClient#list
+  x-py-parent: ScheduleCollectionClientAsync
+  x-py-name: list
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ScheduleCollectionClientAsync#list
+post:
+  tags:
+    - Schedules/Schedules collection
+  summary: Create schedule
+  description: |
+    Creates a new schedule with settings provided by the schedule object passed
+    as JSON in the payload. The response is the created schedule object.
+
+    The request needs to specify the `Content-Type: application/json` HTTP header!
+
+    When providing your API authentication token, we recommend using the
+    request's `Authorization` header, rather than the URL. ([More
+    info](#/introduction/authentication)).
+  operationId: schedules_post
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/schedules/ScheduleCreate.yaml
+    required: true
+  responses:
+    '201':
+      description: ''
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: 'https://api.apify.com/v2/schedules/asdLZtadYvn4mBZmm'
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/schedules/ScheduleResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/schedules/schedules-collection/create-schedule
+    - https://docs.apify.com/api/v2#/reference/schedules/create-schedule
+  x-js-parent: ScheduleCollectionClient
+  x-js-name: create
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ScheduleCollectionClient#create
+  x-py-parent: ScheduleCollectionClientAsync
+  x-py-name: create
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ScheduleCollectionClientAsync#create

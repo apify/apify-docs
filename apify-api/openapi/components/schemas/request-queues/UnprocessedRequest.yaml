@@ -1,0 +1,16 @@
+title: UnprocessedRequest
+required:
+  - uniqueKey
+  - url
+  - method
+type: object
+properties:
+  uniqueKey:
+    type: string
+    example: 'http://example.com'
+  url:
+    type: string
+    example: 'http://example.com'
+  method:
+    type: string
+    example: GET
