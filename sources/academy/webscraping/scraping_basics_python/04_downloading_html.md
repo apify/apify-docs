@@ -140,12 +140,12 @@ Letting our program visibly crash on error is enough for our purposes. Now, let'
 
 <Exercises />
 
-### Scrape Amazon
+### Scrape AliExpress
 
-Download HTML of a product listing page, but this time from a real world e-commerce website. For example this page with Amazon search results:
+Download HTML of a product listing page, but this time from a real world e-commerce website. For example this page with AliExpress search results:
 
 ```text
-https://www.amazon.com/s?k=darth+vader
+https://www.aliexpress.com/w/wholesale-darth-vader.html
 ```
 
 <details>
@@ -154,13 +154,12 @@ https://www.amazon.com/s?k=darth+vader
   ```py
   import httpx
 
-  url = "https://www.amazon.com/s?k=darth+vader"
+  url = "https://www.aliexpress.com/w/wholesale-darth-vader.html"
   response = httpx.get(url)
   response.raise_for_status()
   print(response.text)
   ```
 
-  If you get `Server error '503 Service Unavailable'`, that's just Amazon's anti-scraping protections. You can learn about how to overcome those in our [Anti-scraping protections](../anti_scraping/index.md) course.
 </details>
 
 ### Save downloaded HTML as a file
