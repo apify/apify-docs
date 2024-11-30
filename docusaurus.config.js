@@ -16,9 +16,9 @@ module.exports = {
     organizationName: 'apify',
     projectName: 'apify-docs',
     scripts: ['/js/custom.js'],
-    future: {
-        experimental_faster: true,
-    },
+    // future: {
+    //     experimental_faster: true,
+    // },
     headTags: [
         {
             tagName: 'link',

@@ -1769,3 +1769,20 @@ iframe[src*="youtube"] {
     font-size: var(--ifm-h1-font-size);
     margin-bottom: calc(var(--ifm-h1-vertical-rhythm-bottom)* var(--ifm-leading)) !important;
 }
+
+@media (max-width: 996px) {
+    div[class^="navbarSearchContainer"] {
+        position: static;
+    }
+
+    div[class^="navbarSearchContainer"] button {
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .DocSearch-Button-Keys,
+    .DocSearch-Button-Placeholder {
+        display: none !important;
+    }
+}
