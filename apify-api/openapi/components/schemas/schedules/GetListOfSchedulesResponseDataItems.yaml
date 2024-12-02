@@ -1,0 +1,54 @@
+title: GetListOfSchedulesResponseDataItems
+required:
+  - id
+  - userId
+  - name
+  - createdAt
+  - modifiedAt
+  - lastRunAt
+  - nextRunAt
+  - isEnabled
+  - isExclusive
+  - cronExpression
+  - timezone
+  - actions
+type: object
+properties:
+  id:
+    type: string
+    example: asdLZtadYvn4mBZmm
+  userId:
+    type: string
+    example: wRsJZtadYvn4mBZmm
+  name:
+    type: string
+    example: my-schedule
+  createdAt:
+    type: string
+    example: '2019-12-12T07:34:14.202Z'
+  modifiedAt:
+    type: string
+    example: '2019-12-20T06:33:11.202Z'
+  lastRunAt:
+    type: string
+    example: '2019-04-12T07:33:10.202Z'
+  nextRunAt:
+    type: string
+    example: '2019-04-12T07:34:10.202Z'
+  isEnabled:
+    type: boolean
+    example: true
+  isExclusive:
+    type: boolean
+    example: true
+  cronExpression:
+    type: string
+    example: '* * * * *'
+  timezone:
+    type: string
+    example: UTC
+  actions:
+    type: array
+    items:
+      $ref: ./GetListOfSchedulesResponseDataItemsActions.yaml
+    description: ''

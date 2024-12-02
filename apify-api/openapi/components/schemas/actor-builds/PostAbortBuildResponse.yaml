@@ -1,0 +1,31 @@
+title: PostAbortBuildResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    allOf:
+      - $ref: ./Build.yaml
+      - {}
+example:
+  data:
+    id: HG7ML7M8z78YcAPEB
+    actId: janedoe~my-actor
+    userId: klmdEpoiojmdEMlk3
+    startedAt: '2019-11-30T07:34:24.202Z'
+    finishedAt: '2019-12-12T09:30:12.202Z'
+    status: ABORTED
+    meta:
+      origin: WEB
+    stats:
+      durationMillis: 1000
+      runTimeSecs: 5.718
+    options:
+      useCache: false
+      memoryMbytes: 1024
+      diskMbytes: 2048
+    usage:
+      ACTOR_COMPUTE_UNITS: 0.08
+    usageTotalUsd: 0.02
+    usageUsd:
+      ACTOR_COMPUTE_UNITS: 0.02

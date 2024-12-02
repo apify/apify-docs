@@ -1,0 +1,16 @@
+title: GetUserRunsListResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    allOf:
+      - $ref: "../common/PaginationResponse.yaml"
+      - type: object
+        required:
+          - items
+        properties:
+          items:
+            type: array
+            items:
+              $ref: "../actor-runs/RunShort.yaml"

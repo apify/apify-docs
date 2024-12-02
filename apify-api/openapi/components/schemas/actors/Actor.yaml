@@ -1,0 +1,72 @@
+title: Actor
+required:
+  - id
+  - userId
+  - name
+  - username
+  - isPublic
+  - createdAt
+  - modifiedAt
+  - stats
+  - versions
+  - defaultRunOptions
+  - deploymentKey
+type: object
+properties:
+  id:
+    type: string
+    example: zdc3Pyhyz3m8vjDeM
+  userId:
+    type: string
+    example: wRsJZtadYvn4mBZmm
+  name:
+    type: string
+    example: MyActor
+  username:
+    type: string
+    example: jane35
+  description:
+    type: string
+    nullable: true
+    example: My favourite actor!
+  restartOnError:
+    type: boolean
+    nullable: true
+    example: false
+  isPublic:
+    type: boolean
+    example: false
+  createdAt:
+    type: string
+    example: '2019-07-08T11:27:57.401Z'
+  modifiedAt:
+    type: string
+    example: '2019-07-08T14:01:05.546Z'
+  stats:
+    $ref: ./ActorStats.yaml
+  versions:
+    type: array
+    items:
+      $ref: "./Version.yaml"
+    description: ''
+  defaultRunOptions:
+      $ref: ./DefaultRunOptions.yaml
+  exampleRunInput:
+    oneOf:
+      - nullable: true
+      - $ref: ./ExampleRunInput.yaml
+  isDeprecated:
+    type: boolean
+    nullable: true
+    example: false
+  deploymentKey:
+    type: string
+    example: ssh-rsa AAAA ...
+  title:
+    type: string
+    nullable: true
+    example: My Actor
+  taggedBuilds:
+    oneOf:
+      - nullable: true
+      - $ref: ./TaggedBuilds.yaml

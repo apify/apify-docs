@@ -1,0 +1,159 @@
+get:
+  tags:
+    - Actors/Last run object and its storages
+  summary: Get last run
+  description: |
+    This is not a single endpoint, but an entire group of endpoints that lets you to
+    retrieve and manage the last run of given Actor or any of its default storages.
+    All the endpoints require an authentication token.
+
+    The endpoints accept the same HTTP methods and query parameters as
+    the respective storage endpoints.
+    The base path represents the last Actor run object is:
+
+    `/v2/acts/{actorId}/runs/last{?token,status}`
+
+    Using the `status` query parameter you can ensure to only get a run with a certain status
+    (e.g. `status=SUCCEEDED`). The output of this endpoint and other query parameters
+    are the same as in the [Run object](#/reference/actors/run-object) endpoint.
+
+    In order to access the default storages of the last Actor run, i.e. log, key-value store, dataset and request queue,
+    use the following endpoints:
+
+    * `/v2/acts/{actorId}/runs/last/log{?token,status}`
+    * `/v2/acts/{actorId}/runs/last/key-value-store{?token,status}`
+    * `/v2/acts/{actorId}/runs/last/dataset{?token,status}`
+    * `/v2/acts/{actorId}/runs/last/request-queue{?token,status}`
+
+    These API endpoints have the same usage as the equivalent storage endpoints.
+    For example,
+    `/v2/acts/{actorId}/runs/last/key-value-store` has the same HTTP method and parameters as the
+    [Key-value store object](#/reference/key-value-stores/store-object) endpoint.
+
+    Additionally, each of the above API endpoints supports all sub-endpoints
+    of the original one:
+
+    #### Key-value store
+
+    * `/v2/acts/{actorId}/runs/last/key-value-store/keys{?token,status}` [Key collection](#/reference/key-value-stores/key-collection)
+    * `/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}{?token,status}` [Record](#/reference/key-value-stores/record)
+
+    #### Dataset
+
+    * `/v2/acts/{actorId}/runs/last/dataset/items{?token,status}` [Item collection](#/reference/datasets/item-collection)
+
+    #### Request queue
+
+    * `/v2/acts/{actorId}/runs/last/request-queue/requests{?token,status}` [Request collection](#/reference/request-queues/request-collection)
+    * `/v2/acts/{actorId}/runs/last/request-queue/requests/{requestId}{?token,status}` [Request collection](#/reference/request-queues/request)
+    * `/v2/acts/{actorId}/runs/last/request-queue/head{?token,status}` [Queue head](#/reference/request-queues/queue-head)
+
+    For example, to download data from a dataset of the last succeeded Actor run in XML format,
+    send HTTP GET request to the following URL:
+
+    ```
+    https://api.apify.com/v2/acts/{actorId}/runs/last/dataset/items?token={yourApiToken}&format=xml&status=SUCCEEDED
+    ```
+
+    In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
+  operationId: act_runs_last_get
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: status
+      in: query
+      description: Filter for the run status.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: SUCCEEDED
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actor-runs/RunResponse.yaml"
+          example:
+            data:
+              id: HG7ML7M8z78YcAPEB
+              actId: HDSasDasz78YcAPEB
+              userId: 7sT5jcggjjA9fNcxF
+              actorTaskId: KJHSKHausidyaJKHs
+              startedAt: '2019-11-30T07:34:24.202Z'
+              finishedAt: '2019-12-12T09:30:12.202Z'
+              status: RUNNING
+              statusMessage: Actor is running
+              isStatusMessageTerminal: false
+              meta:
+                origin: WEB
+                clientIp: 172.234.12.34
+                userAgent: Mozilla/5.0 (iPad)
+              stats:
+                inputBodyLen: 240
+                restartCount: 0
+                resurrectCount: 2
+                memAvgBytes: 267874071.9
+                memMaxBytes: 404713472
+                memCurrentBytes: 0
+                cpuAvgUsage: 33.75321011075384
+                cpuMaxUsage: 169.65073553494125
+                cpuCurrentUsage: 0
+                netRxBytes: 103508042
+                netTxBytes: 4854600
+                durationMillis: 248472
+                runTimeSecs: 248.472
+                metamorph: 0
+                computeUnits: 0.13804
+              options:
+                build: latest
+                timeoutSecs: 300
+                memoryMbytes: 1024
+                diskMbytes: 2048
+              buildId: 7sT5jcggjjA9fNcxF
+              exitCode: 0
+              defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
+              defaultDatasetId: wmKPijuyDnPZAPRMk
+              defaultRequestQueueId: FL35cSF7jrxr3BY39
+              buildNumber: 0.0.36
+              containerUrl: 'https://g8kd8kbc5ge8.runs.apify.net'
+              isContainerServerReady: true
+              gitBranchName: master
+              usage:
+                ACTOR_COMPUTE_UNITS: 3
+                DATASET_READS: 4
+                DATASET_WRITES: 4
+                KEY_VALUE_STORE_READS: 5
+                KEY_VALUE_STORE_WRITES: 3
+                KEY_VALUE_STORE_LISTS: 5
+                REQUEST_QUEUE_READS: 2
+                REQUEST_QUEUE_WRITES: 1
+                DATA_TRANSFER_INTERNAL_GBYTES: 1
+                DATA_TRANSFER_EXTERNAL_GBYTES?: 3
+                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 34
+                PROXY_SERPS: 3
+              usageTotalUsd: 0.2654
+              usageUsd:
+                ACTOR_COMPUTE_UNITS: 0.072
+                DATASET_READS: 0.0004
+                DATASET_WRITES: 0.0002
+                KEY_VALUE_STORE_READS: 0.0006
+                KEY_VALUE_STORE_WRITES: 0.002
+                KEY_VALUE_STORE_LISTS: 0.004
+                REQUEST_QUEUE_READS: 0.005
+                REQUEST_QUEUE_WRITES: 0.02
+                DATA_TRANSFER_INTERNAL_GBYTES: 0.0004
+                DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
+                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
+                PROXY_SERPS: 0.0006
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/last-run-object-and-its-storages/get-last-run

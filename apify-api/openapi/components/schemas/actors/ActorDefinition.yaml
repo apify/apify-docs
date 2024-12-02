@@ -1,0 +1,59 @@
+title: ActorDefinition
+description: The definition of the Actor, the full specification of this field can be found in [Apify docs](https://docs.apify.com/platform/actors/development/actor-definition/actor-json)
+type: object
+properties:
+    actorSpecification:
+        type: integer
+        enum: [1]
+        description: The Actor specification version that this Actor follows. This property must be set to 1.
+    name:
+        type: string
+        description: The name of the Actor.
+    version:
+        type: string
+        pattern: ^[0-9]+\\.[0-9]+$
+        description: The version of the Actor, specified in the format [Number].[Number], e.g., 0.1, 1.0.
+    buildTag:
+        type: string
+        description: The tag name to be applied to a successful build of the Actor. Defaults to 'latest' if not specified.
+    environmentVariables:
+        type: object
+        additionalProperties:
+            type: string
+        description: A map of environment variables to be used during local development and deployment.
+    dockerfile:
+        type: string
+        description: The path to the Dockerfile used for building the Actor on the platform.
+    dockerContextDir:
+        type: string
+        description: The path to the directory used as the Docker context when building the Actor.
+    readme:
+        type: string
+        description: The path to the README file for the Actor.
+    input:
+        type: object
+        description: The input schema object, the full specification can be found in [Apify docs](https://docs.apify.com/platform/actors/development/actor-definition/input-schema)
+    changelog:
+        type: string
+        description: The path to the CHANGELOG file displayed in the Actor's information tab.
+    storages:
+        type: object
+        properties:
+            dataset:
+                type: object
+                description: Defines the schema of items in your dataset, the full specification can be found in [Apify docs](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema)
+    minMemoryMbytes:
+        type: integer
+        minimum: 256
+        description: Specifies the minimum amount of memory in megabytes required by the Actor.
+    maxMemoryMbytes:
+        type: integer
+        minimum: 256
+        description: Specifies the maximum amount of memory in megabytes required by the Actor.
+    usesStandbyMode:
+        type: boolean
+        description: Specifies whether the Actor will have Standby mode enabled.
+required:
+    - actorSpecification
+    - name
+    - version

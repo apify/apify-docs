@@ -31,6 +31,12 @@ export default function DocSidebarItemLink({
         props.target = '_self';
     }
 
+    if (item.customProps) {
+        for (const key of Object.keys(item.customProps)) {
+            props[`data-${key}`] = item.customProps[key];
+        }
+    }
+
     return (
         <li
             className={clsx(

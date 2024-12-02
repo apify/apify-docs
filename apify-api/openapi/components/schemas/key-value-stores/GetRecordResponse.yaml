@@ -1,0 +1,9 @@
+title: GetRecordResponse
+required:
+  - foo
+type: object
+properties:
+  foo:
+    type: string
+example:
+  foo: bar

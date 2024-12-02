@@ -1,0 +1,112 @@
+get:
+  tags:
+    - Key-value stores/Store object
+  summary: Get store
+  description: |
+    Gets an object that contains all the details about a specific key-value
+    store.
+  operationId: keyValueStore_get
+  security:
+    - apiKeyStoreId: []
+    - httpBearerStoreId: []
+  parameters:
+    - name: storeId
+      in: path
+      description: Key-value store ID or `username~store-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/key-value-stores/GetStoreResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/get-store
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/get-store
+  x-js-parent: KeyValueStoreClient
+  x-js-name: get
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#get
+  x-py-parent: KeyValueStoreClientAsync
+  x-py-name: get
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#get
+put:
+  tags:
+    - Key-value stores/Store object
+  summary: Update store
+  description: |
+    Updates a key-value store's name using a value specified by a JSON object
+    passed in the PUT payload.
+
+    The response is the updated key-value store object, as returned by the [Get
+    store](#/reference/key-value-stores/store-object/get-store) API endpoint.
+  operationId: keyValueStore_put
+  parameters:
+    - name: storeId
+      in: path
+      description: Key-value store ID or `username~store-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/store/UpdateStoreRequest.yaml
+        example:
+          name: new-store-name
+    required: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/key-value-stores/UpdateStoreResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/update-store
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/update-store
+  x-js-parent: KeyValueStoreClient
+  x-js-name: update
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#update
+  x-py-parent: KeyValueStoreClientAsync
+  x-py-name: update
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#update
+delete:
+  tags:
+    - Key-value stores/Store object
+  summary: Delete store
+  description: Deletes a key-value store.
+  operationId: keyValueStore_delete
+  parameters:
+    - name: storeId
+      in: path
+      description: Key-value store ID or `username~store-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+  responses:
+    '204':
+      description: ''
+      headers: {}
+      content: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/delete-store
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/delete-store
+  x-js-parent: KeyValueStoreClient
+  x-js-name: delete
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#delete

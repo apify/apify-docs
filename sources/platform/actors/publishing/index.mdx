@@ -5,39 +5,79 @@ sidebar_position: 7.5
 slug: /actors/publishing
 ---
 
-**Learn about publishing, and monetizing your Actors on the Apify platform.**
+**Apify provides a platform for developing, publishing, and monetizing web automation solutions called Actors. This guide covers the key stages involved in publishing and monetizing your Actors on the Apify platform.**
 
 ---
 
-> Sharing is caring but you can also make money from your Actors. Our [blog post](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) contains all the information you need.
+> Sharing is caring but you can also make money from your Actors. Check out our [blog post](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/) for more context.
 
-To build a public Actor, you'll go through the following four main stages:
+
+## Publish process
+
+To build & publish an Actor on [Apify Store](https://apify.com/store), you'll go through the following main stages:
 
 1. [Development](../development/index.md).
 2. [Publication](./publishing/publish) and set up of [monetization](./publishing/monetize).
 3. [Testing](../development/automated_tests.md).
 4. [Promotion](../../academy/get-most-of-actors/seo-and-promotion).
 
-While you don't necessarily have to maintain your private Actors, public Actors require a higher degree of responsibility.
+## Benefits of publishing and monetization
 
-As the name implies, Public Actors are available to the public on [Apify Store](https://apify.com/store), which means that an unmaintained public Actor could negatively affect all the other users that depend on it for their own activities on the platform.
+Publishing your Actor on the Apify Store transforms your code, eliminating traditional SaaS development overhead. When you publish your Actor you gain access to:
 
-Public Actors are regularly submitted to [automated tests](/platform/actors/publishing/test) to ensure they are functioning properly. Before making an Actor public, we recommend you reserve enough time to maintain the project (~2 hours weekly). This will ensure that your Actor maintains its long-term quality, improving your chances of successfully [monetizing your Actors](./monetize.mdx).
+- Streamlined product delivery
+  - Dedicated landing page for your Actor
+  - Built-in documentation hosting through seamless README integration
+  - Direct exposure to organic user traffic through Apify Store
+- Reduced operational burden
+  - No need for separate domains or websites
+  - Built-in cloud infrastructure with automatic scaling
+  - Multiple payment options with automated billing & transactions
+  - Minimal marketing efforts required due to marketplace presence
+
+Packaging your software as an Actor allows you to launch new SaaS product faster and earn income through various monetization models that match your Actor's value proposition like:
+
+- Fixed rental fee for continuous access
+- Pay-per-result for usage-based pricing
+- Pay-per-event for specific operations
+
+To learn more  visit our [Actors in Store](https://docs.apify.com/platform/actors/running/actors-in-store#pricing-models) page.
+
+## Maintain public Actors
+
+While private Actors don't necessarily require ongoing maintenance, public Actors demand a higher level of responsibility. Since public Actors are available on the [Apify Store](https://apify.com/store) and may be used by other users, an unmaintained public Actor could negatively impact those who depend on it.
+
+To ensure long-term quality and improve your chances of successfully monetizing your Actors, we recommend reserving approximately 2 hours per week for maintenance tasks, such as:
+
+- Addressing bug reports & issues
+- Implementing updates & improvements
+- Responding to user inquireies & feedback
 
  <img src={require("./images/apify-store.png").default} title="Apify Store" width="60%" />
 
-If you decide to make your Actor code publicly available on [GitHub](https://github.com), its quality becomes a priority since your Actor could be a new user's first experience with Apify.
+If you decide to make your Actor's code publicly available on [GitHub](https://github.com), code quality becomes even more crucial, as your Actor may be the first experience some users have with Apify.
 
-Naturally, your Actor's code should be open to changes and updates, so don't be afraid of refactoring. However, beware of making changes that could potentially break the Actor for its existing users.
+### Handling breaking changes
 
-If you plan on making a breaking change, please get in touch with us ahead of time at [community@apify.com](mailto:community@apify.com), and we will help you to communicate the change to your users.
+While refactoring and updating your Actor's code is encouraged, be cautious of making changes that could break the Actor for existing users. If you plan to introduce breaking change, please contact us at [community@apify.com](mailto:community@apify.com) beforehand, and we'll assist you in communicating the change to your users.
 
-Also, pay special attention to your Actor's documentation ([README](../../academy/get-most-of-actors/actor-readme)). It should be clear, detailed, and readable. Think of the users, who might not be developers, so try to use simple, easy-to-understand language and avoid technical jargon.
+### Documentation and testing
 
-Ensure periodic testing. You can either do it yourself or [set up automatic testing](../development/automated_tests.md) / [monitoring](https://apify.com/apify/monitoring). Try to prevent your users from coming to you with the issues.
+Pay special attention to your Actor's documentation ([README](../../academy/get-most-of-actors/actor-readme)). It should be clear, detailed, concise and, readable, using simple language and avoiding technical jargon whenever possible, as your users may not be developers.
 
-## Inspiration
+Ensure periodic testing, either manually or by [setting up automatic testing](../development/automated_tests.md) and [monitoring](https://apify.com/apify/monitoring). This can help prevent users from encountering issues with your Actor.
 
-To come up with ideas for new Actors, you can use your own experience with friends, colleagues, and customers. Alternatively, you can use SEO tools that might help you find the right search terms, websites related to web scraping, web automation, or web integrations. See the [SEO article](../../academy/get-most-of-actors/seo-and-promotion) for more details. Finally, you may take a look at our [Actor ideas page](https://apify.com/ideas) to find out which Actors are most in demand by the Apify community.
+## Inspiration for new Actors
 
-To better understand the context and practical usage of public Actors, [check out our blog](https://blog.apify.com/). Get familiar with how we think and write about Actors, e.g. [Content Checker](https://blog.apify.com/set-up-alert-when-webpage-changes/) (short), [Kickstarter scraper](https://blog.apify.com/kickstarter-search-actor-create-your-own-kickstarter-api/) (mid-size), and [Google Sheets Actor](https://blog.apify.com/google-sheets-import-data/) (long one).
+To find ideas for new Actor, consider the following sources:
+
+- Your own experiences with friends, colleagues, and customers
+- SEO tools to identify search terms, websites related to web scrapint, web automation, or web integrations (see the[SEO article](../../academy/get-most-of-actors/seo-and-promotion) for more details)
+- The [Actor ideas page](https://apify.com/ideas) to find Actors in demaed by the Apify community
+- Our [Discord community](https://discord.com/invite/jyEM2PRvMU), especially the [#hire-freelancers](https://discord.com/channels/801163717915574323/1022804760484659210) channel can offer great insights
+
+Additionally, you can refer to our [blog](https://blog.apify.com/) for examples of how we write about and present Actors, such as the:
+
+- [Content Checker article](https://blog.apify.com/set-up-alert-when-webpage-changes/)
+- [Kickstarter scraper article](https://blog.apify.com/kickstarter-search-actor-create-your-own-kickstarter-api/)
+- [Google Sheets Actor article](https://blog.apify.com/google-sheets-import-data/)

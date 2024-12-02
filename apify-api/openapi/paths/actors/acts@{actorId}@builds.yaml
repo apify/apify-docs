@@ -1,0 +1,200 @@
+get:
+  tags:
+    - Actors/Build collection
+  summary: Get list of builds
+  description: |
+    Gets the list of builds of a specific Actor. The response is a JSON with the
+    list of objects, where each object contains basic information about a single build.
+
+
+    The endpoint supports pagination using the `limit` and `offset` parameters
+    and it will not return more than 1000 records.
+
+
+    By default, the records are sorted by the `startedAt` field in ascending order,
+    therefore you can use pagination to incrementally fetch all builds while new
+    ones are still being started. To sort the records in descending order, use
+    the `desc=1` parameter.
+  operationId: act_builds_get
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: offset
+      in: query
+      description: |
+        Number of records that should be skipped at the start. The default value is `0`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 10
+    - name: limit
+      in: query
+      description: |
+        Maximum number of records to return. The default value as well as the maximum is `1000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 99
+    - name: desc
+      in: query
+      description: |
+        If `true` or `1` then the objects are sorted by the `startedAt` field in
+        descending order. By default, they are sorted in ascending order.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-builds/GetBuildListResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/build-collection/get-list-of-builds
+    - https://docs.apify.com/api/v2#/reference/actors/get-list-of-builds
+  x-js-parent: BuildCollectionClient
+  x-js-name: list
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/BuildCollectionClient#list
+  x-py-parent: BuildCollectionClientAsync
+  x-py-name: list
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/BuildCollectionClientAsync#list
+post:
+  tags:
+    - Actors/Build collection
+  summary: Build actor
+  description: |-
+    Builds an Actor.
+    The response is the build object as returned by the
+    [Get build](#/reference/actors/build-object/get-build) endpoint.
+  operationId: act_builds_post
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: version
+      in: query
+      description: Actor version number to be built.
+      required: true
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: '0.0'
+    - name: useCache
+      in: query
+      description: |
+        If `true` or `1`, the system will use a cache to speed up the build
+        process. By default, cache is not used.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+    - name: betaPackages
+      in: query
+      description: |
+        If `true` or `1` then the Actor is built with beta versions of Apify NPM
+        packages. By default, the build uses `latest` packages.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+    - name: tag
+      in: query
+      description: |
+        Tag to be applied to the build on success. By default, the tag is taken
+        from Actor version's `buildTag` property.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: latest
+    - name: waitForFinish
+      in: query
+      description: |
+        The maximum number of seconds the server waits for the build to finish.
+        By default it is `0`, the maximum value is `60`. <!--
+        MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
+        If the build finishes in time then the returned build object will have a terminal status (e.g. `SUCCEEDED`),
+        otherwise it will have a transitional status (e.g. `RUNNING`).
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 60
+  responses:
+    '201':
+      description: ''
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                https://api.apify.com/v2/acts/zdc3Pyhyz3m8vjDeM/runs/HG7ML7M8z78YcAPEB
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actors/BuildActorResponse.yaml"
+          example:
+            data:
+              id: HG7ML7M8z78YcAPEB
+              actId: janedoe~my-actor
+              userId: klmdEpoiojmdEMlk3
+              startedAt: '2019-11-30T07:34:24.202Z'
+              finishedAt: '2019-12-12T09:30:12.202Z'
+              status: SUCCEEDED
+              meta:
+                origin: WEB
+                clientIp: 172.234.12.34
+                userAgent: Mozilla/5.0 (iPad)
+              stats:
+                durationMillis: 1000
+                runTimeSecs: 45.718
+                computeUnits: 0.012699444444444444
+              options:
+                useCache: false
+                betaPackages: false
+                memoryMbytes: 1024
+                diskMbytes: 2048
+              usage:
+                ACTOR_COMPUTE_UNITS: 0.08
+              usageTotalUsd: 0.02
+              usageUsd:
+                ACTOR_COMPUTE_UNITS: 0.02
+              inputSchema: '{\n  \"title\": \"Schema for ... }'
+              readme: '# Magic Actor\nThis Actor is magic.'
+              buildNumber: 0.1.1
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/build-collection/build-actor
+    - https://docs.apify.com/api/v2#/reference/actors/build-actor
+  x-js-parent: ActorClient
+  x-js-name: build
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorClient#build
+  x-py-parent: ActorClientAsync
+  x-py-name: build
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorClientAsync#build

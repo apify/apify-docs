@@ -57,7 +57,7 @@ If you are accessing your datasets using the `username~store-name` [store ID for
 
 > When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
 
-To retrieve a list of your datasets, send a GET request to the [Get list of datasets](/api/v2#/reference/datasets/get-list-of-datasets) endpoint.
+To retrieve a list of your datasets, send a GET request to the [Get list of datasets](/api/v2#/reference/datasets/dataset-collection/get-list-of-datasets) endpoint.
 
 ```text
 https://api.apify.com/v2/datasets

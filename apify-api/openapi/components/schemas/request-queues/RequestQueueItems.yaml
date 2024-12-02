@@ -1,0 +1,52 @@
+title: RequestQueueItems
+required:
+  - id
+  - retryCount
+  - uniqueKey
+  - url
+  - method
+type: object
+properties:
+  id:
+    type: string
+    example: dnjkDMKLmdlkmlkmld
+  retryCount:
+    type: number
+    example: 0
+  uniqueKey:
+    type: string
+    example: 'http://example.com'
+  url:
+    type: string
+    example: 'http://example.com'
+  method:
+    type: string
+    example: GET
+  loadedUrl:
+    type: string
+    nullable: true
+    example: 'http://example.com/example-1'
+  payload:
+    type: object
+    nullable: true
+  noRetry:
+    type: boolean
+    nullable: true
+    example: false
+  errorMessages:
+    type: array
+    items:
+      type: string
+    description: ''
+    nullable: true
+  headers:
+    type: object
+    nullable: true
+  userData:
+    allOf:
+      - $ref: ./UserData.yaml
+      - {}
+  handledAt:
+    type: string
+    nullable: true
+    example: '2019-06-16T10:23:31.607Z'

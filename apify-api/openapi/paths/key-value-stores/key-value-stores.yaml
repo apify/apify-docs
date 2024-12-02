@@ -1,0 +1,138 @@
+get:
+  tags:
+    - Key-value stores/Store collection
+  summary: Get list of key-value stores
+  description: |
+    Gets the list of key-value stores owned by the user.
+
+    The response is a list of objects, where each objects contains a basic
+    information about a single key-value store.
+
+    The endpoint supports pagination using the `limit` and `offset` parameters
+    and it will not return more than 1000 array elements.
+
+    By default, the records are sorted by the `createdAt` field in ascending
+    order, therefore you can use pagination to incrementally fetch all key-value stores
+    while new ones are still being created. To sort the records in descending order, use
+    the `desc=1` parameter.
+  operationId: keyValueStores_get
+  parameters:
+    - name: offset
+      in: query
+      description: |
+        Number of records that should be skipped at the start. The default value
+        is `0`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 10
+    - name: limit
+      in: query
+      description: |
+        Maximum number of records to return. The default value as well as the
+        maximum is `1000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 99
+    - name: desc
+      in: query
+      description: |
+        If `true` or `1` then the objects are sorted by the `startedAt` field in
+        descending order. By default, they are sorted in ascending order.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+    - name: unnamed
+      in: query
+      description: |
+        If `true` or `1` then all the stores are returned. By default, only
+        named key-value stores are returned.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/key-value-stores/GetListOfKeyValueStoresResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/store-collection/get-list-of-key-value-stores
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/get-list-of-key-value-stores
+  x-js-parent: KeyValueStoreCollectionClient
+  x-js-name: list
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreCollectionClient#list
+  x-py-parent: KeyValueStoreCollectionClientAsync
+  x-py-name: list
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreCollectionClientAsync#list
+post:
+  tags:
+    - Key-value stores/Store collection
+  summary: Create key-value store
+  description: |
+    Creates a key-value store and returns its object. The response is the same
+    object as returned by the [Get store](#/reference/key-value-stores/store-object/get-store)
+    endpoint.
+
+    Keep in mind that data stored under unnamed store follows [data retention
+    period](https://docs.apify.com/platform/storage#data-retention).
+
+    It creates a store with the given name if the parameter name is used.
+    If there is another store with the same name, the endpoint does not create a
+    new one and returns the existing object instead.
+  operationId: keyValueStores_post
+  parameters:
+    - name: name
+      in: query
+      description: Custom unique name to easily identify the store in the future.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: eshop-values
+  responses:
+    '201':
+      description: ''
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: 'https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF'
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/key-value-stores/CreateKeyValueStoreResponse.yaml
+          example:
+            data:
+              id: WkzbQMuFYuamGv3YF
+              name: d7b9MDYsbtX5L7XAj
+              userId: wRsJZtadYvn4mBZmm
+              createdAt: '2019-12-12T07:34:14.202Z'
+              modifiedAt: '2019-12-13T08:36:13.202Z'
+              accessedAt: '2019-12-14T08:36:13.202Z'
+              actId: null
+              actRunId: null
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/store-collection/create-key-value-store
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/create-key-value-store
+  x-js-parent: KeyValueStoreCollectionClient
+  x-js-name: getOrCreate
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreCollectionClient#getOrCreate
+  x-py-parent: KeyValueStoreCollectionClientAsync
+  x-py-name: get_or_create
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreCollectionClientAsync#get_or_create
