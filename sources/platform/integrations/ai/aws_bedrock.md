@@ -53,6 +53,7 @@ On the next screen, click Create agent to start building your agent.
 Enter a name and description for your agent.
 This will create a new agent and open the Agent Builder page.
 On this page, you can:
+
 - Select the LLM model to use.
 - Add knowledge bases.
 - Set up actions.
@@ -82,6 +83,7 @@ Actions can be created by either:
 - Using an OpenAPI schema, which will be implemented via a Lambda function.
 
 For this example, use the following settings:
+
 - Action type - Define with API schema
 - Action group invocation - Create a new Lambda function
 - Action group schema - Define via in-line editor
@@ -127,12 +129,12 @@ The agent will use the RAG Web Browser to gather relevant information and provid
 
 When integrating agent in AWS Bedrock, you may encounter some limitations and issues.
 
-* **Model access**: Ensure that you have access to the model you want to use in the agent. If you don't have access, you can request it from the model provider.
-* **Lambda function**: Ensure that the Lambda function is correctly implemented and deployed. Check the function logs for any errors.
-* **Environment variables**: Ensure that the `APIFY_API_TOKEN` is correctly set in the Lambda function.
-* **Memory and timeout**: Ensure that the Lambda function has enough memory and timeout to call the RAG Web Browser.
-* **Agent trace**: Use the agent trace view to debug the agent's reasoning and actions.
-* **Response Size**: AWS Bedrock enforces a 25KB limit on response bodies. Limit results and truncate text as needed to stay within this constraint.
+- **Model access**: Ensure that you have access to the model you want to use in the agent. If you don't have access, you can request it from the model provider.
+- **Lambda function**: Ensure that the Lambda function is correctly implemented and deployed. Check the function logs for any errors.
+- **Environment variables**: Ensure that the `APIFY_API_TOKEN` is correctly set in the Lambda function.
+- **Memory and timeout**: Ensure that the Lambda function has enough memory and timeout to call the RAG Web Browser.
+- **Agent trace**: Use the agent trace view to debug the agent's reasoning and actions.
+- **Response Size**: AWS Bedrock enforces a 25KB limit on response bodies. Limit results and truncate text as needed to stay within this constraint.
 
 ## Resources
 
