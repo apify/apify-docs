@@ -30,7 +30,7 @@ At the time of writing this lesson, Google Chrome is the most-used browser, and 
 
 :::
 
-![Wikipedia with Chrome DevTools open](./images/browser-devtools-wikipedia.png)
+![Wikipedia with Chrome DevTools open](./images/devtools-wikipedia.png)
 
 ## Selecting an element
 
