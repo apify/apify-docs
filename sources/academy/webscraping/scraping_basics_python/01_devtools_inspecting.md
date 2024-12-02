@@ -28,6 +28,34 @@ Let's peek behind the scenes of a real-world website, for example Wikipedia. Ope
 
 ![Wikipedia with Chrome DevTools open](./images/devtools-wikipedia.png)
 
+Websites are made of three major technologies: HTML, CSS, and JavaScript. In the **Elements** tab, DevTools show HTML and CSS of the page currently loaded:
+
+![Elements tab in Chrome DevTools](./images/devtools-elements-tab.png)
+
+Imagine [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML) as a firm frame which defines the structure of the page. Ordinary HTML element consists of an opening tag, closing tag, and attributes. Here is an `article` element with `id` attribute, which wraps `h1` and `p` elements, both containing text. Some of that text is emphasized by `em`.
+
+```html
+<article id="article-123">
+  <h1 class="heading">First Level Heading</h1>
+  <p>Paragraph with <em>emphasized text</em>.</p>
+</article>
+```
+
+The HTML, a markup language, describes how all the pieces are organized, how they relate to each other, and what's their meaning. It doesn't say anything about what should be their shape and looks. That's where [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS), or styles, come handy - it's the velvet covering for the frame. In styles, we can select elements and assign rules which instruct the browser about their looks. Here we select all elements with `heading` in their `class` attribute, and set their text to be blue and uppercase.
+
+```css
+.heading {
+  color: blue;
+  text-transform: uppercase;
+}
+```
+
+While HTML and CSS describe what should browser display, [JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) is a general-purpose programming language like Python, which allows the website creators to add interaction to the page.
+
+In DevTools, there is a **Console** tab, which gives access to ad-hoc experimenting with JavaScript. If you can't see it, hit the **ESC** key, which opens or closes the console. Running commands in the console can manipulate the loaded page-we'll soon do just that.
+
+![Console in Chrome DevTools](./images/devtools-console.png)
+
 ## Selecting an element
 
 ## Interacting with an element
