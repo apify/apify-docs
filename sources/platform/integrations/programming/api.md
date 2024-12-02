@@ -25,10 +25,8 @@ To access the Apify API in your integrations, you need to authenticate using you
 ![Integrations page in Apify Console](../images/api-token.png)
 
 :::caution
-
 Do not share the API token with untrusted parties, or use it directly from client-side code,
 unless you fully understand the consequences! You can also consider  [limiting the permission scope](#limited-permissions) of the token, so that it can only access what it really needs.
-
 :::
 
 ## Authentication
@@ -54,6 +52,10 @@ By default, tokens can access all data in your account. If that is not desirable
 
 **A scoped token can access only those resources that you'll explicitly allow it to.**
 
+:::info
+We currently do not allow scoped tokens to create or modify Actors. If you do need to create or modify Actors via Apify API, use an unscoped token.
+:::
+
 ### How to create a scoped token
 
 Scoped tokens behave like standard API tokens and are managed through the [Integrations](https://console.apify.com/settings/integrations) page in Apify Console. When creating a token (or updating an existing one), simply toggle "Limit token permissions" to make the token scoped.
@@ -71,9 +73,7 @@ We support two different types of permissions for tokens:
 - **Resource-specific permissions**: These will apply only to specific, existing resources. For example, you can use these to allow the token to read from a particular dataset.
 
 :::tip
-
 A single token can combine both types. You can create a token that can _read_ any data storage, but _write_ only to one specific key-value store.
-
 :::
 
 ![An example scoped token that combines account-level permissions and resource-specific permissions](../images/api-token-scoped-with-combining-permissions.png)
@@ -85,9 +85,7 @@ If you need to create new resources with the token (for example, create a new Ta
 Once you create a new resource with the token, _the token will gain full access to that resource_, regardless of other permissions. It is not possible to create a token that can create a dataset, but not write to it.
 
 :::tip
-
 This is useful if you want to for example create a token that can dynamically create & populate datasets, but without the need to access other datasets in your account.
-
 :::
 
 ### Permission dependencies
@@ -108,9 +106,7 @@ Other dependencies are more complicated, and **it is your responsibility that th
 - Similarly, to create or update a task, the token needs the additional permission to access the task's Actor itself.
 
 :::tip
-
 Let's say that you have an Actor and you want to programmatically create schedules for that Actor. Then you can create a token that has the account level _Create_ permission on schedules, but only the resource-specific _Run_ permission on the Actor. Such a token has exactly the permissions it needs, and nothing more.
-
 :::
 
 ### Actor execution
@@ -142,18 +138,16 @@ When you run an Actor with a scoped token in this mode, Apify will inject a toke
 
 This way you can be sure that Actors won't accidentally—or intentionally—access any data they shouldn't. However, Actors might not function properly if the scope is not sufficient.
 
-:::note
-The injected token also gets write access to its default storages, and to the run itself (for example, so that the Actor can abort itself). You don't need to configure this on your scoped token.
-:::
-
 :::tip
 This restriction is _transitive_, which means that if the Actor runs another Actor, its access will be restricted as well.
 :::
 
-#### Limitations
+#### Default run storages
 
+When Apify runs an Actor, it automatically creates a set of default storages (a dataset, a key-value store and request queue) that the Actor can use in runtime.
+
+- Regardless of mode, the injected token always gets write access to its default storages, and to the run itself (for example, so that the Actor can abort itself). You don't need to configure this on your scoped token.
 - If a scoped token can run an Actor, it gets **write access to default storages of the runs it triggered**. Moreover, it gets **read access to default storages of _all_ runs of that Actor**. If this is not desirable, change your Actor to output data into an existing named storage, or have it create a new storage.
-- **We currently do not allow scoped tokens to create or modify Actors**. If you do need to create or modify Actors via Apify API, use an unscoped token.
 
 ### Schedules
 
