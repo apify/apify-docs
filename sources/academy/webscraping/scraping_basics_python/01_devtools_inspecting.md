@@ -10,25 +10,21 @@ slug: /scraping-basics-python/devtools-inspecting
 
 ---
 
-Browser is the most complete program which can walk through websites. Scrapers are something like automated browsers and in some cases, they _are_ automated browsers. The only difference is that there is no user to tell where to navigate, and there are no eyes to see what has loaded. Everything must be predefined in the program.
+A browser is the most complete tool for navigating websites. Scrapers are like automated browsers—and sometimes, they actually are automated browsers. The key difference? There's no user to decide where to go or eyes to see what's displayed. Everything has to be pre-programmed.
 
-DevTools were made for website creators to debug their work. We'll use them to understand how websites are made and figure out behavior we'll need to teach our scraper. The scraper creator's workflow is the following:
+All modern browsers provide developer tools, or DevTools, for website developers to debug their work. We'll use them to understand how websites are structured and identify the behavior our scraper needs to mimic. Here's the typical workflow for creating a scraper:
 
-1. Inspect the target website in DevTools. See how it's made and in what ways our scraper can automatically extract the data we need.
-1. Translate our findings to code. Run the scraper.
-1. If we forgot about some corner cases or the website has changed, the scraper crashes. We repeat from 1. to accomodate necessary changes.
+1. Inspect the target website in DevTools to understand its structure and determine how to extract the required data.
+1. Translate those findings into code.
+1. If the scraper fails due to overlooked edge cases or, over time, due to website changes, go back to step 1.
+
+Now let's spend some time figuring out what the detective work from step 1 is about.
 
 ## Opening DevTools
 
-Every modern browser offers tools for developers, so called _DevTools_. Anyone can open them with a few keystrokes and see how any website is made.
+As of now, Google Chrome is the most popular browser, and many others use the same core. For that reason we'll focus on [Chrome DevTools](https://developer.chrome.com/docs/devtools) here, but the steps are similar in other browsers like Safari or Firefox.
 
-Open the Google Chrome browser and go to [Wikipedia](https://www.wikipedia.org/). Now press **F12** or right-click anywhere in the page and choose **Inspect**.
-
-:::info Browsers and DevTools
-
-At the time of writing this lesson, Google Chrome is the most-used browser, and many other niche browsers share the same core. That's why we'll focus on [Chrome DevTools](https://developer.chrome.com/docs/devtools) here, but the steps would be almost identical also in browsers using different cores, such as Safari or Firefox.
-
-:::
+Let's peek behind the scenes of a real-world website, for example Wikipedia. Open the Google Chrome browser and visit [wikipedia.org](https://www.wikipedia.org/). Press **F12**, or right-click anywhere on the page and select **Inspect**.
 
 ![Wikipedia with Chrome DevTools open](./images/devtools-wikipedia.png)
 
