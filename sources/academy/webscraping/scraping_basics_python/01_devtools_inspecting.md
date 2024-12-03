@@ -24,23 +24,23 @@ Now let's spend some time figuring out what the detective work from step 1 is ab
 
 ## Opening DevTools
 
-As of now, Google Chrome is the most popular browser, and many others use the same core. For that reason we'll focus on [Chrome DevTools](https://developer.chrome.com/docs/devtools) here, but the steps are similar in other browsers like Safari ([Web Inspector](https://developer.apple.com/documentation/safari-developer-tools/web-inspector)) or Firefox ([DevTools](https://firefox-source-docs.mozilla.org/devtools-user/)).
+Google Chrome is currently the most popular browser, and many others use the same core. That's why we'll focus on [Chrome DevTools](https://developer.chrome.com/docs/devtools) here. However, the steps are similar in other browsers like Safari ([Web Inspector](https://developer.apple.com/documentation/safari-developer-tools/web-inspector)) or Firefox ([DevTools](https://firefox-source-docs.mozilla.org/devtools-user/)).
 
-Let's peek behind the scenes of a real-world website, for example Wikipedia. Open the Google Chrome browser and visit [wikipedia.org](https://www.wikipedia.org/). Press **F12**, or right-click anywhere on the page and select **Inspect**.
+Let's peek behind the scenes of a real-world website—say, Wikipedia. Open Google Chrome and visit [wikipedia.org](https://www.wikipedia.org/). Press **F12**, or right-click anywhere on the page and select **Inspect**.
 
 ![Wikipedia with Chrome DevTools open](./images/devtools-wikipedia.png)
 
-Websites are made of three major technologies: HTML, CSS, and JavaScript. In the **Elements** tab, DevTools show HTML and CSS of the page currently loaded:
+Websites are built with three main technologies: HTML, CSS, and JavaScript. In the **Elements** tab, DevTools shows the HTML and CSS of the current page:
 
 ![Elements tab in Chrome DevTools](./images/devtools-elements-tab.png)
 
 :::warning Screen adaptations
 
-On narrow or low-resolution screens, DevTools might appear in a different configuration. For example, the section with CSS styles might appear below the HTML elements instead of in the right pane.
+On smaller or low-resolution screens, DevTools might look different. For example, the CSS styles section might appear below the HTML elements instead of in the right pane.
 
 :::
 
-Imagine [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML) as a firm frame which defines the structure of the page. Ordinary HTML element consists of an opening tag, closing tag, and attributes. Here is an `article` element with `id` attribute, which wraps `h1` and `p` elements, both containing text. Some of that text is emphasized by `em`.
+Think of [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML) as the frame that defines a page's structure. A basic HTML element includes an opening tag, a closing tag, and attributes. Here's an `article` element with an `id` attribute. It wraps `h1` and `p` elements, both containing text. Some text is emphasized using `em`.
 
 ```html
 <article id="article-123">
@@ -49,7 +49,7 @@ Imagine [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML) as a firm fr
 </article>
 ```
 
-The HTML, a markup language, describes how all the pieces are organized, how they relate to each other, and what's their meaning. It doesn't say anything about what should be their shape and looks. That's where [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS), or styles, come handy - it's the velvet covering for the frame. In styles, we can select elements and assign rules which instruct the browser about their looks. Here we select all elements with `heading` in their `class` attribute, and set their text to be blue and uppercase.
+HTML, a markup language, describes how everything on a page is organized, how elements relate to each other, and what they mean. It doesn't define how elements should look—that's where [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS) comes in. CSS is like the velvet covering the frame. Using styles, we can select elements and assign rules that tell the browser how they should appear. For instance, we can style all elements with `heading` in their `class` attribute to make the text blue and uppercase.
 
 ```css
 .heading {
@@ -58,23 +58,23 @@ The HTML, a markup language, describes how all the pieces are organized, how the
 }
 ```
 
-While HTML and CSS describe what should browser display, [JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) is a general-purpose programming language like Python, which allows the website creators to add interaction to the page.
+While HTML and CSS describe what the browser should display, [JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) is a general-purpose programming language that adds interaction to the page.
 
-In DevTools, there is a **Console** tab, which gives access to ad-hoc experimenting with JavaScript. If you can't see it, hit the **ESC** key, which opens or closes the console. Running commands in the console can manipulate the loaded page-we'll soon do just that.
+In DevTools, the **Console** tab allows ad-hoc experimenting with JavaScript. If you don't see it, press **ESC** to toggle the Console. Running commands in the Console lets you manipulate the loaded page—we’ll try this shortly.
 
 ![Console in Chrome DevTools](./images/devtools-console.png)
 
 ## Selecting an element
 
-In the top left corner of DevTools, find the icon with an arrow pointing to a square.
+In the top-left corner of DevTools, find the icon with an arrow pointing to a square.
 
 ![Chrome DevTools element selection tool](./images/devtools-element-selection.png)
 
-Hit the icon and hover your cursor over Wikipedia's subtitle, **The Free Encyclopedia**. As you move, DevTools will show you information about the HTML element under your cursor. Click on the subtitle. In the **Elements** tab, DevTools will highlight the HTML element which represents the subtitle.
+Click the icon and hover your cursor over Wikipedia's subtitle, **The Free Encyclopedia**. As you move your cursor, DevTools will display information about the HTML element under it. Click on the subtitle. In the **Elements** tab, DevTools will highlight the HTML element that represents the subtitle.
 
 ![Chrome DevTools element hover](./images/devtools-hover.png)
 
-The highlighted part should look something like this:
+The highlighted section should look something like this:
 
 ```html
 <strong class="jsl10n localized-slogan" data-jsl10n="portal.slogan">
@@ -82,11 +82,11 @@ The highlighted part should look something like this:
 </strong>
 ```
 
-If we were experienced creators of scrapers, our eyes would immediately see what's needed if we wanted to have a program which fetches Wikipedia's subtitle. It would need to download the source code of the page, find a `strong` element with `localized-slogan` in its `class` attribute, and extract its text.
+If we were experienced creators of scrapers, our eyes would immediately spot what's needed to make a program that fetches Wikipedia's subtitle. The program would need to download the page's source code, find a `strong` element with `localized-slogan` in its `class` attribute, and extract its text.
 
 :::tip HTML and whitespace
 
-In HTML, whitespace isn't significant, i.e. it only makes the code readable. The following code snippets represent the same:
+In HTML, whitespace isn't significant, i.e., it only makes the code readable. The following code snippets are equivalent:
 
 ```html
 <strong>
@@ -106,13 +106,13 @@ Encyclopedia
 
 We won't be creating Python scrapers just yet. Let's first get familiar with what we can do in the JavaScript console and how we can further interact with HTML elements on the page.
 
-In the **Elements** tab with the subtitle element highlighted, right-click the element to open the context menu. There, choose **Store as global variable**. The **Console** should appear, with a `temp1` variable ready.
+In the **Elements** tab, with the subtitle element highlighted, right-click the element to open the context menu. There, choose **Store as global variable**. The **Console** should appear, with a `temp1` variable ready.
 
 ![Global variable in Chrome DevTools Console](./images/devtools-console-variable.png)
 
 The Console allows us to run JavaScript in the context of the loaded page, similar to Python's [interactive REPL](https://realpython.com/interacting-with-python/). We can use it to play around with elements.
 
-For a start, let's access some subtitle's properties. One such property is `textContent`, which contains the text inside the HTML element. The last line in the Console is where your cursor for writing is. Type the following and hit **Enter**:
+For a start, let's access some of the subtitle's properties. One such property is `textContent`, which contains the text inside the HTML element. The last line in the Console is where your cursor is. Type the following and hit **Enter**:
 
 ```js
 temp1.textContent;
@@ -124,19 +124,19 @@ The result should be `'The Free Encyclopedia'`. Now try this:
 temp1.outerHTML;
 ```
 
-You should get the element's HTML tag as a string. Finally, run the next line to change the text of the element:
+This should return the element's HTML tag as a string. Finally, run the next line to change the text of the element:
 
 ```js
 temp1.textContent = 'Hello World!';
 ```
 
-Changing elements in the Console also changes them on the page!
+When you change elements in the Console, those changes reflect immediately on the page!
 
 ![Changing textContent in Chrome DevTools Console](./images/devtools-console-textcontent.png)
 
-But don't worry, you haven't hacked Wikipedia. The change only happens in your browser. If you reload the page, our change will be gone. This, however, is an easy way how anyone can craft a screenshot with any content-so screenshots are not to be trusted as a source of evidence.
+But don't worry—you haven't hacked Wikipedia. The change only happens in your browser. If you reload the page, your change will disappear. This, however, is an easy way to craft a screenshot with fake content—so screenshots shouldn't be trusted as evidence.
 
-We're not here for playing around with elements though-we want to create a scraper for an e-commerce website to watch prices. In the next lesson, we'll take a look at the website and use CSS selectors to locate HTML elements containing the data we need.
+We're not here for playing around with elements, though—we want to create a scraper for an e-commerce website to watch prices. In the next lesson, we'll examine the website and use CSS selectors to locate HTML elements containing the data we need.
 
 ---
 
@@ -144,7 +144,7 @@ We're not here for playing around with elements though-we want to create a scrap
 
 ### Find FIFA logo
 
-Open the [FIFA website](https://www.fifa.com/) and use the DevTools to figure out URL of the FIFA's logo image file. Hint: You're looking for an [`img`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element with a `src` attribute.
+Open the [FIFA website](https://www.fifa.com/) and use the DevTools to figure out the URL of FIFA's logo image file. Hint: You're looking for an [`img`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element with a `src` attribute.
 
 <details>
   <summary>Solution</summary>
@@ -152,7 +152,7 @@ Open the [FIFA website](https://www.fifa.com/) and use the DevTools to figure ou
   1. Go to [fifa.com](https://www.fifa.com/).
   1. Activate the element selection tool.
   1. Click on the logo.
-  1. Send the higlighted element to the **Console** using the **Store as global variable** option from the context menu.
+  1. Send the highlighted element to the **Console** using the **Store as global variable** option from the context menu.
   1. In the console, type `temp1.src` and hit **Enter**.
 
   ![DevTools exercise result](./images/devtools-exercise-fifa.png)
@@ -161,15 +161,15 @@ Open the [FIFA website](https://www.fifa.com/) and use the DevTools to figure ou
 
 ### Make your own news
 
-Open a news website, such as the [CNN](https://cnn.com). Use the Console to change headings of some of the articles.
+Open a news website, such as [CNN](https://cnn.com). Use the Console to change the headings of some articles.
 
 <details>
   <summary>Solution</summary>
 
   1. Go to [cnn.com](https://cnn.com).
   1. Activate the element selection tool.
-  1. Click on the heading.
-  1. Send the higlighted element to the **Console** using the **Store as global variable** option from the context menu.
+  1. Click on a heading.
+  1. Send the highlighted element to the **Console** using the **Store as global variable** option from the context menu.
   1. In the console, type `temp1.textContent = 'Something something'` and hit **Enter**.
 
   ![DevTools exercise result](./images/devtools-exercise-cnn.png)
