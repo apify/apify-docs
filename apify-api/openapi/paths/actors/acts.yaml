@@ -94,6 +94,12 @@ get:
   x-py-parent: ActorCollectionClientAsync
   x-py-name: list
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorCollectionClientAsync#list
+  x-codeSamples:
+    - lang: JavaScript
+      label: JS client
+      source:
+        $ref: ../../code_samples/js/acts_get.js
+
 post:
   tags:
     - Actors/Actor collection
