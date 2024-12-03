@@ -53,7 +53,7 @@ By default, tokens can access all data in your account. If that is not desirable
 **A scoped token can access only those resources that you'll explicitly allow it to.**
 
 :::info
-We currently do not allow scoped tokens to create or modify Actors. If you do need to create or modify Actors via Apify API, use an unscoped token.
+We do not allow scoped tokens to create or modify Actors. If you do need to create or modify Actors through Apify API, use an unscoped token.
 :::
 
 ### How to create a scoped token
@@ -144,7 +144,7 @@ This restriction is _transitive_, which means that if the Actor runs another Act
 
 #### Default run storages
 
-When Apify runs an Actor, it automatically creates a set of default storages (a dataset, a key-value store and request queue) that the Actor can use in runtime.
+When Apify [runs an Actor](/platform/actors/running/runs-and-builds#runs), it automatically creates a set of default storages (a dataset, a key-value store and request queue) that the Actor can use in runtime.
 
 - Regardless of mode, the injected token always gets write access to its default storages, and to the run itself (for example, so that the Actor can abort itself). You don't need to configure this on your scoped token.
 - If a scoped token can run an Actor, it gets **write access to default storages of the runs it triggered**. Moreover, it gets **read access to default storages of _all_ runs of that Actor**. If this is not desirable, change your Actor to output data into an existing named storage, or have it create a new storage.
