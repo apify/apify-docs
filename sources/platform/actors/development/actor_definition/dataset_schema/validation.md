@@ -70,7 +70,7 @@ Or in a separate separate file like this:
 
 :::important
 
-The `$schema` line is important and must be exactly this value or it must be omitted:
+Dataset schema needs to be a valid JSON schema draft-07, so the `$schema` line is important and must be exactly this value or it must be omitted:
 
 `"$schema": "http://json-schema.org/draft-07/schema#"`
 
