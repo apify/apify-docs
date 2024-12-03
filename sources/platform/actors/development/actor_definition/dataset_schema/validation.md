@@ -114,7 +114,7 @@ try {
 }
 ```
 
-## Examples
+## Examples of common types of validation
 
 Optional field (price is optional in this case):
 
