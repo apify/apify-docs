@@ -64,6 +64,42 @@ In DevTools, there is a **Console** tab, which gives access to ad-hoc experiment
 
 ## Selecting an element
 
+In the top left corner of DevTools, find the icon with an arrow pointing to a square.
+
+![Chrome DevTools element selection tool](./images/devtools-element-selection.png)
+
+Hit the icon and hover your cursor over Wikipedia's subtitle, **The Free Encyclopedia**. As you move, DevTools will show you information about the HTML element under your cursor. Click on the subtitle. In the **Elements** tab, DevTools will highlight the HTML element which represents the subtitle.
+
+![Chrome DevTools element hover](./images/devtools-hover.png)
+
+The highlighted part should look something like this:
+
+```html
+<strong class="jsl10n localized-slogan" data-jsl10n="portal.slogan">
+  The Free Encyclopedia
+</strong>
+```
+
+If we were experienced creators of scrapers, our eyes would immediately see what's needed if we wanted to have a program which fetches Wikipedia's subtitle. It would need to download the source code of the page, find a `strong` element with `localized-slogan` in its `class` attribute, and extract its text.
+
+:::tip HTML and whitespace
+
+In HTML, whitespace isn't significant, i.e. it only makes the code readable. The following code snippets represent the same:
+
+```html
+<strong>
+  The Free Encyclopedia
+</strong>
+```
+
+```html
+  <strong>The Free
+Encyclopedia
+</strong>
+```
+
+:::
+
 ## Interacting with an element
 
 :::danger Work in Progress
