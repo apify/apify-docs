@@ -32,6 +32,12 @@ Websites are made of three major technologies: HTML, CSS, and JavaScript. In the
 
 ![Elements tab in Chrome DevTools](./images/devtools-elements-tab.png)
 
+:::warning Screen adaptations
+
+On narrow or low-resolution screens, DevTools might appear in a different configuration. For example, the section with CSS styles might appear below the HTML elements instead of in the right pane.
+
+:::
+
 Imagine [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML) as a firm frame which defines the structure of the page. Ordinary HTML element consists of an opening tag, closing tag, and attributes. Here is an `article` element with `id` attribute, which wraps `h1` and `p` elements, both containing text. Some of that text is emphasized by `em`.
 
 ```html
