@@ -6,6 +6,8 @@ sidebar_position: 1
 slug: /scraping-basics-python/devtools-inspecting
 ---
 
+import Exercises from './_exercises.mdx';
+
 **In this lesson we'll use the browser tools for developers to inspect and manipulate the structure of an e-commerce website.**
 
 ---
@@ -102,8 +104,74 @@ Encyclopedia
 
 ## Interacting with an element
 
-:::danger Work in Progress
+We won't be creating Python scrapers just yet. Let's first get familiar with what we can do in the JavaScript console and how we can further interact with HTML elements on the page.
 
-This lesson is under development. Please read [Starting with browser DevTools](../scraping_basics_javascript/data_extraction/browser_devtools.md) in the meantime so you can follow the upcoming lessons.
+In the **Elements** tab with the subtitle element highlighted, right-click the element to open the context menu. There, choose **Store as global variable**. The **Console** should appear, with a `temp1` variable ready.
 
-:::
+![Global variable in Chrome DevTools Console](./images/devtools-console-variable.png)
+
+The Console allows us to run JavaScript in the context of the loaded page, similar to Python's [interactive REPL](https://realpython.com/interacting-with-python/). We can use it to play around with elements.
+
+For a start, let's access some subtitle's properties. One such property is `textContent`, which contains the text inside the HTML element. The last line in the Console is where your cursor for writing is. Type the following and hit **Enter**:
+
+```js
+temp1.textContent;
+```
+
+The result should be `'The Free Encyclopedia'`. Now try this:
+
+```js
+temp1.outerHTML;
+```
+
+You should get the element's HTML tag as a string. Finally, run the next line to change the text of the element:
+
+```js
+temp1.textContent = 'Hello World!';
+```
+
+Changing elements in the Console also changes them on the page!
+
+![Changing textContent in Chrome DevTools Console](./images/devtools-console-textcontent.png)
+
+But don't worry, you haven't hacked Wikipedia. The change only happens in your browser. If you reload the page, our change will be gone. This, however, is an easy way how anyone can craft a screenshot with any content-so screenshots are not to be trusted as a source of evidence.
+
+We're not here for playing around with elements though-we want to create a scraper for an e-commerce website to watch prices. In the next lesson, we'll take a look at the website and use CSS selectors to locate HTML elements containing the data we need.
+
+---
+
+<Exercises />
+
+### Find FIFA logo
+
+Open the [FIFA website](https://www.fifa.com/) and use the DevTools to figure out URL of the FIFA's logo image file. Hint: You're looking for an [`img`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element with a `src` attribute.
+
+<details>
+  <summary>Solution</summary>
+
+  1. Go to [fifa.com](https://www.fifa.com/).
+  1. Activate the element selection tool.
+  1. Click on the logo.
+  1. Send the higlighted element to the **Console** using the **Store as global variable** option from the context menu.
+  1. In the console, type `temp1.src` and hit **Enter**.
+
+  ![DevTools exercise result](./images/devtools-exercise-fifa.png)
+
+</details>
+
+### Make your own news
+
+Open a news website, such as the [CNN](https://cnn.com). Use the Console to change headings of some of the articles.
+
+<details>
+  <summary>Solution</summary>
+
+  1. Go to [cnn.com](https://cnn.com).
+  1. Activate the element selection tool.
+  1. Click on the heading.
+  1. Send the higlighted element to the **Console** using the **Store as global variable** option from the context menu.
+  1. In the console, type `temp1.textContent = 'Something something'` and hit **Enter**.
+
+  ![DevTools exercise result](./images/devtools-exercise-cnn.png)
+
+</details>
