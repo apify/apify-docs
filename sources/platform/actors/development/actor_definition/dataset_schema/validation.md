@@ -200,7 +200,7 @@ Define specific fields, but allow anything else to be added to the item:
 
 See [json schema reference](https://json-schema.org/understanding-json-schema/reference) for additional options.
 
-Example of schema generator [here](https://www.liquid-technologies.com/online-json-to-schema-converter).
+You can also use [conversion tools](https://www.liquid-technologies.com/online-json-to-schema-converter) to convert an existing JSON document into it's JSON schema.
 
 # Dataset field statistics
 
