@@ -143,6 +143,25 @@ post:
               actId: null
               actRunId: null
               fields: []
+    '400':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: >-
+                  ../../components/schemas/datasets/Createdatasetresponseerror.yaml
+              - example:
+                  error:
+                    type: schema-validation-error
+                    message: >-
+                      Schema validation failed
+          example:
+            error:
+              type: schema-validation-error
+              message: >-
+                Schema validation failed
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset-collection/create-dataset

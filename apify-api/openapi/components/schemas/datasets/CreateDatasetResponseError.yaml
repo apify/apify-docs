@@ -1,0 +1,9 @@
+title: Createdatasetresponseerror
+required:
+  - error
+type: object
+properties:
+  error:
+    allOf:
+      - $ref: ./errorDataset.yaml
+      - {}

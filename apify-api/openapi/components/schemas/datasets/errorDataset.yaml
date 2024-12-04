@@ -1,0 +1,12 @@
+title: error
+required:
+  - type
+  - message
+type: object
+properties:
+  type:
+    type: string
+    example: schema-validation-error
+  message:
+    type: string
+    example: 'Schema validation failed'
