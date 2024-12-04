@@ -1,4 +1,4 @@
-title: Createdatasetresponseerror
+title: PutItemResponseError
 required:
   - error
 type: object
