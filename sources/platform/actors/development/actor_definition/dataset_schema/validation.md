@@ -22,7 +22,7 @@ The schema defines a single item in the dataset. Be careful not to define the sc
 
 :::
 
-You can either do that directly through `actor.json` like this:
+You can either do that directly through `actor.json`:
 
 ```json title=".actor.json"
 {
