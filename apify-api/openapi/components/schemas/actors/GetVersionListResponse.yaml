@@ -1,0 +1,19 @@
+title: GetVersionListResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    type: object
+    required:
+      - total
+      - items
+    properties:
+      total:
+        type: number
+        example: 5
+      items:
+        type: array
+        items:
+          $ref: "./Version.yaml"
+        description: ''

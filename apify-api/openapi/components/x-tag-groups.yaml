@@ -1,0 +1,109 @@
+- name: Actors
+  tags:
+  - Actors
+  - Actors/Actor collection
+  - Actors/Actor object
+  - Actors/Version collection
+  - Actors/Version object
+  - Actors/Environment variable collection
+  - Actors/Environment variable object
+  - Actors/Webhook collection
+  - Actors/Build collection
+  - Actors/Build object
+  - Actors/Abort build
+  - Actors/Run collection
+  - Actors/Run actor synchronously
+  - Actors/Run Actor synchronously and get dataset items
+  - Actors/Run object
+  - Actors/Abort run
+  - Actors/Metamorph run
+  - Actors/Resurrect run
+  - Actors/Last run object and its storages
+- name: Actor tasks
+  tags:
+  - Actor tasks
+  - Actor tasks/Task collection
+  - Actor tasks/Task object
+  - Actor tasks/Task input object
+  - Actor tasks/Webhook collection
+  - Actor tasks/Run collection
+  - Actor tasks/Run task synchronously
+  - Actor tasks/Run task synchronously and get dataset items
+  - Actor tasks/Last run object and its storages
+- name: Actor runs
+  tags:
+  - Actor runs
+  - Actor runs/Run collection
+  - Actor runs/Run object and its storages
+  - Actor runs/Delete run
+  - Actor runs/Abort run
+  - Actor runs/Metamorph run
+  - Actor runs/Reboot run
+  - Actor runs/Resurrect run
+  - Actor runs/Update status message
+- name: Actor builds
+  tags:
+  - Actor builds
+  - Actor builds/Build collection
+  - Actor builds/Build object
+  - Actor builds/Delete build
+  - Actor builds/Abort build
+  - Actor builds/Build log
+- name: Key-value stores
+  tags:
+  - Key-value stores
+  - Key-value stores/Store collection
+  - Key-value stores/Store object
+  - Key-value stores/Key collection
+  - Key-value stores/Record
+- name: Datasets
+  tags:
+  - Datasets
+  - Datasets/Dataset collection
+  - Datasets/Dataset
+  - Datasets/Item collection
+- name: Request queues
+  tags:
+  - Request queues
+  - Request queues/Queue collection
+  - Request queues/Queue
+  - Request queues/Request collection
+  - Request queues/Request
+  - Request queues/Request lock
+  - Request queues/Queue head
+  - Request queues/Queue head with locks
+  - Request queues/Batch request operations
+- name: Webhooks
+  tags:
+  - Webhooks
+  - Webhooks/Webhook collection
+  - Webhooks/Webhook object
+  - Webhooks/Webhook test
+  - Webhooks/Dispatches collection
+- name: Webhook dispatches
+  tags:
+  - Webhook dispatches
+  - Webhook dispatches/Webhook dispatches collection
+  - Webhook dispatches/Webhook dispatch object
+- name: Schedules
+  tags:
+  - Schedules
+  - Schedules/Schedules collection
+  - Schedules/Schedule object
+  - Schedules/Schedule log
+- name: Store
+  tags:
+  - Store
+  - Store/Store Actors collection
+- name: Logs
+  tags:
+  - Logs
+  - Logs/Log
+- name: Users
+  tags:
+  - Users
+  - Users/Public data
+  - Users/Private data
+  - Users/Monthly usage
+  - Users/Account and usage limits
+

@@ -1,0 +1,64 @@
+post:
+  tags:
+    - Actors/Abort build
+  summary: Abort build
+  description: |
+    **[DEPRECATED]** API endpoints related to build of the Actor were moved
+    under new namespace [`actor-builds`](#/reference/actor-builds). Aborts an
+    Actor build and returns an object that contains all the details about the
+    build.
+
+    Only builds that are starting or running are aborted. For builds with status
+    `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call does nothing.
+  operationId: act_build_abort_post
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: buildId
+      in: path
+      description: Build ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: 3KH8gEpp4d8uQSe8T
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actor-builds/PostAbortBuildResponse.yaml"
+          example:
+            data:
+              id: HG7ML7M8z78YcAPEB
+              actId: janedoe~my-actor
+              userId: klmdEpoiojmdEMlk3
+              startedAt: '2019-11-30T07:34:24.202Z'
+              finishedAt: '2019-12-12T09:30:12.202Z'
+              status: ABORTED
+              meta:
+                origin: WEB
+              stats:
+                durationMillis: 1000
+                runTimeSecs: 5.718
+              options:
+                useCache: false
+                memoryMbytes: 1024
+                diskMbytes: 2048
+              usage:
+                ACTOR_COMPUTE_UNITS: 0.08
+              usageTotalUsd: 0.02
+              usageUsd:
+                ACTOR_COMPUTE_UNITS: 0.02
+  deprecated: true
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/abort-build/abort-build
+    - https://docs.apify.com/api/v2#/reference/actors/abort-build

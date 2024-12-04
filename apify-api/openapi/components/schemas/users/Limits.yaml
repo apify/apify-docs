@@ -1,0 +1,48 @@
+title: Limits
+required:
+  - maxMonthlyUsageUsd
+  - maxMonthlyActorComputeUnits
+  - maxMonthlyExternalDataTransferGbytes
+  - maxMonthlyProxySerps
+  - maxMonthlyResidentialProxyGbytes
+  - maxActorMemoryGbytes
+  - maxActorCount
+  - maxActorTaskCount
+  - maxConcurrentActorJobs
+  - maxTeamAccountSeatCount
+  - dataRetentionDays
+type: object
+properties:
+  maxMonthlyUsageUsd:
+    type: number
+    example: 300
+  maxMonthlyActorComputeUnits:
+    type: number
+    example: 1000
+  maxMonthlyExternalDataTransferGbytes:
+    type: number
+    example: 7
+  maxMonthlyProxySerps:
+    type: number
+    example: 50
+  maxMonthlyResidentialProxyGbytes:
+    type: number
+    example: 0.5
+  maxActorMemoryGbytes:
+    type: number
+    example: 16
+  maxActorCount:
+    type: number
+    example: 100
+  maxActorTaskCount:
+    type: number
+    example: 1000
+  maxConcurrentActorJobs:
+    type: number
+    example: 256
+  maxTeamAccountSeatCount:
+    type: number
+    example: 9
+  dataRetentionDays:
+    type: number
+    example: 90

@@ -1,0 +1,70 @@
+title: Webhook
+required:
+  - id
+  - createdAt
+  - modifiedAt
+  - userId
+  - eventTypes
+  - condition
+  - ignoreSslErrors
+  - requestUrl
+type: object
+properties:
+  id:
+    type: string
+    example: YiKoxjkaS9gjGTqhF
+  createdAt:
+    type: string
+    example: '2019-12-12T07:34:14.202Z'
+  modifiedAt:
+    type: string
+    example: '2019-12-13T08:36:13.202Z'
+  userId:
+    type: string
+    example: wRsJZtadYvn4mBZmm
+  isAdHoc:
+    type: boolean
+    nullable: true
+    example: false
+  shouldInterpolateStrings:
+    type: boolean
+    nullable: true
+    example: false
+  eventTypes:
+    type: array
+    items:
+      type: string
+    example:
+      - ACTOR.RUN.SUCCEEDED
+  condition:
+    $ref: ./WebhookCondition.yaml
+  ignoreSslErrors:
+    type: boolean
+    example: false
+  doNotRetry:
+    type: boolean
+    nullable: true
+    example: false
+  requestUrl:
+    type: string
+    example: 'http://example.com/'
+  payloadTemplate:
+    type: string
+    nullable: true
+    example: '{\n \"userId\": {{userId}}...'
+  headersTemplate:
+    type: string
+    nullable: true
+    example: '{\n \"Authorization\": Bearer...'
+  description:
+    type: string
+    nullable: true
+    example: this is webhook description
+  lastDispatch:
+    nullable: true
+    allOf: # This allOf is needed to display the nullable properly
+      - $ref: ./ExampleWebhookDispatch.yaml
+  stats:
+    nullable: true
+    allOf:
+      - $ref: ./WebhookStats.yaml

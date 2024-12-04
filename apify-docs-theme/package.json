@@ -1,6 +1,6 @@
 {
     "name": "@apify/docs-theme",
-    "version": "1.0.143",
+    "version": "1.0.145",
     "description": "",
     "main": "./src/index.js",
     "files": [
@@ -20,7 +20,7 @@
     },
     "dependencies": {
         "@apify/docs-search-modal": "^1.1.1",
-        "@docusaurus/theme-common": "^3.5.2",
+        "@docusaurus/theme-common": "3.6.3",
         "@stackql/docusaurus-plugin-hubspot": "^1.1.0",
         "axios": "^1.7.4",
         "babel-loader": "^9.1.3",

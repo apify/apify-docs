@@ -1,0 +1,124 @@
+post:
+  tags:
+    - Request queues/Queue head with locks
+  summary: Get head and lock
+  description: |
+    Returns the given number of first requests from the queue and locks them for
+    the given time.
+
+    If this endpoint locks the request, no other client will be able to get and
+    lock these requests.
+
+
+    The response contains the `hadMultipleClients` boolean field which indicates
+    that the queue was accessed by more than one client (with unique or empty
+    `clientKey`).
+  operationId: requestQueue_head_lock_post
+  parameters:
+    - name: queueId
+      in: path
+      description: Queue ID or `username~queue-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: lockSecs
+      in: query
+      description: How long the requests will be locked for (in seconds).
+      required: true
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 60
+    - name: limit
+      in: query
+      description: How many items from the queue should be returned.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 25
+        maximum: 25
+    - name: clientKey
+      in: query
+      description: |
+        A unique identifier of the client accessing the request queue. It must
+        be a string between 1 and 32 characters long.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: client-abc
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../../components/schemas/request-queues/GetHeadAndLockResponse.yaml
+              - example:
+                  data:
+                    limit: 3
+                    queueModifiedAt: '2018-03-14T23:00:00.000Z'
+                    hadMultipleClients: true
+                    lockSecs: 60
+                    items:
+                      - id: 8OamqXBCpPHxyj9
+                        retryCount: 0
+                        uniqueKey: 'http://example.com'
+                        url: 'http://example.com'
+                        method: GET
+                        lockExpiresAt: '2022-06-14T23:00:00.000Z'
+                      - id: 8OamqXBCpPHxyx9
+                        retryCount: 0
+                        uniqueKey: 'http://example.com/a'
+                        url: 'http://example.com/a'
+                        method: GET
+                        lockExpiresAt: '2022-06-14T23:00:00.000Z'
+                      - id: 8OamqXBCpPHxy08
+                        retryCount: 0
+                        uniqueKey: 'http://example.com/a/b'
+                        url: 'http://example.com/a/b'
+                        method: GET
+                        lockExpiresAt: '2022-06-14T23:00:00.000Z'
+          example:
+            data:
+              limit: 3
+              queueModifiedAt: '2018-03-14T23:00:00.000Z'
+              hadMultipleClients: true
+              lockSecs: 60
+              items:
+                - id: 8OamqXBCpPHxyj9
+                  retryCount: 0
+                  uniqueKey: 'http://example.com'
+                  url: 'http://example.com'
+                  method: GET
+                  lockExpiresAt: '2022-06-14T23:00:00.000Z'
+                - id: 8OamqXBCpPHxyx9
+                  retryCount: 0
+                  uniqueKey: 'http://example.com/a'
+                  url: 'http://example.com/a'
+                  method: GET
+                  lockExpiresAt: '2022-06-14T23:00:00.000Z'
+                - id: 8OamqXBCpPHxy08
+                  retryCount: 0
+                  uniqueKey: 'http://example.com/a/b'
+                  url: 'http://example.com/a/b'
+                  method: GET
+                  lockExpiresAt: '2022-06-14T23:00:00.000Z'
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/queue-head-with-locks/get-head-and-lock
+    - https://docs.apify.com/api/v2#/reference/request-queues/get-head-and-lock
+  x-js-parent: RequestQueueClient
+  x-js-name: listAndLockHead
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#listAndLockHead
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: list_and_lock_head
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#list_and_lock_head

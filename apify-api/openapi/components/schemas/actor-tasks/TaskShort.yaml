@@ -1,0 +1,46 @@
+title: TaskShort
+required:
+  - id
+  - userId
+  - actId
+  - actName
+  - name
+  - actUsername
+  - createdAt
+  - modifiedAt
+type: object
+properties:
+  id:
+    type: string
+    example: zdc3Pyhyz3m8vjDeM
+  userId:
+    type: string
+    example: wRsJZtadYvn4mBZmm
+  actId:
+    type: string
+    example: asADASadYvn4mBZmm
+  actName:
+    type: string
+    example: my-actor
+  name:
+    type: string
+    example: my-task
+  username:
+    type: string
+    nullable: true
+    example: janedoe
+  actUsername:
+    type: string
+    example: janedoe
+  createdAt:
+    type: string
+    example: '2018-10-26T07:23:14.855Z'
+  modifiedAt:
+    type: string
+    example: '2018-10-26T13:30:49.578Z'
+  stats:
+    allOf:
+      - oneOf:
+          - nullable: true
+          - $ref: ./TaskStats.yaml
+      - {}

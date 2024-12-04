@@ -1,0 +1,16 @@
+title: ProxyGroup
+required:
+    - name
+    - description
+    - availableCount
+type: object
+properties:
+  name:
+    type: string
+    example: Group1
+  description:
+    type: string
+    example: Group1 description
+  availableCount:
+    type: number
+    example: 10

@@ -1,0 +1,11 @@
+title: UserPublicInfo
+required:
+  - username
+  - profile
+type: object
+properties:
+  username:
+    type: string
+    example: d7b9MDYsbtX5L7XAj
+  profile:
+    $ref: ./Profile.yaml

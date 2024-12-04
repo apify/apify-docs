@@ -1,0 +1,229 @@
+get:
+  tags:
+    - Request queues/Request collection
+  summary: List requests
+  description: |
+    Returns a list of requests. This endpoint is paginated using
+    exclusiveStartId and limit parameters.
+  operationId: requestQueue_requests_get
+  parameters:
+    - name: queueId
+      in: path
+      description: Queue ID or `username~queue-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: clientKey
+      in: query
+      description: |
+        A unique identifier of the client accessing the request queue. It must
+        be a string between 1 and 32 characters long. This identifier is used to
+        determine whether the queue was accessed by multiple clients. If
+        `clientKey` is not provided,
+
+        the system considers this API call to come from a new client. For
+        details, see the `hadMultipleClients` field returned by the [Get
+        head](#/reference/request-queues/queue-head) operation.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: client-abc
+    - name: exclusiveStartId
+      in: query
+      description: All requests up to this one (including) are skipped from the result.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: Ihnsp8YrvJ8102Kj
+    - name: limit
+      in: query
+      description: Number of keys to be returned. Maximum value is `10000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 100
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../../components/schemas/request-queues/ListRequestsResponse.yaml
+              - example:
+                  data:
+                    items:
+                      - id: dnjkDMKLmdlkmlkmld
+                        retryCount: 0
+                        uniqueKey: 'http://example.com'
+                        url: 'http://example.com'
+                        method: GET
+                        loadedUrl: 'http://example.com/example-1'
+                        payload: null
+                        noRetry: false
+                        errorMessages: null
+                        headers: null
+                        userData:
+                          label: DETAIL
+                          image: 'https://picserver1.eu'
+                        handledAt: '2019-06-16T10:23:31.607Z'
+                      - id: dnjkDMKLmdlkmlkmld
+                        retryCount: 0
+                        uniqueKey: 'http://example.com'
+                        url: 'http://example.com'
+                        method: GET
+                        loadedUrl: 'http://example.com/example-1'
+                        payload: null
+                        noRetry: false
+                        errorMessages: null
+                        headers: null
+                        userData:
+                          label: DETAIL
+                          image: 'https://picserver1.eu'
+                        handledAt: '2019-06-16T10:23:31.607Z'
+                    count: 2
+                    limit: 2
+                    exclusiveStartId: Ihnsp8YrvJ8102Kj
+          example:
+            data:
+              items:
+                - id: dnjkDMKLmdlkmlkmld
+                  retryCount: 0
+                  uniqueKey: 'http://example.com'
+                  url: 'http://example.com'
+                  method: GET
+                  loadedUrl: 'http://example.com/example-1'
+                  payload: null
+                  noRetry: false
+                  errorMessages: null
+                  headers: null
+                  userData:
+                    label: DETAIL
+                    image: 'https://picserver1.eu'
+                  handledAt: '2019-06-16T10:23:31.607Z'
+                - id: dnjkDMKLmdlkmlkmld
+                  retryCount: 0
+                  uniqueKey: 'http://example.com'
+                  url: 'http://example.com'
+                  method: GET
+                  loadedUrl: 'http://example.com/example-1'
+                  payload: null
+                  noRetry: false
+                  errorMessages: null
+                  headers: null
+                  userData:
+                    label: DETAIL
+                    image: 'https://picserver1.eu'
+                  handledAt: '2019-06-16T10:23:31.607Z'
+              count: 2
+              limit: 2
+              exclusiveStartId: Ihnsp8YrvJ8102Kj
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/request-collection/list-requests
+    - https://docs.apify.com/api/v2#/reference/request-queues/list-requests
+  x-js-parent: RequestQueueClient
+  x-js-name: paginateRequests
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#paginateRequests
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: list_requests
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#list_requests
+post:
+  tags:
+    - Request queues/Request collection
+  summary: Add request
+  description: |
+    Adds request to the queue. Response contains ID of the request and info if
+    request was already present in the queue or handled.
+
+
+    If request with same `uniqueKey` was already present in the queue then
+    returns an ID of existing request.
+  operationId: requestQueue_requests_post
+  parameters:
+    - name: queueId
+      in: path
+      description: Queue ID or `username~queue-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: clientKey
+      in: query
+      description: |
+        A unique identifier of the client accessing the request queue. It must
+        be a string between 1 and 32 characters long. This identifier is used to
+        determine whether the queue was accessed by multiple clients. If
+        `clientKey` is not provided,
+
+        the system considers this API call to come from a new client. For
+        details, see the `hadMultipleClients` field returned by the [Get
+        head](#/reference/request-queues/queue-head) operation.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: client-abc
+    - name: forefront
+      in: query
+      description: |
+        Determines if request should be added to the head of the queue or to the
+        end. Default value is `false` (end of queue).
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 'false'
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: ../../components/schemas/request-queues/RequestWithoutId.yaml
+            - example:
+                uniqueKey: 'http://example.com'
+                url: 'http://example.com'
+                method: GET
+        example:
+          uniqueKey: 'http://example.com'
+          url: 'http://example.com'
+          method: GET
+    required: true
+  responses:
+    '201':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../../components/schemas/request-queues/AddRequestResponse.yaml
+              - example:
+                  data:
+                    requestId: YiKoxjkaS9gjGTqhF
+                    wasAlreadyPresent: true
+                    wasAlreadyHandled: false
+          example:
+            data:
+              requestId: YiKoxjkaS9gjGTqhF
+              wasAlreadyPresent: true
+              wasAlreadyHandled: false
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/request-collection/add-request
+    - https://docs.apify.com/api/v2#/reference/request-queues/add-request
+  x-js-parent: RequestQueueClient
+  x-js-name: addRequest
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#addRequest
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: add_request
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#add_request

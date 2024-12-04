@@ -1,0 +1,186 @@
+get:
+  tags:
+    - Actors/Environment variable object
+  summary: Get environment variable
+  description: |
+    Gets a [EnvVar object](#/reference/actors/environment-variable-object) that
+    contains all the details about a specific environment variable of an Actor.
+
+    If `isSecret` is set to `true`, then `value` will never be returned.
+  operationId: act_version_envVar_get
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: versionNumber
+      in: path
+      description: Actor version
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: '0.1'
+    - name: envVarName
+      in: path
+      description: The name of the environment variable
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: MY_ENV_VAR
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actors/GetEnvVarResponse.yaml"
+          example:
+            data:
+              name: MY_ENV_VAR
+              value: my-value
+              isSecret: false
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/get-environment-variable
+    - https://docs.apify.com/api/v2#/reference/actors/get-environment-variable
+  x-py-parent: ActorEnvVarClientAsync
+  x-py-name: get
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorEnvVarClientAsync#get
+put:
+  tags:
+    - Actors/Environment variable object
+  summary: Update environment variable
+  description: |
+    Updates Actor environment variable using values specified by a [EnvVar
+    object](#/reference/actors/environment-variable-object)
+
+    passed as JSON in the POST payload.
+
+    If the object does not define a specific property, its value will not be
+    updated.
+
+
+    The request needs to specify the `Content-Type: application/json` HTTP
+    header!
+
+
+    When providing your API authentication token, we recommend using the
+    request's `Authorization` header, rather than the URL. ([More
+    info](#/introduction/authentication)).
+
+
+    The response is the [EnvVar
+    object](#/reference/actors/environment-variable-object) as returned by the
+
+    [Get environment
+    variable](#/reference/actors/environment-variable-object/get-environment-variable)
+    endpoint.
+  operationId: act_version_envVar_put
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: versionNumber
+      in: path
+      description: Actor version
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: '0.1'
+    - name: envVarName
+      in: path
+      description: The name of the environment variable
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: MY_ENV_VAR
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/schemas/actors/CreateOrUpdateEnvVarRequest.yaml"
+        example:
+          name: MY_ENV_VAR
+          value: my-new-value
+          isSecret: false
+    required: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actors/GetEnvVarResponse.yaml"
+          example:
+            data:
+              name: MY_ENV_VAR
+              value: my-value
+              isSecret: false
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/update-environment-variable
+    - https://docs.apify.com/api/v2#/reference/actors/update-environment-variable
+  x-py-parent: ActorEnvVarClientAsync
+  x-py-name: update
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorEnvVarClientAsync#update
+delete:
+  tags:
+    - Actors/Environment variable object
+  summary: Delete environment variable
+  description: Deletes a specific environment variable.
+  operationId: act_version_envVar_delete
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: versionNumber
+      in: path
+      description: Actor version
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: '0.1'
+    - name: envVarName
+      in: path
+      description: The name of the environment variable
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: MY_ENV_VAR
+  responses:
+    '204':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+            example: {}
+          example: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/delete-environment-variable
+    - https://docs.apify.com/api/v2#/reference/actors/delete-environment-variable

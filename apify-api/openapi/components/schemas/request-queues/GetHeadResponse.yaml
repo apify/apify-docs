@@ -1,0 +1,49 @@
+title: GetHeadResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    type: object
+    properties:
+      limit:
+        type: number
+        example: 1000
+      queueModifiedAt:
+        type: string
+        example: '2018-03-14T23:00:00.000Z'
+      hadMultipleClients:
+        type: boolean
+        example: false
+      items:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+              example: 8OamqXBCpPHxyH9
+            retryCount:
+              type: number
+              example: 0
+            uniqueKey:
+              type: string
+              example: 'http://example.com'
+            url:
+              type: string
+              example: 'http://example.com'
+            method:
+              type: string
+              example: GET
+          required:
+            - id
+            - retryCount
+            - uniqueKey
+            - url
+            - method
+        description: ''
+    required:
+      - limit
+      - queueModifiedAt
+      - hadMultipleClients
+      - items

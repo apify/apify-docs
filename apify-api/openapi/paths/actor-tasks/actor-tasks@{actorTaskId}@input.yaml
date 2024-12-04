@@ -1,0 +1,98 @@
+get:
+  tags:
+    - Actor tasks/Task input object
+  summary: Get task input
+  description: Returns the input of a given task.
+  operationId: actorTask_input_get
+  parameters:
+    - name: actorTaskId
+      in: path
+      description: Task ID or a tilde-separated owner's username and task's name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-task
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+          example:
+            myField1: some-value
+            myField2: another-value
+            myField3: 1
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/task-input-object/get-task-input
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/get-task-input
+  x-js-parent: TaskClient
+  x-js-name: getInput
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskClient#getInput
+  x-py-parent: TaskClientAsync
+  x-py-name: get_input
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/TaskClientAsync#get_input
+put:
+  tags:
+    - Actor tasks/Task input object
+  summary: Update task input
+  description: |
+    Updates the input of a task using values specified by an object passed as
+    JSON in the PUT payload.
+
+    If the object does not define a specific property, its value is not updated.
+
+    The response is the full task input as returned by the
+    [Get task input](#/reference/tasks/task-input-object/get-task-input) endpoint.
+
+
+    The request needs to specify the `Content-Type: application/json` HTTP
+    header!
+
+    When providing your API authentication token, we recommend using the
+    request's `Authorization` header, rather than the URL. ([More
+    info](#/introduction/authentication)).
+  operationId: actorTask_input_put
+  parameters:
+    - name: actorTaskId
+      in: path
+      description: Task ID or a tilde-separated owner's username and task's name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-task
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          type: object
+        example:
+          myField2: updated-value
+    required: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+          example:
+            myField1: some-value
+            myField2: updated-value
+            myField3: 1
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/task-input-object/update-task-input
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/update-task-input
+  x-js-parent: TaskClient
+  x-js-name: updateInput
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskClient#updateInput
+  x-py-parent: TaskClientAsync
+  x-py-name: update_input
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/TaskClientAsync#update_input
