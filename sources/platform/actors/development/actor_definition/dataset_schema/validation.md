@@ -133,7 +133,7 @@ Optional field (price is optional in this case):
             "type": "string"
         },
         "price": {
-                "type": "number"
+            "type": "number"
         }
     },
     "required": ["name"]
