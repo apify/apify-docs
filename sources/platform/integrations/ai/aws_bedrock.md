@@ -12,7 +12,7 @@ slug: /integrations/aws_bedrock
 
 [Amazon Bedrock](https://aws.amazon.com/bedrock/) is a fully managed service that provides access to large language models (LLMs), allowing users to create and manage retrieval-augmented generative (RAG) pipelines, and create AI agents to plan and perform actions.
 AWS Bedrock supports a wide range of models from providers such as A21 Labs, Anthropic, Cohere, Meta, and Mistral AI.
-These models are designed to handle complex, multistep tasks across systems, knowledge bases, and APIs, making them versatile for various use cases
+These models are designed to handle complex, multistep tasks across systems, knowledge bases, and APIs, making them versatile for various use cases.
 
 In this tutorial, we’ll demonstrate how to create and use AWS Bedrock AI agent and integrate it with Apify Actors.
 The AI agent will be configured to either answer question from an internal LLM knowledge or to leverage the [RAG Web Browser](https://apify.com/apify/rag-web-browser) to perform internet searches for relevant information.
