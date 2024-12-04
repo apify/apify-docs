@@ -20,26 +20,27 @@ This approach enables the agent to provide more comprehensive and accurate respo
 
 ## AWS Bedrock AI agents
 
-Amazon Bedrock allows you to create AI agents powered by large language model to analyze user input and determine the required data sources, and execute actions needed to fulfill the user requests.
-To create an Agent, follow these [steps](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html):
+Amazon Bedrock allows you to create AI agents powered by large language models to analyze user input and determine the required data sources, and execute actions needed to fulfill the user requests.
+
+Before getting started, ensure you have:
+
+- An active AWS Account.
+- An Apify account and an [API token](https://docs.apify.com/platform/integrations/api#api-token).
+- Granted access to any Large Language Model from Amazon Bedrock. To add access to a LLM, follow this [guide](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.html). We'll use **Anthropic Claude 3.5 Sonnet** in this example.
+
+The overall process for creating an agent includes the following [steps](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html):
 
 - Provide a name and description for the agent.
 - Specify instructions for the agent.
-- Set up actions in action groups by defining function details or using an OpenAPI schema
-  Configure a Lambda function to implement the defined function or OpenAPI schema.
-  Select a model for the agent to orchestrate with.
-  (Optional) Add knowledge bases for the agent.
+- Set up actions in action groups by defining function details or using an OpenAPI schema.
+- Configure a Lambda function to implement the defined function or OpenAPI schema.
+- Select a model for the agent to orchestrate with.
+- (Optional) Add knowledge bases for the agent.
 - (Optional) Configure advanced prompts for the agent for better control.
 
 The following image illustrates the key components of an AWS Bedrock AI agent:
 
 ![AWS-Bedrock-AI-Agent](../images/aws-bedrock-ai-agent.png)
-
-Before getting started, ensure you have:
-
-- An active AWS Account.
-- Apify account and [API token](https://docs.apify.com/platform/integrations/api#api-token).
-- Granted access to any Large Language Model from Amazon Bedrock. To add access to a LLM, follow this [guide](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.html). We'll use Anthropic Claude 3.5 Sonnet in this example.
 
 ### Building an Agent
 
