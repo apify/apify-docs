@@ -46,7 +46,7 @@ You can either do that directly through `actor.json`:
 }
 ```
 
-Or in a separate separate file like this:
+Or in a separate separate file linked from the `.actor.json`:
 
 ```json title=".actor.json"
 {
