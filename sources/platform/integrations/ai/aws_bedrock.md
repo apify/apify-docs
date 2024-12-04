@@ -20,7 +20,7 @@ This approach enables the agent to provide more comprehensive and accurate respo
 
 ## AWS Bedrock AI agents
 
-Amazon Bedrock allows you to create AI agents powered by large language model to analyze user input and determine required data sources, and execute actions needed to fulfill the user requests.
+Amazon Bedrock allows you to create AI agents powered by large language model to analyze user input and determine the required data sources, and execute actions needed to fulfill the user requests.
 To create an Agent, follow these [steps](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html):
 
 - Provide a name and description for the agent.
