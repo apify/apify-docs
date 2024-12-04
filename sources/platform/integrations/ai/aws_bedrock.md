@@ -15,7 +15,7 @@ AWS Bedrock supports a wide range of models from providers such as A21 Labs, Ant
 These models are designed to handle complex, multistep tasks across systems, knowledge bases, and APIs, making them versatile for various use cases.
 
 In this tutorial, we’ll demonstrate how to create and use AWS Bedrock AI agent and integrate it with Apify Actors.
-The AI agent will be configured to either answer question from an internal LLM knowledge or to leverage the [RAG Web Browser](https://apify.com/apify/rag-web-browser) to perform internet searches for relevant information.
+The AI agent will be configured to either answer questions from an internal LLM knowledge or to leverage the [RAG Web Browser](https://apify.com/apify/rag-web-browser) to perform internet searches for relevant information.
 This approach enables the agent to provide more comprehensive and accurate responses by combining internal knowledge with real-time data from the web.
 
 ## AWS Bedrock AI agents
