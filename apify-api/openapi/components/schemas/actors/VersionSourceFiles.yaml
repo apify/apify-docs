@@ -1,0 +1,38 @@
+title: VersionSourceFiles
+type: "array"
+items:
+  anyOf:
+  - type: "object"
+    title: SourceCodeFile
+    properties:
+      format:
+        type: "string"
+        enum:
+          - BASE64
+          - TEXT
+        example: "TEXT"
+      content:
+        type: "string"
+        example: "console.log('This is the main.js file');"
+      name:
+        type: "string"
+        example: "src/main.js"
+    required:
+    - "format"
+    - "content"
+    - "name"
+  - type: "object"
+    title: SourceCodeFolder
+    properties:
+      name:
+        type: "string"
+        example: "src/placeholder"
+      folder:
+        type: boolean
+        enum:
+          - true
+        example: true
+    required:
+    - "name"
+    - "folder"
+

@@ -1,0 +1,33 @@
+title: ScheduleCreate
+type: object
+properties:
+  name:
+    type: string
+    nullable: true
+    example: my-schedule
+  isEnabled:
+    type: boolean
+    nullable: true
+    example: true
+  isExclusive:
+    type: boolean
+    nullable: true
+    example: true
+  cronExpression:
+    type: string
+    nullable: true
+    example: '* * * * *'
+  timezone:
+    type: string
+    nullable: true
+    example: UTC
+  description:
+    type: string
+    nullable: true
+    example: Schedule of actor ...
+  actions:
+    type: array
+    items:
+      $ref: ./ScheduleCreateActions.yaml
+    description: ''
+    nullable: true

@@ -1,0 +1,30 @@
+title: Version
+type: object
+required:
+  - versionNumber
+  - sourceType
+  - buildTag
+properties:
+  versionNumber:
+    type: string
+    example: '0.0'
+  sourceType:
+    oneOf:
+      - nullable: true
+      - $ref: ./VersionSourceType.yaml
+  envVars:
+    type: array
+    items:
+      $ref: ./EnvVar.yaml
+    description: ''
+    nullable: true
+  applyEnvVarsToBuild:
+    type: boolean
+    nullable: true
+    example: false
+  buildTag:
+    type: string
+    example: latest
+  sourceFiles:
+    $ref: ./VersionSourceFiles.yaml
+

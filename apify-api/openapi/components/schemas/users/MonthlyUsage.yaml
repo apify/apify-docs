@@ -1,0 +1,24 @@
+title: MonthlyUsage
+required:
+  - usageCycle
+  - monthlyServiceUsage
+  - dailyServiceUsages
+  - totalUsageCreditsUsdBeforeVolumeDiscount
+  - totalUsageCreditsUsdAfterVolumeDiscount
+type: object
+properties:
+  usageCycle:
+    $ref: ./UsageCycle.yaml
+  monthlyServiceUsage:
+    $ref: ./MonthlyServiceUsage.yaml
+  dailyServiceUsages:
+    type: array
+    items:
+      $ref: ./DailyServiceUsages.yaml
+    description: ''
+  totalUsageCreditsUsdBeforeVolumeDiscount:
+    type: number
+    example: 0.786143673840067
+  totalUsageCreditsUsdAfterVolumeDiscount:
+    type: number
+    example: 0.786143673840067

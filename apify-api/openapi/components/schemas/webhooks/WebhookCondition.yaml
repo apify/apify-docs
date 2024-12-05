@@ -1,0 +1,15 @@
+title: WebhookCondition
+type: object
+properties:
+  actorId:
+    type: string
+    nullable: true
+    example: hksJZtadYvn4mBuin
+  actorTaskId:
+    type: string
+    nullable: true
+    example: asdLZtadYvn4mBZmm
+  actorRunId:
+    type: string
+    nullable: true
+    example: hgdKZtadYvn4mBpoi

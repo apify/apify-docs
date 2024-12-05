@@ -1,0 +1,7 @@
+title: GetPrivateUserDataResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./UserPrivateInfo.yaml

@@ -1,0 +1,11 @@
+title: ServiceUsage
+required:
+  - SERVICE_USAGE_ITEM
+type: object
+properties:
+  SERVICE_USAGE_ITEM:
+    $ref: ./UsageItem.yaml
+example:
+  SERVICE_USAGE_ITEM:
+    quantity: 60
+    baseAmountUsd: 0.00030000000000000003

@@ -1,0 +1,286 @@
+get:
+  tags:
+    - Actors/Version object
+  summary: Get version
+  description: |
+    The **Version object** contains the source code of a specific version of an
+    Actor.
+
+    The `sourceType` property indicates where the source code is hosted, and
+    based on its value the Version object has the following additional property:
+
+    <table>
+      <tr>
+        <td><code>"SOURCE_FILES"</code></td>
+        <td>
+            Source code is comprised of multiple files specified in the <code>sourceFiles</code> array.
+            Each item of the array is an object with the following fields:<br />
+            <ul>
+            <li><code>name</code></li> - File path and name<br />
+            <li><code>format</code></li> - Format of the content, can be either <code>"TEXT"</code> or <code>"BASE64"</code><br />
+            <li><code>content</code></li> - File content<br />
+            </ul>
+            <br />
+            Source files can be shown and edited in the Apify Console's Web IDE.
+        </td>
+      </tr>
+      <tr>
+        <td><code>"GIT_REPO"</code></td>
+        <td>
+            Source code is cloned from a Git repository, whose URL is specified in the <code>gitRepoUrl</code> field.
+        </td>
+      </tr>
+      <tr>
+          <td><code>"TARBALL"</code></td>
+          <td>
+            Source code is downloaded using a tarball or Zip file from a URL specified in the <code>tarballUrl</code> field.
+          </td>
+      </tr>
+      <tr>
+          <td><code>"GITHUB_GIST"</code></td>
+          <td>
+            Source code is taken from a GitHub Gist, whose URL is specified in the <code>gitHubGistUrl</code> field.
+          </td>
+      </tr>
+    </table>
+
+    For more information about source code and Actor versions, see [Source
+    code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
+    in Actors documentation.Gets a [Version
+    object](#/reference/actors/version-object) that contains all the details
+    about a specific version of an Actor.
+  operationId: act_version_get
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: versionNumber
+      in: path
+      description: Actor major and minor version of the Actor.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: '1.0'
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actors/GetVersionResponse.yaml"
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/version-object/get-version
+    - https://docs.apify.com/api/v2#/reference/actors/get-version
+  x-py-parent: ActorVersionClientAsync
+  x-py-name: get
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorVersionClientAsync#get
+put:
+  tags:
+    - Actors/Version object
+  summary: Update version
+  description: |
+    The **Version object** contains the source code of a specific version of an
+    Actor.
+
+    The `sourceType` property indicates where the source code is hosted, and
+    based on its value the Version object has the following additional property:
+
+    <table>
+      <tr>
+        <td><code>"SOURCE_FILES"</code></td>
+        <td>
+            Source code is comprised of multiple files specified in the <code>sourceFiles</code> array.
+            Each item of the array is an object with the following fields:<br />
+            <ul>
+            <li><code>name</code></li> - File path and name<br />
+            <li><code>format</code></li> - Format of the content, can be either <code>"TEXT"</code> or <code>"BASE64"</code><br />
+            <li><code>content</code></li> - File content<br />
+            </ul>
+            <br />
+            Source files can be shown and edited in the Apify Console's Web IDE.
+        </td>
+      </tr>
+      <tr>
+        <td><code>"GIT_REPO"</code></td>
+        <td>
+            Source code is cloned from a Git repository, whose URL is specified in the <code>gitRepoUrl</code> field.
+        </td>
+      </tr>
+      <tr>
+          <td><code>"TARBALL"</code></td>
+          <td>
+            Source code is downloaded using a tarball or Zip file from a URL specified in the <code>tarballUrl</code> field.
+          </td>
+      </tr>
+      <tr>
+          <td><code>"GITHUB_GIST"</code></td>
+          <td>
+            Source code is taken from a GitHub Gist, whose URL is specified in the <code>gitHubGistUrl</code> field.
+          </td>
+      </tr>
+    </table>
+
+
+    For more information about source code and Actor versions, see [Source
+    code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
+    in Actors documentation.Updates Actor version using values specified by a
+    [Version object](#/reference/actors/version-object) passed as JSON in the POST payload.
+
+    If the object does not define a specific property, its value will not be
+    updated.
+
+    The request needs to specify the `Content-Type: application/json` HTTP
+    header!
+
+    When providing your API authentication token, we recommend using the
+    request's `Authorization` header, rather than the URL. ([More
+    info](#/introduction/authentication)).
+
+    The response is the [Version object](#/reference/actors/version-object) as
+    returned by the [Get version](#/reference/actors/version-object/get-version) endpoint.
+  operationId: act_version_put
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: versionNumber
+      in: path
+      description: Actor major and minor version of the Actor.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: '1.0'
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/schemas/actors/CreateOrUpdateVersionRequest.yaml"
+        example:
+          versionNumber: '0.0'
+          sourceType: SOURCE_FILES
+          envVars:
+            - name: DOMAIN
+              value: 'http://example.com'
+              isSecret: false
+            - name: SECRET_PASSWORD
+              value: MyTopSecretPassword123
+              isSecret: true
+          applyEnvVarsToBuild: false
+          buildTag: latest
+          sourceFiles: []
+    required: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actors/GetVersionResponse.yaml"
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/version-object/update-version
+    - https://docs.apify.com/api/v2#/reference/actors/update-version
+  x-py-parent: ActorVersionClientAsync
+  x-py-name: update
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorVersionClientAsync#update
+delete:
+  tags:
+    - Actors/Version object
+  summary: Delete version
+  description: |
+    The **Version object** contains the source code of a specific version of an
+    Actor.
+
+    The `sourceType` property indicates where the source code is hosted, and
+    based
+
+    on its value the Version object has the following additional property:
+
+
+    <table>
+      <tr>
+        <td><code>"SOURCE_FILES"</code></td>
+        <td>
+            Source code is comprised of multiple files specified in the <code>sourceFiles</code> array.
+            Each item of the array is an object with the following fields:<br />
+            <ul>
+            <li><code>name</code></li> - File path and name<br />
+            <li><code>format</code></li> - Format of the content, can be either <code>"TEXT"</code> or <code>"BASE64"</code><br />
+            <li><code>content</code></li> - File content<br />
+            </ul>
+            <br />
+            Source files can be shown and edited in the Apify Console's Web IDE.
+        </td>
+      </tr>
+      <tr>
+        <td><code>"GIT_REPO"</code></td>
+        <td>
+            Source code is cloned from a Git repository, whose URL is specified in the <code>gitRepoUrl</code> field.
+        </td>
+      </tr>
+      <tr>
+          <td><code>"TARBALL"</code></td>
+          <td>
+            Source code is downloaded using a tarball or Zip file from a URL specified in the <code>tarballUrl</code> field.
+          </td>
+      </tr>
+      <tr>
+          <td><code>"GITHUB_GIST"</code></td>
+          <td>
+            Source code is taken from a GitHub Gist, whose URL is specified in the <code>gitHubGistUrl</code> field.
+          </td>
+      </tr>
+    </table>
+
+
+    For more information about source code and Actor versions, see [Source
+    code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
+    in Actors documentation.Deletes a specific version of Actor's source code.
+  operationId: act_version_delete
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: versionNumber
+      in: path
+      description: Actor major and minor version of the Actor.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: '1.0'
+  responses:
+    '204':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+            example: {}
+          example: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/version-object/delete-version
+    - https://docs.apify.com/api/v2#/reference/actors/delete-version

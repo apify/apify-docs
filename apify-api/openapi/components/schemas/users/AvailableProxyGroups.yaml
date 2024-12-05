@@ -1,0 +1,12 @@
+title: AvailableProxyGroups
+required:
+  - SOMEGROUP
+  - ANOTHERGROUP
+type: object
+properties:
+  SOMEGROUP:
+    type: number
+    example: 20
+  ANOTHERGROUP:
+    type: number
+    example: 200
