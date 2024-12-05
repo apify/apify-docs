@@ -204,7 +204,7 @@ See [json schema reference](https://json-schema.org/understanding-json-schema/re
 
 You can also use [conversion tools](https://www.liquid-technologies.com/online-json-to-schema-converter) to convert an existing JSON document into it's JSON schema.
 
-# Dataset field statistics
+## Dataset field statistics
 
 When you have the dataset fields schema set up, we then use the schema to generate a list of fields and measure statistics for these fields.
 
