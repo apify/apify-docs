@@ -10,15 +10,11 @@ slug: /actors/development/actor-definition/dataset-schema/validation
 
 To define a schema for a default dataset of an Actor run, you need to set `fields` property in the dataset schema.
 
-:::note Schema limitations
-
-Schema configuration is not available for named datasets or dataset views.
-
-:::
-
 :::info
 
 The schema defines a single item in the dataset. Be careful not to define the schema as an array, it always needs to be a schema of an object.
+
+Schema configuration is not available for named datasets or dataset views.
 
 :::
 
