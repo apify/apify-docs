@@ -219,8 +219,6 @@ The measured statistics are following:
   - For objects, this tracks the number of keys
   - For booleans, this tracks whether the boolean was set to true. Minimum is always 0, but maximum can be either 1 or 0 based on whether at least on item in the dataset has the boolean field set to true.
 
-:::note
 
-Currently, you cannot view these statistics. We will add API endpoint soon. But you can already use them in [monitoring](../../../../monitoring#alert-configuration).
+You can use them in [monitoring](../../../../monitoring#alert-configuration).
 
-:::
