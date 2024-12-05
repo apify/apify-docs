@@ -5,5 +5,5 @@ type: object
 properties:
   error:
     allOf:
-      - $ref: ./errorDataset.yaml
+      - $ref: ./DatasetSchemaValidationError.yaml
       - {}

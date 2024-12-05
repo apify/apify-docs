@@ -539,23 +539,21 @@ post:
                 - example:
                     error:
                         type: schema-validation-error
-                        message: >-
-                            Schema validation failed
+                        message: Schema validation failed
             example:
                 error:
-                type: schema-validation-error
-                message: >-
-                    Schema validation failed
-                data:
-                    invalidItems:
-                        - itemPosition: 2
-                        - validationErrors:
-                            instancePath: /1/stringField
-                            schemaPath: /items/properties/stringField/type
-                            keyword: type
-                            params:
-                                type: string
-                            message: 'must be string'
+                    type: schema-validation-error
+                    message: Schema validation failed
+                    data:
+                        invalidItems:
+                            - itemPosition: 2
+                              validationErrors:
+                                - instancePath: /1/stringField
+                                  schemaPath: /items/properties/stringField/type
+                                  keyword: type
+                                  params:
+                                    type: string
+                                  message: 'must be string'
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items
