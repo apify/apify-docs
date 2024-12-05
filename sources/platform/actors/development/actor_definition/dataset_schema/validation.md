@@ -4,7 +4,7 @@ description:  Specify the dataset schema within the Actors so you can add monito
 slug: /actors/development/actor-definition/dataset-schema/validation
 ---
 
-**Specify the dataset schema within the Actors so you can add monitoring and validation down to the field level.**
+**Specify the dataset schema within the Actors so you can add monitoring and validation at the field level.**
 
 ---
 
