@@ -84,7 +84,7 @@ When you define a schema of your default dataset, the schema is then always used
 
 If the validation succeeds, nothing changes from the current behavior, data is stored and an empty response with status code `201` is returned.
 
-**If the data you attempt to store in the dataset is invalid** (meaning any of the items received by the API fails the validation), **the whole request is discarded** and the API will return a response with status code 400 and the following JSON response:
+If the data you attempt to store in the dataset is _invalid_ (meaning any of the items received by the API fails validation), _the entire request will be discarded_, The API will return a response with status code `400` and the following JSON response:
 
 ```json
 {
