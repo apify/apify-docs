@@ -101,7 +101,7 @@ If the validation succeeds, nothing changes from the current behavior, data is s
 }
 ```
 
-The type of the AJV validation error object is [here](https://github.com/ajv-validator/ajv/blob/master/lib/types/index.ts#L86)
+The type of the AJV validation error object is [here](https://github.com/ajv-validator/ajv/blob/master/lib/types/index.ts#L86).
 
 If you use the Apify JS client or Apify SDK and call `pushData` function you can access the validation errors in a `try catch` block like this:
 
