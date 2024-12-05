@@ -82,7 +82,7 @@ Dataset schema needs to be a valid JSON schema draft-07, so the `$schema` line i
 
 When you define a schema of your default dataset, the schema is then always used when you insert data into the dataset to perform validation (we use [AJV](https://ajv.js.org/)).
 
-If the validation succeeds, nothing changes from the current behavior, data is stored and an empty response with status code 201 is returned.
+If the validation succeeds, nothing changes from the current behavior, data is stored and an empty response with status code `201` is returned.
 
 **If the data you attempt to store in the dataset is invalid** (meaning any of the items received by the API fails the validation), **the whole request is discarded** and the API will return a response with status code 400 and the following JSON response:
 
