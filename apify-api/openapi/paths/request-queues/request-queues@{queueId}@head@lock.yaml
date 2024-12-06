@@ -6,9 +6,8 @@ post:
     Returns the given number of first requests from the queue and locks them for
     the given time.
 
-    If this endpoint locks the request, no other client will be able to get and
+    If this endpoint locks the request, no other client or run will be able to get and
     lock these requests.
-
 
     The response contains the `hadMultipleClients` boolean field which indicates
     that the queue was accessed by more than one client (with unique or empty
