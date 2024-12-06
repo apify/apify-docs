@@ -71,21 +71,7 @@ It works, but the price isn't alone in the result. Before we'd use such data, we
 
 But for now that's okay. We're just testing the waters now, so that we have an idea about what our scraper will need to do. Once we'll get to extracting prices in Python, we'll figure out how to get numbers out of them.
 
-## Extracting URL
-
-:::danger Work in Progress
-
-Under development.
-
-:::
-
-## Extracting all URLs
-
-:::danger Work in Progress
-
-Under development.
-
-:::
+In the next lesson, we'll start with our Python project. First we'll be figuring out how to download the Sales page without browser and make it accessible in a Python program.
 
 ---
 
