@@ -407,7 +407,10 @@ You can lock a request so that no other clients receive it when they fetch the q
 This feature is seamlessly integrated into Crawlee, requiring minimal extra setup. By default, requests are locked for the same duration as the timeout for processing requests in the crawler ([`requestHandlerTimeoutSecs`](https://crawlee.dev/api/next/basic-crawler/interface/BasicCrawlerOptions#requestHandlerTimeoutSecs)).
 If the Actor processing the request fails, the lock expires, and the request is processed again eventually. For more details, refer to the [Crawlee documentation](https://crawlee.dev/docs/next/experiments/experiments-request-locking).
 
-In the following example, we demonstrate how we can use locking mechanisms to avoid concurrent processing of the same request.
+In the following example, we demonstrate how we can use locking mechanisms to avoid concurrent processing of the same request across multiple Actor runs.
+
+<Tabs groupId="main">
+<TabItem value="Actor 1" label="Actor 1">
 
 ```js
 import { Actor, ApifyClient } from 'apify';
@@ -424,9 +427,6 @@ const requestQueue = await client.requestQueues().getOrCreate('example-queue');
 // Creates two clients with different keys for the same request queue.
 const requestQueueClientOne = client.requestQueue(requestQueue.id, {
     clientKey: 'requestqueueone',
-});
-const requestQueueClientTwo = client.requestQueue(requestQueue.id, {
-    clientKey: 'requestqueuetwo',
 });
 
 // Adds multiple requests to the queue.
@@ -457,15 +457,7 @@ await requestQueueClientOne.batchAddRequests([
 const processingRequestsClientOne = await requestQueueClientOne.listAndLockHead(
     {
         limit: 2,
-        lockSecs: 60,
-    },
-);
-
-// Other clients cannot list and lock these requests; the listAndLockHead call returns other requests from the queue.
-const processingRequestsClientTwo = await requestQueueClientTwo.listAndLockHead(
-    {
-        limit: 2,
-        lockSecs: 60,
+        lockSecs: 120,
     },
 );
 
@@ -474,6 +466,62 @@ const theFirstRequestLockedByClientOne = processingRequestsClientOne.items[0];
 const requestLockedByClientOne = await requestQueueClientOne.getRequest(
     theFirstRequestLockedByClientOne.id,
 );
+console.log(`Request locked until ${requestLockedByClientOne?.lockExpiresAt}`);
+
+// Prolongs the lock of the first request or unlocks it.
+await requestQueueClientOne.prolongRequestLock(
+    theFirstRequestLockedByClientOne.id,
+    { lockSecs: 120 },
+);
+await requestQueueClientOne.deleteRequestLock(
+    theFirstRequestLockedByClientOne.id,
+);
+
+// Cleans up the queue.
+await requestQueueClientOne.delete();
+
+await Actor.exit();
+```
+
+</TabItem>
+<TabItem value="Actor 2" label="Actor 2">
+
+```js
+import { Actor, ApifyClient } from 'apify';
+
+await Actor.init();
+
+const client = new ApifyClient({
+    token: 'MY-APIFY-TOKEN',
+});
+
+// Waits for the first Actor to lock the requests.
+await new Promise((resolve) => setTimeout(resolve, 5000));
+
+// Creates a new request queue.
+const requestQueue = await client.requestQueues().getOrCreate('example-queue');
+
+const requestQueueClientTwo = client.requestQueue(requestQueue.id, {
+    clientKey: 'requestqueuetwo',
+});
+
+// Get all requests from the queue and check one locked by the first Actor.
+const requests = await requestQueueClientTwo.listRequests();
+const requestLockedByClientOne = requests.items.filter((request) => request.lockedByClientKey === 'requestqueueone');
+const theFirstRequestLockedByClientOne = requestLockedByClientOne[0];
+
+// Other clients cannot list and lock these requests; the listAndLockHead call returns other requests from the queue.
+const processingRequestsClientTwo = await requestQueueClientTwo.listAndLockHead(
+    {
+        limit: 10,
+        lockSecs: 60,
+    },
+);
+const wasTheClientTwoLockedSameRequest = !!processingRequestsClientTwo.items.find(
+    (request) => request.id === theFirstRequestLockedByClientOne.id,
+);
+
+console.log(`Was the request locked by the first client locked by the second client? ${wasTheClientTwoLockedSameRequest}`);
 console.log(`Request locked until ${requestLockedByClientOne?.lockExpiresAt}`);
 
 // Other clients cannot modify the lock; attempting to do so will throw an error.
@@ -486,20 +534,12 @@ try {
     // This will throw an error.
 }
 
-// Prolongs the lock of the first request or unlocks it.
-await requestQueueClientOne.prolongRequestLock(
-    theFirstRequestLockedByClientOne.id,
-    { lockSecs: 60 },
-);
-await requestQueueClientOne.deleteRequestLock(
-    theFirstRequestLockedByClientOne.id,
-);
-
-// Cleans up the queue.
-await requestQueueClientOne.delete();
 
 await Actor.exit();
 ```
+
+</TabItem>
+</Tabs>
 
 A detailed tutorial on how to process one request queue with multiple Actor runs can be found in [Academy tutorials](https://docs.apify.com/academy/node-js/multiple-runs-scrape).
 
