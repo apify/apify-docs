@@ -94,11 +94,6 @@ get:
   x-py-parent: ActorCollectionClientAsync
   x-py-name: list
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorCollectionClientAsync#list
-  x-codeSamples:
-    - lang: JavaScript
-      label: JS client
-      source:
-        $ref: ../../code_samples/js/acts_get.js
 
 post:
   tags:
@@ -245,8 +240,3 @@ post:
   x-py-parent: ActorCollectionClientAsync
   x-py-name: create
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorCollectionClientAsync#create
-  x-codeSamples:
-    - lang: JavaScript
-      label: JS client
-      source:
-        $ref: ../../code_samples/js/acts_post.js
