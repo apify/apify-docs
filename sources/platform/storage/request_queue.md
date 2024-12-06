@@ -544,7 +544,6 @@ try {
     // This will throw an error.
 }
 
-
 await Actor.exit();
 ```
 
