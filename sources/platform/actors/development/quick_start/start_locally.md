@@ -68,7 +68,7 @@ After creating your Actor, explore the source code in your preferred code editor
 
 ### `src` Directory
 
-- `srx/main.js`: This file contains the actual code of your Actor
+- `src/main.js`: This file contains the actual code of your Actor
 
 ### `.actor` Directory
 
