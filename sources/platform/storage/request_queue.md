@@ -409,6 +409,15 @@ If the Actor processing the request fails, the lock expires, and the request is 
 
 In the following example, we demonstrate how we can use locking mechanisms to avoid concurrent processing of the same request across multiple Actor runs.
 
+:::info
+The lock mechanism works on the client level, as well as the run level, when running the Actor on the Apify platform.
+
+This means you can unlock or prolong the lock the locked request only if:
+
+1. You are using the same client key, or
+2. The operation is being called from the same Actor run.
+:::
+
 <Tabs groupId="main">
 <TabItem value="Actor 1" label="Actor 1">
 
