@@ -206,7 +206,7 @@ You can also use [conversion tools](https://www.liquid-technologies.com/online-j
 
 ## Dataset field statistics
 
-When you configure the dataset fields schema, we generates a field list and measure the following statistics:
+When you configure the dataset fields schema, we generate a field list and measure the following statistics:
 
 - **Null count:** how many items in the dataset have the field set to null
 - **Empty count:** how many items in the dataset are `undefined` , meaning that for example empty string is not considered empty
