@@ -118,7 +118,7 @@ The template above defines the configuration for the default dataset output view
 
 The default behavior of the Output tab UI table is to display all fields from `transformation.fields` in the specified order. You can customize the display properties for specific formats or column labels if needed.
 
-![Output tab UI](./images/output-schema-example.png)
+![Output tab UI](../images/output-schema-example.png)
 
 ## Structure
 
