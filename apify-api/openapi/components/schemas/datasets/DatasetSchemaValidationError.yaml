@@ -1,0 +1,53 @@
+type: object
+properties:
+  error:
+    type: object
+    properties:
+      type:
+        type: string
+        description: The type of the error.
+        example: "schema-validation-error"
+      message:
+        type: string
+        description: A human-readable message describing the error.
+        example: "Schema validation failed"
+      data:
+        type: object
+        properties:
+          invalidItems:
+            type: array
+            description: A list of invalid items in the received array of items.
+            items:
+              type: object
+              properties:
+                itemPosition:
+                  type: number
+                  description: The position of the invalid item in the array.
+                  example: 2
+                validationErrors:
+                  type: array
+                  description: A complete list of AJV validation error objects for the invalid item.
+                  items:
+                    type: object
+                    properties:
+                      instancePath:
+                        type: string
+                        description: The path to the instance being validated.
+                      schemaPath:
+                        type: string
+                        description: The path to the schema that failed the validation.
+                      keyword:
+                        type: string
+                        description: The validation keyword that caused the error.
+                      message:
+                        type: string
+                        description: A message describing the validation error.
+                      params:
+                        type: object
+                        description: Additional parameters specific to the validation error.
+        required:
+          - invalidItems
+    required:
+      - type
+      - message
+      - data

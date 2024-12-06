@@ -478,6 +478,10 @@ post:
     The POST payload is a JSON object or a JSON array of objects to save into the dataset.
 
 
+    If the data you attempt to store in the dataset is invalid (meaning any of the items received by the API fails the validation), the whole request is discarded and the API will return a response with status code 400.
+    For more information about dataset schema validation, see [Dataset schema](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema/validation).
+
+
     **IMPORTANT:** The limit of request payload size for the dataset is 5 MB. If the array exceeds the size, you'll need to split it into a number of smaller arrays.
   operationId: dataset_items_post
   parameters:
@@ -523,6 +527,33 @@ post:
             type: object
             example: {}
           example: {}
+    '400':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+            schema:
+                allOf:
+                - $ref: >-
+                    ../../components/schemas/datasets/PutItemResponseError.yaml
+                - example:
+                    error:
+                        type: schema-validation-error
+                        message: Schema validation failed
+            example:
+                error:
+                    type: schema-validation-error
+                    message: Schema validation failed
+                    data:
+                        invalidItems:
+                            - itemPosition: 2
+                              validationErrors:
+                                - instancePath: /1/stringField
+                                  schemaPath: /items/properties/stringField/type
+                                  keyword: type
+                                  params:
+                                    type: string
+                                  message: 'must be string'
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items
