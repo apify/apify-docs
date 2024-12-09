@@ -620,6 +620,10 @@
   x-displayName: Resurrect run
   x-parent-tag-name: Actor runs
   x-trait: 'true'
+- name: Actor runs/Charge events in run
+  x-displayName: Charge events in run
+  x-parent-tag-name: Actor runs
+  x-trait: 'true'
 - name: Actor runs/Update status message
   x-displayName: Update status message
   x-parent-tag-name: Actor runs

@@ -544,6 +544,8 @@ paths:
     $ref: paths/actor-runs/actor-runs@{runId}@reboot.yaml
   '/v2/actor-runs/{runId}/resurrect':
     $ref: paths/actor-runs/actor-runs@{runId}@resurrect.yaml
+  '/v2/actor-runs/{runId}/charge':
+    $ref: paths/actor-runs/actor-runs@{runId}@charge.yaml
   /v2/actor-builds:
     $ref: paths/actor-builds/actor-builds.yaml
   '/v2/actor-builds/{buildId}':
