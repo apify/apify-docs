@@ -3,7 +3,7 @@ post:
     - Actor runs/Reboot run
   summary: Reboot run
   description: |
-    Reboots an actor run and returns an object that contains all the details
+    Reboots an Actor run and returns an object that contains all the details
     about the rebooted run.
 
     Only runs that are running, i.e. runs with status `RUNNING` can be rebooted.

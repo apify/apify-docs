@@ -87,7 +87,7 @@ post:
     enough entropy.
 
 
-    To assign the new webhook to an actor or task, the request body must contain
+    To assign the new webhook to an Actor or task, the request body must contain
     `requestUrl`, `eventTypes`, and `condition` properties.
 
 
@@ -96,10 +96,10 @@ post:
 
 
     * `eventTypes` is a list of events that will trigger the webhook, e.g. when
-    the actor run succeeds.
+    the Actor run succeeds.
 
 
-    * `condition` should be an object containing the ID of the actor or task to
+    * `condition` should be an object containing the ID of the Actor or task to
     which the webhook will be assigned.
 
 

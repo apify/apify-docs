@@ -1,7 +1,7 @@
 post:
   tags:
-    - Actors/Run Actor synchronously and get dataset items
-  summary: Run actor synchronously with input and get dataset items
+    - Sync Runs
+  summary: Run Actor synchronously with input and get dataset items
   description: |
     Runs a specific Actor and returns its dataset items.
 
@@ -427,15 +427,15 @@ post:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-with-input-and-get-dataset-items
 get:
   tags:
-    - Actors/Run Actor synchronously and get dataset items
-  summary: Run actor synchronously without input and get dataset items
+    - Sync Runs
+  summary: Run Actor synchronously without input and get dataset items
   description: |
-    Runs a specific actor and returns its dataset items.
+    Runs a specific Actor and returns its dataset items.
 
     The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds
     otherwise the API endpoint returns a timeout error.
 
-    The actor is not passed any input.
+    The Actor is not passed any input.
 
 
     It allows to send all possible options in parameters from [Get Dataset

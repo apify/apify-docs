@@ -3,7 +3,7 @@ post:
     - Actor runs/Resurrect run
   summary: Resurrect run
   description: |
-    Resurrects a finished actor run and returns an object that contains all the details about the resurrected run.
+    Resurrects a finished Actor run and returns an object that contains all the details about the resurrected run.
     Only finished runs, i.e. runs with status `FINISHED`, `FAILED`, `ABORTED` and `TIMED-OUT` can be resurrected.
     Run status will be updated to RUNNING and its container will be restarted with the same storages
     (the same behaviour as when the run gets migrated to the new server).
@@ -25,7 +25,7 @@ post:
       schema:
         type: string
       example: 0.1.234
-      description: Specifies the actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the run that is being resurrected (typically `latest`).
+      description: Specifies the Actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the run that is being resurrected (typically `latest`).
     - name: timeout
       in: query
       required: false
