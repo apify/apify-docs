@@ -86,6 +86,27 @@ You can read more about Actors in the Store and different pricing models from th
 
 3. To set your price per 1,000 results, we recommend running your Actor several times to see the average cost per 1,000 runs that is available in the Apify Console when you open run detail. Usually runs returning only 1 result are much more expensive in the underlying platform costs than runs returning many results, due to fixed costs at Actor startups. Hence, try runs with different numbers of results in your experiments to get the best idea about the average costs. Also make sure your runs never return 0 results, e.g. when scraping social network profiles without any videos, return at least the basic profile info.
 
+### Pay-per-event pricing model
+
+With pay-per-event pricing model, you set the price for specific events that your Actor performs. Each event incurs a charge when triggered, and users pay based on the number of events executed.
+<!-- TODO what is the formula for the payouts similar like in the PPR Actor? -->
+<!-- TODO check for other best practices for PPE Actor (might leave just the tip and expand upon later) -->
+Each Actor defines its own set of billable events, which may include, but is not limited to:
+
+- producing a result
+- completing a unit of work (such as file upload)
+- initializing the Actor
+
+The specific events and their associated costs are listed on the Actor's detail page.
+
+![Example pay per event Actor](../../../platform/actors/running/images/store/pay_per_event_example_actor.png)
+
+:::tip
+
+When naming events, use concrete data type names instead of generic terms like "dataset items".
+
+:::
+
 ## Setting up monetization
 
 First, go to your Actor page, [**Actors → My Actors**](https://console.apify.com/actors?tab=my) and click on the Actor you want to monetize. While on your Actor page, go to the **Publication** tab on the right side of the screen into and open the **Monetization** section.
