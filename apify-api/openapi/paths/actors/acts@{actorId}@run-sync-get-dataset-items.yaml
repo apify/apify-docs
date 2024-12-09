@@ -1,6 +1,6 @@
 post:
   tags:
-    - Sync Runs
+    - Actors/Run Actor synchronously and get dataset items
   summary: Run Actor synchronously with input and get dataset items
   description: |
     Runs a specific Actor and returns its dataset items.
@@ -427,7 +427,7 @@ post:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-with-input-and-get-dataset-items
 get:
   tags:
-    - Sync Runs
+    - Actors/Run Actor synchronously and get dataset items
   summary: Run Actor synchronously without input and get dataset items
   description: |
     Runs a specific Actor and returns its dataset items.

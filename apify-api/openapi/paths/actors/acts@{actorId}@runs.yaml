@@ -124,7 +124,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RunCollectionClientAsync#list
 post:
   tags:
-    - Runs
+    - Actors/Run collection
   summary: Run Actor
   description: |
     Runs an Actor and immediately returns without waiting for the run to finish.
