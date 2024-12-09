@@ -1,4 +1,4 @@
-title: ActUpdate
+title: ChargeRunRequest
 required:
   - eventName
   - eventCount
