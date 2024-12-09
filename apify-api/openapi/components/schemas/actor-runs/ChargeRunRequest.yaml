@@ -1,0 +1,12 @@
+title: ActUpdate
+required:
+  - eventName
+  - eventCount
+type: object
+properties:
+  eventName:
+    type: string
+    example: ANALYZE_PAGE
+  eventCount:
+    type: number
+    example: 1
