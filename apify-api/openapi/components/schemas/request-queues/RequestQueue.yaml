@@ -25,7 +25,8 @@ properties:
     example: '2019-12-12T07:34:14.202Z'
   modifiedAt:
     type: string
-    example: '2019-12-13T08:36:13.202Z'
+    description: The modifiedAt the queue is updated whenever the queue is modified. Modifications include adding, updating, or removing requests, as well as locking or unlocking requests in the queue.
+    example: '2030-12-13T08:36:13.202Z'
   accessedAt:
     type: string
     example: '2019-12-14T08:36:13.202Z'
