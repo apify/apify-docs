@@ -4,11 +4,14 @@
 
 ## Overview
 
-This repository is the home of Apify's documentation, available at [docs.apify.com](https://docs.apify.com/). The documentation uses [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+This repository is the home of Apify's documentation, available at [docs.apify.com](https://docs.apify.com/). The documentation uses [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) & [Docusaurus](https://docusaurus.io/).
 
-### Documentation structure
+## Documentation structure
+
+Our documentation ecosystem consists of:
 
 - **Platform documentation**: Located in the [/sources](https://github.com/apify/apify-docs/tree/master/sources) directory
+- **Academy**: Platform-independent courses on scraping technique. Located in the [/sources](https://github.com/apify/apify-docs/tree/master/sources) directory
 - **API documentation**:
   - **OpenAPI documentation**: [OpenAPI reference](https://docs.apify.com/api/v2)
   - [JavaScript/Node.js](https://docs.apify.com/api/client/js/)
@@ -29,11 +32,11 @@ Before contributing, read these essential resources:
 
 Our documentation consists of these main sections:
 
-1. **Academy**: Platform-independent courses on scraping techniques
-2. **Platform**: Main documentation for using Apify as a product
-3. **API**: API reference and client libraries documentation
-4. **SDK**: SDK libraries documentation
-5. **CLI**: Documentation for building code and platform interaction
+1. **Academy**: Collection of mostly platform-independent courses on scraping techniques.
+2. **Platform**: Main documentation for using Apify as a product.
+3. **API**: API reference and client libraries documentation.
+4. **SDK**: SDK libraries documentation.
+5. **CLI**: Documentation for building code and platform interaction.
 
 ### Source Repositories
 
@@ -44,13 +47,14 @@ Our documentation consists of these main sections:
 - apify-sdk-python
 - apify-cli
 
-### Homepage structure
+## Architecture
 
-The homepage menu cards (in `docs/homepage_content.json`) serve three user categories:
+Our documentation is built using:
 
-1. **Beginners**: Get started, Use Actors and scrapers
-2. **Experienced Users**: Reduce blocking, Use platform features
-3. **Advanced Users**: Build Actors, Advanced tutorials and debugging
+- **Docusaurus**: Powers our documentation platform
+- **Shared Theme**: Custom `@apify/docs-theme` package
+- **Automated Deployment**: CI/CD pipeline for continuous updates
+- **Nginx routing**: Handles subdomain routing and redirects
 
 ## Need help
 
