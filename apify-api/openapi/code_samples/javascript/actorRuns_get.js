@@ -1,6 +1,6 @@
 import { ApifyClient } from 'apify-client';
 
 const apifyClient = new ApifyClient({ token: 'my-token' });
-const myActor = await apifyClient.actors().create({ name: 'my-sample-actor' });
+const { items } = await apifyClient.runs().list();
 
-console.log(myActor);
+console.log(items);
