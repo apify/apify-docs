@@ -10,7 +10,7 @@ This repository is the home of Apify's documentation, available at [docs.apify.c
 
 Our documentation ecosystem consists of:
 
-- **Platform documentation**: Located in the [/sources](https://github.com/apify/apify-docs/tree/master/sources) directory
+- **Platform documentation**: Located in the [`/sources`](https://github.com/apify/apify-docs/tree/master/sources) directory
 - **Academy**: Platform-independent courses on scraping technique. Located in the [/sources](https://github.com/apify/apify-docs/tree/master/sources) directory
 - **API documentation**:
   - **OpenAPI documentation**: [OpenAPI reference](https://docs.apify.com/api/v2)
