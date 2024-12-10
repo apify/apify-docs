@@ -1,174 +1,315 @@
 # Contributing to Apify Documentation
 
-## Architecture
+## Before you start
 
-Apify documentation consists of the following top-level areas:
+1. Review this guide completely
+2. Setup you development environment
+3. Familiarize yourself with our style guide
 
-- **Academy** - Collection of mostly platform-independent courses on scraping techniques.
-- **Platform** - The main docs on how to use Apify as a product.
-- **API** - API reference and API client libraries docs, i.e. interacting with the platform from outside.
-- **SDK** - SDK libraries docs, i.e. interacting with the platform from code which runs inside it.
-- **CLI** - Tool for building code for the platform, and for interacting with the platform from outside.
+## Development setup
 
-Thus the source code of the docs is spread across six different repositories:
+### Prerequisites
 
-- apify-docs (this repository)
-- apify-client-js
-- apify-client-python
-- apify-sdk-js
-- apify-sdk-python
-- apify-cli
+1. Git
+2. Node.js
+3. Github access
 
-The main documentation content for Platform docs and Academy is inside the `./sources` directory. Every project repository has its own [Docusaurus](https://docusaurus.io/) instance and is available on a URL prefix (used as the `baseUrl` in Docusaurus) that's routed via nginx reverse proxy to the main domain. All those Docusaurus instances are deployed to GH pages on push.
+### Installation steps
 
-### Shared theme
+1. Clone the repository
+2. Configure Github access:
 
-We use a shared Docusaurus theme published to npm as `@apify/docs-theme`. It contains custom components and styles to be used in all the Apify Docusaurus instances.
-Aside from the regular Docusaurus theme interface, it also exports the common parts of the Docusaurus config, such as the navbar contents, URL, `og:image`, etc.
+    ```bash
+    npm login --scope@apify-packages -registry=https://npm.pkg.github.com --auth-type=legacy
+    ```
 
-#### Theme synchronization
+3. Run `npm install`
+4. Start development server: `npm start`
 
-The theme can be installed in any Docusaurus instance by running `npm install @apify/docs-theme`. It is automatically synced in all the existing repositories via CI.
+This will be enough to work on Platform, Academy and, OpenAPI. If you want to work on entire documentation set you need to join them using Nginx.
 
-A GitHub Action automatically publishes the theme to npm whenever any changes are pushed to the `master` branch. However, this only happens if you update the version in the `package.json` file manually - if the current version already exists on npm, the publish will be skipped.
+#### Join all repositories with Nginx
 
-Additionally, if there are any changes to the `apify-docs-theme` folder detected, the GitHub action will invoke docs builds in all the subprojects to make sure that all the pages are using the latest theme version. This is done in the `rebuild-docs` job. This job utilizes a matrix strategy to run the builds in parallel. The actual rebuild is initiated by the `workflow_dispatch` event in the respective repositories. Because of this, the `GITHUB_TOKEN` env var has to be replaced by the PAT token stored in the `GH_TOKEN` secret - the original token doesn't have the necessary permissions to trigger the workflows in other repositories.
+1. Clone all the repositories
+2. Run `npm start:dev` instead of `npm start` from the main repository
+3. Run `npm start -- --port <number>` to start docusaurus instance on specific port, refer to the table for each repo port
 
-### Redirects
+    |Repository|Port|
+    |:---|:---|
+    |apify-docs|3000|
+    |apify-client-js|3001|
+    |apify-client-python|3002|
+    |apify-sdk-js|3003|
+    |apify-sdk-python|3004|
+    |apify-cli|3005|
 
-In [`./nginx.conf`](./nginx.conf) you can find the production version of the Nginx configuration that handles the serving of content from all the different repositories. It also handles redirects from old URLs to new ones so that we don't lose any SEO juice.
+4. To serve them together, setup the Nginx server with the following config
 
+    ```nginx
+        server {
+    listen       80;
+    server_name  docs.apify.loc;
+    location / {
+        proxy_pass http://localhost:3000;
+    }
+    location /api/client/js {
+        proxy_pass http://localhost:3001;
+    }
+    location /api/client/python {
+        proxy_pass http://localhost:3002;
+    }
+    location /sdk/js {
+        proxy_pass http://localhost:3003;
+    }
+    location /sdk/python {
+        proxy_pass http://localhost:3004;
+    }
+    location /cli {
+        proxy_pass http://localhost:3005;
+    }
+    }
+    ```
 
-### API reference
+5. Add a record to `/etc/hosts`, which maps the `docs.apify.loc` to a localhost:
 
-The API reference at (<https://docs.apify.com/api/v2>) is built directly from the OpenAPI specification of our API, versioned at https://github.com/apify/openapi.
+    ```text
+    127.0.01 docs.apify.loc
+    ```
 
-For contribution details regarding the OpenAPI specification, consult the related [contribution guide](https://github.com/apify/openapi?tab=readme-ov-file#contribution-guide).
+You should be able to open https://docs.apify.loc in your browser and run all the repositories jointly as one project.
+## Style guide
 
-### Homepage
+### Language guidelines
 
-The homepage menu card items are in the `docs/homepage_content.json` file. The cards aim to suit three types of use cases:
+- Use US English
+- Write in inclusive language
+- Avoid directional language (like "left" or "right" or instead of "see" use "check out")
+- Use active voice whenever possible
 
-- **Get started**, **Use Actors and scrapers** - Beginners and people who just want to use the Actors.
-- **Reduce blocking**, **Use platform features** - Experienced Actor and platform users.
-- **Build Actors**, **Advanced tutorials and debugging** - Actor builders and advanced users.
+### Formatting conventions
 
-Each item has its own JSON object, in which `cardItem` is the title and `href` is the link. If the link leads to outside the Apify Docs site, add the `"isExternalLink": true` property. For local links, just use the article's path. E.g. `"/tutorials/apify-scrapers/web-scraper"`.
+1. Text emphasis:
 
-In the title (`cardItem`), don't just give the article's name. Phrase the title in a way that answers a question or fulfills a goal the user might have.
+   - use *Bold* for UI elements
+   - use **Italics** for emphasis
+   - use `code` for inline code, by using back-ticks (\`\`\)
+   - use code blocks with language specification
+   - usd [code tabs](https://docusaurus.io/docs/markdown-features/tabs) whenever you want to include examples of implementation in more than one language
 
-For example:
+2. Documentation elements:
 
-```text
-{
-    "cardItem": "How to run an actor",
-    "href": "https://www.youtube.com/watch?v=BsidLZKdYWQ",
-    "isExternalLink": true
-},
+    - Use [admonitions](https://docusaurus.io/docs/2.x/markdown-features/admonitions) to emphasize cruciac information, available admonitions are:
+      - note
+      - tip
+      - info
+      - caution
+      - danger
+    - Implement code tabs for multiple languages
+    - Include proper metadata in front matter
+
+    Example of proper usage and formatting:
+
+    ```text
+    :::note Your Title Here
+
+    Your important message here.
+
+    :::
+    ```
+
+3. Screenshots:
+
+    - Use light theme when taking screenshots
+    - Include meaningful alt texts
+    - Use red indicators
+
+### Front matter metadata best practices
+
+- Keep descriptions between 140 and 160 characters
+- Avoid repetitive keywords
+- Use action-oriented phrasing
+- Exclude the word "documentation" in descriptions
+
+## Repository structure
+
+### Theme management
+
+- uses `@apify/docs-theme` package
+- automatic synchronization via CI
+- Theme updates trigger rebuilds across all projects
+
+### Content organization
+
+Content lives in the following locations:
+
+- Main content like Platform documentation & Academy: `/sources` directory
+- API reference: Genereated from OpenAPI specs within `/apify-api` directory
+- SDK docs: separate repositores
+- Client docs: separate repositories
+- CLI docs: separate repositories
+
+## API Documentation
+
+### Overview
+
+The API reference documentation at docs.apify.com is built directly froum our OpenAPI specification. The source of truth for the API specification lives in the `/apify-api`  directowy within [apify-docs](https://github.com/apify/apify-docs) repository.
+
+### Setup requirements
+
+1. Install Node.js
+2. Clone the repository
+3. Run `npm install`
+
+### Basic commands
+
+- `npm start` - Starts docs preview server including API reference
+- `npm test` - Validates the definition
+
+### Adding new documentation
+
+#### Schema documentation
+
+1. Navigate to `apify-api/openapi/components/schemas`
+2. Create a new file named after your schema
+3. Define the schema structure
+4. Reference schema using `$ref` in other files
+
+Example schema
+
+```yaml
+type: object
+properties:
+    id:
+      description: The resource ID
+      readOnly: true
+      allOf:
+        -$ref: ./ResourceId.yaml
 ```
 
-> In JSON, all entries except booleans (`true/false`) and numbers need to be in double quote marks ("").
+#### Path documentation
 
-Over time, we should track which items are useful and which don't get any traffic. Also, as Apify Docs expand, we may need to add more cards and update which articles we link to.
+1. Navigate to `apify-api/openapi/paths`
+2. Create YAML file following the URL structure replacing `/` with `@`
+3. Place path parameters in curly braces (e.g., {queueId})
+4. Add path reference to openapi.yaml
 
-## Installation and setup
+Example addition to `openapi.yaml` file:
 
-1. Use Git to clone this repository.
-2. To install packages prefixed with `@apify-packages`, first go to GitHub and navigate to [Settings / Personal access tokens / Tokens (classic)](https://github.com/settings/tokens). Despite the UI suggesting you should use the new fine-grained tokens, generate a **classic token** with scopes **repo** and **write:packages**. Keep the token somewhere safe. Then run the following command and use your GitHub username together with the token as credentials:
-
-   ```bash
-   npm login --scope=@apify-packages --registry=https://npm.pkg.github.com --auth-type=legacy
-   ```
-
-   Read [#909](https://github.com/apify/apify-docs/issues/909) if you want to understand why this is needed.
-3. Run `npm install`.
-4. Run `npm start`. The website should open at <http://localhost:3000>.
-
-This is sufficient to work on the main content, i.e. the Academy and Platform docs. If you want to also work on the other parts of the docs, you may want to first join them all together using Nginx.
-
-### Join all the docs repos together using Nginx
-
-By default, the parts of the docs sourced from other repositories will give you 404s. If you need to locally run the project with all the other repositories included, clone them all and setup an Nginx server according to the steps below.
-
-For the setup to work, use `npm start:dev` instead of `npm start` when starting `apify-docs`. This causes all links in the top navigation and the footer to be absolute. They will now use `docs.apify.loc` as a hostname. Clone all the remaining docs repositories, and start their Docusaurus instances. To run Docusaurus on a specific port, use `npm start -- --port XXXX`.
-
-| repo                | port |
-|---------------------|------|
-| apify-docs          | 3000 |
-| apify-client-js     | 3001 |
-| apify-client-python | 3002 |
-| apify-sdk-js        | 3003 |
-| apify-sdk-python    | 3004 |
-| apify-cli           | 3005 |
-
-To serve them together as a single website, setup an Nginx server with the following config:
-
-```nginx
-server {
-  listen       80;
-  server_name  docs.apify.loc;
-  location / {
-    proxy_pass http://localhost:3000;
-  }
-  location /api/client/js {
-    proxy_pass http://localhost:3001;
-  }
-  location /api/client/python {
-    proxy_pass http://localhost:3002;
-  }
-  location /sdk/js {
-    proxy_pass http://localhost:3003;
-  }
-  location /sdk/python {
-    proxy_pass http://localhost:3004;
-  }
-  location /cli {
-    proxy_pass http://localhost:3005;
-  }
-}
+```yaml
+'/requests-queues':
+  $ref: './paths/request-queues/request-queues.yaml'
+'/requests-queues/{queueId}':
+  $ref: './paths/request-queues/request-queues@{queueId}.yaml'
 ```
 
-Add a record to `/etc/hosts`, which maps the `docs.apify.loc` hostname to a localhost:
+Example YAML file `request-queues@{queueId}.yaml` in the `paths/request-queues` folder :
 
-```text
-127.0.0.1 docs.apify.loc
+```yaml
+get:
+    tags:
+        - Request Queues
+    summary: Get a Request Queue
+    operationId: requestQueues_get
+    description: |
+        You can have a markdown description here.
+    parameters:
+    responses:
+        '200':
+        '401':
+    x-code-samples:
+        -   lang: PHP
+            source:
+                $ref: ../code_samples/PHP/customers/get.php
 ```
 
-Now you should be able to open <http://docs.apify.loc> in your browser and see all the documentation projects joined together, with the top navigation allowing you to browse not only Academy or Platform docs, but also CLI, SDK, and all the other docs.
+#### Operation ID conventions
 
-## Linting
+Operation IDs must follow this format:
 
-### Markdown and code
+- Generated from path structure and HTTP method
+- Use camelCase for object names
+- Single object for paths with {id}, plural otherwise
+- Underscore separator between object name and action
+- Method name in lowercase at the end
 
-The **apify-docs** repo contains both Markdown and JavaScript/TypeScript files. We have two commands for linting them:
+Examples:
 
-- `npm run lint:md` and `npm run lint:md:fix` checks the `*.md` files.
-- `npm run lint:code` and `npm run lint:code:fix` checks the `*.{js,ts}` files.
+- `/requests-queues` GET -> `requestQueues_get`
+- `/requests-queues/{queueId}` PUT -> `requestQueue_put`
+- `/acts/{actorId}/runs` POST -> `act_runs_post`
 
-For Markdown, we use the [markdownlint](https://github.com/DavidAnson/markdownlint) package, which also has a handy VSCode [extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
+#### Code samples
 
-For JavaScript, we use the [ESLint Markdown plugin](https://github.com/eslint/eslint-plugin-markdown).
+1. Navigate to the `openapi/code_samples` folder
+2. Navigate to the `<language>` sub-folder
+3. Navigate to the `path` folder, and add ref to the code sample
 
-### Prose
+Add languages by adding new folders at the appropriate path level.
 
-Apart from `markdownlint` we also utilize [Vale](https://github.com/errata-ai/vale) as linting solution for prose. You can either use Vale as a CLI tool (for more information how to set it up go [here](https://vale.sh/docs/vale-cli/installation/)) or you can use Vale with a VSCode [extension](https://marketplace.visualstudio.com/items?itemName=ChrisChinchilla.vale-vscode). The rulesets that Vale will utilize while linting can be found within `.github/styles` directory.
+#### Submitting changes
 
-#### Exceptions for Vale
+1. Make your changes following the guidelines above
+2. Test locally using provided npm commands
+3. Submit a pull request to the `main` branch
+4. Ensure all CI checks pass
 
-If Vale catches some specific words that you feel that should not be subjected to linting you can add them to the `accept.txt` found within the `.github/styles/Vocab/Docs` directory. For more information how it works visit Vale [docs](https://vale.sh/docs/topics/vocab/).
+## Development workflow
 
-## Pull requests
+### Local development
 
-Follow the semantic commit message format described in the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification. This will help us with automatic changelog generation and versioning.
+1. Basic setup
 
-When you create a PR, the CI will try to build the project, searching for broken links and linting both the application code and markdown files.
+    ```bash
+
+    npm install
+    npm start
+
+    ```
+
+2. Full setup with Nginx:
+
+    - Clone all documentation repositories
+    - Configure Nginx server
+    - Update hosts file
+    - Use `npm start:dev`
+
+## Quality check
+
+### Linting
+
+1. Markdown:
+
+    ```bash
+    npm run lint:md
+    npm run lint:md:fix
+    ```
+
+2. Code:
+
+    ```bash
+    npm run lint:code
+    npm run lint:code:fix
+    ```
+
+3. Prose:
+
+    - Use Vale for content linting
+    - Configure exceptions in `accepts.txt`
+
+## Pull request process
+
+1. Follow [Conventional Commits](https://www.conventionalcommits.org/)
+2. Pass all CI checks
+3. Include comprehensive documentation updates
 
 ## Deployment
 
-On each commit to the `master` branch of this repository, a new version of the Apify documentation gets built and deployed to the appropriate subdomain.
+- Automatic deployment on merge to `master`
+- Builds deploy to appropriate subdomains
+- Updates trigger theme synchronization
 
-## Resources
+## Additional resources
 
-- <https://github.com/facebook/docusaurus/discussions/6086>
-- <https://docusaurus.io/docs/docs-multi-instance>
-- <https://docusaurus.io/docs/advanced/routing#escaping-from-spa-redirects>
+- [Docusaurus documentation](https://docusaurus.io/docs)
+- [OpenAPI specification]
+- [Vale style guide](https://vale.sh/docs)
