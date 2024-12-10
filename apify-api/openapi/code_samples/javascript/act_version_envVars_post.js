@@ -6,7 +6,7 @@ const envVar = await apifyClient.actor('apify/my-sample-actor')
     .version('0.1')
     .envVars()
     .create({
-        name: 'MY_SAMPLE_ENV_VAR',
+        name: 'MY_ENV_VAR',
         value: '12345',
         isSecret: true,
     });
