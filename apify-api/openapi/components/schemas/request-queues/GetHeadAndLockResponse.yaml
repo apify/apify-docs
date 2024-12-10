@@ -15,7 +15,7 @@ properties:
         example: '2018-03-14T23:00:00.000Z'
       queueHasLockedRequests:
         type: boolean
-        description: Whether the queue has locked requests by the same or another client.
+        description: Whether the queue contains requests locked by any client (either the one calling the endpoint or a different one).
         example: true
       clientKey:
         type: string
