@@ -103,7 +103,7 @@ Share your Actor through multiple channels while maintaining authenticity.
 - Participate in technical communities authentically
 - Focus on solving problems while naturally introducing your Actor
 
-Remember to maintain a helpful presence in communities, solving problems while appropriately refencing your Actor as a solution when relevant.
+Remember to maintain a helpful presence in communities, solving problems while appropriately referencing your Actor as a solution when relevant.
 
 ## Next up {#next}
 
