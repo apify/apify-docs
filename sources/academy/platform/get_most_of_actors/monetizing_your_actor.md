@@ -127,7 +127,7 @@ Track your Actor's performance through:
 Create SEO-optimized descriptions and README files to improve search engine visibility. Share your Actor on multiple channels:
 
 - Post on Reddit, Quora, and social media platform
-- Create tutorial videos demonstating key features
+- Create tutorial videos demonstrating key features
 - Publish articles about your Actor on relevant websites
 - Consider creating a product showcase on platforms like Product hunt
 
