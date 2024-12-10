@@ -75,7 +75,7 @@ get:
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/BuildCollectionClientAsync#list
 post:
   tags:
-    - Builds
+    - Actors/Build collection
   summary: Build Actor
   description: |-
     Builds an Actor.
