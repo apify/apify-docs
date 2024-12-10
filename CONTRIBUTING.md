@@ -77,6 +77,7 @@ This will be enough to work on Platform, Academy and, OpenAPI. If you want to wo
     ```
 
 You should be able to open https://docs.apify.loc in your browser and run all the repositories jointly as one project.
+
 ## Style guide
 
 ### Language guidelines
