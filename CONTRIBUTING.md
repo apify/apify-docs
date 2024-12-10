@@ -105,7 +105,7 @@ You should be able to open https://docs.apify.loc in your browser and run all th
       - info
       - caution
       - danger
-    - Implement code tabs for multiple languages
+    - Use code tabs for multiple languages
     - Include proper metadata in front matter
 
     Example of proper usage and formatting:
@@ -144,7 +144,7 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 Content lives in the following locations:
 
 - Main content like Platform documentation & Academy: `/sources` directory
-- API reference: Genereated from OpenAPI specs within `/apify-api` directory
+- API reference: Generated from OpenAPI specs within `/apify-api` directory
 - SDK docs: separate repositores
 - Client docs: separate repositories
 - CLI docs: separate repositories
@@ -153,7 +153,7 @@ Content lives in the following locations:
 
 ### Overview
 
-The API reference documentation at docs.apify.com is built directly froum our OpenAPI specification. The source of truth for the API specification lives in the `/apify-api`  directowy within [apify-docs](https://github.com/apify/apify-docs) repository.
+The API reference documentation at docs.apify.com is built directly froum our OpenAPI specification. The source of truth for the API specification lives in the `/apify-api/openapi`  directory within [apify-docs](https://github.com/apify/apify-docs) repository.
 
 ### Setup requirements
 
@@ -281,20 +281,20 @@ Add languages by adding new folders at the appropriate path level.
 1. Markdown:
 
     ```bash
-    npm run lint:md
-    npm run lint:md:fix
+    npm run lint:md # Checks for any issues using markdownlint
+    npm run lint:md:fix # Applies fixes
     ```
 
 2. Code:
 
     ```bash
-    npm run lint:code
-    npm run lint:code:fix
+    npm run lint:code # Checks .js & .ts files
+    npm run lint:code:fix # Applies fixes
     ```
 
 3. Prose:
 
-    - Use Vale for content linting
+    - Use [Vale](https://vale.sh/) for content linting
     - Configure exceptions in `accepts.txt`
 
 ## Pull request process
@@ -312,5 +312,4 @@ Add languages by adding new folders at the appropriate path level.
 ## Additional resources
 
 - [Docusaurus documentation](https://docusaurus.io/docs)
-- [OpenAPI specification]
 - [Vale style guide](https://vale.sh/docs)
