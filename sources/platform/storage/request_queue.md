@@ -407,15 +407,15 @@ You can lock a request so that no other clients receive it when they fetch the q
 This feature is seamlessly integrated into Crawlee, requiring minimal extra setup. By default, requests are locked for the same duration as the timeout for processing requests in the crawler ([`requestHandlerTimeoutSecs`](https://crawlee.dev/api/next/basic-crawler/interface/BasicCrawlerOptions#requestHandlerTimeoutSecs)).
 If the Actor processing the request fails, the lock expires, and the request is processed again eventually. For more details, refer to the [Crawlee documentation](https://crawlee.dev/docs/next/experiments/experiments-request-locking).
 
-In the following example, we demonstrate how we can use locking mechanisms to avoid concurrent processing of the same request across multiple Actor runs.
+In the following example, we demonstrate how you can use locking mechanisms to avoid concurrent processing of the same request across multiple Actor runs.
 
 :::info
 The lock mechanism works on the client level, as well as the run level, when running the Actor on the Apify platform.
 
 This means you can unlock or prolong the lock the locked request only if:
 
-1. You are using the same client key, or
-2. The operation is being called from the same Actor run.
+- You are using the same client key, or
+- The operation is being called from the same Actor run.
 
 :::
 
