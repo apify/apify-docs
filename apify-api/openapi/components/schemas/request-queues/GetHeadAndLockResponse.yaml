@@ -11,7 +11,7 @@ properties:
         example: 1000
       queueModifiedAt:
         type: string
-        description: The modifiedAt the queue is updated whenever the queue is modified. Modifications include adding, updating, or removing requests, as well as locking or unlocking requests in the queue.
+        description: The modifiedAt is updated whenever the queue is modified. Modifications include adding, updating, or removing requests, as well as locking or unlocking requests in the queue.
         example: '2018-03-14T23:00:00.000Z'
       queueHasLockedRequests:
         type: boolean
