@@ -4,7 +4,7 @@
 
 1. Review this guide completely
 2. Setup you development environment
-3. Familiarize yourself with our style guide
+3. Familiarize yourself with our documentation style guide
 
 ## Development setup
 
@@ -78,7 +78,7 @@ This will be enough to work on Platform, Academy and, OpenAPI. If you want to wo
 
 You should be able to open https://docs.apify.loc in your browser and run all the repositories jointly as one project.
 
-## Style guide
+## Documentation style guide
 
 ### Language guidelines
 

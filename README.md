@@ -25,8 +25,8 @@ Our documentation ecosystem consists of:
 
 Before contributing, read these essential resources:
 
-- [Contributing Guidelines](CONTRIBUTING.md)
-- [Style Guide](CONTRIBUTING.md#style-guide)
+- [Contributing guidelines](CONTRIBUTING.md)
+- [Documentation style guide](CONTRIBUTING.md#style-guide)
 
 ## Documentation architecture
 
@@ -59,5 +59,5 @@ Our documentation is built using:
 ## Need help
 
 - For contribution questions, see our [Contributing Guidelines](CONTRIBUTING.md)
-- For technical issues, create a GitHub issue
-- For documentation feedback, use the feedback form on our documentation pages
+- For technical issues, [create a GitHub issue](https://github.com/apify/apify-docs/issues/new)
+
