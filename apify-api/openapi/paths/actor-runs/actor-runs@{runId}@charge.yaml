@@ -1,0 +1,46 @@
+post:
+  tags:
+    - Actor runs/Charge events in run
+  summary: Charge events in run
+  description: |
+    Charge for events in the run of your [pay per event Actor](https://docs.apify.com/platform/actors/running/actors-in-store#pay-per-event).
+    The event you are charging for must be one of the configured events in your Actor. If the Actor is not set up as pay per event, or if the event is not configured,
+    the endpoint will return an error. The endpoint must be called from the Actor run itself, with the same API token that the run was started with.
+
+    Note that pay per events Actors are still in alpha. Please, reach out to us with any questions or feedback.
+  operationId: PostChargeRun
+  parameters:
+    - name: runId
+      in: path
+      required: true
+      schema:
+        type: string
+      example: 3KH8gEpp4d8uQSe8T
+      description: Run ID.
+    - name: idempotency-key
+      in: header
+      required: false
+      schema:
+        type: string
+      example: 2024-12-09T01:23:45.000Z-random-uuid
+      description: Always pass a unique idempotency key (any unique string) for each charge to avoid double charging in case of retries or network errors.
+  requestBody:
+      description: 'Define which event, and how many times, you want to charge for.'
+      content:
+          application/json:
+              schema:
+                  $ref: "../../components/schemas/actor-runs/ChargeRunRequest.yaml"
+              example:
+                  eventName: 'ANALYZE_PAGE'
+                  eventCount: 1
+      required: true
+  responses:
+    '201':
+      description: 'The charge was successful. Note that you still have to make sure in your Actor that the total charge for the run respects the maximum value set by the user, as the API does not check this. Above the limit, the charges reported as successful in API will not be added to your payouts, but you will still bear the associated costs. Use the Apify charge manager or SDK to avoid having to deal with this manually.'
+  deprecated: false
+  x-js-parent: RunClient
+  x-js-name: charge
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunClient#charge
+  x-py-parent: RunClientAsync
+  x-py-name: charge
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RunClientAsync#charge
