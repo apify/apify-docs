@@ -22,7 +22,7 @@ module.exports = {
             swcJsMinimizer: true,
             swcHtmlMinimizer: true,
             lightningCssMinimizer: true,
-            // rspackBundler: true,
+            rspackBundler: true,
             mdxCrossCompilerCache: true,
         },
     },

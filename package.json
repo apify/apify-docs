@@ -75,7 +75,7 @@
         "@docusaurus/utils": "3.6.3",
         "@giscus/react": "^3.0.0",
         "@mdx-js/react": "^3.0.1",
-        "@redocly/cli": "^1.25.14",
+        "@redocly/cli": "1.25.14",
         "ajv": "^8.17.1",
         "clsx": "^2.0.0",
         "docusaurus-plugin-openapi-docs": "0.0.0-961",
