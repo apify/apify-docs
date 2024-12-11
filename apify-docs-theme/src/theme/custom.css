@@ -1709,15 +1709,29 @@ iframe[src*="youtube"] {
     top: -1.5px;
 }
 
-.get > .menu__link::before {
-    content: 'get';
+.theme-api-markdown .openapi__method-endpoint .badge {
+    border-inline-start-width: 5px;
+    padding: 3px 5px 3px 4px;
+    margin-right: 5px;
+}
+
+.get > .menu__link::before,
+.theme-api-markdown .openapi__method-endpoint .badge--primary {
     background-color: var(--ifm-color-info-contrast-background);
     color: var(--ifm-color-info-contrast-foreground);
     border-color: var(--ifm-color-info-dark);
 }
 
+.get > .menu__link::before {
+    content: 'get';
+}
+
 .post > .menu__link::before {
     content: 'post';
+}
+
+.post > .menu__link::before,
+.theme-api-markdown .openapi__method-endpoint .badge--success {
     background-color: var(--ifm-color-success-contrast-background);
     color: var(--ifm-color-success-contrast-foreground);
     border-color: var(--ifm-color-success-dark);
@@ -1725,6 +1739,10 @@ iframe[src*="youtube"] {
 
 .delete > .menu__link::before {
     content: 'del';
+}
+
+.delete > .menu__link::before,
+.theme-api-markdown .openapi__method-endpoint .badge--danger {
     background-color: var(--ifm-color-danger-contrast-background);
     color: var(--ifm-color-danger-contrast-foreground);
     border-color: var(--ifm-color-danger-dark);
@@ -1732,6 +1750,10 @@ iframe[src*="youtube"] {
 
 .put > .menu__link::before {
     content: 'put';
+}
+
+.put > .menu__link::before,
+.theme-api-markdown .openapi__method-endpoint .badge--info {
     background-color: var(--ifm-color-warning-contrast-background);
     color: var(--ifm-color-warning-contrast-foreground);
     border-color: var(--ifm-color-warning-dark);
@@ -1739,6 +1761,10 @@ iframe[src*="youtube"] {
 
 .patch > .menu__link::before {
     content: 'patch';
+}
+
+.patch > .menu__link::before,
+.theme-api-markdown .openapi__method-endpoint .badge--warning {
     background-color: var(--ifm-color-success-contrast-background);
     color: var(--ifm-color-success-contrast-foreground);
     border-color: var(--ifm-color-success-dark);
@@ -1746,6 +1772,12 @@ iframe[src*="youtube"] {
 
 .head > .menu__link::before {
     content: 'head';
+}
+
+.head > .menu__link::before,
+.event > .menu__link::before,
+.schema > .menu__link::before,
+.theme-api-markdown .openapi__method-endpoint .badge--secondary {
     background-color: var(--ifm-color-secondary-contrast-background);
     color: var(--ifm-color-secondary-contrast-foreground);
     border-color: var(--ifm-color-secondary-dark);
@@ -1753,13 +1785,10 @@ iframe[src*="youtube"] {
 
 .event > .menu__link::before {
     content: 'event';
-    background-color: var(--ifm-color-secondary-contrast-background);
-    color: var(--ifm-color-secondary-contrast-foreground);
-    border-color: var(--ifm-color-secondary-dark);
 }
 
-.schema > .menu__link::before {
-    content: 'schema';
+.event > .menu__link::before,
+.theme-api-markdown .openapi__method-endpoint .badge--secondary {
     background-color: var(--ifm-color-secondary-contrast-background);
     color: var(--ifm-color-secondary-contrast-foreground);
     border-color: var(--ifm-color-secondary-dark);
