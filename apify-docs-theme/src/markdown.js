@@ -49,7 +49,8 @@ function linkifyUserTags(tree) {
             const match = userTagRegex.exec(child.value);
 
             if (match) {
-                const [_, username, ending] = match;
+                const username = match[1];
+                const ending = match[2] === ' ' ? ' ' : '';
                 const before = child.value.slice(0, match.index);
                 const after = child.value.slice(userTagRegex.lastIndex);
 
@@ -88,7 +89,7 @@ function prettifyPRLinks(tree) {
             const match = prLinkRegex.exec(child.value);
 
             if (match) {
-                const [_, prNumber] = match;
+                const prNumber = match[1];
                 const before = child.value.slice(0, match.index);
                 const after = child.value.slice(prLinkRegex.lastIndex);
 
