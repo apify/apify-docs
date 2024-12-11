@@ -3,7 +3,7 @@ get:
     - Actor tasks/Webhook collection
   summary: Get list of webhooks
   description: |
-    Gets the list of webhooks of a specific actor task. The response is a JSON
+    Gets the list of webhooks of a specific Actor task. The response is a JSON
     with the list of objects, where each object contains basic information about a single webhook.
 
     The endpoint supports pagination using the `limit` and `offset` parameters
