@@ -1799,6 +1799,10 @@ iframe[src*="youtube"] {
     margin-bottom: calc(var(--ifm-h1-vertical-rhythm-bottom)* var(--ifm-leading)) !important;
 }
 
+.theme-doc-markdown .openapi-tabs__code-container .openapi-tabs__code-item span {
+    text-transform: none;
+}
+
 @media (max-width: 996px) {
     div[class^="navbarSearchContainer"] {
         position: static;

@@ -288,7 +288,127 @@ module.exports = {
             return result;
         },
     },
-    themeConfig: config.themeConfig,
+    themeConfig: {
+        ...config.themeConfig,
+        prism: {
+            ...config.themeConfig.prism,
+            additionalLanguages: [
+                ...config.themeConfig.prism.additionalLanguages,
+                'http', 'bash', 'ruby', 'java', 'go', 'csharp', 'powershell', 'dart', 'objectivec', 'ocaml', 'r',
+            ],
+        },
+        languageTabs: [
+            {
+                highlight: 'javascript',
+                label: 'JavaScript',
+                language: 'javascript',
+                logoClass: 'javascript',
+            },
+            {
+                highlight: 'python',
+                label: 'Python',
+                language: 'python',
+                logoClass: 'python',
+            },
+            {
+                highlight: 'bash',
+                label: 'cURL',
+                language: 'curl',
+                logoClass: 'curl',
+            },
+            {
+                highlight: 'php',
+                label: 'PHP',
+                language: 'php',
+                logoClass: 'php',
+            },
+            {
+                highlight: 'java',
+                label: 'Java',
+                language: 'java',
+                logoClass: 'java',
+                variant: 'unirest',
+            },
+            {
+                highlight: 'c',
+                label: 'C',
+                language: 'c',
+                logoClass: 'c',
+            },
+            {
+                highlight: 'csharp',
+                label: 'C#',
+                language: 'csharp',
+                logoClass: 'csharp',
+            },
+            {
+                highlight: 'go',
+                label: 'Go',
+                language: 'go',
+                logoClass: 'go',
+            },
+            {
+                highlight: 'rust',
+                label: 'Rust',
+                language: 'rust',
+                logoClass: 'rust',
+            },
+            {
+                highlight: 'javascript',
+                label: 'Node.js',
+                language: 'nodejs',
+                logoClass: 'nodejs',
+            },
+            {
+                highlight: 'ruby',
+                label: 'Ruby',
+                language: 'ruby',
+                logoClass: 'ruby',
+            },
+            {
+                highlight: 'powershell',
+                label: 'PowerShell',
+                language: 'powershell',
+                logoClass: 'powershell',
+            },
+            {
+                highlight: 'dart',
+                label: 'Dart',
+                language: 'dart',
+                logoClass: 'dart',
+            },
+            {
+                highlight: 'objectivec',
+                label: 'Objective-C',
+                language: 'objective-c',
+                logoClass: 'objective-c',
+            },
+            {
+                highlight: 'ocaml',
+                label: 'OCaml',
+                language: 'ocaml',
+                logoClass: 'ocaml',
+            },
+            {
+                highlight: 'r',
+                label: 'R',
+                language: 'r',
+                logoClass: 'r',
+            },
+            {
+                highlight: 'swift',
+                label: 'Swift',
+                language: 'swift',
+                logoClass: 'swift',
+            },
+            {
+                highlight: 'kotlin',
+                label: 'Kotlin',
+                language: 'kotlin',
+                logoClass: 'kotlin',
+            },
+        ],
+    },
     staticDirectories: ['apify-docs-theme/static', 'static'],
     customFields: {
         forbiddenGiscusDocRegExpStrings: [
