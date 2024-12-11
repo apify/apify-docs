@@ -47,26 +47,26 @@ This will be enough to work on Platform, Academy and, OpenAPI. If you want to wo
 
     ```nginx
         server {
-    listen       80;
-    server_name  docs.apify.loc;
-    location / {
-        proxy_pass http://localhost:3000;
-    }
-    location /api/client/js {
-        proxy_pass http://localhost:3001;
-    }
-    location /api/client/python {
-        proxy_pass http://localhost:3002;
-    }
-    location /sdk/js {
-        proxy_pass http://localhost:3003;
-    }
-    location /sdk/python {
-        proxy_pass http://localhost:3004;
-    }
-    location /cli {
-        proxy_pass http://localhost:3005;
-    }
+          listen       80;
+          server_name  docs.apify.loc;
+          location / {
+            proxy_pass http://localhost:3000;
+        }
+        location /api/client/js {
+          proxy_pass http://localhost:3001;
+        }
+        location /api/client/python {
+          proxy_pass http://localhost:3002;
+        }
+        location /sdk/js {
+          proxy_pass http://localhost:3003;
+        }
+        location /sdk/python {
+          proxy_pass http://localhost:3004;
+        }
+        location /cli {
+          proxy_pass http://localhost:3005;
+        }
     }
     ```
 
@@ -91,11 +91,11 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 
 1. Text emphasis:
 
-   - use *Bold* for UI elements
-   - use **Italics** for emphasis
-   - use `code` for inline code, by using back-ticks (\`\`\)
-   - use code blocks with language specification
-   - usd [code tabs](https://docusaurus.io/docs/markdown-features/tabs) whenever you want to include examples of implementation in more than one language
+    - use *Bold* for UI elements
+    - use **Italics** for emphasis
+    - use `code` for inline code, by using back-ticks (\`\`\)
+    - use code blocks with language specification
+    - usd [code tabs](https://docusaurus.io/docs/markdown-features/tabs) whenever you want to include examples of implementation in more than one language
 
 2. Documentation elements:
 
