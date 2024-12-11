@@ -1,13 +1,15 @@
 import { ApifyClient } from 'apify-client';
 
-const apifyClient = new ApifyClient({ token: 'my-token' });
-// Replace apify/my-sample-actor with your Actor's ID or technical name
-const version = await apifyClient.actor('apify/my-sample-actor')
+const apifyClient = new ApifyClient({
+    token: '<TOKEN>',
+});
+const version = await apifyClient
+    .actor('<ACTOR ID>')
     .versions()
     .create({
         versionNumber: '0.1',
         sourceType: 'GIT_REPO',
-        gitRepoUrl: 'https://github.com/my-github-account/actor-repo',
+        gitRepoUrl: 'https://github.com/my/repo',
     });
 
 console.log(version);
