@@ -16,9 +16,16 @@ module.exports = {
     organizationName: 'apify',
     projectName: 'apify-docs',
     scripts: ['/js/custom.js'],
-    // future: {
-    //     experimental_faster: true,
-    // },
+    future: {
+        experimental_faster: {
+            // swcJsLoader: true,
+            swcJsMinimizer: true,
+            swcHtmlMinimizer: true,
+            lightningCssMinimizer: true,
+            // rspackBundler: true,
+            mdxCrossCompilerCache: true,
+        },
+    },
     headTags: [
         {
             tagName: 'link',
@@ -294,7 +301,7 @@ module.exports = {
             ...config.themeConfig.prism,
             additionalLanguages: [
                 ...config.themeConfig.prism.additionalLanguages,
-                'http', 'bash', 'ruby', 'java', 'go', 'csharp', 'powershell', 'dart', 'objectivec', 'ocaml', 'r',
+                'http', 'bash', 'ruby', 'java', 'scala', 'go', 'csharp', 'powershell', 'dart', 'objectivec', 'ocaml', 'r',
             ],
         },
         languageTabs: [
