@@ -190,6 +190,7 @@ module.exports = {
                         outputDir: './sources/api',
                         sidebarOptions: {
                             groupPathsBy: 'tag',
+                            categoryLinkSource: 'tag',
                             sidebarCollapsed: false,
                             sidebarCollapsible: false,
                             sidebarGenerators: {
