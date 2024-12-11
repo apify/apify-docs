@@ -1,7 +1,10 @@
 import { ApifyClient } from 'apify-client';
 
-const apifyClient = new ApifyClient({ token: 'my-token' });
-// Replace apify~my-sample-task with your task's ID or technical name
-const task = await apifyClient.task('apify~my-sample-task').get();
+const apifyClient = new ApifyClient({
+    token: '<TOKEN>',
+});
+const task = await apifyClient
+    .task('<TASK ID>')
+    .get();
 
 console.log(task);
