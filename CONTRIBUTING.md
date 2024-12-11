@@ -127,9 +127,9 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 ### Front matter metadata best practices
 
 - Keep descriptions between 140 and 160 characters
-- Avoid repetitive keywords
 - Use action-oriented phrasing
-- Exclude the word "documentation" in descriptions
+- Avoid repetitive keywords
+- Avoid the word "documentation" in descriptions
 
 ## Repository structure
 
