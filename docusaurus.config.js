@@ -194,7 +194,7 @@ module.exports = {
                             sidebarCollapsible: false,
                             sidebarGenerators: {
                                 createDocItem: (item, context) => {
-                                    const legacyUrls = item.api['x-legacy-doc-urls'] ?? [];
+                                    const legacyUrls = item.api?.['x-legacy-doc-urls'] ?? [];
                                     const altIds = legacyUrls.map((url) => {
                                         const { hash } = new URL(url);
                                         return hash;
@@ -266,6 +266,11 @@ module.exports = {
         mermaid: true,
         parseFrontMatter: async (params) => {
             const result = await params.defaultParseFrontMatter(params);
+
+            if (result.frontMatter.api || result.content.startsWith('<span class="openapi-clients-box">')) {
+                result.frontMatter.pagination_next = null;
+                result.frontMatter.pagination_prev = null;
+            }
 
             if (result.frontMatter.id === 'apify-api') {
                 result.frontMatter.slug = '/';
