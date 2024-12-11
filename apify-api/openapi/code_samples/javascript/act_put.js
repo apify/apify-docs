@@ -1,9 +1,12 @@
 import { ApifyClient } from 'apify-client';
 
-const apifyClient = new ApifyClient({ token: 'my-token' });
-// Replace apify~my-sample-actor with your Actor's ID or technical name
-const updatedActor = await apifyClient.actor('apify~my-sample-actor').update({
-    title: 'New title',
+const apifyClient = new ApifyClient({
+    token: '<TOKEN>',
 });
+const updatedActor = await apifyClient
+    .actor('<ACTOR ID>')
+    .update({
+        title: 'New title',
+    });
 
 console.log(updatedActor);
