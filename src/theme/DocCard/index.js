@@ -1,28 +1,28 @@
-import React from 'react';
-import clsx from 'clsx';
+import isInternalUrl from '@docusaurus/isInternalUrl';
 import Link from '@docusaurus/Link';
 import { useDocById, findFirstSidebarItemLink } from '@docusaurus/plugin-content-docs/client';
 import { usePluralForm } from '@docusaurus/theme-common';
-import isInternalUrl from '@docusaurus/isInternalUrl';
 import { translate } from '@docusaurus/Translate';
 import Heading from '@theme/Heading';
+import clsx from 'clsx';
+import React from 'react';
+
 import styles from './styles.module.css';
 
 function useCategoryItemsPlural() {
     const { selectMessage } = usePluralForm();
-    return (count) =>
-        selectMessage(
-            count,
-            translate(
-                {
-                    message: '1 item|{count} items',
-                    id: 'theme.docs.DocCard.categoryDescription.plurals',
-                    description:
+    return (count) => selectMessage(
+        count,
+        translate(
+            {
+                message: '1 item|{count} items',
+                id: 'theme.docs.DocCard.categoryDescription.plurals',
+                description:
                         'The default description for a category card in the generated index about how many items this category includes',
-                },
-                { count },
-            ),
-        );
+            },
+            { count },
+        ),
+    );
 }
 
 function CardContainer({ href, children }) {
