@@ -1,6 +1,10 @@
 import { ApifyClient } from 'apify-client';
 
-const apifyClient = new ApifyClient({ token: 'my-token' });
-const abortedBuild = await apifyClient.build('my-build-ID').abort();
+const apifyClient = new ApifyClient({
+    token: '<TOKEN>',
+});
+const abortedBuild = await apifyClient
+    .build('<BUILD ID>')
+    .abort();
 
 console.log(abortedBuild);

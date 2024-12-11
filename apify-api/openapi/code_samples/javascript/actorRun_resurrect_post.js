@@ -1,6 +1,10 @@
 import { ApifyClient } from 'apify-client';
 
-const apifyClient = new ApifyClient({ token: 'my-token' });
-const run = await apifyClient.run('my-run-ID').resurrect();
+const apifyClient = new ApifyClient({
+    token: '<TOKEN>',
+});
+const resurrectedRun = await apifyClient
+    .run('<RUN ID>')
+    .resurrect();
 
-console.log(run);
+console.log(resurrectedRun);

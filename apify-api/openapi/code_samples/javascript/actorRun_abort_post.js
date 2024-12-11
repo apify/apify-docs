@@ -1,6 +1,10 @@
 import { ApifyClient } from 'apify-client';
 
-const apifyClient = new ApifyClient({ token: 'my-token' });
-const run = await apifyClient.run('my-run-ID').abort();
+const apifyClient = new ApifyClient({
+    token: '<TOKEN>',
+});
+const abortedRun = await apifyClient
+    .run('<RUN ID>')
+    .abort();
 
-console.log(run);
+console.log(abortedRun);
