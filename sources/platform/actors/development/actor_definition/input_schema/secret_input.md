@@ -34,9 +34,9 @@ To make an input field secret, you need to add a `"isSecret": true` setting to t
 ```
 
 The editor for this input field will then turn into a secret input, and when you edit the field value, it will be stored encrypted.
-
+<!-- vale off -->
 <img src={require("./images/secret-input-editor.png").default} alt="Secret input editor" style={{ width: '100%', maxWidth: '822px' }}/>
-
+<!-- vale on -->
 :::note Type restriction
 
 This is only available for `string` inputs, and the editor type is limited to `textfield` or `textarea`.

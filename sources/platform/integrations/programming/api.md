@@ -13,7 +13,7 @@ slug: /integrations/api
 All aspects of the Apify platform can be controlled via a REST API, which is described in detail in the [**API Reference**](/api/v2).
 If you want to use the Apify API from JavaScript/Node.js or Python, we strongly recommend to use one of our API clients:
 
-- [**apify-client**](/api/client/js/) NPM package for JavaScript, supporting both browser and server
+- [**apify-client**](/api/client/js/) `npm` package for JavaScript, supporting both browser and server
 - [**apify-client**](/api/client/python/) PyPI package for Python.
 
 You are not required to those packages—the REST API works with any HTTP client—but the official API clients implement best practices such as exponential backoff and rate limiting.
@@ -155,7 +155,7 @@ You can use scoped tokens to schedule Actor and Tasks. Each schedule invocation 
 
 However, **this token is always unscoped, which means that the scheduled Actor has access to all your account data**, regardless of the scope of the token that scheduled it.
 
-### Webhoooks configuration
+### Webhooks configuration
 
 If you allow a token to run an Actor, it'll also be able to manage the Actor's webhooks (similarly for tasks).
 

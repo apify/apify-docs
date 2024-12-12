@@ -8,18 +8,18 @@ slug: /proxy/datacenter-proxy
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Datacenter proxy {#datacenter-proxy}
+# Data center proxy
 
 **Learn how to reduce blocking when web scraping using IP address rotation. See proxy parameters and learn to implement Apify Proxy in an application.**
 
 ---
 
-Datacenter proxies are a cheap, fast and stable way to mask your identity online. When you access a website using a datacenter proxy, the site can only see the proxy center's credentials, not yours.
+Data center proxies are a cheap, fast and stable way to mask your identity online. When you access a website using a data center proxy, the site can only see the proxy center's credentials, not yours.
 
-Datacenter proxies allow you to mask and [rotate](./usage.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
-
+Data center proxies allow you to mask and [rotate](./usage.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
+<!-- vale off -->
 You can refer to our [blog post](https://blog.apify.com/datacenter-proxies-when-to-use-them-and-how-to-make-the-most-of-them/) for tips on how to make the most out of datacenter proxies.
-
+<!-- vale on -->
 ## Features {#features}
 
 * Periodic health checks of proxies in the pool so requests are not forwarded via dead proxies.
@@ -31,9 +31,9 @@ You can refer to our [blog post](https://blog.apify.com/datacenter-proxies-when-
 * Measures statistics of traffic for specific users and hostnames.
 * Allows selection of proxy servers by country.
 
-## Datacenter proxy types
+## Data center proxy types
 
-When using Apify's datacenter proxies, you can either select a proxy group, or the `auto` mode. [Apify Proxy](https://apify.com/proxy) offers either proxy groups that are shared across multiple customers or dedicated ones.
+When using Apify's data center proxies, you can either select a proxy group, or the `auto` mode. [Apify Proxy](https://apify.com/proxy) offers either proxy groups that are shared across multiple customers or dedicated ones.
 
 ### Shared proxy groups {#shared-proxy-groups}
 
@@ -49,7 +49,7 @@ This feature is also useful if you have your own pool of proxy servers and still
 
 Prices for dedicated proxy servers are mainly based on the number of proxy servers, their type, and location. [Contact us](https://apify.com/contact) for more information.
 
-## Connecting to datacenter proxies {#connecting-to-datacenter-proxies}
+## Connecting to data center proxies {#connecting-to-datacenter-proxies}
 
 By default, each proxied HTTP request is potentially sent via a different target proxy server, which adds overhead and could be potentially problematic for websites which save cookies based on IP address.
 
@@ -179,7 +179,7 @@ await Actor.exit();
 
 ## Session persistence
 
-When you use datacenter proxy with the `session` [parameter](./usage.md#sessions) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
+When you use data center proxy with the `session` [parameter](./usage.md#sessions) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
 
 **Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./usage.md#sessions)]
 

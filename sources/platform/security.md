@@ -16,11 +16,11 @@ slug: /security
 
 At Apify, security is the top priority of our daily work. Security best practices are reflected in our development, deployment, monitoring, and project management processes.
 Read the Apify Security Whitepaper for a full description of Apify's measures and commitments to security:
-
+<!-- vale off -->
 <a href="https://apify.com/security-whitepaper.pdf" target="_blank" title="Apify Security Whitepaper">
     <img src={require("./images/security/whitepaper-cover.png").default} width="50%" title="Apify Security Whitepaper" />
 </a>
-
+<!-- vale on -->
 ## Reporting a vulnerability
 
 If you notice or suspect a potential security breach, please report this immediately to our security team at [security@apify.com](mailto:security@apify.com), including all the technical details.

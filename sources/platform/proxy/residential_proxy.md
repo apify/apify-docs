@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 Residential proxies use IP addresses assigned by Internet Service Providers to the homes and offices of actual users. Unlike [datacenter proxies](./datacenter_proxy.md), traffic from residential proxies is indistinguishable from that of legitimate users.
 
-This solution allows you to access a larger pool of servers than datacenter proxy. This makes it a better option in cases when you need a large number of different IP addresses.
+This solution allows you to access a larger pool of servers than data center proxy. This makes it a better option in cases when you need a large number of different IP addresses.
 
 Residential proxies support [IP address rotation](./usage.md#ip-address-rotation) and [sessions](#session-persistence).
 
