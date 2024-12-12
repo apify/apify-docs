@@ -136,7 +136,7 @@ Getting new users can be an art in itself, but there are **two proven steps** yo
 
     In short, SEO-optimized texts improve the likelihood that potential customers will find your Actor when searching for similar tools on the web.
 
-    This can be a daunting task to take on your own, so we prepared an in-depth [SEO guide](./seo_and_promotion.md) to help you **fine-tune your Actor’s title, description, and Readme.**
+    This can be a daunting task to take on your own, so we prepared an in-depth SEO guide to help you **fine-tune your Actor’s title, description, and Readme.**
 
 2. **Promoting your Actor**
 
@@ -170,4 +170,4 @@ Getting new users can be an art in itself, but there are **two proven steps** yo
 
 **Don’t overlook promoting your Actor**. This is arguably the most important step after publishing your tool. Taking advantage of all the possible channels for promotion is what often differentiates very successful Actors with dozens of paid users from Actors with few to no users at all.
 
-Finally, don’t forget to check our [pro-tips](./seo_and_promotion.md) to take your Actor promotion efforts to the next level.
+Finally, don’t forget to check our pro-tips to take your Actor promotion efforts to the next level.
