@@ -9,7 +9,7 @@ slug: /get-most-of-actors/monetizing-your-actor
 
 ---
 
-When you publish you publish your Actor on the Apify platform, you have the option to make it a _Paid Actor_ and earn revenue from users who benefit from your tool. You can choose between two pricing models:
+When you publish your Actor on the Apify platform, you have the option to make it a _Paid Actor_ and earn revenue from users who benefit from your tool. You can choose between two pricing models:
 
 - Rental
 - Pay-per-result
@@ -71,7 +71,7 @@ For example, if you host 50GB of data for 30 days:
 This means that storing 50 GB of data for 30 days results in 36,000 GB-hours.
 :::
 
-nread more about Actors in the STore and different pricing models from the perspective of your users in the [Store documentation](https://docs.apify.com/platform/actors/running/actors-in-store).
+Read more about Actors in the Store and different pricing models from the perspective of your users in the [Store documentation](https://docs.apify.com/platform/actors/running/actors-in-store).
 
 <details>
 <summary>Example - pay-per-result pricing model</summary>
@@ -108,6 +108,7 @@ Be aware that you can change monetization setting of each Actor only once per mo
 
 :::
 
+
 ## Payouts & analytics
 
 Payout invoices are generated automatically on the 14th of each month. Review your invoice in the Settings > Payout section within one week. If not approved by the 20th, the system will auto-approve on the 21st.
@@ -132,4 +133,7 @@ Create SEO-optimized descriptions and README files to improve search engine visi
 - Publish articles about your Actor on relevant websites
 - Consider creating a product showcase on platforms like Product hunt
 
+
 Remember to tag Apify in your social media posts for additional exposure. Effective promotion can significantly impact your Actor's success, differentiating between those with many paid users and those with few to none.
+
+Learn more about promoting your Actor from [Apify's Marketing Playbook](https://apify.notion.site/3fdc9fd4c8164649a2024c9ca7a2d0da?v=6d262c0b026d49bfa45771cd71f8c9ab).
