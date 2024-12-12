@@ -1,4 +1,7 @@
-const { remark } = require('remark');
+const remarkParse = require('remark-parse');
+const remarkStringify = require('remark-stringify');
+const { unified } = require('unified');
+const visitParents = require('unist-util-visit-parents');
 
 /**
  * Updates the markdown content for better UX and compatibility with Docusaurus v3.
@@ -6,13 +9,14 @@ const { remark } = require('remark');
  * @returns {string} The updated markdown content.
  */
 function updateChangelog(changelog) {
-    const tree = remark.parse(changelog);
+    const pipeline = unified()
+        .use(remarkParse)
+        .use(incrementHeadingLevels)
+        .use(prettifyPRLinks)
+        .use(linkifyUserTags)
+        .use(remarkStringify);
 
-    bumpHeadingsLevels(tree);
-    linkifyUserTags(tree);
-    prettifyPRLinks(tree);
-
-    changelog = remark.stringify(tree);
+    changelog = pipeline.processSync(changelog).toString();
     changelog = addFrontmatter(changelog);
     changelog = escapeMDXCharacters(changelog);
     return changelog;
@@ -25,15 +29,11 @@ function updateChangelog(changelog) {
  * @param {*} tree Remark AST tree.
  * @returns {void} Nothing. This function modifies the tree in place.
  */
-function bumpHeadingsLevels(tree) {
-    tree.children?.forEach((child) => {
-        if (child.type === 'heading') {
-            child.depth += 1;
-        }
-
-        bumpHeadingsLevels(child);
+const incrementHeadingLevels = () => (tree) => {
+    visitParents(tree, 'heading', (node) => {
+        node.depth += 1;
     });
-}
+};
 
 /**
  * Links user tags in the markdown content. This function replaces the user tags
@@ -41,39 +41,35 @@ function bumpHeadingsLevels(tree) {
  * @param {*} tree Remark AST tree.
  * @returns {void} Nothing. This function modifies the tree in place.
  */
-function linkifyUserTags(tree) {
-    for (let i = 0; i < tree.children?.length; i++) {
-        const child = tree.children[i];
-        if (child.type === 'text') {
-            const userTagRegex = /@([a-zA-Z0-9-]+)(\s|$)/g;
-            const match = userTagRegex.exec(child.value);
+const linkifyUserTags = () => (tree) => {
+    visitParents(tree, 'text', (node, parents) => {
+        const userTagRegex = /@([a-zA-Z0-9-]+)(\s|$)/g;
+        const match = userTagRegex.exec(node.value);
 
-            if (match) {
-                const username = match[1];
-                const ending = match[2] === ' ' ? ' ' : '';
-                const before = child.value.slice(0, match.index);
-                const after = child.value.slice(userTagRegex.lastIndex);
+        if (!match) return;
 
-                const link = {
-                    type: 'link',
-                    url: `https://github.com/${username}`,
-                    children: [{ type: 'text', value: `@${username}` }],
-                };
-                child.value = before;
+        const directParent = parents[parents.length - 1];
+        const nodeIndexInParent = directParent.children.findIndex((x) => x === node);
 
-                tree.children.splice(i + 1, 0, link);
+        const username = match[1];
+        const ending = match[2] === ' ' ? ' ' : '';
+        const before = node.value.slice(0, match.index);
+        const after = node.value.slice(userTagRegex.lastIndex);
 
-                if (after) {
-                    tree.children.splice(i + 2, 0, { type: 'text', value: `${ending}${after}` });
-                }
+        const link = {
+            type: 'link',
+            url: `https://github.com/${username}`,
+            children: [{ type: 'text', value: `@${username}` }],
+        };
+        node.value = before;
+        directParent.children.splice(nodeIndexInParent + 1, 0, link);
 
-                i += 2;
-            }
-        }
+        if (!after) return nodeIndexInParent + 2;
 
-        linkifyUserTags(child);
-    }
-}
+        directParent.children.splice(nodeIndexInParent + 2, 0, { type: 'text', value: `${ending}${after}` });
+        return nodeIndexInParent + 3;
+    });
+};
 
 /**
  * Prettifies PR links in the markdown content. Just like GitHub's UI, this function
@@ -81,38 +77,34 @@ function linkifyUserTags(tree) {
  * @param {*} tree Remark AST tree.
  * @returns {void} Nothing. This function modifies the tree in place.
  */
-function prettifyPRLinks(tree) {
-    for (let i = 0; i < tree.children?.length; i++) {
-        const child = tree.children[i];
-        if (child.type === 'text') {
-            const prLinkRegex = /https:\/\/github.com\/.*\/pull\/(\d+)/g;
-            const match = prLinkRegex.exec(child.value);
+const prettifyPRLinks = () => (tree) => {
+    visitParents(tree, 'text', (node, parents) => {
+        const prLinkRegex = /https:\/\/github.com\/[^\s]+\/pull\/(\d+)/g;
+        const match = prLinkRegex.exec(node.value);
 
-            if (match) {
-                const prNumber = match[1];
-                const before = child.value.slice(0, match.index);
-                const after = child.value.slice(prLinkRegex.lastIndex);
+        if (!match) return;
 
-                const link = {
-                    type: 'link',
-                    url: match[0],
-                    children: [{ type: 'text', value: `#${prNumber}` }],
-                };
-                child.value = before;
+        const directParent = parents[parents.length - 1];
+        const nodeIndexInParent = directParent.children.findIndex((x) => x === node);
 
-                tree.children.splice(i + 1, 0, link);
+        const prNumber = match[1];
+        const before = node.value.slice(0, match.index);
+        const after = node.value.slice(prLinkRegex.lastIndex);
 
-                if (after) {
-                    tree.children.splice(i + 2, 0, { type: 'text', value: after });
-                }
+        const link = {
+            type: 'link',
+            url: match[0],
+            children: [{ type: 'text', value: `#${prNumber}` }],
+        };
+        node.value = before;
 
-                i += 2;
-            }
-        }
+        directParent.children.splice(nodeIndexInParent + 1, 0, link);
+        if (!after) return nodeIndexInParent + 1;
 
-        prettifyPRLinks(child);
-    }
-}
+        directParent.children.splice(nodeIndexInParent + 2, 0, { type: 'text', value: after });
+        return nodeIndexInParent + 2;
+    });
+};
 
 /**
  * Adds frontmatter to the markdown content.
