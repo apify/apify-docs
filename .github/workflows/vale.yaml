@@ -30,6 +30,6 @@ jobs:
                     files: ${{ steps.changed-files.outputs.all_changed_files }}
                     separator: ','
                     fail_on_error: true
-                    vale_flags: '--minAlertLevel=error --config=././.vale.ini'
+                    vale_flags: '--minAlertLevel=error'
                     reporter: github-pr-annotations
 
