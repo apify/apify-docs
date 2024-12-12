@@ -27,7 +27,7 @@ You make your Actor rental with 7 days free trial and then $30/month. During the
 2. Second user, on Apify paid plan, starts the free trial on 25th
 3. Third user, on Apify free plan, start the free trial on 20th
 
-The first user pays their first rent 7 days after the free trial, i.e., on 22nd. The second user only starts paying the rent next month. The third user is on Apify free plan, so after the free trial ends on 27th, they are not charged and cannot use the Actor further until they get a paid plan. Your profit is computed only from the first user. They were charged $30, so 80% of this goes to you, i.e., `0.8 * 30 = $24`.
+The first user pays their first rent 7 days after the free trial, i.e., on 22nd. The second user only starts paying the rent next month. The third user is on Apify free plan, so after the free trial ends on 27th, they are not charged and cannot use the Actor further until they get a paid plan. Your profit is computed only from the first user. They were charged $30, so 80% of this goes to you, i.e., _0.8 * 30 = $24_.
 </details>
 
 ## Pay-per-result pricing model
@@ -78,7 +78,7 @@ nread more about Actors in the STore and different pricing models from the persp
 
 You make your Actor pay-per-result and set price to be $1/1,000 results. During the first month, two users on Apify paid plans use your Actor to get 50,000 and 20,000 results, costing them $50 and $20 respectively. Let's say the underlying platform usage for the first user is $5 and for the second $2. Third user, this time on Apify free plan, uses the Actor to get 5,000 results, with underlying platform usage $0.5.
 
-Your profit is computed only from the first two users, since they are on Apify paid plans. The revenue for the first user is $50 and for the second $20, i.e., total revenue is $70. The total underlying cost is $5 + $2 = $7. Since your profit is 80% of the revenue minus the cost, it would be `0.8 * 70 - 7 = $49`.
+Your profit is computed only from the first two users, since they are on Apify paid plans. The revenue for the first user is $50 and for the second $20, i.e., total revenue is $70. The total underlying cost is _$5 + $2 = $7_. Since your profit is 80% of the revenue minus the cost, it would be _0.8 * 70 - 7 = $49_.
 </details>
 
 ### Best practices for Pay-per-results Actors
