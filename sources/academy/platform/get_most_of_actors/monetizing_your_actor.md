@@ -38,23 +38,24 @@ In this model, you set a price per 1000 results. Users are charged based on the 
 
 ### Pay-per-result unit pricing for cost computation
 
-| Service | Unit price |
-|:---|:---|
-| Compute unit | **$0.4** / CU |
-| Residential proxies | **$13** / GB |
-| SERPs proxy | **$3** / 1,000 SERPs |
-| Data transfer - external | **$0.20** / GB |
-| Data transfer - internal | **$0.05** / GB |
-| Dataset - timed storage | **$1.00** / 1,000 GB-hours |
-| Dataset - reads | **$0.0004** / 1,000 reads |
-| Dataset - writes | **$0.005** / 1,000 writes |
+| Service                         | Unit price                 |
+|:--------------------------------|:---------------------------|
+| Compute unit                    | **$0.4** / CU              |
+| Residential proxies             | **$13** / GB               |
+| SERPs proxy                     | **$3** / 1,000 SERPs       |
+| Data transfer - external        | **$0.20** / GB             |
+| Data transfer - internal        | **$0.05** / GB             |
+| Dataset - timed storage         | **$1.00** / 1,000 GB-hours |
+| Dataset - reads                 | **$0.0004** / 1,000 reads  |
+| Dataset - writes                | **$0.005** / 1,000 writes  |
 | Key-value store - timed storage | **$1.00** / 1,000 GB-hours |
-| Key-value store - reads | **$0.005** / 1,000 reads |
-| Key-value store - writes | **$0.05** / 1,000 writes |
-| Key-value store - lists | **$0.05** / 1,000 lists |
-| Request queue - timed storage | **$4.00** / 1,000 GB-hours |
-| Request queue - reads | **$0.004** / 1,000 reads |
-| Request queue - writes | **$0.02** / 1,000 writes |
+| Key-value store - reads         | **$0.005** / 1,000 reads   |
+| Key-value store - writes        | **$0.05** / 1,000 writes   |
+| Key-value store - lists         | **$0.05** / 1,000 lists    |
+| Request queue - timed storage   | **$4.00** / 1,000 GB-hours |
+| Request queue - reads           | **$0.004** / 1,000 reads   |
+| Request queue - writes          | **$0.02** / 1,000 writes   |
+
 
 Only revenue & cost for Apify customers on paid plans are taken into consideration when computing your profit. Users on free plans are not reflected there, although you can see statistics about the potential reeenue of users that are currently on free plans in Actor Insights in the Apify Console.
 
