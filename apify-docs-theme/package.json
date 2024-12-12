@@ -1,6 +1,6 @@
 {
     "name": "@apify/docs-theme",
-    "version": "1.0.146",
+    "version": "1.0.147",
     "description": "",
     "main": "./src/index.js",
     "files": [
