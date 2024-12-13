@@ -185,7 +185,7 @@ Let's say you want to create a webhook that pushes an item to a dataset every ti
 
 #### How do I allow a token to run a task?
 
-There is no dedicated run permission for tasks. Instead, configure the token with the following permissions:
+Tasks don't have a dedicated **Run** permission. Instead, you should configure the token with the following permissions:
 
 - **Run** on the Actor that the task is executing
 - **Read** on the task
