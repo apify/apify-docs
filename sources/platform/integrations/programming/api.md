@@ -207,6 +207,3 @@ What is happening is that the Actor is trying to access a resource (such a datas
 If you know what it is, you can add the permission to the scope of your token. If you don't, you can switch the permission mode on the token to `Full access`. This means that the Actor will be able to access all your account data.
 
 Refer to [this section](#actor-execution) to understand how executing Actors with scoped tokens works.
-
-
-
