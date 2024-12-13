@@ -4,7 +4,9 @@ const apifyClient = new ApifyClient({
     token: '<TOKEN>',
 });
 const { items } = await apifyClient
-    .actors()
+    .actor('<ACTOR ID>')
+    .version('0.1')
+    .envVars()
     .list();
 
 console.log(items);

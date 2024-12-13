@@ -3,8 +3,8 @@ import { ApifyClient } from 'apify-client';
 const apifyClient = new ApifyClient({
     token: '<TOKEN>',
 });
-const { items } = await apifyClient
-    .actors()
-    .list();
+const input = await apifyClient
+    .task('<TASK ID>')
+    .getInput();
 
-console.log(items);
+console.log(input);

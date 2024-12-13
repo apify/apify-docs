@@ -3,8 +3,8 @@ import { ApifyClient } from 'apify-client';
 const apifyClient = new ApifyClient({
     token: '<TOKEN>',
 });
-const { items } = await apifyClient
-    .actors()
-    .list();
+const build = await apifyClient
+    .actor('<ACTOR ID>')
+    .build('0.0');
 
-console.log(items);
+console.log(build);

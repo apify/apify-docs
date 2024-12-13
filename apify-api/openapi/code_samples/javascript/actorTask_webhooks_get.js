@@ -4,7 +4,8 @@ const apifyClient = new ApifyClient({
     token: '<TOKEN>',
 });
 const { items } = await apifyClient
-    .actors()
+    .task('<TASK ID>')
+    .webhooks()
     .list();
 
 console.log(items);
