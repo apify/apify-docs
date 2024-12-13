@@ -94,7 +94,7 @@ Some permissions require other permissions to be granted alongside them. These a
 
 #### Automatic dependencies
 
-The form enforces certain dependencies automatically. For example, when you grant the `Write` permission for a dataset, the `Read` permission is automatically selected. This ensures that you can write to a dataset if you can also read from it.
+The form enforces certain dependencies automatically. For example, when you grant the **Write** permission for a dataset, the **Read** permission is automatically selected. This ensures that you can write to a dataset if you can also read from it.
 
 ![The Write permission depends on Read for a dataset](../images/api-token-scoped-dependencies.png)
 
@@ -104,11 +104,11 @@ Other dependencies are more complicated, so it is up to you to ensure that the t
 
 Specifically:
 
-- To create or update a Schedule, the token needs access not only to the Schedule itself, but also to the Actor (the `Run` permission) or task (the `Read` permission) that is being scheduled.
-- Similarly, to create, update or run a task, the token needs the `Run` permission on the task's Actor itself.
+- To create or update a Schedule, the token needs access not only to the Schedule itself, but also to the Actor (the **Run** permission) or task (the **Read** permission) that is being scheduled.
+- Similarly, to create, update or run a task, the token needs the **Run** permission on the task's Actor itself.
 
 :::tip
-Let's say that you have an Actor and you want to programmatically create schedules for that Actor. Then you can create a token that has the account level `Create` permission on schedules, but only the resource-specific `Run` permission on the Actor. Such a token has exactly the permissions it needs, and nothing more.
+Let's say that you have an Actor and you want to programmatically create schedules for that Actor. Then you can create a token that has the account level **Create** permission on schedules, but only the resource-specific **Run** permission on the Actor. Such a token has exactly the permissions it needs, and nothing more.
 :::
 
 ### Actor execution
@@ -119,8 +119,8 @@ In the scoped token configuration you can choose what scope the run API token ge
 
 Apify currently supports two modes:
 
-- `Full access`: Allow Actors to access all your account's data.
-- `Restricted access`: Restrict what Actors can access using the scope of this Actor.
+- **Full access**: Allow Actors to access all your account's data.
+- **Restricted access**: Restrict what Actors can access using the scope of this Actor.
 
 ![Choose permission mode for running Actors with a scoped token](../images/api-token-scoped-run-modes.png)
 
@@ -148,7 +148,7 @@ This restriction is _transitive_, which means that if the Actor runs another Act
 
 When Apify [runs an Actor](/platform/actors/running/runs-and-builds#runs), it automatically creates a set of default storages (a dataset, a key-value store and request queue) that the Actor can use in runtime.
 
-You can configure whether the scoped token you are going use to run the Actor should get _write_
+You can configure whether the scoped token you are going use to run the Actor should get **Write**
 access to these default storages.
 
 ![Configure whether the trigger token gets write access to the run default storages.](../images/api-token-scoped-default-storage-access.png)
@@ -187,10 +187,10 @@ Let's say you want to create a webhook that pushes an item to a dataset every ti
 
 There is no dedicated run permission for tasks. Instead, configure the token with the following permissions:
 
-- `Run` on the Actor that the task is executing
-- `Read` on the task
+- **Run** on the Actor that the task is executing
+- **Read** on the task
 
-See the example below:
+See the following example:
 
 ![Scoped token configured to run a task](../images/api-token-scoped-run-tasks.png)
 
@@ -198,12 +198,12 @@ Refer to [this section](#permission-dependencies) to understand how permission d
 
 #### My run failed and I can see `insufficient permissions` in the logs
 
-You probably run the Actor using a scoped token with `Restricted access` configured.
+When a run fails with insufficient permissions in the logs, it typically means the Actor is using a scoped token with **Restricted access** configured.
 
 ![Scoped token with Restricted access](../images/api-token-scoped-restricted-access-active.png)
 
-What is happening is that the Actor is trying to access a resource (such a dataset, or a key-value store) or perform an operation that it does not have sufficient permissions for.
+What is happening is that the Actor is trying to access a resource (such as a dataset, or a key-value store) or perform an operation that it does not have sufficient permissions for.
 
-If you know what it is, you can add the permission to the scope of your token. If you don't, you can switch the permission mode on the token to `Full access`. This means that the Actor will be able to access all your account data.
+If you know what it is, you can add the permission to the scope of your token. If you don't, you can switch the permission mode on the token to **Full access**. This means that the Actor will be able to access all your account data.
 
-Refer to [this section](#actor-execution) to understand how executing Actors with scoped tokens works.
+Refer to [Actor execution](#actor-execution) section to understand how executing Actors with scoped tokens works.
