@@ -3,10 +3,10 @@ import { ApifyClient } from 'apify-client';
 const apifyClient = new ApifyClient({
     token: '<TOKEN>',
 });
-const myActor = await apifyClient
-    .actors()
+const schedule = await apifyClient
+    .schedules()
     .create({
-        name: '<ACTOR NAME>',
+        name: '<SCHEDULE NAME>',
     });
 
-console.log(myActor);
+console.log(schedule);
