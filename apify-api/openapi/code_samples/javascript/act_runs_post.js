@@ -5,6 +5,6 @@ const apifyClient = new ApifyClient({
 });
 const run = await apifyClient
     .actor('<ACTOR ID>')
-    .start({ /** <ACTOR INPUT> */ });
+    .start({ 'foo': 'bar' });
 
 console.log(run);

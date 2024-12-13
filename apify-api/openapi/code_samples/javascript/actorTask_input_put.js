@@ -5,6 +5,6 @@ const apifyClient = new ApifyClient({
 });
 const updatedInput = await apifyClient
     .task('<TASK ID>')
-    .updateInput({ /** NEW INPUT */ });
+    .updateInput({ 'foo': 'baz' });
 
 console.log(updatedInput);
