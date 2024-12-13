@@ -83,8 +83,8 @@ Another way to interact with Milvus is through the [Apify Python SDK](https://do
     MILVUS_TOKEN = "YOUR-MILVUS-TOKEN"
     client = ApifyClient(APIFY_API_TOKEN)
     ```
-<!-- vale off -->
-1. Call the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor to crawl the Milvus documentation and Zilliz website and extract text content from the web pages:
+
+2. Call the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor to crawl the Milvus documentation and Zilliz website and extract text content from the web pages:
 
 
     ```python
@@ -93,8 +93,8 @@ Another way to interact with Milvus is through the [Apify Python SDK](https://do
     )
     ```
 
-<!-- vale on -->
-1. Call Apify's Milvus integration and store all data in the Milvus Vector Database:
+
+3. Call Apify's Milvus integration and store all data in the Milvus Vector Database:
 
     ```python
     milvus_integration_inputs = {

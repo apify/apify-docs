@@ -86,9 +86,9 @@ navigator.permissions.query('some_permission');
 ```
 
 ### With canvases {#with-canvases}
-<!-- vale off -->
+
 This technique is based on rendering [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) scenes to a canvas element and observing the pixels rendered. WebGL rendering is tightly connected with the hardware, and therefore provides high entropy. Here's a quick breakdown of how it works:
-<!-- vale on -->
+
 1. A JavaScript script creates a [`<canvas>` element](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) and renders some font or a custom shape.
 2. The script then gets the pixel-map from the `<canvas>` element.
 3. The collected pixel-map is stored in a cryptographic hash specific to the device's hardware.

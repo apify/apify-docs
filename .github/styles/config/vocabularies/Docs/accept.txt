@@ -31,6 +31,9 @@ nginx
 :::tip
 :::warning
 
+maxWidth
+startUrls
+
 PDFs
 dataset's
 gif
@@ -64,7 +67,7 @@ llama_index
 [Ff]lowise
 
 exploitability
-Whitepaper
+[Ww]hitepaper
 [Cc]ron
 scalably
 metamorph
