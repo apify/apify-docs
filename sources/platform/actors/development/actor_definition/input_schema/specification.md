@@ -241,6 +241,12 @@ When using escape characters `\` for the regular expression in the `pattern` fie
 
 :::
 
+:::note Date with time
+
+While the `datepicker` editor doesn't support setting time value visually, you can allow users to pass it via JSON using `"pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])(T[0-2]\\d:[0-5]\\d(:[0-5]\\d)?(\\.\\d+)?Z?)?$|^(\\d+)\\s*(minute|hour|day|week|month|year)s?$"`. This regex allows users to optionally extend the date with full ISO datetime format or pass `hours` and `minutes` as a relative date. Make sure to explain to users in the description that the time values are expected to be in UTC.
+
+:::
+
 ### Boolean
 
 Example options with group caption:
