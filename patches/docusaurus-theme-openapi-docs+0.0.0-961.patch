@@ -1,0 +1,13 @@
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
+index 3d43486..b21e5d5 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeSnippets/index.js
+@@ -290,7 +290,7 @@ function CodeSnippets({ postman, codeSamples }) {
+           CodeTab,
+           {
+             value: lang.language,
+-            label: lang.language,
++            label: lang.label ?? lang.language,
+             key: lang.language,
+             attributes: {
+               className: `openapi-tabs__code-item--${lang.logoClass}`,
