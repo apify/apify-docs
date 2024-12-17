@@ -37,7 +37,7 @@ function CodeSamplesDecorator(target) {
 
         if (!existsSync(codeSamplePath)) {
             // Just use this console log in development to see which operations are missing a code sample.
-            console.log(`Missing code sample for operation ${target.operationId}.${langSuffix}`);
+            // console.log(`Missing code sample for operation ${target.operationId}.${langSuffix}`);
             return;
         }
 
