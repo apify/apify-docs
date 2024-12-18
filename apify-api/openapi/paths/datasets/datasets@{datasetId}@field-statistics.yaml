@@ -6,7 +6,7 @@ get:
     Returns field statistics for given dataset.
     When you configure the dataset [fields schema](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema/validation), we generate a field list and measure the statistics such as `min`, `max`, `nullCount` and `emptyCount`.
 
-    See [documentation](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema/validation#dataset-field-statistics) for more information.
+    See dataset fields schema [documentation](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema/validation#dataset-field-statistics) for more information.
 
   operationId: dataset_field_statistics_get
   parameters:
