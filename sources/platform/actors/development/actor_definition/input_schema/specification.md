@@ -20,13 +20,16 @@ The Actor input schema serves three main purposes:
 To define an input schema for an Actor, set `input` field in the `.actor/actor.json` file to an input schema object (described below), or path to a JSON file containing the input schema object.
 For backwards compatibility, if the `input` field is omitted, the system looks for an `INPUT_SCHEMA.json` file either in the `.actor` directory or the Actor's top-level directory—but note that this functionality is deprececated and might be removed in the future. The maximum allowed size for the input schema file is 500 kB.
 
-When you provide an input schema, the system will validate the input data passed to the Actor on start (via the API or Apify Console) against the specified schema to ensure compliance before starting the Actor.
+When you provide an input schema, the Apify platform will validate the input data passed to the Actor on start (via the API or Apify Console) to ensure compliance before starting the Actor.
 If the input object doesn't conform the schema, the caller receives an error and the Actor is not started.
 
 :::note Validation aid
 
-You can also use our [visual input schema editor](https://apify.github.io/input-schema-editor-react/) to guide you through the creation of the `INPUT_SCHEMA.json` file.
-If you need to validate your input schemas, you can use the [`apify validate-schema`](/cli/docs/reference#apify-validate-schema-path) command in the Apify CLI.
+You can use our [visual input schema editor](https://apify.github.io/input-schema-editor-react/) to guide you through the creation of the `INPUT_SCHEMA.json` file.
+
+To ensure the input schema is valid, here's a corresponding [JSON schema file](https://github.com/apify/apify-shared-js/blob/master/packages/input_schema/src/schema.json). 
+
+You can also use the [`apify validate-schema`](/cli/docs/reference#apify-validate-schema-path) command in the Apify CLI.
 
 :::
 
