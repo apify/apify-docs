@@ -36,16 +36,11 @@ get:
             $ref: "../../components/schemas/datasets/GetDatasetFieldStatisticsResponse.yaml"
           example:
             data:
-              fields: ["name", "price"]
-              statistics: {
-                name: {
-                  nullCount: 122
-                },
-                price: {
-                  min: 59,
-                  max: 89
-                }
-              }
+              name:
+                nullCount: 122
+              price:
+                min: 59
+                max: 89
 # TODO: add clients methods
 #  x-js-parent: DatasetClient
 #  x-js-name: fieldStatistics

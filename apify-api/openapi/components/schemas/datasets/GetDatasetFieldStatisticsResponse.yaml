@@ -5,17 +5,6 @@ type: object
 properties:
   data:
     type: object
-    required:
-      - fields
-      - statistics
-    properties:
-      fields:
-        type: array
-        items:
-          type: string
-        description: 'Keys of the fields for which the statistics are provided.'
-      statistics:
-        type: object
-        additionalProperties:
-          $ref: ./DatasetFieldStatistics.yaml
-        description: 'Statistics for each field. The keys are the same as in the `fields` array.'
+    additionalProperties:
+      $ref: ./DatasetFieldStatistics.yaml
+    description: 'Statistics for each field from fields dataset schema.'
