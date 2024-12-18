@@ -27,7 +27,7 @@ If the input object doesn't conform the schema, the caller receives an error and
 
 You can use our [visual input schema editor](https://apify.github.io/input-schema-editor-react/) to guide you through the creation of the `INPUT_SCHEMA.json` file.
 
-To ensure the input schema is valid, here's a corresponding [JSON schema file](https://github.com/apify/apify-shared-js/blob/master/packages/input_schema/src/schema.json). 
+To ensure the input schema is valid, here's a corresponding [JSON schema file](https://github.com/apify/apify-shared-js/blob/master/packages/input_schema/src/schema.json).
 
 You can also use the [`apify validate-schema`](/cli/docs/reference#apify-validate-schema-path) command in the Apify CLI.
 
