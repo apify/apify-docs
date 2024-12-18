@@ -89,6 +89,27 @@ To ensure profitable operation:
 - Implement the `ACTOR_MAX_PAID_DATASET_ITEMS` check to prevent excess result generation
 - Test your Actor with various result volumes to determine optimal pricing
 
+### Pay-per-event pricing model
+
+With pay-per-event pricing model, you set the price for specific events that your Actor performs. Each event incurs a charge when triggered, and users pay based on the number of events executed.
+<!-- TODO what is the formula for the payouts similar like in the PPR Actor? -->
+<!-- TODO check for other best practices for PPE Actor (might leave just the tip and expand upon later) -->
+Each Actor defines its own set of billable events, which may include, but is not limited to:
+
+- producing a result
+- completing a unit of work (such as file upload)
+- initializing the Actor
+
+The specific events and their associated costs are listed on the Actor's detail page.
+
+![Example pay per event Actor](../../../platform/actors/running/images/store/pay_per_event_example_actor.png)
+
+:::tip
+
+When naming events, use concrete data type names instead of generic terms like "dataset items".
+
+:::
+
 ## Setting up monetization
 
 Navigate to your [Actor page](https://console.apify.com/actors?tab=my) in the Apify Console choose Actor that you want to monetize, and select the Publication tab.
