@@ -566,6 +566,8 @@ paths:
     $ref: 'paths/datasets/datasets@{datasetId}.yaml'
   '/v2/datasets/{datasetId}/items':
     $ref: 'paths/datasets/datasets@{datasetId}@items.yaml'
+  '/v2/datasets/{datasetId}/field-statistics':
+    $ref: 'paths/datasets/datasets@{datasetId}@field-statistics.yaml'
   /v2/request-queues:
     $ref: paths/request-queues/request-queues.yaml
   '/v2/request-queues/{queueId}':

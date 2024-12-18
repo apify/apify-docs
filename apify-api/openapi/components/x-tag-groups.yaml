@@ -62,6 +62,7 @@
   - Datasets/Dataset collection
   - Datasets/Dataset
   - Datasets/Item collection
+  - Datasets/Field statistics
 - name: Request queues
   tags:
   - Request queues
