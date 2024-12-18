@@ -7,4 +7,4 @@ properties:
     type: object
     additionalProperties:
       $ref: ./DatasetFieldStatistics.yaml
-    description: 'Statistics for each field from fields dataset schema.'
+    description: 'Statistics for each field from dataset fields schema.'
