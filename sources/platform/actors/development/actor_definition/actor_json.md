@@ -5,7 +5,7 @@ slug: /actors/development/actor-definition/actor-json
 sidebar_position: 1
 ---
 
-**Learn how to write the main Actor config in the `.actor/actor.json` file.**
+**Learn how to write the main Actor configuration in the `.actor/actor.json` file.**
 
 ---
 
