@@ -1,1 +1,1 @@
-apify key-value-stores set-value <STORE ID> OUTPUT '{"new": "value"}'
+apify key-value-stores set-value <STORE ID> INPUT '{"new": "value"}'
