@@ -18,7 +18,7 @@ Long-running [Actor](../../index.mdx) jobs may need to migrate between servers. 
 To prevent data loss, long-running Actors should:
 
 - Periodically save (persist) their state.
-- Listem for [migration events](/sdk/js/api/apify/class/PlatformEventManager)
+- Listen for [migration events](/sdk/js/api/apify/class/PlatformEventManager)
 - Check for persisted state when starting, allowing them to resume from where they left off.
 
 For short-running Actors, the risk of restarts and the cost of repeated runs are low, so you can typically ignore state persistence.
@@ -51,7 +51,7 @@ By default, an Actor keeps its state in the server's memory. During a server swi
 
 The [Apify SDKs](/sdk) handle state persistence automatically.
 
-This is done  using the `Actor.on()` method and the `migrating` event.
+This is done using the `Actor.on()` method and the `migrating` event.
 
 - The `migrating` event is triggered just before a migration occurs, allowing you to save your state.
 - To retrieve previously saved state, you can use the [`Actor.getValue`](/sdk/js/reference/class/Actor#getValue)/[`Actor.get_value`](/sdk/python/reference/class/Actor#get_value) methods.
@@ -81,15 +81,15 @@ await Actor.exit();
 <TabItem value="Python" label="Python">
 
 ```python
-from apify import Actor
+from apify import Actor, Event
 
-async def actor_migrate():
+async def actor_migrate(_event_data):
     await Actor.set_value('my-crawling-state', {'foo': 'bar'})
 
 async def main():
     async with Actor:
         # ...
-        Actor.on('migrating', actor_migrate)
+        Actor.on(Event.MIGRATING, actor_migrate)
         # ...
 ```
 
@@ -128,3 +128,50 @@ async def main():
 </Tabs>
 
 For improved Actor performance consider [caching repeated page data](/academy/expert-scraping-with-apify/saving-useful-stats).
+
+## Speeding up migrations
+
+Once your Actor receives the `migrating` event, in under a minute, the Apify platform will shut it down and restart it on a new server.
+If you want to speed this process up, once you have persisted the Actor state,
+you can reboot the Actor manually in the `migrating` event handler using the `Actor.reboot()` method
+available in the [Apify SDK for JavaScript](/sdk/js/reference/class/Actor#reboot) or [Apify SDK for Python](/sdk/python/reference/class/Actor#reboot).
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import { Actor } from 'apify';
+
+await Actor.init();
+// ...
+Actor.on('migrating', async () => {
+    // ...
+    // save state
+    // ...
+    await Actor.reboot();
+});
+// ...
+await Actor.exit();
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from apify import Actor, Event
+
+async def actor_migrate(_event_data):
+    # ...
+    # save state
+    # ...
+    await Actor.reboot()
+
+async def main():
+    async with Actor:
+        # ...
+        Actor.on(Event.MIGRATING, actor_migrate)
+        # ...
+```
+
+</TabItem>
+</Tabs>
