@@ -85,7 +85,7 @@ Several types of proxy servers exist, each offering distinct advantages, disadva
 <CardGrid>
     <Card
         title="Datacenter proxy"
-        desc="The fastest and cheapest option. It uses data centers to change your IP address. Note that there is a chance of being blocked because of the activity of other users."
+        desc="The fastest and cheapest option. It uses datacenters to change your IP address. Note that there is a chance of being blocked because of the activity of other users."
         to="/platform/proxy/datacenter-proxy"
     />
     <Card
