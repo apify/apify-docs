@@ -4,7 +4,8 @@ const path = require('path');
 const X_CODE_SAMPLES_PROPERTY = 'x-codeSamples';
 
 const LANGUAGES = [
-    { lang: 'JavaScript', label: 'JS client' },
+    { lang: 'JavaScript', label: 'JS client', langSuffix: 'js' },
+    { lang: 'cURL', label: 'Apify CLI', langSuffix: 'sh' },
 ];
 
 /**
@@ -24,12 +25,19 @@ function CodeSamplesDecorator(target) {
 
     const codeSamples = [];
 
-    for (const { lang, label } of LANGUAGES) {
-        const codeSamplePath = path.join(__dirname, `../../openapi/code_samples/${lang.toLowerCase()}/${target.operationId}.js`);
+    LANGUAGES.forEach(({ lang, label, langSuffix }) => {
+        // For some reason, the operationId for resurrect run is PostResurrectRun,
+        // so we change it here to keep the file names consistent
+        const operationId = target.operationId === 'PostResurrectRun' ? 'actorRun_resurrect_post' : target.operationId;
+
+        const codeSamplePath = path.join(
+            __dirname,
+            `../../openapi/code_samples/${lang.toLowerCase()}/${operationId}.${langSuffix}`,
+        );
 
         if (!existsSync(codeSamplePath)) {
             // Just use this console log in development to see which operations are missing a code sample.
-            // console.log(`Missing code sample for operation ${target.operationId}`);
+            // console.log(`Missing code sample for operation ${target.operationId}.${langSuffix}`);
             return;
         }
 
@@ -40,7 +48,7 @@ function CodeSamplesDecorator(target) {
                 $ref: codeSamplePath,
             },
         });
-    }
+    });
 
     if (codeSamples.length) {
         target[X_CODE_SAMPLES_PROPERTY] = codeSamples;
