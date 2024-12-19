@@ -3,8 +3,9 @@ import { ApifyClient } from 'apify-client';
 const apifyClient = new ApifyClient({
     token: '<TOKEN>',
 });
-const run = await apifyClient
-    .actor('<ACTOR ID>')
-    .start({ foo: 'bar' });
+const buildLog = await apifyClient
+    .build('<BUILD ID>')
+    .log()
+    .get();
 
-console.log(run);
+console.log(buildLog);
