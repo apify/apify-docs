@@ -1,0 +1,36 @@
+# When some files in the code_samples folder change, we want to run an Apify Actor and pass it the branch name, if possible, so it can test the samples
+name: Test Code Samples
+
+on:
+  push:
+    paths:
+      - 'apify-api/openapi/code_samples/**'
+  pull_request:
+    paths:
+      - 'apify-api/openapi/code_samples/**'
+
+jobs:
+  call-apify-actor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Get current branch name
+        id: get-branch-name
+        run: echo "branch_name=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
+
+      - name: Call Code Sample Tester Actor
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          BRANCH_NAME: ${{ env.branch_name }}
+        run: |
+          curl -X POST "https://api.apify.com/v2/actors/X8D0L4wfpO8fCL1uL/runs" \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer $APIFY_TOKEN" \
+          -d '{
+              "input": {
+                  "branchName": "'"$BRANCH_NAME"'"
+              }
+          }'
