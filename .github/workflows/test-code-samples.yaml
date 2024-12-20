@@ -9,7 +9,7 @@ on:
       - 'apify-api/openapi/code_samples/**'
 
 jobs:
-  call-apify-actor:
+  run-code-sample-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +22,7 @@ jobs:
 
       - name: Call Code Sample Tester Actor
         env:
-          APIFY_TOKEN: apify_api_Hh2OPyR6MPVJ6te8pkfe27vS09aL1f2lquSt
+          APIFY_TOKEN: ${{ secrets.CODE_SAMPLE_TESTER_ACTOR_TOKEN }}
           BRANCH_NAME: ${{ env.branch_name }}
         run: |
           curl -X POST "https://api.apify.com/v2/acts/X8D0L4wfpO8fCL1uL/run-sync" \
