@@ -28,8 +28,4 @@ jobs:
           curl -X POST "https://api.apify.com/v2/acts/X8D0L4wfpO8fCL1uL/run-sync" \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer $APIFY_TOKEN" \
-          -d '{
-              "input": {
-                  "branch": "'"$BRANCH_NAME"'"
-              }
-          }'
+          -d '{ "branch": "'"$BRANCH_NAME"'" }'
