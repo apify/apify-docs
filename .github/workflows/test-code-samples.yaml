@@ -25,7 +25,7 @@ jobs:
           APIFY_TOKEN: ${{ secrets.CODE_SAMPLE_TESTER_ACTOR_TOKEN }}
           BRANCH_NAME: ${{ env.branch_name }}
         run: |
-          curl -X POST "https://api.apify.com/v2/acts/X8D0L4wfpO8fCL1uL/run-sync" \
+          curl --fail-with-body -X POST "https://api.apify.com/v2/acts/X8D0L4wfpO8fCL1uL/run-sync" \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer $APIFY_TOKEN" \
           -d '{ "branch": "'"$BRANCH_NAME"'" }'
