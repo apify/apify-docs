@@ -7,6 +7,7 @@ const result = await apifyClient
     .requestQueue('<QUEUE ID>')
     .updateRequest({
         id: '<REQUEST ID>',
+        uniqueKey: 'http://example.com',
         url: 'http://example.com',
     });
 
