@@ -13,17 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Get current branch name
-        id: get-branch-name
-        run: echo "branch_name=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
-
       - name: Call Code Sample Tester Actor
         env:
-          APIFY_TOKEN: ${{ secrets.CODE_SAMPLE_TESTER_ACTOR_TOKEN }}
-          BRANCH_NAME: ${{ env.branch_name }}
+        #   APIFY_TOKEN: ${{ secrets.CODE_SAMPLE_TESTER_ACTOR_TOKEN }}
+          APIFY_TOKEN: apify_api_cUpIjxWrtMdy6Ctqnz9PhYyTjdqWcI4tjFTr
+          BRANCH_NAME: ${{ github.ref_name }}
         run: |
           curl --fail-with-body -X POST "https://api.apify.com/v2/acts/X8D0L4wfpO8fCL1uL/run-sync" \
           -H "Content-Type: application/json" \
