@@ -18,7 +18,7 @@ jobs:
         #   APIFY_TOKEN: ${{ secrets.CODE_SAMPLE_TESTER_ACTOR_TOKEN }}
           APIFY_TOKEN: apify_api_cUpIjxWrtMdy6Ctqnz9PhYyTjdqWcI4tjFTr
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-          REPO_OWNER: ${{ github.repository_owner }}
+          REPO_OWNER: ${{ github.actor }}
         run: |
           curl --fail-with-body -X POST "https://api.apify.com/v2/acts/X8D0L4wfpO8fCL1uL/run-sync" \
           -H "Content-Type: application/json" \
