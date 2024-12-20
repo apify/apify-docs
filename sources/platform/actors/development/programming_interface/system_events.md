@@ -22,7 +22,7 @@ Apify's system notifies Actors about various events, such as:
 - Abort operations triggered by another Actor
 - CPU overload
 
-These events help you manage your Actor's behavior and resources effecetively.
+These events help you manage your Actor's behavior and resources effectively.
 
 ## System events
 

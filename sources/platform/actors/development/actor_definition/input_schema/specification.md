@@ -18,7 +18,7 @@ The Actor input schema serves three main purposes:
 - It simplifies invoking your Actors from external systems by generating calling code and connectors for integrations.
 
 To define an input schema for an Actor, set `input` field in the `.actor/actor.json` file to an input schema object (described below), or path to a JSON file containing the input schema object.
-For backwards compatibility, if the `input` field is omitted, the system looks for an `INPUT_SCHEMA.json` file either in the `.actor` directory or the Actor's top-level directory—but note that this functionality is deprececated and might be removed in the future. The maximum allowed size for the input schema file is 500 kB.
+For backwards compatibility, if the `input` field is omitted, the system looks for an `INPUT_SCHEMA.json` file either in the `.actor` directory or the Actor's top-level directory—but note that this functionality is deprecated and might be removed in the future. The maximum allowed size for the input schema file is 500 kB.
 
 When you provide an input schema, the Apify platform will validate the input data passed to the Actor on start (via the API or Apify Console) to ensure compliance before starting the Actor.
 If the input object doesn't conform the schema, the caller receives an error and the Actor is not started.
@@ -354,7 +354,7 @@ The object where the proxy configuration is stored has the following structure:
 }
 ```
 
-Example of a blackbox object:
+Example of a black box object:
 
 ```json
 {
