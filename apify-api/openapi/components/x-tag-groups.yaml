@@ -63,6 +63,7 @@
   - Datasets/Dataset collection
   - Datasets/Dataset
   - Datasets/Item collection
+  - Datasets/Statistics
 - name: Request queues
   tags:
   - Request queues
