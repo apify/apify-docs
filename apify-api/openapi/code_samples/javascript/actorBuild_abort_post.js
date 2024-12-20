@@ -3,8 +3,8 @@ import { ApifyClient } from 'apify-client';
 const apifyClient = new ApifyClient({
     token: '<TOKEN>',
 });
-const run = await apifyClient
-    .actor('<ACTOR ID>')
-    .start({ foo: 'bar' });
+const abortedBuild = await apifyClient
+    .build('<BUILD ID>')
+    .abort();
 
-console.log(run);
+console.log(abortedBuild);
