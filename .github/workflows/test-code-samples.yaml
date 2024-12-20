@@ -15,8 +15,7 @@ jobs:
     steps:
       - name: Call Code Sample Tester Actor
         env:
-        #   APIFY_TOKEN: ${{ secrets.CODE_SAMPLE_TESTER_ACTOR_TOKEN }}
-          APIFY_TOKEN: apify_api_cUpIjxWrtMdy6Ctqnz9PhYyTjdqWcI4tjFTr
+          APIFY_TOKEN: ${{ secrets.CODE_SAMPLE_TESTER_ACTOR_TOKEN }}
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           REPO_OWNER: ${{ github.actor }}
         run: |

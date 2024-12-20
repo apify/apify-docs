@@ -6,6 +6,6 @@ const apifyClient = new ApifyClient({
 const { items } = await apifyClient
     .actor('<ACTOR ID>')
     .builds()
-    .list('test');
+    .list();
 
 console.log(items);
