@@ -3,16 +3,16 @@ post:
     - Actor runs/Metamorph run
   summary: Metamorph run
   description: |
-    Transforms an actor run into a run of another actor with a new input.
+    Transforms an Actor run into a run of another Actor with a new input.
 
-    This is useful if you want to use another actor to finish the work
-    of your current actor run, without the need to create a completely new run
+    This is useful if you want to use another Actor to finish the work
+    of your current Actor run, without the need to create a completely new run
     and waiting for its finish.
 
-    For the users of your actors, the metamorph operation is transparent, they
-    will just see your actor got the work done.
+    For the users of your Actors, the metamorph operation is transparent, they
+    will just see your Actor got the work done.
 
-    Internally, the system stops the Docker container corresponding to the actor
+    Internally, the system stops the Docker container corresponding to the Actor
     run and starts a new container using a different Docker image.
 
     All the default storages are preserved and the new input is stored under the
@@ -32,7 +32,7 @@ post:
         example: 3KH8gEpp4d8uQSe8T
     - name: targetActorId
       in: query
-      description: ID of a target actor that the run should be transformed into.
+      description: ID of a target Actor that the run should be transformed into.
       required: true
       style: form
       explode: true
@@ -42,11 +42,11 @@ post:
     - name: build
       in: query
       description: |
-        Optional build of the target actor.
+        Optional build of the target Actor.
 
         It can be either a build tag or build number. By default, the run uses
         the build specified in the default run configuration for the target
-        actor (typically `latest`).
+        Actor (typically `latest`).
       style: form
       explode: true
       schema:

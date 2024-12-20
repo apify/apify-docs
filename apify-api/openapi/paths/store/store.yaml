@@ -8,7 +8,7 @@ get:
     and readme.
 
     If you need detailed info about a specific Actor, use the [Get
-    actor](#/reference/actors/actor-object/get-actor) endpoint.
+    Actor](#/reference/actors/actor-object/get-actor) endpoint.
 
 
     The endpoint supports pagination using the `limit` and `offset` parameters.
@@ -103,7 +103,7 @@ get:
                   title: My Public Actor
                   name: my-public-actor
                   username: jane35
-                  description: My public actor!
+                  description: My public Actor!
                   pictureUrl: 'https://...'
                   userPictureUrl: 'https://...'
                   url: 'https://...'
@@ -126,7 +126,7 @@ get:
                   categories:
                     - "MARKETING"
                     - "LEAD_GENERATION"
-                  description: My public actor!
+                  description: My public Actor!
                   pictureUrl: 'https://...'
                   userPictureUrl: 'https://...'
                   url: 'https://...'
