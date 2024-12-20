@@ -22,7 +22,7 @@ jobs:
 
       - name: Call Code Sample Tester Actor
         env:
-          APIFY_TOKEN: apify_api_2x75M2AvgF4pvx2iYfjESi5cBZdtjy2eAZNP
+          APIFY_TOKEN: apify_api_Hh2OPyR6MPVJ6te8pkfe27vS09aL1f2lquSt
           BRANCH_NAME: ${{ env.branch_name }}
         run: |
           curl -X POST "https://api.apify.com/v2/acts/X8D0L4wfpO8fCL1uL/run-sync" \
