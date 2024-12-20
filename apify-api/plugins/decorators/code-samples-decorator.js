@@ -24,8 +24,12 @@ function CodeSamplesDecorator(target) {
 
     const codeSamples = [];
 
+    // For some reason, the operationId for resurrect run is PostResurrectRun,
+    // so we change it here to keep the file names consistent
+    const operationId = target.operationId === 'PostResurrectRun' ? 'actorRun_resurrect_post' : target.operationId;
+
     for (const { lang, label } of LANGUAGES) {
-        const codeSamplePath = path.join(__dirname, `../../openapi/code_samples/${lang.toLowerCase()}/${target.operationId}.js`);
+        const codeSamplePath = path.join(__dirname, `../../openapi/code_samples/${lang.toLowerCase()}/${operationId}.js`);
 
         if (!existsSync(codeSamplePath)) {
             // Just use this console log in development to see which operations are missing a code sample.
