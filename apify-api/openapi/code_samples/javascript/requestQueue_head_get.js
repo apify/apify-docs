@@ -3,8 +3,8 @@ import { ApifyClient } from 'apify-client';
 const apifyClient = new ApifyClient({
     token: '<TOKEN>',
 });
-const run = await apifyClient
-    .actor('<ACTOR ID>')
-    .start({ foo: 'bar' });
+const head = await apifyClient
+    .requestQueue('<QUEUE ID>')
+    .listHead();
 
-console.log(run);
+console.log(head);

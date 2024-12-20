@@ -3,8 +3,8 @@ import { ApifyClient } from 'apify-client';
 const apifyClient = new ApifyClient({
     token: '<TOKEN>',
 });
-const run = await apifyClient
-    .actor('<ACTOR ID>')
-    .start({ foo: 'bar' });
+const rebootedRun = await apifyClient
+    .run('<RUN ID>')
+    .reboot();
 
-console.log(run);
+console.log(rebootedRun);

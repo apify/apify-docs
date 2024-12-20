@@ -3,8 +3,8 @@ import { ApifyClient } from 'apify-client';
 const apifyClient = new ApifyClient({
     token: '<TOKEN>',
 });
-const run = await apifyClient
-    .actor('<ACTOR ID>')
-    .start({ foo: 'bar' });
+const schedule = await apifyClient
+    .schedule('<SCHEDULE ID>')
+    .get();
 
-console.log(run);
+console.log(schedule);
