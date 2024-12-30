@@ -16,15 +16,6 @@ get:
       schema:
         type: string
         example: WkzbQMuFYuamGv3YF
-    -   name: token
-        in: query
-        description: |
-            API authentication token. It is required only when using the `username~dataset-name` format for `datasetId`.
-        style: form
-        explode: true
-        schema:
-            type: string
-            example: soSkq9ekdmfOslopH
   responses:
     '200':
       description: ''
