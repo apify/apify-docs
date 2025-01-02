@@ -63,7 +63,7 @@ function scrollSidebarItemIntoView() {
 
 // handles automatic scrolling of the API reference sidebar (openapi-docs)
 function scrollOpenApiSidebarItemIntoView() {
-    const $li = document.querySelector(`li > a.menu__link--active[href]`);
+    const $li = document.querySelector(`ul.theme-doc-sidebar-menu a.menu__link--active[href]`);
 
     if (!$li) {
         return;
@@ -83,20 +83,15 @@ function redirectOpenApiDocs() {
         return;
     }
 
-    if (hash.startsWith('#/reference/')) {
-        const sidebarItems = document.querySelectorAll('[data-altids]');
+    const sidebarItems = document.querySelectorAll('[data-altids]');
 
+    if (hash.startsWith('#/reference/') || hash.startsWith('#tag/')) {
         for (const item of sidebarItems) {
             const ids = item.getAttribute('data-altids').split(',');
             if (ids.find((variant) => variant === hash)) {
                 item.click();
             }
         }
-    }
-
-    if (hash.startsWith('#tag/')) {
-        const id = hash.substring('#tag/'.length);
-        console.log('redirect', { id, hash });
     }
 }
 
@@ -121,7 +116,7 @@ window.addEventListener('load', () => {
     setTimeout(() => scrollSidebarItemIntoView(), 1000);
 
     // docusaurus-openapi-docs plugin: scroll sidebar into viewport, no need for a large timeout here
-    setTimeout(() => scrollOpenApiSidebarItemIntoView(), 100);
+    setTimeout(() => scrollOpenApiSidebarItemIntoView(), 200);
 });
 
 window.addEventListener('popstate', () => {
