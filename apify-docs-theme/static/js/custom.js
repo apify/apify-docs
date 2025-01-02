@@ -90,6 +90,7 @@ function redirectOpenApiDocs() {
             const ids = item.getAttribute('data-altids').split(',');
             if (ids.find((variant) => variant === hash)) {
                 item.click();
+                setTimeout(() => scrollOpenApiSidebarItemIntoView(), 200);
             }
         }
     }
