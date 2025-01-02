@@ -44,3 +44,5 @@ post:
   x-py-parent: RunClientAsync
   x-py-name: charge
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RunClientAsync#charge
+  x-legacy-doc-urls:
+      - https://docs.apify.com/api/v2#/reference/actor-runs/charge-events-in-run
