@@ -1,6 +1,7 @@
 const { join } = require('node:path');
 
 const clsx = require('clsx');
+const { createApiPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
 
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
@@ -195,15 +196,28 @@ module.exports = {
                     v2: {
                         specPath: 'apify-api.yaml',
                         outputDir: './sources/api',
+                        markdownGenerators: {
+                            createApiPageMD: (pageData) => {
+                                let md = createApiPageMD(pageData);
+
+                                // HTML comments are wrongly escaped, we need to undo that
+                                if (md.includes('&lt;!--')) {
+                                    md = md.replace('&lt;!--', '<!--');
+                                    md = md.replace('--&gt;', '-->');
+                                }
+
+                                return md;
+                            },
+                        },
                         sidebarOptions: {
-                            groupPathsBy: 'tag',
+                            groupPathsBy: 'tagGroup',
                             categoryLinkSource: 'tag',
                             sidebarCollapsed: false,
                             sidebarCollapsible: false,
                             sidebarGenerators: {
                                 createDocItem: (item, context) => {
                                     const legacyUrls = item.api?.['x-legacy-doc-urls'] ?? [];
-                                    const altIds = legacyUrls.map((url) => {
+                                    const altids = legacyUrls.map((url) => {
                                         const { hash } = new URL(url);
                                         return hash;
                                     });
@@ -223,7 +237,7 @@ module.exports = {
                                         type: 'doc',
                                         id: context.basePath === '' ? `${id}` : `${context.basePath}/${id}`,
                                         label: sidebarLabel ?? title ?? id,
-                                        customProps: { altIds },
+                                        customProps: { altids },
                                         className,
                                     };
                                 },
