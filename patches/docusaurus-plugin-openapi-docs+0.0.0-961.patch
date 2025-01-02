@@ -1,15 +1,14 @@
 diff --git a/node_modules/docusaurus-plugin-openapi-docs/lib/sidebars/index.js b/node_modules/docusaurus-plugin-openapi-docs/lib/sidebars/index.js
-index 5802904..17409d5 100644
+index 5802904..576c3ed 100644
 --- a/node_modules/docusaurus-plugin-openapi-docs/lib/sidebars/index.js
 +++ b/node_modules/docusaurus-plugin-openapi-docs/lib/sidebars/index.js
-@@ -139,9 +139,18 @@ function groupByTags(items, sidebarOptions, options, tags, docPath) {
+@@ -139,9 +139,16 @@ function groupByTags(items, sidebarOptions, options, tags, docPath) {
          }
          const taggedApiItems = apiItems.filter((item) => { var _a; return !!((_a = item.api.tags) === null || _a === void 0 ? void 0 : _a.includes(tag)); });
          const taggedSchemaItems = schemaItems.filter((item) => { var _a; return !!((_a = item.schema["x-tags"]) === null || _a === void 0 ? void 0 : _a.includes(tag)); });
 +        const altids = [];
 +
 +        if (tagObject?.['x-legacy-doc-urls']) {
-+            console.log(tagObject);
 +            altids.push(...tagObject['x-legacy-doc-urls']);
 +        }
 +
@@ -20,7 +19,7 @@ index 5802904..17409d5 100644
              link: linkConfig,
              collapsible: sidebarCollapsible,
              collapsed: sidebarCollapsed,
-@@ -201,11 +210,12 @@ function generateSidebarSlice(sidebarOptions, options, api, tags, docPath, tagGr
+@@ -201,11 +208,12 @@ function generateSidebarSlice(sidebarOptions, options, api, tags, docPath, tagGr
                      filteredTags.push(tag);
                  }
              });
