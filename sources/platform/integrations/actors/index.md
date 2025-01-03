@@ -13,7 +13,7 @@ slug: /integrations/actors
 
 :::note Integration Actors
 
-You can check out a catalogue of our Integaration Actors within [Apify Store](https://apify.com/store/categories/integrations).
+You can check out a catalogue of our Integration Actors within [Apify Store](https://apify.com/store/categories/integrations).
 
 :::
 

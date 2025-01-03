@@ -16,8 +16,8 @@ import TabItem from '@theme/TabItem';
 
 You can integrate Actors via API using the [Create webhook](/api/v2#/reference/webhooks/webhook-collection/create-webhook) endpoint. It's the same as any other webhook, but to make sure you see it in Apify Console, you need to make sure of a few things.
 
-* The `requestUrl` field needs to point to the **Run Actor** or **Run task** endpoints and needs to use their IDs as identifiers (ie. not their technical names).
-* The `payloadTemplate` field should be valid JSON - ie. it should only use variables enclosed in strings. You will also need to make sure that it contains a `payload` field.
+* The `requestUrl` field needs to point to the **Run Actor** or **Run task** endpoints and needs to use their IDs as identifiers (i.e. not their technical names).
+* The `payloadTemplate` field should be valid JSON - i.e. it should only use variables enclosed in strings. You will also need to make sure that it contains a `payload` field.
 * The `shouldInterpolateStrings` field needs to be set to `true`, otherwise the variables won't work.
 * Add `isApifyIntegration` field with the value `true`. This is a helper that turns on the Actor integration UI, if the above conditions are met.
 
