@@ -325,7 +325,7 @@ For each job posting found, use [`pp()`](https://docs.python.org/3/library/pprin
 
 Your output should look something like this:
 
-```text
+```py
 {'title': 'Senior Full Stack Developer',
  'company': 'Baserow',
  'url': 'https://www.python.org/jobs/7705/',
