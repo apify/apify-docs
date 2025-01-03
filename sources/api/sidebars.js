@@ -1,3 +1,13 @@
+// eslint-disable-next-line global-require
+const items = require('./sidebar.ts');
+
+for (const item of items) {
+    // this is wrongly rendered in each category (openapi group tag)
+    if (item.items[0].id === 'apify-api') {
+        item.items.shift();
+    }
+}
+
 module.exports = {
     api: [
         {
@@ -5,8 +15,8 @@ module.exports = {
             label: 'Apify API',
             collapsible: false,
             className: 'section-header',
-            // eslint-disable-next-line global-require
-            items: require('./sidebar.ts'),
+            link: { type: 'doc', id: 'apify-api' },
+            items,
         },
     ],
 };

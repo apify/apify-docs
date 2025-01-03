@@ -1,0 +1,36 @@
+diff --git a/node_modules/docusaurus-plugin-openapi-docs/lib/sidebars/index.js b/node_modules/docusaurus-plugin-openapi-docs/lib/sidebars/index.js
+index 5802904..576c3ed 100644
+--- a/node_modules/docusaurus-plugin-openapi-docs/lib/sidebars/index.js
++++ b/node_modules/docusaurus-plugin-openapi-docs/lib/sidebars/index.js
+@@ -139,9 +139,16 @@ function groupByTags(items, sidebarOptions, options, tags, docPath) {
+         }
+         const taggedApiItems = apiItems.filter((item) => { var _a; return !!((_a = item.api.tags) === null || _a === void 0 ? void 0 : _a.includes(tag)); });
+         const taggedSchemaItems = schemaItems.filter((item) => { var _a; return !!((_a = item.schema["x-tags"]) === null || _a === void 0 ? void 0 : _a.includes(tag)); });
++        const altids = [];
++
++        if (tagObject?.['x-legacy-doc-urls']) {
++            altids.push(...tagObject['x-legacy-doc-urls']);
++        }
++
+         return {
+             type: "category",
+             label: (_a = tagObject === null || tagObject === void 0 ? void 0 : tagObject["x-displayName"]) !== null && _a !== void 0 ? _a : tag,
++            customProps: { altids },
+             link: linkConfig,
+             collapsible: sidebarCollapsible,
+             collapsed: sidebarCollapsed,
+@@ -201,11 +208,12 @@ function generateSidebarSlice(sidebarOptions, options, api, tags, docPath, tagGr
+                     filteredTags.push(tag);
+                 }
+             });
++            const { sidebarCollapsed, sidebarCollapsible } = sidebarOptions;
+             const groupCategory = {
+                 type: "category",
+                 label: tagGroup.name,
+-                collapsible: true,
+-                collapsed: true,
++                collapsible: sidebarCollapsible,
++                collapsed: sidebarCollapsed,
+                 items: groupByTags(api, sidebarOptions, options, [filteredTags], docPath),
+             };
+             if (options.showSchemas) {

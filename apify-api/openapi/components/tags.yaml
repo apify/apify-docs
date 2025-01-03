@@ -143,6 +143,7 @@
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/run-collection'
+  - '#tag/ActorsRun-collection'
   x-trait: 'true'
 - name: Actors/Run actor synchronously
   x-displayName: Run actor synchronously
