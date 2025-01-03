@@ -5,6 +5,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/build-collection/get-user-builds-list
     - https://docs.apify.com/api/v2#/reference/actor-builds/get-user-builds-list
+    - https://docs.apify.com/api/v2#tag/Actor-buildsBuild-collection/operation/actorBuilds_get
   description: |
     Gets a list of all builds for a user. The response is a JSON array of
     objects, where each object contains basic information about a single build.

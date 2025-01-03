@@ -102,6 +102,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-collection/get-list-of-tasks
     - https://docs.apify.com/api/v2#/reference/actor-tasks/get-list-of-tasks
+    - https://docs.apify.com/api/v2#tag/Actor-tasksTask-collection/operation/actorTasks_get
   x-js-parent: TaskCollectionClient
   x-js-name: list
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskCollectionClient#list
@@ -190,6 +191,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-collection/create-task
     - https://docs.apify.com/api/v2#/reference/actor-tasks/create-task
+    - https://docs.apify.com/api/v2#tag/Actor-tasksTask-collection/operation/actorTasks_post
   x-js-parent: TaskCollectionClient
   x-js-name: create
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskCollectionClient#create

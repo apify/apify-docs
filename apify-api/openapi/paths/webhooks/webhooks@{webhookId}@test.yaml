@@ -25,6 +25,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-test/test-webhook
     - https://docs.apify.com/api/v2#/reference/webhooks/test-webhook
+    - https://docs.apify.com/api/v2#tag/WebhooksWebhook-test/operation/webhook_test_post
   x-js-parent: WebhookClient
   x-js-name: test
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/WebhookClient#test
