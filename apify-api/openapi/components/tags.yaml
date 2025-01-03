@@ -762,6 +762,10 @@
   x-legacy-doc-urls:
   - '#/reference/datasets/item-collection'
   x-trait: 'true'
+- name: Datasets/Statistics
+  x-displayName: Statistics
+  x-parent-tag-name: Datasets
+  x-trait: 'true'
 - name: Request queues
   x-displayName: Request queues
   x-legacy-doc-urls:

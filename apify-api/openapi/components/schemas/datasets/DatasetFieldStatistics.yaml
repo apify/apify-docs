@@ -1,0 +1,19 @@
+title: DatasetFieldStatistics
+type: object
+properties:
+  min:
+    type: number
+    description: 'Minimum value of the field. For numbers, this is calculated directly. For strings, this is the length of the shortest string. For arrays, this is the length of the shortest array. For objects, this is the number of keys in the smallest object.'
+    nullable: true
+  max:
+    type: number
+    description: 'Maximum value of the field. For numbers, this is calculated directly. For strings, this is the length of the longest string. For arrays, this is the length of the longest array. For objects, this is the number of keys in the largest object.'
+    nullable: true
+  nullCount:
+    type: number
+    description: 'How many items in the dataset have a null value for this field.'
+    nullable: true
+  emptyCount:
+    type: number
+    description: 'How many items in the dataset are `undefined`, meaning that for example empty string is not considered empty.'
+    nullable: true
