@@ -129,6 +129,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/request-collection/list-requests
     - https://docs.apify.com/api/v2#/reference/request-queues/list-requests
+    - https://docs.apify.com/api/v2#tag/Request-queuesRequest-collection/operation/requestQueue_requests_get
   x-js-parent: RequestQueueClient
   x-js-name: paginateRequests
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#paginateRequests
@@ -221,6 +222,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/request-collection/add-request
     - https://docs.apify.com/api/v2#/reference/request-queues/add-request
+    - https://docs.apify.com/api/v2#tag/Request-queuesRequest-collection/operation/requestQueue_requests_post
   x-js-parent: RequestQueueClient
   x-js-name: addRequest
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#addRequest

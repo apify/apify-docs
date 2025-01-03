@@ -79,6 +79,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-object/get-version
     - https://docs.apify.com/api/v2#/reference/actors/get-version
+    - https://docs.apify.com/api/v2#tag/ActorsVersion-object/operation/act_version_get
   x-py-parent: ActorVersionClientAsync
   x-py-name: get
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorVersionClientAsync#get
@@ -196,6 +197,7 @@ put:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-object/update-version
     - https://docs.apify.com/api/v2#/reference/actors/update-version
+    - https://docs.apify.com/api/v2#tag/ActorsVersion-object/operation/act_version_put
   x-py-parent: ActorVersionClientAsync
   x-py-name: update
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorVersionClientAsync#update
@@ -284,3 +286,4 @@ delete:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-object/delete-version
     - https://docs.apify.com/api/v2#/reference/actors/delete-version
+    - https://docs.apify.com/api/v2#tag/ActorsVersion-object/operation/act_version_delete

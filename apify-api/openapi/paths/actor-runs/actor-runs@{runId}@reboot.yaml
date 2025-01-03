@@ -104,6 +104,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/reboot-run/reboot-run
     - https://docs.apify.com/api/v2#/reference/actor-runs/reboot-run
+    - https://docs.apify.com/api/v2#tag/Actor-runsReboot-run/operation/actorRun_reboot_post
   x-js-parent: RunClient
   x-js-name: reboot
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunClient#reboot

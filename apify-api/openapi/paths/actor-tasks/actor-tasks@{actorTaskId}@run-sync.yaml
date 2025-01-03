@@ -145,6 +145,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously/run-task-synchronously-post
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-post
+    - https://docs.apify.com/api/v2#tag/Actor-tasksRun-task-synchronously/operation/actorTask_runSync_post
 get:
   tags:
     - Actor tasks/Run task synchronously
@@ -278,3 +279,4 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously/run-task-synchronously-get
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-get
+    - https://docs.apify.com/api/v2#tag/Actor-tasksRun-task-synchronously/operation/actorTask_runSync_get

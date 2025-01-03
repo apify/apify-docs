@@ -88,6 +88,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-collection/get-list-of-actors
     - https://docs.apify.com/api/v2#/reference/actors/get-list-of-actors
+    - https://docs.apify.com/api/v2#tag/ActorsActor-collection/operation/acts_get
   x-js-parent: ActorCollectionClient
   x-js-name: list
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorCollectionClient#list
@@ -233,6 +234,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-collection/create-actor
     - https://docs.apify.com/api/v2#/reference/actors/create-actor
+    - https://docs.apify.com/api/v2#tag/ActorsActor-collection/operation/acts_post
   x-js-parent: ActorCollectionClient
   x-js-name: create
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorCollectionClient#create

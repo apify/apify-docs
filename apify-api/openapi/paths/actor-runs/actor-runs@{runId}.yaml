@@ -183,6 +183,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run
     - https://docs.apify.com/api/v2#/reference/actor-runs/get-run
+    - https://docs.apify.com/api/v2#tag/Actor-runsRun-object-and-its-storages/operation/actorRun_get
 delete:
   tags:
     - Actor runs/Delete run
@@ -209,6 +210,7 @@ delete:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/delete-run/delete-run
     - https://docs.apify.com/api/v2#/reference/actor-runs/delete-run
+    - https://docs.apify.com/api/v2#tag/Actor-runsDelete-run/operation/actorRun_delete
   x-js-parent: RunClient
   x-js-name: delete
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunClient#delete
@@ -335,3 +337,4 @@ put:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/update-status-message/update-status-message
     - https://docs.apify.com/api/v2#/reference/actor-runs/update-status-message
+    - https://docs.apify.com/api/v2#tag/Actor-runsUpdate-status-message/operation/actorRun_put

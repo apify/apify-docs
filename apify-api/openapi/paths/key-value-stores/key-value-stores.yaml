@@ -71,6 +71,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-collection/get-list-of-key-value-stores
     - https://docs.apify.com/api/v2#/reference/key-value-stores/get-list-of-key-value-stores
+    - https://docs.apify.com/api/v2#tag/Key-value-storesStore-collection/operation/keyValueStores_get
   x-js-parent: KeyValueStoreCollectionClient
   x-js-name: list
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreCollectionClient#list
@@ -130,6 +131,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-collection/create-key-value-store
     - https://docs.apify.com/api/v2#/reference/key-value-stores/create-key-value-store
+    - https://docs.apify.com/api/v2#tag/Key-value-storesStore-collection/operation/keyValueStores_post
   x-js-parent: KeyValueStoreCollectionClient
   x-js-name: getOrCreate
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreCollectionClient#getOrCreate

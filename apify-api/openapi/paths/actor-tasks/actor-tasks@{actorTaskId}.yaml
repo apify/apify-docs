@@ -48,6 +48,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-object/get-task
     - https://docs.apify.com/api/v2#/reference/actor-tasks/get-task
+    - https://docs.apify.com/api/v2#tag/Actor-tasksTask-object/operation/actorTask_get
   x-js-parent: TaskClient
   x-js-name: get
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskClient#get
@@ -142,6 +143,7 @@ put:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-object/update-task
     - https://docs.apify.com/api/v2#/reference/actor-tasks/update-task
+    - https://docs.apify.com/api/v2#tag/Actor-tasksTask-object/operation/actorTask_put
   x-js-parent: TaskClient
   x-js-name: update
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskClient#update
@@ -176,6 +178,7 @@ delete:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-object/delete-task
     - https://docs.apify.com/api/v2#/reference/actor-tasks/delete-task
+    - https://docs.apify.com/api/v2#tag/Actor-tasksTask-object/operation/actorTask_delete
   x-js-parent: TaskClient
   x-js-name: delete
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskClient#delete

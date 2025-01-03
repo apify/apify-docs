@@ -37,10 +37,10 @@ put:
     - name: clientKey
       in: query
       description: |
-          A unique identifier of the client accessing the request queue. It must
-          be a string between 1 and 32 characters long. This identifier is used to for locking
-          and unlocking requests. You can delete or prolong lock only for requests that were locked by by same
-          client key or from the same Actor run.
+        A unique identifier of the client accessing the request queue. It must
+        be a string between 1 and 32 characters long. This identifier is used to for locking
+        and unlocking requests. You can delete or prolong lock only for requests that were locked by by same
+        client key or from the same Actor run.
       style: form
       explode: true
       schema:
@@ -75,6 +75,7 @@ put:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/request-lock/prolong-request-lock
     - https://docs.apify.com/api/v2#/reference/request-queues/prolong-request-lock
+    - https://docs.apify.com/api/v2#tag/Request-queuesRequest-lock/operation/requestQueue_request_lock_put
   x-js-parent: RequestQueueClient
   x-js-name: prolongRequestLock
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#prolongRequestLock
@@ -120,10 +121,10 @@ delete:
     - name: clientKey
       in: query
       description: |
-          A unique identifier of the client accessing the request queue. It must
-          be a string between 1 and 32 characters long. This identifier is used to for locking
-          and unlocking requests. You can delete or prolong lock only for requests that were locked by by same
-          client key or from the same Actor run.
+        A unique identifier of the client accessing the request queue. It must
+        be a string between 1 and 32 characters long. This identifier is used to for locking
+        and unlocking requests. You can delete or prolong lock only for requests that were locked by by same
+        client key or from the same Actor run.
       style: form
       explode: true
       schema:
@@ -148,6 +149,7 @@ delete:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/request-lock/delete-request-lock
     - https://docs.apify.com/api/v2#/reference/request-queues/delete-request-lock
+    - https://docs.apify.com/api/v2#tag/Request-queuesRequest-lock/operation/requestQueue_request_lock_delete
   x-js-parent: RequestQueueClient
   x-js-name: deleteRequestLock
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#deleteRequestLock

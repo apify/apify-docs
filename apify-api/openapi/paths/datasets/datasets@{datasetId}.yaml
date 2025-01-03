@@ -52,6 +52,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset/get-dataset
     - https://docs.apify.com/api/v2#/reference/datasets/get-dataset
+    - https://docs.apify.com/api/v2#tag/DatasetsDataset/operation/dataset_get
   x-js-parent: DatasetClient
   x-js-name: get
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetClient#get
@@ -109,6 +110,7 @@ put:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset/update-dataset
     - https://docs.apify.com/api/v2#/reference/datasets/update-dataset
+    - https://docs.apify.com/api/v2#tag/DatasetsDataset/operation/dataset_put
   x-js-parent: DatasetClient
   x-js-name: update
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetClient#update
@@ -139,6 +141,7 @@ delete:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset/delete-dataset
     - https://docs.apify.com/api/v2#/reference/datasets/delete-dataset
+    - https://docs.apify.com/api/v2#tag/DatasetsDataset/operation/dataset_delete
   x-js-parent: DatasetClient
   x-js-name: delete
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetClient#delete

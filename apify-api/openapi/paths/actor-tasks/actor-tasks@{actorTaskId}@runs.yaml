@@ -126,6 +126,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-collection/get-list-of-task-runs
     - https://docs.apify.com/api/v2#/reference/actor-tasks/get-list-of-task-runs
+    - https://docs.apify.com/api/v2#tag/Actor-tasksRun-collection/operation/actorTask_runs_get
 post:
   tags:
     - Actor tasks/Run collection
@@ -353,6 +354,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-collection/run-task
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task
+    - https://docs.apify.com/api/v2#tag/Actor-tasksRun-collection/operation/actorTask_runs_post
   x-js-parent: TaskClient
   x-js-name: start
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskClient#start

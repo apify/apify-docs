@@ -462,6 +462,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/get-items
     - https://docs.apify.com/api/v2#/reference/datasets/get-items
+    - https://docs.apify.com/api/v2#tag/DatasetsItem-collection/operation/dataset_items_get
   x-js-parent: DatasetClient
   x-js-name: listItems
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetClient#listItems
@@ -532,32 +533,33 @@ post:
       headers: {}
       content:
         application/json:
-            schema:
-                allOf:
-                - $ref: >-
-                    ../../components/schemas/datasets/PutItemResponseError.yaml
-                - example:
-                    error:
-                        type: schema-validation-error
-                        message: Schema validation failed
-            example:
-                error:
+          schema:
+            allOf:
+              - $ref: >-
+                  ../../components/schemas/datasets/PutItemResponseError.yaml
+              - example:
+                  error:
                     type: schema-validation-error
                     message: Schema validation failed
-                    data:
-                        invalidItems:
-                            - itemPosition: 2
-                              validationErrors:
-                                - instancePath: /1/stringField
-                                  schemaPath: /items/properties/stringField/type
-                                  keyword: type
-                                  params:
-                                    type: string
-                                  message: 'must be string'
+          example:
+            error:
+              type: schema-validation-error
+              message: Schema validation failed
+              data:
+                invalidItems:
+                  - itemPosition: 2
+                    validationErrors:
+                      - instancePath: /1/stringField
+                        schemaPath: /items/properties/stringField/type
+                        keyword: type
+                        params:
+                          type: string
+                        message: 'must be string'
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items
     - https://docs.apify.com/api/v2#/reference/datasets/put-items
+    - https://docs.apify.com/api/v2#tag/DatasetsItem-collection/operation/dataset_items_post
   x-js-parent: DatasetClient
   x-js-name: pushItems
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetClient#pushItems

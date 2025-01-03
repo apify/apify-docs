@@ -22,3 +22,4 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/users/private-data/get-private-user-data
     - https://docs.apify.com/api/v2#/reference/users/get-private-user-data
+    - https://docs.apify.com/api/v2#tag/UsersPrivate-data/operation/users_me_get

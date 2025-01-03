@@ -5,6 +5,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/logs/log/get-log
     - https://docs.apify.com/api/v2#/reference/logs/get-log
+    - https://docs.apify.com/api/v2#tag/LogsLog/operation/log_get
   description: ''
   operationId: log_get
   parameters:

@@ -25,6 +25,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhook-dispatches/webhook-dispatch-object/get-webhook-dispatch
     - https://docs.apify.com/api/v2#/reference/webhook-dispatches/get-webhook-dispatch
+    - https://docs.apify.com/api/v2#tag/Webhook-dispatchesWebhook-dispatch-object/operation/webhookDispatch_get
   x-js-parent: WebhookDispatchClient
   x-js-name: get
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/WebhookDispatchClient#get

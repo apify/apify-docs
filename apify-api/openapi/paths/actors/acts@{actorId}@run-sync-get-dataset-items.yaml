@@ -425,6 +425,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-with-input-and-get-dataset-items
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-with-input-and-get-dataset-items
+    - https://docs.apify.com/api/v2#tag/ActorsRun-Actor-synchronously-and-get-dataset-items/operation/act_runSyncGetDatasetItems_post
 get:
   tags:
     - Actors/Run Actor synchronously and get dataset items
@@ -830,3 +831,4 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-and-get-dataset-items/run-actor-synchronously-without-input-and-get-dataset-items
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously-without-input-and-get-dataset-items
+    - https://docs.apify.com/api/v2#tag/ActorsRun-Actor-synchronously-and-get-dataset-items/operation/act_runSyncGetDatasetItems_get

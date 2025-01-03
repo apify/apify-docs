@@ -53,6 +53,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/get-request-queue
     - https://docs.apify.com/api/v2#/reference/request-queues/get-request-queue
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue/operation/requestQueue_get
   x-js-parent: RequestQueueClient
   x-js-name: get
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#get
@@ -132,6 +133,7 @@ put:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/update-request-queue
     - https://docs.apify.com/api/v2#/reference/request-queues/update-request-queue
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue/operation/requestQueue_put
   x-js-parent: RequestQueueClient
   x-js-name: update
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#update
@@ -162,6 +164,7 @@ delete:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/delete-request-queue
     - https://docs.apify.com/api/v2#/reference/request-queues/delete-request-queue
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue/operation/requestQueue_delete
   x-js-parent: RequestQueueClient
   x-js-name: delete
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#delete

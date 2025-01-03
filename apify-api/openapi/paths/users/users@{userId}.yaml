@@ -29,3 +29,4 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/users/public-data/get-public-user-data
     - https://docs.apify.com/api/v2#/reference/users/get-public-user-data
+    - https://docs.apify.com/api/v2#tag/UsersPublic-data/operation/user_get

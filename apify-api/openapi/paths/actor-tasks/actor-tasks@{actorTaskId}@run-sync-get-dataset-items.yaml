@@ -399,6 +399,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-post
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items-post
+    - https://docs.apify.com/api/v2#tag/Actor-tasksRun-task-synchronously-and-get-dataset-items/operation/actorTask_runSyncGetDatasetItems_post
 get:
   tags:
     - Actor tasks/Run task synchronously and get dataset items
@@ -786,3 +787,4 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items/run-task-synchronously-and-get-dataset-items-get
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items-get
+    - https://docs.apify.com/api/v2#tag/Actor-tasksRun-task-synchronously-and-get-dataset-items/operation/actorTask_runSyncGetDatasetItems_get

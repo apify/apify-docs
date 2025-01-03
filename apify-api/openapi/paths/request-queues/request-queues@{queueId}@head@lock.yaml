@@ -115,6 +115,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue-head-with-locks/get-head-and-lock
     - https://docs.apify.com/api/v2#/reference/request-queues/get-head-and-lock
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue-head-with-locks/operation/requestQueue_head_lock_post
   x-js-parent: RequestQueueClient
   x-js-name: listAndLockHead
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#listAndLockHead

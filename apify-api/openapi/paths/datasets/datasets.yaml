@@ -91,6 +91,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset-collection/get-list-of-datasets
     - https://docs.apify.com/api/v2#/reference/datasets/get-list-of-datasets
+    - https://docs.apify.com/api/v2#tag/DatasetsDataset-collection/operation/datasets_get
   x-js-parent: DatasetCollectionClient
   x-js-name: list
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetCollectionClient#list
@@ -149,6 +150,7 @@ post:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset-collection/create-dataset
     - https://docs.apify.com/api/v2#/reference/datasets/create-dataset
 
+    - https://docs.apify.com/api/v2#tag/DatasetsDataset-collection/operation/datasets_post
   x-js-parent: DatasetCollectionClient
   x-js-name: getOrCreate
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetCollectionClient#getOrCreate
