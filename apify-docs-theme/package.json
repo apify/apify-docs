@@ -1,6 +1,6 @@
 {
     "name": "@apify/docs-theme",
-    "version": "1.0.148",
+    "version": "1.0.149",
     "description": "",
     "main": "./src/index.js",
     "files": [
@@ -30,7 +30,7 @@
         "remark-parse": "^11.0.0",
         "remark-stringify": "^11.0.0",
         "unified": "^11.0.5",
-        "unist-util-visit-parents": "^3.1.1"
+        "unist-util-visit-parents": "^6.0.0"
     },
     "peerDependencies": {
         "clsx": "*",
