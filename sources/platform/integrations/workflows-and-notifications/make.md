@@ -43,7 +43,7 @@ Congratulations! You have successfully connected the Apify app and can now use i
 
 ## Run an Actor or Task with Output
 
-There are two methods to run an Actor or task and retrieve its data in Make.com, depending on your needs and the complexity of the Actor:
+We have two methods to run an Actor or task and retrieve its data in Make.com, depending on your needs and the complexity of the Actor:
 
 - **Synchronous run using the action module**
 - **Asynchronous run using the trigger module**
