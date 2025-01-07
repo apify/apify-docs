@@ -61,7 +61,3 @@ for path, ref in openapi_yaml.get('paths').items():
     with open(path_path, 'w') as file:
         yaml.dump(path_yaml, file)
 
-
-
-
-

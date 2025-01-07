@@ -41,3 +41,4 @@ with open(tags_file_path, 'r') as file:
     
     with open(tags_file_path, 'w') as file:
         yaml.dump(tags, file)
+
