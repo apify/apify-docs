@@ -82,7 +82,7 @@
         "docusaurus-theme-openapi-docs": "0.0.0-961",
         "form-data": "^4.0.0",
         "github-buttons": "^2.28.0",
-        "postcss-preset-env": "^9.3.0",
+        "postcss-preset-env": "^10.0.0",
         "prism-react-renderer": "^2.4.0",
         "prop-types": "^15.8.1",
         "proxy-from-env": "^1.1.0",
