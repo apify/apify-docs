@@ -76,7 +76,7 @@ function scrollOpenApiSidebarItemIntoView() {
 }
 
 function redirectOpenApiDocs() {
-    const { hash, pathname } = new URL(window.location.href);
+    const { hash, pathname, origin } = new URL(window.location.href);
 
     // TODO change to '/api/v2'
     if (pathname.replace(/\/$/, '') !== '/api/v2-new') {
@@ -86,12 +86,20 @@ function redirectOpenApiDocs() {
     const sidebarItems = document.querySelectorAll('[data-altids]');
 
     if (hash.startsWith('#/reference/') || hash.startsWith('#tag/')) {
+        let matched = false;
+
         for (const item of sidebarItems) {
             const ids = item.getAttribute('data-altids').split(',');
+
             if (ids.find((variant) => variant === hash)) {
+                matched = true;
                 item.click();
                 setTimeout(() => scrollOpenApiSidebarItemIntoView(), 200);
             }
+        }
+
+        if (!matched) {
+            window.location.href = `${origin}/search?q=${hash.slice(1)}&not-found=1`;
         }
     }
 }
