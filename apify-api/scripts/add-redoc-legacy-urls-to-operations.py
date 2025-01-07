@@ -10,7 +10,7 @@ yaml = ruamel.yaml.YAML(typ='rt')
 yaml.indent(mapping=2, sequence=4, offset=2)
 
 # https://stackoverflow.com/questions/78075152/preserve-line-wrapping-in-ruamel-yaml
-# needed to convert flow sclars (>-) to literal blocks (|)
+# needed to convert flow scalars (>-) to literal blocks (|)
 yaml.width = 10000
 
 # https://stackoverflow.com/questions/42094599/preserving-quotes-in-ruamel-yaml
