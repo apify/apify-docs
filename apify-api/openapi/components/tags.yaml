@@ -2,6 +2,7 @@
   x-displayName: Actors
   x-legacy-doc-urls:
   - '#/reference/actors'
+  - '#tag/Actors'
   description: >-
     The API endpoints described in this section enable you to manage, build and run
     Apify actors.
@@ -30,24 +31,28 @@
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/actor-collection'
+  - '#tag/ActorsActor-collection'
   x-trait: 'true'
 - name: Actors/Actor object
   x-displayName: Actor object
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/actor-object'
+  - '#tag/ActorsActor-object'
   x-trait: 'true'
 - name: Actors/Version collection
   x-displayName: Version collection
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/version-collection'
+  - '#tag/ActorsVersion-collection'
   x-trait: 'true'
 - name: Actors/Version object
   x-displayName: Version object
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/version-object'
+  - '#tag/ActorsVersion-object'
   x-trait: 'true'
   description: >-
     The **Version object** contains the source code of a specific version of an actor.
@@ -105,30 +110,35 @@
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/environment-variable-collection'
+  - '#tag/ActorsEnvironment-variable-collection'
   x-trait: 'true'
 - name: Actors/Environment variable object
   x-displayName: Environment variable object
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/environment-variable-object'
+  - '#tag/ActorsEnvironment-variable-object'
   x-trait: 'true'
 - name: Actors/Webhook collection
   x-displayName: Webhook collection
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/webhook-collection'
+  - '#tag/ActorsWebhook-collection'
   x-trait: 'true'
 - name: Actors/Build collection
   x-displayName: Build collection
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/build-collection'
+  - '#tag/ActorsBuild-collection'
   x-trait: 'true'
 - name: Actors/Build object
   x-displayName: Build object
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/build-object'
+  - '#tag/ActorsBuild-object'
   x-trait: 'true'
   description: '**[DEPRECATED]** API endpoints related to build of the actor were
     moved under new namespace [`actor-builds`](#/reference/actor-builds).'
@@ -138,29 +148,35 @@
   x-trait: 'true'
   description: '**[DEPRECATED]** API endpoints related to build of the actor were
     moved under new namespace [`actor-builds`](#/reference/actor-builds).'
+  x-legacy-doc-urls:
+  - '#tag/ActorsAbort-build'
 - name: Actors/Run collection
   x-displayName: Run collection
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/run-collection'
+  - '#tag/ActorsRun-collection'
   x-trait: 'true'
 - name: Actors/Run actor synchronously
   x-displayName: Run actor synchronously
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/run-actor-synchronously'
+  - '#tag/ActorsRun-actor-synchronously'
   x-trait: 'true'
 - name: Actors/Run Actor synchronously and get dataset items
   x-displayName: Run Actor synchronously and get dataset items
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/run-actor-synchronously-and-get-dataset-items'
+  - '#tag/ActorsRun-Actor-synchronously-and-get-dataset-items'
   x-trait: 'true'
 - name: Actors/Run object
   x-displayName: Run object
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/run-object'
+  - '#tag/ActorsRun-object'
   x-trait: 'true'
   description: '**[DEPRECATED]** API endpoints related to run of the actor were moved
     under new namespace [`actor-runs`](#/reference/actor-runs).'
@@ -170,23 +186,30 @@
   x-trait: 'true'
   description: '**[DEPRECATED]** API endpoints related to run of the actor were moved
     under new namespace [`actor-runs`](#/reference/actor-runs).'
+  x-legacy-doc-urls:
+  - '#tag/ActorsAbort-run'
 - name: Actors/Metamorph run
   x-displayName: Metamorph run
   x-parent-tag-name: Actors
   x-trait: 'true'
   description: '**[DEPRECATED]** API endpoints related to run of the actor were moved
     under new namespace [`actor-runs`](#/reference/actor-runs).'
+  x-legacy-doc-urls:
+  - '#tag/ActorsMetamorph-run'
 - name: Actors/Resurrect run
   x-displayName: Resurrect run
   x-parent-tag-name: Actors
   x-trait: 'true'
   description: '**[DEPRECATED]** API endpoints related to run of the actor were moved
     under new namespace [`actor-runs`](#/reference/actor-runs).'
+  x-legacy-doc-urls:
+  - '#tag/ActorsResurrect-run'
 - name: Actors/Last run object and its storages
   x-displayName: Last run object and its storages
   x-parent-tag-name: Actors
   x-legacy-doc-urls:
   - '#/reference/actors/last-run-object-and-its-storages'
+  - '#tag/ActorsLast-run-object-and-its-storages'
   x-trait: 'true'
   description: >-
     This is not a single endpoint, but an entire group of endpoints that lets you
@@ -297,6 +320,7 @@
   x-displayName: Actor tasks
   x-legacy-doc-urls:
   - '#/reference/actor-tasks'
+  - '#tag/Actor-tasks'
   description: >-
     The API endpoints described in this section enable you to manage and run Apify
     actor tasks.
@@ -325,48 +349,56 @@
   x-parent-tag-name: Actor tasks
   x-legacy-doc-urls:
   - '#/reference/actor-tasks/task-collection'
+  - '#tag/Actor-tasksTask-collection'
   x-trait: 'true'
 - name: Actor tasks/Task object
   x-displayName: Task object
   x-parent-tag-name: Actor tasks
   x-legacy-doc-urls:
   - '#/reference/actor-tasks/task-object'
+  - '#tag/Actor-tasksTask-object'
   x-trait: 'true'
 - name: Actor tasks/Task input object
   x-displayName: Task input object
   x-parent-tag-name: Actor tasks
   x-legacy-doc-urls:
   - '#/reference/actor-tasks/task-input-object'
+  - '#tag/Actor-tasksTask-input-object'
   x-trait: 'true'
 - name: Actor tasks/Webhook collection
   x-displayName: Webhook collection
   x-parent-tag-name: Actor tasks
   x-legacy-doc-urls:
   - '#/reference/actor-tasks/webhook-collection'
+  - '#tag/Actor-tasksWebhook-collection'
   x-trait: 'true'
 - name: Actor tasks/Run collection
   x-displayName: Run collection
   x-parent-tag-name: Actor tasks
   x-legacy-doc-urls:
   - '#/reference/actor-tasks/run-collection'
+  - '#tag/Actor-tasksRun-collection'
   x-trait: 'true'
 - name: Actor tasks/Run task synchronously
   x-displayName: Run task synchronously
   x-parent-tag-name: Actor tasks
   x-legacy-doc-urls:
   - '#/reference/actor-tasks/run-task-synchronously'
+  - '#tag/Actor-tasksRun-task-synchronously'
   x-trait: 'true'
 - name: Actor tasks/Run task synchronously and get dataset items
   x-displayName: Run task synchronously and get dataset items
   x-parent-tag-name: Actor tasks
   x-legacy-doc-urls:
   - '#/reference/actor-tasks/run-task-synchronously-and-get-dataset-items'
+  - '#tag/Actor-tasksRun-task-synchronously-and-get-dataset-items'
   x-trait: 'true'
 - name: Actor tasks/Last run object and its storages
   x-displayName: Last run object and its storages
   x-parent-tag-name: Actor tasks
   x-legacy-doc-urls:
   - '#/reference/actor-tasks/last-run-object-and-its-storages'
+  - '#tag/Actor-tasksLast-run-object-and-its-storages'
   x-trait: 'true'
   description: >-
     This is not a single endpoint, but an entire group of endpoints that lets you
@@ -480,6 +512,7 @@
   x-displayName: Actor runs
   x-legacy-doc-urls:
   - '#/reference/actor-runs'
+  - '#tag/Actor-runs'
   description: >-
     The API endpoints described in this section enable you to manage Apify actor runs.
 
@@ -496,12 +529,14 @@
   x-parent-tag-name: Actor runs
   x-legacy-doc-urls:
   - '#/reference/actor-runs/run-collection'
+  - '#tag/Actor-runsRun-collection'
   x-trait: 'true'
 - name: Actor runs/Run object and its storages
   x-displayName: Run object and its storages
   x-parent-tag-name: Actor runs
   x-legacy-doc-urls:
   - '#/reference/actor-runs/run-object-and-its-storages'
+  - '#tag/Actor-runsRun-object-and-its-storages'
   x-trait: 'true'
   description: >-
     This is not a single endpoint, but an entire group of endpoints that lets you
@@ -604,34 +639,49 @@
   x-displayName: Delete run
   x-parent-tag-name: Actor runs
   x-trait: 'true'
+  x-legacy-doc-urls:
+  - '#tag/Actor-runsDelete-run'
 - name: Actor runs/Abort run
   x-displayName: Abort run
   x-parent-tag-name: Actor runs
   x-trait: 'true'
+  x-legacy-doc-urls:
+  - '#tag/Actor-runsAbort-run'
 - name: Actor runs/Metamorph run
   x-displayName: Metamorph run
   x-parent-tag-name: Actor runs
   x-trait: 'true'
+  x-legacy-doc-urls:
+  - '#tag/Actor-runsMetamorph-run'
 - name: Actor runs/Reboot run
   x-displayName: Reboot run
   x-parent-tag-name: Actor runs
   x-trait: 'true'
+  x-legacy-doc-urls:
+  - '#tag/Actor-runsReboot-run'
 - name: Actor runs/Resurrect run
   x-displayName: Resurrect run
   x-parent-tag-name: Actor runs
   x-trait: 'true'
+  x-legacy-doc-urls:
+  - '#tag/Actor-runsResurrect-run'
 - name: Actor runs/Charge events in run
   x-displayName: Charge events in run
   x-parent-tag-name: Actor runs
   x-trait: 'true'
+  x-legacy-doc-urls:
+  - '#tag/Actor-runsCharge-events-in-run'
 - name: Actor runs/Update status message
   x-displayName: Update status message
   x-parent-tag-name: Actor runs
   x-trait: 'true'
+  x-legacy-doc-urls:
+  - '#tag/Actor-runsUpdate-status-message'
 - name: Actor builds
   x-displayName: Actor builds
   x-legacy-doc-urls:
   - '#/reference/actor-builds'
+  - '#tag/Actor-builds'
   description: >-
     The API endpoints described in this section enable you to manage Apify actor builds.
 
@@ -648,32 +698,40 @@
   x-parent-tag-name: Actor builds
   x-legacy-doc-urls:
   - '#/reference/actor-builds/build-collection'
+  - '#tag/Actor-buildsBuild-collection'
   x-trait: 'true'
 - name: Actor builds/Build object
   x-displayName: Build object
   x-parent-tag-name: Actor builds
   x-legacy-doc-urls:
   - '#/reference/actor-builds/build-object'
+  - '#tag/Actor-buildsBuild-object'
   x-trait: 'true'
 - name: Actor builds/Delete build
   x-displayName: Delete build
   x-parent-tag-name: Actor builds
   x-trait: 'true'
+  x-legacy-doc-urls:
+  - '#tag/Actor-buildsDelete-build'
 - name: Actor builds/Abort build
   x-displayName: Abort build
   x-parent-tag-name: Actor builds
   x-trait: 'true'
+  x-legacy-doc-urls:
+  - '#tag/Actor-buildsAbort-build'
 - name: Actor builds/Build log
   x-displayName: Build log
   x-parent-tag-name: Actor builds
   x-legacy-doc-urls:
   - '#/reference/actor-builds/build-log'
+  - '#tag/Actor-buildsBuild-log'
   x-trait: 'true'
   description: Check out [Logs](#/reference/logs) for full reference.
 - name: Key-value stores
   x-displayName: Key-value stores
   x-legacy-doc-urls:
   - '#/reference/key-value-stores'
+  - '#tag/Key-value-stores'
   description: >-
     This section describes API endpoints to manage Key-value stores.
 
@@ -699,29 +757,34 @@
   x-parent-tag-name: Key-value stores
   x-legacy-doc-urls:
   - '#/reference/key-value-stores/store-collection'
+  - '#tag/Key-value-storesStore-collection'
   x-trait: 'true'
 - name: Key-value stores/Store object
   x-displayName: Store object
   x-parent-tag-name: Key-value stores
   x-legacy-doc-urls:
   - '#/reference/key-value-stores/store-object'
+  - '#tag/Key-value-storesStore-object'
   x-trait: 'true'
 - name: Key-value stores/Key collection
   x-displayName: Key collection
   x-parent-tag-name: Key-value stores
   x-legacy-doc-urls:
   - '#/reference/key-value-stores/key-collection'
+  - '#tag/Key-value-storesKey-collection'
   x-trait: 'true'
 - name: Key-value stores/Record
   x-displayName: Record
   x-parent-tag-name: Key-value stores
   x-legacy-doc-urls:
   - '#/reference/key-value-stores/record'
+  - '#tag/Key-value-storesRecord'
   x-trait: 'true'
 - name: Datasets
   x-displayName: Datasets
   x-legacy-doc-urls:
   - '#/reference/datasets'
+  - '#tag/Datasets'
   description: >-
     This section describes API endpoints to manage Datasets.
 
@@ -749,23 +812,27 @@
   x-parent-tag-name: Datasets
   x-legacy-doc-urls:
   - '#/reference/datasets/dataset-collection'
+  - '#tag/DatasetsDataset-collection'
   x-trait: 'true'
 - name: Datasets/Dataset
   x-displayName: Dataset
   x-parent-tag-name: Datasets
   x-legacy-doc-urls:
   - '#/reference/datasets/dataset'
+  - '#tag/DatasetsDataset'
   x-trait: 'true'
 - name: Datasets/Item collection
   x-displayName: Item collection
   x-parent-tag-name: Datasets
   x-legacy-doc-urls:
   - '#/reference/datasets/item-collection'
+  - '#tag/DatasetsItem-collection'
   x-trait: 'true'
 - name: Request queues
   x-displayName: Request queues
   x-legacy-doc-urls:
   - '#/reference/request-queues'
+  - '#tag/Request-queues'
   description: >-
     This section describes API endpoints to manage request queues.
 
@@ -788,53 +855,62 @@
   x-parent-tag-name: Request queues
   x-legacy-doc-urls:
   - '#/reference/request-queues/queue-collection'
+  - '#tag/Request-queuesQueue-collection'
   x-trait: 'true'
 - name: Request queues/Queue
   x-displayName: Queue
   x-parent-tag-name: Request queues
   x-legacy-doc-urls:
   - '#/reference/request-queues/queue'
+  - '#tag/Request-queuesQueue'
   x-trait: 'true'
 - name: Request queues/Request collection
   x-displayName: Request collection
   x-parent-tag-name: Request queues
   x-legacy-doc-urls:
   - '#/reference/request-queues/request-collection'
+  - '#tag/Request-queuesRequest-collection'
   x-trait: 'true'
 - name: Request queues/Request
   x-displayName: Request
   x-parent-tag-name: Request queues
   x-legacy-doc-urls:
   - '#/reference/request-queues/request'
+  - '#tag/Request-queuesRequest'
   x-trait: 'true'
 - name: Request queues/Request lock
   x-displayName: Request lock
   x-parent-tag-name: Request queues
   x-legacy-doc-urls:
   - '#/reference/request-queues/request-lock'
+  - '#tag/Request-queuesRequest-lock'
   x-trait: 'true'
 - name: Request queues/Queue head
   x-displayName: Queue head
   x-parent-tag-name: Request queues
   x-legacy-doc-urls:
   - '#/reference/request-queues/queue-head'
+  - '#tag/Request-queuesQueue-head'
   x-trait: 'true'
 - name: Request queues/Queue head with locks
   x-displayName: Queue head with locks
   x-parent-tag-name: Request queues
   x-legacy-doc-urls:
   - '#/reference/request-queues/queue-head-with-locks'
+  - '#tag/Request-queuesQueue-head-with-locks'
   x-trait: 'true'
 - name: Request queues/Batch request operations
   x-displayName: Batch request operations
   x-parent-tag-name: Request queues
   x-legacy-doc-urls:
   - '#/reference/request-queues/batch-request-operations'
+  - '#tag/Request-queuesBatch-request-operations'
   x-trait: 'true'
 - name: Webhooks
   x-displayName: Webhooks
   x-legacy-doc-urls:
   - '#/reference/webhooks'
+  - '#tag/Webhooks'
   description: >-
     This section describes API endpoints to manage webhooks.
 
@@ -854,46 +930,54 @@
   x-parent-tag-name: Webhooks
   x-legacy-doc-urls:
   - '#/reference/webhooks/webhook-collection'
+  - '#tag/WebhooksWebhook-collection'
   x-trait: 'true'
 - name: Webhooks/Webhook object
   x-displayName: Webhook object
   x-parent-tag-name: Webhooks
   x-legacy-doc-urls:
   - '#/reference/webhooks/webhook-object'
+  - '#tag/WebhooksWebhook-object'
   x-trait: 'true'
 - name: Webhooks/Webhook test
   x-displayName: Webhook test
   x-parent-tag-name: Webhooks
   x-legacy-doc-urls:
   - '#/reference/webhooks/webhook-test'
+  - '#tag/WebhooksWebhook-test'
   x-trait: 'true'
 - name: Webhooks/Dispatches collection
   x-displayName: Dispatches collection
   x-parent-tag-name: Webhooks
   x-legacy-doc-urls:
   - '#/reference/webhooks/dispatches-collection'
+  - '#tag/WebhooksDispatches-collection'
   x-trait: 'true'
 - name: Webhook dispatches
   x-displayName: Webhook dispatches
   x-legacy-doc-urls:
   - '#/reference/webhook-dispatches'
+  - '#tag/Webhook-dispatches'
   description: This section describes API endpoints to get webhook dispatches.
 - name: Webhook dispatches/Webhook dispatches collection
   x-displayName: Webhook dispatches collection
   x-parent-tag-name: Webhook dispatches
   x-legacy-doc-urls:
   - '#/reference/webhook-dispatches/webhook-dispatches-collection'
+  - '#tag/Webhook-dispatchesWebhook-dispatches-collection'
   x-trait: 'true'
 - name: Webhook dispatches/Webhook dispatch object
   x-displayName: Webhook dispatch object
   x-parent-tag-name: Webhook dispatches
   x-legacy-doc-urls:
   - '#/reference/webhook-dispatches/webhook-dispatch-object'
+  - '#tag/Webhook-dispatchesWebhook-dispatch-object'
   x-trait: 'true'
 - name: Schedules
   x-displayName: Schedules
   x-legacy-doc-urls:
   - '#/reference/schedules'
+  - '#tag/Schedules'
   description: >-
     This section describes API endpoints for managing schedules.
 
@@ -917,23 +1001,27 @@
   x-parent-tag-name: Schedules
   x-legacy-doc-urls:
   - '#/reference/schedules/schedules-collection'
+  - '#tag/SchedulesSchedules-collection'
   x-trait: 'true'
 - name: Schedules/Schedule object
   x-displayName: Schedule object
   x-parent-tag-name: Schedules
   x-legacy-doc-urls:
   - '#/reference/schedules/schedule-object'
+  - '#tag/SchedulesSchedule-object'
   x-trait: 'true'
 - name: Schedules/Schedule log
   x-displayName: Schedule log
   x-parent-tag-name: Schedules
   x-legacy-doc-urls:
   - '#/reference/schedules/schedule-log'
+  - '#tag/SchedulesSchedule-log'
   x-trait: 'true'
 - name: Store
   x-displayName: Store
   x-legacy-doc-urls:
   - '#/reference/store'
+  - '#tag/Store'
   description: >-
     [Apify Store](https://apify.com/store) is home to hundreds of public Actors available
     to the Apify community.
@@ -947,11 +1035,13 @@
   x-parent-tag-name: Store
   x-legacy-doc-urls:
   - '#/reference/store/store-actors-collection'
+  - '#tag/StoreStore-Actors-collection'
   x-trait: 'true'
 - name: Logs
   x-displayName: Logs
   x-legacy-doc-urls:
   - '#/reference/logs'
+  - '#tag/Logs'
   description: >-
     The API endpoints described in this section are used the download the logs
 
@@ -968,11 +1058,13 @@
   x-parent-tag-name: Logs
   x-legacy-doc-urls:
   - '#/reference/logs/log'
+  - '#tag/LogsLog'
   x-trait: 'true'
 - name: Users
   x-displayName: Users
   x-legacy-doc-urls:
   - '#/reference/users'
+  - '#tag/Users'
   description: The API endpoints described in this section return information about
     user accounts.
 - name: Users/Public data
@@ -980,23 +1072,27 @@
   x-parent-tag-name: Users
   x-legacy-doc-urls:
   - '#/reference/users/public-data'
+  - '#tag/UsersPublic-data'
   x-trait: 'true'
 - name: Users/Private data
   x-displayName: Private data
   x-parent-tag-name: Users
   x-legacy-doc-urls:
   - '#/reference/users/private-data'
+  - '#tag/UsersPrivate-data'
   x-trait: 'true'
 - name: Users/Monthly usage
   x-displayName: Monthly usage
   x-parent-tag-name: Users
   x-legacy-doc-urls:
   - '#/reference/users/monthly-usage'
+  - '#tag/UsersMonthly-usage'
   x-trait: 'true'
 - name: Users/Account and usage limits
   x-displayName: Account and usage limits
   x-parent-tag-name: Users
   x-legacy-doc-urls:
   - '#/reference/users/account-and-usage-limits'
+  - '#tag/UsersAccount-and-usage-limits'
   x-trait: 'true'
 
