@@ -124,6 +124,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/resurrect-run/resurrect-run
     - https://docs.apify.com/api/v2#/reference/actor-runs/resurrect-run
+    - https://docs.apify.com/api/v2#tag/Actor-runsResurrect-run/operation/PostResurrectRun
   x-js-parent: RunClient
   x-js-name: resurrect
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunClient#resurrect

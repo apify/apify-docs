@@ -111,6 +111,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/abort-run/abort-run
     - https://docs.apify.com/api/v2#/reference/actor-runs/abort-run
+    - https://docs.apify.com/api/v2#tag/Actor-runsAbort-run/operation/actorRun_abort_post
   x-js-parent: RunClient
   x-js-name: abort
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunClient#abort

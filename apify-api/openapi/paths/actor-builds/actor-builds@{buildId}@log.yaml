@@ -56,3 +56,4 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/build-log/get-log
     - https://docs.apify.com/api/v2#/reference/actor-builds/get-log
+    - https://docs.apify.com/api/v2#tag/Actor-buildsBuild-log/operation/actorBuild_log_get

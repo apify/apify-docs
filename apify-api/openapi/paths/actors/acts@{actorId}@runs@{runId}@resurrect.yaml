@@ -155,3 +155,4 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/resurrect-run/resurrect-run
     - https://docs.apify.com/api/v2#/reference/actors/resurrect-run
+    - https://docs.apify.com/api/v2#tag/ActorsResurrect-run/operation/act_run_resurrect_post

@@ -25,6 +25,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedule-object/get-schedule
     - https://docs.apify.com/api/v2#/reference/schedules/get-schedule
+    - https://docs.apify.com/api/v2#tag/SchedulesSchedule-object/operation/schedule_get
   x-js-parent: ScheduleClient
   x-js-name: get
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ScheduleClient#get
@@ -78,6 +79,7 @@ put:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedule-object/update-schedule
     - https://docs.apify.com/api/v2#/reference/schedules/update-schedule
+    - https://docs.apify.com/api/v2#tag/SchedulesSchedule-object/operation/schedule_put
   x-js-parent: ScheduleClient
   x-js-name: update
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ScheduleClient#update
@@ -113,6 +115,7 @@ delete:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedule-object/delete-schedule
     - https://docs.apify.com/api/v2#/reference/schedules/delete-schedule
+    - https://docs.apify.com/api/v2#tag/SchedulesSchedule-object/operation/schedule_delete
   x-js-parent: ScheduleClient
   x-js-name: delete
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ScheduleClient#delete
