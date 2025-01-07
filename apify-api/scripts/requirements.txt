@@ -30,7 +30,7 @@ referencing==0.35.1
 requests==2.32.3
 rpds-py==0.18.1
 ruamel.yaml==0.18.6
-ruamel.yaml.clib==0.2.8
+ruamel.yaml.clib==0.2.12
 schemathesis==3.30.3
 six==1.16.0
 sniffio==1.3.1
