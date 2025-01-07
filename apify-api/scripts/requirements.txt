@@ -23,7 +23,7 @@ packaging==24.1
 pluggy==1.5.0
 pyrate-limiter==3.6.1
 pytest==8.2.2
-pytest-subtests==0.7.0
+pytest-subtests==0.14.1
 python-slugify==8.0.4
 PyYAML==6.0.1
 referencing==0.35.1
