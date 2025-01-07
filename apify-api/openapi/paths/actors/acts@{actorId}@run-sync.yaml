@@ -161,6 +161,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously/with-input
     - https://docs.apify.com/api/v2#/reference/actors/with-input
+    - https://docs.apify.com/api/v2#tag/ActorsRun-actor-synchronously/operation/act_runSync_post
 get:
   tags:
     - Actors/Run actor synchronously
@@ -308,3 +309,4 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-actor-synchronously/without-input
     - https://docs.apify.com/api/v2#/reference/actors/without-input
+    - https://docs.apify.com/api/v2#tag/ActorsRun-actor-synchronously/operation/act_runSync_get
