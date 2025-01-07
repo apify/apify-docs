@@ -10,7 +10,7 @@ h11==0.14.0
 httpcore==1.0.5
 httpx==0.27.0
 hypothesis==6.104.1
-hypothesis-graphql==0.11.0
+hypothesis-graphql==0.11.1
 hypothesis-jsonschema==0.23.1
 idna==3.7
 iniconfig==2.0.0
