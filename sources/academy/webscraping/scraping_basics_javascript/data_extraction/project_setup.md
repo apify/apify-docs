@@ -37,6 +37,8 @@ Node.js and npm support two types of projects, let's call them legacy and modern
 
 ![Update package.json with VSCode](./images/vscode-type-module.png)
 
+> More recent versions of npm might already have `"type": "commonjs",` pre-defined; if so, simply replace `commonjs` with `module`.
+
 > If you want to learn more about JSON and its syntax, we recommend [this tutorial on MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON).
 
 ## Installing necessary libraries {#install-libraries}
