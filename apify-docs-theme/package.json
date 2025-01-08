@@ -19,8 +19,8 @@
         "access": "public"
     },
     "dependencies": {
-        "@apify/docs-search-modal": "^1.1.1",
-        "@docusaurus/theme-common": "3.6.3",
+        "@apify/docs-search-modal": "^1.2.0",
+        "@docusaurus/theme-common": "^3.7.0",
         "@stackql/docusaurus-plugin-hubspot": "^1.1.0",
         "axios": "^1.7.4",
         "babel-loader": "^9.1.3",
