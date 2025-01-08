@@ -119,7 +119,7 @@ In the "Spreadsheet ID" field, enter the ID of the target Google Sheets file, wh
 
 ![make-com-async-3.png](../images/make-com/make-com-async-3.png)
 
-That’s it! Once the Actor run is complete, its data will be exported to Google Sheets.
+That’s it! Once the Actor run is complete, its data will be exported to the Google Sheets file.
 You can initiate the Actor run via the Apify console, a scheduler, or from another Make.com scenario.
 
 ## Available modules and triggers
