@@ -1016,8 +1016,8 @@ aside li.section-header > .menu__list {
     padding-left: 0;
 }
 
-.theme-doc-sidebar-menu li.section-header > ul > li .menu__list-item-collapsible:hover,
-.theme-doc-sidebar-menu li.section-header > ul > li .menu__list-item-collapsible--active {
+.theme-doc-sidebar-menu > li.section-header > ul > li.theme-doc-sidebar-item-category-level-2 > .menu__list-item-collapsible:hover,
+.theme-doc-sidebar-menu > li.section-header > ul > li.theme-doc-sidebar-item-category-level-2 > .menu__list-item-collapsible--active {
     background: inherit !important;
 }
 
