@@ -17,6 +17,7 @@ import {
 } from '@docusaurus/theme-common/internal';
 import Translate, { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { useLocation } from '@docusaurus/router';
 import {
     useAlgoliaThemeConfig,
     useSearchResultUrlProcessor,
@@ -120,6 +121,8 @@ function SearchPageContent() {
     const documentsFoundPlural = useDocumentsFoundPlural();
     const docsSearchVersionsHelpers = useDocsSearchVersionsHelpers();
     const [searchQuery, setSearchQuery] = useSearchQueryString();
+    const location = useLocation();
+    const notFound = new URLSearchParams(location.search).get('not-found');
     const initialSearchResultState = {
         items: [],
         query: null,
@@ -302,7 +305,14 @@ function SearchPageContent() {
             </Head>
 
             <div className="container margin-vert--lg">
-                <h1>{getTitle()}</h1>
+                {notFound ? (
+                    <>
+                        <h1>Page Not Found</h1>
+                        <h2>{getTitle()}</h2>
+                    </>
+                ) : (
+                    <h1>{getTitle()}</h1>
+                )}
 
                 <form className="row" onSubmit={(e) => e.preventDefault()}>
                     <div

@@ -159,3 +159,4 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/metamorph-run/metamorph-run
     - https://docs.apify.com/api/v2#/reference/actors/metamorph-run
+    - https://docs.apify.com/api/v2#tag/ActorsMetamorph-run/operation/act_run_metamorph_post

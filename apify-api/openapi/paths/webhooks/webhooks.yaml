@@ -59,6 +59,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-collection/get-list-of-webhooks
     - https://docs.apify.com/api/v2#/reference/webhooks/get-list-of-webhooks
+    - https://docs.apify.com/api/v2#tag/WebhooksWebhook-collection/operation/webhooks_get
   x-js-parent: WebhookCollectionClient
   x-js-name: list
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/WebhookCollectionClient#list
@@ -188,6 +189,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-collection/create-webhook
     - https://docs.apify.com/api/v2#/reference/webhooks/create-webhook
+    - https://docs.apify.com/api/v2#tag/WebhooksWebhook-collection/operation/webhooks_post
   x-js-parent: WebhookCollectionClient
   x-js-name: create
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/WebhookCollectionClient#create

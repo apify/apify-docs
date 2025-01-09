@@ -11,7 +11,15 @@ properties:
         example: 1000
       queueModifiedAt:
         type: string
+        description: The modifiedAt is updated whenever the queue is modified. Modifications include adding, updating, or removing requests, as well as locking or unlocking requests in the queue.
         example: '2018-03-14T23:00:00.000Z'
+      queueHasLockedRequests:
+        type: boolean
+        description: Whether the queue contains requests locked by any client (either the one calling the endpoint or a different one).
+        example: true
+      clientKey:
+        type: string
+        example: client-one
       hadMultipleClients:
         type: boolean
         example: true

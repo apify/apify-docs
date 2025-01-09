@@ -30,6 +30,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/get-store
     - https://docs.apify.com/api/v2#/reference/key-value-stores/get-store
+    - https://docs.apify.com/api/v2#tag/Key-value-storesStore-object/operation/keyValueStore_get
   x-js-parent: KeyValueStoreClient
   x-js-name: get
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#get
@@ -77,6 +78,7 @@ put:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/update-store
     - https://docs.apify.com/api/v2#/reference/key-value-stores/update-store
+    - https://docs.apify.com/api/v2#tag/Key-value-storesStore-object/operation/keyValueStore_put
   x-js-parent: KeyValueStoreClient
   x-js-name: update
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#update
@@ -107,6 +109,7 @@ delete:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/delete-store
     - https://docs.apify.com/api/v2#/reference/key-value-stores/delete-store
+    - https://docs.apify.com/api/v2#tag/Key-value-storesStore-object/operation/keyValueStore_delete
   x-js-parent: KeyValueStoreClient
   x-js-name: delete
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#delete

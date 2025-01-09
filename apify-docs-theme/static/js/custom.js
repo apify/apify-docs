@@ -63,7 +63,7 @@ function scrollSidebarItemIntoView() {
 
 // handles automatic scrolling of the API reference sidebar (openapi-docs)
 function scrollOpenApiSidebarItemIntoView() {
-    const $li = document.querySelector(`li > a.menu__link--active[href]`);
+    const $li = document.querySelector(`ul.theme-doc-sidebar-menu a.menu__link--active[href]`);
 
     if (!$li) {
         return;
@@ -76,27 +76,31 @@ function scrollOpenApiSidebarItemIntoView() {
 }
 
 function redirectOpenApiDocs() {
-    const { hash, pathname } = new URL(window.location.href);
+    const { hash, pathname, origin } = new URL(window.location.href);
 
     // TODO change to '/api/v2'
     if (pathname.replace(/\/$/, '') !== '/api/v2-new') {
         return;
     }
 
-    if (hash.startsWith('#/reference/')) {
-        const sidebarItems = document.querySelectorAll('[data-altids]');
+    const sidebarItems = document.querySelectorAll('[data-altids]');
+
+    if (hash.startsWith('#/reference/') || hash.startsWith('#tag/')) {
+        let matched = false;
 
         for (const item of sidebarItems) {
             const ids = item.getAttribute('data-altids').split(',');
+
             if (ids.find((variant) => variant === hash)) {
+                matched = true;
                 item.click();
+                setTimeout(() => scrollOpenApiSidebarItemIntoView(), 200);
             }
         }
-    }
 
-    if (hash.startsWith('#tag/')) {
-        const id = hash.substring('#tag/'.length);
-        console.log('redirect', { id, hash });
+        if (!matched) {
+            window.location.href = `${origin}/search?q=${hash.slice(1)}&not-found=1`;
+        }
     }
 }
 
@@ -121,7 +125,7 @@ window.addEventListener('load', () => {
     setTimeout(() => scrollSidebarItemIntoView(), 1000);
 
     // docusaurus-openapi-docs plugin: scroll sidebar into viewport, no need for a large timeout here
-    setTimeout(() => scrollOpenApiSidebarItemIntoView(), 100);
+    setTimeout(() => scrollOpenApiSidebarItemIntoView(), 200);
 });
 
 window.addEventListener('popstate', () => {

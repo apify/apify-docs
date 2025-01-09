@@ -19,6 +19,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/users/account-and-usage-limits/get-limits
     - https://docs.apify.com/api/v2#/reference/users/get-limits
+    - https://docs.apify.com/api/v2#tag/UsersAccount-and-usage-limits/operation/users_me_limits_get
 put:
   tags:
     - Users/Account and usage limits
@@ -45,3 +46,4 @@ put:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/users/account-and-usage-limits/update-limits
     - https://docs.apify.com/api/v2#/reference/users/update-limits
+    - https://docs.apify.com/api/v2#tag/UsersAccount-and-usage-limits/operation/users_me_limits_put

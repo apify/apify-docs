@@ -62,3 +62,4 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/abort-build/abort-build
     - https://docs.apify.com/api/v2#/reference/actors/abort-build
+    - https://docs.apify.com/api/v2#tag/ActorsAbort-build/operation/act_build_abort_post

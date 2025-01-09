@@ -54,6 +54,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/build-object/get-build
     - https://docs.apify.com/api/v2#/reference/actor-builds/get-build
+    - https://docs.apify.com/api/v2#tag/Actor-buildsBuild-object/operation/actorBuild_get
   x-js-parent: BuildClient
   x-js-name: get
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/BuildClient#get
@@ -89,6 +90,7 @@ delete:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/delete-build/delete-build
     - https://docs.apify.com/api/v2#/reference/actor-builds/delete-build
+    - https://docs.apify.com/api/v2#tag/Actor-builds/operation/actorBuild_delete
   x-js-parent: BuildClient
   x-js-name: delete
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/BuildClient#delete

@@ -45,8 +45,7 @@ info:
 
     To use your token in a request, either:
 
-    - Add the token to your request's `Authorization` header as `Bearer
-     <token>`.
+    - Add the token to your request's `Authorization` header as `Bearer <token>`.
     E.g., `Authorization: Bearer xxxxxxx`.
     [More info](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization).
     (Recommended).
@@ -544,6 +543,8 @@ paths:
     $ref: paths/actor-runs/actor-runs@{runId}@reboot.yaml
   '/v2/actor-runs/{runId}/resurrect':
     $ref: paths/actor-runs/actor-runs@{runId}@resurrect.yaml
+  '/v2/actor-runs/{runId}/charge':
+    $ref: paths/actor-runs/actor-runs@{runId}@charge.yaml
   /v2/actor-builds:
     $ref: paths/actor-builds/actor-builds.yaml
   '/v2/actor-builds/{buildId}':
@@ -566,6 +567,8 @@ paths:
     $ref: 'paths/datasets/datasets@{datasetId}.yaml'
   '/v2/datasets/{datasetId}/items':
     $ref: 'paths/datasets/datasets@{datasetId}@items.yaml'
+  '/v2/datasets/{datasetId}/statistics':
+    $ref: 'paths/datasets/datasets@{datasetId}@statistics.yaml'
   /v2/request-queues:
     $ref: paths/request-queues/request-queues.yaml
   '/v2/request-queues/{queueId}':

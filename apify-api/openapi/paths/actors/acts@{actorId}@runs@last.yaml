@@ -157,3 +157,4 @@ get:
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/last-run-object-and-its-storages/get-last-run
+    - https://docs.apify.com/api/v2#tag/ActorsLast-run-object-and-its-storages/operation/act_runs_last_get
