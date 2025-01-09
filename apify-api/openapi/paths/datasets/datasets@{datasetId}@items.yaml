@@ -54,7 +54,7 @@ get:
       </tr>
     </table>
 
-    Note that CSV, XLSX and HTML tables are limited to 500 columns and the column names cannot be longer than 200 characters.
+    Note that CSV, XLSX and HTML tables are limited to 2000 columns and the column names cannot be longer than 200 characters.
     JSON, XML and RSS formats do not have such restrictions.
 
 
@@ -185,7 +185,7 @@ get:
     The pagination is always performed with the granularity of a single item, regardless whether <code>unwind</code> parameter was provided.
     By default, the **Items** in the response are sorted by the time they were stored to the database, therefore you can use pagination to incrementally fetch the items as they are being added.
 
-    The maximum number of items that will be returned in a single API call is limited to 250,000.
+    No limit exists to how many items can be returned in one response.
 
     <!-- GET_ITEMS_LIMIT -->
 
