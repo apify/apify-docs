@@ -41,7 +41,7 @@ Finally, copy your API token to the Make module and save it to create a connecti
 
 Congratulations! You have successfully connected the Apify app and can now use it in your scenarios.
 
-## Run an Actor or Task with Output
+## Run an Actor or task with Output
 
 We have two methods to run an Actor or task and retrieve its data in Make.com, depending on your needs and the complexity of the Actor:
 
@@ -53,7 +53,7 @@ Make.com imposes a hard timeout of 5 minutes for synchronous runs. If the Actor 
 If you anticipate that the Actor run will exceed 5 minutes, use the asynchronous method with a trigger module instead.
 :::
 
-The primary difference between the two methods is that the synchronous run waits for the Actor or Task to finish and retrieves its output using the "Get Dataset Items" module. By contrast, the asynchronous run watches for the run of an Actor or task (which could have been triggered from another scenario, manually from Apify console or elsewhere) and gets its output once it finishes.
+The primary difference between the two methods is that the synchronous run waits for the Actor or task to finish and retrieves its output using the "Get Dataset Items" module. By contrast, the asynchronous run watches for the run of an Actor or task (which could have been triggered from another scenario, manually from Apify console or elsewhere) and gets its output once it finishes.
 
 ### Synchronous run using the action module
 
@@ -126,16 +126,16 @@ You can initiate the Actor run via the Apify console, a scheduler, or from anoth
 
 ### Triggers
 
-- Watch Actor Runs: Triggers when a selected Actor run is finished.
-- Watch Task Runs: Triggers when a selected task run is finished.
+- **Watch Actor Runs:** Triggers when a selected Actor run is finished.
+- **Watch Task Runs:** Triggers when a selected task run is finished.
 
 ### Actions
 
-- Run a task: Runs a selected Actor task.
-- Run an Actor: Runs a selected Actor.
-- Scrape Single URL: Runs a scraper for the website and returns its content as text, markdown and HTML.
-- Make an API Call: Makes an arbitrary authorized API call.
+- **Run a Task:** Runs a selected Actor task.
+- **Run an Actor:** Runs a selected Actor.
+- **Scrape Single URL:** Runs a scraper for the website and returns its content as text, markdown and HTML.
+- **Make an API Call:** Makes an arbitrary authorized API call.
 
 ### Searches
 
-- Get Dataset Items: Retrieves items from a [dataset](/platform/storage/dataset).
+- **Get Dataset Items:** Retrieves items from a [dataset](/platform/storage/dataset).
