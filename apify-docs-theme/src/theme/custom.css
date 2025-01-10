@@ -991,7 +991,7 @@ html[data-theme='dark'] .actionLink:hover::after {
 }
 
 aside li.section-header > div > .menu__link,
-aside li.section-header > ul > li > div > .menu__link {
+.plugin-id-openapi aside li.section-header > ul > li > div > .menu__link {
     text-transform: uppercase;
     opacity: 0.8;
     font-size: 16px;
