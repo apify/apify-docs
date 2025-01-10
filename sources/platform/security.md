@@ -14,7 +14,7 @@ slug: /security
 
 ## SOC 2 type II compliance
 
-Apify platform is SOC 2 Type II compliant. This means that we have undergone an independent audit to ensure that our information security practices, policies, procedures, and operations meet the SOC 2 standards for security, availability, and confidentiality of customer data.
+The Apify platform is SOC 2 Type II compliant. This means that we have undergone an independent audit to ensure that our information security practices, policies, procedures, and operations meet the SOC 2 standards for security, availability, and confidentiality of customer data.
 
 <a href="https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2" target="_blank" title="AICPA SOC 2">
     <img src={require("./images/security/soc2-logo.png").default} width="150" title="Apify Security Whitepaper" />
