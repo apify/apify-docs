@@ -24,7 +24,7 @@ To learn more read the [announcement](https://blog.apify.com/apify-soc2/) and vi
 
 ## Trust center
 
-To learn more about Apify's security practices, data protection measures, and compliance certifications, visit our [Trust Center](https://trust.apify.com). Trust Center includes:
+To learn more about Apify's security practices, data protection measures, and compliance certifications, visit our [Trust Center](https://trust.apify.com). The Trust Center includes:
 
 - List of our security certifications and compliance reports
 - Information about Apify's data protection controls
