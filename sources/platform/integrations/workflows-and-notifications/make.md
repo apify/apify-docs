@@ -49,8 +49,8 @@ We have two methods to run an Actor or task and retrieve its data in Make.com, d
 - **Asynchronous run using the trigger module**
 
 :::info
-Make.com imposes a hard timeout of 5 minutes for synchronous runs. If the Actor or task takes longer than 5 minutes to complete, the data will not be fully returned.
-If you anticipate that the Actor run will exceed 5 minutes, use the asynchronous method with a trigger module instead.
+Make.com imposes a hard timeout for synchronous runs, the timeout varies based on your plan. If the Actor or task takes longer than the timeout to complete, the data will not be fully returned.
+If you anticipate that the Actor run will exceed the timeout, use the asynchronous method with a trigger module instead.
 :::
 
 The primary difference between the two methods is that the synchronous run waits for the Actor or task to finish and retrieves its output using the "Get Dataset Items" module. By contrast, the asynchronous run watches for the run of an Actor or task (which could have been triggered from another scenario, manually from Apify console or elsewhere) and gets its output once it finishes.
