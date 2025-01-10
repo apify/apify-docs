@@ -990,12 +990,17 @@ html[data-theme='dark'] .actionLink:hover::after {
     }
 }
 
-aside li.section-header > div > .menu__link {
+aside li.section-header > div > .menu__link,
+.plugin-id-openapi aside li.section-header > ul > li > div > .menu__link {
     text-transform: uppercase;
     opacity: 0.8;
     font-size: 16px;
     font-weight: 700;
     margin: 0;
+}
+
+aside li.section-header > div > .menu__link {
+    font-size: 20px;
 }
 
 aside li.section-header.menu__list-item {
@@ -1009,6 +1014,11 @@ aside li.section-header.menu__list-item:nth-child(2) {
 
 aside li.section-header > .menu__list {
     padding-left: 0;
+}
+
+.theme-doc-sidebar-menu > li.section-header > ul > li.theme-doc-sidebar-item-category-level-2 > .menu__list-item-collapsible:hover,
+.theme-doc-sidebar-menu > li.section-header > ul > li.theme-doc-sidebar-item-category-level-2 > .menu__list-item-collapsible--active {
+    background: inherit !important;
 }
 
 .beta-chip {

@@ -133,3 +133,4 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/webhook-collection/get-list-of-webhooks
     - https://docs.apify.com/api/v2#/reference/actor-tasks/get-list-of-webhooks
+    - https://docs.apify.com/api/v2#tag/Actor-tasksWebhook-collection/operation/actorTask_webhooks_get

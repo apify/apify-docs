@@ -65,3 +65,4 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/webhook-collection/get-list-of-webhooks
     - https://docs.apify.com/api/v2#/reference/actors/get-list-of-webhooks
+    - https://docs.apify.com/api/v2#tag/ActorsWebhook-collection/operation/act_webhooks_get

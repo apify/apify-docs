@@ -116,6 +116,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-collection/get-list-of-runs
     - https://docs.apify.com/api/v2#/reference/actors/get-list-of-runs
+    - https://docs.apify.com/api/v2#tag/ActorsRun-collection/operation/act_runs_get
   x-js-parent: RunCollectionClient
   x-js-name: list
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunCollectionClient#list
@@ -332,6 +333,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-collection/run-actor
     - https://docs.apify.com/api/v2#/reference/actors/run-actor
+    - https://docs.apify.com/api/v2#tag/ActorsRun-collection/operation/act_runs_post
   x-js-parent: ActorClient
   x-js-name: start
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorClient#start

@@ -120,3 +120,4 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/abort-run/abort-run
     - https://docs.apify.com/api/v2#/reference/actors/abort-run
+    - https://docs.apify.com/api/v2#tag/ActorsAbort-run/operation/act_run_abort_post

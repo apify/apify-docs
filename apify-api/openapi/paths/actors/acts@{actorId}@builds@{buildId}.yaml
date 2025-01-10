@@ -85,9 +85,8 @@ get:
               readme: '# Magic Actor\nThis Actor is magic.'
               buildNumber: 0.1.1
   deprecated: true
-  x-deprecated-description: 'API endpoints related to build of the Actor were moved
-    under new namespace [`actor-builds`](#/reference/actor-builds). Gets an object
-    that contains all the details about a specific build of an Actor.'
+  x-deprecated-description: 'API endpoints related to build of the Actor were moved under new namespace [`actor-builds`](#/reference/actor-builds). Gets an object that contains all the details about a specific build of an Actor.'
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/build-object/get-build
     - https://docs.apify.com/api/v2#/reference/actors/get-build
+    - https://docs.apify.com/api/v2#tag/ActorsBuild-object/operation/act_build_get

@@ -1,0 +1,16 @@
+title: GetDatasetStatisticsResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    type: object
+    properties:
+      fieldStatistics:
+        type: object
+        nullable: true
+        additionalProperties:
+          $ref: ./DatasetFieldStatistics.yaml
+        description: 'When you configure the dataset [fields schema](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema/validation), we measure the statistics such as `min`, `max`, `nullCount` and `emptyCount` for each field.
+        This property provides statistics for each field from dataset fields schema.
+        <br/></br>See dataset field statistics [documentation](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema/validation#dataset-field-statistics) for more information.'
