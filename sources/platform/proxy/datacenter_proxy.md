@@ -8,7 +8,7 @@ slug: /proxy/datacenter-proxy
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Datacenter proxy {#datacenter-proxy}
+# Datacenter proxy
 
 **Learn how to reduce blocking when web scraping using IP address rotation. See proxy parameters and learn to implement Apify Proxy in an application.**
 
