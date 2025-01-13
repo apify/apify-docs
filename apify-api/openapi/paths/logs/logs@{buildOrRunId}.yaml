@@ -11,7 +11,7 @@ get:
   parameters:
     - name: buildOrRunId
       in: path
-      description: ID of the actor build or run.
+      description: ID of the Actor build or run.
       required: true
       style: simple
       schema:

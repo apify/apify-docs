@@ -3,17 +3,17 @@ post:
     - Actor tasks/Run task synchronously
   summary: Run task synchronously (POST)
   description: |
-    Runs an actor task and synchronously returns its output.
+    Runs an Actor task and synchronously returns its output.
 
     The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds
     otherwise the HTTP request fails with a timeout error (this won't abort
     the run itself).
 
-    Optionally, you can override the actor input configuration by passing a JSON
+    Optionally, you can override the Actor input configuration by passing a JSON
     object as the POST payload and setting the `Content-Type: application/json` HTTP header.
 
     Note that if the object in the POST payload does not define a particular
-    input property, the actor run uses the default value defined by the task (or actor's input
+    input property, the Actor run uses the default value defined by the task (or Actor's input
     schema if not defined by the task).
 
     Beware that it might be impossible to maintain an idle HTTP connection for
@@ -23,7 +23,7 @@ post:
     If the connection breaks, you will not receive any information about the run
     and its status.
 
-    Input fields from actor task configuration can be overloaded with values
+    Input fields from Actor task configuration can be overloaded with values
     passed as the POST payload.
 
     Just make sure to specify `Content-Type` header to be `application/json` and
@@ -70,7 +70,7 @@ post:
         The maximum number of items that the task run should return. This is
         useful for pay-per-result tasks, as it allows you to limit the number of
         results that will be charged to your subscription. You can access the
-        maximum number of items in your actor by using the
+        maximum number of items in your Actor by using the
         `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
       style: form
       explode: true
@@ -81,7 +81,7 @@ post:
     - name: build
       in: query
       description: |
-        Specifies the actor build to run. It can be either a build tag or build
+        Specifies the Actor build to run. It can be either a build tag or build
         number. By default, the run uses the build specified in the task
         settings (typically `latest`).
       style: form
@@ -102,10 +102,10 @@ post:
     - name: webhooks
       in: query
       description: |
-        Specifies optional webhooks associated with the actor run, which can be
+        Specifies optional webhooks associated with the Actor run, which can be
         used to receive a notification
 
-        e.g. when the actor finished or failed. The value is a Base64-encoded
+        e.g. when the Actor finished or failed. The value is a Base64-encoded
         JSON array of objects defining the webhooks. For more information, see
 
         [Webhooks
@@ -206,7 +206,7 @@ get:
         The maximum number of items that the task run should return. This is
         useful for pay-per-result tasks, as it allows you to limit the number of
         results that will be charged to your subscription. You can access the
-        maximum number of items in your actor by using the
+        maximum number of items in your Actor by using the
         `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
       style: form
       explode: true
@@ -217,7 +217,7 @@ get:
     - name: build
       in: query
       description: |
-        Specifies the actor build to run. It can be either a build tag or build
+        Specifies the Actor build to run. It can be either a build tag or build
         number. By default, the run uses the build specified in the task
         settings (typically `latest`).
       style: form
@@ -238,10 +238,10 @@ get:
     - name: webhooks
       in: query
       description: |
-        Specifies optional webhooks associated with the actor run, which can be
+        Specifies optional webhooks associated with the Actor run, which can be
         used to receive a notification
 
-        e.g. when the actor finished or failed. The value is a Base64-encoded
+        e.g. when the Actor finished or failed. The value is a Base64-encoded
         JSON array of objects defining the webhooks. For more information, see
 
         [Webhooks
