@@ -30,7 +30,7 @@ To set up automated builds and tests for your Actors you need to:
     ![Apify token in app](./images/ci-token.png)
 
 1. Add your Apify token to GitHub secrets
-   1. Go to your repo > Settings > Secrets > New repository secret
+   1. Go to your repository > Settings > Secrets > New repository secret
    1. Name the secret & paste in your token
 1. Add the Builds Actor API endpoint URL to GitHub secrets
    1. Use this format:
@@ -43,7 +43,7 @@ To set up automated builds and tests for your Actors you need to:
 
    1. Name the secret
 1. Create GitHub Actions workflow files:
-   1. In your repo, create the `.github/workflows` directory
+   1. In your repository, create the `.github/workflows` directory
    2. Add `latest.yml` and `beta.yml` files with the following content
 
     <Tabs groupId="main">

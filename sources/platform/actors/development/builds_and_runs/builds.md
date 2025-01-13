@@ -11,7 +11,7 @@ slug: /actors/development/builds-and-runs/builds
 
 ## Understand Actor builds
 
-Before an Actor can be run, it needs to be built. The build process creates a snapshot of a specific version of the Actor's settings, including its [source code](../actor_definition/source_code.md) and [environment variables](../programming_interface/environment_variables.md). This snapshot is then used to create a Docker image containing everything the Actor needs for its run, such as NPM packages, web browsers, etc.
+Before an Actor can be run, it needs to be built. The build process creates a snapshot of a specific version of the Actor's settings, including its [source code](../actor_definition/source_code.md) and [environment variables](../programming_interface/environment_variables.md). This snapshot is then used to create a Docker image containing everything the Actor needs for its run, such as `npm` packages, web browsers, etc.
 
 ### Build numbers
 
