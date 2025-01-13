@@ -3,8 +3,8 @@ get:
     - Actors/Run collection
   summary: Get list of runs
   description: |
-    Gets the list of runs of a specific actor. The response is a list of
-    objects, where each object contains basic information about a single actor run.
+    Gets the list of runs of a specific Actor. The response is a list of
+    objects, where each object contains basic information about a single Actor run.
 
 
     The endpoint supports pagination using the `limit` and `offset` parameters
@@ -126,7 +126,7 @@ get:
 post:
   tags:
     - Actors/Run collection
-  summary: Run actor
+  summary: Run Actor
   description: |
     Runs an Actor and immediately returns without waiting for the run to finish.
 
