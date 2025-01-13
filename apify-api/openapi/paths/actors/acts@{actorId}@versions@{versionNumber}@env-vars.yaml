@@ -1,0 +1,123 @@
+get:
+  tags:
+    - Actors/Environment variable collection
+  summary: Get list of environment variables
+  description: |
+    Gets the list of environment variables for a specific version of an Actor.
+    The response is a JSON object with the list of [EnvVar objects](#/reference/actors/environment-variable-object), where
+    each contains basic information about a single environment variable.
+  operationId: act_version_envVars_get
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: versionNumber
+      in: path
+      description: Actor version
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: '0.1'
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actors/GetEnvVarListResponse.yaml"
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/environment-variable-collection/get-list-of-environment-variables
+    - https://docs.apify.com/api/v2#/reference/actors/get-list-of-environment-variables
+    - https://docs.apify.com/api/v2#tag/ActorsEnvironment-variable-collection/operation/act_version_envVars_get
+  x-py-parent: ActorEnvVarCollectionClientAsync
+  x-py-name: list
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorEnvVarCollectionClientAsync#list
+post:
+  tags:
+    - Actors/Environment variable collection
+  summary: Create environment variable
+  description: |
+    Creates an environment variable of an Actor using values specified in a
+    [EnvVar object](#/reference/actors/environment-variable-object) passed as
+    JSON in the POST payload.
+
+    The request must specify `name` and `value` parameters (as strings) in the
+    JSON payload and a `Content-Type: application/json` HTTP header.
+
+    ```
+
+    {
+        "name": "ENV_VAR_NAME",
+        "value": "my-env-var"
+    }
+
+    ```
+
+    The response is the [EnvVar
+    object](#/reference/actors/environment-variable-object) as returned by the [Get environment
+    variable](#/reference/actors/environment-variable-object/get-environment-variable)
+    endpoint.
+  operationId: act_version_envVars_post
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: versionNumber
+      in: path
+      description: Actor version
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: '0.1'
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/schemas/actors/CreateOrUpdateEnvVarRequest.yaml"
+        example:
+          name: ENV_VAR_NAME
+          value: my-env-var
+    required: true
+  responses:
+    '201':
+      description: ''
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                https://api.apify.com/v2/acts/zdc3Pyhyz3m8vjDeM/versions/1.0/env-vars/ENV_VAR_NAME
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actors/GetEnvVarResponse.yaml"
+          example:
+            data:
+              name: MY_ENV_VAR
+              value: my-value
+              isSecret: false
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/environment-variable-collection/create-environment-variable
+    - https://docs.apify.com/api/v2#/reference/actors/create-environment-variable
+    - https://docs.apify.com/api/v2#tag/ActorsEnvironment-variable-collection/operation/act_version_envVars_post
+  x-py-parent: ActorEnvVarCollectionClientAsync
+  x-py-name: create
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorEnvVarCollectionClientAsync#create

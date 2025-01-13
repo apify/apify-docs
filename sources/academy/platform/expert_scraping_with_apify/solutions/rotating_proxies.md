@@ -50,7 +50,7 @@ const crawler = new CheerioCrawler({
 });
 ```
 
-Now, we'll use the **maxUsageCount** key to force each session to be thrown away after 5 uses and **maxErrorScore**** to trash a session once it receives an error.
+Now, we'll use the **maxUsageCount** key to force each session to be thrown away after 5 uses and **maxErrorScore** to trash a session once it receives an error.
 
 ```js
 const crawler = new CheerioCrawler({

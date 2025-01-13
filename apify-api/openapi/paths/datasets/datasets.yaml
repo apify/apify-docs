@@ -1,0 +1,159 @@
+get:
+  tags:
+    - Datasets/Dataset collection
+  summary: Get list of datasets
+  description: |
+    Lists all of a user's datasets. The response is a JSON array of objects,
+    where each object contains basic information about one dataset.
+    By default, the objects are sorted by the `createdAt` field in ascending
+    order, therefore you can use pagination to incrementally fetch all datasets while new
+    ones are still being created. To sort them in descending order, use `desc=1`
+    parameter. The endpoint supports pagination using `limit` and `offset`
+    parameters and it will not return more than 1000 array elements.
+  operationId: datasets_get
+  parameters:
+    - name: offset
+      in: query
+      description: |
+        Number of array elements that should be skipped at the start. The default value is `0`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 10
+    - name: limit
+      in: query
+      description: |
+        Maximum number of array elements to return. The default value as well as the maximum is `1000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 99
+    - name: desc
+      in: query
+      description: |
+        If `true` or `1` then the objects are sorted by the `startedAt` field in
+        descending order. By default, they are sorted in ascending order.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+    - name: unnamed
+      in: query
+      description: |
+        If `true` or `1` then all the datasets are returned. By default only named datasets are returned.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/datasets/GetListOfDatasetsResponse.yaml
+          example:
+            data:
+              total: 2
+              offset: 0
+              limit: 1000
+              desc: false
+              count: 2
+              items:
+                - id: wkzbqmufyuamgv3yf
+                  name: d7b9mdysbtx5l7xaj
+                  userId: tbXmWu7GCxnyYtSiL
+                  createdAt: '2019-12-12T07:34:14.202Z'
+                  modifiedAt: '2019-12-13T08:36:13.202Z'
+                  accessedAt: '2019-12-14T08:36:13.202Z'
+                  itemCount: 7
+                  cleanItemCount: 5
+                  actId: null
+                  actRunId: null
+                - id: YiKoxjkaS9gjGTqhF
+                  name: eshop-items
+                  userId: tbXmWu7GCxnyYtSiL
+                  createdAt: '2019-12-12T07:34:14.202Z'
+                  modifiedAt: '2019-12-13T08:36:13.202Z'
+                  accessedAt: '2019-12-14T08:36:13.202Z'
+                  itemCount: 2
+                  cleanItemCount: 2
+                  actId: null
+                  actRunId: null
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/datasets/dataset-collection/get-list-of-datasets
+    - https://docs.apify.com/api/v2#/reference/datasets/get-list-of-datasets
+    - https://docs.apify.com/api/v2#tag/DatasetsDataset-collection/operation/datasets_get
+  x-js-parent: DatasetCollectionClient
+  x-js-name: list
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetCollectionClient#list
+  x-py-parent: DatasetCollectionClientAsync
+  x-py-name: list
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetCollectionClientAsync#list
+post:
+  tags:
+    - Datasets/Dataset collection
+  summary: Create dataset
+  description: |
+    Creates a dataset and returns its object.
+    Keep in mind that data stored under unnamed dataset follows [data retention period](https://docs.apify.com/platform/storage#data-retention).
+    It creates a dataset with the given name if the parameter name is used.
+    If a dataset with the given name already exists then returns its object.
+
+  operationId: datasets_post
+  parameters:
+    - name: name
+      in: query
+      description: Custom unique name to easily identify the dataset in the future.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: eshop-items
+  responses:
+    '201':
+      description: ''
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: 'https://api.apify.com/v2/datasets/WkzbQMuFYuamGv3YF'
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/datasets/DatasetResponse.yaml
+          example:
+            data:
+              id: WkzbQMuFYuamGv3YF
+              name: d7b9MDYsbtX5L7XAj
+              userId: wRsJZtadYvn4mBZmm
+              createdAt: '2019-12-12T07:34:14.202Z'
+              modifiedAt: '2019-12-13T08:36:13.202Z'
+              accessedAt: '2019-12-14T08:36:13.202Z'
+              itemCount: 7
+              cleanItemCount: 5
+              actId: null
+              actRunId: null
+              fields: []
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/datasets/dataset-collection/create-dataset
+    - https://docs.apify.com/api/v2#/reference/datasets/create-dataset
+
+    - https://docs.apify.com/api/v2#tag/DatasetsDataset-collection/operation/datasets_post
+  x-js-parent: DatasetCollectionClient
+  x-js-name: getOrCreate
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/DatasetCollectionClient#getOrCreate
+  x-py-parent: DatasetCollectionClientAsync
+  x-py-name: get_or_create
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetCollectionClientAsync#get_or_create

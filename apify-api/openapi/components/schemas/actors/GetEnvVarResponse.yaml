@@ -1,0 +1,7 @@
+title: CreateEnvironmentVariableResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: "./EnvVar.yaml"

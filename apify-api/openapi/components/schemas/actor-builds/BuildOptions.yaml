@@ -1,0 +1,19 @@
+title: BuildOptions
+type: object
+properties:
+  useCache:
+    type: boolean
+    nullable: true
+    example: false
+  betaPackages:
+    type: boolean
+    nullable: true
+    example: false
+  memoryMbytes:
+    type: number
+    nullable: true
+    example: 1024
+  diskMbytes:
+    type: number
+    nullable: true
+    example: 2048

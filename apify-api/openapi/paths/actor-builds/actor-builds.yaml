@@ -1,0 +1,62 @@
+get:
+  tags:
+    - Actor builds/Build collection
+  summary: Get user builds list
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-builds/build-collection/get-user-builds-list
+    - https://docs.apify.com/api/v2#/reference/actor-builds/get-user-builds-list
+    - https://docs.apify.com/api/v2#tag/Actor-buildsBuild-collection/operation/actorBuilds_get
+  description: |
+    Gets a list of all builds for a user. The response is a JSON array of
+    objects, where each object contains basic information about a single build.
+
+    The endpoint supports pagination using the `limit` and `offset` parameters
+    and it will not return more than 1000 records.
+
+    By default, the records are sorted by the `startedAt` field in ascending
+    order. Therefore, you can use pagination to incrementally fetch all builds while
+    new ones are still being started. To sort the records in descending order, use
+    the `desc=1` parameter.
+  operationId: actorBuilds_get
+  parameters:
+    - name: offset
+      in: query
+      description: |
+        Number of records that should be skipped at the start. The default value
+        is `0`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 10
+    - name: limit
+      in: query
+      description: |
+        Maximum number of records to return. The default value as well as the
+        maximum is `1000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 99
+    - name: desc
+      in: query
+      description: |
+        If `true` or `1` then the objects are sorted by the `startedAt` field in
+        descending order. By default, they are sorted in ascending order.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-builds/GetBuildListResponse.yaml
+  deprecated: false

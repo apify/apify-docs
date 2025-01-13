@@ -1,0 +1,252 @@
+get:
+  tags:
+    - Request queues/Queue
+  summary: Get request
+  description: Returns request from queue.
+  operationId: requestQueue_request_get
+  security:
+    - apiKeyQueueId: []
+    - httpBearerQueueId: []
+  parameters:
+    - name: queueId
+      in: path
+      description: Queue ID or `username~queue-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: requestId
+      in: path
+      description: Request ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: xpsmkDlspokDSmklS
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../../components/schemas/request-queues/GetRequestResponse.yaml
+              - example:
+                  data:
+                    id: dnjkDMKLmdlkmlkmld
+                    retryCount: 0
+                    uniqueKey: 'http://example.com'
+                    url: 'http://example.com'
+                    method: GET
+                    loadedUrl: 'http://example.com/example-1'
+                    payload: null
+                    noRetry: false
+                    errorMessages: null
+                    headers: null
+                    userData:
+                      label: DETAIL
+                      image: 'https://picserver1.eu'
+                    handledAt: '2019-06-16T10:23:31.607Z'
+          example:
+            data:
+              id: dnjkDMKLmdlkmlkmld
+              retryCount: 0
+              uniqueKey: 'http://example.com'
+              url: 'http://example.com'
+              method: GET
+              loadedUrl: 'http://example.com/example-1'
+              payload: null
+              noRetry: false
+              errorMessages: null
+              headers: null
+              userData:
+                label: DETAIL
+                image: 'https://picserver1.eu'
+              handledAt: '2019-06-16T10:23:31.607Z'
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/queue/get-request
+    - https://docs.apify.com/api/v2#/reference/request-queues/get-request
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue/operation/requestQueue_request_get
+  x-js-parent: RequestQueueClient
+  x-js-name: get
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#get
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: get
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#get
+put:
+  tags:
+    - Request queues/Queue
+  summary: Update request
+  description: |
+    Updates a request in a queue. Mark request as handled by setting
+    `request.handledAt = new Date()`.
+
+
+    If `handledAt` is set, the request will be removed from head of the queue.
+  operationId: requestQueue_request_put
+  parameters:
+    - name: queueId
+      in: path
+      description: Queue ID or `username~queue-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: requestId
+      in: path
+      description: Request ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: xpsmkDlspokDSmklS
+    - name: forefront
+      in: query
+      description: |
+        Determines if request should be added to the head of the queue or to the
+        end. Default value is `false` (end of queue).
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 'false'
+    - name: clientKey
+      in: query
+      description: |
+        A unique identifier of the client accessing the request queue. It must
+        be a string between 1 and 32 characters long. This identifier is used to
+        determine whether the queue was accessed by multiple clients. If
+        `clientKey` is not provided,
+
+        the system considers this API call to come from a new client. For
+        details, see the `hadMultipleClients` field returned by the [Get
+        head](#/reference/request-queues/queue-head) operation.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: client-abc
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: ../../components/schemas/request-queues/RequestQueueItems.yaml
+            - example:
+                id: dnjkDMKLmdlkmlkmld
+                retryCount: 0
+                uniqueKey: 'http://example.com'
+                url: 'http://example.com'
+                method: GET
+                loadedUrl: 'http://example.com/example-1'
+                payload: null
+                noRetry: false
+                errorMessages: null
+                headers: null
+                userData:
+                  label: DETAIL
+                  image: 'https://picserver1.eu'
+                handledAt: '2019-06-16T10:23:31.607Z'
+        example:
+          id: dnjkDMKLmdlkmlkmld
+          retryCount: 0
+          uniqueKey: 'http://example.com'
+          url: 'http://example.com'
+          method: GET
+          loadedUrl: 'http://example.com/example-1'
+          payload: null
+          noRetry: false
+          errorMessages: null
+          headers: null
+          userData:
+            label: DETAIL
+            image: 'https://picserver1.eu'
+          handledAt: '2019-06-16T10:23:31.607Z'
+    required: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../../components/schemas/request-queues/UpdateRequestResponse.yaml
+              - example:
+                  data:
+                    requestId: YiKoxjkaS9gjGTqhF
+                    wasAlreadyPresent: true
+                    wasAlreadyHandled: false
+          example:
+            data:
+              requestId: YiKoxjkaS9gjGTqhF
+              wasAlreadyPresent: true
+              wasAlreadyHandled: false
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/queue/update-request
+    - https://docs.apify.com/api/v2#/reference/request-queues/update-request
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue/operation/requestQueue_request_put
+  x-js-parent: RequestQueueClient
+  x-js-name: update
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#update
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: update
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#update
+delete:
+  tags:
+    - Request queues/Queue
+  summary: Delete request
+  description: Deletes given request from queue.
+  operationId: requestQueue_request_delete
+  parameters:
+    - name: queueId
+      in: path
+      description: Queue ID or `username~queue-name`.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: WkzbQMuFYuamGv3YF
+    - name: requestId
+      in: path
+      description: Request ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: xpsmkDlspokDSmklS
+    - name: clientKey
+      in: query
+      description: |
+        A unique identifier of the client accessing the request queue. It must
+        be a string between 1 and 32 characters long. This identifier is used to
+        determine whether the queue was accessed by multiple clients. If
+        `clientKey` is not provided,
+
+        the system considers this API call to come from a new client. For
+        details, see the `hadMultipleClients` field returned by the [Get
+        head](#/reference/request-queues/queue-head) operation.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: client-abc
+  responses:
+    '204':
+      description: ''
+      headers: {}
+      content: {}
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/queue/delete-request
+    - https://docs.apify.com/api/v2#/reference/request-queues/delete-request
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue/operation/requestQueue_request_delete
+  x-js-parent: RequestQueueClient
+  x-js-name: delete
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#delete

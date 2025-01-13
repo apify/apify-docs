@@ -1,0 +1,53 @@
+title: RunStats
+required:
+  - inputBodyLen
+  - restartCount
+  - resurrectCount
+  - computeUnits
+type: object
+properties:
+  inputBodyLen:
+    type: number
+    example: 240
+  restartCount:
+    type: number
+    example: 0
+  resurrectCount:
+    type: number
+    example: 2
+  memAvgBytes:
+    type: number
+    example: 267874071.9
+  memMaxBytes:
+    type: number
+    example: 404713472
+  memCurrentBytes:
+    type: number
+    example: 0
+  cpuAvgUsage:
+    type: number
+    example: 33.7532101107538
+  cpuMaxUsage:
+    type: number
+    example: 169.650735534941
+  cpuCurrentUsage:
+    type: number
+    example: 0
+  netRxBytes:
+    type: number
+    example: 103508042
+  netTxBytes:
+    type: number
+    example: 4854600
+  durationMillis:
+    type: number
+    example: 248472
+  runTimeSecs:
+    type: number
+    example: 248.472
+  metamorph:
+    type: number
+    example: 0
+  computeUnits:
+    type: number
+    example: 0.13804
