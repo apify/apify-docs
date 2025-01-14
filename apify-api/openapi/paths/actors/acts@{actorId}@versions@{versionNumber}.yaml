@@ -46,7 +46,7 @@ get:
 
     For more information about source code and Actor versions, see [Source
     code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
-    in Actors documentation.Gets a [Version
+    in Actors documentation. Gets a [Version
     object](#/reference/actors/version-object) that contains all the details
     about a specific version of an Actor.
   operationId: act_version_get
@@ -132,7 +132,7 @@ put:
 
     For more information about source code and Actor versions, see [Source
     code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
-    in Actors documentation.Updates Actor version using values specified by a
+    in Actors documentation. Updates Actor version using values specified by a
     [Version object](#/reference/actors/version-object) passed as JSON in the POST payload.
 
     If the object does not define a specific property, its value will not be
@@ -253,7 +253,7 @@ delete:
 
     For more information about source code and Actor versions, see [Source
     code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
-    in Actors documentation.Deletes a specific version of Actor's source code.
+    in Actors documentation. Deletes a specific version of Actor's source code.
   operationId: act_version_delete
   parameters:
     - name: actorId
