@@ -137,7 +137,7 @@ export default function DocSidebarItemCategory({ item, onItemClick, activePath, 
         }
     }
 
-    console.log(item);
+    // console.log('sidebar category', item);
 
     return (
         <li

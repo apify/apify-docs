@@ -35,7 +35,7 @@ function CardContainer({ href, children }) {
     );
 }
 
-function CardLayout({ href, icon, title, description }) {
+function CardLayout({ href, icon, title, description, className }) {
     if (href.startsWith('/api')) {
         description = '';
     }
@@ -45,7 +45,7 @@ function CardLayout({ href, icon, title, description }) {
             href={href}>
             <Heading
                 as="h2"
-                className={clsx('text--truncate', styles.cardTitle)}
+                className={clsx('text--truncate', styles.cardTitle, className)}
                 title={title}>
                 {icon} {title}
             </Heading>
@@ -78,8 +78,20 @@ function CardCategory({ item }) {
 }
 
 function CardLink({ item }) {
-    const icon = isInternalUrl(item.href) ? '📄️' : '🔗';
     const doc = useDocById(item.docId ?? undefined);
+
+    if (item.href.startsWith('/api/v2')) {
+        return (
+            <CardLayout
+                href={item.href}
+                title={item.label}
+                className={clsx('openapi-endpoint', item.className)}
+                description={item.description ?? doc?.description}
+            />
+        );
+    }
+
+    const icon = isInternalUrl(item.href) ? '📄️' : '🔗';
     return (
         <CardLayout
             href={item.href}

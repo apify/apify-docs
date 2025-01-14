@@ -1698,6 +1698,7 @@ iframe[src*="youtube"] {
     justify-content: start;
 }
 
+.openapi-endpoint.api-method::before,
 .api-method > .menu__link::before,
 .schema > .menu__link::before {
     width: 55px;
@@ -1726,73 +1727,88 @@ iframe[src*="youtube"] {
 }
 
 .get > .menu__link::before,
+.openapi-endpoint.api-method.get::before,
 .theme-api-markdown .openapi__method-endpoint .badge--primary {
     background-color: var(--ifm-color-info-contrast-background);
     color: var(--ifm-color-info-contrast-foreground);
     border-color: var(--ifm-color-info-dark);
 }
 
+.openapi-endpoint.api-method.get::before,
 .get > .menu__link::before {
     content: 'get';
 }
 
+.openapi-endpoint.api-method.post::before,
 .post > .menu__link::before {
     content: 'post';
 }
 
 .post > .menu__link::before,
+.openapi-endpoint.api-method.post::before,
 .theme-api-markdown .openapi__method-endpoint .badge--success {
     background-color: var(--ifm-color-success-contrast-background);
     color: var(--ifm-color-success-contrast-foreground);
     border-color: var(--ifm-color-success-dark);
 }
 
+.openapi-endpoint.api-method.delete::before,
 .delete > .menu__link::before {
     content: 'del';
 }
 
 .delete > .menu__link::before,
+.openapi-endpoint.api-method.delete::before,
 .theme-api-markdown .openapi__method-endpoint .badge--danger {
     background-color: var(--ifm-color-danger-contrast-background);
     color: var(--ifm-color-danger-contrast-foreground);
     border-color: var(--ifm-color-danger-dark);
 }
 
+.openapi-endpoint.api-method.put::before,
 .put > .menu__link::before {
     content: 'put';
 }
 
 .put > .menu__link::before,
+.openapi-endpoint.api-method.put::before,
 .theme-api-markdown .openapi__method-endpoint .badge--info {
     background-color: var(--ifm-color-warning-contrast-background);
     color: var(--ifm-color-warning-contrast-foreground);
     border-color: var(--ifm-color-warning-dark);
 }
 
+.openapi-endpoint.api-method.patch::before,
 .patch > .menu__link::before {
     content: 'patch';
 }
 
 .patch > .menu__link::before,
+.openapi-endpoint.api-method.patch::before,
 .theme-api-markdown .openapi__method-endpoint .badge--warning {
     background-color: var(--ifm-color-success-contrast-background);
     color: var(--ifm-color-success-contrast-foreground);
     border-color: var(--ifm-color-success-dark);
 }
 
+.openapi-endpoint.api-method.head::before,
 .head > .menu__link::before {
     content: 'head';
 }
 
 .head > .menu__link::before,
+.openapi-endpoint.api-method.head::before,
 .event > .menu__link::before,
+.openapi-endpoint.api-method.event::before,
 .schema > .menu__link::before,
+.openapi-endpoint.api-method.schema::before,
 .theme-api-markdown .openapi__method-endpoint .badge--secondary {
     background-color: var(--ifm-color-secondary-contrast-background);
     color: var(--ifm-color-secondary-contrast-foreground);
     border-color: var(--ifm-color-secondary-dark);
 }
 
+.openapi-endpoint.api-method.event::before,
 .event > .menu__link::before {
     content: 'event';
 }
