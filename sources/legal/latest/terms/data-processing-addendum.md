@@ -11,7 +11,7 @@ slug: /data-processing-addendum
 
 <!-- vale off -->
 
-Last Updated: September 20, 2024
+Last Updated: January 13, 2025
 
 ---
 
@@ -278,31 +278,4 @@ Apify shall implement appropriate technical and organizational measures in accor
 
 ## Schedule E: List of Apify Subprocessors
 
-<table border="0.5">
- <tr align="left">
-    <th>Subprocessor Name</th>
-    <th>Purpose of Processing</th>
-    <th>Location</th>
-  </tr>
-  <tr>
-    <td>Amazon Web Services, Inc.</td>
-    <td>Infrastructure</td>
-    <td>US</td>
-
-  </tr>
-  <tr>
-    <td>MongoDB Inc.</td>
-    <td>Database</td>
-    <td>US</td>
- </tr>
- <tr>
-    <td>Snowflake, Inc.</td>
-    <td>Data Warehousing</td>
-    <td>US</td>
- </tr>
- <tr>
-    <td>Mezmo Inc.</td>
-    <td>Centralized Log Management</td>
-    <td>US</td>
- </tr>
-</table>
+List of Apify Subprocessor is available at: https://trust.apify.com/subprocessors
