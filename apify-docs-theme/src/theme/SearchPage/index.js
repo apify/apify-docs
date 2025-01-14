@@ -1,8 +1,8 @@
 /* eslint-disable */
 import React, { useEffect, useReducer, useRef, useState } from 'react';
 import clsx from 'clsx';
+import { liteClient } from 'algoliasearch/lite';
 import algoliaSearchHelper from 'algoliasearch-helper';
-import algoliaSearch from 'algoliasearch/lite';
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import Head from '@docusaurus/Head';
 import { useAllDocsData } from '@docusaurus/plugin-content-docs/client';
@@ -117,7 +117,6 @@ function SearchPageContent() {
     const {
         algolia: { appId, apiKey, indexName },
     } = useAlgoliaThemeConfig();
-    const processSearchResultUrl = useSearchResultUrlProcessor();
     const documentsFoundPlural = useDocumentsFoundPlural();
     const docsSearchVersionsHelpers = useDocsSearchVersionsHelpers();
     const [searchQuery, setSearchQuery] = useSearchQueryString();
@@ -167,7 +166,7 @@ function SearchPageContent() {
         },
         initialSearchResultState,
     );
-    const algoliaClient = algoliaSearch(appId, apiKey);
+    const algoliaClient = liteClient(appId, apiKey);
     const algoliaHelper = algoliaSearchHelper(algoliaClient, indexName, {
         hitsPerPage: 15,
         advancedSyntax: true,
