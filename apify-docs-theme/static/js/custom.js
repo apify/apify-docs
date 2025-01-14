@@ -78,7 +78,7 @@ function scrollOpenApiSidebarItemIntoView() {
 function redirectOpenApiDocs() {
     const { hash, pathname, origin } = new URL(window.location.href);
 
-    if (pathname.startsWith('/api/v2') && pathname.startsWith('/api/v2-')) {
+    if (!pathname.startsWith('/api/v2') || pathname.startsWith('/api/v2-')) {
         return;
     }
 
