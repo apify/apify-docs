@@ -91,7 +91,7 @@ post:
         example: 0.1.234
     - name: outputRecordKey
       in: query
-      description: |-
+      description: |
         Key of the record from run's default key-value store to be returned
         in the response. By default, it is `OUTPUT`.
       style: form
@@ -227,7 +227,7 @@ get:
         example: 0.1.234
     - name: outputRecordKey
       in: query
-      description: |-
+      description: |
         Key of the record from run's default key-value store to be returned
         in the response. By default, it is `OUTPUT`.
       style: form
@@ -240,12 +240,9 @@ get:
       description: |
         Specifies optional webhooks associated with the Actor run, which can be
         used to receive a notification
-
         e.g. when the Actor finished or failed. The value is a Base64-encoded
         JSON array of objects defining the webhooks. For more information, see
-
-        [Webhooks
-        documentation](https://docs.apify.com/platform/integrations/webhooks).
+        [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
       style: form
       explode: true
       schema:

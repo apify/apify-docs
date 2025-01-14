@@ -21,7 +21,6 @@ get:
     * `/v2/actor-runs/{runId}/dataset{?token}`
     * `/v2/actor-runs/{runId}/request-queue{?token}`
 
-
     These API endpoints have the same usage as the equivalent storage endpoints.
 
     For example, `/v2/actor-runs/{runId}/key-value-store` has the same HTTP method and
@@ -66,11 +65,8 @@ get:
     payload to the same URL.Gets an object that contains all the details about a
     specific run of an Actor.
 
-    By passing the optional `waitForFinish` parameter the API endpoint will
-    synchronously wait for the run to finish.
-
-    This is useful to avoid periodic polling when waiting for Actor run to
-    complete.
+    By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait
+    for the run to finish. This is useful to avoid periodic polling when waiting for Actor run to complete.
 
     This endpoint does not require the authentication token. Instead, calls are authenticated using a hard-to-guess ID of the run. However,
     if you access the endpoint without the token, certain attributes, such as `usageUsd` and `usageTotalUsd`, will be hidden.

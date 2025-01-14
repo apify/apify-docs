@@ -89,9 +89,7 @@ put:
   summary: Update version
   description: |
     The **Version object** contains the source code of a specific version of an
-    Actor.
-
-    The `sourceType` property indicates where the source code is hosted, and
+    Actor. The `sourceType` property indicates where the source code is hosted, and
     based on its value the Version object has the following additional property:
 
     <table>
@@ -128,7 +126,6 @@ put:
           </td>
       </tr>
     </table>
-
 
     For more information about source code and Actor versions, see [Source
     code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
@@ -206,14 +203,9 @@ delete:
     - Actors/Version object
   summary: Delete version
   description: |
-    The **Version object** contains the source code of a specific version of an
-    Actor.
-
-    The `sourceType` property indicates where the source code is hosted, and
-    based
-
+    The **Version object** contains the source code of a specific version of an Actor.
+    The `sourceType` property indicates where the source code is hosted, and based
     on its value the Version object has the following additional property:
-
 
     <table>
       <tr>
@@ -249,7 +241,6 @@ delete:
           </td>
       </tr>
     </table>
-
 
     For more information about source code and Actor versions, see [Source
     code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
