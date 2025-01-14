@@ -68,12 +68,8 @@ put:
     Updates a request queue's name using a value specified by a JSON object
     passed in the PUT payload.
 
-
     The response is the updated request queue object, as returned by the
-
-    [Get request
-    queue](#/reference/request-queues/queue-collection/get-request-queue) API
-    endpoint.
+    [Get request queue](#/reference/request-queues/queue-collection/get-request-queue) API endpoint.
   operationId: requestQueue_put
   parameters:
     - name: queueId

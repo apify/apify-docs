@@ -35,17 +35,13 @@ function CardContainer({ href, children }) {
     );
 }
 
-function CardLayout({ href, icon, title, description, className }) {
-    if (href.startsWith('/api')) {
-        description = '';
-    }
-
+function CardLayout({ href, icon, title, description }) {
     return (
         <CardContainer
             href={href}>
             <Heading
                 as="h2"
-                className={clsx('text--truncate', styles.cardTitle, className)}
+                className={clsx('text--truncate', styles.cardTitle)}
                 title={title}>
                 {icon} {title}
             </Heading>
@@ -56,6 +52,23 @@ function CardLayout({ href, icon, title, description, className }) {
                     {description}
                 </p>
             )}
+        </CardContainer>
+    );
+}
+
+function ApiCardLayout({ href, icon, title, className, endpoint }) {
+    return (
+        <CardContainer
+            href={href}>
+            <Heading
+                as="h2"
+                className={clsx('text--truncate', styles.cardTitle, className)}
+                title={title}>
+                {icon} {title}
+            </Heading>
+            <code className={clsx('text--truncate', styles.cardDescription)}>
+                {endpoint}
+            </code>
         </CardContainer>
     );
 }
@@ -82,11 +95,12 @@ function CardLink({ item }) {
 
     if (item.href.startsWith('/api/v2')) {
         return (
-            <CardLayout
+            <ApiCardLayout
                 href={item.href}
                 title={item.label}
                 className={clsx('openapi-endpoint', item.className)}
-                description={item.description ?? doc?.description}
+                endpoint={item.customProps.endpoint}
+                method={item.customProps.method}
             />
         );
     }
