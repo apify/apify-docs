@@ -39,19 +39,14 @@ put:
   description: |
     Updates a webhook using values specified by a webhook object passed as JSON
     in the POST payload.
-
     If the object does not define a specific property, its value will not be
     updated.
 
-
     The response is the full webhook object as returned by the
-
     [Get webhook](#/reference/webhooks/webhook-object/get-webhook) endpoint.
-
 
     The request needs to specify the `Content-Type: application/json` HTTP
     header!
-
 
     When providing your API authentication token, we recommend using the
     request's `Authorization` header, rather than the URL. ([More

@@ -232,12 +232,15 @@ module.exports = {
                                         : clsx({
                                             'menu__list-item--deprecated': item.schema.deprecated,
                                         }, 'schema');
+                                    // const endpoint = item.api.servers[0].url + item.api.path;
+                                    const endpoint = item.api.path.replace('/v2', '');
+                                    const { method } = item.api;
 
                                     return {
                                         type: 'doc',
                                         id: context.basePath === '' ? `${id}` : `${context.basePath}/${id}`,
                                         label: sidebarLabel ?? title ?? id,
-                                        customProps: { altids },
+                                        customProps: { altids, endpoint, method },
                                         className,
                                     };
                                 },

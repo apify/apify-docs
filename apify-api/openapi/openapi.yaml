@@ -3,8 +3,8 @@ info:
   title: Apify API
   description: |
 
-    > **UPDATE 2024-07-09:**
-    > We have rolled out this new Apify API Documentation. In case of any issues, please [report here](https://github.com/apify/openapi/issues).
+    > **UPDATE 2025-01-14:**
+    > We have rolled out this new Apify API Documentation. In case of any issues, please [report here](https://github.com/apify/apify-docs/issues).
     > The old API Documentation is still [available here](https://docs.apify.com/api/v2-old).
 
     The Apify API (version 2) provides programmatic access to the [Apify

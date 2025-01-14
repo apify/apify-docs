@@ -152,7 +152,7 @@ post:
 
     To fetch the Actor run results that are typically stored in the default
     dataset, you'll need to pass the ID received in the `defaultDatasetId` field
-    received in the response JSON to the 
+    received in the response JSON to the
     [Get items](#/reference/datasets/item-collection/get-items) API endpoint.
   operationId: actorTask_runs_post
   parameters:
@@ -216,12 +216,9 @@ post:
       in: query
       description: |
         The maximum number of seconds the server waits for the run to finish. By
-        default, it is `0`, the maximum value is `60`. <!--
-        MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
-
+        default, it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
         If the build finishes in time then the returned run object will have a
         terminal status (e.g. `SUCCEEDED`),
-
         otherwise it will have a transitional status (e.g. `RUNNING`).
       style: form
       explode: true
@@ -234,7 +231,6 @@ post:
       description: |
         Specifies optional webhooks associated with the Actor run, which can be
         used to receive a notification
-
         e.g. when the Actor finished or failed. The value is a Base64-encoded
         JSON array of objects defining the webhooks.
 

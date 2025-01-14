@@ -149,7 +149,6 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/dataset-collection/create-dataset
     - https://docs.apify.com/api/v2#/reference/datasets/create-dataset
-
     - https://docs.apify.com/api/v2#tag/DatasetsDataset-collection/operation/datasets_post
   x-js-parent: DatasetCollectionClient
   x-js-name: getOrCreate

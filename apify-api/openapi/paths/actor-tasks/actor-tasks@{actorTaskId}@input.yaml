@@ -49,7 +49,6 @@ put:
     The response is the full task input as returned by the
     [Get task input](#/reference/tasks/task-input-object/get-task-input) endpoint.
 
-
     The request needs to specify the `Content-Type: application/json` HTTP
     header!
 
