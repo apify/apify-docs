@@ -78,8 +78,7 @@ function scrollOpenApiSidebarItemIntoView() {
 function redirectOpenApiDocs() {
     const { hash, pathname, origin } = new URL(window.location.href);
 
-    // TODO change to '/api/v2'
-    if (pathname.replace(/\/$/, '') !== '/api/v2-new') {
+    if (!pathname.startsWith('/api/v2') || pathname.startsWith('/api/v2-')) {
         return;
     }
 
@@ -129,5 +128,6 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('popstate', () => {
+    setTimeout(() => redirectOpenApiDocs(), 50);
     setTimeout(() => scrollOpenApiSidebarItemIntoView(), 50);
 });

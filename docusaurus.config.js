@@ -132,7 +132,7 @@ module.exports = {
                 specs: [
                     {
                         spec: './apify-api/openapi/openapi.yaml',
-                        route: '/api/v2/',
+                        route: '/api/v2-redoc/',
                     },
                 ],
                 theme: {
@@ -177,7 +177,7 @@ module.exports = {
             {
                 id: 'openapi',
                 path: './sources/api',
-                routeBasePath: 'api/v2-new', // TODO change to `api/v2` once we are ready
+                routeBasePath: 'api/v2',
                 rehypePlugins: [externalLinkProcessor],
                 showLastUpdateAuthor: false,
                 showLastUpdateTime: false,
