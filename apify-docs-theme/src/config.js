@@ -227,7 +227,7 @@ const themeConfig = ({
                     },
                     {
                         label: 'Open source',
-                        href: `${absoluteUrl}/open-source/`, // we need a trailing slash here, we'd get redirected there anyway
+                        href: `${absoluteUrl}/open-source`,
                         position: 'left',
                         target: '_self',
                         rel: 'dofollow',
