@@ -323,6 +323,12 @@ module.exports = {
         },
         languageTabs: [
             {
+                highlight: 'bash',
+                label: 'CLI',
+                language: 'curl',
+                logoClass: 'curl',
+            },
+            {
                 highlight: 'javascript',
                 label: 'JavaScript',
                 language: 'javascript',
@@ -333,12 +339,6 @@ module.exports = {
                 label: 'Python',
                 language: 'python',
                 logoClass: 'python',
-            },
-            {
-                highlight: 'bash',
-                label: 'cURL',
-                language: 'curl',
-                logoClass: 'curl',
             },
             {
                 highlight: 'php',
