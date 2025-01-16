@@ -126,32 +126,33 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-collection/get-list-of-task-runs
     - https://docs.apify.com/api/v2#/reference/actor-tasks/get-list-of-task-runs
+    - https://docs.apify.com/api/v2#tag/Actor-tasksRun-collection/operation/actorTask_runs_get
 post:
   tags:
     - Actor tasks/Run collection
   summary: Run task
   description: |
-    Runs an actor task and immediately returns without waiting for the run to
+    Runs an Actor task and immediately returns without waiting for the run to
     finish.
 
-    Optionally, you can override the actor input configuration by passing a JSON
+    Optionally, you can override the Actor input configuration by passing a JSON
     object as the POST payload and setting the `Content-Type: application/json` HTTP header.
 
     Note that if the object in the POST payload does not define a particular
-    input property, the actor run uses the default value defined by the task (or actor's input
+    input property, the Actor run uses the default value defined by the task (or Actor's input
     schema if not defined by the task).
 
-    The response is the actor Run object as returned by the [Get
+    The response is the Actor Run object as returned by the [Get
     run](#/reference/actor-runs/run-object-and-its-storages/get-run) endpoint.
 
     If you want to wait for the run to finish and receive the actual output of
-    the actor run as the response, use one of the [Run task
+    the Actor run as the response, use one of the [Run task
     synchronously](#/reference/actor-tasks/run-task-synchronously) API endpoints
     instead.
 
-    To fetch the actor run results that are typically stored in the default
+    To fetch the Actor run results that are typically stored in the default
     dataset, you'll need to pass the ID received in the `defaultDatasetId` field
-    received in the response JSON to the 
+    received in the response JSON to the
     [Get items](#/reference/datasets/item-collection/get-items) API endpoint.
   operationId: actorTask_runs_post
   parameters:
@@ -189,10 +190,10 @@ post:
     - name: maxItems
       in: query
       description: |
-        The maximum number of items that the actor run should return. This is
-        useful for pay-per-result actors, as it allows you to limit the number
+        The maximum number of items that the Actor run should return. This is
+        useful for pay-per-result Actors, as it allows you to limit the number
         of results that will be charged to your subscription. You can access the
-        maximum number of items in your actor by using the
+        maximum number of items in your Actor by using the
         `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
       style: form
       explode: true
@@ -203,7 +204,7 @@ post:
     - name: build
       in: query
       description: |
-        Specifies the actor build to run. It can be either a build tag or build
+        Specifies the Actor build to run. It can be either a build tag or build
         number. By default, the run uses the build specified in the task
         settings (typically `latest`).
       style: form
@@ -215,12 +216,9 @@ post:
       in: query
       description: |
         The maximum number of seconds the server waits for the run to finish. By
-        default, it is `0`, the maximum value is `60`. <!--
-        MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
-
+        default, it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
         If the build finishes in time then the returned run object will have a
         terminal status (e.g. `SUCCEEDED`),
-
         otherwise it will have a transitional status (e.g. `RUNNING`).
       style: form
       explode: true
@@ -231,13 +229,12 @@ post:
     - name: webhooks
       in: query
       description: |
-        Specifies optional webhooks associated with the actor run, which can be
+        Specifies optional webhooks associated with the Actor run, which can be
         used to receive a notification
-
-        e.g. when the actor finished or failed. The value is a Base64-encoded
+        e.g. when the Actor finished or failed. The value is a Base64-encoded
         JSON array of objects defining the webhooks.
 
-        **Note**: if you already have a webhook set up for the actor or task,
+        **Note**: if you already have a webhook set up for the Actor or task,
         you do not have to add it again here.
 
         For more information, see [Webhooks documentation](https://docs.apify.com/platform/integrations/webhooks).
@@ -353,6 +350,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-collection/run-task
     - https://docs.apify.com/api/v2#/reference/actor-tasks/run-task
+    - https://docs.apify.com/api/v2#tag/Actor-tasksRun-collection/operation/actorTask_runs_post
   x-js-parent: TaskClient
   x-js-name: start
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskClient#start

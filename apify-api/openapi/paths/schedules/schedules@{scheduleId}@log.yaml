@@ -29,7 +29,7 @@ get:
                 level: INFO
                 createdAt: '2019-03-26T12:28:00.370Z'
               - message: >-
-                  Cannot start actor task \"iEvfA6pm6DWjRTGxS\": Provided input
+                  Cannot start Actor task \"iEvfA6pm6DWjRTGxS\": Provided input
                   must be object, got \"string\" instead.
                 level: ERROR
                 createdAt: '2019-03-26T12:30:00.325Z'
@@ -37,6 +37,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedule-log/get-schedule-log
     - https://docs.apify.com/api/v2#/reference/schedules/get-schedule-log
+    - https://docs.apify.com/api/v2#tag/SchedulesSchedule-log/operation/schedule_log_get
   x-js-parent: ScheduleClient
   x-js-name: getLog
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ScheduleClient#getLog

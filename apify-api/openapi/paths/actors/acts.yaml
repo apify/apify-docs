@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Actor collection
-  summary: Get list of actors
+  summary: Get list of Actors
   description: |
     Gets the list of all Actors that the user created or used. The response is a
     list of objects, where each object contains a basic information about a single Actor.
@@ -88,6 +88,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-collection/get-list-of-actors
     - https://docs.apify.com/api/v2#/reference/actors/get-list-of-actors
+    - https://docs.apify.com/api/v2#tag/ActorsActor-collection/operation/acts_get
   x-js-parent: ActorCollectionClient
   x-js-name: list
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorCollectionClient#list
@@ -97,23 +98,17 @@ get:
 post:
   tags:
     - Actors/Actor collection
-  summary: Create actor
+  summary: Create Actor
   description: |
     Creates a new Actor with settings specified in an Actor object passed as
     JSON in the POST payload.
-
     The response is the full Actor object as returned by the
-
     [Get Actor](#/reference/actors/actor-object/get-actor) endpoint.
-
 
     The HTTP request must have the `Content-Type: application/json` HTTP header!
 
-
     The Actor needs to define at least one version of the source code.
-
     For more information, see [Version object](#/reference/actors/version-object).
-
 
     If you want to make your Actor
     [public](https://docs.apify.com/platform/actors/publishing) using `isPublic:
@@ -233,6 +228,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-collection/create-actor
     - https://docs.apify.com/api/v2#/reference/actors/create-actor
+    - https://docs.apify.com/api/v2#tag/ActorsActor-collection/operation/acts_post
   x-js-parent: ActorCollectionClient
   x-js-name: create
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorCollectionClient#create

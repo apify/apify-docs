@@ -152,8 +152,9 @@ Sessions allow you to use the same IP address for multiple connections. In cases
 To set a new session, pass the `session` parameter in your [username](./usage.md#username-parameters) field when connecting to a proxy. This will serve as the session's ID and an IP address will be assigned to it. To [use that IP address in other requests](/platform/proxy/datacenter-proxy#connecting-to-datacenter-proxies), pass that same session ID in the username field.
 
 We recommend you to use [SessionPool](https://crawlee.dev/api/core/class/SessionPool) abstraction when managing sessions. The created session will then store information such as cookies and can be used to generate [browser fingerprints](/academy/anti-scraping/mitigation/generating-fingerprints). You can also assign custom user data such as authorization tokens and specific headers.
-
-Sessions are available for [datacenter](./datacenter_proxy.md) and [residential](./residential_proxy.md#session-persistence) proxies. For datacenter proxies, a session persists for **26 hours** ([more info](./datacenter_proxy.md)). For residential proxies, it persists for **1 minute** ([more info](./residential_proxy.md#session-persistence)) but you can prolong the lifetime by regularly using the sessinon. Google SERP proxies do not support sessions.
+Sessions are available for [datacenter](./datacenter_proxy.md) and [residential](./
+residential_proxy.md#session-persistence) proxies. For datacenter proxies, a session persists for
+**26 hours** ([more info](./datacenter_proxy.md)). For residential proxies, it persists for **1 minute** ([more info](./residential_proxy.md#session-persistence)) but you can prolong the lifetime by regularly using the session. Google SERP proxies do not support sessions.
 
 ## Proxy groups
 
@@ -199,5 +200,5 @@ The typical issues behind these codes are:
 * `597` indicates incorrect upstream credentials.
 * `599` is a generic error, where the above is not applicable.
 
-  Note that the Apify Proxy is based on the [proxy-chain](https://github.com/apify/proxy-chain) open-source NPM package developed and maintained by Apify.
+  Note that the Apify Proxy is based on the [proxy-chain](https://github.com/apify/proxy-chain) open-source `npm` package developed and maintained by Apify.
   You can find the details of the above errors and their implementation there.

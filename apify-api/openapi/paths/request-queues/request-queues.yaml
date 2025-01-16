@@ -5,20 +5,13 @@ get:
   description: |
     Lists all of a user's request queues. The response is a JSON array of
     objects, where each object
-
     contains basic information about one queue.
 
-
-    By default, the objects are sorted by the `createdAt` field in ascending
-    order,
-
+    By default, the objects are sorted by the `createdAt` field in ascending order,
     therefore you can use pagination to incrementally fetch all queues while new
-
     ones are still being created. To sort them in descending order, use `desc=1`
-
     parameter. The endpoint supports pagination using `limit` and `offset`
     parameters and it will not return more than 1000
-
     array elements.
   operationId: requestQueues_get
   parameters:
@@ -76,6 +69,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue-collection/get-list-of-request-queues
     - https://docs.apify.com/api/v2#/reference/request-queues/get-list-of-request-queues
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue-collection/operation/requestQueues_get
   x-js-parent: RequestQueueCollectionClient
   x-js-name: list
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueCollectionClient#list
@@ -88,14 +82,11 @@ post:
   summary: Create request queue
   description: |
     Creates a request queue and returns its object.
-
     Keep in mind that requests stored under unnamed queue follows [data
     retention period](https://docs.apify.com/platform/storage#data-retention).
 
-
     It creates a queue of given name if the parameter name is used. If a queue
     with the given name already exists then the endpoint returns
-
     its object.
   operationId: requestQueues_post
   parameters:
@@ -151,6 +142,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue-collection/create-request-queue
     - https://docs.apify.com/api/v2#/reference/request-queues/create-request-queue
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue-collection/operation/requestQueues_post
   x-js-parent: RequestQueueCollectionClient
   x-js-name: getOrCreate
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueCollectionClient#getOrCreate

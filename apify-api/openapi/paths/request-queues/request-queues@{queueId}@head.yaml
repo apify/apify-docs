@@ -5,11 +5,9 @@ get:
   description: |
     Returns given number of first requests from the queue.
 
-
     The response contains the `hadMultipleClients` boolean field which indicates
     that the queue was accessed by more than one client (with unique or empty
     `clientKey`).
-
     This field is used by [Apify SDK](https://sdk.apify.com) to determine
     whether the local cache is consistent with the request queue, and thus
     optimize performance of certain operations.
@@ -39,7 +37,6 @@ get:
         be a string between 1 and 32 characters long. This identifier is used to
         determine whether the queue was accessed by multiple clients. If
         `clientKey` is not provided,
-
         the system considers this API call to come from a new client. For
         details, see the `hadMultipleClients` field returned by the [Get
         head](#/reference/request-queues/queue-head) operation.
@@ -103,6 +100,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue-head/get-head
     - https://docs.apify.com/api/v2#/reference/request-queues/get-head
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue-head/operation/requestQueue_head_get
   x-js-parent: RequestQueueClient
   x-js-name: listHead
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#listHead

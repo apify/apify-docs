@@ -25,6 +25,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/get-webhook
     - https://docs.apify.com/api/v2#/reference/webhooks/get-webhook
+    - https://docs.apify.com/api/v2#tag/WebhooksWebhook-object/operation/webhook_get
   x-js-parent: WebhookClient
   x-js-name: get
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/WebhookClient#get
@@ -38,19 +39,14 @@ put:
   description: |
     Updates a webhook using values specified by a webhook object passed as JSON
     in the POST payload.
-
     If the object does not define a specific property, its value will not be
     updated.
 
-
     The response is the full webhook object as returned by the
-
     [Get webhook](#/reference/webhooks/webhook-object/get-webhook) endpoint.
-
 
     The request needs to specify the `Content-Type: application/json` HTTP
     header!
-
 
     When providing your API authentication token, we recommend using the
     request's `Authorization` header, rather than the URL. ([More
@@ -84,6 +80,7 @@ put:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/update-webhook
     - https://docs.apify.com/api/v2#/reference/webhooks/update-webhook
+    - https://docs.apify.com/api/v2#tag/WebhooksWebhook-object/operation/webhook_put
   x-js-parent: WebhookClient
   x-js-name: update
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/WebhookClient#update
@@ -118,6 +115,7 @@ delete:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/webhooks/webhook-object/delete-webhook
     - https://docs.apify.com/api/v2#/reference/webhooks/delete-webhook
+    - https://docs.apify.com/api/v2#tag/WebhooksWebhook-object/operation/webhook_delete
   x-js-parent: WebhookClient
   x-js-name: delete
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/WebhookClient#delete

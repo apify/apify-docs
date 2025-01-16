@@ -13,7 +13,7 @@ slug: /integrations/api
 All aspects of the Apify platform can be controlled via a REST API, which is described in detail in the [**API Reference**](/api/v2).
 If you want to use the Apify API from JavaScript/Node.js or Python, we strongly recommend to use one of our API clients:
 
-- [**apify-client**](/api/client/js/) NPM package for JavaScript, supporting both browser and server
+- [**apify-client**](/api/client/js/) `npm` package for JavaScript, supporting both browser and server
 - [**apify-client**](/api/client/python/) PyPI package for Python.
 
 You are not required to those packages—the REST API works with any HTTP client—but the official API clients implement best practices such as exponential backoff and rate limiting.
@@ -80,7 +80,7 @@ A single token can combine both types. You can create a token that can _read_ an
 
 ### Allowing tokens to create resources
 
-If you need to create new resources with the token (for example, create a new Task, or storage), you need to explicitly allow that as well.
+If you need to create new resources with the token (for example, create a new task, or storage), you need to explicitly allow that as well.
 
 Once you create a new resource with the token, _the token will gain full access to that resource_, regardless of other permissions. It is not possible to create a token that can create a dataset, but not write to it.
 
@@ -94,19 +94,21 @@ Some permissions require other permissions to be granted alongside them. These a
 
 #### Automatic dependencies
 
-The form enforces certain dependencies automatically. For example, when you grant the _Write_ permission for a dataset, the _Read_ permission is automatically selected. This ensures that you can write to a dataset if you can also read from it.
+The form enforces certain dependencies automatically. For example, when you grant the **Write** permission for a dataset, the **Read** permission is automatically selected. This ensures that you can write to a dataset if you can also read from it.
 
 ![The Write permission depends on Read for a dataset](../images/api-token-scoped-dependencies.png)
 
 #### Manual dependencies
 
-Other dependencies are more complicated, and **it is your responsibility that the token is set up correctly**. Specifically:
+Other dependencies are more complicated, so it is up to you to ensure that the token is configured correctly.
 
-- To create or update a Schedule, the token needs access not only to the Schedule itself, but also to the Actor or task that is being scheduled.
-- Similarly, to create or update a task, the token needs the additional permission to access the task's Actor itself.
+Specifically:
+
+- To create or update a Schedule, the token needs access not only to the Schedule itself, but also to the Actor (the **Run** permission) or task (the **Read** permission) that is being scheduled.
+- Similarly, to create, update or run a task, the token needs the **Run** permission on the task's Actor itself.
 
 :::tip
-Let's say that you have an Actor and you want to programmatically create schedules for that Actor. Then you can create a token that has the account level _Create_ permission on schedules, but only the resource-specific _Run_ permission on the Actor. Such a token has exactly the permissions it needs, and nothing more.
+Let's say that you have an Actor and you want to programmatically create schedules for that Actor. Then you can create a token that has the account level **Create** permission on schedules, but only the resource-specific **Run** permission on the Actor. Such a token has exactly the permissions it needs, and nothing more.
 :::
 
 ### Actor execution
@@ -146,8 +148,20 @@ This restriction is _transitive_, which means that if the Actor runs another Act
 
 When Apify [runs an Actor](/platform/actors/running/runs-and-builds#runs), it automatically creates a set of default storages (a dataset, a key-value store and request queue) that the Actor can use in runtime.
 
-- Regardless of mode, the injected token always gets write access to its default storages, and to the run itself (for example, so that the Actor can abort itself). You don't need to configure this on your scoped token.
-- If a scoped token can run an Actor, it gets **write access to default storages of the runs it triggered**. Moreover, it gets **read access to default storages of _all_ runs of that Actor**. If this is not desirable, change your Actor to output data into an existing named storage, or have it create a new storage.
+You can configure whether the scoped token you are going use to run the Actor should get **Write**
+access to these default storages.
+
+![Configure whether the trigger token gets write access to the run default storages.](../images/api-token-scoped-default-storage-access.png)
+
+:::tip
+Let's say your Actor produces a lot of data that you want to delete just after the Actor finishes. If you enable this toggle, your scoped token will be allowed to do that.
+:::
+
+:::caution
+Even if you disable this option, **the default storages can still be accessed anonymously using just their ID** (which can be obtained via the [run object](https://docs.apify.com/api/v2#tag/Actor-runsRun-object-and-its-storages)).
+
+Moreover, if a scoped token can run an Actor, it can also list all its runs, including their storage IDs, ultimately exposing their content as well. If this is not desirable, change your Actor to output data into an existing named storage, or have it create a new storage.
+:::
 
 ### Schedules
 
@@ -155,7 +169,7 @@ You can use scoped tokens to schedule Actor and Tasks. Each schedule invocation 
 
 However, **this token is always unscoped, which means that the scheduled Actor has access to all your account data**, regardless of the scope of the token that scheduled it.
 
-### Webhoooks configuration
+### Webhooks configuration
 
 If you allow a token to run an Actor, it'll also be able to manage the Actor's webhooks (similarly for tasks).
 
@@ -164,7 +178,32 @@ If you set up a webhook pointing to the Apify API, the Apify platform will autom
 Therefore, you need to make sure the token has sufficient permissions not only to set up the webhook, but also to perform the actual operation.
 
 :::tip
-
 Let's say you want to create a webhook that pushes an item to a dataset every time an Actor successfully finishes. Then such a scoped token needs to be allowed to both run the Actor (to create the webhook), and write to that dataset.
-
 :::
+
+### Troubleshooting
+
+#### How do I allow a token to run a task?
+
+Tasks don't have a dedicated **Run** permission. Instead, you should configure the token with the following permissions:
+
+- **Run** on the Actor that the task is executing
+- **Read** on the task
+
+See the following example:
+
+![Scoped token configured to run a task](../images/api-token-scoped-run-tasks.png)
+
+Refer to [this section](#permission-dependencies) to understand how permission dependencies work.
+
+#### My run failed and I can see `insufficient permissions` in the logs
+
+When a run fails with insufficient permissions in the logs, it typically means the Actor is using a scoped token with **Restricted access** configured.
+
+![Scoped token with Restricted access](../images/api-token-scoped-restricted-access-active.png)
+
+What is happening is that the Actor is trying to access a resource (such as a dataset, or a key-value store) or perform an operation that it does not have sufficient permissions for.
+
+If you know what it is, you can add the permission to the scope of your token. If you don't, you can switch the permission mode on the token to **Full access**. This means that the Actor will be able to access all your account data.
+
+Refer to [Actor execution](#actor-execution) section to understand how executing Actors with scoped tokens works.

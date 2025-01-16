@@ -4,6 +4,9 @@ description:  Specify the dataset schema within the Actors so you can add monito
 slug: /actors/development/actor-definition/dataset-schema/validation
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 **Specify the dataset schema within the Actors so you can add monitoring and validation at the field level.**
 
 ---
@@ -105,6 +108,8 @@ The type of the AJV validation error object is [here](https://github.com/ajv-val
 
 If you use the Apify JS client or Apify SDK and call `pushData` function you can access the validation errors in a `try catch` block like this:
 
+<Tabs>
+  <TabItem value="Javascript" label="Javascript" default>
 ```javascript
 try {
     const response = await Actor.pushData(items);
@@ -115,6 +120,17 @@ try {
     });
 }
 ```
+  </TabItem>
+  <TabItem value="Python" label="Python">
+```python
+try:
+    await Actor.push_data(items)
+except ApifyApiError as error:
+    if "invalidItems" in error.data:
+        validation_errors = e.data["invalidItems"]
+```
+  </TabItem>
+</Tabs>
 
 ## Examples of common types of validation
 

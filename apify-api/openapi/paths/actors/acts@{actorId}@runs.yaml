@@ -3,13 +3,11 @@ get:
     - Actors/Run collection
   summary: Get list of runs
   description: |
-    Gets the list of runs of a specific actor. The response is a list of
-    objects, where each object contains basic information about a single actor run.
-
+    Gets the list of runs of a specific Actor. The response is a list of
+    objects, where each object contains basic information about a single Actor run.
 
     The endpoint supports pagination using the `limit` and `offset` parameters
     and it will not return more than 1000 array elements.
-
 
     By default, the records are sorted by the `startedAt` field in ascending
     order, therefore you can use pagination to incrementally fetch all records while
@@ -116,6 +114,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-collection/get-list-of-runs
     - https://docs.apify.com/api/v2#/reference/actors/get-list-of-runs
+    - https://docs.apify.com/api/v2#tag/ActorsRun-collection/operation/act_runs_get
   x-js-parent: RunCollectionClient
   x-js-name: list
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunCollectionClient#list
@@ -125,7 +124,7 @@ get:
 post:
   tags:
     - Actors/Run collection
-  summary: Run actor
+  summary: Run Actor
   description: |
     Runs an Actor and immediately returns without waiting for the run to finish.
 
@@ -210,8 +209,7 @@ post:
       in: query
       description: |
         The maximum number of seconds the server waits for the run to finish. By
-        default, it is `0`, the maximum value is `60`. <!--
-        MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
+        default, it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
         If the build finishes in time then the returned run object will have a terminal status (e.g. `SUCCEEDED`),
         otherwise it will have a transitional status (e.g. `RUNNING`).
       style: form
@@ -332,6 +330,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/run-collection/run-actor
     - https://docs.apify.com/api/v2#/reference/actors/run-actor
+    - https://docs.apify.com/api/v2#tag/ActorsRun-collection/operation/act_runs_post
   x-js-parent: ActorClient
   x-js-name: start
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorClient#start

@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Actor object
-  summary: Get actor
+  summary: Get Actor
   description: Gets an object that contains all the details about a specific Actor.
   operationId: act_get
   parameters:
@@ -85,6 +85,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/get-actor
     - https://docs.apify.com/api/v2#/reference/actors/get-actor
+    - https://docs.apify.com/api/v2#tag/ActorsActor-object/operation/act_get
   x-js-parent: ActorClient
   x-js-name: get
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorClient#get
@@ -94,26 +95,21 @@ get:
 put:
   tags:
     - Actors/Actor object
-  summary: Update actor
+  summary: Update Actor
   description: |
     Updates settings of an Actor using values specified by an Actor object
     passed as JSON in the POST payload.
-
     If the object does not define a specific property, its value will not be
     updated.
-
 
     The response is the full Actor object as returned by the
     [Get Actor](#/reference/actors/actor-object/get-actor) endpoint.
 
-
     The request needs to specify the `Content-Type: application/json` HTTP header!
-
 
     When providing your API authentication token, we recommend using the
     request's `Authorization` header, rather than the URL. ([More
     info](#/introduction/authentication)).
-
 
     If you want to make your Actor
     [public](https://docs.apify.com/platform/actors/publishing) using `isPublic:
@@ -236,6 +232,7 @@ put:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/update-actor
     - https://docs.apify.com/api/v2#/reference/actors/update-actor
+    - https://docs.apify.com/api/v2#tag/ActorsActor-object/operation/act_put
   x-js-parent: ActorClient
   x-js-name: update
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorClient#update
@@ -245,7 +242,7 @@ put:
 delete:
   tags:
     - Actors/Actor object
-  summary: Delete actor
+  summary: Delete Actor
   description: Deletes an Actor.
   operationId: act_delete
   parameters:
@@ -271,6 +268,7 @@ delete:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/actor-object/delete-actor
     - https://docs.apify.com/api/v2#/reference/actors/delete-actor
+    - https://docs.apify.com/api/v2#tag/ActorsActor-object/operation/act_delete
   x-js-parent: ActorClient
   x-js-name: delete
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ActorClient#delete

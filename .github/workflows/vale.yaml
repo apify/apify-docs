@@ -32,3 +32,4 @@ jobs:
                     fail_on_error: true
                     vale_flags: '--minAlertLevel=error'
                     reporter: github-pr-annotations
+

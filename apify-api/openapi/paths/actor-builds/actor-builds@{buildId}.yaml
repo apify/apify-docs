@@ -29,9 +29,7 @@ get:
       in: query
       description: |
         The maximum number of seconds the server waits for the build to finish.
-        By default it is `0`, the maximum value is `60`.
-
-        <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
+        By default it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
 
         If the build finishes in time then the returned build object will have a
         terminal status (e.g. `SUCCEEDED`), otherwise it will have a transitional status (e.g. `RUNNING`).
@@ -54,6 +52,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/build-object/get-build
     - https://docs.apify.com/api/v2#/reference/actor-builds/get-build
+    - https://docs.apify.com/api/v2#tag/Actor-buildsBuild-object/operation/actorBuild_get
   x-js-parent: BuildClient
   x-js-name: get
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/BuildClient#get
@@ -89,6 +88,7 @@ delete:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/delete-build/delete-build
     - https://docs.apify.com/api/v2#/reference/actor-builds/delete-build
+    - https://docs.apify.com/api/v2#tag/Actor-builds/operation/actorBuild_delete
   x-js-parent: BuildClient
   x-js-name: delete
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/BuildClient#delete
