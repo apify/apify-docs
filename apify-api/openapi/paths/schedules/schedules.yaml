@@ -54,6 +54,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedules-collection/get-list-of-schedules
     - https://docs.apify.com/api/v2#/reference/schedules/get-list-of-schedules
+    - https://docs.apify.com/api/v2#tag/SchedulesSchedules-collection/operation/schedules_get
   x-js-parent: ScheduleCollectionClient
   x-js-name: list
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ScheduleCollectionClient#list
@@ -99,6 +100,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/schedules/schedules-collection/create-schedule
     - https://docs.apify.com/api/v2#/reference/schedules/create-schedule
+    - https://docs.apify.com/api/v2#tag/SchedulesSchedules-collection/operation/schedules_post
   x-js-parent: ScheduleCollectionClient
   x-js-name: create
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/ScheduleCollectionClient#create

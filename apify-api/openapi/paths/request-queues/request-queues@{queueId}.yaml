@@ -53,6 +53,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/get-request-queue
     - https://docs.apify.com/api/v2#/reference/request-queues/get-request-queue
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue/operation/requestQueue_get
   x-js-parent: RequestQueueClient
   x-js-name: get
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#get
@@ -67,12 +68,8 @@ put:
     Updates a request queue's name using a value specified by a JSON object
     passed in the PUT payload.
 
-
     The response is the updated request queue object, as returned by the
-
-    [Get request
-    queue](#/reference/request-queues/queue-collection/get-request-queue) API
-    endpoint.
+    [Get request queue](#/reference/request-queues/queue-collection/get-request-queue) API endpoint.
   operationId: requestQueue_put
   parameters:
     - name: queueId
@@ -132,6 +129,7 @@ put:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/update-request-queue
     - https://docs.apify.com/api/v2#/reference/request-queues/update-request-queue
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue/operation/requestQueue_put
   x-js-parent: RequestQueueClient
   x-js-name: update
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#update
@@ -162,6 +160,7 @@ delete:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/delete-request-queue
     - https://docs.apify.com/api/v2#/reference/request-queues/delete-request-queue
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue/operation/requestQueue_delete
   x-js-parent: RequestQueueClient
   x-js-name: delete
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#delete

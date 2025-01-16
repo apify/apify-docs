@@ -29,6 +29,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-input-object/get-task-input
     - https://docs.apify.com/api/v2#/reference/actor-tasks/get-task-input
+    - https://docs.apify.com/api/v2#tag/Actor-tasksTask-input-object/operation/actorTask_input_get
   x-js-parent: TaskClient
   x-js-name: getInput
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskClient#getInput
@@ -47,7 +48,6 @@ put:
 
     The response is the full task input as returned by the
     [Get task input](#/reference/tasks/task-input-object/get-task-input) endpoint.
-
 
     The request needs to specify the `Content-Type: application/json` HTTP
     header!
@@ -90,6 +90,7 @@ put:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/task-input-object/update-task-input
     - https://docs.apify.com/api/v2#/reference/actor-tasks/update-task-input
+    - https://docs.apify.com/api/v2#tag/Actor-tasksTask-input-object/operation/actorTask_input_put
   x-js-parent: TaskClient
   x-js-name: updateInput
   x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/TaskClient#updateInput

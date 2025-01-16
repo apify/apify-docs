@@ -29,10 +29,10 @@ post:
         example: 3KH8gEpp4d8uQSe8T
     - name: gracefully
       in: query
-      description: |-
+      description: |
         If true passed, the Actor run will abort gracefully.
-                                                It will send `aborting` and `persistState` event into run and force-stop the run after 30 seconds.
-                                                It is helpful in cases where you plan to resurrect the run later.
+        It will send `aborting` and `persistState` event into run and force-stop the run after 30 seconds.
+        It is helpful in cases where you plan to resurrect the run later.
       style: form
       explode: true
       schema:
@@ -120,3 +120,4 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/abort-run/abort-run
     - https://docs.apify.com/api/v2#/reference/actors/abort-run
+    - https://docs.apify.com/api/v2#tag/ActorsAbort-run/operation/act_run_abort_post

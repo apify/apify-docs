@@ -4,7 +4,7 @@ get:
   summary: Get user runs list
   description: |
     Gets a list of all runs for a user. The response is a list of objects, where
-    each object contains basic information about a single actor run.
+    each object contains basic information about a single Actor run.
 
     The endpoint supports pagination using the `limit` and `offset` parameters
     and it will not return more than 1000 array elements.
@@ -108,3 +108,4 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-runs/run-collection/get-user-runs-list
     - https://docs.apify.com/api/v2#/reference/actor-runs/get-user-runs-list
+    - https://docs.apify.com/api/v2#tag/Actor-runsRun-collection/operation/actorRuns_get

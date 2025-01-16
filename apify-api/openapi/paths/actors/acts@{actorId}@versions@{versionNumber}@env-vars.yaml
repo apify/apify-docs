@@ -36,6 +36,7 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-collection/get-list-of-environment-variables
     - https://docs.apify.com/api/v2#/reference/actors/get-list-of-environment-variables
+    - https://docs.apify.com/api/v2#tag/ActorsEnvironment-variable-collection/operation/act_version_envVars_get
   x-py-parent: ActorEnvVarCollectionClientAsync
   x-py-name: list
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorEnvVarCollectionClientAsync#list
@@ -52,12 +53,10 @@ post:
     JSON payload and a `Content-Type: application/json` HTTP header.
 
     ```
-
     {
         "name": "ENV_VAR_NAME",
         "value": "my-env-var"
     }
-
     ```
 
     The response is the [EnvVar
@@ -116,6 +115,7 @@ post:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-collection/create-environment-variable
     - https://docs.apify.com/api/v2#/reference/actors/create-environment-variable
+    - https://docs.apify.com/api/v2#tag/ActorsEnvironment-variable-collection/operation/act_version_envVars_post
   x-py-parent: ActorEnvVarCollectionClientAsync
   x-py-name: create
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/ActorEnvVarCollectionClientAsync#create

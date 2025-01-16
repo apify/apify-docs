@@ -6,10 +6,8 @@ get:
     Gets the list of public Actors in Apify Store. You can use `search`
     parameter to search Actors by string in title, name, description, username
     and readme.
-
     If you need detailed info about a specific Actor, use the [Get
-    actor](#/reference/actors/actor-object/get-actor) endpoint.
-
+    Actor](#/reference/actors/actor-object/get-actor) endpoint.
 
     The endpoint supports pagination using the `limit` and `offset` parameters.
     It will not return more than 1,000 records.
@@ -103,7 +101,7 @@ get:
                   title: My Public Actor
                   name: my-public-actor
                   username: jane35
-                  description: My public actor!
+                  description: My public Actor!
                   pictureUrl: 'https://...'
                   userPictureUrl: 'https://...'
                   url: 'https://...'
@@ -126,7 +124,7 @@ get:
                   categories:
                     - "MARKETING"
                     - "LEAD_GENERATION"
-                  description: My public actor!
+                  description: My public Actor!
                   pictureUrl: 'https://...'
                   userPictureUrl: 'https://...'
                   url: 'https://...'
@@ -145,3 +143,4 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store
     - https://docs.apify.com/api/v2#/reference/store/get-list-of-actors-in-store
+    - https://docs.apify.com/api/v2#tag/StoreStore-Actors-collection/operation/store_get

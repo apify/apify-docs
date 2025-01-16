@@ -3,8 +3,8 @@ info:
   title: Apify API
   description: |
 
-    > **UPDATE 2024-07-09:**
-    > We have rolled out this new Apify API Documentation. In case of any issues, please [report here](https://github.com/apify/openapi/issues).
+    > **UPDATE 2025-01-14:**
+    > We have rolled out this new Apify API Documentation. In case of any issues, please [report here](https://github.com/apify/apify-docs/issues).
     > The old API Documentation is still [available here](https://docs.apify.com/api/v2-old).
 
     The Apify API (version 2) provides programmatic access to the [Apify
@@ -45,8 +45,7 @@ info:
 
     To use your token in a request, either:
 
-    - Add the token to your request's `Authorization` header as `Bearer
-    <token>`.
+    - Add the token to your request's `Authorization` header as `Bearer <token>`.
     E.g., `Authorization: Bearer xxxxxxx`.
     [More info](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization).
     (Recommended).
@@ -544,6 +543,8 @@ paths:
     $ref: paths/actor-runs/actor-runs@{runId}@reboot.yaml
   '/v2/actor-runs/{runId}/resurrect':
     $ref: paths/actor-runs/actor-runs@{runId}@resurrect.yaml
+  '/v2/actor-runs/{runId}/charge':
+    $ref: paths/actor-runs/actor-runs@{runId}@charge.yaml
   /v2/actor-builds:
     $ref: paths/actor-builds/actor-builds.yaml
   '/v2/actor-builds/{buildId}':
@@ -566,6 +567,8 @@ paths:
     $ref: 'paths/datasets/datasets@{datasetId}.yaml'
   '/v2/datasets/{datasetId}/items':
     $ref: 'paths/datasets/datasets@{datasetId}@items.yaml'
+  '/v2/datasets/{datasetId}/statistics':
+    $ref: 'paths/datasets/datasets@{datasetId}@statistics.yaml'
   /v2/request-queues:
     $ref: paths/request-queues/request-queues.yaml
   '/v2/request-queues/{queueId}':

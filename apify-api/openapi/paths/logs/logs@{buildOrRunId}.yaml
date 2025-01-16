@@ -5,12 +5,13 @@ get:
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/logs/log/get-log
     - https://docs.apify.com/api/v2#/reference/logs/get-log
+    - https://docs.apify.com/api/v2#tag/LogsLog/operation/log_get
   description: ''
   operationId: log_get
   parameters:
     - name: buildOrRunId
       in: path
-      description: ID of the actor build or run.
+      description: ID of the Actor build or run.
       required: true
       style: simple
       schema:
@@ -46,11 +47,11 @@ get:
         text/plain:
           schema:
             type: string
-            example: |-
+            example: |
               2017-07-14T06:00:49.733Z Application started.
               2017-07-14T06:00:49.741Z Input: { test: 123 }
               2017-07-14T06:00:49.752Z Some useful debug information follows.
-          example: |-
+          example: |
             2017-07-14T06:00:49.733Z Application started.
             2017-07-14T06:00:49.741Z Input: { test: 123 }
             2017-07-14T06:00:49.752Z Some useful debug information follows.
