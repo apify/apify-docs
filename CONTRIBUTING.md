@@ -22,10 +22,10 @@
     ```bash
     npm login --scope@apify-packages -registry=https://npm.pkg.github.com --auth-type=legacy
     ```
-<!-- vale on -->
+
 3. Run `npm install`
 4. Start development server: `npm start`
-
+<!-- vale on -->
 This will be enough to work on Platform, Academy and, OpenAPI. If you want to work on entire documentation set you need to join them using nginx.
 
 #### Join all repositories with nginx
