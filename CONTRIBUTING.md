@@ -99,7 +99,7 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 
 2. Documentation elements:
 
-    - Use [admonitions](https://docusaurus.io/docs/2.x/markdown-features/admonitions) to emphasize cruciac information, available admonitions are:
+    - Use [admonitions](https://docusaurus.io/docs/2.x/markdown-features/admonitions) to emphasize crucial information, available admonitions are:
       - note
       - tip
       - info
