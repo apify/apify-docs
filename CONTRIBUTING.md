@@ -28,7 +28,7 @@
 
 This will be enough to work on Platform, Academy and, OpenAPI. If you want to work on entire documentation set you need to join them using nginx.
 
-#### Join all repositories with Nginx
+#### Join all repositories with nginx
 
 1. Clone all the repositories
 2. Run `npm start:dev` instead of `npm start` from the main repository
