@@ -6,4 +6,4 @@ env
 navbar
 nginx
 npm
-
+camelCase

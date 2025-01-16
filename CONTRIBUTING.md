@@ -12,27 +12,27 @@
 
 1. Git
 2. Node.js
-3. Github access
+3. GitHub access
 
 ### Installation steps
-
+<!-- vale off -->
 1. Clone the repository
-2. Configure Github access:
+2. Configure GitHub access:
 
     ```bash
     npm login --scope@apify-packages -registry=https://npm.pkg.github.com --auth-type=legacy
     ```
-
+<!-- vale on -->
 3. Run `npm install`
 4. Start development server: `npm start`
 
-This will be enough to work on Platform, Academy and, OpenAPI. If you want to work on entire documentation set you need to join them using Nginx.
+This will be enough to work on Platform, Academy and, OpenAPI. If you want to work on entire documentation set you need to join them using nginx.
 
 #### Join all repositories with Nginx
 
 1. Clone all the repositories
 2. Run `npm start:dev` instead of `npm start` from the main repository
-3. Run `npm start -- --port <number>` to start docusaurus instance on specific port, refer to the table for each repo port
+3. Run `npm start -- --port <number>` to start Docusaurus instance on specific port, refer to the table for each repository port
 
     |Repository|Port|
     |:---|:---|
@@ -43,7 +43,7 @@ This will be enough to work on Platform, Academy and, OpenAPI. If you want to wo
     |apify-sdk-python|3004|
     |apify-cli|3005|
 
-4. To serve them together, setup the Nginx server with the following config
+4. To serve them together, setup the nginx server with the following configuration:
 
     ```nginx
         server {
@@ -95,7 +95,7 @@ You should be able to open https://docs.apify.loc in your browser and run all th
     - use **Italics** for emphasis
     - use `code` for inline code, by using back-ticks (\`\`\)
     - use code blocks with language specification
-    - usd [code tabs](https://docusaurus.io/docs/markdown-features/tabs) whenever you want to include examples of implementation in more than one language
+    - use [code tabs](https://docusaurus.io/docs/markdown-features/tabs) whenever you want to include examples of implementation in more than one language
 
 2. Documentation elements:
 
@@ -145,7 +145,7 @@ Content lives in the following locations:
 
 - Main content like Platform documentation & Academy: `/sources` directory
 - API reference: Generated from OpenAPI specs within `/apify-api` directory
-- SDK docs: separate repositores
+- SDK docs: separate repositories
 - Client docs: separate repositories
 - CLI docs: separate repositories
 
@@ -153,7 +153,7 @@ Content lives in the following locations:
 
 ### Overview
 
-The API reference documentation at docs.apify.com is built directly froum our OpenAPI specification. The source of truth for the API specification lives in the `/apify-api/openapi`  directory within [apify-docs](https://github.com/apify/apify-docs) repository.
+The API reference documentation at [docs.apify.com](https://docs.apify.com/) is built directly from our OpenAPI specification. The source of truth for the API specification lives in the `/apify-api/openapi`  directory within [apify-docs](https://github.com/apify/apify-docs) repository.
 
 ### Setup requirements
 
@@ -267,10 +267,10 @@ Add languages by adding new folders at the appropriate path level.
 
     ```
 
-2. Full setup with Nginx:
+2. Full setup with nginx:
 
     - Clone all documentation repositories
-    - Configure Nginx server
+    - Configure nginx server
     - Update hosts file
     - Use `npm start:dev`
 

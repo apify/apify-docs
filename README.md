@@ -39,14 +39,14 @@ Our documentation consists of these main sections:
 5. **CLI**: Documentation for building code and platform interaction.
 
 ### Source Repositories
-
+<!-- vale off -->
 - apify-docs (this repository)
 - apify-client-js
 - apify-client-python
 - apify-sdk-js
 - apify-sdk-python
 - apify-cli
-
+<!-- vale on -->
 ## Architecture
 
 Our documentation is built using:
@@ -54,7 +54,7 @@ Our documentation is built using:
 - **Docusaurus**: Powers our documentation platform
 - **Shared Theme**: Custom `@apify/docs-theme` package
 - **Automated Deployment**: CI/CD pipeline for continuous updates
-- **Nginx routing**: Handles subdomain routing and redirects
+- **nginx routing**: Handles subdomain routing and redirects
 
 ## Need help
 
