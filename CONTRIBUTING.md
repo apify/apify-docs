@@ -46,27 +46,27 @@ This will be enough to work on Platform, Academy and, OpenAPI. If you want to wo
 4. To serve them together, setup the nginx server with the following configuration:
 
     ```nginx
-        server {
-          listen       80;
-          server_name  docs.apify.loc;
-          location / {
-            proxy_pass http://localhost:3000;
-        }
-        location /api/client/js {
-          proxy_pass http://localhost:3001;
-        }
-        location /api/client/python {
-          proxy_pass http://localhost:3002;
-        }
-        location /sdk/js {
-          proxy_pass http://localhost:3003;
-        }
-        location /sdk/python {
-          proxy_pass http://localhost:3004;
-        }
-        location /cli {
-          proxy_pass http://localhost:3005;
-        }
+    server {
+      listen       80;
+      server_name  docs.apify.loc;
+      location / {
+        proxy_pass http://localhost:3000;
+      }
+      location /api/client/js {
+        proxy_pass http://localhost:3001;
+      }
+      location /api/client/python {
+        proxy_pass http://localhost:3002;
+      }
+      location /sdk/js {
+        proxy_pass http://localhost:3003;
+      }
+      location /sdk/python {
+        proxy_pass http://localhost:3004;
+      }
+      location /cli {
+        proxy_pass http://localhost:3005;
+      }
     }
     ```
 
@@ -180,11 +180,11 @@ Example schema
 ```yaml
 type: object
 properties:
-    id:
-      description: The resource ID
-      readOnly: true
-      allOf:
-        -$ref: ./ResourceId.yaml
+  id:
+    description: The resource ID
+    readOnly: true
+    allOf:
+      -$ref: ./ResourceId.yaml
 ```
 
 #### Path documentation
