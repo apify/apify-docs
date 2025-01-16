@@ -24,6 +24,8 @@ Docker's
 Docusaurus
 navbar
 nginx
+npm
+camelCase
 
 :::caution
 :::note
