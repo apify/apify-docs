@@ -21,4 +21,5 @@ tsconfig.tsbuildinfo
 sources/api/*
 !sources/api/sidebars.js
 apify-api.yaml
+static/api
 apify-docs-theme/package-lock.json
