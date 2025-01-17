@@ -1833,6 +1833,10 @@ iframe[src*="youtube"] {
     text-transform: none;
 }
 
+.plugin-id-openapi .export-button {
+    --ifm-button-size-multiplier: 1.5;
+}
+
 @media (max-width: 996px) {
     div[class^="navbarSearchContainer"] {
         position: static;
