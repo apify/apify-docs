@@ -1,6 +1,7 @@
 const { join } = require('node:path');
 
 const clsx = require('clsx');
+const { createApiPageMD } = require('docusaurus-plugin-openapi-docs/lib/markdown');
 
 const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
@@ -131,7 +132,7 @@ module.exports = {
                 specs: [
                     {
                         spec: './apify-api/openapi/openapi.yaml',
-                        route: '/api/v2/',
+                        route: '/api/v2-redoc/',
                     },
                 ],
                 theme: {
@@ -176,7 +177,7 @@ module.exports = {
             {
                 id: 'openapi',
                 path: './sources/api',
-                routeBasePath: 'api/v2-new', // TODO change to `api/v2` once we are ready
+                routeBasePath: 'api/v2',
                 rehypePlugins: [externalLinkProcessor],
                 showLastUpdateAuthor: false,
                 showLastUpdateTime: false,
@@ -195,15 +196,28 @@ module.exports = {
                     v2: {
                         specPath: 'apify-api.yaml',
                         outputDir: './sources/api',
+                        markdownGenerators: {
+                            createApiPageMD: (pageData) => {
+                                let md = createApiPageMD(pageData);
+
+                                // HTML comments are wrongly escaped, we need to undo that
+                                if (md.includes('&lt;!--')) {
+                                    md = md.replace('&lt;!--', '<!--');
+                                    md = md.replace('--&gt;', '-->');
+                                }
+
+                                return md;
+                            },
+                        },
                         sidebarOptions: {
-                            groupPathsBy: 'tag',
+                            groupPathsBy: 'tagGroup',
                             categoryLinkSource: 'tag',
                             sidebarCollapsed: false,
                             sidebarCollapsible: false,
                             sidebarGenerators: {
                                 createDocItem: (item, context) => {
                                     const legacyUrls = item.api?.['x-legacy-doc-urls'] ?? [];
-                                    const altIds = legacyUrls.map((url) => {
+                                    const altids = legacyUrls.map((url) => {
                                         const { hash } = new URL(url);
                                         return hash;
                                     });
@@ -218,12 +232,15 @@ module.exports = {
                                         : clsx({
                                             'menu__list-item--deprecated': item.schema.deprecated,
                                         }, 'schema');
+                                    // const endpoint = item.api.servers[0].url + item.api.path;
+                                    const endpoint = item.api.path.replace('/v2', '');
+                                    const { method } = item.api;
 
                                     return {
                                         type: 'doc',
                                         id: context.basePath === '' ? `${id}` : `${context.basePath}/${id}`,
                                         label: sidebarLabel ?? title ?? id,
-                                        customProps: { altIds },
+                                        customProps: { altids, endpoint, method },
                                         className,
                                     };
                                 },
@@ -306,6 +323,12 @@ module.exports = {
         },
         languageTabs: [
             {
+                highlight: 'bash',
+                label: 'CLI',
+                language: 'curl',
+                logoClass: 'curl',
+            },
+            {
                 highlight: 'javascript',
                 label: 'JavaScript',
                 language: 'javascript',
@@ -316,12 +339,6 @@ module.exports = {
                 label: 'Python',
                 language: 'python',
                 logoClass: 'python',
-            },
-            {
-                highlight: 'bash',
-                label: 'cURL',
-                language: 'curl',
-                logoClass: 'curl',
             },
             {
                 highlight: 'php',

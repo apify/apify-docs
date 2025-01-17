@@ -5,21 +5,15 @@ get:
   description: |
     Returns data stored in the dataset in a desired format.
 
-
     ### Response format
-
 
     The format of the response depends on <code>format</code> query parameter.
 
-
     The <code>format</code> parameter can have one of the following values:
-
     <code>json</code>, <code>jsonl</code>, <code>xml</code>, <code>html</code>,
     <code>csv</code>, <code>xlsx</code> and <code>rss</code>.
 
-
     The following table describes how each format is treated.
-
 
     <table>
       <tr>
@@ -54,20 +48,16 @@ get:
       </tr>
     </table>
 
-    Note that CSV, XLSX and HTML tables are limited to 500 columns and the column names cannot be longer than 200 characters.
+    Note that CSV, XLSX and HTML tables are limited to 2000 columns and the column names cannot be longer than 200 characters.
     JSON, XML and RSS formats do not have such restrictions.
 
-
     ### Hidden fields
-
 
     The top-level fields starting with the `#` character are considered hidden.
     These are useful to store debugging information and can be omitted from the output by providing the `skipHidden=1` or `clean=1` query parameters.
     For example, if you store the following object to the dataset:
 
-
     ```
-
     {
         productName: "iPhone Xs",
         description: "Welcome to the big screens."
@@ -76,26 +66,19 @@ get:
             crawledAt: "2019-01-21T16:06:03.683Z"
         }
     }
-
     ```
-
 
     The `#debug` field will be considered as hidden and can be omitted from the
     results. This is useful to
-
     provide nice cleaned data to end users, while keeping debugging info
     available if needed. The Dataset object
-
     returned by the API contains the number of such clean items in the`dataset.cleanItemCount` property.
 
-
     ### XML format extension
-
 
     When exporting results to XML or RSS formats, the names of object properties become XML tags and the corresponding values become tag's children. For example, the following JavaScript object:
 
     ```
-
     {
         name: "Paul Newman",
         address: [
@@ -103,17 +86,12 @@ get:
             { type: "office", street: null, city: null }
         ]
     }
-
     ```
-
 
     will be transformed to the following XML snippet:
 
-
     ```
-
     <name>Paul Newman</name>
-
     <address>
       <type>home</type>
       <street>21st</street>
@@ -124,7 +102,6 @@ get:
       <street/>
       <city/>
     </address>
-
     ```
 
     If the JavaScript object contains a property named `@` then its sub-properties are exported as attributes of the parent XML
@@ -133,9 +110,7 @@ get:
 
     For example, the following JavaScript object:
 
-
     ```
-
     {
       "address": [{
         "@": {
@@ -151,43 +126,29 @@ get:
         "#": 'unknown'
       }]
     }
-
     ```
-
 
     will be transformed to the following XML snippet:
 
-
     ```
-
     <address type="home">
       <street>21st</street>
       <city>Chicago</city>
     </address>
-
     <address type="office">unknown</address>
-
     ```
-
 
     This feature is also useful to customize your RSS feeds generated for various websites.
 
-
     By default the whole result is wrapped in a `<items>` element and each page object is wrapped in a `<item>` element.
-
     You can change this using <code>xmlRoot</code> and <code>xmlRow</code> url parameters.
 
-
     ### Pagination
-
 
     The generated response supports [pagination](#/introduction/pagination).
     The pagination is always performed with the granularity of a single item, regardless whether <code>unwind</code> parameter was provided.
     By default, the **Items** in the response are sorted by the time they were stored to the database, therefore you can use pagination to incrementally fetch the items as they are being added.
-
-    The maximum number of items that will be returned in a single API call is limited to 250,000.
-
-    <!-- GET_ITEMS_LIMIT -->
+    No limit exists to how many items can be returned in one response.
 
     If you specify `desc=1` query parameter, the results are returned in the reverse order than they were stored (i.e. from newest to oldest items).
     Note that only the order of **Items** is reversed, but not the order of the `unwind` array elements.
@@ -360,7 +321,7 @@ get:
         example: true
     - name: skipHidden
       in: query
-      description: |-
+      description: |
         If `true` or `1` then hidden fields are skipped from the output, i.e. fields starting with the `#` character.
       style: form
       explode: true
@@ -475,13 +436,10 @@ post:
   summary: Put items
   description: |
     Appends an item or an array of items to the end of the dataset.
-
     The POST payload is a JSON object or a JSON array of objects to save into the dataset.
-
 
     If the data you attempt to store in the dataset is invalid (meaning any of the items received by the API fails the validation), the whole request is discarded and the API will return a response with status code 400.
     For more information about dataset schema validation, see [Dataset schema](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema/validation).
-
 
     **IMPORTANT:** The limit of request payload size for the dataset is 5 MB. If the array exceeds the size, you'll need to split it into a number of smaller arrays.
   operationId: dataset_items_post

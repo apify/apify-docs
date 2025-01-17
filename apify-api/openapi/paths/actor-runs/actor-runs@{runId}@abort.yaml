@@ -3,7 +3,7 @@ post:
     - Actor runs/Abort run
   summary: Abort run
   description: |
-    Aborts an actor run and returns an object that contains all the details
+    Aborts an Actor run and returns an object that contains all the details
     about the run.
 
     Only runs that are starting or running are aborted. For runs with status
@@ -20,8 +20,8 @@ post:
         example: 3KH8gEpp4d8uQSe8T
     - name: gracefully
       in: query
-      description: |-
-        If true passed, the actor run will abort gracefully.
+      description: |
+        If true passed, the Actor run will abort gracefully.
         It will send `aborting` and `persistState` event into run and force-stop the run after 30 seconds.
         It is helpful in cases where you plan to resurrect the run later.
       style: form

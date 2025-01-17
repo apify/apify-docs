@@ -18,7 +18,7 @@ Long-running [Actor](../../index.mdx) jobs may need to migrate between servers. 
 To prevent data loss, long-running Actors should:
 
 - Periodically save (persist) their state.
-- Listem for [migration events](/sdk/js/api/apify/class/PlatformEventManager)
+- Listen for [migration events](/sdk/js/api/apify/class/PlatformEventManager)
 - Check for persisted state when starting, allowing them to resume from where they left off.
 
 For short-running Actors, the risk of restarts and the cost of repeated runs are low, so you can typically ignore state persistence.

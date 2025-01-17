@@ -5,16 +5,12 @@ post:
   description: |
     Adds requests to the queue in batch. The maximum requests in batch is limit
     to 25. The response contains an array of unprocessed and processed requests.
-
     If any add operation fails because the request queue rate limit is exceeded
     or an internal failure occurs,
-
     the failed request is returned in the unprocessedRequests response
     parameter.
-
     You can resend these requests to add. It is recommended to use exponential
     backoff algorithm for these retries.
-
     If a request with the same `uniqueKey` was already present in the queue,
     then it returns an ID of the existing request.
   operationId: requestQueue_requests_batch_post
@@ -120,16 +116,12 @@ delete:
     Batch-deletes given requests from the queue. The number of requests in a
     batch is limited to 25. The response contains an array of unprocessed and
     processed requests.
-
     If any delete operation fails because the request queue rate limit is
     exceeded or an internal failure occurs,
-
     the failed request is returned in the `unprocessedRequests` response
     parameter.
-
     You can re-send these delete requests. It is recommended to use an
     exponential backoff algorithm for these retries.
-
     Each request is identified by its ID or uniqueKey parameter. You can use
     either of them to identify the request.
   operationId: requestQueue_requests_batch_delete

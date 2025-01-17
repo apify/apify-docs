@@ -29,7 +29,7 @@ get:
                 level: INFO
                 createdAt: '2019-03-26T12:28:00.370Z'
               - message: >-
-                  Cannot start actor task \"iEvfA6pm6DWjRTGxS\": Provided input
+                  Cannot start Actor task \"iEvfA6pm6DWjRTGxS\": Provided input
                   must be object, got \"string\" instead.
                 level: ERROR
                 createdAt: '2019-03-26T12:30:00.325Z'

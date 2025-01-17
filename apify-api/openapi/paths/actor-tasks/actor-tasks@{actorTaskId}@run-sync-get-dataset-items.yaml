@@ -3,17 +3,17 @@ post:
     - Actor tasks/Run task synchronously and get dataset items
   summary: Run task synchronously and get dataset items (POST)
   description: |
-    Runs an actor task and synchronously returns its dataset items.
+    Runs an Actor task and synchronously returns its dataset items.
 
     The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds
     otherwise the HTTP request fails with a timeout error (this won't abort
     the run itself).
 
-    Optionally, you can override the actor input configuration by passing a JSON
+    Optionally, you can override the Actor input configuration by passing a JSON
     object as the POST payload and setting the `Content-Type: application/json` HTTP header.
 
     Note that if the object in the POST payload does not define a particular
-    input property, the actor run uses the default value defined by the task (or the actor's
+    input property, the Actor run uses the default value defined by the task (or the Actor's
     input schema if not defined by the task).
 
     You can send all the same options in parameters as the [Get Dataset
@@ -26,7 +26,7 @@ post:
     If the connection breaks, you will not receive any information about the run
     and its status.
 
-    Input fields from actor task configuration can be overloaded with values
+    Input fields from Actor task configuration can be overloaded with values
     passed as the POST payload.
 
     Just make sure to specify the `Content-Type` header as `application/json`
@@ -73,7 +73,7 @@ post:
         The maximum number of items that the task run should return. This is
         useful for pay-per-result tasks, as it allows you to limit the number of
         results that will be charged to your subscription. You can access the
-        maximum number of items in your actor by using the
+        maximum number of items in your Actor by using the
         `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
       style: form
       explode: true
@@ -84,7 +84,7 @@ post:
     - name: build
       in: query
       description: |
-        Specifies the actor build to run. It can be either a build tag or build
+        Specifies the Actor build to run. It can be either a build tag or build
         number. By default, the run uses the build specified in the task
         settings (typically `latest`).
       style: form
@@ -95,12 +95,10 @@ post:
     - name: webhooks
       in: query
       description: |
-        Specifies optional webhooks associated with the actor run, which can be
+        Specifies optional webhooks associated with the Actor run, which can be
         used to receive a notification
-
-        e.g. when the actor finished or failed. The value is a Base64-encoded
+        e.g. when the Actor finished or failed. The value is a Base64-encoded
         JSON array of objects defining the webhooks. For more information, see
-
         [Webhooks
         documentation](https://docs.apify.com/platform/integrations/webhooks).
       style: form
@@ -123,12 +121,9 @@ post:
       description: |
         If `true` or `1` then the API endpoint returns only non-empty items and
         skips hidden fields
-
         (i.e. fields starting with the # character).
-
         The `clean` parameter is just a shortcut for `skipHidden=true` and
         `skipEmpty=true` parameters.
-
         Note that since some objects might be skipped from the output, that the
         result might contain less items than the `limit` value.
       style: form
@@ -160,12 +155,9 @@ post:
       in: query
       description: |
         A comma-separated list of fields which should be picked from the items,
-
         only these fields will remain in the resulting record objects.
-
         Note that the fields in the outputted items are sorted the same way as
         they are specified in the `fields` query parameter.
-
         You can use this feature to effectively fix the output format.
       style: form
       explode: true
@@ -185,18 +177,13 @@ post:
       description: |
         A comma-separated list of fields which should be unwound, in order which
         they should be processed. Each field should be either an array or an object.
-
         If the field is an array then every element of
-
         the array will become a separate record and merged with parent object.
-
         If the unwound field is an object then it is merged with the parent
         object
-
         If the unwound field is missing or its value is neither an array nor an
         object and therefore cannot be merged with a parent object then the item
         gets preserved as it is.
-
         Note that the unwound items ignore the `desc` parameter.
       style: form
       explode: true
@@ -208,10 +195,8 @@ post:
       description: |
         A comma-separated list of fields which should transform nested objects
         into flat structures.
-
         For example, with `flatten="foo"` the object `{"foo":{"bar": "hello"}}`
         is turned into `{"foo.bar": "hello"}`.
-
         The original object with properties is replaced with the flattened
         object.
       style: form
@@ -256,10 +241,8 @@ post:
       description: |
         All text responses are encoded in UTF-8 encoding. By default, the
         `format=csv` files are prefixed with
-
         the UTF-8 Byte Order Mark (BOM), while `json`, `jsonl`, `xml`, `html`
         and `rss` files are not.
-
         If you want to override this default behavior, specify `bom=1` query
         parameter to include the BOM or `bom=0` to skip it.
       style: form
@@ -297,7 +280,7 @@ post:
         example: true
     - name: skipHidden
       in: query
-      description: |-
+      description: |
         If `true` or `1` then hidden fields are skipped from the output,
         i.e. fields starting with the `#` character.
       style: form
@@ -463,7 +446,7 @@ get:
         The maximum number of items that the task run should return. This is
         useful for pay-per-result tasks, as it allows you to limit the number of
         results that will be charged to your subscription. You can access the
-        maximum number of items in your actor by using the
+        maximum number of items in your Actor by using the
         `ACTOR_MAX_PAID_DATASET_ITEMS` environment variable.
       style: form
       explode: true
@@ -474,7 +457,7 @@ get:
     - name: build
       in: query
       description: |
-        Specifies the actor build to run. It can be either a build tag or build
+        Specifies the Actor build to run. It can be either a build tag or build
         number. By default, the run uses the build specified in the task
         settings (typically `latest`).
       style: form
@@ -485,10 +468,10 @@ get:
     - name: webhooks
       in: query
       description: |
-        Specifies optional webhooks associated with the actor run, which can be
+        Specifies optional webhooks associated with the Actor run, which can be
         used to receive a notification
 
-        e.g. when the actor finished or failed. The value is a Base64-encoded
+        e.g. when the Actor finished or failed. The value is a Base64-encoded
         JSON array of objects defining the webhooks. For more information, see
 
         [Webhooks
@@ -687,7 +670,7 @@ get:
         example: true
     - name: skipHidden
       in: query
-      description: |-
+      description: |
         If `true` or `1` then hidden fields are skipped from the output,
         i.e. fields starting with the `#` character.
       style: form
@@ -712,10 +695,8 @@ get:
       description: |
         If `true` or `1` then, the endpoint applies the
         `fields=url,pageFunctionResult,errorInfo`
-
         and `unwind=pageFunctionResult` query parameters. This feature is used
         to emulate simplified results provided by the
-
         legacy Apify Crawler product and it's not recommended to use it in new
         integrations.
       style: form
@@ -728,7 +709,6 @@ get:
       description: |
         If `true` or `1` then, the all the items with errorInfo property will be
         skipped from the output.
-
         This feature is here to emulate functionality of API version 1 used for
         the legacy Apify Crawler product and it's not recommended to use it in
         new integrations.

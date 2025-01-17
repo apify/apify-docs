@@ -36,10 +36,6 @@ function CardContainer({ href, children }) {
 }
 
 function CardLayout({ href, icon, title, description }) {
-    if (href.startsWith('/api')) {
-        description = '';
-    }
-
     return (
         <CardContainer
             href={href}>
@@ -56,6 +52,23 @@ function CardLayout({ href, icon, title, description }) {
                     {description}
                 </p>
             )}
+        </CardContainer>
+    );
+}
+
+function ApiCardLayout({ href, icon, title, className, endpoint }) {
+    return (
+        <CardContainer
+            href={href}>
+            <Heading
+                as="h2"
+                className={clsx('text--truncate', styles.cardTitle, className)}
+                title={title}>
+                {icon} {title}
+            </Heading>
+            <code className={clsx('text--truncate', styles.cardDescription)}>
+                {endpoint}
+            </code>
         </CardContainer>
     );
 }
@@ -78,8 +91,21 @@ function CardCategory({ item }) {
 }
 
 function CardLink({ item }) {
-    const icon = isInternalUrl(item.href) ? '📄️' : '🔗';
     const doc = useDocById(item.docId ?? undefined);
+
+    if (item.href.startsWith('/api/v2')) {
+        return (
+            <ApiCardLayout
+                href={item.href}
+                title={item.label}
+                className={clsx('openapi-endpoint', item.className)}
+                endpoint={item.customProps.endpoint}
+                method={item.customProps.method}
+            />
+        );
+    }
+
+    const icon = isInternalUrl(item.href) ? '📄️' : '🔗';
     return (
         <CardLayout
             href={item.href}
