@@ -10,7 +10,9 @@ info:
     The Apify API (version 2) provides programmatic access to the [Apify
     platform](https://docs.apify.com). The API is organized
     around [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)
-    HTTP endpoints.
+    HTTP endpoints. 
+    
+    You can check the complete OpenAPI schema [here](https://docs.apify.com/api/apify-api.yaml).
 
     All requests and responses (including errors) are encoded in
     [JSON](http://www.json.org/) format with UTF-8 encoding,
