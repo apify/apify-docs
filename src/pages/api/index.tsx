@@ -137,11 +137,9 @@ export default function Api() {
                 >
                     <ClientCodeWrapper>
                         <CodeBlock title="cURL" language='bash'>
-                            {`# Prepare Actor input
-echo '{ "searchStringsArray": ["Apify"] }' > input.json
-
-# Run the Actor and retreive its default dataset content.
-curl -X POST -d @input.json \\
+                            {`# Prepare Actor input and run it synchronously
+echo '{ "searchStringsArray": ["Apify"] }' |
+curl -X POST -d @- \\
   -H 'Content-Type: application/json' \\
   -H 'Authorization: Bearer <YOUR_API_TOKEN>' \\
   -L 'https://api.apify.com/v2/acts/compass~crawler-google-places/run-sync-get-dataset-items'
