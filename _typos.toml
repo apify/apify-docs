@@ -1,8 +1,0 @@
-[default]
-extend-ignore-re = [
-    '`[^`\n]+`',  # skip inline code
-    '```[\s\S]*?```',  # skip code blocks
-]
-
-[default.extend-words]
-SER = "SER"

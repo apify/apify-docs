@@ -182,6 +182,7 @@ To run it, you can use the following command: `python apify_integration.py`
 
 ## Resources
 
-- https://docs.haystack.deepset.ai/docs/intro
-- https://haystack.deepset.ai/integrations/apify
-- https://github.com/apify/apify-haystack
+- [Apify-haystack integration documentation](https://haystack.deepset.ai/integrations/apify)
+- [Apify-haystack integration source code](https://github.com/apify/apify-haystack)
+- [Example: RAG - Extract and use website content for question answering](https://haystack.deepset.ai/cookbook/apify_haystack_rag)
+- [Example: Analyze Your Instagram Comments’ Vibe](https://haystack.deepset.ai/cookbook/apify_haystack_instagram_comments_analysis)

@@ -1,0 +1,16 @@
+title: BuildStats
+required:
+  - durationMillis
+  - runTimeSecs
+  - computeUnits
+type: object
+properties:
+  durationMillis:
+    type: number
+    example: 1000
+  runTimeSecs:
+    type: number
+    example: 45.718
+  computeUnits:
+    type: number
+    example: 0.0126994444444444

@@ -102,6 +102,7 @@ You can also navigate Apify Console via keyboard shortcuts.
 |Home| GH  |
 |Store| GO  |
 |Actors| GA  |
+|Development| GD |
 |Saved tasks| GT  |
 |Runs| GR  |
 |Integrations | GI |

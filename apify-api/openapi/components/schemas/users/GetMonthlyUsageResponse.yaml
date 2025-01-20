@@ -1,0 +1,7 @@
+title: GetMonthlyUsageResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./MonthlyUsage.yaml

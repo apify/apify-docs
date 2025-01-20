@@ -22,7 +22,7 @@ Each Actor run is assigned its own key-value store when it is created. The store
 Key-value stores are mutable–you can both add entries and delete them.
 
 > Named key-value stores are retained indefinitely. <br/>
-> Unnamed key-value stores expire after 7 days unless otherwise specified.<br/> > [Learn more](./index.md#named-and-unnamed-storages)
+> Unnamed key-value stores expire after 7 days unless otherwise specified.<br/> > [Learn more](/platform/storage/usage#named-and-unnamed-storages)
 
 ## Basic usage
 
@@ -31,7 +31,7 @@ You can access key-value stores through several methods
 - [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
 - [Apify API](/api/v2#) - for accessing your key-value stores programmatically.
 - [Apify API clients](/api) - to access your key-value stores from any Node.js/Python application.
-- [Apify SDKs](/sdk) - when building your own JavaScript/Pyhton Actor.
+- [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
 
 ### Apify Console
 
@@ -40,7 +40,7 @@ In [Apify Console](https://console.apify.com), you can view your key-value store
 ![Key-value stores in app](./images/key-value-stores-app.png)
 
 To view a key-value store's content, click on its **Store ID**.
-Under the **Actions** menu, you can rename your store (and, in turn extend its [retention period](./usage#named-and-unnamed-storages)) and grant [access rights](../collaboration/index.md) using the **Share** button.
+Under the **Actions** menu, you can rename your store (and, in turn extend its [retention period](/platform/storage/usage#named-and-unnamed-storages)) and grant [access rights](../collaboration/index.md) using the **Share** button.
 Click on the **API** button to view and test a store's [API endpoints](/api/v2#/reference/key-value-stores).
 
 ![Key-value stores detail](./images/key-value-stores-detail.png)
@@ -130,7 +130,7 @@ Check out the [Python API client documentation](/api/client/python/reference/cla
 
 #### JavaScript SDK
 
-When working with a Javascript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#key-value-store) is an essential tool, especially for key-value store management. The primary class for this purpose is the [`KeyValueStore`](/sdk/js/reference/class/KeyValueStore). This class allows you to decide whether your data will be stored locally or in the Apify cloud. For data manipulation, it offers the [`getValue()`](/sdk/js/reference/class/KeyValueStore#getValue) and [`setValue()`](/sdk/js/reference/class/KeyValueStore#setValue) methods to retrieve and assign values, respectively.
+When working with a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#key-value-store) is an essential tool, especially for key-value store management. The primary class for this purpose is the [`KeyValueStore`](/sdk/js/reference/class/KeyValueStore). This class allows you to decide whether your data will be stored locally or in the Apify cloud. For data manipulation, it offers the [`getValue()`](/sdk/js/reference/class/KeyValueStore#getValue) and [`setValue()`](/sdk/js/reference/class/KeyValueStore#setValue) methods to retrieve and assign values, respectively.
 
 Additionally, you can iterate over the keys in your store using the [`forEachKey()`](/sdk/js/reference/class/KeyValueStore#forEachKey) method.
 
@@ -248,7 +248,7 @@ Check out the [Python SDK documentation](/sdk/python/docs/concepts/storages#work
 
 ## Compression
 
-Previously, when using the [Put record](/api/v2#/reference/key-value-stores/record/put-record) endpoint, every record was automatically compressed with Gzip before being uploaded. However, this process has been updated. _Now, record are stored exactly as you upload them._ This change means that it is up to you whether the record is stored compressed or uncompressed.
+Previously, when using the [Put record](/api/v2#/reference/key-value-stores/record/put-record) endpoint, every record was automatically compressed with Gzip before being uploaded. However, this process has been updated. _Now, records are stored exactly as you upload them._ This change means that it is up to you whether the record is stored compressed or uncompressed.
 
 You can compress a record and use the [Content-Encoding request header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding) to let our platform know which compression it uses. We recommend compressing large key-value records to save storage space and network traffic.
 
@@ -314,7 +314,7 @@ other_store_client = apify_client.key_value_store('jane-doe/old-store')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-Check out the [Storage overview](/platform/storage#sharing-storages-between-runs) for details on sharing storages between runs.
+Check out the [Storage overview](/platform/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
 
 ## Data consistency
 

@@ -1,0 +1,7 @@
+title: VersionSourceType
+enum:
+  - SOURCE_FILES
+  - GIT_REPO
+  - TARBALL
+  - GITHUB_GIST
+type: string

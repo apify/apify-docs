@@ -1,0 +1,34 @@
+get:
+  tags:
+    - Webhook dispatches/Webhook dispatch object
+  summary: Get webhook dispatch
+  description: Gets webhook dispatch object with all details.
+  operationId: webhookDispatch_get
+  parameters:
+    - name: dispatchId
+      in: path
+      description: Webhook dispatch ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: Zib4xbZsmvZeK55ua
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/webhook-dispatches/GetWebhookDispatchResponse.yaml
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/webhook-dispatches/webhook-dispatch-object/get-webhook-dispatch
+    - https://docs.apify.com/api/v2#/reference/webhook-dispatches/get-webhook-dispatch
+    - https://docs.apify.com/api/v2#tag/Webhook-dispatchesWebhook-dispatch-object/operation/webhookDispatch_get
+  x-js-parent: WebhookDispatchClient
+  x-js-name: get
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/WebhookDispatchClient#get
+  x-py-parent: WebhookDispatchClientAsync
+  x-py-name: get
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/WebhookDispatchClientAsync#get

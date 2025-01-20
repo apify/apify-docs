@@ -1,0 +1,17 @@
+title: ErrorResponse
+required:
+  - error
+type: object
+properties:
+  error:
+    type: object
+    required:
+      - type
+      - message
+    properties:
+      type:
+        type: string
+        example: run-failed
+      message:
+        type: string
+        example: 'Actor run did not succeed (run ID: 55uatRrZib4xbZs, status: FAILED)'

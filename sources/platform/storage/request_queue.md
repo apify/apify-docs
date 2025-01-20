@@ -15,10 +15,10 @@ import TabItem from '@theme/TabItem';
 
 Request queues enable you to enqueue and retrieve requests such as URLs with an [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and other parameters. They prove essential not only in web crawling scenarios but also in any situation requiring the management of a large number of URLs and the addition of new links.
 
-The storage system for request queues accomoodates both breadth-first and depth-first crawling strategies, along with the inclusion of custom data attributes. This system enables you to check if certain URLs have already been encountered, add new URLs to the queue, and retrieve the next set of URLs for processing.
+The storage system for request queues accommodates both breadth-first and depth-first crawling strategies, along with the inclusion of custom data attributes. This system enables you to check if certain URLs have already been encountered, add new URLs to the queue, and retrieve the next set of URLs for processing.
 
 > Named request queues are retained indefinitely. <br/>
-> Unnamed request queues expire after 7 days unless otherwise specified.<br/> > [Learn more](./index.md#named-and-unnamed-storages)
+> Unnamed request queues expire after 7 days unless otherwise specified.<br/> > [Learn more](/platform/storage/usage#named-and-unnamed-storages)
 
 ## Basic usage
 
@@ -37,7 +37,7 @@ In the [Apify Console](https://console.apify.com), you can view your request que
 
 To view a request queue, click on its **Queue ID**.
 Under the **Actions** menu, you can rename your queue's name (and, in turn, its
-[retention period](./usage#named-and-unnamed-storages)) and [access rights](../collaboration/index.md) using the **Share** button.
+[retention period](/platform/storage/usage#named-and-unnamed-storages)) and [access rights](../collaboration/index.md) using the **Share** button.
 Click on the **API** button to view and test a queue's [API endpoints](/api/v2#/reference/request-queues).
 
 ![Request queues detail](./images/request-queue-detail.png)
@@ -214,7 +214,7 @@ Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/request-storage
 
 #### Python SDK
 
-For Python [Actor](../actors/index.mdx) development, the [Python SDK](/sdk/python/docs/concepts/storages#working-with-request-queues) the in essential. The request queue is represented by [`RequestQueue`](/sdk/python/reference/class/RequestQueue) class. Utilize this class to determine whether your data is stored locally or in in the Apify cloud. For managing your data, it provides the capability to [enqueue new URLs](/sdk/python/reference/class/RequestQueue#add_requests), facilitating seamless integration and operation within your Actor.
+For Python [Actor](../actors/index.mdx) development, the [Python SDK](/sdk/python/docs/concepts/storages#working-with-request-queues) the in essential. The request queue is represented by [`RequestQueue`](/sdk/python/reference/class/RequestQueue) class. Utilize this class to determine whether your data is stored locally or in the Apify cloud. For managing your data, it provides the capability to [enqueue new URLs](/sdk/python/reference/class/RequestQueue#add_requests), facilitating seamless integration and operation within your Actor.
 
 Every Actor run is automatically connected to a default request queue, established specifically for that run upon the addition of the first request. If you're operating your Actors and choose to utilize this queue, it typically serves to store URLs for crawling in the respective Actor run, though its use is not mandatory. To extend functionality, you have the option to create named queue, which offer the flexibility to be shared among different Actors or across multiple Actor runs.
 
@@ -407,7 +407,20 @@ You can lock a request so that no other clients receive it when they fetch the q
 This feature is seamlessly integrated into Crawlee, requiring minimal extra setup. By default, requests are locked for the same duration as the timeout for processing requests in the crawler ([`requestHandlerTimeoutSecs`](https://crawlee.dev/api/next/basic-crawler/interface/BasicCrawlerOptions#requestHandlerTimeoutSecs)).
 If the Actor processing the request fails, the lock expires, and the request is processed again eventually. For more details, refer to the [Crawlee documentation](https://crawlee.dev/docs/next/experiments/experiments-request-locking).
 
-In the following example, we demonstrate how we can use locking mechanisms to avoid concurrent processing of the same request.
+In the following example, we demonstrate how you can use locking mechanisms to avoid concurrent processing of the same request across multiple Actor runs.
+
+:::info
+The lock mechanism works on the client level, as well as the run level, when running the Actor on the Apify platform.
+
+This means you can unlock or prolong the lock the locked request only if:
+
+- You are using the same client key, or
+- The operation is being called from the same Actor run.
+
+:::
+
+<Tabs groupId="main">
+<TabItem value="Actor 1" label="Actor 1">
 
 ```js
 import { Actor, ApifyClient } from 'apify';
@@ -422,15 +435,12 @@ const client = new ApifyClient({
 const requestQueue = await client.requestQueues().getOrCreate('example-queue');
 
 // Creates two clients with different keys for the same request queue.
-const requestQueueClientOne = client.requestQueue(requestQueue.id, {
+const requestQueueClient = client.requestQueue(requestQueue.id, {
     clientKey: 'requestqueueone',
-});
-const requestQueueClientTwo = client.requestQueue(requestQueue.id, {
-    clientKey: 'requestqueuetwo',
 });
 
 // Adds multiple requests to the queue.
-await requestQueueClientOne.batchAddRequests([
+await requestQueueClient.batchAddRequests([
     {
         url: 'http://example.com/foo',
         uniqueKey: 'http://example.com/foo',
@@ -454,52 +464,93 @@ await requestQueueClientOne.batchAddRequests([
 ]);
 
 // Locks the first two requests at the head of the queue.
-const processingRequestsClientOne = await requestQueueClientOne.listAndLockHead(
+const processingRequestsClientOne = await requestQueueClient.listAndLockHead(
     {
         limit: 2,
-        lockSecs: 60,
-    },
-);
-
-// Other clients cannot list and lock these requests; the listAndLockHead call returns other requests from the queue.
-const processingRequestsClientTwo = await requestQueueClientTwo.listAndLockHead(
-    {
-        limit: 2,
-        lockSecs: 60,
+        lockSecs: 120,
     },
 );
 
 // Checks when the lock will expire. The locked request will have a lockExpiresAt attribute.
-const theFirstRequestLockedByClientOne = processingRequestsClientOne.items[0];
-const requestLockedByClientOne = await requestQueueClientOne.getRequest(
-    theFirstRequestLockedByClientOne.id,
+const lockedRequest = processingRequestsClientOne.items[0];
+const lockedRequestDetail = await requestQueueClient.getRequest(
+    lockedRequest.id,
 );
-console.log(`Request locked until ${requestLockedByClientOne?.lockExpiresAt}`);
+console.log(`Request locked until ${lockedRequestDetail?.lockExpiresAt}`);
+
+// Prolongs the lock of the first request or unlocks it.
+await requestQueueClient.prolongRequestLock(
+    lockedRequest.id,
+    { lockSecs: 120 },
+);
+await requestQueueClient.deleteRequestLock(
+    lockedRequest.id,
+);
+
+await Actor.exit();
+```
+
+</TabItem>
+<TabItem value="Actor 2" label="Actor 2">
+
+```js
+import { Actor, ApifyClient } from 'apify';
+
+await Actor.init();
+
+const client = new ApifyClient({
+    token: 'MY-APIFY-TOKEN',
+});
+
+// Waits for the first Actor to lock the requests.
+await new Promise((resolve) => setTimeout(resolve, 5000));
+
+// Get the same request queue in different Actor run and with a different client key.
+const requestQueue = await client.requestQueues().getOrCreate('example-queue');
+
+const requestQueueClient = client.requestQueue(requestQueue.id, {
+    clientKey: 'requestqueuetwo',
+});
+
+// Get all requests from the queue and check one locked by the first Actor.
+const requests = await requestQueueClient.listRequests();
+const requestsLockedByAnotherRun = requests.items.filter((request) => request.lockByClient === 'requestqueueone');
+const requestLockedByAnotherRunDetail = await requestQueueClient.getRequest(
+    requestsLockedByAnotherRun[0].id,
+);
+
+// Other clients cannot list and lock these requests; the listAndLockHead call returns other requests from the queue.
+const processingRequestsClientTwo = await requestQueueClient.listAndLockHead(
+    {
+        limit: 10,
+        lockSecs: 60,
+    },
+);
+const wasBothRunsLockedSameRequest = !!processingRequestsClientTwo.items.find(
+    (request) => request.id === requestLockedByAnotherRunDetail.id,
+);
+
+console.log(`Was the request locked by the first run locked by the second run? ${wasBothRunsLockedSameRequest}`);
+console.log(`Request locked until ${requestLockedByAnotherRunDetail?.lockExpiresAt}`);
 
 // Other clients cannot modify the lock; attempting to do so will throw an error.
 try {
-    await requestQueueClientTwo.prolongRequestLock(
-        theFirstRequestLockedByClientOne.id,
+    await requestQueueClient.prolongRequestLock(
+        requestLockedByAnotherRunDetail.id,
         { lockSecs: 60 },
     );
 } catch (err) {
     // This will throw an error.
 }
 
-// Prolongs the lock of the first request or unlocks it.
-await requestQueueClientOne.prolongRequestLock(
-    theFirstRequestLockedByClientOne.id,
-    { lockSecs: 60 },
-);
-await requestQueueClientOne.deleteRequestLock(
-    theFirstRequestLockedByClientOne.id,
-);
-
 // Cleans up the queue.
-await requestQueueClientOne.delete();
+await requestQueueClient.delete();
 
 await Actor.exit();
 ```
+
+</TabItem>
+</Tabs>
 
 A detailed tutorial on how to process one request queue with multiple Actor runs can be found in [Academy tutorials](https://docs.apify.com/academy/node-js/multiple-runs-scrape).
 
@@ -563,7 +614,7 @@ other_queue_client = apify_client.request_queue('jane-doe/old-queue')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-Check out the [Storage overview](/platform/storage#sharing-storages-between-runs) for details on sharing storages between runs.
+Check out the [Storage overview](/platform/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
 
 ## Limits
 

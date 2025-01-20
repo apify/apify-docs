@@ -1,0 +1,57 @@
+title: RunShort
+required:
+  - id
+  - actId
+  - status
+  - startedAt
+  - finishedAt
+  - buildId
+  - buildNumber
+  - meta
+  - usageTotalUsd
+  - defaultKeyValueStoreId
+  - defaultDatasetId
+  - defaultRequestQueueId
+type: object
+properties:
+  id:
+    type: string
+    example: HG7ML7M8z78YcAPEB
+  actId:
+    type: string
+    example: HDSasDasz78YcAPEB
+  actorTaskId:
+    type: string
+    nullable: true
+    example: KJHSKHausidyaJKHs
+  status:
+    type: string
+    example: SUCCEEDED
+  startedAt:
+    type: string
+    example: '2019-11-30T07:34:24.202Z'
+  finishedAt:
+    type: string
+    example: '2019-12-12T09:30:12.202Z'
+  buildId:
+    type: string
+    example: HG7ML7M8z78YcAPEB
+  buildNumber:
+    type: string
+    example: 0.0.2
+  meta:
+    allOf:
+      - $ref: ./RunMeta.yaml
+      - {}
+  usageTotalUsd:
+    type: number
+    example: 0.2
+  defaultKeyValueStoreId:
+    type: string
+    example: sfAjeR4QmeJCQzTfe
+  defaultDatasetId:
+    type: string
+    example: 3ZojQDdFTsyE7Moy4
+  defaultRequestQueueId:
+    type: string
+    example: so93g2shcDzK3pA85

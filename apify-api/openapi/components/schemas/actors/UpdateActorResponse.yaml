@@ -1,0 +1,7 @@
+title: UpdateActorResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./Actor.yaml

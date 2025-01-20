@@ -1,0 +1,16 @@
+title: RequestOperationInfo
+required:
+  - requestId
+  - wasAlreadyPresent
+  - wasAlreadyHandled
+type: object
+properties:
+  requestId:
+    type: string
+    example: YiKoxjkaS9gjGTqhF
+  wasAlreadyPresent:
+    type: boolean
+    example: true
+  wasAlreadyHandled:
+    type: boolean
+    example: false

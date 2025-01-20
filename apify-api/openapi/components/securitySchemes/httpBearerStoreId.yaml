@@ -1,0 +1,3 @@
+type: http
+scheme: bearer
+description: API authentication token. It is required only when using the `username~store-name` format for `storeId`.

@@ -1,22 +1,30 @@
+# See https://redoc.ly/docs/cli/configuration/ for more information.
+apis:
+    main@v1:
+        root: apify-api/openapi/openapi.yaml
+
 extends:
     - recommended
 
 rules:
+    # TODO we have quite a lot of errors in there, once we fix them, this should be flipped to `error` too
+    spec: warn
     no-unused-components: error
 
 theme:
+    htmlTemplate: openapi/docs/index.html
+
     openapi:
-        requiredPropsFirst: true
-        noAutoAuth: true
-        hideDownloadButton: true
-        onlyRequiredInSamples: true
-        nativeScrollbars: true
-        scrollYOffset: 68
-        colors:
-            primary:
-                main: '#1f9ec8'
         expandDefaultResponse: true
         expandDefaultRequest: true
         expandResponses: all
-        schemaExpansionLevel: 2
-        jsonSampleExpandLevel: 2
+        schemasExpansionLevel: 2
+        jsonSamplesExpandLevel: 2
+
+plugins:
+    - apify-api/plugins/apify.js
+
+decorators:
+    apify/legacy-doc-url-decorator: on
+    apify/client-references-links-decorator: on
+    apify/code-samples-decorator: on

@@ -1,0 +1,9 @@
+title: PutItemResponseError
+required:
+  - error
+type: object
+properties:
+  error:
+    allOf:
+      - $ref: ./DatasetSchemaValidationError.yaml
+      - {}

@@ -7,7 +7,7 @@ slug: /expert-scraping-with-apify/actors-webhooks
 
 # Webhooks & advanced Actor overview {#webhooks-and-advanced-actors}
 
-**Learn more advanced details about Actors, how they work, and the default configurations they can take. **Also**,** learn how** to integrate your Actor with webhooks.**
+**Learn more advanced details about Actors, how they work, and the default configurations they can take. Also, learn how to integrate your Actor with webhooks.**
 
 ---
 
