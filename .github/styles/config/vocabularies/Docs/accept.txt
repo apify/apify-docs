@@ -88,3 +88,8 @@ preconfigured
 
 
 [Mm]ultiselect
+
+[Ss]crapy
+asyncio
+parallelization
+IMDb

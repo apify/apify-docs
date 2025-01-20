@@ -46,6 +46,7 @@ Successfully installed Jinja2-0.0.0 ... ... ... crawlee-0.0.0 ... ... ...
 
 Now let's use the framework to create a new version of our scraper. In the same project directory where our `main.py` file lives, create a file `newmain.py`. This way, we can keep peeking at the original implementation while working on the new one. The initial content will look like this:
 
+<!-- vale off -->
 ```py title="newmain.py"
 import asyncio
 from crawlee.beautifulsoup_crawler import BeautifulSoupCrawler
@@ -62,6 +63,7 @@ async def main():
 if __name__ == '__main__':
     asyncio.run(main())
 ```
+<!-- vale on -->
 
 In the code, we do the following:
 
@@ -309,7 +311,7 @@ async def main():
             await context.push_data(item)
 ```
 
-That's it! If you run the program now, there should be a `storage` directory alonside the `newmain.py` file. Crawlee uses it to store its internal state. If you go to the `storage/datasets/default` subdirectory, you'll see over 30 JSON files, each representing a single item.
+That's it! If you run the program now, there should be a `storage` directory alongside the `newmain.py` file. Crawlee uses it to store its internal state. If you go to the `storage/datasets/default` subdirectory, you'll see over 30 JSON files, each representing a single item.
 
 ![Single dataset item](images/dataset-item.png)
 
