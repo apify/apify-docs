@@ -84,18 +84,17 @@ preconfigured
 [Tt]rello
 [Pp]refill
 
-
 [Mm]ultiselect
-
 
 asyncio
 Langflow
 backlinks?
 captchas?
 Chatbot
+combinator
 deduplicating
 Fakestore
-Fandom's
+Fandom('s)?
 IMDb
 influencers
 iPads?
@@ -110,10 +109,13 @@ reindexes
 [Rr]epurpose
 screenshotting
 [Ss]crapy
+Shein('s)?
 Shopify
 SKUs?
 subreddits?
-subwoofer
+[Ss]ubwoofer
 Tripadvisor
 upvote
 walkthroughs?
+
+ul
