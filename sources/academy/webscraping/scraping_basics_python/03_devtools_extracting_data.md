@@ -58,7 +58,7 @@ To figure out how to get the price, we'll use the **Elements** tab of DevTools a
 
 ![Finding child elements](./images/devtools-product-details.png)
 
-We could either rely on the fact that the sale price is likely to be always the one which is highlighted, or that it's always the first price. For now we'll rely on the former and we'll let `querySelector()` to simply return the first result:
+We could either rely on the fact that the sale price is likely to be always the one which is highlighted, or that it's always the first price. For now we'll rely on the later and we'll let `querySelector()` to simply return the first result:
 
 ```js
 price = subwoofer.querySelector('.price');
@@ -69,7 +69,7 @@ It works, but the price isn't alone in the result. Before we'd use such data, we
 
 ![Extracting product price](./images/devtools-extracting-price.png)
 
-But for now that's okay. We're just testing the waters now, so that we have an idea about what our scraper will need to do. Once we'll get to extracting prices in Python, we'll figure out how to get numbers out of them.
+But for now that's okay. We're just testing the waters now, so that we have an idea about what our scraper will need to do. Once we'll get to extracting prices in Python, we'll figure out how to get the values as numbers.
 
 In the next lesson, we'll start with our Python project. First we'll be figuring out how to download the Sales page without browser and make it accessible in a Python program.
 
@@ -77,8 +77,22 @@ In the next lesson, we'll start with our Python project. First we'll be figuring
 
 <Exercises />
 
-:::danger Work in Progress
+### Locate the top Movies wiki on Fandom
 
-Under development.
+On Fandom's [Movies page](https://www.fandom.com/topics/movies), use CSS selectors and HTML elements manipulation in the **Console** to extract the name of the top wiki. Use JavaScript's [`trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim) method to remove white space from around the name.
 
-:::
+![Fandom's Movies page](./images/devtools-exercise-fandom.png)
+
+<details>
+  <summary>Solution</summary>
+
+  1. Open the [Movies page](https://www.fandom.com/topics/movies).
+  1. Activate the element selection tool in your DevTools.
+  1. Click on the list item for the top Fandom wiki in the category.
+  1. Notice that it has a class `topic_explore-wikis__link`.
+  1. In the **Console**, execute `document.querySelector('.topic_explore-wikis__link')`. It returns element representing the top list item. The selector is apparently used only for the **Top Wikis** list, and because `document.querySelector()` returns the first matching element, we're almost done.
+  1. In the **Console**, execute `item = document.querySelector('.topic_explore-wikis__link')` to save the element in a variable.
+  1. In the **Console**, execute `item.textContent.trim()` to get the element's text without white space.
+  1. At the time of writing, this returns `"Pixar Wiki"`.
+
+</details>
