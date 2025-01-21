@@ -19,6 +19,7 @@
   - Actors/Metamorph run
   - Actors/Resurrect run
   - Actors/Last run object and its storages
+  - Actors/Build OpenAPI specification
 - name: Actor tasks
   tags:
   - Actor tasks
@@ -50,6 +51,7 @@
   - Actor builds/Delete build
   - Actor builds/Abort build
   - Actor builds/Build log
+  - Actor builds/Build OpenAPI specification
 - name: Key-value stores
   tags:
   - Key-value stores
