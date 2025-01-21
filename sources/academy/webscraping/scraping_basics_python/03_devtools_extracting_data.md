@@ -97,7 +97,6 @@ On Fandom's [Movies page](https://www.fandom.com/topics/movies), use CSS selecto
 
 </details>
 
-
 ### Extract the price of IKEA's most expensive artificial plant
 
 At IKEA's [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/), use CSS selectors, and HTML elements manipulation in the **Console** to extract the price of the most expensive artificial plant (sold in Sweden, as we'll be browsing their Swedish offer). Before opening DevTools, use your wits to set the page to a state which is most favorable for you to complete the task with the least effort. In the end, use JavaScript's [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) to turn the text to a number.
@@ -114,5 +113,25 @@ At IKEA's [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/a
   1. In the **Console**, execute `price = document.querySelector('.plp-price__integer')` to save the element in a variable.
   1. In the **Console**, execute `parseInt(price.textContent)` to get the price as a number.
   1. At the time of writing, this returns `699`, as in [699 SEK](https://www.google.com/search?q=699%20sek).
+
+</details>
+
+### Extract details about the first post on Guardian's F1 news
+
+At Guardian's [F1 news page](https://www.theguardian.com/sport/formulaone), use CSS selectors and HTML manipulation in the **Console** to extract details about the first post. Extract its title, lead paragraph, and URL of the photo.
+
+![F1 news page](./images/devtools-exercise-guardian2.png)
+
+<details>
+  <summary>Solution</summary>
+
+  1. Open the [F1 news page](https://www.theguardian.com/sport/formulaone).
+  1. Activate the element selection tool in your DevTools.
+  1. Click on the first post.
+  1. Notice that there are no good classes to go by. The markup uses generic tags and randomized classes. We must rely on the hierarchy and order of the elements instead.
+  1. In the **Console**, execute `post = document.querySelector('#maincontent ul li')`. It returns element representing the first post.
+  1. In the **Console**, execute `post.querySelector('h3').textContent` to extract the title.
+  1. In the **Console**, execute `post.querySelector('span div').textContent` to extract the lead paragraph.
+  1. In the **Console**, execute `post.querySelector('img').src` to extract the photo URL.
 
 </details>
