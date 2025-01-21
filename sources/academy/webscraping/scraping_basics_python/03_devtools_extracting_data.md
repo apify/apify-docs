@@ -77,9 +77,28 @@ In the next lesson, we'll start with our Python project. First we'll be figuring
 
 <Exercises />
 
+### Extract the price of IKEA's most expensive artificial plant
+
+At IKEA's [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/), use CSS selectors and HTML elements manipulation in the **Console** to extract the price of the most expensive artificial plant (sold in Sweden, as you'll be browsing their Swedish offer). Before opening DevTools, use your judgment to adjust the page to make the task as straightforward as possible. Finally, use JavaScript's [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) function to convert the price text into a number.
+
+<details>
+  <summary>Solution</summary>
+
+  1. Open the [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/).
+  1. Sort the products by price, from high to low, so the most expensive plant appears first in the listing.
+  1. Activate the element selection tool in your DevTools.
+  1. Click on the price of the first and most expensive plant.
+  1. Notice that the price is structured into two elements, with the integer separated from the currency, under a class named `plp-price__integer`. This structure is convenient for extracting the value.
+  1. In the **Console**, execute `document.querySelector('.plp-price__integer')`. This returns the element representing the first price in the listing. Since `document.querySelector()` returns the first matching element, it directly selects the most expensive plant's price.
+  1. Save the element in a variable by executing `price = document.querySelector('.plp-price__integer')`.
+  1. Convert the price text into a number by executing `parseInt(price.textContent)`.
+  1. At the time of writing, this returns `699`, meaning [699 SEK](https://www.google.com/search?q=699%20sek).
+
+</details>
+
 ### Extract the name of the top wiki on Fandom Movies
 
-On Fandom's [Movies page](https://www.fandom.com/topics/movies), use CSS selectors and HTML elements manipulation in the **Console** to extract the name of the top wiki. Use JavaScript's [`trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim) method to remove white space from around the name.
+On Fandom's [Movies page](https://www.fandom.com/topics/movies), use CSS selectors and HTML element manipulation in the **Console** to extract the name of the top wiki. Use JavaScript's [`trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim) method to remove white space around the name.
 
 ![Fandom's Movies page](./images/devtools-exercise-fandom.png)
 
@@ -90,35 +109,15 @@ On Fandom's [Movies page](https://www.fandom.com/topics/movies), use CSS selecto
   1. Activate the element selection tool in your DevTools.
   1. Click on the list item for the top Fandom wiki in the category.
   1. Notice that it has a class `topic_explore-wikis__link`.
-  1. In the **Console**, execute `document.querySelector('.topic_explore-wikis__link')`. It returns element representing the top list item. The selector is apparently used only for the **Top Wikis** list, and because `document.querySelector()` returns the first matching element, we're almost done.
-  1. In the **Console**, execute `item = document.querySelector('.topic_explore-wikis__link')` to save the element in a variable.
-  1. In the **Console**, execute `item.textContent.trim()` to get the element's text without white space.
-  1. At the time of writing, this returns `"Pixar Wiki"`.
-
-</details>
-
-### Extract the price of IKEA's most expensive artificial plant
-
-At IKEA's [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/), use CSS selectors, and HTML elements manipulation in the **Console** to extract the price of the most expensive artificial plant (sold in Sweden, as we'll be browsing their Swedish offer). Before opening DevTools, use your wits to set the page to a state which is most favorable for you to complete the task with the least effort. In the end, use JavaScript's [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) to turn the text to a number.
-
-<details>
-  <summary>Solution</summary>
-
-  1. Open the [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/).
-  1. Sort the products by price, high to low, so that the most expensive plant appears first in the listing.
-  1. Activate the element selection tool in your DevTools.
-  1. Click on the price of the first and most expensive plant.
-  1. Notice that it has a class `plp-price__integer`. In the markup the price is already structured into two elements, with the integer separate from the currency, which is convenient.
-  1. In the **Console**, execute `document.querySelector('.plp-price__integer')`. It returns element representing the first list item. The selector is apparently used only inside product cards, and because `document.querySelector()` returns the first matching element, we're almost done.
-  1. In the **Console**, execute `price = document.querySelector('.plp-price__integer')` to save the element in a variable.
-  1. In the **Console**, execute `parseInt(price.textContent)` to get the price as a number.
-  1. At the time of writing, this returns `699`, as in [699 SEK](https://www.google.com/search?q=699%20sek).
+  1. In the **Console**, execute `document.querySelector('.topic_explore-wikis__link')`. This returns the element representing the top list item. They use the selector only for the **Top Wikis** list, and because `document.querySelector()` returns the first matching element, you're almost done.
+  1. Save the element in a variable by executing `item = document.querySelector('.topic_explore-wikis__link')`.
+  1. Get the element's text without extra white space by executing `item.textContent.trim()`. At the time of writing, this returns `"Pixar Wiki"`.
 
 </details>
 
 ### Extract details about the first post on Guardian's F1 news
 
-At Guardian's [F1 news page](https://www.theguardian.com/sport/formulaone), use CSS selectors and HTML manipulation in the **Console** to extract details about the first post. Extract its title, lead paragraph, and URL of the photo.
+On the Guardian's [F1 news page](https://www.theguardian.com/sport/formulaone), use CSS selectors and HTML manipulation in the **Console** to extract details about the first post. Specifically, extract its title, lead paragraph, and URL of the associated photo.
 
 ![F1 news page](./images/devtools-exercise-guardian2.png)
 
@@ -128,10 +127,10 @@ At Guardian's [F1 news page](https://www.theguardian.com/sport/formulaone), use 
   1. Open the [F1 news page](https://www.theguardian.com/sport/formulaone).
   1. Activate the element selection tool in your DevTools.
   1. Click on the first post.
-  1. Notice that there are no good classes to go by. The markup uses generic tags and randomized classes. We must rely on the hierarchy and order of the elements instead.
-  1. In the **Console**, execute `post = document.querySelector('#maincontent ul li')`. It returns element representing the first post.
-  1. In the **Console**, execute `post.querySelector('h3').textContent` to extract the title.
-  1. In the **Console**, execute `post.querySelector('span div').textContent` to extract the lead paragraph.
-  1. In the **Console**, execute `post.querySelector('img').src` to extract the photo URL.
+  1. Notice that the markup does not provide clear, reusable class names for this task. The structure uses generic tags and randomized classes, requiring you to rely on the element hierarchy and order instead.
+  1. In the **Console**, execute `post = document.querySelector('#maincontent ul li')`. This returns the element representing the first post.
+  1. Extract the post's title by executing `post.querySelector('h3').textContent`.
+  1. Extract the lead paragraph by executing `post.querySelector('span div').textContent`.
+  1. Extract the photo URL by executing `post.querySelector('img').src`.
 
 </details>
