@@ -77,7 +77,7 @@ In the next lesson, we'll start with our Python project. First we'll be figuring
 
 <Exercises />
 
-### Locate the top Movies wiki on Fandom
+### Extract the name of the top wiki on Fandom Movies
 
 On Fandom's [Movies page](https://www.fandom.com/topics/movies), use CSS selectors and HTML elements manipulation in the **Console** to extract the name of the top wiki. Use JavaScript's [`trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim) method to remove white space from around the name.
 
@@ -94,5 +94,25 @@ On Fandom's [Movies page](https://www.fandom.com/topics/movies), use CSS selecto
   1. In the **Console**, execute `item = document.querySelector('.topic_explore-wikis__link')` to save the element in a variable.
   1. In the **Console**, execute `item.textContent.trim()` to get the element's text without white space.
   1. At the time of writing, this returns `"Pixar Wiki"`.
+
+</details>
+
+
+### Extract the price of IKEA's most expensive artificial plant
+
+At IKEA's [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/), use CSS selectors, and HTML elements manipulation in the **Console** to extract the price of the most expensive artificial plant (sold in Sweden, as we'll be browsing their Swedish offer). Before opening DevTools, use your wits to set the page to a state which is most favorable for you to complete the task with the least effort. In the end, use JavaScript's [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) to turn the text to a number.
+
+<details>
+  <summary>Solution</summary>
+
+  1. Open the [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/).
+  1. Sort the products by price, high to low, so that the most expensive plant appears first in the listing.
+  1. Activate the element selection tool in your DevTools.
+  1. Click on the price of the first and most expensive plant.
+  1. Notice that it has a class `plp-price__integer`. In the markup the price is already structured into two elements, with the integer separate from the currency, which is convenient.
+  1. In the **Console**, execute `document.querySelector('.plp-price__integer')`. It returns element representing the first list item. The selector is apparently used only inside product cards, and because `document.querySelector()` returns the first matching element, we're almost done.
+  1. In the **Console**, execute `price = document.querySelector('.plp-price__integer')` to save the element in a variable.
+  1. In the **Console**, execute `parseInt(price.textContent)` to get the price as a number.
+  1. At the time of writing, this returns `699`, as in [699 SEK](https://www.google.com/search?q=699%20sek).
 
 </details>
