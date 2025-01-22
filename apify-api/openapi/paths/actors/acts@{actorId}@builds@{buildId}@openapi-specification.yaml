@@ -1,0 +1,40 @@
+get:
+  tags:
+    - Actors/Get OpenAPI specification
+  summary: Get OpenAPI specification
+  description: |
+    Get the OpenAPI specification for a specific Actor build.
+
+    To fetch the default Actor build, simply pass `default` as the `buildId`.
+    Authentication is based on the build's unique ID. No authentication token is required.
+    
+    **Note**: You can also use the `/api/v2/actor-build-openapi-specification-get` endpoint to get the OpenAPI specification for a build.
+  operationId: act_openapiSpecification_get
+  security:
+    - apiKeyActorBuilds: []
+    - httpBearerActorBuilds: []
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: buildId
+      in: path
+      description: ID of the build you want to get, found in the build's `Info` tab. Pass `default` for default Actor build.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: soSkq9ekdmfOslopH
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/actor-builds/GetOpenApiResponse.yaml'
