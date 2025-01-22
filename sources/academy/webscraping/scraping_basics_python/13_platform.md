@@ -12,26 +12,28 @@ import Exercises from './_exercises.mdx';
 
 ---
 
-Before starting with a scraping platform, let's highlight a few caveats in our current solution:
+Before starting with a scraping platform, let's highlight a few caveats in our current setup:
 
-- **User-operated:** We have to run the scraper ourselves. If we're interested in price trends, we'd have to remember to run the program every day. If we want the program to alert us about a big discount, having to run it manually isn't much better than just opening the web page in our browser every day.
-- **No monitoring:** If we have a spare server or a Raspberry Pi under the table, we could use [cron](https://en.wikipedia.org/wiki/Cron) to schedule the program. But even then, we'd have little visibility into whether it finished successfully, what errors or warnings occurred, how long it ran, or what resources it consumed.
-- **Manual data management:** To track prices over time, we'd have to figure out how to organize the exported data. If we wanted to process the data, we might discover that different data analysis tools require specific formats.
-- **Prone to anti-scraping:** If the target website detects we're scraping their data, they can rate-limit or even block us. We could take a laptop to a nearby coffee shop and run the program while connected to their public Wi-Fi, but eventually they'll probably block that one too—risking seriously annoying your barista.
+- **User-operated:** We have to run the scraper ourselves. If we're tracking price trends, we'd need to remember to run it daily. And if we want alerts for big discounts, manually running the program isn't much better than just checking the site in a browser every day.
+- **No monitoring:** If we have a spare server or a Raspberry Pi lying around, we could use [cron](https://en.wikipedia.org/wiki/Cron) to schedule it. But even then, we'd have little insight into whether it ran successfully, what errors or warnings occurred, how long it took, or what resources it used.
+- **Manual data management:** Tracking prices over time means figuring out how to organize the exported data ourselves. Processing the data could also be tricky since different analysis tools often require different formats.
+- **Anti-scraping risks:** If the target website detects our scraper, they can rate-limit or block us. Sure, we could run it from a coffee shop's Wi-Fi, but eventually, they'd block that too—risking seriously annoying the barista.
 
-In this lesson, we'll use a platform to help us with all the above. Generic cloud platforms, such as [GitHub Actions](https://github.com/features/actions), can provide sufficient tools for simple scenarios. Platforms dedicated to scraping, such as [Apify](https://apify.com/), offer additional features, such as monitoring scrapers, managing the retreived data, or allowing overcoming anti-scraping measures.
+In this lesson, we'll use a platform to address all of these issues. Generic cloud platforms like [GitHub Actions](https://github.com/features/actions) can work for simple scenarios. But platforms dedicated to scraping, like [Apify](https://apify.com/), offer extra features such as monitoring scrapers, managing retrieved data, and overcoming anti-scraping measures.
 
 :::info Why Apify
 
-Many scraping platforms exist, each providing a diverse offer of products and approaches. Obviously, as course authors we're biased to think that Apify is the best and most complete.
+Scraping platforms come in many varieties, offering a wide range of tools and approaches. As the course authors, we're obviously a bit biased toward Apify—we think it's both powerful and complete.
 
-The main goal of this lesson is to **show how deployment to any platform can be useful**, and that isn't specific to Apify. Also, rest assured, everything here fits within our [free tier](https://apify.com/pricing).
+That said, the main goal of this lesson is to show how deploying to **any platform** can make life easier—it's not Apify-specific. Plus, everything we cover here fits within [Apify's free tier](https://apify.com/pricing).
 
 :::
 
 ## Registering
 
-##
+## Something
+
+## What's next
 
 ---
 
