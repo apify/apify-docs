@@ -19,6 +19,24 @@ Before starting with a scraping platform, let's highlight a few caveats in our c
 - **Manual data management:** To track prices over time, we'd have to figure out how to organize the exported data. If we wanted to process the data, we might discover that different data analysis tools require specific formats.
 - **Prone to anti-scraping:** If the target website detects we're scraping their data, they can rate-limit or even block us. We could take a laptop to a nearby coffee shop and run the program while connected to their public Wi-Fi, but eventually they'll probably block that one too—risking seriously annoying your barista.
 
+In this lesson, we'll use a platform to help us with all the above. Generic cloud platforms, such as [GitHub Actions](https://github.com/features/actions), can provide sufficient tools for simple scenarios. Platforms dedicated to scraping, such as [Apify](https://apify.com/), offer additional features, such as monitoring scrapers, managing the retreived data, or allowing overcoming anti-scraping measures.
+
+:::info Why Apify
+
+Many scraping platforms exist, each providing a diverse offer of products and approaches. Obviously, as course authors we're biased to think that Apify is the best and most complete.
+
+The main goal of this lesson is to **show how deployment to any platform can be useful**, and that isn't specific to Apify. Also, rest assured, everything here fits within our [free tier](https://apify.com/pricing).
+
+:::
+
+## Registering
+
+##
+
+---
+
+<Exercises />
+
 :::danger Work in progress
 
 This course is incomplete. As we work on adding new lessons, we would love to hear your feedback. You can comment right here under each page or [file a GitHub Issue](https://github.com/apify/apify-docs/issues) to discuss a problem.
