@@ -25,14 +25,17 @@ To show how to use the platform, we are going to create an example AI agent work
 ### Installation
 
 First, we need to install the Langflow platform using [uv](https://docs.astral.sh/uv/):
+
 ```bash
 uv pip install langflow
 ```
 
 After the successful installation of Langflow, we can start the platform:
+
 ```bash
 uv run langflow run
 ```
+
 Other installation methods can be found in the [Langflow documentation](https://docs.langflow.org/get-started-installation).
 
 When the platform is started, open the [Langflow UI](http://127.0.0.1:7860) in your browser.
@@ -70,7 +73,9 @@ Click the **Playground** button in the top right corner and chat with the Agent 
 ![Flow - Playground](../images/langflow/playground.png)
 
 Here is an example Agent output for the following query:
-```
+
+```text
 find tiktok profile of company alza.cz using google search and then show me the profile bio and their latest video
 ```
+
 ![Flow - Agent output](../images/langflow/agent_output.png)
