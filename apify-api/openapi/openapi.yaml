@@ -499,6 +499,8 @@ paths:
     $ref: 'paths/actors/acts@{actorId}@builds.yaml'
   '/v2/acts/{actorId}/builds/{buildId}':
     $ref: 'paths/actors/acts@{actorId}@builds@{buildId}.yaml'
+  '/v2/acts/{actorId}/builds/default':
+    $ref: 'paths/actors/acts@{actorId}@builds@default.yaml'
   '/v2/acts/{actorId}/builds/{buildId}/abort':
     $ref: 'paths/actors/acts@{actorId}@builds@{buildId}@abort.yaml'
   '/v2/acts/{actorId}/runs':
