@@ -12,7 +12,10 @@ info:
     around [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)
     HTTP endpoints. 
     
-    You can check the complete OpenAPI schema [here](https://docs.apify.com/api/apify-api.yaml).
+    You can check the complete OpenAPI schema in the following formats:
+    
+    - [OpenAPI YAML](http://docs.apify.com/api/openapi.yaml)
+    - [OpenAPI JSON](http://docs.apify.com/api/openapi.json)
 
     All requests and responses (including errors) are encoded in
     [JSON](http://www.json.org/) format with UTF-8 encoding,
