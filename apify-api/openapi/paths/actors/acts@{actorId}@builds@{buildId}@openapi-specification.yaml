@@ -4,7 +4,7 @@ get:
   summary: Get OpenAPI specification
   description: |
     Get the OpenAPI specification for a specific Actor build.
-    
+
     To fetch the default Actor build, simply pass `default` as the `buildId`.
     Authentication is based on the build's unique ID. No authentication token is required.
     
@@ -37,4 +37,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actor-builds/GetOpenApiResponse.yaml"
+            $ref: '../../components/schemas/actor-builds/GetOpenApiResponse.yaml'

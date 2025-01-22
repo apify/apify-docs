@@ -12,10 +12,10 @@ properties:
         example: Your Magic Actor
       version: 
         type: string
-        example: "1.0"
+        example: '1.0'
       x-build-id: 
         type: string
-        example: "ID of build"
+        example: 'ID of build'
   servers:
     type: array
     items:
@@ -46,7 +46,7 @@ properties:
                 type: array
                 items:
                   type: string
-                example: ["Run Actor"]
+                example: ['Run Actor']
               requestBody:
                 type: object
                 properties:
@@ -116,7 +116,7 @@ properties:
                 type: array
                 items:
                   type: string
-                example: ["Run Actor"]
+                example: ['Run Actor']
               requestBody:
                 type: object
                 properties:
@@ -194,7 +194,7 @@ properties:
                 type: array
                 items:
                   type: string
-                example: ["Run Actor"]
+                example: ['Run Actor']
               requestBody:
                 type: object
                 properties:
@@ -300,7 +300,7 @@ properties:
                                 example: date-time
                               example:
                                 type: string
-                                example: "2025-01-08T00:00:00.000Z"
+                                example: '2025-01-08T00:00:00.000Z'
                           finishedAt:
                             type: object
                             properties:
@@ -312,7 +312,7 @@ properties:
                                 example: date-time
                               example:
                                 type: string
-                                example: "2025-01-08T00:00:00.000Z"
+                                example: '2025-01-08T00:00:00.000Z'
                           status:
                             type: object
                             properties:
@@ -321,7 +321,7 @@ properties:
                                 example: string
                               example:
                                 type: string
-                                example: "READY"
+                                example: 'READY'
                           meta:
                             type: object
                             properties:
@@ -339,7 +339,7 @@ properties:
                                         example: string
                                       example:
                                         type: string
-                                        example: "API"
+                                        example: 'API'
                                   userAgent:
                                     type: object
                                     properties:
