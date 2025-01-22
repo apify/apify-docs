@@ -44,7 +44,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/actor-builds/GetBuildResponse.yaml"
+            $ref: '../../components/schemas/actor-builds/GetBuildResponse.yaml'
           example:
             data:
               id: HG7ML7M8z78YcAPEB
