@@ -10,6 +10,7 @@
   - Actors/Webhook collection
   - Actors/Build collection
   - Actors/Build object
+  - Actors/Default build object
   - Actors/Abort build
   - Actors/Run collection
   - Actors/Run actor synchronously

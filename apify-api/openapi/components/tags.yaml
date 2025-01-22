@@ -127,6 +127,10 @@
   x-trait: 'true'
   description: '**[DEPRECATED]** API endpoints related to build of the actor were
     moved under new namespace [`actor-builds`](#/reference/actor-builds).'
+- name: Actors/Default build object
+  x-displayName: Default build object
+  x-parent-tag-name: Actor builds
+  x-trait: 'true'
 - name: Actors/Abort build
   x-displayName: Abort build
   x-parent-tag-name: Actors
