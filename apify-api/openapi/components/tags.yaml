@@ -251,8 +251,8 @@
     ```
 
     In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
-- name: Actors/Build OpenAPI specification
-  x-displayName: Build OpenAPI Specification
+- name: Actors/Get OpenAPI specification
+  x-displayName: Get OpenAPI specification
   x-parent-tag-name: Actors
   x-trait: 'true'
   description: |
@@ -260,8 +260,6 @@
 
     - [First Endpoint](/api/v2/act-openapi-specification-get): Requires both `actorId` and `buildId`. You can pass `default` instead of buildId to retrieve the OpenAPI schema for the default actor build.
     - [Second Endpoint](/api/v2/actor-build-openapi-specification-get): Requires only `buildId`.
-  x-legacy-doc-urls:
-  - '#/reference/actors/openapi-specification'
 - name: Actor tasks
   x-displayName: Actor tasks
   x-legacy-doc-urls:
@@ -559,8 +557,8 @@
   - '#tag/Actor-buildsBuild-log'
   x-trait: 'true'
   description: Check out [Logs](#/reference/logs) for full reference.
-- name: Actor builds/Build OpenAPI specification
-  x-displayName: Build OpenAPI Specification
+- name: Actor builds/Get OpenAPI specification
+  x-displayName: Get OpenAPI specification
   x-parent-tag-name: Actor builds
   x-trait: 'true'
   description: |
@@ -568,8 +566,6 @@
 
     - [First Endpoint](/api/v2/act-openapi-specification-get): Requires both `actorId` and `buildId`. You can pass `default` instead of buildId to retrieve the OpenAPI schema for the default actor build.
     - [Second Endpoint](/api/v2/actor-build-openapi-specification-get): Requires only `buildId`.
-  x-legacy-doc-urls:
-  - '#/reference/actor-builds/openapi-specification'
 - name: Key-value stores
   x-displayName: Key-value stores
   x-legacy-doc-urls:

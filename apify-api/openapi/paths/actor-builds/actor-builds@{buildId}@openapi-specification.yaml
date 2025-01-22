@@ -1,6 +1,6 @@
 get:
   tags:
-    - Actor builds/Build OpenAPI specification
+    - Actor builds/Get OpenAPI specification
   summary: Get OpenAPI specification
   description: |
 
