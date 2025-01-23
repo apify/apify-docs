@@ -201,7 +201,7 @@ Data exporter:
 Name: Apify Technologies s.r.o.
 Address: Vodičkova 704/36, Nové Město, 110 00 Praha 1
 Contact person’s name, position and contact details:
-Apify Privacy Team, privacy@apify.com
+Apify Privacy Team, privacy[at]apify[dot]com
 Activities relevant to the data transferred under these Clauses: Processing necessary to provide the Apify Platform and other Services by Apify to Customer and for any disclosures of Personal Data in accordance with the Agreement.
 Role: Processor or Subprocessor, as applicable
 
