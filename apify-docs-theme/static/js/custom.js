@@ -63,13 +63,13 @@ function scrollSidebarItemIntoView() {
 
 // handles automatic scrolling of the API reference sidebar (openapi-docs)
 function scrollOpenApiSidebarItemIntoView() {
-    const $li = document.querySelector(`ul.theme-doc-sidebar-menu a.menu__link--active[href]`);
+    const $li = document.querySelectorAll(`ul.theme-doc-sidebar-menu a.menu__link--active[href]`);
 
-    if (!$li) {
+    if ($li.length === 0) {
         return;
     }
 
-    $li.scrollIntoView({
+    $li[$li.length - 1].scrollIntoView({
         block: 'nearest',
         inline: 'center',
     });
@@ -78,8 +78,7 @@ function scrollOpenApiSidebarItemIntoView() {
 function redirectOpenApiDocs() {
     const { hash, pathname, origin } = new URL(window.location.href);
 
-    // TODO change to '/api/v2'
-    if (pathname.replace(/\/$/, '') !== '/api/v2-new') {
+    if (!pathname.startsWith('/api/v2') || pathname.startsWith('/api/v2-')) {
         return;
     }
 
@@ -129,5 +128,6 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('popstate', () => {
+    setTimeout(() => redirectOpenApiDocs(), 50);
     setTimeout(() => scrollOpenApiSidebarItemIntoView(), 50);
 });

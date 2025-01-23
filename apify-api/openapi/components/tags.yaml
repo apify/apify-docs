@@ -3,28 +3,18 @@
   x-legacy-doc-urls:
   - '#/reference/actors'
   - '#tag/Actors'
-  description: >-
-    The API endpoints described in this section enable you to manage, build and run
-    Apify actors.
+  description: |
+    The API endpoints described in this section enable you to manage, build and run Apify actors.
+    For more information, see the <a href="https://docs.apify.com/platform/actors">Actor documentation</a>.
 
-    For more information, see the <a href="https://docs.apify.com/platform/actors">Actor
-    documentation</a>.
-
-
-    Note that for all the API endpoints that accept the `actorId` parameter to specify
-    an actor,
-
+    Note that for all the API endpoints that accept the `actorId` parameter to specify an actor,
     you can pass either the actor ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
-
     username of the actor owner and the actor name (e.g. `janedoe~my-actor`).
-
 
     Some of the API endpoints return runs objects. Note that if any such run object
     contains usage in dollars, your effective unit pricing at the time of query
-
     has been used for computation of this dollar equivalent, and hence it should be
     used only for informative purposes. You can learn more
-
     about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
 - name: Actors/Actor collection
   x-displayName: Actor collection
@@ -54,20 +44,16 @@
   - '#/reference/actors/version-object'
   - '#tag/ActorsVersion-object'
   x-trait: 'true'
-  description: >-
+  description: |
     The **Version object** contains the source code of a specific version of an actor.
-
     The `sourceType` property indicates where the source code is hosted, and based
-
     on its value the Version object has the following additional property:
-
 
     <table>
       <tr>
         <td><code>"SOURCE_FILES"</code></td>
         <td>
-            Source code is comprised of multiple files specified in the <code>sourceFiles</code>
-    array.
+            Source code is comprised of multiple files specified in the <code>sourceFiles</code> array.
             Each item of the array is an object with the following fields:<br />
             <ul>
             <li><code>name</code></li> - File path and name<br />
@@ -101,7 +87,6 @@
           </td>
       </tr>
     </table>
-
 
     For more information about source code and actor versions, see [Source code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
     in Actors documentation.
@@ -142,6 +127,10 @@
   x-trait: 'true'
   description: '**[DEPRECATED]** API endpoints related to build of the actor were
     moved under new namespace [`actor-builds`](#/reference/actor-builds).'
+- name: Actors/Default build object
+  x-displayName: Default build object
+  x-parent-tag-name: Actor builds
+  x-trait: 'true'
 - name: Actors/Abort build
   x-displayName: Abort build
   x-parent-tag-name: Actors
@@ -211,138 +200,88 @@
   - '#/reference/actors/last-run-object-and-its-storages'
   - '#tag/ActorsLast-run-object-and-its-storages'
   x-trait: 'true'
-  description: >-
-    This is not a single endpoint, but an entire group of endpoints that lets you
-    to
-
+  description: |
+    This is not a single endpoint, but an entire group of endpoints that lets you to
     retrieve and manage the last run of given actor or any of its default storages.
-
     All the endpoints require an authentication token.
 
-
     The endpoints accept the same HTTP methods and query parameters as
-
     the respective storage endpoints.
-
     The base path represents the last actor run object is:
-
 
     `/v2/acts/{actorId}/runs/last{?token,status}`
 
-
-    Using the `status` query parameter you can ensure to only get a run with a certain
-    status
-
+    Using the `status` query parameter you can ensure to only get a run with a certain status
     (e.g. `status=SUCCEEDED`). The output of this endpoint and other query parameters
-
     are the same as in the [Run object](#/reference/actors/run-object) endpoint.
 
-
     In order to access the default storages of the last actor run, i.e. log, key-value
-    store, dataset and request queue,
-
-    use the following endpoints:
-
+    store, dataset and request queue, use the following endpoints:
 
     * `/v2/acts/{actorId}/runs/last/log{?token,status}`
-
-
     * `/v2/acts/{actorId}/runs/last/key-value-store{?token,status}`
-
-
     * `/v2/acts/{actorId}/runs/last/dataset{?token,status}`
-
-
     * `/v2/acts/{actorId}/runs/last/request-queue{?token,status}`
 
-
     These API endpoints have the same usage as the equivalent storage endpoints.
-
-    For example,
-
-    `/v2/acts/{actorId}/runs/last/key-value-store` has the same HTTP method and parameters
-    as the
-
-    [Key-value store object](#/reference/key-value-stores/store-object) endpoint.
-
+    For example, `/v2/acts/{actorId}/runs/last/key-value-store` has the same HTTP method and parameters
+    as the [Key-value store object](#/reference/key-value-stores/store-object) endpoint.
 
     Additionally, each of the above API endpoints supports all sub-endpoints
-
     of the original one:
-
 
     #### Key-value store
 
-
     * `/v2/acts/{actorId}/runs/last/key-value-store/keys{?token,status}` [Key collection](#/reference/key-value-stores/key-collection)
-
-
-    * `/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}{?token,status}`
-    [Record](#/reference/key-value-stores/record)
-
+    * `/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}{?token,status}` [Record](#/reference/key-value-stores/record)
 
     #### Dataset
 
-
     * `/v2/acts/{actorId}/runs/last/dataset/items{?token,status}` [Item collection](#/reference/datasets/item-collection)
-
 
     #### Request queue
 
-
     * `/v2/acts/{actorId}/runs/last/request-queue/requests{?token,status}` [Request
     collection](#/reference/request-queues/request-collection)
-
-
     * `/v2/acts/{actorId}/runs/last/request-queue/requests/{requestId}{?token,status}`
     [Request collection](#/reference/request-queues/request)
-
-
     * `/v2/acts/{actorId}/runs/last/request-queue/head{?token,status}` [Queue head](#/reference/request-queues/queue-head)
 
-
-    For example, to download data from a dataset of the last succeeded actor run in
-    XML format,
-
+    For example, to download data from a dataset of the last succeeded actor run in XML format,
     send HTTP GET request to the following URL:
 
-
     ```
-
     https://api.apify.com/v2/acts/{actorId}/runs/last/dataset/items?token={yourApiToken}&format=xml&status=SUCCEEDED
-
     ```
 
+    In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
+- name: Actors/Get OpenAPI specification
+  x-displayName: Get OpenAPI specification
+  x-parent-tag-name: Actors
+  x-trait: 'true'
+  description: |
+    Get the OpenAPI specification for Actor builds. Two similar endpoints are available:
 
-    In order to save new items to the dataset, send HTTP POST request with JSON payload
-    to the same URL.
+    - [First endpoint](/api/v2/act-openapi-specification-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
+    - [Second endpoint](/api/v2/actor-build-openapi-specification-get): Requires only `buildId`.
 - name: Actor tasks
   x-displayName: Actor tasks
   x-legacy-doc-urls:
   - '#/reference/actor-tasks'
   - '#tag/Actor-tasks'
-  description: >-
-    The API endpoints described in this section enable you to manage and run Apify
-    actor tasks.
-
+  description: |
+    The API endpoints described in this section enable you to manage and run Apify actor tasks.
     For more information, see the <a href="https://docs.apify.com/platform/actors/running/tasks">Actor
     tasks documentation</a>.
 
-
     Note that for all the API endpoints that accept the `actorTaskId` parameter to
-    specify a task,
-
-    you can pass either the task ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
-
+    specify a task, you can pass either the task ID (e.g. `HG7ML7M8z78YcAPEB`) or a tilde-separated
     username of the task's owner and the task's name (e.g. `janedoe~my-task`).
-
 
     Some of the API endpoints return runs objects. Note that if any such run object
     contains usage in dollars, your effective unit pricing at the time of query
-
     has been used for computation of this dollar equivalent, and hence it should be
     used only for informative purposes. You can learn more
-
     about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
 - name: Actor tasks/Task collection
   x-displayName: Task collection
@@ -400,129 +339,74 @@
   - '#/reference/actor-tasks/last-run-object-and-its-storages'
   - '#tag/Actor-tasksLast-run-object-and-its-storages'
   x-trait: 'true'
-  description: >-
-    This is not a single endpoint, but an entire group of endpoints that lets you
-    to
-
+  description: |
+    This is not a single endpoint, but an entire group of endpoints that lets you to
     retrieve and manage the last run of given actor task or any of its default storages.
-
     All the endpoints require an authentication token.
 
-
     The endpoints accept the same HTTP methods and query parameters as
-
     the respective storage endpoints.
-
     The base path represents the last actor task run object is:
-
 
     `/v2/actor-tasks/{actorTaskId}/runs/last{?token,status}`
 
-
-    Using the `status` query parameter you can ensure to only get a run with a certain
-    status
-
+    Using the `status` query parameter you can ensure to only get a run with a certain status
     (e.g. `status=SUCCEEDED`). The output of this endpoint and other query parameters
-
     are the same as in the [Run object](#/reference/actors/run-object) endpoint.
 
-
     In order to access the default storages of the last actor task run, i.e. log,
-    key-value store, dataset and request queue,
-
-    use the following endpoints:
-
+    key-value store, dataset and request queue, use the following endpoints:
 
     * `/v2/actor-tasks/{actorTaskId}/runs/last/log{?token,status}`
-
-
     * `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store{?token,status}`
-
-
     * `/v2/actor-tasks/{actorTaskId}/runs/last/dataset{?token,status}`
-
-
     * `/v2/actor-tasks/{actorTaskId}/runs/last/request-queue{?token,status}`
 
-
     These API endpoints have the same usage as the equivalent storage endpoints.
+    For example, `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store` has the same HTTP method
+    and parameters as the [Key-value store object](#/reference/key-value-stores/store-object) endpoint.
 
-    For example,
-
-    `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store` has the same HTTP method
-    and parameters as the
-
-    [Key-value store object](#/reference/key-value-stores/store-object) endpoint.
-
-
-    Additionally, each of the above API endpoints supports all sub-endpoints
-
-    of the original one:
-
+    Additionally, each of the above API endpoints supports all sub-endpoints of the original one:
 
     #### Key-value store
 
-
     * `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/keys{?token,status}`
     [Key collection](#/reference/key-value-stores/key-collection)
-
-
     * `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store/records/{recordKey}{?token,status}`
     [Record](#/reference/key-value-stores/record)
 
-
     #### Dataset
-
 
     * `/v2/actor-tasks/{actorTaskId}/runs/last/dataset/items{?token,status}` [Item
     collection](#/reference/datasets/item-collection)
 
-
     #### Request queue
-
 
     * `/v2/actor-tasks/{actorTaskId}/runs/last/request-queue/requests{?token,status}`
     [Request collection](#/reference/request-queues/request-collection)
-
-
     * `/v2/actor-tasks/{actorTaskId}/runs/last/request-queue/requests/{requestId}{?token,status}`
     [Request collection](#/reference/request-queues/request)
-
-
     * `/v2/actor-tasks/{actorTaskId}/runs/last/request-queue/head{?token,status}`
     [Queue head](#/reference/request-queues/queue-head)
 
-
-    For example, to download data from a dataset of the last succeeded actor task
-    run in XML format,
-
+    For example, to download data from a dataset of the last succeeded actor task run in XML format,
     send HTTP GET request to the following URL:
 
-
     ```
-
     https://api.apify.com/v2/actor-tasks/{actorTaskId}/runs/last/dataset/items?token={yourApiToken}&format=xml&status=SUCCEEDED
-
     ```
 
-
-    In order to save new items to the dataset, send HTTP POST request with JSON payload
-    to the same URL.
+    In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
 - name: Actor runs
   x-displayName: Actor runs
   x-legacy-doc-urls:
   - '#/reference/actor-runs'
   - '#tag/Actor-runs'
-  description: >-
+  description: |
     The API endpoints described in this section enable you to manage Apify actor runs.
 
-
-    Note that if any returned run object contains usage in dollars, your effective
-    unit pricing at the time of query
-
-    has been used for computation of this dollar equivalent, and hence it should be
-    used only for informative purposes.
-
+    Note that if any returned run object contains usage in dollars, your effective unit pricing at the time of query
+    has been used for computation of this dollar equivalent, and hence it should be used only for informative purposes.
     You can learn more about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
 - name: Actor runs/Run collection
   x-displayName: Run collection
@@ -538,100 +422,54 @@
   - '#/reference/actor-runs/run-object-and-its-storages'
   - '#tag/Actor-runsRun-object-and-its-storages'
   x-trait: 'true'
-  description: >-
+  description: |
     This is not a single endpoint, but an entire group of endpoints that lets you
-
     retrieve the run or any of its default storages.
 
-
-    The endpoints accept the same HTTP methods and query parameters as
-
-    the respective storage endpoints.
-
+    The endpoints accept the same HTTP methods and query parameters as the respective storage endpoints.
     The base path that represents the actor run object is:
-
 
     `/v2/actor-runs/{runId}{?token}`
 
-
     In order to access the default storages of the actor run, i.e. log, key-value
-    store, dataset and request queue,
-
-    use the following endpoints:
-
+    store, dataset and request queue, use the following endpoints:
 
     * `/v2/actor-runs/{runId}/log{?token}`
-
-
     * `/v2/actor-runs/{runId}/key-value-store{?token}`
-
-
     * `/v2/actor-runs/{runId}/dataset{?token}`
-
-
     * `/v2/actor-runs/{runId}/request-queue{?token}`
 
-
     These API endpoints have the same usage as the equivalent storage endpoints.
+    For example, `/v2/actor-runs/{runId}/key-value-store` has the same HTTP method and parameters
+    as the [Key-value store object](#/reference/key-value-stores/store-object) endpoint.
 
-    For example,
-
-    `/v2/actor-runs/{runId}/key-value-store` has the same HTTP method and parameters
-    as the
-
-    [Key-value store object](#/reference/key-value-stores/store-object) endpoint.
-
-
-    Additionally, each of the above API endpoints supports all sub-endpoints
-
-    of the original one:
-
+    Additionally, each of the above API endpoints supports all sub-endpoints of the original one:
 
     #### Log
 
-
     * `/v2/actor-runs/{runId}/log` [Log](#/reference/logs)
-
 
     #### Key-value store
 
-
     * `/v2/actor-runs/{runId}/key-value-store/keys{?token}` [Key collection](#/reference/key-value-stores/key-collection)
-
-
     * `/v2/actor-runs/{runId}/key-value-store/records/{recordKey}{?token}` [Record](#/reference/key-value-stores/record)
-
 
     #### Dataset
 
-
     * `/v2/actor-runs/{runId}/dataset/items{?token}` [Item collection](#/reference/datasets/item-collection)
-
 
     #### Request queue
 
-
     * `/v2/actor-runs/{runId}/request-queue/requests{?token}` [Request collection](#/reference/request-queues/request-collection)
-
-
-    * `/v2/actor-runs/{runId}/request-queue/requests/{requestId}{?token}` [Request
-    collection](#/reference/request-queues/request)
-
-
+    * `/v2/actor-runs/{runId}/request-queue/requests/{requestId}{?token}` [Request collection](#/reference/request-queues/request)
     * `/v2/actor-runs/{runId}/request-queue/head{?token}` [Queue head](#/reference/request-queues/queue-head)
 
-
     For example, to download data from a dataset of the actor run in XML format,
-
     send HTTP GET request to the following URL:
 
-
     ```
-
     https://api.apify.com/v2/actor-runs/{runId}/dataset/items?format=xml
-
     ```
-
 
     In order to save new items to the dataset, send HTTP POST request with JSON payload
     to the same URL.
@@ -682,16 +520,12 @@
   x-legacy-doc-urls:
   - '#/reference/actor-builds'
   - '#tag/Actor-builds'
-  description: >-
+  description: |
     The API endpoints described in this section enable you to manage Apify actor builds.
 
-
     Note that if any returned build object contains usage in dollars, your effective
-    unit pricing at the time of query
-
-    has been used for computation of this dollar equivalent, and hence it should be
+    unit pricing at the time of query has been used for computation of this dollar equivalent, and hence it should be
     used only for informative purposes.
-
     You can learn more about platform usage in the <a href="https://docs.apify.com/platform/actors/running/usage-and-resources#usage">documentation</a>.
 - name: Actor builds/Build collection
   x-displayName: Build collection
@@ -727,30 +561,30 @@
   - '#tag/Actor-buildsBuild-log'
   x-trait: 'true'
   description: Check out [Logs](#/reference/logs) for full reference.
+- name: Actor builds/Get OpenAPI specification
+  x-displayName: Get OpenAPI specification
+  x-parent-tag-name: Actor builds
+  x-trait: 'true'
+  description: |
+    Get the OpenAPI specification for Actor builds. Two similar endpoints are available:
+
+    - [First endpoint](/api/v2/act-openapi-specification-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
+    - [Second endpoint](/api/v2/actor-build-openapi-specification-get): Requires only `buildId`.
 - name: Key-value stores
   x-displayName: Key-value stores
   x-legacy-doc-urls:
   - '#/reference/key-value-stores'
   - '#tag/Key-value-stores'
-  description: >-
+  description: |
     This section describes API endpoints to manage Key-value stores.
-
     Key-value store is a simple storage for saving and reading data records or files.
-
-    Each data record is represented by a unique key and associated with a MIME content
-    type.
-
-    Key-value stores are ideal for saving screenshots, actor inputs and outputs, web
-    pages,
-
+    Each data record is represented by a unique key and associated with a MIME content type.
+    Key-value stores are ideal for saving screenshots, actor inputs and outputs, web pages,
     PDFs or to persist the state of crawlers.
-
     For more information, see the <a href="https://docs.apify.com/platform/storage/key-value-store">Key-value
     store documentation</a>.
 
-
     Note that some of the endpoints do not require the authentication token, the calls
-
     are authenticated using a hard-to-guess ID of the key-value store.
 - name: Key-value stores/Store collection
   x-displayName: Store collection
@@ -785,27 +619,18 @@
   x-legacy-doc-urls:
   - '#/reference/datasets'
   - '#tag/Datasets'
-  description: >-
+  description: |
     This section describes API endpoints to manage Datasets.
 
-
-    Dataset is a storage for structured data, where each record stored has the same
-    attributes,
-
+    Dataset is a storage for structured data, where each record stored has the same attributes,
     such as online store products or real estate offers. You can imagine it as a table,
-
     where each object is a row and its attributes are columns. Dataset is an append-only
-
     storage - you can only add new records to it but you cannot modify or remove existing
-
     records. Typically it is used to store crawling results.
-
     For more information, see the <a href="https://docs.apify.com/platform/storage/dataset">Datasets
     documentation</a>.
 
-
     Note that some of the endpoints do not require the authentication token, the calls
-
     are authenticated using the hard-to-guess ID of the dataset.
 - name: Datasets/Dataset collection
   x-displayName: Dataset collection
@@ -837,22 +662,17 @@
   x-legacy-doc-urls:
   - '#/reference/request-queues'
   - '#tag/Request-queues'
-  description: >-
+  description: |
     This section describes API endpoints to manage request queues.
 
     Request queue is a storage for a queue of HTTP URLs to crawl, which is typically
     used for deep crawling of websites where you
-
     start with several URLs and then recursively follow links to other pages.
-
     The storage supports both breadth-first and depth-first crawling orders.
-
     For more information, see the <a href="https://docs.apify.com/platform/storage/request-queue">Request
     queue documentation</a>.
 
-
     Note that some of the endpoints do not require the authentication token, the calls
-
     are authenticated using the hard-to-guess ID of the queue.
 - name: Request queues/Queue collection
   x-displayName: Queue collection
@@ -915,18 +735,14 @@
   x-legacy-doc-urls:
   - '#/reference/webhooks'
   - '#tag/Webhooks'
-  description: >-
+  description: |
     This section describes API endpoints to manage webhooks.
 
-
     Webhooks provide an easy and reliable way to configure the Apify platform
-
     to carry out an action (e.g. a HTTP request to another service) when a certain
     system event occurs.
-
     For example, you can use webhooks to start another actor when an actor run finishes
     or fails.
-
     For more information see <a href="https://docs.apify.com/platform/integrations/webhooks">Webhooks
     documentation</a>.
 - name: Webhooks/Webhook collection
@@ -982,23 +798,18 @@
   x-legacy-doc-urls:
   - '#/reference/schedules'
   - '#tag/Schedules'
-  description: >-
+  description: |
     This section describes API endpoints for managing schedules.
-
 
     Schedules are used to automatically start your actors at certain times. Each schedule
     can be associated with a number of actors and actor tasks. It is also possible
-
     to override the settings of each actor (task) similarly to when invoking the actor
     (task) using the API.
-
     For more information, see <a href="https://docs.apify.com/platform/schedules">Schedules
     documentation</a>.
 
-
     Each schedule is assigned actions for it to perform. Actions can be of two types
     - `RUN_ACTOR` and `RUN_ACTOR_TASK`. For details, see the documentation of the
-
     [Get schedule](#/reference/schedules/schedule-object/get-schedule) endpoint.
 - name: Schedules/Schedules collection
   x-displayName: Schedules collection
@@ -1026,12 +837,10 @@
   x-legacy-doc-urls:
   - '#/reference/store'
   - '#tag/Store'
-  description: >-
+  description: |
     [Apify Store](https://apify.com/store) is home to hundreds of public Actors available
     to the Apify community.
-
     The API endpoints described in this section are used to retrieve these Actors.
-
 
     Note that the endpoints do not require the authentication token.
 - name: Store/Store Actors collection
@@ -1046,16 +855,12 @@
   x-legacy-doc-urls:
   - '#/reference/logs'
   - '#tag/Logs'
-  description: >-
+  description: |
     The API endpoints described in this section are used the download the logs
-
     generated by actor builds and runs. Note that only the trailing 5M characters
-
     of the log are stored, the rest is discarded.
 
-
     Note that the endpoints do not require the authentication token, the calls
-
     are authenticated using a hard-to-guess ID of the actor build or run.
 - name: Logs/Log
   x-displayName: Log

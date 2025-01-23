@@ -1,6 +1,6 @@
 {
     "name": "@apify/docs-theme",
-    "version": "1.0.157",
+    "version": "1.0.164",
     "description": "",
     "main": "./src/index.js",
     "files": [
@@ -22,6 +22,8 @@
         "@apify/docs-search-modal": "^1.2.0",
         "@docusaurus/theme-common": "3.7.0",
         "@stackql/docusaurus-plugin-hubspot": "^1.1.0",
+        "algoliasearch": "^5.19.0",
+        "algoliasearch-helper": "^3.22.6",
         "axios": "^1.7.9",
         "babel-loader": "^9.2.1",
         "docusaurus-gtm-plugin": "^0.0.2",

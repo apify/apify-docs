@@ -137,22 +137,13 @@ export default function Api() {
                 >
                     <ClientCodeWrapper>
                         <CodeBlock title="cURL" language='bash'>
-                            {`# Prepare Actor input
-cat > input.json <<'EOF'
-{
- // Define the input in JSON here
-}
-EOF
-
-# Run the Actor
-curl "https://api.apify.com/v2/acts/username~actorname/runs?token=<YOUR_API_TOKEN>" \\
-  -X POST \\
-  -d @input.json \\
-  -H 'Content-Type: application/json'
-
-# Use the defaultDatasetId from response and pass it instead of <DATASET_ID>
-curl "https://api.apify.com/v2/datasets/<DATASET_ID>/items?token=<YOUR_API_TOKEN>"`
-                            }
+                            {`# Prepare Actor input and run it synchronously
+echo '{ "searchStringsArray": ["Apify"] }' |
+curl -X POST -d @- \\
+  -H 'Content-Type: application/json' \\
+  -H 'Authorization: Bearer <YOUR_API_TOKEN>' \\
+  -L 'https://api.apify.com/v2/acts/compass~crawler-google-places/run-sync-get-dataset-items'
+                           `}
                         </CodeBlock>
                     </ClientCodeWrapper>
                 </SectionWrapper>

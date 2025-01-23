@@ -132,7 +132,7 @@ module.exports = {
                 specs: [
                     {
                         spec: './apify-api/openapi/openapi.yaml',
-                        route: '/api/v2/',
+                        route: '/api/v2-redoc/',
                     },
                 ],
                 theme: {
@@ -177,7 +177,7 @@ module.exports = {
             {
                 id: 'openapi',
                 path: './sources/api',
-                routeBasePath: 'api/v2-new', // TODO change to `api/v2` once we are ready
+                routeBasePath: 'api/v2',
                 rehypePlugins: [externalLinkProcessor],
                 showLastUpdateAuthor: false,
                 showLastUpdateTime: false,
@@ -194,6 +194,7 @@ module.exports = {
                 config: {
                     /** @type {import('docusaurus-plugin-openapi-docs').Options} */
                     v2: {
+                        downloadUrl: '/api/openapi.yaml',
                         specPath: 'apify-api.yaml',
                         outputDir: './sources/api',
                         markdownGenerators: {
@@ -232,12 +233,15 @@ module.exports = {
                                         : clsx({
                                             'menu__list-item--deprecated': item.schema.deprecated,
                                         }, 'schema');
+                                    // const endpoint = item.api.servers[0].url + item.api.path;
+                                    const endpoint = item.api.path.replace('/v2', '');
+                                    const { method } = item.api;
 
                                     return {
                                         type: 'doc',
                                         id: context.basePath === '' ? `${id}` : `${context.basePath}/${id}`,
                                         label: sidebarLabel ?? title ?? id,
-                                        customProps: { altids },
+                                        customProps: { altids, endpoint, method },
                                         className,
                                     };
                                 },
@@ -320,6 +324,12 @@ module.exports = {
         },
         languageTabs: [
             {
+                highlight: 'bash',
+                label: 'CLI',
+                language: 'curl',
+                logoClass: 'curl',
+            },
+            {
                 highlight: 'javascript',
                 label: 'JavaScript',
                 language: 'javascript',
@@ -330,12 +340,6 @@ module.exports = {
                 label: 'Python',
                 language: 'python',
                 logoClass: 'python',
-            },
-            {
-                highlight: 'bash',
-                label: 'cURL',
-                language: 'curl',
-                logoClass: 'curl',
             },
             {
                 highlight: 'php',

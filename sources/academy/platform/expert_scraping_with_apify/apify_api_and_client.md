@@ -30,7 +30,7 @@ You can use one of the two main ways to programmatically interact with the Apify
 
 ## Our task
 
-In the previous lesson, we created a **task** for the Amazon Actor we built in the first two lessons of this course. Now, we'll be creating another new Actor, which will have two jobs:
+We'll be creating another new Actor, which will have two jobs:
 
 1. Programmatically call the task for the Amazon Actor.
 2. Export its results into CSV format under a new key called **OUTPUT.csv** in the default key-value store.

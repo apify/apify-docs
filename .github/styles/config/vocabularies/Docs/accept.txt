@@ -24,6 +24,8 @@ Docker's
 Docusaurus
 navbar
 nginx
+npm
+camelCase
 
 :::caution
 :::note
@@ -86,3 +88,8 @@ preconfigured
 
 
 [Mm]ultiselect
+
+[Ss]crapy
+asyncio
+parallelization
+IMDb

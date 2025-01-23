@@ -46,7 +46,7 @@ get:
 
     For more information about source code and Actor versions, see [Source
     code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
-    in Actors documentation.Gets a [Version
+    in Actors documentation. Gets a [Version
     object](#/reference/actors/version-object) that contains all the details
     about a specific version of an Actor.
   operationId: act_version_get
@@ -89,9 +89,7 @@ put:
   summary: Update version
   description: |
     The **Version object** contains the source code of a specific version of an
-    Actor.
-
-    The `sourceType` property indicates where the source code is hosted, and
+    Actor. The `sourceType` property indicates where the source code is hosted, and
     based on its value the Version object has the following additional property:
 
     <table>
@@ -129,10 +127,9 @@ put:
       </tr>
     </table>
 
-
     For more information about source code and Actor versions, see [Source
     code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
-    in Actors documentation.Updates Actor version using values specified by a
+    in Actors documentation. Updates Actor version using values specified by a
     [Version object](#/reference/actors/version-object) passed as JSON in the POST payload.
 
     If the object does not define a specific property, its value will not be
@@ -206,14 +203,9 @@ delete:
     - Actors/Version object
   summary: Delete version
   description: |
-    The **Version object** contains the source code of a specific version of an
-    Actor.
-
-    The `sourceType` property indicates where the source code is hosted, and
-    based
-
+    The **Version object** contains the source code of a specific version of an Actor.
+    The `sourceType` property indicates where the source code is hosted, and based
     on its value the Version object has the following additional property:
-
 
     <table>
       <tr>
@@ -250,10 +242,9 @@ delete:
       </tr>
     </table>
 
-
     For more information about source code and Actor versions, see [Source
     code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
-    in Actors documentation.Deletes a specific version of Actor's source code.
+    in Actors documentation. Deletes a specific version of Actor's source code.
   operationId: act_version_delete
   parameters:
     - name: actorId

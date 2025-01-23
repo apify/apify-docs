@@ -53,12 +53,10 @@ post:
     JSON payload and a `Content-Type: application/json` HTTP header.
 
     ```
-
     {
         "name": "ENV_VAR_NAME",
         "value": "my-env-var"
     }
-
     ```
 
     The response is the [EnvVar

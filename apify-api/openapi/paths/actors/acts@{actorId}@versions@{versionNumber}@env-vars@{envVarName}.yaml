@@ -61,27 +61,19 @@ put:
   description: |
     Updates Actor environment variable using values specified by a [EnvVar
     object](#/reference/actors/environment-variable-object)
-
     passed as JSON in the POST payload.
-
     If the object does not define a specific property, its value will not be
     updated.
 
-
     The request needs to specify the `Content-Type: application/json` HTTP
     header!
-
 
     When providing your API authentication token, we recommend using the
     request's `Authorization` header, rather than the URL. ([More
     info](#/introduction/authentication)).
 
-
-    The response is the [EnvVar
-    object](#/reference/actors/environment-variable-object) as returned by the
-
-    [Get environment
-    variable](#/reference/actors/environment-variable-object/get-environment-variable)
+    The response is the [EnvVar object](#/reference/actors/environment-variable-object) as returned by the
+    [Get environment variable](#/reference/actors/environment-variable-object/get-environment-variable)
     endpoint.
   operationId: act_version_envVar_put
   parameters:
