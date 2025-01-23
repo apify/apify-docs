@@ -75,7 +75,7 @@ Click the **Playground** button in the top right corner and chat with the Agent 
 Here is an example Agent output for the following query:
 
 ```text
-find tiktok profile of company alza.cz using google search and then show me the profile bio and their latest video
+find tiktok profile of company openai using google search and then show me the profile bio and their latest video
 ```
 
 ![Flow - Agent output](../images/langflow/agent_output.png)
