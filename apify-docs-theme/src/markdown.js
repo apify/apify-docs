@@ -46,9 +46,10 @@ const linkifyUserTags = () => (tree) => {
         const userTagRegex = /@([a-zA-Z0-9-]+)(\s|$)/g;
         const match = userTagRegex.exec(node.value);
 
-        if (!match) return;
-
         const directParent = parents[parents.length - 1];
+
+        if (!match || directParent.type === 'link') return;
+
         const nodeIndexInParent = directParent.children.findIndex((x) => x === node);
 
         const username = match[1];
