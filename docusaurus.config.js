@@ -194,7 +194,7 @@ module.exports = {
                 config: {
                     /** @type {import('docusaurus-plugin-openapi-docs').Options} */
                     v2: {
-                        downloadUrl: 'openapi.yaml',
+                        downloadUrl: '/api/openapi.yaml',
                         specPath: 'apify-api.yaml',
                         outputDir: './sources/api',
                         markdownGenerators: {
