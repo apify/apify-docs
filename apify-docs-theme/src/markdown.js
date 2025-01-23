@@ -1,7 +1,7 @@
 const remarkParse = require('remark-parse');
 const remarkStringify = require('remark-stringify');
 const { unified } = require('unified');
-const visitParents = require('unist-util-visit-parents');
+const { visitParents } = require('unist-util-visit-parents');
 
 /**
  * Updates the markdown content for better UX and compatibility with Docusaurus v3.
