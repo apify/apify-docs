@@ -108,14 +108,14 @@ We keep your personal data for no longer than necessary for the purposes for whi
 Upon your request and authentication of your identity, Apify will provide you with information about the personal data we have collected from you, whether we hold your personal data or process your personal data on behalf of a third party.
 Requests to access, change, or delete personal data made to Apify will be addressed within 30 days or earlier if required by applicable laws or regulations.
 
-If your name, e-mail or postal address, telephone number, or other personal data changes, you may update, correct, or omit the relevant information by contacting Apify at privacy@apify.com or by updating your personal data on the Account settings page on the Website.
+If your name, e-mail or postal address, telephone number, or other personal data changes, you may update, correct, or omit the relevant information by contacting Apify at privacy[at]apify[dot]com or by updating your personal data on the Account settings page on the Website.
 In some situations, we may not be able to provide access to certain personal data. Where an access request is refused, we will notify you in writing, document the reasons for refusal and outline further steps which are available to you. When a challenge regarding the accuracy of personal data is not resolved to your satisfaction, We will annotate the personal data under our control with a note that the correction was requested but not made.
 
 ### Removal and Objection
 
 If you prefer not to receive newsletters or other marketing emails from Apify, please let us know by clicking on the unsubscribe link within any newsletter or marketing email you receive. Please note that, regardless of your request, we may still use and disclose certain personal data as permitted by this Privacy Policy or as required by applicable law. For example, you may not opt out of certain transactional emails from us, such as those confirming your requests or providing you with updates regarding our legal terms.
 
-If you prefer not to receive marketing mail via the mail carrier, please let us know by contacting User service at support@apify.com. Please note that such requests may take up to ten (10) days to become effective.
+If you prefer not to receive marketing mail via the mail carrier, please let us know by contacting User service at support[at]apify[dot]com. Please note that such requests may take up to ten (10) days to become effective.
 For more information about your rights under EEA and U.K. GDPR, please refer to Clause “Territory-Specific Terms” below.
 
 ## Third-Party Links and Features
@@ -183,7 +183,7 @@ We update this Privacy Policy from time to time and encourage you to review it p
 
 ## Contact Us
 
-Any notices or requests to Apify under this Privacy Policy shall be made to [privacy@apify.com](mailto:privacy@apify.com) or:
+Any notices or requests to Apify under this Privacy Policy shall be made to privacy[at]apify[dot]com or:
 
 By mail:
 
