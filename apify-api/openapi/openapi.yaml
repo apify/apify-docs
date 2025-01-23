@@ -12,10 +12,7 @@ info:
     around [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)
     HTTP endpoints. 
     
-You can download the complete OpenAPI schema of Apify API in the [YAML](http://docs.apify.com/api/openapi.yaml) or [JSON](http://docs.apify.com/api/openapi.json) formats. The source code is available on [GitHub](https://github.com/apify/apify-docs/tree/master/apify-api/openapi).
-    
-    - [OpenAPI YAML](http://docs.apify.com/api/openapi.yaml)
-    - [OpenAPI JSON](http://docs.apify.com/api/openapi.json)
+    You can download the complete OpenAPI schema of Apify API in the [YAML](http://docs.apify.com/api/openapi.yaml) or [JSON](http://docs.apify.com/api/openapi.json) formats. The source code is also available on [GitHub](https://github.com/apify/apify-docs/tree/master/apify-api/openapi).
 
     All requests and responses (including errors) are encoded in
     [JSON](http://www.json.org/) format with UTF-8 encoding,
