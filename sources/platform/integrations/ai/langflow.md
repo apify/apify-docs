@@ -6,7 +6,7 @@ sidebar_position: 1
 slug: /integrations/langflow
 ---
 
-**Learn how to integrate Apify with Langflow, in order to run complex AI agent workflows.**
+**Learn how to integrate Apify with Langflow to run complex AI agent workflows.**
 
 ---
 
@@ -18,7 +18,7 @@ slug: /integrations/langflow
 
 ## How to use Apify with Langflow
 
-To show how to use the platform, we are going to create an example AI agent workflow that will search the web for social media profiles of a given company and then extract data from the profiles. We will use the [Google Search Results Scraper](https://apify.com/apify/google-search-scraper) Actor to search the web for social media profiles of a given company. Then we will use the [TikTok Data Extractor](https://apify.com/clockworks/free-tiktok-scraper) Actor to extract data from the TikTok profiles.
+To demonstrate how to use the platform, we will create an example AI agent workflow that searches the web for social media profiles of a given company and then extracts data from the profiles. We will use the [Google Search Results Scraper](https://apify.com/apify/google-search-scraper) Actor to search the web for social media profiles of a given company. Then we will use the [TikTok Data Extractor](https://apify.com/clockworks/free-tiktok-scraper) Actor to extract data from the TikTok profiles.
 
 > Langflow can either be installed locally or used in the cloud. The cloud version is available on the [Langflow](http://langflow.org/) website. If you are using the cloud version, you can skip the installation step.
 
@@ -30,7 +30,7 @@ First, we need to install the Langflow platform using [uv](https://docs.astral.s
 uv pip install langflow
 ```
 
-After the successful installation of Langflow, we can start the platform:
+After successfully installing Langflow, we can start the platform:
 
 ```bash
 uv run langflow run
@@ -48,11 +48,10 @@ In the Langflow welcome screen, click the **New Flow** button:
 In the **New Flow** screen, click **Blank Flow**:
 ![New Flow screen - Blank Flow](../images/langflow/new_blank_flow.png)
 
-From the bundle menu on the left side, add two **Apify Actors** components:
+From the bundle menu, add two **Apify Actors** components:
 ![Flow - Add Apify Actors](../images/langflow/bundles_apify.png)
 
-Input your API token (learn how to get it [here](https://docs.apify.com/platform/integrations/api))
-and set the Actor ID of the first component to `apify/google-search-scraper` and the second one to `clockworks/free-tiktok-scraper`:
+Input your API token (learn how to get it [here](https://docs.apify.com/platform/integrations/api)) and set the Actor ID of the first component to `apify/google-search-scraper` and the second one to `clockworks/free-tiktok-scraper`:
 ![Flow - Actors configuration](../images/langflow/apify_actors_configuration.png)
 
 Now add the *Agent* component from the menu and set your OpenAI API key (get it [here](https://platform.openai.com/account/api-keys)):
@@ -69,7 +68,7 @@ Now add **Chat Input** and **Chat Output** components from the menu and connect 
 The flow should look like this:
 ![Flow - Final](../images/langflow/flow.png)
 
-Click the **Playground** button in the top right corner and chat with the Agent to test the flow:
+Click the **Playground** button and chat with the Agent to test the flow:
 ![Flow - Playground](../images/langflow/playground.png)
 
 Here is an example Agent output for the following query:
