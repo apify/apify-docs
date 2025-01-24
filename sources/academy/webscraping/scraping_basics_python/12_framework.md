@@ -46,7 +46,6 @@ Successfully installed Jinja2-0.0.0 ... ... ... crawlee-0.0.0 ... ... ...
 
 Now let's use the framework to create a new version of our scraper. In the same project directory where our `main.py` file lives, create a file `newmain.py`. This way, we can keep peeking at the original implementation while working on the new one. The initial content will look like this:
 
-<!-- vale off -->
 ```py title="newmain.py"
 import asyncio
 from crawlee.beautifulsoup_crawler import BeautifulSoupCrawler
@@ -63,7 +62,6 @@ async def main():
 if __name__ == '__main__':
     asyncio.run(main())
 ```
-<!-- vale on -->
 
 In the code, we do the following:
 
@@ -427,7 +425,7 @@ If you export the dataset as JSON, it should look something like this:
   {
     "url": "https://www.f1academy.com/Racing-Series/Drivers/29/Emely-De-Heus",
     "name": "Emely De Heus",
-    "team": "MP Motorsport"
+    "team": "MP Motorsport",
     "nationality": "Dutch",
     "dob": "2003-02-10",
     "instagram_url": "https://www.instagram.com/emely.de.heus/",
@@ -435,7 +433,7 @@ If you export the dataset as JSON, it should look something like this:
   {
     "url": "https://www.f1academy.com/Racing-Series/Drivers/28/Hamda-Al-Qubaisi",
     "name": "Hamda Al Qubaisi",
-    "team": "MP Motorsport"
+    "team": "MP Motorsport",
     "nationality": "Emirati",
     "dob": "2002-08-08",
     "instagram_url": "https://www.instagram.com/hamdaalqubaisi_official/",
@@ -501,7 +499,7 @@ Hints:
 
 The [Global Top 10](https://www.netflix.com/tudum/top10) page has a table listing the most popular Netflix films worldwide. Scrape the movie names from this page, then search for each movie on [IMDb](https://www.imdb.com/). Assume the first search result is correct and retrieve the film's rating. Each item you push to Crawlee's default dataset should include the following data:
 
-- URL of the film's imdb.com page
+- URL of the film's IMDb page
 - Title
 - Rating
 
