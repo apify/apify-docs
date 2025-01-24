@@ -120,7 +120,7 @@ Multiple approaches often exist for creating a CSS selector that targets the ele
 
 The product card has four classes: `product-item`, `product-item--vertical`, `1/3--tablet-and-up`, and `1/4--desk`. Only the first one checks all the boxes. A product card *is* a product item, after all. The others seem more about styling—defining how the element looks on the screen—and are probably tied to CSS rules.
 
-This class is also unique enough in the page's context. If it were something generic like `item`, there'd be a higher risk that developers of the website might use it for unrelated elements. In the **Elements** tab, you can see a parent element `product-list` that contains all the product cards marked as `product-item`. This structure aligns with the data we're after.
+This class is also unique enough in the page's context. If it were something generic like `item`, there would be a higher risk that developers of the website might use it for unrelated elements. In the **Elements** tab, you can see a parent element `product-list` that contains all the product cards marked as `product-item`. This structure aligns with the data we're after.
 
 ![Overview of all the product cards in DevTools](./images/devtools-product-list.png)
 
@@ -198,7 +198,7 @@ Go to Guardian's [page about F1](https://www.theguardian.com/sport/formulaone). 
 
 Hint: Learn about the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator).
 
-![Articles on Guardian's page about F1](./images/devtools-exercise-guardian.png)
+![Articles on Guardian's page about F1](./images/devtools-exercise-guardian1.png)
 
 <details>
   <summary>Solution</summary>

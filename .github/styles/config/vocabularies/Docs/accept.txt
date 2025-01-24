@@ -93,3 +93,9 @@ preconfigured
 asyncio
 parallelization
 IMDb
+[Ss]ubwoofer
+Shopify
+Fandom('s)?
+Shein('s)?
+combinator
+ul
