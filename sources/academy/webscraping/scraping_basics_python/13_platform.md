@@ -39,7 +39,7 @@ In the root of the project, let's create a file called `requirements.txt`, with 
 crawlee
 ```
 
-Each line in the file represents a single dependency, but our program has just one. With `requirements.txt` in place, Apify can run `pip install -r requirements.txt` to download and install all dependencies of the project before starting our program.
+Each line in the file represents a single dependency, but so far our program has just one. With `requirements.txt` in place, Apify can run `pip install -r requirements.txt` to download and install all dependencies of the project before starting our program.
 
 :::tip Packaging projects
 
@@ -73,6 +73,13 @@ $ apify login
 ...
 Success: You are logged in to Apify as user1234!
 ```
+
+<!--
+    it seems apify init won't recognize the project only with requirements.txt
+    https://crawlee.dev/python/docs/introduction/deployment
+    https://packaging.python.org/en/latest/tutorials/installing-packages/
+    https://docs.apify.com/sdk/python/docs/overview/introduction
+-->
 
 ## Creating an Actor
 
