@@ -10,7 +10,9 @@ info:
     The Apify API (version 2) provides programmatic access to the [Apify
     platform](https://docs.apify.com). The API is organized
     around [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)
-    HTTP endpoints.
+    HTTP endpoints. 
+    
+    You can download the complete OpenAPI schema of Apify API in the [YAML](http://docs.apify.com/api/openapi.yaml) or [JSON](http://docs.apify.com/api/openapi.json) formats. The source code is also available on [GitHub](https://github.com/apify/apify-docs/tree/master/apify-api/openapi).
 
     All requests and responses (including errors) are encoded in
     [JSON](http://www.json.org/) format with UTF-8 encoding,
@@ -499,8 +501,12 @@ paths:
     $ref: 'paths/actors/acts@{actorId}@builds.yaml'
   '/v2/acts/{actorId}/builds/{buildId}':
     $ref: 'paths/actors/acts@{actorId}@builds@{buildId}.yaml'
+  '/v2/acts/{actorId}/builds/default':
+    $ref: 'paths/actors/acts@{actorId}@builds@default.yaml'
   '/v2/acts/{actorId}/builds/{buildId}/abort':
     $ref: 'paths/actors/acts@{actorId}@builds@{buildId}@abort.yaml'
+  '/v2/acts/{actorId}/builds/{buildId}/openapi-specification':
+    $ref: 'paths/actors/acts@{actorId}@builds@{buildId}@openapi-specification.yaml'
   '/v2/acts/{actorId}/runs':
     $ref: 'paths/actors/acts@{actorId}@runs.yaml'
   '/v2/acts/{actorId}/run-sync':
@@ -553,6 +559,8 @@ paths:
     $ref: 'paths/actor-builds/actor-builds@{buildId}@abort.yaml'
   '/v2/actor-builds/{buildId}/log':
     $ref: 'paths/actor-builds/actor-builds@{buildId}@log.yaml'
+  '/v2/actor-builds/{buildId}/openapi-specification':
+    $ref: 'paths/actor-builds/actor-builds@{buildId}@openapi-specification.yaml'
   /v2/key-value-stores:
     $ref: paths/key-value-stores/key-value-stores.yaml
   '/v2/key-value-stores/{storeId}':

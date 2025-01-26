@@ -1,0 +1,76 @@
+get:
+  tags:
+    - Actors/Default build object
+  summary: Get default build
+  description: |
+    Get the default build for an Actor. 
+    
+    Use the optional `waitForFinish` parameter to synchronously wait for the build to finish. 
+    This avoids the need for periodic polling when waiting for the build to complete.
+
+    This endpoint does not require an authentication token. Instead, calls are authenticated using the build's unique ID.
+    However, if you access the endpoint without a token, certain attributes (e.g., `usageUsd` and `usageTotalUsd`) will be hidden.
+  operationId: act_build_default_get
+  security:
+    - apiKeyActorBuilds: []
+    - httpBearerActorBuilds: []
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: waitForFinish
+      in: query
+      description: |
+        The maximum number of seconds the server waits for the build to finish.
+        If the build finishes within this time, the returned build object will have a terminal status (e.g. `SUCCEEDED`),
+        otherwise it will have a transitional status (e.g. `RUNNING`).
+        
+        By default it is `0`, the maximum value is `60`. <!-- MAX_ACTOR_JOB_ASYNC_WAIT_SECS -->
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 60
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/actor-builds/GetBuildResponse.yaml'
+          example:
+            data:
+              id: HG7ML7M8z78YcAPEB
+              actId: janedoe~my-actor
+              userId: klmdEpoiojmdEMlk3
+              startedAt: '2019-11-30T07:34:24.202Z'
+              finishedAt: '2019-12-12T09:30:12.202Z'
+              status: SUCCEEDED
+              meta:
+                origin: WEB
+                clientIp: 172.234.12.34
+                userAgent: Mozilla/5.0 (iPad)
+              stats:
+                durationMillis: 1000
+                runTimeSecs: 45.718
+                computeUnits: 0.012699444444444444
+              options:
+                useCache: false
+                betaPackages: false
+                memoryMbytes: 1024
+                diskMbytes: 2048
+              usage:
+                ACTOR_COMPUTE_UNITS: 0.08
+              usageTotalUsd: 0.02
+              usageUsd:
+                ACTOR_COMPUTE_UNITS: 0.02
+              inputSchema: '{\n  \"title\": \"Schema for ... }'
+              readme: '# Magic Actor\nThis Actor is magic.'
+              buildNumber: 0.1.1

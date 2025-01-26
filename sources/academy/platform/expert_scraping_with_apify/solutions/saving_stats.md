@@ -154,14 +154,6 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 
 **A:** This information is available directly on the request object under the property **retryCount**.
 
-**Q: We are building a new imaginary scraper for a website that sometimes displays captchas at unexpected times, rather than displaying the content we want. How would you keep a count of the total number of captchas hit for the entire run? Where would you store this data? Why?**
-
-**A:** First, build a function that detects if the captcha has been hit. If so, it will throw an error and add to the **numberOfCaptchas** count. This data might be stored on a persisted state object to help better assess the anti-scraping mitigation techniques the scraper should be used.
-
-**Q: Is storing these types of values necessary for every single Actor?**
-
-**A:** For small Actors, it might be a waste of time to do this. For large-scale Actors, it can be extremely helpful when debugging and most definitely worth the extra 10–20 minutes of development time. Usually though, the default statistics from the Crawlee and the SDK might be enough for simple run stats.
-
 **Q: What is the difference between the `failedRequestHandler` and `errorHandler`?**
 
 **A:** `failedRequestHandler` runs after a request has failed and reached its `maxRetries` count. `errorHandler` runs on every failure and retry.
