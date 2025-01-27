@@ -72,6 +72,64 @@ async def main() -> None:
 Please make sure to describe your Actors, their endpoints, and the schema for their
 inputs and outputs in your README.
 
+### Readiness probe
+Before Actor standby runs are ready to serve requests, Apify platform checks if the web server is ready via a readiness probe.
+The platform sends a GET request to the path `/` with a header `x-apify-container-server-readiness-probe`. If the header is present in the request, you can perform an early return with a simple response to prevent wasting resources. Note that you have to return a response, otherwise the Actor run will never be ready and therefore won't be able to process any requests.
+
+See example code below that distinguishes between "normal" and "readiness probe" requests.
+
+<Tabs groupId="main">
+<TabItem value="JavaScript" label="JavaScript">
+
+```js
+import http from 'http';
+import { Actor } from 'apify';
+
+await Actor.init();
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    if (req.headers['x-apify-container-server-readiness-probe']) {
+        console.log('Readiness probe');
+        res.end('Hello, readiness probe!\n');
+    } else {
+        console.log('Normal request');
+        res.end('Hello from Actor Standby!\n');
+    }
+});
+
+server.listen(Actor.config.get('standbyPort'));
+```
+
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```python
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+from apify import Actor
+
+
+class GetHandler(SimpleHTTPRequestHandler):
+    def do_GET(self) -> None:
+        self.send_response(200)
+        self.end_headers()
+        if self.headers['x-apify-container-server-readiness-probe']:
+            print('Readiness probe')
+            self.wfile.write(b'Hello, readiness probe!')
+        else:
+            print('Normal request')
+            self.wfile.write(b'Hello, normal request!')
+
+
+async def main() -> None:
+    async with Actor:
+        with HTTPServer(('', Actor.config.standby_port), GetHandler) as http_server:
+            http_server.serve_forever()
+```
+
+</TabItem>
+</Tabs>
+
 ## Determining an Actor is started in Standby
 
 Actors that support Actor Standby can still be started in standard mode, for example from the Console or via the API.
