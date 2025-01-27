@@ -1,6 +1,5 @@
-Apify(?=-\w+)
+\bApify\b(?:-\w+)?
 @apify\.com
-\bApify\b
 Actor(s)?
 SDK(s)
 [Ss]torages
@@ -93,3 +92,19 @@ preconfigured
 asyncio
 parallelization
 IMDb
+iPhone
+iPhones
+iPad
+iPads
+screenshotting
+Fakestore
+SKUs
+SKU
+Shopify
+learnings
+subwoofer
+captcha
+captchas
+deduplicating
+
+jQuery

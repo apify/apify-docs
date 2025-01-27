@@ -88,4 +88,4 @@ Apify.main(async () => {
 });
 ```
 
-Now we have a crawler that catches the most common blocking issues on Google. In gotoFunction we will catch if the page doesn't load and in the handlePageFunction we check if we were redirected to the 'sorry page'. In both cases we throw an error afterwards so the request is added back to the crawling queue (otherwise the crawler would think everything was okay and would treat that request as handled).
+Now we have a crawler that catches the most common blocking issues on Google. In `gotoFunction` we will catch if the page doesn't load and in the handlePageFunction we check if we were redirected to the 'sorry page'. In both cases we throw an error afterwards so the request is added back to the crawling queue (otherwise the crawler would think everything was okay and would treat that request as handled).
