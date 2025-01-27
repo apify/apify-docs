@@ -73,6 +73,7 @@ Please make sure to describe your Actors, their endpoints, and the schema for th
 inputs and outputs in your README.
 
 ### Readiness probe
+
 Before Actor standby runs are ready to serve requests, Apify platform checks if the web server is ready via a readiness probe.
 The platform sends a GET request to the path `/` with a header `x-apify-container-server-readiness-probe`. If the header is present in the request, you can perform an early return with a simple response to prevent wasting resources. Note that you have to return a response, otherwise the Actor run will never be ready and therefore won't be able to process any requests.
 
