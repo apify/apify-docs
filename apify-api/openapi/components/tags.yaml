@@ -262,8 +262,8 @@
   description: |
     Get the OpenAPI definition for Actor builds. Two similar endpoints are available:
 
-    - [First endpoint](/api/v2/act-openapi-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
-    - [Second endpoint](/api/v2/actor-build-openapi-get): Requires only `buildId`.
+    - [First endpoint](/api/v2/act-openapi-json-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
+    - [Second endpoint](/api/v2/actor-build-openapi-json-get): Requires only `buildId`.
 - name: Actor tasks
   x-displayName: Actor tasks
   x-legacy-doc-urls:
@@ -568,8 +568,8 @@
   description: |
     Get the OpenAPI definition for Actor builds. Two similar endpoints are available:
 
-    - [First endpoint](/api/v2/act-openapi-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
-    - [Second endpoint](/api/v2/actor-build-openapi-get): Requires only `buildId`.
+    - [First endpoint](/api/v2/act-openapi-json-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
+    - [Second endpoint](/api/v2/actor-build-openapi-json-get): Requires only `buildId`.
 - name: Key-value stores
   x-displayName: Key-value stores
   x-legacy-doc-urls:
