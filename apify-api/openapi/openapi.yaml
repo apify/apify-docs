@@ -505,8 +505,8 @@ paths:
     $ref: 'paths/actors/acts@{actorId}@builds@default.yaml'
   '/v2/acts/{actorId}/builds/{buildId}/abort':
     $ref: 'paths/actors/acts@{actorId}@builds@{buildId}@abort.yaml'
-  '/v2/acts/{actorId}/builds/{buildId}/openapi-specification':
-    $ref: 'paths/actors/acts@{actorId}@builds@{buildId}@openapi-specification.yaml'
+  '/v2/acts/{actorId}/builds/{buildId}/openapi':
+    $ref: 'paths/actors/acts@{actorId}@builds@{buildId}@openapi.yaml'
   '/v2/acts/{actorId}/runs':
     $ref: 'paths/actors/acts@{actorId}@runs.yaml'
   '/v2/acts/{actorId}/run-sync':
@@ -559,8 +559,8 @@ paths:
     $ref: 'paths/actor-builds/actor-builds@{buildId}@abort.yaml'
   '/v2/actor-builds/{buildId}/log':
     $ref: 'paths/actor-builds/actor-builds@{buildId}@log.yaml'
-  '/v2/actor-builds/{buildId}/openapi-specification':
-    $ref: 'paths/actor-builds/actor-builds@{buildId}@openapi-specification.yaml'
+  '/v2/actor-builds/{buildId}/openapi':
+    $ref: 'paths/actor-builds/actor-builds@{buildId}@openapi.yaml'
   /v2/key-value-stores:
     $ref: paths/key-value-stores/key-value-stores.yaml
   '/v2/key-value-stores/{storeId}':

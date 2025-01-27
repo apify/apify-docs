@@ -1,13 +1,13 @@
 get:
   tags:
-    - Actor builds/Get OpenAPI specification
-  summary: Get OpenAPI specification
+    - Actor builds/Get OpenAPI definition
+  summary: Get OpenAPI definition
   description: |
-    Get the OpenAPI specification for a specific Actor build.
+    Get the OpenAPI definition for a specific Actor build.
     Authentication is based on the build's unique ID. No authentication token is required.
     
-    **Note**: You can also use the `/api/v2/act-openapi-specification-get` endpoint to get the OpenAPI specification for a build.
-  operationId: actorBuild_openapiSpecification_get
+    **Note**: You can also use the `/api/v2/act-openapi-get` endpoint to get the OpenAPI definition for a build.
+  operationId: actorBuild_openapi_get
   security:
     - apiKeyActorBuilds: []
     - httpBearerActorBuilds: []

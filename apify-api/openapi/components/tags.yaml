@@ -255,15 +255,15 @@
     ```
 
     In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
-- name: Actors/Get OpenAPI specification
-  x-displayName: Get OpenAPI specification
+- name: Actors/Get OpenAPI definition
+  x-displayName: Get OpenAPI definition
   x-parent-tag-name: Actors
   x-trait: 'true'
   description: |
-    Get the OpenAPI specification for Actor builds. Two similar endpoints are available:
+    Get the OpenAPI definition for Actor builds. Two similar endpoints are available:
 
-    - [First endpoint](/api/v2/act-openapi-specification-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
-    - [Second endpoint](/api/v2/actor-build-openapi-specification-get): Requires only `buildId`.
+    - [First endpoint](/api/v2/act-openapi-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
+    - [Second endpoint](/api/v2/actor-build-openapi-get): Requires only `buildId`.
 - name: Actor tasks
   x-displayName: Actor tasks
   x-legacy-doc-urls:
@@ -561,15 +561,15 @@
   - '#tag/Actor-buildsBuild-log'
   x-trait: 'true'
   description: Check out [Logs](#/reference/logs) for full reference.
-- name: Actor builds/Get OpenAPI specification
-  x-displayName: Get OpenAPI specification
+- name: Actor builds/Get OpenAPI definition
+  x-displayName: Get OpenAPI definition
   x-parent-tag-name: Actor builds
   x-trait: 'true'
   description: |
-    Get the OpenAPI specification for Actor builds. Two similar endpoints are available:
+    Get the OpenAPI definition for Actor builds. Two similar endpoints are available:
 
-    - [First endpoint](/api/v2/act-openapi-specification-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
-    - [Second endpoint](/api/v2/actor-build-openapi-specification-get): Requires only `buildId`.
+    - [First endpoint](/api/v2/act-openapi-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
+    - [Second endpoint](/api/v2/actor-build-openapi-get): Requires only `buildId`.
 - name: Key-value stores
   x-displayName: Key-value stores
   x-legacy-doc-urls:
