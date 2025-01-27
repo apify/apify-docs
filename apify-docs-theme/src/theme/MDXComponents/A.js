@@ -7,6 +7,10 @@ import { isDifferentInstance } from '../../utils';
 export default function MDXA(props) {
     const { siteConfig } = useDocusaurusContext();
 
+    if (props.href?.startsWith(siteConfig.url)) {
+        props = { ...props, target: '_self' };
+    }
+
     // absolute links in README, e.g. in the SDK or API Client docs, need to be converted to local `to` links
     if (props.href?.startsWith(siteConfig.url) && isDifferentInstance(siteConfig.baseUrl)) {
         const { href, ...rest } = props;

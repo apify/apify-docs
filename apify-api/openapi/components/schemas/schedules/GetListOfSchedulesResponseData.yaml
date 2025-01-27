@@ -1,0 +1,30 @@
+title: GetListOfSchedulesResponseData
+required:
+  - total
+  - offset
+  - limit
+  - desc
+  - count
+  - items
+type: object
+properties:
+  total:
+    type: number
+    example: 2
+  offset:
+    type: number
+    example: 0
+  limit:
+    type: number
+    example: 1000
+  desc:
+    type: boolean
+    example: false
+  count:
+    type: number
+    example: 2
+  items:
+    type: array
+    items:
+      $ref: ./GetListOfSchedulesResponseDataItems.yaml
+    description: ''

@@ -1,0 +1,12 @@
+title: ProlongRequestLockResponse
+type: object
+properties:
+  data:
+    type: object
+    properties:
+      lockExpiresAt:
+        type: string
+        description: Date when lock expires.
+        example: '2022-01-01T00:00:00.000Z'
+    required:
+      - lockExpiresAt

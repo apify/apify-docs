@@ -1,0 +1,48 @@
+title: ActUpdate
+required:
+  - name
+  - isPublic
+  - versions
+type: object
+properties:
+  name:
+    type: string
+    example: MyActor
+  description:
+    type: string
+    nullable: true
+    example: My favourite actor!
+  isPublic:
+    type: boolean
+    example: false
+  seoTitle:
+    type: string
+    nullable: true
+    example: My actor
+  seoDescription:
+    type: string
+    nullable: true
+    example: My actor is the best
+  title:
+    type: string
+    nullable: true
+    example: My Actor
+  restartOnError:
+    type: boolean
+    nullable: true
+    example: false
+  versions:
+    type: array
+    items:
+      $ref: "./CreateOrUpdateEnvVarRequest.yaml"
+    description: ''
+  categories:
+    type: array
+    items:
+      type: string
+    description: ''
+    nullable: true
+  defaultRunOptions:
+    oneOf:
+      - nullable: true
+      - $ref: ./DefaultRunOptions.yaml

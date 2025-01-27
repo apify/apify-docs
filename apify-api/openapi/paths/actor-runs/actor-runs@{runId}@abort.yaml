@@ -1,0 +1,120 @@
+post:
+  tags:
+    - Actor runs/Abort run
+  summary: Abort run
+  description: |
+    Aborts an Actor run and returns an object that contains all the details
+    about the run.
+
+    Only runs that are starting or running are aborted. For runs with status
+    `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call does nothing.
+  operationId: actorRun_abort_post
+  parameters:
+    - name: runId
+      in: path
+      description: Run ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: 3KH8gEpp4d8uQSe8T
+    - name: gracefully
+      in: query
+      description: |
+        If true passed, the Actor run will abort gracefully.
+        It will send `aborting` and `persistState` event into run and force-stop the run after 30 seconds.
+        It is helpful in cases where you plan to resurrect the run later.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-runs/RunResponse.yaml
+          example:
+            data:
+              id: HG7ML7M8z78YcAPEB
+              actId: janedoe~my-actor
+              userId: BPWZBd7Z9c746JAng
+              actorTaskId: rANaydYhUxjsnA3oz
+              startedAt: '2019-11-30T07:34:24.202Z'
+              finishedAt: '2019-12-12T09:30:12.202Z'
+              status: ABORTED
+              statusMessage: Actor was aborted
+              isStatusMessageTerminal: true
+              meta:
+                origin: WEB
+                clientIp: 172.234.12.34
+                userAgent: Mozilla/5.0 (iPad)
+              stats:
+                inputBodyLen: 240
+                restartCount: 0
+                resurrectCount: 1
+                memAvgBytes: 35914228.4
+                memMaxBytes: 38244352
+                memCurrentBytes: 0
+                cpuAvgUsage: 0.00955965
+                cpuMaxUsage: 3.1546
+                cpuCurrentUsage: 0
+                netRxBytes: 2652
+                netTxBytes: 1338
+                durationMillis: 26239
+                runTimeSecs: 26.239
+                metamorph: 0
+                computeUnits: 0.0072886
+              options:
+                build: latest
+                timeoutSecs: 300
+                memoryMbytes: 1024
+                diskMbytes: 2048
+              buildId: 7sT5jcggjjA9fNcxF
+              exitCode: 0
+              defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
+              defaultDatasetId: wmKPijuyDnPZAPRMk
+              defaultRequestQueueId: FL35cSF7jrxr3BY39
+              isContainerServerReady: false
+              gitBranchName: master
+              usage:
+                ACTOR_COMPUTE_UNITS: 3
+                DATASET_READS: 4
+                DATASET_WRITES: 4
+                KEY_VALUE_STORE_READS: 5
+                KEY_VALUE_STORE_WRITES: 3
+                KEY_VALUE_STORE_LISTS: 5
+                REQUEST_QUEUE_READS: 2
+                REQUEST_QUEUE_WRITES: 1
+                DATA_TRANSFER_INTERNAL_GBYTES: 1
+                DATA_TRANSFER_EXTERNAL_GBYTES?: 3
+                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 34
+                PROXY_SERPS: 3
+              usageTotalUsd: 0.2654
+              usageUsd:
+                ACTOR_COMPUTE_UNITS: 0.072
+                DATASET_READS: 0.0004
+                DATASET_WRITES: 0.0002
+                KEY_VALUE_STORE_READS: 0.0006
+                KEY_VALUE_STORE_WRITES: 0.002
+                KEY_VALUE_STORE_LISTS: 0.004
+                REQUEST_QUEUE_READS: 0.005
+                REQUEST_QUEUE_WRITES: 0.02
+                DATA_TRANSFER_INTERNAL_GBYTES: 0.0004
+                DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
+                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
+                PROXY_SERPS: 0.0006
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-runs/abort-run/abort-run
+    - https://docs.apify.com/api/v2#/reference/actor-runs/abort-run
+    - https://docs.apify.com/api/v2#tag/Actor-runsAbort-run/operation/actorRun_abort_post
+  x-js-parent: RunClient
+  x-js-name: abort
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RunClient#abort
+  x-py-parent: RunClientAsync
+  x-py-name: abort
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RunClientAsync#abort

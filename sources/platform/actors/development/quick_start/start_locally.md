@@ -11,7 +11,7 @@ slug: /actors/development/quick-start/locally
 
 :::info Prerequisites
 
-You need to have [Node.js](https://nodejs.org/en/) version 16 or higher with NPM installed on your computer.
+You need to have [Node.js](https://nodejs.org/en/) version 16 or higher with `npm` installed on your computer.
 
 :::
 

@@ -225,6 +225,13 @@ const themeConfig = ({
                         target: '_self',
                         rel: 'dofollow',
                     },
+                    {
+                        label: 'Open source',
+                        href: `${absoluteUrl}/open-source`,
+                        position: 'left',
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
                 ],
             },
             {
@@ -238,6 +245,10 @@ const themeConfig = ({
                     {
                         label: 'GitHub',
                         href: 'https://github.com/apify',
+                    },
+                    {
+                        label: 'Trust Center',
+                        href: 'https://trust.apify.com',
                     },
                 ],
             },

@@ -1,0 +1,8 @@
+title: TaskStats
+required:
+  - totalRuns
+type: object
+properties:
+  totalRuns:
+    type: number
+    example: 15

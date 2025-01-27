@@ -1,0 +1,24 @@
+title: CreateTaskRequest
+required:
+  - actId
+  - name
+type: object
+properties:
+  actId:
+    type: string
+    example: asADASadYvn4mBZmm
+  name:
+    type: string
+    example: my-task
+  options:
+    allOf:
+      - oneOf:
+          - nullable: true
+          - $ref: ./TaskOptions.yaml
+      - {}
+  input:
+    allOf:
+      - oneOf:
+          - nullable: true
+          - $ref: ./TaskInput.yaml
+      - {}

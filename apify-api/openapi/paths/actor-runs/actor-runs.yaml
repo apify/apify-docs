@@ -1,0 +1,111 @@
+get:
+  tags:
+    - Actor runs/Run collection
+  summary: Get user runs list
+  description: |
+    Gets a list of all runs for a user. The response is a list of objects, where
+    each object contains basic information about a single Actor run.
+
+    The endpoint supports pagination using the `limit` and `offset` parameters
+    and it will not return more than 1000 array elements.
+
+    By default, the records are sorted by the `startedAt` field in ascending
+    order. Therefore, you can use pagination to incrementally fetch all records while
+    new ones are still being created. To sort the records in descending order, use
+    `desc=1` parameter. You can also filter runs by status ([available
+    statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle)).
+  operationId: actorRuns_get
+  parameters:
+    - name: offset
+      in: query
+      description: |
+        Number of array elements that should be skipped at the start. The
+        default value is `0`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 10
+    - name: limit
+      in: query
+      description: |
+        Maximum number of array elements to return. The default value (as well
+        as the maximum) is `1000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 99
+    - name: desc
+      in: query
+      description: |
+        If `true` or `1` then the objects are sorted by the `startedAt` field in
+        descending order. By default, they are sorted in ascending order.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+    - name: status
+      in: query
+      description: |
+        Return only runs with the provided status ([available
+        statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle))
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: SUCCEEDED
+  responses:
+    # todo 404?
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../../components/schemas/actor-runs/GetUserRunsListResponse.yaml
+          example:
+            data:
+              total: 2
+              offset: 0
+              limit: 1000
+              desc: false
+              count: 2
+              items:
+                - id: HG7ML7M8z78YcAPEB
+                  actId: HDSasDasz78YcAPEB
+                  actorTaskId: KJHSKHausidyaJKHs
+                  status: SUCCEEDED
+                  startedAt: '2019-11-30T07:34:24.202Z'
+                  finishedAt: '2019-12-12T09:30:12.202Z'
+                  buildId: HG7ML7M8z78YcAPEB
+                  buildNumber: 0.0.2
+                  meta:
+                    origin: WEB
+                  usageTotalUsd: 0.2
+                  defaultKeyValueStoreId: sfAjeR4QmeJCQzTfe
+                  defaultDatasetId: 3ZojQDdFTsyE7Moy4
+                  defaultRequestQueueId: so93g2shcDzK3pA85
+                - id: HG7ML7M8z78YcAPEB
+                  actId: HDSasDasz78YcAPEB
+                  actorTaskId: KJHSKHausidyaJKHs
+                  status: FAILED
+                  startedAt: '2019-12-12T07:34:14.202Z'
+                  finishedAt: '2019-12-13T08:36:13.202Z'
+                  buildId: u78dML7M8z78YcAPEB
+                  buildNumber: 0.2.2
+                  meta:
+                    origin: DEVELOPMENT
+                  usageTotalUsd: 0.6
+                  defaultKeyValueStoreId: sffsouqlseJCQzTfe
+                  defaultDatasetId: CFGggdjQDsyE7Moyw
+                  defaultRequestQueueId: soowucklrmDzKpA8x
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-runs/run-collection/get-user-runs-list
+    - https://docs.apify.com/api/v2#/reference/actor-runs/get-user-runs-list
+    - https://docs.apify.com/api/v2#tag/Actor-runsRun-collection/operation/actorRuns_get

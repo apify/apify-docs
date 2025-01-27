@@ -1,0 +1,11 @@
+title: UserData
+type: object
+properties:
+  label:
+    type: string
+    nullable: true
+    example: DETAIL
+  image:
+    type: string
+    nullable: true
+    example: 'https://picserver1.eu'

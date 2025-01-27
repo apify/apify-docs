@@ -1,0 +1,136 @@
+get:
+  tags:
+    - Actor tasks/Webhook collection
+  summary: Get list of webhooks
+  description: |
+    Gets the list of webhooks of a specific Actor task. The response is a JSON
+    with the list of objects, where each object contains basic information about a single webhook.
+
+    The endpoint supports pagination using the `limit` and `offset` parameters
+    and it will not return more than 1000 records.
+
+    By default, the records are sorted by the `createdAt` field in ascending
+    order, to sort the records in descending order, use the `desc=1` parameter.
+  operationId: actorTask_webhooks_get
+  parameters:
+    - name: actorTaskId
+      in: path
+      description: Task ID or a tilde-separated owner's username and task's name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-task
+    - name: offset
+      in: query
+      description: |
+        Number of array elements that should be skipped at the start. The
+        default value is `0`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 10
+    - name: limit
+      in: query
+      description: |
+        Maximum number of array elements to return. The default value as well as
+        the maximum is `1000`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 99
+    - name: desc
+      in: query
+      description: |
+        If `true` or `1` then the objects are sorted by the `createdAt` field in
+        descending order. By default, they are sorted in ascending order.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        example: true
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                allOf:
+                  - $ref: "../../components/schemas/common/PaginationResponse.yaml"
+                  - type: object
+                    required:
+                      - items
+                    properties:
+                      items:
+                        type: array
+                        items:
+                          $ref: "../../components/schemas/webhooks/Webhook.yaml"
+          example:
+            data:
+              total: 2
+              offset: 0
+              limit: 1000
+              desc: false
+              count: 2
+              items:
+                - id: YiKoxjkaS9gjGTqhF
+                  createdAt: '2019-12-12T07:34:14.202Z'
+                  modifiedAt: '2019-12-13T08:36:13.202Z'
+                  userId: wRsJZtadYvn4mBZmm
+                  isAdHoc: false
+                  shouldInterpolateStrings: false
+                  eventTypes:
+                    - ACTOR.RUN.SUCCEEDED
+                  condition:
+                    actorId: hksJZtadYvn4mBuin
+                    actorTaskId: asdLZtadYvn4mBZmm
+                    actorRunId: hgdKZtadYvn4mBpoi
+                  ignoreSslErrors: false
+                  doNotRetry: false
+                  requestUrl: 'http://example.com/'
+                  payloadTemplate: '{\n \"userId\": {{userId}}...'
+                  headersTemplate: '{\n \"Authorization\": Bearer...'
+                  description: this is webhook description
+                  lastDispatch:
+                    status: SUCCEEDED
+                    finishedAt: '2019-12-13T08:36:13.202Z'
+                  stats:
+                    totalDispatches: 1
+                - id: YiKoxjkaS9gjGTqhF
+                  createdAt: '2019-12-12T07:34:14.202Z'
+                  modifiedAt: '2019-12-13T08:36:13.202Z'
+                  userId: wRsJZtadYvn4mBZmm
+                  isAdHoc: false
+                  shouldInterpolateStrings: false
+                  eventTypes:
+                    - ACTOR.RUN.SUCCEEDED
+                  condition:
+                    actorId: hksJZtadYvn4mBuin
+                    actorTaskId: asdLZtadYvn4mBZmm
+                    actorRunId: hgdKZtadYvn4mBpoi
+                  ignoreSslErrors: false
+                  doNotRetry: false
+                  requestUrl: 'http://example.com/'
+                  payloadTemplate: '{\n \"userId\": {{userId}}...'
+                  headersTemplate: '{\n \"Authorization\": Bearer...'
+                  description: this is webhook description
+                  lastDispatch:
+                    status: SUCCEEDED
+                    finishedAt: '2019-12-13T08:36:13.202Z'
+                  stats:
+                    totalDispatches: 1
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/webhook-collection/get-list-of-webhooks
+    - https://docs.apify.com/api/v2#/reference/actor-tasks/get-list-of-webhooks
+    - https://docs.apify.com/api/v2#tag/Actor-tasksWebhook-collection/operation/actorTask_webhooks_get

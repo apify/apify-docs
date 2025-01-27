@@ -19,7 +19,7 @@ To use the Apify integration on Make, you will need:
 - An [Apify account](https://console.apify.com/).
 - A Make account (and a [scenario](https://www.make.com/en/help/scenarios/creating-a-scenario)).
 
-## Step 1: Add the Apify module to your Make scenario
+### Add the Apify module to scenario
 
 Add the Apify module to your scenario. You can find this module by searching for "Apify" in the module search bar.
 
@@ -27,13 +27,13 @@ Next, select one of the available options under Triggers, Actions and Searches, 
 
 ![Apify module](../images/apify-module.png)
 
-## Step 2: Create a connection to your Apify account
+### Create a connection to Apify
 
 In the Connection configuration window, you will need to provide your Apify API token.
 
 ![API token](../images/apify-token.png)
 
-You can find the token in the Apify Console by navigating to **Settings > Integrations**.
+You can find the token in the Apify Console by navigating to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**.
 
 ![Integrations token](../images/apify-integrations-token.png)
 
@@ -41,76 +41,101 @@ Finally, copy your API token to the Make module and save it to create a connecti
 
 Congratulations! You have successfully connected the Apify app and can now use it in your scenarios.
 
-## Triggers
+## Run an Actor or task with Output
 
-### Watch Actor Runs
+We have two methods to run an Actor or task and retrieve its data in Make.com, depending on your needs and the complexity of the Actor:
 
-> Triggers when a selected Actor run is finished.
+- **Synchronous run using the action module**
+- **Asynchronous run using the trigger module**
 
-<img src={require("../images/apify-make-trigger.png").default} width="50%" />
+:::info
+Make.com imposes a hard timeout for synchronous runs, the timeout varies based on your plan. If the Actor or task takes longer than the timeout to complete, the data will not be fully returned.
+If you anticipate that the Actor run will exceed the timeout, use the asynchronous method with a trigger module instead.
+:::
 
-| Input        | Description                                                            |
-| :----------- | :--------------------------------------------------------------------- |
-| Webhook name | Enter the desired name for the webhook. E.g. Finished Web Scraper Run. |
-| Connection   | [Create an Apify connection](#connect-apify-to-make).                  |
-| Actor        | Select the Actor you want to monitor for finished runs.                |
+The primary difference between the two methods is that the synchronous run waits for the Actor or task to finish and retrieves its output using the "Get Dataset Items" module. By contrast, the asynchronous run watches for the run of an Actor or task (which could have been triggered from another scenario, manually from Apify console or elsewhere) and gets its output once it finishes.
 
-### Watch Task Runs
+### Synchronous run using the action module
 
-> Triggers when a selected task run is finished.
+In this example, we will demonstrate how to run an Actor synchronously and export the output to Google Sheets.
+The same principle applies to module that runs a task.
 
-| Input        | Description                                                            |
-| :----------- | :--------------------------------------------------------------------- |
-| Webhook name | Enter the desired name for the webhook. E.g. Finished Web Scraper Run. |
-| Connection   | [Create an Apify connection](#connect-apify-to-make).                  |
-| Actor        | Select the Actor you want to monitor for finished runs.                |
+#### Step 1: Add the Apify "Run an Actor" Module
 
-## Actions
+First, ensure that you have [connected your Apify account to Make.com](#create-a-connection-to-apify).
+Next, add the Apify module called "Run an Actor" to your scenario and configure it.
 
-### Run a task
+For this example, we will use the "Google Maps Review Scraper" Actor.
+Make sure to set the "Run synchronously" option to "Yes," so the module waits for the Actor to finish run.
 
-> Runs a selected Actor task.
+![make-com-sync-2.png](../images/make-com/make-com-sync-2.png)
 
-<img src={require("../images/apify-make-run-task.png").default} width="50%" />
+#### Step 2: Add the Apify "Get Dataset Items" module
 
-| Input                | Description                                                                                                                                              |
-| :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Task                 | Select or map the task you want to run.                                                                                                                  |
-| Run synchronously    | Make will wait until the task run is finished. Beware that the maximum timeout for the run is 120 seconds.                                               |
-| Input JSON overrides | Here you can enter a JSON object to override the task input configuration. Only the provided fields will be overridden, the rest will be left unchanged. |
+In the next step, add the "Get Dataset Items" module to your scenario, which is responsible for retrieving the output data from the Actor run.
 
-### Run an Actor
+In the "Dataset ID" field, provide the default dataset ID from the Actor run.
+You can find this dataset ID in the variables generated by the previous "Run an Actor" module. If the variables do not appear, run the scenario first, then check again.
 
-> Runs a selected Actor.
+![make-com-sync-3.png](../images/make-com/make-com-sync-3.png)
 
-<img src={require("../images/apify-make-run-actor.png").default} width="50%" />
+#### Step 3: Add the Google Sheets "Create Spreadsheet Rows" module
 
+Finally, add the Google Sheets "Bulk Add Rows" module to your scenario. This module will automatically create new rows in a Google Sheets file to store the Actor's output.
 
-| Input                | Description                                                                                                                                                                                     |
-| :------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Actor                | Select or map the ID of the Actor you want to run.                                                                                                                                              |
-| Run synchronously    | Make will wait until the task run is finished. Beware that the maximum timeout for the run is 120 seconds.                                                                                      |
-| Input JSON overrides | Here you can enter a JSON object to override the task input configuration. Only the provided fields will be overridden, the rest will be left unchanged.                                        |
-| Build                | Specify the Actor build to run. It can be either a build tag or build number. By default, the run uses the build specified in the default run configuration for the Actor (typically 'latest'). |
-| Timeout              | Enter the timeout for the run in seconds. By default, the run uses a timeout specified in the default run configuration for the Actor.                                                          |
-| Memory               | Select or enter memory limit for the run, in megabytes. By default, the run uses a memory limit specified in the default run configuration for the Actor.                                       |
+In the "Spreadsheet ID" field, provide the ID of the target Google Sheets file, which you can find in its URL. Configure the column range (e.g., "A-Z") and map the data retrieved from the "Get Dataset Items" module to the row values.
 
-## Searches
+![make-com-sync-4.png](../images/make-com/make-com-sync-4.png)
 
-### Get Dataset Items
+You’re all set! Once the scenario is started, it will run the Actor synchronously and export its output to your Google Sheets file.
 
-> Retrieves items from a [dataset](/platform/storage/dataset).
+### Asynchronous run using the trigger module
 
-<img src={require("../images/apify-make-dataset.png").default} width="50%" />
+In this example, we will demonstrate how to run an Actor asynchronously and export its output to Google Sheets.
+Before starting, decide where you want to initiate the Actor run. You can do this manually via the Apify console, on a schedule, or from a separate Make.com scenario.
 
+#### Step 1: Add the Apify "Watch Actor Runs" Module
 
-| Input               | Description                                                                                                                                                                                                                   |
-| :------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connection          | [Create an Apify connection](#connect-apify-to-make).                                                                                                                                                                         |
-| Dataset ID          | Enter the ID of the dataset you want to retrieve items from.                                                                                                                                                                  |
-| Data transformation | **Clean** - it returns only non-empty items and skips hidden fields (fields starting with the # character).<br/>**Simplified** - it formats items to emulate simplified results provided by the Legacy Apify Crawler product. |
-| Format              | Select the format of the dataset items.                                                                                                                                                                                       |
-| Limit               | Set the maximum number of items Make will return during one execution cycle.                                                                                                                                                  |
-| Offset              | Enter the number of items to skip.                                                                                                                                                                                            |
+First, ensure that you have [connected your Apify account to Make.com](#create-a-connection-to-apify).
+Next, add the Apify module called "Watch Actor Runs" to your scenario. This module will set up a webhook to listen for the finished runs of the selected Actor.
 
-If you have any questions or need help, feel free to reach out to us on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
+For this example, we will use the "Google Maps Review Scraper" Actor.
+
+![make-com-async-1.png](../images/make-com/make-com-async-1.png)
+
+#### Step 2: Add the Apify "Get Dataset Items" module
+
+Add the "Get Dataset Items" module to your scenario to retrieve the output of the Actor run.
+
+In the "Dataset ID" field, provide the default dataset ID from the Actor run. You can find the dataset ID in the variables generated by the "Watch Actor Runs" module.
+
+![make-com-async-2.png](../images/make-com/make-com-async-2.png)
+
+#### Step 3: Add the Google Sheets "Create Spreadsheet Rows" module
+
+Finally, add the Google Sheets "Bulk Add Rows" module to your scenario, which will create new rows in the specified Google Sheets file to store the Actor's output.
+
+In the "Spreadsheet ID" field, enter the ID of the target Google Sheets file, which you can find in its URL. Configure the column range (e.g., "A-Z") and map the data retrieved from the "Get Dataset Items" module to the row values.
+
+![make-com-async-3.png](../images/make-com/make-com-async-3.png)
+
+That’s it! Once the Actor run is complete, its data will be exported to the Google Sheets file.
+You can initiate the Actor run via the Apify console, a scheduler, or from another Make.com scenario.
+
+## Available modules and triggers
+
+### Triggers
+
+- **Watch Actor Runs:** Triggers when a selected Actor run is finished.
+- **Watch Task Runs:** Triggers when a selected task run is finished.
+
+### Actions
+
+- **Run a Task:** Runs a selected Actor task.
+- **Run an Actor:** Runs a selected Actor.
+- **Scrape Single URL:** Runs a scraper for the website and returns its content as text, markdown and HTML.
+- **Make an API Call:** Makes an arbitrary authorized API call.
+
+### Searches
+
+- **Get Dataset Items:** Retrieves items from a [dataset](/platform/storage/dataset).

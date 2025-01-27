@@ -1,0 +1,7 @@
+title: BuildActorResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: "../actor-builds/Build.yaml"

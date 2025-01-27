@@ -41,11 +41,21 @@ Currently, the monitoring option offers the following features:
 
 ### Alert configuration
 
-When you set up an alert, you have two choices for how you want the metrics to be evaluated. And depending on your choices, the alerting system will behave differently:
+When you set up an alert, you have four choices for how you want the metrics to be evaluated. And depending on your choices, the alerting system will behave differently:
 
 1. **Alert, when the metric is lower than** - This type of alert is checked after the run finishes. If the metric is lower than the value you set, the alert will be triggered and you will receive a notification.
 
 2. **Alert, when the metric is higher than** - This type of alert is checked both during the run and after the run finishes. During the run, we do periodic checks (approximately every 5 minutes) so that we can notify you as soon as possible if the metric is higher than the value you set. After the run finishes, we do a final check to make sure that the metric does not go over the limit in the last few minutes of the run.
+
+3. **Alert, when run status is one of following** - This type of alert is checked only after the run finishes. It makes possible to track the status of your finished runs and send an alert if the run finishes in a state you do not expect. If your Actor runs very often and suddenly starts failing, you will receive a single alert after the first failed run in 1 minute, and then aggregated alert every 15 minutes.
+
+4. **Alert for dataset field statistics** - If you have a [dataset schema](../actors/development/actor_definition/dataset_schema/validation.md) set up, then you can use the field statistics to set up an alert. You can use field statistics for example to track if some field is filled in all records, if some numeric value is too low/high (for example when tracking the price of a product over multiple sources), if the number of items in an array is too low/high (for example alert on Instagram Actor if post has a lot of comments) and many other tasks like these.
+
+    :::important
+
+    Available dataset fields are taken from the last successful build of the monitored Actor. If different versions have different fields, currently the solution will always display only those from the default version.
+
+    :::
 
 ![Metric condition configuration](./images/metric-options.png)
 

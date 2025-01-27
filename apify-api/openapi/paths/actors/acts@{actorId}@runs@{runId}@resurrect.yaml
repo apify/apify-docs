@@ -1,0 +1,155 @@
+post:
+  tags:
+    - Actors/Resurrect run
+  summary: Resurrect run
+  description: |
+    **[DEPRECATED]** API endpoints related to run of the Actor were moved under
+    new namespace [`actor-runs`](#/reference/actor-runs).Resurrects a finished
+    Actor run and returns an object that contains all the details about the
+    resurrected run.
+
+    Only finished runs, i.e. runs with status `FINISHED`, `FAILED`, `ABORTED`
+    and `TIMED-OUT` can be resurrected.
+    Run status will be updated to RUNNING and its container will be restarted
+    with the same storages
+    (the same behaviour as when the run gets migrated to the new server).
+
+    For more information, see the [Actor
+    docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrection-of-finished-run).
+  operationId: act_run_resurrect_post
+  parameters:
+    - name: actorId
+      in: path
+      description: Actor ID or a tilde-separated owner's username and Actor name.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: janedoe~my-actor
+    - name: runId
+      in: path
+      description: Run ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: 3KH8gEpp4d8uQSe8T
+    - name: build
+      in: query
+      description: |
+        Specifies the Actor build to run. It can be either a build tag or build
+        number. By default, the run uses the build specified in the run that is
+        being resurrected (typically `latest`).
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 0.1.234
+    - name: timeout
+      in: query
+      description: |
+        Optional timeout for the run, in seconds. By default, the run uses a
+        timeout specified in the run that is being resurrected.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 60
+    - name: memory
+      in: query
+      description: |
+        Memory limit for the run, in megabytes. The amount of memory can be set
+        to a power of 2 with a minimum of 128. By default, the run uses a memory
+        limit specified in the run that is being resurrected.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 256
+  responses:
+    '200':
+      description: ''
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/actor-runs/RunResponse.yaml"
+          example:
+            data:
+              id: HG7ML7M8z78YcAPEB
+              actId: HDSasDasz78YcAPEB
+              userId: 7sT5jcggjjA9fNcxF
+              actorTaskId: KJHSKHausidyaJKHs
+              startedAt: '2019-11-30T07:34:24.202Z'
+              finishedAt: '2019-12-12T09:30:12.202Z'
+              status: RUNNING
+              statusMessage: Actor is running
+              isStatusMessageTerminal: false
+              meta:
+                origin: WEB
+                clientIp: 172.234.12.34
+                userAgent: Mozilla/5.0 (iPad)
+              stats:
+                inputBodyLen: 240
+                restartCount: 0
+                resurrectCount: 2
+                memAvgBytes: 267874071.9
+                memMaxBytes: 404713472
+                memCurrentBytes: 0
+                cpuAvgUsage: 33.75321011075384
+                cpuMaxUsage: 169.65073553494125
+                cpuCurrentUsage: 0
+                netRxBytes: 103508042
+                netTxBytes: 4854600
+                durationMillis: 248472
+                runTimeSecs: 248.472
+                metamorph: 0
+                computeUnits: 0.13804
+              options:
+                build: latest
+                timeoutSecs: 300
+                memoryMbytes: 1024
+                diskMbytes: 2048
+              buildId: 7sT5jcggjjA9fNcxF
+              exitCode: 0
+              defaultKeyValueStoreId: eJNzqsbPiopwJcgGQ
+              defaultDatasetId: wmKPijuyDnPZAPRMk
+              defaultRequestQueueId: FL35cSF7jrxr3BY39
+              buildNumber: 0.0.36
+              containerUrl: 'https://g8kd8kbc5ge8.runs.apify.net'
+              isContainerServerReady: true
+              gitBranchName: master
+              usage:
+                ACTOR_COMPUTE_UNITS: 3
+                DATASET_READS: 4
+                DATASET_WRITES: 4
+                KEY_VALUE_STORE_READS: 5
+                KEY_VALUE_STORE_WRITES: 3
+                KEY_VALUE_STORE_LISTS: 5
+                REQUEST_QUEUE_READS: 2
+                REQUEST_QUEUE_WRITES: 1
+                DATA_TRANSFER_INTERNAL_GBYTES: 1
+                DATA_TRANSFER_EXTERNAL_GBYTES?: 3
+                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 34
+                PROXY_SERPS: 3
+              usageTotalUsd: 0.2654
+              usageUsd:
+                ACTOR_COMPUTE_UNITS: 0.072
+                DATASET_READS: 0.0004
+                DATASET_WRITES: 0.0002
+                KEY_VALUE_STORE_READS: 0.0006
+                KEY_VALUE_STORE_WRITES: 0.002
+                KEY_VALUE_STORE_LISTS: 0.004
+                REQUEST_QUEUE_READS: 0.005
+                REQUEST_QUEUE_WRITES: 0.02
+                DATA_TRANSFER_INTERNAL_GBYTES: 0.0004
+                DATA_TRANSFER_EXTERNAL_GBYTES?: 0.0002
+                PROXY_RESIDENTIAL_TRANSFER_GBYTES: 0.16
+                PROXY_SERPS: 0.0006
+  deprecated: false
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/actors/resurrect-run/resurrect-run
+    - https://docs.apify.com/api/v2#/reference/actors/resurrect-run
+    - https://docs.apify.com/api/v2#tag/ActorsResurrect-run/operation/act_run_resurrect_post

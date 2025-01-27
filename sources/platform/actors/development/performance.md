@@ -11,7 +11,7 @@ slug: /actors/development/performance
 
 ## Optimization Tips
 
-This guide provides tips to help you maximize the poerformance of your Actors, minimize costs, and achieve optimal results.
+This guide provides tips to help you maximize the performance of your Actors, minimize costs, and achieve optimal results.
 
 ### Run batch jobs instead of single jobs
 

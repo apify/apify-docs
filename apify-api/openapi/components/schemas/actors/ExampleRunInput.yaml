@@ -1,0 +1,13 @@
+title: exampleRunInput
+required:
+  - body
+  - contentType
+type: object
+properties:
+  body:
+    type: string
+    example:
+      helloWorld: 123
+  contentType:
+    type: string
+    example: application/json; charset=utf-8

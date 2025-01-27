@@ -11,7 +11,7 @@ slug: /data-processing-addendum
 
 <!-- vale off -->
 
-Last Updated: September 20, 2024
+Last Updated: January 13, 2025
 
 ---
 
@@ -201,7 +201,7 @@ Data exporter:
 Name: Apify Technologies s.r.o.
 Address: Vodičkova 704/36, Nové Město, 110 00 Praha 1
 Contact person’s name, position and contact details:
-Apify Privacy Team, privacy@apify.com
+Apify Privacy Team, privacy[at]apify[dot]com
 Activities relevant to the data transferred under these Clauses: Processing necessary to provide the Apify Platform and other Services by Apify to Customer and for any disclosures of Personal Data in accordance with the Agreement.
 Role: Processor or Subprocessor, as applicable
 
@@ -278,31 +278,4 @@ Apify shall implement appropriate technical and organizational measures in accor
 
 ## Schedule E: List of Apify Subprocessors
 
-<table border="0.5">
- <tr align="left">
-    <th>Subprocessor Name</th>
-    <th>Purpose of Processing</th>
-    <th>Location</th>
-  </tr>
-  <tr>
-    <td>Amazon Web Services, Inc.</td>
-    <td>Infrastructure</td>
-    <td>US</td>
-
-  </tr>
-  <tr>
-    <td>MongoDB Inc.</td>
-    <td>Database</td>
-    <td>US</td>
- </tr>
- <tr>
-    <td>Snowflake, Inc.</td>
-    <td>Data Warehousing</td>
-    <td>US</td>
- </tr>
- <tr>
-    <td>Mezmo Inc.</td>
-    <td>Centralized Log Management</td>
-    <td>US</td>
- </tr>
-</table>
+List of Apify Subprocessor is available at: https://trust.apify.com/subprocessors

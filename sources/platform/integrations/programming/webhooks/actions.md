@@ -50,7 +50,7 @@ If the URL of your request points toward Apify, you don't need to add a token, s
 
 ## Payload template
 
-The payload template is a JSON-like string, that allows you to define a custom payload structure and inject dynamic data known only at the time of the webhook's invocation. Apart from the variables, the string must be a valid JSON.
+The payload template is a JSON-like string that allows you to define a custom payload structure and inject dynamic data known only at the time of the webhook's invocation. Apart from the variables, the string must be a valid JSON.
 
 Variables must be enclosed in double curly braces and can only use the pre-defined variables listed in the [Available variables](#available-variables) section. Using any other variable will result in a validation error.
 
@@ -132,7 +132,7 @@ Note that the `eventData` and `resource` properties contain redundant data for b
 
 ## Headers template
 
-The headers template is a JSON-like string where you can add additional information to the default header of the webhook request. You can pass the variables in the same way as in [payload template](#payload-template) (including the use of string interpolation and available variables). The resulting headers need to be a valid json object and values can be strings only.
+The headers template is a JSON-like string where you can add additional information to the default header of the webhook request. You can pass the variables in the same way as in [payload template](#payload-template) (including the use of string interpolation and available variables). The resulting headers need to be a valid `json` object and values can be strings only.
 
 Note that the following keys are hard-coded and will be always be rewritten:
 

@@ -1,0 +1,21 @@
+title: Profile
+type: object
+properties:
+  bio:
+    type: string
+    example: I started web scraping in 1985 using Altair BASIC.
+  name:
+    type: string
+    example: Jane Doe
+  pictureUrl:
+    type: string
+    example: /img/anonymous_user_picture.png
+  githubUsername:
+    type: string
+    example: torvalds.
+  websiteUrl:
+    type: string
+    example: 'http://www.example.com'
+  twitterUsername:
+    type: string
+    example: '@BillGates'

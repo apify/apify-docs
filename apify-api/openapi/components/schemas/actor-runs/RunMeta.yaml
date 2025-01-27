@@ -1,0 +1,8 @@
+title: RunMeta
+required:
+  - origin
+type: object
+properties:
+  origin:
+    type: string
+    enum: [DEVELOPMENT, WEB, API, SCHEDULER, TEST, WEBHOOK, ACTOR, CLI, STANDBY]

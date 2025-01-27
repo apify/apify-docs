@@ -1,0 +1,25 @@
+title: UserPrivateInfo
+required:
+  - id
+  - username
+  - profile
+  - email
+  - proxy
+  - plan
+type: object
+properties:
+  id:
+    type: string
+    example: YiKoxjkaS9gjGTqhF
+  username:
+    type: string
+    example: myusername
+  profile:
+    $ref: ./Profile.yaml
+  email:
+    type: string
+    example: bob@example.com
+  proxy:
+    $ref: ./Proxy.yaml
+  plan:
+    $ref: ./Plan.yaml
