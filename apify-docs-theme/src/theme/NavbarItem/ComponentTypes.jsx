@@ -86,15 +86,15 @@ function ApiNavbarItem(ctx) {
 }
 
 const ComponentTypes = {
-    'default': DefaultNavbarItem,
-    'localeDropdown': LocaleDropdownNavbarItem,
-    'search': SearchNavbarItem,
-    'dropdown': DropdownNavbarItem,
-    'html': HtmlNavbarItem,
+    default: DefaultNavbarItem,
+    localeDropdown: LocaleDropdownNavbarItem,
+    search: SearchNavbarItem,
+    dropdown: DropdownNavbarItem,
+    html: HtmlNavbarItem,
     'custom-api': ApiNavbarItem,
-    'doc': DocNavbarItem,
-    'docSidebar': DocSidebarNavbarItem,
-    'docsVersion': DocsVersionNavbarItem,
-    'docsVersionDropdown': DocsVersionDropdownNavbarItem,
+    doc: DocNavbarItem,
+    docSidebar: DocSidebarNavbarItem,
+    docsVersion: DocsVersionNavbarItem,
+    docsVersionDropdown: DocsVersionDropdownNavbarItem,
 };
 export default ComponentTypes;

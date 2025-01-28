@@ -27,7 +27,6 @@ export default [
             'import/no-extraneous-dependencies': 'off',
             'import/extensions': 'off',
             'import/no-default-export': 'off',
-            'quote-props': ['error', 'consistent'],
         },
     },
     {
@@ -46,10 +45,8 @@ export default [
             },
         },
         rules: {
-            // ... any rules you want
             'react/jsx-uses-react': 'error',
             'react/jsx-uses-vars': 'error',
         },
-        // ... others are omitted for brevity
     },
 ];
