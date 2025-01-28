@@ -1,0 +1,48 @@
+# docs.apify.com
+
+## Apify Documentation
+
+- [Web Scraping Academy](https://docs.apify.com/academy): Learn everything about web scraping and automation with our free courses that will turn you into an expert scraper developer.
+- [Apify platform](https://docs.apify.com/platform): Apify is your one-stop shop for web scraping, data extraction, and RPA. Automate anything you can do manually in a browser.
+- [Apify API](https://docs.apify.com/api)
+- [Apify SDK](https://docs.apify.com/sdk)
+- [Apify command-line interface (CLI)](https://docs.apify.com/cli/)
+- [Apify open source](https://docs.apify.com/open-source)
+
+## Web Scraping Academy
+
+- [API scraping](https://docs.apify.com/academy/api-scraping): Learn all about how the professionals scrape various types of APIs with various configurations, parameters, and requirements.
+- [Advanced web scraping](https://docs.apify.com/academy/advanced-web-scraping): Take your scrapers to the next level by learning various advanced concepts and techniques that will help you build highly scalable and reliable crawlers.
+- [Anti-scraping protections](https://docs.apify.com/academy/anti-scraping): Understand the various anti-scraping measures different sites use to prevent bots from accessing them, and how to appear more human to fix these issues.
+- [Deploying your code to Apify](https://docs.apify.com/academy/deploying-your-code): In this course learn how to take an existing project of yours and deploy it to the Apify platform as an Actor.
+- [Web scraping for beginners](https://docs.apify.com/academy/web-scraping-for-beginners): Learn how to develop web scrapers with this comprehensive and practical course. Go from beginner to expert, all in one place.
+- [Introduction to the Apify platform](https://docs.apify.com/academy/apify-platform): Learn all about the Apify platform, all of the tools it offers, and how it can improve your overall development experience.
+
+## Apify API
+
+- [Apify API client for JavaScript](https://docs.apify.com/api/client/js/)
+- [Apify API client for Python](https://docs.apify.com/api/client/python/)
+- [Apify OpenAPI](https://docs.apify.com/api/v2)
+
+## Apify platform
+
+- [Actors](https://docs.apify.com/platform/actors): Learn how to develop, run and share serverless cloud programs. Create your own web scraping and automation tools and publish them on the Apify platform.
+- [Storage](https://docs.apify.com/platform/storage): Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data from the Apify platform or via API.
+- [Proxy](https://docs.apify.com/platform/proxy): Learn to anonymously access websites in scraping/automation jobs. Improve data outputs and efficiency of bots, and access websites from various geographies.
+- [Schedules](https://docs.apify.com/platform/schedules): Learn how to automatically start your Actor and task runs and the basics of cron expressions. Set up and manage your schedules from Apify Console or via API.
+- [Integrations](https://docs.apify.com/platform/integrations): Learn how to integrate the Apify platform with other services, your systems, data pipelines, and other web automation workflows.
+- [Monitoring](https://docs.apify.com/platform/monitoring): Learn how to continuously make sure that your Actors and tasks perform as expected and retrieve correct results. Receive alerts when your jobs or their metrics are not as you expect.
+- [Collaboration](https://docs.apify.com/platform/collaboration): Learn how to collaborate with other users and manage permissions for organizations or private resources such as Actors, Actor runs, and storages.
+- [Security](https://docs.apify.com/platform/security): Learn more about Apify's security practices and data protection measures that are used to protect your Actors, their data, and the Apify platform in general.
+
+## Actors
+
+- [Running](https://docs.apify.com/platform/actors/running): Start an Actor from Apify Console or via API. Learn about Actor lifecycles, how to specify settings and version, provide input, and resurrect finished runs.
+- [Publishing and monetization](https://docs.apify.com/platform/actors/publishing): Learn about publishing, and monetizing your Actors on the Apify platform.
+- [Development](https://docs.apify.com/platform/actors/development): Read about the technical part of building Apify Actors. Learn to define Actor inputs, build new versions, persist Actor state, and choose base Docker images.
+
+## Apify SDK
+
+- [Apify SDK for JavaScript and Node.js](https://docs.apify.com/sdk/js/)
+- [Apify SDK for Python is a toolkit for building Actors](https://docs.apify.com/sdk/python/)
+
