@@ -69,7 +69,7 @@ Especially for [dynamic sites](https://blog.apify.com/what-is-a-dynamic-page/), 
 
 Depending on the website, sending large amounts of requests to their pages could result in a slight performance decrease on their end. By using their API instead, not only does your scraper run better, but it is less demanding of the target website.
 
-## Disdvantages of API Scraping {#disadvantages}
+## Disadvantages of API Scraping {#disadvantages}
 
 <br/>
 
