@@ -24,7 +24,11 @@ For more information on Langflow, visit its [documentation](https://docs.langflo
 
 This guide will first demonstrate how to call Apify Actors by using the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to search Google for a query and extract the search results. Then, it will provide an example of using an AI agent workflow to search the web for a company's social media profiles and extract data from them. We will use the [Google Search Results Scraper](https://apify.com/apify/google-search-scraper) Actor to search the web for social media profiles of a given company. Then, we will use the [TikTok Data Extractor](https://apify.com/clockworks/free-tiktok-scraper) Actor to extract data from the TikTok profiles.
 
-> Langflow can either be installed locally or used in the cloud. The cloud version is available on the [Langflow](http://langflow.org/) website. If you are using the cloud version, you can skip the installation step.
+:::note Cloud vs local setup
+
+Langflow can either be installed locally or used in the cloud. The cloud version is available on the [Langflow](http://langflow.org/) website. If you are using the cloud version, you can skip the installation step, and go straight to [Creating a new flow](#creating-a-new-flow)
+
+:::
 
 ### Installation
 
