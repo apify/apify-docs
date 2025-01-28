@@ -1,8 +1,7 @@
-import React from 'react';
 import Link from '@docusaurus/Link';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useDocsVersion } from '@docusaurus/plugin-content-docs/client';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import React from 'react';
 
 const ApiLink = ({ to, children }) => {
     const { version, isLast } = useDocsVersion();

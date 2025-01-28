@@ -1,6 +1,7 @@
-import { theme } from '@apify-packages/ui-library';
 import React, { PropsWithChildren } from 'react';
 import styled, { css } from 'styled-components';
+
+import { theme } from '@apify-packages/ui-library';
 
 // TODO: implement secondary, success and danger
 export const BUTTON_VARIANTS = {

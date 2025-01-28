@@ -1,10 +1,11 @@
-import { theme } from '@apify-packages/ui-library';
 import Link from '@docusaurus/Link';
 import { useColorMode } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 import React from 'react';
 import GitHubButton from 'react-github-btn';
+
+import { theme } from '@apify-packages/ui-library';
 
 import styles from './styles.module.css';
 import CardWithImageAndContent from '../CardWithImageAndContent/ImageWithContent';

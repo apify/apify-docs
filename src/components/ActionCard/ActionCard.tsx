@@ -1,8 +1,9 @@
-import { HorizontalTile, theme } from '@apify-packages/ui-library';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import React from 'react';
 import styled from 'styled-components';
+
+import { HorizontalTile, theme } from '@apify-packages/ui-library';
 
 import styles from './styles.module.css';
 import ArrowRight20 from '../../pages/img/arrow-right-20.svg';

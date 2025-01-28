@@ -1,10 +1,11 @@
+import React from 'react';
+import styled, { css } from 'styled-components';
+
 import {
     TextBaseComponent,
     TextBaseProps,
     theme,
 } from '@apify-packages/ui-library';
-import React from 'react';
-import styled, { css } from 'styled-components';
 
 /**
  * @typedef {Object} TextProps

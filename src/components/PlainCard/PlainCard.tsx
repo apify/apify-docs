@@ -1,7 +1,8 @@
-import { VerticalTile, theme } from '@apify-packages/ui-library';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import React from 'react';
+
+import { VerticalTile, theme } from '@apify-packages/ui-library';
 
 import styles from './styles.module.css';
 import { Heading } from '../Heading';

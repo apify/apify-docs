@@ -1,7 +1,8 @@
-import { theme } from '@apify-packages/ui-library';
 import clsx from 'clsx';
 import React from 'react';
 import styled from 'styled-components';
+
+import { theme } from '@apify-packages/ui-library';
 
 import { Heading } from './Heading';
 

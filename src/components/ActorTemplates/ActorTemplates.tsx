@@ -1,7 +1,3 @@
-import {
-    ActorTemplateCard,
-    theme,
-} from '@apify-packages/ui-library';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import React,
@@ -10,6 +6,11 @@ import React,
     useEffect,
 } from 'react';
 import styled from 'styled-components';
+
+import {
+    ActorTemplateCard,
+    theme,
+} from '@apify-packages/ui-library';
 
 interface ActorTemplate {
     id: string,
@@ -69,7 +70,7 @@ export const ActorTemplates: React.FC<ActorTemplatesProps> = ({
                 );
             } catch (error) {
                 setIsError(true);
-                // eslint-disable-next-line no-console
+
                 console.error('Error while fetching actor templates', error);
             }
             setIsLoading(false);

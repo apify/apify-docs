@@ -56,7 +56,7 @@ export default function ChangeLog() {
                 setchangeLogData(data);
             } catch (error) {
                 setIsError(true);
-                // eslint-disable-next-line no-console
+
                 console.error('Error while fetching change log data', error);
             }
             setIsLoading(false);

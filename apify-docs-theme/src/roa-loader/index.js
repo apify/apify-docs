@@ -38,7 +38,6 @@ async function getHash(source) {
     })).json();
 
     if (!res.data || !res.data.encoded) {
-        // eslint-disable-next-line no-console
         console.error(`Signing failed:' ${inspect(res.error) || 'Unknown error'}`, res);
         return 'invalid-token';
     }
@@ -79,7 +78,6 @@ module.exports = async function (code) {
         return { code, hash: 'fast' };
     }
 
-    // eslint-disable-next-line no-console
     console.log(`Signing ${urlToRequest(this.resourcePath)}...`, { working, queue: queue.length });
     const codeHash = await encodeAndSign(code);
 
