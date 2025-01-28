@@ -22,6 +22,7 @@
 
 - [Apify API client for JavaScript](https://docs.apify.com/api/client/js/)
 - [Apify API client for Python](https://docs.apify.com/api/client/python/)
+- [Apify OpenAPI](https://docs.apify.com/api/v2)
 
 ## Apify platform
 
