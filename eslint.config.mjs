@@ -18,7 +18,6 @@ export default [
     {
         rules: {
             '@typescript-eslint/no-explicit-any': 'off',
-            'no-promise-executor-return': 'off',
             'no-param-reassign': 'off',
             'no-void': 'off',
             'no-console': 'off',

@@ -43,7 +43,9 @@ async function getHash(source) {
     }
 
     cache[cacheKey] = res.data.encoded;
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    await new Promise((resolve) => {
+        setTimeout(resolve, 100);
+    });
 
     return res.data.encoded;
 }
