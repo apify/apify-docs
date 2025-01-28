@@ -20,7 +20,7 @@
   - Actors/Metamorph run
   - Actors/Resurrect run
   - Actors/Last run object and its storages
-  - Actors/Get OpenAPI specification
+  - Actors/Get OpenAPI definition
 - name: Actor tasks
   tags:
   - Actor tasks
@@ -52,7 +52,7 @@
   - Actor builds/Delete build
   - Actor builds/Abort build
   - Actor builds/Build log
-  - Actor builds/Get OpenAPI specification
+  - Actor builds/Get OpenAPI definition
 - name: Key-value stores
   tags:
   - Key-value stores
