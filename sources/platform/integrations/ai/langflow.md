@@ -10,7 +10,7 @@ slug: /integrations/langflow
 
 ---
 
-## What is Langflow?
+## What is Langflow
 
 [Langflow](https://langflow.org/) is a visual low-code tool for developers that makes it easier to build powerful AI agents and workflows that can use any API, model, or database.
 
