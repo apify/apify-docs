@@ -21,7 +21,7 @@ export default [
             'no-param-reassign': 'off',
             'no-void': 'off',
             'no-console': 'off',
-            'no-unused-vars': 'off',
+            'no-unused-vars': ['error', { ignoreRestSiblings: true }],
             'import/no-extraneous-dependencies': 'off',
             'import/extensions': 'off',
             'import/no-default-export': 'off',

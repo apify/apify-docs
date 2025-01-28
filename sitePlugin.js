@@ -2,7 +2,7 @@ module.exports = function () {
     return {
         name: 'custom-docusaurus-plugin',
 
-        configureWebpack(config, isServer, utils) {
+        configureWebpack() {
             return {
                 resolve: {
                     alias: {
