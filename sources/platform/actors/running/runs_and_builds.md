@@ -39,8 +39,7 @@ What's happening inside of an Actor is visible on the Actor run log in the Actor
 
 ### Origin
 
-Both **Actor runs** and **builds** have the **Origin** field indicating how the Actor run or build was invoked, respectivelly.
-The origin is displayed in Apify Console and available via [API](https://docs.apify.com/api/v2/actor-run-get) in the `meta.origin` field.
+Both **Actor runs** and **builds** have the **Origin** field indicating how the Actor run or build was invoked, respectively. The origin is displayed in Apify Console and available via [API](https://docs.apify.com/api/v2/actor-run-get) in the `meta.origin` field.
 
 |Name|Origin|
 |:---|:---|
