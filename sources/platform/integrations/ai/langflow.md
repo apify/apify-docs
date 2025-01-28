@@ -105,7 +105,11 @@ Input your API token (learn how to get it [here](https://docs.apify.com/platform
 ![Flow - Actors configuration](../images/langflow/apify_actors_configuration.png)
 
 Now add the *Agent* component from the menu and set your OpenAI API key (get it [here](https://platform.openai.com/account/api-keys)):
-> For better results, switch the model to `gpt-4o` instead of `gpt-4o-mini` in the Agent configuration
+:::tip Optimize Agent results
+
+For better results, switch the model to `gpt-4o` instead of `gpt-4o-mini` in the Agent configuration
+
+:::
 
 ![Flow - Add Agent](../images/langflow/add_agent.png)
 
