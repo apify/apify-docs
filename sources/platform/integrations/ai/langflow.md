@@ -14,7 +14,11 @@ slug: /integrations/langflow
 
 [Langflow](https://langflow.org/) is a visual low-code tool for developers that makes it easier to build powerful AI agents and workflows that can use any API, model, or database.
 
-> For more information on Langflow, visit its [documentation](https://docs.langflow.org/).
+:::note Explore Langflow
+
+For more information on Langflow, visit its [documentation](https://docs.langflow.org/).
+
+:::
 
 ## How to use Apify with Langflow
 
